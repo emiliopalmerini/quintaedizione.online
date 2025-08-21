@@ -1,0 +1,49 @@
+<!-- app/templates/base.html -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <title>{% block title %}SRD Editor{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/htmx.org@2.0.3"></script>
+  <link rel="icon" href="data:,"/>
+  <style>
+    input:focus, textarea:focus, select:focus { outline: none; box-shadow: 0 0 0 2px rgba(79,70,229,.6); border-color: rgba(79,70,229,.8); }
+    .btn { @apply px-3 py-1.5 rounded border text-sm; }
+    .btn-primary { @apply bg-indigo-600 text-white border-indigo-600 hover:bg-indigo-700; }
+    .btn-ghost { @apply border hover:bg-neutral-100; }
+    .tag { @apply inline-block text-[11px] px-2 py-0.5 rounded border; }
+    .field { @apply w-full rounded border px-2 py-1.5 text-[13px]; }
+    .mono { @apply font-mono text-[13px]; }
+  </style>
+</head>
+<body class="h-screen bg-neutral-50 text-neutral-900">
+  <!-- Top bar -->
+  <header class="sticky top-0 z-40 border-b bg-white">
+    <div class="max-w-screen-2xl mx-auto px-4 py-2 flex items-center gap-3">
+      <a href="/" class="btn btn-ghost">Home</a>
+      <div class="text-sm text-neutral-600">SRD Editor</div>
+      {% if collection %}
+        <span class="mx-1 text-neutral-400">/</span>
+        <span class="text-sm font-medium">{{ collection }}</span>
+      {% endif %}
+      {% if doc_id %}
+        <span class="mx-1 text-neutral-400">/</span>
+        <span class="mono bg-neutral-100 border rounded px-2 py-0.5">{{ doc_id }}</span>
+      {% endif %}
+      <div class="ml-auto flex items-center gap-2">
+        {% block header_actions %}{% endblock %}
+      </div>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <div class="max-w-screen-2xl mx-auto px-4 py-4 h-[calc(100vh-56px)]">
+    {% block content %}{% endblock %}
+  </div>
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>
+

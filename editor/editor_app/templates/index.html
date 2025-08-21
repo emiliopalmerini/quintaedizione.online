@@ -1,0 +1,15 @@
+<!-- app/templates/index.html -->
+{% set collection = first %}
+{% extends "base.html" %}
+{% block title %}SRD Editor{% endblock %}
+{% block content %}
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+    {% for c in collections %}
+      <a href="/list/{{ c }}" class="block bg-white border rounded-md p-4 hover:border-indigo-300">
+        <div class="text-sm text-neutral-500">Collezione</div>
+        <div class="text-lg font-semibold">{{ c }}</div>
+      </a>
+    {% endfor %}
+  </div>
+{% endblock %}
+

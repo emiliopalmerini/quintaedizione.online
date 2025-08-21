@@ -1,0 +1,39 @@
+services:
+  mongo:
+    image: mongo:8
+    container_name: dnd-mongo
+    restart: unless-stopped
+    ports: ["27017:27017"]
+    volumes: [mongo_data:/data/db]
+
+  srd-parser:
+    build:
+      context: ./srd_parser
+      dockerfile: Dockerfile.Parser
+    container_name: dnd-srd-parser
+    depends_on: [mongo]
+    environment:
+      - MONGO_URI=mongodb://mongo:27017
+      - DB_NAME=dnd
+      - INPUT_DIR=/data
+      - SOURCE_LABEL=srd 5.2.1
+      - DRY_RUN=0
+    volumes:
+      - ./data:/data:ro
+    restart: "no"
+
+  editor:
+    build:
+      context: ./editor
+      dockerfile: Dockerfile.Editor
+    container_name: dnd-editor
+    depends_on: [mongo]
+    environment:
+      - MONGO_URI=mongodb://mongo:27017
+      - DB_NAME=dnd
+    ports: ["8000:8000"]
+    restart: unless-stopped
+
+volumes:
+  mongo_data:
+

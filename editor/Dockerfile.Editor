@@ -1,0 +1,19 @@
+FROM python:3.12-slim
+
+ENV PYTHONPATH=/app \
+    PIP_NO_CACHE_DIR=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+WORKDIR /app
+COPY requirements.txt /app/requirements.txt
+RUN pip install --upgrade pip && pip install -r /app/requirements.txt
+
+COPY editor_app /app/editor_app
+COPY main.py /app/main.py
+
+ENV MONGO_URI=mongodb://mongo:27017 \
+    DB_NAME=dnd
+
+EXPOSE 8000
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--proxy-headers"]

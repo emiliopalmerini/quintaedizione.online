@@ -1,0 +1,21 @@
+# Dockerfile.Parser
+FROM python:3.12-slim
+
+ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1
+WORKDIR /app
+
+# Dipendenze runtime minime per il parser
+RUN pip install --no-cache-dir pymongo==4.8.0
+
+# Codice parser
+COPY . ./srd_parser
+
+# Env di runtime
+ENV INPUT_DIR=/data \
+    MONGO_URI=mongodb://mongo:27017 \
+    DB_NAME=dnd \
+    SOURCE_LABEL="srd 5.2.1" \
+    DRY_RUN=0
+
+ENTRYPOINT ["python", "-m", "srd_parser.ingest"]
+
