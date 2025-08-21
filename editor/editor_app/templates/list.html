@@ -1,0 +1,34 @@
+<!-- app/templates/list.html -->
+{% extends "base.html" %}
+{% block title %}{{ collection }} • Lista{% endblock %}
+{% block header_actions %}
+  <a href="/" class="btn btn-ghost">Tutte le collezioni</a>
+{% endblock %}
+{% block content %}
+  <section class="bg-white border rounded-md p-3 mb-3">
+    <form
+      hx-get="/view/{{ collection }}"
+      hx-target="#rows"
+      hx-trigger="submit, keyup delay:300ms from:#q"
+      class="flex items-center gap-2 flex-wrap"
+    >
+      <input id="q" name="q" placeholder="Cerca per nome/termine/descrizione…" value="{{ q or '' }}" class="field flex-1" />
+      <select name="page_size" class="field w-32">
+        {% for s in [10,20,50,100] %}
+          <option value="{{ s }}" {% if page_size==s %}selected{% endif %}>{{ s }}/pagina</option>
+        {% endfor %}
+      </select>
+      <input type="hidden" name="page" value="{{ page or 1 }}">
+      <button class="btn btn-primary" type="submit">Cerca</button>
+    </form>
+  </section>
+
+  <section class="bg-white border rounded-md">
+    <div id="rows"
+         hx-get="/view/{{ collection }}?page={{ page or 1 }}&page_size={{ page_size or 20 }}&q={{ q or '' }}"
+         hx-trigger="load">
+      <!-- _rows.html verrà inserito qui -->
+    </div>
+  </section>
+{% endblock %}
+

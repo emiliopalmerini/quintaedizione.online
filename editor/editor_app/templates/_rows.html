@@ -1,0 +1,71 @@
+<!-- app/templates/_rows.html -->
+<div class="p-0">
+  <div class="border-b px-3 py-2 flex items-center justify-between">
+    <div class="text-sm text-neutral-600">
+      {{ total }} risultati • pagina {{ page }} di {{ pages }}
+    </div>
+    <div class="flex items-center gap-2">
+      <button
+        class="btn btn-ghost"
+        hx-get="/view/{{ collection }}?page={{ 1 }}&page_size={{ page_size }}&q={{ q|urlencode }}"
+        hx-target="#rows"
+        {% if page<=1 %}disabled{% endif %}
+      >« Prima</button>
+      <button
+        class="btn btn-ghost"
+        hx-get="/view/{{ collection }}?page={{ page-1 }}&page_size={{ page_size }}&q={{ q|urlencode }}"
+        hx-target="#rows"
+        {% if page<=1 %}disabled{% endif %}
+      >‹ Indietro</button>
+      <button
+        class="btn btn-ghost"
+        hx-get="/view/{{ collection }}?page={{ page+1 }}&page_size={{ page_size }}&q={{ q|urlencode }}"
+        hx-target="#rows"
+        {% if page>=pages %}disabled{% endif %}
+      >Avanti ›</button>
+      <button
+        class="btn btn-ghost"
+        hx-get="/view/{{ collection }}?page={{ pages }}&page_size={{ page_size }}&q={{ q|urlencode }}"
+        hx-target="#rows"
+        {% if page>=pages %}disabled{% endif %}
+      >Ultima »</button>
+    </div>
+  </div>
+
+  <div class="divide-y">
+    {% for it in items %}
+      <div class="px-3 py-2 flex items-center gap-3">
+        <div class="flex-1 min-w-0">
+          <div class="text-sm font-medium truncate">
+            {{ it.name or it.term or it.title or '(senza titolo)' }}
+          </div>
+          <div class="text-xs text-neutral-500 mono truncate">{{ it._id }}</div>
+        </div>
+        <a class="btn btn-primary"
+           href="/doc/{{ collection }}/{{ it._id }}">
+          Modifica
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="border-t px-3 py-2 flex items-center justify-between">
+    <div class="text-xs text-neutral-500">Mostrati {{ items|length }} elementi</div>
+    <div class="flex items-center gap-2">
+      <button
+        class="btn btn-ghost"
+        hx-get="/view/{{ collection }}?page={{ page-1 }}&page_size={{ page_size }}&q={{ q|urlencode }}"
+        hx-target="#rows"
+        {% if page<=1 %}disabled{% endif %}
+      >‹ Indietro</button>
+      <span class="text-sm">Pag. {{ page }}/{{ pages }}</span>
+      <button
+        class="btn btn-ghost"
+        hx-get="/view/{{ collection }}?page={{ page+1 }}&page_size={{ page_size }}&q={{ q|urlencode }}"
+        hx-target="#rows"
+        {% if page>=pages %}disabled{% endif %}
+      >Avanti ›</button>
+    </div>
+  </div>
+</div>
+
