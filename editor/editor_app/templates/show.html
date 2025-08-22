@@ -1,0 +1,131 @@
+<!-- app/templates/show.html -->
+{% extends "base.html" %}
+{% block title %}{{ doc_title or doc_id }} • {{ collection }}{% endblock %}
+
+{% block header_actions %}
+  <nav class="flex items-center gap-2" aria-label="Azioni documento">
+    <a href="/list/{{ collection }}{% if qs %}?{{ qs }}{% endif %}" class="btn btn-ghost">← Lista</a>
+    <form method="get" action="/show/{{ collection }}/{{ prev_id }}" class="inline" aria-label="Documento precedente">
+      {% if request %}
+        {% for key, val in request.query_params.items() %}
+          <input type="hidden" name="{{ key }}" value="{{ val }}">
+        {% endfor %}
+      {% endif %}
+      <button type="submit" class="btn btn-ghost" {% if not prev_id %}disabled aria-disabled="true" tabindex="-1"{% endif %}>‹ Precedente</button>
+    </form>
+    <form method="get" action="/show/{{ collection }}/{{ next_id }}" class="inline" aria-label="Documento successivo">
+      {% if request %}
+        {% for key, val in request.query_params.items() %}
+          <input type="hidden" name="{{ key }}" value="{{ val }}">
+        {% endfor %}
+      {% endif %}
+      <button type="submit" class="btn btn-ghost" {% if not next_id %}disabled aria-disabled="true" tabindex="-1"{% endif %}>Successivo ›</button>
+    </form>
+    <a href="/edit/{{ collection }}/{{ doc_id }}{% if qs %}?{{ qs }}{% endif %}" class="btn btn-primary">Modifica</a>
+  </nav>
+{% endblock %}
+
+{% block content %}
+  {% macro render_paragraphs(val) %}
+    {% if val is string %}
+      {% for p in val.split('\n\n') %}
+        {% set t = p.strip() %}
+        {% if t %}<p class="mb-3 whitespace-pre-wrap">{{ t }}</p>{% endif %}
+      {% endfor %}
+    {% elif val is sequence and (val is not string) %}
+      {% for item in val %}
+        {{ render_paragraphs(item) }}
+      {% endfor %}
+    {% endif %}
+  {% endmacro %}
+
+  {% set ns = namespace(body=None, body_key=None) %}
+  {% if doc_obj.get('description') %}
+    {% set ns.body = doc_obj.get('description') %}
+    {% set ns.body_key = 'description' %}
+  {% elif doc_obj.get('description_md') %}
+    {% set ns.body = doc_obj.get('description_md') %}
+    {% set ns.body_key = 'description_md' %}
+  {% else %}
+    {% for k, v in doc_obj.items() %}
+      {% if ns.body is none and (k.endswith('_md')) and v %}
+        {% set ns.body = v %}
+        {% set ns.body_key = k %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+  <article class="bg-white border rounded-md p-4">
+    <header class="mb-4">
+      <h1 class="text-2xl font-semibold mb-2">{{ doc_title }}</h1>
+      <div class="text-xs text-neutral-600 flex items-center flex-wrap gap-2">
+        <span class="mono bg-neutral-100 border rounded px-2 py-0.5" title="{{ doc_id }}">{{ doc_id }}</span>
+      </div>
+    </header>
+
+    {# Corpo: description preferita, altrimenti qualsiasi *_md #}
+    {% if ns.body %}
+      <div data-md-section>
+        <div class="flex justify-end mb-2">
+          <button type="button" class="btn btn-ghost !px-2 !py-1 text-xs" onclick="copyMarkdown(this)" title="Copia Markdown">Copia Markdown</button>
+        </div>
+        <div data-markdown>
+{{ ns.body }}
+        </div>
+      </div>
+    {% else %}
+      <div class="text-sm text-neutral-600">Nessun contenuto testuale disponibile.</div>
+    {% endif %}
+
+    {# Metadati: tutti i campi esclusi description e *_md #}
+    <hr class="my-4" />
+    <section class="space-y-2">
+      <h2 class="text-sm font-semibold text-neutral-700">Metadati</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+        {# _id per primo se presente #}
+        {% if doc_obj.get('_id') is not none %}
+          <div class="min-w-0">
+            <div class="text-neutral-500">_id</div>
+            <div class="font-medium break-words mono">{{ doc_obj.get('_id') }}</div>
+          </div>
+        {% endif %}
+        {# poi tutti gli altri in ordine alfabetico, escludendo description, *_md e chiavi tecniche che iniziano con _ #}
+        {% for item in doc_obj|dictsort %}
+          {% set k = item[0] %}
+          {% set v = item[1] %}
+          {% if not (k == '_id' or k == 'description' or (k|length>0 and k[0]=='_') or k.endswith('_md')) %}
+            {% if v is not none and (not (v is string) or (v|trim) != '') %}
+              <div class="min-w-0">
+                <div class="text-neutral-500">{{ k }}</div>
+                {% if v is string or v is number or v in [true,false] %}
+                  <div class="font-medium break-words">{{ v }}</div>
+                {% elif v is sequence and (v is not string) %}
+                  {% if v|length > 0 and (v[0] is string or v[0] is number) %}
+                    <div class="font-medium break-words">{{ v | join(', ') }}</div>
+                  {% else %}
+                    <details>
+                      <summary class="cursor-pointer text-neutral-600">Lista complessa ({{ v|length }} elementi)</summary>
+                      <pre class="mono whitespace-pre-wrap bg-neutral-50 border rounded p-2 mt-1">{{ v | tojson(indent=2) }}</pre>
+                    </details>
+                  {% endif %}
+                {% elif v is mapping %}
+                  <details>
+                    <summary class="cursor-pointer text-neutral-600">Oggetto</summary>
+                    <pre class="mono whitespace-pre-wrap bg-neutral-50 border rounded p-2 mt-1">{{ v | tojson(indent=2) }}</pre>
+                  </details>
+                {% else %}
+                  <div class="font-medium break-words">{{ v }}</div>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+  </article>
+
+  <details class="mt-3">
+    <summary class="cursor-pointer text-sm text-neutral-600 hover:underline">Mostra dati grezzi</summary>
+    <pre class="mono whitespace-pre-wrap bg-neutral-50 border rounded p-3 mt-2">{{ doc_obj | tojson(indent=2) }}</pre>
+  </details>
+{% endblock %}
