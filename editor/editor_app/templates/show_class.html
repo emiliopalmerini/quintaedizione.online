@@ -27,8 +27,27 @@
 
 {% block content %}
   {% set c = doc_obj %}
-  <article class="bg-white border rounded-md p-4 space-y-4">
-    <header>
+  {% set has_traits = c.core_traits or c.core_traits_md %}
+  {% set has_features = c.features_by_level %}
+  {% set has_spellcasting = c.spellcasting_progression and c.spellcasting_progression.by_level %}
+  {% set has_spelllist = c.spell_lists_by_level %}
+  {% set has_subclasses = c.subclasses %}
+
+  <div class="grid grid-cols-12 gap-4">
+    <aside class="col-span-12 md:col-span-3 lg:col-span-2 h-[calc(100vh-7rem)] md:sticky md:top-16 overflow-auto border bg-white rounded-md p-3" aria-label="Indice sezioni">
+      <div class="text-[11px] uppercase tracking-wide text-neutral-500 px-1 mb-2">Sezioni</div>
+      <ul class="space-y-1 text-sm">
+        <li><a href="#cls-header" class="block px-2 py-1 rounded hover:bg-neutral-100">Intestazione</a></li>
+        {% if has_traits %}<li><a href="#cls-traits" class="block px-2 py-1 rounded hover:bg-neutral-100">Tratti fondamentali</a></li>{% endif %}
+        {% if has_features %}<li><a href="#cls-features" class="block px-2 py-1 rounded hover:bg-neutral-100">Privilegi</a></li>{% endif %}
+        {% if has_spellcasting %}<li><a href="#cls-spellcasting" class="block px-2 py-1 rounded hover:bg-neutral-100">Progressione incantesimi</a></li>{% endif %}
+        {% if has_spelllist %}<li><a href="#cls-spelllist" class="block px-2 py-1 rounded hover:bg-neutral-100">Lista incantesimi</a></li>{% endif %}
+        {% if has_subclasses %}<li><a href="#cls-subclasses" class="block px-2 py-1 rounded hover:bg-neutral-100">Sottoclassi</a></li>{% endif %}
+      </ul>
+    </aside>
+
+    <article class="col-span-12 md:col-span-9 lg:col-span-10 bg-white border rounded-md p-4 space-y-4">
+    <header id="cls-header">
       <h1 class="text-2xl font-semibold mb-2">{{ c.name or doc_title }}</h1>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
         {% if c.core_traits %}
@@ -51,7 +70,7 @@
     </header>
 
     {% if c.core_traits_md %}
-      <section>
+      <section id="cls-traits">
         <h2 class="text-lg font-semibold mb-2">Tratti fondamentali</h2>
         <div data-md-section>
           <div data-markdown>
@@ -62,7 +81,7 @@
     {% endif %}
 
     {% if c.features_by_level %}
-      <section>
+      <section id="cls-features">
         <h2 class="text-lg font-semibold mb-2">Privilegi della classe</h2>
         <div class="border rounded-md divide-y">
           {% for lvl in c.features_by_level %}
@@ -79,6 +98,9 @@
                     {% endif %}
                   </details>
                 {% endfor %}
+                {% if not lvl.features or lvl.features|length == 0 %}
+                  <div class="text-sm text-neutral-600">Nessun privilegio indicato per questo livello.</div>
+                {% endif %}
               </div>
             </div>
           {% endfor %}
@@ -87,7 +109,7 @@
     {% endif %}
 
     {% if c.spellcasting_progression and c.spellcasting_progression.by_level %}
-      <section>
+      <section id="cls-spellcasting">
         <h2 class="text-lg font-semibold mb-2">Progressione incantesimi</h2>
         <div class="overflow-auto">
           <table class="min-w-full text-sm">
@@ -128,7 +150,7 @@
     {% endif %}
 
     {% if c.spell_lists_by_level %}
-      <section>
+      <section id="cls-spelllist">
         <h2 class="text-lg font-semibold mb-2">Lista incantesimi</h2>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
           {% for grp in c.spell_lists_by_level %}
@@ -148,7 +170,7 @@
     {% endif %}
 
     {% if c.subclasses %}
-      <section>
+      <section id="cls-subclasses">
         <h2 class="text-lg font-semibold mb-2">Sottoclassi</h2>
         <div class="space-y-3">
           {% for sc in c.subclasses %}
@@ -183,4 +205,3 @@
     <pre class="mono whitespace-pre-wrap bg-neutral-50 border rounded p-3 mt-2">{{ doc_obj | tojson(indent=2) }}</pre>
   </details>
 {% endblock %}
-
