@@ -113,36 +113,22 @@ async def _neighbors_alpha(col, cur_key: str, filt: Dict[str, Any]) -> Tuple[Opt
         next_id = str(d.get("_id"))
     return prev_id, next_id
 
-    prev_id = None
-    next_id = None
-
-    if await prev_cursor.fetch_next:
-        d = prev_cursor.next_object()
-        if d:
-            prev_id = str(d["_id"])
-
-    if await next_cursor.fetch_next:
-        d = next_cursor.next_object()
-        if d:
-            next_id = str(d["_id"])
-
-    return prev_id, next_id
-
 # ---- pages -----------------------------------------------------------------
 
 @router.get("/", response_class=HTMLResponse)
 async def index() -> HTMLResponse:
     tpl = env.get_template("index.html")
-    first = COLLECTIONS[0] if COLLECTIONS else ""
+    cols_sorted = sorted(COLLECTIONS, key=lambda c: COLLECTION_LABELS.get(c, c).lower())
+    first = cols_sorted[0] if cols_sorted else ""
     counts: Dict[str, int] = {}
     db = await get_db()
-    for c in COLLECTIONS:
+    for c in cols_sorted:
         try:
             counts[c] = await db[c].count_documents({})
         except Exception:
             counts[c] = 0
     total = sum(counts.values()) if counts else 0
-    return HTMLResponse(tpl.render(collections=COLLECTIONS, labels=COLLECTION_LABELS, counts=counts, total=total, first=first))
+    return HTMLResponse(tpl.render(collections=cols_sorted, labels=COLLECTION_LABELS, counts=counts, total=total, first=first))
 
 @router.get("/list/{collection}", response_class=HTMLResponse)
 async def list_page(request: Request, collection: str, q: str = "", page: int = 1, page_size: int = 20) -> HTMLResponse:
