@@ -19,7 +19,8 @@
             <option value="{{ s }}" {% if page_size==s %}selected{% endif %}>{{ s }}/pagina</option>
           {% endfor %}
         </select>
-        <input type="hidden" name="page" value="{{ page or 1 }}">
+        {# Rimosso campo 'page' nascosto: i pulsanti di paginazione passano il parametro page correttamente.
+           Tenere il campo qui causava conflitto con hx-include e impediva il cambio pagina. #}
         <button class="btn btn-primary" type="submit">Cerca</button>
       </div>
 
