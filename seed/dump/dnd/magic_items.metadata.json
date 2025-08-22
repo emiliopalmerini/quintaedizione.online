@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"key":{"name":{"$numberInt":"1"}},"name":"uq_name","background":false,"unique":true}],"uuid":"c8c75576d15b4617ab8f816b3cf1d765","collectionName":"magic_items","type":"collection"}
