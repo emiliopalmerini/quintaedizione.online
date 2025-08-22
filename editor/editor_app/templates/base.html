@@ -111,23 +111,53 @@
         t.addEventListener('input', ()=>autoGrow(t));
       });
     }
-    function copyFrom(btn){
+    async function copyFrom(btn){
       const ta = btn.closest('.relative')?.querySelector('textarea');
       if(!ta) return;
-      navigator.clipboard.writeText(ta.value).then(()=>flash(btn,'Copiato'));
+      const text = ta.value || '';
+      // Prefer Clipboard API in secure context
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+          flash(btn,'Copiato');
+          return;
+        }
+      } catch (e) { /* fallthrough */ }
+      // Fallback: temporary textarea + execCommand
+      try {
+        const tmp = document.createElement('textarea');
+        tmp.value = text;
+        tmp.setAttribute('readonly','');
+        tmp.style.position = 'absolute';
+        tmp.style.left = '-9999px';
+        document.body.appendChild(tmp);
+        tmp.select();
+        document.execCommand('copy');
+        document.body.removeChild(tmp);
+        flash(btn,'Copiato');
+      } catch (e) {
+        console.warn('Copy failed', e);
+      }
     }
     function toggleFull(btn){
       const wrap = btn.closest('.relative'); if(!wrap) return;
       const ta = wrap.querySelector('textarea');
       const expanded = !wrap.classList.contains('fixed');
+      // Enter/exit full-screen overlay without breaking layout
       wrap.classList.toggle('fixed', expanded);
-      wrap.classList.toggle('inset-4', expanded);
+      wrap.classList.toggle('inset-0', expanded);
+      wrap.classList.toggle('md:inset-6', expanded);
       wrap.classList.toggle('z-50', expanded);
       wrap.classList.toggle('bg-white', expanded);
       wrap.classList.toggle('border', expanded);
       wrap.classList.toggle('rounded', expanded);
-      wrap.classList.toggle('p-3', expanded);
-      if(ta){ ta.classList.toggle('min-h-[70vh]', expanded); autoGrow(ta); }
+      wrap.classList.toggle('p-4', expanded);
+      wrap.classList.toggle('max-w-screen-xl', expanded);
+      wrap.classList.toggle('mx-auto', expanded);
+      wrap.classList.toggle('overflow-auto', expanded);
+      if(ta){ ta.classList.toggle('min-h-[80vh]', expanded); autoGrow(ta); }
+      // Lock/unlock page scroll while expanded
+      try { document.documentElement.style.overflow = expanded ? 'hidden' : ''; } catch(e){}
       btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
       btn.textContent = expanded ? 'Riduci' : 'Espandi';
     }
