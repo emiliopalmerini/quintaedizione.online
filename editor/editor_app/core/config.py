@@ -8,3 +8,17 @@ COLLECTIONS = [
     "mounts_vehicles","services","rules_glossary","monsters","animals","classes",
 ]
 
+# Italian labels for collections
+COLLECTION_LABELS = {
+    "spells": "Incantesimi",
+    "magic_items": "Oggetti magici",
+    "armor": "Armature",
+    "weapons": "Armi",
+    "tools": "Strumenti",
+    "mounts_vehicles": "Cavalcature e veicoli",
+    "services": "Servizi",
+    "rules_glossary": "Glossario regole",
+    "monsters": "Mostri",
+    "animals": "Animali",
+    "classes": "Classi",
+}
