@@ -110,12 +110,13 @@
           {% set label = is_index and (path.rsplit('.', 1)[0] ~ '[' ~ last ~ ']') or path %}
           {% set v = value if value is not none else '' %}
           {% set v_str = v|string %}
-          {% set is_long = ('description' in path) or ('text' in path) or (v_str|length > 160) %}
+          {% set is_md = last.endswith('_md') or ('_md' in path) %}
+          {% set is_long = is_md or ('description' in path) or ('text' in path) or (v_str|length > 160) %}
           {% set is_bool = v_str|lower in ['true','false'] %}
           {% set is_number = (v_str|replace('.','',1)).isdigit() %}
 
           <!-- Campo -->
-          {% set is_translatable = is_long or ('name' in last) or ('title' in last) or ('text' in path) or ('desc' in path) or ('description' in path) or ('higher_level' in path) %}
+          {% set is_translatable = is_long or is_md or ('name' in last) or ('title' in last) or ('text' in path) or ('desc' in path) or ('description' in path) or ('higher_level' in path) %}
           <div class="space-y-1" data-field data-path="{{ path }}" data-translatable="{{ 'true' if is_translatable else 'false' }}">
             {% if not is_long %}
               <label for="f.{{ path }}" class="text-[12px] font-medium text-neutral-800">{{ label }}</label>
@@ -145,7 +146,7 @@
                   </div>
                 </div>
                 <textarea id="f.{{ path }}" name="f.{{ path }}"
-                          class="field mono resize-y min-h-[260px] leading-6 auto-grow w-full"
+                          class="field mono resize-y {{ 'min-h-[420px]' if is_md else 'min-h-[260px]' }} leading-6 auto-grow w-full"
                           data-initial="{{ v_str|e }}"
                           rows="10"
                           aria-label="{{ label }}">{{ v_str }}</textarea>
