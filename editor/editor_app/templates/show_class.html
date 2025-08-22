@@ -1,0 +1,186 @@
+<!-- app/templates/show_class.html -->
+{% extends "base.html" %}
+{% block title %}{{ doc_title or doc_id }} • {{ collection }}{% endblock %}
+
+{% block header_actions %}
+  <nav class="flex items-center gap-2" aria-label="Azioni documento">
+    <a href="/list/{{ collection }}{% if qs %}?{{ qs }}{% endif %}" class="btn btn-ghost">← Lista</a>
+    <form method="get" action="/show/{{ collection }}/{{ prev_id }}" class="inline" aria-label="Documento precedente">
+      {% if request %}
+        {% for key, val in request.query_params.items() %}
+          <input type="hidden" name="{{ key }}" value="{{ val }}">
+        {% endfor %}
+      {% endif %}
+      <button type="submit" class="btn btn-ghost" {% if not prev_id %}disabled aria-disabled="true" tabindex="-1"{% endif %}>‹ Precedente</button>
+    </form>
+    <form method="get" action="/show/{{ collection }}/{{ next_id }}" class="inline" aria-label="Documento successivo">
+      {% if request %}
+        {% for key, val in request.query_params.items() %}
+          <input type="hidden" name="{{ key }}" value="{{ val }}">
+        {% endfor %}
+      {% endif %}
+      <button type="submit" class="btn btn-ghost" {% if not next_id %}disabled aria-disabled="true" tabindex="-1"{% endif %}>Successivo ›</button>
+    </form>
+    <a href="/edit/{{ collection }}/{{ doc_id }}{% if qs %}?{{ qs }}{% endif %}" class="btn btn-primary">Modifica</a>
+  </nav>
+{% endblock %}
+
+{% block content %}
+  {% set c = doc_obj %}
+  <article class="bg-white border rounded-md p-4 space-y-4">
+    <header>
+      <h1 class="text-2xl font-semibold mb-2">{{ c.name or doc_title }}</h1>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+        {% if c.core_traits %}
+          {% set t = c.core_traits %}
+          {% if t.primary_ability %}<div><span class="text-neutral-500">Abilità primaria:</span> <span class="font-medium">{{ t.primary_ability }}</span></div>{% endif %}
+          {% if t.hit_point_die or t.hit_die %}<div><span class="text-neutral-500">Dado Vita:</span> <span class="font-medium">{{ t.hit_point_die or t.hit_die }}</span></div>{% endif %}
+          {% if t.saving_throw_proficiencies or t.saving_throw_proficiencies_list %}
+            <div><span class="text-neutral-500">TS competenti:</span> <span class="font-medium">{{ t.saving_throw_proficiencies or (t.saving_throw_proficiencies_list and (t.saving_throw_proficiencies_list|join(', '))) }}</span></div>
+          {% endif %}
+          {% if t.skill_proficiencies_parsed %}
+            <div><span class="text-neutral-500">Abilità:</span> <span class="font-medium">scegli {{ t.skill_proficiencies_parsed.choose }} da {{ t.skill_proficiencies_parsed.options|join(', ') }}</span></div>
+          {% elif t.skill_proficiencies %}
+            <div><span class="text-neutral-500">Abilità:</span> <span class="font-medium">{{ t.skill_proficiencies }}</span></div>
+          {% endif %}
+          {% if t.armor_training %}<div><span class="text-neutral-500">Armature:</span> <span class="font-medium">{{ t.armor_training }}</span></div>{% endif %}
+          {% if t.weapon_proficiencies %}<div><span class="text-neutral-500">Armi:</span> <span class="font-medium">{{ t.weapon_proficiencies }}</span></div>{% endif %}
+          {% if t.tool_proficiencies %}<div><span class="text-neutral-500">Strumenti:</span> <span class="font-medium">{{ t.tool_proficiencies }}</span></div>{% endif %}
+        {% endif %}
+      </div>
+    </header>
+
+    {% if c.core_traits_md %}
+      <section>
+        <h2 class="text-lg font-semibold mb-2">Tratti fondamentali</h2>
+        <div data-md-section>
+          <div data-markdown>
+{{ c.core_traits_md }}
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if c.features_by_level %}
+      <section>
+        <h2 class="text-lg font-semibold mb-2">Privilegi della classe</h2>
+        <div class="border rounded-md divide-y">
+          {% for lvl in c.features_by_level %}
+            <div class="p-3">
+              <div class="text-sm font-semibold mb-2">Livello {{ lvl.level }}</div>
+              <div class="space-y-2">
+                {% for f in lvl.features %}
+                  <details>
+                    <summary class="cursor-pointer text-neutral-800">{{ f.name }}</summary>
+                    {% if f.text %}
+                      <div class="mt-1" data-markdown>
+{{ f.text }}
+                      </div>
+                    {% endif %}
+                  </details>
+                {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if c.spellcasting_progression and c.spellcasting_progression.by_level %}
+      <section>
+        <h2 class="text-lg font-semibold mb-2">Progressione incantesimi</h2>
+        <div class="overflow-auto">
+          <table class="min-w-full text-sm">
+            <thead>
+              <tr class="bg-neutral-50">
+                <th class="text-left px-2 py-1 border">Liv.</th>
+                <th class="text-left px-2 py-1 border">Trucchetti</th>
+                <th class="text-left px-2 py-1 border">Preparati</th>
+                {% set max_slot = 0 %}
+                {% for e in c.spellcasting_progression.by_level %}
+                  {% if e.slots %}
+                    {% for k in e.slots.keys() %}
+                      {% set ks = k|int %}
+                      {% if ks > max_slot %}{% set max_slot = ks %}{% endif %}
+                    {% endfor %}
+                  {% endif %}
+                {% endfor %}
+                {% for i in range(1, max_slot+1) %}
+                  <th class="text-left px-2 py-1 border">{{ i }}°</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+              {% for e in c.spellcasting_progression.by_level %}
+                <tr>
+                  <td class="px-2 py-1 border">{{ e.level }}</td>
+                  <td class="px-2 py-1 border">{{ e.cantrips or 0 }}</td>
+                  <td class="px-2 py-1 border">{{ e.prepared_spells or 0 }}</td>
+                  {% for i in range(1, max_slot+1) %}
+                    <td class="px-2 py-1 border">{{ (e.slots and e.slots.get(i|string)) or 0 }}</td>
+                  {% endfor %}
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if c.spell_lists_by_level %}
+      <section>
+        <h2 class="text-lg font-semibold mb-2">Lista incantesimi</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
+          {% for grp in c.spell_lists_by_level %}
+            <div class="border rounded p-2">
+              <div class="font-semibold mb-1">Livello {{ grp.spell_level }}</div>
+              {% if grp.spells %}
+                <ul class="list-disc ml-4">
+                  {% for s in grp.spells %}<li>{{ s }}</li>{% endfor %}
+                </ul>
+              {% else %}
+                <div class="text-neutral-500">Nessun incantesimo</div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if c.subclasses %}
+      <section>
+        <h2 class="text-lg font-semibold mb-2">Sottoclassi</h2>
+        <div class="space-y-3">
+          {% for sc in c.subclasses %}
+            <details>
+              <summary class="cursor-pointer text-neutral-800 text-lg">{{ sc.name }}</summary>
+              <div class="mt-2 border rounded-md divide-y">
+                {% for lvl in sc.features_by_level %}
+                  <div class="p-3">
+                    <div class="text-sm font-semibold mb-2">Livello {{ lvl.level }}</div>
+                    {% for f in lvl.features %}
+                      <details>
+                        <summary class="cursor-pointer">{{ f.name }}</summary>
+                        {% if f.text %}
+                          <div class="mt-1" data-markdown>
+{{ f.text }}
+                          </div>
+                        {% endif %}
+                      </details>
+                    {% endfor %}
+                  </div>
+                {% endfor %}
+              </div>
+            </details>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+  </article>
+
+  <details class="mt-3">
+    <summary class="cursor-pointer text-sm text-neutral-600 hover:underline">Mostra dati grezzi</summary>
+    <pre class="mono whitespace-pre-wrap bg-neutral-50 border rounded p-3 mt-2">{{ doc_obj | tojson(indent=2) }}</pre>
+  </details>
+{% endblock %}
+

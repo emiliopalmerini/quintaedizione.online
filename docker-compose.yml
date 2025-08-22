@@ -11,6 +11,7 @@ services:
       context: ./srd_parser
       dockerfile: Dockerfile.Parser
     container_name: dnd-srd-parser
+    profiles: ["parser"]
     depends_on: [mongo]
     environment:
       - MONGO_URI=mongodb://mongo:27017
@@ -36,4 +37,3 @@ services:
 
 volumes:
   mongo_data:
-

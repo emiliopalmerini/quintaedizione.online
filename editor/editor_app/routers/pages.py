@@ -271,7 +271,8 @@ async def show_doc(request: Request, collection: str, doc_id: str, q: str | None
     prev_id, next_id = await _neighbors_alpha(col, cur_key, filt_nav)
     doc_title = str(doc.get("name") or doc.get("term") or doc.get("title") or doc_id)
 
-    tpl = env.get_template("show.html")
+    tpl_name = "show_class.html" if collection == "classes" else "show.html"
+    tpl = env.get_template(tpl_name)
     qs = urlencode(dict(request.query_params)) if request and request.query_params else ""
     return HTMLResponse(
         tpl.render(
