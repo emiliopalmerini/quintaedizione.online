@@ -139,6 +139,26 @@
         console.warn('Copy failed', e);
       }
     }
+    // Replace textarea content with clipboard text (no popups)
+    async function replaceFromClipboard(btn){
+      const ta = btn.closest('.relative')?.querySelector('textarea');
+      if(!ta) return;
+      try {
+        if (!(navigator.clipboard && navigator.clipboard.readText)) {
+          throw new Error('Clipboard API non disponibile');
+        }
+        const text = await navigator.clipboard.readText();
+        ta.value = text || '';
+        try { ta.dispatchEvent(new Event('input', { bubbles: true })); } catch(e) {}
+        try { if (typeof autoGrow === 'function') autoGrow(ta); } catch(e) {}
+        flash(btn, 'Sostituito');
+      } catch(e){
+        console.warn('Clipboard read failed', e);
+        // Evita finestre/modal: mostra un messaggio inline e focalizza il campo
+        flash(btn, 'Permesso clipboard negato o non supportato');
+        try { ta.focus(); ta.select && ta.select(); } catch(_){}
+      }
+    }
     function toggleFull(btn){
       const wrap = btn.closest('.relative'); if(!wrap) return;
       const ta = wrap.querySelector('textarea');
