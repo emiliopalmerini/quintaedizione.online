@@ -6,29 +6,80 @@
 {% endblock %}
 {% block content %}
   <section class="bg-white border rounded-md p-3 mb-3">
-    <form
+    <form id="search-form"
       hx-get="/view/{{ collection }}"
       hx-target="#rows"
-      hx-trigger="submit, keyup delay:300ms from:#q"
-      class="flex items-center gap-2 flex-wrap"
+      hx-trigger="submit, keyup delay:300ms from:#q, change from:select, change from:input[type=checkbox], change from:input[type=number]"
+      class="flex flex-col gap-3"
     >
-      <input id="q" name="q" placeholder="Cerca per nome/termine/descrizione…" value="{{ q or '' }}" class="field flex-1" />
-      <select name="page_size" class="field w-32">
-        {% for s in [10,20,50,100] %}
-          <option value="{{ s }}" {% if page_size==s %}selected{% endif %}>{{ s }}/pagina</option>
-        {% endfor %}
-      </select>
-      <input type="hidden" name="page" value="{{ page or 1 }}">
-      <button class="btn btn-primary" type="submit">Cerca</button>
+      <div class="flex items-center gap-2 flex-wrap">
+        <input id="q" name="q" placeholder="Cerca per nome/termine/descrizione…" value="{{ q or '' }}" class="field flex-1" />
+        <select name="page_size" class="field w-32">
+          {% for s in [10,20,50,100] %}
+            <option value="{{ s }}" {% if page_size==s %}selected{% endif %}>{{ s }}/pagina</option>
+          {% endfor %}
+        </select>
+        <input type="hidden" name="page" value="{{ page or 1 }}">
+        <button class="btn btn-primary" type="submit">Cerca</button>
+      </div>
+
+      <details class="border rounded p-2">
+        <summary class="cursor-pointer text-sm text-neutral-700">Filtri avanzati</summary>
+        <div class="mt-2 grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
+          {% if collection == 'spells' %}
+            <select name="level" class="field"><option value="">Livello (tutti)</option>{% for i in range(0,10) %}<option value="{{ i }}" {% if request and request.query_params.get('level')==i|string %}selected{% endif %}>{{ i }}</option>{% endfor %}</select>
+            <select name="school" class="field">
+              <option value="">Scuola (tutte)</option>
+              {% for s in ['Abiurazione','Ammaliamento','Divinazione','Evocazione','Illusione','Invocazione','Necromanzia','Trasmutazione'] %}
+                <option value="{{ s }}" {% if request and request.query_params.get('school')==s %}selected{% endif %}>{{ s }}</option>
+              {% endfor %}
+            </select>
+            <select name="ritual" class="field">
+              <option value="">Rituale (tutti)</option>
+              <option value="true" {% if request and request.query_params.get('ritual')=='true' %}selected{% endif %}>Sì</option>
+              <option value="false" {% if request and request.query_params.get('ritual')=='false' %}selected{% endif %}>No</option>
+            </select>
+            <input name="classes" class="field" placeholder="Classe (es. Mago)" value="{{ request and request.query_params.get('classes','') }}" />
+          {% elif collection == 'magic_items' %}
+            <select name="rarity" class="field">
+              <option value="">Rarità (tutte)</option>
+              {% for r in ['Comune','Non comune','Raro','Molto raro','Leggendario','Artefatto'] %}
+                <option value="{{ r }}" {% if request and request.query_params.get('rarity')==r %}selected{% endif %}>{{ r }}</option>
+              {% endfor %}
+            </select>
+            <input name="type" class="field" placeholder="Tipo (es. arma, armatura)" value="{{ request and request.query_params.get('type','') }}" />
+            <select name="attunement" class="field">
+              <option value="">Sintonizzazione (tutte)</option>
+              <option value="true" {% if request and request.query_params.get('attunement')=='true' %}selected{% endif %}>Richiede</option>
+              <option value="false" {% if request and request.query_params.get('attunement')=='false' %}selected{% endif %}>Non richiede</option>
+            </select>
+          {% elif collection == 'monsters' %}
+            <select name="size" class="field">
+              <option value="">Taglia (tutte)</option>
+              {% for s in ['Minuscola','Piccola','Media','Grande','Enorme','Mastodontica'] %}
+                <option value="{{ s }}" {% if request and request.query_params.get('size')==s %}selected{% endif %}>{{ s }}</option>
+              {% endfor %}
+            </select>
+            <input name="type" class="field" placeholder="Tipo (es. bestia, non morto)" value="{{ request and request.query_params.get('type','') }}" />
+            <input name="alignment" class="field" placeholder="Allineamento (es. NM, NB)" value="{{ request and request.query_params.get('alignment','') }}" />
+            <input name="cr" class="field" placeholder="GS (es. 1/2 o 5)" value="{{ request and request.query_params.get('cr','') }}" />
+          {% else %}
+            <div class="text-xs text-neutral-600">Nessun filtro specifico per {{ collection }}. Usa la ricerca testuale.</div>
+          {% endif %}
+        </div>
+      </details>
     </form>
   </section>
 
   <section class="bg-white border rounded-md">
     <div id="rows"
          hx-get="/view/{{ collection }}?page={{ page or 1 }}&page_size={{ page_size or 20 }}&q={{ q or '' }}"
-         hx-trigger="load">
-      <!-- _rows.html verrà inserito qui -->
+         hx-trigger="load"
+         hx-include="#search-form">
+      <div class="px-3 py-4 text-sm text-neutral-600 flex items-center gap-2">
+        <span class="spinner"></span>
+        <span>Caricamento risultati…</span>
+      </div>
     </div>
   </section>
 {% endblock %}
-

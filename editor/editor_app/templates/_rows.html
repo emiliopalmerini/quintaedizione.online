@@ -8,46 +8,49 @@
       <button
         class="btn btn-ghost"
         hx-get="/view/{{ collection }}?page={{ 1 }}&page_size={{ page_size }}&q={{ q|urlencode }}"
-        hx-target="#rows"
+        hx-target="#rows" hx-include="#search-form"
         {% if page<=1 %}disabled{% endif %}
       >« Prima</button>
       <button
         class="btn btn-ghost"
         hx-get="/view/{{ collection }}?page={{ page-1 }}&page_size={{ page_size }}&q={{ q|urlencode }}"
-        hx-target="#rows"
+        hx-target="#rows" hx-include="#search-form"
         {% if page<=1 %}disabled{% endif %}
       >‹ Indietro</button>
       <button
         class="btn btn-ghost"
         hx-get="/view/{{ collection }}?page={{ page+1 }}&page_size={{ page_size }}&q={{ q|urlencode }}"
-        hx-target="#rows"
+        hx-target="#rows" hx-include="#search-form"
         {% if page>=pages %}disabled{% endif %}
       >Avanti ›</button>
       <button
         class="btn btn-ghost"
         hx-get="/view/{{ collection }}?page={{ pages }}&page_size={{ page_size }}&q={{ q|urlencode }}"
-        hx-target="#rows"
+        hx-target="#rows" hx-include="#search-form"
         {% if page>=pages %}disabled{% endif %}
       >Ultima »</button>
     </div>
   </div>
 
-  <div class="divide-y">
-    {% for it in items %}
-      <div class="px-3 py-2 flex items-center gap-3">
-        <div class="flex-1 min-w-0">
-          <div class="text-sm font-medium truncate">
-            {{ it.name or it.term or it.title or '(senza titolo)' }}
-          </div>
-          <div class="text-xs text-neutral-500 mono truncate">{{ it._id }}</div>
+  {% if items %}
+    <div class="divide-y">
+      {% for it in items %}
+        <div class="px-3 py-2 flex items-center gap-3 hover:bg-neutral-50">
+          <a class="flex-1 min-w-0 block py-1" href="/show/{{ collection }}/{{ it._id }}{% if qs %}?{{ qs }}{% endif %}" aria-label="Apri documento {{ it._id }}">
+            <div class="text-sm font-medium truncate">
+              {{ it.name or it.term or it.title or '(senza titolo)' }}
+            </div>
+            <div class="text-xs text-neutral-500 mono truncate">{{ it._id }}</div>
+          </a>
+          <a class="btn btn-primary" href="/edit/{{ collection }}/{{ it._id }}{% if qs %}?{{ qs }}{% endif %}" aria-label="Modifica documento {{ it._id }}">Modifica</a>
         </div>
-        <a class="btn btn-primary"
-           href="/doc/{{ collection }}/{{ it._id }}">
-          Modifica
-        </a>
-      </div>
-    {% endfor %}
-  </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="px-3 py-6 text-center text-sm text-neutral-600">
+      Nessun risultato. Prova a cambiare i termini di ricerca.
+    </div>
+  {% endif %}
 
   <div class="border-t px-3 py-2 flex items-center justify-between">
     <div class="text-xs text-neutral-500">Mostrati {{ items|length }} elementi</div>
@@ -55,17 +58,16 @@
       <button
         class="btn btn-ghost"
         hx-get="/view/{{ collection }}?page={{ page-1 }}&page_size={{ page_size }}&q={{ q|urlencode }}"
-        hx-target="#rows"
+        hx-target="#rows" hx-include="#search-form"
         {% if page<=1 %}disabled{% endif %}
       >‹ Indietro</button>
       <span class="text-sm">Pag. {{ page }}/{{ pages }}</span>
       <button
         class="btn btn-ghost"
         hx-get="/view/{{ collection }}?page={{ page+1 }}&page_size={{ page_size }}&q={{ q|urlencode }}"
-        hx-target="#rows"
+        hx-target="#rows" hx-include="#search-form"
         {% if page>=pages %}disabled{% endif %}
       >Avanti ›</button>
     </div>
   </div>
 </div>
-
