@@ -26,6 +26,7 @@
               {% if not next_id %}disabled aria-disabled="true" tabindex="-1"{% endif %}>Successivo ›</button>
     </form>
 
+    <a href="/show/{{ collection }}/{{ doc_id }}{% if qs %}?{{ qs }}{% endif %}" class="btn btn-ghost" title="Apri anteprima">Mostra</a>
     <button form="doc-form" type="submit" class="btn btn-primary !px-4 !py-2 text-[14px] shadow-sm" title="Salva (⌘/Ctrl+S)">
       Salva (⌘/Ctrl+S)
     </button>
