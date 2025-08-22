@@ -7,31 +7,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/htmx.org@2.0.3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <link rel="icon" href="data:,"/>
   <style>
-    input:focus, textarea:focus, select:focus { outline: none; box-shadow: 0 0 0 2px rgba(79,70,229,.6); border-color: rgba(79,70,229,.8); }
-    .btn { @apply px-3 py-1.5 rounded border text-sm; }
-    .btn-primary { @apply bg-indigo-600 text-white border-indigo-600 hover:bg-indigo-700; }
-    .btn-ghost { @apply border hover:bg-neutral-100; }
-    .tag { @apply inline-block text-[11px] px-2 py-0.5 rounded border; }
-    .field { @apply w-full rounded border px-2 py-1.5 text-[13px]; }
-    .mono { @apply font-mono text-[13px]; }
+    /* Accessible focus ring for inputs */
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(79,70,229,.6);
+      border-color: rgba(79,70,229,.8);
+    }
+    /* Tailwind CDN does not process @apply in <style> tags. 
+       Define lightweight utility classes directly. */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: .375rem; padding: .375rem .75rem;
+      border-radius: .375rem; border: 1px solid #d4d4d8;
+      font-size: .875rem; line-height: 1.25rem;
+      background: white; color: #111827; cursor: pointer;
+      transition: background-color .15s ease, box-shadow .15s ease, opacity .15s ease;
+    }
+    .btn:hover { background: #f5f5f5; }
+    .btn:disabled, .btn[disabled] { opacity: .5; cursor: not-allowed; }
+    .btn-primary {
+      background: #4f46e5; color: white; border-color: #4f46e5;
+    }
+    .btn-primary:hover { background: #4338ca; }
+    .btn-ghost { background: white; }
+    .tag { display:inline-block; font-size: 11px; padding:.125rem .5rem; border:1px solid #e5e7eb; border-radius:.375rem; }
+    .field {
+      width: 100%; border: 1px solid #d4d4d8; border-radius: .375rem;
+      padding: .375rem .5rem; font-size: 13px; background: white;
+    }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; font-size: 13px; }
+    /* Simple spinner */
+    .spinner { width: 1rem; height: 1rem; border-radius: 9999px; border: 2px solid #d4d4d8; border-top-color: #4f46e5; animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Markdown typography */
+    [data-markdown] { color: #111827; font-size: 0.95rem; line-height: 1.6; }
+    [data-markdown] h1 { font-size: 1.75rem; font-weight: 700; margin: 1.25rem 0 .5rem; }
+    [data-markdown] h2 { font-size: 1.5rem; font-weight: 700; margin: 1rem 0 .5rem; }
+    [data-markdown] h3 { font-size: 1.25rem; font-weight: 600; margin: .75rem 0 .5rem; }
+    [data-markdown] h4 { font-size: 1.125rem; font-weight: 600; margin: .5rem 0 .25rem; }
+    [data-markdown] p { margin: .5rem 0; }
+    [data-markdown] ul, [data-markdown] ol { margin: .5rem 0 .5rem 1.25rem; }
+    [data-markdown] li { margin: .25rem 0; }
+    [data-markdown] blockquote { border-left: 3px solid #e5e7eb; padding-left: .75rem; color: #374151; margin: .75rem 0; }
+    [data-markdown] code { background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: .25rem; padding: .1rem .3rem; font-size: .85em; }
+    [data-markdown] pre { background: #0b1020; color: #e5e7eb; border-radius: .375rem; padding: .75rem; overflow: auto; }
+    [data-markdown] pre code { background: transparent; border: 0; padding: 0; }
+    [data-markdown] a { color: #4f46e5; text-decoration: underline; }
+    [data-markdown] table { width: 100%; border-collapse: collapse; margin: .75rem 0; }
+    [data-markdown] th, [data-markdown] td { border: 1px solid #e5e7eb; padding: .4rem .5rem; text-align: left; }
+    [data-markdown] th { background: #f9fafb; font-weight: 600; }
+  </style>
   </style>
 </head>
 <body class="h-screen bg-neutral-50 text-neutral-900">
   <!-- Top bar -->
   <header class="sticky top-0 z-40 border-b bg-white">
     <div class="max-w-screen-2xl mx-auto px-4 py-2 flex items-center gap-3">
-      <a href="/" class="btn btn-ghost">Home</a>
-      <div class="text-sm text-neutral-600">SRD Editor</div>
-      {% if collection %}
-        <span class="mx-1 text-neutral-400">/</span>
-        <span class="text-sm font-medium">{{ collection }}</span>
-      {% endif %}
-      {% if doc_id %}
-        <span class="mx-1 text-neutral-400">/</span>
-        <span class="mono bg-neutral-100 border rounded px-2 py-0.5">{{ doc_id }}</span>
-      {% endif %}
+      <nav class="text-sm flex items-center gap-2 relative" aria-label="Breadcrumb">
+        <a href="/" class="text-neutral-800 hover:underline">Home</a>
+        {% if collection %}
+          <span class="text-neutral-400">/</span>
+          <a href="/list/{{ collection }}{% if qs %}?{{ qs }}{% endif %}" class="text-neutral-800 hover:underline">{{ collection }}</a>
+          <span class="text-neutral-400">/</span>
+          <div class="inline-flex items-center gap-1 relative">
+            <input id="bc-search" name="q" placeholder="{{ doc_title or ('Cerca in ' ~ collection ~ '…') }}" class="field !text-[12px] !py-1 w-56"
+                   hx-get="/quicksearch/{{ collection }}"
+                   hx-target="#bc-results"
+                   hx-trigger="keyup changed delay:200ms"
+                   autocomplete="off" />
+            <div id="bc-results" class="absolute left-0 top-full mt-1 w-[28rem] max-h-80 overflow-auto bg-white border rounded shadow z-50 hidden"></div>
+          </div>
+        {% endif %}
+        {% if doc_title and not collection %}
+          <span class="text-neutral-400">/</span>
+          <span class="font-medium truncate max-w-[40vw]" title="{{ doc_title }}">{{ doc_title }}</span>
+        {% elif doc_id and not collection %}
+          <span class="text-neutral-400">/</span>
+          <span class="mono bg-neutral-100 border rounded px-2 py-0.5" title="{{ doc_id }}">{{ doc_id }}</span>
+        {% endif %}
+      </nav>
       <div class="ml-auto flex items-center gap-2">
         {% block header_actions %}{% endblock %}
       </div>
@@ -44,6 +102,115 @@
   </div>
 
   {% block scripts %}{% endblock %}
+  <script>
+    // Global helpers available to all pages
+    function autoGrow(el){ el.style.height='auto'; el.style.height=(el.scrollHeight+2)+'px'; }
+    function initAutoGrow(){
+      document.querySelectorAll('textarea.auto-grow').forEach(t=>{
+        autoGrow(t);
+        t.addEventListener('input', ()=>autoGrow(t));
+      });
+    }
+    function copyFrom(btn){
+      const ta = btn.closest('.relative')?.querySelector('textarea');
+      if(!ta) return;
+      navigator.clipboard.writeText(ta.value).then(()=>flash(btn,'Copiato'));
+    }
+    function toggleFull(btn){
+      const wrap = btn.closest('.relative'); if(!wrap) return;
+      const ta = wrap.querySelector('textarea');
+      const expanded = !wrap.classList.contains('fixed');
+      wrap.classList.toggle('fixed', expanded);
+      wrap.classList.toggle('inset-4', expanded);
+      wrap.classList.toggle('z-50', expanded);
+      wrap.classList.toggle('bg-white', expanded);
+      wrap.classList.toggle('border', expanded);
+      wrap.classList.toggle('rounded', expanded);
+      wrap.classList.toggle('p-3', expanded);
+      if(ta){ ta.classList.toggle('min-h-[70vh]', expanded); autoGrow(ta); }
+      btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      btn.textContent = expanded ? 'Riduci' : 'Espandi';
+    }
+    function flash(anchorEl, msg){
+      const n = document.createElement('span');
+      n.className = 'ml-2 inline-flex items-center rounded px-2 py-0.5 text-xs bg-green-50 text-green-700 border border-green-200';
+      n.textContent = msg;
+      anchorEl.insertAdjacentElement('afterend', n);
+      setTimeout(()=>n.remove(), 1200);
+    }
+
+    // Keyboard: save with Ctrl/Cmd+S if a form#doc-form exists
+    document.addEventListener('keydown', (e)=>{
+      if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')){
+        const form = document.getElementById('doc-form');
+        if(form){ e.preventDefault(); form.requestSubmit ? form.requestSubmit() : form.submit(); }
+      }
+    });
+
+    // HTMX toasts for saves
+    document.addEventListener('htmx:afterRequest', (e)=>{
+      const target = e.detail ? e.detail.target : null;
+      if(!target) return;
+      const id = target.id || '';
+      if(id.startsWith('field-toast-') || id === 'global-toast'){
+        const ok = e.detail.xhr && e.detail.xhr.status >= 200 && e.detail.xhr.status < 300;
+        const msg = ok ? 'Salvato' : 'Errore di salvataggio';
+        target.innerHTML = `<span class="inline-flex items-center rounded px-2 py-0.5 text-xs ${ok? 'bg-green-50 text-green-700 border border-green-200':'bg-red-50 text-red-700 border border-red-200'}">${msg}</span>`;
+        setTimeout(()=>{ target.innerHTML = ''; }, ok ? 1500 : 2500);
+      }
+    });
+
+    // Init on load
+    document.addEventListener('DOMContentLoaded', initAutoGrow);
+
+    // Markdown rendering for elements with [data-markdown]
+    function initMarkdown(){
+      const hasMarked = typeof window.marked !== 'undefined';
+      document.querySelectorAll('[data-markdown]').forEach(el=>{
+        const raw = el.textContent || '';
+        el.dataset.raw = raw;
+        if(hasMarked){ el.innerHTML = window.marked.parse(raw); }
+        else { el.innerHTML = raw.replace(/\n\n/g,'<br/><br/>'); }
+      });
+    }
+    document.addEventListener('DOMContentLoaded', initMarkdown);
+    document.body.addEventListener('htmx:afterSwap', initMarkdown);
+
+    // Copy raw Markdown from nearest [data-markdown]
+    function copyMarkdown(btn){
+      const section = btn.closest('[data-md-section]') || btn.closest('article') || document;
+      const md = section.querySelector('[data-markdown]');
+      const raw = (md && (md.dataset.raw || md.textContent)) || '';
+      if(!raw) return;
+      navigator.clipboard.writeText(raw).then(()=>flash(btn, 'Copiato'));
+    }
+
+    // Quicksearch dropdown behavior
+    document.addEventListener('htmx:afterOnLoad', (e)=>{
+      if(e.detail && e.detail.elt && e.detail.elt.id === 'bc-results'){
+        e.detail.elt.classList.remove('hidden');
+      }
+    });
+    document.addEventListener('click', (e)=>{
+      const res = document.getElementById('bc-results');
+      if(!res) return;
+      const input = document.getElementById('bc-search');
+      const within = res.contains(e.target) || (input && input.contains(e.target));
+      if(!within){ res.classList.add('hidden'); }
+    });
+    document.addEventListener('keydown', (e)=>{
+      if(e.key==='Escape'){
+        const res=document.getElementById('bc-results'); if(res) res.classList.add('hidden');
+      }
+      if(e.key==='Enter'){
+        const input = document.getElementById('bc-search');
+        if(input && document.activeElement === input){
+          const first = document.querySelector('#bc-results a');
+          if(first){ e.preventDefault(); window.location = first.getAttribute('href'); }
+          else if(input.value){ window.location = '/list/{{ collection or '' }}?q=' + encodeURIComponent(input.value); }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
-
