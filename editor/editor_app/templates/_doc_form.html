@@ -27,6 +27,13 @@
     </form>
 
     <a href="/show/{{ collection }}/{{ doc_id }}{% if qs %}?{{ qs }}{% endif %}" class="btn btn-ghost" title="Apri anteprima">Mostra</a>
+    <div class="inline-flex rounded-md border overflow-hidden" role="group" aria-label="Modalità editor">
+      <a href="/edit/{{ collection }}/{{ doc_id }}{% if qs %}?{{ qs }}{% endif %}"
+         class="btn !rounded-none {% if true %}!bg-indigo-600 !text-white !border-indigo-600{% endif %}"
+         aria-current="page" title="Modifica per campi">Campi</a>
+      <a href="/edit_raw/{{ collection }}/{{ doc_id }}{% if qs %}?{{ qs }}{% endif %}"
+         class="btn !rounded-none" title="Modifica come JSON">JSON</a>
+    </div>
     <button form="doc-form" type="submit" class="btn btn-primary !px-4 !py-2 text-[14px] shadow-sm" title="Salva (⌘/Ctrl+S)">
       Salva (⌘/Ctrl+S)
     </button>

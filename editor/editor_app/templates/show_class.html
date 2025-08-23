@@ -21,7 +21,10 @@
       {% endif %}
       <button type="submit" class="btn btn-ghost" {% if not next_id %}disabled aria-disabled="true" tabindex="-1"{% endif %}>Successivo ›</button>
     </form>
-    <a href="/edit/{{ collection }}/{{ doc_id }}{% if qs %}?{{ qs }}{% endif %}" class="btn btn-primary">Modifica</a>
+    <div class="inline-flex rounded-md border overflow-hidden" role="group" aria-label="Apri editor">
+      <a href="/edit/{{ collection }}/{{ doc_id }}{% if qs %}?{{ qs }}{% endif %}" class="btn !rounded-none" title="Modifica per campi">Campi</a>
+      <a href="/edit_raw/{{ collection }}/{{ doc_id }}{% if qs %}?{{ qs }}{% endif %}" class="btn !rounded-none" title="Modifica come JSON">JSON</a>
+    </div>
   </nav>
 {% endblock %}
 
