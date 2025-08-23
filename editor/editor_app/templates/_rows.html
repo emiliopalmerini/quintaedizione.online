@@ -33,16 +33,16 @@
   </div>
 
   {% if items %}
-    <div class="divide-y">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {% for it in items %}
-        <div class="px-3 py-2 flex items-center gap-3 hover:bg-neutral-50">
-          <a class="flex-1 min-w-0 block py-1" href="/show/{{ collection }}/{{ it._id }}{% if qs %}?{{ qs }}{% endif %}" aria-label="Apri documento {{ it._id }}">
+        <div class="border rounded-lg p-3 hover:bg-gray-50">
+          <a class="block" href="/show/{{ collection }}/{{ it._id }}{% if qs %}?{{ qs }}{% endif %}" aria-label="Apri documento {{ it._id }}">
             <div class="text-sm font-medium truncate">
               {{ it.name or it.term or it.title or '(senza titolo)' }}
             </div>
             <div class="text-xs text-neutral-500 mono truncate">{{ it._id }}</div>
           </a>
-          <a class="btn btn-primary" href="/edit/{{ collection }}/{{ it._id }}{% if qs %}?{{ qs }}{% endif %}" aria-label="Modifica documento {{ it._id }}">Modifica</a>
+          <a class="btn btn-primary mt-2" href="/edit/{{ collection }}/{{ it._id }}{% if qs %}?{{ qs }}{% endif %}" aria-label="Modifica documento {{ it._id }}">Modifica</a>
         </div>
       {% endfor %}
     </div>
