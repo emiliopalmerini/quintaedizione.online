@@ -8,6 +8,7 @@ from bson import ObjectId
 from fastapi import APIRouter, HTTPException, Request, Query
 from urllib.parse import urlencode
 from fastapi.responses import HTMLResponse, PlainTextResponse
+import json
 
 from editor_app.core.config import COLLECTIONS, COLLECTION_LABELS
 from editor_app.core.db import get_db
@@ -296,4 +297,55 @@ async def edit_doc(collection: str, doc_id: str, request: Request) -> PlainTextR
         raise HTTPException(400, "invalid _id")
 
     await db[collection].update_one({"_id": oid}, {"$set": update})
+    return PlainTextResponse("Saved")
+
+@router.get("/edit_raw/{collection}/{doc_id}", response_class=HTMLResponse)
+async def edit_raw_get(request: Request, collection: str, doc_id: str, q: str | None = Query(default=None)) -> HTMLResponse:
+    if collection not in COLLECTIONS:
+        raise HTTPException(404)
+    db = await get_db()
+    try:
+        oid = ObjectId(doc_id)
+    except Exception:
+        raise HTTPException(400, "invalid _id")
+    doc = await db[collection].find_one({"_id": oid})
+    if not doc:
+        raise HTTPException(404, "Documento non trovato")
+
+    json_str = json.dumps(to_jsonable(doc), ensure_ascii=False, indent=2, sort_keys=True)
+    doc_title = str(doc.get("name") or doc.get("term") or doc.get("title") or doc_id)
+    tpl = env.get_template("edit_raw.html")
+    qs = urlencode(dict(request.query_params)) if request and request.query_params else ""
+    return HTMLResponse(
+        tpl.render(
+            collection=collection,
+            doc_id=str(doc["_id"]),
+            doc_title=doc_title,
+            raw_json=json_str,
+            request=request,
+            q=q or "",
+            qs=qs,
+        )
+    )
+
+@router.put("/edit_raw/{collection}/{doc_id}", response_class=PlainTextResponse)
+async def edit_raw_put(collection: str, doc_id: str, request: Request) -> PlainTextResponse:
+    if collection not in COLLECTIONS:
+        raise HTTPException(404)
+    form = await request.form()
+    raw = form.get("json", "")
+    try:
+        data = json.loads(raw)
+    except Exception as e:
+        raise HTTPException(400, f"JSON non valido: {e}")
+    if not isinstance(data, dict):
+        raise HTTPException(400, "Il documento deve essere un oggetto JSON")
+    try:
+        oid = ObjectId(doc_id)
+    except Exception:
+        raise HTTPException(400, "invalid _id")
+    # Imposta/forza l'_id corretto
+    data["_id"] = oid
+    db = await get_db()
+    await db[collection].replace_one({"_id": oid}, data, upsert=False)
     return PlainTextResponse("Saved")
