@@ -91,7 +91,7 @@
         {% endif %}
       </nav>
       <div class="ml-auto flex items-center gap-2 relative">
-        <button id="menu-toggle" class="btn sm:hidden" aria-label="Apri menu">☰</button>
+        <button id="menu-toggle" class="btn sm:hidden" aria-label="Apri menu" aria-controls="nav-links" aria-expanded="false">☰</button>
         <nav id="nav-links" class="hidden absolute right-0 top-full mt-2 flex flex-col gap-2 bg-white border rounded shadow p-2 sm:static sm:flex sm:flex-row sm:items-center sm:gap-2 sm:border-0 sm:shadow-none sm:p-0" aria-label="Azioni">
           {% block header_actions %}{% endblock %}
         </nav>
@@ -272,9 +272,28 @@
         }
       }
     });
-    document.getElementById('menu-toggle')?.addEventListener('click', ()=>{
-      document.getElementById('nav-links')?.classList.toggle('hidden');
-    });
+    (function(){
+      const btn = document.getElementById('menu-toggle');
+      const nav = document.getElementById('nav-links');
+      if(!btn || !nav) return;
+      btn.addEventListener('click', ()=>{
+        const hidden = nav.classList.toggle('hidden');
+        btn.setAttribute('aria-expanded', (!hidden).toString());
+      });
+      document.addEventListener('click', (e)=>{
+        if(nav.classList.contains('hidden')) return;
+        if(!nav.contains(e.target) && e.target !== btn){
+          nav.classList.add('hidden');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === 'Escape'){
+          nav.classList.add('hidden');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+    })();
   </script>
 </body>
 </html>
