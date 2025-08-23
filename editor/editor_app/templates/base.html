@@ -63,10 +63,10 @@
   </style>
   </style>
 </head>
-<body class="h-screen bg-neutral-50 text-neutral-900">
+<body class="min-h-screen bg-gray-50 flex flex-col text-neutral-900">
   <!-- Top bar -->
   <header class="sticky top-0 z-40 border-b bg-white">
-    <div class="max-w-screen-2xl mx-auto px-4 py-2 flex items-center gap-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center gap-3">
       <nav class="text-sm flex items-center gap-2 relative" aria-label="Breadcrumb">
         <a href="/" class="text-neutral-800 hover:underline">Home</a>
         {% if collection %}
@@ -90,16 +90,21 @@
           <span class="mono bg-neutral-100 border rounded px-2 py-0.5" title="{{ doc_id }}">{{ doc_id }}</span>
         {% endif %}
       </nav>
-      <div class="ml-auto flex items-center gap-2">
-        {% block header_actions %}{% endblock %}
+      <div class="ml-auto flex items-center gap-2 relative">
+        <button id="menu-toggle" class="btn sm:hidden" aria-label="Apri menu">☰</button>
+        <nav id="nav-links" class="hidden absolute right-0 top-full mt-2 flex flex-col gap-2 bg-white border rounded shadow p-2 sm:static sm:flex sm:flex-row sm:items-center sm:gap-2 sm:border-0 sm:shadow-none sm:p-0" aria-label="Azioni">
+          {% block header_actions %}{% endblock %}
+        </nav>
       </div>
     </div>
   </header>
 
   <!-- Content -->
-  <div class="max-w-screen-2xl mx-auto px-4 py-4 h-[calc(100vh-56px)]">
-    {% block content %}{% endblock %}
-  </div>
+  <main class="flex-1">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      {% block content %}{% endblock %}
+    </div>
+  </main>
 
   {% block scripts %}{% endblock %}
   <script>
@@ -221,6 +226,12 @@
         el.dataset.raw = raw;
         if(hasMarked){ el.innerHTML = window.marked.parse(raw); }
         else { el.innerHTML = raw.replace(/\n\n/g,'<br/><br/>'); }
+        el.querySelectorAll('table').forEach(tbl=>{
+          const wrap = document.createElement('div');
+          wrap.className = 'overflow-x-auto';
+          tbl.parentNode.insertBefore(wrap, tbl);
+          wrap.appendChild(tbl);
+        });
       });
     }
     document.addEventListener('DOMContentLoaded', initMarkdown);
@@ -260,6 +271,9 @@
           else if(input.value){ window.location = '/list/{{ collection or '' }}?q=' + encodeURIComponent(input.value); }
         }
       }
+    });
+    document.getElementById('menu-toggle')?.addEventListener('click', ()=>{
+      document.getElementById('nav-links')?.classList.toggle('hidden');
     });
   </script>
 </body>
