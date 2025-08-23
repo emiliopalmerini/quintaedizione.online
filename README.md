@@ -28,9 +28,12 @@ make seed-restore
 ```
 - Apri l’editor: http://localhost:8000/
 
-Parser opzionale SRD (solo su richiesta):
+TUI per il parser SRD (on‑demand):
 ```
-make up-all PROFILE=parser
+# Avvia la TUI in un container
+make tui
+# Oppure avvia Mongo e poi la TUI
+make tui-up
 ```
 
 Vedi anche `Makefile` per altri comandi utili.
@@ -52,4 +55,3 @@ Vedi anche `Makefile` per altri comandi utili.
 - Usa Conventional Commits (feat, fix, docs, chore, build, refactor, perf, test)
 - Mantieni patch piccole e focalizzate
 - Aggiorna i README e gli ADR quando prendi decisioni architetturali
-

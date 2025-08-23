@@ -17,5 +17,5 @@ ENV INPUT_DIR=/data \
     SOURCE_LABEL="srd 5.2.1" \
     DRY_RUN=0
 
-ENTRYPOINT ["python", "-m", "srd_parser.ingest"]
-
+# Di default avvia la TUI interattiva
+ENTRYPOINT ["python", "-m", "srd_parser.tui"]

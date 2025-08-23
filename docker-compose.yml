@@ -9,22 +9,21 @@ services:
       - ./seed:/seed:ro
       - ./seed/init:/docker-entrypoint-initdb.d:ro
 
-  srd-parser:
+  srd-tui:
     build:
       context: ./srd_parser
       dockerfile: Dockerfile.Parser
-    container_name: dnd-srd-parser
-    profiles: ["parser"]
+    container_name: dnd-srd-tui
     depends_on: [mongo]
     environment:
       - MONGO_URI=mongodb://mongo:27017
       - DB_NAME=dnd
       - INPUT_DIR=/data
       - SOURCE_LABEL=srd 5.2.1
-      - DRY_RUN=0
     volumes:
       - ./data:/data:ro
-    restart: "no"
+    stdin_open: true
+    tty: true
 
   editor:
     build:

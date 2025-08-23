@@ -2,15 +2,11 @@ SHELL := /bin/sh
 
 # Config
 PROJECT ?= dnd
-PROFILE ?= parser
 
-.PHONY: up up-all down logs seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh editor-sh
+.PHONY: up down logs seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh editor-sh tui tui-local tui-up tui-build
 
 up:
 	docker compose up -d mongo editor
-
-up-all:
-	docker compose --profile $(PROFILE) up -d
 
 down:
 	docker compose down
@@ -37,3 +33,20 @@ mongo-sh:
 editor-sh:
 	docker compose exec editor sh
 
+# TUI helpers
+tui:
+	# Run the TUI inside Docker (interactive)
+	docker compose run --rm srd-tui
+
+tui-up:
+	# Bring up Mongo and run the TUI
+	docker compose up -d mongo
+	docker compose run --rm srd-tui
+
+tui-local:
+	# Run the TUI locally with your Python
+	python -m srd_parser.tui || python3 -m srd_parser.tui
+
+tui-build:
+	# Rebuild the srd-tui image to pick up code changes
+	docker compose build srd-tui
