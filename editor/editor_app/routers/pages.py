@@ -1,51 +1,87 @@
 # app/routers/pages.py
 from __future__ import annotations
 
+import json
 import math
-from typing import Optional, Any, Dict, Tuple, Mapping
+from typing import Any, Dict, Mapping, Optional, Tuple
+from urllib.parse import urlencode
 
 from bson import ObjectId
-from fastapi import APIRouter, HTTPException, Request, Query
-from urllib.parse import urlencode
-from fastapi.responses import HTMLResponse, PlainTextResponse
-import json
-
-from editor_app.core.config import COLLECTIONS, COLLECTION_LABELS
+from editor_app.core.config import COLLECTION_LABELS, COLLECTIONS
 from editor_app.core.db import get_db
 from editor_app.core.flatten import flatten_for_form
-from editor_app.core.transform import to_jsonable
+from editor_app.core.search import QFilterOptions, q_filter
 from editor_app.core.templates import env
+from editor_app.core.transform import to_jsonable
+from fastapi import APIRouter, HTTPException, Query, Request
+from fastapi.responses import HTMLResponse, PlainTextResponse
 
 router = APIRouter()
 
 # ---- helpers ---------------------------------------------------------------
 
+
 def _rx(val: str) -> Dict[str, Any]:
+    # Regex case-insensitive per filtri parametrici non-q
     return {"$regex": val, "$options": "i"}
 
+
 def _parse_bool(val: Optional[str]) -> Optional[bool]:
-    if val is None: return None
+    if val is None:
+        return None
     v = val.strip().lower()
-    if v in ("1", "true", "yes", "y", "si", "s"): return True
-    if v in ("0", "false", "no", "n"): return False
+    if v in ("1", "true", "yes", "y", "si", "s"):
+        return True
+    if v in ("0", "false", "no", "n"):
+        return False
     return None
 
-def build_filter(q: str | None, collection: str, params: Mapping[str, str]) -> Dict[str, Any]:
-    filt: Dict[str, Any] = {}
-    if q:
-        r = _rx(q)
-        filt["$or"] = [{"name": r}, {"term": r}, {"title": r}, {"description": r}]
 
+def build_filter(
+    q: str | None, collection: str, params: Mapping[str, str], *, quick: bool = False
+) -> Dict[str, Any]:
+    """
+    Costruisce un filtro MongoDB combinando:
+    - ricerca testuale (q_filter) in modalità 'quick' o 'estesa'
+    - filtri specifici per collezione derivati da querystring
+    """
+    filt: Dict[str, Any] = {}
+
+    # Ricerca testuale
+    if q:
+        if quick:
+            # Ricerca rapida: prefisso su campi principali, query corta consentita
+            q_opts = QFilterOptions(
+                fields=["name", "term", "title"],
+                min_len=1,
+                prefix=True,
+                raw_regex=False,
+                whole_words=False,
+            )
+        else:
+            # Ricerca estesa: anche description e markdown
+            q_opts = QFilterOptions(
+                fields=["name", "term", "title", "description", "description_md"],
+                min_len=2,
+            )
+        qf = q_filter(q, options=q_opts)
+        if qf:
+            filt.update(qf)
+
+    # Filtri specifici per collezione
     if collection == "spells":
         lvl = params.get("level")
         if lvl and lvl.isdigit():
             filt["level"] = int(lvl)
+
         school = params.get("school")
         if school:
             filt["school"] = _rx(school)
+
         ritual = _parse_bool(params.get("ritual"))
         if ritual is not None:
             filt["ritual"] = ritual
+
         classes = params.get("classes")
         if classes:
             filt["classes"] = {"$elemMatch": _rx(classes)}
@@ -54,9 +90,11 @@ def build_filter(q: str | None, collection: str, params: Mapping[str, str]) -> D
         rarity = params.get("rarity")
         if rarity:
             filt["rarity"] = _rx(rarity)
+
         itype = params.get("type")
         if itype:
             filt["type"] = _rx(itype)
+
         att = _parse_bool(params.get("attunement"))
         if att is not None:
             filt["attunement"] = att
@@ -65,12 +103,15 @@ def build_filter(q: str | None, collection: str, params: Mapping[str, str]) -> D
         size = params.get("size")
         if size:
             filt["size"] = _rx(size)
+
         mtype = params.get("type")
         if mtype:
             filt["type"] = _rx(mtype)
+
         align = params.get("alignment")
         if align:
             filt["alignment"] = _rx(align)
+
         cr = params.get("cr")
         if cr:
             try:
@@ -78,17 +119,26 @@ def build_filter(q: str | None, collection: str, params: Mapping[str, str]) -> D
             except Exception:
                 cr_num = None
             if cr_num is not None:
-                filt.setdefault("$and", []).append({"$or": [{"challenge_rating": cr_num}, {"cr": cr_num}]})
+                filt.setdefault("$and", []).append(
+                    {"$or": [{"challenge_rating": cr_num}, {"cr": cr_num}]}
+                )
             else:
                 r = _rx(cr)
-                filt.setdefault("$and", []).append({"$or": [{"challenge_rating": r}, {"cr": r}]})
+                filt.setdefault("$and", []).append(
+                    {"$or": [{"challenge_rating": r}, {"cr": r}]}
+                )
 
     return filt
 
-def _alpha_sort_expr() -> Dict[str, Any]:
-    return {"$toLower": {"$ifNull": ["$name", {"$ifNull": ["$term", ""]}]}}
 
-async def _neighbors_alpha(col, cur_key: str, filt: Dict[str, Any]) -> Tuple[Optional[str], Optional[str]]:
+def _alpha_sort_expr() -> Dict[str, Any]:
+    # Nome o term come chiave di sort alfabetico, in lower
+    return {"$toLower": {"$ifNull": ["$name", {"$ifNull": ["$term", ""]}]}}  # type: ignore[dict-item]
+
+
+async def _neighbors_alpha(
+    col, cur_key: str, filt: Dict[str, Any]
+) -> Tuple[Optional[str], Optional[str]]:
     key = (cur_key or "").lower()
     prev_pipe = [
         {"$match": filt},
@@ -114,7 +164,9 @@ async def _neighbors_alpha(col, cur_key: str, filt: Dict[str, Any]) -> Tuple[Opt
         next_id = str(d.get("_id"))
     return prev_id, next_id
 
+
 # ---- pages -----------------------------------------------------------------
+
 
 @router.get("/", response_class=HTMLResponse)
 async def index() -> HTMLResponse:
@@ -129,17 +181,35 @@ async def index() -> HTMLResponse:
         except Exception:
             counts[c] = 0
     total = sum(counts.values()) if counts else 0
-    return HTMLResponse(tpl.render(collections=cols_sorted, labels=COLLECTION_LABELS, counts=counts, total=total, first=first))
+    return HTMLResponse(
+        tpl.render(
+            collections=cols_sorted,
+            labels=COLLECTION_LABELS,
+            counts=counts,
+            total=total,
+            first=first,
+        )
+    )
+
 
 @router.get("/list/{collection}", response_class=HTMLResponse)
-async def list_page(request: Request, collection: str, q: str = "", page: int = 1, page_size: int = 20) -> HTMLResponse:
+async def list_page(
+    request: Request, collection: str, q: str = "", page: int = 1, page_size: int = 20
+) -> HTMLResponse:
     if collection not in COLLECTIONS:
         raise HTTPException(404)
     tpl = env.get_template("list.html")
-    return HTMLResponse(tpl.render(collection=collection, q=q, page=page, page_size=page_size, request=request))
+    return HTMLResponse(
+        tpl.render(
+            collection=collection, q=q, page=page, page_size=page_size, request=request
+        )
+    )
+
 
 @router.get("/view/{collection}", response_class=HTMLResponse)
-async def view_rows(request: Request, collection: str, q: str = "", page: int = 1, page_size: int = 20) -> HTMLResponse:
+async def view_rows(
+    request: Request, collection: str, q: str = "", page: int = 1, page_size: int = 20
+) -> HTMLResponse:
     if collection not in COLLECTIONS:
         raise HTTPException(404)
     db = await get_db()
@@ -161,7 +231,11 @@ async def view_rows(request: Request, collection: str, q: str = "", page: int = 
         doc["_id"] = str(doc["_id"])
         items.append(doc)
     tpl = env.get_template("_rows.html")
-    qs = urlencode(dict(request.query_params)) if request and request.query_params else ""
+    qs = (
+        urlencode(dict(request.query_params))
+        if request and request.query_params
+        else ""
+    )
     return HTMLResponse(
         tpl.render(
             collection=collection,
@@ -175,6 +249,7 @@ async def view_rows(request: Request, collection: str, q: str = "", page: int = 
         )
     )
 
+
 @router.get("/quicksearch/{collection}", response_class=HTMLResponse)
 async def quicksearch(request: Request, collection: str, q: str = "") -> HTMLResponse:
     if collection not in COLLECTIONS:
@@ -184,7 +259,8 @@ async def quicksearch(request: Request, collection: str, q: str = "") -> HTMLRes
         return HTMLResponse(tpl.render(collection=collection, q=q, items=[]))
     db = await get_db()
     col = db[collection]
-    filt = build_filter(q, collection, request.query_params)
+    # Quick mode: prefisso su name/term/title
+    filt = build_filter(q, collection, request.query_params, quick=True)
     pipe = [
         {"$match": filt},
         {"$addFields": {"_sortkey": _alpha_sort_expr()}},
@@ -198,8 +274,11 @@ async def quicksearch(request: Request, collection: str, q: str = "") -> HTMLRes
         items.append(d)
     return HTMLResponse(tpl.render(collection=collection, q=q, items=items))
 
+
 @router.get("/edit/{collection}/{doc_id}", response_class=HTMLResponse)
-async def doc_form(request: Request, collection: str, doc_id: str, q: str | None = Query(default=None)) -> HTMLResponse:
+async def doc_form(
+    request: Request, collection: str, doc_id: str, q: str | None = Query(default=None)
+) -> HTMLResponse:
     if collection not in COLLECTIONS:
         raise HTTPException(404)
     db = await get_db()
@@ -214,7 +293,7 @@ async def doc_form(request: Request, collection: str, doc_id: str, q: str | None
         raise HTTPException(404, "Documento non trovato")
 
     fields = flatten_for_form(doc)
-    # Determina un titolo leggibile per breadcrumb
+    # Titolo leggibile per breadcrumb
     doc_title = str(doc.get("name") or doc.get("term") or doc.get("title") or doc_id)
     filt_nav = build_filter(q or "", collection, request.query_params)
     cur_key = str(doc.get("name") or doc.get("term") or "")
@@ -222,7 +301,12 @@ async def doc_form(request: Request, collection: str, doc_id: str, q: str | None
 
     tpl = env.get_template("_doc_form.html")
     from urllib.parse import urlencode as _urlencode
-    qs = _urlencode(dict(request.query_params)) if request and request.query_params else ""
+
+    qs = (
+        _urlencode(dict(request.query_params))
+        if request and request.query_params
+        else ""
+    )
     return HTMLResponse(
         tpl.render(
             collection=collection,
@@ -237,8 +321,11 @@ async def doc_form(request: Request, collection: str, doc_id: str, q: str | None
         )
     )
 
+
 @router.get("/show/{collection}/{doc_id}", response_class=HTMLResponse)
-async def show_doc(request: Request, collection: str, doc_id: str, q: str | None = Query(default=None)) -> HTMLResponse:
+async def show_doc(
+    request: Request, collection: str, doc_id: str, q: str | None = Query(default=None)
+) -> HTMLResponse:
     if collection not in COLLECTIONS:
         raise HTTPException(404)
     db = await get_db()
@@ -260,7 +347,11 @@ async def show_doc(request: Request, collection: str, doc_id: str, q: str | None
 
     tpl_name = "show_class.html" if collection == "classes" else "show.html"
     tpl = env.get_template(tpl_name)
-    qs = urlencode(dict(request.query_params)) if request and request.query_params else ""
+    qs = (
+        urlencode(dict(request.query_params))
+        if request and request.query_params
+        else ""
+    )
     return HTMLResponse(
         tpl.render(
             collection=collection,
@@ -275,6 +366,7 @@ async def show_doc(request: Request, collection: str, doc_id: str, q: str | None
             qs=qs,
         )
     )
+
 
 @router.put("/edit/{collection}/{doc_id}", response_class=PlainTextResponse)
 async def edit_doc(collection: str, doc_id: str, request: Request) -> PlainTextResponse:
@@ -299,8 +391,11 @@ async def edit_doc(collection: str, doc_id: str, request: Request) -> PlainTextR
     await db[collection].update_one({"_id": oid}, {"$set": update})
     return PlainTextResponse("Saved")
 
+
 @router.get("/edit_raw/{collection}/{doc_id}", response_class=HTMLResponse)
-async def edit_raw_get(request: Request, collection: str, doc_id: str, q: str | None = Query(default=None)) -> HTMLResponse:
+async def edit_raw_get(
+    request: Request, collection: str, doc_id: str, q: str | None = Query(default=None)
+) -> HTMLResponse:
     if collection not in COLLECTIONS:
         raise HTTPException(404)
     db = await get_db()
@@ -312,13 +407,19 @@ async def edit_raw_get(request: Request, collection: str, doc_id: str, q: str | 
     if not doc:
         raise HTTPException(404, "Documento non trovato")
 
-    json_str = json.dumps(to_jsonable(doc), ensure_ascii=False, indent=2, sort_keys=True)
+    json_str = json.dumps(
+        to_jsonable(doc), ensure_ascii=False, indent=2, sort_keys=True
+    )
     doc_title = str(doc.get("name") or doc.get("term") or doc.get("title") or doc_id)
     filt_nav = build_filter(q or "", collection, request.query_params)
     cur_key = str(doc.get("name") or doc.get("term") or "")
     prev_id, next_id = await _neighbors_alpha(db[collection], cur_key, filt_nav)
     tpl = env.get_template("edit_raw.html")
-    qs = urlencode(dict(request.query_params)) if request and request.query_params else ""
+    qs = (
+        urlencode(dict(request.query_params))
+        if request and request.query_params
+        else ""
+    )
     return HTMLResponse(
         tpl.render(
             collection=collection,
@@ -333,8 +434,11 @@ async def edit_raw_get(request: Request, collection: str, doc_id: str, q: str | 
         )
     )
 
+
 @router.put("/edit_raw/{collection}/{doc_id}", response_class=PlainTextResponse)
-async def edit_raw_put(collection: str, doc_id: str, request: Request) -> PlainTextResponse:
+async def edit_raw_put(
+    collection: str, doc_id: str, request: Request
+) -> PlainTextResponse:
     if collection not in COLLECTIONS:
         raise HTTPException(404)
     form = await request.form()
@@ -349,7 +453,7 @@ async def edit_raw_put(collection: str, doc_id: str, request: Request) -> PlainT
         oid = ObjectId(doc_id)
     except Exception:
         raise HTTPException(400, "invalid _id")
-    # Imposta/forza l'_id corretto
+    # Forza l'_id corretto
     data["_id"] = oid
     db = await get_db()
     await db[collection].replace_one({"_id": oid}, data, upsert=False)
