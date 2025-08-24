@@ -25,7 +25,6 @@
             {% if not next_id %}disabled aria-disabled="true" tabindex="-1"{% endif %}>Successivo ›</button>
   </form>
 
-  <a href="/show/{{ collection }}/{{ doc_id }}{% if qs %}?{{ qs }}{% endif %}" class="btn btn-ghost" title="Apri anteprima">Mostra</a>
   <div class="inline-flex rounded-md border overflow-hidden" role="group" aria-label="Modalità editor">
     <a href="/edit/{{ collection }}/{{ doc_id }}{% if qs %}?{{ qs }}{% endif %}"
        class="btn !rounded-none {% if true %}!bg-indigo-600 !text-white !border-indigo-600{% endif %}"
@@ -33,10 +32,6 @@
     <a href="/edit_raw/{{ collection }}/{{ doc_id }}{% if qs %}?{{ qs }}{% endif %}"
        class="btn !rounded-none" title="Modifica come JSON">JSON</a>
   </div>
-  <button form="doc-form" type="submit" class="btn btn-primary !px-4 !py-2 text-[14px] shadow-sm" title="Salva (⌘/Ctrl+S)">
-    Salva (⌘/Ctrl+S)
-  </button>
-  <button type="button" class="btn btn-ghost" onclick="openShortcuts()" title="Mostra scorciatoie">Scorciatoie</button>
 {% endblock %}
 
 {% block content %}
@@ -82,14 +77,8 @@
             <div class="mono bg-neutral-100 border rounded px-2 py-1 truncate" title="{{ doc_id }}">{{ doc_id }}</div>
           </div>
           <div class="flex items-center gap-2 shrink-0">
-            <a href="/list/{{ collection }}" class="btn btn-ghost !px-3 !py-2">Annulla</a>
-            <button type="reset" class="btn btn-ghost !px-3 !py-2">Reimposta</button>
-            <button type="submit" class="btn btn-primary !px-4 !py-2 shadow">Salva</button>
-          </div>
-          <div class="w-full"></div>
-          <div class="flex items-center gap-3 text-sm">
-            <label class="inline-flex items-center gap-2"><input id="toggle-translatable" type="checkbox"> <span>Solo traducibili</span></label>
-            <label class="inline-flex items-center gap-2"><input id="toggle-modified" type="checkbox"> <span>Solo modificati</span></label>
+              <a href="/show/{{ collection }}/{{ doc_id }}{% if qs %}?{{ qs }}{% endif %}" class="btn btn-ghost" title="Apri anteprima">Mostra</a>
+              <button type="submit" class="btn btn-primary !px-4 !py-2 shadow">Salva</button>
           </div>
         </section>
 
@@ -185,21 +174,6 @@
             </fieldset>
           {% endif %}
         {% endfor %}
-
-        <!-- Barra azioni flottante -->
-        <div class="sticky bottom-3 z-10">
-          <div class="max-w-xl ml-auto">
-            <div class="bg-white border rounded-md shadow px-3 py-2 flex items-center justify-between">
-              <span class="text-sm text-neutral-700">Rivedi e salva le modifiche</span>
-              <div class="flex items-center gap-2">
-                <a href="/list/{{ collection }}" class="btn btn-ghost !px-3 !py-2">Annulla</a>
-                <button type="button" class="btn btn-ghost" onclick="saveAndStay()">Salva</button>
-                <button type="button" class="btn btn-ghost" onclick="saveAndGo('prev')" {% if not prev_id %}disabled{% endif %}>Salva e ← Prec.</button>
-                <button type="button" class="btn btn-primary" onclick="saveAndGo('next')" {% if not next_id %}disabled{% endif %}>Salva e Succ. →</button>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <div id="global-toast" class="mt-3" aria-live="polite"></div>
       </form>
