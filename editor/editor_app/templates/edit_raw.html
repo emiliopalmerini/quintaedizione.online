@@ -15,6 +15,7 @@
               {% if not prev_id %}disabled aria-disabled="true" tabindex="-1"{% endif %}>‹ Precedente</button>
     </form>
 
+
     <form method="get" action="/edit_raw/{{ collection }}/{{ next_id }}" class="inline" aria-label="Documento successivo">
       {% if request %}
         {% for key, val in request.query_params.items() %}
@@ -31,7 +32,6 @@
       <a href="/edit_raw/{{ collection }}/{{ doc_id }}{% if qs %}?{{ qs }}{% endif %}"
          class="btn !rounded-none !bg-indigo-600 !text-white !border-indigo-600" aria-current="page" title="Modifica come JSON">JSON</a>
     </div>
-    <button form="raw-form" type="submit" class="btn btn-primary !px-4 !py-2 text-[14px] shadow-sm" title="Salva (⌘/Ctrl+S)">Salva</button>
   </nav>
 {% endblock %}
 
@@ -47,7 +47,7 @@
         <div class="mono bg-neutral-100 border rounded px-2 py-1 truncate" title="{{ doc_id }}">{{ doc_id }}</div>
       </div>
       <div class="flex items-center gap-2 shrink-0">
-        <a href="/show/{{ collection }}/{{ doc_id }}{% if qs %}?{{ qs }}{% endif %}" class="btn btn-ghost">Mostra</a>
+          <a href="/show/{{ collection }}/{{ doc_id }}{% if qs %}?{{ qs }}{% endif %}" class="btn btn-ghost">Mostra</a>
         <button type="submit" class="btn btn-primary">Salva</button>
       </div>
     </div>
