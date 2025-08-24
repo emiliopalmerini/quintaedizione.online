@@ -4,6 +4,27 @@
 {% block header_actions %}
   <nav class="flex items-center gap-2">
     <a href="/list/{{ collection }}{% if qs %}?{{ qs }}{% endif %}" class="btn" title="Torna alla lista">← Lista</a>
+
+    <form method="get" action="/edit_raw/{{ collection }}/{{ prev_id }}" class="inline" aria-label="Documento precedente">
+      {% if request %}
+        {% for key, val in request.query_params.items() %}
+          <input type="hidden" name="{{ key }}" value="{{ val }}">
+        {% endfor %}
+      {% endif %}
+      <button type="submit" class="btn btn-ghost"
+              {% if not prev_id %}disabled aria-disabled="true" tabindex="-1"{% endif %}>‹ Precedente</button>
+    </form>
+
+    <form method="get" action="/edit_raw/{{ collection }}/{{ next_id }}" class="inline" aria-label="Documento successivo">
+      {% if request %}
+        {% for key, val in request.query_params.items() %}
+          <input type="hidden" name="{{ key }}" value="{{ val }}">
+        {% endfor %}
+      {% endif %}
+      <button type="submit" class="btn btn-ghost"
+              {% if not next_id %}disabled aria-disabled="true" tabindex="-1"{% endif %}>Successivo ›</button>
+    </form>
+
     <div class="inline-flex rounded-md border overflow-hidden" role="group" aria-label="Modalità editor">
       <a href="/edit/{{ collection }}/{{ doc_id }}{% if qs %}?{{ qs }}{% endif %}"
          class="btn !rounded-none" title="Modifica per campi">Campi</a>

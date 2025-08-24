@@ -314,6 +314,9 @@ async def edit_raw_get(request: Request, collection: str, doc_id: str, q: str | 
 
     json_str = json.dumps(to_jsonable(doc), ensure_ascii=False, indent=2, sort_keys=True)
     doc_title = str(doc.get("name") or doc.get("term") or doc.get("title") or doc_id)
+    filt_nav = build_filter(q or "", collection, request.query_params)
+    cur_key = str(doc.get("name") or doc.get("term") or "")
+    prev_id, next_id = await _neighbors_alpha(db[collection], cur_key, filt_nav)
     tpl = env.get_template("edit_raw.html")
     qs = urlencode(dict(request.query_params)) if request and request.query_params else ""
     return HTMLResponse(
@@ -324,6 +327,8 @@ async def edit_raw_get(request: Request, collection: str, doc_id: str, q: str | 
             raw_json=json_str,
             request=request,
             q=q or "",
+            prev_id=prev_id,
+            next_id=next_id,
             qs=qs,
         )
     )
