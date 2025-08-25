@@ -1,4 +1,4 @@
-# 5e SRD Fast Translator
+# 5e SRD Fast Editor
 
 Editor e visualizzatore veloce per i contenuti SRD di D&D 5e, pensato per aiutare traduttori ed editor a cercare, visualizzare e tradurre rapidamente i dati.
 
