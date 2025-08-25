@@ -4,30 +4,35 @@
 {% block content %}
   <section class="bg-gradient-to-br from-indigo-50 to-white border rounded-md p-6 mb-4">
     <h1 class="text-2xl font-semibold mb-2">Editor e visualizzatore SRD 5e</h1>
+    <a href="https://duedraghialmicrofono.com" 
+       class="text-sm text-indigo-600 mb-4 inline-block hover:underline">
+        Creato da Duedraghi al Microfono
+    </a>
+
     <p class="text-neutral-700 max-w-3xl">
-      Questa applicazione aiuta a sfogliare, cercare e <strong>tradurre rapidamente</strong> i contenuti della SRD di D&D 5e.
-      Usa la ricerca testuale e i <strong>filtri specifici</strong> per ciascuna collezione; apri i documenti in <em>lettura</em> o in <em>modifica</em>,
-      con scorciatoie e strumenti pensati per il <strong>copia/incolla</strong> veloce.
+    Questa applicazione aiuta a sfogliare, cercare e <strong>tradurre rapidamente</strong> i contenuti della SRD di D&D 5e.
+    Usa la ricerca testuale e i <strong>filtri specifici</strong> per ciascuna collezione; apri i documenti in <em>lettura</em> o in <em>modifica</em>,
+    con scorciatoie e strumenti pensati per il <strong>copia/incolla</strong> veloce.
     </p>
     <div class="mt-3 text-sm text-neutral-700 flex items-center gap-2">
-      <span class="text-neutral-500">Totale elementi indicizzati:</span>
-      <span class="bg-white border rounded px-2 py-0.5">{{ total or 0 }}</span>
+        <span class="text-neutral-500">Totale elementi indicizzati:</span>
+        <span class="bg-white border rounded px-2 py-0.5">{{ total or 0 }}</span>
     </div>
   </section>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    {% for c in collections %}
+      {% for c in collections %}
       <a href="/list/{{ c }}" class="group block bg-white border rounded-lg p-3 hover:bg-gray-50">
-        <div class="flex items-start justify-between gap-3">
-          <div>
-            <div class="text-sm text-neutral-500 mb-1">Collezione</div>
-            <div class="text-lg font-semibold">{{ (labels and labels.get(c)) or c }}</div>
-            <div class="text-xs text-neutral-400 mt-1">chiave: <span class="mono">{{ c }}</span></div>
+          <div class="flex items-start justify-between gap-3">
+              <div>
+                  <div class="text-sm text-neutral-500 mb-1">Collezione</div>
+                  <div class="text-lg font-semibold">{{ (labels and labels.get(c)) or c }}</div>
+                  <div class="text-xs text-neutral-400 mt-1">chiave: <span class="mono">{{ c }}</span></div>
+              </div>
+              <div class="shrink-0 text-xs bg-neutral-50 border rounded px-2 py-0.5" title="Numero di elementi">{{ counts and counts.get(c, 0) or 0 }}</div>
           </div>
-          <div class="shrink-0 text-xs bg-neutral-50 border rounded px-2 py-0.5" title="Numero di elementi">{{ counts and counts.get(c, 0) or 0 }}</div>
-        </div>
-        <div class="mt-2 text-indigo-600 text-sm opacity-0 group-hover:opacity-100 transition">Apri →</div>
+          <div class="mt-2 text-indigo-600 text-sm opacity-0 group-hover:opacity-100 transition">Apri →</div>
       </a>
-    {% endfor %}
+      {% endfor %}
   </div>
-{% endblock %}
+  {% endblock %}
