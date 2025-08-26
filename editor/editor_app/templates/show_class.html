@@ -21,15 +21,14 @@
       {% endif %}
       <button type="submit" class="btn btn-ghost" {% if not next_id %}disabled aria-disabled="true" tabindex="-1"{% endif %}>Successivo ›</button>
     </form>
-    <a href="/edit_raw/{{ collection }}/{{ doc_id }}{% if qs %}?{{ qs }}{% endif %}"
-       class="btn" title="Modifica come JSON">Modifica (JSON)</a>
+    
   </nav>
 {% endblock %}
 
 {% block content %}
   {% set c = doc_obj %}
   <div class="grid grid-cols-12 gap-4">
-    <aside class="col-span-12 md:col-span-3 lg:col-span-2 h-[calc(100vh-7rem)] md:sticky md:top-16 overflow-auto border bg-white rounded-md p-3" aria-label="Indice della classe">
+    <aside class="col-span-12 md:col-span-3 lg:col-span-2 h-[calc(100vh-7rem)] md:sticky md:top-16 overflow-auto border bg-white p-3" aria-label="Indice della classe">
       <div class="flex items-center justify-between mb-2">
         <div class="text-[11px] uppercase tracking-wide text-neutral-500 px-1">Sezioni</div>
         <button id="toc-toggle" class="btn btn-ghost md:hidden !py-1 !px-2 text-xs" aria-controls="cls-toc" aria-expanded="false">Indice ▾</button>
@@ -37,7 +36,7 @@
       <nav id="cls-toc" class="text-sm space-y-1 hidden md:block" aria-label="Sommario"></nav>
     </aside>
 
-    <article class="col-span-12 md:col-span-9 lg:col-span-10 bg-white border rounded-md p-4" data-md-section>
+    <article class="col-span-12 md:col-span-9 lg:col-span-10 bg-white border p-4" data-md-section>
       <div id="cls-md" data-markdown data-md-src-id="cls-md-data" class="prose max-w-none"></div>
       <script id="cls-md-data" type="text/markdown">{{ (c.content or '') | e }}</script>
     </article>
@@ -69,7 +68,7 @@
           var a = document.createElement('a');
           a.href = '#' + h.id;
           a.textContent = h.textContent || '';
-          a.className = 'block px-2 py-1 rounded hover:bg-neutral-100 truncate';
+          a.className = 'block px-2 py-1 hover:bg-neutral-100 truncate';
           a.setAttribute('data-target-id', h.id);
           var wrap = document.createElement('div');
           // Indentation for nested levels

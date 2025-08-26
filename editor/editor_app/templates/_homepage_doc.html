@@ -1,7 +1,7 @@
 {% if doc %}
-<section id="doc-section" class="mt-6 bg-white border rounded-md p-4">
+<section id="doc-section" class="mt-6 bg-white border p-4">
   <div class="grid grid-cols-12 gap-4">
-    <aside class="col-span-12 md:col-span-3 lg:col-span-2 h-[calc(100vh-9rem)] md:sticky top-under-header overflow-auto border bg-white rounded-md p-3" aria-label="Indice del documento">
+    <aside class="col-span-12 md:col-span-3 lg:col-span-2 h-[calc(100vh-9rem)] md:sticky top-under-header overflow-auto border bg-white p-3" aria-label="Indice del documento">
       <div class="flex items-center justify-between mb-2">
         <div class="text-[11px] uppercase tracking-wide text-neutral-500 px-1">Sezioni</div>
         <button id="home-toc-toggle" class="btn btn-ghost md:hidden !py-1 !px-2 text-xs" aria-controls="home-toc" aria-expanded="false">Indice ▾</button>
@@ -65,7 +65,7 @@
         var a = document.createElement('a');
         a.href = '#' + h.id;
         a.textContent = h.textContent || '';
-        a.className = 'block px-2 py-1 rounded hover:bg-neutral-100 truncate';
+        a.className = 'block px-2 py-1 hover:bg-neutral-100 truncate';
         a.setAttribute('data-target-id', h.id);
         var wrap = document.createElement('div');
         if(h.tagName === 'H4'){ wrap.style.marginLeft = '1rem'; }
@@ -130,7 +130,7 @@
   })();
 </script>
 {% else %}
-<section id="doc-section" class="mt-6 bg-white border rounded-md p-4">
+<section id="doc-section" class="mt-6 bg-white border p-4">
   <div class="text-sm text-neutral-600">Nessun documento disponibile.</div>
 </section>
 {% endif %}
