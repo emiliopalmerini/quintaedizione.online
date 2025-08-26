@@ -35,4 +35,8 @@
       </a>
       {% endfor %}
   </div>
-  {% endblock %}
+
+  {% if doc %}
+    {% include "_homepage_doc.html" %}
+  {% endif %}
+{% endblock %}

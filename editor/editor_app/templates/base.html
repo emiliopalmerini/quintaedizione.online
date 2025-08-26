@@ -10,6 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <link rel="icon" href="data:,"/>
   <style>
+    :root { --site-header-h: 64px; }
     /* Accessible focus ring for inputs */
     input:focus, textarea:focus, select:focus {
       outline: none;
@@ -39,6 +40,7 @@
       padding: .375rem .5rem; font-size: 13px; background: white;
     }
     .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; font-size: 13px; }
+    html { scroll-behavior: smooth; }
     /* Simple spinner */
     .spinner { width: 1rem; height: 1rem; border-radius: 9999px; border: 2px solid #d4d4d8; border-top-color: #4f46e5; animation: spin 1s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
@@ -60,6 +62,15 @@
     [data-markdown] table { width: 100%; border-collapse: collapse; margin: .75rem 0; }
     [data-markdown] th, [data-markdown] td { border: 1px solid #e5e7eb; padding: .4rem .5rem; text-align: left; }
     [data-markdown] th { background: #f9fafb; font-weight: 600; }
+    /* Avoid headings being hidden under the sticky header when anchored */
+    [data-markdown] h1,
+    [data-markdown] h2,
+    [data-markdown] h3,
+    [data-markdown] h4,
+    [data-markdown] h5,
+    [data-markdown] h6 { scroll-margin-top: calc(var(--site-header-h) + 12px); }
+    [data-markdown] > :first-child { margin-top: 0 !important; }
+    .top-under-header { top: var(--site-header-h); }
   </style>
   </style>
 </head>
@@ -74,7 +85,7 @@
           <a href="/list/{{ collection }}{% if qs %}?{{ qs }}{% endif %}" class="text-neutral-800 hover:underline">{{ collection }}</a>
           <span class="text-neutral-400">/</span>
           <div class="inline-flex items-center gap-1 relative">
-            <input id="bc-search" name="q" placeholder="{{ doc_title or ('Cerca in ' ~ collection ~ '…') }}" class="field !text-[12px] !py-1 w-56"
+            <input id="bc-search" name="q" placeholder="{{ doc_slug or doc_title or ('Cerca in ' ~ collection ~ '…') }}" class="field !text-[12px] !py-1 w-56"
                    hx-get="/quicksearch/{{ collection }}"
                    hx-target="#bc-results"
                    hx-trigger="keyup changed delay:200ms"
@@ -216,13 +227,31 @@
     });
 
     // Init on load
-    document.addEventListener('DOMContentLoaded', initAutoGrow);
+    document.addEventListener('DOMContentLoaded', function(){
+      // Update header height CSS var
+      try {
+        const hdr = document.querySelector('header');
+        const setH = ()=>{ if(hdr){ document.documentElement.style.setProperty('--site-header-h', hdr.offsetHeight + 'px'); } };
+        setH();
+        window.addEventListener('resize', setH);
+      } catch(e) {}
+      initAutoGrow();
+    });
 
     // Markdown rendering for elements with [data-markdown]
     function initMarkdown(){
       const hasMarked = typeof window.marked !== 'undefined';
+      if (hasMarked && window.marked.setOptions){
+        try { window.marked.setOptions({ headerIds: true, mangle: false }); } catch(e) {}
+      }
       document.querySelectorAll('[data-markdown]').forEach(el=>{
-        const raw = el.textContent || '';
+        let raw = '';
+        const srcId = el.getAttribute('data-md-src-id');
+        if (srcId){
+          const src = document.getElementById(srcId);
+          if (src) raw = src.textContent || '';
+        }
+        if (!raw){ raw = el.textContent || ''; }
         el.dataset.raw = raw;
         if(hasMarked){ el.innerHTML = window.marked.parse(raw); }
         else { el.innerHTML = raw.replace(/\n\n/g,'<br/><br/>'); }
@@ -233,6 +262,7 @@
           wrap.appendChild(tbl);
         });
       });
+      try { document.dispatchEvent(new CustomEvent('markdown:rendered')); } catch(e) {}
     }
     document.addEventListener('DOMContentLoaded', initMarkdown);
     document.body.addEventListener('htmx:afterSwap', initMarkdown);
