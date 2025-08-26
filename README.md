@@ -28,12 +28,12 @@ make seed-restore
 ```
 - Apri l’editor: http://localhost:8000/
 
-TUI per il parser SRD (on‑demand):
+Parser SRD via Web UI:
 ```
-# Avvia la TUI in un container
-make tui
-# Oppure avvia Mongo e poi la TUI
-make tui-up
+# Avvia il servizio del parser web (se non usi make up)
+docker compose up -d srd-parser
+# Apri la web app del parser
+open http://localhost:8100
 ```
 
 Vedi anche `Makefile` per altri comandi utili.
@@ -50,6 +50,11 @@ Vedi anche `Makefile` per altri comandi utili.
 - Seed: `seed/README.md`
 - Agenti/LLM: `AGENTS.md`, `LLMS.md`
 - ADR: cartella `docs/adr/`
+
+## Note su MongoDB e autenticazione
+- In `docker-compose.yml` Mongo viene avviato con utente root (`admin/password`).
+- Le app usano `MONGO_URI=mongodb://admin:password@mongo:27017/?authSource=admin` di default.
+- In sviluppo locale (senza Docker) imposta `MONGO_URI` coerente, ad esempio `mongodb://admin:password@localhost:27017/?authSource=admin`.
 
 ## Contribuire
 - Usa Conventional Commits (feat, fix, docs, chore, build, refactor, perf, test)

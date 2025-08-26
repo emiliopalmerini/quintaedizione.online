@@ -3,27 +3,31 @@ services:
     image: mongo:8
     container_name: dnd-mongo
     restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: dnd
     ports: ["27017:27017"]
     volumes:
       - mongo_data:/data/db
       - ./seed:/seed:ro
       - ./seed/init:/docker-entrypoint-initdb.d:ro
 
-  srd-tui:
+  srd-parser:
     build:
       context: ./srd_parser
       dockerfile: Dockerfile.Parser
-    container_name: dnd-srd-tui
+    container_name: dnd-srd-parser
     depends_on: [mongo]
     environment:
-      - MONGO_URI=mongodb://mongo:27017
+      - MONGO_URI=mongodb://admin:password@mongo:27017/?authSource=admin
       - DB_NAME=dnd
       - INPUT_DIR=/data
       - SOURCE_LABEL=srd 5.2.1
     volumes:
       - ./data:/data:ro
-    stdin_open: true
-    tty: true
+    ports: ["8100:8000"]
+    restart: unless-stopped
 
   editor:
     build:
@@ -32,7 +36,7 @@ services:
     container_name: dnd-editor
     depends_on: [mongo]
     environment:
-      - MONGO_URI=mongodb://mongo:27017
+      - MONGO_URI=mongodb://admin:password@mongo:27017/?authSource=admin
       - DB_NAME=dnd
     ports: ["8000:8000"]
     restart: unless-stopped
