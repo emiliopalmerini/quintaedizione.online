@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SRD Parser Web</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; }
+    form { max-width: 900px; }
+    fieldset { border: 1px solid #ddd; padding: 1rem; margin-bottom: 1rem; }
+    legend { font-weight: 600; }
+    label { display: inline-block; margin: 0.25rem 0; }
+    .row { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .row > div { flex: 1 1 280px; }
+    .actions { margin-top: 1rem; }
+    .messages { margin-top: 1.5rem; white-space: pre-wrap; background: #fafafa; border: 1px solid #eee; padding: 1rem; }
+    code { background: #f1f1f1; padding: 0 0.25rem; border-radius: 3px; }
+  </style>
+  <script>
+    function toggleSelect(all) {
+      document.querySelectorAll('input[name="selected"]').forEach(cb => cb.checked = all);
+    }
+  </script>
+  </head>
+<body>
+  <h1>SRD Parser Web</h1>
+  <p>Parser server-render minimal. Nessun JS richiesto (solo un helper per selezionare tutti/nessuno).</p>
+
+  <form method="post" action="/run">
+    <fieldset>
+      <legend>Impostazioni</legend>
+      <div class="row">
+        <div>
+          <label>Cartella input<br>
+            <input type="text" name="input_dir" value="{{ env.input_dir }}" style="width:100%" />
+          </label>
+          <div><small>Esempio nel container: <code>/data</code></small></div>
+        </div>
+        <div>
+          <label>Mongo URI<br>
+            <input type="text" name="mongo_uri" value="{{ env.mongo_uri }}" style="width:100%" />
+          </label>
+          <div><small>Esempio: <code>mongodb://admin:password@mongo:27017/?authSource=admin</code></small></div>
+        </div>
+        <div>
+          <label>DB Name<br>
+            <input type="text" name="db_name" value="{{ env.db_name }}" />
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" name="dry_run" {% if env.dry_run %}checked{% endif %} />
+            Dry-run (non scrivere su Mongo)
+          </label>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Collezioni</legend>
+      <div class="actions">
+        <button type="button" onclick="toggleSelect(true)">Seleziona tutto</button>
+        <button type="button" onclick="toggleSelect(false)">Deseleziona tutto</button>
+      </div>
+      <div class="row">
+        {% for w in work_items %}
+        <div>
+          <label>
+            <input type="checkbox" name="selected" value="{{ w.idx }}" {% if w.idx in selected %}checked{% endif %} />
+            <strong>{{ w.collection }}</strong> — <code>{{ w.filename }}</code>
+          </label>
+        </div>
+        {% endfor %}
+      </div>
+    </fieldset>
+
+    <div class="actions">
+      <button type="submit">Esegui parsing</button>
+    </div>
+  </form>
+
+  {% if messages and messages|length %}
+  <div class="messages">
+    <h3>Log esecuzione</h3>
+    <ul>
+      {% for m in messages %}
+      <li>{{ m }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+</body>
+</html>
+
