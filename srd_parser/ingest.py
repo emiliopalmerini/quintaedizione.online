@@ -14,12 +14,8 @@ from pymongo.collection import Collection
 from pymongo.errors import PyMongoError
 
 from .utils import source_label
-from .parsers.spells import parse_spells
-from .parsers.magic_items import parse_magic_items
-from .parsers.equipment import parse_equipment
-from .parsers.rules import parse_rules_glossary
-from .parsers.monsters import parse_monsters
 from .parsers.classes import parse_classes
+from .parsers.documents import parse_document
 
 LOG_LEVEL = os.environ.get("LOG_LEVEL", "INFO").upper()
 logging.basicConfig(
@@ -35,36 +31,39 @@ class WorkItem:
     parser: Callable[[List[str]], List[Dict]]
 
 DEFAULT_WORK: List[WorkItem] = [
-    WorkItem("08_b_spellsaz.md", "spells", parse_spells),
-    WorkItem("07_magic_items.md", "magic_items", parse_magic_items),
-    WorkItem("07_armor_items.md", "armor", parse_equipment),
-    WorkItem("07_weapons_items.md", "weapons", parse_equipment),
-    WorkItem("07_tools_items.md", "tools", parse_equipment),
-    WorkItem("07_mounts_vehicles_items.md", "mounts_vehicles", parse_equipment),
-    WorkItem("07_services_items.md", "services", parse_equipment),
-    WorkItem("09_rules_glossary.md", "rules_glossary", parse_rules_glossary),
-    WorkItem("13_monsters_az.md", "monsters", parse_monsters),
-    WorkItem("14_animals.md", "animals", parse_monsters),
-    # Italian classes file
-    WorkItem("ita/04_classi.md", "classes", parse_classes),
+    # Document pages (Italian)
+    WorkItem("ita/01_informazioni_legali.md", "documenti", lambda lines: parse_document(lines, "01_informazioni_legali.md")),
+    WorkItem("ita/02_giocare_il_gioco.md", "documenti", lambda lines: parse_document(lines, "02_giocare_il_gioco.md")),
+    WorkItem("ita/03_creazione_personaggio.md", "documenti", lambda lines: parse_document(lines, "03_creazione_personaggio.md")),
+    WorkItem("ita/04_classi.md", "documenti", lambda lines: parse_document(lines, "04_classi.md")),
+    WorkItem("ita/05_origini_personaggio.md", "documenti", lambda lines: parse_document(lines, "05_origini_personaggio.md")),
+    WorkItem("ita/06_talenti.md", "documenti", lambda lines: parse_document(lines, "06_talenti.md")),
+    WorkItem("ita/07_equipaggiamento.md", "documenti", lambda lines: parse_document(lines, "07_equipaggiamento.md")),
+    WorkItem("ita/08_equipaggiamento_items.md", "documenti", lambda lines: parse_document(lines, "08_equipaggiamento_items.md")),
+    WorkItem("ita/09_armi_items.md", "documenti", lambda lines: parse_document(lines, "09_armi_items.md")),
+    WorkItem("ita/10_oggetti_magici_items.md", "documenti", lambda lines: parse_document(lines, "10_oggetti_magici_items.md")),
+    WorkItem("ita/11_armatura_items.md", "documenti", lambda lines: parse_document(lines, "11_armatura_items.md")),
+    WorkItem("ita/12_strumenti_items.md", "documenti", lambda lines: parse_document(lines, "12_strumenti_items.md")),
+    WorkItem("ita/13_servizi_items.md", "documenti", lambda lines: parse_document(lines, "13_servizi_items.md")),
+    WorkItem("ita/14_cavalcature_veicoli_items.md", "documenti", lambda lines: parse_document(lines, "14_cavalcature_veicoli_items.md")),
+    WorkItem("ita/15_incantesimi.md", "documenti", lambda lines: parse_document(lines, "15_incantesimi.md")),
+    WorkItem("ita/16_incantesimi_items.md", "documenti", lambda lines: parse_document(lines, "16_incantesimi_items.md")),
+    WorkItem("ita/17_glossario_regole.md", "documenti", lambda lines: parse_document(lines, "17_glossario_regole.md")),
+    WorkItem("ita/18_strumenti_gioco.md", "documenti", lambda lines: parse_document(lines, "18_strumenti_gioco.md")),
+    WorkItem("ita/19_mostri.md", "documenti", lambda lines: parse_document(lines, "19_mostri.md")),
+    WorkItem("ita/20_mostri_items.md", "documenti", lambda lines: parse_document(lines, "20_mostri_items.md")),
+    WorkItem("ita/21_animali.md", "documenti", lambda lines: parse_document(lines, "21_animali.md")),
+    # Structured classi
+    WorkItem("ita/04_classi.md", "classi", parse_classes),
 ]
 
 def unique_keys_for(collection: str) -> List[str]:
     mapping = {
-        "spells": ["name", "level"],
-        "rules_glossary": ["term"],
-        "magic_items": ["name"],
-        "armor": ["name"],
-        "weapons": ["name"],
-        "tools": ["name"],
-        "mounts_vehicles": ["name"],
-        "services": ["name"],
-        "monsters": ["name"],
-        "animals": ["name"],
-        # For classes we key on slug (stable)
-        "classes": ["slug"],
+        "documenti": ["slug"],
+        # For classi we key on slug (stable)
+        "classi": ["slug"],
     }
-    return mapping.get(collection, ["name"])
+    return mapping.get(collection, ["slug"]) 
 
 def _create_unique_index(col: Collection, unique_fields: List[str]) -> None:
     if not unique_fields:
