@@ -10,11 +10,12 @@ Parser e ingest dei contenuti SRD in MongoDB, con interfaccia web minimale.
 - `parsers/*.py`: parser specifici per dominio (incantesimi, mostri, classi, ...)
 - `ingest.py`: funzioni di upsert e chiavi univoche
 - `work.py`: elenco delle collezioni e file sorgente
-- `web.py` + `templates/parser_form.html`: interfaccia web (FastAPI + Jinja)
+- `web.py` + `templates/parser_form.html`: interfaccia web (FastAPI + Jinja + HTMX)
 
 ## Esecuzione con Docker
 - Il servizio `srd-parser` espone la web app su `http://localhost:8100`.
 - Variabili: `MONGO_URI`, `DB_NAME`, `INPUT_DIR` configurate in `docker-compose.yml`.
+  L'interfaccia mostra solo l'istanza (host:port) e il nome DB; eventuali credenziali sono lette da `MONGO_URI` e non vengono esposte.
 
 Ricostruisci l'immagine dopo modifiche al codice:
 
