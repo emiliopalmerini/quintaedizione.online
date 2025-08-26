@@ -29,6 +29,6 @@ DEFAULT_WORK: List[WorkItem] = [
     WorkItem("09_rules_glossary.md", "rules_glossary", parse_rules_glossary),
     WorkItem("13_monsters_az.md", "monsters", parse_monsters),
     WorkItem("14_animals.md", "animals", parse_monsters),
-    WorkItem("04_classes.md", "classes", parse_classes),
+    # Italian classes file
+    WorkItem("ita/04_classi.md", "classes", parse_classes),
 ]
-
