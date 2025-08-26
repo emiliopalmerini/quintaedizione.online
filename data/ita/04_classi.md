@@ -29,7 +29,7 @@ Tabella: Tratti base del Barbaro
 
 ### Privilegi di classe del Barbaro
 
-Come Barbaro, ottieni i seguenti privilegi di classe quando raggiungi i livelli indicati da Barbaro. Queste capacità sono elencati nella tabella Privilegi del Barbaro.  
+Come Barbaro, ottieni i seguenti privilegi di classe quando raggiungi i livelli indicati da Barbaro. Questi privilegi sono elencati nella tabella Privilegi del Barbaro.  
 
 Tabella: Privilegi del Barbaro
 
@@ -110,7 +110,7 @@ Inoltre, mentre sei in Furia, puoi incanalare energia primordiale per alcuni com
 
 #### 4° livello: Aumento dei punteggi di caratteristica
 
-Ottieni il talento Aumento dei punteggi di caratteristica (vedi “Talenti”) o un altro talento di cui soddisfi i prerequisiti. Riottieni questa capacità ai livelli 8, 12 e 16.  
+Ottieni il talento Aumento dei punteggi di caratteristica (vedi “Talenti”) o un altro talento di cui soddisfi i prerequisiti. Riottieni questo privilegio ai livelli 8, 12 e 16.  
 
 #### 5° livello: Attacco extra
 
@@ -194,7 +194,7 @@ Quando subisci danno da una creatura entro 1,5 metri da te, puoi usare una Reazi
 
 Come Azione bonus, puoi incutere terrore con la tua presenza minacciosa. Ogni creatura a tua scelta in un’emanazione di 9 metri deve superare un TS di Saggezza (CD 8 + mod Forza + bonus competenza) o diventa Spaventata per 1 minuto. Alla fine di ogni turno, può ripetere il tiro per terminare l’effetto.  
 
-Una volta usata, non puoi riutilizzare questa capacità finché non completi un Riposo lungo, a meno che tu non spenda un uso di Furia per riattivarla.
+Una volta usata, non puoi riutilizzare questo privilegio finché non completi un Riposo lungo, a meno che tu non spenda un uso di Furia per riattivarla.
 
 ## Bardo
 
@@ -226,7 +226,7 @@ Tabella: Tratti base del Bardo
 
 ### Privilegi di classe del Bardo
 
-Come Bardo, ottieni i seguenti privilegi ai livelli indicati. Queste capacità sono elencati nella tabella Privilegi del Bardo.  
+Come Bardo, ottieni i seguenti privilegi ai livelli indicati. Questi privilegi sono elencati nella tabella Privilegi del Bardo.  
 
 Tabella: Privilegi del Bardo ———Slot incantesimo per livello———
 
@@ -295,7 +295,7 @@ Ottieni una sottoclasse da Bardo a tua scelta. Il Collegio della Sapienza è des
 
 #### 4° livello: Aumento dei punteggi di caratteristica
 
-Ottieni il talento Aumento dei punteggi di caratteristica o un altro talento di cui soddisfi i prerequisiti. Ottieni questa capacità anche ai livelli 8, 12 e 16.  
+Ottieni il talento Aumento dei punteggi di caratteristica o un altro talento di cui soddisfi i prerequisiti. Ottieni questo privilegio anche ai livelli 8, 12 e 16.  
 
 #### 5° livello: Fonte di Ispirazione
 
@@ -371,7 +371,7 @@ Tabella: Tratti base del Chierico
 
 ### Privilegi del Chierico
 
-Come Chierico, ottieni i seguenti privilegi ai livelli indicati. Queste capacità sono elencati nella tabella Privilegi del Chierico.  
+Come Chierico, ottieni i seguenti privilegi ai livelli indicati. Questi privilegi sono elencati nella tabella Privilegi del Chierico.  
 
 Tabella: Privilegi del Chierico ———Slot incantesimo per livello———
 
@@ -436,7 +436,7 @@ Ottieni una sottoclasse a tua scelta. Il Dominio della Vita è descritto dopo qu
 
 #### 4° livello: Aumento dei punteggi di caratteristica
 
-Ottieni il talento Aumento dei punteggi di caratteristica o un altro talento idoneo. Ottieni questa capacità anche ai livelli 8, 12 e 16.  
+Ottieni il talento Aumento dei punteggi di caratteristica o un altro talento idoneo. Ottieni questo privilegio anche ai livelli 8, 12 e 16.  
 
 #### 5° livello: Bruciare Non Morti
 
@@ -530,7 +530,7 @@ Tabella: Tratti base del Druido
 
 ### Privilegi di classe del Druido
 
-Come Druido, ottieni i seguenti privilegi quando raggiungi i livelli indicati. Queste capacità sono elencati nella tabella Privilegi del Druido.
+Come Druido, ottieni i seguenti privilegi quando raggiungi i livelli indicati. Questi privilegi sono elencati nella tabella Privilegi del Druido.
 
 Tabella: Privilegi del Druido ———Slot incantesimo per livello———
 
@@ -587,7 +587,7 @@ Ti dedichi a uno dei seguenti ruoli:
 
 #### 2° livello: Forma selvatica
 
-La natura ti consente di assumere la forma di un animale. Come Azione bonus, ti trasformi in una Bestia che conosci per questa capacità (vedi “Forme conosciute”). Resti in forma per un numero di ore pari a metà del tuo livello da Druido o finché usi di nuovo Forma selvatica, diventi Incapacitato o muori. Puoi terminare prima come Azione bonus.  
+La natura ti consente di assumere la forma di un animale. Come Azione bonus, ti trasformi in una Bestia che conosci per questo privilegio (vedi “Forme conosciute”). Resti in forma per un numero di ore pari a metà del tuo livello da Druido o finché usi di nuovo Forma selvatica, diventi Incapacitato o muori. Puoi terminare prima come Azione bonus.  
 
 **Numero di usi.** Puoi usare Forma selvatica due volte. Recuperi un uso con un Riposo breve e tutti con un Riposo lungo. Usi addizionali secondo la colonna Forma selvatica.  
 
@@ -617,7 +617,7 @@ Ottieni una sottoclasse da Druido a tua scelta. Il Circolo della Terra è descri
 
 #### 4° livello: Aumento dei punteggi di caratteristica
 
-Ottieni il talento Aumento dei punteggi di caratteristica o un altro talento idoneo. Ottieni di nuovo questa capacità ai livelli 8, 12 e 16.
+Ottieni il talento Aumento dei punteggi di caratteristica o un altro talento idoneo. Ottieni di nuovo questo privilegio ai livelli 8, 12 e 16.
 
 #### 5° livello: Rinascita selvatica
 
@@ -934,7 +934,7 @@ Tabella: Tratti base del Guerriero
 
 ### Privilegi di classe del Guerriero
 
-Come Guerriero, ottieni i seguenti privilegi quando raggiungi i livelli indicati. Queste capacità sono elencati nella tabella Privilegi del Guerriero.
+Come Guerriero, ottieni i seguenti privilegi quando raggiungi i livelli indicati. Questi privilegi sono elencati nella tabella Privilegi del Guerriero.
 
 Tabella: Privilegi del Guerriero
 
@@ -988,7 +988,7 @@ Ottieni una sottoclasse da Guerriero a scelta. Il Campione è descritto dopo que
 
 #### 4° livello: Aumento dei punteggi di caratteristica
 
-Ottieni il talento Aumento dei punteggi di caratteristica o un altro talento idoneo. Ottieni di nuovo questa capacità ai livelli 6, 8, 12, 14 e 16.
+Ottieni il talento Aumento dei punteggi di caratteristica o un altro talento idoneo. Ottieni di nuovo questo privilegio ai livelli 6, 8, 12, 14 e 16.
 
 #### 5° livello: Attacco extra
 
@@ -1085,7 +1085,7 @@ Tabella: Tratti base del Monaco
 
 ### Privilegi di classe del Monaco
 
-Come Monaco, ottieni i seguenti privilegi quando raggiungi i livelli indicati. Queste capacità sono elencati nella tabella Privilegi del Monaco.
+Come Monaco, ottieni i seguenti privilegi quando raggiungi i livelli indicati. Questi privilegi sono elencati nella tabella Privilegi del Monaco.
 
 Tabella: Privilegi del Monaco
 
@@ -1265,7 +1265,7 @@ Tabella: Tratti base del Paladino
 
 ### Privilegi di classe del Paladino
 
-Come Paladino, ottieni i seguenti privilegi quando raggiungi i livelli indicati. Queste capacità sono elencati nella tabella Privilegi del Paladino.
+Come Paladino, ottieni i seguenti privilegi quando raggiungi i livelli indicati. Questi privilegi sono elencati nella tabella Privilegi del Paladino.
 
 Tabella: Privilegi del Paladino —Slot incantesimo per livello—
 
@@ -1451,7 +1451,7 @@ Tabella: Tratti base del Ranger
 
 ### Privilegi di classe del Ranger
 
-Come Ranger, ottieni i seguenti privilegi quando raggiungi i livelli indicati. Queste capacità sono elencati nella tabella Privilegi del Ranger.
+Come Ranger, ottieni i seguenti privilegi quando raggiungi i livelli indicati. Questi privilegi sono elencati nella tabella Privilegi del Ranger.
 
 Tabella: Privilegi del Ranger —Slot incantesimo per livello—
 
@@ -1625,7 +1625,7 @@ Tabella: Tratti base del Ladro
 
 ### Privilegi di classe del Ladro
 
-Come Ladro, ottieni i seguenti privilegi quando raggiungi i livelli indicati. Queste capacità sono elencati nella tabella Privilegi del Ladro.
+Come Ladro, ottieni i seguenti privilegi quando raggiungi i livelli indicati. Questi privilegi sono elencati nella tabella Privilegi del Ladro.
 
 Tabella: Privilegi del Ladro
 
@@ -1795,7 +1795,7 @@ Tabella: Tratti base dello Stregone
 
 ### Privilegi di classe dello Stregone
 
-Come Stregone, ottieni i seguenti privilegi quando raggiungi i livelli indicati. Queste capacità sono elencati nella tabella Privilegi dello Stregone.
+Come Stregone, ottieni i seguenti privilegi quando raggiungi i livelli indicati. Questi privilegi sono elencati nella tabella Privilegi dello Stregone.
 
 Tabella: Privilegi dello Stregone — Slot incantesimo per livello —
 
@@ -1853,7 +1853,7 @@ Un evento del tuo passato ti ha segnato, infondendoti magia ribollente. Come Azi
 - La CD dei tuoi incantesimi da Stregone aumenta di 1.  
 - Hai vantaggio ai tiri per colpire con incantesimi da Stregone.  
 
-Puoi usare questa capacità due volte, e recuperi tutti gli usi spesi dopo un Riposo lungo.  
+Puoi usare questo privilegio due volte, e recuperi tutti gli usi spesi dopo un Riposo lungo.  
 
 ---
 
@@ -1863,7 +1863,7 @@ Puoi attingere alla sorgente di potere dentro di te: i **Punti Stregoneria**, ch
 
 Ne hai 2, e ne ottieni altri con i livelli successivi (vedi tabella). Non puoi averne più di quelli previsti. Li recuperi tutti dopo un Riposo lungo.  
 
-Puoi spenderli per alimentare le opzioni seguenti o altre capacità come il Metamagia.  
+Puoi spenderli per alimentare le opzioni seguenti o altri privilegi come il Metamagia.  
 
 **Convertire slot in punti.** Puoi spendere uno slot incantesimo per ottenere un numero di Punti Stregoneria pari al livello dello slot (nessuna azione richiesta).  
 
@@ -1897,19 +1897,19 @@ Ogni volta che sali di livello da Stregone, puoi sostituire una delle tue opzion
 
 Ottieni una sottoclasse da Stregone a tua scelta. La sottoclasse **Stregoneria draconica** è descritta dopo questa sezione.  
 
-Una sottoclasse è una specializzazione che ti garantisce capacità a determinati livelli. Per il resto della tua carriera, ottieni i privilegi di classe della tua sottoclasse di livello pari o inferiore al tuo livello da Stregone.  
+Una sottoclasse è una specializzazione che ti garantisce privilegi a determinati livelli. Per il resto della tua carriera, ottieni i privilegi di classe della tua sottoclasse di livello pari o inferiore al tuo livello da Stregone.  
 
 ---
 
 #### 4° livello: Aumento dei punteggi di caratteristica
 
-Ottieni il talento **Aumento dei punteggi di caratteristica** (vedi “Talenti”) o un altro talento a cui hai accesso. Ottieni questa capacità anche ai livelli 8, 12 e 16.  
+Ottieni il talento **Aumento dei punteggi di caratteristica** (vedi “Talenti”) o un altro talento a cui hai accesso. Ottieni questo privilegio anche ai livelli 8, 12 e 16.  
 
 ---
 
 #### 5° livello: Ripristino stregonesco
 
-Quando termini un Riposo breve, puoi recuperare Punti Stregoneria spesi fino a un massimo pari a metà del tuo livello da Stregone (arrotondato per difetto). Una volta usata questa capacità, non puoi riutilizzarla finché non termini un Riposo lungo.  
+Quando termini un Riposo breve, puoi recuperare Punti Stregoneria spesi fino a un massimo pari a metà del tuo livello da Stregone (arrotondato per difetto). Una volta usata questo privilegio, non puoi riutilizzarla finché non termini un Riposo lungo.  
 
 ---
 
@@ -1935,7 +1935,7 @@ Mentre la tua **Stregoneria innata** è attiva, puoi applicare un’opzione di M
 
 ### Opzioni di Metamagia
 
-Le seguenti opzioni sono disponibili per la tua capacità **Metamagia**. Sono presentate in ordine alfabetico.  
+Le seguenti opzioni sono disponibili per il tuo privilegio **Metamagia**. Sono presentate in ordine alfabetico.  
 
 #### Incantesimo accurato
 
@@ -2280,7 +2280,7 @@ Ottieni Resistenza a quel tipo di danno e, quando lanci un incantesimo che infli
 
 Come Azione Bonus, puoi far apparire un paio di ali draconiche sulla tua schiena. Le ali durano per 1 ora o fino a quando non le congedi (nessuna azione richiesta). Per tutta la durata, ottieni una Velocità di volare pari a 18 metri.  
 
-Una volta usata questa capacità, non puoi riutilizzarla fino al termine di un Riposo Lungo, a meno che tu non spenda 3 Punti Stregoneria (nessuna azione richiesta) per ripristinarne l’uso.
+Una volta usata questo privilegio, non puoi riutilizzarla fino al termine di un Riposo Lungo, a meno che tu non spenda 3 Punti Stregoneria (nessuna azione richiesta) per ripristinarne l’uso.
 
 ---
 
@@ -2322,7 +2322,7 @@ Tabella: Tratti Base del Warlock
 
 ### Privilegi del Warlock
 
-Come Warlock, ottieni i seguenti privilegi man mano che raggiungi i livelli specificati. Queste capacità sono elencati nella tabella Privilegi del Warlock.
+Come Warlock, ottieni i seguenti privilegi man mano che raggiungi i livelli specificati. Questi privilegi sono elencati nella tabella Privilegi del Warlock.
 
 Tabella: Privilegi del Warlock
 
@@ -2367,7 +2367,7 @@ Non puoi scegliere la stessa invocazione più di una volta, a meno che la descri
 
 #### Livello 1: Magia del Patto
 
-Attraverso un rituale occulto, hai stretto un patto con un’entità misteriosa per ottenere poteri magici. L’entità è una voce nell’ombra — la sua identità è incerta — ma il suo dono per te è concreto: la capacità di lanciare incantesimi.  
+Attraverso un rituale occulto, hai stretto un patto con un’entità misteriosa per ottenere poteri magici. L’entità è una voce nell’ombra — la sua identità è incerta — ma il suo dono per te è concreto: il privilegio di lanciare incantesimi.  
 
 Consulta “Incantesimi” per le regole generali sul lancio. Le informazioni seguenti dettagliano come usi queste regole con gli incantesimi da Warlock, che appaiono nella lista degli incantesimi da Warlock più avanti.
 
@@ -2379,11 +2379,11 @@ Ai livelli 4 e 10 da Warlock impari un altro trucchetto a tua scelta, come indic
 
 Ad esempio, quando sei un Warlock di 5° livello, hai due slot di 3°. Per lanciare l’incantesimo di 1° livello *Ammaliare Persone*, devi spendere uno di quegli slot e lo lanci come un incantesimo di 3° livello.
 
-**Incantesimi Preparati di 1° livello o superiore.** Prepari la lista di incantesimi di 1° livello o superiore che puoi lanciare con questa capacità. Per iniziare, scegli due incantesimi da Warlock di 1°. *Ammaliare Persone* e *Maledizione* sono consigliati.  
+**Incantesimi Preparati di 1° livello o superiore.** Prepari la lista di incantesimi di 1° livello o superiore che puoi lanciare con questo privilegio. Per iniziare, scegli due incantesimi da Warlock di 1°. *Ammaliare Persone* e *Maledizione* sono consigliati.  
 
 Il numero di incantesimi preparati aumenta man mano che sali di livello, come indicato nella colonna Incantesimi Preparati della tabella Privilegi del Warlock. Ogni volta che quel numero aumenta, scegli nuovi incantesimi da Warlock fino a raggiungere il totale mostrato in tabella. Gli incantesimi scelti non possono avere un livello superiore a quello mostrato nella colonna Livello Slot. Ad esempio, al 6° livello impari un nuovo incantesimo da Warlock che può essere di 1°, 2° o 3°.  
 
-Se un’altra capacità da Warlock ti fornisce incantesimi sempre preparati, questi non contano nel totale ma sono comunque considerati incantesimi da Warlock per te.
+Se un altro privilegio da Warlock ti fornisce incantesimi sempre preparati, questi non contano nel totale ma sono comunque considerati incantesimi da Warlock per te.
 
 **Cambiare gli Incantesimi Preparati.** Ogni volta che sali di livello da Warlock, puoi sostituire un incantesimo della tua lista con un altro incantesimo da Warlock di livello idoneo.  
 
@@ -2394,13 +2394,13 @@ Se un’altra capacità da Warlock ti fornisce incantesimi sempre preparati, que
 #### Livello 2: Astuzia Magica
 
 Puoi eseguire un rito esoterico per 1 minuto. Al termine, recuperi slot di Magia del Patto spesi, fino a un numero pari alla metà del tuo massimo (arrotondato per eccesso).  
-Una volta usata questa capacità, non puoi riutilizzarla finché non completi un Riposo Lungo.
+Una volta usata questo privilegio, non puoi riutilizzarla finché non completi un Riposo Lungo.
 
 ---
 
 #### Livello 3: Sottoclasse da Warlock
 
-Ottieni una sottoclasse da Warlock a tua scelta. La sottoclasse Patrono Infernale è descritta dopo questa sezione. Una sottoclasse è una specializzazione che ti conferisce capacità a determinati livelli da Warlock.  
+Ottieni una sottoclasse da Warlock a tua scelta. La sottoclasse Patrono Infernale è descritta dopo questa sezione. Una sottoclasse è una specializzazione che ti conferisce dei privilegi a determinati livelli da Warlock.  
 Per il resto della tua carriera, ottieni ciascuna deli privilegi di classe della sottoclasse compatibili con il tuo livello da Warlock.
 
 ---
@@ -2408,7 +2408,7 @@ Per il resto della tua carriera, ottieni ciascuna deli privilegi di classe della
 #### Livello 4: Aumento dei Punteggi di Caratteristica
 
 Ottieni il talento Aumento dei Punteggi di Caratteristica (vedi “Talenti”) oppure un altro talento a tua scelta per cui soddisfi i requisiti.  
-Ottieni questa capacità anche ai livelli 8, 12 e 16.
+Ottieni questo privilegio anche ai livelli 8, 12 e 16.
 
 ---
 
@@ -2416,7 +2416,7 @@ Ottieni questa capacità anche ai livelli 8, 12 e 16.
 
 In passato contattavi il tuo patrono tramite intermediari. Ora puoi comunicare direttamente: hai sempre preparato l’incantesimo *Contattare un altro piano*.  
 
-Con questa capacità puoi lanciare l’incantesimo senza spendere slot, per contattare il tuo patrono, e superi automaticamente il tiro salvezza richiesto.  
+Con questo privilegio puoi lanciare l’incantesimo senza spendere slot, per contattare il tuo patrono, e superi automaticamente il tiro salvezza richiesto.  
 Una volta lanciato in questo modo, non puoi farlo di nuovo finché non completi un Riposo Lungo.
 
 ---
@@ -2443,7 +2443,7 @@ Il Dono del Fato è consigliato.
 
 #### Livello 20: Maestro delle Arti Occulte
 
-Quando usi la tua capacità Astuzia Magica, recuperi tutti i tuoi slot di Magia del Patto spesi.
+Quando usi il tuo privilegio Astuzia Magica, recuperi tutti i tuoi slot di Magia del Patto spesi.
 
 ### Opzioni di Invocazioni Occulte
 
@@ -2622,7 +2622,7 @@ Finché dura il vincolo:
 - puoi usare Carisma per tiri per colpire e danni al posto di Forza o Destrezza;  
 - puoi far sì che infligga danni Necrotici, Psichici o Radianti invece del suo normale tipo di danno.  
 
-Il vincolo termina se usi di nuovo questa capacità, se l’arma resta a più di 1,5 metri da te per 1 minuto o più, o se muori.  
+Il vincolo termina se usi di nuovo questo privilegio, se l’arma resta a più di 1,5 metri da te per 1 minuto o più, o se muori.  
 Un’arma evocata svanisce alla fine del vincolo.
 
 ---
@@ -2644,7 +2644,7 @@ Intessendo le ombre, evochi un libro nella tua mano alla fine di un Riposo Breve
 - **Trucchetti e Rituali.** Quando appare, scegli tre trucchetti e due incantesimi di 1° livello con il tag Rituale, provenienti da qualsiasi lista. Non devono essere incantesimi che hai già preparato. Finché hai il libro con te, hai questi incantesimi preparati e funzionano come incantesimi da Warlock per te.  
 - **Focus da Incantatore.** Puoi usare il libro come Focus da Incantatore.  
 
-Il libro scompare se evochi un altro libro con questa capacità o se muori.
+Il libro scompare se evochi un altro libro con questo privilegio o se muori.
 
 ---
 
@@ -2660,7 +2660,7 @@ Scegli uno dei tuoi trucchetti da Warlock conosciuti che richiede un tiro per co
 #### Lama Assetata  
 *Prerequisito: Warlock di 5° livello o superiore, Invocazione Patto della Lama*  
 
-Ottieni la capacità Attacco Extra, ma solo con la tua arma del patto. Con essa puoi attaccare due volte invece di una quando usi l’Azione Attacco.
+Ottieni il privilegio Attacco Extra, ma solo con la tua arma del patto. Con essa puoi attaccare due volte invece di una quando usi l’Azione Attacco.
 
 ---
 
@@ -2867,13 +2867,13 @@ Puoi invocare il tuo patrono infernale per piegare il fato a tuo favore.
 Quando effettui una prova di caratteristica o un tiro salvezza, puoi aggiungere 1d10 al tiro.  
 Puoi farlo dopo aver visto il risultato, ma prima che vengano applicati gli effetti.
 
-Puoi usare questa capacità un numero di volte pari al tuo modificatore di Carisma (minimo 1 volta). Non puoi usarla più di una volta per lo stesso tiro. Recuperi tutti gli usi spesi quando completi un Riposo Lungo.
+Puoi usare questo privilegio un numero di volte pari al tuo modificatore di Carisma (minimo 1 volta). Non puoi usarla più di una volta per lo stesso tiro. Recuperi tutti gli usi spesi quando completi un Riposo Lungo.
 
 ---
 
 #### Livello 10: Resilienza Infernale
 
-Alla fine di ogni Riposo Breve o Lungo, scegli un tipo di danno (eccetto Forza). Ottieni Resistenza a quel tipo di danno fino a quando non lo cambi usando nuovamente questa capacità.
+Alla fine di ogni Riposo Breve o Lungo, scegli un tipo di danno (eccetto Forza). Ottieni Resistenza a quel tipo di danno fino a quando non lo cambi usando nuovamente questo privilegio.
 
 ---
 
@@ -2886,7 +2886,7 @@ Il bersaglio deve superare un tiro salvezza su Carisma contro la tua CD degli in
 - Ha la condizione *Incapacitated* fino alla fine del tuo prossimo turno.  
 - Al termine, riappare nello spazio che occupava o nello spazio libero più vicino.
 
-Una volta usata questa capacità, non puoi riutilizzarla finché non completi un Riposo Lungo, a meno che tu non spenda uno slot di Patto (nessuna azione richiesta) per ripristinarne l’uso.
+Una volta usata questo privilegio, non puoi riutilizzarla finché non completi un Riposo Lungo, a meno che tu non spenda uno slot di Patto (nessuna azione richiesta) per ripristinarne l’uso.
 
 ## Mago
 
@@ -2966,7 +2966,7 @@ Ogni volta che sali di livello da Mago, aggiungi due incantesimi da Mago di tua 
 
 **Slot Incantesimo.** La tabella Privilegi del Mago mostra quanti slot possiedi per lanciare incantesimi di 1° livello o superiori. Recuperi tutti gli slot spesi al termine di un Riposo Lungo.
 
-**Incantesimi Preparati di 1° Livello o Superiori.** Prepari un elenco di incantesimi da Mago di 1° livello o superiori che puoi lanciare con questa capacità. Per iniziare, scegli quattro incantesimi dal tuo libro. Devono essere di livello per cui possiedi slot.  
+**Incantesimi Preparati di 1° Livello o Superiori.** Prepari un elenco di incantesimi da Mago di 1° livello o superiori che puoi lanciare con questo privilegio. Per iniziare, scegli quattro incantesimi dal tuo libro. Devono essere di livello per cui possiedi slot.  
 
 Il numero di incantesimi preparati cresce con i livelli, come indicato nella colonna Incantesimi Preparati della tabella Privilegi del Mago.  
 
@@ -2990,7 +2990,7 @@ Puoi recuperare parte della tua energia magica studiando il tuo libro.
 Quando completi un Riposo Breve, scegli slot incantesimo spesi da recuperare. Gli slot possono avere un livello combinato pari a metà del tuo livello da Mago (arrotondato per eccesso) e nessuno può essere di 6° livello o superiore.  
 
 Ad esempio, se sei un Mago di 4° livello puoi recuperare due livelli di slot: o uno slot di 2°, o due slot di 1°.  
-Una volta usata questa capacità, non puoi riutilizzarla finché non completi un Riposo Lungo.
+Una volta usata questo privilegio, non puoi riutilizzarla finché non completi un Riposo Lungo.
 
 #### Livello 2: Sapiente
 
@@ -3024,7 +3024,7 @@ Una sottoclasse è una specializzazione che ti conferisce capacità a determinat
 #### Livello 4: Aumento dei Punteggi di Caratteristica
 
 Ottieni il talento **Aumento dei Punteggi di Caratteristica** (vedi “Talenti”) o un altro talento a tua scelta per cui possiedi i requisiti.  
-Ottieni questa capacità di nuovo ai livelli 8, 12 e 16 da Mago.
+Ottieni questo privilegio di nuovo ai livelli 8, 12 e 16 da Mago.
 
 ---
 
@@ -3400,7 +3400,7 @@ Ogni volta che lanci un incantesimo da Mago della scuola di Evocazione, puoi agg
 
 Puoi aumentare la potenza dei tuoi incantesimi. Quando lanci un incantesimo da Mago di livello 1–5 che infligge danni, puoi far sì che infligga il massimo dei danni nel turno in cui lo lanci.
 
-La prima volta che lo fai non subisci conseguenze. Se usi nuovamente questa capacità prima di terminare un Riposo Lungo, subisci 2d12 danni necrotici per ogni livello dello slot incantesimo immediatamente dopo averlo lanciato. Questi danni ignorano Resistenza e Immunità.
+La prima volta che lo fai non subisci conseguenze. Se usi nuovamente questo privilegio prima di terminare un Riposo Lungo, subisci 2d12 danni necrotici per ogni livello dello slot incantesimo immediatamente dopo averlo lanciato. Questi danni ignorano Resistenza e Immunità.
 
-Ogni volta che usi nuovamente questa capacità prima di terminare un Riposo Lungo, i danni necrotici per livello di incantesimo aumentano di 1d12.
+Ogni volta che usi nuovamente questo privilegio prima di terminare un Riposo Lungo, i danni necrotici per livello di incantesimo aumentano di 1d12.
 
