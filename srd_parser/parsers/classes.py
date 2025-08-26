@@ -12,7 +12,6 @@ from ..utils import (
     split_sections,
 )
 
-
 # Regex utils specific to class parsing (Italian headings)
 TAB_LABEL_RE = re.compile(r"^Tabella:\s*(?P<label>.+?)\s*$", re.IGNORECASE)
 LEVEL_FEATURE_H_RE = re.compile(
@@ -24,16 +23,13 @@ LEVEL_FEATURE_H_RE = re.compile(
 def _slugify(s: str) -> str:
     x = s.strip().lower()
     # Replace spaces and apostrophes; keep simple ascii-only without transliteration
-    x = (
-        x.replace(" ", "-")
-        .replace("'", "")
-        .replace("’", "")
-        .replace("/", "-")
-    )
+    x = x.replace(" ", "-").replace("'", "").replace("’", "").replace("/", "-")
     return x
 
 
-def _parse_markdown_table(block: List[str], start_idx: int) -> Tuple[List[str], List[List[str]], int]:
+def _parse_markdown_table(
+    block: List[str], start_idx: int
+) -> Tuple[List[str], List[List[str]], int]:
     """
     Parse a GitHub-style markdown table starting at start_idx (header row).
     Returns (headers, rows, next_index_after_table).
@@ -58,7 +54,9 @@ def _parse_markdown_table(block: List[str], start_idx: int) -> Tuple[List[str], 
     return header, rows, i
 
 
-def _find_next_table(block: List[str], label_contains: str) -> Tuple[List[str], List[List[str]]]:
+def _find_next_table(
+    block: List[str], label_contains: str
+) -> Tuple[List[str], List[List[str]]]:
     label_lc = label_contains.lower()
     i = 0
     n = len(block)
@@ -144,7 +142,10 @@ def _parse_base_traits_table(block: List[str]) -> Dict:
             opts = [o.strip() for o in re.split(r",\s*", m.group(2)) if o.strip()]
             out["abilità_competenze_opzioni"] = {"scegli": scegli, "opzioni": opts}
         else:
-            out["abilità_competenze_opzioni"] = {"scegli": 0, "opzioni": [skills.strip()]}
+            out["abilità_competenze_opzioni"] = {
+                "scegli": 0,
+                "opzioni": [skills.strip()],
+            }
 
     # Armi competenti -> list
     weapons = traits.get("Armi competenti")
@@ -162,7 +163,11 @@ def _parse_base_traits_table(block: List[str]) -> Dict:
     # Equipaggiamento iniziale -> options A/B if present
     eq = traits.get("Equipaggiamento iniziale")
     if eq:
-        m = re.search(r"Scegli\s*A\s*o\s*B:\s*\(A\)\s*(.+?);\s*oppure\s*\(B\)\s*(.+)$", eq, re.IGNORECASE)
+        m = re.search(
+            r"Scegli\s*A\s*o\s*B:\s*\(A\)\s*(.+?);\s*oppure\s*\(B\)\s*(.+)$",
+            eq,
+            re.IGNORECASE,
+        )
         if m:
             a_items = [s.strip() for s in m.group(1).split(",") if s.strip()]
             b_items = [s.strip() for s in m.group(2).split(",") if s.strip()]
@@ -172,7 +177,10 @@ def _parse_base_traits_table(block: List[str]) -> Dict:
             ]
         else:
             out["equipaggiamento_iniziale_opzioni"] = [
-                {"etichetta": "Default", "oggetti": [s.strip() for s in eq.split(",") if s.strip()]}
+                {
+                    "etichetta": "Default",
+                    "oggetti": [s.strip() for s in eq.split(",") if s.strip()],
+                }
             ]
 
     return out
@@ -222,7 +230,9 @@ def _parse_levels_table(block: List[str]) -> List[Dict]:
         if privs:
             privs = privs.replace("—", "").strip()
             if privs:
-                item["privilegi_di_classe"] = [c.strip() for c in privs.split(",") if c.strip()]
+                item["privilegi_di_classe"] = [
+                    c.strip() for c in privs.split(",") if c.strip()
+                ]
         # trucchetti/incantesimi_preparati
         for k in ("trucchetti_conosciuti", "incantesimi_preparati"):
             v = clean_value(row.get(k))
@@ -286,6 +296,14 @@ def _parse_class_block(title: str, block: List[str]) -> Dict:
         "slug": _slugify(name),
         "nome": name,
     }
+
+    # Include full markdown content of the class section (from H2 to before next H2)
+    try:
+        full_md = "\n".join([f"## {name}"] + block).strip() + "\n"
+        if full_md:
+            doc["content"] = full_md
+    except Exception:
+        pass
 
     # Base traits (Tratti base del <Classe>)
     core = _parse_base_traits_table(block)
@@ -388,7 +406,9 @@ def _parse_class_spell_lists(block: List[str]) -> Dict:
     target_block: Optional[List[str]] = None
     for h3_title, h3_block in h3_sections:
         t = h3_title.strip().lower()
-        if t.startswith("lista incantesimi del") or t.startswith("lista incantesimi dello"):
+        if t.startswith("lista incantesimi del") or t.startswith(
+            "lista incantesimi dello"
+        ):
             target_block = h3_block
             break
     if not target_block:
@@ -408,7 +428,9 @@ def _parse_class_spell_lists(block: List[str]) -> Dict:
         if inc_idx is None:
             # Some broken tables may omit incantesimo names; skip
             continue
-        names = [r[inc_idx].strip() for r in rows if inc_idx < len(r) and r[inc_idx].strip()]
+        names = [
+            r[inc_idx].strip() for r in rows if inc_idx < len(r) and r[inc_idx].strip()
+        ]
         if not names:
             continue
         if "trucchetti" in lab_l:
