@@ -1,95 +1,183 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SRD Parser Web</title>
-  <style>
-    body { font-family: system-ui, sans-serif; margin: 2rem; }
-    form { max-width: 900px; }
-    fieldset { border: 1px solid #ddd; padding: 1rem; margin-bottom: 1rem; }
-    legend { font-weight: 600; }
-    label { display: inline-block; margin: 0.25rem 0; }
-    .row { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .row > div { flex: 1 1 280px; }
-    .actions { margin-top: 1rem; }
-    .messages { margin-top: 1.5rem; white-space: pre-wrap; background: #fafafa; border: 1px solid #eee; padding: 1rem; }
-    code { background: #f1f1f1; padding: 0 0.25rem; border-radius: 3px; }
-  </style>
-  <script>
-    function toggleSelect(all) {
-      document.querySelectorAll('input[name="selected"]').forEach(cb => cb.checked = all);
-    }
-  </script>
-  </head>
-<body>
-  <h1>SRD Parser Web</h1>
-  <p>Parser server-render minimal. Nessun JS richiesto (solo un helper per selezionare tutti/nessuno).</p>
+{% extends "base.html" %}
+{% block title %}SRD Parser Web{% endblock %}
+{% block content %}
+  <section class="bg-gradient-to-br from-indigo-50 to-white border p-6 mb-4">
+    <h1 class="text-2xl font-semibold mb-2">SRD Parser Web</h1>
+    <p class="text-neutral-700 max-w-3xl text-sm">
+      Interfaccia minimale per eseguire il parsing delle fonti SRD e (opzionalmente) fare upsert su MongoDB.
+    </p>
+  </section>
 
-  <form method="post" action="/run">
-    <fieldset>
-      <legend>Impostazioni</legend>
-      <div class="row">
+  <form
+    id="run-form"
+    method="post" action="/run"
+    class="space-y-4"
+    aria-busy="false"
+    hx-post="/run" hx-target="#page-root" hx-swap="outerHTML" hx-indicator="#run-spinner"
+  >
+    <section class="bg-white border p-4">
+      <h2 class="font-semibold mb-3">Impostazioni</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label>Cartella input<br>
-            <input type="text" name="input_dir" value="{{ env.input_dir }}" style="width:100%" />
-          </label>
-          <div><small>Esempio nel container: <code>/data</code></small></div>
+          <label class="text-sm text-neutral-700">Cartella input</label>
+          <input type="text" name="input_dir" value="{{ env.input_dir }}" class="field mt-1" placeholder="Es. /data" />
+          <div class="text-xs text-neutral-500 mt-1">Nel container: <code class="mono bg-neutral-100 border px-1 py-0.5">/data</code></div>
         </div>
         <div>
-          <label>Mongo URI<br>
-            <input type="text" name="mongo_uri" value="{{ env.mongo_uri }}" style="width:100%" />
-          </label>
-          <div><small>Esempio: <code>mongodb://admin:password@mongo:27017/?authSource=admin</code></small></div>
+          <label class="text-sm text-neutral-700">Istanza Mongo (host[:port])</label>
+          <input type="text" name="mongo_instance" value="{{ env.mongo_instance }}" class="field mt-1" placeholder="mongo:27017"
+                 hx-post="/test-conn" hx-trigger="change, keyup changed delay:400ms"
+                 hx-target="#conn-test-result" hx-swap="outerHTML"
+                 hx-include="[name='mongo_instance'], [name='db_name']" hx-indicator="#conn-test-indicator" />
+          <div class="text-xs text-neutral-500 mt-1">Le credenziali (se configurate) sono lette da MONGO_URI e non vengono mostrate.</div>
         </div>
         <div>
-          <label>DB Name<br>
-            <input type="text" name="db_name" value="{{ env.db_name }}" />
-          </label>
+          <label class="text-sm text-neutral-700">DB Name</label>
+          <input type="text" name="db_name" value="{{ env.db_name }}" class="field mt-1"
+                 hx-post="/test-conn" hx-trigger="change, keyup changed delay:400ms"
+                 hx-target="#conn-test-result" hx-swap="outerHTML"
+                 hx-include="[name='mongo_instance'], [name='db_name']" hx-indicator="#conn-test-indicator" />
         </div>
-        <div>
-          <label>
+        <div class="flex items-end">
+          <label class="inline-flex items-center gap-2 text-sm text-neutral-700">
             <input type="checkbox" name="dry_run" {% if env.dry_run %}checked{% endif %} />
-            Dry-run (non scrivere su Mongo)
+            Dry‑run (non scrivere su Mongo)
           </label>
         </div>
       </div>
-    </fieldset>
+      <div class="mt-3 flex items-center gap-3">
+        <button type="button"
+                class="btn"
+                hx-post="/test-conn"
+                hx-target="#conn-test-result"
+                hx-swap="outerHTML"
+                hx-include="[name='mongo_instance'], [name='db_name']"
+                hx-indicator="#conn-test-indicator">
+          Test connessione
+        </button>
+        <span id="conn-test-indicator" class="hidden inline-flex items-center gap-2 text-sm text-neutral-700">
+          <span class="spinner"></span>
+          <span>Verifica…</span>
+        </span>
+        <div id="conn-test-result" class="text-sm text-neutral-600"></div>
+      </div>
+    </section>
 
-    <fieldset>
-      <legend>Collezioni</legend>
-      <div class="actions">
-        <button type="button" onclick="toggleSelect(true)">Seleziona tutto</button>
-        <button type="button" onclick="toggleSelect(false)">Deseleziona tutto</button>
-      </div>
-      <div class="row">
-        {% for w in work_items %}
-        <div>
-          <label>
-            <input type="checkbox" name="selected" value="{{ w.idx }}" {% if w.idx in selected %}checked{% endif %} />
-            <strong>{{ w.collection }}</strong> — <code>{{ w.filename }}</code>
-          </label>
+    <section class="bg-white border p-4">
+      <div class="flex items-center gap-3 mb-3">
+        <h2 class="font-semibold">Collezioni</h2>
+        <span class="text-xs text-neutral-600">Selezionate: <strong id="sel-count">0</strong>/<span id="total-count">{{ work_items|length }}</span></span>
+        <div class="ml-auto flex items-center gap-2">
+          <button type="button" class="btn" onclick="toggleSelect(true)">Seleziona tutto</button>
+          <button type="button" class="btn" onclick="toggleSelect(false)">Deseleziona tutto</button>
         </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        {% for w in work_items %}
+        <label class="flex items-start gap-2 bg-neutral-50 border p-2">
+          <input class="mt-1" type="checkbox" name="selected" value="{{ w.idx }}" {% if w.idx in selected %}checked{% endif %} />
+          <div>
+            <div class="font-medium">{{ w.collection }}</div>
+            <div class="text-xs text-neutral-500">file: <code class="mono bg-white border px-1 py-0.5">{{ w.filename }}</code></div>
+          </div>
+        </label>
         {% endfor %}
       </div>
-    </fieldset>
+    </section>
 
-    <div class="actions">
-      <button type="submit">Esegui parsing</button>
+    <div class="flex items-center gap-3">
+      <button id="run-btn" type="submit" class="btn btn-primary">
+        <span class="inline-flex items-center gap-2"><span id="run-btn-text">Esegui parsing</span></span>
+      </button>
+      <span id="run-spinner" class="hidden inline-flex items-center gap-2 text-sm text-neutral-700">
+        <span class="spinner"></span>
+        <span>In esecuzione…</span>
+      </span>
+      {% if env.dry_run %}<span class="tag">Dry‑run</span>{% endif %}
     </div>
   </form>
 
   {% if messages and messages|length %}
-  <div class="messages">
-    <h3>Log esecuzione</h3>
-    <ul>
-      {% for m in messages %}
-      <li>{{ m }}</li>
-      {% endfor %}
-    </ul>
-  </div>
+    <section class="bg-white border p-4 mt-4">
+      <details open>
+        <summary class="font-semibold cursor-pointer select-none">Log esecuzione <span class="text-xs text-neutral-500">({{ messages|length }} righe)</span></summary>
+        <div class="mt-3 text-sm">
+          <div class="space-y-1">
+            {% for m in messages %}
+            {% set mm = m|lower %}
+            {% set is_err = 'errore' in mm or 'fallit' in mm or 'mancante' in mm or 'non trovata' in mm or 'non trovato' in mm %}
+            {% set is_ok = ('estratti' in mm or 'upsert' in mm or 'fatto' in mm or 'completato' in mm) and not is_err %}
+            {% set klass = is_err and 'border-red-200 bg-red-50 text-red-800' or (is_ok and 'border-green-200 bg-green-50 text-green-800' or 'border-neutral-200 bg-neutral-50 text-neutral-800') %}
+            <div class="border-l-4 {{ klass }} px-3 py-1.5">
+              <span class="mono">{{ m }}</span>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </details>
+    </section>
   {% endif %}
+{% endblock %}
 
-</body>
-</html>
-
+{% block scripts %}
+<script>
+  function updateSelectionCount(){
+    const sel = document.querySelectorAll('input[name="selected"]:checked').length;
+    const el = document.getElementById('sel-count');
+    if(el) el.textContent = String(sel);
+  }
+  function toggleSelect(all) {
+    document.querySelectorAll('input[name="selected"]').forEach(cb => cb.checked = all);
+    updateSelectionCount();
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('input[name="selected"]').forEach(cb=>{
+      cb.addEventListener('change', updateSelectionCount);
+    });
+    updateSelectionCount();
+    const form = document.getElementById('run-form');
+    const btn = document.getElementById('run-btn');
+    const spinner = document.getElementById('run-spinner');
+    const btnText = document.getElementById('run-btn-text');
+    const dry = document.querySelector('input[name="dry_run"]');
+    function getConnOk(){
+      const res = document.getElementById('conn-test-result');
+      return res && res.getAttribute('data-ok') === 'true';
+    }
+    function updateRunBtn(){
+      const dryOn = !!(dry && dry.checked);
+      const ok = getConnOk();
+      const shouldDisable = !dryOn && ok === false; // disable only if not dry-run and test failed
+      if(btn){
+        if(shouldDisable){ btn.setAttribute('disabled','disabled'); }
+        else { btn.removeAttribute('disabled'); }
+      }
+    }
+    document.body.addEventListener('htmx:afterSwap', function(e){
+      try {
+        const t = e.detail && e.detail.target;
+        if(t && t.id === 'conn-test-result') updateRunBtn();
+      } catch(_){}
+    });
+    if(dry){ dry.addEventListener('change', updateRunBtn); }
+    updateRunBtn();
+    // Trigger an initial connectivity test when not dry-run
+    try {
+      if(dry && !dry.checked){
+        const inst = document.querySelector("input[name='mongo_instance']");
+        if(inst){ inst.dispatchEvent(new Event('change', { bubbles: true })); }
+      }
+    } catch(_){}
+    if(form){
+      form.addEventListener('submit', function(){
+        try {
+          form.setAttribute('aria-busy', 'true');
+          if(btn){ btn.setAttribute('disabled','disabled'); }
+          if(btnText){ btnText.textContent = 'In esecuzione…'; }
+          if(spinner){ spinner.classList.remove('hidden'); }
+        } catch(e){}
+      }, { passive: true });
+    }
+  });
+</script>
+{% endblock %}
