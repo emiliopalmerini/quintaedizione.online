@@ -21,8 +21,7 @@
       {% endif %}
       <button type="submit" class="btn btn-ghost" {% if not next_id %}disabled aria-disabled="true" tabindex="-1"{% endif %}>Successivo ›</button>
     </form>
-    <a href="/edit_raw/{{ collection }}/{{ doc_id }}{% if qs %}?{{ qs }}{% endif %}"
-       class="btn" title="Modifica come JSON">Modifica (JSON)</a>
+    
   </nav>
 {% endblock %}
 
@@ -59,11 +58,11 @@
     {% endfor %}
   {% endif %}
 
-  <article class="bg-white border rounded-md p-4">
+  <article class="bg-white border p-4">
     <header class="mb-4">
       <h1 class="text-2xl font-semibold mb-2">{{ doc_title }}</h1>
       <div class="text-xs text-neutral-600 flex items-center flex-wrap gap-2">
-        <span class="mono bg-neutral-100 border rounded px-2 py-0.5" title="{{ doc_id }}">{{ doc_id }}</span>
+        <span class="mono bg-neutral-100 border px-2 py-0.5" title="{{ doc_id }}">{{ doc_id }}</span>
       </div>
     </header>
 
@@ -109,13 +108,13 @@
                   {% else %}
                     <details>
                       <summary class="cursor-pointer text-neutral-600">Lista complessa ({{ v|length }} elementi)</summary>
-                      <pre class="mono whitespace-pre-wrap bg-neutral-50 border rounded p-2 mt-1">{{ v | tojson(indent=2) }}</pre>
+                      <pre class="mono whitespace-pre-wrap bg-neutral-50 border p-2 mt-1">{{ v | tojson(indent=2) }}</pre>
                     </details>
                   {% endif %}
                 {% elif v is mapping %}
                   <details>
                     <summary class="cursor-pointer text-neutral-600">Oggetto</summary>
-                    <pre class="mono whitespace-pre-wrap bg-neutral-50 border rounded p-2 mt-1">{{ v | tojson(indent=2) }}</pre>
+                    <pre class="mono whitespace-pre-wrap bg-neutral-50 border p-2 mt-1">{{ v | tojson(indent=2) }}</pre>
                   </details>
                 {% else %}
                   <div class="font-medium break-words">{{ v }}</div>
