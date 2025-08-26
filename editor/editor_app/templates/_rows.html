@@ -42,7 +42,7 @@
             </div>
             <div class="text-xs text-neutral-500 mono truncate">{{ it._id }}</div>
           </a>
-          <a class="btn btn-primary mt-2" href="/edit/{{ collection }}/{{ it._id }}{% if qs %}?{{ qs }}{% endif %}" aria-label="Modifica documento {{ it._id }}">Modifica</a>
+          <a class="btn btn-primary mt-2" href="/edit_raw/{{ collection }}/{{ it._id }}{% if qs %}?{{ qs }}{% endif %}" aria-label="Modifica documento {{ it._id }} in JSON">Modifica</a>
         </div>
       {% endfor %}
     </div>

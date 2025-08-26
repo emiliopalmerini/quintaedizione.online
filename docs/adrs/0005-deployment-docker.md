@@ -6,11 +6,10 @@ Context
 - Ambiente locale semplice e riproducibile.
 
 Decisione
-- Docker Compose con servizi `mongo`, `editor`, `srd-tui` (nessun profilo).
-- L'immagine del parser usa come entrypoint la TUI (`python -m srd_parser.tui`).
+- Docker Compose con servizi `mongo`, `editor`, `srd-parser` (nessun profilo).
+- L'immagine del parser espone una web app (FastAPI) su porta 8000 (mappata a 8100).
 - Montare `seed/` per ripristino iniziale automatico se il volume è vuoto.
 
 Conseguenze
-- `docker compose up -d mongo editor` avvia DB+editor; il parsing si lancia manualmente via TUI con `docker compose run --rm srd-tui`.
-- Nessun rischio di parsing automatico non intenzionale; l'utente conferma dalla TUI.
+- `docker compose up -d mongo editor srd-parser` avvia DB+editor+parser web; il parsing si gestisce da interfaccia web su `http://localhost:8100`.
 - Ripristino seed trasparente al primo avvio.

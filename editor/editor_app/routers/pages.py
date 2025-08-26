@@ -275,53 +275,6 @@ async def quicksearch(request: Request, collection: str, q: str = "") -> HTMLRes
     return HTMLResponse(tpl.render(collection=collection, q=q, items=items))
 
 
-@router.get("/edit/{collection}/{doc_id}", response_class=HTMLResponse)
-async def doc_form(
-    request: Request, collection: str, doc_id: str, q: str | None = Query(default=None)
-) -> HTMLResponse:
-    if collection not in COLLECTIONS:
-        raise HTTPException(404)
-    db = await get_db()
-    col = db[collection]
-    try:
-        oid = ObjectId(doc_id)
-    except Exception:
-        raise HTTPException(400, "invalid _id")
-
-    doc = await col.find_one({"_id": oid})
-    if not doc:
-        raise HTTPException(404, "Documento non trovato")
-
-    fields = flatten_for_form(doc)
-    # Titolo leggibile per breadcrumb
-    doc_title = str(doc.get("name") or doc.get("term") or doc.get("title") or doc_id)
-    filt_nav = build_filter(q or "", collection, request.query_params)
-    cur_key = str(doc.get("name") or doc.get("term") or "")
-    prev_id, next_id = await _neighbors_alpha(col, cur_key, filt_nav)
-
-    tpl = env.get_template("_doc_form.html")
-    from urllib.parse import urlencode as _urlencode
-
-    qs = (
-        _urlencode(dict(request.query_params))
-        if request and request.query_params
-        else ""
-    )
-    return HTMLResponse(
-        tpl.render(
-            collection=collection,
-            doc_id=str(doc["_id"]),
-            doc_title=doc_title,
-            fields=fields,
-            q=q or "",
-            prev_id=prev_id,
-            next_id=next_id,
-            request=request,
-            qs=qs,
-        )
-    )
-
-
 @router.get("/show/{collection}/{doc_id}", response_class=HTMLResponse)
 async def show_doc(
     request: Request, collection: str, doc_id: str, q: str | None = Query(default=None)
@@ -368,28 +321,7 @@ async def show_doc(
     )
 
 
-@router.put("/edit/{collection}/{doc_id}", response_class=PlainTextResponse)
-async def edit_doc(collection: str, doc_id: str, request: Request) -> PlainTextResponse:
-    if collection not in COLLECTIONS:
-        raise HTTPException(404)
-    form = await request.form()
-    update: Dict[str, Any] = {}
-    for k, v in form.items():
-        if not k.startswith("f."):
-            continue
-        path = k[2:]
-        update[path] = v
-    if not update:
-        return PlainTextResponse("No changes")
-
-    db = await get_db()
-    try:
-        oid = ObjectId(doc_id)
-    except Exception:
-        raise HTTPException(400, "invalid _id")
-
-    await db[collection].update_one({"_id": oid}, {"$set": update})
-    return PlainTextResponse("Saved")
+# Rimosso editor per-campi: mantenuta solo la modalità JSON
 
 
 @router.get("/edit_raw/{collection}/{doc_id}", response_class=HTMLResponse)

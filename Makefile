@@ -3,16 +3,16 @@ SHELL := /bin/sh
 # Config
 PROJECT ?= dnd
 
-.PHONY: up down logs seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh editor-sh tui tui-local tui-up tui-build
+.PHONY: up down logs seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh editor-sh
 
 up:
-	docker compose up -d mongo editor
+	docker compose up -d mongo editor srd-parser
 
 down:
 	docker compose down
 
 logs:
-	docker compose logs -f editor mongo
+	docker compose logs -f editor srd-parser mongo
 
 # Seed helpers (run inside the mongo container)
 seed-dump:
@@ -32,21 +32,3 @@ mongo-sh:
 
 editor-sh:
 	docker compose exec editor sh
-
-# TUI helpers
-tui:
-	# Run the TUI inside Docker (interactive)
-	docker compose run --rm srd-tui
-
-tui-up:
-	# Bring up Mongo and run the TUI
-	docker compose up -d mongo
-	docker compose run --rm srd-tui
-
-tui-local:
-	# Run the TUI locally with your Python
-	python -m srd_parser.tui || python3 -m srd_parser.tui
-
-tui-build:
-	# Rebuild the srd-tui image to pick up code changes
-	docker compose build srd-tui
