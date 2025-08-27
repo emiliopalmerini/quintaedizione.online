@@ -11,7 +11,7 @@ from editor_app.core.config import COLLECTION_LABELS, COLLECTIONS
 from editor_app.core.db import get_db
 from editor_app.core.flatten import flatten_for_form
 from editor_app.utils.markdown import render_md
-from editor_app.core.search import QFilterOptions, q_filter
+from editor_app.application.query_service import build_filter, neighbors_alpha, alpha_sort_expr
 from editor_app.core.templates import env
 from editor_app.core.transform import to_jsonable
 from fastapi import APIRouter, HTTPException, Query, Request
@@ -22,176 +22,7 @@ router = APIRouter()
 # ---- helpers ---------------------------------------------------------------
 
 
-def _rx(val: str) -> Dict[str, Any]:
-    # Regex case-insensitive per filtri parametrici non-q
-    return {"$regex": val, "$options": "i"}
-
-
-def _parse_bool(val: Optional[str]) -> Optional[bool]:
-    if val is None:
-        return None
-    v = val.strip().lower()
-    if v in ("1", "true", "yes", "y", "si", "s"):
-        return True
-    if v in ("0", "false", "no", "n"):
-        return False
-    return None
-
-
-def build_filter(
-    q: str | None, collection: str, params: Mapping[str, str], *, quick: bool = False
-) -> Dict[str, Any]:
-    """
-    Costruisce un filtro MongoDB combinando:
-    - ricerca testuale (q_filter) in modalità 'quick' o 'estesa'
-    - filtri specifici per collezione derivati da querystring
-    """
-    filt: Dict[str, Any] = {}
-
-    # Ricerca testuale
-    if q:
-        if quick:
-            # Ricerca rapida: prefisso su campi principali, query corta consentita
-            q_opts = QFilterOptions(
-                fields=["name", "term", "title", "titolo", "nome"],
-                min_len=1,
-                prefix=True,
-                raw_regex=False,
-                whole_words=False,
-            )
-        else:
-            # Ricerca estesa: anche description e markdown
-            q_opts = QFilterOptions(
-                fields=["name", "term", "title", "titolo", "nome", "description", "description_md", "content"],
-                min_len=2,
-            )
-        qf = q_filter(q, options=q_opts)
-        if qf:
-            filt.update(qf)
-
-    # Filtri specifici per collezione
-    if collection == "spells":
-        lvl = params.get("level")
-        if lvl and lvl.isdigit():
-            filt["level"] = int(lvl)
-
-        school = params.get("school")
-        if school:
-            filt["school"] = _rx(school)
-
-        ritual = _parse_bool(params.get("ritual"))
-        if ritual is not None:
-            filt["ritual"] = ritual
-
-        classes = params.get("classes")
-        if classes:
-            filt["classes"] = {"$elemMatch": _rx(classes)}
-
-    elif collection == "magic_items":
-        rarity = params.get("rarity")
-        if rarity:
-            filt["rarity"] = _rx(rarity)
-
-        itype = params.get("type")
-        if itype:
-            filt["type"] = _rx(itype)
-
-        att = _parse_bool(params.get("attunement"))
-        if att is not None:
-            filt["attunement"] = att
-
-    elif collection == "monsters":
-        size = params.get("size")
-        if size:
-            filt["size"] = _rx(size)
-
-        mtype = params.get("type")
-        if mtype:
-            filt["type"] = _rx(mtype)
-
-        align = params.get("alignment")
-        if align:
-            filt["alignment"] = _rx(align)
-
-        cr = params.get("cr")
-        if cr:
-            try:
-                cr_num = float(cr) if "." in cr or "/" not in cr else None
-            except Exception:
-                cr_num = None
-            if cr_num is not None:
-                filt.setdefault("$and", []).append(
-                    {"$or": [{"challenge_rating": cr_num}, {"cr": cr_num}]}
-                )
-            else:
-                r = _rx(cr)
-                filt.setdefault("$and", []).append(
-                    {"$or": [{"challenge_rating": r}, {"cr": r}]}
-                )
-
-    return filt
-
-
-def _alpha_sort_expr() -> Dict[str, Any]:
-    # Ordine alfabetico preferendo lo slug (se presente), altrimenti
-    # name -> term -> title -> titolo -> nome
-    return {
-        "$toLower": {
-            "$ifNull": [
-                "$slug",
-                {
-                    "$ifNull": [
-                        "$name",
-                        {
-                            "$ifNull": [
-                                "$term",
-                                {
-                                    "$ifNull": [
-                                        "$title",
-                                        {
-                                            "$ifNull": [
-                                                "$titolo",
-                                                {"$ifNull": ["$nome", ""]},
-                                            ]
-                                        },
-                                    ]
-                                },
-                            ]
-                        },
-                    ]
-                },
-            ]
-        }
-    }  # type: ignore[dict-item]
-
-
-async def _neighbors_alpha(
-    col, cur_key: str, filt: Dict[str, Any]
-) -> Tuple[Optional[str], Optional[str]]:
-    key = (cur_key or "").lower()
-    prev_pipe = [
-        {"$match": filt},
-        {"$addFields": {"_sortkey": _alpha_sort_expr()}},
-        {"$match": {"_sortkey": {"$lt": key}}},
-        {"$sort": {"_sortkey": -1, "_id": -1}},
-        {"$limit": 1},
-        {"$project": {"_id": 1}},
-    ]
-    next_pipe = [
-        {"$match": filt},
-        {"$addFields": {"_sortkey": _alpha_sort_expr()}},
-        {"$match": {"_sortkey": {"$gt": key}}},
-        {"$sort": {"_sortkey": 1, "_id": 1}},
-        {"$limit": 1},
-        {"$project": {"_id": 1}},
-    ]
-    prev_id: Optional[str] = None
-    next_id: Optional[str] = None
-    async for d in col.aggregate(prev_pipe):
-        prev_id = str(d.get("_id"))
-    async for d in col.aggregate(next_pipe):
-        next_id = str(d.get("_id"))
-    return prev_id, next_id
+## moved helpers to application.query_service
 
 
 # ---- pages -----------------------------------------------------------------
@@ -317,27 +148,7 @@ async def _load_home_document(db, page: int | None) -> Dict[str, Any]:
 
 
 @router.get("/home/doc", response_class=HTMLResponse)
-async def home_doc_partial(page: int | None = Query(default=None)) -> HTMLResponse:
-    db = await get_db()
-    data = await _load_home_document(db, page)
-    tpl = env.get_template("_homepage_doc.html")
-    doc = data.get("doc")
-    doc_html = ""
-    if doc and doc.get("content"):
-        doc_html = render_md(str(doc.get("content") or ""))
-    return HTMLResponse(
-        tpl.render(
-            doc=to_jsonable(doc) if doc else None,
-            doc_html=doc_html,
-            prev_page=data.get("prev_page"),
-            next_page=data.get("next_page"),
-            prev_title=data.get("prev_title"),
-            next_title=data.get("next_title"),
-            pages_list=data.get("pages_list"),
-            pages_items=data.get("pages_items"),
-            cur_page=data.get("cur_page"),
-        )
-    )
+# removed unused partial route; index renders homepage doc directly
 
 
 @router.get("/list/{collection}", response_class=HTMLResponse)
@@ -369,7 +180,7 @@ async def view_rows(
     # sort by alpha of name/term via aggregation
     pipe = [
         {"$match": filt},
-        {"$addFields": {"_sortkey": _alpha_sort_expr()}},
+        {"$addFields": {"_sortkey": alpha_sort_expr()}},
         {"$sort": {"_sortkey": 1, "_id": 1}},
         {"$skip": (page - 1) * page_size},
         {"$limit": page_size},
@@ -411,7 +222,7 @@ async def quicksearch(request: Request, collection: str, q: str = "") -> HTMLRes
     filt = build_filter(q, collection, request.query_params, quick=True)
     pipe = [
         {"$match": filt},
-        {"$addFields": {"_sortkey": _alpha_sort_expr()}},
+        {"$addFields": {"_sortkey": alpha_sort_expr()}},
         {"$sort": {"_sortkey": 1, "_id": 1}},
         {"$limit": 10},
         {"$project": {"_id": 1, "name": 1, "term": 1, "title": 1, "titolo": 1, "nome": 1}},
@@ -451,7 +262,7 @@ async def show_doc(
         or doc.get("nome")
         or ""
     )
-    prev_id, next_id = await _neighbors_alpha(col, cur_key, filt_nav)
+    prev_id, next_id = await neighbors_alpha(col, cur_key, filt_nav)
     doc_title = str(
         doc.get("name")
         or doc.get("term")
