@@ -26,6 +26,145 @@
 {% endblock %}
 
 {% block content %}
+  {% macro render_value(v) %}
+    {% if v is string or v is number or v in [true,false] %}
+      <div class="font-medium break-words">{{ v }}</div>
+    {% elif v is mapping %}
+      {% if v.get('scegli') is not none and (v.get('opzioni') is sequence) and (v.get('opzioni') is not string) %}
+        {% set choose = (v.get('scegli') | int) %}
+        {% if choose > 0 %}<div class="text-xs text-neutral-600">Scegli {{ choose }}</div>{% endif %}
+        <div class="flex flex-wrap gap-1">{% for s in v.get('opzioni') %}<span class="tag">{{ s }}</span>{% endfor %}</div>
+      {% elif v.get('lista_incantesimi') is mapping or v.get('trucchetti') %}
+        {% set per = v.get('lista_incantesimi') or {} %}
+        {% set keys = per.keys() | list %}
+        {% set lvls = (keys | map('int') | list | sort) %}
+        <div class="space-y-1">
+          {% if v.get('trucchetti') %}
+            <details>
+              <summary class="cursor-pointer py-0.5 px-2 hover:bg-neutral-50">Trucchetti</summary>
+              <div class="flex flex-wrap gap-1 p-2">{% for s in v.get('trucchetti') %}<span class="tag">{{ s }}</span>{% endfor %}</div>
+            </details>
+          {% endif %}
+          {% for lvl in lvls %}
+            {% set vals = per.get(lvl|string) %}
+            <details>
+              <summary class="cursor-pointer py-0.5 px-2 hover:bg-neutral-50"><span class="mono text-neutral-600">Lv {{ lvl }}</span></summary>
+              <div class="flex flex-wrap gap-1 p-2">{% for s in vals %}<span class="tag">{{ s }}</span>{% endfor %}</div>
+            </details>
+          {% endfor %}
+        </div>
+      {% else %}
+        <details>
+          <summary class="cursor-pointer text-neutral-600">Oggetto</summary>
+          <pre class="mono whitespace-pre-wrap bg-neutral-50 border p-2 mt-1">{{ v | tojson(indent=2) }}</pre>
+        </details>
+      {% endif %}
+    {% elif v is sequence and (v is not string) %}
+      {% set n = v|length %}
+      {% if n > 0 and (v[0] is string or v[0] is number) %}
+        <div class="flex flex-wrap gap-1">
+          {% for s in v %}<span class="tag">{{ s }}</span>{% endfor %}
+        </div>
+      {% elif n > 0 and (v[0] is mapping) %}
+        {% if v[0].get('etichetta') and (v[0].get('oggetti') is sequence) and (v[0].get('oggetti') is not string) %}
+          <div class="space-y-1">
+            {% for opt in v %}
+              <div>
+                <div class="text-xs text-neutral-500">{{ opt.get('etichetta') }}</div>
+                <div class="flex flex-wrap gap-1">{% for s in opt.get('oggetti') %}<span class="tag">{{ s }}</span>{% endfor %}</div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          {% set looks_feats = (v[0].get('nome') or v[0].get('name')) and (v[0].get('descrizione') or v[0].get('description')) %}
+          {% if looks_feats %}
+            <div class="space-y-1">
+              {% for it in v %}
+                {% set nm = it.get('nome') or it.get('name') %}
+                {% set lvl = it.get('livello') or it.get('level') %}
+                {% set desc = it.get('descrizione') or it.get('description') %}
+                <details>
+                  <summary class="cursor-pointer py-0.5 px-2 hover:bg-neutral-50">
+                    {% if lvl is not none %}<span class="mono text-neutral-600">Lv {{ lvl }}</span> — {% endif %}{{ nm }}
+                  </summary>
+                  {% if desc %}
+                    <div class="p-2 text-sm" data-markdown>{{ desc }}</div>
+                  {% endif %}
+                </details>
+              {% endfor %}
+            </div>
+          {% else %}
+            <div class="border divide-y">
+              {% for it in v[:50] %}
+                {% set title = it.get('nome') or it.get('name') or it.get('titolo') or it.get('title') or it.get('slug') or ('Elemento ' ~ loop.index) %}
+                <details>
+                  <summary class="cursor-pointer py-1 px-2 hover:bg-neutral-50">
+                    <span class="font-medium">{{ title }}</span>
+                    {% if it.get('livello') or it.get('level') %}
+                      <span class="ml-2 text-xs text-neutral-500">Lv {{ it.get('livello') or it.get('level') }}</span>
+                    {% endif %}
+                  </summary>
+                  <div class="p-2 text-sm">
+                    <pre class="mono whitespace-pre-wrap bg-neutral-50 border p-2">{{ it | tojson(indent=2) }}</pre>
+                  </div>
+                </details>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endif %}
+        {% if n > 50 %}
+          <div class="text-xs text-neutral-500 mt-1">Mostrati 50 di {{ n }} elementi.</div>
+        {% endif %}
+      {% else %}
+        <details>
+          <summary class="cursor-pointer text-neutral-600">Lista complessa ({{ v|length }} elementi)</summary>
+          <pre class="mono whitespace-pre-wrap bg-neutral-50 border p-2 mt-1">{{ v | tojson(indent=2) }}</pre>
+        </details>
+      {% endif %}
+    {% elif v is mapping %}
+      {% set keys = v.keys() | list %}
+      {% set looks_levels = true %}
+      {% for kk in keys %}
+        {% if not ((kk|string).isdigit() or (kk|string)|lower == 'trucchetti') %}
+          {% set looks_levels = false %}
+        {% endif %}
+      {% endfor %}
+      {% if looks_levels %}
+        <div class="space-y-1">
+          {% if v.get('trucchetti') %}
+            <div>
+              <div class="text-xs text-neutral-500">Trucchetti</div>
+              <div class="flex flex-wrap gap-1">{% for s in v.get('trucchetti') %}<span class="tag">{{ s }}</span>{% endfor %}</div>
+            </div>
+          {% endif %}
+          {% set lvls = (keys | reject('equalto','trucchetti') | map('int') | list | sort) %}
+          {% for lvl in lvls %}
+            {% set sval = lvl|string %}
+            {% set vals = v.get(sval) %}
+            <div>
+              <div class="text-xs text-neutral-500">Livello {{ lvl }}</div>
+              {% if vals is sequence and (vals is not string) %}
+                {% if vals and (vals[0] is string or vals[0] is number) %}
+                  <div class="flex flex-wrap gap-1">{% for s in vals %}<span class="tag">{{ s }}</span>{% endfor %}</div>
+                {% else %}
+                  <pre class="mono whitespace-pre-wrap bg-neutral-50 border p-2 mt-1">{{ vals | tojson(indent=2) }}</pre>
+                {% endif %}
+              {% else %}
+                <div class="font-medium break-words">{{ vals }}</div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <details>
+          <summary class="cursor-pointer text-neutral-600">Oggetto</summary>
+          <pre class="mono whitespace-pre-wrap bg-neutral-50 border p-2 mt-1">{{ v | tojson(indent=2) }}</pre>
+        </details>
+      {% endif %}
+    {% else %}
+      <div class="font-medium break-words">{{ v }}</div>
+    {% endif %}
+  {% endmacro %}
   {% macro render_paragraphs(val) %}
     {% if val is string %}
       {% for p in val.split('\n\n') %}
@@ -58,7 +197,7 @@
     {% endfor %}
   {% endif %}
 
-  <article class="bg-white border p-4">
+  <article class="bg-white border p-4" data-md-section>
     <header class="mb-4">
       <h1 class="text-2xl font-semibold mb-2">{{ doc_title }}</h1>
       <div class="text-xs text-neutral-600 flex items-center flex-wrap gap-2">
@@ -66,16 +205,12 @@
       </div>
     </header>
 
-    {# Corpo: description preferita, altrimenti qualsiasi *_md #}
-    {% if ns.body %}
-      <div data-md-section>
-        <div class="flex justify-end mb-2">
-          <button type="button" class="btn btn-ghost !px-2 !py-1 text-xs" onclick="copyMarkdown(this)" title="Copia Markdown">Copia Markdown</button>
-        </div>
-        <div data-markdown>
-{{ ns.body }}
-        </div>
+    {# Corpo SSR: preferisce description/description_md/content, fallback al primo *_md #}
+    {% if body_html %}
+      <div class="flex justify-end mb-2">
+        <button type="button" class="btn btn-ghost !px-2 !py-1 text-xs" onclick="copyMarkdown(this)" title="Copia Markdown">Copia Markdown</button>
       </div>
+      <div id="doc-md" data-markdown data-ssr="true" data-raw="{{ body_raw | e }}" class="prose max-w-none">{{ body_html | safe }}</div>
     {% else %}
       <div class="text-sm text-neutral-600">Nessun contenuto testuale disponibile.</div>
     {% endif %}
@@ -85,40 +220,21 @@
     <section class="space-y-2">
       <h2 class="text-sm font-semibold text-neutral-700">Metadati</h2>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
-        {# _id per primo se presente #}
-        {% if doc_obj.get('_id') is not none %}
-          <div class="min-w-0">
-            <div class="text-neutral-500">_id</div>
-            <div class="font-medium break-words mono">{{ doc_obj.get('_id') }}</div>
-          </div>
-        {% endif %}
-        {# poi tutti gli altri in ordine alfabetico, escludendo description, *_md e chiavi tecniche che iniziano con _ #}
+        {# Campi in ordine alfabetico, con esclusioni #}
         {% for item in doc_obj|dictsort %}
           {% set k = item[0] %}
           {% set v = item[1] %}
-          {% if not (k == '_id' or k == 'description' or (k|length>0 and k[0]=='_') or k.endswith('_md')) %}
+          {% if not (
+            k in ['_id','id','slug','table','tables','tabella_livelli']
+            or k == 'description'
+            or (k|length>0 and k[0]=='_')
+            or k.endswith('_md')
+            or k == ns.body_key
+          ) %}
             {% if v is not none and (not (v is string) or (v|trim) != '') %}
               <div class="min-w-0">
                 <div class="text-neutral-500">{{ k }}</div>
-                {% if v is string or v is number or v in [true,false] %}
-                  <div class="font-medium break-words">{{ v }}</div>
-                {% elif v is sequence and (v is not string) %}
-                  {% if v|length > 0 and (v[0] is string or v[0] is number) %}
-                    <div class="font-medium break-words">{{ v | join(', ') }}</div>
-                  {% else %}
-                    <details>
-                      <summary class="cursor-pointer text-neutral-600">Lista complessa ({{ v|length }} elementi)</summary>
-                      <pre class="mono whitespace-pre-wrap bg-neutral-50 border p-2 mt-1">{{ v | tojson(indent=2) }}</pre>
-                    </details>
-                  {% endif %}
-                {% elif v is mapping %}
-                  <details>
-                    <summary class="cursor-pointer text-neutral-600">Oggetto</summary>
-                    <pre class="mono whitespace-pre-wrap bg-neutral-50 border p-2 mt-1">{{ v | tojson(indent=2) }}</pre>
-                  </details>
-                {% else %}
-                  <div class="font-medium break-words">{{ v }}</div>
-                {% endif %}
+                {{ render_value(v) }}
               </div>
             {% endif %}
           {% endif %}
@@ -128,4 +244,52 @@
   </article>
 
   {# Sezione dati grezzi rimossa su richiesta #}
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+  <style>
+    .anchor-btn { visibility: hidden; margin-left: .25rem; font-size: .85em; color: #6b7280; }
+    h2:hover .anchor-btn, h3:hover .anchor-btn, h4:hover .anchor-btn { visibility: visible; }
+    .section-toggle { margin-left: .25rem; font-size: .85em; color: #6b7280; }
+  </style>
+  <script>
+    (function(){
+      const docId = {{ doc_id | tojson }};
+      function slugify(text){
+        return (text || '').toString().toLowerCase()
+          .replace(/\s+/g,'-')
+          .replace(/[^\w\-àèéìòùçñ]/g,'')
+          .replace(/\-+/g,'-')
+          .replace(/^\-+|\-+$/g,'');
+      }
+      function ensureIds(container){
+        container.querySelectorAll('h2, h3, h4').forEach(h=>{ if(!h.id){ h.id = slugify(h.textContent || 'sezione'); } });
+      }
+      function addAnchors(container){
+        container.querySelectorAll('h2, h3, h4').forEach(h=>{
+          const id = h.id; if(!id) return;
+          const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'anchor-btn'; btn.textContent = '🔗'; btn.title = 'Copia link sezione';
+          btn.addEventListener('click', ()=>{ const url = window.location.origin + window.location.pathname + '#' + id; navigator.clipboard.writeText(url).then(()=>{ try { flash(btn,'Copiato'); } catch(e){} }); });
+          h.appendChild(btn);
+        });
+      }
+      function makeCollapsible(container){
+        const hs = Array.from(container.querySelectorAll('h3'));
+        hs.forEach((h, idx)=>{
+          const nextH = hs[idx+1] || null; const wrapper = document.createElement('div'); wrapper.className = 'section-content';
+          let n = h.nextSibling; const moved = [];
+          while(n && n !== nextH){ const cur = n; n = n.nextSibling; moved.push(cur); }
+          if(!moved.length) return; moved.forEach(x=>wrapper.appendChild(x));
+          h.parentNode.insertBefore(wrapper, nextH);
+          const key = 'doc:' + docId + '#' + h.id; const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'section-toggle'; btn.textContent = '−'; btn.title = 'Comprimi sezione';
+          const apply = (c)=>{ wrapper.style.display = c ? 'none' : ''; btn.textContent = c ? '+' : '−'; btn.title = c ? 'Espandi sezione' : 'Comprimi sezione'; };
+          let collapsed = false; try { collapsed = localStorage.getItem(key) === '1'; } catch(e){}
+          apply(collapsed);
+          btn.addEventListener('click', ()=>{ collapsed = !collapsed; apply(collapsed); try { localStorage.setItem(key, collapsed ? '1' : '0'); } catch(e){} });
+          h.appendChild(btn);
+        });
+      }
+      document.addEventListener('DOMContentLoaded', function(){ const md = document.getElementById('doc-md'); if(!md) return; ensureIds(md); addAnchors(md); makeCollapsible(md); });
+    })();
+  </script>
 {% endblock %}

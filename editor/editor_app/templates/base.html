@@ -66,6 +66,24 @@
     [data-markdown] table { width: 100%; border-collapse: collapse; margin: .75rem 0; }
     [data-markdown] th, [data-markdown] td { border: 1px solid #e5e7eb; padding: .4rem .5rem; text-align: left; }
     [data-markdown] th { background: #f9fafb; font-weight: 600; }
+    [data-markdown] tbody tr:nth-child(odd) td { background: #fafafa; }
+    [data-markdown] hr { border: 0; border-top: 1px solid #e5e7eb; margin: 1rem 0; }
+    /* Headings spacing refinement */
+    [data-markdown] h2:not(:first-child) { margin-top: 1.25rem; }
+    [data-markdown] h3:not(:first-child) { margin-top: 1rem; }
+    /* Inline code clearer */
+    [data-markdown] code { background: #f8fafc; border-color: #e2e8f0; color: #1f2937; }
+    /* Code blocks: readability */
+    [data-markdown] pre { background: #0b1020; color: #e6eaf3; border-radius: .5rem; padding: .85rem; line-height: 1.5; font-size: .9rem; }
+    [data-markdown] pre code { color: inherit; }
+    /* Feature keyword highlight: bold at paragraph/list start */
+    [data-markdown] p > strong:first-child,
+    [data-markdown] li > strong:first-child { background: #fffbe6; color: #1f2937; border: 1px solid #fde68a; border-radius: .25rem; padding: .05rem .3rem; margin-right: .25rem; }
+    /* Admonitions (Python-Markdown extension) */
+    [data-markdown] .admonition { border: 1px solid #e5e7eb; border-left-width: 4px; border-left-color: #4f46e5; background: #fafafa; padding: .5rem .75rem; border-radius: .375rem; }
+    [data-markdown] .admonition .admonition-title { font-weight: 600; margin-bottom: .25rem; }
+    /* Links hover */
+    [data-markdown] a:hover { text-decoration: none; background: #eef2ff; }
     /* Avoid headings being hidden under the sticky header when anchored */
     [data-markdown] h1,
     [data-markdown] h2,
@@ -249,6 +267,7 @@
         try { window.marked.setOptions({ headerIds: true, mangle: false }); } catch(e) {}
       }
       document.querySelectorAll('[data-markdown]').forEach(el=>{
+        if (el.getAttribute('data-ssr') === 'true') return; // skip SSR-rendered blocks
         let raw = '';
         const srcId = el.getAttribute('data-md-src-id');
         if (srcId){
@@ -274,8 +293,9 @@
     // Copy raw Markdown from nearest [data-markdown]
     function copyMarkdown(btn){
       const section = btn.closest('[data-md-section]') || btn.closest('article') || document;
-      const md = section.querySelector('[data-markdown]');
-      const raw = (md && (md.dataset.raw || md.textContent)) || '';
+      let md = section.querySelector('[data-markdown]');
+      if (!md) md = section.querySelector('[data-ssr="true"]');
+      const raw = (md && (md.dataset.raw || md.getAttribute('data-raw') || md.textContent)) || '';
       if(!raw) return;
       navigator.clipboard.writeText(raw).then(()=>flash(btn, 'Copiato'));
     }
