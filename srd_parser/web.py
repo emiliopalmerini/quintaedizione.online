@@ -11,7 +11,9 @@ from fastapi.templating import Jinja2Templates
 from pymongo import MongoClient
 
 from .work import DEFAULT_WORK
-from .ingest import upsert_many, unique_keys_for
+from .adapters.persistence.mongo_repository import MongoRepository
+from .application.ingest_service import unique_keys_for
+from .application.ingest_runner import filter_work, run_ingest
 
 
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
@@ -63,10 +65,7 @@ def _default_env() -> dict:
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
     env = _default_env()
-    work_items = [
-        {"idx": i, "collection": w.collection, "filename": w.filename}
-        for i, w in enumerate(DEFAULT_WORK)
-    ]
+    work_items = [{"idx": i, "collection": w.collection, "filename": w.filename} for i, w in enumerate(DEFAULT_WORK)]
     return templates.TemplateResponse(
         "parser_form.html",
         {
@@ -90,10 +89,7 @@ async def run(
 ):
     is_dry = dry_run is not None
     sel = selected or []
-    work_items = [
-        {"idx": i, "collection": w.collection, "filename": w.filename}
-        for i, w in enumerate(DEFAULT_WORK)
-    ]
+    work_items = [{"idx": i, "collection": w.collection, "filename": w.filename} for i, w in enumerate(DEFAULT_WORK)]
 
     messages: List[str] = []
     base = Path(input_dir)
@@ -103,46 +99,35 @@ async def run(
         messages.append(f"Cartella input non trovata: {base}")
 
     total = 0
-    client = None
-    db = None
-
+    repo = None
     if not is_dry and sel and base.exists():
         try:
             base_uri = os.environ.get("MONGO_URI", "mongodb://localhost:27017")
             uri = _build_uri(base_uri, mongo_instance)
             client = MongoClient(uri)
-            db = client[db_name]
+            repo = MongoRepository(client[db_name])
         except Exception as e:
             messages.append(f"Connessione Mongo fallita: {e}")
 
     if sel and base.exists():
-        for idx in sel:
-            try:
-                w = DEFAULT_WORK[int(idx)]
-            except Exception:
-                messages.append(f"Indice non valido: {idx}")
-                continue
-            path = base / w.filename
-            if not path.exists():
-                messages.append(f"File mancante: {path}")
-                continue
-            messages.append(f"Parsing {path.name} → {w.collection}")
-            try:
-                docs = w.parser(_read_lines(path))
-            except Exception as e:
-                messages.append(f"Errore parser in {path.name}: {e}")
-                continue
-            messages.append(f"Estratti {len(docs)} documenti da {path.name}")
-            if is_dry:
-                total += len(docs)
-                continue
-            try:
-                col = db[w.collection]
-                written = upsert_many(col, unique_keys_for(w.collection), docs)
-                total += written
-                messages.append(f"Upsert {written} documenti in {db_name}.{w.collection}")
-            except Exception as e:
-                messages.append(f"Upsert fallito per {w.collection}: {e}")
+        try:
+            chosen = [DEFAULT_WORK[int(idx)] for idx in sel]
+        except Exception:
+            messages.append("Indice selezionato non valido")
+            chosen = []
+        if chosen:
+            results = run_ingest(base, chosen, None if is_dry else repo, dry_run=is_dry)
+            for r in results:
+                if r.error:
+                    messages.append(f"Errore parser in {r.filename}: {r.error}")
+                    continue
+                messages.append(f"Parsing {r.filename} → {r.collection}")
+                messages.append(f"Estratti {r.parsed} documenti da {r.filename}")
+                if is_dry:
+                    total += r.parsed
+                else:
+                    total += r.written
+                    messages.append(f"Upsert {r.written} documenti in {db_name}.{r.collection}")
 
     if is_dry:
         messages.append(f"Dry-run completato. Totale analizzati: {total}")
