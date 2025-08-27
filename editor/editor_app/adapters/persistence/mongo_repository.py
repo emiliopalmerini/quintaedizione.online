@@ -33,3 +33,12 @@ class MongoRepository:
             return None
         return await self.find_one(collection, {"_id": oid})
 
+    async def find_one_sorted(
+        self,
+        collection: str,
+        filt: Dict[str, Any],
+        *,
+        sort: List[tuple[str, int]],
+        projection: Optional[Dict[str, int]] = None,
+    ) -> Optional[Dict[str, Any]]:
+        return await self._col(collection).find_one(filt, sort=sort, projection=projection)
