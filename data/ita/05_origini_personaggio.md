@@ -66,7 +66,7 @@ Ogni background offre una scelta tra un pacchetto di equipaggiamento e 50 mo.
 
 **Equipaggiamento:** *Scegli A o B:* (A) Bastone Ferrato, Strumenti da Calligrafo, Libro (storia), Pergamena (8 fogli), Veste, 8 mo; oppure (B) 50 mo
 
-## **Soldato**
+#### Soldato
 
 **Punteggi di Caratteristica:** Forza, Destrezza, Costituzione  
 
