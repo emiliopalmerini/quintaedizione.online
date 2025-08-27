@@ -214,6 +214,10 @@ async def index(page: int | None = Query(default=None)) -> HTMLResponse:
 
     # Carica un documento da 'documenti' per la homepage
     doc_data = await _load_home_document(db, page)
+    # Renderizza HTML per la prima visualizzazione (coerente con la partial)
+    doc_html = ""
+    if doc_data.get("doc") and doc_data["doc"].get("content"):
+        doc_html = render_md(str(doc_data["doc"].get("content") or ""))
 
     return HTMLResponse(
         tpl.render(
@@ -222,6 +226,7 @@ async def index(page: int | None = Query(default=None)) -> HTMLResponse:
             counts=counts,
             total=total,
             doc=to_jsonable(doc_data.get("doc")) if doc_data.get("doc") else None,
+            doc_html=doc_html,
             prev_page=doc_data.get("prev_page"),
             next_page=doc_data.get("next_page"),
             prev_title=doc_data.get("prev_title"),
