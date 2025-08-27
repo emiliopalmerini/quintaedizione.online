@@ -74,7 +74,28 @@ async def index(page: int | None = Query(default=None)) -> HTMLResponse:
 
 
 @router.get("/home/doc", response_class=HTMLResponse)
-# legacy path kept empty; homepage renders doc via service
+async def home_doc_partial(page: int | None = Query(default=None)) -> HTMLResponse:
+    db = await get_db()
+    repo = MongoRepository(db)
+    data = await svc_home_doc(repo, page)
+    tpl = env.get_template("_homepage_doc.html")
+    doc = data.get("doc")
+    doc_html = ""
+    if doc and doc.get("content"):
+        doc_html = render_md(str(doc.get("content") or ""))
+    return HTMLResponse(
+        tpl.render(
+            doc=to_jsonable(doc) if doc else None,
+            doc_html=doc_html,
+            prev_page=data.get("prev_page"),
+            next_page=data.get("next_page"),
+            prev_title=data.get("prev_title"),
+            next_title=data.get("next_title"),
+            pages_list=data.get("pages_list"),
+            pages_items=data.get("pages_items"),
+            cur_page=data.get("cur_page"),
+        )
+    )
 
 
 @router.get("/list/{collection}", response_class=HTMLResponse)
