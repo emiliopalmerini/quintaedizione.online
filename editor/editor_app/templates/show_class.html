@@ -34,6 +34,7 @@
   <script>
     (function(){
       const docId = {{ doc_id | tojson }};
+      const collection = {{ collection | tojson }};
       function slugify(text){
         return (text || '').toString().toLowerCase()
           .replace(/\s+/g,'-')
@@ -78,7 +79,42 @@
         }
         onScroll(); document.addEventListener('scroll', onScroll, { passive: true }); window.addEventListener('resize', onScroll);
       }
-      document.addEventListener('DOMContentLoaded', function(){ const md = document.getElementById('cls-md'); if(!md) return; ensureIds(md); addAnchors(md); makeCollapsible(md); setupProgress(md); });
+      function applyTabs(){
+        const urlParams = new URLSearchParams(window.location.search);
+        let view = urlParams.get('view');
+        if(!view){ try { view = localStorage.getItem('view:'+collection) || 'split'; } catch(e){ view = 'split'; } }
+        const meta = document.getElementById('pane-meta');
+        const text = document.getElementById('pane-text');
+        const buttons = document.querySelectorAll('nav[aria-label="Vista"] [data-tab]');
+        buttons.forEach(b=>{ b.classList.remove('btn-dark'); });
+        if(view === 'meta'){
+          if(meta) meta.style.display = '';
+          if(text) text.style.display = 'none';
+        } else if(view === 'md'){
+          if(meta) meta.style.display = 'none';
+          if(text) text.style.display = '';
+        } else {
+          if(meta) meta.style.display = '';
+          if(text) text.style.display = '';
+          view = 'split';
+        }
+        const active = document.querySelector(`[data-tab="${view}"]`);
+        if(active) active.classList.add('btn-dark');
+      }
+      function bindTabs(){
+        const nav = document.querySelector('nav[aria-label="Vista"]');
+        if(!nav) return;
+        nav.addEventListener('click', (e)=>{
+          const t = e.target.closest('[data-tab]'); if(!t) return;
+          const val = t.getAttribute('data-tab');
+          try { localStorage.setItem('view:'+collection, val); } catch(e){}
+          const url = new URL(window.location);
+          url.searchParams.set('view', val);
+          window.history.replaceState({}, '', url);
+          applyTabs();
+        });
+      }
+      document.addEventListener('DOMContentLoaded', function(){ const md = document.getElementById('cls-md'); if(md){ ensureIds(md); addAnchors(md); makeCollapsible(md); setupProgress(md); } bindTabs(); applyTabs(); });
     })();
   </script>
 {% endblock %}
@@ -249,7 +285,12 @@
         <h1 class="text-2xl font-semibold">{{ doc_title }}</h1>
       </header>
       <div id="read-progress" aria-hidden="true" style="position:fixed;left:0;top:calc(var(--site-header-h));height:3px;background:linear-gradient(90deg,#4f46e5,#22c55e);width:0;z-index:30"></div>
-      <section class="space-y-2">
+      <nav class="mb-3 flex items-center gap-2" aria-label="Vista">
+        <button type="button" class="btn btn-ghost !px-2 !py-1 text-xs" data-tab="meta">Metadati</button>
+        <button type="button" class="btn btn-ghost !px-2 !py-1 text-xs" data-tab="md">Testo</button>
+        <button type="button" class="btn btn-ghost !px-2 !py-1 text-xs" data-tab="split">Entrambi</button>
+      </nav>
+      <section class="space-y-2" id="pane-meta">
         <h2 class="text-sm font-semibold text-neutral-700">Metadati</h2>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
           {% for item in c|dictsort %}
@@ -334,14 +375,15 @@
 
       <hr class="my-4" />
       
-
-      {% if body_html %}
-        <div class="flex justify-end mb-2">
-          <button type="button" class="btn btn-ghost !px-2 !py-1 text-xs" onclick="copyMarkdown(this)" title="Copia Markdown">Copia Markdown</button>
-        </div>
-        <div id="cls-md" data-markdown data-ssr="true" data-raw="{{ body_raw | e }}" class="prose max-w-none">{{ body_html | safe }}</div>
-      {% else %}
-        <div class="text-sm text-neutral-600">Nessun contenuto testuale disponibile.</div>
-      {% endif %}
+      <section id="pane-text">
+        {% if body_html %}
+          <div class="flex justify-end mb-2">
+            <button type="button" class="btn btn-ghost !px-2 !py-1 text-xs" onclick="copyMarkdown(this)" title="Copia Markdown">Copia Markdown</button>
+          </div>
+          <div id="cls-md" data-markdown data-ssr="true" data-raw="{{ body_raw | e }}" class="prose max-w-none">{{ body_html | safe }}</div>
+        {% else %}
+          <div class="text-sm text-neutral-600">Nessun contenuto testuale disponibile.</div>
+        {% endif %}
+      </section>
   </article>
 {% endblock %}
