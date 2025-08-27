@@ -1,1 +1,0 @@
-{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"key":{"name":{"$numberInt":"1"}},"name":"uq_name","background":false,"unique":true}],"uuid":"4c6716e3f7894065a2f14a6118c5a6a9","collectionName":"mounts_vehicles","type":"collection"}
