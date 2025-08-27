@@ -246,10 +246,7 @@
 
   <article class="bg-white border p-4" data-md-section>
       <header class="mb-4">
-        <h1 class="text-2xl font-semibold mb-2">{{ doc_title }}</h1>
-        <div class="text-xs text-neutral-600 flex items-center flex-wrap gap-2">
-          <span class="mono bg-neutral-100 border px-2 py-0.5" title="{{ doc_id }}">{{ doc_id }}</span>
-        </div>
+        <h1 class="text-2xl font-semibold">{{ doc_title }}</h1>
       </header>
       <div id="read-progress" aria-hidden="true" style="position:fixed;left:0;top:calc(var(--site-header-h));height:3px;background:linear-gradient(90deg,#4f46e5,#22c55e);width:0;z-index:30"></div>
       <section class="space-y-2">
@@ -260,7 +257,7 @@
             {% set v = item[1] %}
             {# Escludi id/slug/tables e campi testuali principali #}
             {% if not (
-              k in ['_id','id','slug','table','tables','tabella_livelli']
+              k in ['_id','id','slug','table','tables','tabella_livelli','nome']
               or k == 'description'
               or (k|length>0 and k[0]=='_')
               or k.endswith('_md')
