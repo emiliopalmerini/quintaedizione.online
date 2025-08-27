@@ -12,7 +12,9 @@ from editor_app.core.db import get_db
 from editor_app.adapters.persistence.mongo_repository import MongoRepository
 from editor_app.core.flatten import flatten_for_form
 from editor_app.utils.markdown import render_md
-from editor_app.application.query_service import build_filter, neighbors_alpha, alpha_sort_expr
+from editor_app.application.query_service import build_filter, alpha_sort_expr
+from editor_app.application.list_service import list_page as svc_list_page
+from editor_app.application.show_service import show_doc as svc_show_doc
 from editor_app.core.templates import env
 from editor_app.core.transform import to_jsonable
 from fastapi import APIRouter, HTTPException, Query, Request
@@ -174,19 +176,11 @@ async def view_rows(
         raise HTTPException(404)
     db = await get_db()
     repo = MongoRepository(db)
-    filt = build_filter(q, collection, request.query_params)
-    total = await repo.count(collection, filt)
-    pages = max(1, math.ceil(total / page_size))
-    page = max(1, min(page, pages))
-    # sort by alpha of name/term via aggregation
-    pipe = [
-        {"$match": filt},
-        {"$addFields": {"_sortkey": alpha_sort_expr()}},
-        {"$sort": {"_sortkey": 1, "_id": 1}},
-        {"$skip": (page - 1) * page_size},
-        {"$limit": page_size},
-    ]
-    items = await repo.aggregate_list(collection, pipe)
+    res = await svc_list_page(repo, collection, request.query_params, q, page, page_size)
+    items = res["items"]
+    pages = res["pages"]
+    page = res["page"]
+    total = res["total"]
     for doc in items:
         if doc.get("_id") is not None:
             doc["_id"] = str(doc["_id"])
@@ -243,32 +237,10 @@ async def show_doc(
         raise HTTPException(404)
     db = await get_db()
     repo = MongoRepository(db)
-    doc = await repo.find_by_id(collection, doc_id)
+    doc, prev_id, next_id, doc_title = await svc_show_doc(repo, collection, doc_id, request.query_params, q)
     if not doc:
         raise HTTPException(404, "Documento non trovato")
-
     fields = flatten_for_form(doc)
-    filt_nav = build_filter(q or "", collection, request.query_params)
-    cur_key = str(
-        doc.get("slug")
-        or doc.get("name")
-        or doc.get("term")
-        or doc.get("title")
-        or doc.get("titolo")
-        or doc.get("nome")
-        or ""
-    )
-    # neighbors still use collection aggregate; pass motor collection directly for now
-    col = db[collection]
-    prev_id, next_id = await neighbors_alpha(col, cur_key, filt_nav)
-    doc_title = str(
-        doc.get("name")
-        or doc.get("term")
-        or doc.get("title")
-        or doc.get("titolo")
-        or doc.get("nome")
-        or doc_id
-    )
 
     if collection in ("classi", "classes"):
         tpl_name = "show_class.html"
