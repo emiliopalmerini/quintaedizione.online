@@ -33,9 +33,9 @@ Come Barbaro, ottieni i seguenti privilegi di classe quando raggiungi i livelli 
 
 Tabella: Privilegi del Barbaro
 
-| Livello | Bonus competenza     | Privilegi di classe                       | Furie | Danni da Furia | Maestria nelle armi |
+| Livello | Bonus competenza     | Privilegi di classe                       | Ira | Danni da Ira | Maestria nelle armi |
 |---------|----------------------|------------------------------------------|-------|----------------|---------------------|
-| 1       | +2                   | Furia, Difesa senza armatura, Maestria nelle armi | 2     | +2             | 2                   |
+| 1       | +2                   | Ira, Difesa senza armatura, Maestria nelle armi | 2     | +2             | 2                   |
 | 2       | +2                   | Senso del pericolo, Attacco sconsiderato | 2     | +2             | 2                   |
 | 3       | +2                   | Sottoclasse del Barbaro, Conoscenza primordiale | 3     | +2             | 2                   |
 | 4       | +2                   | Aumento dei punteggi di caratteristica    | 3     | +2             | 3                   |
@@ -45,40 +45,40 @@ Tabella: Privilegi del Barbaro
 | 8       | +3                   | Aumento dei punteggi di caratteristica    | 4     | +2             | 3                   |
 | 9       | +4                   | Colpo brutale                           | 4     | +3             | 3                   |
 | 10      | +4                   | Privilegio di sottoclasse                  | 4     | +3             | 4                   |
-| 11      | +4                   | Furia implacabile                        | 4     | +3             | 4                   |
+| 11      | +4                   | Ira implacabile                        | 4     | +3             | 4                   |
 | 12      | +4                   | Aumento dei punteggi di caratteristica    | 5     | +3             | 4                   |
 | 13      | +5                   | Colpo brutale migliorato                 | 5     | +3             | 4                   |
 | 14      | +5                   | Privilegio di sottoclasse                  | 5     | +3             | 4                   |
-| 15      | +5                   | Furia persistente                        | 5     | +3             | 4                   |
+| 15      | +5                   | Ira persistente                        | 5     | +3             | 4                   |
 | 16      | +5                   | Aumento dei punteggi di caratteristica    | 5     | +4             | 4                   |
 | 17      | +6                   | Colpo brutale migliorato                 | 6     | +4             | 4                   |
 | 18      | +6                   | Potenza indomita                         | 6     | +4             | 4                   |
 | 19      | +6                   | Dono epico                               | 6     | +4             | 4                   |
 | 20      | +6                   | Campione primordiale                     | 6     | +4             | 4                   |
 
-#### 1° livello: Furia
+#### 1° livello: Ira
 
-Puoi imbeverti di una forza primordiale detta Furia, che ti dona potenza e resistenza straordinarie. Puoi entrarvi come Azione bonus se non indossi un’armatura pesante.  
+Puoi imbeverti di una forza primordiale detta Ira, che ti dona potenza e resistenza straordinarie. Puoi entrarvi come Azione bonus se non indossi un’armatura pesante.  
 
-Puoi entrare in Furia un numero di volte pari a quello mostrato per il tuo livello da Barbaro nella colonna Furie della tabella Privilegi del Barbaro. Recuperi un uso speso al termine di un Riposo breve e tutti gli usi spesi al termine di un Riposo lungo.  
+Puoi entrare in Ira un numero di volte pari a quello mostrato per il tuo livello da Barbaro nella colonna Ira della tabella Privilegi del Barbaro. Recuperi un uso speso al termine di un Riposo breve e tutti gli usi spesi al termine di un Riposo lungo.  
 
-Mentre è attiva, la tua Furia segue le regole seguenti.  
+Mentre è attiva, la tua Ira segue le regole seguenti.  
 
 **Resistenza ai danni.** Hai resistenza ai danni contundenti, perforanti e taglienti.  
 
-**Danni da Furia.** Quando effettui un attacco usando la Forza — con un’arma o un colpo senz’armi — e infliggi danno al bersaglio, aggiungi un bonus al danno che aumenta con i tuoi livelli da Barbaro, come mostrato nella colonna Danni da Furia.  
+**Danni da Ira.** Quando effettui un attacco usando la Forza — con un’arma o un colpo senz’armi — e infliggi danno al bersaglio, aggiungi un bonus al danno che aumenta con i tuoi livelli da Barbaro, come mostrato nella colonna Danni da Ira.  
 
 **Vantaggio alla Forza.** Hai vantaggio alle prove di Forza e ai tiri salvezza di Forza.  
 
 **Niente concentrazione o incantesimi.** Non puoi mantenere concentrazione né lanciare incantesimi.  
 
-**Durata.** La Furia dura fino alla fine del tuo turno successivo, e termina prima se indossi un’armatura pesante o se ottieni la condizione Incapacitato. Se la tua Furia è ancora attiva al tuo turno successivo, puoi estenderla per un altro round facendo una delle seguenti azioni:  
+**Durata.** La Ira dura fino alla fine del tuo turno successivo, e termina prima se indossi un’armatura pesante o se ottieni la condizione Incapacitato. Se la tua Ira è ancora attiva al tuo turno successivo, puoi estenderla per un altro round facendo una delle seguenti azioni:  
 
 - Effettuare un tiro per colpire contro un nemico.  
 - Costringere un nemico a effettuare un tiro salvezza.  
-- Usare un’Azione bonus per estendere la Furia.  
+- Usare un’Azione bonus per estendere la Ira.  
 
-Ogni volta che estendi la Furia, essa dura fino alla fine del tuo turno successivo. Puoi mantenerla per un massimo di 10 minuti.  
+Ogni volta che estendi la Ira, essa dura fino alla fine del tuo turno successivo. Puoi mantenerla per un massimo di 10 minuti.  
 
 #### 1° livello: Difesa senza armatura
 
@@ -100,13 +100,13 @@ Puoi mettere da parte la difesa per attaccare con maggiore ferocia. Quando effet
 
 #### 3° livello: Sottoclasse del Barbaro
 
-Ottieni una sottoclasse da Barbaro a tua scelta. Il Sentiero del Furioso è descritto dopo questa classe. Una sottoclasse è una specializzazione che concede capacità a livelli specifici da Barbaro.  
+Ottieni una sottoclasse da Barbaro a tua scelta. Il Sentiero del Berserker è descritto dopo questa classe. Una sottoclasse è una specializzazione che concede capacità a livelli specifici da Barbaro.  
 
 #### 3° livello: Conoscenza primordiale
 
 Ottieni competenza in un’ulteriore abilità a tua scelta dall’elenco disponibile ai Barbari di 1° livello.  
 
-Inoltre, mentre sei in Furia, puoi incanalare energia primordiale per alcuni compiti: quando effettui una prova con una delle seguenti abilità, puoi effettuarla come prova di Forza: Acrobazia, Intimidire, Percezione, Furtività o Sopravvivenza.  
+Inoltre, mentre sei in Ira, puoi incanalare energia primordiale per alcuni compiti: quando effettui una prova con una delle seguenti abilità, puoi effettuarla come prova di Forza: Acrobazia, Intimidire, Percezione, Furtività o Sopravvivenza.  
 
 #### 4° livello: Aumento dei punteggi di caratteristica
 
@@ -126,7 +126,7 @@ I tuoi istinti sono così affilati che hai vantaggio ai tiri di Iniziativa.
 
 #### 7° livello: Balzo istintivo
 
-Come parte dell’Azione bonus con cui entri in Furia, puoi muoverti fino alla metà della tua velocità.  
+Come parte dell’Azione bonus con cui entri in Ira, puoi muoverti fino alla metà della tua velocità.  
 
 #### 9° livello: Colpo brutale
 
@@ -136,9 +136,9 @@ Se usi Attacco sconsiderato, puoi rinunciare al vantaggio su un attacco basato s
 
 **Colpo ai tendini.** La velocità del bersaglio si riduce di 4,5 metri fino all’inizio del tuo prossimo turno.  
 
-#### 11° livello: Furia implacabile
+#### 11° livello: Ira implacabile
 
-La tua Furia ti mantiene in vita nonostante ferite gravi. Se scendi a 0 Punti Ferita e non muori all’istante, puoi effettuare un tiro salvezza di Costituzione CD 10. Se riesci, i tuoi Punti Ferita diventano pari al doppio del tuo livello da Barbaro.  
+La tua Ira ti mantiene in vita nonostante ferite gravi. Se scendi a 0 Punti Ferita e non muori all’istante, puoi effettuare un tiro salvezza di Costituzione CD 10. Se riesci, i tuoi Punti Ferita diventano pari al doppio del tuo livello da Barbaro.  
 
 Ogni volta successiva la CD aumenta di 5. Si azzera al termine di un Riposo breve o lungo.  
 
@@ -150,11 +150,11 @@ Ottieni nuove opzioni di Colpo brutale:
 
 **Colpo squarciante.** Prima del tuo prossimo turno, il prossimo attacco di un alleato contro il bersaglio ottiene +5 al tiro per colpire.  
 
-#### 15° livello: Furia persistente
+#### 15° livello: Ira persistente
 
-Quando tiri Iniziativa, recuperi tutti gli usi di Furia. Dopo averlo fatto, non puoi ripetere finché non completi un Riposo lungo.  
+Quando tiri Iniziativa, recuperi tutti gli usi di Ira. Dopo averlo fatto, non puoi ripetere finché non completi un Riposo lungo.  
 
-Inoltre la tua Furia dura automaticamente 10 minuti senza necessità di estenderla. Termina solo se diventi Privo di sensi o indossi armatura pesante.  
+Inoltre la tua Ira dura automaticamente 10 minuti senza necessità di estenderla. Termina solo se diventi Privo di sensi o indossi armatura pesante.  
 
 #### 17° livello: Colpo brutale migliorato
 
@@ -172,19 +172,19 @@ Ottieni un talento Dono epico o un altro talento idoneo. Si consiglia il Dono de
 
 Incarni il potere primordiale. I tuoi punteggi di Forza e Costituzione aumentano di 4 fino a un massimo di 25.  
 
-### Sottoclasse del Barbaro: Sentiero del Furioso
+### Sottoclasse del Barbaro: Sentiero del Berserker
 
-*Canalizza la Furia nella Violenza*  
+*Canalizza la Ira nella Violenza*  
 
-I Barbari che seguono il Sentiero del Furioso dirigono la loro Furia verso la violenza. Gioiscono del caos della battaglia lasciando che la Furia li domini.  
+I Barbari che seguono il Sentiero del Berserker dirigono la loro Ira verso la violenza. Gioiscono del caos della battaglia lasciando che la Ira li domini.  
 
 #### 3° livello: Frenesia
 
-Se usi Attacco sconsiderato mentre sei in Furia, infliggi danni extra al primo bersaglio colpito nel turno con un attacco basato sulla Forza. I danni extra sono pari a un numero di d6 uguale al tuo bonus ai Danni da Furia.  
+Se usi Attacco sconsiderato mentre sei in Ira, infliggi danni extra al primo bersaglio colpito nel turno con un attacco basato sulla Forza. I danni extra sono pari a un numero di d6 uguale al tuo bonus ai Danni da Ira.  
 
-#### 6° livello: Furia insensata
+#### 6° livello: Ira insensata
 
-Hai immunità alle condizioni Affascinato e Spaventato mentre sei in Furia. Se sei Affascinato o Spaventato entrando in Furia, l’effetto termina.  
+Hai immunità alle condizioni Affascinato e Spaventato mentre sei in Ira. Se sei Affascinato o Spaventato entrando in Ira, l’effetto termina.  
 
 #### 10° livello: Ritorsione
 
@@ -194,7 +194,7 @@ Quando subisci danno da una creatura entro 1,5 metri da te, puoi usare una Reazi
 
 Come Azione bonus, puoi incutere terrore con la tua presenza minacciosa. Ogni creatura a tua scelta in un’emanazione di 9 metri deve superare un TS di Saggezza (CD 8 + mod Forza + bonus competenza) o diventa Spaventata per 1 minuto. Alla fine di ogni turno, può ripetere il tiro per terminare l’effetto.  
 
-Una volta usata, non puoi riutilizzare questo privilegio finché non completi un Riposo lungo, a meno che tu non spenda un uso di Furia per riattivarla.
+Una volta usata, non puoi riutilizzare questo privilegio finché non completi un Riposo lungo, a meno che tu non spenda un uso di Ira per riattivarla.
 
 ## Bardo
 
@@ -542,7 +542,7 @@ Tabella: Privilegi del Druido ———Slot incantesimo per livello———
 | 4       | +2                | Aumento dei punteggi di caratteristica   | 2               | 3          | 7                     | 4 | 3 | — | — | — | — | — | — | — |
 | 5       | +3                | Rinascita selvatica                      | 2               | 3          | 9                     | 4 | 3 | 2 | — | — | — | — | — | — |
 | 6       | +3                | Privilegio di sottoclasse                  | 3               | 3          | 10                    | 4 | 3 | 3 | — | — | — | — | — | — |
-| 7       | +3                | Furia elementale                         | 3               | 3          | 11                    | 4 | 3 | 3 | 1 | — | — | — | — | — |
+| 7       | +3                | Ira elementale                         | 3               | 3          | 11                    | 4 | 3 | 3 | 1 | — | — | — | — | — |
 | 8       | +3                | Aumento dei punteggi di caratteristica   | 3               | 3          | 12                    | 4 | 3 | 3 | 2 | — | — | — | — | — |
 | 9       | +4                | —                                        | 3               | 3          | 14                    | 4 | 3 | 3 | 3 | 1 | — | — | — | — |
 | 10      | +4                | Privilegio di sottoclasse                  | 3               | 4          | 15                    | 4 | 3 | 3 | 3 | 2 | — | — | — | — |
@@ -550,7 +550,7 @@ Tabella: Privilegi del Druido ———Slot incantesimo per livello———
 | 12      | +4                | Aumento dei punteggi di caratteristica   | 3               | 4          | 16                    | 4 | 3 | 3 | 3 | 2 | 1 | — | — | — |
 | 13      | +5                | —                                        | 3               | 4          | 17                    | 4 | 3 | 3 | 3 | 2 | 1 | 1 | — | — |
 | 14      | +5                | Privilegio di sottoclasse                  | 3               | 4          | 17                    | 4 | 3 | 3 | 3 | 2 | 1 | 1 | — | — |
-| 15      | +5                | Furia elementale migliorata              | 3               | 4          | 18                    | 4 | 3 | 3 | 3 | 2 | 1 | 1 | 1 | — |
+| 15      | +5                | Ira elementale migliorata              | 3               | 4          | 18                    | 4 | 3 | 3 | 3 | 2 | 1 | 1 | 1 | — |
 | 16      | +5                | Aumento dei punteggi di caratteristica   | 3               | 4          | 18                    | 4 | 3 | 3 | 3 | 2 | 1 | 1 | 1 | — |
 | 17      | +6                | —                                        | 4               | 4          | 19                    | 4 | 3 | 3 | 3 | 2 | 1 | 1 | 1 | 1 |
 | 18      | +6                | Incantesimi bestiali                     | 4               | 4          | 20                    | 4 | 3 | 3 | 3 | 3 | 1 | 1 | 1 | 1 |
@@ -623,7 +623,7 @@ Ottieni il talento Aumento dei punteggi di caratteristica o un altro talento ido
 
 Una volta per turno, se non ti restano usi di Forma selvatica, puoi ottenere 1 uso spendendo uno slot incantesimo (nessuna azione). Inoltre puoi spendere 1 uso di Forma selvatica (nessuna azione) per ottenere 1 slot di 1° livello; poi non puoi farlo di nuovo finché non completi un Riposo lungo.
 
-#### 7° livello: Furia elementale
+#### 7° livello: Ira elementale
 
 Ottieni una delle seguenti opzioni:  
 
@@ -631,7 +631,7 @@ Ottieni una delle seguenti opzioni:
 
 **Colpo primordiale.** Una volta per turno, quando colpisci con un’arma o con un attacco di una forma di Bestia in Forma selvatica, infliggi 1d8 danni extra Freddo, Fuoco, Fulmine o Tuono (scegli quando colpisci).
 
-#### 15° livello: Furia elementale migliorata
+#### 15° livello: Ira elementale migliorata
 
 L’opzione scelta si potenzia:  
 
