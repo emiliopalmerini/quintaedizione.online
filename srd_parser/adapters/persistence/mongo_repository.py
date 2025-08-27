@@ -31,7 +31,9 @@ class MongoRepository:
             # Index creation failures are non-fatal for ingest
             pass
 
-    def upsert_many(self, collection: str, unique_fields: List[str], docs: Iterable[Dict]) -> int:
+    def upsert_many(
+        self, collection: str, unique_fields: List[str], docs: Iterable[Dict]
+    ) -> int:
         col = self._collection(collection)
         self._ensure_unique_index(col, unique_fields)
         n = 0
@@ -49,4 +51,3 @@ class MongoRepository:
                 # Skip failed upserts; caller can log if needed
                 continue
         return n
-
