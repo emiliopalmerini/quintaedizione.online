@@ -8,8 +8,10 @@ Parser e ingest dei contenuti SRD in MongoDB, con interfaccia web minimale.
 
 ## Struttura
 - `parsers/*.py`: parser specifici per dominio (incantesimi, mostri, classi, ...)
-- `ingest.py`: funzioni di upsert e chiavi univoche
 - `work.py`: elenco delle collezioni e file sorgente
+- `application/ingest_service.py`: chiavi univoche e tipi per i work item
+- `application/ingest_runner.py`: orchestrazione dell’ingest (dry‑run e upsert)
+- `adapters/persistence/mongo_repository.py`: adapter Mongo per upsert
 - `web.py` + `templates/parser_form.html`: interfaccia web (FastAPI + Jinja + HTMX)
 
 ## Esecuzione con Docker
@@ -25,6 +27,7 @@ docker compose up -d srd-parser
 ```
 
 ## Note
+- Solo interfaccia web: il CLI è stato rimosso.
 - Modalità dry‑run: analizza e mostra i totali senza scrivere su Mongo.
 - Upsert: disattiva dry‑run per scrivere su Mongo (usa `pymongo`).
 
