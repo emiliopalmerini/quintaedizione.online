@@ -52,7 +52,7 @@ def build_filter(
         if quick:
             # Ricerca rapida: prefisso su campi principali, query corta consentita
             q_opts = QFilterOptions(
-                fields=["name", "term", "title"],
+                fields=["name", "term", "title", "titolo", "nome"],
                 min_len=1,
                 prefix=True,
                 raw_regex=False,
@@ -61,7 +61,7 @@ def build_filter(
         else:
             # Ricerca estesa: anche description e markdown
             q_opts = QFilterOptions(
-                fields=["name", "term", "title", "description", "description_md"],
+                fields=["name", "term", "title", "titolo", "nome", "description", "description_md", "content"],
                 min_len=2,
             )
         qf = q_filter(q, options=q_opts)
@@ -132,8 +132,36 @@ def build_filter(
 
 
 def _alpha_sort_expr() -> Dict[str, Any]:
-    # Nome o term come chiave di sort alfabetico, in lower
-    return {"$toLower": {"$ifNull": ["$name", {"$ifNull": ["$term", ""]}]}}  # type: ignore[dict-item]
+    # Ordine alfabetico preferendo lo slug (se presente), altrimenti
+    # name -> term -> title -> titolo -> nome
+    return {
+        "$toLower": {
+            "$ifNull": [
+                "$slug",
+                {
+                    "$ifNull": [
+                        "$name",
+                        {
+                            "$ifNull": [
+                                "$term",
+                                {
+                                    "$ifNull": [
+                                        "$title",
+                                        {
+                                            "$ifNull": [
+                                                "$titolo",
+                                                {"$ifNull": ["$nome", ""]},
+                                            ]
+                                        },
+                                    ]
+                                },
+                            ]
+                        },
+                    ]
+                },
+            ]
+        }
+    }  # type: ignore[dict-item]
 
 
 async def _neighbors_alpha(
@@ -169,10 +197,11 @@ async def _neighbors_alpha(
 
 
 @router.get("/", response_class=HTMLResponse)
-async def index() -> HTMLResponse:
+async def index(page: int | None = Query(default=None)) -> HTMLResponse:
     tpl = env.get_template("index.html")
-    cols_sorted = sorted(COLLECTIONS, key=lambda c: COLLECTION_LABELS.get(c, c).lower())
-    first = cols_sorted[0] if cols_sorted else ""
+    # Mostra in home solo le collezioni non marcate come EN
+    visible_cols = [c for c in COLLECTIONS if "(EN)" not in COLLECTION_LABELS.get(c, "")]
+    cols_sorted = sorted(visible_cols, key=lambda c: COLLECTION_LABELS.get(c, c).lower())
     counts: Dict[str, int] = {}
     db = await get_db()
     for c in cols_sorted:
@@ -181,13 +210,70 @@ async def index() -> HTMLResponse:
         except Exception:
             counts[c] = 0
     total = sum(counts.values()) if counts else 0
+
+    # Carica un documento da 'documenti' per la homepage
+    doc_data = await _load_home_document(db, page)
+
     return HTMLResponse(
         tpl.render(
             collections=cols_sorted,
             labels=COLLECTION_LABELS,
             counts=counts,
             total=total,
-            first=first,
+            doc=to_jsonable(doc_data.get("doc")) if doc_data.get("doc") else None,
+            prev_page=doc_data.get("prev_page"),
+            next_page=doc_data.get("next_page"),
+            prev_title=doc_data.get("prev_title"),
+            next_title=doc_data.get("next_title"),
+        )
+    )
+
+
+async def _load_home_document(db, page: int | None) -> Dict[str, Any]:
+    out: Dict[str, Any] = {"doc": None, "prev_page": None, "next_page": None, "prev_title": None, "next_title": None}
+    try:
+        doc_col = db["documenti"]
+        # Trova pagina corrente: se non indicata, prendi la più piccola
+        if page is None:
+            cur = await doc_col.find_one({}, sort=[("numero_di_pagina", 1), ("_id", 1)])
+        else:
+            cur = await doc_col.find_one({"numero_di_pagina": page})
+            if not cur:
+                cur = await doc_col.find_one({}, sort=[("numero_di_pagina", 1), ("_id", 1)])
+        if cur:
+            out["doc"] = {**cur, "_id": str(cur["_id"]) }
+            cur_page = int(cur.get("numero_di_pagina") or 0)
+            # Prev
+            prev = await doc_col.find_one(
+                {"numero_di_pagina": {"$lt": cur_page}}, sort=[("numero_di_pagina", -1), ("_id", -1)]
+            )
+            if prev:
+                out["prev_page"] = int(prev.get("numero_di_pagina") or 0)
+                out["prev_title"] = str(prev.get("titolo") or prev.get("title") or prev.get("slug") or out["prev_page"])  # type: ignore[index]
+            # Next
+            nxt = await doc_col.find_one(
+                {"numero_di_pagina": {"$gt": cur_page}}, sort=[("numero_di_pagina", 1), ("_id", 1)]
+            )
+            if nxt:
+                out["next_page"] = int(nxt.get("numero_di_pagina") or 0)
+                out["next_title"] = str(nxt.get("titolo") or nxt.get("title") or nxt.get("slug") or out["next_page"])  # type: ignore[index]
+    except Exception:
+        pass
+    return out
+
+
+@router.get("/home/doc", response_class=HTMLResponse)
+async def home_doc_partial(page: int | None = Query(default=None)) -> HTMLResponse:
+    db = await get_db()
+    data = await _load_home_document(db, page)
+    tpl = env.get_template("_homepage_doc.html")
+    return HTMLResponse(
+        tpl.render(
+            doc=to_jsonable(data.get("doc")) if data.get("doc") else None,
+            prev_page=data.get("prev_page"),
+            next_page=data.get("next_page"),
+            prev_title=data.get("prev_title"),
+            next_title=data.get("next_title"),
         )
     )
 
@@ -266,7 +352,7 @@ async def quicksearch(request: Request, collection: str, q: str = "") -> HTMLRes
         {"$addFields": {"_sortkey": _alpha_sort_expr()}},
         {"$sort": {"_sortkey": 1, "_id": 1}},
         {"$limit": 10},
-        {"$project": {"_id": 1, "name": 1, "term": 1, "title": 1}},
+        {"$project": {"_id": 1, "name": 1, "term": 1, "title": 1, "titolo": 1, "nome": 1}},
     ]
     items = []
     async for d in col.aggregate(pipe):
@@ -296,9 +382,9 @@ async def show_doc(
     filt_nav = build_filter(q or "", collection, request.query_params)
     cur_key = str(doc.get("name") or doc.get("term") or "")
     prev_id, next_id = await _neighbors_alpha(col, cur_key, filt_nav)
-    doc_title = str(doc.get("name") or doc.get("term") or doc.get("title") or doc_id)
+    doc_title = str(doc.get("name") or doc.get("term") or doc.get("title") or doc.get("titolo") or doc_id)
 
-    tpl_name = "show_class.html" if collection == "classes" else "show.html"
+    tpl_name = "show_class.html" if collection in ("classi", "classes") else "show.html"
     tpl = env.get_template(tpl_name)
     qs = (
         urlencode(dict(request.query_params))
@@ -310,6 +396,7 @@ async def show_doc(
             collection=collection,
             doc_id=str(doc["_id"]),
             doc_title=doc_title,
+            doc_slug=str(doc.get("slug") or ""),
             fields=fields,
             doc_obj=to_jsonable(doc),
             q=q or "",
@@ -324,69 +411,4 @@ async def show_doc(
 # Rimosso editor per-campi: mantenuta solo la modalità JSON
 
 
-@router.get("/edit_raw/{collection}/{doc_id}", response_class=HTMLResponse)
-async def edit_raw_get(
-    request: Request, collection: str, doc_id: str, q: str | None = Query(default=None)
-) -> HTMLResponse:
-    if collection not in COLLECTIONS:
-        raise HTTPException(404)
-    db = await get_db()
-    try:
-        oid = ObjectId(doc_id)
-    except Exception:
-        raise HTTPException(400, "invalid _id")
-    doc = await db[collection].find_one({"_id": oid})
-    if not doc:
-        raise HTTPException(404, "Documento non trovato")
-
-    json_str = json.dumps(
-        to_jsonable(doc), ensure_ascii=False, indent=2, sort_keys=True
-    )
-    doc_title = str(doc.get("name") or doc.get("term") or doc.get("title") or doc_id)
-    filt_nav = build_filter(q or "", collection, request.query_params)
-    cur_key = str(doc.get("name") or doc.get("term") or "")
-    prev_id, next_id = await _neighbors_alpha(db[collection], cur_key, filt_nav)
-    tpl = env.get_template("edit_raw.html")
-    qs = (
-        urlencode(dict(request.query_params))
-        if request and request.query_params
-        else ""
-    )
-    return HTMLResponse(
-        tpl.render(
-            collection=collection,
-            doc_id=str(doc["_id"]),
-            doc_title=doc_title,
-            raw_json=json_str,
-            request=request,
-            q=q or "",
-            prev_id=prev_id,
-            next_id=next_id,
-            qs=qs,
-        )
-    )
-
-
-@router.put("/edit_raw/{collection}/{doc_id}", response_class=PlainTextResponse)
-async def edit_raw_put(
-    collection: str, doc_id: str, request: Request
-) -> PlainTextResponse:
-    if collection not in COLLECTIONS:
-        raise HTTPException(404)
-    form = await request.form()
-    raw = form.get("json", "")
-    try:
-        data = json.loads(raw)
-    except Exception as e:
-        raise HTTPException(400, f"JSON non valido: {e}")
-    if not isinstance(data, dict):
-        raise HTTPException(400, "Il documento deve essere un oggetto JSON")
-    try:
-        oid = ObjectId(doc_id)
-    except Exception:
-        raise HTTPException(400, "invalid _id")
-    # Forza l'_id corretto
-    data["_id"] = oid
-    db = await get_db()
-    await db[collection].replace_one({"_id": oid}, data, upsert=False)
-    return PlainTextResponse("Saved")
+## editing removed

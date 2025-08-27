@@ -10,6 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <link rel="icon" href="data:,"/>
   <style>
+    :root { --site-header-h: 64px; }
     /* Accessible focus ring for inputs */
     input:focus, textarea:focus, select:focus {
       outline: none;
@@ -32,6 +33,10 @@
       background: #4f46e5; color: white; border-color: #4f46e5;
     }
     .btn-primary:hover { background: #4338ca; }
+    .btn-dark {
+      background: #111827; color: #fff; border-color: #111827;
+    }
+    .btn-dark:hover { background: #0b1220; }
     .btn-ghost { background: white; }
     .tag { display:inline-block; font-size: 11px; padding:.125rem .5rem; border:1px solid #e5e7eb; border-radius:.375rem; }
     .field {
@@ -39,6 +44,7 @@
       padding: .375rem .5rem; font-size: 13px; background: white;
     }
     .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; font-size: 13px; }
+    html { scroll-behavior: smooth; }
     /* Simple spinner */
     .spinner { width: 1rem; height: 1rem; border-radius: 9999px; border: 2px solid #d4d4d8; border-top-color: #4f46e5; animation: spin 1s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
@@ -60,6 +66,15 @@
     [data-markdown] table { width: 100%; border-collapse: collapse; margin: .75rem 0; }
     [data-markdown] th, [data-markdown] td { border: 1px solid #e5e7eb; padding: .4rem .5rem; text-align: left; }
     [data-markdown] th { background: #f9fafb; font-weight: 600; }
+    /* Avoid headings being hidden under the sticky header when anchored */
+    [data-markdown] h1,
+    [data-markdown] h2,
+    [data-markdown] h3,
+    [data-markdown] h4,
+    [data-markdown] h5,
+    [data-markdown] h6 { scroll-margin-top: calc(var(--site-header-h) + 12px); }
+    [data-markdown] > :first-child { margin-top: 0 !important; }
+    .top-under-header { top: var(--site-header-h); }
   </style>
   </style>
 </head>
@@ -74,12 +89,12 @@
           <a href="/list/{{ collection }}{% if qs %}?{{ qs }}{% endif %}" class="text-neutral-800 hover:underline">{{ collection }}</a>
           <span class="text-neutral-400">/</span>
           <div class="inline-flex items-center gap-1 relative">
-            <input id="bc-search" name="q" placeholder="{{ doc_title or ('Cerca in ' ~ collection ~ '…') }}" class="field !text-[12px] !py-1 w-56"
+            <input id="bc-search" name="q" placeholder="{{ doc_slug or doc_title or ('Cerca in ' ~ collection ~ '…') }}" class="field !text-[12px] !py-1 w-56"
                    hx-get="/quicksearch/{{ collection }}"
                    hx-target="#bc-results"
                    hx-trigger="keyup changed delay:200ms"
                    autocomplete="off" />
-            <div id="bc-results" class="absolute left-0 top-full mt-1 w-[28rem] max-h-80 overflow-auto bg-white border rounded shadow z-50 hidden"></div>
+            <div id="bc-results" class="absolute left-0 top-full mt-1 w-[28rem] max-h-80 overflow-auto bg-white border shadow z-50 hidden"></div>
           </div>
         {% endif %}
         {% if doc_title and not collection %}
@@ -87,12 +102,12 @@
           <span class="font-medium truncate max-w-[40vw]" title="{{ doc_title }}">{{ doc_title }}</span>
         {% elif doc_id and not collection %}
           <span class="text-neutral-400">/</span>
-          <span class="mono bg-neutral-100 border rounded px-2 py-0.5" title="{{ doc_id }}">{{ doc_id }}</span>
+          <span class="mono bg-neutral-100 border px-2 py-0.5" title="{{ doc_id }}">{{ doc_id }}</span>
         {% endif %}
       </nav>
       <div class="ml-auto flex items-center gap-2 relative">
         <button id="menu-toggle" class="btn sm:hidden" aria-label="Apri menu" aria-controls="nav-links" aria-expanded="false">☰</button>
-        <nav id="nav-links" class="hidden absolute right-0 top-full mt-2 flex flex-col gap-2 bg-white border rounded shadow p-2 sm:static sm:flex sm:flex-row sm:items-center sm:gap-2 sm:border-0 sm:shadow-none sm:p-0" aria-label="Azioni">
+        <nav id="nav-links" class="hidden absolute right-0 top-full mt-2 flex flex-col gap-2 bg-white border shadow p-2 sm:static sm:flex sm:flex-row sm:items-center sm:gap-2 sm:border-0 sm:shadow-none sm:p-0" aria-label="Azioni">
           {% block header_actions %}{% endblock %}
         </nav>
       </div>
@@ -175,7 +190,7 @@
       wrap.classList.toggle('z-50', expanded);
       wrap.classList.toggle('bg-white', expanded);
       wrap.classList.toggle('border', expanded);
-      wrap.classList.toggle('rounded', expanded);
+      // removed rounded corners for minimal look
       wrap.classList.toggle('p-4', expanded);
       wrap.classList.toggle('max-w-screen-xl', expanded);
       wrap.classList.toggle('mx-auto', expanded);
@@ -188,7 +203,7 @@
     }
     function flash(anchorEl, msg){
       const n = document.createElement('span');
-      n.className = 'ml-2 inline-flex items-center rounded px-2 py-0.5 text-xs bg-green-50 text-green-700 border border-green-200';
+      n.className = 'ml-2 inline-flex items-center px-2 py-0.5 text-xs bg-green-50 text-green-700 border border-green-200';
       n.textContent = msg;
       anchorEl.insertAdjacentElement('afterend', n);
       setTimeout(()=>n.remove(), 1200);
@@ -210,19 +225,37 @@
       if(id.startsWith('field-toast-') || id === 'global-toast'){
         const ok = e.detail.xhr && e.detail.xhr.status >= 200 && e.detail.xhr.status < 300;
         const msg = ok ? 'Salvato' : 'Errore di salvataggio';
-        target.innerHTML = `<span class="inline-flex items-center rounded px-2 py-0.5 text-xs ${ok? 'bg-green-50 text-green-700 border border-green-200':'bg-red-50 text-red-700 border border-red-200'}">${msg}</span>`;
+        target.innerHTML = `<span class="inline-flex items-center px-2 py-0.5 text-xs ${ok? 'bg-green-50 text-green-700 border border-green-200':'bg-red-50 text-red-700 border border-red-200'}">${msg}</span>`;
         setTimeout(()=>{ target.innerHTML = ''; }, ok ? 1500 : 2500);
       }
     });
 
     // Init on load
-    document.addEventListener('DOMContentLoaded', initAutoGrow);
+    document.addEventListener('DOMContentLoaded', function(){
+      // Update header height CSS var
+      try {
+        const hdr = document.querySelector('header');
+        const setH = ()=>{ if(hdr){ document.documentElement.style.setProperty('--site-header-h', hdr.offsetHeight + 'px'); } };
+        setH();
+        window.addEventListener('resize', setH);
+      } catch(e) {}
+      initAutoGrow();
+    });
 
     // Markdown rendering for elements with [data-markdown]
     function initMarkdown(){
       const hasMarked = typeof window.marked !== 'undefined';
+      if (hasMarked && window.marked.setOptions){
+        try { window.marked.setOptions({ headerIds: true, mangle: false }); } catch(e) {}
+      }
       document.querySelectorAll('[data-markdown]').forEach(el=>{
-        const raw = el.textContent || '';
+        let raw = '';
+        const srcId = el.getAttribute('data-md-src-id');
+        if (srcId){
+          const src = document.getElementById(srcId);
+          if (src) raw = src.textContent || '';
+        }
+        if (!raw){ raw = el.textContent || ''; }
         el.dataset.raw = raw;
         if(hasMarked){ el.innerHTML = window.marked.parse(raw); }
         else { el.innerHTML = raw.replace(/\n\n/g,'<br/><br/>'); }
@@ -233,6 +266,7 @@
           wrap.appendChild(tbl);
         });
       });
+      try { document.dispatchEvent(new CustomEvent('markdown:rendered')); } catch(e) {}
     }
     document.addEventListener('DOMContentLoaded', initMarkdown);
     document.body.addEventListener('htmx:afterSwap', initMarkdown);
