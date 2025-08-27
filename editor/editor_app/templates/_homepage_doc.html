@@ -1,0 +1,136 @@
+{% if doc %}
+<section id="doc-section" class="mt-6 bg-white border p-4">
+  <div class="grid grid-cols-12 gap-4">
+    <aside class="col-span-12 md:col-span-3 lg:col-span-2 h-[calc(100vh-9rem)] md:sticky top-under-header overflow-auto border bg-white p-3" aria-label="Indice del documento">
+      <div class="flex items-center justify-between mb-2">
+        <div class="text-[11px] uppercase tracking-wide text-neutral-500 px-1">Sezioni</div>
+        <button id="home-toc-toggle" class="btn btn-ghost md:hidden !py-1 !px-2 text-xs" aria-controls="home-toc" aria-expanded="false">Indice ▾</button>
+      </div>
+      <nav id="home-toc" class="text-sm space-y-1 hidden md:block" aria-label="Sommario"></nav>
+    </aside>
+
+    <article class="col-span-12 md:col-span-9 lg:col-span-10" data-md-section>
+      <!-- Unified sticky header: title, page num, prev/next titles -->
+      <div class="sticky top-under-header z-10 -mx-2 px-2 py-1 bg-white/95 supports-[backdrop-filter]:bg-white/70 backdrop-blur border-b md:-mx-4 md:px-4">
+        <div class="flex items-center justify-between gap-2">
+          <div class="min-w-0">
+            <div class="text-[11px] uppercase tracking-wide text-neutral-500">{{ doc.source or '' }}</div>
+            <h2 class="text-base md:text-lg font-semibold break-words leading-snug">{{ doc.titolo or 'Documento' }}</h2>
+            {% if doc.numero_di_pagina %}<div class="text-[11px] text-neutral-500 leading-tight">Pagina {{ doc.numero_di_pagina }}</div>{% endif %}
+          </div>
+          <div class="flex items-stretch gap-2 shrink-0 flex-col sm:flex-row sm:items-center">
+            <a class="btn text-xs whitespace-normal break-words leading-snug max-w-[12rem]"
+               {% if prev_page %}
+                 hx-get="/home/doc?page={{ prev_page }}" hx-target="#doc-section" hx-swap="outerHTML" hx-push-url="/?page={{ prev_page }}"
+               {% else %}
+                 aria-disabled="true" tabindex="-1" style="pointer-events:none;opacity:.5"
+               {% endif %}
+               title="{{ prev_title or 'Precedente' }}"
+            >← {{ prev_title or 'Precedente' }}</a>
+            <a class="btn text-xs whitespace-normal break-words leading-snug max-w-[12rem]"
+               {% if next_page %}
+                 hx-get="/home/doc?page={{ next_page }}" hx-target="#doc-section" hx-swap="outerHTML" hx-push-url="/?page={{ next_page }}"
+               {% else %}
+                 aria-disabled="true" tabindex="-1" style="pointer-events:none;opacity:.5"
+               {% endif %}
+               title="{{ next_title or 'Successivo' }}"
+            >{{ next_title or 'Successivo' }} →</a>
+          </div>
+        </div>
+      </div>
+      <div id="doc-md" data-markdown data-md-src-id="doc-md-data" class="prose max-w-none"></div>
+    </article>
+  </div>
+
+</section>
+<script id="doc-md-data" type="text/markdown">{{ (doc.content or '') | e }}</script>
+<script>
+  (function(){
+    function slugify(text){
+      return (text || '').toString().toLowerCase()
+        .replace(/\s+/g,'-')
+        .replace(/[^\w\-àèéìòùçñ]/g,'')
+        .replace(/\-+/g,'-')
+        .replace(/^\-+|\-+$/g,'');
+    }
+    function buildHomeToc(){
+      var container = document.getElementById('doc-md');
+      var toc = document.getElementById('home-toc');
+      if(!container || !toc) return;
+      toc.innerHTML = '';
+      var hs = container.querySelectorAll('h3, h4');
+      if(!hs.length){ toc.innerHTML = '<div class="text-xs text-neutral-500">Nessuna sezione</div>'; return; }
+      hs.forEach(function(h){
+        if(!h.id){ h.id = slugify(h.textContent || 'sezione'); }
+        var a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.textContent = h.textContent || '';
+        a.className = 'block px-2 py-1 hover:bg-neutral-100 truncate';
+        a.setAttribute('data-target-id', h.id);
+        var wrap = document.createElement('div');
+        if(h.tagName === 'H4'){ wrap.style.marginLeft = '1rem'; }
+        wrap.appendChild(a);
+        toc.appendChild(wrap);
+      });
+      setupScrollSpy();
+    }
+    function setupScrollSpy(){
+      var container = document.getElementById('doc-md');
+      var toc = document.getElementById('home-toc');
+      if(!container || !toc) return;
+      var links = toc.querySelectorAll('a[data-target-id]');
+      var targets = [];
+      links.forEach(function(a){
+        var id = a.getAttribute('data-target-id');
+        var el = document.getElementById(id);
+        if(el){ targets.push({ el: el, link: a }); }
+      });
+      function setActive(id){
+        links.forEach(function(a){
+          var active = a.getAttribute('data-target-id') === id;
+          a.classList.toggle('bg-indigo-50', active);
+          a.classList.toggle('text-indigo-700', active);
+          a.setAttribute('aria-current', active ? 'true' : 'false');
+        });
+      }
+      if('IntersectionObserver' in window){
+        var currentId = null;
+        var header = document.querySelector('header');
+        var h = header ? header.offsetHeight : 64;
+        var obs = new IntersectionObserver(function(entries){
+          entries.forEach(function(ent){ if(ent.isIntersecting){ currentId = ent.target.id; } });
+          if(currentId){ setActive(currentId); }
+        }, { root: null, rootMargin: `-${h + 12}px 0px -70% 0px`, threshold: 0 });
+        targets.forEach(function(t){ obs.observe(t.el); });
+      } else {
+        window.addEventListener('scroll', function(){
+          var closest = null, closestDist = 1e9;
+          targets.forEach(function(t){
+            var rect = t.el.getBoundingClientRect();
+            var dist = Math.abs(rect.top);
+            if(dist < closestDist){ closestDist = dist; closest = t; }
+          });
+          if(closest){ setActive(closest.el.id); }
+        });
+      }
+    }
+    document.addEventListener('markdown:rendered', buildHomeToc);
+    document.addEventListener('DOMContentLoaded', function(){ setTimeout(buildHomeToc, 0); });
+    // Toggle TOC on mobile
+    document.addEventListener('DOMContentLoaded', function(){
+      var btn = document.getElementById('home-toc-toggle');
+      var toc = document.getElementById('home-toc');
+      if(!btn || !toc) return;
+      btn.addEventListener('click', function(){
+        var hidden = toc.classList.toggle('hidden');
+        btn.setAttribute('aria-expanded', (!hidden).toString());
+        btn.textContent = hidden ? 'Indice ▾' : 'Indice ▴';
+      });
+    });
+  })();
+</script>
+{% else %}
+<section id="doc-section" class="mt-6 bg-white border p-4">
+  <div class="text-sm text-neutral-600">Nessun documento disponibile.</div>
+</section>
+{% endif %}

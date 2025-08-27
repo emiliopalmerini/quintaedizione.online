@@ -5,27 +5,26 @@
   <a href="/" class="btn btn-ghost">Tutte le collezioni</a>
 {% endblock %}
 {% block content %}
-  <section class="bg-white border rounded-md p-3 mb-3">
+  <section class="bg-white border p-2 mb-3">
     <form id="search-form"
       hx-get="/view/{{ collection }}"
       hx-target="#rows"
       hx-trigger="submit, keyup delay:300ms from:#q, change from:select, change from:input[type=checkbox], change from:input[type=number]"
-      class="flex flex-col gap-3"
+      class="flex flex-col gap-2"
     >
       <div class="flex items-center gap-2 flex-wrap">
-        <input id="q" name="q" placeholder="Cerca per nome/termine/descrizione…" value="{{ q or '' }}" class="field flex-1" />
-        <select name="page_size" class="field w-32">
+        <input id="q" name="q" placeholder="Cerca…" value="{{ q or '' }}" class="field flex-1" />
+        <select name="page_size" class="field w-28">
           {% for s in [10,20,50,100] %}
             <option value="{{ s }}" {% if page_size==s %}selected{% endif %}>{{ s }}/pagina</option>
           {% endfor %}
         </select>
-        {# Rimosso campo 'page' nascosto: i pulsanti di paginazione passano il parametro page correttamente.
-           Tenere il campo qui causava conflitto con hx-include e impediva il cambio pagina. #}
-        <button class="btn btn-primary" type="submit">Cerca</button>
+        {# pulsante submit minimale #}
+        <button class="btn" type="submit">Cerca</button>
       </div>
 
-      <details class="border rounded p-2">
-        <summary class="cursor-pointer text-sm text-neutral-700">Filtri avanzati</summary>
+      <details class="p-2">
+        <summary class="cursor-pointer text-sm text-neutral-700">Filtri</summary>
         <div class="mt-2 grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
           {% if collection == 'spells' %}
             <select name="level" class="field"><option value="">Livello (tutti)</option>{% for i in range(0,10) %}<option value="{{ i }}" {% if request and request.query_params.get('level')==i|string %}selected{% endif %}>{{ i }}</option>{% endfor %}</select>
@@ -65,14 +64,14 @@
             <input name="alignment" class="field" placeholder="Allineamento (es. NM, NB)" value="{{ request and request.query_params.get('alignment','') }}" />
             <input name="cr" class="field" placeholder="GS (es. 1/2 o 5)" value="{{ request and request.query_params.get('cr','') }}" />
           {% else %}
-            <div class="text-xs text-neutral-600">Nessun filtro specifico per {{ collection }}. Usa la ricerca testuale.</div>
+            <div class="text-xs text-neutral-600">Nessun filtro specifico per {{ collection }}.</div>
           {% endif %}
         </div>
       </details>
     </form>
   </section>
 
-  <section class="bg-white border rounded-md">
+  <section class="bg-white border">
     <div id="rows"
          hx-get="/view/{{ collection }}?page={{ page or 1 }}&page_size={{ page_size or 20 }}&q={{ q or '' }}"
          hx-trigger="load"

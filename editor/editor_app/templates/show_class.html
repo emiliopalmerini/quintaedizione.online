@@ -1,4 +1,4 @@
-<!-- app/templates/show_class.html -->
+<!-- app/templates/show_class.html (updated for Italian fields) -->
 {% extends "base.html" %}
 {% block title %}{{ doc_title or doc_id }} • {{ collection }}{% endblock %}
 
@@ -21,188 +21,120 @@
       {% endif %}
       <button type="submit" class="btn btn-ghost" {% if not next_id %}disabled aria-disabled="true" tabindex="-1"{% endif %}>Successivo ›</button>
     </form>
-    <a href="/edit_raw/{{ collection }}/{{ doc_id }}{% if qs %}?{{ qs }}{% endif %}"
-       class="btn" title="Modifica come JSON">Modifica (JSON)</a>
+    
   </nav>
 {% endblock %}
 
 {% block content %}
   {% set c = doc_obj %}
-  {% set has_traits = c.core_traits or c.core_traits_md %}
-  {% set has_features = c.features_by_level %}
-  {% set has_spellcasting = c.spellcasting_progression and c.spellcasting_progression.by_level %}
-  {% set has_spelllist = c.spell_lists_by_level %}
-  {% set has_subclasses = c.subclasses %}
-
   <div class="grid grid-cols-12 gap-4">
-    <aside class="col-span-12 md:col-span-3 lg:col-span-2 h-[calc(100vh-7rem)] md:sticky md:top-16 overflow-auto border bg-white rounded-md p-3" aria-label="Indice sezioni">
-      <div class="text-[11px] uppercase tracking-wide text-neutral-500 px-1 mb-2">Sezioni</div>
-      <ul class="space-y-1 text-sm">
-        <li><a href="#cls-header" class="block px-2 py-1 rounded hover:bg-neutral-100">Intestazione</a></li>
-        {% if has_traits %}<li><a href="#cls-traits" class="block px-2 py-1 rounded hover:bg-neutral-100">Tratti fondamentali</a></li>{% endif %}
-        {% if has_features %}<li><a href="#cls-features" class="block px-2 py-1 rounded hover:bg-neutral-100">Privilegi</a></li>{% endif %}
-        {% if has_spellcasting %}<li><a href="#cls-spellcasting" class="block px-2 py-1 rounded hover:bg-neutral-100">Progressione incantesimi</a></li>{% endif %}
-        {% if has_spelllist %}<li><a href="#cls-spelllist" class="block px-2 py-1 rounded hover:bg-neutral-100">Lista incantesimi</a></li>{% endif %}
-        {% if has_subclasses %}<li><a href="#cls-subclasses" class="block px-2 py-1 rounded hover:bg-neutral-100">Sottoclassi</a></li>{% endif %}
-      </ul>
+    <aside class="col-span-12 md:col-span-3 lg:col-span-2 h-[calc(100vh-7rem)] md:sticky md:top-16 overflow-auto border bg-white p-3" aria-label="Indice della classe">
+      <div class="flex items-center justify-between mb-2">
+        <div class="text-[11px] uppercase tracking-wide text-neutral-500 px-1">Sezioni</div>
+        <button id="toc-toggle" class="btn btn-ghost md:hidden !py-1 !px-2 text-xs" aria-controls="cls-toc" aria-expanded="false">Indice ▾</button>
+      </div>
+      <nav id="cls-toc" class="text-sm space-y-1 hidden md:block" aria-label="Sommario"></nav>
     </aside>
 
-    <article class="col-span-12 md:col-span-9 lg:col-span-10 bg-white border rounded-md p-4 space-y-4">
-    <header id="cls-header">
-      <h1 class="text-2xl font-semibold mb-2">{{ c.name or doc_title }}</h1>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
-        {% if c.core_traits %}
-          {% set t = c.core_traits %}
-          {% if t.primary_ability %}<div><span class="text-neutral-500">Abilità primaria:</span> <span class="font-medium">{{ t.primary_ability }}</span></div>{% endif %}
-          {% if t.hit_point_die or t.hit_die %}<div><span class="text-neutral-500">Dado Vita:</span> <span class="font-medium">{{ t.hit_point_die or t.hit_die }}</span></div>{% endif %}
-          {% if t.saving_throw_proficiencies or t.saving_throw_proficiencies_list %}
-            <div><span class="text-neutral-500">TS competenti:</span> <span class="font-medium">{{ t.saving_throw_proficiencies or (t.saving_throw_proficiencies_list and (t.saving_throw_proficiencies_list|join(', '))) }}</span></div>
-          {% endif %}
-          {% if t.skill_proficiencies_parsed %}
-            <div><span class="text-neutral-500">Abilità:</span> <span class="font-medium">scegli {{ t.skill_proficiencies_parsed.choose }} da {{ t.skill_proficiencies_parsed.options|join(', ') }}</span></div>
-          {% elif t.skill_proficiencies %}
-            <div><span class="text-neutral-500">Abilità:</span> <span class="font-medium">{{ t.skill_proficiencies }}</span></div>
-          {% endif %}
-          {% if t.armor_training %}<div><span class="text-neutral-500">Armature:</span> <span class="font-medium">{{ t.armor_training }}</span></div>{% endif %}
-          {% if t.weapon_proficiencies %}<div><span class="text-neutral-500">Armi:</span> <span class="font-medium">{{ t.weapon_proficiencies }}</span></div>{% endif %}
-          {% if t.tool_proficiencies %}<div><span class="text-neutral-500">Strumenti:</span> <span class="font-medium">{{ t.tool_proficiencies }}</span></div>{% endif %}
-        {% endif %}
-      </div>
-    </header>
-
-    {% if c.core_traits_md %}
-      <section id="cls-traits">
-        <h2 class="text-lg font-semibold mb-2">Tratti fondamentali</h2>
-        <div data-md-section>
-          <div data-markdown>
-{{ c.core_traits_md }}
-          </div>
-        </div>
-      </section>
-    {% endif %}
-
-    {% if c.features_by_level %}
-      <section id="cls-features">
-        <h2 class="text-lg font-semibold mb-2">Privilegi della classe</h2>
-        <div class="border rounded-md divide-y">
-          {% for lvl in c.features_by_level %}
-            <div class="p-3">
-              <div class="text-sm font-semibold mb-2">Livello {{ lvl.level }}</div>
-              <div class="space-y-2">
-                {% for f in lvl.features %}
-                  <details>
-                    <summary class="cursor-pointer text-neutral-800">{{ f.name }}</summary>
-                    {% if f.text %}
-                      <div class="mt-1" data-markdown>
-{{ f.text }}
-                      </div>
-                    {% endif %}
-                  </details>
-                {% endfor %}
-                {% if not lvl.features or lvl.features|length == 0 %}
-                  <div class="text-sm text-neutral-600">Nessun privilegio indicato per questo livello.</div>
-                {% endif %}
-              </div>
-            </div>
-          {% endfor %}
-        </div>
-      </section>
-    {% endif %}
-
-    {% if c.spellcasting_progression and c.spellcasting_progression.by_level %}
-      <section id="cls-spellcasting">
-        <h2 class="text-lg font-semibold mb-2">Progressione incantesimi</h2>
-        <div class="overflow-auto">
-          <table class="min-w-full text-sm">
-            <thead>
-              <tr class="bg-neutral-50">
-                <th class="text-left px-2 py-1 border">Liv.</th>
-                <th class="text-left px-2 py-1 border">Trucchetti</th>
-                <th class="text-left px-2 py-1 border">Preparati</th>
-                {% set max_slot = 0 %}
-                {% for e in c.spellcasting_progression.by_level %}
-                  {% if e.slots %}
-                    {% for k in e.slots.keys() %}
-                      {% set ks = k|int %}
-                      {% if ks > max_slot %}{% set max_slot = ks %}{% endif %}
-                    {% endfor %}
-                  {% endif %}
-                {% endfor %}
-                {% for i in range(1, max_slot+1) %}
-                  <th class="text-left px-2 py-1 border">{{ i }}°</th>
-                {% endfor %}
-              </tr>
-            </thead>
-            <tbody>
-              {% for e in c.spellcasting_progression.by_level %}
-                <tr>
-                  <td class="px-2 py-1 border">{{ e.level }}</td>
-                  <td class="px-2 py-1 border">{{ e.cantrips or 0 }}</td>
-                  <td class="px-2 py-1 border">{{ e.prepared_spells or 0 }}</td>
-                  {% for i in range(1, max_slot+1) %}
-                    <td class="px-2 py-1 border">{{ (e.slots and e.slots.get(i|string)) or 0 }}</td>
-                  {% endfor %}
-                </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
-      </section>
-    {% endif %}
-
-    {% if c.spell_lists_by_level %}
-      <section id="cls-spelllist">
-        <h2 class="text-lg font-semibold mb-2">Lista incantesimi</h2>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
-          {% for grp in c.spell_lists_by_level %}
-            <div class="border rounded p-2">
-              <div class="font-semibold mb-1">Livello {{ grp.spell_level }}</div>
-              {% if grp.spells %}
-                <ul class="list-disc ml-4">
-                  {% for s in grp.spells %}<li>{{ s }}</li>{% endfor %}
-                </ul>
-              {% else %}
-                <div class="text-neutral-500">Nessun incantesimo</div>
-              {% endif %}
-            </div>
-          {% endfor %}
-        </div>
-      </section>
-    {% endif %}
-
-    {% if c.subclasses %}
-      <section id="cls-subclasses">
-        <h2 class="text-lg font-semibold mb-2">Sottoclassi</h2>
-        <div class="space-y-3">
-          {% for sc in c.subclasses %}
-            <details>
-              <summary class="cursor-pointer text-neutral-800 text-lg">{{ sc.name }}</summary>
-              <div class="mt-2 border rounded-md divide-y">
-                {% for lvl in sc.features_by_level %}
-                  <div class="p-3">
-                    <div class="text-sm font-semibold mb-2">Livello {{ lvl.level }}</div>
-                    {% for f in lvl.features %}
-                      <details>
-                        <summary class="cursor-pointer">{{ f.name }}</summary>
-                        {% if f.text %}
-                          <div class="mt-1" data-markdown>
-{{ f.text }}
-                          </div>
-                        {% endif %}
-                      </details>
-                    {% endfor %}
-                  </div>
-                {% endfor %}
-              </div>
-            </details>
-          {% endfor %}
-        </div>
-      </section>
-    {% endif %}
-  </article>
-
-  <details class="mt-3">
-    <summary class="cursor-pointer text-sm text-neutral-600 hover:underline">Mostra dati grezzi</summary>
-    <pre class="mono whitespace-pre-wrap bg-neutral-50 border rounded p-3 mt-2">{{ doc_obj | tojson(indent=2) }}</pre>
-  </details>
+    <article class="col-span-12 md:col-span-9 lg:col-span-10 bg-white border p-4" data-md-section>
+      <div id="cls-md" data-markdown data-md-src-id="cls-md-data" class="prose max-w-none"></div>
+      <script id="cls-md-data" type="text/markdown">{{ (c.content or '') | e }}</script>
+    </article>
+  </div>
 {% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script>
+    (function(){
+      function slugify(text){
+        return (text || '').toString().toLowerCase()
+          .replace(/\s+/g,'-')
+          .replace(/[^\w\-àèéìòùçñ]/g,'')
+          .replace(/\-+/g,'-')
+          .replace(/^\-+|\-+$/g,'');
+      }
+      function buildToc(){
+        var container = document.getElementById('cls-md');
+        var toc = document.getElementById('cls-toc');
+        if(!container || !toc) return;
+        // Clear
+        toc.innerHTML = '';
+        // Include H3 and H4 sections in the TOC
+        var hs = container.querySelectorAll('h3, h4');
+        if(!hs.length){ toc.innerHTML = '<div class="text-xs text-neutral-500">Nessuna sezione</div>'; return; }
+        hs.forEach(function(h){
+          if(!h.id){ h.id = slugify(h.textContent || 'sezione'); }
+          var a = document.createElement('a');
+          a.href = '#' + h.id;
+          a.textContent = h.textContent || '';
+          a.className = 'block px-2 py-1 hover:bg-neutral-100 truncate';
+          a.setAttribute('data-target-id', h.id);
+          var wrap = document.createElement('div');
+          // Indentation for nested levels
+          if(h.tagName === 'H4'){ wrap.style.marginLeft = '1rem'; }
+          wrap.appendChild(a);
+          toc.appendChild(wrap);
+        });
+        setupScrollSpy();
+      }
+      function setupScrollSpy(){
+        var container = document.getElementById('cls-md');
+        var toc = document.getElementById('cls-toc');
+        if(!container || !toc) return;
+        var links = toc.querySelectorAll('a[data-target-id]');
+        var targets = [];
+        links.forEach(function(a){
+          var id = a.getAttribute('data-target-id');
+          var el = document.getElementById(id);
+          if(el){ targets.push({ el: el, link: a }); }
+        });
+        function setActive(id){
+          links.forEach(function(a){
+            var active = a.getAttribute('data-target-id') === id;
+            a.classList.toggle('bg-indigo-50', active);
+            a.classList.toggle('text-indigo-700', active);
+            a.setAttribute('aria-current', active ? 'true' : 'false');
+          });
+        }
+        if('IntersectionObserver' in window){
+          var currentId = null;
+          var obs = new IntersectionObserver(function(entries){
+            entries.forEach(function(ent){
+              if(ent.isIntersecting){ currentId = ent.target.id; }
+            });
+            if(currentId){ setActive(currentId); }
+          }, { root: null, rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+          targets.forEach(function(t){ obs.observe(t.el); });
+        } else {
+          window.addEventListener('scroll', function(){
+            var top = window.scrollY || document.documentElement.scrollTop || 0;
+            var closest = null, closestDist = 1e9;
+            targets.forEach(function(t){
+              var rect = t.el.getBoundingClientRect();
+              var dist = Math.abs(rect.top);
+              if(dist < closestDist){ closestDist = dist; closest = t; }
+            });
+            if(closest){ setActive(closest.el.id); }
+          });
+        }
+      }
+      document.addEventListener('markdown:rendered', buildToc);
+      document.body.addEventListener('htmx:afterSwap', function(){ setTimeout(buildToc, 0); });
+
+      // Toggle TOC on mobile
+      document.addEventListener('DOMContentLoaded', function(){
+        var btn = document.getElementById('toc-toggle');
+        var toc = document.getElementById('cls-toc');
+        if(!btn || !toc) return;
+        btn.addEventListener('click', function(){
+          var hidden = toc.classList.toggle('hidden');
+          btn.setAttribute('aria-expanded', (!hidden).toString());
+          btn.textContent = hidden ? 'Indice ▾' : 'Indice ▴';
+        });
+      });
+    })();
+  </script>
+{% endblock %}
+
+{# scripts block for markdown already handled in base.html; TOC script above #}
