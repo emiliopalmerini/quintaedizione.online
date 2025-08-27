@@ -9,6 +9,7 @@ from urllib.parse import urlencode
 from bson import ObjectId
 from editor_app.core.config import COLLECTION_LABELS, COLLECTIONS
 from editor_app.core.db import get_db
+from editor_app.adapters.persistence.mongo_repository import MongoRepository
 from editor_app.core.flatten import flatten_for_form
 from editor_app.utils.markdown import render_md
 from editor_app.application.query_service import build_filter, neighbors_alpha, alpha_sort_expr
@@ -172,9 +173,9 @@ async def view_rows(
     if collection not in COLLECTIONS:
         raise HTTPException(404)
     db = await get_db()
-    col = db[collection]
+    repo = MongoRepository(db)
     filt = build_filter(q, collection, request.query_params)
-    total = await col.count_documents(filt)
+    total = await repo.count(collection, filt)
     pages = max(1, math.ceil(total / page_size))
     page = max(1, min(page, pages))
     # sort by alpha of name/term via aggregation
@@ -185,10 +186,10 @@ async def view_rows(
         {"$skip": (page - 1) * page_size},
         {"$limit": page_size},
     ]
-    items = []
-    async for doc in col.aggregate(pipe):
-        doc["_id"] = str(doc["_id"])
-        items.append(doc)
+    items = await repo.aggregate_list(collection, pipe)
+    for doc in items:
+        if doc.get("_id") is not None:
+            doc["_id"] = str(doc["_id"])
     tpl = env.get_template("_rows.html")
     qs = (
         urlencode(dict(request.query_params))
@@ -217,7 +218,7 @@ async def quicksearch(request: Request, collection: str, q: str = "") -> HTMLRes
     if not q.strip():
         return HTMLResponse(tpl.render(collection=collection, q=q, items=[]))
     db = await get_db()
-    col = db[collection]
+    repo = MongoRepository(db)
     # Quick mode: prefisso su name/term/title
     filt = build_filter(q, collection, request.query_params, quick=True)
     pipe = [
@@ -227,10 +228,10 @@ async def quicksearch(request: Request, collection: str, q: str = "") -> HTMLRes
         {"$limit": 10},
         {"$project": {"_id": 1, "name": 1, "term": 1, "title": 1, "titolo": 1, "nome": 1}},
     ]
-    items = []
-    async for d in col.aggregate(pipe):
-        d["_id"] = str(d["_id"])
-        items.append(d)
+    items = await repo.aggregate_list(collection, pipe)
+    for d in items:
+        if d.get("_id") is not None:
+            d["_id"] = str(d["_id"])
     return HTMLResponse(tpl.render(collection=collection, q=q, items=items))
 
 
@@ -241,13 +242,8 @@ async def show_doc(
     if collection not in COLLECTIONS:
         raise HTTPException(404)
     db = await get_db()
-    col = db[collection]
-    try:
-        oid = ObjectId(doc_id)
-    except Exception:
-        raise HTTPException(400, "invalid _id")
-
-    doc = await col.find_one({"_id": oid})
+    repo = MongoRepository(db)
+    doc = await repo.find_by_id(collection, doc_id)
     if not doc:
         raise HTTPException(404, "Documento non trovato")
 
@@ -262,6 +258,8 @@ async def show_doc(
         or doc.get("nome")
         or ""
     )
+    # neighbors still use collection aggregate; pass motor collection directly for now
+    col = db[collection]
     prev_id, next_id = await neighbors_alpha(col, cur_key, filt_nav)
     doc_title = str(
         doc.get("name")
