@@ -10,6 +10,7 @@ from bson import ObjectId
 from editor_app.core.config import COLLECTION_LABELS, COLLECTIONS
 from editor_app.core.db import get_db
 from editor_app.core.flatten import flatten_for_form
+from editor_app.utils.markdown import render_md
 from editor_app.core.search import QFilterOptions, q_filter
 from editor_app.core.templates import env
 from editor_app.core.transform import to_jsonable
@@ -225,12 +226,24 @@ async def index(page: int | None = Query(default=None)) -> HTMLResponse:
             next_page=doc_data.get("next_page"),
             prev_title=doc_data.get("prev_title"),
             next_title=doc_data.get("next_title"),
+            pages_list=doc_data.get("pages_list"),
+            pages_items=doc_data.get("pages_items"),
+            cur_page=doc_data.get("cur_page"),
         )
     )
 
 
 async def _load_home_document(db, page: int | None) -> Dict[str, Any]:
-    out: Dict[str, Any] = {"doc": None, "prev_page": None, "next_page": None, "prev_title": None, "next_title": None}
+    out: Dict[str, Any] = {
+        "doc": None,
+        "prev_page": None,
+        "next_page": None,
+        "prev_title": None,
+        "next_title": None,
+        "pages_list": [],
+        "pages_items": [],
+        "cur_page": None,
+    }
     try:
         doc_col = db["documenti"]
         # Trova pagina corrente: se non indicata, prendi la più piccola
@@ -243,6 +256,7 @@ async def _load_home_document(db, page: int | None) -> Dict[str, Any]:
         if cur:
             out["doc"] = {**cur, "_id": str(cur["_id"]) }
             cur_page = int(cur.get("numero_di_pagina") or 0)
+            out["cur_page"] = cur_page
             # Prev
             prev = await doc_col.find_one(
                 {"numero_di_pagina": {"$lt": cur_page}}, sort=[("numero_di_pagina", -1), ("_id", -1)]
@@ -257,6 +271,41 @@ async def _load_home_document(db, page: int | None) -> Dict[str, Any]:
             if nxt:
                 out["next_page"] = int(nxt.get("numero_di_pagina") or 0)
                 out["next_title"] = str(nxt.get("titolo") or nxt.get("title") or nxt.get("slug") or out["next_page"])  # type: ignore[index]
+            # Pages list
+            # Build pages list and titles for tooltips
+            try:
+                # Fetch all pages with titles
+                cursor = doc_col.find(
+                    {},
+                    projection={"numero_di_pagina": 1, "titolo": 1, "title": 1, "slug": 1},
+                    sort=[("numero_di_pagina", 1), ("_id", 1)],
+                )
+                pages_items = []
+                pages_list: list[int] = []
+                async for d in cursor:
+                    p = d.get("numero_di_pagina")
+                    if p is None:
+                        continue
+                    try:
+                        p_int = int(p)
+                    except Exception:
+                        continue
+                    if p_int in pages_list:
+                        continue
+                    title = str(d.get("titolo") or d.get("title") or d.get("slug") or p_int)
+                    pages_items.append({"page": p_int, "title": title})
+                    pages_list.append(p_int)
+                out["pages_items"] = pages_items
+                out["pages_list"] = pages_list
+            except Exception:
+                out["pages_items"] = []
+                try:
+                    pages = await doc_col.distinct("numero_di_pagina")
+                    pages = [int(p) for p in pages if p is not None]
+                    pages.sort()
+                    out["pages_list"] = pages
+                except Exception:
+                    out["pages_list"] = []
     except Exception:
         pass
     return out
@@ -267,13 +316,21 @@ async def home_doc_partial(page: int | None = Query(default=None)) -> HTMLRespon
     db = await get_db()
     data = await _load_home_document(db, page)
     tpl = env.get_template("_homepage_doc.html")
+    doc = data.get("doc")
+    doc_html = ""
+    if doc and doc.get("content"):
+        doc_html = render_md(str(doc.get("content") or ""))
     return HTMLResponse(
         tpl.render(
-            doc=to_jsonable(data.get("doc")) if data.get("doc") else None,
+            doc=to_jsonable(doc) if doc else None,
+            doc_html=doc_html,
             prev_page=data.get("prev_page"),
             next_page=data.get("next_page"),
             prev_title=data.get("prev_title"),
             next_title=data.get("next_title"),
+            pages_list=data.get("pages_list"),
+            pages_items=data.get("pages_items"),
+            cur_page=data.get("cur_page"),
         )
     )
 
@@ -380,9 +437,24 @@ async def show_doc(
 
     fields = flatten_for_form(doc)
     filt_nav = build_filter(q or "", collection, request.query_params)
-    cur_key = str(doc.get("name") or doc.get("term") or "")
+    cur_key = str(
+        doc.get("slug")
+        or doc.get("name")
+        or doc.get("term")
+        or doc.get("title")
+        or doc.get("titolo")
+        or doc.get("nome")
+        or ""
+    )
     prev_id, next_id = await _neighbors_alpha(col, cur_key, filt_nav)
-    doc_title = str(doc.get("name") or doc.get("term") or doc.get("title") or doc.get("titolo") or doc_id)
+    doc_title = str(
+        doc.get("name")
+        or doc.get("term")
+        or doc.get("title")
+        or doc.get("titolo")
+        or doc.get("nome")
+        or doc_id
+    )
 
     tpl_name = "show_class.html" if collection in ("classi", "classes") else "show.html"
     tpl = env.get_template(tpl_name)
@@ -391,6 +463,23 @@ async def show_doc(
         if request and request.query_params
         else ""
     )
+    # Server-side markdown render for document body
+    body_raw: str | None = None
+    body_html: str = ""
+    cand = (
+        doc.get("description")
+        or doc.get("description_md")
+        or doc.get("content")
+    )
+    if not cand:
+        for k, v in doc.items():
+            if isinstance(k, str) and k.endswith("_md") and v:
+                cand = v
+                break
+    body_raw = str(cand) if cand is not None else None
+    if body_raw:
+        body_html = render_md(body_raw)
+
     return HTMLResponse(
         tpl.render(
             collection=collection,
@@ -399,6 +488,8 @@ async def show_doc(
             doc_slug=str(doc.get("slug") or ""),
             fields=fields,
             doc_obj=to_jsonable(doc),
+            body_raw=body_raw or "",
+            body_html=body_html,
             q=q or "",
             prev_id=prev_id,
             next_id=next_id,
