@@ -119,7 +119,7 @@ def alpha_sort_expr() -> Dict[str, Any]:
     }
 
 
-async def neighbors_alpha(col, cur_key: str, filt: Dict[str, Any]) -> Tuple[Optional[str], Optional[str]]:
+async def neighbors_alpha_repo(repo, collection: str, cur_key: str, filt: Dict[str, Any]) -> Tuple[Optional[str], Optional[str]]:
     key = (cur_key or "").lower()
     prev_pipe = [
         {"$match": filt},
@@ -137,11 +137,8 @@ async def neighbors_alpha(col, cur_key: str, filt: Dict[str, Any]) -> Tuple[Opti
         {"$limit": 1},
         {"$project": {"_id": 1}},
     ]
-    prev_id = None
-    next_id = None
-    async for d in col.aggregate(prev_pipe):
-        prev_id = str(d.get("_id"))
-    async for d in col.aggregate(next_pipe):
-        next_id = str(d.get("_id"))
+    prev = await repo.aggregate_list(collection, prev_pipe)
+    nxt = await repo.aggregate_list(collection, next_pipe)
+    prev_id = str(prev[0].get("_id")) if prev else None
+    next_id = str(nxt[0].get("_id")) if nxt else None
     return prev_id, next_id
-
