@@ -9,11 +9,10 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable, Dict, Iterable, List
 
-from pymongo import ASCENDING, MongoClient
-from pymongo.collection import Collection
-from pymongo.errors import PyMongoError
+from pymongo import MongoClient
 
-from .utils import source_label
+from .adapters.persistence.mongo_repository import MongoRepository
+from .application.ingest_service import WorkItem, unique_keys_for
 from .parsers.classes import parse_classes
 from .parsers.backgrounds import parse_backgrounds
 from .parsers.documents import parse_document
@@ -24,12 +23,6 @@ logging.basicConfig(
     format="%(levelname)s %(message)s",
 )
 log = logging.getLogger("srd-ingest")
-
-@dataclass
-class WorkItem:
-    filename: str
-    collection: str
-    parser: Callable[[List[str]], List[Dict]]
 
 DEFAULT_WORK: List[WorkItem] = [
     # Document pages (Italian)
@@ -60,44 +53,6 @@ DEFAULT_WORK: List[WorkItem] = [
     WorkItem("ita/05_origini_personaggio.md", "backgrounds", parse_backgrounds),
 ]
 
-def unique_keys_for(collection: str) -> List[str]:
-    mapping = {
-        "documenti": ["slug"],
-        # For classi we key on slug (stable)
-        "classi": ["slug"],
-        # Backgrounds keyed on slug
-        "backgrounds": ["slug"],
-    }
-    return mapping.get(collection, ["slug"]) 
-
-def _create_unique_index(col: Collection, unique_fields: List[str]) -> None:
-    if not unique_fields:
-        return
-    try:
-        col.create_index([(f, ASCENDING) for f in unique_fields],
-                         name="uq_" + "_".join(unique_fields),
-                         unique=True,
-                         background=False)
-    except PyMongoError as e:
-        log.warning("Index create failed for %s: %s", col.name, e)
-
-def upsert_many(col: Collection, unique_fields: List[str], docs: Iterable[Dict]) -> int:
-    _create_unique_index(col, unique_fields)
-    n = 0
-    src = source_label()
-    for d in docs:
-        doc = {**d, "source": src}
-        try:
-            col.update_one(
-                {k: doc[k] for k in unique_fields},
-                {"$set": doc, "$setOnInsert": {"_source": "markdown"}},
-                upsert=True,
-            )
-            n += 1
-        except PyMongoError as e:
-            ident = {k: doc.get(k) for k in unique_fields}
-            log.error("Upsert failed for %s %s: %s", col.name, ident, e)
-    return n
 
 def _read_lines(path: Path) -> List[str]:
     try:
@@ -122,6 +77,7 @@ def main() -> None:
 
     client = MongoClient(args.mongo_uri)
     db = client[args.db_name]
+    repo = MongoRepository(db)
 
     target = [w for w in DEFAULT_WORK if not args.only or w.collection in set(args.only)]
 
@@ -144,8 +100,7 @@ def main() -> None:
             preview = [{k: d.get(k) for k in preview_keys if k in d} for d in docs[:5]]
             log.info("Preview: %s", json.dumps(preview, ensure_ascii=False))
             continue
-        col = db[w.collection]
-        written = upsert_many(col, unique_keys_for(w.collection), docs)
+        written = repo.upsert_many(w.collection, unique_keys_for(w.collection), docs)
         total_written += written
         log.info("Upserted %d docs into %s.%s", written, args.db_name, w.collection)
 
