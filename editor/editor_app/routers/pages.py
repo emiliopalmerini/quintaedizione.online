@@ -461,7 +461,12 @@ async def show_doc(
         or doc_id
     )
 
-    tpl_name = "show_class.html" if collection in ("classi", "classes") else "show.html"
+    if collection in ("classi", "classes"):
+        tpl_name = "show_class.html"
+    elif collection in ("backgrounds",):
+        tpl_name = "show_background.html"
+    else:
+        tpl_name = "show.html"
     tpl = env.get_template(tpl_name)
     qs = (
         urlencode(dict(request.query_params))
