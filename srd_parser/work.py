@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from typing import Callable, List
 
 from .parsers.classes import parse_classes
+from .parsers.backgrounds import parse_backgrounds
 from .parsers.documents import parse_document
 
 
@@ -123,4 +124,6 @@ DEFAULT_WORK: List[WorkItem] = [
     ),
     # Structured classi
     WorkItem("ita/04_classi.md", "classi", parse_classes),
+    # Structured backgrounds
+    WorkItem("ita/05_origini_personaggio.md", "backgrounds", parse_backgrounds),
 ]
