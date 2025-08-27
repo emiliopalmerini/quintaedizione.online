@@ -1,1 +1,0 @@
-{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"key":{"term":{"$numberInt":"1"}},"name":"uq_term","background":false,"unique":true}],"uuid":"250307124a0e4b13ae8c193609e6fc7c","collectionName":"rules_glossary","type":"collection"}
