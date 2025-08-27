@@ -15,6 +15,7 @@ from pymongo.errors import PyMongoError
 
 from .utils import source_label
 from .parsers.classes import parse_classes
+from .parsers.backgrounds import parse_backgrounds
 from .parsers.documents import parse_document
 
 LOG_LEVEL = os.environ.get("LOG_LEVEL", "INFO").upper()
@@ -55,6 +56,8 @@ DEFAULT_WORK: List[WorkItem] = [
     WorkItem("ita/21_animali.md", "documenti", lambda lines: parse_document(lines, "21_animali.md")),
     # Structured classi
     WorkItem("ita/04_classi.md", "classi", parse_classes),
+    # Structured backgrounds
+    WorkItem("ita/05_origini_personaggio.md", "backgrounds", parse_backgrounds),
 ]
 
 def unique_keys_for(collection: str) -> List[str]:
@@ -62,6 +65,8 @@ def unique_keys_for(collection: str) -> List[str]:
         "documenti": ["slug"],
         # For classi we key on slug (stable)
         "classi": ["slug"],
+        # Backgrounds keyed on slug
+        "backgrounds": ["slug"],
     }
     return mapping.get(collection, ["slug"]) 
 
