@@ -193,4 +193,37 @@ dividiamo i dati nelle seguenti collection
 Visto che le classi sono diverse, bisognerà procedere con un parser ad hoc per ciascuna. I parser implementeranno la stessa interfaccia ma avranno implementazioni leggermente diverse. Il documento json dovrà essere l'insieme più esteso di feature.
 Per le classi a cui non serve un campo non verrà utilizzato.
 
+Dobbiamo parsare anche i background. Sono in ../../data/ita/05_origini_personaggio.md sotto l'header `### Descrizioni Background` Per esempio l'Accolito
 
+```md
+#### Accolito
+
+**Punteggi di Caratteristica:** Intelligenza, Saggezza, Carisma  
+
+**Talento:** Iniziato alla Magia (Chierico) (vedi “Talenti”)  
+
+**Competenze in Abilità:** Intuizione e Religione  
+
+**Competenza negli Strumenti:** Strumenti da Calligrafo  
+
+**Equipaggiamento:** *Scegli A o B:* (A) Strumenti da Calligrafo, Libro (preghiere), Simbolo Sacro, Pergamena (10 fogli), Veste, 8 mo; oppure (B) 50 mo
+```
+```json
+{
+    "punteggi_caratteristica": ["Intelligenza", "Saggezza", "Carisma"],
+    "talento": "Iniziato alla Magia (Chierico)",
+    "abilità_competenze": ["Intuizione", "Religione"],
+    "strumenti_competenze": ["Strumenti da Calligrafo"],
+    "strumenti_competenze": ["Strumenti da Calligrafo"],
+    "equipaggiamento_iniziale_opzioni": [
+    {
+      "etichetta": "Opzione A",
+      "oggetti": [
+      ]
+    },
+    {
+      "etichetta": "Opzione B",
+      "oggetti": [
+      ]
+    }
+}
