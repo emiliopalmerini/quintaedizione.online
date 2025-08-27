@@ -16,6 +16,7 @@ from editor_app.application.query_service import build_filter, alpha_sort_expr
 from editor_app.application.list_service import list_page as svc_list_page
 from editor_app.application.show_service import show_doc as svc_show_doc
 from editor_app.core.templates import env
+from editor_app.application.home_service import load_home_document as svc_home_doc
 from editor_app.core.transform import to_jsonable
 from fastapi import APIRouter, HTTPException, Query, Request
 from fastapi.responses import HTMLResponse, PlainTextResponse
@@ -46,8 +47,8 @@ async def index(page: int | None = Query(default=None)) -> HTMLResponse:
             counts[c] = 0
     total = sum(counts.values()) if counts else 0
 
-    # Carica un documento da 'documenti' per la homepage
-    doc_data = await _load_home_document(db, page)
+    # Carica un documento da 'documenti' per la homepage via service
+    doc_data = await svc_home_doc(MongoRepository(db), page)
     # Renderizza HTML per la prima visualizzazione (coerente con la partial)
     doc_html = ""
     if doc_data.get("doc") and doc_data["doc"].get("content"):
@@ -72,86 +73,8 @@ async def index(page: int | None = Query(default=None)) -> HTMLResponse:
     )
 
 
-async def _load_home_document(db, page: int | None) -> Dict[str, Any]:
-    out: Dict[str, Any] = {
-        "doc": None,
-        "prev_page": None,
-        "next_page": None,
-        "prev_title": None,
-        "next_title": None,
-        "pages_list": [],
-        "pages_items": [],
-        "cur_page": None,
-    }
-    try:
-        doc_col = db["documenti"]
-        # Trova pagina corrente: se non indicata, prendi la più piccola
-        if page is None:
-            cur = await doc_col.find_one({}, sort=[("numero_di_pagina", 1), ("_id", 1)])
-        else:
-            cur = await doc_col.find_one({"numero_di_pagina": page})
-            if not cur:
-                cur = await doc_col.find_one({}, sort=[("numero_di_pagina", 1), ("_id", 1)])
-        if cur:
-            out["doc"] = {**cur, "_id": str(cur["_id"]) }
-            cur_page = int(cur.get("numero_di_pagina") or 0)
-            out["cur_page"] = cur_page
-            # Prev
-            prev = await doc_col.find_one(
-                {"numero_di_pagina": {"$lt": cur_page}}, sort=[("numero_di_pagina", -1), ("_id", -1)]
-            )
-            if prev:
-                out["prev_page"] = int(prev.get("numero_di_pagina") or 0)
-                out["prev_title"] = str(prev.get("titolo") or prev.get("title") or prev.get("slug") or out["prev_page"])  # type: ignore[index]
-            # Next
-            nxt = await doc_col.find_one(
-                {"numero_di_pagina": {"$gt": cur_page}}, sort=[("numero_di_pagina", 1), ("_id", 1)]
-            )
-            if nxt:
-                out["next_page"] = int(nxt.get("numero_di_pagina") or 0)
-                out["next_title"] = str(nxt.get("titolo") or nxt.get("title") or nxt.get("slug") or out["next_page"])  # type: ignore[index]
-            # Pages list
-            # Build pages list and titles for tooltips
-            try:
-                # Fetch all pages with titles
-                cursor = doc_col.find(
-                    {},
-                    projection={"numero_di_pagina": 1, "titolo": 1, "title": 1, "slug": 1},
-                    sort=[("numero_di_pagina", 1), ("_id", 1)],
-                )
-                pages_items = []
-                pages_list: list[int] = []
-                async for d in cursor:
-                    p = d.get("numero_di_pagina")
-                    if p is None:
-                        continue
-                    try:
-                        p_int = int(p)
-                    except Exception:
-                        continue
-                    if p_int in pages_list:
-                        continue
-                    title = str(d.get("titolo") or d.get("title") or d.get("slug") or p_int)
-                    pages_items.append({"page": p_int, "title": title})
-                    pages_list.append(p_int)
-                out["pages_items"] = pages_items
-                out["pages_list"] = pages_list
-            except Exception:
-                out["pages_items"] = []
-                try:
-                    pages = await doc_col.distinct("numero_di_pagina")
-                    pages = [int(p) for p in pages if p is not None]
-                    pages.sort()
-                    out["pages_list"] = pages
-                except Exception:
-                    out["pages_list"] = []
-    except Exception:
-        pass
-    return out
-
-
 @router.get("/home/doc", response_class=HTMLResponse)
-# removed unused partial route; index renders homepage doc directly
+# legacy path kept empty; homepage renders doc via service
 
 
 @router.get("/list/{collection}", response_class=HTMLResponse)
