@@ -6,6 +6,7 @@ DB_NAME = os.getenv("DB_NAME", "dnd")
 COLLECTIONS = [
     # Collezioni italiane principali (documenti resta fuori dal menu; è in homepage)
     "classi",
+    "backgrounds",
     # Collezioni legacy/extra (visibili se presenti)
     "spells",
     "magic_items",
@@ -22,6 +23,7 @@ COLLECTIONS = [
 COLLECTION_LABELS = {
     "documenti": "Documenti",
     "classi": "Classi",
+    "backgrounds": "Background",
     "spells": "Incantesimi (EN)",
     "magic_items": "Oggetti magici (EN)",
     "armor": "Armature (EN)",
