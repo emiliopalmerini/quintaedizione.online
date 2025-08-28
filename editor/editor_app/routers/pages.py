@@ -4,7 +4,11 @@ from __future__ import annotations
 from typing import Any, Dict, Mapping
 from urllib.parse import urlencode
 
-from editor_app.core.config import COLLECTION_LABELS, COLLECTIONS, IT_COLLECTIONS, EN_COLLECTIONS
+from editor_app.core.config import (
+    COLLECTIONS,
+    label_for,
+    db_collection_for,
+)
 from editor_app.core.db import get_db
 from editor_app.adapters.persistence.mongo_repository import MongoRepository
 from editor_app.core.flatten import flatten_for_form
@@ -32,10 +36,8 @@ router = APIRouter()
 @router.get("/", response_class=HTMLResponse)
 async def index(page: int | None = Query(default=None), lang: str | None = Query(default="it")) -> HTMLResponse:
     tpl = env.get_template("index.html")
-    # Mostra le collezioni in base alla lingua selezionata
-    is_en = (lang or "it").lower().startswith("en")
-    visible_cols = EN_COLLECTIONS if is_en else IT_COLLECTIONS
-    cols_sorted = sorted(visible_cols, key=lambda c: COLLECTION_LABELS.get(c, c).lower())
+    # Collezioni logiche condivise; labels in base alla lingua
+    cols_sorted = sorted(COLLECTIONS, key=lambda c: label_for(c, lang).lower())
     counts: Dict[str, int] = {}
     # Language toggle: select collection based on lang
     col_home = "documenti_en" if is_en else "documenti"
@@ -43,7 +45,8 @@ async def index(page: int | None = Query(default=None), lang: str | None = Query
         db = await get_db()
         for c in cols_sorted:
             try:
-                counts[c] = await db[c].count_documents({})
+                col = db_collection_for(c, lang)
+                counts[c] = await db[col].count_documents({})
             except Exception:
                 counts[c] = 0
         total = sum(counts.values()) if counts else 0
@@ -60,7 +63,7 @@ async def index(page: int | None = Query(default=None), lang: str | None = Query
     return HTMLResponse(
         tpl.render(
             collections=cols_sorted,
-            labels=COLLECTION_LABELS,
+            labels={c: label_for(c, lang) for c in cols_sorted},
             counts=counts,
             total=total,
             doc=to_jsonable(doc_data.get("doc")) if doc_data.get("doc") else None,
@@ -131,7 +134,8 @@ async def view_rows(
     try:
         db = await get_db()
         repo = MongoRepository(db)
-        res = await svc_list_page(repo, collection, request.query_params, q, page, page_size)
+        db_collection = db_collection_for(collection, lang)
+        res = await svc_list_page(repo, db_collection, request.query_params, q, page, page_size, logical_collection=collection)
     except Exception:
         err_tpl = env.get_template("error_db.html")
         return HTMLResponse(err_tpl.render())
@@ -176,6 +180,8 @@ async def quicksearch(request: Request, collection: str, q: str = "") -> HTMLRes
     except Exception:
         return HTMLResponse(tpl.render(collection=collection, q=q, items=[]))
     # Quick mode: prefisso su name/term/title
+    lang = (request.query_params.get("lang") or "it")
+    db_collection = db_collection_for(collection, lang)
     filt = build_filter(q, collection, request.query_params, quick=True)
     pipe = [
         {"$match": filt},
@@ -184,7 +190,7 @@ async def quicksearch(request: Request, collection: str, q: str = "") -> HTMLRes
         {"$limit": 10},
         {"$project": {"_id": 1, "name": 1, "term": 1, "title": 1, "titolo": 1, "nome": 1}},
     ]
-    items = await repo.aggregate_list(collection, pipe)
+    items = await repo.aggregate_list(db_collection, pipe)
     for d in items:
         if d.get("_id") is not None:
             d["_id"] = str(d["_id"])
@@ -200,7 +206,8 @@ async def show_doc(
     try:
         db = await get_db()
         repo = MongoRepository(db)
-        doc, prev_id, next_id, doc_title = await svc_show_doc(repo, collection, doc_id, request.query_params, q)
+        db_collection = db_collection_for(collection, lang)
+        doc, prev_id, next_id, doc_title = await svc_show_doc(repo, db_collection, doc_id, request.query_params, q, logical_collection=collection)
     except Exception:
         err_tpl = env.get_template("error_db.html")
         return HTMLResponse(err_tpl.render())

@@ -8,7 +8,7 @@
     {% for it in items %}
       {% set title = it.name or it.term or it.title or it.titolo or it.nome or '(senza titolo)' %}
       <li role="option">
-        <a href="/show/{{ collection }}/{{ it._id }}" class="block px-3 py-2 hover:bg-neutral-50">
+        <a href="/show/{{ collection }}/{{ it._id }}?lang={{ (request and request.query_params.get('lang')) or 'it' }}" class="block px-3 py-2 hover:bg-neutral-50">
           <div class="truncate text-sm">{{ title }}</div>
           <div class="mono text-[11px] text-neutral-500 truncate">{{ it._id }}</div>
         </a>
