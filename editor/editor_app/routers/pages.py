@@ -32,12 +32,16 @@ router = APIRouter()
 @router.get("/", response_class=HTMLResponse)
 async def index(page: int | None = Query(default=None), lang: str | None = Query(default="it")) -> HTMLResponse:
     tpl = env.get_template("index.html")
-    # Mostra in home solo le collezioni non marcate come EN
-    visible_cols = [c for c in COLLECTIONS if "(EN)" not in COLLECTION_LABELS.get(c, "")]
+    # Mostra le collezioni in base alla lingua selezionata
+    is_en = (lang or "it").lower().startswith("en")
+    if is_en:
+        visible_cols = [c for c in COLLECTIONS if "(EN)" in COLLECTION_LABELS.get(c, "")]
+    else:
+        visible_cols = [c for c in COLLECTIONS if "(EN)" not in COLLECTION_LABELS.get(c, "")]
     cols_sorted = sorted(visible_cols, key=lambda c: COLLECTION_LABELS.get(c, c).lower())
     counts: Dict[str, int] = {}
     # Language toggle: select collection based on lang
-    col_home = "documenti_en" if (lang or "it").lower().startswith("en") else "documenti"
+    col_home = "documenti_en" if is_en else "documenti"
     try:
         db = await get_db()
         for c in cols_sorted:
