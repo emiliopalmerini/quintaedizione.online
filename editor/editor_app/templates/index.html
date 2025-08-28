@@ -24,7 +24,8 @@
 
     <div class="mt-3 text-sm">
       <span class="text-neutral-500 mr-2">Lingua:</span>
-      {% set is_en = (lang or 'it')|lower.startswith('en') %}
+      {% set _lang = (lang or 'it')|lower %}
+      {% set is_en = _lang[:2] == 'en' %}
       <a class="btn {% if not is_en %}btn-dark{% endif %} !px-2 !py-1" href="/?lang=it">IT</a>
       <a class="btn {% if is_en %}btn-dark{% endif %} !px-2 !py-1" href="/?lang=en">EN</a>
     </div>
