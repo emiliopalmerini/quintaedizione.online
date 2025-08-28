@@ -1,12 +1,9 @@
 # app/routers/pages.py
 from __future__ import annotations
 
-import json
-import math
-from typing import Any, Dict, Mapping, Optional, Tuple
+from typing import Any, Dict, Mapping
 from urllib.parse import urlencode
 
-from bson import ObjectId
 from editor_app.core.config import COLLECTION_LABELS, COLLECTIONS
 from editor_app.core.db import get_db
 from editor_app.adapters.persistence.mongo_repository import MongoRepository
@@ -19,7 +16,7 @@ from editor_app.core.templates import env
 from editor_app.application.home_service import load_home_document as svc_home_doc
 from editor_app.core.transform import to_jsonable
 from fastapi import APIRouter, HTTPException, Query, Request
-from fastapi.responses import HTMLResponse, PlainTextResponse
+from fastapi.responses import HTMLResponse
 
 router = APIRouter()
 
