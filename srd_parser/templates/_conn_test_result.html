@@ -1,9 +1,14 @@
 <div id="conn-test-result" role="status" data-ok="{{ 'true' if ok else 'false' }}" class="inline-flex items-center gap-2 px-2 py-1 border text-sm
   {% if ok %}border-green-200 bg-green-50 text-green-800{% else %}border-red-200 bg-red-50 text-red-800{% endif %}">
   {% if ok %}
-  <span>Connessione OK</span>
+    <span>Connessione OK</span>
   {% else %}
-  <span>Connessione fallita</span>
-  <span class="text-xs text-red-700/80">{{ err }}</span>
+    <span>Connessione fallita</span>
+    {% if err %}
+      <details class="ml-1">
+        <summary class="cursor-pointer text-xs underline">Dettagli</summary>
+        <div class="mt-1 text-[11px] text-red-700/80"><code class="mono">{{ err }}</code></div>
+      </details>
+    {% endif %}
   {% endif %}
 </div>
