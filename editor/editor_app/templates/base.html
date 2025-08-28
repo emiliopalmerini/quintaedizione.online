@@ -141,61 +141,7 @@
   {% block scripts %}{% endblock %}
   <script>
     // Global helpers available to all pages
-    function autoGrow(el){ el.style.height='auto'; el.style.height=(el.scrollHeight+2)+'px'; }
-    function initAutoGrow(){
-      document.querySelectorAll('textarea.auto-grow').forEach(t=>{
-        autoGrow(t);
-        t.addEventListener('input', ()=>autoGrow(t));
-      });
-    }
-    async function copyFrom(btn){
-      const ta = btn.closest('.relative')?.querySelector('textarea');
-      if(!ta) return;
-      const text = ta.value || '';
-      // Prefer Clipboard API in secure context
-      try {
-        if (navigator.clipboard && window.isSecureContext) {
-          await navigator.clipboard.writeText(text);
-          flash(btn,'Copiato');
-          return;
-        }
-      } catch (e) { /* fallthrough */ }
-      // Fallback: temporary textarea + execCommand
-      try {
-        const tmp = document.createElement('textarea');
-        tmp.value = text;
-        tmp.setAttribute('readonly','');
-        tmp.style.position = 'absolute';
-        tmp.style.left = '-9999px';
-        document.body.appendChild(tmp);
-        tmp.select();
-        document.execCommand('copy');
-        document.body.removeChild(tmp);
-        flash(btn,'Copiato');
-      } catch (e) {
-        console.warn('Copy failed', e);
-      }
-    }
-    // Replace textarea content with clipboard text (no popups)
-    async function replaceFromClipboard(btn){
-      const ta = btn.closest('.relative')?.querySelector('textarea');
-      if(!ta) return;
-      try {
-        if (!(navigator.clipboard && navigator.clipboard.readText)) {
-          throw new Error('Clipboard API non disponibile');
-        }
-        const text = await navigator.clipboard.readText();
-        ta.value = text || '';
-        try { ta.dispatchEvent(new Event('input', { bubbles: true })); } catch(e) {}
-        try { if (typeof autoGrow === 'function') autoGrow(ta); } catch(e) {}
-        flash(btn, 'Sostituito');
-      } catch(e){
-        console.warn('Clipboard read failed', e);
-        // Evita finestre/modal: mostra un messaggio inline e focalizza il campo
-        flash(btn, 'Permesso clipboard negato o non supportato');
-        try { ta.focus(); ta.select && ta.select(); } catch(_){}
-      }
-    }
+    // Removed textarea-specific clipboard helpers (no per-field editor)
     function toggleFull(btn){
       const wrap = btn.closest('.relative'); if(!wrap) return;
       const ta = wrap.querySelector('textarea');
@@ -226,26 +172,7 @@
       setTimeout(()=>n.remove(), 1200);
     }
 
-    // Keyboard: save with Ctrl/Cmd+S if a form#doc-form exists
-    document.addEventListener('keydown', (e)=>{
-      if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')){
-        const form = document.getElementById('doc-form');
-        if(form){ e.preventDefault(); form.requestSubmit ? form.requestSubmit() : form.submit(); }
-      }
-    });
-
-    // HTMX toasts for saves
-    document.addEventListener('htmx:afterRequest', (e)=>{
-      const target = e.detail ? e.detail.target : null;
-      if(!target) return;
-      const id = target.id || '';
-      if(id.startsWith('field-toast-') || id === 'global-toast'){
-        const ok = e.detail.xhr && e.detail.xhr.status >= 200 && e.detail.xhr.status < 300;
-        const msg = ok ? 'Salvato' : 'Errore di salvataggio';
-        target.innerHTML = `<span class="inline-flex items-center px-2 py-0.5 text-xs ${ok? 'bg-green-50 text-green-700 border border-green-200':'bg-red-50 text-red-700 border border-red-200'}">${msg}</span>`;
-        setTimeout(()=>{ target.innerHTML = ''; }, ok ? 1500 : 2500);
-      }
-    });
+    // Removed old per-field save toasts
 
     // Init on load
     document.addEventListener('DOMContentLoaded', function(){
@@ -256,7 +183,6 @@
         setH();
         window.addEventListener('resize', setH);
       } catch(e) {}
-      initAutoGrow();
     });
 
     // Markdown rendering for elements with [data-markdown]
