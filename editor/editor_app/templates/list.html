@@ -13,6 +13,7 @@
       hx-push-url="true"
       class="flex flex-col gap-2"
     >
+      <input type="hidden" name="lang" value="{{ lang or 'it' }}" />
       <div class="flex items-center gap-2 flex-wrap">
         <input id="q" name="q" placeholder="Cerca…" value="{{ q or '' }}" class="field flex-1" />
         <select name="page_size" class="field w-28">
@@ -74,7 +75,7 @@
 
   <section class="bg-white border">
     <div id="rows"
-         hx-get="/view/{{ collection }}?page={{ page or 1 }}&page_size={{ page_size or 20 }}&q={{ q or '' }}"
+         hx-get="/view/{{ collection }}?page={{ page or 1 }}&page_size={{ page_size or 20 }}&q={{ q or '' }}&lang={{ lang or 'it' }}"
          hx-trigger="load"
          hx-include="#search-form"
          hx-push-url="true">

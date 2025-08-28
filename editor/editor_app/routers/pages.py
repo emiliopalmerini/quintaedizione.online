@@ -124,7 +124,7 @@ async def list_page(
 
 @router.get("/view/{collection}", response_class=HTMLResponse)
 async def view_rows(
-    request: Request, collection: str, q: str = "", page: int = 1, page_size: int = 20
+    request: Request, collection: str, q: str = "", page: int = 1, page_size: int = 20, lang: str | None = Query(default="it")
 ) -> HTMLResponse:
     if collection not in COLLECTIONS:
         raise HTTPException(404)
@@ -158,6 +158,7 @@ async def view_rows(
             page_size=page_size,
             q=q,
             qs=qs,
+            lang=lang,
         )
     )
 

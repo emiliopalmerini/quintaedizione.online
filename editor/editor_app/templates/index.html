@@ -33,7 +33,7 @@
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {% for c in collections %}
-      <a href="/list/{{ c }}" class="group block bg-white border p-3 hover:bg-gray-50">
+      <a href="/list/{{ c }}?lang={{ lang or 'it' }}" class="group block bg-white border p-3 hover:bg-gray-50">
           <div class="flex items-start justify-between gap-3">
               <div>
                   <div class="text-sm text-neutral-500 mb-1">Collezione</div>
