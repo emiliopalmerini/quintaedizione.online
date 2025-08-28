@@ -52,7 +52,11 @@ async def index(page: int | None = Query(default=None), lang: str | None = Query
                 counts[c] = 0
         total = sum(counts.values()) if counts else 0
         # Carica un documento da 'documenti' per la homepage via service
-        doc_data = await svc_home_doc(MongoRepository(db), page, collection=col_home)
+        repo = MongoRepository(db)
+        doc_data = await svc_home_doc(repo, page, collection=col_home)
+        # Fallback: se EN non ha documenti, prova IT
+        if (not doc_data.get("doc")) and is_en:
+            doc_data = await svc_home_doc(repo, page, collection="documenti")
         # Renderizza HTML per la prima visualizzazione (coerente con la partial)
         doc_html = ""
         if doc_data.get("doc") and doc_data["doc"].get("content"):
@@ -83,11 +87,14 @@ async def index(page: int | None = Query(default=None), lang: str | None = Query
 
 @router.get("/home/doc", response_class=HTMLResponse)
 async def home_doc_partial(page: int | None = Query(default=None), lang: str | None = Query(default="it")) -> HTMLResponse:
-    col_home = "documenti_en" if (lang or "it").lower().startswith("en") else "documenti"
+    is_en = (lang or "it").lower().startswith("en")
+    col_home = "documenti_en" if is_en else "documenti"
     try:
         db = await get_db()
         repo = MongoRepository(db)
         data = await svc_home_doc(repo, page, collection=col_home)
+        if (not data.get("doc")) and is_en:
+            data = await svc_home_doc(repo, page, collection="documenti")
     except Exception:
         err_tpl = env.get_template("error_db.html")
         return HTMLResponse(err_tpl.render())
