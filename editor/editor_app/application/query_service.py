@@ -97,17 +97,22 @@ def alpha_sort_expr() -> Dict[str, Any]:
     return {
         "$toLower": {
             "$ifNull": [
-                "$slug",
+                "$_sortkey_alpha",
                 {
                     "$ifNull": [
-                        "$name",
+                        "$slug",
                         {
                             "$ifNull": [
-                                "$term",
+                                "$name",
                                 {
                                     "$ifNull": [
-                                        "$title",
-                                        {"$ifNull": ["$titolo", {"$ifNull": ["$nome", ""]}]},
+                                        "$term",
+                                        {
+                                            "$ifNull": [
+                                                "$title",
+                                                {"$ifNull": ["$titolo", {"$ifNull": ["$nome", ""]}]},
+                                            ]
+                                        },
                                     ]
                                 },
                             ]

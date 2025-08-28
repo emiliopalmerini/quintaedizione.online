@@ -12,6 +12,23 @@ async def init_db() -> None:
     if _client is None:
         _client = AsyncIOMotorClient(MONGO_URI)
         _db = _client[DB_NAME]
+        # Best-effort index creation (non-blocking for collections used by UI)
+        try:
+            await _db["documenti"].create_index([("numero_di_pagina", 1)], name="idx_page")
+        except Exception:
+            pass
+        try:
+            await _db["documenti_en"].create_index([("numero_di_pagina", 1)], name="idx_page")
+        except Exception:
+            pass
+        try:
+            await _db["documenti"].create_index([("_sortkey_alpha", 1)], name="idx_sort")
+        except Exception:
+            pass
+        try:
+            await _db["documenti_en"].create_index([("_sortkey_alpha", 1)], name="idx_sort")
+        except Exception:
+            pass
 
 
 async def close_db() -> None:
@@ -29,4 +46,3 @@ async def get_db() -> AsyncIOMotorDatabase:
     if _db is None:
         await init_db()
     return _db
-

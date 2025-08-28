@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Any, Dict, List, Optional
 
 
-async def load_home_document(repo, page: Optional[int]) -> Dict[str, Any]:
+async def load_home_document(repo, page: Optional[int], *, collection: str = "documenti") -> Dict[str, Any]:
     out: Dict[str, Any] = {
         "doc": None,
         "prev_page": None,
@@ -18,13 +18,13 @@ async def load_home_document(repo, page: Optional[int]) -> Dict[str, Any]:
         # Current page
         if page is None:
             cur = await repo.find_one_sorted(
-                "documenti", {}, sort=[("numero_di_pagina", 1), ("_id", 1)]
+                collection, {}, sort=[("numero_di_pagina", 1), ("_id", 1)]
             )
         else:
-            cur = await repo.find_one("documenti", {"numero_di_pagina": page})
+            cur = await repo.find_one(collection, {"numero_di_pagina": page})
             if not cur:
                 cur = await repo.find_one_sorted(
-                    "documenti", {}, sort=[("numero_di_pagina", 1), ("_id", 1)]
+                    collection, {}, sort=[("numero_di_pagina", 1), ("_id", 1)]
                 )
         if cur:
             out["doc"] = {**cur, "_id": str(cur["_id"]) }
@@ -33,7 +33,7 @@ async def load_home_document(repo, page: Optional[int]) -> Dict[str, Any]:
 
             # Prev and next
             prev = await repo.find_one_sorted(
-                "documenti",
+                collection,
                 {"numero_di_pagina": {"$lt": cur_page}},
                 sort=[("numero_di_pagina", -1), ("_id", -1)],
                 projection={"numero_di_pagina": 1, "titolo": 1, "title": 1, "slug": 1},
@@ -43,7 +43,7 @@ async def load_home_document(repo, page: Optional[int]) -> Dict[str, Any]:
                 out["prev_title"] = str(prev.get("titolo") or prev.get("title") or prev.get("slug") or out["prev_page"])  # type: ignore[index]
 
             nxt = await repo.find_one_sorted(
-                "documenti",
+                collection,
                 {"numero_di_pagina": {"$gt": cur_page}},
                 sort=[("numero_di_pagina", 1), ("_id", 1)],
                 projection={"numero_di_pagina": 1, "titolo": 1, "title": 1, "slug": 1},
@@ -57,7 +57,7 @@ async def load_home_document(repo, page: Optional[int]) -> Dict[str, Any]:
                 {"$project": {"numero_di_pagina": 1, "titolo": 1, "title": 1, "slug": 1}},
                 {"$sort": {"numero_di_pagina": 1, "_id": 1}},
             ]
-            items = await repo.aggregate_list("documenti", pipeline)
+            items = await repo.aggregate_list(collection, pipeline)
             pages_items: List[Dict[str, Any]] = []
             pages_list: List[int] = []
             for d in items:
@@ -78,4 +78,3 @@ async def load_home_document(repo, page: Optional[int]) -> Dict[str, Any]:
     except Exception:
         pass
     return out
-

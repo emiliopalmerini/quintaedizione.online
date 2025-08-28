@@ -16,7 +16,7 @@
                 <span class="btn btn-dark !px-2 !py-0.5" aria-current="page" title="{{ t }}">{{ p }}</span>
               {% else %}
                 <a class="btn !px-2 !py-0.5"
-                   hx-get="/home/doc?page={{ p }}" hx-target="#doc-section" hx-swap="outerHTML" hx-push-url="/?page={{ p }}"
+                   hx-get="/home/doc?page={{ p }}&lang={{ lang or 'it' }}" hx-target="#doc-section" hx-swap="outerHTML" hx-push-url="/?page={{ p }}&lang={{ lang or 'it' }}"
                    title="{{ t }}">{{ p }}</a>
               {% endif %}
             {% endfor %}
@@ -28,7 +28,7 @@
                 <span class="btn btn-dark !px-2 !py-0.5" aria-current="page">{{ p }}</span>
               {% else %}
                 <a class="btn !px-2 !py-0.5"
-                   hx-get="/home/doc?page={{ p }}" hx-target="#doc-section" hx-swap="outerHTML" hx-push-url="/?page={{ p }}"
+                   hx-get="/home/doc?page={{ p }}&lang={{ lang or 'it' }}" hx-target="#doc-section" hx-swap="outerHTML" hx-push-url="/?page={{ p }}&lang={{ lang or 'it' }}"
                    title="Vai alla pagina {{ p }}">{{ p }}</a>
               {% endif %}
             {% endfor %}
@@ -40,7 +40,7 @@
         <div class="flex items-stretch gap-2 shrink-0 flex-col sm:flex-row sm:items-center">
           <a class="btn text-xs whitespace-normal break-words leading-snug max-w-[12rem]"
              {% if prev_page %}
-               hx-get="/home/doc?page={{ prev_page }}" hx-target="#doc-section" hx-swap="outerHTML" hx-push-url="/?page={{ prev_page }}"
+               hx-get="/home/doc?page={{ prev_page }}&lang={{ lang or 'it' }}" hx-target="#doc-section" hx-swap="outerHTML" hx-push-url="/?page={{ prev_page }}&lang={{ lang or 'it' }}"
              {% else %}
                aria-disabled="true" tabindex="-1" style="pointer-events:none;opacity:.5"
              {% endif %}
@@ -48,7 +48,7 @@
           >← Precedente</a>
           <a class="btn text-xs whitespace-normal break-words leading-snug max-w-[12rem]"
              {% if next_page %}
-               hx-get="/home/doc?page={{ next_page }}" hx-target="#doc-section" hx-swap="outerHTML" hx-push-url="/?page={{ next_page }}"
+               hx-get="/home/doc?page={{ next_page }}&lang={{ lang or 'it' }}" hx-target="#doc-section" hx-swap="outerHTML" hx-push-url="/?page={{ next_page }}&lang={{ lang or 'it' }}"
              {% else %}
                aria-disabled="true" tabindex="-1" style="pointer-events:none;opacity:.5"
              {% endif %}

@@ -12,6 +12,7 @@ class Repository(Protocol):
 def unique_keys_for(collection: str) -> List[str]:
     mapping = {
         "documenti": ["slug"],
+        "documenti_en": ["slug"],
         "classi": ["slug"],
         "backgrounds": ["slug"],
     }
@@ -27,4 +28,3 @@ class WorkItem:
 
 def read_lines(path: Path) -> List[str]:
     return path.read_text(encoding="utf-8").splitlines()
-

@@ -39,7 +39,15 @@ class MongoRepository:
         n = 0
         src = source_label()
         for d in docs:
-            doc = {**d, "source": src}
+            # compute normalized sort key (alpha) once at ingest
+            def _first(*keys):
+                for k in keys:
+                    v = d.get(k)
+                    if isinstance(v, str) and v.strip():
+                        return v
+                return ""
+            sortkey = _first("slug", "name", "term", "title", "titolo", "nome").lower()
+            doc = {**d, "source": src, "_sortkey_alpha": sortkey}
             try:
                 col.update_one(
                     {k: doc[k] for k in unique_fields},
