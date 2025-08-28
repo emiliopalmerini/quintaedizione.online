@@ -176,5 +176,6 @@ async def test_conn(
         ok = True
     except Exception as e:
         err = str(e)
-    ctx = {"request": request, "ok": ok, "err": err}
+    show_err = os.environ.get("DEBUG_UI", "0").strip().lower() in ("1", "true", "yes", "on")
+    ctx = {"request": request, "ok": ok, "err": err, "show_err": show_err}
     return templates.TemplateResponse("_conn_test_result.html", ctx)

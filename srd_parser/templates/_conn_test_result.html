@@ -4,7 +4,7 @@
     <span>Connessione OK</span>
   {% else %}
     <span>Connessione fallita</span>
-    {% if err %}
+    {% if err and show_err %}
       <details class="ml-1">
         <summary class="cursor-pointer text-xs underline">Dettagli</summary>
         <div class="mt-1 text-[11px] text-red-700/80"><code class="mono">{{ err }}</code></div>

@@ -69,6 +69,11 @@ make format          # esegue black se presente
 - Le app usano `MONGO_URI=mongodb://admin:password@mongo:27017/?authSource=admin` di default.
 - In sviluppo locale (senza Docker) imposta `MONGO_URI` coerente, ad esempio `mongodb://admin:password@localhost:27017/?authSource=admin`.
 
+## Sicurezza
+- Nessun dato sensibile: l'app gestisce solo contenuti SRD.
+- Evita di loggare contenuti dei documenti o body delle richieste.
+- La web‑app del parser (pagina di test connessione) mostra messaggi generici; per vedere dettagli di errore abilita esplicitamente `DEBUG_UI=1` nell'ambiente (off di default).
+
 ## Contribuire
 - Usa Conventional Commits (feat, fix, docs, chore, build, refactor, perf, test)
 - Mantieni patch piccole e focalizzate
