@@ -3,7 +3,7 @@ SHELL := /bin/sh
 # Config
 PROJECT ?= dnd
 
-.PHONY: up down logs seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh editor-sh
+.PHONY: up down logs seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh editor-sh build build-editor build-parser env-init lint format
 
 up:
 	docker compose up -d mongo editor srd-parser
@@ -32,3 +32,35 @@ mongo-sh:
 
 editor-sh:
 	docker compose exec editor sh
+
+# Build images
+build:
+	docker compose build editor srd-parser
+
+build-editor:
+	docker compose build editor
+
+build-parser:
+	docker compose build srd-parser
+
+# Initialize .env from example (no overwrite)
+env-init:
+	@test -f .env || cp .env.example .env || true
+	@echo "Loaded .env (or created from .env.example)."
+
+# Lint/format helpers (optional: ruff/black if installed; fallback: pyflakes)
+lint:
+	@if command -v ruff >/dev/null 2>&1; then \
+		ruff check editor srd_parser; \
+	elif command -v pyflakes >/dev/null 2>&1; then \
+		pyflakes editor srd_parser; \
+	else \
+		echo "No linter found (install ruff or pyflakes)"; \
+	fi
+
+format:
+	@if command -v black >/dev/null 2>&1; then \
+		black editor srd_parser; \
+	else \
+		echo "Black not found; install black to format"; \
+	fi
