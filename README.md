@@ -49,7 +49,7 @@ Vedi anche `Makefile` per altri comandi utili.
 - Parser: `srd_parser/README.md`
 - Seed: `seed/README.md`
 - Agenti/LLM: `AGENTS.md`, `LLMS.md`
-- ADR: cartella `docs/adr/`
+ - ADR: cartella `docs/adrs/`
 
 ## Note su MongoDB e autenticazione
 - In `docker-compose.yml` Mongo viene avviato con utente root (`admin/password`).
