@@ -2,10 +2,15 @@
 
 {% block content %}
 <div class="bg-white dark:bg-zinc-900 rounded-lg shadow p-4">
-  <h2 class="text-lg font-semibold mb-3">Lista</h2>
-  <div id="rows">
-    {% include "_rows.html" %}
+  <h2 class="text-lg font-semibold mb-3">Lista: {{ collection }}</h2>
+  <div class="mb-3">
+    {% include "_quicksearch.html" %}
+  </div>
+  <div id="rows"
+       hx-get="/view/{{ collection }}?q={{ q|urlencode }}&page={{ page }}&page_size={{ page_size }}&lang={{ lang }}"
+       hx-trigger="load"
+       hx-swap="innerHTML">
+    <div class="text-sm text-zinc-500">Caricamento…</div>
   </div>
 </div>
 {% endblock %}
-
