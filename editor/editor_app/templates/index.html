@@ -26,10 +26,8 @@
       <span class="text-neutral-500 mr-2">Lingua:</span>
       {% set _lang = (lang or 'it')|lower %}
       {% set is_en = _lang[:2] == 'en' %}
-      <a class="btn {% if not is_en %}btn-dark{% endif %} !px-2 !py-1"
-         href="/{% if cur_page %}?lang=it&page={{ cur_page }}{% else %}?lang=it{% endif %}">IT</a>
-      <a class="btn {% if is_en %}btn-dark{% endif %} !px-2 !py-1"
-         href="/{% if cur_page %}?lang=en&page={{ cur_page }}{% else %}?lang=en{% endif %}">EN</a>
+      <a class="btn {% if not is_en %}btn-dark{% endif %} !px-2 !py-1" href="/?lang=it" onclick="return switchLang('it')">IT</a>
+      <a class="btn {% if is_en %}btn-dark{% endif %} !px-2 !py-1" href="/?lang=en" onclick="return switchLang('en')">EN</a>
     </div>
   </section>
 
@@ -52,4 +50,24 @@
   {% if doc %}
     {% include "_homepage_doc.html" %}
   {% endif %}
+{% endblock %}
+{% block scripts %}
+<script>
+  function switchLang(lang){
+    try{
+      const u = new URL(window.location.href);
+      const page = u.searchParams.get('page');
+      u.searchParams.set('lang', lang);
+      if(page){ u.searchParams.set('page', page); } else { u.searchParams.delete('page'); }
+      window.location.href = u.pathname + '?' + u.searchParams.toString();
+      return false;
+    }catch(e){ /* fallback */ window.location.href='/?lang='+lang; return false; }
+  }
+  // Ensure header height after HTMX swaps
+  document.addEventListener('htmx:afterSwap', function(){
+    try { const hdr = document.querySelector('header'); if(hdr){ document.documentElement.style.setProperty('--site-header-h', hdr.offsetHeight + 'px'); } } catch(e){}
+  });
+  // Keep URL in sync when user uses back/forward
+  window.addEventListener('popstate', function(){ /* no-op: server will read current lang/page on reload */ });
+</script>
 {% endblock %}
