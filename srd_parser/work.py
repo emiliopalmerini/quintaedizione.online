@@ -162,74 +162,75 @@ DEFAULT_WORK: List[WorkItem] = [
         "documenti_en",
         lambda lines: parse_document(lines, "07_equipment_rules.md"),
     ),
+    # Items split (align numero_di_pagina to Italian list)
     WorkItem(
         "eng/07_adventuring_gear.md",
         "documenti_en",
-        lambda lines: parse_document(lines, "07_adventuring_gear.md"),
-    ),
-    WorkItem(
-        "eng/07_tools_items.md",
-        "documenti_en",
-        lambda lines: parse_document(lines, "07_tools_items.md"),
+        lambda lines: parse_document(lines, "08_adventuring_gear.md"),
     ),
     WorkItem(
         "eng/07_weapons_items.md",
         "documenti_en",
-        lambda lines: parse_document(lines, "07_weapons_items.md"),
-    ),
-    WorkItem(
-        "eng/07_armor_items.md",
-        "documenti_en",
-        lambda lines: parse_document(lines, "07_armor_items.md"),
-    ),
-    WorkItem(
-        "eng/07_mounts_vehicles_items.md",
-        "documenti_en",
-        lambda lines: parse_document(lines, "07_mounts_vehicles_items.md"),
-    ),
-    WorkItem(
-        "eng/07_services_items.md",
-        "documenti_en",
-        lambda lines: parse_document(lines, "07_services_items.md"),
-    ),
-    WorkItem(
-        "eng/08_spells.md",
-        "documenti_en",
-        lambda lines: parse_document(lines, "08_spells.md"),
-    ),
-    WorkItem(
-        "eng/08_spells_items.md",
-        "documenti_en",
-        lambda lines: parse_document(lines, "08_spells_items.md"),
-    ),
-    WorkItem(
-        "eng/09_rules_glossary.md",
-        "documenti_en",
-        lambda lines: parse_document(lines, "09_rules_glossary.md"),
-    ),
-    WorkItem(
-        "eng/10_gameplay_toolbox.md",
-        "documenti_en",
-        lambda lines: parse_document(lines, "10_gameplay_toolbox.md"),
+        lambda lines: parse_document(lines, "09_weapons_items.md"),
     ),
     WorkItem(
         "eng/07_magic_items.md",
         "documenti_en",
-        lambda lines: parse_document(lines, "07_magic_items.md"),
+        lambda lines: parse_document(lines, "10_magic_items.md"),
+    ),
+    WorkItem(
+        "eng/07_armor_items.md",
+        "documenti_en",
+        lambda lines: parse_document(lines, "11_armor_items.md"),
+    ),
+    WorkItem(
+        "eng/07_tools_items.md",
+        "documenti_en",
+        lambda lines: parse_document(lines, "12_tools_items.md"),
+    ),
+    WorkItem(
+        "eng/07_services_items.md",
+        "documenti_en",
+        lambda lines: parse_document(lines, "13_services_items.md"),
+    ),
+    WorkItem(
+        "eng/07_mounts_vehicles_items.md",
+        "documenti_en",
+        lambda lines: parse_document(lines, "14_mounts_vehicles_items.md"),
+    ),
+    WorkItem(
+        "eng/08_spells.md",
+        "documenti_en",
+        lambda lines: parse_document(lines, "15_spells.md"),
+    ),
+    WorkItem(
+        "eng/08_spells_items.md",
+        "documenti_en",
+        lambda lines: parse_document(lines, "16_spells_items.md"),
+    ),
+    WorkItem(
+        "eng/09_rules_glossary.md",
+        "documenti_en",
+        lambda lines: parse_document(lines, "17_rules_glossary.md"),
+    ),
+    WorkItem(
+        "eng/10_gameplay_toolbox.md",
+        "documenti_en",
+        lambda lines: parse_document(lines, "18_gameplay_toolbox.md"),
     ),
     WorkItem(
         "eng/12_monsters_rules.md",
         "documenti_en",
-        lambda lines: parse_document(lines, "12_monsters_rules.md"),
+        lambda lines: parse_document(lines, "19_monsters_rules.md"),
     ),
     WorkItem(
         "eng/13_monsters_items.md",
         "documenti_en",
-        lambda lines: parse_document(lines, "13_monsters_items.md"),
+        lambda lines: parse_document(lines, "20_monsters_items.md"),
     ),
     WorkItem(
         "eng/14_animals_items.md",
         "documenti_en",
-        lambda lines: parse_document(lines, "14_animals_items.md"),
+        lambda lines: parse_document(lines, "21_animals_items.md"),
     ),
 ]
