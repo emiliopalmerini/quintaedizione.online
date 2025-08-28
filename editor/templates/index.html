@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+  <div class="lg:col-span-1 space-y-4">
+    <div class="bg-white dark:bg-zinc-900 rounded-lg shadow p-4">
+      <h2 class="text-lg font-semibold mb-3">Collezioni</h2>
+      <ul class="space-y-1">
+        {% for c in collections %}
+          <li class="flex items-center justify-between">
+            <a class="hover:underline" href="/list?c={{ c }}&lang={{ lang }}">{{ labels[c] }}</a>
+            <span class="text-sm text-zinc-500">{{ counts.get(c, 0) }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+      <div class="text-sm text-zinc-500 mt-2">Totale: {{ total }}</div>
+    </div>
+  </div>
+  <div class="lg:col-span-3 space-y-4">
+    <div class="bg-white dark:bg-zinc-900 rounded-lg shadow p-4">
+      <h2 class="text-lg font-semibold mb-3">Homepage</h2>
+      <div id="home-doc" hx-swap-oob="true">
+        {% include "_homepage_doc.html" %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+

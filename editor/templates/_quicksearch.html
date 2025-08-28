@@ -1,0 +1,6 @@
+<form class="flex space-x-2" hx-get="/list" hx-target="#rows" hx-select="#rows" hx-swap="outerHTML">
+  <input type="hidden" name="c" value="{{ c }}" />
+  <input class="border rounded px-2 py-1 text-sm flex-1" name="q" value="{{ q or '' }}" placeholder="Cerca..." />
+  <button class="bg-zinc-900 text-white text-sm px-3 py-1 rounded">Cerca</button>
+</form>
+

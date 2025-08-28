@@ -9,8 +9,8 @@ WORKDIR /app
 COPY requirements.txt /app/requirements.txt
 RUN pip install --upgrade pip && pip install -r /app/requirements.txt
 
-COPY editor_app /app/editor_app
-COPY main.py /app/main.py
+# Copy the whole editor app (flattened structure)
+COPY . /app
 
 ENV MONGO_URI=mongodb://mongo:27017 \
     DB_NAME=dnd

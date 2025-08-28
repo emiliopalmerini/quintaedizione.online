@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="it" class="h-full">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>D&D SRD Editor</title>
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.4/dist/tailwind.min.css" rel="stylesheet" />
+  </head>
+  <body class="h-full bg-zinc-100 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100">
+    <div class="min-h-full">
+      <nav class="bg-white dark:bg-zinc-900 shadow">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-16 items-center justify-between">
+            <div class="flex items-center">
+              <a class="text-lg font-semibold" href="/">SRD Editor</a>
+            </div>
+            <div class="flex items-center space-x-4 text-sm">
+              <a class="hover:underline" href="/?lang=it">IT</a>
+              <a class="hover:underline" href="/?lang=en">EN</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main class="mx-auto max-w-7xl p-4 sm:p-6 lg:p-8">
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  </body>
+</html>
+
