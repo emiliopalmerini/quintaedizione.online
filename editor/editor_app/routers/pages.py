@@ -40,6 +40,7 @@ async def index(page: int | None = Query(default=None), lang: str | None = Query
     cols_sorted = sorted(COLLECTIONS, key=lambda c: label_for(c, lang).lower())
     counts: Dict[str, int] = {}
     # Language toggle: select collection based on lang
+    is_en = (lang or "it").lower().startswith("en")
     col_home = "documenti_en" if is_en else "documenti"
     try:
         db = await get_db()
