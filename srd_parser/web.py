@@ -6,7 +6,7 @@ from typing import List
 from urllib.parse import urlparse, urlunparse
 
 from fastapi import FastAPI, Form, Request
-from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.responses import HTMLResponse, RedirectResponse, PlainTextResponse
 from fastapi.templating import Jinja2Templates
 from pymongo import MongoClient
 
@@ -76,6 +76,11 @@ async def index(request: Request):
             "selected": [],
         },
     )
+
+
+@app.get("/healthz", response_class=PlainTextResponse)
+async def healthz():
+    return PlainTextResponse("ok")
 
 
 @app.post("/run", response_class=HTMLResponse)

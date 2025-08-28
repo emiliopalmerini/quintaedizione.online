@@ -30,7 +30,7 @@ router = APIRouter()
 
 
 @router.get("/", response_class=HTMLResponse)
-async def index(page: int | None = Query(default=None)) -> HTMLResponse:
+async def index(page: int | None = Query(default=None), lang: str | None = Query(default="it")) -> HTMLResponse:
     tpl = env.get_template("index.html")
     # Mostra in home solo le collezioni non marcate come EN
     visible_cols = [c for c in COLLECTIONS if "(EN)" not in COLLECTION_LABELS.get(c, "")]
@@ -45,7 +45,9 @@ async def index(page: int | None = Query(default=None)) -> HTMLResponse:
     total = sum(counts.values()) if counts else 0
 
     # Carica un documento da 'documenti' per la homepage via service
-    doc_data = await svc_home_doc(MongoRepository(db), page)
+    # Language toggle: select collection based on lang
+    col_home = "documenti_en" if (lang or "it").lower().startswith("en") else "documenti"
+    doc_data = await svc_home_doc(MongoRepository(db), page, collection=col_home)
     # Renderizza HTML per la prima visualizzazione (coerente con la partial)
     doc_html = ""
     if doc_data.get("doc") and doc_data["doc"].get("content"):
@@ -66,15 +68,17 @@ async def index(page: int | None = Query(default=None)) -> HTMLResponse:
             pages_list=doc_data.get("pages_list"),
             pages_items=doc_data.get("pages_items"),
             cur_page=doc_data.get("cur_page"),
+            lang=lang or "it",
         )
     )
 
 
 @router.get("/home/doc", response_class=HTMLResponse)
-async def home_doc_partial(page: int | None = Query(default=None)) -> HTMLResponse:
+async def home_doc_partial(page: int | None = Query(default=None), lang: str | None = Query(default="it")) -> HTMLResponse:
     db = await get_db()
     repo = MongoRepository(db)
-    data = await svc_home_doc(repo, page)
+    col_home = "documenti_en" if (lang or "it").lower().startswith("en") else "documenti"
+    data = await svc_home_doc(repo, page, collection=col_home)
     tpl = env.get_template("_homepage_doc.html")
     doc = data.get("doc")
     doc_html = ""
@@ -91,6 +95,7 @@ async def home_doc_partial(page: int | None = Query(default=None)) -> HTMLRespon
             pages_list=data.get("pages_list"),
             pages_items=data.get("pages_items"),
             cur_page=data.get("cur_page"),
+            lang=lang or "it",
         )
     )
 
