@@ -50,6 +50,15 @@ def parse_document(md_lines: List[str], filename: Optional[str] = None) -> List[
             break
     slug = _slug_from_filename(filename or "") if filename else None
     numero = _page_from_filename(filename or "") if filename else None
+    # Fallback title when no H1 is present: derive from slug/filename
+    if not title:
+        cand = slug or (filename or "").rsplit("/", 1)[-1]
+        if cand:
+            # humanize slug-like names
+            t = cand.replace("_", " ").replace("-", " ").strip()
+            if t.lower().endswith(".md"):
+                t = t[:-3]
+            title = t.title()
     doc: Dict = {
         "slug": slug or "",
         "titolo": title or "",
@@ -58,4 +67,3 @@ def parse_document(md_lines: List[str], filename: Optional[str] = None) -> List[
     if numero is not None:
         doc["numero_di_pagina"] = numero
     return [doc]
-

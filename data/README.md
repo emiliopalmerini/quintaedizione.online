@@ -1,34 +1,28 @@
-# D&D SRD 5.2 Sections
+# SRD Data Layout (IT/EN)
 
-This directory contains the D&D System Reference Document 5.2 split into individual files based on H1 (top-level) sections.
+This folder contains both Italian and English SRD sources, split by major sections.
 
-## Source Document
+- `ita/..`: Italian SRD (5e 2024) files
+- `eng/..`: English SRD 5.2 files
 
-The original document `DND-SRD-5.2-CC.md` has been split into 14 separate files, each containing one major section of the SRD.
+## Parser support and collections
 
-## Section Files
+The web parser currently supports:
 
-| File | Section Title | Lines | Description |
-|------|---------------|-------|-------------|
-| `01_legal_information.md` | Legal Information | 10 | Creative Commons licensing information |
-| `02_playing_the_game.md` | Playing the Game | 888 | Core game mechanics, abilities, and rules |
-| `03_character_creation.md` | Character Creation | 596 | Character creation rules and guidelines |
-| `04_classes.md` | Classes | 3,817 | All character classes and their features |
-| `05_character_origins.md` | Character Origins | 328 | Backgrounds and character origins |
-| `06_feats.md` | Feats | 183 | Optional feat rules and descriptions |
-| `07_equipment.md` | Equipment | 1,254 | Weapons, armor, gear, and equipment |
-| `08_spells.md` | Spells | 6,548 | Complete spell list and descriptions |
-| `09_rules_glossary.md` | Rules Glossary | 1,128 | Definitions and rule clarifications |
-| `10_gameplay_toolbox.md` | Gameplay Toolbox | 675 | Additional rules and optional systems |
-| `11_magic_items.md` | Magic Items | 3,068 | Magic item descriptions and properties |
-| `12_monsters.md` | Monsters | 272 | Monster rules and stat block format |
-| `13_monsters_az.md` | Monsters A–Z | 9,088 | Complete monster bestiary |
-| `14_animals.md` | Animals | 2,825 | Animal stat blocks and descriptions |
+- Italian full pages → Mongo `documenti`
+- Italian classes → Mongo `classi`
+- Italian backgrounds → Mongo `backgrounds`
+- English full pages → Mongo `documenti_en`
 
-## Usage
+Other English collections (e.g., spells, magic items as itemized docs) are not yet parsed — they appear as full pages in `documenti_en`.
 
-Each file is a complete markdown document that can be processed independently. The files maintain all original formatting, tables, and content structure from the source document.
+The editor UI can switch homepage documents between IT/EN via `?lang=it|en`.
+
+## Notes
+
+- Filenames encode an optional leading page number (e.g., `01_...`) used as `numero_di_pagina`.
+- Slugs are derived from filenames; titles come from the first H1 in the file, or from the slug when H1 is missing.
 
 ## License
 
-All content is licensed under the Creative Commons Attribution 4.0 International License (CC-BY-4.0) as specified in the Legal Information section. 
+All content is licensed under the Creative Commons Attribution 4.0 International License (CC-BY-4.0) as specified in the legal information sections.
