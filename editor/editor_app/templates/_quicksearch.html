@@ -6,7 +6,7 @@
 {% else %}
   <ul class="divide-y">
     {% for it in items %}
-      {% set title = it.name or it.term or it.title or '(senza titolo)' %}
+      {% set title = it.name or it.term or it.title or it.titolo or it.nome or '(senza titolo)' %}
       <li>
         <a href="/show/{{ collection }}/{{ it._id }}" class="block px-3 py-2 hover:bg-neutral-50">
           <div class="truncate text-sm">{{ title }}</div>
@@ -16,4 +16,3 @@
     {% endfor %}
   </ul>
 {% endif %}
-
