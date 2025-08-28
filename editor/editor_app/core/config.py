@@ -3,11 +3,14 @@ import os
 MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
 DB_NAME = os.getenv("DB_NAME", "dnd")
 
-COLLECTIONS = [
+IT_COLLECTIONS = [
     # Collezioni italiane principali (documenti resta fuori dal menu; è in homepage)
     "classi",
     "backgrounds",
-    # Collezioni legacy/extra (visibili se presenti)
+]
+
+EN_COLLECTIONS = [
+    # Collezioni inglesi
     "spells",
     "magic_items",
     "armor",
@@ -20,18 +23,22 @@ COLLECTIONS = [
     "animals",
 ]
 
+COLLECTIONS = IT_COLLECTIONS + EN_COLLECTIONS
+
 COLLECTION_LABELS = {
     "documenti": "Documenti",
+    # ITA
     "classi": "Classi",
     "backgrounds": "Background",
-    "spells": "Incantesimi (EN)",
-    "magic_items": "Oggetti magici (EN)",
-    "armor": "Armature (EN)",
-    "weapons": "Armi (EN)",
-    "tools": "Strumenti (EN)",
-    "mounts_vehicles": "Cavalcature e veicoli (EN)",
-    "services": "Servizi (EN)",
-    "rules_glossary": "Glossario regole (EN)",
-    "monsters": "Mostri (EN)",
-    "animals": "Animali (EN)",
+    # ENG (usa direttamente il nome inglese; rimosso suffisso "(EN)")
+    "spells": "Spells",
+    "magic_items": "Magic Items",
+    "armor": "Armor",
+    "weapons": "Weapons",
+    "tools": "Tools",
+    "mounts_vehicles": "Mounts & Vehicles",
+    "services": "Services",
+    "rules_glossary": "Rules Glossary",
+    "monsters": "Monsters",
+    "animals": "Animals",
 }
