@@ -19,5 +19,5 @@ ENV INPUT_DIR=/data \
     DRY_RUN=0
 
 # Avvia la web app
-EXPOSE 8100
+EXPOSE 8000
 ENTRYPOINT ["uvicorn", "srd_parser.web:app", "--host", "0.0.0.0", "--port", "8000", "--proxy-headers"]
