@@ -4,7 +4,7 @@ from __future__ import annotations
 from typing import Any, Dict, Mapping
 from urllib.parse import urlencode
 
-from editor_app.core.config import COLLECTION_LABELS, COLLECTIONS
+from editor_app.core.config import COLLECTION_LABELS, COLLECTIONS, IT_COLLECTIONS, EN_COLLECTIONS
 from editor_app.core.db import get_db
 from editor_app.adapters.persistence.mongo_repository import MongoRepository
 from editor_app.core.flatten import flatten_for_form
@@ -34,10 +34,7 @@ async def index(page: int | None = Query(default=None), lang: str | None = Query
     tpl = env.get_template("index.html")
     # Mostra le collezioni in base alla lingua selezionata
     is_en = (lang or "it").lower().startswith("en")
-    if is_en:
-        visible_cols = [c for c in COLLECTIONS if "(EN)" in COLLECTION_LABELS.get(c, "")]
-    else:
-        visible_cols = [c for c in COLLECTIONS if "(EN)" not in COLLECTION_LABELS.get(c, "")]
+    visible_cols = EN_COLLECTIONS if is_en else IT_COLLECTIONS
     cols_sorted = sorted(visible_cols, key=lambda c: COLLECTION_LABELS.get(c, c).lower())
     counts: Dict[str, int] = {}
     # Language toggle: select collection based on lang
