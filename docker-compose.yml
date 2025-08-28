@@ -12,6 +12,7 @@ services:
       - mongo_data:/data/db
 
   srd-parser:
+    profiles: [parser]
     build:
       context: ./srd_parser
       dockerfile: Dockerfile.Parser
