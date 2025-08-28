@@ -8,7 +8,7 @@
       <ul class="space-y-1">
         {% for c in collections %}
           <li class="flex items-center justify-between">
-            <a class="hover:underline" href="/list?c={{ c }}&lang={{ lang }}">{{ labels[c] }}</a>
+            <a class="hover:underline" href="/list/{{ c }}?lang={{ lang }}">{{ labels[c] }}</a>
             <span class="text-sm text-zinc-500">{{ counts.get(c, 0) }}</span>
           </li>
         {% endfor %}
@@ -26,4 +26,3 @@
   </div>
 </div>
 {% endblock %}
-

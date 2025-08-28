@@ -3,9 +3,8 @@
   <ul class="divide-y divide-zinc-200 dark:divide-zinc-800">
     {% for it in items %}
       <li class="py-2">
-        <a class="hover:underline" href="/show/{{ it._id }}?c={{ c }}">{{ it.name or it.title or it.term or it.titolo or it.nome }}</a>
+        <a class="hover:underline" href="/show/{{ collection }}/{{ it._id }}?lang={{ lang }}">{{ it.name or it.title or it.term or it.titolo or it.nome }}</a>
       </li>
     {% endfor %}
   </ul>
 </div>
-
