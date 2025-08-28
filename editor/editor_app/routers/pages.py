@@ -113,14 +113,14 @@ async def home_doc_partial(page: int | None = Query(default=None), lang: str | N
 
 @router.get("/list/{collection}", response_class=HTMLResponse)
 async def list_page(
-    request: Request, collection: str, q: str = "", page: int = 1, page_size: int = 20
+    request: Request, collection: str, q: str = "", page: int = 1, page_size: int = 20, lang: str | None = Query(default="it")
 ) -> HTMLResponse:
     if collection not in COLLECTIONS:
         raise HTTPException(404)
     tpl = env.get_template("list.html")
     return HTMLResponse(
         tpl.render(
-            collection=collection, q=q, page=page, page_size=page_size, request=request
+            collection=collection, q=q, page=page, page_size=page_size, request=request, lang=lang
         )
     )
 
@@ -195,7 +195,7 @@ async def quicksearch(request: Request, collection: str, q: str = "") -> HTMLRes
 
 @router.get("/show/{collection}/{doc_id}", response_class=HTMLResponse)
 async def show_doc(
-    request: Request, collection: str, doc_id: str, q: str | None = Query(default=None)
+    request: Request, collection: str, doc_id: str, q: str | None = Query(default=None), lang: str | None = Query(default="it")
 ) -> HTMLResponse:
     if collection not in COLLECTIONS:
         raise HTTPException(404)
@@ -254,6 +254,7 @@ async def show_doc(
             next_id=next_id,
             request=request,
             qs=qs,
+            lang=lang,
         )
     )
 
