@@ -10,6 +10,7 @@
       hx-get="/view/{{ collection }}"
       hx-target="#rows"
       hx-trigger="submit, keyup delay:300ms from:#q, change from:select, change from:input[type=checkbox], change from:input[type=number]"
+      hx-push-url="true"
       class="flex flex-col gap-2"
     >
       <div class="flex items-center gap-2 flex-wrap">
@@ -75,7 +76,8 @@
     <div id="rows"
          hx-get="/view/{{ collection }}?page={{ page or 1 }}&page_size={{ page_size or 20 }}&q={{ q or '' }}"
          hx-trigger="load"
-         hx-include="#search-form">
+         hx-include="#search-form"
+         hx-push-url="true">
       <div class="px-3 py-4 text-sm text-neutral-600 flex items-center gap-2">
         <span class="spinner"></span>
         <span>Caricamento risultati…</span>

@@ -4,10 +4,10 @@
 {% elif items|length == 0 %}
   <div class="px-3 py-2 text-sm text-neutral-600">Nessun risultato per “{{ q }}”.</div>
 {% else %}
-  <ul class="divide-y">
+  <ul class="divide-y" role="listbox" aria-label="Risultati ricerca rapida">
     {% for it in items %}
       {% set title = it.name or it.term or it.title or it.titolo or it.nome or '(senza titolo)' %}
-      <li>
+      <li role="option">
         <a href="/show/{{ collection }}/{{ it._id }}" class="block px-3 py-2 hover:bg-neutral-50">
           <div class="truncate text-sm">{{ title }}</div>
           <div class="mono text-[11px] text-neutral-500 truncate">{{ it._id }}</div>

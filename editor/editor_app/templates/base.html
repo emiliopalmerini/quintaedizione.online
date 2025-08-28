@@ -110,8 +110,8 @@
                    hx-get="/quicksearch/{{ collection }}"
                    hx-target="#bc-results"
                    hx-trigger="keyup changed delay:200ms"
-                   autocomplete="off" />
-            <div id="bc-results" class="absolute left-0 top-full mt-1 w-[28rem] max-h-80 overflow-auto bg-white border shadow z-50 hidden"></div>
+                   autocomplete="off" aria-controls="bc-results" aria-expanded="false" />
+            <div id="bc-results" class="absolute left-0 top-full mt-1 w-[28rem] max-h-80 overflow-auto bg-white border shadow z-50 hidden" role="listbox" aria-label="Risultati ricerca rapida"></div>
           </div>
         {% endif %}
         {% if doc_title and not collection %}
@@ -303,6 +303,8 @@
     document.addEventListener('htmx:afterOnLoad', (e)=>{
       if(e.detail && e.detail.elt && e.detail.elt.id === 'bc-results'){
         e.detail.elt.classList.remove('hidden');
+        const input = document.getElementById('bc-search');
+        if(input) input.setAttribute('aria-expanded','true');
       }
     });
     document.addEventListener('click', (e)=>{
@@ -310,11 +312,12 @@
       if(!res) return;
       const input = document.getElementById('bc-search');
       const within = res.contains(e.target) || (input && input.contains(e.target));
-      if(!within){ res.classList.add('hidden'); }
+      if(!within){ res.classList.add('hidden'); if(input) input.setAttribute('aria-expanded','false'); }
     });
     document.addEventListener('keydown', (e)=>{
       if(e.key==='Escape'){
         const res=document.getElementById('bc-results'); if(res) res.classList.add('hidden');
+        const input = document.getElementById('bc-search'); if(input) input.setAttribute('aria-expanded','false');
       }
       if(e.key==='Enter'){
         const input = document.getElementById('bc-search');
@@ -322,6 +325,13 @@
           const first = document.querySelector('#bc-results a');
           if(first){ e.preventDefault(); window.location = first.getAttribute('href'); }
           else if(input.value){ window.location = '/list/{{ collection or '' }}?q=' + encodeURIComponent(input.value); }
+        }
+      }
+      if(e.key==='ArrowDown'){
+        const input = document.getElementById('bc-search');
+        if(input && document.activeElement === input){
+          const first = document.querySelector('#bc-results a');
+          if(first){ e.preventDefault(); try{ first.focus(); }catch(_){} }
         }
       }
     });

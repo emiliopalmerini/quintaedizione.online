@@ -8,25 +8,25 @@
       <button
         class="btn btn-ghost"
         hx-get="/view/{{ collection }}?page={{ 1 }}&page_size={{ page_size }}&q={{ q|urlencode }}"
-        hx-target="#rows" hx-include="#search-form"
+        hx-target="#rows" hx-include="#search-form" hx-push-url="true"
         {% if page<=1 %}disabled{% endif %}
       >« Prima</button>
       <button
         class="btn btn-ghost"
         hx-get="/view/{{ collection }}?page={{ page-1 }}&page_size={{ page_size }}&q={{ q|urlencode }}"
-        hx-target="#rows" hx-include="#search-form"
+        hx-target="#rows" hx-include="#search-form" hx-push-url="true"
         {% if page<=1 %}disabled{% endif %}
       >‹ Indietro</button>
       <button
         class="btn btn-ghost"
         hx-get="/view/{{ collection }}?page={{ page+1 }}&page_size={{ page_size }}&q={{ q|urlencode }}"
-        hx-target="#rows" hx-include="#search-form"
+        hx-target="#rows" hx-include="#search-form" hx-push-url="true"
         {% if page>=pages %}disabled{% endif %}
       >Avanti ›</button>
       <button
         class="btn btn-ghost"
         hx-get="/view/{{ collection }}?page={{ pages }}&page_size={{ page_size }}&q={{ q|urlencode }}"
-        hx-target="#rows" hx-include="#search-form"
+        hx-target="#rows" hx-include="#search-form" hx-push-url="true"
         {% if page>=pages %}disabled{% endif %}
       >Ultima »</button>
     </div>
@@ -58,14 +58,14 @@
       <button
         class="btn btn-ghost"
         hx-get="/view/{{ collection }}?page={{ page-1 }}&page_size={{ page_size }}&q={{ q|urlencode }}"
-        hx-target="#rows" hx-include="#search-form"
+        hx-target="#rows" hx-include="#search-form" hx-push-url="true"
         {% if page<=1 %}disabled{% endif %}
       >‹ Indietro</button>
       <span class="text-sm">Pag. {{ page }}/{{ pages }}</span>
       <button
         class="btn btn-ghost"
         hx-get="/view/{{ collection }}?page={{ page+1 }}&page_size={{ page_size }}&q={{ q|urlencode }}"
-        hx-target="#rows" hx-include="#search-form"
+        hx-target="#rows" hx-include="#search-form" hx-push-url="true"
         {% if page>=pages %}disabled{% endif %}
       >Avanti ›</button>
     </div>

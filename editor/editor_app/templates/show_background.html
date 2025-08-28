@@ -46,7 +46,7 @@
         container.querySelectorAll('h2, h3, h4').forEach(h=>{
           const id = h.id; if(!id) return;
           const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'anchor-btn'; btn.textContent = '🔗'; btn.title = 'Copia link sezione';
-          btn.addEventListener('click', ()=>{ const url = window.location.origin + window.location.pathname + '#' + id; navigator.clipboard.writeText(url); });
+          btn.addEventListener('click', ()=>{ const url = window.location.origin + window.location.pathname + '#' + id; navigator.clipboard.writeText(url).then(()=>{ try { flash(btn,'Copiato'); } catch(e){} }); });
           h.appendChild(btn);
         });
       }
