@@ -36,22 +36,25 @@ async def index(page: int | None = Query(default=None), lang: str | None = Query
     visible_cols = [c for c in COLLECTIONS if "(EN)" not in COLLECTION_LABELS.get(c, "")]
     cols_sorted = sorted(visible_cols, key=lambda c: COLLECTION_LABELS.get(c, c).lower())
     counts: Dict[str, int] = {}
-    db = await get_db()
-    for c in cols_sorted:
-        try:
-            counts[c] = await db[c].count_documents({})
-        except Exception:
-            counts[c] = 0
-    total = sum(counts.values()) if counts else 0
-
-    # Carica un documento da 'documenti' per la homepage via service
     # Language toggle: select collection based on lang
     col_home = "documenti_en" if (lang or "it").lower().startswith("en") else "documenti"
-    doc_data = await svc_home_doc(MongoRepository(db), page, collection=col_home)
-    # Renderizza HTML per la prima visualizzazione (coerente con la partial)
-    doc_html = ""
-    if doc_data.get("doc") and doc_data["doc"].get("content"):
-        doc_html = render_md(str(doc_data["doc"].get("content") or ""))
+    try:
+        db = await get_db()
+        for c in cols_sorted:
+            try:
+                counts[c] = await db[c].count_documents({})
+            except Exception:
+                counts[c] = 0
+        total = sum(counts.values()) if counts else 0
+        # Carica un documento da 'documenti' per la homepage via service
+        doc_data = await svc_home_doc(MongoRepository(db), page, collection=col_home)
+        # Renderizza HTML per la prima visualizzazione (coerente con la partial)
+        doc_html = ""
+        if doc_data.get("doc") and doc_data["doc"].get("content"):
+            doc_html = render_md(str(doc_data["doc"].get("content") or ""))
+    except Exception:
+        err_tpl = env.get_template("error_db.html")
+        return HTMLResponse(err_tpl.render())
 
     return HTMLResponse(
         tpl.render(
@@ -75,10 +78,14 @@ async def index(page: int | None = Query(default=None), lang: str | None = Query
 
 @router.get("/home/doc", response_class=HTMLResponse)
 async def home_doc_partial(page: int | None = Query(default=None), lang: str | None = Query(default="it")) -> HTMLResponse:
-    db = await get_db()
-    repo = MongoRepository(db)
     col_home = "documenti_en" if (lang or "it").lower().startswith("en") else "documenti"
-    data = await svc_home_doc(repo, page, collection=col_home)
+    try:
+        db = await get_db()
+        repo = MongoRepository(db)
+        data = await svc_home_doc(repo, page, collection=col_home)
+    except Exception:
+        err_tpl = env.get_template("error_db.html")
+        return HTMLResponse(err_tpl.render())
     tpl = env.get_template("_homepage_doc.html")
     doc = data.get("doc")
     doc_html = ""
@@ -120,9 +127,13 @@ async def view_rows(
 ) -> HTMLResponse:
     if collection not in COLLECTIONS:
         raise HTTPException(404)
-    db = await get_db()
-    repo = MongoRepository(db)
-    res = await svc_list_page(repo, collection, request.query_params, q, page, page_size)
+    try:
+        db = await get_db()
+        repo = MongoRepository(db)
+        res = await svc_list_page(repo, collection, request.query_params, q, page, page_size)
+    except Exception:
+        err_tpl = env.get_template("error_db.html")
+        return HTMLResponse(err_tpl.render())
     items = res["items"]
     pages = res["pages"]
     page = res["page"]
@@ -157,8 +168,11 @@ async def quicksearch(request: Request, collection: str, q: str = "") -> HTMLRes
     tpl = env.get_template("_quicksearch.html")
     if not q.strip():
         return HTMLResponse(tpl.render(collection=collection, q=q, items=[]))
-    db = await get_db()
-    repo = MongoRepository(db)
+    try:
+        db = await get_db()
+        repo = MongoRepository(db)
+    except Exception:
+        return HTMLResponse(tpl.render(collection=collection, q=q, items=[]))
     # Quick mode: prefisso su name/term/title
     filt = build_filter(q, collection, request.query_params, quick=True)
     pipe = [
@@ -181,9 +195,13 @@ async def show_doc(
 ) -> HTMLResponse:
     if collection not in COLLECTIONS:
         raise HTTPException(404)
-    db = await get_db()
-    repo = MongoRepository(db)
-    doc, prev_id, next_id, doc_title = await svc_show_doc(repo, collection, doc_id, request.query_params, q)
+    try:
+        db = await get_db()
+        repo = MongoRepository(db)
+        doc, prev_id, next_id, doc_title = await svc_show_doc(repo, collection, doc_id, request.query_params, q)
+    except Exception:
+        err_tpl = env.get_template("error_db.html")
+        return HTMLResponse(err_tpl.render())
     if not doc:
         raise HTTPException(404, "Documento non trovato")
     fields = flatten_for_form(doc)
