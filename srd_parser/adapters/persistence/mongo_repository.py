@@ -25,7 +25,6 @@ class MongoRepository:
                 [(f, ASCENDING) for f in unique_fields],
                 name="uq_" + "_".join(unique_fields),
                 unique=True,
-                background=False,
             )
         except PyMongoError:
             # Index creation failures are non-fatal for ingest

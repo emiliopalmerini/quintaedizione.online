@@ -6,14 +6,13 @@ from typing import List
 from urllib.parse import urlparse, urlunparse
 
 from fastapi import FastAPI, Form, Request
-from fastapi.responses import HTMLResponse, RedirectResponse, PlainTextResponse
+from fastapi.responses import HTMLResponse, PlainTextResponse
 from fastapi.templating import Jinja2Templates
 from pymongo import MongoClient
 
 from .work import DEFAULT_WORK
 from .adapters.persistence.mongo_repository import MongoRepository
-from .application.ingest_service import unique_keys_for
-from .application.ingest_runner import filter_work, run_ingest
+from .application.ingest_runner import run_ingest
 
 
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
