@@ -24,10 +24,10 @@ Applicazione web per cercare, visualizzare e modificare i documenti SRD.
 - Navigazione prev/next alfabetica (name→term), coerente con la lista
 
 ## Struttura
-- `editor_app/main.py`: creazione app FastAPI
-- `editor_app/routers/pages.py`: route, viste, filtri
-- `editor_app/core/*`: DB, template env, utilità flatten/transform
-- `editor_app/templates/*`: template Jinja2/HTMX
+- `main.py`: creazione app FastAPI
+- `routers/pages.py`: route, viste, filtri
+- `core/*`: DB, template env, utilità flatten/transform
+- `templates/*`: template Jinja2/HTMX
 
 ## Estensioni/idee
 - Anteprima Markdown live nell’editor per textarea lunghe

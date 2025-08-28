@@ -1,8 +1,8 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.responses import PlainTextResponse
-from editor_app.core.db import init_db, close_db
-from editor_app.routers.pages import router as pages_router
+from core.db import init_db, close_db
+from routers.pages import router as pages_router
 
 def create_app() -> FastAPI:
     @asynccontextmanager

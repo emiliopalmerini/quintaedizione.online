@@ -1,0 +1,28 @@
+{% if doc %}
+  <div class="flex items-center justify-between mb-2">
+    <div class="text-sm text-zinc-500">Pagina {{ cur_page }}</div>
+    <div class="space-x-2">
+      {% if prev_page %}
+      <a class="underline" href="/?page={{ prev_page }}&lang={{ lang }}">Prev</a>
+      {% endif %}
+      {% if next_page %}
+      <a class="underline" href="/?page={{ next_page }}&lang={{ lang }}">Next</a>
+      {% endif %}
+    </div>
+  </div>
+  <article class="prose dark:prose-invert max-w-none">{{ doc_html|safe }}</article>
+  {% if pages_items %}
+  <div class="mt-4">
+    <label class="text-sm text-zinc-500 mr-2">Vai alla pagina:</label>
+    <select class="border rounded p-1 text-sm"
+            hx-get="/" hx-target="#home-doc" hx-select="#home-doc" hx-swap="outerHTML">
+      {% for it in pages_items %}
+      <option value="?page={{ it.page }}&lang={{ lang }}" {% if it.page == cur_page %}selected{% endif %}>{{ it.page }} - {{ it.title }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  {% endif %}
+{% else %}
+  <div class="text-sm text-zinc-500">Nessun documento disponibile.</div>
+{% endif %}
+
