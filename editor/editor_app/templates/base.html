@@ -126,6 +126,10 @@
         <button id="menu-toggle" class="btn sm:hidden" aria-label="Apri menu" aria-controls="nav-links" aria-expanded="false">☰</button>
         <nav id="nav-links" class="hidden absolute right-0 top-full mt-2 flex flex-col gap-2 bg-white border shadow p-2 sm:static sm:flex sm:flex-row sm:items-center sm:gap-2 sm:border-0 sm:shadow-none sm:p-0" aria-label="Azioni">
           {% block header_actions %}{% endblock %}
+          {% set _lang = (lang or 'it')|lower if lang is defined else 'it' %}
+          {% set is_en = _lang[:2] == 'en' %}
+          <a class="btn !px-2 !py-1 {% if not is_en %}btn-dark{% endif %}" href="/?lang=it" onclick="return switchLang('it')">IT</a>
+          <a class="btn !px-2 !py-1 {% if is_en %}btn-dark{% endif %}" href="/?lang=en" onclick="return switchLang('en')">EN</a>
         </nav>
       </div>
     </div>
@@ -140,6 +144,21 @@
 
   {% block scripts %}{% endblock %}
   <script>
+    // Global language switch that preserves current page/query if present
+    if (typeof window.switchLang !== 'function') {
+      window.switchLang = function(lang){
+        try{
+          const u = new URL(window.location.href);
+          u.searchParams.set('lang', lang);
+          // Preserve current page if any
+          const page = u.searchParams.get('page');
+          if(page){ u.searchParams.set('page', page); } else { u.searchParams.delete('page'); }
+          // Preserve other query params (q, page_size, etc.)
+          window.location.href = u.pathname + '?' + u.searchParams.toString();
+          return false;
+        }catch(e){ window.location.href='/?lang='+lang; return false; }
+      }
+    }
     // Global helpers available to all pages
     // Removed textarea-specific clipboard helpers (no per-field editor)
     function toggleFull(btn){
