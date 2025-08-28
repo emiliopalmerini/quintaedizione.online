@@ -1,28 +1,73 @@
+<!-- app/templates/index.html -->
 {% extends "base.html" %}
-
+{% block title %}5e SRD 2024{% endblock %}
 {% block content %}
-<div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-  <div class="lg:col-span-1 space-y-4">
-    <div class="bg-white dark:bg-zinc-900 rounded-lg shadow p-4">
-      <h2 class="text-lg font-semibold mb-3">Collezioni</h2>
-      <ul class="space-y-1">
-        {% for c in collections %}
-          <li class="flex items-center justify-between">
-            <a class="hover:underline" href="/list/{{ c }}?lang={{ lang }}">{{ labels[c] }}</a>
-            <span class="text-sm text-zinc-500">{{ counts.get(c, 0) }}</span>
-          </li>
-        {% endfor %}
-      </ul>
-      <div class="text-sm text-zinc-500 mt-2">Totale: {{ total }}</div>
+  <section class="bg-gradient-to-br from-indigo-50 to-white border p-6 mb-4">
+    <h1 class="text-2xl font-semibold mb-2">Il Fantastico Visualizzatore di SRD (5e 2024)</h1>
+    <a href="https://www.linkedin.com/in/emiliopalmerini/?originalSubdomain=it" 
+       class="text-sm text-indigo-600 mb-4 inline-block hover:underline">
+        creato da Emilio Palmerini 
+    </a>
+    <a href="https://duedraghialmicrofono.com" 
+       class="text-sm text-indigo-600 mb-4 inline-block hover:underline">
+        per Due Draghi al Microfono
+    </a>
+
+    <p class="text-neutral-700 max-w-3xl">
+    Questa applicazione aiuta a sfogliare, cercare e <strong>copiare rapidamente</strong> i contenuti della SRD della 5e 2024.
+    Usa la ricerca testuale e i <strong>filtri specifici</strong> per ciascuna collezione; 
+    </p>
+    <div class="mt-3 text-sm text-neutral-700 flex items-center gap-2">
+        <span class="text-neutral-500">Totale elementi indicizzati:</span>
+        <span class="bg-white border px-2 py-0.5">{{ total or 0 }}</span>
     </div>
-  </div>
-  <div class="lg:col-span-3 space-y-4">
-    <div class="bg-white dark:bg-zinc-900 rounded-lg shadow p-4">
-      <h2 class="text-lg font-semibold mb-3">Homepage</h2>
-      <div id="home-doc" hx-swap-oob="true">
-        {% include "_homepage_doc.html" %}
-      </div>
+
+    <div class="mt-3 text-sm">
+      <span class="text-neutral-500 mr-2">Lingua:</span>
+      {% set _lang = (lang or 'it')|lower %}
+      {% set is_en = _lang[:2] == 'en' %}
+      <a class="btn {% if not is_en %}btn-dark{% endif %} !px-2 !py-1" href="/?lang=it" onclick="return switchLang('it')">IT</a>
+      <a class="btn {% if is_en %}btn-dark{% endif %} !px-2 !py-1" href="/?lang=en" onclick="return switchLang('en')">EN</a>
     </div>
+  </section>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {% for c in collections %}
+      <a href="/list/{{ c }}?lang={{ lang or 'it' }}" class="group block bg-white border p-3 hover:bg-gray-50">
+          <div class="flex items-start justify-between gap-3">
+              <div>
+                  <div class="text-sm text-neutral-500 mb-1">Collezione</div>
+                  <div class="text-lg font-semibold">{{ (labels and labels.get(c)) or c }}</div>
+                  <div class="text-xs text-neutral-400 mt-1">chiave: <span class="mono">{{ c }}</span></div>
+              </div>
+              <div class="shrink-0 text-xs bg-neutral-50 border px-2 py-0.5" title="Numero di elementi">{{ counts and counts.get(c, 0) or 0 }}</div>
+          </div>
+          <div class="mt-2 text-indigo-600 text-sm opacity-0 group-hover:opacity-100 transition">Apri →</div>
+      </a>
+      {% endfor %}
   </div>
-</div>
+
+  {% if doc %}
+    {% include "_homepage_doc.html" %}
+  {% endif %}
+{% endblock %}
+{% block scripts %}
+<script>
+  function switchLang(lang){
+    try{
+      const u = new URL(window.location.href);
+      const page = u.searchParams.get('page');
+      u.searchParams.set('lang', lang);
+      if(page){ u.searchParams.set('page', page); } else { u.searchParams.delete('page'); }
+      window.location.href = u.pathname + '?' + u.searchParams.toString();
+      return false;
+    }catch(e){ /* fallback */ window.location.href='/?lang='+lang; return false; }
+  }
+  // Ensure header height after HTMX swaps
+  document.addEventListener('htmx:afterSwap', function(){
+    try { const hdr = document.querySelector('header'); if(hdr){ document.documentElement.style.setProperty('--site-header-h', hdr.offsetHeight + 'px'); } } catch(e){}
+  });
+  // Keep URL in sync when user uses back/forward
+  window.addEventListener('popstate', function(){ /* no-op: server will read current lang/page on reload */ });
+</script>
 {% endblock %}
