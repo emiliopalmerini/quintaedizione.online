@@ -18,6 +18,10 @@ Editor e visualizzatore veloce per i contenuti SRD di D&D 5e, pensato per aiutar
 ## Avvio rapido
 Requisiti: Docker, Docker Compose.
 
+- (Opzionale) Inizializza variabili da `.env.example`
+```
+make env-init
+```
 - Avvia Mongo + Editor
 ```
 make up
@@ -37,6 +41,15 @@ open http://localhost:8100
 ```
 
 Vedi anche `Makefile` per altri comandi utili.
+
+Comandi utili:
+```
+make build           # build editor + srd-parser
+make build-editor    # build solo editor
+make build-parser    # build solo srd-parser
+make lint            # esegue ruff/pyflakes se presenti
+make format          # esegue black se presente
+```
 
 ## Struttura del repo
 - `editor/`: applicazione FastAPI + template HTMX/Jinja2
