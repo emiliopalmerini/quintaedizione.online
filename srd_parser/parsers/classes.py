@@ -201,6 +201,7 @@ def _parse_levels_table(block: List[str]) -> List[Dict]:
             "Bonus competenza": "bonus_competenza",
             # Normalize privilege column(s)
             "Privilegi di classe": "privilegi_di_classe",
+            "Privilegi della classe": "privilegi_di_classe",
             "Privilegi": "privilegi_di_classe",
             "Capacità": "privilegi_di_classe",  # backward compat
             "Trucchetti": "trucchetti_conosciuti",
@@ -228,7 +229,8 @@ def _parse_levels_table(block: List[str]) -> List[Dict]:
         # privilegi di classe (list of names per level row)
         privs = clean_value(row.get("privilegi_di_classe"))
         if privs:
-            privs = privs.replace("—", "").strip()
+            # normalize en/em dashes that sometimes appear as separators
+            privs = privs.replace("—", "").replace("–", "").strip()
             if privs:
                 item["privilegi_di_classe"] = [
                     c.strip() for c in privs.split(",") if c.strip()
@@ -246,7 +248,7 @@ def _parse_levels_table(block: List[str]) -> List[Dict]:
         for hk, hv in row.items():
             if hk.isdigit():
                 v = clean_value(hv)
-                if v and v != "—":
+                if v and v not in ("—", "–"):
                     try:
                         slots[hk] = int(v)
                     except Exception:
