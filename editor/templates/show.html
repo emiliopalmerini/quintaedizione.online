@@ -5,23 +5,14 @@
 {% block header_actions %}
   <nav class="flex items-center gap-2" aria-label="Azioni documento">
     <a href="/list/{{ collection }}{% if qs %}?{{ qs }}{% endif %}" class="btn btn-ghost">← Lista</a>
-    <form method="get" action="/show/{{ collection }}/{{ prev_id }}" class="inline" aria-label="Documento precedente">
-      {% if request %}
-        {% for key, val in request.query_params.items() %}
-          <input type="hidden" name="{{ key }}" value="{{ val }}">
-        {% endfor %}
-      {% endif %}
-      <button type="submit" class="btn btn-ghost" {% if not prev_id %}disabled aria-disabled="true" tabindex="-1"{% endif %}>‹ Precedente</button>
-    </form>
-    <form method="get" action="/show/{{ collection }}/{{ next_id }}" class="inline" aria-label="Documento successivo">
-      {% if request %}
-        {% for key, val in request.query_params.items() %}
-          <input type="hidden" name="{{ key }}" value="{{ val }}">
-        {% endfor %}
-      {% endif %}
-      <button type="submit" class="btn btn-ghost" {% if not next_id %}disabled aria-disabled="true" tabindex="-1"{% endif %}>Successivo ›</button>
-    </form>
-    
+    <a class="btn btn-ghost"
+       href="/show/{{ collection }}/{{ prev_id }}{% if qs %}?{{ qs }}{% endif %}"
+       {% if not prev_id %}disabled aria-disabled="true" tabindex="-1" style="pointer-events:none;opacity:.3;background:#f9f9f9"{% endif %}
+    >‹ Precedente</a>
+    <a class="btn btn-ghost"
+       href="/show/{{ collection }}/{{ next_id }}{% if qs %}?{{ qs }}{% endif %}"
+       {% if not next_id %}disabled aria-disabled="true" tabindex="-1" style="pointer-events:none;opacity:.3;background:#f9f9f9"{% endif %}
+    >Successivo ›</a>
   </nav>
 {% endblock %}
 
@@ -205,18 +196,7 @@
       </div>
     </header>
 
-    {# Corpo SSR: preferisce description/description_md/content, fallback al primo *_md #}
-    {% if body_html %}
-      <div class="flex justify-end mb-2">
-        <button type="button" class="btn btn-ghost !px-2 !py-1 text-xs" onclick="copyMarkdown(this)" title="Copia Markdown">Copia Markdown</button>
-      </div>
-      <div id="doc-md" data-markdown data-ssr="true" data-raw="{{ body_raw | e }}" class="prose max-w-none">{{ body_html | safe }}</div>
-    {% else %}
-      <div class="text-sm text-neutral-600">Nessun contenuto testuale disponibile.</div>
-    {% endif %}
-
     {# Metadati: tutti i campi esclusi description e *_md #}
-    <hr class="my-4" />
     <section class="space-y-2">
       <h2 class="text-sm font-semibold text-neutral-700">Metadati</h2>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
@@ -241,6 +221,18 @@
         {% endfor %}
       </div>
     </section>
+
+    <hr class="my-4" />
+
+    {# Corpo SSR: preferisce description/description_md/content, fallback al primo *_md #}
+    {% if body_html %}
+      <div class="flex justify-end mb-2">
+        <button type="button" class="btn btn-ghost !px-2 !py-1 text-xs" onclick="copyMarkdown(this)" title="Copia Markdown">Copia Markdown</button>
+      </div>
+      <div id="doc-md" data-markdown data-ssr="true" data-raw="{{ body_raw | e }}" class="prose max-w-none">{{ body_html | safe }}</div>
+    {% else %}
+      <div class="text-sm text-neutral-600">Nessun contenuto testuale disponibile.</div>
+    {% endif %}
   </article>
 
   {# Sezione dati grezzi rimossa su richiesta #}
