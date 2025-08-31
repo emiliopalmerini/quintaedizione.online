@@ -73,6 +73,11 @@ async def index(request: Request):
             "work_items": work_items,
             "messages": [],
             "selected": [],
+            "flt_it": True,
+            "flt_en": True,
+            "flt_docs": True,
+            "group": False,
+            "q": "",
         },
     )
 
@@ -153,6 +158,11 @@ async def run(
             "work_items": work_items,
             "messages": messages,
             "selected": sel,
+            "flt_it": True,
+            "flt_en": True,
+            "flt_docs": True,
+            "group": False,
+            "q": "",
         },
     )
 
@@ -178,3 +188,185 @@ async def test_conn(
     show_err = os.environ.get("DEBUG_UI", "0").strip().lower() in ("1", "true", "yes", "on")
     ctx = {"request": request, "ok": ok, "err": err, "show_err": show_err}
     return templates.TemplateResponse("_conn_test_result.html", ctx)
+
+
+def _work_items_list():
+    return [{"idx": i, "collection": w.collection, "filename": w.filename} for i, w in enumerate(DEFAULT_WORK)]
+
+
+def _filter_params(input_q: str | None, flt_it: str | None, flt_en: str | None, flt_docs: str | None, group: str | None):
+    return {
+        "q": (input_q or "").strip().lower(),
+        "flt_it": flt_it is not None,
+        "flt_en": flt_en is not None,
+        "flt_docs": flt_docs is not None,
+        "group": group is not None,
+    }
+
+
+@app.post("/collections", response_class=HTMLResponse)
+async def collections_partial(
+    request: Request,
+    q: str | None = Form(default=""),
+    flt_it: str | None = Form(default=None),
+    flt_en: str | None = Form(default=None),
+    flt_docs: str | None = Form(default=None),
+    group: str | None = Form(default=None),
+    selected: List[int] | None = Form(default=None),
+):
+    wi = _work_items_list()
+    params = _filter_params(q, flt_it, flt_en, flt_docs, group)
+    return templates.TemplateResponse(
+        "_collections.html",
+        {"request": request, "work_items": wi, "selected": selected or [], **params},
+    )
+
+
+def _lang_of(coll: str) -> str:
+    lc = coll.lower()
+    if lc.endswith("_en"):
+        return "en"
+    if "documenti" in lc:
+        return "doc"
+    return "it"
+
+
+def _group_key(coll: str) -> str:
+    c = coll
+    if c.startswith("documenti"):
+        return "docs"
+    if c in ("classi", "classi_en"):
+        return "classes"
+    if c.startswith("backgrounds"):
+        return "backgrounds"
+    if c in ("incantesimi", "spells_en"):
+        return "spells"
+    if c in ("armi", "weapons_en"):
+        return "weapons"
+    if c in ("armature", "armor_en"):
+        return "armor"
+    if c in ("strumenti", "tools_en"):
+        return "tools"
+    if c in ("equipaggiamento", "adventuring_gear_en"):
+        return "gear"
+    if c in ("servizi", "services_en"):
+        return "services"
+    if c in ("oggetti_magici", "magic_items_en"):
+        return "magic_items"
+    if c in ("mostri", "monsters_en"):
+        return "monsters"
+    if c in ("animali", "animals_en"):
+        return "animals"
+    return "other"
+
+
+def _filtered_items(q: str, flt_it: bool, flt_en: bool, flt_docs: bool) -> List[dict]:
+    items = _work_items_list()
+    out: List[dict] = []
+    for w in items:
+        lang = _lang_of(w["collection"])
+        if lang == "it" and not flt_it:
+            continue
+        if lang == "en" and not flt_en:
+            continue
+        if lang == "doc" and not flt_docs:
+            continue
+        if q and (q not in w["collection"].lower() and q not in w["filename"].lower()):
+            continue
+        out.append(w)
+    return out
+
+
+@app.post("/select-group", response_class=HTMLResponse)
+async def select_group(
+    request: Request,
+    group: str = Form(...),
+    mode: str = Form(...),
+    q: str | None = Form(default=""),
+    flt_it: str | None = Form(default=None),
+    flt_en: str | None = Form(default=None),
+    flt_docs: str | None = Form(default=None),
+    group_view: str | None = Form(default=None),
+    selected: List[int] | None = Form(default=None),
+):
+    params = _filter_params(q, flt_it, flt_en, flt_docs, group_view)
+    visible = _filtered_items(params["q"], params["flt_it"], params["flt_en"], params["flt_docs"])
+    # Build index set for the target group
+    grp_idxs = {w["idx"] for w in visible if _group_key(w["collection"]) == group}
+    cur = set(selected or [])
+    if mode == "all":
+        cur.update(grp_idxs)
+    elif mode == "none":
+        cur.difference_update(grp_idxs)
+    elif mode == "invert":
+        for i in list(grp_idxs):
+            if i in cur:
+                cur.remove(i)
+            else:
+                cur.add(i)
+    elif mode == "only":
+        cur = set(grp_idxs)
+    wi = _work_items_list()
+    return templates.TemplateResponse(
+        "_collections.html",
+        {"request": request, "work_items": wi, "selected": sorted(cur), **params},
+    )
+
+
+@app.post("/select-bulk", response_class=HTMLResponse)
+async def select_bulk(
+    request: Request,
+    mode: str = Form(...),
+    q: str | None = Form(default=""),
+    flt_it: str | None = Form(default=None),
+    flt_en: str | None = Form(default=None),
+    flt_docs: str | None = Form(default=None),
+    group: str | None = Form(default=None),
+    selected: List[int] | None = Form(default=None),
+):
+    params = _filter_params(q, flt_it, flt_en, flt_docs, group)
+    visible = _filtered_items(params["q"], params["flt_it"], params["flt_en"], params["flt_docs"])
+    vis_idxs = {w["idx"] for w in visible}
+    cur = set(selected or [])
+    if mode == "it-structured":
+        # structured IT: exclude EN and docs
+        cur = {w["idx"] for w in visible if (not w["collection"].endswith("_en") and "documenti" not in w["collection"]) }
+    elif mode == "en-structured":
+        cur = {w["idx"] for w in visible if w["collection"].endswith("_en") }
+    elif mode == "docs-only":
+        cur = {w["idx"] for w in visible if "documenti" in w["collection"] }
+    elif mode == "all_visible":
+        cur.update(vis_idxs)
+    elif mode == "none_visible":
+        cur.difference_update(vis_idxs)
+    elif mode == "invert_visible":
+        for i in list(vis_idxs):
+            if i in cur:
+                cur.remove(i)
+            else:
+                cur.add(i)
+    wi = _work_items_list()
+    return templates.TemplateResponse(
+        "_collections.html",
+        {"request": request, "work_items": wi, "selected": sorted(cur), **params},
+    )
+
+
+@app.post("/select-only", response_class=HTMLResponse)
+async def select_only(
+    request: Request,
+    idx: int = Form(...),
+    q: str | None = Form(default=""),
+    flt_it: str | None = Form(default=None),
+    flt_en: str | None = Form(default=None),
+    flt_docs: str | None = Form(default=None),
+    group: str | None = Form(default=None),
+    selected: List[int] | None = Form(default=None),
+):
+    params = _filter_params(q, flt_it, flt_en, flt_docs, group)
+    cur = {idx}
+    wi = _work_items_list()
+    return templates.TemplateResponse(
+        "_collections.html",
+        {"request": request, "work_items": wi, "selected": sorted(cur), **params},
+    )

@@ -1,183 +1,369 @@
 {% extends "base.html" %}
-{% block title %}SRD Parser Web{% endblock %}
-{% block content %}
-  <section class="bg-gradient-to-br from-indigo-50 to-white border p-6 mb-4">
-    <h1 class="text-2xl font-semibold mb-2">SRD Parser Web</h1>
-    <p class="text-neutral-700 max-w-3xl text-sm">
-      Interfaccia minimale per eseguire il parsing delle fonti SRD e (opzionalmente) fare upsert su MongoDB.
-    </p>
-  </section>
+{% block title %}SRD Parser{% endblock %}
 
-  <form
-    id="run-form"
-    method="post" action="/run"
-    class="space-y-4"
-    aria-busy="false"
-    hx-post="/run" hx-target="#page-root" hx-swap="outerHTML" hx-indicator="#run-spinner"
-  >
-    <section class="bg-white border p-4">
-      <h2 class="font-semibold mb-3">Impostazioni</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+{% block content %}
+<div id="page-root" class="space-y-6">
+  <!-- Header -->
+  <div class="text-center">
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">SRD Parser</h1>
+    <p class="text-gray-600">Seleziona i documenti da analizzare e processare</p>
+  </div>
+
+  <!-- Main Form -->
+  <form id="parser-form" method="post" action="/run" 
+        hx-post="/run" hx-target="#page-root" hx-swap="outerHTML" hx-indicator="#run-spinner">
+    
+    <!-- Hidden fields for filters (all enabled) -->
+    <input type="hidden" name="flt_it" value="on" />
+    <input type="hidden" name="flt_en" value="on" />
+    <input type="hidden" name="flt_docs" value="on" />
+    
+    <!-- Settings Card -->
+    <div class="card">
+      <h2 class="text-xl font-semibold mb-4">Impostazioni</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <div>
-          <label class="text-sm text-neutral-700">Cartella input</label>
-          <input type="text" name="input_dir" value="{{ env.input_dir }}" class="field mt-1" placeholder="Es. /data" />
-          <div class="text-xs text-neutral-500 mt-1">Nel container: <code class="mono bg-neutral-100 border px-1 py-0.5">/data</code></div>
+          <label for="input_dir" class="block text-sm font-medium text-gray-700 mb-1">Cartella Input</label>
+          <input type="text" id="input_dir" name="input_dir" value="{{ env.input_dir }}" class="field" placeholder="/data" />
+          <p class="text-xs text-gray-500 mt-1">Percorso della cartella contenente i file SRD</p>
         </div>
+        
         <div>
-          <label class="text-sm text-neutral-700">Istanza Mongo (host[:port])</label>
-          <input type="text" name="mongo_instance" value="{{ env.mongo_instance }}" class="field mt-1" placeholder="mongo:27017"
-                 hx-post="/test-conn" hx-trigger="change, keyup changed delay:400ms"
-                 hx-target="#conn-test-result" hx-swap="outerHTML"
-                 hx-include="[name='mongo_instance'], [name='db_name']" hx-indicator="#conn-test-indicator" />
-          <div class="text-xs text-neutral-500 mt-1">Le credenziali (se configurate) sono lette da MONGO_URI e non vengono mostrate.</div>
+          <label for="mongo_instance" class="block text-sm font-medium text-gray-700 mb-1">MongoDB Host</label>
+          <input type="text" id="mongo_instance" name="mongo_instance" value="{{ env.mongo_instance }}" class="field" placeholder="localhost:27017"
+                 hx-post="/test-conn" hx-trigger="change, keyup changed delay:500ms"
+                 hx-target="#conn-result" hx-swap="outerHTML"
+                 hx-include="[name='mongo_instance'], [name='db_name']" hx-indicator="#conn-spinner" />
         </div>
+        
         <div>
-          <label class="text-sm text-neutral-700">DB Name</label>
-          <input type="text" name="db_name" value="{{ env.db_name }}" class="field mt-1"
-                 hx-post="/test-conn" hx-trigger="change, keyup changed delay:400ms"
-                 hx-target="#conn-test-result" hx-swap="outerHTML"
-                 hx-include="[name='mongo_instance'], [name='db_name']" hx-indicator="#conn-test-indicator" />
+          <label for="db_name" class="block text-sm font-medium text-gray-700 mb-1">Database Name</label>
+          <input type="text" id="db_name" name="db_name" value="{{ env.db_name }}" class="field" placeholder="dnd"
+                 hx-post="/test-conn" hx-trigger="change, keyup changed delay:500ms"
+                 hx-target="#conn-result" hx-swap="outerHTML"
+                 hx-include="[name='mongo_instance'], [name='db_name']" hx-indicator="#conn-spinner" />
         </div>
-        <div class="flex items-end">
-          <label class="inline-flex items-center gap-2 text-sm text-neutral-700">
-            <input type="checkbox" name="dry_run" {% if env.dry_run %}checked{% endif %} />
-            Dry‑run (non scrivere su Mongo)
+        
+        <div class="flex items-center">
+          <label class="flex items-center space-x-2">
+            <input type="checkbox" name="dry_run" {% if env.dry_run %}checked{% endif %} 
+                   class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+            <span class="text-sm font-medium text-gray-700">Dry Run (solo test, non scrivere)</span>
           </label>
         </div>
       </div>
-      <div class="mt-3 flex items-center gap-3">
-        <button type="button"
-                class="btn"
-                hx-post="/test-conn"
-                hx-target="#conn-test-result"
-                hx-swap="outerHTML"
-                hx-include="[name='mongo_instance'], [name='db_name']"
-                hx-indicator="#conn-test-indicator">
-          Test connessione
+      
+      <!-- Connection Test -->
+      <div class="flex items-center space-x-3 pt-4 border-t">
+        <button type="button" class="btn btn-secondary"
+                hx-post="/test-conn" hx-target="#conn-result" hx-swap="outerHTML"
+                hx-include="[name='mongo_instance'], [name='db_name']" hx-indicator="#conn-spinner">
+          Test Connessione
         </button>
-        <span id="conn-test-indicator" class="hidden inline-flex items-center gap-2 text-sm text-neutral-700">
+        <span id="conn-spinner" class="hidden">
           <span class="spinner"></span>
-          <span>Verifica…</span>
         </span>
-        <div id="conn-test-result" class="text-sm text-neutral-600"></div>
+        <div id="conn-result" class="text-sm"></div>
       </div>
-    </section>
-
-    <section class="bg-white border p-4">
-      <div class="flex items-center gap-3 mb-3">
-        <h2 class="font-semibold">Collezioni</h2>
-        <span class="text-xs text-neutral-600">Selezionate: <strong id="sel-count">0</strong>/<span id="total-count">{{ work_items|length }}</span></span>
-        <div class="ml-auto flex items-center gap-2">
-          <button type="button" class="btn" onclick="toggleSelect(true)">Seleziona tutto</button>
-          <button type="button" class="btn" onclick="toggleSelect(false)">Deseleziona tutto</button>
+      
+      {% if not env.dry_run %}
+      <div class="mt-4 p-3 bg-amber-50 border border-amber-200 rounded">
+        <div class="flex items-center">
+          <svg class="w-5 h-5 text-amber-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+          </svg>
+          <span class="text-amber-800 text-sm font-medium">Modalità scrittura attiva - I dati saranno scritti su MongoDB</span>
         </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-        {% for w in work_items %}
-        <label class="flex items-start gap-2 bg-neutral-50 border p-2">
-          <input class="mt-1" type="checkbox" name="selected" value="{{ w.idx }}" {% if w.idx in selected %}checked{% endif %} />
-          <div>
-            <div class="font-medium">{{ w.collection }}</div>
-            <div class="text-xs text-neutral-500">file: <code class="mono bg-white border px-1 py-0.5">{{ w.filename }}</code></div>
-          </div>
-        </label>
-        {% endfor %}
-      </div>
-    </section>
-
-    <div class="flex items-center gap-3">
-      <button id="run-btn" type="submit" class="btn btn-primary">
-        <span class="inline-flex items-center gap-2"><span id="run-btn-text">Esegui parsing</span></span>
-      </button>
-      <span id="run-spinner" class="hidden inline-flex items-center gap-2 text-sm text-neutral-700">
-        <span class="spinner"></span>
-        <span>In esecuzione…</span>
-      </span>
-      {% if env.dry_run %}<span class="tag">Dry‑run</span>{% endif %}
+      {% endif %}
     </div>
+
+    <!-- Documents Available -->
+    <div class="card">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-xl font-semibold">Documenti Disponibili</h2>
+        <div class="flex items-center space-x-2">
+          <input id="search" name="q" value="{{ q or '' }}" type="search" class="field w-64" placeholder="Cerca documenti..."
+                 hx-post="/collections" hx-trigger="keyup changed delay:300ms" hx-include="#parser-form" 
+                 hx-target="#collections-container" hx-swap="outerHTML" />
+        </div>
+      </div>
+      
+      <div id="collections-container">
+        {% include "_collections.html" %}
+      </div>
+    </div>
+
+    <!-- Floating Action Bar -->
+    <div class="fixed bottom-6 right-6 z-50">
+      <div class="bg-white/95 backdrop-blur-sm rounded-lg shadow-xl border border-gray-200 p-4 max-w-sm">
+        
+        <!-- Parse Result Feedback -->
+        {% if messages and messages|length %}
+        <div id="parse-result" class="mb-4 p-3 rounded-lg">
+          {% set total_processed = messages|length %}
+          {% set error_messages = [] %}
+          {% set success_messages = [] %}
+          {% for message in messages %}
+            {% set msg_lower = message|lower %}
+            {% if 'errore' in msg_lower or 'fallita' in msg_lower %}
+              {% set _ = error_messages.append(message) %}
+            {% elif 'estratti' in msg_lower or 'completato' in msg_lower %}
+              {% set _ = success_messages.append(message) %}
+            {% endif %}
+          {% endfor %}
+          {% set has_errors = error_messages|length > 0 %}
+          {% set success_count = success_messages|length %}
+          
+          {% if has_errors %}
+            <div class="bg-red-50 border border-red-200">
+              <div class="flex items-center mb-2">
+                <svg class="w-5 h-5 text-red-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-sm font-medium text-red-800">Parsing completato con errori</span>
+              </div>
+              <p class="text-xs text-red-700">Controlla i dettagli nel log sottostante</p>
+            </div>
+          {% else %}
+            <div class="bg-green-50 border border-green-200">
+              <div class="flex items-center mb-2">
+                <svg class="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-sm font-medium text-green-800">Parsing completato con successo</span>
+              </div>
+              <p class="text-xs text-green-700">{{ success_count }} documenti processati correttamente</p>
+            </div>
+          {% endif %}
+          
+          <button type="button" onclick="document.getElementById('parse-result').style.display='none'" 
+                  class="mt-2 text-xs text-gray-500 hover:text-gray-700 underline">
+            Nascondi
+          </button>
+        </div>
+        {% endif %}
+        
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center space-x-3">
+            <span class="text-sm text-gray-600">
+              <strong id="selected-count">0</strong> selezionati
+            </span>
+            <span id="mode-badge" class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+              Scrittura
+            </span>
+          </div>
+        </div>
+        
+        <div class="flex items-center space-x-3">
+          <span id="run-spinner" class="hidden flex items-center space-x-2 text-sm text-gray-600">
+            <span class="spinner"></span>
+            <span>Elaborazione...</span>
+          </span>
+          <button id="run-btn" type="submit" class="btn btn-primary w-full" disabled>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+            Avvia Parsing
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Spacer to prevent content from being hidden behind floating bar -->
+    <div class="h-24"></div>
   </form>
 
+  <!-- Results Log -->
   {% if messages and messages|length %}
-    <section class="bg-white border p-4 mt-4">
-      <details open>
-        <summary class="font-semibold cursor-pointer select-none">Log esecuzione <span class="text-xs text-neutral-500">({{ messages|length }} righe)</span></summary>
-        <div class="mt-3 text-sm">
-          <div class="space-y-1">
-            {% for m in messages %}
-            {% set mm = m|lower %}
-            {% set is_err = 'errore' in mm or 'fallit' in mm or 'mancante' in mm or 'non trovata' in mm or 'non trovato' in mm %}
-            {% set is_ok = ('estratti' in mm or 'upsert' in mm or 'fatto' in mm or 'completato' in mm) and not is_err %}
-            {% set klass = is_err and 'border-red-200 bg-red-50 text-red-800' or (is_ok and 'border-green-200 bg-green-50 text-green-800' or 'border-neutral-200 bg-neutral-50 text-neutral-800') %}
-            <div class="border-l-4 {{ klass }} px-3 py-1.5">
-              <span class="mono">{{ m }}</span>
-            </div>
-            {% endfor %}
-          </div>
-        </div>
-      </details>
-    </section>
+  <div class="card">
+    <h2 class="text-xl font-semibold mb-4">Risultati Elaborazione</h2>
+    <div class="space-y-2 max-h-96 overflow-y-auto">
+      {% for message in messages %}
+      {% set msg_lower = message|lower %}
+      {% set is_error = 'errore' in msg_lower or 'fallita' in msg_lower %}
+      {% set is_success = ('estratti' in msg_lower or 'completato' in msg_lower) and not is_error %}
+      
+      <div class="p-3 rounded border-l-4 {% if is_error %}border-red-500 bg-red-50{% elif is_success %}border-green-500 bg-green-50{% else %}border-blue-500 bg-blue-50{% endif %}">
+        <p class="text-sm font-mono {% if is_error %}text-red-800{% elif is_success %}text-green-800{% else %}text-blue-800{% endif %}">{{ message }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
   {% endif %}
+</div>
 {% endblock %}
 
 {% block scripts %}
 <script>
-  function updateSelectionCount(){
-    const sel = document.querySelectorAll('input[name="selected"]:checked').length;
-    const el = document.getElementById('sel-count');
-    if(el) el.textContent = String(sel);
+(function() {
+  'use strict';
+  
+  function getSelectedCount() {
+    return document.querySelectorAll('#collections-container input[name="selected"]:checked').length;
   }
-  function toggleSelect(all) {
-    document.querySelectorAll('input[name="selected"]').forEach(cb => cb.checked = all);
-    updateSelectionCount();
+  
+  function updateSelectedCount() {
+    const count = getSelectedCount();
+    document.getElementById('selected-count').textContent = count;
+    
+    const runBtn = document.getElementById('run-btn');
+    if (count > 0) {
+      runBtn.disabled = false;
+      runBtn.classList.remove('opacity-50');
+    } else {
+      runBtn.disabled = true;
+      runBtn.classList.add('opacity-50');
+    }
   }
-  document.addEventListener('DOMContentLoaded', function(){
-    document.querySelectorAll('input[name="selected"]').forEach(cb=>{
-      cb.addEventListener('change', updateSelectionCount);
-    });
-    updateSelectionCount();
-    const form = document.getElementById('run-form');
-    const btn = document.getElementById('run-btn');
-    const spinner = document.getElementById('run-spinner');
-    const btnText = document.getElementById('run-btn-text');
-    const dry = document.querySelector('input[name="dry_run"]');
-    function getConnOk(){
-      const res = document.getElementById('conn-test-result');
-      return res && res.getAttribute('data-ok') === 'true';
+  
+  function updateModeBadge() {
+    const isDryRun = document.querySelector('input[name="dry_run"]').checked;
+    const badge = document.getElementById('mode-badge');
+    
+    if (isDryRun) {
+      badge.textContent = 'Dry Run';
+      badge.className = 'inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800';
+    } else {
+      badge.textContent = 'Scrittura';
+      badge.className = 'inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800';
     }
-    function updateRunBtn(){
-      const dryOn = !!(dry && dry.checked);
-      const ok = getConnOk();
-      const shouldDisable = !dryOn && ok === false; // disable only if not dry-run and test failed
-      if(btn){
-        if(shouldDisable){ btn.setAttribute('disabled','disabled'); }
-        else { btn.removeAttribute('disabled'); }
-      }
-    }
-    document.body.addEventListener('htmx:afterSwap', function(e){
-      try {
-        const t = e.detail && e.detail.target;
-        if(t && t.id === 'conn-test-result') updateRunBtn();
-      } catch(_){}
+  }
+  
+  function bindEvents() {
+    document.querySelectorAll('#collections-container input[name="selected"]').forEach(checkbox => {
+      checkbox.addEventListener('change', updateSelectedCount);
     });
-    if(dry){ dry.addEventListener('change', updateRunBtn); }
-    updateRunBtn();
-    // Trigger an initial connectivity test when not dry-run
-    try {
-      if(dry && !dry.checked){
-        const inst = document.querySelector("input[name='mongo_instance']");
-        if(inst){ inst.dispatchEvent(new Event('change', { bubbles: true })); }
-      }
-    } catch(_){}
-    if(form){
-      form.addEventListener('submit', function(){
-        try {
-          form.setAttribute('aria-busy', 'true');
-          if(btn){ btn.setAttribute('disabled','disabled'); }
-          if(btnText){ btnText.textContent = 'In esecuzione…'; }
-          if(spinner){ spinner.classList.remove('hidden'); }
-        } catch(e){}
-      }, { passive: true });
+  }
+  
+  // Toast notification system
+  function showToast(message, type = 'info', duration = 4000) {
+    const toast = document.createElement('div');
+    toast.className = `fixed top-6 right-6 z-[60] p-4 rounded-lg shadow-lg border max-w-sm transition-all duration-300 transform translate-x-full`;
+    
+    const colors = {
+      success: 'bg-green-50 border-green-200 text-green-800',
+      error: 'bg-red-50 border-red-200 text-red-800',
+      info: 'bg-blue-50 border-blue-200 text-blue-800',
+      warning: 'bg-amber-50 border-amber-200 text-amber-800'
+    };
+    
+    const icons = {
+      success: `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>`,
+      error: `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>`,
+      info: `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>`,
+      warning: `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>`
+    };
+    
+    toast.classList.add(colors[type] || colors.info);
+    toast.innerHTML = `
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0">
+          ${icons[type] || icons.info}
+        </div>
+        <div class="flex-1 text-sm font-medium">${message}</div>
+        <button onclick="this.closest('.fixed').remove()" class="flex-shrink-0 text-gray-400 hover:text-gray-600">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </button>
+      </div>
+    `;
+    
+    document.body.appendChild(toast);
+    
+    // Animate in
+    setTimeout(() => {
+      toast.classList.remove('translate-x-full');
+    }, 100);
+    
+    // Auto remove
+    setTimeout(() => {
+      toast.classList.add('translate-x-full');
+      setTimeout(() => {
+        if (toast.parentNode) {
+          toast.remove();
+        }
+      }, 300);
+    }, duration);
+  }
+  
+  // Initialize
+  document.addEventListener('DOMContentLoaded', function() {
+    updateSelectedCount();
+    updateModeBadge();
+    bindEvents();
+    
+    // Add event listener for dry run checkbox
+    const dryRunCheckbox = document.querySelector('input[name="dry_run"]');
+    if (dryRunCheckbox) {
+      dryRunCheckbox.addEventListener('change', updateModeBadge);
+    }
+    
+    // Form submission handling
+    const form = document.getElementById('parser-form');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        const count = getSelectedCount();
+        if (count === 0) {
+          e.preventDefault();
+          showToast('Seleziona almeno un documento da processare', 'warning');
+          return;
+        }
+        
+        const isDryRun = document.querySelector('input[name="dry_run"]').checked;
+        if (!isDryRun) {
+          const confirmed = confirm(`Sei sicuro di voler processare ${count} documento${count > 1 ? 'i' : ''}? I dati saranno scritti su MongoDB.`);
+          if (!confirmed) {
+            e.preventDefault();
+            return;
+          }
+        }
+        
+        // Show start notification
+        showToast(`Avvio parsing di ${count} documento${count > 1 ? 'i' : ''}...`, 'info', 3000);
+      });
+    }
+    
+    // Show completion notification if there are messages
+    {% if messages and messages|length %}
+    const hasErrors = {{ 'true' if has_errors else 'false' }};
+    const successCount = {{ success_count }};
+    
+    if (hasErrors) {
+      showToast('Parsing completato con alcuni errori. Controlla i risultati.', 'error', 5000);
+    } else {
+      showToast(`Parsing completato! ${successCount} documenti processati con successo.`, 'success', 5000);
+    }
+    {% endif %}
+  });
+  
+  // HTMX events
+  document.body.addEventListener('htmx:afterSwap', function(e) {
+    if (e.detail.target.id === 'collections-container') {
+      updateSelectedCount();
+      bindEvents();
     }
   });
+  
+  // HTMX request events
+  document.body.addEventListener('htmx:beforeRequest', function(e) {
+    if (e.detail.elt && e.detail.elt.closest('form') && e.detail.elt.closest('form').id === 'parser-form') {
+      const isFormSubmit = e.detail.elt.type === 'submit';
+      if (isFormSubmit) {
+        // This will be handled by form submit event
+      }
+    }
+  });
+  
+  // Keyboard shortcuts
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT') return;
+    
+    if (e.key === '/') {
+      e.preventDefault();
+      document.getElementById('search').focus();
+    }
+  });
+})();
 </script>
 {% endblock %}

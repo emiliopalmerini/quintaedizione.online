@@ -1,0 +1,100 @@
+{# Simple collections display template #}
+{% set _flt_it = (flt_it is not defined) or flt_it %}
+{% set _flt_en = (flt_en is not defined) or flt_en %}
+{% set _flt_docs = (flt_docs is not defined) or flt_docs %}
+
+{% macro lang_of(coll) -%}
+  {%- if coll.endswith('_en') -%}en{%- elif 'documenti' in coll -%}doc{%- else -%}it{%- endif -%}
+{%- endmacro %}
+
+{% set filtered = [] %}
+{% for w in work_items %}
+  {% set lang = lang_of(w.collection) %}
+  {% set coll_l = w.collection.lower() %}
+  {% set ok = (not q or (q in coll_l or q in w.filename|lower)) and not ((lang == 'it' and not _flt_it) or (lang == 'en' and not _flt_en) or (lang == 'doc' and not _flt_docs)) %}
+  {% if ok %}
+    {% set _ = filtered.append({
+      'idx': w.idx,
+      'collection': w.collection,
+      'filename': w.filename,
+      'lang': lang,
+      'checked': (selected and (w.idx in selected))
+    }) %}
+  {% endif %}
+{% endfor %}
+
+<div id="collections-container">
+  <!-- Quick Actions -->
+  <div class="flex items-center justify-between mb-4 p-3 bg-gray-50 rounded">
+    <div class="text-sm text-gray-600">
+      Mostrati: <strong>{{ filtered|length }}</strong> documenti
+    </div>
+    <div class="flex items-center space-x-2">
+      <button type="button" class="btn text-sm"
+              hx-post="/select-bulk" hx-include="#parser-form" hx-vals='{"mode":"all_visible"}'
+              hx-target="#collections-container" hx-swap="outerHTML">
+        Seleziona Tutti
+      </button>
+      <button type="button" class="btn text-sm"
+              hx-post="/select-bulk" hx-include="#parser-form" hx-vals='{"mode":"none_visible"}'
+              hx-target="#collections-container" hx-swap="outerHTML">
+        Deseleziona Tutti
+      </button>
+      <button type="button" class="btn text-sm"
+              hx-post="/select-bulk" hx-include="#parser-form" hx-vals='{"mode":"invert_visible"}'
+              hx-target="#collections-container" hx-swap="outerHTML">
+        Inverti Selezione
+      </button>
+    </div>
+  </div>
+
+  <!-- Documents List -->
+  {% if filtered %}
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {% for doc in filtered %}
+    <div class="border rounded-lg p-4 hover:shadow-md transition-shadow {% if doc.checked %}bg-blue-50 border-blue-300{% else %}bg-white border-gray-200{% endif %}">
+      <label class="cursor-pointer block">
+        <div class="flex items-start space-x-3">
+          <input type="checkbox" name="selected" value="{{ doc.idx }}" {% if doc.checked %}checked{% endif %}
+                 class="mt-1 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                 hx-post="/collections" hx-include="#parser-form" hx-target="#collections-container" hx-swap="outerHTML" />
+          
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center space-x-2 mb-2">
+              <h3 class="font-medium text-gray-900 truncate" title="{{ doc.collection }}">{{ doc.collection }}</h3>
+              {% if doc.lang == 'en' %}
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800">EN</span>
+              {% elif doc.lang == 'it' %}
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800">IT</span>
+              {% else %}
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800">DOC</span>
+              {% endif %}
+            </div>
+            
+            <p class="text-sm text-gray-600 truncate" title="{{ doc.filename }}">
+              <span class="font-mono">{{ doc.filename }}</span>
+            </p>
+            
+            <div class="mt-2">
+              <button type="button" class="btn text-xs"
+                      hx-post="/select-only" hx-include="#parser-form" hx-vals='{"idx":"{{ doc.idx }}"}'
+                      hx-target="#collections-container" hx-swap="outerHTML">
+                Solo Questo
+              </button>
+            </div>
+          </div>
+        </div>
+      </label>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="text-center py-12">
+    <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+    </svg>
+    <h3 class="mt-2 text-sm font-medium text-gray-900">Nessun documento trovato</h3>
+    <p class="mt-1 text-sm text-gray-500">Prova a modificare i criteri di ricerca</p>
+  </div>
+  {% endif %}
+</div>
