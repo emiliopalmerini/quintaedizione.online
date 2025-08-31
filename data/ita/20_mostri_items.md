@@ -1,161 +1,161 @@
-# Monsters A–Z
+# Mostri A–Z
 
 ## Aboleth
 
-*Large Aberration, Lawful Evil*
+*Aberrazione Grande, Legale Malvagio*
 
-- **Armor Class:** 17
-- **Hit Points:** 150 (20d10 + 40)
-- **Speed:** 10 ft., Swim 40 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 17
+- **Punti Ferita:** 150 (20d10 + 40)
+- **Velocità:** 3 m, Nuoto 12 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 21 | +5 | +5 |
-| DEX | 9 | -1 | +3 |
-| CON | 15 | +2 | +6 |
+| FOR | 21 | +5 | +5 |
+| DES | 9 | -1 | +3 |
+| COS | 15 | +2 | +6 |
 | INT | 18 | +4 | +8 |
-| WIS | 15 | +2 | +6 |
-| CHA | 18 | +4 | +4 |
+| SAG | 15 | +2 | +6 |
+| CAR | 18 | +4 | +4 |
 
-- **Skills**: History +12, Perception +10
-- **Senses**: darkvision 120 ft.; Passive Perception 20
-- **Languages**: Deep Speech; telepathy 120 ft.
-- **CR** 10 (XP 5,900, or 7,200 in lair)
+- **Abilità**: Storia +12, Percezione +10
+- **Sensi**: Scurovisione 36 m; Percezione Passiva 20
+- **Linguaggi**: Linguaggio Profondo; telepatia 36 m
+- **GS** 10 (PE 5,900, o 7,200 nella tana)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The aboleth can breathe air and water.
+***Anfibio.*** L'aboleth può respirare aria e acqua.
 
-***Eldritch Restoration.*** If destroyed, the aboleth gains a new body in 5d10 days, reviving with all its Hit Points in the Far Realm or another location chosen by the DM.
+***Restauro Innaturale.*** Se distrutto, l'aboleth ottiene un nuovo corpo in 5d10 giorni, risorgendo con tutti i suoi Punti Ferita nel Reame Remoto o in un'altra località a scelta del GM.
 
-***Legendary Resistance (3/Day, or 4/Day in Lair).*** If the aboleth fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se l'aboleth fallisce un tiro salvezza, può scegliere di riuscire invece.
 
-***Mucus Cloud.*** While underwater, the aboleth is surrounded by mucus. *Constitution Saving Throw*: DC 14, each creature in a 5-foot Emanation originating from the aboleth at the end of the aboleth's turn. *Failure:*  The target is cursed. Until the curse ends, the target's skin becomes slimy, the target can breathe air and water, and it can't regain Hit Points unless it is underwater.
-While the cursed creature is outside a body of water, the creature takes 6 (1d12) Acid damage at the end of every 10 minutes unless moisture is applied to its skin before those minutes have passed.
+***Nube di Muco.*** Sott'acqua, l'aboleth è circondato da muco. *Tiro Salvezza su Costituzione*: CD 14, ogni creatura in un'Emanazione di raggio 1,5 m originata dall'aboleth alla fine del turno dell'aboleth. *Fallimento:*  Il bersaglio è maledetto. Finché la maledizione dura, la pelle del bersaglio diventa viscida, il bersaglio può respirare aria e acqua e non può recuperare Punti Ferita a meno che non sia sott'acqua.
+Mentre la creatura maledetta si trova fuori da un corpo d'acqua, subisce 6 (1d12) danni da Acido alla fine di ogni 10 minuti, a meno che non venga applicata umidità alla sua pelle prima che quei minuti siano trascorsi.
 
-***Probing Telepathy.*** If a creature the aboleth can see communicates telepathically with the aboleth, the aboleth learns the creature's greatest desires.
-
-
-### Actions
-
-***Multiattack.*** The aboleth makes two Tentacle attacks and uses either Consume Memories or Dominate Mind if available.
-
-***Tentacle.*** *Melee Attack Roll:* +9, reach 15 ft. 12 (2d6 + 5) Bludgeoning damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 14) from one of four tentacles.
-
-***Consume Memories.*** *Intelligence Saving Throw*: DC 16, one creature within 30 feet that is Charmed or Grappled by the aboleth. *Failure:*  10 (3d6) Psychic damage. *Success:*  Half damage. *Failure or Success*:  The aboleth gains the target's memories if the target is a Humanoid and is reduced to 0 Hit Points by this action.
-
-***Dominate Mind (2/Day).*** *Wisdom Saving Throw*: DC 16, one creature the aboleth can see within 30 feet. *Failure:*  The target has the Charmed condition until the aboleth dies or is on a different plane of existence from the target. While Charmed, the target acts as an ally to the aboleth and is under its control while within 60 feet of it. In addition, the aboleth and the target can communicate telepathically with each other over any distance.
-The target repeats the save whenever it takes damage as well as after every 24 hours it spends at least 1 mile away from the aboleth, ending the effect on itself on a success.
+***Telepatia Esplorativa.*** Se una creatura che l'aboleth può vedere comunica telepaticamente con lui, l'aboleth apprende i desideri più grandi della creatura.
 
 
-### Legendary Actions
+### Azioni
 
-***Lash.*** The aboleth makes one Tentacle attack.
+***Attacco Multiplo.*** L'aboleth effettua due attacchi con Tentacolo e usa o Divora Ricordi o Dominare la Mente se disponibili.
 
-***Psychic Drain.*** If the aboleth has at least one creature Charmed or Grappled, it uses Consume Memories and regains 5 (1d10) Hit Points.
+***Tentacolo.*** *Tiro per colpire in mischia:* +9, portata 4,5 m. 12 (2d6 + 5) danni Contundenti. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Afferrato (fuga CD 14) da uno dei quattro tentacoli.
 
-## Adult Black Dragon
+***Divora Ricordi.*** *Tiro Salvezza su Intelligenza*: CD 16, una creatura entro 9 m che sia Affascinata o Afferrata dall'aboleth. *Fallimento:*  10 (3d6) danni Psichici. *Successo:*  Metà danni. *Fallimento o Successo:*  L'aboleth ottiene i ricordi del bersaglio se il bersaglio è un Umanoide ed è ridotto a 0 Punti Ferita da questa azione.
 
-*Huge Dragon (Chromatic), Chaotic Evil*
+***Dominare la Mente (2/Giorno).*** *Tiro Salvezza su Saggezza*: CD 16, una creatura che l'aboleth può vedere entro 9 m. *Fallimento:*  Il bersaglio ha la condizione Affascinato finché l'aboleth non muore o si trova su un piano di esistenza diverso da quello del bersaglio. Mentre è Affascinato, il bersaglio agisce come un alleato dell'aboleth ed è sotto il suo controllo finché si trova entro 18 m da esso. Inoltre, l'aboleth e il bersaglio possono comunicare telepaticamente tra loro a qualsiasi distanza.
+Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo ogni 24 ore trascorse ad almeno 1,6 km dall'aboleth, terminando l'effetto su se stesso con un successo.
 
-- **Armor Class:** 19
-- **Hit Points:** 195 (17d12 + 85)
-- **Speed:** 40 ft., Fly 80 ft., Swim 40 ft.
-- **Initiative**: +6 (16)
 
-|STAT|SCORE|MOD|SAVE|
+### Azioni Leggendarie
+
+***Frustata.*** L'aboleth effettua un attacco con Tentacolo.
+
+***Drenaggio Psichico.*** Se l'aboleth ha almeno una creatura Affascinata o Afferrata, usa Divora Ricordi e recupera 5 (1d10) Punti Ferita.
+
+## Drago Nero Adulto
+
+*Drago (Cromatico) Enorme, Caotico Malvagio*
+
+- **Classe Armatura:** 19
+- **Punti Ferita:** 195 (17d12 + 85)
+- **Velocità:** 12 m, Volo 24 m, Nuoto 12 m
+- **Iniziativa**: +6 (16)
+
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 23 | +6 | +6 |
-| DEX | 14 | +2 | +7 |
-| CON | 21 | +5 | +5 |
+| FOR | 23 | +6 | +6 |
+| DES | 14 | +2 | +7 |
+| COS | 21 | +5 | +5 |
 | INT | 14 | +2 | +2 |
-| WIS | 13 | +1 | +6 |
-| CHA | 19 | +4 | +4 |
+| SAG | 13 | +1 | +6 |
+| CAR | 19 | +4 | +4 |
 
-- **Immunities**: Acid
-- **Skills**: Perception +11, Stealth +7
-- **Senses**: blindsight 60 ft., darkvision 120 ft.; Passive Perception 21
-- **Languages**: Common, Draconic
-- **CR** 14 (XP 11,500, or 13,000 in lair)
+- **Immunità**: Acido
+- **Abilità**: Percezione +11, Furtività +7
+- **Sensi**: Sensi Ciechi 18 m, Scurovisione 36 m; Percezione Passiva 21
+- **Linguaggi**: Comune, Draconico
+- **GS** 14 (PE 11,500, o 13,000 nella tana)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The dragon can breathe air and water.
+***Anfibio.*** Il drago può respirare aria e acqua.
 
-***Legendary Resistance (3/Day, or 4/Day in Lair).*** If the dragon fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.
 
 
-### Actions
+### Azioni
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of Spellcasting to cast *Acid Arrow* (level 3 version).
+***Attacco Multiplo.*** Il drago effettua tre attacchi Lacerare. Può sostituire un attacco con l'uso di Incantesimi per lanciare *Freccia Acida* (versione di livello 3).
 
-***Rend.*** *Melee Attack Roll:* +11, reach 10 ft. 13 (2d6 + 6) Slashing damage plus 4 (1d8) Acid damage.
+***Lacerare.*** *Tiro per colpire in mischia:* +11, portata 3 m. 13 (2d6 + 6) danni Taglienti più 4 (1d8) danni da Acido.
 
-***Acid Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 18, each creature in a 60-foot-long, 5-foot-wide Line. *Failure:*  54 (12d8) Acid damage. *Success:*  Half damage.
+***Soffio Acido (Ricarica 5–6).*** *Tiro Salvezza su Destrezza*: CD 18, ogni creatura in una Linea lunga 18 m e larga 1,5 m. *Fallimento:*  54 (12d8) danni da Acido. *Successo:*  Metà danni.
 
-***Spellcasting.*** The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 17, +9 to hit with spell attacks):
+***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD tiri salvezza 17, +9 ai tiri per colpire con incantesimi):
 
-- **At Will:** *Detect Magic*, *Fear*, *Acid Arrow*
-- **1e/Day Each:** *Speak with Dead*, *Vitriolic Sphere*
+- **A Volontà:** *Detect Magic*, *Fear*, *Freccia Acida*
+- **1/giorno ciascuno:** *Speak with Dead*, *Vitriolic Sphere*
 
-### Legendary Actions
+### Azioni Leggendarie
 
-***Cloud of Insects.*** *Dexterity Saving Throw*: DC 17, one creature the dragon can see within 120 feet. *Failure:*  22 (4d10) Poison damage, and the target has Disadvantage on saving throws to maintain  Concentration until the end of its next turn. *Failure or Success*:  The dragon can't take this action again until the start of its next turn.
+***Nube di Insetti.*** *Tiro Salvezza su Destrezza*: CD 17, una creatura che il drago può vedere entro 36 m. *Fallimento:*  22 (4d10) danni da Veleno e il bersaglio ha Svantaggio ai tiri salvezza per mantenere la Concentrazione fino alla fine del suo prossimo turno. *Fallimento o Successo:*  Il drago non può riprendere questa azione fino all'inizio del suo prossimo turno.
 
-***Frightful Presence.*** The dragon uses Spellcasting to cast *Fear*. The dragon can't take this action again until the start of its next turn.
+***Presenza Spaventosa.*** Il drago usa Incantesimi per lanciare *Fear*. Il drago non può riprendere questa azione fino all'inizio del suo prossimo turno.
 
-***Pounce.*** The dragon can move up to half its Speed, and it makes one Rend attack.
+***Balzo.*** Il drago può muoversi fino alla metà della sua Velocità e compie un attacco Lacerare.
 
-## Adult Blue Dragon
+## Drago Blu Adulto
 
-*Huge Dragon (Chromatic), Lawful Evil*
+*Drago (Cromatico) Enorme, Legale Malvagio*
 
-- **Armor Class:** 19
-- **Hit Points:** 212 (17d12 + 102)
-- **Speed:** 40 ft., Burrow 30 ft., Fly 80 ft.
-- **Initiative**: +4 (14)
+- **Classe Armatura:** 19
+- **Punti Ferita:** 212 (17d12 + 102)
+- **Velocità:** 12 m, Scavare 9 m, Volo 24 m
+- **Iniziativa**: +4 (14)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 25 | +7 | +7 |
-| DEX | 10 | +0 | +5 |
-| CON | 23 | +6 | +6 |
+| FOR | 25 | +7 | +7 |
+| DES | 10 | +0 | +5 |
+| COS | 23 | +6 | +6 |
 | INT | 16 | +3 | +3 |
-| WIS | 15 | +2 | +7 |
-| CHA | 20 | +5 | +5 |
+| SAG | 15 | +2 | +7 |
+| CAR | 20 | +5 | +5 |
 
-- **Immunities**: Lightning
-- **Skills**: Perception +12, Stealth +5
-- **Senses**: blindsight 60 ft., darkvision 120 ft.; Passive Perception 22
-- **Languages**: Common, Draconic
-- **CR** 16 (XP 15,000, or 18,000 in lair)
+- **Immunità**: Fulmine
+- **Abilità**: Percezione +12, Furtività +5
+- **Sensi**: Sensi Ciechi 18 m, Scurovisione 36 m; Percezione Passiva 22
+- **Linguaggi**: Comune, Draconico
+- **GS** 16 (PE 15,000, o 18,000 nella tana)
 
-### Traits
+### Tratti
 
-***Legendary Resistance (3/Day, or 4/Day in Lair).*** If the dragon fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.
 
 
-### Actions
+### Azioni
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of Spellcasting to cast *Shatter*.
+***Attacco Multiplo.*** Il drago effettua tre attacchi Lacerare. Può sostituire un attacco con l'uso di Incantesimi per lanciare *Shatter*.
 
-***Rend.*** *Melee Attack Roll:* +12, reach 10 ft. 16 (2d8 + 7) Slashing damage plus 5 (1d10) Lightning damage.
+***Lacerare.*** *Tiro per colpire in mischia:* +12, portata 3 m. 16 (2d8 + 7) danni Taglienti più 5 (1d10) danni da Fulmine.
 
-***Lightning Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 19, each creature in a 90-foot-long, 5-foot-wide Line. *Failure:*  60 (11d10) Lightning damage. *Success:*  Half damage.
+***Soffio di Fulmine (Ricarica 5–6).*** *Tiro Salvezza su Destrezza*: CD 19, ogni creatura in una Linea lunga 27 m e larga 1,5 m. *Fallimento:*  60 (11d10) danni da Fulmine. *Successo:*  Metà danni.
 
-***Spellcasting.*** The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 18):
+***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD tiri salvezza 18):
 
-- **At Will:** *Detect Magic*, *Invisibility*, *Mage Hand*, *Shatter*
-- **1e/Day Each:** *Scrying*, *Sending*
+- **A Volontà:** *Detect Magic*, *Invisibility*, *Mage Hand*, *Shatter*
+- **1/giorno ciascuno:** *Scrying*, *Sending*
 
-### Legendary Actions
+### Azioni Leggendarie
 
-***Cloaked Flight.*** The dragon uses Spellcasting to cast *Invisibility* on itself, and it can fly up to half its Fly Speed. The dragon can't take this action again until the start of its next turn.
+***Volo Occultato.*** Il drago usa Incantesimi per lanciare *Invisibility* su se stesso e può volare fino a metà della sua Velocità di Volo. Il drago non può riprendere questa azione fino all'inizio del suo prossimo turno.
 
-***Sonic Boom.*** The dragon uses Spellcasting to cast *Shatter*. The dragon can't take this action again until the start of its next turn.
+***Boom Sonico.*** Il drago usa Incantesimi per lanciare *Shatter*. Il drago non può riprendere questa azione fino all'inizio del suo prossimo turno.
 
-***Tail Swipe.*** The dragon makes one Rend attack.
+***Colpo di Coda.*** Il drago compie un attacco Lacerare.
 
 ## Adult Brass Dragon
 
