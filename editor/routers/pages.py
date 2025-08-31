@@ -9,7 +9,17 @@ from core.config import (
     label_for,
     db_collection_for,
 )
-from core.db import get_db
+from core.database import get_database, get_db
+from core.optimized_queries import create_optimized_query_service
+from core.errors import (
+    ApplicationError, 
+    DatabaseError, 
+    NotFoundError,
+    ValidationError,
+    ErrorCode,
+    safe_db_operation
+)
+from core.logging_config import get_logger
 from adapters.persistence.mongo_repository import MongoRepository
 from core.flatten import flatten_for_form
 from utils.markdown import render_md
@@ -19,10 +29,20 @@ from application.show_service import show_doc as svc_show_doc
 from core.templates import env
 from application.home_service import load_home_document as svc_home_doc
 from core.transform import to_jsonable
-from fastapi import APIRouter, HTTPException, Query, Request
+from models.request_models import (
+    ListPageParams, 
+    ShowPageParams, 
+    EditPageParams, 
+    CollectionParams, 
+    PaginationParams, 
+    LanguageParams
+)
+from fastapi import APIRouter, HTTPException, Query, Request, Depends
 from fastapi.responses import HTMLResponse
+from pydantic import ValidationError as PydanticValidationError
 
 router = APIRouter()
+logger = get_logger(__name__)
 
 # ---- helpers ---------------------------------------------------------------
 
@@ -35,6 +55,25 @@ router = APIRouter()
 
 @router.get("/", response_class=HTMLResponse)
 async def index(page: int | None = Query(default=None), lang: str | None = Query(default="it")) -> HTMLResponse:
+    logger.info("Loading homepage", extra={"page": page, "lang": lang})
+    
+    # Input validation
+    if lang and lang not in ["it", "en"]:
+        raise ValidationError(
+            f"Invalid language: {lang}",
+            field="lang",
+            value=lang,
+            user_message="Lingua non supportata. Usa 'it' o 'en'."
+        )
+    
+    if page and (page < 1 or page > 10000):
+        raise ValidationError(
+            f"Invalid page number: {page}",
+            field="page", 
+            value=page,
+            user_message="Numero di pagina non valido."
+        )
+    
     tpl = env.get_template("index.html")
     # Collezioni logiche condivise; labels in base alla lingua
     cols_sorted = sorted(COLLECTIONS, key=lambda c: label_for(c, lang).lower())
@@ -42,28 +81,57 @@ async def index(page: int | None = Query(default=None), lang: str | None = Query
     # Language toggle: select collection based on lang
     is_en = (lang or "it").lower().startswith("en")
     col_home = "documenti_en" if is_en else "documenti"
-    try:
-        db = await get_db()
-        for c in cols_sorted:
-            try:
-                col = db_collection_for(c, lang)
-                counts[c] = await db[col].count_documents({})
-            except Exception:
-                counts[c] = 0
-        total = sum(counts.values()) if counts else 0
-        # Carica un documento da 'documenti' per la homepage via service
+    
+    async def get_collection_counts():
+        db = await get_database()
+        query_service = create_optimized_query_service(db)
+        
+        # Use optimized batch counting
+        counts.update(await query_service.get_collection_counts_batch(cols_sorted, lang))
+        return db
+    
+    async def load_homepage_doc(db):
         repo = MongoRepository(db)
         doc_data = await svc_home_doc(repo, page, collection=col_home)
         # Fallback: se EN non ha documenti, prova IT
         if (not doc_data.get("doc")) and is_en:
+            logger.info("No EN documents found, falling back to IT")
             doc_data = await svc_home_doc(repo, page, collection="documenti")
+        return doc_data
+    
+    try:
+        db = await safe_db_operation(
+            get_collection_counts,
+            ErrorCode.DATABASE_CONNECTION_FAILED,
+            "getting collection counts for homepage"
+        )
+        
+        total = sum(counts.values()) if counts else 0
+        logger.info(f"Homepage loaded with {total} total documents")
+        
+        # Carica un documento da 'documenti' per la homepage via service
+        doc_data = await safe_db_operation(
+            lambda: load_homepage_doc(db),
+            ErrorCode.DATABASE_OPERATION_FAILED,
+            "loading homepage document"
+        )
+        
         # Renderizza HTML per la prima visualizzazione (coerente con la partial)
         doc_html = ""
         if doc_data.get("doc") and doc_data["doc"].get("content"):
             doc_html = render_md(str(doc_data["doc"].get("content") or ""))
-    except Exception:
-        err_tpl = env.get_template("error_db.html")
-        return HTMLResponse(err_tpl.render())
+    
+    except ApplicationError:
+        # Re-raise application errors to be handled by FastAPI exception handlers
+        raise
+    except Exception as e:
+        # Handle any unexpected errors
+        logger.error("Unexpected error in homepage", exc_info=e)
+        raise DatabaseError(
+            "Failed to load homepage",
+            ErrorCode.DATABASE_CONNECTION_FAILED,
+            context={"page": page, "lang": lang}
+        )
 
     return HTMLResponse(
         tpl.render(
@@ -119,16 +187,41 @@ async def home_doc_partial(page: int | None = Query(default=None), lang: str | N
     )
 
 
+async def validate_collection_param(collection: str) -> str:
+    """Dependency to validate collection parameter."""
+    try:
+        params = CollectionParams(collection=collection, lang="it")
+        return params.collection
+    except PydanticValidationError as e:
+        logger.warning(f"Invalid collection parameter: {collection}", extra={"errors": e.errors()})
+        raise NotFoundError(
+            f"Collection '{collection}' not found",
+            resource_type="collection",
+            resource_id=collection
+        )
+
+
 @router.get("/list/{collection}", response_class=HTMLResponse)
 async def list_page(
-    request: Request, collection: str, q: str = "", page: int = 1, page_size: int = 20, lang: str | None = Query(default="it")
+    request: Request,
+    collection: str = Depends(validate_collection_param),
+    params: ListPageParams = Depends()
 ) -> HTMLResponse:
-    if collection not in COLLECTIONS:
-        raise HTTPException(404)
+    logger.info(f"Loading list page for collection: {collection}", extra={
+        "collection": collection,
+        "page": params.page,
+        "query": params.q,
+        "lang": params.lang
+    })
     tpl = env.get_template("list.html")
     return HTMLResponse(
         tpl.render(
-            collection=collection, q=q, page=page, page_size=page_size, request=request, lang=lang
+            collection=collection,
+            q=params.q or "",
+            page=params.page,
+            page_size=params.page_size,
+            request=request,
+            lang=params.lang
         )
     )
 

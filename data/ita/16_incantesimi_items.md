@@ -4,7 +4,7 @@
 
 #### Freccia Acida
 
-*Level 2 Evocation (Wizard)*
+*Livello 2 Invocazione (Mago)*
 
 **Tempo di Lancio:** Azione 
 
@@ -20,7 +20,7 @@ Una freccia verde scintillante sfreccia verso un bersaglio entro gittata ed espl
 
 #### Spruzzo Acido
 
-*Evocation Cantrip (Sorcerer, Wizard)*
+*Trucchetto di Invocazione (Stregone, Mago)*
 
 **Tempo di Lancio:** Azione 
 
@@ -36,7 +36,7 @@ Crei una bolla acida in un punto entro gittata, dove esplode in una Sfera di rag
 
 #### **Aiuto**
 
-*Level 2 Abjuration (Bard, Cleric, Druid, Paladin, Ranger)* 
+*Livello 2 Abiurazione (Bardo, Chierico, Druido, Paladino, Ranger)* 
 
 **Tempo di Lancio:** Azione 
 
@@ -52,7 +52,7 @@ Scegli fino a tre creature entro gittata. Per la durata, i Punti Ferita massimi 
 
 #### Allarme
 
-*Level 1 Abjuration (Ranger, Wizard)*
+*Livello 1 Abiurazione (Ranger, Mago)*
 
 **Tempo di Lancio:** 1 minuto o Rituale
 
@@ -70,7 +70,7 @@ Imposti un allarme contro le intrusioni. Scegli una porta, una finestra o un'are
 
 #### **Alterare Sé Stesso**
 
-*Level 2 Transmutation (Sorcerer, Wizard)*
+*Livello 2 Trasmutazione (Stregone, Mago)*
 
 **Tempo di Lancio:** Azione 
 
@@ -90,7 +90,7 @@ Alteri la tua forma fisica. Scegli una delle seguenti opzioni. I suoi effetti du
 
 #### Amicizia Animale
 
-*Level 1 Enchantment (Bard, Druid, Ranger)*
+*Livello 1 Ammaliamento (Bardo, Druido, Ranger)*
 
 **Tempo di Lancio:** Azione 
 
@@ -106,7 +106,7 @@ Bersaglia una Bestia che puoi vedere entro gittata. Il bersaglio deve superare u
 
 #### Messaggero Animale
 
-*Level 2 Enchantment (Bard, Druid, Ranger)*
+*Livello 2 Ammaliamento (Bardo, Druido, Ranger)*
 
 **Tempo di Lancio:** Azione o Rituale 
 
@@ -160,6 +160,7 @@ La creatura è sotto il tuo controllo per 24 ore, dopo le quali smette di obbedi
 
 **_Usare uno Slot di Livello Superiore._** Animi o riaffermi il controllo su due creature Non Morte aggiuntive per ogni livello di slot sopra il 3. Ciascuna creatura deve provenire da un cadavere o mucchio di ossa diverso.
 
+ 
 #### Animare Oggetti
 
 *Livello 5 Trasmutazione (Bardo, Stregone, Mago)*
@@ -241,11 +242,11 @@ Se ti muovi in modo da costringere una creatura interessata ad attraversare la b
 
 Un'aura di antimagia ti circonda in un'Emanazione di 3 m. Nessuno può lanciare incantesimi, compiere azioni Magia o creare altri effetti magici all'interno dell'aura, e tali effetti non possono bersagliare o influenzare in altro modo nulla al suo interno. Le proprietà magiche degli oggetti magici non funzionano all'interno dell'aura o su ciò che è al suo interno.
 
-Areas of effect created by spells or other magic can't extend into the aura, and no one can teleport into or out of it or use planar travel there. Portals close temporarily while in the aura.
+Le aree d'effetto create da incantesimi o altra magia non possono estendersi nell'aura, e nessuno può teletrasportarsi dentro o fuori da essa né usare viaggi planari al suo interno. I portali si chiudono temporaneamente mentre si trovano nell'aura.
 
-Ongoing spells, except those cast by an Artifact or a deity, are suppressed in the area. While an effect is suppressed, it doesn't function, but the time it spends suppressed counts against its duration.
+Gli incantesimi in corso, tranne quelli lanciati da un Artefatto o da una divinità, sono soppressi nell'area. Finché un effetto è soppresso, non funziona, ma il tempo in cui è soppresso si conta ai fini della sua durata.
 
-*Dispel Magic* has no effect on the aura, and the auras created by different *Antimagic Field* spells don't nullify each other.
+*Dissolvi Magie* non ha alcun effetto sull'aura, e le aure create da diversi *Campo Antimagia* non si annullano a vicenda.
 
 #### Antipatia/Sintonia
 
@@ -410,6 +411,7 @@ L'incantesimo non tiene conto di circostanze, come altri incantesimi, che potreb
 
 Se lanci l'incantesimo più di una volta prima di terminare un Riposo Lungo, esiste una possibilità cumulativa del 25 percento per ogni lancio dopo il primo di non ricevere alcuna risposta.
 
+ 
 #### Aura di Vita
 
 *Livello 4 Abiurazione (Chierico, Paladino)* 
@@ -3272,206 +3274,6 @@ Crei un motivo vorticoso di colori in un Cubo di lato 9 m entro gittata. Il moti
 
 L'incantesimo termina per una creatura interessata se subisce danni o se qualcuno usa un'azione per scuoterla fuori dalla sua prostrazione.
 
-### Incantesimi I
-
-#### Ice Knife
-
-*Level 1 Conjuration (Druid, Sorcerer, Wizard)*
-
-**Casting Time:** Action 
-
-**Range:** 60 feet 
-
-**Components:** S, M (a drop of water or a piece of ice) 
-
-**Duration:** Instantaneous
-
-You create a shard of ice and fling it at one creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 Piercing damage. Hit or miss, the shard then explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take 2d6 Cold damage.
-
-**_Using a Higher-Level Spell Slot._** The Cold damage increases by 1d6 for each spell slot level above 1.
-
-#### Ice Storm
-
-*Level 4 Evocation (Druid, Sorcerer, Wizard)*
-
-**Casting Time:** Action 
-
-**Range:** 300 feet 
-
-**Components:** V, S, M (a mitten) 
-
-**Duration:** Instantaneous
-
-Hail falls in a 20-foot-radius, 40-foot-high Cylinder centered on a point within range. Each creature in the Cylinder makes a Dexterity saving throw. A creature takes 2d10 Bludgeoning damage and 4d6 Cold damage on a failed save or half as much damage on a successful one.
-
-Hailstones turn ground in the Cylinder into Difficult Terrain until the end of your next turn.
-
-**_Using a Higher-Level Spell Slot._** The Bludgeoning damage increases by 1d10 for each spell slot level above 4.
-
-#### Identify
-
-*Level 1 Divination (Bard, Wizard)*
-
-**Casting Time:** 1 minute or Ritual 
-
-**Range:** Touch 
-
-**Components:** V, S, M (a pearl worth 100+ GP) 
-
-**Duration:** Instantaneous
-
-You touch an object throughout the spell's casting. If the object is a magic item or some other magical object, you learn its properties and how to use them, whether it requires Attunement, and how many charges it has, if any. You learn whether any ongoing spells are affecting the item and what they are. If the item was created by a spell, you learn that spell's name.
-
-If you instead touch a creature throughout the casting, you learn which ongoing spells, if any, are currently affecting it.
-
-#### Illusory Script
-
-*Level 1 Illusion (Bard, Warlock, Wizard)*
-
-**Casting Time:** 1 minute or Ritual 
-
-**Range:** Touch 
-
-**Components:** S, M (ink worth 10+ GP, which the spell consumes) 
-
-**Duration:** 10 days
-
-You write on parchment, paper, or another suitable material and imbue it with an illusion that lasts for the duration. To you and any creatures you designate when you cast the spell, the writing appears normal, seems to be written in your hand, and conveys whatever meaning you intended when you wrote the text. To all others, the writing appears as if it were written in an unknown or magical script that is unintelligible. Alternatively, the illusion can alter the meaning, handwriting, and language of the text, though the language must be one you know.
-
-If the spell is dispelled, the original script and the illusion both disappear.
-
-A creature that has Truesight can read the hidden message.
-
-#### Imprisonment
-
-*Level 9 Abjuration (Warlock, Wizard)*
-
-**Casting Time:** 1 minute 
-
-**Range:** 30 feet 
-
-**Components:** V, S, M (a statuette of the target worth 5,000+ GP) 
-
-**Duration:** Until dispelled
-
-You create a magical restraint to hold a creature that you can see within range. The target must make a Wisdom saving throw. On a successful save, the target is unaffected, and it is immune to this
-
-spell for the next 24 hours. On a failed save, the target is imprisoned. While imprisoned, the target doesn't need to breathe, eat, or drink, and it doesn't age. Divination spells can't locate or perceive the imprisoned target, and the target can't teleport.
-
-Until the spell ends, the target is also affected by one of the following effects of your choice:
-
-**Burial.** The target is entombed beneath the earth in a hollow globe of magical force that is just large enough to contain the target. Nothing can pass into or out of the globe.
-**Chaining.** Chains firmly rooted in the ground hold the target in place. The target has the Restrained condition and can't be moved by any means.
-**Hedged Prison.** The target is trapped in a demiplane that is warded against teleportation and planar travel. The demiplane is your choice of a labyrinth, a cage, a tower, or the like.
-**Minimus Containment.** The target becomes 1 inch tall and is trapped inside an indestructible gemstone or a similar object. Light can pass through the gemstone (allowing the target to see out and other creatures to see in), but nothing else can pass through by any means.
-**Slumber.** The target has the Unconscious condition and can't be awoken.
-
-**_Ending the Spell._** When you cast the spell, specify a trigger that will end it. The trigger can be as simple or as elaborate as you choose, but the GM must agree that it has a high likelihood of happening within the next decade. The trigger must be an observable action, such as someone making a particular offering at the temple of your god, saving your true love, or defeating a specific monster.
-
-A *Dispel Magic* spell can end the spell only if it is cast with a level 9 spell slot, targeting either the prison or the component used to create it.
-
-#### Incendiary Cloud
-
-*Level 8 Conjuration (Druid, Sorcerer, Wizard)*
-
-**Casting Time:** Action 
-
-**Range:** 150 feet 
-
-**Components:** V, S 
-
-**Duration:** Concentration, up to 1 minute
-
-A swirling cloud of embers and smoke fills a 20-foot-radius Sphere centered on a point within range. The cloud's area is Heavily Obscured. It lasts for the duration or until a strong wind (like that created by *Gust of Wind*) disperses it.
-
-When the cloud appears, each creature in it makes a Dexterity saving throw, taking 10d8 Fire damage on a failed save or half as much damage on a successful one. A creature must also make this save when the Sphere moves into its space and when it enters the Sphere or ends its turn there. A creature makes this save only once per turn.
-
-The cloud moves 10 feet away from you in a direction you choose at the start of each of your turns.
-
-#### Inflict Wounds
-
-*Level 1 Necromancy (Cleric)*
-
-**Casting Time:** Action 
-
-**Range:** Touch 
-
-**Components:** V, S 
-
-**Duration:** Instantaneous
-
-A creature you touch makes a Constitution saving throw, taking 2d10 Necrotic damage on a failed save or half as much damage on a successful one.
-
-**_Using a Higher-Level Spell Slot._** The damage increases by 1d10 for each spell slot level above 1.
-
-#### Insect Plague
-
-*Level 5 Conjuration (Cleric, Druid, Sorcerer)*
-
-**Casting Time:** Action 
-
-**Range:** 300 feet 
-
-**Components:** V, S, M (a locust) 
-
-**Duration:** Concentration, up to 10 minutes
-
-Swarming locusts fill a 20-foot-radius Sphere centered on a point you choose within range. The Sphere remains for the duration, and its area is Lightly Obscured and Difficult Terrain.
-
-When the swarm appears, each creature in it makes a Constitution saving throw, taking 4d10 Piercing damage on a failed save or half as much damage on a successful one. A creature also makes this save when it enters the spell's area for the first time on a turn or ends its turn there. A creature makes this save only once per turn.
-
-**_Using a Higher-Level Spell Slot._** The damage increases by 1d10 for each spell slot level above 5.
-
-#### Instant Summons
-
-*Level 6 Conjuration (Wizard)*
-
-**Casting Time:** 1 minute or Ritual 
-
-**Range:** Touch 
-
-**Components:** V, S, M (a sapphire worth 1,000+ GP) 
-
-**Duration:** Until dispelled
-
-You touch the sapphire used in the casting and an object weighing 10 pounds or less whose longest dimension is 6 feet or less. The spell leaves an Invisible mark on that object and invisibly inscribes the object's name on the sapphire. Each time you cast this spell, you must use a different sapphire.
-
-Thereafter, you can take a Magic action to speak the object's name and crush the sapphire. The object instantly appears in your hand regardless of physical or planar distances, and the spell ends.
-
-If another creature is holding or carrying the object, crushing the sapphire doesn't transport it, but instead you learn who that creature is and where that creature is currently located.
-
-#### Irresistible Dance
-
-*Level 6 Enchantment (Bard, Wizard)*
-
-**Casting Time:** Action 
-
-**Range:** 30 feet 
-
-**Components:** V 
-
-**Duration:** Concentration, up to 1 minute
-
-One creature that you can see within range must make a Wisdom saving throw. On a successful save, the target dances comically until the end of its next turn, during which it must spend all its movement to dance in place.
-
-On a failed save, the target has the Charmed condition for the duration. While Charmed, the target dances comically, must use all its movement to dance in place, and has Disadvantage on Dexterity saving throws and attack rolls, and other creatures have Advantage on attack rolls against it. On each of its turns, the target can take an action to collect itself and repeat the save, ending the spell on itself on a success.
-
-#### Invisibilità
-
-*Livello 2 Illusione (Bardo, Stregone, Warlock, Mago)*
-
-**Tempo di Lancio:** Azione 
-
-**Gittata:** Contatto 
-
-**Componenti:** V, S, M (un ciglio in gomma arabica) 
-
-**Durata:** Concentrazione, fino a 1 ora
-
-Una creatura che tocchi ha la condizione Invisibile finché l'incantesimo dura. L'incantesimo termina anticipatamente immediatamente dopo che il bersaglio effettua un tiro per colpire, infligge danni o lancia un incantesimo.
-
-**_Usare uno Slot di Livello Superiore._** Puoi bersagliare una creatura aggiuntiva per ogni livello di slot sopra il 2.
-
 ### Incantesimi J, K e L
 
 #### Salto
@@ -3778,21 +3580,21 @@ Quando l'innesco si verifica, una bocca magica appare sull'oggetto e recita il m
 
 L'innesco può essere generale o dettagliato quanto desideri, ma deve basarsi su condizioni visive o udibili che si verificano entro 9 m dall'oggetto. Per esempio, potresti istruire la bocca a parlare quando una creatura si muove entro 9 m dall'oggetto o quando una campana d'argento suona entro 9 m da esso.
 
-#### Magic Weapon
+#### Arma Magica
 
-*Level 2 Transmutation (Paladin, Ranger, Sorcerer, Wizard)*
+*Livello 2 Trasmutazione (Paladino, Ranger, Stregone, Mago)*
 
-**Casting Time:** Bonus Action 
+**Tempo di Lancio:** Azione Bonus 
 
-**Range:** Touch
+**Gittata:** Contatto
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** 1 hour
+**Durata:** 1 ora
 
-You touch a nonmagical weapon. Until the spell ends, that weapon becomes a magic weapon with a +1 bonus to attack rolls and damage rolls. The spell ends early if you cast it again.
+Tocchi un’arma non magica. Finché l’incantesimo dura, quell’arma diventa un’arma magica con un bonus di +1 ai tiri per colpire e ai tiri per i danni. L’incantesimo termina anticipatamente se lo lanci di nuovo.
 
-**_Using a Higher-Level Spell Slot._** The bonus increases to +2 with a level 3–5 spell slot. The bonus increases to +3 with a level 6+ spell slot.
+**_Usare uno Slot di Livello Superiore._** Il bonus aumenta a +2 con uno slot di livello 3–5. Il bonus aumenta a +3 con uno slot di livello 6 o superiore.
 
 #### Dimora Magnifica
 
@@ -3816,25 +3618,25 @@ Uno staff di 100 servitori quasi trasparenti serve chiunque entri. Ne determini 
 
 Quando l'incantesimo termina, eventuali creature o oggetti rimasti nello spazio extradimensionale vengono espulsi negli spazi non occupati più vicini all'ingresso.
 
-#### Major Image
+#### Immagine Maggiore
 
-*Level 3 Illusion (Bard, Sorcerer, Warlock, Wizard)*
+*Livello 3 Illusione (Bardo, Stregone, Warlock, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 120 feet 
+**Gittata:** 36 m 
 
-**Components:** V, S, M (a bit of fleece) 
+**Componenti:** V, S, M (un po’ di lana) 
 
-**Duration:** Concentration, up to 10 minutes
+**Durata:** Concentrazione, fino a 10 minuti
 
-You create the image of an object, a creature, or some other visible phenomenon that is no larger than a 20-foot Cube. The image appears at a spot that you can see within range and lasts for the duration. It seems real, including sounds, smells, and temperature appropriate to the thing depicted, but it can't deal damage or cause conditions.
+Crei l’immagine di un oggetto, una creatura o un altro fenomeno visibile di dimensioni non superiori a un Cubo di 6 m di lato. L’immagine appare in un punto che puoi vedere entro gittata e dura per la durata. Appare reale, inclusi suoni, odori e temperatura adeguati a ciò che rappresenta, ma non può infliggere danni o causare condizioni.
 
-If you are within range of the illusion, you can take a Magic action to cause the image to move to any other spot within range. As the image changes location, you can alter its appearance so that its movements appear natural for the image. For example, if you create an image of a creature and move it, you can alter the image so that it appears to be walking. Similarly, you can cause the illusion to make different sounds at different times, even making it carry on a conversation, for example.
+Se ti trovi entro gittata dell’illusione, puoi compiere un’azione Magia per spostare l’immagine in un altro punto entro gittata. Mentre cambia posizione, puoi alterarne l’aspetto affinché i movimenti risultino naturali. Per esempio, se crei l’immagine di una creatura e la sposti, puoi far sembrare che stia camminando. Allo stesso modo, puoi farle produrre suoni diversi in momenti diversi, persino simulare una conversazione.
 
-Physical interaction with the image reveals it to be an illusion, for things can pass through it. A creature that takes a Study action to examine the image can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the creature can see through the image, and its other sensory qualities become faint to the creature.
+L’interazione fisica con l’immagine rivela che si tratta di un’illusione, poiché le cose possono attraversarla. Una creatura che compie un’azione **Studiare** per esaminare l’immagine può determinare che si tratta di un’illusione con una prova di Intelligenza (Indagare) contro la tua CD dei tiri salvezza degli incantesimi. Se una creatura riconosce l’illusione per ciò che è, può vedere attraverso di essa e le altre qualità sensoriali diventano fioche ai suoi sensi.
 
-**_Using a Higher-Level Spell Slot._** The spell lasts until dispelled, without requiring Concentration, if cast with a level 4+ spell slot.
+**_Usare uno Slot di Livello Superiore._** L’incantesimo dura fino a dissipazione, senza richiedere Concentrazione, se lanciato con uno slot di livello 4 o superiore.
 
 #### Cura Ferite di Massa
 
@@ -3866,173 +3668,173 @@ Un'ondata di energia curativa si propaga da un punto che puoi vedere entro gitta
 
 Un'ondata di energia curativa fluisce da te nelle creature circostanti. Ripristini fino a 700 Punti Ferita, divisi a tua scelta tra un qualsiasi numero di creature che puoi vedere entro gittata. Le creature curate da questo incantesimo hanno anche rimosse le condizioni Accecato, Assordato e Avvelenato.
 
-#### Mass Healing Word
+#### Parola Guaritrice di Massa
 
-*Level 3 Abjuration (Bard, Cleric)*
+*Livello 3 Abiurazione (Bardo, Chierico)*
 
-**Casting Time:** Bonus Action 
+**Tempo di Lancio:** Azione Bonus 
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V 
+**Componenti:** V 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-Up to six creatures of your choice that you can see within range regain Hit Points equal to 2d4 plus your spellcasting ability modifier.
+Fino a sei creature a tua scelta che puoi vedere entro gittata recuperano Punti Ferita pari a 2d4 più il tuo modificatore della caratteristica da incantatore.
 
-**_Using a Higher-Level Spell Slot._** The healing increases by 1d4 for each spell slot level above 3.
+**_Usare uno Slot di Livello Superiore._** Le cure aumentano di 1d4 per ogni livello di slot sopra il 3.
 
-#### Mass Suggestion
+#### Suggestione di Massa
 
-*Level 6 Enchantment (Bard, Sorcerer, Wizard)*
+*Livello 6 Ammaliamento (Bardo, Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V, M (a snake's tongue) 
+**Componenti:** V, M (una lingua di serpente) 
 
-**Duration:** 24 hours
+**Durata:** 24 ore
 
-You suggest a course of activity—described in no more than 25 words—to twelve or fewer creatures you can see within range that can hear and understand you. The suggestion must sound achievable and not involve anything that would obviously deal damage to any of the targets or their allies. For example, you could say, "Walk to the village down that road, and help the villagers there harvest crops until sunset." Or you could say, "Now is not the time for violence. Drop your weapons, and dance! Stop in an hour."
+Suggerisci un corso d’azione—descritto in non più di 25 parole—a dodici o meno creature che puoi vedere entro gittata e che possano sentirti e comprenderti. Il suggerimento deve sembrare realizzabile e non implicare nulla che possa infliggere danno ovvio ai bersagli o ai loro alleati. Per esempio, potresti dire: “Andate al villaggio lungo quella strada e aiutate i contadini a mietere i raccolti fino al tramonto.” Oppure: “Non è il momento per la violenza. Gettate le armi e danzate! Fermatevi fra un’ora.”
 
-Each target must succeed on a Wisdom saving throw or have the Charmed condition for the duration or until you or your allies deal damage to the target. Each Charmed target pursues the suggestion to the best of its ability. The suggested activity can continue for the entire duration, but if the suggested activity can be completed in a shorter time, the spell ends for a target upon completing it.
+Ogni bersaglio deve superare un tiro salvezza su Saggezza o avere la condizione **Affascinato** per la durata o finché tu o i tuoi alleati non gli infliggete danni. Ogni bersaglio Affascinato persegue il suggerimento al meglio delle sue capacità. L’attività suggerita può durare per l’intera durata, ma se può essere completata in meno tempo, l’incantesimo termina per quel bersaglio quando la conclude.
 
-**_Using a Higher-Level Spell Slot._** The duration is longer with a spell slot of level 7 (10 days), 8 (30 days), or 9 (366 days).
+**_Usare uno Slot di Livello Superiore._** La durata aumenta se lanciato con uno slot di livello 7 (10 giorni), 8 (30 giorni) o 9 (366 giorni).
 
-#### Maze
+#### Labirinto
 
-*Level 8 Conjuration (Wizard)*
+*Livello 8 Evocazione (Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** Concentration, up to 10 minutes
+**Durata:** Concentrazione, fino a 10 minuti
 
-You banish a creature that you can see within range into a labyrinthine demiplane. The target remains there for the duration or until it escapes the maze.
+Bandisci una creatura che puoi vedere entro gittata in un semipiano labirintico. Il bersaglio rimane lì per la durata o finché non riesce a fuggire dal labirinto.
 
-The target can take a Study action to try to escape. When it does so, it makes a DC 20 Intelligence (Investigation) check. If it succeeds, it escapes, and the spell ends.
+Il bersaglio può usare un’azione **Studiare** per tentare la fuga. Quando lo fa, effettua una prova di Intelligenza (Indagare) con CD 20. Se ha successo, fugge e l’incantesimo termina.
 
-When the spell ends, the target reappears in the space it left or, if that space is occupied, in the nearest unoccupied space.
+Quando l’incantesimo termina, il bersaglio ricompare nello spazio che occupava o, se quello spazio è occupato, nello spazio non occupato più vicino.
 
-#### Meld into Stone
+#### Fondersi nella Pietra
 
-*Level 3 Transmutation (Cleric, Druid, Ranger)*
+*Livello 3 Trasmutazione (Chierico, Druido, Ranger)*
 
-**Casting Time:** Action or Ritual 
+**Tempo di Lancio:** Azione o Rituale 
 
-**Range:** Touch 
+**Gittata:** Contatto 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** 8 hours
+**Durata:** 8 ore
 
-You step into a stone object or surface large enough to fully contain your body, merging yourself and your equipment with the stone for the duration. You must touch the stone to do so. Nothing of your presence remains visible or otherwise detectable by nonmagical senses.
+Entri in un oggetto o superficie di pietra abbastanza grande da contenere completamente il tuo corpo, fondendo te stesso e il tuo equipaggiamento con la pietra per la durata. Devi toccare la pietra per farlo. Nulla della tua presenza rimane visibile o altrimenti rilevabile da sensi non magici.
 
-While merged with the stone, you can't see what occurs outside it, and any Wisdom (Perception) checks you make to hear sounds outside it are made with Disadvantage. You remain aware of the passage of time and can cast spells on yourself while merged in the stone. You can use 5 feet of movement to leave the stone where you entered it, which ends the spell. You otherwise can't move.
+Mentre sei fuso con la pietra, non puoi vedere ciò che accade all’esterno e le prove di Saggezza (Percezione) che effettui per udire suoni esterni hanno **Svantaggio**. Rimani consapevole dello scorrere del tempo e puoi lanciare incantesimi su te stesso mentre sei fuso nella pietra. Puoi usare 1,5 m di movimento per uscire dalla pietra nello stesso punto in cui sei entrato, terminando l’incantesimo. In caso contrario, non puoi muoverti.
 
-Minor physical damage to the stone doesn't harm you, but its partial destruction or a change in its shape (to the extent that you no longer fit within it) expels you and deals 6d6 Force damage to you. The stone's complete destruction (or transmutation into a different substance) expels you and deals 50 Force damage to you. If expelled, you move into an unoccupied space closest to where you first entered and have the Prone condition.
+Danni fisici minori alla pietra non ti danneggiano, ma la sua distruzione parziale o un cambiamento di forma (tale da non permetterti più di starvi dentro) ti espelle e ti infligge 6d6 danni da Forza. La distruzione completa della pietra (o la sua trasmutazione in un’altra sostanza) ti espelle e ti infligge 50 danni da Forza. Se vieni espulso, ti ritrovi nello spazio non occupato più vicino al punto d’ingresso e ottieni la condizione **Prono**.
 
-#### Mending
+#### Riparare
 
-*Transmutation Cantrip (Bard, Cleric, Druid, Sorcerer, Wizard)*
+*Trucchetto di Trasmutazione (Bardo, Chierico, Druido, Stregone, Mago)*
 
-**Casting Time:** 1 minute 
+**Tempo di Lancio:** 1 minuto 
 
-**Range:** Touch 
+**Gittata:** Contatto 
 
-**Components:** V, S, M (two lodestones) 
+**Componenti:** V, S, M (due calamite) 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-This spell repairs a single break or tear in an object you touch, such as a broken chain link, two halves of a broken key, a torn cloak, or a leaking wineskin. As long as the break or tear is no larger than 1 foot in any dimension, you mend it, leaving no trace of the former damage.
+Questo incantesimo ripara una singola rottura o lacerazione in un oggetto che tocchi, come un anello di catena spezzato, le due metà di una chiave rotta, un mantello strappato o un otre che perde. Finché la rottura o lacerazione non supera i 30 cm in nessuna dimensione, la ripari, senza lasciare traccia del danno precedente.
 
-This spell can physically repair a magic item, but it can't restore magic to such an object.
+Questo incantesimo può riparare fisicamente un oggetto magico, ma non può ripristinarne la magia.
 
-#### Message
+#### Messaggio
 
-*Transmutation Cantrip (Bard, Druid, Sorcerer, Wizard)*
+*Trucchetto di Trasmutazione (Bardo, Druido, Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 120 feet 
+**Gittata:** 36 m 
 
-**Components:** S, M (a copper wire) 
+**Componenti:** S, M (un filo di rame) 
 
-**Duration:** 1 round
+**Durata:** 1 round
 
-You point toward a creature within range and whisper a message. The target (and only the target) hears the message and can reply in a whisper that only you can hear.
+Indichi una creatura entro gittata e sussurri un messaggio. Il bersaglio (e solo il bersaglio) sente il messaggio e può rispondere con un sussurro che solo tu puoi udire.
 
-You can cast this spell through solid objects if you are familiar with the target and know it is beyond the barrier. Magical silence; 1 foot of stone, metal, or wood; or a thin sheet of lead blocks the spell.
+Puoi lanciare questo incantesimo attraverso oggetti solidi se conosci bene il bersaglio e sai che si trova oltre la barriera. Silenzio magico, 30 cm di pietra, metallo o legno, oppure un sottile strato di piombo, bloccano l’incantesimo.
 
-#### Meteor Swarm
+#### Pioggia di Meteore
 
-*Level 9 Evocation (Sorcerer, Wizard)*
+*Livello 9 Invocazione (Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 1 mile 
+**Gittata:** 1,6 km 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-Blazing orbs of fire plummet to the ground at four different points you can see within range. Each creature in a 40-foot-radius Sphere centered on each of those points makes a Dexterity saving throw. A creature takes 20d6 Fire damage and 20d6 Bludgeoning damage on a failed save or half as much damage on a successful one. A creature in the area of more than one fiery Sphere is affected only once.
+Sfere fiammeggianti precipitano al suolo in quattro punti diversi che puoi vedere entro gittata. Ogni creatura in una **Sfera** di raggio 12 m centrata su ciascuno di quei punti effettua un tiro salvezza su Destrezza. Con un fallimento, una creatura subisce 20d6 danni da Fuoco e 20d6 danni Contundenti, o metà danni con un successo. Una creatura nell’area di più di una Sfera infuocata è colpita solo una volta.
 
-A nonmagical object that isn't being worn or carried also takes the damage if it's in the spell's area, and the object starts burning if it's flammable.
+Un oggetto non magico che non sia indossato o trasportato subisce anch’esso i danni se si trova nell’area dell’incantesimo, e inizia a bruciare se è infiammabile.
 
-#### Mind Blank
+#### Mente Vuota
 
-*Level 8 Abjuration (Bard, Wizard)*
+*Livello 8 Abiurazione (Bardo, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Touch 
+**Gittata:** Contatto 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** 24 hours
+**Durata:** 24 ore
 
-Until the spell ends, one willing creature you touch has Immunity to Psychic damage and the Charmed condition. The target is also unaffected by anything that would sense its emotions or alignment, read its thoughts, or magically detect its location, and no spell—not even *Wish*—can gather information about the target, observe it remotely, or control its mind.
+Finché l’incantesimo dura, una creatura consenziente che tocchi ha **Immunità** ai danni Psichici e alla condizione **Affascinato**. Inoltre, il bersaglio non è influenzato da nulla che possa percepirne le emozioni o l’allineamento, leggerne i pensieri o rilevarne magicamente la posizione, e nessun incantesimo—nemmeno *Desiderio*—può raccogliere informazioni sul bersaglio, osservarlo a distanza o controllarne la mente.
 
-#### Mind Spike
+#### Pungolo Mentale
 
-*Level 2 Divination (Sorcerer, Warlock, Wizard)*
+*Livello 2 Divinazione (Stregone, Warlock, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 120 feet 
+**Gittata:** 36 m 
 
-**Components:** S 
+**Componenti:** S 
 
-**Duration:** Concentration, up to 1 hour
+**Durata:** Concentrazione, fino a 1 ora
 
-You drive a spike of psionic energy into the mind of one creature you can see within range. The target makes a Wisdom saving throw, taking 3d8 Psychic damage on a failed save or half as much damage on a successful one. On a failed save, you also always know the target's location until the spell ends, but only while the two of you are on the same plane of existence. While you have this knowledge, the target can't become hidden from you, and if it has the Invisible condition, it gains no benefit from that condition against you.
+Infiggi una punta di energia psionica nella mente di una creatura che puoi vedere entro gittata. Il bersaglio effettua un tiro salvezza su Saggezza, subendo 3d8 danni Psichici con un fallimento o metà danni con un successo. Con un fallimento, conosci sempre la posizione del bersaglio finché l’incantesimo dura, ma solo se vi trovate sullo stesso piano di esistenza. Finché possiedi questa conoscenza, il bersaglio non può nascondersi da te, e se ha la condizione **Invisibile**, non ottiene alcun beneficio da essa contro di te.
 
-**_Using a Higher-Level Spell Slot._** The damage increases by 1d8 for each spell slot level above 2.
+**_Usare uno Slot di Livello Superiore._** I danni aumentano di 1d8 per ogni livello di slot sopra il 2.
 
-#### Minor Illusion
+#### Illusione Minore
 
-*Illusion Cantrip (Bard, Sorcerer, Warlock, Wizard)*
+*Trucchetto di Illusione (Bardo, Stregone, Warlock, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 30 feet 
+**Gittata:** 9 m 
 
-**Components:** S, M (a bit of fleece) 
+**Componenti:** S, M (un po’ di lana) 
 
-**Duration:** 1 minute
+**Durata:** 1 minuto
 
-You create a sound or an image of an object within range that lasts for the duration. See the descriptions below for the effects of each. The illusion ends if you cast this spell again.
+Crei un suono o l’immagine di un oggetto entro gittata che dura per la durata. Vedi sotto la descrizione degli effetti. L’illusione termina se lanci di nuovo questo incantesimo.
 
-If a creature takes a Study action to examine the sound or image, the creature can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the illusion becomes faint to the creature.
+Se una creatura compie un’azione **Studiare** per esaminare il suono o l’immagine, può determinare che si tratta di un’illusione con una prova di Intelligenza (Indagare) contro la tua CD dei tiri salvezza degli incantesimi. Se la creatura riconosce l’illusione per ciò che è, essa diventa fioca per quella creatura.
 
-**_Sound._** If you create a sound, its volume can range from a whisper to a scream. It can be your voice, someone else's voice, a lion's roar, a beating of drums, or any other sound you choose. The sound continues unabated throughout the duration, or you can make discrete sounds at different times before the spell ends.
+**_Suono._** Se crei un suono, il suo volume può variare da un sussurro a un urlo. Può essere la tua voce, la voce di qualcun altro, il ruggito di un leone, il rullare di tamburi o qualsiasi altro suono tu scelga. Il suono continua ininterrotto per la durata, oppure puoi produrre suoni distinti in momenti diversi finché l’incantesimo dura.
 
-**_Image._** If you create an image of an object—such as a chair, muddy footprints, or a small chest—it must be no larger than a 5-foot Cube. The image can't create sound, light, smell, or any other sensory effect. Physical interaction with the image reveals it to be an illusion, since things can pass through it.
+**_Immagine._** Se crei l’immagine di un oggetto—come una sedia, impronte fangose o un piccolo scrigno—esso non può superare un Cubo di 1,5 m di lato. L’immagine non può produrre suoni, luce, odori o altri effetti sensoriali. L’interazione fisica con l’immagine rivela che si tratta di un’illusione, poiché gli oggetti possono attraversarla.
 
 #### Miraggio Arcano
 
@@ -4046,2308 +3848,2281 @@ If a creature takes a Study action to examine the sound or image, the creature c
 
 **Durata:** 10 giorni
 
-Fai sì che il terreno in un'area fino a 1,6 km per lato appaia, suoni, odori e persino sembri, al tatto, come un altro tipo di terreno. Campi aperti o una strada possono essere fatti assomigliare a una palude, una collina, una fenditura o un altro terreno accidentato o impraticabile. Uno stagno può sembrare un prato erboso, un precipizio una dolce pendenza o un burrone roccioso una strada ampia e liscia.
+Fai apparire il terreno in un’area fino a 1,6 km di lato come se fosse un altro tipo di terreno, completo di suoni, odori e persino consistenza tattile. Campi aperti o strade possono sembrare paludi, colline, fenditure o altri terreni accidentati o impraticabili. Uno stagno può sembrare un prato erboso, un precipizio una dolce pendenza o un burrone roccioso una strada ampia e liscia.
 
-Allo stesso modo, puoi alterare l'aspetto delle strutture o aggiungerle dove non sono presenti. L'incantesimo non maschera, nasconde o aggiunge creature.
+Allo stesso modo, puoi alterare l’aspetto delle strutture esistenti o aggiungerne dove non ve ne sono. L’incantesimo non maschera, nasconde o crea creature.
 
-L'illusione include elementi udibili, visivi, tattili e olfattivi, quindi può trasformare terreno sgombro in Terreno Difficile (o viceversa) o altrimenti ostacolare il movimento nell'area. Qualsiasi parte del terreno illusorio (come una roccia o un bastone) rimossa dall'area dell'incantesimo scompare immediatamente.
+L’illusione comprende elementi uditivi, visivi, tattili e olfattivi. Può trasformare terreno sgombro in **Terreno Difficile** (o viceversa) o ostacolare in altro modo il movimento nell’area. Qualsiasi parte del terreno illusorio (come una roccia o un bastone) rimossa dall’area scompare immediatamente.
 
-Le creature con Vista Vera possono vedere attraverso l'illusione la vera forma del terreno; tuttavia, tutti gli altri elementi dell'illusione rimangono, quindi mentre la creatura è consapevole della presenza dell'illusione, può comunque interagire fisicamente con essa.
+Le creature con **Vista Vera** vedono la reale conformazione del terreno; tuttavia, gli altri elementi dell’illusione rimangono, quindi pur essendo consapevole della falsità dell’illusione, la creatura può comunque interagire fisicamente con essa.
 
-#### Mirror Image
+#### Immagine Speculare
 
-*Level 2 Illusion (Bard, Sorcerer, Warlock, Wizard)*
+*Livello 2 Illusione (Bardo, Stregone, Warlock, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Self 
+**Gittata:** Sé 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** 1 minute
+**Durata:** 1 minuto
 
-Three illusory duplicates of yourself appear in your space. Until the spell ends, the duplicates move with you and mimic your actions, shifting position so it's impossible to track which image is real.
+Tre duplicati illusori di te stesso appaiono nel tuo spazio. Finché l’incantesimo dura, i duplicati si muovono con te e imitano le tue azioni, cambiando posizione in modo che sia impossibile distinguere quale immagine sia reale.
 
-Each time a creature hits you with an attack roll during the spell's duration, roll a d6 for each of your remaining duplicates. If any of the d6s rolls a 3 or higher, one of the duplicates is hit instead of you, and the duplicate is destroyed. The duplicates otherwise ignore all other damage and effects. The spell ends when all three duplicates are destroyed.
+Ogni volta che una creatura ti colpisce con un tiro per colpire durante la durata, tira 1d6 per ognuno dei tuoi duplicati rimanenti. Se ottieni 3 o più su uno di questi dadi, uno dei duplicati viene colpito al posto tuo e distrutto. I duplicati ignorano qualsiasi altro danno o effetto. L’incantesimo termina quando tutti e tre i duplicati sono stati distrutti.
 
-A creature is unaffected by this spell if it has the Blinded condition, Blindsight, or Truesight.
+Una creatura non è influenzata da questo incantesimo se ha la condizione **Accecato**, la **Percezione Cieca** o la **Vista Vera**.
 
-#### Mislead
+#### Inganno
 
-*Level 5 Illusion (Bard, Warlock, Wizard)*
+*Livello 5 Illusione (Bardo, Warlock, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Self 
+**Gittata:** Sé 
 
-**Components:** S 
+**Componenti:** S 
 
-**Duration:** Concentration, up to 1 hour
+**Durata:** Concentrazione, fino a 1 ora
 
-You gain the Invisible condition at the same time that an illusory double of you appears where you are standing. The double lasts for the duration, but the invisibility ends immediately after you make an attack roll, deal damage, or cast a spell.
+Ottieni la condizione **Invisibile** mentre, nello stesso momento, un tuo duplicato illusorio appare nel punto in cui ti trovi. Il duplicato dura per la durata, ma l’invisibilità termina immediatamente dopo che effettui un tiro per colpire, infliggi danni o lanci un incantesimo.
 
-As a Magic action, you can move the illusory double up to twice your Speed and make it gesture, speak, and behave in whatever way you choose. It is intangible and invulnerable.
+Come azione **Magia**, puoi muovere il duplicato illusorio fino a due volte la tua Velocità e fargli compiere gesti, parlare e comportarsi come preferisci. È intangibile e invulnerabile.
 
-You can see through its eyes and hear through its ears as if you were located where it is.
+Puoi vedere attraverso i suoi occhi e udire attraverso le sue orecchie come se ti trovassi al suo posto.
 
-#### Misty Step
+#### Passo Velato
 
-*Level 2 Conjuration (Sorcerer, Warlock, Wizard)*
+*Livello 2 Evocazione (Stregone, Warlock, Mago)*
 
-**Casting Time:** Bonus Action 
+**Tempo di Lancio:** Azione Bonus 
 
-**Range:** Self 
+**Gittata:** Sé 
 
-**Components:** V 
+**Componenti:** V 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-Briefly surrounded by silvery mist, you teleport up to 30 feet to an unoccupied space you can see.
+Avvolto per un attimo da una nebbia argentea, ti teletrasporti fino a 9 m in uno spazio non occupato che puoi vedere.
 
-#### Modify Memory
+#### Modificare Memoria
 
-*Level 5 Enchantment (Bard, Wizard)*
+*Livello 5 Ammaliamento (Bardo, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 30 feet 
+**Gittata:** 9 m 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** Concentration, up to 1 minute
+**Durata:** Concentrazione, fino a 1 minuto
 
-You attempt to reshape another creature's memories. One creature that you can see within range makes a Wisdom saving throw. If you are fighting the creature, it has Advantage on the save. On a failed save, the target has the Charmed condition for the duration. While Charmed in this way, the target also has the Incapacitated condition and is unaware of its surroundings, though it can hear you. If it takes any damage or is targeted by another spell, this spell ends, and no memories are modified.
+Cerchi di rimodellare i ricordi di un’altra creatura. Una creatura che puoi vedere entro gittata effettua un tiro salvezza su Saggezza. Se sei in combattimento con essa, ha Vantaggio al tiro. Con un fallimento, il bersaglio ottiene la condizione **Affascinato** per la durata. Finché è Affascinato in questo modo, ottiene anche la condizione **Incapacitato** ed è inconsapevole di ciò che lo circonda, anche se può sentirti. Se subisce danni o è bersagliato da un altro incantesimo, questo incantesimo termina e nessun ricordo viene modificato.
 
-While this charm lasts, you can affect the target's memory of an event that it experienced within the last 24 hours and that lasted no more than 10 minutes. You can permanently eliminate all memory of the event, allow the target to recall the event with perfect clarity, change its memory of the event's details, or create a memory of some other event.
+Finché l’effetto dura, puoi alterare il ricordo di un evento vissuto dal bersaglio nelle ultime 24 ore e della durata massima di 10 minuti. Puoi cancellarne definitivamente la memoria, farglielo ricordare con chiarezza perfetta, modificarne i dettagli oppure creare il ricordo di un altro evento.
 
-You must speak to the target to describe how its memories are affected, and it must be able to understand your language for the modified memories to take root. Its mind fills in any gaps in the details of your description. If the spell ends before you finish describing the modified memories, the creature's memory isn't altered. Otherwise, the modified memories take hold when the spell ends.
+Devi parlare al bersaglio per descrivere come i suoi ricordi vengono alterati, e deve essere in grado di comprendere la tua lingua perché i ricordi modificati attecchiscano. La sua mente colma eventuali lacune nei dettagli della tua descrizione. Se l’incantesimo termina prima che tu abbia finito di descrivere i ricordi modificati, la memoria della creatura non cambia. In caso contrario, i ricordi modificati si fissano quando l’incantesimo termina.
 
-A modified memory doesn't necessarily affect how a creature behaves, particularly if the memory contradicts the creature's natural inclinations, alignment, or beliefs. An illogical modified memory, such as a false memory of how much the creature enjoyed swimming in acid, is dismissed as a bad dream. The GM might deem a modified memory too nonsensical to affect a creature.
+Un ricordo modificato non influenza necessariamente il comportamento della creatura, specialmente se contraddice le sue inclinazioni naturali, l’allineamento o le convinzioni. Un ricordo illogico, come il falso ricordo di quanto la creatura amasse nuotare nell’acido, viene liquidato come un brutto sogno. Il GM può decidere che un ricordo modificato sia troppo assurdo per influenzare una creatura.
 
-A *Remove Curse* or *Greater Restoration* spell cast on the target restores the creature's true memory.
+Un incantesimo *Rimuovi Maledizione* o *Restaurazione Superiore* lanciato sul bersaglio ripristina i suoi veri ricordi.
 
-**_Using a Higher-Level Spell Slot._** You can alter the target's memories of an event that took place up to 7 days ago (level 6 spell slot), 30 days ago (level 7 spell slot), 365 days ago (level 8 spell slot), or any time in the creature's past (level 9 spell slot).
+**_Usare uno Slot di Livello Superiore._** Puoi alterare i ricordi di un evento accaduto fino a 7 giorni fa (slot di livello 6), 30 giorni fa (slot di livello 7), 365 giorni fa (slot di livello 8) o in qualsiasi momento del passato della creatura (slot di livello 9).
 
-#### Moonbeam
+#### Raggio di Luna
 
-*Level 2 Evocation (Druid)*
+*Livello 2 Invocazione (Druido)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 120 feet 
+**Gittata:** 36 m 
 
-**Components:** V, S, M (a moonseed leaf) 
+**Componenti:** V, S, M (una foglia di moonseed) 
 
-**Duration:** Concentration, up to 1 minute A silvery beam of pale light shines down in a 5-foot-radius, 40-foot-high Cylinder centered on a point within range. Until the spell ends, Dim Light fills the Cylinder, and you can take a Magic action on later turns to move the Cylinder up to 60 feet.
+**Durata:** Concentrazione, fino a 1 minuto
 
-When the Cylinder appears, each creature in it makes a Constitution saving throw. On a failed save, a creature takes 2d10 Radiant damage, and if the creature is shape-shifted (as a result of the *Polymorph* spell, for example), it reverts to its true form and can't shape-shift until it leaves the Cylinder. On a successful save, a creature takes half as much damage only. A creature also makes this save when the spell's area moves into its space and when it enters the spell's area or ends its turn there. A creature makes this save only once per turn.
+Un raggio argenteo di luce pallida scende in un **Cilindro** di raggio 1,5 m e altezza 12 m centrato su un punto entro gittata. Finché l’incantesimo dura, il Cilindro è riempito da **Luce Fioca**, e nei turni successivi puoi compiere un’azione **Magia** per muovere il Cilindro fino a 18 m.
 
-**_Using a Higher-Level Spell Slot._** The damage increases by 1d10 for each spell slot level above 2.
+Quando il Cilindro appare, ogni creatura al suo interno effettua un tiro salvezza su Costituzione. Con un fallimento, subisce 2d10 danni Radianti e, se la creatura è trasformata (per esempio dall’incantesimo *Metamorfosi*), ritorna alla sua forma originale e non può trasformarsi finché rimane nel Cilindro. Con un successo, subisce soltanto metà dei danni. Una creatura effettua di nuovo il tiro quando l’area dell’incantesimo si muove nel suo spazio, o quando entra nell’area o vi termina il turno. Una creatura effettua questo tiro solo una volta per turno.
 
-#### Move Earth
+**_Usare uno Slot di Livello Superiore._** I danni aumentano di 1d10 per ogni livello di slot sopra il 2.
 
-*Level 6 Transmutation (Druid, Sorcerer, Wizard)*
+#### Muovere la Terra
 
-**Casting Time:** Action 
+*Livello 6 Trasmutazione (Druido, Stregone, Mago)*
 
-**Range:** 120 feet 
+**Tempo di Lancio:** Azione 
 
-**Components:** V, S, M (a miniature shovel) 
+**Gittata:** 36 m 
 
-**Duration:** Concentration, up to 2 hours
+**Componenti:** V, S, M (una pala in miniatura) 
 
-Choose an area of terrain no larger than 40 feet on a side within range. You can reshape dirt, sand, or clay in the area in any manner you choose for the duration. You can raise or lower the area's elevation, create or fill in a trench, erect or flatten a wall, or form a pillar. The extent of any such changes can't exceed half the area's largest dimension. For example, if you affect a 40-foot square, you can create a pillar up to 20 feet high, raise or lower the square's elevation by up to 20 feet, dig a trench up to 20 feet deep, and so on. It takes 10 minutes for these changes to complete. Because the terrain's transformation occurs slowly, creatures in the area can't usually be trapped or injured by the ground's movement.
+**Durata:** Concentrazione, fino a 2 ore
 
-At the end of every 10 minutes you spend concentrating on the spell, you can choose a new area of terrain to affect within range.
+Scegli un’area di terreno non più grande di 12 m di lato entro gittata. Puoi rimodellare terra, sabbia o argilla in quell’area in qualunque modo tu scelga per la durata. Puoi alzare o abbassare l’elevazione dell’area, creare o riempire una trincea, erigere o appiattire un muro, o formare una colonna. L’entità di tali cambiamenti non può superare la metà della dimensione maggiore dell’area. Per esempio, se influenzi un quadrato di 12 m di lato, puoi creare una colonna alta fino a 6 m, alzare o abbassare il livello del quadrato di 6 m, scavare una trincea profonda fino a 6 m e così via. Questi cambiamenti richiedono 10 minuti per completarsi. Poiché la trasformazione del terreno avviene lentamente, le creature nell’area di solito non possono restare intrappolate o ferite dal movimento del suolo.
 
-This spell can't manipulate natural stone or stone construction. Rocks and structures shift to accommodate the new terrain. If the way you shape the terrain would make a structure unstable, it might collapse.
+Alla fine di ogni periodo di 10 minuti di concentrazione sull’incantesimo, puoi scegliere una nuova area di terreno entro gittata da influenzare.
 
-Similarly, this spell doesn't directly affect plant growth. The moved earth carries any plants along with it.
+Questo incantesimo non può manipolare roccia naturale o costruzioni in pietra. Rocce e strutture si adattano al nuovo terreno, ma se il modo in cui lo modelli rende una struttura instabile, essa potrebbe crollare.
 
-#### Nondetection
+Allo stesso modo, l’incantesimo non influenza direttamente la crescita delle piante. La terra spostata trasporta con sé eventuali piante presenti.
 
-*Level 3 Abjuration (Bard, Ranger, Wizard)*
+#### Non Rilevabilità
 
-**Casting Time:** Action 
+*Livello 3 Abiurazione (Bardo, Ranger, Mago)*
 
-**Range:** Touch
+**Tempo di Lancio:** Azione 
 
-**Components:** V, S, M (a pinch of diamond dust worth 25+ GP, which the spell consumes) 
+**Gittata:** Contatto 
 
-**Duration:** 8 hours
+**Componenti:** V, S, M (un pizzico di polvere di diamante dal valore di almeno 25 MO, che l’incantesimo consuma) 
 
-For the duration, you hide a target that you touch from Divination spells. The target can be a willing creature, or it can be a place or an object no larger than 10 feet in any dimension. The target can't be targeted by any Divination spell or perceived through magical scrying sensors.
+**Durata:** 8 ore
+
+Per la durata, nascondi un bersaglio che tocchi dagli incantesimi di Divinazione. Il bersaglio può essere una creatura consenziente, oppure un luogo o un oggetto non più grande di 3 m in nessuna dimensione. Il bersaglio non può essere preso di mira da alcun incantesimo di Divinazione né percepito tramite sensori magici di scrutamento.
 
 ### P Spells
 
-#### **Passwall**
+#### Passaggio
 
-*Level 5 Transmutation (Wizard)*
+*Livello 5 Trasmutazione (Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 30 feet 
+**Gittata:** 9 m 
 
-**Components:** V, S, M (a pinch of sesame seeds) 
+**Componenti:** V, S, M (un pizzico di semi di sesamo) 
 
-**Duration:** 1 hour
+**Durata:** 1 ora
 
-A passage appears at a point that you can see on a wooden, plaster, or stone surface (such as a wall, ceiling, or floor) within range and lasts for the duration. You choose the opening's dimensions: up to 5 feet wide, 8 feet tall, and 20 feet deep. The passage creates no instability in a structure surrounding it.
+Un passaggio appare in un punto che puoi vedere su una superficie di legno, gesso o pietra (come un muro, un soffitto o un pavimento) entro gittata e dura per la durata. Ne scegli le dimensioni: fino a 1,5 m di larghezza, 2,5 m di altezza e 6 m di profondità. Il passaggio non crea instabilità nella struttura circostante.
 
-When the opening disappears, any creatures or objects still in the passage created by the spell are safely ejected to an unoccupied space nearest to the surface on which you cast the spell.
+Quando l’apertura scompare, eventuali creature o oggetti ancora al suo interno vengono espulsi in sicurezza nello spazio non occupato più vicino alla superficie su cui hai lanciato l’incantesimo.
 
-#### Pass without Trace
+#### Passo Senza Traccia
 
-*Level 2 Abjuration (Druid, Ranger)*
+*Livello 2 Abiurazione (Druido, Ranger)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Self 
+**Gittata:** Sé 
 
-**Components:** V, S, M (ashes from burned mistletoe) 
+**Componenti:** V, S, M (cenere di vischio bruciato) 
 
-**Duration:** Concentration, up to 1 hour
+**Durata:** Concentrazione, fino a 1 ora
 
-You radiate a concealing aura in a 30-foot Emanation for the duration. While in the aura, you and each creature you choose have a +10 bonus to Dexterity (Stealth) checks and leave no tracks.
+Irradi un’aura celante in un’Emanazione di 9 m per la durata. Finché si trovano nell’aura, tu e ciascuna creatura da te scelta ottenete un bonus di +10 alle prove di Destrezza (Furtività) e non lasciate tracce.
 
-#### Phantasmal Force
+#### Forza Illusoria
 
-*Level 2 Illusion (Bard, Sorcerer, Wizard)*
+*Livello 2 Illusione (Bardo, Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V, S, M (a bit of fleece) 
+**Componenti:** V, S, M (un po’ di lana) 
 
-**Duration:** Concentration, up to 1 minute
+**Durata:** Concentrazione, fino a 1 minuto
 
-You attempt to craft an illusion in the mind of a creature you can see within range. The target makes an Intelligence saving throw. On a failed save, you create a phantasmal object, creature, or other phenomenon that is no larger than a 10-foot Cube and that is perceivable only to the target for the duration. The phantasm includes sound, temperature, and other stimuli.
+Cerchi di creare un’illusione nella mente di una creatura che puoi vedere entro gittata. Il bersaglio effettua un tiro salvezza su Intelligenza. Con un fallimento, crei un oggetto, creatura o fenomeno illusorio non più grande di un Cubo di 3 m di lato, percepibile solo dal bersaglio per la durata. L’illusione include suoni, temperatura e altri stimoli.
 
-The target can take a Study action to examine the phantasm with an Intelligence (Investigation) check against your spell save DC. If the check succeeds, the target realizes that the phantasm is an illusion, and the spell ends.
+Il bersaglio può usare un’azione **Studiare** per esaminare l’illusione con una prova di Intelligenza (Indagare) contro la tua CD degli incantesimi. Se ha successo, riconosce che si tratta di un’illusione e l’incantesimo termina.
 
-While affected by the spell, the target treats the phantasm as if it were real and rationalizes any illogical outcomes from interacting with it. For example, if the target steps through a phantasmal bridge and survives the fall, it believes the bridge exists and something else caused it to fall.
+Finché è influenzato dall’incantesimo, il bersaglio tratta l’illusione come reale e razionalizza qualsiasi risultato illogico interagendo con essa. Per esempio, se attraversa un ponte illusorio e sopravvive alla caduta, crede che il ponte esista e che qualcos’altro abbia causato la caduta.
 
-An affected target can even take damage from the illusion if the phantasm represents a dangerous creature or hazard. On each of your turns, such a phantasm can deal 2d8 Psychic damage to the target if it is in the phantasm's area or within 5 feet of the phantasm. The target perceives the damage as a type appropriate to the illusion.
+Un bersaglio influenzato può persino subire danni dall’illusione se essa rappresenta una creatura o un pericolo. In ciascuno dei tuoi turni, tale illusione può infliggere 2d8 danni Psichici al bersaglio se si trova nella sua area o entro 1,5 m da essa. Il bersaglio percepisce i danni come appropriati alla natura dell’illusione.
 
-#### Phantasmal Killer
+#### Uccisore Fantasmico
 
-*Level 4 Illusion (Bard, Wizard)*
+*Livello 4 Illusione (Bardo, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 120 feet 
+**Gittata:** 36 m 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** Concentration, up to 1 minute
+**Durata:** Concentrazione, fino a 1 minuto
 
-You tap into the nightmares of a creature you can see within range and create an illusion of its deepest fears, visible only to that creature. The target makes a Wisdom saving throw. On a failed save, the target takes 4d10 Psychic damage and has Disadvantage on ability checks and attack rolls for the duration. On a successful save, the target takes half as much damage, and the spell ends.
+Ti colleghi agli incubi di una creatura che puoi vedere entro gittata e crei un’illusione delle sue paure più profonde, visibile solo a quella creatura. Il bersaglio effettua un tiro salvezza su Saggezza. Con un fallimento, subisce 4d10 danni Psichici e ha Svantaggio alle prove di caratteristica e ai tiri per colpire per la durata. Con un successo, subisce metà dei danni e l’incantesimo termina.
 
-For the duration, the target makes a Wisdom saving throw at the end of each of its turns. On a failed save, it takes the Psychic damage again. On a successful save, the spell ends.
+Finché dura, il bersaglio ripete il tiro salvezza su Saggezza alla fine di ciascun suo turno. Con un fallimento, subisce nuovamente i danni Psichici. Con un successo, l’incantesimo termina.
 
-**_Using a Higher-Level Spell Slot._** The damage increases by 1d10 for each spell slot level above 4.
+**_Usare uno Slot di Livello Superiore._** I danni aumentano di 1d10 per ogni livello di slot sopra il 4.
 
-#### Phantom Steed
+#### Destriero Fantomatico
 
-*Level 3 Illusion (Wizard)*
+*Livello 3 Illusione (Mago)*
 
-**Casting Time:** 1 minute or Ritual 
+**Tempo di Lancio:** 1 minuto o Rituale 
 
-**Range:** 30 feet 
+**Gittata:** 9 m 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** 1 hour
+**Durata:** 1 ora
 
-A Large, quasi-real, horselike creature appears on the ground in an unoccupied space of your choice within range. You decide the creature's appearance, and it is equipped with a saddle, bit, and bridle. Any of the equipment created by the spell vanishes in a puff of smoke if it is carried more than 10 feet away from the steed.
+Una creatura Cavallo, Grande, quasi reale, appare al suolo in uno spazio non occupato a tua scelta entro gittata. Ne decidi l’aspetto ed è equipaggiata con sella, morso e briglie. Qualsiasi equipaggiamento creato dall’incantesimo svanisce in una nuvola di fumo se portato a più di 3 m dal destriero.
 
-For the duration, you or a creature you choose can ride the steed. The steed uses the **Riding Horse**  stat block (see "Monsters"), except it has a Speed of 100 feet and can travel 13 miles in an hour. When the spell ends, the steed gradually fades, giving the rider 1 minute to dismount. The spell ends early if the steed takes any damage.
+Per la durata, tu o una creatura da te scelta potete cavalcarlo. Il destriero usa il blocco statistiche del **Cavallo da Sella** (vedi “Mostri”), tranne che ha una Velocità di 30 m e può percorrere 21 km in un’ora. Quando l’incantesimo termina, il destriero svanisce gradualmente, dando al cavaliere 1 minuto per smontare. L’incantesimo termina anticipatamente se il destriero subisce danni.
 
-#### Planar Ally
+#### Alleato Planare
 
-*Level 6 Conjuration (Cleric)*
+*Livello 6 Evocazione (Chierico)*
 
-**Casting Time:** 10 minutes 
+**Tempo di Lancio:** 10 minuti 
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-You beseech an otherworldly entity for aid. The being must be known to you: a god, a demon prince, or some other being of cosmic power. That entity sends a Celestial, an Elemental, or a Fiend loyal to it to aid you, making the creature appear in an unoccupied space within range. If you know a specific creature's name, you can speak that name when you cast this spell to request that creature, though you might get a different creature anyway (GM's choice).
+Implori un’entità ultraterrena in cerca di aiuto. L’essere deve esserti noto: un dio, un principe demoniaco o un’altra entità di potere cosmico. Quella entità invia un Celestiale, un Elementale o un Immondo a lei fedele per aiutarti, facendolo apparire in uno spazio non occupato entro gittata. Se conosci il nome di una creatura specifica, puoi pronunciarlo quando lanci l’incantesimo per richiederla, ma potresti comunque ricevere un’altra creatura (a discrezione del GM).
 
-When the creature appears, it is under no compulsion to behave a particular way. You can ask it to perform a service in exchange for payment, but it isn't obliged to do so. The requested task could range from simple (fly us across the chasm, or help us fight a battle) to complex (spy on our enemies, or protect us during our foray into the dungeon). You must be able to communicate with the creature to bargain for its services.
+Quando la creatura appare, non è obbligata ad agire in un certo modo. Puoi chiederle di svolgere un compito in cambio di un pagamento, ma non è obbligata ad accettare. Il compito richiesto può andare dal semplice (trasportarvi oltre un burrone, aiutarvi in battaglia) al complesso (spiare i vostri nemici, proteggervi durante un’incursione in un dungeon). Devi poter comunicare con la creatura per negoziare i termini.
 
-Payment can take a variety of forms. A Celestial might require a sizable donation of gold or magic items to an allied temple, while a Fiend might demand a living sacrifice or a gift of treasure. Some creatures might exchange their service for a quest undertaken by you.
+Il pagamento può assumere forme diverse. Un Celestiale potrebbe richiedere una generosa donazione d’oro o di oggetti magici a un tempio alleato, mentre un Immondo potrebbe esigere un sacrificio vivente o un tesoro. Alcune creature potrebbero accettare di servirti in cambio di una missione da te intrapresa.
 
-A task that can be measured in minutes requires a payment worth 100 GP per minute. A task measured in hours requires 1,000 GP per hour. And a task measured in days (up to 10 days) requires 10,000 GP per day. The GM can adjust these payments based on the circumstances under which you cast the spell. If the task is aligned with the creature's ethos, the payment might be halved or even waived. Nonhazardous tasks typically require only half the suggested payment, while especially dangerous tasks might require a greater gift. Creatures rarely accept tasks that seem suicidal.
+Un compito misurabile in minuti richiede un pagamento di 100 MO per minuto. Un compito in ore richiede 1.000 MO per ora. Un compito in giorni (fino a un massimo di 10 giorni) richiede 10.000 MO al giorno. Il GM può modificare questi costi in base alle circostanze del lancio. Se il compito è allineato con l’etica della creatura, il pagamento può essere dimezzato o addirittura eliminato. Compiti non pericolosi richiedono in genere solo metà del pagamento, mentre compiti particolarmente rischiosi possono richiederne di più. Le creature raramente accettano compiti suicidi.
 
-After the creature completes the task, or when the agreed-upon duration of service expires, the creature returns to its home plane after reporting back to you if possible. If you are unable to agree on a price for the creature's service, the creature immediately returns to its home plane.
+Al termine del compito o della durata concordata, la creatura ritorna al suo piano d’origine, riferendoti quanto fatto, se possibile. Se non trovate un accordo sul pagamento, la creatura torna immediatamente al suo piano.
 
-#### Planar Binding
+#### Vincolo Planare
 
-*Level 5 Abjuration (Bard, Cleric, Druid, Warlock, Wizard)*
+*Livello 5 Abiurazione (Bardo, Chierico, Druido, Warlock, Mago)*
 
-**Casting Time:** 1 hour 
+**Tempo di Lancio:** 1 ora 
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V, S, M (a jewel worth 1,000+ GP, which the spell consumes) 
+**Componenti:** V, S, M (un gioiello dal valore di almeno 1.000 MO, che l’incantesimo consuma) 
 
-**Duration:** 24 hours
+**Durata:** 24 ore
 
-You attempt to bind a Celestial, an Elemental, a Fey, or a Fiend to your service. The creature must be within range for the entire casting of the spell. (Typically, the creature is first summoned into the center of the inverted version of the *Magic Circle* spell to trap it while this spell is cast.) At the completion of the casting, the target must succeed on a Charisma saving throw or be bound to serve you for the duration. If the creature was summoned or created by another spell, that spell's duration is extended to match the duration of this spell.
+Cerchi di vincolare al tuo servizio un Celestiale, un Elementale, una Fatata o un Immondo. La creatura deve restare entro gittata per l’intero tempo di lancio. (Di solito, la creatura viene prima evocata al centro di una versione invertita di *Cerchio Magico* per intrappolarla mentre lanci questo incantesimo.) Al termine del lancio, il bersaglio deve superare un tiro salvezza su Carisma o restare vincolato a servirti per la durata. Se la creatura è stata evocata o creata da un altro incantesimo, la durata di quell’incantesimo si estende per coincidere con la durata di questo.
 
-A bound creature must follow your commands to the best of its ability. You might command the creature to accompany you on an adventure, to guard a location, or to deliver a message. If the creature is Hostile, it strives to twist your commands to achieve its own objectives. If the creature carries out your commands completely before the spell ends, it travels to you to report this fact if you are on the same plane of existence. If you are on a different plane, it returns to the place where you bound it and remains there until the spell ends.
+Una creatura vincolata deve obbedire ai tuoi comandi al meglio delle sue capacità. Potresti ordinarle di accompagnarti in un’avventura, sorvegliare un luogo o consegnare un messaggio. Se la creatura è Ostile, cercherà di distorcere i tuoi comandi per perseguire i propri obiettivi. Se porta a termine completamente i tuoi comandi prima che l’incantesimo termini, tornerà da te per riferirlo se sei sullo stesso piano di esistenza. Se ti trovi su un altro piano, ritorna nel luogo in cui l’hai vincolata e vi rimane finché l’incantesimo dura.
 
-**_Using a Higher-Level Spell Slot._** The duration increases with a spell slot of level 6 (10 days), 7 (30 days), 8 (180 days), and 9 (366 days).
+**_Usare uno Slot di Livello Superiore._** La durata aumenta a 10 giorni (livello 6), 30 giorni (livello 7), 180 giorni (livello 8) o 366 giorni (livello 9).
 
-#### Plane Shift
+#### Spostamento Planare
 
-*Level 7 Conjuration (Cleric, Druid, Sorcerer, Warlock, Wizard)*
+*Livello 7 Evocazione (Chierico, Druido, Stregone, Warlock, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Touch 
+**Gittata:** Contatto 
 
-**Components:** V, S, M (a forked, metal rod worth 250+ GP and attuned to a plane of existence) 
+**Componenti:** V, S, M (una verga metallica biforcuta dal valore di almeno 250 MO e sintonizzata con un piano di esistenza) 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-You and up to eight willing creatures who link hands in a circle are transported to a different plane of existence. You can specify a target destination in general terms, such as a specific city on the Elemental Plane of Fire or palace on the second level of the Nine Hells, and you appear in or near that destination, as determined by the GM.
+Tu e fino a otto creature consenzienti che vi prendete per mano formando un cerchio venite trasportati su un piano di esistenza diverso. Puoi specificare la destinazione in termini generali, come una città sul Piano Elementale del Fuoco o un palazzo nel secondo livello dei Nove Inferni, e apparite in o vicino a quella destinazione, come determinato dal GM.
 
-Alternatively, if you know the sigil sequence of a teleportation circle on another plane of existence, this spell can take you to that circle. If the teleportation circle is too small to hold all the creatures you transported, they appear in the closest unoccupied spaces next to the circle.
+In alternativa, se conosci la sequenza di sigilli di un cerchio di teletrasporto su un altro piano, l’incantesimo può trasportarvi direttamente lì. Se il cerchio è troppo piccolo per contenere tutte le creature trasportate, esse appaiono negli spazi non occupati più vicini al cerchio.
 
-#### Plant Growth
+#### Crescita delle Piante
 
-*Level 3 Transmutation (Bard, Druid, Ranger)*
+*Livello 3 Trasmutazione (Bardo, Druido, Ranger)*
 
-**Casting Time:** Action (Overgrowth) or 8 hours (Enrichment) 
+**Tempo di Lancio:** Azione (Infoltimento) o 8 ore (Arricchimento) 
 
-**Range:** 150 feet 
+**Gittata:** 45 m 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-This spell channels vitality into plants. The casting time you use determines whether the spell has the Overgrowth or the Enrichment effect below.
+Questo incantesimo incanala vitalità nelle piante. Il tempo di lancio scelto determina se l’incantesimo ha l’effetto Infoltimento o Arricchimento, descritti di seguito.
 
-**_Overgrowth._** Choose a point within range. All normal plants in a 100-foot-radius Sphere centered on that point become thick and overgrown. A creature moving through that area must spend 4 feet of movement for every 1 foot it moves. You can exclude one or more areas of any size within the spell's area from being affected.
+**_Infoltimento._** Scegli un punto entro gittata. Tutte le piante normali in una Sfera di raggio 30 m centrata su quel punto diventano fitte e rigogliose. Una creatura che si muove in quell’area deve spendere 1,2 m di movimento per ogni 30 cm percorsi. Puoi escludere una o più aree di qualunque dimensione dall’effetto.
 
-**_Enrichment._** All plants in a half-mile radius centered on a point within range become enriched for 365 days. The plants yield twice the normal amount of food when harvested. They can benefit from only one *Plant Growth* per year.
+**_Arricchimento._** Tutte le piante in un raggio di 800 m centrato su un punto entro gittata vengono arricchite per 366 giorni. Le piante producono il doppio del normale raccolto. Possono beneficiare di una sola *Crescita delle Piante* per anno.
 
-#### Poison Spray
+#### Spruzzo Velenoso
 
-*Necromancy Cantrip (Druid, Sorcerer, Warlock, Wizard)*
+*Trucchetto di Necromanzia (Druido, Stregone, Warlock, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione  
 
-**Range:** 30 feet 
+**Gittata:** 9 m  
 
-**Components:** V, S 
+**Componenti:** V, S  
 
-**Duration:** Instantaneous
+**Durata:** Istantanea  
 
-You spray toxic mist at a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d12 Poison damage.
+Spruzzi una nebbia tossica contro una creatura entro gittata. Effettua un attacco con incantesimo a distanza contro il bersaglio. Se colpisci, subisce 1d12 danni da Veleno.  
 
-**_Cantrip Upgrade._** The damage increases by 1d12 when you reach levels 5 (2d12), 11 (3d12), and 17 (4d12).
+**_Miglioramento Trucchetto._** I danni aumentano di 1d12 ai livelli 5 (2d12), 11 (3d12) e 17 (4d12).  
 
-#### Polymorph
+#### Metamorfosi
 
-*Level 4 Transmutation (Bard, Druid, Sorcerer, Wizard)*
+*Livello 4 Trasmutazione (Bardo, Druido, Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione  
 
-**Range:** 60 feet 
+**Gittata:** 18 m  
 
-**Components:** V, S, M (a caterpillar cocoon) 
+**Componenti:** V, S, M (un bozzolo di bruco)  
 
-**Duration:** Concentration, up to 1 hour
+**Durata:** Concentrazione, fino a 1 ora  
 
-You attempt to transform a creature that you can see within range into a Beast. The target must succeed on a Wisdom saving throw or shape-shift into a Beast form for the duration. That form can be any Beast you choose that has a Challenge Rating equal to or less than the target's (or the target's level if it doesn't have a Challenge Rating). The target's game statistics are replaced by the stat block of the chosen Beast, but the target retains its alignment, personality, creature type, Hit Points, and Hit Point Dice. See the "Animals" section of "Monsters" for a sample of Beast stat blocks.
+Tenti di trasformare una creatura che puoi vedere entro gittata in una Bestia. Il bersaglio deve superare un tiro salvezza su Saggezza o trasformarsi in una Bestia per la durata. La forma può essere qualsiasi Bestia a tua scelta con GS pari o inferiore a quello del bersaglio (o al livello del bersaglio se non ha un GS). Le statistiche di gioco del bersaglio sono sostituite da quelle della Bestia scelta, ma conserva allineamento, personalità, tipo di creatura, Punti Ferita e Dadi Vita. Vedi la sezione "Animali" in "Mostri" per blocchi statistiche di esempio.  
 
-The target gains a number of Temporary Hit Points equal to the Hit Points of the Beast form. These Temporary Hit Points vanish if any remain when the spell ends. The spell ends early on the target if it has no Temporary Hit Points left.
+Il bersaglio ottiene un numero di Punti Ferita Temporanei pari ai PF della Bestia scelta. Questi PF svaniscono alla fine dell’incantesimo. L’incantesimo termina anticipatamente se il bersaglio resta senza PF Temporanei.  
 
-The target is limited in the actions it can perform by the anatomy of its new form, and it can't speak or cast spells.
+Il bersaglio è limitato dalle capacità della sua nuova forma e non può parlare né lanciare incantesimi.  
 
-The target's gear melds into the new form. The creature can't use or otherwise benefit from any of that equipment.
+Il suo equipaggiamento si fonde con la nuova forma e non può essere usato finché vi rimane.  
 
-#### Power Word Heal
+#### Parola del Potere: Guarigione
 
-*Level 9 Enchantment (Bard, Cleric)*
+*Livello 9 Ammaliamento (Bardo, Chierico)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione  
 
-**Range:** 60 feet 
+**Gittata:** 18 m  
 
-**Component:** V 
+**Componenti:** V  
 
-**Duration:** Instantaneous
+**Durata:** Istantanea  
 
-A wave of healing energy washes over one creature you can see within range. The target regains all its Hit Points. If the creature has the Charmed, Frightened, Paralyzed, Poisoned, or Stunned condition, the condition ends. If the creature has the Prone condition, it can use its Reaction to stand up.
+Un’onda di energia curativa avvolge una creatura che puoi vedere entro gittata. Il bersaglio recupera tutti i suoi Punti Ferita. Se aveva le condizioni Affascinato, Spaventato, Paralizzato, Avvelenato o Stordito, esse terminano. Se aveva la condizione Prono, può usare la sua Reazione per rialzarsi.  
 
-#### Power Word Kill
+#### Parola del Potere: Uccisione
 
-*Level 9 Enchantment (Bard, Sorcerer, Warlock, Wizard)*
+*Livello 9 Ammaliamento (Bardo, Stregone, Warlock, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione  
 
-**Range:** 60 feet 
+**Gittata:** 18 m  
 
-**Component:** V 
+**Componenti:** V  
 
-**Duration:** Instantaneous
+**Durata:** Istantanea  
 
-You compel one creature you can see within range to die. If the target has 100 Hit Points or fewer, it dies. Otherwise, it takes 12d12 Psychic damage.
+Costringi una creatura che puoi vedere entro gittata a morire. Se il bersaglio ha 100 PF o meno, muore istantaneamente. Altrimenti, subisce 12d12 danni Psichici.  
 
-#### Power Word Stun
+#### Parola del Potere: Stordimento
 
-*Level 8 Enchantment (Bard, Sorcerer, Warlock, Wizard)*
+*Livello 8 Ammaliamento (Bardo, Stregone, Warlock, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione  
 
-**Range:** 60 feet 
+**Gittata:** 18 m  
 
-**Components:** V 
+**Componenti:** V  
 
-**Duration:** Instantaneous
+**Durata:** Istantanea  
 
-You overwhelm the mind of one creature you can see within range. If the target has 150 Hit Points or fewer, it has the Stunned condition. Otherwise, its Speed is 0 until the start of your next turn.
+Sopraffai la mente di una creatura che puoi vedere entro gittata. Se il bersaglio ha 150 PF o meno, ottiene la condizione Stordito. Altrimenti, la sua Velocità diventa 0 fino all’inizio del tuo prossimo turno.  
 
-The Stunned target makes a Constitution saving throw at the end of each of its turns, ending the condition on itself on a success.
+Il bersaglio Stordito effettua un tiro salvezza su Costituzione alla fine di ciascun suo turno, terminando l’effetto su di sé con un successo.  
 
-#### Prayer of Healing
+#### Preghiera di Guarigione
 
-*Level 2 Abjuration (Cleric, Paladin)*
+*Livello 2 Abiurazione (Chierico, Paladino)*
 
-**Casting Time:** 10 minutes 
+**Tempo di Lancio:** 10 minuti  
 
-**Range:** 30 feet 
+**Gittata:** 9 m  
 
-**Components:** V 
+**Componenti:** V  
 
-**Duration:** Instantaneous
+**Durata:** Istantanea  
 
-Up to five creatures of your choice who remain within range for the spell's entire casting gain the benefits of a Short Rest and also regain 2d8 Hit Points. A creature can't be affected by this spell again until that creature finishes a Long Rest.
+Fino a cinque creature a tua scelta che rimangono entro gittata per l’intera durata del lancio ottengono i benefici di un Riposo Breve e recuperano 2d8 PF. Una creatura non può essere influenzata di nuovo da questo incantesimo finché non completa un Riposo Lungo.  
 
-**_Using a Higher-Level Spell Slot._** The healing increases by 1d8 for each spell slot level above 2.
+**_Usare uno Slot di Livello Superiore._** Le cure aumentano di 1d8 per ogni livello di slot sopra il 2.  
 
-#### Prestidigitation
+#### Prestidigitazione
 
-*Transmutation Cantrip (Bard, Sorcerer, Warlock, Wizard)*
+*Trucchetto di Trasmutazione (Bardo, Stregone, Warlock, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione  
 
-**Range:** 10 feet 
+**Gittata:** 3 m  
 
-**Components:** V, S 
+**Componenti:** V, S  
 
-**Duration:** Up to 1 hour
+**Durata:** Fino a 1 ora  
 
-You create a magical effect within range. Choose the effect from the options below. If you cast this spell multiple times, you can have up to three of its non-instantaneous effects active at a time.
+Crei un effetto magico entro gittata. Scegli l’effetto dalle opzioni seguenti. Se lanci questo incantesimo più volte, puoi avere fino a tre effetti non istantanei attivi contemporaneamente.  
 
-**_Sensory Effect._** You create an instantaneous, harmless sensory effect, such as a shower of sparks,
+**_Effetto Sensoriale._** Crei un effetto sensoriale istantaneo e innocuo, come scintille, una folata di vento, note musicali flebili o un odore insolito.  
+**_Gioco di Fuoco._** Accendi o spegni istantaneamente una candela, una torcia o un piccolo falò.  
+**_Pulire o Sporcare._** Pulisci o sporchi istantaneamente un oggetto non più grande di 30 cm per lato.  
+**_Sensazione Minore._** Raffreddi, riscaldi o insaporisci fino a 30 cm³ di materiale inanimato per 1 ora.  
+**_Marchio Magico._** Fai apparire un colore, un piccolo segno o un simbolo su un oggetto o superficie per 1 ora.  
+**_Creazione Minore._** Crei un gingillo non magico o un’immagine illusoria che può stare nel palmo della mano. Dura fino alla fine del tuo prossimo turno. Un gingillo non infligge danni e non ha valore economico.  
 
-a puff of wind, faint musical notes, or an odd odor. *Fire Play.* You instantaneously light or snuff out a candle, a torch, or a small campfire.
+#### Spruzzo Prismatico
 
-**_Clean or Soil._** You instantaneously clean or soil an object no larger than 1 cubic foot.
+*Livello 7 Invocazione (Bardo, Stregone, Mago)*
 
-**_Minor Sensation._** You chill, warm, or flavor up to 1 cubic foot of nonliving material for 1 hour.
+**Tempo di Lancio:** Azione  
 
-**_Magic Mark._** You make a color, a small mark, or a symbol appear on an object or a surface for 1 hour.
+**Gittata:** Sé  
 
-**_Minor Creation._** You create a nonmagical trinket or an illusory image that can fit in your hand. It lasts until the end of your next turn. A trinket can deal no damage and has no monetary worth.
+**Componenti:** V, S  
 
-#### Prismatic Spray
+**Durata:** Istantanea  
 
-*Level 7 Evocation (Bard, Sorcerer, Wizard)*
+Otto raggi di luce balenano da te in un Cono di 18 m. Ogni creatura nel Cono effettua un tiro salvezza su Destrezza. Per ciascun bersaglio, tira 1d8 per determinare quale raggio lo colpisce, consultando la tabella Raggi Prismati.  
 
-**Casting Time:** Action 
+Tabella: Raggi Prismati  
 
-**Range:** Self 
+| 1d8 | Raggio |  
+|-----|--------|  
+| 1   | **Rosso.** *Fallimento:* 12d6 danni da Fuoco. *Successo:* metà danni. |  
+| 2   | **Arancione.** *Fallimento:* 12d6 danni da Acido. *Successo:* metà danni. |  
+| 3   | **Giallo.** *Fallimento:* 12d6 danni da Fulmine. *Successo:* metà danni. |  
+| 4   | **Verde.** *Fallimento:* 12d6 danni da Veleno. *Successo:* metà danni. |  
+| 5   | **Blu.** *Fallimento:* 12d6 danni da Ghiaccio. *Successo:* metà danni. |  
+| 6   | **Indaco.** *Fallimento:* condizione Immobilizzato. Alla fine di ogni turno effettua un TS su Costituzione. Con 3 successi termina l’effetto. Con 3 fallimenti ottiene la condizione Pietrificato finché non viene liberato da un effetto come *Restaurazione Superiore*. |  
+| 7   | **Viola.** *Fallimento:* condizione Accecato. All’inizio del tuo prossimo turno effettua un TS su Saggezza: con un successo termina. Con un fallimento termina comunque, ma la creatura viene teletrasportata su un altro piano a scelta del GM. |  
+| 8   | **Speciale.** Il bersaglio è colpito da due raggi. Tira due volte, ritirando gli 8. |  
 
-**Components:** V, S 
+#### Muro Prismatico
 
-**Duration:** Instantaneous
+*Livello 9 Abiurazione (Bardo, Mago)*
 
-Eight rays of light flash from you in a 60-foot Cone. Each creature in the Cone makes a Dexterity saving throw. For each target, roll 1d8 to determine which color ray affects it, consulting the Prismatic Rays table.
+**Tempo di Lancio:** Azione  
 
-Table: Prismatic Rays
+**Gittata:** 18 m  
 
-| 1d8 | Ray                                                                                       |
-|-----|-------------------------------------------------------------------------------------------|
-| 1   | **Red.** *Failed Save:* 12d6 Fire damage. *Successful Save:* Half as much damage.         |
-| 2   | **Orange.** *Failed Save:* 12d6 Acid damage. *Successful Save:* Half as much damage.      |
-| 3   | **Yellow.** *Failed Save:* 12d6 Lightning damage. *Successful Save:* Half as much damage. |
-| 4   | **Green.** *Failed Save:* 12d6 Poison damage. *Successful Save:* Half as much damage.     |
-| 5   | **Blue.** *Failed Save:* 12d6 Cold damage. *Successful Save:* Half as much damage.        |
-| 6   | **Indigo.** *Failed Save:* The target has the Restrained condition and makes a Constitution saving throw at the end of each of its turns. If it successfully saves three times, the condition ends. If it fails three times, it has the Petrified condition until it is freed by an effect like the *Greater Restoration* spell. The successes and failures needn't be consecutive; keep track of both until the target collects three of a kind. |
-| 7   | **Violet.** *Failed Save:* The target has the Blinded condition and makes a Wisdom saving throw at the start of your next turn. On a successful save, the condition ends. On a failed save, the condition ends, and the creature teleports to another plane of existence (GM's choice). |
-| 8   | **Special.** The target is struck by two rays. Roll twice, rerolling any 8.               |
+**Componenti:** V, S  
 
-#### Prismatic Wall
+**Durata:** 10 minuti  
 
-*Level 9 Abjuration (Bard, Wizard)*
+Un piano scintillante di luce multicolore forma un muro opaco verticale—fino a 27 m di lunghezza, 9 m di altezza e 2,5 cm di spessore—centrato su un punto entro gittata. In alternativa, puoi modellare il muro come una sfera fino a 9 m di diametro centrata su un punto entro gittata. Dura per la durata. Se posizioni il muro in uno spazio occupato da una creatura, l’incantesimo termina senza effetto.  
 
-**Casting Time:** Action 
+Il muro irradia Luce Intensa entro 30 m e Luce Fioca per ulteriori 30 m. Tu e le creature designate al lancio potete attraversarlo senza danno. Qualsiasi altra creatura che può vederlo e si avvicina entro 6 m o inizia lì il turno deve superare un TS su Costituzione o ottenere la condizione Accecato per 1 minuto.  
 
-**Range:** 60 feet 
+Il muro è composto da sette strati, ognuno con un colore e un effetto diversi (vedi tabella Strati Prismati). Una creatura che lo attraversa deve superare i tiri di ciascuno strato nell’ordine. Ogni strato può essere distrutto solo con metodi specifici. *Campo Antimagia* non ha effetto, e *Dissolvi Magie* influisce solo sullo strato viola.  
 
-**Components:** V, S 
+Tabella: Strati Prismati  
 
-**Duration:** 10 minutes
+| Ordine | Effetti |  
+|--------|---------|  
+| 1 Rosso   | 12d6 Fuoco (TS metà). Attacchi a distanza non magici non passano. Distrutto da 25 danni da Ghiaccio. |  
+| 2 Arancione | 12d6 Acido (TS metà). Attacchi a distanza magici non passano. Distrutto da un vento forte (*Folata di Vento*). |  
+| 3 Giallo   | 12d6 Fulmine (TS metà). Distrutto da 60 danni da Forza. |  
+| 4 Verde    | 12d6 Veleno (TS metà). Distrutto da *Passwall* o simili. |  
+| 5 Blu      | 12d6 Ghiaccio (TS metà). Distrutto da 25 danni da Fuoco. |  
+| 6 Indaco   | Immobilizzato → Pietrificato (come nello *Spruzzo Prismatico*). Blocca il lancio di incantesimi. Distrutto da *Luce Diurna*. |  
+| 7 Viola    | Accecato → Teletrasportato (come nello *Spruzzo Prismatico*). Distrutto da *Dissolvi Magie*. |  
 
-A shimmering, multicolored plane of light forms a vertical opaque wall—up to 90 feet long, 30 feet high, and 1 inch thick—centered on a point within range. Alternatively, you shape the wall into a globe up to 30 feet in diameter centered on a point within range. The wall lasts for the duration. If you position the wall in a space occupied by a creature, the spell ends instantly without effect.
+#### Santuario Privato
 
-The wall sheds Bright Light within 100 feet and Dim Light for an additional 100 feet. You and creatures you designate when you cast the spell can pass through and be near the wall without harm. If another creature that can see the wall moves within 20 feet of it or starts its turn there, the creature must succeed on a Constitution saving throw or have the Blinded condition for 1 minute.
+*Livello 4 Abiurazione (Mago)*
 
-The wall consists of seven layers, each with a different color. When a creature reaches into or passes through the wall, it does so one layer at a time through all the layers. Each layer forces the creature to make a Dexterity saving throw or be affected by that layer's properties as described in the Prismatic Layers table.
+**Tempo di Lancio:** 10 minuti  
 
-The wall, which has AC 10, can be destroyed one layer at a time, in order from red to violet, by means specific to each layer. If a layer is destroyed, it is gone for the duration. *Antimagic Field* has no effect on the wall, and *Dispel Magic* can affect only the violet layer.
+**Gittata:** 36 m  
 
-Table: Prismatic Layers
+**Componenti:** V, S, M (un sottile foglio di piombo)  
 
-| Order | Effects                      |
-|-------|------------------------------|
-| 1     | **Red.** *Failed Save:* 12d6 Fire damage. *Successful Save:* Half as much damage. *Additional Effects*: Nonmagical ranged attacks can't pass through this layer, which is destroyed if it takes at least 25 Cold damage. |
-| 2     | **Orange.** *Failed Save:* 12d6 Acid damage. *Successful Save:* Half as much damage. *Additional Effects:* Magical ranged attacks can't pass through this layer, which is destroyed by a strong wind (such as the one created by *Gust of Wind*). |
-| 3     | **Yellow.** *Failed Save:* 12d6 Lightning damage. *Successful Save:* Half as much damage. *Additional Effects:* The layer is destroyed if it takes at least 60 Force damage. |
-| 4     | **Green.** *Failed Save:* 12d6 Poison damage. *Successful Save:* Half as much damage. *Additional Effects:* A *Passwall* spell, or another spell of equal or greater level that can open a portal on a solid surface, destroys this layer. |
-| 5     | **Blue.** *Failed Save:* 12d6 Cold damage. *Successful Save:* Half as much damage. *Additional Effects:* The layer is destroyed if it takes at least 25 Fire damage. |
-| 6     | **Indigo.** *Failed Save:* The target has the Restrained condition and makes a Constitution saving throw at the end of each of its turns. If it successfully saves three times, the condition ends. If it fails three times, it has the Petrified condition until it is freed by an effect like the *Greater Restoration* spell. The successes and failures needn't be consecutive; keep track of both until the target collects three of a kind. *Additional Effects:* Spells can't be cast through this layer, which is destroyed by Bright Light shed by the *Daylight* spell. |
-| 7     | **Violet.** *Failed Save:* The target has the Blinded condition and makes a Wisdom saving throw at the start of your next turn. On a successful save, the condition ends. On a failed save, the condition ends, and the creature teleports to another plane of existence (GM's choice). *Additional Effects:* This layer is destroyed by *Dispel Magic*. |
+**Durata:** 24 ore  
 
-#### Private Sanctum
+Rendi magicamente sicura un’area entro gittata, un Cubo di lato da 1,5 m fino a 30 m. Dura per la durata.  
 
-*Level 4 Abjuration (Wizard)*
+Quando lo lanci, scegli quali proprietà conferisce:  
+- Il suono non può attraversare i confini.  
+- I bordi appaiono oscurati e nebbiosi, impedendo la vista (anche Scurovisione).  
+- Sensori da incantesimi di Divinazione non possono apparire all’interno o passare i confini.  
+- Le creature all’interno non possono essere bersaglio di Divinazione.  
+- Nessuno può teletrasportarsi dentro o fuori.  
+- Viaggi planari sono bloccati.  
 
-**Casting Time:** 10 minutes 
+Lanciare l’incantesimo nello stesso punto per 366 giorni consecutivi lo rende permanente fino a dissipazione.  
 
-**Range:** 120 feet 
+**_Usare uno Slot di Livello Superiore._** La dimensione del Cubo aumenta di 30 m per ogni livello di slot sopra il 4.  
 
-**Components:** V, S, M (a thin sheet of lead) 
+#### Produrre Fiamma
 
-**Duration:** 24 hours
+*Trucchetto di Evocazione (Druido)*
 
-You make an area within range magically secure. The area is a Cube that can be as small as 5 feet to as large as 100 feet on each side. The spell lasts for the duration.
+**Tempo di Lancio:** Azione Bonus 
 
-When you cast the spell, you decide what sort of security the spell provides, choosing any of the following properties:
+**Gittata:** Sé 
 
-- Sound can't pass through the barrier at the edge of the warded area.
-- The barrier of the warded area appears dark and foggy, preventing vision (including Darkvision) through it.
-- Sensors created by Divination spells can't appear inside the protected area or pass through the barrier at its perimeter.
-- Creatures in the area can't be targeted by Divination spells.
-- Nothing can teleport into or out of the warded area.
-- Planar travel is blocked within the warded area.
+**Componenti:** V, S 
 
-Casting this spell on the same spot every day for 365 days makes the spell last until dispelled.
+**Durata:** 10 minuti
 
-**_Using a Higher-Level Spell Slot._** You can increase the size of the Cube by 100 feet for each spell slot level above 4.
+Una fiamma tremolante appare nella tua mano e vi rimane per la durata. Finché è lì, la fiamma non emette calore né incendia nulla, ed emana **Luce Intensa** in un raggio di 6 m e **Luce Fioca** per ulteriori 6 m. L’incantesimo termina se lo lanci di nuovo.
 
-#### Produce Flame
+Finché l’incantesimo dura, puoi compiere un’azione **Magia** per scagliare il fuoco contro una creatura o un oggetto entro 18 m da te. Effettua un attacco con incantesimo a distanza. Se colpisci, il bersaglio subisce 1d8 danni da Fuoco.
 
-*Conjuration Cantrip (Druid)*
+**_Miglioramento Trucchetto._** I danni aumentano di 1d8 ai livelli 5 (2d8), 11 (3d8) e 17 (4d8).
 
-**Casting Time:** Bonus Action 
+#### Illusione Programmata
 
-**Range:** Self 
+*Livello 6 Illusione (Bardo, Mago)*
 
-**Components:** V, S 
+**Tempo di Lancio:** Azione 
 
-**Duration:** 10 minutes
+**Gittata:** 36 m
 
-A flickering flame appears in your hand and remains there for the duration. While there, the flame emits no heat and ignites nothing, and it sheds Bright Light in a 20-foot radius and Dim Light for an additional 20 feet. The spell ends if you cast it again.
+**Componenti:** V, S, M (polvere di giada dal valore di almeno 25 MO) 
 
-Until the spell ends, you can take a Magic action to hurl fire at a creature or an object within 60 feet of you. Make a ranged spell attack. On a hit, the target takes 1d8 Fire damage.
+**Durata:** Fino a dissipazione
 
-**_Cantrip Upgrade._** The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).
+Crei l’illusione di un oggetto, una creatura o un altro fenomeno visibile entro gittata che si attiva quando avviene un innesco specifico. L’illusione è impercettibile fino ad allora. Non può superare un **Cubo** di 9 m di lato e, al lancio, ne decidi comportamento e suoni. Questa “sceneggiatura” può durare fino a 5 minuti.
 
-#### Programmed Illusion
+Quando si verifica l’innesco, l’illusione prende forma ed esegue quanto descritto. Terminata l’esecuzione, scompare e resta inattiva per 10 minuti, dopo i quali può attivarsi di nuovo.
 
-*Level 6 Illusion (Bard, Wizard)*
+L’innesco può essere generico o dettagliato, ma deve basarsi su fenomeni visivi o uditivi che avvengono entro 9 m dall’area. Per esempio, potresti creare un’illusione di te stesso che appare per avvertire chi tenta di aprire una porta trappola.
 
-**Casting Time:** Action 
+L’interazione fisica con l’immagine rivela la natura illusoria, poiché gli oggetti la attraversano. Una creatura che usa l’azione **Studiare** per esaminarla può stabilire che è un’illusione con una prova di Intelligenza (Indagare) contro la tua CD degli incantesimi. Se la distingue, può vederle attraverso e i suoni le paiono vuoti.
 
-**Range:** 120 feet
+#### Proiezione d’Immagine
 
-**Components:** V, S, M (jade dust worth 25+ GP) 
+*Livello 7 Illusione (Bardo, Mago)*
 
-**Duration:** Until dispelled
+**Tempo di Lancio:** Azione 
 
-You create an illusion of an object, a creature, or some other visible phenomenon within range that activates when a specific trigger occurs. The illusion is imperceptible until then. It must be no larger than a 30-foot Cube, and you decide when you cast the spell how the illusion behaves and what sounds it makes. This scripted performance can last up to 5 minutes.
+**Gittata:** 800 km 
 
-When the trigger you specify occurs, the illusion springs into existence and performs in the manner you described. Once the illusion finishes performing, it disappears and remains dormant for 10 minutes, after which the illusion can be activated again.
+**Componenti:** V, S, M (una statuetta di te stesso dal valore di almeno 5 MO)
 
-The trigger can be as general or as detailed as you like, though it must be based on visual or audible phenomena that occur within 30 feet of the area. For example, you could create an illusion of yourself to appear and warn off others who attempt to open a trapped door.
+**Durata:** Concentrazione, fino a 1 giorno
 
-Physical interaction with the image reveals it to be illusory, since things can pass through it. A creature that takes the Study action to examine the image can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the creature can see through the image, and any noise it makes sounds hollow to the creature.
+Crei una copia illusoria di te stesso che dura per la durata. La copia può apparire in qualsiasi luogo entro gittata che tu abbia già visto, a prescindere dagli ostacoli. L’illusione ha il tuo aspetto e la tua voce, ma è intangibile. Se subisce danni, svanisce e l’incantesimo termina.
 
-#### Project Image
+Puoi vedere attraverso i suoi occhi e udire attraverso le sue orecchie come se fossi nel suo spazio. Come azione **Magia**, puoi muoverla fino a 18 m e farle compiere gesti, parlare e comportarsi come desideri. Imiterà alla perfezione le tue maniere.
 
-*Level 7 Illusion (Bard, Wizard)*
+L’interazione fisica rivela l’illusione. Una creatura che usa **Studiare** può smascherarla con una prova di Intelligenza (Indagare) contro la tua CD degli incantesimi; se ci riesce, la vede attraverso e i suoni paiono cavi.
 
-**Casting Time:** Action 
+#### Protezione dall’Energia
 
-**Range:** 500 miles 
+*Livello 3 Abiurazione (Chierico, Druido, Ranger, Stregone, Mago)*
 
-**Components:** V, S, M (a statuette of yourself worth 5+ GP)
+**Tempo di Lancio:** Azione 
 
-**Duration:** Concentration, up to 1 day
+**Gittata:** Contatto 
 
-You create an illusory copy of yourself that lasts for the duration. The copy can appear at any location within range that you have seen before, regardless of intervening obstacles. The illusion looks and sounds like you, but it is intangible. If the illusion takes any damage, it disappears, and the spell ends.
+**Componenti:** V, S 
 
-You can see through the illusion's eyes and hear through its ears as if you were in its space. As a Magic action, you can move it up to 60 feet and make it gesture, speak, and behave in whatever way you choose. It mimics your mannerisms perfectly.
+**Durata:** Concentrazione, fino a 1 ora
 
-Physical interaction with the image reveals it to be illusory, since things can pass through it. A creature that takes the Study action to examine the image can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the creature can see through the image, and any noise it makes sounds hollow to the creature.
+Per la durata, la creatura consenziente che tocchi ottiene **Resistenza** a un tipo di danno a tua scelta: **Acido, Freddo, Fuoco, Fulmine** o **Tuono**.
 
-#### Protection from Energy
+#### Protezione dal Bene e dal Male
 
-*Level 3 Abjuration (Cleric, Druid, Ranger, Sorcerer, Wizard)*
+*Livello 1 Abiurazione (Chierico, Druido, Paladino, Warlock, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Touch 
+**Gittata:** Contatto 
 
-**Components:** V, S 
+**Componenti:** V, S, M (una fiasca di Acqua Santa dal valore di almeno 25 MO, che l’incantesimo consuma) 
 
-**Duration:** Concentration, up to 1 hour
+**Durata:** Concentrazione, fino a 10 minuti
 
-For the duration, the willing creature you touch has Resistance to one damage type of your choice: Acid, Cold, Fire, Lightning, or Thunder.
+Finché dura, una creatura consenziente che tocchi è protetta dalle creature **Aberrazioni, Celestiali, Elementali, Fatate, Immondi** o **Non Morti**. La protezione concede diversi benefici: le creature di quei tipi hanno **Svantaggio** ai tiri per colpire contro il bersaglio. Inoltre il bersaglio non può essere posseduto né ottenere da esse le condizioni **Affascinato** o **Spaventato**. Se è già posseduto, Affascinato o Spaventato da una tale creatura, ha **Vantaggio** su ogni nuovo tiro salvezza contro l’effetto rilevante.
 
-#### Protection from Evil and Good
+#### Protezione dal Veleno
 
-*Level 1 Abjuration (Cleric, Druid, Paladin, Warlock, Wizard)*
+*Livello 2 Abiurazione (Chierico, Druido, Paladino, Ranger)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Touch 
+**Gittata:** Contatto 
 
-**Components:** V, S, M (a flask of Holy Water worth 25+ GP, which the spell consumes) 
+**Componenti:** V, S 
 
-**Duration:** Concentration up to 10 minutes
+**Durata:** 1 ora
 
-Until the spell ends, one willing creature you touch is protected against creatures that are Aberrations, Celestials, Elementals, Fey, Fiends, or Undead. The protection grants several benefits. Creatures of those types have Disadvantage on attack rolls against the target. The target also can't be possessed by or gain the Charmed or Frightened conditions from them. If the target is already possessed, Charmed, or Frightened by such a creature, the target has Advantage on any new saving throw against the relevant effect.
+Tocchi una creatura e termini su di essa la condizione **Avvelenato**. Per la durata, il bersaglio ha **Vantaggio** ai tiri salvezza per evitare o terminare la condizione Avvelenato e ha **Resistenza** ai danni da **Veleno**.
 
-#### Protection from Poison
+#### Purificare Cibo e Bevande
 
-*Level 2 Abjuration (Cleric, Druid, Paladin, Ranger)*
+*Livello 1 Trasmutazione (Chierico, Druido, Paladino)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione o Rituale 
 
-**Range:** Touch 
+**Gittata:** 3 m 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** 1 hour
+**Durata:** Istantanea
 
-You touch a creature and end the Poisoned condition on it. For the duration, the target has Advantage on saving throws to avoid or end the Poisoned condition, and it has Resistance to Poison damage.
+Rimuovi veleni e marciume da cibi e bevande non magici in una **Sfera** di raggio 1,5 m centrata su un punto entro gittata.
 
-#### Purify Food and Drink
+### Incantesimi R
 
-*Level 1 Transmutation (Cleric, Druid, Paladin)*
+#### Resuscitare
 
-**Casting Time:** Action or Ritual 
+*Livello 5 Necromanzia (Bardo, Chierico, Paladino)*
 
-**Range:** 10 feet 
+**Tempo di Lancio:** 1 ora 
 
-**Components:** V, S 
+**Gittata:** Contatto 
 
-**Duration:** Instantaneous
+**Componenti:** V, S, M (un diamante dal valore di almeno 500 MO, che l’incantesimo consuma) 
 
-You remove poison and rot from nonmagical food and drink in a 5-foot-radius Sphere centered on a point within range.
+**Durata:** Istantanea
 
-### R Spells
+Con un tocco, riporti in vita una creatura morta da non più di 10 giorni e che non fosse **Non Morta** al momento della morte.
 
-#### Raise Dead
+La creatura ritorna in vita con 1 Punto Ferita. Questo incantesimo neutralizza anche eventuali veleni che la affliggevano al momento della morte.
 
-*Level 5 Necromancy (Bard, Cleric, Paladin)*
+L’incantesimo chiude tutte le ferite mortali, ma non ripristina parti del corpo mancanti. Se alla creatura mancano parti o organi essenziali alla sopravvivenza—per esempio la testa—l’incantesimo fallisce automaticamente.
 
-**Casting Time:** 1 hour 
+Tornare dalla morte è un supplizio. Il bersaglio subisce una penalità di **−4** alle **Prove su d20**. Ogni volta che completa un **Riposo Lungo**, la penalità si riduce di 1 fino a un minimo di 0.
 
-**Range:** Touch 
+#### Raggio d’Indebolimento
 
-**Components:** V, S, M (a diamond worth 500+ GP, which the spell consumes) 
+*Livello 2 Necromanzia (Warlock, Mago)*
 
-**Duration:** Instantaneous
+**Tempo di Lancio:** Azione 
 
-With a touch, you revive a dead creature if it has been dead no longer than 10 days and it wasn't Undead when it died.
+**Gittata:** 18 m 
 
-The creature returns to life with 1 Hit Point. This spell also neutralizes any poisons that affected the creature at the time of death.
+**Componenti:** V, S 
 
-This spell closes all mortal wounds, but it doesn't restore missing body parts. If the creature is lacking body parts or organs integral for its survival its head, for instance—the spell automatically fails.
+**Durata:** Concentrazione, fino a 1 minuto
 
-Coming back from the dead is an ordeal. The target takes a −4 penalty to D20 Tests. Every time the target finishes a Long Rest, the penalty is reduced by 1 until it becomes 0.
+Un raggio di energia debilitante parte da te verso una creatura entro gittata. Il bersaglio effettua un tiro salvezza su Costituzione. Con un **successo**, ha **Svantaggio** al prossimo tiro per colpire che effettua fino all’inizio del tuo prossimo turno.
 
-#### Ray of Enfeeblement
+Con un **fallimento**, ha **Svantaggio** alle **Prove su d20 basate su Forza** per la durata e sottrae **1d8** da tutti i suoi tiri per i danni. Ripete il tiro salvezza alla fine di ciascun suo turno, terminando l’incantesimo su di sé con un successo.
 
-*Level 2 Necromancy (Warlock, Wizard)*
+#### Raggio di Gelo
 
-**Casting Time:** Action 
+*Trucchetto di Invocazione (Stregone, Mago)*
 
-**Range:** 60 feet 
+**Tempo di Lancio:** Azione 
 
-**Components:** V, S 
+**Gittata:** 18 m 
 
-**Duration:** Concentration, up to 1 minute
+**Componenti:** V, S 
 
-A beam of enervating energy shoots from you toward a creature within range. The target must make a Constitution saving throw. On a successful save, the target has Disadvantage on the next attack roll it makes until the start of your next turn.
+**Durata:** Istantanea
 
-On a failed save, the target has Disadvantage on Strength-based D20 Tests for the duration. During that time, it also subtracts 1d8 from all its damage rolls. The target repeats the save at the end of each of its turns, ending the spell on a success.
+Un raggio gelido di luce bianco-azzurra sfreccia verso una creatura entro gittata. Effettua un attacco con incantesimo a distanza. Se colpisci, il bersaglio subisce 1d8 danni da **Freddo** e la sua **Velocità** si riduce di **3 m** fino all’inizio del tuo prossimo turno.
 
-#### Ray of Frost
+**_Miglioramento Trucchetto._** I danni aumentano di 1d8 ai livelli 5 (2d8), 11 (3d8) e 17 (4d8).
 
-*Evocation Cantrip (Sorcerer, Wizard)*
+#### Rigenerare
 
-**Casting Time:** Action 
+*Livello 7 Trasmutazione (Bardo, Chierico, Druido)*
 
-**Range:** 60 feet 
+**Tempo di Lancio:** 1 minuto 
 
-**Components:** V, S 
+**Gittata:** Contatto 
 
-**Duration:** Instantaneous
+**Componenti:** V, S, M (una ruota di preghiera) 
 
-A frigid beam of blue-white light streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, it takes 1d8 Cold damage, and its Speed is reduced by 10 feet until the start of your next turn.
+**Durata:** 1 ora
 
-**_Cantrip Upgrade._** The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).
+Una creatura che tocchi recupera 4d8 + 15 Punti Ferita. Per la durata, il bersaglio recupera 1 Punto Ferita all’inizio di ciascun suo turno e qualunque parte del corpo recisa ricresce dopo 2 minuti.
 
-#### Regenerate
+#### Raggio di Malattia
 
-*Level 7 Transmutation (Bard, Cleric, Druid)*
+*Livello 1 Necromanzia (Stregone, Mago)*
 
-**Casting Time:** 1 minute 
+**Tempo di Lancio:** Azione 
 
-**Range:** Touch 
+**Gittata:** 18 m 
 
-**Components:** V, S, M (a prayer wheel) 
+**Componenti:** V, S 
 
-**Duration:** 1 hour
+**Durata:** Istantanea
 
-A creature you touch regains 4d8 + 15 Hit Points. For the duration, the target regains 1 Hit Point at the start of each of its turns, and any severed body parts regrow after 2 minutes.
+Scagli un raggio verdastro verso una creatura entro gittata. Effettua un attacco con incantesimo a distanza. Se colpisci, il bersaglio subisce 2d8 danni da Veleno e ottiene la condizione **Avvelenato** fino alla fine del tuo prossimo turno.
 
-#### Ray of Sickness
+**_Usare uno Slot di Livello Superiore._** I danni aumentano di 1d8 per ogni livello di slot sopra il 1.
 
-*Level 1 Necromancy (Sorcerer, Wizard)*
+#### Reincarnazione
 
-**Casting Time:** Action 
+*Livello 5 Necromanzia (Druido)*
 
-**Range:** 60 feet 
+**Tempo di Lancio:** 1 ora 
 
-**Components:** V, S 
+**Gittata:** Contatto 
 
-**Duration:** Instantaneous
+**Componenti:** V, S, M (oli rari dal valore di almeno 1.000 MO, che l’incantesimo consuma) 
 
-You shoot a greenish ray at a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 Poison damage and has the Poisoned condition until the end of your next turn.
+**Durata:** Istantanea
 
-**_Using a Higher-Level Spell Slot._** The damage increases by 1d8 for each spell slot level above 1.
+Tocchi un Umanoide morto o una sua parte. Se la creatura è morta da non più di 10 giorni, l’incantesimo le forma un nuovo corpo e richiama l’anima a entrarvi. Tira 1d10 e consulta la tabella sottostante per determinare la nuova specie del corpo, oppure il GM sceglie un’altra specie giocabile.
 
-#### Reincarnate
+| 1d10 | Specie     |
+|------|------------|
+| 1    | Tira di nuovo |
+| 2    | Dragonide  |
+| 3    | Nano       |
+| 4    | Elfo       |
+| 5    | Gnomo      |
+| 6    | Goliath    |
+| 7    | Halfling   |
+| 8    | Umano      |
+| 9    | Orco       |
+| 10   | Tiefling   |
 
-*Level 5 Necromancy (Druid)*
+La creatura reincarnata compie le scelte offerte dalla descrizione della nuova specie e ricorda la sua vita precedente. Mantiene le capacità che aveva nella forma originale, ma perde i tratti della vecchia specie e ottiene quelli della nuova.
 
-**Casting Time:** 1 hour 
+#### Rimuovere Maledizione
 
-**Range:** Touch 
+*Livello 3 Abiurazione (Chierico, Paladino, Warlock, Mago)*
 
-**Components:** V, S, M (rare oils worth 1,000+ GP, which the spell consumes) 
+**Tempo di Lancio:** Azione 
 
-**Duration:** Instantaneous
+**Gittata:** Contatto
 
-You touch a dead Humanoid or a piece of one. If the creature has been dead no longer than 10 days, the spell forms a new body for it and calls the soul to enter that body. Roll 1d10 and consult the table below to determine the body's species, or the GM chooses another playable species.
+**Componenti:** V, S 
 
-| 1d10 | Species     |
-|------|-------------|
-| 1    | Roll again. |
-| 2    | Dragonborn  |
-| 3    | Dwarf       |
-| 4    | Elf         |
-| 5    | Gnome       |
-| 6    | Goliath     |
-| 7    | Halfling    |
-| 8    | Human       |
-| 9    | Orc         |
-| 10   | Tiefling    |
+**Durata:** Istantanea
 
-The reincarnated creature makes any choices that a species' description offers, and the creature recalls its former life. It retains the capabilities it had in its original form, except it loses the traits of its previous species and gains the traits of its new one.
+Con un tocco, termini tutte le maledizioni che influenzano una creatura o un oggetto. Se l’oggetto è un oggetto magico maledetto, la maledizione resta, ma l’incantesimo interrompe la Sintonia del proprietario, permettendo di rimuovere o scartare l’oggetto.
 
-#### Remove Curse
+#### Sfera Resiliente
 
-*Level 3 Abjuration (Cleric, Paladin, Warlock, Wizard)*
+*Livello 4 Abiurazione (Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Touch
+**Gittata:** 9 m 
 
-**Components:** V, S 
+**Componenti:** V, S, M (una sfera di vetro) 
 
-**Duration:** Instantaneous
+**Durata:** Concentrazione, fino a 1 minuto
 
-At your touch, all curses affecting one creature or object end. If the object is a cursed magic item, its curse remains, but the spell breaks its owner's Attunement to the object so it can be removed or discarded.
+Una sfera scintillante racchiude una creatura o un oggetto Grande o più piccolo entro gittata. Una creatura non consenziente deve superare un tiro salvezza su Destrezza o rimanere intrappolata per la durata.
 
-#### Resilient Sphere
+Nulla—né oggetti fisici, né energia, né effetti magici—può attraversare la barriera in entrata o in uscita, anche se una creatura all’interno può respirare. La sfera è immune a tutti i danni, e una creatura o un oggetto al suo interno non può essere danneggiato da attacchi o effetti provenienti dall’esterno, né può danneggiare nulla all’esterno.
 
-*Level 4 Abjuration (Wizard)*
+La sfera è priva di peso e grande appena abbastanza da contenere la creatura o l’oggetto. Una creatura intrappolata può usare un’azione per spingere contro le pareti della sfera e farla rotolare fino a metà della propria Velocità. Allo stesso modo, altre creature possono sollevare e spostare la sfera.
 
-**Casting Time:** Action 
+Un incantesimo di *Disintegrazione* che prende di mira la sfera la distrugge senza danneggiare nulla al suo interno.
 
-**Range:** 30 feet 
+#### Resistenza
 
-**Components:** V, S, M (a glass sphere) 
+*Trucchetto di Abiurazione (Chierico, Druido)*
 
-**Duration:** Concentration, up to 1 minute
+**Tempo di Lancio:** Azione 
 
-A shimmering sphere encloses a Large or smaller creature or object within range. An unwilling creature must succeed on a Dexterity saving throw or be enclosed for the duration.
+**Gittata:** Contatto 
 
-Nothing—not physical objects, energy, or other spell effects—can pass through the barrier, in or out, though a creature in the sphere can breathe there. The sphere is immune to all damage, and a creature or object inside can't be damaged by attacks or effects originating from outside, nor can a creature inside the sphere damage anything outside it.
+**Componenti:** V, S 
 
-The sphere is weightless and just large enough to contain the creature or object inside. An enclosed creature can take an action to push against the sphere's walls and thus roll the sphere at up to half the creature's Speed. Similarly, the globe can be picked up and moved by other creatures.
+**Durata:** Concentrazione, fino a 1 minuto
 
-A *Disintegrate* spell targeting the globe destroys it without harming anything inside.
+Tocchi una creatura consenziente e scegli un tipo di danno: **Acido, Contundente, Freddo, Fuoco, Fulmine, Necrotico, Perforante, Veleno, Radiante, Tagliente** o **Tuono**. Quando la creatura subisce danni di quel tipo prima che l’incantesimo termini, riduce i danni subiti di 1d4. Una creatura può beneficiare di questo incantesimo solo una volta per turno.
 
-#### Resistance
+#### Resurrezione
 
-*Abjuration Cantrip (Cleric, Druid)*
+*Livello 7 Necromanzia (Bardo, Chierico)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** 1 ora 
 
-**Range:** Touch 
+**Gittata:** Contatto 
 
-**Component:** V, S 
+**Componenti:** V, S, M (un diamante dal valore di almeno 1.000 MO, che l’incantesimo consuma) 
 
-**Duration:** Concentration, up to 1 minute
+**Durata:** Istantanea
 
-You touch a willing creature and choose a damage type: Acid, Bludgeoning, Cold, Fire, Lightning, Necrotic, Piercing, Poison, Radiant, Slashing, or Thunder. When the creature takes damage of the chosen type before the spell ends, the creature reduces the total damage taken by 1d4. A creature can benefit from this spell only once per turn.
+Con un tocco, riporti in vita una creatura morta da non più di un secolo, che non sia morta di vecchiaia e che non fosse Non Morta quando è morta.
 
-#### Resurrection
+La creatura ritorna con tutti i suoi Punti Ferita. Questo incantesimo neutralizza anche i veleni presenti al momento della morte, chiude tutte le ferite mortali e ripristina eventuali parti del corpo mancanti.
 
-*Level 7 Necromancy (Bard, Cleric)*
+Tornare dalla morte è un supplizio. Il bersaglio subisce una penalità di **−4** alle Prove su d20. Ogni volta che completa un Riposo Lungo, la penalità si riduce di 1 fino a un minimo di 0.
 
-**Casting Time:** 1 hour 
+Se lanci questo incantesimo per riportare in vita una creatura morta da 366 giorni o più, subisci un peso enorme. Finché non completi un Riposo Lungo, non puoi lanciare incantesimi e hai Svantaggio alle Prove su d20.
 
-**Range:** Touch 
+#### Gravità Invertita
 
-**Components:** V, S, M (a diamond worth 1,000+ GP, which the spell consumes) 
+*Livello 7 Trasmutazione (Druido, Stregone, Mago)*
 
-**Duration:** Instantaneous
+**Tempo di Lancio:** Azione 
 
-With a touch, you revive a dead creature that has been dead for no more than a century, didn't die of old age, and wasn't Undead when it died.
+**Gittata:** 30 m 
 
-The creature returns to life with all its Hit Points. This spell also neutralizes any poisons that affected the creature at the time of death. This spell closes all mortal wounds and restores any missing body parts.
+**Componenti:** V, S, M (una calamita e limatura di ferro) 
 
-Coming back from the dead is an ordeal. The target takes a −4 penalty to D20 Tests. Every time the target finishes a Long Rest, the penalty is reduced by 1 until it becomes 0.
+**Durata:** Concentrazione, fino a 1 minuto
 
-Casting this spell to revive a creature that has been dead for 365 days or longer taxes you. Until you finish a Long Rest, you can't cast spells again, and you have Disadvantage on D20 Tests.
+Inverti la gravità in un Cilindro di raggio 15 m e altezza 30 m centrato su un punto entro gittata. Tutte le creature e gli oggetti nell’area che non sono ancorati al terreno cadono verso l’alto fino a raggiungere la sommità del Cilindro. Una creatura può effettuare un tiro salvezza su Destrezza per afferrarsi a un oggetto fisso a portata, evitando così la caduta verso l’alto.
 
-#### Reverse Gravity
+Se durante la caduta al contrario viene incontrato un soffitto o un oggetto ancorato, le creature e gli oggetti lo colpiscono come in una normale caduta. Se raggiungono la sommità senza urtare nulla, rimangono sospesi per la durata. Quando l’incantesimo termina, gli oggetti e le creature ricadono verso il basso.
 
-*Level 7 Transmutation (Druid, Sorcerer, Wizard)*
+#### Rianimare
 
-**Casting Time:** Action 
+*Livello 3 Necromanzia (Chierico, Druido, Paladino, Ranger)*
 
-**Range:** 100 feet 
+**Tempo di Lancio:** Azione 
 
-**Components:** V, S, M (a lodestone and iron filings) 
+**Gittata:** Contatto 
 
-**Duration:** Concentration, up to 1 minute
+**Componenti:** V, S, M (un diamante dal valore di almeno 300 MO, che l’incantesimo consuma) 
 
-This spell reverses gravity in a 50-foot-radius, 100 foot high Cylinder centered on a point within range. All creatures and objects in that area that aren't anchored to the ground fall upward and reach the top of the Cylinder. A creature can make a Dexterity saving throw to grab a fixed object it can reach, thus avoiding the fall upward.
+**Durata:** Istantanea
 
-If a ceiling or an anchored object is encountered in this upward fall, creatures and objects strike it just as they would during a downward fall. If an affected creature or object reaches the Cylinder's top without striking anything, it hovers there for the duration. When the spell ends, affected objects and creatures fall downward.
+Tocchi una creatura morta da non più di 1 minuto. Quella creatura ritorna in vita con 1 Punto Ferita. Questo incantesimo non può riportare in vita una creatura morta di vecchiaia né ripristinare parti mancanti del corpo.
 
-#### Revivify
+#### Trucco della Corda
 
-*Level 3 Necromancy (Cleric, Druid, Paladin, Ranger)*
+*Livello 2 Trasmutazione (Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Touch 
+**Gittata:** Contatto 
 
-**Components:** V, S, M (a diamond worth 300+ GP, which the spell consumes) 
+**Componenti:** V, S, M (un segmento di corda) 
 
-**Duration:** Instantaneous
+**Durata:** 1 ora
 
-You touch a creature that has died within the last minute. That creature revives with 1 Hit Point. This spell can't revive a creature that has died of old age, nor does it restore any missing body parts.
+Tocchi una corda. Un’estremità si solleva e resta sospesa finché la corda non pende perpendicolare al suolo o finché non raggiunge un soffitto. All’estremità superiore della corda si apre un portale invisibile di 90 × 150 cm verso uno spazio extradimensionale che dura per la durata. Si può accedervi arrampicandosi sulla corda, che può essere tirata all’interno o lasciata penzolare.
 
-#### Rope Trick
+Lo spazio può contenere fino a otto creature Medie o più piccole. Attacchi, incantesimi ed effetti non possono attraversarlo in entrata o in uscita, ma le creature al suo interno possono vedere attraverso il portale. Tutto ciò che si trova nello spazio cade fuori quando l’incantesimo termina.
 
-*Level 2 Transmutation (Wizard)*
+#### Fiamma Sacra
 
-**Casting Time:** Action 
+*Trucchetto di Invocazione (Chierico)*
 
-**Range:** Touch 
+**Tempo di Lancio:** Azione 
 
-**Components:** V, S, M (a segment of rope) 
+**Gittata:** 18 m 
 
-**Duration:** 1 hour
+**Componenti:** V, S 
 
-You touch a rope. One end of it hovers upward until the rope hangs perpendicular to the ground or the rope reaches a ceiling. At the rope's upper end, an Invisible 3-foot-by-5-foot portal opens to an extradimensional space that lasts until the spell ends. That space can be reached by climbing the rope, which can be pulled into or dropped out of it.
+**Durata:** Istantanea
 
-The space can hold up to eight Medium or smaller creatures. Attacks, spells, and other effects can't pass into or out of the space, but creatures inside it can see through the portal. Anything inside the space drops out when the spell ends.
+Una radiosità simile a fiamme scende su una creatura che puoi vedere entro gittata. Il bersaglio deve superare un tiro salvezza su Destrezza o subire 1d8 danni Radianti. Per questo tiro, il bersaglio non beneficia di Mezza Copertura né di Copertura ai Tre Quarti.
 
-### S Spells
+**_Miglioramento Trucchetto._** I danni aumentano di 1d8 ai livelli 5 (2d8), 11 (3d8) e 17 (4d8).
 
-#### Sacred Flame
+#### Santuario
 
-*Evocation Cantrip (Cleric)*
+*Livello 1 Abiurazione (Chierico)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione Bonus 
 
-**Range:** 60 feet 
+**Gittata:** 9 m 
 
-**Components:** V, S 
+**Componenti:** V, S, M (un frammento di specchio) 
 
-**Duration:** Instantaneous
+**Durata:** 1 minuto
 
-Flame-like radiance descends on a creature that you can see within range. The target must succeed on a Dexterity saving throw or take 1d8 Radiant damage. The target gains no benefit from Half Cover or Three-Quarters Cover for this save.
+Proteggi una creatura entro gittata. Finché dura, ogni creatura che la bersaglia con un tiro per colpire o con un incantesimo che infligge danni deve superare un tiro salvezza su Saggezza o scegliere un nuovo bersaglio o perdere l’attacco/incantesimo. Questo incantesimo non protegge dalle Aree d’Effetto. L’incantesimo termina se la creatura protetta effettua un tiro per colpire, lancia un incantesimo o infligge danni.
 
-**_Cantrip Upgrade._** The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).
+#### Raggio Rovente
 
-#### Sanctuary
+*Livello 2 Invocazione (Stregone, Mago)*
 
-*Level 1 Abjuration (Cleric)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Bonus Action 
+**Gittata:** 36 m 
 
-**Range:** 30 feet 
+**Componenti:** V, S 
 
-**Components:** V, S, M (a shard of glass from a mirror) 
+**Durata:** Istantanea
 
-**Duration:** 1 minute
+Scagli tre raggi di fuoco. Puoi indirizzarli contro un unico bersaglio entro gittata o contro più bersagli. Effettua un attacco con incantesimo a distanza per ciascun raggio. Se colpisci, il bersaglio subisce 2d6 danni da Fuoco.
 
-You ward a creature within range. Until the spell ends, any creature who targets the warded creature with an attack roll or a damaging spell must succeed on a Wisdom saving throw or either choose a new target or lose the attack or spell. This spell doesn't protect the warded creature from areas of effect. The spell ends if the warded creature makes an attack roll, casts a spell, or deals damage.
+**_Usare uno Slot di Livello Superiore._** Crei un raggio aggiuntivo per ogni livello di slot sopra il 2.
 
-#### Scorching Ray
+#### Scrutare
 
-*Level 2 Evocation (Sorcerer, Wizard)*
+*Livello 5 Divinazione (Bardo, Chierico, Druido, Warlock, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** 10 minuti 
 
-**Range:** 120 feet 
+**Gittata:** Sé
 
-**Components:** V, S 
+**Componenti:** V, S, M (un focus dal valore di almeno 1.000 MO, come una sfera di cristallo, uno specchio o un catino d’acqua) 
 
-**Duration:** Instantaneous
+**Durata:** Concentrazione, fino a 10 minuti
 
-You hurl three fiery rays. You can hurl them at one target within range or at several. Make a ranged spell attack for each ray. On a hit, the target takes 2d6 Fire damage.
+Puoi vedere e udire una creatura a tua scelta sul tuo stesso piano di esistenza. Il bersaglio effettua un tiro salvezza su Saggezza, modificato in base a quanto lo conosci e al legame fisico che hai con esso (vedi tabelle). Il bersaglio non sa contro cosa sta tirando, solo che si sente a disagio.
 
-**_Using a Higher-Level Spell Slot._** You create one additional ray for each spell slot level above 2.
+| Quanto conosci il bersaglio… | Modificatore al TS |
+|------------------------------|--------------------|
+| Per sentito dire             | +5                 |
+| Di persona (incontrato)      | +0                 |
+| Intimamente (lo conosci bene)| −5                 |
 
-#### Scrying
+| Possiedi del bersaglio…      | Modificatore al TS |
+|------------------------------|--------------------|
+| Immagine o effigie           | −2                 |
+| Indumento o possesso         | −4                 |
+| Parte del corpo, ciocca di capelli o unghia | −10 |
 
-*Level 5 Divination (Bard, Cleric, Druid, Warlock, Wizard)*
+Con un successo, il bersaglio non è influenzato e non puoi bersagliarlo di nuovo per 24 ore.
 
-**Casting Time:** 10 minutes 
+Con un fallimento, l’incantesimo crea un sensore Invisibile e intangibile entro 3 m dal bersaglio. Puoi vedere e udire tramite il sensore come se fossi lì; il sensore si muove col bersaglio, restando entro 3 m per la durata. Se visibile, appare come un globo luminoso grande quanto un pugno.
 
-**Range:** Self
+In alternativa puoi bersagliare un luogo che hai visto: il sensore appare lì e non si muove.
 
-**Components:** V, S, M (a focus worth 1,000+ GP, such as a crystal ball, mirror, or water-filled font) 
+#### Castigo Ustionante
 
-**Duration:** Concentration, up to 10 minutes
+*Livello 1 Invocazione (Paladino)*
 
-You can see and hear a creature you choose that is on the same plane of existence as you. The target makes a Wisdom saving throw, which is modified (see the tables below) by how well you know the target and the sort of physical connection you have to it. The target doesn't know what it is making the save against, only that it feels uneasy.
+**Tempo di Lancio:** Azione Bonus, immediatamente dopo aver colpito un bersaglio con un’arma da mischia o un Colpo Senz’Armi
 
-| Your Knowledge of the Target Is …       | Save Modifier |
-|-----------------------------------------|---------------|
-| Secondhand (heard of the target)        | +5            |
-| Firsthand (met the target)              | +0            |
-| Extensive (know the target well)        | −5            |
+**Gittata:** Sé 
 
-| You Have the Target's …                 | Save Modifier |
-|-----------------------------------------|---------------|
-| Picture or other likeness               | −2            |
-| Garment or other possession             | −4            |
-| Body part, lock of hair, or bit of nail | −10           |
+**Componenti:** V 
 
-On a successful save, the target isn't affected, and you can't use this spell on it again for 24 hours.
+**Durata:** 1 minuto
 
-On a failed save, the spell creates an Invisible, intangible sensor within 10 feet of the target. You can see and hear through the sensor as if you were there. The sensor moves with the target, remaining within 10 feet of it for the duration. If something can see the sensor, it appears as a luminous orb about the size of your fist.
+Quando colpisci, il bersaglio subisce 1d6 danni da Fuoco aggiuntivi. All’inizio di ciascun suo turno finché l’incantesimo dura, il bersaglio subisce 1d6 danni da Fuoco e poi effettua un tiro salvezza su Costituzione. Con un fallimento, l’effetto continua; con un successo, l’incantesimo termina.
 
-Instead of targeting a creature, you can target a location you have seen. When you do so, the sensor appears at that location and doesn't move.
+**_Usare uno Slot di Livello Superiore._** Tutti i danni aumentano di 1d6 per ogni livello di slot sopra il 1.
 
-#### Searing Smite
+#### Scrigno Segreto
 
-*Level 1 Evocation (Paladin)*
+*Livello 4 Evocazione (Mago)*
 
-**Casting Time:** Bonus Action, which you take immediately after hitting a target with a Melee weapon or an Unarmed Strike
+**Tempo di Lancio:** Azione
 
-**Range:** Self 
+**Gittata:** Contatto
 
-**Component:** V 
+**Componenti:** V, S, M (uno scrigno 90×60×60 cm costruito con materiali rari dal valore di almeno 5.000 MO e una replica Minuscola dello scrigno degli stessi materiali dal valore di almeno 50 MO)
 
-**Duration:** 1 minute
+**Durata:** Fino a dissipazione
 
-As you hit the target, it takes an extra 1d6 Fire damage from the attack. At the start of each of its turns until the spell ends, the target takes 1d6 Fire damage and then makes a Constitution saving throw. On a failed save, the spell continues. On a successful save, the spell ends.
+Nascondi lo scrigno e il suo contenuto sul Piano Etereo. Devi toccare lo scrigno e la replica, che fungono da componenti materiali. Lo scrigno può contenere fino a 0,34 m³ di materiale inanimato (90×60×60 cm).
 
-**_Using a Higher-Level Spell Slot._** All the damage increases by 1d6 for each spell slot level above 1.
+Finché lo scrigno è sul Piano Etereo, puoi compiere un’azione **Magia** e toccare la replica per richiamarlo: appare in uno spazio non occupato entro 1,5 m da te. Puoi rimandarlo sul Piano Etereo con un’azione **Magia** toccando scrigno e replica.
 
-#### Secret Chest
+Dopo 60 giorni, c’è una probabilità cumulativa del 5% alla fine di ogni giorno che l’incantesimo termini. Termina anche se lo rilanci o se la replica Minuscola viene distrutta. Se l’incantesimo termina mentre lo scrigno maggiore è sul Piano Etereo, rimane lì per essere trovato.
 
-*Level 4 Conjuration (Wizard)*
+#### Vedere l’Invisibilità
 
-**Casting Time:** Action
+*Livello 2 Divinazione (Bardo, Stregone, Mago)*
 
-**Range:** Touch
+**Tempo di Lancio:** Azione 
 
-**Components:** V, S, M (a chest, 3 feet by 2 feet by 2 feet, constructed from rare materials worth 5,000+ GP, and a Tiny replica of the chest made from the same materials worth 50+ GP)
+**Gittata:** Sé 
 
-**Duration:** Until dispelled
+**Componenti:** V, S, M (un pizzico di talco) 
 
-You hide a chest and all its contents on the Ethereal Plane. You must touch the chest and the miniature replica that serve as Material components for the spell. The chest can contain up to 12 cubic feet of nonliving material (3 feet by 2 feet by 2 feet).
+**Durata:** 1 ora
 
-While the chest remains on the Ethereal Plane, you can take a Magic action and touch the replica to recall the chest. It appears in an unoccupied space on the ground within 5 feet of you. You can send the chest back to the Ethereal Plane by taking a Magic action to touch the chest and the replica.
+Per la durata, vedi creature e oggetti con la condizione **Invisibile** come se fossero visibili e puoi vedere nel Piano Etereo, dove creature e oggetti appaiono evanescenti.
 
-After 60 days, there is a cumulative 5 percent chance at the end of each day that the spell ends. The spell also ends if you cast this spell again or if the Tiny replica chest is destroyed. If the spell ends and the larger chest is on the Ethereal Plane, the chest remains there for you or someone else to find.
+#### Parvenza
 
-#### See Invisibility
+*Livello 5 Illusione (Bardo, Stregone, Mago)*
 
-*Level 2 Divination (Bard, Sorcerer, Wizard)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** 9 m 
 
-**Range:** Self 
+**Componenti:** V, S 
 
-**Components:** V, S, M (a pinch of talc) 
+**Durata:** 8 ore
 
-**Duration:** 1 hour
+Conferisci un aspetto illusorio a ciascuna creatura a tua scelta che puoi vedere entro gittata. Un bersaglio non consenziente può effettuare un tiro salvezza su Carisma; con un successo non è influenzato.
 
-For the duration, you see creatures and objects that have the Invisible condition as if they were visible, and you can see into the Ethereal Plane. Creatures and objects there appear ghostly.
+Puoi dare a tutti lo stesso aspetto o aspetto diverso. L’incantesimo può cambiare aspetto di corpo ed equipaggiamento. Puoi far sembrare ciascuna creatura più bassa o alta di 30 cm e più pesante o leggera. Il nuovo aspetto deve mantenere la stessa disposizione di arti, ma per il resto è a tua discrezione. Dura per la durata.
 
-#### Seeming
+Le modifiche non reggono l’ispezione fisica: per esempio, se aggiungi un cappello, gli oggetti lo attraversano.
 
-*Level 5 Illusion (Bard, Sorcerer, Wizard)*
+Una creatura che usa l’azione **Studiare** per esaminare un bersaglio può effettuare una prova di Intelligenza (Indagare) contro la tua CD; con un successo, capisce che è travestito.
 
-**Casting Time:** Action 
+#### Invio di Messaggio
 
-**Range:** 30 feet 
+*Livello 3 Divinazione (Bardo, Chierico, Mago)*
 
-**Components:** V, S 
+**Tempo di Lancio:** Azione 
 
-**Duration:** 8 hours
+**Gittata:** Illimitata 
 
-You give an illusory appearance to each creature of your choice that you can see within range. An unwilling target can make a Charisma saving throw, and if it succeeds, it is unaffected by this spell.
+**Componenti:** V, S, M (un filo di rame) 
 
-You can give the same appearance or different ones to the targets. The spell can change the appearance of the targets' bodies and equipment. You can make each creature seem 1 foot shorter or taller and appear heavier or lighter. A target's new appearance must have the same basic arrangement of limbs as the target, but the extent of the illusion is otherwise up to you. The spell lasts for the duration.
+**Durata:** Istantanea
 
-The changes wrought by this spell fail to hold up to physical inspection. For example, if you use this spell to add a hat to a creature's outfit, objects pass through the hat.
+Invii un breve messaggio di 25 parole o meno a una creatura che hai incontrato, o descritta da qualcuno che l’ha incontrata. Il bersaglio sente il messaggio nella mente, ti riconosce se ti conosce e può rispondere immediatamente allo stesso modo. L’incantesimo fa sì che i bersagli comprendano il messaggio.
 
-A creature that takes the Study action to examine a target can make an Intelligence (Investigation) check against your spell save DC. If it succeeds, it becomes aware that the target is disguised.
+Puoi inviarlo a qualsiasi distanza e anche su altri piani, ma se il bersaglio è su un altro piano c’è il 5% di probabilità che il messaggio non arrivi; sai se fallisce.
 
-#### Sending
+Dopo aver ricevuto il messaggio, una creatura può bloccare ulteriori tentativi da parte tua per 8 ore; se provi di nuovo, sai di essere bloccato e l’incantesimo fallisce.
 
-*Level 3 Divination (Bard, Cleric, Wizard)*
+#### Segregare
 
-**Casting Time:** Action 
+*Livello 7 Trasmutazione (Mago)*
 
-**Range:** Unlimited 
+**Tempo di Lancio:** Azione 
 
-**Components:** V, S, M (a copper wire) 
+**Gittata:** Contatto 
 
-**Duration:** Instantaneous
+**Componenti:** V, S, M (polvere di gemme dal valore di almeno 5.000 MO, che l’incantesimo consuma) 
 
-You send a short message of 25 words or fewer to a creature you have met or a creature described to you by someone who has met it. The target hears the message in its mind, recognizes you as the sender if it knows you, and can answer in a like manner immediately. The spell enables targets to understand the meaning of your message.
+**Durata:** Fino a dissipazione
 
-You can send the message across any distance and even to other planes of existence, but if the target is on a different plane than you, there is a 5 percent chance that the message doesn't arrive. You know if the delivery fails.
+Con un tocco, segreghi magicamente un oggetto o una creatura consenziente. Per la durata, il bersaglio ha la condizione **Invisibile** e non può essere bersagliato da incantesimi di Divinazione, rilevato dalla magia o osservato a distanza con la magia.
 
-Upon receiving your message, a creature can block your ability to reach it again with this spell for 8 hours. If you try to send another message during that time, you learn that you are blocked, and the spell fails.
+Se il bersaglio è una creatura, entra in animazione sospesa: ha la condizione **Incosciente**, non invecchia e non necessita di cibo, acqua o aria.
 
-#### Sequester
+Puoi impostare una condizione per far terminare l’incantesimo in anticipo. Può essere qualsiasi cosa, purché avvenga o sia visibile entro 1,6 km dal bersaglio (esempi: “dopo 1.000 anni” o “quando il tarrasque si risveglia”). L’incantesimo termina anche se il bersaglio subisce danni.
 
-*Level 7 Transmutation (Wizard)*
+#### Mutare Forma
 
-**Casting Time:** Action 
+*Livello 9 Trasmutazione (Druido, Mago)*
 
-**Range:** Touch 
+**Tempo di Lancio:** Azione 
 
-**Components:** V, S, M (gem dust worth 5,000+ GP, which the spell consumes) 
+**Gittata:** Sé 
 
-**Duration:** Until dispelled
+**Componenti:** V, S, M (un diadema di giada dal valore di almeno 1.500 MO) 
 
-With a touch, you magically sequester an object or a willing creature. For the duration, the target has the Invisible condition and can't be targeted by Divination spells, detected by magic, or viewed remotely with magic.
+**Durata:** Concentrazione, fino a 1 ora
 
-If the target is a creature, it enters a state of suspended animation; it has the Unconscious condition, doesn't age, and doesn't need food, water, or air.
+Assumi la forma di un’altra creatura per la durata, o finché non usi un’azione **Magia** per assumere un’altra forma idonea. La nuova forma deve avere un GS non superiore al tuo livello o al tuo GS. Devi aver visto il tipo di creatura e non può essere un Costrutto o un Non Morto.
 
-You can set a condition for the spell to end early. The condition can be anything you choose, but it must occur or be visible within 1 mile of the target. Examples include "after 1,000 years" or "when the tarrasque awakens." This spell also ends if the target takes any damage.
+Quando lanci l’incantesimo, ottieni un numero di **Punti Ferita Temporanei** pari ai PF della prima forma assunta. Questi PF svaniscono quando l’incantesimo termina.
 
-#### Shapechange
+Le tue statistiche di gioco sono sostituite dal blocco statistiche della forma scelta, ma conservi tipo di creatura; allineamento; personalità; Intelligenza, Saggezza e Carisma; Punti Ferita; Dadi Vita; competenze; e capacità di comunicare. Se possiedi **Lancio di Incantesimi**, lo mantieni.
 
-*Level 9 Transmutation (Druid, Wizard)*
+Quando ti trasformi, decidi se l’equipaggiamento cade a terra oppure si adatta in taglia e forma per la nuova forma mentre la mantieni.
 
-**Casting Time:** Action 
+#### Frantumare
 
-**Range:** Self 
+*Livello 2 Invocazione (Bardo, Stregone, Mago)*
 
-**Components:** V, S, M (a jade circlet worth 1,500+ GP) 
+**Tempo di Lancio:** Azione 
 
-**Duration:** Concentration, up to 1 hour
+**Gittata:** 18 m 
 
-You shape-shift into another creature for the duration or until you take a Magic action to shape-shift into a different eligible form. The new form must be of a creature that has a Challenge Rating no higher than your level or Challenge Rating. You must have seen the sort of creature before, and it can't be a Construct or an Undead.
+**Componenti:** V, S, M (una scheggia di mica) 
 
-When you cast the spell, you gain a number of Temporary Hit Points equal to the Hit Points of the first form into which you shape-shift. These Temporary Hit Points vanish if any remain when the spell ends.
+**Durata:** Istantanea
 
-Your game statistics are replaced by the stat block of the chosen form, but you retain your creature type; alignment; personality; Intelligence, Wisdom, and Charisma scores; Hit Points; Hit Point Dice; proficiencies; and ability to communicate. If you have the Spellcasting feature, you retain it too.
+Un fragore esplode da un punto a tua scelta entro gittata. Ogni creatura in una **Sfera** di raggio 3 m centrata lì effettua un tiro salvezza su Costituzione, subendo 3d8 danni da **Tuono** con un fallimento o metà con un successo. Un **Costrutto** ha Svantaggio al tiro.
 
-Upon shape-shifting, you determine whether your equipment drops to the ground or changes in size and shape to fit the new form while you're in it.
+Un oggetto non magico non indossato o trasportato nell’area subisce anch’esso i danni.
 
-#### Shatter
+**_Usare uno Slot di Livello Superiore._** I danni aumentano di 1d8 per ogni livello di slot sopra il 2.
 
-*Level 2 Evocation (Bard, Sorcerer, Wizard)*
+#### Scudo
 
-**Casting Time:** Action 
+*Livello 1 Abiurazione (Stregone, Mago)*
 
-**Range:** 60 feet 
+**Tempo di Lancio:** Reazione, che usi quando vieni colpito da un tiro per colpire o quando sei bersaglio dell’incantesimo *Dardo Incantato*
 
-**Components:** V, S, M (a chip of mica) 
+**Gittata:** Sé
 
-**Duration:** Instantaneous
+**Componenti:** V, S 
 
-A loud noise erupts from a point of your choice within range. Each creature in a 10-foot-radius Sphere centered there makes a Constitution saving throw, taking 3d8 Thunder damage on a failed save or half as much damage on a successful one. A Construct has Disadvantage on the save.
+**Durata:** 1 round
 
-A nonmagical object that isn't being worn or carried also takes the damage if it's in the spell's area.
+Una barriera impercettibile di forza magica ti protegge. Fino all’inizio del tuo prossimo turno, hai un bonus di **+5** alla **CA**, incluso contro l’attacco che ha innescato la reazione, e non subisci danni da *Dardo Incantato*.
 
-**_Using a Higher-Level Spell Slot._** The damage increases by 1d8 for each spell slot level above 2.
+#### Scudo della Fede
 
-#### Shield
+*Livello 1 Abiurazione (Chierico, Paladino)*
 
-*Level 1 Abjuration (Sorcerer, Wizard)*
+**Tempo di Lancio:** Azione Bonus 
 
-**Casting Time:** Reaction, which you take when you are hit by an attack roll or targeted by the *Magic Missile* spell
+**Gittata:** 18 m 
 
-**Range:** Self
+**Componenti:** V, S, M (una pergamena di preghiera) 
 
-**Components:** V, S 
+**Durata:** Concentrazione, fino a 10 minuti
 
-**Duration:** 1 round
-
-An imperceptible barrier of magical force protects you. Until the start of your next turn, you have a +5 bonus to AC, including against the triggering attack, and you take no damage from *Magic Missile*.
-
-#### Shield of Faith
-
-*Level 1 Abjuration (Cleric, Paladin)*
-
-**Casting Time:** Bonus Action 
-
-**Range:** 60 feet 
-
-**Components:** V, S, M (a prayer scroll) 
-
-**Duration:** Concentration, up to 10 minutes
-
-A shimmering field surrounds a creature of your choice within range, granting it a +2 bonus to AC for the duration.
+Un campo scintillante circonda una creatura a tua scelta entro gittata, concedendole un bonus di **+2** alla **CA** per la durata.
 
 #### Shillelagh
 
-*Transmutation Cantrip (Druid)*
+*Trucchetto di Trasmutazione (Druido)*
 
-**Casting Time:** Bonus Action 
+**Tempo di Lancio:** Azione Bonus 
 
-**Range:** Self 
+**Gittata:** Sé 
 
-**Components:** V, S, M (mistletoe) 
+**Componenti:** V, S, M (vischio) 
 
-**Duration:** 1 minute
+**Durata:** 1 minuto
 
-A Club or Quarterstaff you are holding is imbued with nature's power. For the duration, you can use your spellcasting ability instead of Strength for the attack and damage rolls of melee attacks using that weapon, and the weapon's damage die becomes a d8. If the attack deals damage, it can be Force damage or the weapon's normal damage type (your choice).
+Un **Randello** o **Bastone Ferrato** che impugni è infuso del potere della natura. Per la durata, puoi usare la tua caratteristica da incantatore invece della Forza per i tiri per colpire e per i danni degli attacchi in mischia con quell’arma, e il dado danni dell’arma diventa un **d8**. Se l’attacco infligge danni, può essere **Forza** o il normale tipo di danno dell’arma (a tua scelta).
 
-The spell ends early if you cast it again or if you let go of the weapon.
+L’incantesimo termina anticipatamente se lo rilanci o se lasci l’arma.
 
-**_Cantrip Upgrade._** The damage die changes when you reach levels 5 (d10), 11 (d12), and 17 (2d6).
+**_Miglioramento Trucchetto._** Il dado danni cambia ai livelli 5 (d10), 11 (d12) e 17 (2d6).
 
-#### Shining Smite
+#### Castigo Radioso
 
-*Level 2 Transmutation (Paladin)*
+*Livello 2 Trasmutazione (Paladino)*
 
-**Casting Time:** Bonus Action, which you take immediately after hitting a creature with a Melee weapon or an Unarmed Strike
+**Tempo di Lancio:** Azione Bonus, immediatamente dopo aver colpito una creatura con un’arma da mischia o un Colpo Senz’Armi
 
-**Range:** Self
+**Gittata:** Sé
 
-**Component:** V
+**Componenti:** V
 
-**Duration:** Concentration, up to 1 minute
+**Durata:** Concentrazione, fino a 1 minuto
 
-The target hit by the strike takes an extra 2d6 Radiant damage from the attack. Until the spell ends, the target sheds Bright Light in a 5-foot radius, attack rolls against it have Advantage, and it can't benefit from the Invisible condition.
+Il bersaglio colpito subisce 2d6 danni **Radianti** aggiuntivi dall’attacco. Finché dura, il bersaglio emette **Luce Intensa** in un raggio di 1,5 m, gli attacchi contro di esso hanno **Vantaggio** e non può beneficiare della condizione **Invisibile**.
 
-**_Using a Higher-Level Spell Slot._** The damage increases by 1d6 for each spell slot level above 2.
+**_Usare uno Slot di Livello Superiore._** I danni aumentano di 1d6 per ogni livello di slot sopra il 2.
 
-#### Shocking Grasp
+#### Presa Folgorante
 
-*Evocation Cantrip (Sorcerer, Wizard)*
+*Trucchetto di Invocazione (Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Touch 
+**Gittata:** Contatto 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-Lightning springs from you to a creature that you try to touch. Make a melee spell attack against the target. On a hit, the target takes 1d8 Lightning damage, and it can't make Opportunity Attacks until the start of its next turn.
+Elettricità balza da te verso una creatura che tenti di toccare. Effettua un attacco con incantesimo in mischia. Se colpisci, il bersaglio subisce 1d8 danni da **Fulmine** e non può effettuare Attacchi di Opportunità fino all’inizio del suo prossimo turno.
 
-**_Cantrip Upgrade._** The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).
+**_Miglioramento Trucchetto._** I danni aumentano di 1d8 ai livelli 5 (2d8), 11 (3d8) e 17 (4d8).
 
-#### Silence
+#### Silenzio
 
-*Level 2 Illusion (Bard, Cleric, Ranger)*
+*Livello 2 Illusione (Bardo, Chierico, Ranger)*
 
-**Casting Time:** Action or Ritual 
+**Tempo di Lancio:** Azione o Rituale 
 
-**Range:** 120 feet 
+**Gittata:** 36 m 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** Concentration, up to 10 minutes
+**Durata:** Concentrazione, fino a 10 minuti
 
-For the duration, no sound can be created within or pass through a 20-foot-radius Sphere centered on a point you choose within range. Any creature or object entirely inside the Sphere has Immunity to Thunder damage, and creatures have the Deafened condition while entirely inside it. Casting a spell that includes a Verbal component is impossible there.
+Per la durata, nessun suono può essere creato all’interno o attraversare una **Sfera** di raggio 6 m centrata su un punto entro gittata. Qualsiasi creatura o oggetto interamente nella Sfera ha **Immunità** ai danni da **Tuono** e le creature al suo interno hanno la condizione **Assordato**. Lanciare incantesimi con componente **Verbale** è impossibile lì.
 
-#### Silent Image
+#### Immagine Silenziosa
 
-*Level 1 Illusion (Bard, Sorcerer, Wizard)*
+*Livello 1 Illusione (Bardo, Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V, S, M (a bit of fleece) 
+**Componenti:** V, S, M (un po’ di lana) 
 
-**Duration:** Concentration, up to 10 minutes
+**Durata:** Concentrazione, fino a 10 minuti
 
-You create the image of an object, a creature, or some other visible phenomenon that is no larger than a 15-foot Cube. The image appears at a spot within range and lasts for the duration. The image is purely visual; it isn't accompanied by sound, smell, or other sensory effects.
+Crei l’immagine di un oggetto, creatura o fenomeno visibile non più grande di un **Cubo** di 4,5 m di lato. L’immagine appare entro gittata e dura per la durata. È puramente visiva: non produce suoni, odori o altri effetti sensoriali.
 
-As a Magic action, you can cause the image to move to any spot within range. As the image changes location, you can alter its appearance so that its movements appear natural for the image. For example, if you create an image of a creature and move it, you can alter the image so that it appears to be walking.
+Come azione **Magia**, puoi spostare l’immagine in qualsiasi punto entro gittata e alterarne l’aspetto per rendere naturali i movimenti.
 
-Physical interaction with the image reveals it to be an illusion, since things can pass through it. A creature that takes a Study action to examine the image can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the creature can see through the image.
+L’interazione fisica rivela l’illusione, poiché gli oggetti la attraversano. Una creatura che usa l’azione **Studiare** può riconoscerla con una prova di Intelligenza (Indagare) contro la tua CD; se ci riesce, la vede attraverso.
 
-#### Simulacrum
+#### Simulacro
 
-*Level 7 Illusion (Wizard)*
+*Livello 7 Illusione (Mago)*
 
-**Casting Time:** 12 hours 
+**Tempo di Lancio:** 12 ore 
 
-**Range:** Touch
+**Gittata:** Contatto
 
-**Components:** V, S, M (powdered ruby worth 1,500+ GP, which the spell consumes) 
+**Componenti:** V, S, M (rubino in polvere dal valore di almeno 1.500 MO, che l’incantesimo consuma) 
 
-**Duration:** Until dispelled
+**Durata:** Fino a dissipazione
 
-You create a simulacrum of one Beast or Humanoid that is within 10 feet of you for the entire casting of the spell. You finish the casting by touching both the creature and a pile of ice or snow that is the same size as that creature, and the pile turns into the simulacrum, which is a creature. It uses the game statistics of the original creature at the time of casting, except it is a Construct, its Hit Point maximum is half as much, and it can't cast this spell.
+Crei un simulacro di una **Bestia** o di un **Umanoide** che rimane entro 3 m da te per l’intero lancio. Concludi toccando sia la creatura sia un mucchio di ghiaccio o neve della sua stessa dimensione: il mucchio diventa il simulacro, che è una creatura. Usa le statistiche della creatura originale al momento del lancio, tranne che è un **Costrutto**, ha PF massimi pari alla metà e non può lanciare questo incantesimo.
 
-The simulacrum is Friendly to you and creatures you designate. It obeys your commands and acts on your turn in combat. The simulacrum can't gain levels, and it can't take Short or Long Rests.
+Il simulacro è **Amichevole** verso di te e le creature da te designate. Obbedisce ai tuoi comandi e agisce nel tuo turno in combattimento. Non può acquisire livelli né effettuare Riposi Brevi o Lunghi.
 
-If the simulacrum takes damage, the only way to restore its Hit Points is to repair it as you take a Long Rest, during which you expend components worth 100 GP per Hit Point restored. The simulacrum must stay within 5 feet of you for the repair.
+Se subisce danni, l’unico modo per ripristinarne i PF è ripararlo durante un tuo **Riposo Lungo**, spendendo componenti dal valore di **100 MO per PF** ripristinato. Deve restare entro 1,5 m da te durante la riparazione.
 
-The simulacrum lasts until it drops to 0 Hit Points, at which point it reverts to snow and melts away. If you cast this spell again, any simulacrum you created with this spell is instantly destroyed.
+Il simulacro dura finché non scende a 0 PF; allora torna neve e si scioglie. Se lanci di nuovo questo incantesimo, qualsiasi simulacro creato in precedenza con esso viene distrutto istantaneamente.
 
-#### Sleep
+#### Sonno
 
-*Level 1 Enchantment (Bard, Sorcerer, Wizard)*
+*Livello 1 Ammaliamento (Bardo, Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 60 feet
+**Gittata:** 18 m
 
-**Components:** V, S, M (a pinch of sand or rose petals) 
+**Componenti:** V, S, M (un pizzico di sabbia o petali di rosa) 
 
-**Duration:** Concentration, up to 1 minute
+**Durata:** Concentrazione, fino a 1 minuto
 
-Each creature of your choice in a 5-foot-radius Sphere centered on a point within range must succeed on a Wisdom saving throw or have the Incapacitated condition until the end of its next turn, at which point it must repeat the save. If the target fails the second save, the target has the Unconscious condition for the duration. The spell ends on a target if it takes damage or someone within 5 feet of it takes an action to shake it out of the spell's effect.
+Ogni creatura a tua scelta in una **Sfera** di raggio 1,5 m centrata su un punto entro gittata deve superare un tiro salvezza su Saggezza o ottenere la condizione **Incapacitato** fino alla fine del suo prossimo turno, momento in cui deve ripetere il tiro. Se fallisce anche il secondo tiro, ottiene la condizione **Incosciente** per la durata. L’incantesimo termina su un bersaglio se subisce danni o se una creatura entro 1,5 m da esso usa un’azione per scuoterlo e farlo uscire dall’effetto.
 
-Creatures that don't sleep, such as elves, or that have Immunity to the Exhaustion condition automatically succeed on saves against this spell.
+Le creature che non dormono, come gli elfi, o che hanno **Immunità** alla condizione **Sfinimento** hanno automaticamente successo ai tiri contro questo incantesimo.
 
-#### Sleet Storm
+#### Tempesta di Nevischio
 
-*Level 3 Conjuration (Druid, Sorcerer, Wizard)*
+*Livello 3 Evocazione (Druido, Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 150 feet 
+**Gittata:** 45 m 
 
-**Components:** V, S, M (a miniature umbrella) 
+**Componenti:** V, S, M (un ombrellino in miniatura) 
 
-**Duration:** Concentration, up to 1 minute
+**Durata:** Concentrazione, fino a 1 minuto
 
-Until the spell ends, sleet falls in a 40-foot-tall, 20-foot-radius Cylinder centered on a point you choose within range. The area is Heavily Obscured, and exposed flames in the area are doused.
+Finché dura, cade nevischio in un **Cilindro** alto 12 m e di raggio 6 m centrato su un punto a tua scelta entro gittata. L’area è **Pesantemente Oscurata** e le fiamme esposte nell’area si spengono.
 
-Ground in the Cylinder is Difficult Terrain. When a creature enters the Cylinder for the first time on a turn or starts its turn there, it must succeed on a
+Il terreno nel Cilindro è **Terreno Difficile**. Quando una creatura entra per la prima volta nel Cilindro in un turno o inizia lì il proprio turno, deve superare un tiro salvezza su Destrezza o ottenere la condizione **Prono** e perdere la **Concentrazione**.
 
-Dexterity saving throw or have the Prone condition and lose Concentration.
+#### Rallentare
 
-#### Slow
+*Livello 3 Trasmutazione (Bardo, Stregone, Mago)*
 
-*Level 3 Transmutation (Bard, Sorcerer, Wizard)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** 36 m 
 
-**Range:** 120 feet 
+**Componenti:** V, S, M (una goccia di melassa) 
 
-**Components:** V, S, M (a drop of molasses) 
+**Durata:** Concentrazione, fino a 1 minuto
 
-**Duration:** Concentration, up to 1 minute
+Alteri il tempo attorno a un massimo di sei creature a tua scelta in un **Cubo** di 12 m di lato entro gittata. Ogni bersaglio deve superare un tiro salvezza su Saggezza o essere influenzato per la durata.
 
-You alter time around up to six creatures of your choice in a 40-foot Cube within range. Each target must succeed on a Wisdom saving throw or be affected by this spell for the duration.
+La **Velocità** di un bersaglio è dimezzata, subisce una penalità di **−2** alla **CA** e ai tiri salvezza su Destrezza e non può compiere **Reazioni**. Nel suo turno può compiere o un’**Azione** o un’**Azione Bonus**, non entrambe, e se compie l’azione **Attaccare** può effettuare un solo attacco. Se lancia un incantesimo con componente **Somatica**, c’è una probabilità del **25%** che l’incantesimo fallisca poiché esegue i gesti troppo lentamente.
 
-An affected target's Speed is halved, it takes a −2 penalty to AC and Dexterity saving throws, and it can't take Reactions. On its turns, it can take either an action or a Bonus Action, not both, and it can make only one attack if it takes the Attack action. If it casts a spell with a Somatic component, there is a 25 percent chance the spell fails as a result of the target making the spell's gestures too slowly.
+Alla fine di ciascun suo turno, un bersaglio ripete il tiro salvezza, terminando l’effetto su di sé con un successo.
 
-An affected target repeats the save at the end of each of its turns, ending the spell on itself on a success.
+#### Scoppio Stregonesco
 
-#### Sorcerous Burst
+*Trucchetto di Invocazione (Stregone)*
 
-*Evocation Cantrip (Sorcerer)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** 36 m 
 
-**Range:** 120 feet 
+**Componenti:** V, S 
 
-**Component:** V, S 
+**Durata:** Istantanea
 
-**Duration:** Instantaneous
+Scagli energia stregonesca contro una creatura o un oggetto entro gittata. Effettua un attacco con incantesimo a distanza. Se colpisci, il bersaglio subisce **1d8** danni di un tipo a tua scelta: **Acido, Freddo, Fuoco, Fulmine, Veleno, Psichici** o **Tuono**.
 
-You cast sorcerous energy at one creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d8 damage of a type you choose: Acid, Cold, Fire, Lightning, Poison, Psychic, or Thunder.
+Se ottieni un **8** su un d8 di questo incantesimo, puoi tirare un altro d8 e aggiungerlo ai danni. Quando lanci l’incantesimo, il numero massimo di questi d8 aggiuntivi che puoi sommare ai danni è pari al tuo modificatore della caratteristica da incantatore.
 
-If you roll an 8 on a d8 for this spell, you can roll another d8, and add it to the damage. When you cast this spell, the maximum number of these d8s you can add to the spell's damage equals your spellcasting ability modifier.
+**_Miglioramento Trucchetto._** I danni aumentano di 1d8 ai livelli 5 (2d8), 11 (3d8) e 17 (4d8).
 
-**_Cantrip Upgrade._** The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).
+#### Risparmiare i Morenti
 
-#### Spare the Dying
+*Trucchetto di Necromanzia (Chierico, Druido)*
 
-*Necromancy Cantrip (Cleric, Druid)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** 4,5 m 
 
-**Range:** 15 feet 
+**Componenti:** V, S 
 
-**Components:** V, S 
+**Durata:** Istantanea
 
-**Duration:** Instantaneous
+Scegli una creatura entro gittata che abbia 0 Punti Ferita e non sia morta. La creatura diventa **Stabile**.
 
-Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable.
+**_Miglioramento Trucchetto._** La gittata raddoppia ai livelli 5 (9 m), 11 (18 m) e 17 (36 m).
 
-**_Cantrip Upgrade._** The range doubles when you reach levels 5 (30 feet), 11 (60 feet), and 17 (120 feet).
+#### Parlare con gli Animali
 
-#### Speak with Animals
+*Livello 1 Divinazione (Bardo, Druido, Ranger, Warlock)*
 
-*Level 1 Divination (Bard, Druid, Ranger, Warlock)*
+**Tempo di Lancio:** Azione o Rituale 
 
-**Casting Time:** Action or Ritual 
+**Gittata:** Sé 
 
-**Range:** Self 
+**Componenti:** V, S 
 
-**Components:** V, S 
+**Durata:** 10 minuti
 
-**Duration:** 10 minutes
+Per la durata, puoi comprendere e comunicare verbalmente con le **Bestie** e puoi usare con loro qualsiasi opzione di abilità dell’azione **Influenza**.
 
-For the duration, you can comprehend and verbally communicate with Beasts, and you can use any of the Influence action's skill options with them.
+La maggior parte delle Bestie ha poco da dire su argomenti che non riguardino sopravvivenza o compagnia, ma almeno può darti informazioni su luoghi e mostri vicini, inclusi ciò che ha percepito nell’ultimo giorno.
 
-Most Beasts have little to say about topics that don't pertain to survival or companionship, but at minimum, a Beast can give you information about nearby locations and monsters, including whatever it has perceived within the past day.
+#### Parlare con i Morti
 
-#### Speak with Dead
+*Livello 3 Necromanzia (Bardo, Chierico, Mago)*
 
-*Level 3 Necromancy (Bard, Cleric, Wizard)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** 3 m 
 
-**Range:** 10 feet 
+**Componenti:** V, S, M (incenso ardente) 
 
-**Components:** V, S, M (burning incense) 
+**Durata:** 10 minuti
 
-**Duration:** 10 minutes
+Dai parvenza di vita a un cadavere a tua scelta entro gittata, permettendogli di rispondere a domande che poni. Il cadavere deve avere una bocca e l’incantesimo fallisce se la creatura era **Non Morta** quando è morta o se il cadavere è stato bersaglio di questo incantesimo negli ultimi 10 giorni.
 
-You grant the semblance of life to a corpse of your choice within range, allowing it to answer questions you pose. The corpse must have a mouth, and this spell fails if the deceased creature was Undead when it died. The spell also fails if the corpse was the target of this spell within the past 10 days.
+Finché dura, puoi porre fino a cinque domande. Il cadavere sa solo ciò che sapeva in vita, incluse le lingue conosciute. Le risposte sono di solito brevi, criptiche o ripetitive e il cadavere non è obbligato a dire la verità se ti percepisce come nemico. L’incantesimo non restituisce l’anima al corpo, ma solo lo spirito animante: quindi il cadavere non può apprendere nuove informazioni, non comprende ciò che è accaduto dopo la morte e non può speculare sul futuro.
 
-Until the spell ends, you can ask the corpse up to five questions. The corpse knows only what it knew in life, including the languages it knew. Answers are usually brief, cryptic, or repetitive, and the corpse is under no compulsion to offer a truthful answer if you are antagonistic toward it or it recognizes you as an enemy. This spell doesn't return the creature's soul to its body, only its animating spirit. Thus, the corpse can't learn new information, doesn't comprehend anything that has happened since it died, and can't speculate about future events.
+#### Parlare con le Piante
 
-#### Speak with Plants
+*Livello 3 Trasmutazione (Bardo, Druido, Ranger)*
 
-*Level 3 Transmutation (Bard, Druid, Ranger)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** Sé 
 
-**Range:** Self 
+**Componenti:** V, S 
 
-**Components:** V, S 
+**Durata:** 10 minuti
 
-**Duration:** 10 minutes
+Infondi alle piante in un’**Emanazione** di 9 m immobilizzata una limitata senzienza e animazione, consentendo loro di comunicare con te e di seguire semplici comandi. Puoi interrogarle sugli eventi nell’area dell’incantesimo nell’ultimo giorno, ottenendo informazioni su creature passate, meteo e altre circostanze.
 
-You imbue plants in an immobile 30-foot Emanation with limited sentience and animation, giving them the ability to communicate with you and follow your simple commands. You can question plants about events in the spell's area within the past day, gaining information about creatures that have passed, weather, and other circumstances.
+Puoi trasformare **Terreno Difficile** dovuto a vegetazione in terreno normale per la durata, oppure rendere **Terreno Difficile** un terreno normale dove siano presenti piante per la durata.
 
-You can also turn Difficult Terrain caused by plant growth (such as thickets and undergrowth) into ordinary terrain that lasts for the duration. Or you can turn ordinary terrain where plants are present into Difficult Terrain that lasts for the duration.
+L’incantesimo non permette alle piante di sradicarsi e muoversi, ma possono muovere rami, viticci e steli per te.
 
-The spell doesn't enable plants to uproot themselves and move about, but they can move their branches, tendrils, and stalks for you.
+Se una creatura **Pianta** è nell’area, puoi comunicarle come se condivideste una lingua.
 
-If a Plant creature is in the area, you can communicate with it as if you shared a common language.
+#### Scalare come un Ragno
 
-#### Spider Climb
+*Livello 2 Trasmutazione (Stregone, Warlock, Mago)*
 
-*Level 2 Transmutation (Sorcerer, Warlock, Wizard)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** Contatto 
 
-**Range:** Touch 
+**Componenti:** V, S, M (una goccia di bitume e un ragno) 
 
-**Components:** V, S, M (a drop of bitumen and a spider) 
+**Durata:** Concentrazione, fino a 1 ora
 
-**Duration:** Concentration, up to 1 hour
+Finché dura, una creatura consenziente che tocchi può muoversi su e giù per superfici verticali e sui soffitti lasciando le mani libere. Il bersaglio ottiene anche una **Velocità di Scalare** pari alla sua Velocità.
 
-Until the spell ends, one willing creature you touch gains the ability to move up, down, and across vertical surfaces and along ceilings, while leaving its hands free. The target also gains a Climb Speed equal to its Speed.
+**_Usare uno Slot di Livello Superiore._** Puoi bersagliare una creatura aggiuntiva per ogni livello di slot sopra il 2.
 
-**_Using a Higher-Level Spell Slot._** You can target one additional creature for each spell slot level above 2.
+#### Crescita Spinosa
 
-#### Spike Growth
+*Livello 2 Trasmutazione (Druido, Ranger)*
 
-*Level 2 Transmutation (Druid, Ranger)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** 45 m 
 
-**Range:** 150 feet 
+**Componenti:** V, S, M (sette spine) 
 
-**Components:** V, S, M (seven thorns) 
+**Durata:** Concentrazione, fino a 10 minuti
 
-**Duration:** Concentration, up to 10 minutes
+Il terreno in una **Sfera** di raggio 6 m centrata su un punto entro gittata si ricopre di punte e spine. L’area diventa **Terreno Difficile** per la durata. Quando una creatura entra o si muove nell’area, subisce **2d4** danni **Perforanti** per ogni 1,5 m percorsi.
 
-The ground in a 20-foot-radius Sphere centered on a point within range sprouts hard spikes and thorns. The area becomes Difficult Terrain for the duration. When a creature moves into or within the area, it takes 2d4 Piercing damage for every 5 feet it travels.
+La trasformazione è mimetizzata per sembrare naturale. Qualsiasi creatura che non possa vedere l’area al lancio deve usare l’azione **Cercare** e superare una prova di Saggezza (Percezione o Sopravvivenza) contro la tua CD degli incantesimi per riconoscere il pericolo prima di entrarvi.
 
-The transformation of the ground is camouflaged to look natural. Any creature that can't see the area when the spell is cast must take a Search action and succeed on a Wisdom (Perception or Survival) check against your spell save DC to recognize the terrain as hazardous before entering it.
+#### Guardiani Spirituali
 
-#### Spirit Guardians
+*Livello 3 Evocazione (Chierico)*
 
-*Level 3 Conjuration (Cleric)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** Sé 
 
-**Range:** Self 
+**Componenti:** V, S, M (una pergamena di preghiera) 
 
-**Components:** V, S, M (a prayer scroll) 
+**Durata:** Concentrazione, fino a 10 minuti
 
-**Duration:** Concentration, up to 10 minutes
+Spiriti protettivi ti svolazzano attorno in un’**Emanazione** di 4,5 m per la durata. Se sei buono o neutrale, appaiono angelici o fatati (a tua scelta). Se sei malvagio, appaiono infernali.
 
-Protective spirits flit around you in a 15-foot Emanation for the duration. If you are good or neutral, their spectral form appears angelic or fey (your choice). If you are evil, they appear fiendish.
+Al lancio puoi designare creature non influenzate. Ogni altra creatura ha la **Velocità** dimezzata nell’Emanazione e, ogni volta che l’Emanazione entra nel suo spazio e ogni volta che una creatura entra nell’Emanazione o vi termina il turno, deve effettuare un tiro salvezza su Saggezza. Con un fallimento, subisce **3d8** danni **Radianti** (se sei buono o neutrale) o **3d8** danni **Necrotici** (se sei malvagio). Con un successo, subisce la metà. Una creatura effettua questo tiro solo una volta per turno.
 
-When you cast this spell, you can designate creatures to be unaffected by it. Any other creature's Speed is halved in the Emanation, and whenever the Emanation enters a creature's space and whenever a creature enters the Emanation or ends its turn there, the creature must make a Wisdom saving throw. On a failed save, the creature takes 3d8 Radiant damage (if you are good or neutral) or 3d8 Necrotic damage (if you are evil). On a successful save, the creature takes half as much damage. A creature makes this save only once per turn.
+**_Usare uno Slot di Livello Superiore._** I danni aumentano di 1d8 per ogni livello di slot sopra il 3.
 
-**_Using a Higher-Level Spell Slot._** The damage increases by 1d8 for each spell slot level above 3.
+#### Arma Spirituale
 
-#### Spiritual Weapon
+*Livello 2 Invocazione (Chierico)*
 
-*Level 2 Evocation (Cleric)*
+**Tempo di Lancio:** Azione Bonus 
 
-**Casting Time:** Bonus Action 
+**Gittata:** 18 m 
 
-**Range:** 60 feet 
+**Componenti:** V, S 
 
-**Components:** V, S 
+**Durata:** Concentrazione, fino a 1 minuto
 
-**Duration:** Concentration, up to 1 minute
+Crei una forza fluttuante e spettrale a forma di arma a tua scelta che dura per la durata. Appare entro gittata in uno spazio a tua scelta e puoi immediatamente effettuare un attacco con incantesimo in mischia contro una creatura entro 1,5 m dalla forza. Se colpisci, il bersaglio subisce danni da **Forza** pari a **1d8 +** il tuo modificatore della caratteristica da incantatore.
 
-You create a floating, spectral force that resembles a weapon of your choice and lasts for the duration. The force appears within range in a space of your choice, and you can immediately make one melee spell attack against one creature within 5 feet of the force. On a hit, the target takes Force damage equal to 1d8 plus your spellcasting ability modifier.
+Come **Azione Bonus** nei turni successivi, puoi muovere la forza fino a 6 m e ripetere l’attacco contro una creatura entro 1,5 m da essa.
 
-As a Bonus Action on your later turns, you can move the force up to 20 feet and repeat the attack against a creature within 5 feet of it.
+**_Usare uno Slot di Livello Superiore._** I danni aumentano di 1d8 per ogni livello di slot sopra il 2.
 
-**_Using a Higher-Level Spell Slot._** The damage increases by 1d8 for every slot level above 2.
+#### Filamento Stellare
 
-#### Starry Wisp
+*Trucchetto di Invocazione (Bardo, Druido)*
 
-*Evocation Cantrip (Bard, Druid)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** 18 m 
 
-**Range:** 60 feet 
+**Componenti:** V, S 
 
-**Components:** V, S 
+**Durata:** Istantanea
 
-**Duration:** Instantaneous
+Scagli un corpuscolo di luce contro una creatura o un oggetto entro gittata. Effettua un attacco con incantesimo a distanza. Se colpisci, il bersaglio subisce **1d8** danni **Radianti** e, fino alla fine del tuo prossimo turno, emette **Luce Fioca** in un raggio di 3 m e non può beneficiare della condizione **Invisibile**.
 
-You launch a mote of light at one creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d8 Radiant damage, and until the end of your next turn, it emits Dim Light in a 10-foot radius and can't benefit from the Invisible condition.
+**_Miglioramento Trucchetto._** I danni aumentano di 1d8 ai livelli 5 (2d8), 11 (3d8) e 17 (4d8).
 
-**_Cantrip Upgrade._** The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).
+#### Nube Maleodorante
 
-#### Stinking Cloud
+*Livello 3 Evocazione (Bardo, Stregone, Mago)*
 
-*Level 3 Conjuration (Bard, Sorcerer, Wizard)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** 27 m 
 
-**Range:** 90 feet 
+**Componenti:** V, S, M (un uovo marcio) 
 
-**Components:** V, S, M (a rotten egg) 
+**Durata:** Concentrazione, fino a 1 minuto
 
-**Duration:** Concentration, up to 1 minute
+Crei una **Sfera** di raggio 6 m di gas giallo nauseabondo centrata su un punto entro gittata. La nube è **Pesantemente Oscurata**. Persiste per la durata o finché un vento forte (come quello creato da *Folata di Vento*) non la disperde.
 
-You create a 20-foot-radius Sphere of yellow, nauseating gas centered on a point within range. The cloud is Heavily Obscured. The cloud lingers in the air for the duration or until a strong wind (such as the one created by *Gust of Wind*) disperses it.
+Ogni creatura che inizia il proprio turno nella Sfera deve superare un tiro salvezza su Costituzione o ottenere la condizione **Avvelenato** fino alla fine del turno corrente. Finché è Avvelenata in questo modo, non può compiere **Azione** né **Azione Bonus**.
 
-Each creature that starts its turn in the Sphere must succeed on a Constitution saving throw or have the Poisoned condition until the end of the current turn. While Poisoned in this way, the creature can't take an action or a Bonus Action.
+#### Plasmare la Pietra
 
-#### Stone Shape
+*Livello 4 Trasmutazione (Chierico, Druido, Mago)*
 
-*Level 4 Transmutation (Cleric, Druid, Wizard)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** Contatto 
 
-**Range:** Touch 
+**Componenti:** V, S, M (argilla morbida) 
 
-**Components:** V, S, M (soft clay) 
+**Durata:** Istantanea
 
-**Duration:** Instantaneous
+Tocchi un oggetto di pietra di taglia **Media** o più piccolo o una sezione di pietra non più grande di 1,5 m in qualsiasi dimensione e la plasmi nella forma che desideri. Per esempio, puoi trasformare una grande roccia in un’arma, statua o scrigno; oppure creare un passaggio in un muro spesso 1,5 m. Puoi anche plasmare una porta di pietra o il telaio per sigillarla. L’oggetto creato può avere fino a due cerniere e una serratura semplice; dettagli meccanici più fini non sono possibili.
 
-You touch a stone object of Medium size or smaller or a section of stone no more than 5 feet in any dimension and form it into any shape you like. For example, you could shape a large rock into a weapon, statue, or coffer, or you could make a small passage through a wall that is 5 feet thick. You could also shape a stone door or its frame to seal the door shut. The object you create can have up to two hinges and a latch, but finer mechanical detail isn't possible.
+#### Pelle di Pietra
 
-#### Stoneskin
+*Livello 4 Trasmutazione (Druido, Ranger, Stregone, Mago)*
 
-*Level 4 Transmutation (Druid, Ranger, Sorcerer, Wizard)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** Contatto 
 
-**Range:** Touch 
+**Componenti:** V, S, M (polvere di diamante dal valore di almeno 100 MO, che l’incantesimo consuma) 
 
-**Components:** V, S, M (diamond dust worth 100+ GP, which the spell consumes) 
+**Durata:** Concentrazione, fino a 1 ora
 
-**Duration:** Concentration, up to 1 hour
+Finché dura, una creatura consenziente che tocchi ha **Resistenza** ai danni **Contundenti, Perforanti** e **Taglienti**.
 
-Until the spell ends, one willing creature you touch has Resistance to Bludgeoning, Piercing, and Slashing damage.
+#### Tempesta di Vendetta
 
-#### Storm of Vengeance
+*Livello 9 Evocazione (Druido)*
 
-*Level 9 Conjuration (Druid)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** 1,6 km 
 
-**Range:** 1 mile 
+**Componenti:** V, S 
 
-**Components:** V, S 
+**Durata:** Concentrazione, fino a 1 minuto
 
-**Duration:** Concentration, up to 1 minute
+Una nube tempestosa turbinante si forma per la durata, centrata su un punto entro gittata e con raggio di 90 m. Ogni creatura sotto la nube quando appare deve superare un tiro salvezza su Costituzione o subire **2d6** danni da **Tuono** e ottenere la condizione **Assordato** per la durata.
 
-A churning storm cloud forms for the duration, centered on a point within range and spreading to a radius of 300 feet. Each creature under the cloud when it appears must succeed on a Constitution saving throw or take 2d6 Thunder damage and have the Deafened condition for the duration.
+All’inizio di ciascuno dei tuoi turni successivi, la tempesta produce effetti diversi, come segue.
 
-At the start of each of your later turns, the storm produces different effects, as detailed below.
+**_Turno 2._** Cade pioggia acida. Ogni creatura e oggetto sotto la nube subisce **4d6** danni da **Acido**.
 
-**_Turn 2._** Acidic rain falls. Each creature and object under the cloud takes 4d6 Acid damage.
+**_Turno 3._** Richiami sei fulmini dalla nube su sei creature o oggetti diversi sottostanti. Ogni bersaglio effettua un tiro salvezza su Destrezza, subendo **10d6** danni da **Fulmine** con un fallimento o metà con un successo.
 
-**_Turn 3._** You call six bolts of lightning from the cloud to strike six different creatures or objects beneath it. Each target makes a Dexterity saving throw, taking 10d6 Lightning damage on a failed save or half as much damage on a successful one.
+**_Turno 4._** Cade grandine. Ogni creatura sotto la nube subisce **2d6** danni **Contundenti**.
 
-**_Turn 4._** Hailstones rain down. Each creature under the cloud takes 2d6 Bludgeoning damage.
+**_Turni 5–10._** Raffiche e pioggia gelata sferzano l’area. Ogni creatura lì subisce **1d6** danni da **Freddo**. Finché dura, l’area è **Terreno Difficile** e **Pesantemente Oscurata**, gli attacchi a distanza con armi sono impossibili e un vento forte soffia nell’area.
 
-**_Turns 5–10._** Gusts and freezing rain assail the area under the cloud. Each creature there takes 1d6 Cold damage. Until the spell ends, the area is Difficult Terrain and Heavily Obscured, ranged attacks with weapons are impossible there, and strong wind blows through the area.
+#### Suggestione
 
-#### Suggestion
+*Livello 2 Ammaliamento (Bardo, Stregone, Warlock, Mago)*
 
-*Level 2 Enchantment (Bard, Sorcerer, Warlock, Wizard)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** 9 m 
 
-**Range:** 30 feet 
+**Componenti:** V, M (una goccia di miele) 
 
-**Components:** V, M (a drop of honey) 
+**Durata:** Concentrazione, fino a 8 ore
 
-**Duration:** Concentration, up to 8 hours
+Suggerisci un corso d’azione—descritto in non più di 25 parole—a una creatura che puoi vedere entro gittata e che possa udirti e capirti. Il suggerimento deve sembrare attuabile e non coinvolgere qualcosa che ovviamente infliggerebbe danni al bersaglio o ai suoi alleati. Per esempio: “Recupera la chiave del caveau del culto e consegnamela” oppure “Smetti di combattere, lascia pacificamente questa biblioteca e non tornare”.
 
-You suggest a course of activity—described in no more than 25 words—to one creature you can see within range that can hear and understand you. The suggestion must sound achievable and not involve anything that would obviously deal damage to the target or its allies. For example, you could say, "Fetch the key to the cult's treasure vault, and give the key to me." Or you could say, "Stop fighting, leave this library peacefully, and don't return."
+Il bersaglio deve superare un tiro salvezza su Saggezza o ottenere la condizione **Affascinato** per la durata o finché tu o i tuoi alleati non gli infliggete danni. Il bersaglio Affascinato persegue il suggerimento al meglio delle sue capacità. L’attività suggerita può durare tutta la durata, ma se può essere completata prima, l’incantesimo termina per quel bersaglio al completamento.
 
-The target must succeed on a Wisdom saving throw or have the Charmed condition for the duration or until you or your allies deal damage to the target. The Charmed target pursues the suggestion to the best of its ability. The suggested activity can continue for the entire duration, but if the suggested activity can be completed in a shorter time, the spell ends for the target upon completing it.
+#### Evoca Drago
 
-#### Summon Dragon
+*Livello 5 Evocazione (Mago)*
 
-*Level 5 Conjuration (Wizard)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** 18 m 
 
-**Range:** 60 feet 
+**Componenti:** V, S, M (un oggetto con incisa l’immagine di un drago dal valore di almeno 500 MO)
 
-**Components:** V, S, M (an object with the image of a dragon engraved on it worth 500+ GP)
+**Durata:** Concentrazione, fino a 1 ora
 
-**Duration:** Concentration, up to 1 hour
+Chiami uno spirito draconico. Si manifesta in uno spazio non occupato che puoi vedere entro gittata e usa il blocco statistiche **Spirito Draconico**. La creatura scompare quando scende a 0 Punti Ferita o quando l’incantesimo termina.
 
-You call forth a Dragon spirit. It manifests in an unoccupied space that you can see within range and uses the **Draconic Spirit** stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.
+La creatura è alleata tua e dei tuoi alleati. In combattimento, condivide il tuo conteggio di **Iniziativa**, ma agisce immediatamente dopo di te. Obbedisce ai tuoi comandi verbali (nessuna azione richiesta). Se non impartisci comandi, esegue **Schivare** e usa il movimento per evitare pericoli.
 
-The creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.
+**_Usare uno Slot di Livello Superiore._** Usa il livello dello slot come livello dell’incantesimo nel blocco statistiche.
 
-**_Using a Higher-Level Spell Slot._** Use the spell slot's level for the spell's level in the stat block.
-
-> #### Draconic Spirit
+> #### Spirito Draconico
 >
-> *Large Dragon, Neutral*
+> *Drago Grande, Neutrale*
 > 
-> **AC** 14 + the spell's level
+> **CA** 14 + livello dell’incantesimo
 >
-> **HP** 50 + 10 for each spell level above 5
+> **PF** 50 + 10 per ogni livello dell’incantesimo sopra il 5
 >
-> **Speed** 30 ft., Fly 60 ft., Swim 30 ft.
+> **Velocità** 9 m, Volare 18 m, Nuotare 9 m
 >
-> | Attribute | Score | Mod | Save |
-> |-----------|-------|-----|------|
-> | Str       | 19    | +4  | +4   |
-> | Dex       | 14    | +2  | +2   |
-> | Con       | 17    | +3  | +3   |
-> | Int       | 10    | +0  | +0   |
-> | Wis       | 14    | +2  | +2   |
-> | Cha       | 14    | +2  | +2   |
+> | Attributo | Valore | Mod | TS |
+> |-----------|--------|-----|----|
+> | For       | 19     | +4  | +4 |
+> | Des       | 14     | +2  | +2 |
+> | Cos       | 17     | +3  | +3 |
+> | Int       | 10     | +0  | +0 |
+> | Sag       | 14     | +2  | +2 |
+> | Car       | 14     | +2  | +2 |
 >
-> **Resistances** Acid, Cold, Fire, Lightning, Poison 
+> **Resistenze** Acido, Freddo, Fuoco, Fulmine, Veleno 
 >
-> **Immunities** Charmed, Frightened, Poisoned 
+> **Immunità** Affascinato, Spaventato, Avvelenato 
 >
-> **Senses** Blindsight 30 ft., Darkvision 60 ft.; Passive Perception 12
+> **Sensi** Percezione Cieca 9 m, Scurovisione 18 m; Percezione Passiva 12
 >
-> **Languages** Draconic, understands the languages you know **CR** None (XP 0; PB equals your Proficiency Bonus)
+> **Linguaggi** Draconico, comprende i linguaggi che conosci **CR** Nessuno (PE 0; **PB** pari al tuo Bonus di Competenza)
 >
-> ##### Traits
+> ##### Tratti
 >
-> **_Shared Resistances._** When you summon the spirit, choose one of its Resistances. You have Resistance to the chosen damage type until the spell ends.
+> **_Resistenze Condivise._** Quando evochi lo spirito, scegli una delle sue Resistenze. Hai **Resistenza** al tipo di danno scelto finché l’incantesimo dura.
 >
-> ##### Actions
+> ##### Azioni
 >
-> **_Multiattack._** The spirit makes a number of Rend attacks equal to half the spell's level (round down), and it uses Breath Weapon.
+> **_Multiattacco._** Lo spirito effettua un numero di attacchi **Dilaniare** pari alla metà del livello dell’incantesimo (arrotondato per difetto) e usa **Arma a Soffio**.
 >
-> **_Rend. Melee Attack Roll:_** Bonus equals your spell attack modifier, reach 10 feet. *Hit:* 1d6 + 4 + the spell's level Piercing damage.
+> **_Dilaniare. Tiro per colpire in mischia:_** bonus pari al tuo modificatore di attacco con incantesimi, portata 3 m. *Colpisce:* **1d6 + 4 +** livello dell’incantesimo danni **Perforanti**.
 >
-> **_Breath Weapon. Dexterity Saving Throw:_** DC equals your spell save DC, each creature in a 30-foot Cone. *Failure:* 2d6 damage of a type this spirit has Resistance to (your choice when you cast the spell). *Success:*  Half damage.
+> **_Arma a Soffio. Tiro salvezza su Destrezza:_** CD pari alla tua CD degli incantesimi, ogni creatura in un **Cono** di 9 m. *Fallimento:* **2d6** danni di un tipo a cui lo spirito ha **Resistenza** (a tua scelta al lancio). *Successo:* metà danni.
 
-#### Sunbeam
+#### Raggio Solare
 
-*Level 6 Evocation (Cleric, Druid, Sorcerer, Wizard)*
+*Livello 6 Invocazione (Chierico, Druido, Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Self 
+**Gittata:** Sé 
 
-**Components:** V, S, M (a magnifying glass) 
+**Componenti:** V, S, M (una lente d’ingrandimento) 
 
-**Duration:** Concentration, up to 1 minute
+**Durata:** Concentrazione, fino a 1 minuto
 
-You launch a sunbeam in a 5-foot-wide, 60-foot-long Line. Each creature in the Line makes a Constitution saving throw. On a failed save, a creature takes 6d8 Radiant damage and has the Blinded condition until the start of your next turn. On a successful save, it takes half as much damage only.
+Scagli un raggio solare in una **Linea** larga 1,5 m e lunga 18 m. Ogni creatura nella Linea effettua un tiro salvezza su Costituzione. Con un fallimento, subisce **6d8** danni **Radianti** e ottiene la condizione **Accecato** fino all’inizio del tuo prossimo turno. Con un successo, subisce solo metà dei danni.
 
-Until the spell ends, you can take a Magic action to create a new Line of radiance.
+Finché dura, puoi compiere un’azione **Magia** per creare una nuova Linea di radiosità.
 
-For the duration, a mote of brilliant radiance shines above you. It sheds Bright Light in a 30-foot radius and Dim Light for an additional 30 feet. This light is sunlight.
+Per la durata, un globo di luce brillante splende sopra di te. Emette **Luce Intensa** in un raggio di 9 m e **Luce Fioca** per ulteriori 9 m. Questa luce è **luce solare**.
 
-#### Sunburst
+#### Esplosione Solare
 
-*Level 8 Evocation (Cleric, Druid, Sorcerer, Wizard)*
+*Livello 8 Invocazione (Chierico, Druido, Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione
 
-**Range:** 150 feet 
+**Gittata:** 45 m
 
-**Components:** V, S, M (a piece of sunstone) 
+**Componenti:** V, S, M (un pezzo di pietra solare)
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-Brilliant sunlight flashes in a 60-foot-radius Sphere centered on a point you choose within range. Each creature in the Sphere makes a Constitution saving throw. On a failed save, a creature takes 12d6 Radiant damage and has the Blinded condition for 1 minute. On a successful save, it takes half as much damage only.
+Sole abbagliante lampeggia in una **Sfera** di raggio 18 m centrata su un punto a tua scelta entro gittata. Ogni creatura nella Sfera effettua un tiro salvezza su Costituzione. Con un fallimento, subisce **12d6** danni **Radianti** e ottiene la condizione **Accecato** per 1 minuto. Con un successo, subisce solo metà dei danni.
 
-A creature Blinded by this spell makes another Constitution saving throw at the end of each of its turns, ending the effect on itself on a success.
+Una creatura Accecata da questo incantesimo ripete il tiro alla fine di ciascun suo turno, terminando l’effetto su di sé con un successo.
 
-This spell dispels Darkness in its area that was created by any spell.
+Questo incantesimo dissipa le **Tenebre** nella sua area create da qualsiasi incantesimo.
 
-#### Symbol
+#### Simbolo
 
-*Level 7 Abjuration (Bard, Cleric, Druid, Wizard)*
+*Livello 7 Abiurazione (Bardo, Chierico, Druido, Mago)*
 
-**Casting Time:** 1 minute
+**Tempo di Lancio:** 1 minuto
 
-**Range:** Touch
+**Gittata:** Contatto
 
-**Components:** V, S, M (powdered diamond worth 1,000+ GP, which the spell consumes)
+**Componenti:** V, S, M (polvere di diamante dal valore di almeno 1.000 MO, che l’incantesimo consuma)
 
-**Duration:** Until dispelled or triggered
+**Durata:** Fino a dissipazione o attivazione
 
-You inscribe a harmful glyph either on a surface (such as a section of floor or wall) or within an object that can be closed (such as a book or chest). The glyph can cover an area no larger than 10 feet in diameter. If you choose an object, it must remain in place; if it is moved more than 10 feet from where you cast this spell, the glyph is broken, and the spell ends without being triggered.
+Incidi un glifo nocivo su una superficie (come una sezione di pavimento o muro) o all’interno di un oggetto che possa essere chiuso (come un libro o un forziere). Il glifo può coprire un’area non più grande di **3 m** di diametro. Se scegli un oggetto, deve rimanere in posizione: se viene spostato di oltre **3 m** dal punto in cui l’hai lanciato, il glifo si rompe e l’incantesimo termina senza attivarsi.
 
-The glyph is nearly imperceptible and requires a successful Wisdom (Perception) check against your spell save DC to notice.
+Il glifo è quasi impercettibile e richiede una prova riuscita di Saggezza (Percezione) contro la tua CD degli incantesimi per essere notato.
 
-When you inscribe the glyph, you set its trigger and choose which effect the symbol bears: Death, Discord, Fear, Pain, Sleep, or Stunning. Each one is explained below.
+Quando incidi il glifo, imposti il suo **innesco** e scegli quale effetto porta il simbolo: **Morte, Discordia, Paura, Dolore, Sonno** o **Stordimento**. Ognuno è descritto sotto.
 
-**_Set the Trigger._** You decide what triggers the glyph when you cast the spell. For glyphs inscribed on a surface, common triggers include touching or stepping on the glyph, removing another object covering it, or approaching within a certain distance of it. For glyphs inscribed within an object, common triggers include opening that object or seeing the glyph.
+***Impostare l’Innesco.*** Decidi cosa attiva il glifo quando lanci l’incantesimo. Per i glifi su una superficie, inneschi comuni includono toccare o calpestare il glifo, rimuovere l’oggetto che lo copre o avvicinarsi entro una certa distanza. Per i glifi all’interno di un oggetto, inneschi comuni includono aprire l’oggetto o vedere il glifo.
 
-You can refine the trigger so that only creatures of certain types activate it (for example, the glyph could be set to affect Aberrations). You can also set conditions for creatures that don't trigger the glyph, such as those who say a certain password.
+Puoi raffinare l’innesco in modo che solo creature di certi tipi lo attivino (per esempio, il glifo può colpire solo **Aberrazioni**). Puoi anche impostare condizioni per creature che non lo attivano, come chi pronuncia una certa parola d’ordine.
 
-Once triggered, the glyph glows, filling a 60-foot-radius Sphere with Dim Light for 10 minutes, after which time the spell ends. Each creature in the Sphere when the glyph activates is targeted by its effect, as is a creature that enters the Sphere for the first time on a turn or ends its turn there. A creature is targeted only once per turn.
+Quando si attiva, il glifo brilla, riempiendo una **Sfera** di raggio **18 m** con **Luce Fioca** per 10 minuti, dopodiché l’incantesimo termina. Ogni creatura nella Sfera quando il glifo si attiva è bersagliata dal suo effetto; lo è anche una creatura che entra nella Sfera per la prima volta in un turno o vi termina il proprio turno. Una creatura è bersagliata solo una volta per turno.
 
-**_Death._** Each target makes a Constitution saving throw, taking 10d10 Necrotic damage on a failed save or half as much damage on a successful save.
+***Morte.*** Ogni bersaglio effettua un tiro salvezza su Costituzione, subendo **10d10** danni **Necrotici** con un fallimento o metà con un successo.
 
-**_Discord._** Each target makes a Wisdom saving throw. On a failed save, a target argues with other creatures for 1 minute. During this time, it is incapable of meaningful communication and has Disadvantage on attack rolls and ability checks.
+***Discordia.*** Ogni bersaglio effettua un tiro salvezza su Saggezza. Con un fallimento, litiga con altre creature per 1 minuto; in questo tempo è incapace di comunicazione significativa e ha **Svantaggio** ai tiri per colpire e alle prove di caratteristica.
 
-**_Fear._** Each target must succeed on a Wisdom saving throw or have the Frightened condition for 1 minute. While Frightened, the target must move at least 30 feet away from the glyph on each of its turns, if able.
+***Paura.*** Ogni bersaglio deve superare un tiro salvezza su Saggezza o ottenere la condizione **Spaventato** per 1 minuto. Finché è Spaventato, deve muoversi di almeno **9 m** lontano dal glifo a ogni suo turno, se in grado.
 
-**_Pain._** Each target must succeed on a Constitution saving throw or have the Incapacitated condition for 1 minute.
+***Dolore.*** Ogni bersaglio deve superare un tiro salvezza su Costituzione o ottenere la condizione **Incapacitato** per 1 minuto.
 
-**_Sleep._** Each target must succeed on a Wisdom saving throw or have the Unconscious condition for 10 minutes. A creature awakens if it takes damage or if someone takes an action to shake it awake.
+***Sonno.*** Ogni bersaglio deve superare un tiro salvezza su Saggezza o ottenere la condizione **Incosciente** per 10 minuti. Una creatura si sveglia se subisce danni o se qualcuno usa un’azione per scuoterla.
 
-**_Stunning._** Each target must succeed on a Wisdom saving throw or have the Stunned condition for 1 minute.
+***Stordimento.*** Ogni bersaglio deve superare un tiro salvezza su Saggezza o ottenere la condizione **Stordito** per 1 minuto.
 
-### T Spells
+### Incantesimi T
 
-#### Telekinesis
+#### Telecinesi
 
-*Level 5 Transmutation (Sorcerer, Wizard)*
+*Livello 5 Trasmutazione (Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione
 
-**Range:** 60 feet 
+**Gittata:** 18 m
 
-**Components:** V, S 
+**Componenti:** V, S
 
-**Duration:** Concentration, up to 10 minutes
+**Durata:** Concentrazione, fino a 10 minuti
 
-You gain the ability to move or manipulate creatures or objects by thought. When you cast the spell and as a Magic action on your later turns before the spell ends, you can exert your will on one creature or object that you can see within range, causing the appropriate effect below. You can affect the same target round after round or choose a new one at any time. If you switch targets, the prior target is no longer affected by the spell.
+Ottieni la capacità di muovere o manipolare creature o oggetti con il pensiero. Quando lanci l’incantesimo e come azione **Magia** nei tuoi turni successivi, puoi esercitare la tua volontà su una creatura o un oggetto che puoi vedere entro gittata, causando l’effetto appropriato sotto. Puoi colpire lo stesso bersaglio turno dopo turno o sceglierne uno nuovo in qualsiasi momento. Se cambi bersaglio, il precedente non è più influenzato.
 
-**_Creature._** You can try to move a Huge or smaller creature. The target must succeed on a Strength saving throw, or you move it up to 30 feet in any direction within the spell's range. Until the end of your next turn, the creature has the Restrained condition, and if you lift it into the air, it is suspended there. It falls at the end of your next turn unless you use this option on it again and it fails the save.
+***Creatura.*** Puoi provare a muovere una creatura **Enorme** o più piccola. Il bersaglio deve superare un tiro salvezza su Forza, altrimenti lo muovi fino a **9 m** in qualsiasi direzione entro la gittata. Fino alla fine del tuo prossimo turno, la creatura ha la condizione **Immobilizzato** e, se la sollevi in aria, resta sospesa. Cade alla fine del tuo prossimo turno a meno che tu non usi di nuovo questa opzione su di essa e fallisca il tiro.
 
-**_Object._** You can try to move a Huge or smaller object. If the object isn't being worn or carried, you automatically move it up to 30 feet in any direction within the spell's range.
+***Oggetto.*** Puoi provare a muovere un oggetto **Enorme** o più piccolo. Se non è indossato né trasportato, lo muovi automaticamente fino a **9 m** in qualsiasi direzione entro la gittata. Se è indossato o trasportato da una creatura, quella creatura deve superare un tiro salvezza su Forza, altrimenti lo strappi via e lo muovi fino a **9 m** in qualsiasi direzione entro la gittata.
 
-If the object is worn or carried by a creature, that creature must succeed on a Strength saving throw, or you pull the object away and move it up to 30 feet in any direction within the spell's range.
+Puoi esercitare un controllo fine sugli oggetti con la tua presa telecinetica, ad esempio manipolare un attrezzo semplice e azioni simili.
 
-You can exert fine control on objects with your telekinetic grip, such as manipulating a simple tool,
+#### Vincolo Telepatico
 
-#### Telepathic Bond
+*Livello 5 Divinazione (Bardo, Mago)*
 
-*Level 5 Divination (Bard, Wizard)*
+**Tempo di Lancio:** Azione o Rituale
 
-**Casting Time:** Action or Ritual 
+**Gittata:** 9 m
 
-**Range:** 30 feet 
+**Componenti:** V, S, M (due uova)
 
-**Components:** V, S, M (two eggs) 
+**Durata:** 1 ora
 
-**Duration:** 1 hour
+Intrecci un legame telepatico tra un massimo di otto creature consenzienti a tua scelta entro gittata, collegando psichicamente ciascuna alle altre per la durata. Le creature incapaci di comunicare in qualunque lingua non sono influenzate.
 
-You forge a telepathic link among up to eight willing creatures of your choice within range, psychically linking each creature to all the others for the duration. Creatures that can't communicate in any languages aren't affected by this spell.
+Finché dura, i bersagli possono comunicare telepaticamente tramite il vincolo anche senza condividere una lingua. La comunicazione è possibile a qualsiasi distanza, ma non si estende ad altri piani di esistenza.
 
-Until the spell ends, the targets can communicate telepathically through the bond whether or not they share a language. The communication is possible over any distance, though it can't extend to other planes of existence.
+#### Teletrasporto
 
-#### Teleport
+*Livello 7 Evocazione (Bardo, Stregone, Mago)*
 
-*Level 7 Conjuration (Bard, Sorcerer, Wizard)*
+**Tempo di Lancio:** Azione
 
-**Casting Time:** Action 
+**Gittata:** 3 m
 
-**Range:** 10 feet 
+**Componenti:** V
 
-**Components:** V 
+**Durata:** Istantanea
 
-**Duration:** Instantaneous
+Trasporti istantaneamente te e fino a otto creature consenzienti che puoi vedere entro gittata, oppure un singolo oggetto che puoi vedere entro gittata, verso una destinazione che selezioni. Se bersagli un oggetto, deve essere **Grande** o più piccolo e non può essere tenuto o trasportato da una creatura non consenziente.
 
-This spell instantly transports you and up to eight willing creatures that you can see within range, or a single object that you can see within range, to a destination you select. If you target an object, it must be Large or smaller, and it can't be held or carried by an unwilling creature.
+La destinazione deve esserti nota e trovarsi sul tuo stesso piano di esistenza. La tua familiarità con essa determina se ci arrivi correttamente. Il GM tira **1d100** e consulta la tabella **Esito del Teletrasporto** e le spiegazioni successive.
 
-The destination you choose must be known to you, and it must be on the same plane of existence as you. Your familiarity with the destination determines whether you arrive there successfully. The GM rolls 1d100 and consults the Teleportation Outcome table and the explanations after it.
+Tabella: Esito del Teletrasporto
 
-Table: Teleportation Outcome
+| Familiarità                 | Disastro | Area Simile | Fuori Bersaglio | A Bersaglio |
+| --------------------------- | -------- | ----------- | --------------- | ----------- |
+| Cerchio permanente          | —        | —           | —               | 01–00       |
+| Oggetto collegato           | —        | —           | —               | 01–00       |
+| Molto familiare             | 01–05    | 06–13       | 14–24           | 25–00       |
+| Visto occasionalmente       | 01–33    | 34–43       | 44–53           | 54–00       |
+| Visto una volta o descritto | 01–43    | 44–53       | 54–73           | 74–00       |
+| Destinazione falsa          | 01–50    | 51–00       | —               | —           |
 
-| Familiarity              | Mishap | Similar Area | Off Target | On Target |
-|--------------------------|--------|--------------|------------|-----------|
-| Permanent circle         | —      | —            | —          | 01–00     |
-| Linked object            | —      | —            | —          | 01–00     |
-| Very familiar            | 01–05  | 06–13        | 14–24      | 25–00     |
-| Seen casually            | 01–33  | 34–43        | 44–53      | 54–00     |
-| Viewed once or described | 01–43  | 44–53        | 54–73      | 74–00     |
-| False destination        | 01–50  | 51–00        | —          | —         |
+***Familiarità.***
 
-**_Familiarity._** Here are the meanings of the terms in the table's Familiarity column:
+* **Cerchio permanente:** un cerchio di teletrasporto permanente di cui conosci la sequenza di sigilli.
+* **Oggetto collegato:** possiedi un oggetto prelevato dalla destinazione desiderata negli ultimi sei mesi.
+* **Molto familiare:** luogo visitato spesso, studiato attentamente o visibile mentre lanci l’incantesimo.
+* **Visto occasionalmente:** visto più di una volta ma non molto familiare.
+* **Visto una volta o descritto:** visto una sola volta (anche magicamente) o conosciuto tramite descrizione altrui.
+* **Destinazione falsa:** luogo inesistente o che non esiste più.
 
-- "Permanent circle" means a permanent teleportation circle whose sigil sequence you know.
-- "Linked object" means you possess an object taken from the desired destination within the last six months, such as a book from a wizard's library.
-- "Very familiar" is a place you have visited often, a place you have carefully studied, or a place you can see when you cast the spell.
-- "Seen casually" is a place you have seen more than once but with which you aren't very familiar.
-- "Viewed once or described" is a place you have seen once, possibly using magic, or a place you know through someone else's description, perhaps from a map.
-- "False destination" is a place that doesn't exist. Perhaps you tried to scry an enemy's sanctum but instead viewed an illusion, or you are attempting to teleport to a location that no longer exists.
+***Disastro.*** La magia imprevedibile rende il viaggio difficoltoso. Ogni creatura teletrasportata (o l’oggetto) subisce **3d10** danni da **Forza**, e il GM ritira sulla tabella per determinare dove finite (possono verificarsi più disastri, infliggendo danni ogni volta).
 
-**_Mishap._** The spell's unpredictable magic results in a difficult journey. Each teleporting creature (or the target object) takes 3d10 Force damage, and the GM rerolls on the table to see where you wind up (multiple mishaps can occur, dealing damage each time).
+***Area Simile.*** Appari in un’area diversa, visivamente o tematicamente simile a quella desiderata, la più vicina possibile.
 
-**_Similar Area._** You and your group (or the target object) appear in a different area that's visually or thematically similar to the target area. You appear in the closest similar place. If you are heading for your home laboratory, for example, you might appear in another person's laboratory in the same city.
+***Fuori Bersaglio.*** Appari a **2d12** miglia dalla destinazione in una direzione casuale (1 est, 2 sud-est, 3 sud, 4 sud-ovest, 5 ovest, 6 nord-ovest, 7 nord, 8 nord-est).
 
-**_Off Target._** You and your group (or the target object) appear 2d12 miles away from the destination in a random direction. Roll 1d8 for the direction: 1, east; 2, southeast; 3, south; 4, southwest; 5, west; 6, northwest; 7, north; or 8, northeast.
+***A Bersaglio.*** Appari dove intendevi.
 
-**_On Target._** You and your group (or the target object) appear where you intended.
+#### **Cerchio di Teletrasporto**
 
-#### **Teleportation Circle**
+*Livello 5 Evocazione (Bardo, Stregone, Warlock, Mago)*
 
-*Level 5 Conjuration (Bard, Sorcerer, Warlock, Wizard)*
+**Tempo di Lancio:** 1 minuto
 
-**Casting Time:** 1 minute
+**Gittata:** 3 m
 
-**Range:** 10 feet
+**Componenti:** V, M (inchiostri rari dal valore di almeno 50 MO, che l’incantesimo consuma)
 
-**Components:** V, M (rare inks worth 50+ GP, which the spell consumes)
+**Durata:** 1 round
 
-**Duration:** 1 round
+Mentre lanci l’incantesimo, tracci a terra un cerchio di raggio **1,5 m** inciso con sigilli che collegano la tua posizione a un cerchio di teletrasporto permanente a tua scelta di cui conosci la sequenza di sigilli e che si trovi sul tuo stesso piano. Un portale scintillante si apre all’interno del cerchio tracciato e resta aperto fino alla fine del tuo prossimo turno. Qualsiasi creatura che entra nel portale appare istantaneamente entro **1,5 m** dal cerchio di destinazione o nello spazio non occupato più vicino se quello è occupato.
 
-As you cast the spell, you draw a 5-foot-radius circle on the ground inscribed with sigils that link your location to a permanent teleportation circle of your choice whose sigil sequence you know and that is on the same plane of existence as you. A shimmering portal opens within the circle you drew and remains open until the end of your next turn. Any creature that enters the portal instantly appears within 5 feet of the destination circle or in the nearest unoccupied space if that space is occupied.
+Molti grandi templi, gilde e luoghi importanti hanno cerchi permanenti, ciascuno con una sequenza di sigilli unica.
 
-Many major temples, guildhalls, and other important places have permanent teleportation circles. Each circle includes a unique sigil sequence—a string of runes arranged in a particular pattern.
+Quando ottieni per la prima volta la capacità di lanciare questo incantesimo, apprendi le sequenze di due destinazioni nel **Piano Materiale**, determinate dal GM. Puoi apprenderne altre durante le avventure, memorizzandone una nuova dopo 1 minuto di studio.
 
-When you first gain the ability to cast this spell, you learn the sigil sequences for two destinations on the Material Plane, determined by the GM. You might learn additional sigil sequences during your adventures. You can commit a new sigil sequence to memory after studying it for 1 minute.
+Puoi creare un cerchio permanente lanciando questo incantesimo nello stesso luogo ogni giorno per **365 giorni**.
 
-You can create a permanent teleportation circle by casting this spell in the same location every day for 365 days.
+#### Taumaturgia
 
-#### Thaumaturgy
+*Trucchetto di Trasmutazione (Chierico)*
 
-*Transmutation Cantrip (Cleric)*
+**Tempo di Lancio:** Azione
 
-**Casting Time:** Action 
+**Gittata:** 9 m
 
-**Range:** 30 feet 
+**Componenti:** V
 
-**Components:** V 
+**Durata:** Fino a 1 minuto
 
-**Duration:** Up to 1 minute
+Manifesti una piccola meraviglia entro gittata. Crea uno degli effetti seguenti. Se lanci più volte questo incantesimo, puoi avere fino a **tre** effetti della durata di 1 minuto attivi contemporaneamente.
 
-You manifest a minor wonder within range. You create one of the effects below within range. If you cast this spell multiple times, you can have up to three of its 1-minute effects active at a time.
+***Occhi Alterati.*** Modifichi l’aspetto dei tuoi occhi per 1 minuto.
+***Voce Tonante.*** La tua voce rimbomba fino a tre volte più forte per 1 minuto; hai **Vantaggio** alle prove di Carisma (Intimidire).
+***Giochi di Fuoco.*** Fai tremolare, intensificare, attenuare o cambiare colore a fiamme per 1 minuto.
+***Mano Invisibile.*** Fai spalancare o chiudere di colpo istantaneamente una porta o finestra non chiusa a chiave.
+***Suono Fantasma.*** Crei istantaneamente un suono da un punto entro gittata (tuono lontano, gracchio di corvo, sussurri infausti, ecc.).
+***Tremori.*** Causi tremori innocui nel terreno per 1 minuto.
 
-**_Altered Eyes._** You alter the appearance of your eyes for 1 minute.
+#### Ondata Tonante
 
-**_Booming Voice._** Your voice booms up to three times as loud as normal for 1 minute. For the duration, you have Advantage on Charisma (Intimidation) checks.
+*Livello 1 Invocazione (Bardo, Druido, Stregone, Mago)*
 
-**_Fire Play._** You cause flames to flicker, brighten, dim, or change color for 1 minute.
+**Tempo di Lancio:** Azione
 
-**_Invisible Hand._** You instantaneously cause an unlocked door or window to fly open or slam shut.
+**Gittata:** Sé
 
-**_Phantom Sound._** You create an instantaneous sound that originates from a point of your choice within range, such as a rumble of thunder, the cry of a raven, or ominous whispers.
+**Componenti:** V, S
 
-**_Tremors._** You cause harmless tremors in the ground for 1 minute.
+**Durata:** Istantanea
 
-#### Thunderwavea
+Sprigioni un’onda di energia tonante. Ogni creatura in un **Cubo** di 4,5 m di lato con origine da te effettua un tiro salvezza su Costituzione. Con un fallimento, subisce **2d8** danni da **Tuono** ed è spinta di **3 m** lontano da te. Con un successo, subisce solo metà dei danni.
 
-*Level 1 Evocation (Bard, Druid, Sorcerer, Wizard)*
+Inoltre, gli oggetti non fissati interamente all’interno del Cubo sono spinti di **3 m** lontano da te, e un boato tonante è udibile fino a **90 m**.
 
-**Casting Time:** Action 
+***Usare uno Slot di Livello Superiore.*** I danni aumentano di **1d8** per ogni livello di slot sopra l’1.
 
-**Range:** Self 
+#### Blocco del Tempo
 
-**Components:** V, S 
+*Livello 9 Trasmutazione (Stregone, Mago)*
 
-**Duration:** Instantaneous
+**Tempo di Lancio:** Azione
 
-You unleash a wave of thunderous energy. Each creature in a 15-foot Cube originating from you makes a Constitution saving throw. On a failed save, a creature takes 2d8 Thunder damage and is pushed 10 feet away from you. On a successful save, a creature takes half as much damage only.
+**Gittata:** Sé
 
-In addition, unsecured objects that are entirely within the Cube are pushed 10 feet away from you, and a thunderous boom is audible within 300 feet.
+**Componenti:** V
 
-**_Using a Higher-Level Spell Slot._** The damage increases by 1d8 for each spell slot level above 1.
+**Durata:** Istantanea
 
-#### Time Stop
+Arresti brevemente il flusso del tempo per tutti tranne te. Nessun tempo passa per le altre creature mentre tu compi **1d4 + 1** turni di fila, durante i quali puoi usare azioni e muoverti normalmente.
 
-*Level 9 Transmutation (Sorcerer, Wizard)*
+L’incantesimo termina se una delle azioni che usi in questo periodo, o un effetto che crei, influenza una creatura diversa da te o un oggetto indossato o trasportato da qualcun altro. Inoltre termina se ti sposti a più di **300 m** dal luogo in cui l’hai lanciato.
 
-**Casting Time:** Action 
+#### Capanna Minuscola
 
-**Range:** Self 
+*Livello 3 Invocazione (Bardo, Mago)*
 
-**Components:** V 
+**Tempo di Lancio:** 1 minuto o Rituale
 
-**Duration:** Instantaneous
+**Gittata:** Sé
 
-You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
+**Componenti:** V, S, M (una perla di cristallo)
 
-This spell ends if one of the actions you use during this period, or any effects that you create during it, affects a creature other than you or an object being worn or carried by someone other than you. In addition, the spell ends if you move to a place more than 1,000 feet from the location where you cast it.
+**Durata:** 8 ore
 
-#### Tiny Hut
+Un’**Emanazione** di **3 m** prende forma attorno a te e rimane stazionaria per la durata. L’incantesimo fallisce se, al momento del lancio, l’Emanazione non è abbastanza grande da contenere completamente tutte le creature nella sua area.
 
-*Level 3 Evocation (Bard, Wizard)* 
+Le creature e gli oggetti nell’Emanazione quando lanci l’incantesimo possono attraversarla liberamente. Tutti gli altri sono impediti dal passarvi. Gli incantesimi di livello **3 o inferiore** non possono essere lanciati attraverso di essa e i loro effetti non possono estendersi al suo interno.
 
-**Casting Time:** 1 minute or Ritual 
+L’atmosfera all’interno è confortevole e asciutta, a prescindere dal clima esterno. Finché dura, puoi comandare che l’interno abbia **Luce Fioca** o **Oscurità** (nessuna azione richiesta). L’Emanazione è opaca dall’esterno e del colore che preferisci, ma è trasparente dall’interno.
 
-**Range:** Self
+L’incantesimo termina anticipatamente se lasci l’Emanazione o se lo lanci di nuovo.
 
-**Components:** V, S, M (a crystal bead) 
+#### Lingue
 
-**Duration:** 8 hours
+*Livello 3 Divinazione (Bardo, Chierico, Stregone, Warlock, Mago)*
 
-A 10-foot Emanation springs into existence around you and remains stationary for the duration. The spell fails when you cast it if the Emanation isn't big enough to fully encapsulate all creatures in its area.
+**Tempo di Lancio:** Azione
 
-Creatures and objects within the Emanation when you cast the spell can move through it freely. All other creatures and objects are barred from passing through it. Spells of level 3 or lower can't be cast through it, and the effects of such spells can't extend into it.
+**Gittata:** Contatto
 
-The atmosphere inside the Emanation is comfortable and dry, regardless of the weather outside. Until the spell ends, you can command the interior to have Dim Light or Darkness (no action required). The Emanation is opaque from the outside and of any color you choose, but it's transparent from the inside.
+**Componenti:** V, M (uno ziggurat in miniatura)
 
-The spell ends early if you leave the Emanation or if you cast it again.
+**Durata:** 1 ora
 
-#### Tongues
+Concedi alla creatura che tocchi la capacità di comprendere qualsiasi lingua **parlata o segnata** che senta o veda. Inoltre, quando il bersaglio comunica parlando o segnando, qualsiasi creatura che conosca almeno una lingua può capirlo se può udirlo o vederlo.
 
-*Level 3 Divination (Bard, Cleric, Sorcerer, Warlock, Wizard)*
+#### Trasporto tramite Piante
 
-**Casting Time:** Action 
+*Livello 6 Evocazione (Druido)*
 
-**Range:** Touch 
+**Tempo di Lancio:** Azione
 
-**Components:** V, M (a miniature ziggurat) 
+**Gittata:** 3 m
 
-**Duration:** 1 hour
+**Componenti:** V, S
 
-This spell grants the creature you touch the ability to understand any spoken or signed language that it hears or sees. Moreover, when the target communicates by speaking or signing, any creature that
+**Durata:** 1 minuto
 
-knows at least one language can understand it if that creature can hear the speech or see the signing.
+Crea un collegamento magico tra una pianta inanimata **Grande** o più grande entro gittata e un’altra pianta, a qualsiasi distanza, sullo stesso piano di esistenza. Devi aver visto o toccato la pianta di destinazione almeno una volta. Per la durata, qualsiasi creatura può entrare nella pianta bersaglio ed uscire dalla pianta di destinazione usando **1,5 m** di movimento.
 
-#### Transport via Plants
+#### Passo tra gli Alberi
 
-*Level 6 Conjuration (Druid)*
+*Livello 5 Evocazione (Druido, Ranger)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione
 
-**Range:** 10 feet 
+**Gittata:** Sé
 
-**Components:** V, S 
+**Componenti:** V, S
 
-**Duration:** 1 minute
+**Durata:** Concentrazione, fino a 1 minuto
 
-This spell creates a magical link between a Large or larger inanimate plant within range and another plant, at any distance, on the same plane of existence. You must have seen or touched the destination plant at least once before. For the duration, any creature can step into the target plant and exit from the destination plant by using 5 feet of movement.
+Ottieni la capacità di entrare in un albero e muoverti dal suo interno a quello di un altro albero dello stesso tipo entro **150 m**. Entrambi gli alberi devono essere vivi e almeno della tua taglia. Devi usare **1,5 m** di movimento per entrare nell’albero. Conosci istantaneamente la posizione di tutti gli altri alberi dello stesso tipo entro **150 m** e, come parte dello stesso movimento, puoi passare in uno di essi o uscire dall’albero in cui ti trovi, apparendo entro **1,5 m** dall’albero di destinazione (usando altri **1,5 m** di movimento). Se non hai movimento rimanente, appari entro **1,5 m** dall’albero in cui sei entrato.
 
-#### Tree Stride
+Puoi usare questa capacità di trasporto solo una volta per turno. Devi terminare ogni turno fuori da un albero.
 
-*Level 5 Conjuration (Druid, Ranger)*
+#### Metamorfosi Pura
 
-**Casting Time:** Action 
+*Livello 9 Trasmutazione (Bardo, Warlock, Mago)*
 
-**Range:** Self 
+**Tempo di Lancio:** Azione
 
-**Components:** V, S 
+**Gittata:** 9 m
 
-**Duration:** Concentration, up to 1 minute
+**Componenti:** V, S, M (una goccia di mercurio, una noce di gomma arabica e un filo di fumo)
 
-You gain the ability to enter a tree and move from inside it to inside another tree of the same kind within 500 feet. Both trees must be living and at least the same size as you. You must use 5 feet of movement to enter a tree. You instantly know the location of all other trees of the same kind within 500 feet and, as part of the move used to enter the tree, can either pass into one of those trees or step out of the tree you're in. You appear in a spot of your choice within 5 feet of the destination tree, using another 5 feet of movement. If you have no movement left, you appear within 5 feet of the tree you entered.
+**Durata:** Concentrazione, fino a 1 ora
 
-You can use this transportation ability only once on each of your turns. You must end each turn outside a tree.
+Scegli una creatura o un oggetto non magico che puoi vedere entro gittata. La creatura si **trasforma** in un’altra creatura o in un oggetto non magico, oppure l’oggetto si trasforma in una creatura (l’oggetto non deve essere indossato né trasportato). La trasformazione dura per la durata o finché il bersaglio muore o viene distrutto; se mantieni la **Concentrazione** per l’intera durata, l’incantesimo dura **fino a dissipazione**.
 
-#### True Polymorph
+Una creatura non consenziente può effettuare un tiro salvezza su Saggezza; con un successo non è influenzata.
 
-*Level 9 Transmutation (Bard, Warlock, Wizard)*
+***Creatura in Creatura.*** La nuova forma può essere di qualsiasi tipo con **GS** pari o inferiore al GS o livello del bersaglio. Le statistiche di gioco del bersaglio sono sostituite dal blocco della nuova forma, ma conserva **Punti Ferita**, **Dadi Vita**, allineamento e personalità. Ottiene **PF Temporanei** pari ai PF della nuova forma (svaniscono alla fine). È limitata dall’anatomia della nuova forma e non può parlare né lanciare incantesimi. L’equipaggiamento si fonde con la nuova forma e non può essere usato.
 
-**Casting Time:** Action 
+***Oggetto in Creatura.*** Puoi trasformare un oggetto in qualsiasi creatura, purché la **Taglia** della creatura non superi quella dell’oggetto e abbia **GS 9 o inferiore**. La creatura è **Amichevole** verso te e i tuoi alleati; in combattimento agisce immediatamente dopo di te e obbedisce ai tuoi comandi. Se l’incantesimo dura più di un’ora, non la controlli più; potrebbe restare amichevole a discrezione del GM.
 
-**Range:** 30 feet 
+***Creatura in Oggetto.*** La creatura (con ciò che indossa e trasporta) si trasforma in un oggetto di taglia non superiore alla sua. Le sue statistiche diventano quelle dell’oggetto e non ricorda il tempo trascorso in questa forma una volta terminato l’incantesimo.
 
-**Components:** V, S, M (a drop of mercury, a dollop of gum arabic, and a wisp of smoke)
+#### Resurrezione Pura
 
-**Duration:** Concentration, up to 1 hour
+*Livello 9 Necromanzia (Chierico, Druido)*
 
-Choose one creature or nonmagical object that you can see within range. The creature shape-shifts into a different creature or a nonmagical object, or the object shape-shifts into a creature (the object must be neither worn nor carried). The transformation lasts for the duration or until the target dies or is destroyed, but if you maintain Concentration on this spell for the full duration, the spell lasts until dispelled.
+**Tempo di Lancio:** 1 ora
 
-An unwilling creature can make a Wisdom saving throw, and if it succeeds, it isn't affected by this spell.
+**Gittata:** Contatto
 
-**_Creature into Creature._** If you turn a creature into another kind of creature, the new form can be any kind you choose that has a Challenge Rating equal to or less than the target's Challenge Rating or level. The target's game statistics are replaced by the stat block of the new form, but it retains its Hit Points, Hit Point Dice, alignment, and personality.
+**Componenti:** V, S, M (diamanti dal valore di almeno 25.000 MO, che l’incantesimo consuma)
 
-The target gains a number of Temporary Hit Points equal to the Hit Points of the new form. These Temporary Hit Points vanish if any remain when the spell ends.
+**Durata:** Istantanea
 
-The target is limited in the actions it can perform by the anatomy of its new form, and it can't speak or cast spells.
+Tocchi una creatura morta da non più di **200 anni** e non per vecchiaia. La creatura è rianimata con tutti i suoi **Punti Ferita**.
 
-The target's gear melds into the new form. The creature can't use or otherwise benefit from any of that equipment.
+L’incantesimo chiude tutte le ferite, neutralizza veleni, cura contagi magici e rimuove maledizioni presenti alla morte. Sostituisce organi e arti danneggiati o mancanti. Se la creatura era **Non Morta**, è riportata alla sua forma non non morta.
 
-**_Object into Creature._** You can turn an object into any kind of creature, as long as the creature's size is no larger than the object's size and the creature has a Challenge Rating of 9 or lower. The creature is Friendly to you and your allies. In combat, it takes its turns immediately after yours, and it obeys your commands.
+L’incantesimo può fornire un nuovo corpo se l’originale non esiste più: in tal caso devi pronunciarne il nome, e la creatura appare in uno spazio non occupato a tua scelta entro **3 m** da te.
 
-If the spell lasts more than an hour, you no longer control the creature. It might remain Friendly to you, depending on how you have treated it.
+#### Vista Vera
 
-**_Creature into Object._** If you turn a creature into an object, it transforms along with whatever it is wearing and carrying into that form, as long as the object's size is no larger than the creature's size. The creature's statistics become those of the object, and the creature has no memory of time spent in this form after the spell ends and it returns to normal.
+*Livello 6 Divinazione (Bardo, Chierico, Stregone, Warlock, Mago)*
 
-#### True Resurrection
+**Tempo di Lancio:** Azione
 
-*Level 9 Necromancy (Cleric, Druid)*
+**Gittata:** Contatto
 
-**Casting Time:** 1 hour 
+**Componenti:** V, S, M (polvere di fungo dal valore di almeno 25 MO, che l’incantesimo consuma)
 
-**Range:** Touch 
+**Durata:** 1 ora
 
-**Components:** V, S, M (diamonds worth 25,000+ GP, which the spell consumes) 
+Per la durata, la creatura consenziente che tocchi ha **Vista Vera** con gittata **36 m**.
 
-**Duration:** Instantaneous
+#### Colpo Sicuro
 
-You touch a creature that has been dead for no longer than 200 years and that died for any reason except old age. The creature is revived with all its Hit Points.
+*Trucchetto di Divinazione (Bardo, Stregone, Warlock, Mago)*
 
-This spell closes all wounds, neutralizes any poison, cures all magical contagions, and lifts any curses affecting the creature when it died. The spell replaces damaged or missing organs and limbs. If the creature was Undead, it is restored to its non-Undead form.
+**Tempo di Lancio:** Azione
 
-The spell can provide a new body if the original no longer exists, in which case you must speak the creature's name. The creature then appears in an unoccupied space you choose within 10 feet of you.
+**Gittata:** Sé
 
-#### True Seeing
+**Componenti:** S, M (un’arma con cui hai competenza e dal valore di almeno 1 MR)
 
-*Level 6 Divination (Bard, Cleric, Sorcerer, Warlock, Wizard)*
+**Durata:** Istantanea
 
-**Casting Time:** Action 
+Guidato da un lampo d’intuizione magica, effettui un attacco con l’arma usata nel lancio. L’attacco usa la tua caratteristica da incantatore per tiri per colpire e danni invece di Forza o Destrezza. Se infligge danni, possono essere **Radianti** o del normale tipo dell’arma (a tua scelta).
 
-**Range:** Touch 
-
-**Components:** V, S, M (mushroom powder worth 25+ GP, which the spell consumes) 
-
-**Duration:** 1 hour
-
-For the duration, the willing creature you touch has Truesight with a range of 120 feet.
-
-#### True Strike
-
-*Divination Cantrip (Bard, Sorcerer, Warlock, Wizard)*
-
-**Casting Time:** Action
-
-**Range:** Self
-
-**Components:** S, M (a weapon with which you have proficiency and that is worth 1+ CP)
-
-**Duration:** Instantaneous
-
-Guided by a flash of magical insight, you make one attack with the weapon used in the spell's casting. The attack uses your spellcasting ability for the attack and damage rolls instead of using Strength or Dexterity. If the attack deals damage, it can be Radiant damage or the weapon's normal damage type (your choice).
-
-**_Cantrip Upgrade._** Whether you deal Radiant damage or the weapon's normal damage type, the attack deals extra Radiant damage when you reach levels 5 (1d6), 11 (2d6), and 17 (3d6).
+***Miglioramento Trucchetto.*** Indipendentemente dal tipo di danno scelto, l’attacco infligge danni **Radianti** extra ai livelli 5 (**1d6**), 11 (**2d6**) e 17 (**3d6**).
 
 #### Tsunami
 
-*Level 8 Conjuration (Druid)*
+*Livello 8 Evocazione (Druido)*
 
-**Casting Time:** 1 minute 
+**Tempo di Lancio:** 1 minuto
 
-**Range:** 1 mile 
+**Gittata:** 1,6 km
 
-**Components:** V, S 
+**Componenti:** V, S
 
-**Duration:** Concentration, up to 6 rounds
+**Durata:** Concentrazione, fino a 6 round
 
-A wall of water springs into existence at a point you choose within range. You can make the wall up to 300 feet long, 300 feet high, and 50 feet thick. The wall lasts for the duration.
+Un muro d’acqua prende forma in un punto a tua scelta entro gittata. Puoi renderlo lungo fino a **90 m**, alto **90 m** e spesso **15 m**. Il muro dura per la durata.
 
-When the wall appears, each creature in its area makes a Strength saving throw, taking 6d10 Bludgeoning damage on a failed save or half as much damage on a successful one.
+Quando appare, ogni creatura nella sua area effettua un tiro salvezza su Forza, subendo **6d10** danni **Contundenti** con un fallimento o metà con un successo.
 
-At the start of each of your turns after the wall appears, the wall, along with any creatures in it, moves 50 feet away from you. Any Huge or smaller creature inside the wall or whose space the wall enters when it moves must succeed on a Strength saving throw or take 5d10 Bludgeoning damage. A creature can take this damage only once per round. At the end of the turn, the wall's height is reduced by 50 feet, and the damage the wall deals on later rounds is reduced by 1d10. When the wall reaches 0 feet in height, the spell ends.
+All’inizio di ciascuno dei tuoi turni dopo la comparsa, il muro, con ogni creatura al suo interno, si muove di **15 m** lontano da te. Qualsiasi creatura **Enorme** o più piccola dentro il muro o il cui spazio il muro attraversa mentre si muove deve superare un tiro salvezza su Forza o subire **5d10** danni **Contundenti** (una sola volta per round). Alla fine del turno, l’altezza del muro si riduce di **15 m**, e i danni che infliggerà nei round successivi si riducono di **1d10**. Quando l’altezza raggiunge 0, l’incantesimo termina.
 
-A creature caught in the wall can move by swimming. Because of the wave's force, though, the creature must succeed on a Strength (Athletics) check against your spell save DC to move at all. If it fails the check, it can't move. A creature that moves out of the wall falls to the ground.
+Una creatura intrappolata può nuotare, ma a causa della forza dell’onda deve superare una prova di Forza (Atletica) contro la tua CD degli incantesimi per muoversi; con un fallimento, non può muoversi. Una creatura che esce dal muro cade a terra.
 
-### U-Z Spells
+### Incantesimi U–Z
 
-#### Unseen Servant
+#### Servitore Invisibile
 
-*Level 1 Conjuration (Bard, Warlock, Wizard)*
+*Livello 1 Evocazione (Bardo, Warlock, Mago)*
 
-**Casting Time:** Action or Ritual 
+**Tempo di Lancio:** Azione o Rituale
 
-**Range:** 60 feet 
+**Gittata:** 18 m
 
-**Components:** V, S, M (a bit of string and of wood) 
+**Componenti:** V, S, M (un pezzetto di spago e uno di legno)
 
-**Duration:** 1 hour
+**Durata:** 1 ora
 
-This spell creates an Invisible, mindless, shapeless, Medium force that performs simple tasks at your command until the spell ends. The servant springs into existence in an unoccupied space on the ground within range. It has AC 10, 1 Hit Point, and a Strength of 2, and it can't attack. If it drops to 0 Hit Points, the spell ends.
+Crei una forza **Invisibile**, senza mente e informe, di taglia **Media**, che esegue semplici compiti ai tuoi ordini finché l’incantesimo dura. Il servitore appare in uno spazio non occupato sul terreno entro gittata. Ha **CA 10**, **1 Punto Ferita** e **Forza 2**, e non può attaccare. Se scende a 0 PF, l’incantesimo termina.
 
-Once on each of your turns as a Bonus Action, you can mentally command the servant to move up to 15 feet and interact with an object. The servant can perform simple tasks that a human could do, such as fetching things, cleaning, mending, folding clothes, lighting fires, serving food, and pouring drinks. Once you give the command, the servant performs the task to the best of its ability until it completes the task, then waits for your next command.
+Una volta per turno, come **Azione Bonus**, puoi comandare mentalmente il servitore a muoversi fino a **4,5 m** e a interagire con un oggetto. Può svolgere semplici compiti umani (recuperare oggetti, pulire, rammendare, piegare vestiti, accendere fuochi, servire cibo, versare bevande). Dopo un comando, lo porta a termine al meglio e poi attende il successivo.
 
-If you command the servant to perform a task that would move it more than 60 feet away from you, the spell ends.
+Se gli ordini lo porterebbero a più di **18 m** da te, l’incantesimo termina.
 
-#### Vampiric Touch
+#### Tocco Vampirico
 
-*Level 3 Necromancy (Sorcerer, Warlock, Wizard)*
+*Livello 3 Necromanzia (Stregone, Warlock, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione
 
-**Range:** Self 
+**Gittata:** Sé
 
-**Components:** V, S 
+**Componenti:** V, S
 
-**Duration:** Concentration, up to 1 minute
+**Durata:** Concentrazione, fino a 1 minuto
 
-The touch of your shadow-wreathed hand can siphon life force from others to heal your wounds. Make a melee spell attack against one creature within reach. On a hit, the target takes 3d6 Necrotic damage, and you regain Hit Points equal to half the amount of Necrotic damage dealt.
+Il tocco della tua mano avvolta d’ombra può risucchiare la forza vitale altrui per curare le tue ferite. Effettua un attacco con incantesimo in mischia contro una creatura a portata. Se colpisci, il bersaglio subisce **3d6** danni **Necrotici** e tu recuperi **Punti Ferita** pari alla metà dei danni Necrotici inflitti.
 
-Until the spell ends, you can make the attack again on each of your turns as a Magic action, targeting the same creature or a different one.
+Finché dura, puoi ripetere l’attacco a ogni tuo turno come azione **Magia**, sullo stesso bersaglio o su uno diverso.
 
-**_Using a Higher-Level Spell Slot._** The damage increases by 1d6 for each spell slot level above 3.
+***Usare uno Slot di Livello Superiore.*** I danni aumentano di **1d6** per ogni livello di slot sopra il 3.
 
-#### Vicious Mockery
+#### Scherno Crudele
 
-*Enchantment Cantrip (Bard)*
+*Trucchetto di Ammaliamento (Bardo)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione
 
-**Range:** 60 feet
+**Gittata:** 18 m
 
-**Components:** V 
+**Componenti:** V
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-You unleash a string of insults laced with subtle enchantments at one creature you can see or hear within range. The target must succeed on a Wisdom saving throw or take 1d6 Psychic damage and have Disadvantage on the next attack roll it makes before the end of its next turn.
+Scagli una sequela di insulti intrisi di sottili ammaliamenti contro una creatura che puoi vedere o sentire entro gittata. Il bersaglio deve superare un tiro salvezza su Saggezza o subire 1d6 danni Psichici e avere **Svantaggio** al prossimo tiro per colpire che effettua prima della fine del suo prossimo turno.
 
-**_Cantrip Upgrade._** The damage increases by 1d6 when you reach levels 5 (2d6), 11 (3d6), and 17 (4d6).
+***Miglioramento Trucchetto.*** I danni aumentano di 1d6 ai livelli 5 (2d6), 11 (3d6) e 17 (4d6).
 
-#### Vitriolic Sphere
+#### Sfera Vitriolica
 
-*Level 4 Evocation (Sorcerer, Wizard)*
+*Livello 4 Invocazione (Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione
 
-**Range:** 150 feet 
+**Gittata:** 45 m
 
-**Components:** V, S, M (a drop of bile) 
+**Componenti:** V, S, M (una goccia di bile)
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-You point at a location within range, and a glowing, 1-foot-diameter ball of acid streaks there and explodes in a 20-foot-radius Sphere. Each creature in that area makes a Dexterity saving throw. On a failed save, a creature takes 10d4 Acid damage and another 5d4 Acid damage at the end of its next turn. On a successful save, a creature takes half the initial damage only.
+Indichi una posizione entro gittata e una sfera di acido luminosa di 30 cm di diametro schizza lì ed esplode in una **Sfera** di raggio 6 m. Ogni creatura nell’area effettua un tiro salvezza su Destrezza. Con un fallimento, subisce 10d4 danni da **Acido** e altri 5d4 danni da **Acido** alla fine del suo prossimo turno. Con un successo, subisce solo metà dei danni iniziali.
 
-**_Using a Higher-Level Spell Slot._** The initial damage increases by 2d4 for each spell slot level above 4.
+***Usare uno Slot di Livello Superiore.*** I danni iniziali aumentano di 2d4 per ogni livello di slot sopra il 4.
 
-#### Wall of Fire
+#### Muro di Fuoco
 
-*Level 4 Evocation (Druid, Sorcerer, Wizard)*
+*Livello 4 Invocazione (Druido, Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione
 
-**Range:** 120 feet 
+**Gittata:** 36 m
 
-**Components:** V, S, M (a piece of charcoal) 
+**Componenti:** V, S, M (un pezzo di carbone)
 
-**Duration:** Concentration, up to 1 minute
+**Durata:** Concentrazione, fino a 1 minuto
 
-You create a wall of fire on a solid surface within range. You can make the wall up to 60 feet long, 20 feet high, and 1 foot thick, or a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall is opaque and lasts for the duration.
+Crei un muro di fuoco su una superficie solida entro gittata. Puoi farlo lungo fino a **18 m**, alto **6 m** e spesso **30 cm**, oppure ad anello fino a **6 m** di diametro, **6 m** d’altezza e **30 cm** di spessore. Il muro è opaco e dura per la durata.
 
-When the wall appears, each creature in its area makes a Dexterity saving throw, taking 5d8 Fire damage on a failed save or half as much damage on a successful one.
+Quando appare, ogni creatura nella sua area effettua un tiro salvezza su Destrezza, subendo **5d8** danni da **Fuoco** con un fallimento o metà con un successo.
 
-One side of the wall, selected by you when you cast this spell, deals 5d8 Fire damage to each creature that ends its turn within 10 feet of that side or inside the wall. A creature takes the same damage when it enters the wall for the first time on a turn or ends its turn there. The other side of the wall deals no damage.
+Un lato del muro, scelto da te al lancio, infligge **5d8** danni da **Fuoco** a ogni creatura che termini il turno entro **3 m** da quel lato o all’interno del muro. Una creatura subisce gli stessi danni quando entra nel muro per la prima volta in un turno o vi termina il turno. L’altro lato non infligge danni.
 
-**_Using a Higher-Level Spell Slot._** The damage increases by 1d8 for each spell slot level above 4.
+***Usare uno Slot di Livello Superiore.*** I danni aumentano di **1d8** per ogni livello di slot sopra il 4.
 
-#### Wall of Force
+#### Muro di Forza
 
-*Level 5 Evocation (Wizard)*
+*Livello 5 Invocazione (Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione
 
-**Range:** 120 feet 
+**Gittata:** 36 m
 
-**Components:** V, S, M (a shard of glass) 
+**Componenti:** V, S, M (una scheggia di vetro)
 
-**Duration:** Concentration, up to 10 minutes
+**Durata:** Concentrazione, fino a 10 minuti
 
-An Invisible wall of force springs into existence at a point you choose within range. The wall appears in any orientation you choose, as a horizontal or vertical barrier or at an angle. It can be free floating or resting on a solid surface. You can form it into a hemispherical dome or a globe with a radius of up to 10 feet, or you can shape a flat surface made up of ten 10-foot-by-10-foot panels. Each panel must be contiguous with another panel. In any form, the wall is 1/4 inch thick and lasts for the duration. If the wall cuts through a creature's space when it appears, the creature is pushed to one side of the wall (you choose which side).
+Un muro **Invisibile** di forza appare in un punto a tua scelta entro gittata. Puoi orientarlo come barriera orizzontale, verticale o inclinata; può fluttuare o poggiare su una superficie. Puoi formarlo a cupola emisferica o globo di raggio fino a **3 m**, oppure come superficie piana composta da dieci pannelli di **3 m × 3 m** contigui. In ogni forma, il muro è spesso circa **6 mm** e dura per la durata. Se il muro attraversa lo spazio di una creatura quando appare, la spinge da un lato (a tua scelta).
 
-Nothing can physically pass through the wall. It is immune to all damage and can't be dispelled by *Dispel Magic.* A *Disintegrate* spell destroys the wall instantly, however. The wall also extends into the Ethereal Plane and blocks ethereal travel through the wall.
+Nulla può attraversare fisicamente il muro. È immune a tutti i danni e non può essere dissolto da *Dissolvi Magie*. Un *Disintegrazione* lo distrugge istantaneamente. Il muro si estende anche nel **Piano Etereo** e blocca il viaggio etereo attraverso di esso.
 
-#### Wall of Ice
+#### Muro di Ghiaccio
 
-*Level 6 Evocation (Wizard)*
+*Livello 6 Invocazione (Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione
 
-**Range:** 120 feet 
+**Gittata:** 36 m
 
-**Components:** V, S, M (a piece of quartz) 
+**Componenti:** V, S, M (un pezzo di quarzo)
 
-**Duration:** Concentration, up to 10 minutes
+**Durata:** Concentrazione, fino a 10 minuti
 
-You create a wall of ice on a solid surface within range. You can form it into a hemispherical dome or a globe with a radius of up to 10 feet, or you can shape a flat surface made up of ten 10-foot-square panels. Each panel must be contiguous with another panel. In any form, the wall is 1 foot thick and lasts for the duration.
+Crei un muro di ghiaccio su una superficie solida entro gittata. Puoi formarlo a cupola emisferica o globo di raggio fino a **3 m**, oppure come superficie piana composta da dieci pannelli quadrati di **3 m** di lato contigui. In ogni forma, il muro è spesso **30 cm** e dura per la durata.
 
-If the wall cuts through a creature's space when it appears, the creature is pushed to one side of the wall (you choose which side) and makes a Dexterity saving throw, taking 10d6 Cold damage on a failed save or half as much damage on a successful one.
+Se il muro attraversa lo spazio di una creatura quando appare, la spinge da un lato (a tua scelta) ed essa effettua un tiro salvezza su Destrezza, subendo **10d6** danni da **Ghiaccio** con un fallimento o metà con un successo.
 
-The wall is an object that can be damaged and thus breached. It has AC 12 and 30 Hit Points per 10-foot section, and it has Immunity to Cold, Poison, and Psychic damage and Vulnerability to Fire damage. Reducing a 10-foot section of wall to 0 Hit Points destroys it and leaves behind a sheet of frigid air in the space the wall occupied.
+Il muro è un oggetto che può essere danneggiato e quindi aperto una breccia. Ha **CA 12** e **30 PF** per sezione di **3 m**, **Immunità** a Ghiaccio, Veleno e Psichico e **Vulnerabilità** al Fuoco. Ridurre una sezione da **3 m** a 0 PF la distrugge e lascia una cortina d’aria gelida nello spazio che occupava.
 
-A creature moving through the sheet of frigid air for the first time on a turn makes a Constitution saving throw, taking 5d6 Cold damage on a failed save or half as much damage on a successful one.
+La prima volta in un turno che una creatura attraversa la cortina, effettua un tiro salvezza su Costituzione, subendo **5d6** danni da **Ghiaccio** con un fallimento o metà con un successo.
 
-**_Using a Higher-Level Spell Slot._** The damage the wall deals when it appears increases by 2d6 and the damage from passing through the sheet of frigid air increases by 1d6 for each spell slot level above 6.
+***Usare uno Slot di Livello Superiore.*** I danni all’apparire del muro aumentano di **2d6** e quelli della cortina d’aria gelida di **1d6** per ogni livello di slot sopra il 6.
 
-#### Wall of Stone
+#### Muro di Pietra
 
-*Level 5 Evocation (Druid, Sorcerer, Wizard)*
+*Livello 5 Invocazione (Druido, Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione
 
-**Range:** 120 feet 
+**Gittata:** 36 m
 
-**Components:** V, S, M (a cube of granite) 
+**Componenti:** V, S, M (un cubo di granito)
 
-**Duration:** Concentration, up to 10 minutes
+**Durata:** Concentrazione, fino a 10 minuti
 
-A nonmagical wall of solid stone springs into existence at a point you choose within range. The wall is 6 inches thick and is composed of ten 10-foot-by-10-foot panels. Each panel must be contiguous with another panel. Alternatively, you can create 10-footby-20-foot panels that are only 3 inches thick.
+Un muro non magico di pietra solida appare in un punto entro gittata. Il muro è spesso **15 cm** ed è composto da dieci pannelli di **3 m × 3 m** contigui. In alternativa, puoi creare pannelli di **3 m × 6 m** spessi **7,5 cm**.
 
-If the wall cuts through a creature's space when it appears, the creature is pushed to one side of the wall (you choose which side). If a creature would be surrounded on all sides by the wall (or the wall and another solid surface), that creature can make a Dexterity saving throw. On a success, it can use its Reaction to move up to its Speed so that it is no longer enclosed by the wall.
+Se il muro attraversa lo spazio di una creatura quando appare, la spinge da un lato (a tua scelta). Se una creatura verrebbe circondata su tutti i lati dal muro (o dal muro e da un’altra superficie solida), può effettuare un tiro salvezza su Destrezza; con un successo, usa la **Reazione** per muoversi fino alla propria Velocità in modo da non essere più racchiusa.
 
-The wall can have any shape you desire, though it can't occupy the same space as a creature or object. The wall doesn't need to be vertical or rest on a firm foundation. It must, however, merge with and be solidly supported by existing stone. Thus, you can use this spell to bridge a chasm or create a ramp.
+Il muro può avere qualsiasi forma, ma non può occupare lo stesso spazio di una creatura o oggetto. Non deve essere verticale né poggiare su fondamenta solide, ma deve fondersi ed essere solidamente supportato da pietra esistente; puoi quindi colmare un burrone o creare una rampa.
 
-If you create a span greater than 20 feet in length, you must halve the size of each panel to create supports. You can crudely shape the wall to create battlements and the like.
+Se crei una campata oltre **6 m** di lunghezza, devi dimezzare le dimensioni di ciascun pannello per creare i sostegni. Puoi grossolanamente scolpire merlature e simili.
 
-The wall is an object made of stone that can be damaged and thus breached. Each panel has AC 15 and 30 Hit Points per inch of thickness, and it has Immunity to Poison and Psychic damage. Reducing a panel to 0 Hit Points destroys it and might cause connected panels to collapse at the GM's discretion.
+Il muro è un oggetto di pietra che può essere danneggiato e quindi aperto una breccia. Ogni pannello ha **CA 15** e **30 PF per 2,5 cm** di spessore, e **Immunità** a Veleno e Psichico. Ridurre un pannello a 0 PF lo distrugge e può far crollare quelli collegati a discrezione del GM.
 
-If you maintain your Concentration on this spell for its full duration, the wall becomes permanent and can't be dispelled. Otherwise, the wall disappears when the spell ends.
+Se mantieni la Concentrazione per l’intera durata, il muro diventa **permanente** e non può essere dissolto. Altrimenti, scompare quando l’incantesimo termina.
 
-#### Wall of Thorns
+#### Muro di Spine
 
-*Level 6 Conjuration (Druid)*
+*Livello 6 Evocazione (Druido)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione
 
-**Range:** 120 feet 
+**Gittata:** 36 m
 
-**Components:** V, S, M (a handful of thorns) 
+**Componenti:** V, S, M (una manciata di spine)
 
-**Duration:** Concentration, up to 10 minutes
+**Durata:** Concentrazione, fino a 10 minuti
 
-You create a wall of tangled brush bristling with needle-sharp thorns. The wall appears within range on a solid surface and lasts for the duration. You choose to make the wall up to 60 feet long, 10 feet high, and 5 feet thick or a circle that has a 20-foot diameter and is up to 20 feet high and 5 feet thick. The wall blocks line of sight.
+Crei un muro di rovi aggrovigliati irti di spine acuminate. Il muro appare entro gittata su una superficie solida e dura per la durata. Puoi farlo lungo fino a **18 m**, alto **3 m** e spesso **1,5 m**, oppure a cerchio di **6 m** di diametro, alto fino a **6 m** e spesso **1,5 m**. Il muro blocca la linea di visuale.
 
-When the wall appears, each creature in its area makes a Dexterity saving throw, taking 7d8 Piercing damage on a failed save or half as much damage on a successful one.
+Quando appare, ogni creatura nella sua area effettua un tiro salvezza su Destrezza, subendo **7d8** danni **Perforanti** con un fallimento o metà con un successo.
 
-A creature can move through the wall, albeit slowly and painfully. For every 1 foot a creature moves through the wall, it must spend 4 feet of movement. Furthermore, the first time a creature enters a space in the wall on a turn or ends its turn there, the creature makes a Dexterity saving throw, taking 7d8 Slashing damage on a failed save or half as much damage on a successful one. A creature makes this save only once per turn.
+Una creatura può attraversare il muro, lentamente e dolorosamente: per ogni **30 cm** di movimento all’interno del muro deve spendere **1,2 m** di movimento (quattro volte). Inoltre, la prima volta in un turno che entra in uno spazio del muro o vi termina il turno, effettua un tiro salvezza su Destrezza, subendo **7d8** danni **Taglienti** con un fallimento o metà con un successo. Effettua questo tiro solo una volta per turno.
 
-**_Using a Higher-Level Spell Slot._** Both types of damage increase by 1d8 for each spell slot level above 6.
+***Usare uno Slot di Livello Superiore.*** Entrambi i tipi di danni aumentano di **1d8** per ogni livello di slot sopra il 6.
 
-#### Warding Bond
+#### Vincolo Protettivo
 
-*Level 2 Abjuration (Cleric, Paladin)*
+*Livello 2 Abiurazione (Chierico, Paladino)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione
 
-**Range:** Touch
+**Gittata:** Contatto
 
-**Components:** V, S, M (a pair of platinum rings worth 50+ GP each, which you and the target must wear for the duration)
+**Componenti:** V, S, M (una coppia di anelli di platino dal valore di almeno 50 MO ciascuno, che tu e il bersaglio dovete indossare per la durata)
 
-**Duration:** 1 hour
+**Durata:** 1 ora
 
-You touch another creature that is willing and create a mystic connection between you and the target until the spell ends. While the target is within 60 feet of you, it gains a +1 bonus to AC and saving throws, and it has Resistance to all damage. Also, each time it takes damage, you take the same amount of damage.
+Tocchi un’altra creatura consenziente e crei un legame mistico tra te e il bersaglio fino al termine dell’incantesimo. Finché il bersaglio è entro **18 m** da te, ottiene un bonus **+1** alla **CA** e ai **tiri salvezza**, e ha **Resistenza** a tutti i danni. Inoltre, ogni volta che subisce danni, tu subisci la stessa quantità di danni.
 
-The spell ends if you drop to 0 Hit Points or if you and the target become separated by more than 60 feet. It also ends if the spell is cast again on either of the connected creatures.
+L’incantesimo termina se scendi a 0 **Punti Ferita** o se tu e il bersaglio vi allontanate oltre **18 m**. Termina anche se l’incantesimo è lanciato di nuovo su una delle due creature collegate.
 
-#### Water Breathing
+#### Respirare Acqua
 
-*Level 3 Transmutation (Druid, Ranger, Sorcerer, Wizard)*
+*Livello 3 Trasmutazione (Druido, Ranger, Stregone, Mago)*
 
-**Casting Time:** Action or Ritual 
+**Tempo di Lancio:** Azione o Rituale
 
-**Range:** 30 feet 
+**Gittata:** 9 m
 
-**Components:** V, S, M (a short reed) 
+**Componenti:** V, S, M (una cannuccia corta)
 
-**Duration:** 24 hours
+**Durata:** 24 ore
 
-This spell grants up to ten willing creatures of your choice within range the ability to breathe underwater until the spell ends. Affected creatures also retain their normal mode of respiration.
+Concedi a un massimo di dieci creature consenzienti a tua scelta entro gittata la capacità di respirare sott’acqua fino al termine dell’incantesimo. Le creature mantengono anche il loro normale modo di respirare.
 
-#### Water Walk
+#### Camminare sull’Acqua
+*Livello 3 Trasmutazione (Chierico, Druido, Ranger, Stregone)*
 
-*Level 3 Transmutation (Cleric, Druid, Ranger, Sorcerer)*
+**Tempo di Lancio:** Azione o Rituale
 
-**Casting Time:** Action or Ritual 
+**Gittata:** 9 m
 
-**Range:** 30 feet
+**Componenti:** V, S, M (un pezzo di sughero)
 
-**Components:** V, S, M (a piece of cork) 
+**Durata:** 1 ora
 
-**Duration:** 1 hour
+Conferisci la capacità di muoversi sulla superficie di qualsiasi liquido—acqua, acido, fango, neve, sabbie mobili o lava—come se fosse solido innocuo (le creature che attraversano lava fusa possono comunque subire danni dal calore). Fino a dieci creature consenzienti a tua scelta entro gittata ottengono questa capacità per la durata.
 
-This spell grants the ability to move across any liquid surface—such as water, acid, mud, snow, quicksand, or lava—as if it were harmless solid ground (creatures crossing molten lava can still take damage from the heat). Up to ten willing creatures of your choice within range gain this ability for the duration.
+Un bersaglio influenzato deve usare un’Azione **Bonus** per passare dalla superficie del liquido all’interno del liquido e viceversa, ma se cade nel liquido, attraversa la superficie e finisce nel liquido sottostante.
 
-An affected target must take a Bonus Action to pass from the liquid's surface into the liquid itself and vice versa, but if the target falls into the liquid, the target passes through the surface into the liquid below.
+#### Ragnatela
 
-#### Web
+*Livello 2 Evocazione (Stregone, Mago)*
 
-*Level 2 Conjuration (Sorcerer, Wizard)*
+**Tempo di Lancio:** Azione
 
-**Casting Time:** Action 
+**Gittata:** 18 m
 
-**Range:** 60 feet 
+**Componenti:** V, S, M (un po’ di ragnatela)
 
-**Components:** V, S, M (a bit of spiderweb) 
+**Durata:** Concentrazione, fino a 1 ora
 
-**Duration:** Concentration, up to 1 hour
+Conjuri una massa di ragnatele appiccicose in un punto entro gittata. Le ragnatele riempiono un **Cubo** di 6 m per la durata. Le ragnatele sono **Terreno Difficile** e l’area è **Leggermente Oscurata**.
 
-You conjure a mass of sticky webbing at a point within range. The webs fill a 20-foot Cube there for the duration. The webs are Difficult Terrain, and the area within them is Lightly Obscured.
+Se le ragnatele non sono ancorate tra due masse solide (come muri o alberi) o stese su un pavimento, muro o soffitto, collassano su sé stesse e l’incantesimo termina all’inizio del tuo prossimo turno. Le ragnatele stese su una superficie piana hanno uno spessore di 1,5 m.
 
-If the webs aren't anchored between two solid masses (such as walls or trees) or layered across a floor, wall, or ceiling, the web collapses on itself, and the spell ends at the start of your next turn. Webs layered over a flat surface have a depth of 5 feet.
+La prima volta in un turno che una creatura entra nelle ragnatele o inizia lì il proprio turno, deve superare un tiro salvezza su **Destrezza** o ottenere la condizione **Immobilizzato** finché rimane nelle ragnatele o finché non si libera.
 
-The first time a creature enters the webs on a turn or starts its turn there, it must succeed on a Dexterity saving throw or have the Restrained condition while in the webs or until it breaks free.
+Una creatura **Immobilizzata** dalle ragnatele può compiere un’azione per effettuare una prova di **Forza (Atletica)** contro la tua CD degli incantesimi. Con un successo, non è più Immobilizzata.
 
-A creature Restrained by the webs can take an action to make a Strength (Athletics) check against your spell save DC. If it succeeds, it is no longer Restrained.
+Le ragnatele sono **infiammabili**. Ogni **Cubo** di 1,5 m di ragnatele esposto al fuoco brucia via in 1 round, infliggendo **2d4** danni da **Fuoco** a ogni creatura che inizia il proprio turno nel fuoco.
 
-The webs are flammable. Any 5-foot Cube of webs exposed to fire burns away in 1 round, dealing 2d4 Fire damage to any creature that starts its turn in the fire.
+#### Incubo
 
-#### Weird
+*Livello 9 Illusione (Warlock, Mago)*
 
-*Level 9 Illusion (Warlock, Wizard)*
+**Tempo di Lancio:** Azione
 
-**Casting Time:** Action 
+**Gittata:** 36 m
 
-**Range:** 120 feet 
+**Componenti:** V, S
 
-**Components:** V, S 
+**Durata:** Concentrazione, fino a 1 minuto
 
-**Duration:** Concentration, up to 1 minute
+Cerchi di suscitare terrori illusori nella mente altrui. Ogni creatura a tua scelta in una **Sfera** di raggio 9 m centrata su un punto entro gittata effettua un tiro salvezza su **Saggezza**. Con un fallimento, un bersaglio subisce **10d10** danni **Psichici** e ottiene la condizione **Spaventato** per la durata. Con un successo, subisce soltanto metà dei danni.
 
-You try to create illusory terrors in others' minds. Each creature of your choice in a 30-foot-radius Sphere centered on a point within range makes a Wisdom saving throw. On a failed save, a target takes 10d10 Psychic damage and has the Frightened condition for the duration. On a successful save, a target takes half as much damage only.
+Un bersaglio **Spaventato** ripete il tiro alla fine di ciascun suo turno: con un fallimento subisce **5d10** danni **Psichici**; con un successo l’incantesimo termina su quel bersaglio.
 
-A Frightened target makes a Wisdom saving throw at the end of each of its turns. On a failed save, it takes 5d10 Psychic damage. On a successful save, the spell ends on that target.
+#### Cammino del Vento
 
-#### Wind Walk
+*Livello 6 Trasmutazione (Druido)*
 
-*Level 6 Transmutation (Druid)*
+**Tempo di Lancio:** 1 minuto
 
-**Casting Time:** 1 minute 
+**Gittata:** 9 m
 
-**Range:** 30 feet 
+**Componenti:** V, S, M (una candela)
 
-**Components:** V, S, M (a candle) 
+**Durata:** 8 ore
 
-**Duration:** 8 hours
+Tu e fino a dieci creature consenzienti a tua scelta entro gittata assumete forme gassose per la durata, apparendo come filamenti di nube. In questa forma, un bersaglio ha **Velocità di Volo 90 m** e può **stazionare**; ha **Immunità** alla condizione **Prono**; e ha **Resistenza** ai danni **Contundenti, Perforanti e Taglienti**. Le uniche azioni che può compiere in questa forma sono **Scatto** o un’azione **Magia** per iniziare a ritornare alla forma normale. Il ritorno richiede **1 minuto**, durante il quale il bersaglio ha la condizione **Stordito**. Finché l’incantesimo dura, il bersaglio può tornare alla forma di nube, che richiede anch’essa un’azione **Magia** seguita da 1 minuto di trasformazione.
 
-You and up to ten willing creatures of your choice within range assume gaseous forms for the duration, appearing as wisps of cloud. While in this cloud form, a target has a Fly Speed of 300 feet and can hover; it has Immunity to the Prone condition; and it has Resistance to Bludgeoning, Piercing, and Slashing damage. The only actions a target can take in this form are the Dash action or a Magic action to begin reverting to its normal form. Reverting takes 1 minute, during which the target has the Stunned condition. Until the spell ends, the target can revert to cloud form, which also requires a Magic action followed by a 1-minute transformation.
+Se un bersaglio è in forma di nube e in volo quando l’effetto termina, discende di **18 m** per round per 1 minuto fino ad atterrare in sicurezza. Se non può atterrare entro 1 minuto, cade per la distanza restante.
 
-If a target is in cloud form and flying when the effect ends, the target descends 60 feet per round for 1 minute until it lands, which it does safely. If it can't land after 1 minute, it falls the remaining distance.
+#### Muro di Vento
 
-#### Wind Wall
+*Livello 3 Invocazione (Druido, Ranger)*
 
-*Level 3 Evocation (Druid, Ranger)*
+**Tempo di Lancio:** Azione
 
-**Casting Time:** Action 
+**Gittata:** 36 m
 
-**Range:** 120 feet 
+**Componenti:** V, S, M (un ventaglio e una piuma)
 
-**Components:** V, S, M (a fan and a feather) 
+**Durata:** Concentrazione, fino a 1 minuto
 
-**Duration:** Concentration, up to 1 minute
+Un muro di vento possente si leva dal terreno in un punto a tua scelta entro gittata. Puoi farlo lungo fino a **15 m**, alto **4,5 m** e spesso **30 cm**. Puoi sagomarlo come vuoi purché formi un tracciato continuo sul terreno. Dura per la durata.
 
-A wall of strong wind rises from the ground at a point you choose within range. You can make the wall up to 50 feet long, 15 feet high, and 1 foot thick. You can shape the wall in any way you choose so long as it makes one continuous path along the ground. The wall lasts for the duration.
+Quando appare, ogni creatura nella sua area effettua un tiro salvezza su **Forza**, subendo **4d8** danni **Contundenti** con un fallimento o metà con un successo.
 
-When the wall appears, each creature in its area makes a Strength saving throw, taking 4d8 Bludgeoning damage on a failed save or half as much damage on a successful one.
+Il vento respinge nebbia, fumo e altri gas. Creature o oggetti **Minuscoli** o più piccoli che volano non possono attraversarlo. Materiali leggeri e sciolti portati nel muro volano verso l’alto. Frecce, dardi e altri proiettili ordinari scagliati contro bersagli dietro il muro vengono deviati verso l’alto e mancano automaticamente. Massi scagliati da Giganti o macchine d’assedio, e proiettili simili, non sono influenzati. Le creature in **forma gassosa** non possono attraversarlo.
 
-The strong wind keeps fog, smoke, and other gases at bay. Small or smaller flying creatures or objects can't pass through the wall. Loose, lightweight materials brought into the wall fly upward. Arrows, bolts, and other ordinary projectiles launched at targets behind the wall are deflected upward and miss automatically. Boulders hurled by Giants or siege engines, and similar projectiles, are unaffected. Creatures in gaseous form can't pass through it.
+#### Desiderio
 
-#### Wish
+*Livello 9 Evocazione (Stregone, Mago)*
 
-*Level 9 Conjuration (Sorcerer, Wizard)*
+**Tempo di Lancio:** Azione
 
-**Casting Time:** Action 
+**Gittata:** Sé
 
-**Range:** Self 
+**Componenti:** V
 
-**Components:** V 
+**Durata:** Istantanea
 
-**Duration:** Instantaneous
+*Desiderio* è il più potente incantesimo lanciabile da un mortale. Semplicemente parlando, puoi alterare la realtà stessa.
 
-*Wish* is the mightiest spell a mortal can cast. By simply speaking aloud, you can alter reality itself.
+L’uso base dell’incantesimo è duplicare qualsiasi altro incantesimo di **livello 8 o inferiore**. In tal caso non devi soddisfare i requisiti di quel lancio, inclusi componenti costosi: l’effetto avviene e basta.
 
-The basic use of this spell is to duplicate any other spell of level 8 or lower. If you use it this way, you don't need to meet any requirements to cast that spell, including costly components. The spell simply takes effect.
+In alternativa, puoi creare uno dei seguenti effetti a tua scelta:
 
-Alternatively, you can create one of the following effects of your choice:
+***Creazione di Oggetto.*** Crei un oggetto non magico del valore massimo di **25.000 GP**. L’oggetto non può superare **90 m** in alcuna dimensione e appare in uno spazio non occupato che vedi a terra.
+***Salute Istantanea.*** Tu e fino a venti creature che puoi vedere recuperate tutti i **Punti Ferita** ed elimini su di esse tutti gli effetti elencati in *Restaurazione Superiore*.
+***Resistenza.*** Concedi a fino a dieci creature che vedi **Resistenza** a un tipo di danno a tua scelta. Questa Resistenza è **permanente**.
+***Immunità a Incantesimo.*** Concedi a fino a dieci creature che vedi **Immunità** a un singolo incantesimo o altro effetto magico per **8 ore**.
+***Apprendimento Improvviso.*** Sostituisci un tuo **talento** con un altro per cui hai i prerequisiti. Perdi tutti i benefici del vecchio e ottieni quelli del nuovo. Non puoi sostituire un talento prerequisito di altri tuoi talenti o capacità.
+***Ritira il Tiro.*** Annulli un evento recente forzando il **ritiro** di un qualsiasi tiro di dado effettuato nell’ultimo round (incluso il tuo ultimo turno). La realtà si rimodella sul nuovo risultato. Puoi imporre il ritira con **Vantaggio** o **Svantaggio** e scegli se usare il nuovo risultato o l’originale.
+***Riplasmare la Realtà.*** Puoi desiderare qualcosa non coperta dagli effetti precedenti. Formula il desiderio al GM con la massima precisione. Il GM ha ampia discrezionalità sull’esito; più grande è il desiderio, maggiore la probabilità che qualcosa vada storto. L’incantesimo potrebbe fallire, realizzarsi solo in parte o avere conseguenze inattese (es.: desiderare la morte di un nemico potrebbe proiettarti in un futuro in cui è già morto).
 
-**_Object Creation._** You create one object of up to 25,000 GP in value that isn't a magic item. The object can be no more than 300 feet in any dimension, and it appears in an unoccupied space that you can see on the ground.
-**_Instant Health._** You allow yourself and up to twenty creatures that you can see to regain all Hit Points, and you end all effects on them listed in the *Greater Restoration* spell.
-**_Resistance._** You grant up to ten creatures that you can see Resistance to one damage type that you choose. This Resistance is permanent.
-**_Spell Immunity._** You grant up to ten creatures you can see immunity to a single spell or other magical effect for 8 hours.
-**_Sudden Learning._** You replace one of your feats with another feat for which you are eligible. You lose all the benefits of the old feat and gain the benefits of the new one. You can't replace a feat that is a prerequisite for any of your other feats or features.
-**_Roll Redo._** You undo a single recent event by forcing a reroll of any die roll made within the last round (including your last turn). Reality reshapes itself to accommodate the new result. For example, a *Wish* spell could undo an ally's failed saving throw or a foe's Critical Hit. You can force the reroll to be made with Advantage or Disadvantage, and you choose whether to use the reroll or the original roll.
-**_Reshape Reality._** You may wish for something not included in any of the other effects. To do so, state your wish to the GM as precisely as possible. The GM has great latitude in ruling what occurs in such an instance; the greater the wish, the greater the likelihood that something goes wrong. This spell might simply fail, the effect you desire might be achieved only in part, or you might suffer an unforeseen consequence as a result of how you worded the wish. For example, wishing that a villain were dead might propel you forward in time to a period when that villain is no longer alive, effectively removing you from the game.
+Allo stesso modo, desiderare un oggetto magico **Leggendario** o un’**Artefatto** potrebbe trasportarti presso l’attuale possessore. Se il desiderio ha conseguenze su una comunità, regione o mondo, attirerai probabilmente l’ira di potenti avversari. Se il desiderio riguardasse una divinità, i suoi servitori potrebbero intervenire all’istante. Se il desiderio annullerebbe il multiverso, fallisce.
 
-Similarly, wishing for a Legendary magic item or an Artifact might instantly transport you to the presence of the item's current owner. If your wish is granted and its effects have consequences for a whole community, region, or world, you are likely to attract powerful foes. If your wish would affect a god, the god's divine servants might instantly intervene to prevent it or to encourage you to craft the wish in a particular way. If your wish would undo the multiverse itself, your wish fails.
+Lo stress di lanciare *Desiderio* per un effetto diverso dal duplicare un incantesimo ti indebolisce. Dopo averlo subito, **ogni volta** che lanci un incantesimo fino al termine di un **Riposo Lungo**, subisci **1d10** danni **Necrotici** per livello di quell’incantesimo (danni che non possono essere ridotti o prevenuti). Inoltre, il tuo punteggio di **Forza** diventa **3** per **2d4 giorni**. Per ciascuno di quei giorni trascorso in riposo e attività leggera, il tempo di recupero rimanente si riduce di 2 giorni. Infine, c’è il **33%** di probabilità che tu non possa **mai più** lanciare *Desiderio* se subisci questo stress.
 
-The stress of casting *Wish* to produce any effect other than duplicating another spell weakens you. After enduring that stress, each time you cast a spell until you finish a Long Rest, you take 1d10 Necrotic damage per level of that spell. This damage can't be reduced or prevented in any way. In addition, your Strength score becomes 3 for 2d4 days. For each of those days that you spend resting and doing nothing more than light activity, your remaining recovery time decreases by 2 days. Finally, there is a 33 percent chance that you are unable to cast *Wish* ever again if you suffer this stress.
+#### Parola del Richiamo
 
-#### Word of Recall
+*Livello 6 Evocazione (Chierico)*
 
-*Level 6 Conjuration (Cleric)*
+**Tempo di Lancio:** Azione
 
-**Casting Time:** Action 
+**Gittata:** 1,5 m
 
-**Range:** 5 feet 
+**Componenti:** V
 
-**Components:** V 
+**Durata:** Istantanea
 
-**Duration:** Instantaneous
+Tu e fino a cinque creature consenzienti entro 1,5 m vi teletrasportate istantaneamente in un santuario precedentemente designato. Apparite nello spazio non occupato più vicino al punto designato quando hai preparato il santuario (vedi sotto). Se lanci l’incantesimo senza aver prima preparato un santuario, non ha effetto.
 
-You and up to five willing creatures within 5 feet of you instantly teleport to a previously designated sanctuary. You and any creatures that teleport with you appear in the nearest unoccupied space to the spot you designated when you prepared your sanctuary (see below). If you cast this spell without first preparing a sanctuary, the spell has no effect.
+Devi designare un luogo, come un tempio, come santuario lanciando lì questo incantesimo.
 
-You must designate a location, such as a temple, as a sanctuary by casting this spell there.
+#### Zona di Verità
 
-#### Zone of Truth
+*Livello 2 Ammaliamento (Bardo, Chierico, Paladino)*
 
-*Level 2 Enchantment (Bard, Cleric, Paladin)*
+**Tempo di Lancio:** Azione
 
-**Casting Time:** Action 
+**Gittata:** 18 m
 
-**Range:** 60 feet 
+**Componenti:** V, S
 
-**Components:** V, S 
+**Durata:** 10 minuti
 
-**Duration:** 10 minutes
+Crei una zona magica che ostacola l’inganno in una **Sfera** di raggio **4,5 m** centrata su un punto entro gittata. Finché dura, una creatura che entra nell’area per la prima volta in un turno o che inizia lì il proprio turno effettua un tiro salvezza su **Carisma**. Con un fallimento, non può pronunciare menzogne deliberatamente mentre si trova nel raggio. Sai se una creatura ha avuto successo o no nel tiro.
 
-You create a magical zone that guards against deception in a 15-foot-radius Sphere centered on a point within range. Until the spell ends, a creature that enters the spell's area for the first time on a turn or starts its turn there makes a Charisma saving throw. On a failed save, a creature can't speak a deliberate lie while in the radius. You know whether a creature succeeds or fails on this save.
+Una creatura affetta è consapevole dell’incantesimo e può evitare di rispondere a domande a cui normalmente risponderebbe con una menzogna. Può essere evasiva, ma deve dire la verità.
 
-An affected creature is aware of the spell and can avoid answering questions to which it would normally respond with a lie. Such a creature can be evasive yet must be truthful.
