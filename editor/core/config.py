@@ -13,6 +13,7 @@ LOGICAL_COLLECTIONS = [
     "armor",
     "weapons",
     "tools",
+    "gear",
     "mounts_vehicles",
     "services",
     "rules_glossary",
@@ -30,6 +31,7 @@ LABELS_IT: Dict[str, str] = {
     "armor": "Armature",
     "weapons": "Armi",
     "tools": "Strumenti",
+    "gear": "Equipaggiamento",
     "mounts_vehicles": "Cavalcature e Veicoli",
     "services": "Servizi",
     "rules_glossary": "Glossario Regole",
@@ -46,6 +48,7 @@ LABELS_EN: Dict[str, str] = {
     "armor": "Armor",
     "weapons": "Weapons",
     "tools": "Tools",
+    "gear": "Adventuring Gear",
     "mounts_vehicles": "Mounts & Vehicles",
     "services": "Services",
     "rules_glossary": "Rules Glossary",
@@ -62,31 +65,34 @@ def label_for(collection: str, lang: str | None) -> str:
 # For IT we prepare target names (e.g., *_it) for future ingestion.
 DB_COLLECTIONS_IT: Dict[str, str] = {
     "classes": "classi",
-    "backgrounds": "backgrounds",  # currently same name
-    "spells": "spells_it",
-    "magic_items": "magic_items_it",
-    "armor": "armor_it",
-    "weapons": "weapons_it",
-    "tools": "tools_it",
-    "mounts_vehicles": "mounts_vehicles_it",
-    "services": "services_it",
-    "rules_glossary": "rules_glossary_it",
-    "monsters": "monsters_it",
-    "animals": "animals_it",
+    "backgrounds": "backgrounds",
+    "spells": "incantesimi",
+    "magic_items": "oggetti_magici",
+    "armor": "armature",
+    "weapons": "armi",
+    "tools": "strumenti",
+    "gear": "equipaggiamento",
+    "mounts_vehicles": "cavalcature_veicoli_it",
+    "services": "servizi",
+    "rules_glossary": "glossario_regole_it",
+    "monsters": "mostri",
+    "animals": "animali",
 }
 
 DB_COLLECTIONS_EN: Dict[str, str] = {
+    "classes": "classi_en",
     "backgrounds": "backgrounds_en",
-    "spells": "spells",
-    "magic_items": "magic_items",
-    "armor": "armor",
-    "weapons": "weapons",
-    "tools": "tools",
+    "spells": "spells_en",
+    "magic_items": "magic_items_en",
+    "armor": "armor_en",
+    "weapons": "weapons_en",
+    "tools": "tools_en",
+    "gear": "adventuring_gear_en",
     "mounts_vehicles": "mounts_vehicles",
-    "services": "services",
+    "services": "services_en",
     "rules_glossary": "rules_glossary",
-    "monsters": "monsters",
-    "animals": "animals",
+    "monsters": "monsters_en",
+    "animals": "animals_en",
 }
 
 def db_collection_for(collection: str, lang: str | None) -> str:
@@ -97,4 +103,3 @@ def db_collection_for(collection: str, lang: str | None) -> str:
 # Back-compat exports
 COLLECTIONS = LOGICAL_COLLECTIONS
 COLLECTION_LABELS = {c: LABELS_IT.get(c, c) for c in LOGICAL_COLLECTIONS}
-
