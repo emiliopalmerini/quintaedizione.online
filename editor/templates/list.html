@@ -96,7 +96,7 @@
 
   <section class="bg-white border">
     <div id="rows"
-         hx-get="/view/{{ collection }}?page={{ page or 1 }}&page_size={{ page_size or 20 }}&q={{ q or '' }}&lang={{ lang or 'it' }}"
+         hx-get="/view/{{ collection }}?page={{ page or 1 }}"
          hx-trigger="load"
          hx-include="#search-form"
          hx-push-url="true">

@@ -2092,446 +2092,447 @@ In ognuno dei tuoi turni finché l'incantesimo dura, puoi compiere un'azione Mag
 
 **_Nauseato._** Il bersaglio ha la condizione Avvelenato.
 
-### F Spells
+### Incantesimi F
 
-#### Fabricate
+#### Fabbricare
 
-*Level 4 Transmutation (Wizard)*
+*Livello 4 Trasmutazione (Mago)*
 
-**Casting Time:** 10 minutes 
+**Tempo di Lancio:** 10 minuti 
 
-**Range:** 120 feet 
+**Gittata:** 36 m 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-You convert raw materials into products of the same material. For example, you can fabricate a wooden bridge from a clump of trees, a rope from a patch of hemp, or clothes from flax or wool.
+Converti materie prime in prodotti dello stesso materiale. Per esempio, puoi fabbricare un ponte di legno da un gruppo di alberi, una corda da una pianta di canapa o vestiti da lino o lana.
 
-Choose raw materials that you can see within range. You can fabricate a Large or smaller object (contained within a 10-foot Cube or eight connected 5-foot Cubes) given a sufficient quantity of material. If you're working with metal, stone, or another mineral substance, however, the fabricated object can be no larger than Medium (contained within a 5-foot Cube). The quality of any fabricated objects is based on the quality of the raw materials.
+Scegli materie prime che puoi vedere entro gittata. Puoi fabbricare un oggetto Grande o più piccolo (contenuto in un Cubo di lato 3 m o in otto Cubi di lato 1,5 m contigui) a patto di avere una quantità sufficiente di materiale. Se lavori con metallo, pietra o un'altra sostanza minerale, l'oggetto fabbricato non può essere più grande di Medio (contenuto in un Cubo di lato 1,5 m). La qualità degli oggetti fabbricati dipende dalla qualità delle materie prime.
 
-Creatures and magic items can't be created by this spell. You also can't use it to create items that require a high degree of skill—such as weapons and armor—unless you have proficiency with the type of Artisan's Tools used to craft such objects.
+Questo incantesimo non può creare creature o oggetti magici. Inoltre non puoi usarlo per creare oggetti che richiedono un alto grado di abilità—come armi e armature—a meno che tu non abbia competenza con il tipo di Strumenti da Artigiano usato per creare tali oggetti.
 
-#### Faerie Fire
+#### Fuoco Fatato
 
-*Level 1 Evocation (Bard, Druid)*
+*Livello 1 Invocazione (Bardo, Druido)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V 
+**Componenti:** V 
 
-**Duration:** Concentration, up to 1 minute
+**Durata:** Concentrazione, fino a 1 minuto
 
-Objects in a 20-foot Cube within range are outlined in blue, green, or violet light (your choice). Each creature in the Cube is also outlined if it fails a Dexterity saving throw. For the duration, objects and affected creatures shed Dim Light in a 10-foot radius and can't benefit from the Invisible condition.
+Gli oggetti in un Cubo di lato 6 m entro gittata sono delineati da luce blu, verde o viola (a tua scelta). Anche ogni creatura nel Cubo è delineata se fallisce un tiro salvezza su Destrezza. Per la durata, oggetti e creature interessate emettono Luce Fioca in un raggio di 3 m e non possono beneficiare della condizione Invisibile.
 
-Attack rolls against an affected creature or object have Advantage if the attacker can see it.
+I tiri per colpire contro una creatura o un oggetto interessati hanno Vantaggio se l'attaccante può vederli.
 
-#### Faithful Hound
+#### Segugio Fedele
 
-*Level 4 Conjuration (Wizard)*
+*Livello 4 Evocazione (Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 30 feet 
+**Gittata:** 9 m 
 
-**Components:** V, S, M (a silver whistle) 
+**Componenti:** V, S, M (un fischietto d'argento) 
 
-**Duration:** 8 hours
+**Durata:** 8 ore
 
-You conjure a phantom watchdog in an unoccupied space that you can see within range. The hound remains for the duration or until the two of you are more than 300 feet apart from each other.
+Evochi un cane da guardia fantasma in uno spazio non occupato che puoi vedere entro gittata. Il segugio rimane per la durata o finché non vi trovate a più di 90 m l'uno dall'altro.
 
-No one but you can see the hound, and it is intangible and invulnerable. When a Small or larger creature comes within 30 feet of it without first speaking the password that you specify when you cast this spell, the hound starts barking loudly. The hound has Truesight with a range of 30 feet.
+Nessuno tranne te può vedere il segugio, ed è intangibile e invulnerabile. Quando una creatura Piccola o più grande si avvicina entro 9 m senza aver pronunciato la parola d'ordine che specifichi quando lanci questo incantesimo, il segugio inizia ad abbaiare rumorosamente. Il segugio ha Vista Vera con gittata di 9 m.
 
-At the start of each of your turns, the hound attempts to bite one enemy within 5 feet of it. That enemy must succeed on a Dexterity saving throw or take 4d8 Force damage.
+All'inizio di ciascuno dei tuoi turni, il segugio tenta di mordere un nemico entro 1,5 m da lui. Quel nemico deve superare un tiro salvezza su Destrezza o subire 4d8 danni da Forza.
 
-On your later turns, you can take a Magic action to move the hound up to 30 feet.
+Nei turni successivi, puoi compiere un'azione Magia per muovere il segugio fino a 9 m.
 
-#### False Life
+#### Falsa Vita
 
-*Level 1 Necromancy (Sorcerer, Wizard)*
+*Livello 1 Necromanzia (Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Self 
+**Gittata:** Sé 
 
-**Components:** V, S, M (a drop of alcohol) 
+**Componenti:** V, S, M (una goccia di alcol) 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-You gain 2d4 + 4 Temporary Hit Points.
+Ottieni 2d4 + 4 Punti Ferita Temporanei.
 
-**_Using a Higher-Level Spell Slot._** You gain 5 additional Temporary Hit Points for each spell slot level above 1.
+**_Usare uno Slot di Livello Superiore._** Ottieni 5 Punti Ferita Temporanei aggiuntivi per ogni livello di slot sopra l'1.
 
-#### Fear
+#### Paura
 
-*Level 3 Illusion (Bard, Sorcerer, Warlock, Wizard)*
+*Livello 3 Illusione (Bardo, Stregone, Warlock, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Self 
+**Gittata:** Sé 
 
-**Components:** V, S, M (a white feather) 
+**Componenti:** V, S, M (una piuma bianca) 
 
-**Duration:** Concentration, up to 1 minute
+**Durata:** Concentrazione, fino a 1 minuto
 
-Each creature in a 30-foot Cone must succeed on a Wisdom saving throw or drop whatever it is holding and have the Frightened condition for the duration.
+Ogni creatura in un Cono di 9 m deve superare un tiro salvezza su Saggezza o lasciare cadere ciò che sta tenendo e ottenere la condizione Spaventato per la durata.
 
-A Frightened creature takes the Dash action and moves away from you by the safest route on each of its turns unless there is nowhere to move. If the creature ends its turn in a space where it doesn't have line of sight to you, the creature makes a Wisdom saving throw. On a successful save, the spell ends on that creature.
+Una creatura Spaventata compie l'azione Scatto e si allontana da te per la via più sicura in ciascuno dei suoi turni, a meno che non abbia dove andare. Se la creatura termina il suo turno in uno spazio in cui non ha linea di vista su di te, effettua un tiro salvezza su Saggezza. Con un successo, l'incantesimo termina su quella creatura.
 
-#### Feather Fall
+#### Caduta Morbida
 
-*Level 1 Transmutation (Bard, Sorcerer, Wizard)*
+*Livello 1 Trasmutazione (Bardo, Stregone, Mago)*
 
-**Casting Time:** Reaction, which you take when you or a creature you can see within 60 feet of you falls
+**Tempo di Lancio:** Reazione, che usi quando tu o una creatura che puoi vedere entro 18 m cadete
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V, M (a small feather or piece of down) 
+**Componenti:** V, M (una piccola piuma o un batuffolo di piumino) 
 
-**Duration:** 1 minute
+**Durata:** 1 minuto
 
-Choose up to five falling creatures within range. A falling creature's rate of descent slows to 60 feet per round until the spell ends. If a creature lands before the spell ends, the creature takes no damage from the fall, and the spell ends for that creature.
+Scegli fino a cinque creature che stanno cadendo entro gittata. La velocità di discesa di una creatura che cade rallenta a 18 m per round finché l'incantesimo dura. Se una creatura atterra prima che l'incantesimo termini, non subisce danni dalla caduta e l'incantesimo termina per quella creatura.
 
-#### Find Familiar
+#### Trova Famiglio
 
-*Level 1 Conjuration (Wizard)*
+*Livello 1 Evocazione (Mago)*
 
-**Casting Time:** 1 hour or Ritual 
+**Tempo di Lancio:** 1 ora o Rituale 
 
-**Range:** 10 feet 
+**Gittata:** 3 m 
 
-**Components:** V, S, M (burning incense worth 10+ GP, which the spell consumes) 
+**Componenti:** V, S, M (incenso ardente dal valore di almeno 10 MO, che l'incantesimo consuma) 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-You gain the service of a familiar, a spirit that takes an animal form you choose: **Bat, Cat, Frog, Hawk, Lizard, Octopus, Owl, Rat, Raven, Spider, Weasel,** or another Beast that has a Challenge Rating of 0. Appearing in an unoccupied space within range, the familiar has the statistics of the chosen form (see "Monsters"), though it is a Celestial, Fey, or Fiend (your choice) instead of a Beast. Your familiar acts independently of you, but it obeys your commands.
+Ottieni il servizio di un famiglio, uno spirito che assume una forma animale a tua scelta: **Pipistrello, Gatto, Rana, Falco, Lucertola, Polpo, Gufo, Ratto, Corvo, Ragno, Donnola,** o un'altra Bestia con GS 0. Apparendo in uno spazio non occupato entro gittata, il famiglio ha le statistiche della forma scelta (vedi "Mostri"), sebbene sia un Celestiale, un Fatato o un Immondo (a tua scelta) invece di una Bestia. Il tuo famiglio agisce indipendentemente da te, ma obbedisce ai tuoi comandi.
 
-**_Telepathic Connection._** While your familiar is within 100 feet of you, you can communicate with it telepathically. Additionally, as a Bonus Action, you can see through the familiar's eyes and hear what it hears until the start of your next turn, gaining the benefits of any special senses it has.
+**_Connessione Telepatica._** Finché il tuo famiglio si trova entro 30 m da te, puoi comunicare con esso telepaticamente. Inoltre, come Azione Bonus, puoi vedere attraverso gli occhi del famiglio e udire ciò che sente fino all'inizio del tuo prossimo turno, ottenendo i benefici di eventuali sensi speciali che possiede.
 
-Finally, when you cast a spell with a range of touch, your familiar can deliver the touch. Your familiar must be within 100 feet of you, and it must take a Reaction to deliver the touch when you cast the spell.
+Infine, quando lanci un incantesimo con gittata contatto, il tuo famiglio può consegnare il tocco. Il tuo famiglio deve trovarsi entro 30 m da te e deve usare una Reazione per consegnare il tocco quando lanci l'incantesimo.
 
-**_Combat._** The familiar is an ally to you and your allies. It rolls its own Initiative and acts on its own turn. A familiar can't attack, but it can take other actions as normal.
+**_Combattimento._** Il famiglio è un alleato tuo e dei tuoi alleati. Tira la propria Iniziativa e agisce nel proprio turno. Un famiglio non può attaccare, ma può intraprendere altre azioni normalmente.
 
-**_Disappearance of the Familiar._** When the familiar drops to 0 Hit Points, it disappears. It reappears after you cast this spell again. As a Magic action, you can temporarily dismiss the familiar to a pocket dimension. Alternatively, you can dismiss it forever. As a Magic action while it is temporarily dismissed, you can cause it to reappear in an unoccupied space within 30 feet of you. Whenever the familiar drops to 0 Hit Points or disappears into the pocket dimension, it leaves behind in its space anything it was wearing or carrying.
+**_Scomparsa del Famiglio._** Quando il famiglio scende a 0 Punti Ferita, scompare. Riappare dopo che lanci nuovamente questo incantesimo. Come azione Magia, puoi congedare temporaneamente il famiglio in una dimensione tascabile. In alternativa, puoi congedarlo per sempre. Come azione Magia mentre è temporaneamente congedato, puoi farlo riapparire in uno spazio non occupato entro 9 m da te. Ogni volta che il famiglio scende a 0 Punti Ferita o scompare nella dimensione tascabile, lascia nello spazio che occupava qualunque cosa indossasse o trasportasse.
 
-**_One Familiar Only._** You can't have more than one familiar at a time. If you cast this spell while you have a familiar, you instead cause it to adopt a new eligible form.
+**_Un Solo Famiglio._** Non puoi avere più di un famiglio alla volta. Se lanci questo incantesimo mentre hai già un famiglio, lo fai invece adottare una nuova forma idonea.
 
-#### Find Steed
+#### Trova Destriero
 
-*Level 2 Conjuration (Paladin)*
+*Livello 2 Evocazione (Paladino)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 30 feet 
+**Gittata:** 9 m 
 
-**Component:** V, S 
+**Componenti:** V, S 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-You summon an otherworldly being that appears as a loyal steed in an unoccupied space of your choice within range. This creature uses the **Otherworldly Steed** stat block. If you already have a steed from this spell, the steed is replaced by the new one.
+Evochi un essere ultraterreno che appare come un destriero leale in uno spazio non occupato a tua scelta entro gittata. Questa creatura usa il blocco statistiche **Destriero Ultramondano**. Se hai già un destriero da questo incantesimo, viene sostituito dal nuovo.
 
-The steed resembles a Large, rideable animal of your choice, such as a horse, a camel, a dire wolf, or an elk. Whenever you cast the spell, choose the steed's creature type—Celestial, Fey, or Fiend which determines certain traits in the stat block.
+Il destriero somiglia a un grande animale cavalcabile a tua scelta, come un cavallo, un cammello, un lupo crudele o un alce. Ogni volta che lanci l'incantesimo, scegli il tipo di creatura del destriero—Celestiale, Fatato o Immondo—che determina alcuni tratti nel blocco statistiche.
 
-**_Combat._** The steed is an ally to you and your allies. In combat, it shares your Initiative count, and it functions as a controlled mount while you ride it (as defined in the rules on mounted combat). If you have the Incapacitated condition, the steed takes its turn immediately after yours and acts independently, focusing on protecting you.
+**_Combattimento._** Il destriero è un alleato tuo e dei tuoi alleati. In combattimento, condivide il tuo conteggio di Iniziativa e funziona come una cavalcatura controllata mentre lo monti (come definito nelle regole sulla cavalcatura). Se hai la condizione Incapacitato, il destriero agisce immediatamente dopo di te e agisce in modo indipendente, concentrandosi sulla tua protezione.
 
-**_Disappearance of the Steed._** The steed disappears if it drops to 0 Hit Points or if you die. When it disappears, it leaves behind anything it was wearing or carrying. If you cast this spell again, you decide whether you summon the steed that disappeared or a different one.
+**_Scomparsa del Destriero._** Il destriero scompare se scende a 0 Punti Ferita o se muori. Quando scompare, lascia qualsiasi cosa indossasse o trasportasse. Se lanci di nuovo questo incantesimo, decidi se evochi il destriero scomparso o uno diverso.
 
-**_Using a Higher-Level Spell Slot._** Use the spell slot's level for the spell's level in the stat block.
+**_Usare uno Slot di Livello Superiore._** Usa il livello dello slot come livello dell'incantesimo nel blocco statistiche.
 
-> #### **Otherworldly Steed**
+> #### **Destriero Ultramondano**
 >
-> *Large Celestial, Fey, or Fiend (Your Choice), Neutral*
+> *Grande Celestiale, Fatato o Immondo (a tua scelta), Neutrale*
 >
-> **AC** 10 + 1 per spell level
+> **CA** 10 + 1 per livello dell'incantesimo
 >
-> **HP** 5 + 10 per spell level (the steed has a number of Hit Dice [d10s] equal to the spell's level)
+> **PF** 5 + 10 per livello dell'incantesimo (il destriero ha un numero di Dadi Vita [d10] pari al livello dell'incantesimo)
 >
-> **Speed** 60 ft., Fly 60 ft. (requires level 4+ spell)
+> **Velocità** 18 m, Volare 18 m (richiede slot di livello 4+)
 >
-> | Attribute | Score | Mod | Save |
-> |-----------|-------|-----|------|
-> | Str       | 18    | +4  | +4   |
-> | Dex       | 12    | +1  | +1   |
-> | Con       | 14    | +2  | +2   |
-> | Int       | 6     | -2  | -2   |
-> | Wis       | 12    | +1  | +1   |
-> | Cha       | 8     | -1  | -1   |
+> | Attributo | Valore | Mod | TS  |
+> |-----------|--------|-----|-----|
+> | For       | 18     | +4  | +4  |
+> | Des       | 12     | +1  | +1  |
+> | Cos       | 14     | +2  | +2  |
+> | Int       | 6      | -2  | -2  |
+> | Sag       | 12     | +1  | +1  |
+> | Car       | 8      | -1  | -1  |
 >
-> **Senses** Passive Perception 11
+> **Sensi** Percezione Passiva 11
 >
-> **Languages** Telepathy 1 mile (works only with you) 
+> **Linguaggi** Telepatia 1,6 km (funziona solo con te) 
 >
-> **CR** None (XP 0; PB equals your Proficiency Bonus)
+> **CR** Nessuno (PE 0; PB pari al tuo Bonus di Competenza)
 >
-> ##### Traits
+> ##### Tratti
 >
-> **_Life Bond._** When you regain Hit Points from a level 1+ spell, the steed regains the same number of Hit Points if you're within 5 feet of it.
+> **_Legame Vitale._** Quando recuperi Punti Ferita da un incantesimo di livello 1+, il destriero recupera lo stesso numero di Punti Ferita se ti trovi entro 1,5 m da esso.
 >
-> ##### Actions
+> ##### Azioni
 >
-> **_.Otherworldly Slam. Melee Attack Roll:_** Bonus equals your spell attack modifier, reach 5 ft. *Hit:* 1d8 plus the spell's level of Radiant (Celestial), Psychic (Fey), or Necrotic (Fiend) damage.
+> **_Schianto Ultramondano. Tiro per colpire in mischia:_** bonus pari al tuo modificatore di attacco con incantesimi, portata 1,5 m. *Colpisce:* 1d8 più il livello dell'incantesimo danni Radianti (Celestiale), Psichici (Fatato) o Necrotici (Immondo).
 >
-> ##### Bonus Actions
+> ##### Azioni Bonus
 >
-> **_Fell Glare (Fiend Only; Recharges after a Long Rest)._** *Wisdom Saving Throw:* DC equals your spell save DC, one creature within 60 feet the steed can see. *Failure:* The target has the Frightened condition until the end of your next turn.
+> **_Sguardo Infernale (solo Immondo; si ricarica dopo un Riposo Lungo)._** *Tiro salvezza su Saggezza:* CD pari alla tua CD dei tiri salvezza degli incantesimi, una creatura entro 18 m che il destriero può vedere. *Fallimento:* il bersaglio ha la condizione Spaventato fino alla fine del tuo prossimo turno.
 >
-> **_Fey Step (Fey Only; Recharges after a Long Rest)._** The steed teleports, along with its rider, to an unoccupied space of your choice up to 60 feet away from itself.
+> **_Passo Fatato (solo Fatato; si ricarica dopo un Riposo Lungo)._** Il destriero si teletrasporta, insieme al suo cavaliere, in uno spazio non occupato a tua scelta fino a 18 m da sé.
 >
-> **Healing Touch (Celestial Only; Recharges after a Long Rest)._** One creature within 5 feet of the steed regains a number of Hit Points equal to 2d8 plus the spell's level.
+> **_Tocco Curativo (solo Celestiale; si ricarica dopo un Riposo Lungo)._** Una creatura entro 1,5 m dal destriero recupera un numero di Punti Ferita pari a 2d8 più il livello dell'incantesimo.
 
-#### **Find the Path**
+#### **Trova il Percorso**
 
-*Level 6 Divination (Bard, Cleric, Druid)*
+*Livello 6 Divinazione (Bardo, Chierico, Druido)*
 
-**Casting Time:** 1 minute 
+**Tempo di Lancio:** 1 minuto 
 
-**Range:** Self 
+**Gittata:** Sé 
 
-**Components:** V, S, M (a set of divination tools—such as cards or runes—worth 100+ GP) 
+**Componenti:** V, S, M (un set di strumenti divinatori—come carte o rune—dal valore di almeno 100 MO) 
 
-**Duration:** Concentration, up to 1 day
+**Durata:** Concentrazione, fino a 1 giorno
 
-You magically sense the most direct physical route to a location you name. You must be familiar with the location, and the spell fails if you name a destination on another plane of existence, a moving destination (such as a mobile fortress), or an unspecific destination (such as "a green dragon's lair").
+Percepisci magicamente il percorso fisico più diretto verso una località che nomini. Devi essere familiare con la località e l'incantesimo fallisce se nomini una destinazione su un altro piano di esistenza, una destinazione mobile (come una fortezza mobile) o una destinazione non specifica (come "la tana di un drago verde").
 
-For the duration, as long as you are on the same plane of existence as the destination, you know how far it is and in what direction it lies. Whenever you face a choice of paths along the way there, you know which path is the most direct.
+Per la durata, finché ti trovi sullo stesso piano di esistenza della destinazione, sai quanto è distante e in quale direzione si trova. Ogni volta che ti trovi di fronte a una scelta di percorsi lungo la strada, sai qual è il più diretto.
 
-#### Find Traps
+#### Individuare Trappole
 
-*Level 2 Divination (Cleric, Druid, Ranger)*
+*Livello 2 Divinazione (Chierico, Druido, Ranger)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 120 feet 
+**Gittata:** 36 m 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-You sense any trap within range that is within line of sight. A trap, for the purpose of this spell, includes any object or mechanism that was created to cause damage or other danger. Thus, the spell would sense the *Alarm* or *Glyph of Warding* spell or a mechanical pit trap, but it wouldn't reveal a natural weakness in the floor, an unstable ceiling, or a hidden sinkhole.
+Percepisci qualsiasi trappola entro gittata che sia entro la linea di vista. Una trappola, ai fini di questo incantesimo, include qualsiasi oggetto o meccanismo creato per causare danni o altro pericolo. Pertanto, l'incantesimo percepirebbe *Allarme* o *Glifo di Protezione* o una trappola a fossa meccanica, ma non rivelerebbe una debolezza naturale del pavimento, un soffitto instabile o una dolina nascosta.
 
-This spell reveals that a trap is present but not its location. You do learn the general nature of the danger posed by a trap you sense.
+Questo incantesimo rivela che è presente una trappola ma non la sua posizione. Apprendi però la natura generale del pericolo posto da una trappola che percepisci.
 
-#### Finger of Death
+#### Dito della Morte
 
-*Level 7 Necromancy (Sorcerer, Warlock, Wizard)*
+*Livello 7 Necromanzia (Stregone, Warlock, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-You unleash negative energy toward a creature you can see within range. The target makes a Constitution saving throw, taking 7d8 + 30 Necrotic damage on a failed save or half as much damage on a successful one.
+Scateni energia negativa verso una creatura che puoi vedere entro gittata. Il bersaglio effettua un tiro salvezza su Costituzione, subendo 7d8 + 30 danni Necrotici con un fallimento o metà danni con un successo.
 
-A Humanoid killed by this spell rises at the start of your next turn as a **Zombie** (see "Monsters") that follows your verbal orders.
+Un Umanoide ucciso da questo incantesimo si rialza all'inizio del tuo prossimo turno come **Zombi** (vedi "Mostri") che segue i tuoi ordini verbali.
 
-#### Fireball
+#### Palla di Fuoco
 
-*Level 3 Evocation (Sorcerer, Wizard)*
+*Livello 3 Invocazione (Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 150 feet 
+**Gittata:** 45 m 
 
-**Components:** V, S, M (a ball of bat guano and sulfur) 
+**Componenti:** V, S, M (una palla di guano di pipistrello e zolfo) 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-A bright streak flashes from you to a point you choose within range and then blossoms with a low roar into a fiery explosion. Each creature in a 20-foot-radius Sphere centered on that point makes a Dexterity saving throw, taking 8d6 Fire damage on a failed save or half as much damage on a successful one.
+Un bagliore luminoso guizza da te verso un punto a tua scelta entro gittata e poi si apre con un rombo sordo in un'esplosione di fuoco. Ogni creatura in una Sfera di raggio 6 m centrata su quel punto effettua un tiro salvezza su Destrezza, subendo 8d6 danni da Fuoco con un fallimento o metà danni con un successo.
 
-Flammable objects in the area that aren't being worn or carried start burning.
+Gli oggetti infiammabili nell'area che non sono indossati o trasportati iniziano a bruciare.
 
-**Using a Higher-Level Spell Slot._** The damage increases by 1d6 for each spell slot level above 3.
+**_Usare uno Slot di Livello Superiore._** I danni aumentano di 1d6 per ogni livello di slot sopra il 3.
 
-#### Fire Bolt
+#### Dardo di Fuoco
 
-*Evocation Cantrip (Sorcerer, Wizard)*
+*Trucchetto di Invocazione (Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 120 feet 
+**Gittata:** 36 m 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-You hurl a mote of fire at a creature or an object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 Fire damage. A flammable object hit by this spell starts burning if it isn't being worn or carried.
+Scagli una scheggia di fuoco contro una creatura o un oggetto entro gittata. Effettua un attacco con incantesimo a distanza contro il bersaglio. Se colpisci, il bersaglio subisce 1d10 danni da Fuoco. Un oggetto infiammabile colpito da questo incantesimo inizia a bruciare se non è indossato o trasportato.
 
-**_Cantrip Upgrade._** The damage increases by 1d10 when you reach levels 5 (2d10), 11 (3d10), and 17 (4d10).
+**_Miglioramento Trucchetto._** I danni aumentano di 1d10 quando raggiungi i livelli 5 (2d10), 11 (3d10) e 17 (4d10).
 
-#### Fire Shield
+#### Scudo di Fuoco
 
-*Level 4 Evocation (Druid, Sorcerer, Wizard)*
+*Livello 4 Invocazione (Druido, Stregone, Mago)*
 
-**Casting Time:** Action
+**Tempo di Lancio:** Azione
 
-**Range:** Self
+**Gittata:** Sé
 
-**Components:** V, S, M (a bit of phosphorus or a firefly) 
+**Componenti:** V, S, M (un po' di fosforo o una lucciola) 
 
-**Duration:** 10 minutes
+**Durata:** 10 minuti
 
-Wispy flames wreathe your body for the duration, shedding Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.
+Fiamme evanescenti avvolgono il tuo corpo per la durata, emanando Luce Intensa in un raggio di 3 m e Luce Fioca per ulteriori 3 m.
 
-The flames provide you with a warm shield or a chill shield, as you choose. The warm shield grants you Resistance to Cold damage, and the chill shield grants you Resistance to Fire damage.
+Le fiamme ti forniscono uno scudo caldo o uno scudo gelido, a tua scelta. Lo scudo caldo ti conferisce Resistenza ai danni da Freddo, quello gelido Resistenza ai danni da Fuoco.
 
-In addition, whenever a creature within 5 feet of you hits you with a melee attack roll, the shield erupts with flame. The attacker takes 2d8 Fire damage from a warm shield or 2d8 Cold damage from a chill shield.
+Inoltre, ogni volta che una creatura entro 1,5 m da te ti colpisce con un tiro per colpire in mischia, lo scudo erutta fiamme. L'attaccante subisce 2d8 danni da Fuoco con lo scudo caldo o 2d8 danni da Freddo con lo scudo gelido.
 
-#### Fire Storm
+#### Tempesta di Fuoco
 
-*Level 7 Evocation (Cleric, Druid, Sorcerer)*
+*Livello 7 Invocazione (Chierico, Druido, Stregone)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 150 feet 
+**Gittata:** 45 m 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-A storm of fire appears within range. The area of the storm consists of up to ten 10-foot Cubes, which you arrange as you like. Each Cube must be contiguous with at least one other Cube. Each creature in the area makes a Dexterity saving throw, taking 7d10 Fire damage on a failed save or half as much damage on a successful one.
+Una tempesta di fuoco appare entro gittata. L'area della tempesta consiste in fino a dieci Cubi di lato 3 m, che disponi come preferisci. Ogni Cubo deve essere contiguo ad almeno un altro. Ogni creatura nell'area effettua un tiro salvezza su Destrezza, subendo 7d10 danni da Fuoco con un fallimento o metà danni con un successo.
 
-Flammable objects in the area that aren't being worn or carried start burning.
+Gli oggetti infiammabili nell'area che non sono indossati o trasportati iniziano a bruciare.
 
-#### Flame Blade
+#### Lama Fiammeggiante
 
-*Level 2 Evocation (Druid, Sorcerer)*
+*Livello 2 Invocazione (Druido, Stregone)*
 
-**Casting Time:** Bonus Action 
+**Tempo di Lancio:** Azione Bonus 
 
-**Range:** Self 
+**Gittata:** Sé 
 
-**Components:** V, S, M (a sumac leaf)
+**Componenti:** V, S, M (una foglia di sommacco)
 
-**Duration:** Concentration, up to 10 minutes 
+**Durata:** Concentrazione, fino a 10 minuti 
 
-You evoke a fiery blade in your free hand. The blade is similar in size and shape to a scimitar, and it lasts for the duration. If you let go of the blade, it disappears, but you can evoke it again as a Bonus Action.
+Evochi una lama di fuoco nella tua mano libera. La lama è simile per dimensioni e forma a una scimitarra e dura per la durata. Se lasci la lama, scompare, ma puoi evocarla di nuovo come Azione Bonus.
 
-As a Magic action, you can make a melee spell attack with the fiery blade. On a hit, the target takes Fire damage equal to 3d6 plus your spellcasting ability modifier.
+Come azione Magia, puoi effettuare un attacco con incantesimo in mischia con la lama. Se colpisci, il bersaglio subisce danni da Fuoco pari a 3d6 più il tuo modificatore della caratteristica da incantatore.
 
-The flaming blade sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.
+La lama fiammeggiante emette Luce Intensa in un raggio di 3 m e Luce Fioca per ulteriori 3 m.
 
-**_Using a Higher-Level Spell Slot._** The damage increases by 1d6 for each spell slot level above 2.
+**_Usare uno Slot di Livello Superiore._** I danni aumentano di 1d6 per ogni livello di slot sopra il 2.
 
-#### Flame Strike
+#### Colpo Fiammeggiante
 
-*Level 5 Evocation (Cleric)*
+*Livello 5 Invocazione (Chierico)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V, S, M (a pinch of sulfur) 
+**Componenti:** V, S, M (un pizzico di zolfo) 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-A vertical column of brilliant fire roars down from above. Each creature in a 10-foot-radius, 40-foothigh Cylinder centered on a point within range makes a Dexterity saving throw, taking 5d6 Fire damage and 5d6 Radiant damage on a failed save or half as much damage on a successful one.
+Una colonna verticale di fuoco brillante ruggisce dall'alto. Ogni creatura in un Cilindro con raggio 3 m e altezza 12 m centrato su un punto entro gittata effettua un tiro salvezza su Destrezza, subendo 5d6 danni da Fuoco e 5d6 danni Radianti con un fallimento o metà danni con un successo.
 
-**_Using a Higher-Level Spell Slot._** The Fire damage and the Radiant damage increase by 1d6 for each spell slot level above 5.
+**_Usare uno Slot di Livello Superiore._** I danni da Fuoco e i danni Radianti aumentano di 1d6 per ogni livello di slot sopra il 5.
 
-#### Flaming Sphere
+#### Sfera Infuocata
 
-*Level 2 Conjuration (Druid, Sorcerer, Wizard)*
+*Livello 2 Evocazione (Druido, Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V, S, M (a ball of wax) 
+**Componenti:** V, S, M (una palla di cera) 
 
-**Duration:** Concentration, up to 1 minute
+**Durata:** Concentrazione, fino a 1 minuto
 
-You create a 5-foot-diameter sphere of fire in an unoccupied space on the ground within range. It lasts for the duration. Any creature that ends its turn within 5 feet of the sphere makes a Dexterity saving throw, taking 2d6 Fire damage on a failed save or half as much damage on a successful one.
+Crei una sfera di fuoco di diametro 1,5 m in uno spazio non occupato sul terreno entro gittata. Dura per la durata. Ogni creatura che termina il turno entro 1,5 m dalla sfera effettua un tiro salvezza su Destrezza, subendo 2d6 danni da Fuoco con un fallimento o metà danni con un successo.
 
-As a Bonus Action, you can move the sphere up to 30 feet, rolling it along the ground. If you move the sphere into a creature's space, that creature makes the save against the sphere, and the sphere stops moving for the turn.
+Come Azione Bonus, puoi muovere la sfera fino a 9 m, facendola rotolare sul terreno. Se muovi la sfera nello spazio di una creatura, quella creatura effettua il tiro salvezza contro la sfera e la sfera smette di muoversi per il turno.
 
-When you move the sphere, you can direct it over barriers up to 5 feet tall and jump it across pits up to 10 feet wide. Flammable objects that aren't being worn or carried start burning if touched by the sphere, and it sheds Bright Light in a 20-foot radius and Dim Light for an additional 20 feet.
+Quando muovi la sfera, puoi dirigerla oltre barriere alte fino a 1,5 m e farla saltare su fosse larghe fino a 3 m. Gli oggetti infiammabili che non sono indossati o trasportati iniziano a bruciare se toccati dalla sfera, ed essa emette Luce Intensa in un raggio di 6 m e Luce Fioca per ulteriori 6 m.
 
-**_Using a Higher-Level Spell Slot._** The damage increases by 1d6 for each spell slot level above 2.
+**_Usare uno Slot di Livello Superiore._** I danni aumentano di 1d6 per ogni livello di slot sopra il 2.
 
-#### Flesh to Stone
+#### Carne in Pietra
 
-*Level 6 Transmutation (Druid, Sorcerer, Wizard)*
+*Livello 6 Trasmutazione (Druido, Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V, S, M (a cockatrice feather) 
+**Componenti:** V, S, M (una piuma di coccatrice) 
 
-**Duration:** Concentration, up to 1 minute
+**Durata:** Concentrazione, fino a 1 minuto
 
-You attempt to turn one creature that you can see within range into stone. The target makes a Constitution saving throw. On a failed save, it has the Restrained condition for the duration. On a successful save, its Speed is 0 until the start of your next turn. Constructs automatically succeed on the save.
+Tenti di trasformare in pietra una creatura che puoi vedere entro gittata. Il bersaglio effettua un tiro salvezza su Costituzione. Con un fallimento, ottiene la condizione Immobilizzato per la durata. Con un successo, la sua Velocità è 0 fino all'inizio del tuo prossimo turno. I Costrutti riescono automaticamente nel tiro.
 
-A Restrained target makes another Constitution saving throw at the end of each of its turns. If it successfully saves against this spell three times, the spell ends. If it fails its saves three times, it is turned to stone and has the Petrified condition for the duration. The successes and failures needn't be consecutive; keep track of both until the target collects three of a kind.
+Un bersaglio Immobilizzato effettua un altro tiro salvezza su Costituzione alla fine di ciascun suo turno. Se riesce tre volte contro questo incantesimo, l'incantesimo termina. Se fallisce tre volte, viene trasformato in pietra e ha la condizione Pietrificato per la durata. I successi e i fallimenti non devono essere consecutivi; tieni traccia di entrambi finché il bersaglio non ne accumula tre dello stesso tipo.
 
-If you maintain your Concentration on this spell for the entire possible duration, the target is Petrified until the condition is ended by *Greater Restoration* or similar magic.
+Se mantieni la Concentrazione su questo incantesimo per l'intera durata possibile, il bersaglio rimane Pietrificato finché la condizione non viene rimossa da *Restaurazione Superiore* o magia simile.
 
-#### Floating Disk
+#### Disco Fluttuante
 
-*Level 1 Conjuration (Wizard)*
+*Livello 1 Evocazione (Mago)*
 
-**Casting Time:** Action or Ritual 
+**Tempo di Lancio:** Azione o Rituale 
 
-**Range:** 30 feet 
+**Gittata:** 9 m 
 
-**Components:** V, S, M (a drop of mercury) 
+**Componenti:** V, S, M (una goccia di mercurio) 
 
-**Duration:** 1 hour
+**Durata:** 1 ora
 
-This spell creates a circular, horizontal plane of force, 3 feet in diameter and 1 inch thick, that floats 3 feet above the ground in an unoccupied space of your choice that you can see within range. The disk remains for the duration and can hold up to 500 pounds. If more weight is placed on it, the spell ends, and everything on the disk falls to the ground.
+Questo incantesimo crea un piano di forza circolare e orizzontale, di 0,9 m di diametro e 2,5 cm di spessore, che fluttua a 0,9 m dal suolo in uno spazio non occupato a tua scelta che puoi vedere entro gittata. Il disco rimane per la durata e può sostenere fino a 225 kg. Se vi viene posto sopra più peso, l'incantesimo termina e tutto ciò che è sul disco cade a terra.
 
-The disk is immobile while you are within 20 feet of it. If you move more than 20 feet away from it, the disk follows you so that it remains within 20 feet of you. It can move across uneven terrain, up or down stairs, slopes and the like, but it can't cross an elevation change of 10 feet or more. For example, the disk can't move across a 10-foot-deep pit, nor could it leave such a pit if it was created at the bottom.
+Il disco è immobile finché ti trovi entro 6 m da esso. Se ti allontani oltre 6 m, il disco ti segue in modo da restare entro 6 m da te. Può muoversi su terreno irregolare, salire o scendere scale, pendii e simili, ma non può superare un dislivello di 3 m o più. Per esempio, il disco non può attraversare una fossa profonda 3 m, né potrebbe uscirne se fosse creato sul fondo.
 
-If you move more than 100 feet from the disk (typically because it can't move around an obstacle to follow you), the spell ends.
+Se ti allontani di oltre 30 m dal disco (tipicamente perché non può aggirare un ostacolo per seguirti), l'incantesimo termina.
 
-#### Fly
+#### Volare
 
-*Level 3 Transmutation (Sorcerer, Warlock, Wizard)*
+*Livello 3 Trasmutazione (Stregone, Warlock, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Touch 
+**Gittata:** Contatto 
 
-**Components:** V, S, M (a feather)
+**Componenti:** V, S, M (una piuma)
 
-**Duration:** Concentration, up to 10 minutes You touch a willing creature. For the duration, the target gains a Fly Speed of 60 feet and can hover. When the spell ends, the target falls if it is still aloft unless it can stop the fall.
+**Durata:** Concentrazione, fino a 10 minuti
+Tocchi una creatura consenziente. Per la durata, il bersaglio ottiene una Velocità di Volo di 18 m e può rimanere sospeso. Quando l'incantesimo termina, il bersaglio cade se è ancora in aria a meno che non possa impedire la caduta.
 
-**_Using a Higher-Level Spell Slot._** You can target one additional creature for each spell slot level above 3.
+**_Usare uno Slot di Livello Superiore._** Puoi bersagliare una creatura aggiuntiva per ogni livello di slot sopra il 3.
 
-#### Fog Cloud
+#### Nube di Nebbia
 
-*Level 1 Conjuration (Druid, Ranger, Sorcerer, Wizard)*
+*Livello 1 Evocazione (Druido, Ranger, Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 120 feet 
+**Gittata:** 36 m 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** Concentration, up to 1 hour
+**Durata:** Concentrazione, fino a 1 ora
 
-You create a 20-foot-radius Sphere of fog centered on a point within range. The Sphere is Heavily Obscured. It lasts for the duration or until a strong wind (such as one created by *Gust of Wind*) disperses it.
+Crei una Sfera di nebbia di raggio 6 m centrata su un punto entro gittata. La Sfera è Fortemente Oscurata. Dura per la durata o finché un vento forte (come quello creato da *Folata di Vento*) non la disperde.
 
-**_Using a Higher-Level Spell Slot._** The fog's radius increases by 20 feet for each spell slot level above 1.
+**_Usare uno Slot di Livello Superiore._** Il raggio della nebbia aumenta di 6 m per ogni livello di slot sopra l'1.
 
-#### Forbiddance
+#### Interdizione
 
-*Level 6 Abjuration (Cleric)*
+*Livello 6 Abiurazione (Chierico)*
 
-**Casting Time:** 10 minutes or Ritual 
+**Tempo di Lancio:** 10 minuti o Rituale 
 
-**Range:** Touch 
+**Gittata:** Contatto 
 
-**Components:** V, S, M (ruby dust worth 1,000+ GP) 
+**Componenti:** V, S, M (polvere di rubino dal valore di almeno 1.000 MO) 
 
-**Duration:** 1 day
+**Durata:** 1 giorno
 
-You create a ward against magical travel that protects up to 40,000 square feet of floor space to a height of 30 feet above the floor. For the duration, creatures can't teleport into the area or use portals, such as those created by the *Gate* spell, to enter the area. The spell proofs the area against planar travel, and therefore prevents creatures from accessing the area by way of the Astral Plane, the Ethereal Plane, the Feywild, the Shadowfell, or the *Plane Shift* spell.
+Crei una protezione contro i viaggi magici che protegge fino a 3.700 m² di superficie di pavimento fino a un'altezza di 9 m sopra il pavimento. Per la durata, le creature non possono teletrasportarsi nell'area né usare portali, come quelli creati da *Portale*, per entrare nell'area. L'incantesimo blinda l'area contro i viaggi planari e quindi impedisce alle creature di accedervi tramite il Piano Astrale, il Piano Etereo, il Feywild, il Piano delle Ombre o *Traslazione Planare*.
 
 In addition, the spell damages types of creatures that you choose when you cast it. Choose one or more of the following: Aberrations, Celestials, Elementals, Fey, Fiends, and Undead. When a creature of a chosen type enters the spell's area for the first time on a turn or ends its turn there, the creature takes 5d10 Radiant or Necrotic damage (your choice when you cast this spell).
 
@@ -2607,302 +2608,303 @@ You can refrain from firing the globe after completing the spell's casting. If y
 
 *Using a Higher-Level Spell Slot.* The damage increases by 1d6 for each spell slot level above 6.
 
-### G Spells
+### Incantesimi G
 
-#### Gaseous Form
+#### Forma Gassosa
 
-*Level 3 Transmutation (Sorcerer, Warlock, Wizard)*
+*Livello 3 Trasmutazione (Stregone, Warlock, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Touch 
+**Gittata:** Contatto 
 
-**Components:** V, S, M (a bit of gauze) 
+**Componenti:** V, S, M (un pezzetto di garza) 
 
-**Duration:** Concentration, up to 1 hour
+**Durata:** Concentrazione, fino a 1 ora
 
-A willing creature you touch shape-shifts, along with everything it's wearing and carrying, into a misty cloud for the duration. The spell ends on the target if it drops to 0 Hit Points or if it takes a Magic action to end the spell on itself.
+Una creatura consenziente che tocchi si trasforma, insieme a tutto ciò che indossa e trasporta, in una nube nebbiosa per la durata. L'incantesimo termina sul bersaglio se scende a 0 Punti Ferita o se compie un'azione Magia per terminarlo su se stesso.
 
-While in this form, the target's only method of movement is a Fly Speed of 10 feet, and it can hover. The target can enter and occupy the space of another creature. The target has Resistance to Bludgeoning, Piercing, and Slashing damage; it has Immunity to the Prone condition; and it has Advantage on Strength, Dexterity, and Constitution saving throws. The target can pass through narrow openings, but it treats liquids as though they were solid surfaces.
+In questa forma, l'unico metodo di movimento del bersaglio è una Velocità di Volo di 3 m, e può rimanere sospeso. Il bersaglio può entrare e occupare lo spazio di un'altra creatura. Ha Resistenza ai danni Contundenti, Perforanti e Taglienti; Immunità alla condizione Prono; e Vantaggio ai tiri salvezza su Forza, Destrezza e Costituzione. Può passare attraverso aperture strette, ma tratta i liquidi come se fossero superfici solide.
 
-The target can't talk or manipulate objects, and any objects it was carrying or holding can't be dropped, used, or otherwise interacted with. Finally, the target can't attack or cast spells.
+Il bersaglio non può parlare o manipolare oggetti e qualsiasi oggetto che trasportava o teneva non può essere lasciato, usato o altrimenti interagito. Infine, il bersaglio non può attaccare né lanciare incantesimi.
 
-**_Using a Higher-Level Spell Slot._** You can target one additional creature for each spell slot level above 3.
+**_Usare uno Slot di Livello Superiore._** Puoi bersagliare una creatura aggiuntiva per ogni livello di slot sopra il 3.
 
-#### Gate
+#### Portale
 
-*Level 9 Conjuration (Cleric, Sorcerer, Warlock, Wizard)*
+*Livello 9 Evocazione (Chierico, Stregone, Warlock, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V, S, M (a diamond worth 5,000+ GP) 
+**Componenti:** V, S, M (un diamante dal valore di almeno 5.000 MO) 
 
-**Duration:** Concentration, up to 1 minute
+**Durata:** Concentrazione, fino a 1 minuto
 
-You conjure a portal linking an unoccupied space you can see within range to a precise location on a different plane of existence. The portal is a circular opening, which you can make 5 to 20 feet in diameter. You can orient the portal in any direction you choose. The portal lasts for the duration, and the portal's destination is visible through it.
+Evochi un portale che collega uno spazio non occupato che puoi vedere entro gittata a un luogo preciso su un diverso piano di esistenza. Il portale è un'apertura circolare, che puoi rendere di diametro tra 1,5 e 6 m. Puoi orientare il portale in qualsiasi direzione. Dura per la durata, e la destinazione del portale è visibile attraverso di esso.
 
-The portal has a front and a back on each plane where it appears. Travel through the portal is possible only by moving through its front. Anything that does so is instantly transported to the other plane, appearing in the unoccupied space nearest to the portal.
+Il portale ha un fronte e un retro su ciascun piano in cui appare. Il passaggio è possibile solo attraversando il fronte. Qualsiasi cosa lo attraversi viene istantaneamente trasportata sull'altro piano, apparendo nello spazio non occupato più vicino al portale.
 
-Deities and other planar rulers can prevent portals created by this spell from opening in their presence or anywhere within their domains.
+Divinità e altri sovrani planari possono impedire ai portali creati da questo incantesimo di aprirsi in loro presenza o ovunque nei loro domini.
 
-When you cast this spell, you can speak the name of a specific creature (a pseudonym, title, or nickname doesn't work). If that creature is on a plane other than the one you are on, the portal opens next to the named creature and transports it to the nearest unoccupied space on your side of the portal. You gain no special power over the creature, and it is free to act as the GM deems appropriate. It might leave, attack you, or help you.
+Quando lanci questo incantesimo, puoi pronunciare il nome di una creatura specifica (uno pseudonimo, titolo o soprannome non funziona). Se quella creatura si trova su un piano diverso dal tuo, il portale si apre accanto ad essa e la trasporta nello spazio non occupato più vicino dalla tua parte del portale. Non ottieni alcun potere speciale sulla creatura, che è libera di agire come il GM ritiene opportuno.
 
 #### Geas
 
-*Level 5 Enchantment (Bard, Cleric, Druid, Paladin, Wizard)*
+*Livello 5 Ammaliamento (Bardo, Chierico, Druido, Paladino, Mago)*
 
-**Casting Time:** 1 minute 
+**Tempo di Lancio:** 1 minuto 
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V 
+**Componenti:** V 
 
-**Duration:** 30 days
+**Durata:** 30 giorni
 
-You give a verbal command to a creature that you can see within range, ordering it to carry out some service or refrain from an action or a course of activity as you decide. The target must succeed on a Wisdom saving throw or have the Charmed condition for the duration. The target automatically succeeds if it can't understand your command.
+Impartisci un comando verbale a una creatura che puoi vedere entro gittata, ordinandole di svolgere un servizio o di astenersi da un'azione o un corso di attività a tua scelta. Il bersaglio deve superare un tiro salvezza su Saggezza o avere la condizione Affascinato per la durata. Il bersaglio riesce automaticamente se non può comprendere il tuo comando.
 
-While Charmed, the creature takes 5d10 Psychic damage if it acts in a manner directly counter to your command. It takes this damage no more than once each day.
+Mentre è Affascinata, la creatura subisce 5d10 danni Psichici se agisce in modo direttamente contrario al tuo comando. Subisce questo danno non più di una volta al giorno.
 
-You can issue any command you choose, short of an activity that would result in certain death. Should you issue a suicidal command, the spell ends.
+Puoi impartire qualsiasi comando, tranne un'attività che comporterebbe morte certa. Se impartisci un comando suicida, l'incantesimo termina.
 
-A *Remove Curse*, *Greater Restoration*, or *Wish* spell ends this spell.
+Un incantesimo *Rimuovi Maledizione*, *Restaurazione Superiore* o *Desiderio* termina questo incantesimo.
 
-**_Using a Higher-Level Spell Slot._** If you use a level 7 or 8 spell slot, the duration is 365 days. If you use a level 9 spell slot, the spell lasts until it is ended by one of the spells mentioned above.
+**_Usare uno Slot di Livello Superiore._** Se usi uno slot di livello 7 o 8, la durata è 365 giorni. Se usi uno slot di livello 9, l'incantesimo dura finché non viene terminato da uno degli incantesimi sopra menzionati.
 
-#### Gentle Repose
+#### Riposo Sereno
 
-*Level 2 Necromancy (Cleric, Paladin, Wizard)*
+*Livello 2 Necromanzia (Chierico, Paladino, Mago)*
 
-**Casting Time:** Action or Ritual
+**Tempo di Lancio:** Azione o Rituale
 
-**Range:** Touch 
+**Gittata:** Contatto 
 
-**Components:** V, S, M (2 Copper Pieces, which the spell consumes) 
+**Componenti:** V, S, M (2 monete di rame, che l'incantesimo consuma) 
 
-**Duration:** 10 days
+**Durata:** 10 giorni
 
-You touch a corpse or other remains. For the duration, the target is protected from decay and can't become Undead.
+Tocchi un cadavere o altri resti. Per la durata, il bersaglio è protetto dalla decomposizione e non può diventare Non Morto.
 
-The spell also effectively extends the time limit on raising the target from the dead, since days spent under the influence of this spell don't count against the time limit of spells such as *Raise Dead*.
+L'incantesimo estende di fatto il limite di tempo per riportare in vita il bersaglio, poiché i giorni trascorsi sotto l'influenza di questo incantesimo non contano ai fini del limite di incantesimi come *Risveglio dei Morti*.
 
-#### Giant Insect
+#### Insetto Gigante
 
-*Level 4 Conjuration (Druid)*
+*Livello 4 Evocazione (Druido)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** Concentration, up to 10 minutes
+**Durata:** Concentrazione, fino a 10 minuti
 
-You summon a giant centipede, spider, or wasp (chosen when you cast the spell). It manifests in an unoccupied space you can see within range and uses the **Giant Insect** stat block. The form you choose determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.
+Evochi un millepiedi, un ragno o una vespa giganti (scelti al lancio). Si manifesta in uno spazio non occupato che puoi vedere entro gittata e usa il blocco statistiche **Insetto Gigante**. La forma scelta determina alcuni dettagli del blocco. La creatura scompare quando scende a 0 Punti Ferita o quando l'incantesimo termina.
 
-The creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.
+La creatura è un'alleata tua e dei tuoi alleati. In combattimento, condivide il tuo conteggio di Iniziativa ma agisce subito dopo di te. Obbedisce ai tuoi comandi verbali (nessuna azione richiesta). Se non impartisci comandi, compie l'azione Schivare e usa il movimento per evitare il pericolo.
 
-**_Using a Higher-Level Spell Slot._** Use the spell slot's level for the spell's level in the stat block.
+**_Usare uno Slot di Livello Superiore._** Usa il livello dello slot come livello dell'incantesimo nel blocco statistiche.
 
-> #### Giant Insect
+> #### Insetto Gigante
 >
-> *Large Beast, Unaligned*
+> *Bestia Grande, Non Allineata*
 >
-> **AC** 11 + the spell's level
+> **CA** 11 + livello dell'incantesimo
 >
-> **HP** 30 + 10 for each spell level above 4 
+> **PF** 30 + 10 per ogni livello dell'incantesimo sopra il 4 
 >
-> **Speed** 40 ft., Climb 40 ft., Fly 40 ft. (Wasp only)
+> **Velocità** 12 m, Scalare 12 m, Volare 12 m (solo Vespa)
 >
-> | Attribute | Score | Mod | Save |
-> |-----------|-------|-----|------|
-> | Str       | 17    | +3  | +3   |
-> | Dex       | 13    | +1  | +1   |
-> | Con       | 15    | +2  | +2   |
-> | Int       | 4     | -3  | -3   |
-> | Wis       | 14    | +2  | +2   |
-> | Cha       | 3     | -4  | -4   |
+> | Attributo | Valore | Mod | TS  |
+> |-----------|--------|-----|-----|
+> | For       | 17     | +3  | +3  |
+> | Des       | 13     | +1  | +1  |
+> | Cos       | 15     | +2  | +2  |
+> | Int       | 4      | -3  | -3  |
+> | Sag       | 14     | +2  | +2  |
+> | Car       | 3      | -4  | -4  |
 >
-> **Senses** Darkvision 60 ft.; Passive Perception 12 
+> **Sensi** Scurovisione 18 m; Percezione Passiva 12 
 >
-> **Languages** Understands the languages you know 
+> **Linguaggi** Comprende i linguaggi che conosci 
 >
-> **CR** None (XP 0; PB equals your Proficiency Bonus)
+> **CR** Nessuno (PE 0; PB pari al tuo Bonus di Competenza)
 >
-> ##### Traits
+> ##### Tratti
 >
-> **_Spider Climb._** The insect can climb difficult surfaces, including along ceilings, without needing to make an ability check.
+> **_Camminare sui Muri._** L'insetto può scalare superfici difficili, anche su soffitti, senza dover effettuare prove.
 >
-> ##### Actions
+> ##### Azioni
 >
-> **_Multiattack._** The insect makes a number of attacks equal to half this spell's level (round down).
+> **_Multiattacco._** L'insetto effettua un numero di attacchi pari alla metà del livello di questo incantesimo (arrotondato per difetto).
 >
-> **_Poison Jab. Melee Attack Roll:_** Bonus equals your spell attack modifier, reach 10 ft. *Hit:* 1d6 + 3 plus the spell's level Piercing damage plus 1d4 Poison damage.
+> **_Puntura Velenosa. Tiro per colpire in mischia:_** bonus pari al tuo modificatore di attacco con incantesimi, portata 3 m. *Colpisce:* 1d6 + 3 più il livello dell'incantesimo danni Perforanti più 1d4 danni da Veleno.
 >
-> **Web Bolt (Spider Only). Ranged Attack Roll:_** Bonus equals your spell attack modifier, range 60 ft. *Hit:* 1d10 + 3 plus the spell's level Bludgeoning damage, and the target's Speed is reduced to 0 until the start of the insect's next turn.
+> **Dardo di Ragnatela (solo Ragno). Tiro per colpire a distanza:_** bonus pari al tuo modificatore di attacco con incantesimi, gittata 18 m. *Colpisce:* 1d10 + 3 più il livello dell'incantesimo danni Contundenti, e la Velocità del bersaglio è ridotta a 0 fino all'inizio del prossimo turno dell'insetto.
 >
-> ##### Bonus Actions
+> ##### Azioni Bonus
 >
-> **Venomous Spew (Centipede Only). Constitution Saving Throw:_** Your spell save DC, one creature the insect can see within 10 feet. *Failure:* The target has the Poisoned condition until the start of the insect's next turn.
+> **Getto Velenoso (solo Millepiedi). Tiro salvezza su Costituzione:_** la tua CD dei tiri salvezza degli incantesimi, una creatura che l'insetto può vedere entro 3 m. *Fallimento:* il bersaglio ha la condizione Avvelenato fino all'inizio del prossimo turno dell'insetto.
 
-#### Glibness
+#### Eloquenza
 
-*Level 8 Enchantment (Bard, Warlock)*
+*Livello 8 Ammaliamento (Bardo, Warlock)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Self 
+**Gittata:** Sé 
 
-**Components:** V 
+**Componenti:** V 
 
-**Duration:** 1 hour
+**Durata:** 1 ora
 
-Until the spell ends, when you make a Charisma check, you can replace the number you roll with a 15. Additionally, no matter what you say, magic that would determine if you are telling the truth indicates that you are being truthful.
+Finché l'incantesimo dura, quando effettui una prova di Carisma, puoi sostituire il numero tirato con un 15. Inoltre, indipendentemente da ciò che dici, la magia che determinerebbe se stai dicendo la verità indica che stai dicendo il vero.
 
-#### Globe of Invulnerability
+#### Globo di Invulnerabilità
 
-*Level 6 Abjuration (Sorcerer, Wizard)*
+*Livello 6 Abiurazione (Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Self
+**Gittata:** Sé
 
-**Components:** V, S, M (a glass bead)
+**Componenti:** V, S, M (una perla di vetro)
 
-**Duration:** Concentration, up to 1 minute
+**Durata:** Concentrazione, fino a 1 minuto
 
-An immobile, shimmering barrier appears in a 10 foot Emanation around you and remains for the duration.
+Una barriera luccicante e immobile appare in un'Emanazione di 3 m attorno a te e rimane per la durata.
 
-Any spell of level 5 or lower cast from outside the barrier can't affect anything within it. Such a spell can target creatures and objects within the barrier, but the spell has no effect on them. Similarly, the area within the barrier is excluded from areas of effect created by such spells.
+Qualsiasi incantesimo di livello 5 o inferiore lanciato dall'esterno della barriera non può influenzare nulla al suo interno. Un tale incantesimo può bersagliare creature e oggetti all'interno della barriera, ma non ha effetto su di essi. Allo stesso modo, l'area all'interno della barriera è esclusa dalle aree di effetto create da tali incantesimi.
 
-**_Using a Higher-Level Spell Slot._** The barrier blocks spells of 1 level higher for each spell slot level above 6.
+**_Usare uno Slot di Livello Superiore._** La barriera blocca incantesimi di 1 livello più alto per ogni livello di slot sopra il 6.
 
-#### Glyph of Warding
+#### Glifo di Protezione
 
-*Level 3 Abjuration (Bard, Cleric, Wizard)*
+*Livello 3 Abiurazione (Bardo, Chierico, Mago)*
 
-**Casting Time:** 1 hour 
+**Tempo di Lancio:** 1 ora 
 
-**Range:** Touch 
+**Gittata:** Contatto 
 
-**Components:** V, S, M (powdered diamond worth 200+ GP, which the spell consumes) 
+**Componenti:** V, S, M (polvere di diamante dal valore di almeno 200 MO, che l'incantesimo consuma) 
 
-**Duration:** Until dispelled or triggered
+**Durata:** Fino a dissipazione o all'innesco
 
-You inscribe a glyph that later unleashes a magical effect. You inscribe it either on a surface (such as a table or a section of floor) or within an object that can be closed (such as a book or chest) to conceal the glyph. The glyph can cover an area no larger than 10 feet in diameter. If the surface or object is moved more than 10 feet from where you cast this spell, the glyph is broken, and the spell ends without being triggered.
+Incidi un glifo che in seguito sprigiona un effetto magico. Lo incidi su una superficie (come un tavolo o una sezione di pavimento) oppure all'interno di un oggetto che può essere chiuso (come un libro o uno scrigno) per celarlo. Il glifo può coprire un'area non più grande di 3 m di diametro. Se la superficie o l'oggetto viene spostato di oltre 3 m dal luogo in cui lanci l'incantesimo, il glifo si rompe e l'incantesimo termina senza innesco.
 
-The glyph is nearly imperceptible and requires a successful Wisdom (Perception) check against your spell save DC to notice.
+Il glifo è quasi impercettibile e per notarlo è necessaria una prova riuscita di Saggezza (Percezione) contro la tua CD dei tiri salvezza degli incantesimi.
 
-When you inscribe the glyph, you set its trigger and choose whether it's an explosive rune or a spell glyph, as explained below.
+Quando incidi il glifo, ne imposti l'innesco e scegli se è una runa esplosiva o un glifo d'incantesimo, come spiegato sotto.
 
-**_Set the Trigger._** You decide what triggers the glyph when you cast the spell. For glyphs inscribed on a surface, common triggers include touching or stepping on the glyph, removing another object covering it, or approaching within a certain distance of it. For glyphs inscribed within an object, common triggers include opening that object or seeing the glyph. Once a glyph is triggered, this spell ends.
+**_Imposta l'Innesco._** Decidi cosa innesca il glifo quando lanci l'incantesimo. Per glifi incisi su una superficie, inneschi comuni includono toccare o calpestare il glifo, rimuovere un oggetto che lo copre o avvicinarsi entro una certa distanza. Per glifi incisi all'interno di un oggetto, inneschi comuni includono aprire l'oggetto o vedere il glifo. Una volta innescato, questo incantesimo termina.
 
-You can refine the trigger so that only creatures of certain types activate it (for example, the glyph could be set to affect Aberrations). You can also set conditions for creatures that don't trigger the glyph, such as those who say a certain password.
+Puoi affinare l'innesco in modo che solo creature di certi tipi lo attivino (per esempio, il glifo potrebbe essere impostato per colpire Aberrazioni). Puoi anche impostare condizioni per creature che non lo attivano, come chi pronuncia una certa parola d'ordine.
 
-**_Explosive Rune._** When triggered, the glyph erupts with magical energy in a 20-foot-radius Sphere centered on the glyph. Each creature in the area makes a Dexterity saving throw. A creature takes 5d8 Acid, Cold, Fire, Lightning, or Thunder damage (your choice when you create the glyph) on a failed save or half as much damage on a successful one.
+**_Runa Esplosiva._** All'innesco, il glifo erutta energia magica in una Sfera di raggio 6 m centrata sul glifo. Ogni creatura nell'area effettua un tiro salvezza su Destrezza. Con un fallimento, la creatura subisce 5d8 danni da Acido, Freddo, Fuoco, Fulmine o Tuono (a tua scelta alla creazione del glifo) o metà danni con un successo.
 
-**_Spell Glyph._** You can store a prepared spell of level 3 or lower in the glyph by casting it as part of creating the glyph. The spell must target a single creature or an area. The spell being stored has no immediate effect when cast in this way.
+**_Glifo d'Incantesimo._** Puoi immagazzinare nel glifo un incantesimo preparato di livello 3 o inferiore lanciandolo come parte della creazione del glifo. L'incantesimo deve bersagliare una singola creatura o un'area. L'incantesimo immagazzinato non ha effetto immediato quando è lanciato in questo modo.
 
-When the glyph is triggered, the stored spell takes effect. If the spell has a target, it targets the creature that triggered the glyph. If the spell affects an area, the area is centered on that creature. If the spell summons Hostile creatures or creates harmful objects or traps, they appear as close as possible to the intruder and attack it. If the spell requires Concentration, it lasts until the end of its full duration.
+Quando il glifo è innescato, l'incantesimo immagazzinato ha effetto. Se l'incantesimo ha un bersaglio, bersaglia la creatura che ha innescato il glifo. Se l'incantesimo influenza un'area, l'area è centrata su quella creatura. Se l'incantesimo evoca creature Ostili o crea oggetti o trappole dannose, appaiono il più vicino possibile all'intruso e lo attaccano. Se l'incantesimo richiede Concentrazione, dura fino al termine della sua piena durata.
 
-**_Using a Higher-Level Spell Slot._** The damage of an explosive rune increases by 1d8 for each spell slot level above 3. If you create a spell glyph, you can store any spell of up to the same level as the spell slot you use for the *Glyph of Warding*.
+**_Usare uno Slot di Livello Superiore._** I danni della runa esplosiva aumentano di 1d8 per ogni livello di slot sopra il 3. Se crei un glifo d'incantesimo, puoi immagazzinare qualsiasi incantesimo fino allo stesso livello dello slot usato per *Glifo di Protezione*.
 
-#### Goodberry
+#### Bacca Benefica
 
-*Level 1 Conjuration (Druid, Ranger)*
+*Livello 1 Evocazione (Druido, Ranger)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Self 
+**Gittata:** Sé 
 
-**Components:** V, S, M (a sprig of mistletoe) 
+**Componenti:** V, S, M (un ramoscello di vischio) 
 
-**Duration:** 24 hours
+**Durata:** 24 ore
 
-Ten berries appear in your hand and are infused with magic for the duration. A creature can take a Bonus Action to eat one berry. Eating a berry restores 1 Hit Point, and the berry provides enough nourishment to sustain a creature for one day.
+Dieci bacche appaiono nella tua mano e sono infuse di magia per la durata. Una creatura può usare un'Azione Bonus per mangiarne una. Mangiare una bacca ripristina 1 Punto Ferita e fornisce nutrimento sufficiente a sostenere una creatura per un giorno.
 
-Uneaten berries disappear when the spell ends.
+Le bacche non mangiate scompaiono quando l'incantesimo termina.
 
-#### Grease
+#### Grasso
 
-*Level 1 Conjuration (Sorcerer, Wizard)*
+*Livello 1 Evocazione (Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V, S, M (a bit of pork rind or butter) 
+**Componenti:** V, S, M (un po' di cotenna di maiale o di burro) 
 
-**Duration:** 1 minute
+**Durata:** 1 minuto
 
-Nonflammable grease covers the ground in a 10 foot square centered on a point within range and turns it into Difficult Terrain for the duration.
+Grasso non infiammabile ricopre il terreno in un quadrato di lato 3 m centrato su un punto entro gittata e lo trasforma in Terreno Difficile per la durata.
 
-When the grease appears, each creature standing in its area must succeed on a Dexterity saving throw or have the Prone condition. A creature that enters the area or ends its turn there must also succeed on that save or fall Prone.
+Quando il grasso appare, ogni creatura che si trova nell'area deve superare un tiro salvezza su Destrezza o ottenere la condizione Prono. Una creatura che entra nell'area o termina lì il proprio turno deve anche superare quel tiro o cadere Prona.
 
-#### Greater Invisibility
+#### Invisibilità Superiore
 
-*Level 4 Illusion (Bard, Sorcerer, Wizard)*
+*Livello 4 Illusione (Bardo, Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Touch 
+**Gittata:** Contatto 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** Concentration, up to 1 minute A creature you touch has the Invisible condition until the spell ends.
+**Durata:** Concentrazione, fino a 1 minuto
+Una creatura che tocchi ha la condizione Invisibile finché l'incantesimo dura.
 
-#### Greater Restoration
+#### Restaurazione Superiore
 
-*Level 5 Abjuration (Bard, Cleric, Druid, Paladin, Ranger)*
+*Livello 5 Abiurazione (Bardo, Chierico, Druido, Paladino, Ranger)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Touch 
+**Gittata:** Contatto 
 
-**Components:** V, S, M (diamond dust worth 100+ GP, which the spell consumes) 
+**Componenti:** V, S, M (polvere di diamante dal valore di almeno 100 MO, che l'incantesimo consuma) 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-You touch a creature and magically remove one of the following effects from it:
+Tocchi una creatura e rimuovi magicamente uno dei seguenti effetti:
 
-- 1 Exhaustion level
-- The Charmed or Petrified condition
-- A curse, including the target's Attunement to a cursed magic item
-- Any reduction to one of the target's ability scores
-- Any reduction to the target's Hit Point maximum
+- 1 livello di Sfinimento
+- La condizione Affascinato o Pietrificato
+- Una maledizione, inclusa la Sintonia del bersaglio a un oggetto magico maledetto
+- Qualsiasi riduzione a uno dei punteggi di caratteristica del bersaglio
+- Qualsiasi riduzione al massimo dei Punti Ferita del bersaglio
 
-#### Guardian of Faith
+#### Guardiano della Fede
 
-*Level 4 Conjuration (Cleric)*
+*Livello 4 Evocazione (Chierico)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 30 feet 
+**Gittata:** 9 m 
 
-**Components:** V 
+**Componenti:** V 
 
-**Duration:** 8 hours
+**Durata:** 8 ore
 
-A Large spectral guardian appears and hovers for the duration in an unoccupied space that you can see within range. The guardian occupies that space and is invulnerable, and it appears in a form appropriate for your deity or pantheon.
+Un grande guardiano spettrale appare e fluttua per la durata in uno spazio non occupato che puoi vedere entro gittata. Il guardiano occupa quello spazio ed è invulnerabile, e appare in una forma appropriata alla tua divinità o pantheon.
 
-Any enemy that moves to a space within 10 feet of the guardian for the first time on a turn or starts its turn there makes a Dexterity saving throw, taking 20 Radiant damage on a failed save or half as much damage on a successful one. The guardian vanishes when it has dealt a total of 60 damage.
+Qualsiasi nemico che si muove per la prima volta in un turno in uno spazio entro 3 m dal guardiano o che inizia lì il proprio turno effettua un tiro salvezza su Destrezza, subendo 20 danni Radianti con un fallimento o metà danni con un successo. Il guardiano svanisce quando ha inflitto un totale di 60 danni.
 
-#### Guards and Wards
+#### Guardie e Varchi
 
-*Level 6 Abjuration (Bard, Wizard)*
+*Livello 6 Abiurazione (Bardo, Mago)*
 
-**Casting Time:** 1 hour 
+**Tempo di Lancio:** 1 ora 
 
-**Range:** Touch 
+**Gittata:** Contatto 
 
-**Components:** V, S, M (a silver rod worth 10+ GP) 
+**Componenti:** V, S, M (una verga d'argento dal valore di almeno 10 MO) 
 
-**Duration:** 24 hours
+**Durata:** 24 ore
 
-You create a ward that protects up to 2,500 square feet of floor space. The warded area can be up to 20 feet tall, and you shape it as one 50-foot square, one hundred 5-foot squares that are contiguous, or twenty-five 10-foot squares that are contiguous.
+Crei una protezione che salvaguarda fino a circa 232 m² di superficie di pavimento. L'area protetta può essere alta fino a 6 m, e la sagomi come un quadrato di lato 15 m, cento quadrati di lato 1,5 m contigui, oppure venticinque quadrati di lato 3 m contigui.
 
-When you cast this spell, you can specify individuals that are unaffected by the spell's effects. You can also specify a password that, when spoken aloud within 5 feet of the warded area, makes the speaker immune to its effects.
+Quando lanci questo incantesimo, puoi specificare individui non affetti dagli effetti dell'incantesimo. Puoi anche specificare una parola d'ordine che, se pronunciata entro 1,5 m dall'area protetta, rende l'oratore immune ai suoi effetti.
 
 The spell creates the effects below within the warded area. *Dispel Magic* has no effect on *Guards and Wards* itself, but each of the following effects can be dispelled. If all four are dispelled, *Guards and Wards* ends. If you cast the spell every day for 365 days on the same area, the spell thereafter lasts until all its effects are dispelled.
 
@@ -2950,329 +2952,327 @@ You hurl a bolt of light toward a creature within range. Make a ranged spell att
 
 **_Using a Higher-Level Spell Slot._** The damage increases by 1d6 for each spell slot level above 1.
 
-#### Gust of Wind
+#### Folata di Vento
 
-*Level 2 Evocation (Druid, Ranger, Sorcerer, Wizard)*
+*Livello 2 Invocazione (Druido, Ranger, Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Self 
+**Gittata:** Sé 
 
-**Components:** V, S, M (a legume seed) 
+**Componenti:** V, S, M (un seme di legume) 
 
-**Duration:** Concentration, up to 1 minute
+**Durata:** Concentrazione, fino a 1 minuto
 
-A Line of strong wind 60 feet long and 10 feet wide blasts from you in a direction you choose for the duration. Each creature in the Line must succeed on a Strength saving throw or be pushed 15 feet away from you in a direction following the Line. A creature that ends its turn in the Line must make the same save.
+Una Linea di vento forte lunga 18 m e larga 3 m soffia da te in una direzione a tua scelta per la durata. Ogni creatura nella Linea deve superare un tiro salvezza su Forza o essere spinta di 4,5 m lontano da te nella direzione della Linea. Una creatura che termina il suo turno nella Linea deve effettuare lo stesso tiro.
 
-Any creature in the Line must spend 2 feet of movement for every 1 foot it moves when moving closer to you.
+Qualsiasi creatura nella Linea deve spendere 2 m di movimento per ogni metro che si muove quando si avvicina a te.
 
-The gust disperses gas or vapor, and it extinguishes candles and similar unprotected flames in the area. It causes protected flames, such as those of lanterns, to dance wildly and has a 50 percent chance to extinguish them.
+La folata disperde gas o vapori e spegne candele e fiamme simili non protette nell'area. Fa danzare selvaggiamente le fiamme protette, come quelle delle lanterne, e ha il 50 percento di probabilità di spegnerle.
 
-As a Bonus Action on your later turns, you can change the direction in which the Line blasts from you.
+Come Azione Bonus nei turni successivi, puoi cambiare la direzione in cui la Linea soffia da te.
 
-### H Spells
+### Incantesimi H
 
-#### Hallow
+#### Santificazione
 
-*Level 5 Abjuration (Cleric)*
+*Livello 5 Abiurazione (Chierico)*
 
-**Casting Time:** 24 hours
+**Tempo di Lancio:** 24 ore
 
-**Range:** Touch
+**Gittata:** Contatto
 
-**Components:** V, S, M (incense worth 1,000+ GP, which the spell consumes)
+**Componenti:** V, S, M (incenso dal valore di almeno 1.000 MO, che l'incantesimo consuma)
 
-**Duration:** Until dispelled
+**Durata:** Fino a dissipazione
 
-You touch a point and infuse an area around it with holy or unholy power. The area can have a radius up to 60 feet, and the spell fails if the radius includes an area already under the effect of *Hallow*. The affected area has the following effects.
+Tocchi un punto e infondi un'area attorno ad esso con potere sacro o empio. L'area può avere un raggio fino a 18 m e l'incantesimo fallisce se il raggio include un'area già sotto l'effetto di *Santificazione*. L'area interessata ha i seguenti effetti.
 
-**_Hallowed Ward._** Choose any of these creature types: Aberration, Celestial, Elemental, Fey, Fiend, or Undead. Creatures of the chosen types can't willingly enter the area, and any creature that is possessed by or that has the Charmed or Frightened condition from such creatures isn't possessed, Charmed, or Frightened by them while in the area.
+**_Protezione Consacrata._** Scegli uno di questi tipi di creature: Aberrazione, Celestiale, Elementale, Fatato, Immondo o Non Morto. Le creature dei tipi scelti non possono entrare volontariamente nell'area e qualsiasi creatura posseduta o che abbia la condizione Affascinato o Spaventato a causa di tali creature non è posseduta, Affascinata o Spaventata da esse mentre si trova nell'area.
 
-**_Extra Effect._** You bind an extra effect to the area from the list below:
+**_Effetto Extra._** Leghi all'area un effetto extra dall'elenco seguente:
 
-**_Courage._** Creatures of any types you choose can't gain the Frightened condition while in the area.
+**_Coraggio._** Le creature di qualsiasi tipo da te scelto non possono ottenere la condizione Spaventato mentre si trovano nell'area.
 
-**_Darkness._** Darkness fills the area. Normal light, as well as magical light created by spells of a level lower than this spell, can't illuminate the area.
+**_Oscurità._** Oscurità riempie l'area. La luce normale, così come la luce magica creata da incantesimi di livello inferiore a questo, non può illuminare l'area.
 
-**_Daylight._** Bright light fills the area. Magical Darkness created by spells of a level lower than this spell can't extinguish the light.
+**_Luce Diurna._** Luce intensa riempie l'area. L'Oscurità magica creata da incantesimi di livello inferiore a questo non può estinguere la luce.
 
-**_Peaceful Rest._** Dead bodies interred in the area can't be turned into Undead.
+**_Riposo Pacifico._** I corpi dei defunti sepolti nell'area non possono essere trasformati in Non Morti.
 
-**_Extradimensional Interference._** Creatures of any types you choose can't enter or exit the area using teleportation or interplanar travel.
+**_Interferenza Extradimensionale._** Le creature di qualsiasi tipo da te scelto non possono entrare o uscire dall'area usando il teletrasporto o viaggi interplanari.
 
-**_Fear._** Creatures of any types you choose have the Frightened condition while in the area.
+**_Paura._** Le creature di qualsiasi tipo da te scelto hanno la condizione Spaventato mentre si trovano nell'area.
 
-**_Resistance._** Creatures of any types you choose have Resistance to one damage type of your choice while in the area.
+**_Resistenza._** Le creature di qualsiasi tipo da te scelto hanno Resistenza a un tipo di danno a tua scelta mentre si trovano nell'area.
 
-**_Silence._** No sound can emanate from within the area, and no sound can reach into it.
+**_Silenzio._** Nessun suono può emanare dall'interno dell'area e nessun suono può raggiungerla dall'esterno.
 
-**_Tongues._** Creatures of any types you choose can communicate with any other creature in the area even if they don't share a common language.
+**_Linguaggi._** Le creature di qualsiasi tipo da te scelto possono comunicare con qualsiasi altra creatura nell'area anche se non condividono una lingua comune.
 
-**_Vulnerability._** Creatures of any types you choose have Vulnerability to one damage type of your choice while in the area.
+**_Vulnerabilità._** Le creature di qualsiasi tipo da te scelto hanno Vulnerabilità a un tipo di danno a tua scelta mentre si trovano nell'area.
 
-#### Hallucinatory Terrain
+#### Terreno Illusorio
 
-*Level 4 Illusion (Bard, Druid, Warlock, Wizard)*
+*Livello 4 Illusione (Bardo, Druido, Warlock, Mago)*
 
-**Casting Time:** 10 minutes 
+**Tempo di Lancio:** 10 minuti 
 
-**Range:** 300 feet 
+**Gittata:** 90 m 
 
-**Components:** V, S, M (a mushroom) 
+**Componenti:** V, S, M (un fungo) 
 
-**Duration:** 24 hours
+**Durata:** 24 ore
 
-You make natural terrain in a 150-foot Cube in range look, sound, and smell like another sort of natural terrain. Thus, open fields or a road can be made to resemble a swamp, hill, crevasse, or some other difficult or impassable terrain. A pond can be made to seem like a grassy meadow, a precipice like a gentle slope, or a rock-strewn gully like a wide and smooth road. Manufactured structures, equipment, and creatures within the area aren't changed.
+Fai sì che il terreno naturale in un Cubo di lato 45 m entro gittata appaia, suoni e abbia odore come un altro tipo di terreno naturale. Campi aperti o una strada possono sembrare una palude, una collina, una fenditura o un altro terreno difficile o impraticabile. Uno stagno può sembrare un prato erboso, un precipizio una dolce pendenza, un burrone roccioso una strada ampia e liscia. Strutture artificiali, equipaggiamento e creature nell'area non sono cambiati.
 
-The tactile characteristics of the terrain are unchanged, so creatures entering the area are likely to notice the illusion. If the difference isn't obvious by touch, a creature examining the illusion can take the Study action to make an Intelligence (Investigation) check against your spell save DC to disbelieve it. If a creature discerns that the terrain is illusory, the creature sees a vague image superimposed on the real terrain.
+Le caratteristiche tattili del terreno non cambiano, quindi le creature che entrano nell'area probabilmente noteranno l'illusione. Se la differenza non è evidente al tatto, una creatura che esamina l'illusione può compiere l'azione Studiare per effettuare una prova di Intelligenza (Indagare) contro la tua CD dei tiri salvezza degli incantesimi per non credervi. Se una creatura discerne che il terreno è illusorio, vede un'immagine vaga sovrapposta al terreno reale.
 
-#### Harm
+#### Danno
 
-*Level 6 Necromancy (Cleric)*
+*Livello 6 Necromanzia (Chierico)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-You unleash virulent magic on a creature you can see within range. The target makes a Constitution saving throw. On a failed save, it takes 14d6
+Scateni magia virulenta su una creatura che puoi vedere entro gittata. Il bersaglio effettua un tiro salvezza su Costituzione. Con un fallimento, subisce 14d6 danni Necrotici e il suo massimo di Punti Ferita è ridotto di un ammontare pari ai danni Necrotici subiti. Con un successo, subisce soltanto metà dei danni. Questo incantesimo non può ridurre il massimo di Punti Ferita del bersaglio sotto 1.
 
-Necrotic damage, and its Hit Point maximum is reduced by an amount equal to the Necrotic damage it took. On a successful save, it takes half as much damage only. This spell can't reduce a target's Hit Point maximum below 1.
+#### Rapidità
 
-#### Haste
+*Livello 3 Trasmutazione (Stregone, Mago)*
 
-*Level 3 Transmutation (Sorcerer, Wizard)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** 9 m 
 
-**Range:** 30 feet 
+**Componenti:** V, S, M (una scaglia di radice di liquirizia) 
 
-**Components:** V, S, M (a shaving of licorice root) 
+**Durata:** Concentrazione, fino a 1 minuto
 
-**Duration:** Concentration, up to 1 minute
+Scegli una creatura consenziente che puoi vedere entro gittata. Finché l'incantesimo dura, la Velocità del bersaglio è raddoppiata, ottiene un bonus +2 alla Classe Armatura, ha Vantaggio ai tiri salvezza su Destrezza e ottiene un'azione aggiuntiva in ciascuno dei suoi turni. Quell'azione può essere usata solo per compiere l'azione Attacco (un solo attacco), Scatto, Disimpegno, Nascondersi o Utilizzare.
 
-Choose a willing creature that you can see within range. Until the spell ends, the target's Speed is doubled, it gains a +2 bonus to Armor Class, it has Advantage on Dexterity saving throws, and it gains an additional action on each of its turns. That action can be used to take only the Attack (one attack only), Dash, Disengage, Hide, or Utilize action.
+Quando l'incantesimo termina, il bersaglio è Incapacitato e ha Velocità 0 fino alla fine del suo prossimo turno, mentre un'ondata di letargia lo pervade.
 
-When the spell ends, the target is Incapacitated and has a Speed of 0 until the end of its next turn, as a wave of lethargy washes over it.
+#### Guarigione
 
-#### Heal
+*Livello 6 Abiurazione (Chierico, Druido)*
 
-*Level 6 Abjuration (Cleric, Druid)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** 18 m 
 
-**Range:** 60 feet 
+**Componenti:** V, S 
 
-**Components:** V, S 
+**Durata:** Istantanea
 
-**Duration:** Instantaneous
+Scegli una creatura che puoi vedere entro gittata. Energia positiva la pervade, ripristinando 70 Punti Ferita. Questo incantesimo termina anche le condizioni Accecato, Assordato e Avvelenato sul bersaglio.
 
-Choose a creature that you can see within range. Positive energy washes through the target, restoring 70 Hit Points. This spell also ends the Blinded, Deafened, and Poisoned conditions on the target.
+**_Usare uno Slot di Livello Superiore._** Le cure aumentano di 10 per ogni livello di slot sopra il 6.
 
-**_Using a Higher-Level Spell Slot._** The healing increases by 10 for each spell slot level above 6.
+#### Parola Guaritrice
 
-#### Healing Word
+*Livello 1 Abiurazione (Bardo, Chierico, Druido)*
 
-*Level 1 Abjuration (Bard, Cleric, Druid)*
+**Tempo di Lancio:** Azione Bonus 
 
-**Casting Time:** Bonus Action 
+**Gittata:** 18 m 
 
-**Range:** 60 feet 
+**Componenti:** V 
 
-**Components:** V 
+**Durata:** Istantanea
 
-**Duration:** Instantaneous
+Una creatura a tua scelta che puoi vedere entro gittata recupera Punti Ferita pari a 2d4 più il tuo modificatore della caratteristica da incantatore.
 
-A creature of your choice that you can see within range regains Hit Points equal to 2d4 plus your spellcasting ability modifier.
+**_Usare uno Slot di Livello Superiore._** Le cure aumentano di 2d4 per ogni livello di slot sopra l'1.
 
-**_Using a Higher-Level Spell Slot._** The healing increases by 2d4 for each spell slot level above 1.
+#### Metallo Incandescente
 
-#### Heat Metal
+*Livello 2 Trasmutazione (Bardo, Druido)*
 
-*Level 2 Transmutation (Bard, Druid)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** 18 m 
 
-**Range:** 60 feet 
+**Componenti:** V, S, M (un pezzo di ferro e una fiamma) 
 
-**Components:** V, S, M (a piece of iron and a flame) 
+**Durata:** Concentrazione, fino a 1 minuto
 
-**Duration:** Concentration, up to 1 minute
+Scegli un oggetto metallico lavorato, come un'arma metallica o un'armatura di metallo Pesante o Media, che puoi vedere entro gittata. Fai sì che l'oggetto diventi rovente. Ogni creatura a contatto fisico con l'oggetto subisce 2d8 danni da Fuoco quando lanci l'incantesimo. Finché l'incantesimo dura, puoi usare un'Azione Bonus in ciascuno dei tuoi turni successivi per infliggere di nuovo questi danni se l'oggetto è entro gittata.
 
-Choose a manufactured metal object, such as a metal weapon or a suit of Heavy or Medium metal armor, that you can see within range. You cause the object to glow red-hot. Any creature in physical contact with the object takes 2d8 Fire damage when you cast the spell. Until the spell ends, you can take a Bonus Action on each of your later turns to deal this damage again if the object is within range.
+Se una creatura impugna o indossa l'oggetto e subisce danni da esso, deve superare un tiro salvezza su Costituzione o lasciare l'oggetto, se può. Se non lo lascia, ha Svantaggio ai tiri per colpire e alle prove di caratteristica fino all'inizio del tuo prossimo turno.
 
-If a creature is holding or wearing the object and takes the damage from it, the creature must succeed on a Constitution saving throw or drop the object if it can. If it doesn't drop the object, it has Disadvantage on attack rolls and ability checks until the start of your next turn.
+**_Usare uno Slot di Livello Superiore._** I danni aumentano di 1d8 per ogni livello di slot sopra il 2.
 
-**_Using a Higher-Level Spell Slot._** The damage increases by 1d8 for each spell slot level above 2.
+#### Ritorsione Infernale
 
-#### Hellish Rebuke
+*Livello 1 Invocazione (Warlock)*
 
-*Level 1 Evocation (Warlock)*
+**Tempo di Lancio:** Reazione, che usi in risposta ai danni inflitti da una creatura che puoi vedere entro 18 m da te
 
-**Casting Time:** Reaction, which you take in response to taking damage from a creature that you can see within 60 feet of yourself
+**Gittata:** 18 m 
 
-**Range:** 60 feet 
+**Componenti:** V, S 
 
-**Components:** V, S 
+**Durata:** Istantanea
 
-**Duration:** Instantaneous
+La creatura che ti ha danneggiato è momentaneamente circondata da fiamme verdi. Effettua un tiro salvezza su Destrezza, subendo 2d10 danni da Fuoco con un fallimento o metà danni con un successo.
 
-The creature that damaged you is momentarily surrounded by green flames. It makes a Dexterity saving throw, taking 2d10 Fire damage on a failed save or half as much damage on a successful one.
+**_Usare uno Slot di Livello Superiore._** I danni aumentano di 1d10 per ogni livello di slot sopra l'1.
 
-**_Using a Higher-Level Spell Slot._** The damage increases by 1d10 for each spell slot level above 1.
+#### Banchetto degli Eroi
 
-#### Heroes' Feast
+*Livello 6 Evocazione (Bardo, Chierico, Druido)*
 
-*Level 6 Conjuration (Bard, Cleric, Druid)*
+**Tempo di Lancio:** 10 minuti 
 
-**Casting Time:** 10 minutes 
+**Gittata:** Sé 
 
-**Range:** Self 
+**Componenti:** V, S, M (una coppa incastonata di gemme dal valore di almeno 1.000 MO, che l'incantesimo consuma)
 
-**Components:** V, S, M (a gem-encrusted bowl worth 1,000+ GP, which the spell consumes)
+**Durata:** Istantanea
 
-**Duration:** Instantaneous
+Evochi un banchetto che appare su una superficie in un Cubo di lato 3 m adiacente a te. Il banchetto richiede 1 ora per essere consumato e scompare al termine di tale tempo; gli effetti benefici non hanno luogo finché questa ora non è trascorsa. Fino a dodici creature possono partecipare al banchetto.
 
-You conjure a feast that appears on a surface in an unoccupied 10-foot Cube next to you. The feast takes 1 hour to consume and disappears at the end of that time, and the beneficial effects don't set in until this hour is over. Up to twelve creatures can partake of the feast.
+Una creatura che partecipa ottiene diversi benefici che durano 24 ore. La creatura ha Resistenza ai danni da Veleno e Immunità alle condizioni Spaventato e Avvelenato. Il suo massimo di Punti Ferita aumenta di 2d10 e ottiene lo stesso numero di Punti Ferita.
 
-A creature that partakes gains several benefits, which last for 24 hours. The creature has Resistance to Poison damage, and it has Immunity to the Frightened and Poisoned conditions. Its Hit Point maximum also increases by 2d10, and it gains the same number of Hit Points.
+#### Eroismo
 
-#### Heroism
+*Livello 1 Ammaliamento (Bardo, Paladino)*
 
-*Level 1 Enchantment (Bard, Paladin)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** Contatto
 
-**Range:** Touch
+**Componenti:** V, S 
 
-**Components:** V, S 
+**Durata:** Concentrazione, fino a 1 minuto
 
-**Duration:** Concentration, up to 1 minute
+Una creatura consenziente che tocchi è infusa di coraggio. Finché l'incantesimo dura, la creatura è immune alla condizione Spaventato e ottiene Punti Ferita Temporanei pari al tuo modificatore della caratteristica da incantatore all'inizio di ciascun suo turno.
 
-A willing creature you touch is imbued with bravery. Until the spell ends, the creature is immune to the Frightened condition and gains Temporary Hit Points equal to your spellcasting ability modifier at the start of each of its turns.
+**_Usare uno Slot di Livello Superiore._** Puoi bersagliare una creatura aggiuntiva per ogni livello di slot sopra l'1.
 
-**_Using a Higher-Level Spell Slot._** You can target one additional creature for each spell slot level above 1.
+#### Maledizione
 
-#### Hex
+*Livello 1 Ammaliamento (Warlock)*
 
-*Level 1 Enchantment (Warlock)*
+**Tempo di Lancio:** Azione Bonus 
 
-**Casting Time:** Bonus Action 
+**Gittata:** 27 m 
 
-**Range:** 90 feet 
+**Componenti:** V, S, M (l'occhio pietrificato di un tritone) 
 
-**Components:** V, S, M (the petrified eye of a newt) 
+**Durata:** Concentrazione, fino a 1 ora
 
-**Duration:** Concentration, up to 1 hour
+Lanci una maledizione su una creatura che puoi vedere entro gittata. Finché l'incantesimo dura, infliggi 1d6 danni Necrotici extra al bersaglio ogni volta che lo colpisci con un tiro per colpire. Inoltre, scegli una caratteristica quando lanci l'incantesimo. Il bersaglio ha Svantaggio alle prove di caratteristica effettuate con la caratteristica scelta.
 
-You place a curse on a creature that you can see within range. Until the spell ends, you deal an extra 1d6 Necrotic damage to the target whenever you hit it with an attack roll. Also, choose one ability when you cast the spell. The target has Disadvantage on ability checks made with the chosen ability.
+Se il bersaglio scende a 0 Punti Ferita prima che l'incantesimo termini, puoi usare un'Azione Bonus in un turno successivo per maledire una nuova creatura.
 
-If the target drops to 0 Hit Points before this spell ends, you can take a Bonus Action on a later turn to curse a new creature.
+**_Usare uno Slot di Livello Superiore._** La tua Concentrazione può durare più a lungo con uno slot di livello 2 (fino a 4 ore), 3–4 (fino a 8 ore) o 5+ (24 ore).
 
-**_Using a Higher-Level Spell Slot._** Your Concentration can last longer with a spell slot of level 2 (up to 4 hours), 3–4 (up to 8 hours), or 5+ (24 hours).
+#### Risata Incontenibile
 
-#### Hideous Laughter
+*Livello 1 Ammaliamento (Bardo, Warlock, Mago)*
 
-*Level 1 Enchantment (Bard, Warlock, Wizard)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** 9 m 
 
-**Range:** 30 feet 
+**Componenti:** V, S, M (una crostata e una piuma) 
 
-**Components:** V, S, M (a tart and a feather) 
+**Durata:** Concentrazione, fino a 1 minuto
 
-**Duration:** Concentration, up to 1 minute
+Una creatura a tua scelta che puoi vedere entro gittata effettua un tiro salvezza su Saggezza. Con un fallimento, ottiene le condizioni Prono e Incapacitato per la durata. Durante quel tempo, ride in modo incontrollabile se in grado di farlo e non può porre fine alla condizione Prono su se stessa.
 
-One creature of your choice that you can see within range makes a Wisdom saving throw. On a failed save, it has the Prone and Incapacitated conditions for the duration. During that time, it laughs uncontrollably if it's capable of laughter, and it can't end the Prone condition on itself.
+Alla fine di ciascun suo turno e ogni volta che subisce danni, effettua un altro tiro salvezza su Saggezza. Il bersaglio ha Vantaggio al tiro se il tiro è innescato da danni. Con un successo, l'incantesimo termina.
 
-At the end of each of its turns and each time it takes damage, it makes another Wisdom saving throw. The target has Advantage on the save if the save is triggered by damage. On a successful save, the spell ends.
+**_Usare uno Slot di Livello Superiore._** Puoi bersagliare una creatura aggiuntiva per ogni livello di slot sopra l'1.
 
-**_Using a Higher-Level Spell Slot._** You can target one additional creature for each spell slot level above 1.
+#### Blocca Mostro
 
-#### Hold Monster
+*Livello 5 Ammaliamento (Bardo, Stregone, Warlock, Mago)*
 
-*Level 5 Enchantment (Bard, Sorcerer, Warlock, Wizard)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** 27 m
 
-**Range:** 90 feet
+**Componenti:** V, S, M (un pezzo di ferro dritto) 
 
-**Components:** V, S, M (a straight piece of iron) 
+**Durata:** Concentrazione, fino a 1 minuto
 
-**Duration:** Concentration, up to 1 minute
+Scegli una creatura che puoi vedere entro gittata. Il bersaglio deve superare un tiro salvezza su Saggezza o ottenere la condizione Paralizzato per la durata. Alla fine di ciascun suo turno, ripete il tiro, terminando l'incantesimo su se stesso con un successo.
 
-Choose a creature that you can see within range. The target must succeed on a Wisdom saving throw or have the Paralyzed condition for the duration. At the end of each of its turns, the target repeats the save, ending the spell on itself on a success.
+**_Usare uno Slot di Livello Superiore._** Puoi bersagliare una creatura aggiuntiva per ogni livello di slot sopra il 5.
 
-**_Using a Higher-Level Spell Slot._** You can target one additional creature for each spell slot level above 5.
+#### Blocca Persona
 
-#### Hold Person
+*Livello 2 Ammaliamento (Bardo, Chierico, Druido, Stregone, Warlock, Mago)*
 
-*Level 2 Enchantment (Bard, Cleric, Druid, Sorcerer, Warlock, Wizard)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** 18 m 
 
-**Range:** 60 feet 
+**Componenti:** V, S, M (un pezzo di ferro dritto) 
 
-**Components:** V, S, M (a straight piece of iron) 
+**Durata:** Concentrazione, fino a 1 minuto
 
-**Duration:** Concentration, up to 1 minute
+Scegli un Umanoide che puoi vedere entro gittata. Il bersaglio deve superare un tiro salvezza su Saggezza o ottenere la condizione Paralizzato per la durata. Alla fine di ciascun suo turno, ripete il tiro, terminando l'incantesimo su se stesso con un successo.
 
-Choose a Humanoid that you can see within range. The target must succeed on a Wisdom saving throw or have the Paralyzed condition for the duration. At the end of each of its turns, the target repeats the save, ending the spell on itself on a success.
+**_Usare uno Slot di Livello Superiore._** Puoi bersagliare un Umanoide aggiuntivo per ogni livello di slot sopra il 2.
 
-**_Using a Higher-Level Spell Slot._** You can target one additional Humanoid for each spell slot level above 2.
+#### Aura Sacra
 
-#### Holy Aura
+*Livello 8 Abiurazione (Chierico)*
 
-*Level 8 Abjuration (Cleric)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** Sé 
 
-**Range:** Self 
+**Componenti:** V, S, M (una reliquia dal valore di almeno 1.000 MO) 
 
-**Components:** V, S, M (a reliquary worth 1,000+ GP) 
+**Durata:** Concentrazione, fino a 1 minuto
 
-**Duration:** Concentration, up to 1 minute
+Per la durata, emani un'aura in un'Emanazione di 9 m. Mentre si trovano nell'aura, le creature da te scelte hanno Vantaggio a tutti i tiri salvezza e le altre creature hanno Svantaggio ai tiri per colpire contro di esse. Inoltre, quando un Immondo o un Non Morto colpisce una creatura interessata con un tiro per colpire in mischia, l'attaccante deve superare un tiro salvezza su Costituzione o ottenere la condizione Accecato fino alla fine del suo prossimo turno.
 
-For the duration, you emit an aura in a 30-foot Emanation. While in the aura, creatures of your choice have Advantage on all saving throws, and other creatures have Disadvantage on attack rolls against them. In addition, when a Fiend or an Undead hits an affected creature with a melee attack roll, the attacker must succeed on a Constitution saving throw or have the Blinded condition until the end of its next turn.
+#### Marchio del Cacciatore
 
-#### Hunter's Mark
+*Livello 1 Divinazione (Ranger)*
 
-*Level 1 Divination (Ranger)*
+**Tempo di Lancio:** Azione Bonus 
 
-**Casting Time:** Bonus Action 
+**Gittata:** 27 m 
 
-**Range:** 90 feet 
+**Componenti:** V 
 
-**Components:** V 
+**Durata:** Concentrazione, fino a 1 ora
 
-**Duration:** Concentration, up to 1 hour
+Marchi magicamente come preda una creatura che puoi vedere entro gittata. Finché l'incantesimo dura, infliggi 1d6 danni da Forza extra al bersaglio ogni volta che lo colpisci con un tiro per colpire. Hai inoltre Vantaggio a qualsiasi prova di Saggezza (Percezione o Sopravvivenza) per trovarla.
 
-You magically mark one creature you can see within range as your quarry. Until the spell ends, you deal an extra 1d6 Force damage to the target whenever you hit it with an attack roll. You also have Advantage on any Wisdom (Perception or Survival) check you make to find it.
+Se il bersaglio scende a 0 Punti Ferita prima che l'incantesimo termini, puoi usare un'Azione Bonus per spostare il marchio su una nuova creatura che puoi vedere entro gittata.
 
-If the target drops to 0 Hit Points before this spell ends, you can take a Bonus Action to move the mark to a new creature you can see within range.
+**_Usare uno Slot di Livello Superiore._** La tua Concentrazione può durare più a lungo con uno slot di livello 3–4 (fino a 8 ore) o 5+ (fino a 24 ore).
 
-**_Using a Higher-Level Spell Slot._** Your Concentration can last longer with a spell slot of level 3–4 (up to 8 hours) or 5+ (up to 24 hours).
+#### Schema Ipnotico
 
-#### Hypnotic Pattern
+*Livello 3 Illusione (Bardo, Stregone, Warlock, Mago)*
 
-*Level 3 Illusion (Bard, Sorcerer, Warlock, Wizard)*
+**Tempo di Lancio:** Azione 
 
-**Casting Time:** Action 
+**Gittata:** 36 m 
 
-**Range:** 120 feet 
+**Componenti:** S, M (un pizzico di coriandoli) 
 
-**Components:** S, M (a pinch of confetti) 
+**Durata:** Concentrazione, fino a 1 minuto
 
-**Duration:** Concentration, up to 1 minute
+Crei un motivo vorticoso di colori in un Cubo di lato 9 m entro gittata. Il motivo appare per un attimo e svanisce. Ogni creatura nell'area che può vedere il motivo deve superare un tiro salvezza su Saggezza o avere la condizione Affascinato per la durata. Mentre è Affascinata, la creatura ha la condizione Incapacitato e Velocità 0.
 
-You create a twisting pattern of colors in a 30-foot Cube within range. The pattern appears for a moment and vanishes. Each creature in the area who can see the pattern must succeed on a Wisdom saving throw or have the Charmed condition for the duration. While Charmed, the creature has the Incapacitated condition and a Speed of 0.
+L'incantesimo termina per una creatura interessata se subisce danni o se qualcuno usa un'azione per scuoterla fuori dalla sua prostrazione.
 
-The spell ends for an affected creature if it takes any damage or if someone else uses an action to shake the creature out of its stupor.
-
-### I Spells
+### Incantesimi I
 
 #### Ice Knife
 
@@ -3456,21 +3456,21 @@ One creature that you can see within range must make a Wisdom saving throw. On a
 
 On a failed save, the target has the Charmed condition for the duration. While Charmed, the target dances comically, must use all its movement to dance in place, and has Disadvantage on Dexterity saving throws and attack rolls, and other creatures have Advantage on attack rolls against it. On each of its turns, the target can take an action to collect itself and repeat the save, ending the spell on itself on a success.
 
-#### Invisibility
+#### Invisibilità
 
-*Level 2 Illusion (Bard, Sorcerer, Warlock, Wizard)*
+*Livello 2 Illusione (Bardo, Stregone, Warlock, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** Touch 
+**Gittata:** Contatto 
 
-**Components:** V, S, M (an eyelash in gum arabic) 
+**Componenti:** V, S, M (un ciglio in gomma arabica) 
 
-**Duration:** Concentration, up to 1 hour
+**Durata:** Concentrazione, fino a 1 ora
 
-A creature you touch has the Invisible condition until the spell ends. The spell ends early immediately after the target makes an attack roll, deals damage, or casts a spell.
+Una creatura che tocchi ha la condizione Invisibile finché l'incantesimo dura. L'incantesimo termina anticipatamente immediatamente dopo che il bersaglio effettua un tiro per colpire, infligge danni o lancia un incantesimo.
 
-**_Using a Higher-Level Spell Slot._** You can target one additional creature for each spell slot level above 2.
+**_Usare uno Slot di Livello Superiore._** Puoi bersagliare una creatura aggiuntiva per ogni livello di slot sopra il 2.
 
 ### J,K and L Spells
 

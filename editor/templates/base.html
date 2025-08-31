@@ -1,11 +1,47 @@
 <!-- app/templates/base.html -->
 <!DOCTYPE html>
-<html lang="it">
+<html lang="{{ 'en' if (lang and lang.startswith('en')) else 'it' }}">
 <head>
   <meta charset="utf-8" />
   <title>{% block title %}Due Draghi 5e 2024 SRD{% endblock %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+  <script>
+    // Check if Tailwind loaded and add fallback styles if not
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        const testEl = document.createElement('div');
+        testEl.className = 'hidden';
+        testEl.style.position = 'absolute';
+        testEl.style.top = '-1000px';
+        document.body.appendChild(testEl);
+        
+        const isHidden = window.getComputedStyle(testEl).display === 'none';
+        document.body.removeChild(testEl);
+        
+        if (!isHidden) {
+          console.warn('Tailwind CSS may not have loaded properly');
+          // Add basic fallback styles
+          const style = document.createElement('style');
+          style.textContent = `
+            .btn { padding: 0.5rem 1rem; border: 1px solid #ccc; background: white; cursor: pointer; border-radius: 0.25rem; }
+            .btn:hover { background: #f5f5f5; }
+            .btn-dark { background: #111; color: white; }
+            .field { width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 0.25rem; }
+            .hidden { display: none !important; }
+            .flex { display: flex; }
+            .items-center { align-items: center; }
+            .gap-2 { gap: 0.5rem; }
+            .p-4 { padding: 1rem; }
+            .border { border: 1px solid #e5e5e5; }
+            .bg-white { background-color: white; }
+            .text-sm { font-size: 0.875rem; }
+          `;
+          document.head.appendChild(style);
+        }
+      }, 100);
+    });
+  </script>
   <script src="https://unpkg.com/htmx.org@2.0.3"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <link rel="icon" href="data:,"/>
@@ -17,27 +53,34 @@
       box-shadow: 0 0 0 2px rgba(79,70,229,.6);
       border-color: rgba(79,70,229,.8);
     }
-    /* Tailwind CDN does not process @apply in <style> tags. 
-       Define lightweight utility classes directly. */
+    /* Core utility classes that work regardless of Tailwind loading */
     .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      gap: .375rem; padding: .375rem .75rem;
-      border-radius: .375rem; border: 1px solid #d4d4d8;
-      font-size: .875rem; line-height: 1.25rem;
-      background: white; color: #111827; cursor: pointer;
+      display: inline-flex !important; 
+      align-items: center !important; 
+      justify-content: center !important;
+      gap: .375rem !important; 
+      padding: .375rem .75rem !important;
+      border-radius: .375rem !important; 
+      border: 1px solid #d4d4d8 !important;
+      font-size: .875rem !important; 
+      line-height: 1.25rem !important;
+      background: white !important; 
+      color: #111827 !important; 
+      cursor: pointer !important;
       transition: background-color .15s ease, box-shadow .15s ease, opacity .15s ease;
+      text-decoration: none !important;
     }
-    .btn:hover { background: #f5f5f5; }
-    .btn:disabled, .btn[disabled] { opacity: .5; cursor: not-allowed; }
+    .btn:hover { background: #f5f5f5 !important; }
+    .btn:disabled, .btn[disabled] { opacity: .5 !important; cursor: not-allowed !important; }
     .btn-primary {
-      background: #4f46e5; color: white; border-color: #4f46e5;
+      background: #4f46e5 !important; color: white !important; border-color: #4f46e5 !important;
     }
-    .btn-primary:hover { background: #4338ca; }
+    .btn-primary:hover { background: #4338ca !important; }
     .btn-dark {
-      background: #111827; color: #fff; border-color: #111827;
+      background: #111827 !important; color: #fff !important; border-color: #111827 !important;
     }
-    .btn-dark:hover { background: #0b1220; }
-    .btn-ghost { background: white; }
+    .btn-dark:hover { background: #0b1220 !important; }
+    .btn-ghost { background: white !important; }
     .tag { display:inline-block; font-size: 11px; padding:.125rem .5rem; border:1px solid #e5e7eb; border-radius:.375rem; }
     .field {
       width: 100%; border: 1px solid #d4d4d8; border-radius: .375rem;
@@ -133,8 +176,8 @@
           {% block header_actions %}{% endblock %}
           {% set _lang = (lang or 'it')|lower if lang is defined else 'it' %}
           {% set is_en = _lang[:2] == 'en' %}
-          <a class="btn !px-2 !py-1 {% if not is_en %}btn-dark{% endif %}" href="/?lang=it" onclick="return switchLang('it')">IT</a>
-          <a class="btn !px-2 !py-1 {% if is_en %}btn-dark{% endif %}" href="/?lang=en" onclick="return switchLang('en')">EN</a>
+          <button class="btn !px-2 !py-1 {% if not is_en %}btn-dark{% endif %}" onclick="forceLanguageSwitch('it')" type="button">IT</button>
+          <button class="btn !px-2 !py-1 {% if is_en %}btn-dark{% endif %}" onclick="forceLanguageSwitch('en')" type="button">EN</button>
         </nav>
       </div>
     </div>
@@ -155,19 +198,22 @@
 
   {% block scripts %}{% endblock %}
   <script>
-    // Global language switch that preserves current page/query if present
-    if (typeof window.switchLang !== 'function') {
-      window.switchLang = function(lang){
-        try{
-          const u = new URL(window.location.href);
-          u.searchParams.set('lang', lang);
-          // Preserve current page if any
-          const page = u.searchParams.get('page');
-          if(page){ u.searchParams.set('page', page); } else { u.searchParams.delete('page'); }
-          // Preserve other query params (q, page_size, etc.)
-          window.location.href = u.pathname + '?' + u.searchParams.toString();
-          return false;
-        }catch(e){ window.location.href='/?lang='+lang; return false; }
+    // Force language switch with full page reload
+    window.forceLanguageSwitch = function(lang) {
+      try {
+        // Get current URL
+        const url = new URL(window.location.href);
+        
+        // Update or add lang parameter
+        url.searchParams.set('lang', lang);
+        
+        // Force complete page reload by changing the location directly
+        // This bypasses any HTMX or other JavaScript interference
+        document.location.href = url.toString();
+        
+      } catch(e) {
+        // Fallback
+        document.location.href = window.location.pathname + '?lang=' + lang;
       }
     }
     // Global helpers available to all pages
