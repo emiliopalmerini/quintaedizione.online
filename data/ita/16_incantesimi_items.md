@@ -3472,309 +3472,311 @@ Una creatura che tocchi ha la condizione Invisibile finché l'incantesimo dura. 
 
 **_Usare uno Slot di Livello Superiore._** Puoi bersagliare una creatura aggiuntiva per ogni livello di slot sopra il 2.
 
-### J,K and L Spells
+### Incantesimi J, K e L
 
-#### Jump
+#### Salto
 
-*Level 1 Transmutation (Druid, Ranger, Sorcerer, Wizard)*
+*Livello 1 Trasmutazione (Druido, Ranger, Stregone, Mago)*
 
-**Casting Time:** Bonus Action 
+**Tempo di Lancio:** Azione Bonus 
 
-**Range:** Touch 
+**Gittata:** Contatto 
 
-**Component:** V, S, M (a grasshopper's hind leg) 
+**Componenti:** V, S, M (una zampa posteriore di cavalletta) 
 
-**Duration:** 1 minute
+**Durata:** 1 minuto
 
-You touch a willing creature. Once on each of its turns until the spell ends, that creature can jump up to 30 feet by spending 10 feet of movement.
+Tocchi una creatura consenziente. Una volta in ciascun suo turno finché l'incantesimo dura, quella creatura può saltare fino a 9 m spendendo 3 m di movimento.
 
-**_Using a Higher-Level Spell Slot._** You can target one additional creature for each spell slot level above 1.
+**_Usare uno Slot di Livello Superiore._** Puoi bersagliare una creatura aggiuntiva per ogni livello di slot sopra l'1.
 
-#### Knock
+#### Bussare
 
-*Level 2 Transmutation (Bard, Sorcerer, Wizard)*
+*Livello 2 Trasmutazione (Bardo, Stregone, Mago)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V 
+**Componenti:** V 
 
-**Duration:** Instantaneous Choose an object that you can see within range. The object can be a door, a box, a chest, a set of manacles, a padlock, or another object that contains a mundane or magical means that prevents access.
+**Durata:** Istantanea
 
-A target that is held shut by a mundane lock or that is stuck or barred becomes unlocked, unstuck, or unbarred. If the object has multiple locks, only one of them is unlocked.
+Scegli un oggetto che puoi vedere entro gittata. L'oggetto può essere una porta, una cassa, un forziere, delle manette, un lucchetto o un altro oggetto che contenga mezzi ordinari o magici che impediscono l'accesso.
 
-If the target is held shut by *Arcane Lock*, that spell is suppressed for 10 minutes, during which time the target can be opened and closed.
+Un bersaglio bloccato da una serratura ordinaria o che sia incastrato o sbarrato diventa sbloccato, disincastrato o non sbarrato. Se l'oggetto ha più serrature, solo una viene sbloccata.
 
-When you cast the spell, a loud knock, audible up to 300 feet away, emanates from the target.
+Se il bersaglio è tenuto chiuso da *Serratura Arcana*, quell'incantesimo è soppresso per 10 minuti, durante i quali il bersaglio può essere aperto e chiuso.
 
-#### Legend Lore
+Quando lanci l'incantesimo, un forte colpo, udibile fino a 90 m di distanza, emana dal bersaglio.
 
-*Level 5 Divination (Bard, Cleric, Wizard)*
+#### Sapienza delle Leggende
 
-**Casting Time:** 10 minutes
+*Livello 5 Divinazione (Bardo, Chierico, Mago)*
 
-**Range:** Self
+**Tempo di Lancio:** 10 minuti
 
-**Components:** V, S, M (incense worth 250+ GP, which the spell consumes, and four ivory strips worth 50+ GP each)
+**Gittata:** Sé
 
-**Duration:** Instantaneous
+**Componenti:** V, S, M (incenso dal valore di almeno 250 MO, che l'incantesimo consuma, e quattro strisce d'avorio dal valore di almeno 50 MO ciascuna)
 
-Name or describe a famous person, place, or object. The spell brings to your mind a brief summary of the significant lore about that famous thing, as described by the GM.
+**Durata:** Istantanea
 
-The lore might consist of important details, amusing revelations, or even secret lore that has never been widely known. The more information you already know about the thing, the more precise and detailed the information you receive is. That information is accurate but might be couched in figurative language or poetry, as determined by the GM.
+Nomina o descrivi una persona, un luogo o un oggetto famoso. L'incantesimo porta alla tua mente un breve riassunto delle conoscenze significative su quella cosa famosa, come descritto dal GM.
 
-If the famous thing you chose isn't actually famous, you hear sad musical notes played on a trombone, and the spell fails.
+Le informazioni possono consistere in dettagli importanti, rivelazioni divertenti o persino conoscenze segrete mai divenute note. Più informazioni conosci già sull'argomento, più precise e dettagliate saranno le informazioni ricevute. Tali informazioni sono accurate ma possono essere espresse con linguaggio figurato o poetico, a discrezione del GM.
 
-#### Lesser Restoration
+Se la cosa che hai scelto non è in realtà famosa, senti note musicali tristi di un trombone e l'incantesimo fallisce.
 
-*Level 2 Abjuration (Bard, Cleric, Druid, Paladin, Ranger)*
+#### Restaurazione Minore
 
-**Casting Time:** Bonus Action 
+*Livello 2 Abiurazione (Bardo, Chierico, Druido, Paladino, Ranger)*
 
-**Range:** Touch 
+**Tempo di Lancio:** Azione Bonus 
 
-**Components:** V, S 
+**Gittata:** Contatto 
 
-**Duration:** Instantaneous
+**Componenti:** V, S 
 
-You touch a creature and end one condition on it: Blinded, Deafened, Paralyzed, or Poisoned.
+**Durata:** Istantanea
 
-#### Levitate
+Tocchi una creatura e termini una delle seguenti condizioni su di essa: Accecato, Assordato, Paralizzato o Avvelenato.
 
-*Level 2 Transmutation (Sorcerer, Wizard)*
+#### Levitare
 
-**Casting Time:** Action 
+*Livello 2 Trasmutazione (Stregone, Mago)*
 
-**Range:** 60 feet 
+**Tempo di Lancio:** Azione 
 
-**Components:** V, S, M (a metal spring) 
+**Gittata:** 18 m 
 
-**Duration:** Concentration, up to 10 minutes
+**Componenti:** V, S, M (una molla di metallo) 
 
-One creature or loose object of your choice that you can see within range rises vertically up to 20 feet and remains suspended there for the duration. The spell can levitate an object that weighs up to 500 pounds. An unwilling creature that succeeds on a Constitution saving throw is unaffected.
+**Durata:** Concentrazione, fino a 10 minuti
 
-The target can move only by pushing or pulling against a fixed object or surface within reach (such as a wall or a ceiling), which allows it to move as if it were climbing. You can change the target's altitude by up to 20 feet in either direction on your turn. If you are the target, you can move up or down as part of your move. Otherwise, you can take a Magic action to move the target, which must remain within the spell's range.
+Una creatura o un oggetto non fissato a tua scelta che puoi vedere entro gittata si solleva verticalmente fino a 6 m e rimane sospeso per la durata. L'incantesimo può levitare un oggetto che pesa fino a 225 kg. Una creatura non consenziente che riesce in un tiro salvezza su Costituzione non è influenzata.
 
-When the spell ends, the target floats gently to the ground if it is still aloft.
+Il bersaglio può muoversi solo spingendo o tirando contro un oggetto o superficie fissi a portata (come un muro o un soffitto), il che gli consente di muoversi come se stesse scalando. Puoi cambiare l'altitudine del bersaglio fino a 6 m in entrambe le direzioni nel tuo turno. Se sei tu il bersaglio, puoi muoverti su o giù come parte del tuo movimento. Altrimenti, puoi compiere un'azione Magia per muovere il bersaglio, che deve restare entro la gittata dell'incantesimo.
 
-#### Light
+Quando l'incantesimo termina, il bersaglio fluttua dolcemente fino a terra se è ancora in aria.
 
-*Evocation Cantrip (Bard, Cleric, Sorcerer, Wizard)*
+#### Luce
 
-**Casting Time:** Action 
+*Trucchetto di Invocazione (Bardo, Chierico, Stregone, Mago)*
 
-**Range:** Touch 
+**Tempo di Lancio:** Azione 
 
-**Components:** V, M (a firefly or phosphorescent moss) 
+**Gittata:** Contatto 
 
-**Duration:** 1 hour
+**Componenti:** V, M (una lucciola o muschio fosforescente) 
 
-You touch one Large or smaller object that isn't being worn or carried by someone else. Until the spell ends, the object sheds Bright Light in a 20-foot radius and Dim Light for an additional 20 feet. The light can be colored as you like.
+**Durata:** 1 ora
 
-Covering the object with something opaque blocks the light. The spell ends if you cast it again.
+Tocchi un oggetto Grande o più piccolo che non sia indossato o trasportato da qualcun altro. Finché l'incantesimo dura, l'oggetto emette Luce Intensa in un raggio di 6 m e Luce Fioca per ulteriori 6 m. La luce può avere il colore che preferisci.
 
-#### Lightning Bolt
+Coprire l'oggetto con qualcosa di opaco blocca la luce. L'incantesimo termina se lo lanci di nuovo.
 
-*Level 3 Evocation (Sorcerer, Wizard)*
+#### Fulmine
 
-**Casting Time:** Action 
+*Livello 3 Invocazione (Stregone, Mago)*
 
-**Range:** Self 
+**Tempo di Lancio:** Azione 
 
-**Components:** V, S, M (a bit of fur and a crystal rod) 
+**Gittata:** Sé 
 
-**Duration:** Instantaneous
+**Componenti:** V, S, M (un po' di pelliccia e una bacchetta di cristallo) 
 
-A stroke of lightning forming a 100-foot-long, 5-foot-wide Line blasts out from you in a direction you choose. Each creature in the Line makes a Dexterity saving throw, taking 8d6 Lightning damage on a failed save or half as much damage on a successful one.
+**Durata:** Istantanea
 
-**_Using a Higher-Level Spell Slot._** The damage increases by 1d6 for each spell slot level above 3.
+Un fulmine a forma di Linea lunga 30 m e larga 1,5 m parte da te in una direzione a tua scelta. Ogni creatura nella Linea effettua un tiro salvezza su Destrezza, subendo 8d6 danni da Fulmine con un fallimento o metà danni con un successo.
 
-#### Locate Animals or Plants
+**_Usare uno Slot di Livello Superiore._** I danni aumentano di 1d6 per ogni livello di slot sopra il 3.
 
-*Level 2 Divination (Bard, Druid, Ranger)*
+#### Individuare Animali o Piante
 
-**Casting Time:** Action or Ritual 
+*Livello 2 Divinazione (Bardo, Druido, Ranger)*
 
-**Range:** Self 
+**Tempo di Lancio:** Azione o Rituale 
 
-**Components:** V, S, M (fur from a bloodhound) 
+**Gittata:** Sé 
 
-**Duration:** Instantaneous
+**Componenti:** V, S, M (pelo di un cane da pista) 
 
-Describe or name a specific kind of Beast, Plant creature, or nonmagical plant. You learn the direction and distance to the closest creature or plant of that kind within 5 miles, if any are present.
+**Durata:** Istantanea
 
-#### Locate Creature
+Descrivi o nomina un tipo specifico di Bestia, creatura Pianta o pianta non magica. Apprendi la direzione e la distanza fino alla creatura o pianta più vicina di quel tipo entro 8 km, se presente.
 
-*Level 4 Divination (Bard, Cleric, Druid, Paladin, Ranger, Wizard)*
+#### Individuare Creatura
 
-**Casting Time:** Action 
+*Livello 4 Divinazione (Bardo, Chierico, Druido, Paladino, Ranger, Mago)*
 
-**Range:** Self 
+**Tempo di Lancio:** Azione 
 
-**Components:** V, S, M (fur from a bloodhound) 
+**Gittata:** Sé 
 
-**Duration:** Concentration, up to 1 hour
+**Componenti:** V, S, M (pelo di un cane da pista) 
 
-Describe or name a creature that is familiar to you. You sense the direction to the creature's location if that creature is within 1,000 feet of you. If the creature is moving, you know the direction of its movement.
+**Durata:** Concentrazione, fino a 1 ora
 
-The spell can locate a specific creature known to you or the nearest creature of a specific kind (such as a human or a unicorn) if you have seen such a creature up close—within 30 feet—at least once. If the creature you described or named is in a different form, such as under the effects of a *Flesh to Stone* or *Polymorph* spell, this spell doesn't locate the creature.
+Descrivi o nomina una creatura a te familiare. Percepisci la direzione della posizione della creatura se si trova entro 300 m da te. Se la creatura si muove, conosci la direzione del suo movimento.
 
-This spell can't locate a creature if any thickness of lead blocks a direct path between you and the creature.
+L'incantesimo può individuare una creatura specifica a te nota oppure la creatura più vicina di un tipo specifico (come un umano o un unicorno) se hai visto tale creatura da vicino—entro 9 m—almeno una volta. Se la creatura descritta o nominata si trova in una forma diversa, come sotto gli effetti di *Carne in Pietra* o *Metamorfosi*, questo incantesimo non individua la creatura.
 
-#### Locate Object
+Questo incantesimo non può individuare una creatura se qualsiasi spessore di piombo blocca un percorso diretto tra te e la creatura.
 
-*Level 2 Divination (Bard, Cleric, Druid, Paladin, Ranger, Wizard)*
+#### Individuare Oggetto
 
-**Casting Time:** Action 
+*Livello 2 Divinazione (Bardo, Chierico, Druido, Paladino, Ranger, Mago)*
 
-**Range:** Self 
+**Tempo di Lancio:** Azione 
 
-**Components:** V, S, M (a forked twig) 
+**Gittata:** Sé 
 
-**Duration:** Concentration, up to 10 minutes
+**Componenti:** V, S, M (un ramoscello biforcuto) 
 
-Describe or name an object that is familiar to you. You sense the direction to the object's location if that object is within 1,000 feet of you. If the object is in motion, you know the direction of its movement.
+**Durata:** Concentrazione, fino a 10 minuti
 
-The spell can locate a specific object known to you if you have seen it up close—within 30 feet—at least once. Alternatively, the spell can locate the nearest object of a particular kind, such as a certain kind of apparel, jewelry, furniture, tool, or weapon.
+Descrivi o nomina un oggetto a te familiare. Percepisci la direzione della posizione dell'oggetto se esso si trova entro 300 m da te. Se l'oggetto è in movimento, conosci la direzione del suo movimento.
 
-This spell can't locate an object if any thickness of lead blocks a direct path between you and the object.
+L'incantesimo può individuare un oggetto specifico a te noto se lo hai visto da vicino—entro 9 m—almeno una volta. In alternativa, l'incantesimo può individuare l'oggetto più vicino di un particolare tipo, come un certo tipo di abbigliamento, gioiello, mobilio, strumento o arma.
 
-#### Longstrider
+Questo incantesimo non può individuare un oggetto se qualsiasi spessore di piombo blocca un percorso diretto tra te e l'oggetto.
 
-*Level 1 Transmutation (Bard, Druid, Ranger, Wizard)*
+#### Passo Lungo
 
-**Casting Time:** Action 
+*Livello 1 Trasmutazione (Bardo, Druido, Ranger, Mago)*
 
-**Range:** Touch 
+**Tempo di Lancio:** Azione 
 
-**Components:** V, S, M (a pinch of dirt) 
+**Gittata:** Contatto 
 
-**Duration:** 1 hour
+**Componenti:** V, S, M (un pizzico di terra) 
 
-You touch a creature. The target's Speed increases by 10 feet until the spell ends.
+**Durata:** 1 ora
 
-**_Using a Higher-Level Spell Slot._** You can target one additional creature for each spell slot level above 1.
+Tocchi una creatura. La Velocità del bersaglio aumenta di 3 m finché l'incantesimo dura.
 
-### M and N Spells
+**_Usare uno Slot di Livello Superiore._** Puoi bersagliare una creatura aggiuntiva per ogni livello di slot sopra l'1.
 
-#### **Mage Armor**
+### Incantesimi M e N
 
-*Level 1 Abjuration (Sorcerer, Wizard)*
+#### **Armatura Magica**
 
-**Casting Time:** Action 
+*Livello 1 Abiurazione (Stregone, Mago)*
 
-**Range:** Touch 
+**Tempo di Lancio:** Azione 
 
-**Components:** V, S, M (a piece of cured leather) 
+**Gittata:** Contatto 
 
-**Duration:** 8 hours
+**Componenti:** V, S, M (un pezzo di cuoio conciato) 
 
-You touch a willing creature who isn't wearing armor. Until the spell ends, the target's base AC becomes 13 plus its Dexterity modifier. The spell ends early if the target dons armor.
+**Durata:** 8 ore
 
-#### Mage Hand
+Tocchi una creatura consenziente che non indossa armatura. Finché l'incantesimo dura, la CA base del bersaglio diventa 13 più il suo modificatore di Destrezza. L'incantesimo termina anticipatamente se il bersaglio indossa armatura.
 
-*Conjuration Cantrip (Bard, Sorcerer, Warlock, Wizard)*
+#### Mano Magica
 
-**Casting Time:** Action 
+*Trucchetto di Evocazione (Bardo, Stregone, Warlock, Mago)*
 
-**Range:** 30 feet 
+**Tempo di Lancio:** Azione 
 
-**Components:** V, S 
+**Gittata:** 9 m 
 
-**Duration:** 1 minute
+**Componenti:** V, S 
 
-A spectral, floating hand appears at a point you choose within range. The hand lasts for the duration. The hand vanishes if it is ever more than 30 feet away from you or if you cast this spell again.
+**Durata:** 1 minuto
 
-When you cast the spell, you can use the hand to manipulate an object, open an unlocked door or container, stow or retrieve an item from an open container, or pour the contents out of a vial.
+Una mano spettrale fluttuante appare in un punto a tua scelta entro gittata. La mano dura per la durata. La mano svanisce se si trova a più di 9 m da te o se lanci di nuovo questo incantesimo.
 
-As a Magic action on your later turns, you can control the hand thus again. As part of that action, you can move the hand up to 30 feet.
+Quando lanci l'incantesimo, puoi usare la mano per manipolare un oggetto, aprire una porta o un contenitore non chiusi a chiave, riporre o recuperare un oggetto da un contenitore aperto o versare il contenuto di una fiala.
 
-The hand can't attack, activate magic items, or carry more than 10 pounds.
+Come azione Magia nei turni successivi, puoi controllare di nuovo la mano. Come parte di quell'azione, puoi muovere la mano fino a 9 m.
 
-#### Magic Circle
+La mano non può attaccare, attivare oggetti magici o trasportare più di 4,5 kg.
 
-*Level 3 Abjuration (Cleric, Paladin, Warlock, Wizard)*
+#### Cerchio Magico
 
-**Casting Time:** 1 minute
+*Livello 3 Abiurazione (Chierico, Paladino, Warlock, Mago)*
 
-**Range:** 10 feet
+**Tempo di Lancio:** 1 minuto
 
-**Components:** V, S, M (salt and powdered silver worth 100+ GP, which the spell consumes)
+**Gittata:** 3 m
 
-**Duration:** 1 hour
+**Componenti:** V, S, M (sale e argento in polvere dal valore di almeno 100 MO, che l'incantesimo consuma)
 
-You create a 10-foot-radius, 20-foot-tall Cylinder of magical energy centered on a point on the ground that you can see within range. Glowing runes appear wherever the Cylinder intersects with the floor or other surface.
+**Durata:** 1 ora
 
-Choose one or more of the following types of creatures: Celestials, Elementals, Fey, Fiends, or Undead. The circle affects a creature of the chosen type in the following ways:
+Crei un Cilindro di energia magica di raggio 3 m e altezza 6 m centrato su un punto del suolo che puoi vedere entro gittata. Rune luminose appaiono ovunque il Cilindro intersechi il pavimento o altre superfici.
 
-- The creature can't willingly enter the Cylinder by nonmagical means. If the creature tries to use teleportation or interplanar travel to do so, it must first succeed on a Charisma saving throw.
-- The creature has Disadvantage on attack rolls against targets within the Cylinder.
-- Targets within the Cylinder can't be possessed by or gain the Charmed or Frightened condition from the creature.
+Scegli uno o più dei seguenti tipi di creature: Celestiali, Elementali, Fatati, Immondi o Non Morti. Il cerchio influenza una creatura del tipo scelto nei seguenti modi:
 
-Each time you cast this spell, you can cause its magic to operate in the reverse direction, preventing a creature of the specified type from leaving the Cylinder and protecting targets outside it.
+- La creatura non può entrare volontariamente nel Cilindro con mezzi non magici. Se la creatura tenta di usare teletrasporto o viaggi interplanari per farlo, deve prima superare un tiro salvezza su Carisma.
+- La creatura ha Svantaggio ai tiri per colpire contro bersagli all'interno del Cilindro.
+- I bersagli all'interno del Cilindro non possono essere posseduti né ottenere la condizione Affascinato o Spaventato dalla creatura.
 
-**_Using a Higher-Level Spell Slot._** The duration increases by 1 hour for each spell slot level above 3.
+Ogni volta che lanci questo incantesimo, puoi far sì che la sua magia operi in direzione inversa, impedendo a una creatura del tipo specificato di lasciare il Cilindro e proteggendo i bersagli all'esterno.
 
-#### Magic Jar
+**_Usare uno Slot di Livello Superiore._** La durata aumenta di 1 ora per ogni livello di slot sopra il 3.
 
-*Level 6 Necromancy (Wizard)*
+#### Vaso Magico
 
-**Casting Time:** 1 minute
+*Livello 6 Necromanzia (Mago)*
 
-**Range:** Self 
+**Tempo di Lancio:** 1 minuto
 
-**Components:** V, S, M (a gem, crystal, or reliquary worth 500+ GP)
+**Gittata:** Sé 
 
-**Duration:** Until dispelled
+**Componenti:** V, S, M (una gemma, cristallo o reliquiario dal valore di almeno 500 MO)
 
-Your body falls into a catatonic state as your soul leaves it and enters the container you used for the spell's Material component. While your soul inhabits the container, you are aware of your surroundings as if you were in the container's space. You can't move or take Reactions. The only action you can take is to project your soul up to 100 feet out of the container, either returning to your living body (and ending the spell) or attempting to possess a Humanoid's body.
+**Durata:** Fino a dissipazione
 
-You can attempt to possess any Humanoid within 100 feet of you that you can see (creatures warded by a *Protection from Evil and Good* or *Magic Circle* spell can't be possessed). The target makes a Charisma saving throw. On a failed save, your soul enters the target's body, and the target's soul becomes trapped in the container. On a successful save, the target resists your efforts to possess it, and you can't attempt to possess it again for 24 hours.
+Il tuo corpo cade in uno stato catatonico mentre la tua anima lo lascia ed entra nel contenitore che hai usato come componente Materiale dell'incantesimo. Finché la tua anima abita il contenitore, sei consapevole dell'ambiente circostante come se fossi nello spazio del contenitore. Non puoi muoverti né compiere Reazioni. L'unica azione che puoi compiere è proiettare la tua anima fino a 30 m fuori dal contenitore, tornando nel tuo corpo vivente (terminando l'incantesimo) oppure tentando di possedere il corpo di un Umanoide.
 
-Once you possess a creature's body, you control it. Your Hit Points, Hit Point Dice, Strength, Dexterity, Constitution, Speed, and senses are replaced by the creature's. You otherwise keep your game statistics.
+Puoi tentare di possedere qualsiasi Umanoide entro 30 m da te che puoi vedere (le creature protette da *Protezione dal Bene e dal Male* o *Cerchio Magico* non possono essere possedute). Il bersaglio effettua un tiro salvezza su Carisma. Con un fallimento, la tua anima entra nel corpo del bersaglio e l'anima del bersaglio viene intrappolata nel contenitore. Con un successo, il bersaglio resiste al possesso e non puoi tentare di possederlo di nuovo per 24 ore.
 
-Meanwhile, the possessed creature's soul can perceive from the container using its own senses, but it can't move and it is Incapacitated.
+Una volta che possiedi il corpo di una creatura, lo controlli. I tuoi Punti Ferita, Dadi Ferita, Forza, Destrezza, Costituzione, Velocità e sensi sono sostituiti da quelli della creatura. Per il resto mantieni le tue statistiche di gioco.
 
-While possessing a body, you can take a Magic action to return from the host body to the container if it is within 100 feet of you, returning the host creature's soul to its body. If the host body dies while you're in it, the creature dies, and you make a Charisma saving throw against your own spellcasting DC. On a success, you return to the container if it is within 100 feet of you. Otherwise, you die.
+Nel frattempo, l'anima della creatura posseduta può percepire dal contenitore usando i propri sensi, ma non può muoversi ed è Incapacitata.
 
-If the container is destroyed or the spell ends, your soul returns to your body. If your body is more than 100 feet away from you or if your body is dead, you die. If another creature's soul is in the container when it is destroyed, the creature's soul returns to its body if the body is alive and within 100 feet. Otherwise, that creature dies.
+Mentre possiedi un corpo, puoi compiere un'azione Magia per tornare dal corpo ospite al contenitore se si trova entro 30 m da te, restituendo l'anima della creatura ospite al suo corpo. Se il corpo ospite muore mentre sei al suo interno, la creatura muore e tu effettui un tiro salvezza su Carisma contro la tua CD degli incantesimi. Con un successo, ritorni al contenitore se si trova entro 30 m da te; altrimenti, muori.
 
-When the spell ends, the container is destroyed.
+Se il contenitore è distrutto o l'incantesimo termina, la tua anima ritorna al tuo corpo. Se il tuo corpo è a più di 30 m da te o se è morto, muori. Se l'anima di un'altra creatura si trova nel contenitore quando viene distrutto, l'anima ritorna al suo corpo se il corpo è vivo ed entro 30 m; altrimenti, quella creatura muore.
 
-#### Magic Missile
+Quando l'incantesimo termina, il contenitore viene distrutto.
 
-*Level 1 Evocation (Sorcerer, Wizard)*
+#### Dardo Incantato
 
-**Casting Time:** Action 
+*Livello 1 Invocazione (Stregone, Mago)*
 
-**Range:** 120 feet 
+**Tempo di Lancio:** Azione 
 
-**Components:** V, S 
+**Gittata:** 36 m 
 
-**Duration:** Instantaneous
+**Componenti:** V, S 
 
-You create three glowing darts of magical force. Each dart strikes a creature of your choice that you can see within range. A dart deals 1d4 + 1 Force damage to its target. The darts all strike simultaneously, and you can direct them to hit one creature or several.
+**Durata:** Istantanea
 
-**_Using a Higher-Level Spell Slot._** The spell creates one more dart for each spell slot level above 1.
+Crei tre dardi luminosi di forza magica. Ogni dardo colpisce una creatura a tua scelta che puoi vedere entro gittata. Un dardo infligge 1d4 + 1 danni da Forza al suo bersaglio. I dardi colpiscono simultaneamente e puoi indirizzarli a colpire una creatura o più creature.
 
-#### Magic Mouth
+**_Usare uno Slot di Livello Superiore._** L'incantesimo crea un dardo in più per ogni livello di slot sopra l'1.
 
-*Level 2 Illusion (Bard, Wizard)*
+#### Bocca Magica
 
-**Casting Time:** 1 minute or Ritual 
+*Livello 2 Illusione (Bardo, Mago)*
 
-**Range:** 30 feet 
+**Tempo di Lancio:** 1 minuto o Rituale 
 
-**Components:** V, S, M (jade dust worth 10+ GP, which the spell consumes)
+**Gittata:** 9 m 
 
-**Duration:** Until dispelled
+**Componenti:** V, S, M (polvere di giada dal valore di almeno 10 MO, che l'incantesimo consuma)
 
-You implant a message within an object in range—a message that is uttered when a trigger condition is met. Choose an object that you can see and that isn't being worn or carried by another creature. Then speak the message, which must be 25 words or fewer, though it can be delivered over as long as 10 minutes. Finally, determine the circumstance that will trigger the spell to deliver your message.
+**Durata:** Fino a dissipazione
 
-When that trigger occurs, a magical mouth appears on the object and recites the message in your voice and at the same volume you spoke. If the object you chose has a mouth or something that looks like a mouth (for example, the mouth of a statue), the magical mouth appears there, so the words appear to come from the object's mouth. When you cast this spell, you can have the spell end after it delivers its message, or it can remain and repeat its message whenever the trigger occurs.
+Impianti un messaggio in un oggetto entro gittata—un messaggio che viene pronunciato quando si verifica una condizione di innesco. Scegli un oggetto che puoi vedere e che non sia indossato o trasportato da un'altra creatura. Poi pronuncia il messaggio, che deve essere di 25 parole o meno, anche se può essere erogato in un periodo fino a 10 minuti. Infine, determina la circostanza che innescherà l'incantesimo per consegnare il tuo messaggio.
 
-The trigger can be as general or as detailed as you like, though it must be based on visual or audible conditions that occur within 30 feet of the object. For example, you could instruct the mouth to speak when any creature moves within 30 feet of the object or when a silver bell rings within 30 feet of it.
+Quando l'innesco si verifica, una bocca magica appare sull'oggetto e recita il messaggio con la tua voce e al tuo stesso volume. Se l'oggetto scelto ha una bocca o qualcosa che le somiglia (per esempio, la bocca di una statua), la bocca magica appare lì, così che le parole sembrino provenire dalla bocca dell'oggetto. Quando lanci questo incantesimo, puoi farlo terminare dopo la consegna del messaggio, oppure farlo rimanere e ripetere il messaggio ogni volta che l'innesco si verifica.
+
+L'innesco può essere generale o dettagliato quanto desideri, ma deve basarsi su condizioni visive o udibili che si verificano entro 9 m dall'oggetto. Per esempio, potresti istruire la bocca a parlare quando una creatura si muove entro 9 m dall'oggetto o quando una campana d'argento suona entro 9 m da esso.
 
 #### Magic Weapon
 
@@ -3792,27 +3794,27 @@ You touch a nonmagical weapon. Until the spell ends, that weapon becomes a magic
 
 **_Using a Higher-Level Spell Slot._** The bonus increases to +2 with a level 3–5 spell slot. The bonus increases to +3 with a level 6+ spell slot.
 
-#### Magnificent Mansion
+#### Dimora Magnifica
 
-*Level 7 Conjuration (Bard, Wizard)*
+*Livello 7 Evocazione (Bardo, Mago)*
 
 **Casting Time:** 1 minute 
 
-**Range:** 300 feet 
+**Gittata:** 90 m 
 
-**Components:** V, S, M (a miniature door worth 15+ GP) 
+**Componenti:** V, S, M (una porta in miniatura dal valore di almeno 15 MO) 
 
 **Duration:** 24 hours
 
-You conjure a shimmering door in range that lasts for the duration. The door leads to an extradimensional dwelling and is 5 feet wide and 10 feet tall. You and any creature you designate when you cast the spell can enter the extradimensional dwelling as long as the door remains open. You can open or close it (no action required) if you are within 30 feet of it. While closed, the door is imperceptible.
+Evochi una porta scintillante entro gittata che dura per la durata. La porta conduce a un'abitazione extradimensionale ed è larga 1,5 m e alta 3 m. Tu e qualsiasi creatura da te designata quando lanci l'incantesimo potete entrare nell'abitazione finché la porta rimane aperta. Puoi aprirla o chiuderla (nessuna azione richiesta) se ti trovi entro 9 m da essa. Quando è chiusa, la porta è impercettibile.
 
-Beyond the door is a magnificent foyer with numerous chambers beyond. The dwelling's atmosphere is clean, fresh, and warm.
+Oltre la porta c'è un magnifico foyer con numerose camere. L'atmosfera dell'abitazione è pulita, fresca e calda.
 
-You can create any floor plan you like for the dwelling, but it can't exceed 50 contiguous 10-foot Cubes. The place is furnished and decorated as you choose. It contains sufficient food to serve a ninecourse banquet for up to 100 people. Furnishings and other objects created by this spell dissipate into smoke if removed from it.
+Puoi creare qualsiasi planimetria, ma non può superare 50 Cubi contigui di lato 3 m. Il luogo è arredato e decorato a tua scelta. Contiene cibo sufficiente per servire un banchetto di nove portate per fino a 100 persone. Arredi e altri oggetti creati da questo incantesimo si dissolvono in fumo se rimossi.
 
-A staff of 100 near-transparent servants attends all who enter. You determine the appearance of these servants and their attire. They are invulnerable and obey your commands. Each servant can perform tasks that a human could perform, but they can't attack or take any action that would directly harm another creature. Thus the servants can fetch things, clean, mend, fold clothes, light fires, serve food, pour wine, and so on. The servants can't leave the dwelling.
+Uno staff di 100 servitori quasi trasparenti serve chiunque entri. Ne determini l'aspetto e l'abbigliamento. Sono invulnerabili e obbediscono ai tuoi comandi. Ogni servitore può svolgere compiti che un umano potrebbe svolgere, ma non può attaccare né intraprendere azioni che danneggino direttamente un'altra creatura. I servitori non possono lasciare l'abitazione.
 
-When the spell ends, any creatures or objects left inside the extradimensional space are expelled into the unoccupied spaces nearest to the entrance.
+Quando l'incantesimo termina, eventuali creature o oggetti rimasti nello spazio extradimensionale vengono espulsi negli spazi non occupati più vicini all'ingresso.
 
 #### Major Image
 
@@ -3834,35 +3836,35 @@ Physical interaction with the image reveals it to be an illusion, for things can
 
 **_Using a Higher-Level Spell Slot._** The spell lasts until dispelled, without requiring Concentration, if cast with a level 4+ spell slot.
 
-#### Mass Cure Wounds
+#### Cura Ferite di Massa
 
-*Level 5 Abjuration (Bard, Cleric, Druid)*
+*Livello 5 Abiurazione (Bardo, Chierico, Druido)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-A wave of healing energy washes out from a point you can see within range. Choose up to six creatures in a 30-foot-radius Sphere centered on that point. Each target regains Hit Points equal to 5d8 plus your spellcasting ability modifier.
+Un'ondata di energia curativa si propaga da un punto che puoi vedere entro gittata. Scegli fino a sei creature in una Sfera di raggio 9 m centrata su quel punto. Ogni bersaglio recupera Punti Ferita pari a 5d8 più il tuo modificatore della caratteristica da incantatore.
 
-**_Using a Higher-Level Spell Slot._** The healing increases by 1d8 for each spell slot level above 5.
+**_Usare uno Slot di Livello Superiore._** Le cure aumentano di 1d8 per ogni livello di slot sopra il 5.
 
-#### Mass Heal
+#### Guarigione di Massa
 
-*Level 9 Abjuration (Cleric)*
+*Livello 9 Abiurazione (Chierico)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione 
 
-**Range:** 60 feet 
+**Gittata:** 18 m 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** Instantaneous
+**Durata:** Istantanea
 
-A flood of healing energy flows from you into creatures around you. You restore up to 700 Hit Points, divided as you choose among any number of creatures that you can see within range. Creatures healed by this spell also have the Blinded, Deafened, and Poisoned conditions removed from them.
+Un'ondata di energia curativa fluisce da te nelle creature circostanti. Ripristini fino a 700 Punti Ferita, divisi a tua scelta tra un qualsiasi numero di creature che puoi vedere entro gittata. Le creature curate da questo incantesimo hanno anche rimosse le condizioni Accecato, Assordato e Avvelenato.
 
 #### Mass Healing Word
 
@@ -4032,25 +4034,25 @@ If a creature takes a Study action to examine the sound or image, the creature c
 
 **_Image._** If you create an image of an object—such as a chair, muddy footprints, or a small chest—it must be no larger than a 5-foot Cube. The image can't create sound, light, smell, or any other sensory effect. Physical interaction with the image reveals it to be an illusion, since things can pass through it.
 
-#### Mirage Arcane
+#### Miraggio Arcano
 
-*Level 7 Illusion (Bard, Druid, Wizard)*
+*Livello 7 Illusione (Bardo, Druido, Mago)*
 
-**Casting Time:** 10 minutes 
+**Tempo di Lancio:** 10 minuti 
 
-**Range:** Sight 
+**Gittata:** Vista 
 
-**Components:** V, S 
+**Componenti:** V, S 
 
-**Duration:** 10 days
+**Durata:** 10 giorni
 
-You make terrain in an area up to 1 mile square look, sound, smell, and even feel like some other sort of terrain. Open fields or a road could be made to resemble a swamp, hill, crevasse, or some other rough or impassable terrain. A pond can be made to seem like a grassy meadow, a precipice like a gentle slope, or a rock-strewn gully like a wide and smooth road.
+Fai sì che il terreno in un'area fino a 1,6 km per lato appaia, suoni, odori e persino sembri, al tatto, come un altro tipo di terreno. Campi aperti o una strada possono essere fatti assomigliare a una palude, una collina, una fenditura o un altro terreno accidentato o impraticabile. Uno stagno può sembrare un prato erboso, un precipizio una dolce pendenza o un burrone roccioso una strada ampia e liscia.
 
-Similarly, you can alter the appearance of structures or add them where none are present. The spell doesn't disguise, conceal, or add creatures.
+Allo stesso modo, puoi alterare l'aspetto delle strutture o aggiungerle dove non sono presenti. L'incantesimo non maschera, nasconde o aggiunge creature.
 
-The illusion includes audible, visual, tactile, and olfactory elements, so it can turn clear ground into Difficult Terrain (or vice versa) or otherwise impede movement through the area. Any piece of the illusory terrain (such as a rock or stick) that is removed from the spell's area disappears immediately.
+L'illusione include elementi udibili, visivi, tattili e olfattivi, quindi può trasformare terreno sgombro in Terreno Difficile (o viceversa) o altrimenti ostacolare il movimento nell'area. Qualsiasi parte del terreno illusorio (come una roccia o un bastone) rimossa dall'area dell'incantesimo scompare immediatamente.
 
-Creatures with Truesight can see through the illusion to the terrain's true form; however, all other elements of the illusion remain, so while the creature is aware of the illusion's presence, the creature can still physically interact with the illusion.
+Le creature con Vista Vera possono vedere attraverso l'illusione la vera forma del terreno; tuttavia, tutti gli altri elementi dell'illusione rimangono, quindi mentre la creatura è consapevole della presenza dell'illusione, può comunque interagire fisicamente con essa.
 
 #### Mirror Image
 
