@@ -157,2451 +157,2430 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 
 ***Colpo di Coda.*** Il drago compie un attacco Lacerare.
 
-## Adult Brass Dragon
+## Drago di Ottone Adulto
 
-*Huge Dragon (Metallic), Chaotic Good*
+*Drago Enorme (Metallico), Caotico Buono*
 
-- **Armor Class:** 18
-- **Hit Points:** 172 (15d12 + 75)
-- **Speed:** 40 ft., Burrow 30 ft., Fly 80 ft.
-- **Initiative**: +4 (14)
+- **Classe Armatura:** 18
+- **Punti Ferita:** 172 (15d12 + 75)
+- **Velocità:** 12 m, Scavare 9 m, Volare 24 m
+- **Iniziativa**: +4 (14)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 23 | +6 | +6 |
-| DEX | 10 | +0 | +5 |
-| CON | 21 | +5 | +5 |
+| FOR | 23 | +6 | +6 |
+| DES | 10 | +0 | +5 |
+| COS | 21 | +5 | +5 |
 | INT | 14 | +2 | +2 |
-| WIS | 13 | +1 | +6 |
-| CHA | 17 | +3 | +3 |
+| SAG | 13 | +1 | +6 |
+| CAR | 17 | +3 | +3 |
 
-- **Immunities**: Fire
-- **Skills**: History +7, Perception +11, Persuasion +8, Stealth +5
-- **Senses**: blindsight 60 ft., darkvision 120 ft.; Passive Perception 21
-- **Languages**: Common, Draconic
-- **CR** 13 (XP 10,000, or 11,500 in lair)
+- **Immunità**: Fuoco  
+- **Abilità**: Storia +7, Percezione +11, Persuasione +8, Furtività +5  
+- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 21  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 13 (PE 10.000, o 11.500 nella tana)
 
-### Traits
+### Tratti
 
-***Legendary Resistance (3/Day, or 4/Day in Lair).*** If the dragon fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con (A) Soffio del Sonno o (B) Incantesimi per lanciare *Raggio Rovente*.
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of (A) Sleep Breath or (B) Spellcasting to cast *Scorching Ray*.
+***Dilaniare.*** *Tiro per colpire in mischia:* +11, portata 3 m. 17 (2d10 + 6) danni taglienti più 4 (1d8) danni da fuoco.
 
-***Rend.*** *Melee Attack Roll:* +11, reach 10 ft. 17 (2d10 + 6) Slashing damage plus 4 (1d8) Fire damage.
+***Soffio di Fuoco (Ricarica 5-6).*** *TS Des:* CD 18, ogni creatura in una Linea di 18 m per 1,5 m. *Fallimento:* 45 (10d8) danni da fuoco. *Successo:* metà danni.
 
-***Fire Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 18, each creature in a 60-foot-long, 5-foot-wide Line. *Failure:*  45 (10d8) Fire damage. *Success:*  Half damage.
+***Soffio del Sonno.*** *TS Cos:* CD 18, ogni creatura in un Cono di 18 m. *Fallimento:* la creatura ha la condizione Incapacitato fino alla fine del suo prossimo turno, poi ripete il TS. *Secondo Fallimento:* la creatura ha la condizione Incosciente per 10 minuti. L’effetto termina se subisce danni o se una creatura entro 1,5 m usa un’azione per svegliarla.
 
-***Sleep Breath.*** *Constitution Saving Throw*: DC 18, each creature in a 60-foot Cone. *Failure:*  The target has the Incapacitated condition until the end of its next turn, at which point it repeats the save. *Second Failure* The target has the Unconscious condition for 10 minutes. This effect ends for the target if it takes damage or a creature within 5 feet of it takes an action to wake it.
+***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 16):
 
-***Spellcasting.*** The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 16):
+- **A volontà:** *Individuazione del Magico*, *Illusione Minore*, *Raggio Rovente*, *Mutare Forma*, *Parlare con gli Animali*
+- **1/giorno ciascuno:** *Rilevare i Pensieri*, *Controllare il Meteo*
 
-- **At Will:** *Detect Magic*, *Minor Illusion*, *Scorching Ray*, *Shapechange*, *Speak with Animals*
-- **1e/Day Each:** *Detect Thoughts*, *Control Weather*
+### Azioni Leggendarie
 
-### Legendary Actions
+***Luce Fiammeggiante.*** Il drago usa Incantesimi per lanciare *Raggio Rovente*.
 
-***Blazing Light.*** The dragon uses Spellcasting to cast *Scorching Ray*.
+***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.
 
-***Pounce.*** The dragon moves up to half its Speed, and it makes one Rend attack.
+***Sabbie Roventi.*** *TS Des:* CD 16, una creatura visibile entro 36 m. *Fallimento:* 27 (6d8) danni da fuoco e la Velocità è dimezzata fino alla fine del suo prossimo turno. *Fallimento o Successo:* il drago non può riutilizzare questa azione fino all’inizio del suo prossimo turno.
 
-***Scorching Sands.*** *Dexterity Saving Throw*: DC 16, one creature the dragon can see within 120 feet. *Failure:*  27 (6d8) Fire damage, and the target's Speed is halved until the end of its next turn. *Failure or Success*:  The dragon can't take this action again until the start of its next turn.
+## Drago di Bronzo Adulto
 
-## Adult Bronze Dragon
+*Drago Enorme (Metallico), Legale Buono*
 
-*Huge Dragon (Metallic), Lawful Good*
+- **Classe Armatura:** 18
+- **Punti Ferita:** 212 (17d12 + 102)
+- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m
+- **Iniziativa**: +4 (14)
 
-- **Armor Class:** 18
-- **Hit Points:** 212 (17d12 + 102)
-- **Speed:** 40 ft., Fly 80 ft., Swim 40 ft.
-- **Initiative**: +4 (14)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 25 | +7 | +7 |
-| DEX | 10 | +0 | +5 |
-| CON | 23 | +6 | +6 |
+| FOR | 25 | +7 | +7 |
+| DES | 10 | +0 | +5 |
+| COS | 23 | +6 | +6 |
 | INT | 16 | +3 | +3 |
-| WIS | 15 | +2 | +7 |
-| CHA | 20 | +5 | +5 |
+| SAG | 15 | +2 | +7 |
+| CAR | 20 | +5 | +5 |
 
-- **Immunities**: Lightning
-- **Skills**: Insight +7, Perception +12, Stealth +5
-- **Senses**: blindsight 60 ft., darkvision 120 ft.; Passive Perception 22
-- **Languages**: Common, Draconic
-- **CR** 15 (XP 13,000, or 15,000 in lair)
+- **Immunità**: Fulmine  
+- **Abilità**: Intuizione +7, Percezione +12, Furtività +5  
+- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 22  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 15 (PE 13.000, o 15.000 nella tana)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The dragon can breathe air and water.
+***Anfibio.*** Il drago può respirare aria e acqua.
 
-***Legendary Resistance (3/Day, or 4/Day in Lair).*** If the dragon fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con (A) Soffio di Repulsione o (B) Incantesimi per lanciare *Dardo Tracciante* (versione di 2° livello).
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of (A) Repulsion Breath or (B) Spellcasting to cast *Guiding Bolt* (level 2 version).
+***Dilaniare.*** *Tiro per colpire in mischia:* +12, portata 3 m. 16 (2d8 + 7) danni taglienti più 5 (1d10) danni da fulmine.
 
-***Rend.*** *Melee Attack Roll:* +12, reach 10 ft. 16 (2d8 + 7) Slashing damage plus 5 (1d10) Lightning damage.
+***Soffio di Fulmine (Ricarica 5-6).*** *TS Des:* CD 19, ogni creatura in una Linea di 27 m per 1,5 m. *Fallimento:* 55 (10d10) danni da fulmine. *Successo:* metà danni.
 
-***Lightning Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 19, each creature in a 90-foot-long, 5-foot-wide Line. *Failure:*  55 (10d10) Lightning damage. *Success:*  Half damage.
+***Soffio di Repulsione.*** *TS For:* CD 19, ogni creatura in un Cono di 9 m. *Fallimento:* la creatura viene spinta fino a 18 m lontano dal drago e cade con la condizione Prono.
 
-***Repulsion Breath.*** *Strength Saving Throw*: DC 19, each creature in a 30-foot Cone. *Failure:*  The target is pushed up to 60 feet straight away from the dragon and has the Prone condition.
+***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 17, +10 a colpire con gli incantesimi):
 
-***Spellcasting.*** The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 17, +10 to hit with spell attacks):
+- **A volontà:** *Individuazione del Magico*, *Dardo Tracciante*, *Mutare Forma*, *Parlare con gli Animali*, *Taumaturgia*  
+- **1/giorno ciascuno:** *Rilevare i Pensieri*, *Respirare Sott’Acqua*
 
-- **At Will:** *Detect Magic*, *Guiding Bolt*, *Shapechange*, *Speak with Animals*, *Thaumaturgy*
-- **1e/Day Each:** *Detect Thoughts*, *Water Breathing*
+### Azioni Leggendarie
 
-### Legendary Actions
+***Luce Guida.*** Il drago usa Incantesimi per lanciare *Dardo Tracciante* (livello 2).
 
-***Guiding Light.*** The dragon uses Spellcasting to cast *Guiding Bolt* (level 2 version).
+***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.
 
-***Pounce.*** The dragon moves up to half its Speed, and it makes one Rend attack.
+***Fragore.*** *TS Cos:* CD 17, ogni creatura in una Sfera di raggio 6 m centrata in un punto visibile entro 27 m. *Fallimento:* 10 (3d6) danni da tuono e condizione Assordato fino alla fine del prossimo turno.
 
-***Thunderclap.*** *Constitution Saving Throw*: DC 17, each creature in a 20-foot-radius Sphere [Area of Effect]|XPHB|Sphere centered on a point the dragon can see within 90 feet. *Failure:*  10 (3d6) Thunder damage, and the target has the Deafened condition until the end of its next turn.
+## Drago di Rame Adulto
 
-## Adult Copper Dragon
+*Drago Enorme (Metallico), Caotico Buono*
 
-*Huge Dragon (Metallic), Chaotic Good*
+- **Classe Armatura:** 18  
+- **Punti Ferita:** 184 (16d12 + 80)  
+- **Velocità:** 12 m, Scalare 12 m, Volare 24 m  
+- **Iniziativa**: +5 (15)
 
-- **Armor Class:** 18
-- **Hit Points:** 184 (16d12 + 80)
-- **Speed:** 40 ft., Climb 40 ft., Fly 80 ft.
-- **Initiative**: +5 (15)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 23 | +6 | +6 |
-| DEX | 12 | +1 | +6 |
-| CON | 21 | +5 | +5 |
+| FOR | 23 | +6 | +6 |
+| DES | 12 | +1 | +6 |
+| COS | 21 | +5 | +5 |
 | INT | 18 | +4 | +4 |
-| WIS | 15 | +2 | +7 |
-| CHA | 18 | +4 | +4 |
+| SAG | 15 | +2 | +7 |
+| CAR | 18 | +4 | +4 |
 
-- **Immunities**: Acid
-- **Skills**: Deception +9, Perception +12, Stealth +6
-- **Senses**: blindsight 60 ft., darkvision 120 ft.; Passive Perception 22
-- **Languages**: Common, Draconic
-- **CR** 14 (XP 11,500, or 13,000 in lair)
+- **Immunità**: Acido  
+- **Abilità**: Inganno +9, Percezione +12, Furtività +6  
+- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 22  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 14 (PE 11.500, o 13.000 nella tana)
 
-### Traits
+### Tratti
 
-***Legendary Resistance (3/Day, or 4/Day in Lair).*** If the dragon fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con (A) Soffio Rallentante o (B) Incantesimi per lanciare *Puntura Mentale* (versione di 4° livello).
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of (A) Slowing Breath or (B) Spellcasting to cast *Mind Spike* (level 4 version).
+***Dilaniare.*** *Tiro per colpire in mischia:* +11, portata 3 m. 17 (2d10 + 6) danni taglienti più 4 (1d8) danni da acido.
 
-***Rend.*** *Melee Attack Roll:* +11, reach 10 ft. 17 (2d10 + 6) Slashing damage plus 4 (1d8) Acid damage.
+***Soffio Acido (Ricarica 5-6).*** *TS Des:* CD 18, ogni creatura in una Linea di 18 m per 1,5 m. *Fallimento:* 54 (12d8) danni da acido. *Successo:* metà danni.
 
-***Acid Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 18, each creature in an 60-foot-long, 5-foot-wide Line. *Failure:*  54 (12d8) Acid damage. *Success:*  Half damage.
+***Soffio Rallentante.*** *TS Cos:* CD 18, ogni creatura in un Cono di 18 m. *Fallimento:* la creatura non può compiere Reazioni; la sua Velocità è dimezzata; e nel suo turno può compiere solo un’Azione o un’Azione Bonus, non entrambe. L’effetto dura fino alla fine del turno successivo.
 
-***Slowing Breath.*** *Constitution Saving Throw*: DC 18, each creature in a 60-foot Cone. *Failure:*  The target can't take Reactions; its Speed is halved; and it can take either an action or a Bonus Action on its turn, not both. This effect lasts until the end of its next turn.
+***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 17):
 
-***Spellcasting.*** The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 17):
+- **A volontà:** *Individuazione del Magico*, *Puntura Mentale*, *Illusione Minore*, *Mutare Forma*  
+- **1/giorno ciascuno:** *Restaurazione Superiore*, *Immagine Maggiore*
 
-- **At Will:** *Detect Magic*, *Mind Spike*, *Minor Illusion*, *Shapechange*
-- **1e/Day Each:** *Greater Restoration*, *Major Image*
+### Azioni Leggendarie
 
-### Legendary Actions
+***Magia Sghignazzante.*** *TS Car:* CD 17, una creatura visibile entro 27 m. *Fallimento:* 24 (7d6) danni psichici. Fino alla fine del turno successivo, la creatura tira 1d6 ogni volta che effettua una prova di caratteristica o un t
 
-***Giggling Magic.*** *Charisma Saving Throw*: DC 17, one creature the dragon can see within 90 feet. *Failure:*  24 (7d6) Psychic damage. Until the end of its next turn, the target rolls 1d6 whenever it makes an ability check or attack roll and subtracts the number rolled from the D20 Test. *Failure or Success*:  The dragon can't take this action again until the start of its next turn.
+## Drago d’Oro Adulto
 
-***Mind Jolt.*** The dragon uses Spellcasting to cast *Mind Spike* (level 4 version). The dragon can't take this action again until the start of its next turn.
+*Drago Enorme (Metallico), Legale Buono*
 
-***Pounce.*** The dragon moves up to half its Speed, and it makes one Rend attack.
+- **Classe Armatura:** 19  
+- **Punti Ferita:** 243 (18d12 + 126)  
+- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m  
+- **Iniziativa**: +6 (16)
 
-## Adult Gold Dragon
-
-*Huge Dragon (Metallic), Lawful Good*
-
-- **Armor Class:** 19
-- **Hit Points:** 243 (18d12 + 126)
-- **Speed:** 40 ft., Fly 80 ft., Swim 40 ft.
-- **Initiative**: +6 (16)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 27 | +8 | +8 |
-| DEX | 14 | +2 | +8 |
-| CON | 25 | +7 | +7 |
+| FOR | 27 | +8 | +8 |
+| DES | 14 | +2 | +8 |
+| COS | 25 | +7 | +7 |
 | INT | 16 | +3 | +3 |
-| WIS | 15 | +2 | +8 |
-| CHA | 24 | +7 | +7 |
+| SAG | 15 | +2 | +8 |
+| CAR | 24 | +7 | +7 |
 
-- **Immunities**: Fire
-- **Skills**: Insight +8, Perception +14, Persuasion +13, Stealth +8
-- **Senses**: blindsight 60 ft., darkvision 120 ft.; Passive Perception 24
-- **Languages**: Common, Draconic
-- **CR** 17 (XP 18,000, or 20,000 in lair)
+- **Immunità**: Fuoco  
+- **Abilità**: Intuizione +8, Percezione +14, Persuasione +13, Furtività +8  
+- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 24  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 17 (PE 18.000, o 20.000 nella tana)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The dragon can breathe air and water.
+***Anfibio.*** Il drago può respirare aria e acqua.  
 
-***Legendary Resistance (3/Day, or 4/Day in Lair).*** If the dragon fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con (A) Incantesimi per lanciare *Dardo Tracciante* (versione di 2° livello) o (B) Soffio Indebolente.  
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of (A) Spellcasting to cast *Guiding Bolt* (level 2 version) or (B) Weakening Breath.
+***Dilaniare.*** *Tiro per colpire in mischia:* +14, portata 3 m. 17 (2d8 + 8) danni taglienti più 4 (1d8) danni da fuoco.  
 
-***Rend.*** *Melee Attack Roll:* +14, reach 10 ft. 17 (2d8 + 8) Slashing damage plus 4 (1d8) Fire damage.
+***Soffio di Fuoco (Ricarica 5-6).*** *TS Des:* CD 21, ogni creatura in un Cono di 18 m. *Fallimento:* 66 (12d10) danni da fuoco. *Successo:* metà danni.  
 
-***Fire Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 21, each creature in a 60-foot Cone. *Failure:*  66 (12d10) Fire damage. *Success:*  Half damage.
+***Soffio Indebolente.*** *TS For:* CD 21, ogni creatura non già affetta da questo soffio in un Cono di 18 m. *Fallimento:* la creatura ha Svantaggio ai Test su d20 basati sulla Forza e sottrae 3 (1d6) ai suoi tiri danno. Ripete il TS alla fine di ogni turno, terminando l’effetto con un successo. Dopo 1 minuto, riesce automaticamente.  
 
-***Weakening Breath.*** *Strength Saving Throw*: DC 21, each creature that isn't currently affected by this breath in a 60-foot Cone. *Failure:*  The target has Disadvantage on Strength-based D20 Test and subtracts 3 (1d6) from its damage rolls. It repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
+***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 21, +13 a colpire con gli incantesimi):  
 
-***Spellcasting.*** The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 21, +13 to hit with spell attacks):
+- **A volontà:** *Individuazione del Magico*, *Dardo Tracciante*, *Mutare Forma*  
+- **1/giorno ciascuno:** *Colonna di Fiamme*, *Zona di Verità*  
 
-- **At Will:** *Detect Magic*, *Guiding Bolt*, *Shapechange*
-- **1e/Day Each:** *Flame Strike*, *Zone of Truth*
+### Azioni Leggendarie
 
-### Legendary Actions
+***Bandire.*** *TS Car:* CD 21, una creatura visibile entro 36 m. *Fallimento:* 10 (3d6) danni da forza e condizione Incapacitato; inoltre viene trasportata in un semipiano innocuo fino all’inizio del prossimo turno del drago, quando riappare in uno spazio non occupato a scelta del drago entro 36 m. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Banish.*** *Charisma Saving Throw*: DC 21, one creature the dragon can see within 120 feet. *Failure:*  10 (3d6) Force damage, and the target has the Incapacitated condition and is transported to a harmless demiplane until the start of the dragon's next turn, at which point it reappears in an unoccupied space of the dragon's choice within 120 feet of the dragon. *Failure or Success*:  The dragon can't take this action again until the start of its next turn.
+***Luce Guida.*** Il drago usa Incantesimi per lanciare *Dardo Tracciante* (livello 2).  
 
-***Guiding Light.*** The dragon uses Spellcasting to cast *Guiding Bolt* (level 2 version).
+***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
 
-***Pounce.*** The dragon moves up to half its Speed, and it makes one Rend attack.
+## Drago Verde Adulto
 
-## Adult Green Dragon
+*Drago Enorme (Cromatico), Legale Malvagio*
 
-*Huge Dragon (Chromatic), Lawful Evil*
+- **Classe Armatura:** 19  
+- **Punti Ferita:** 207 (18d12 + 90)  
+- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m  
+- **Iniziativa**: +5 (15)
 
-- **Armor Class:** 19
-- **Hit Points:** 207 (18d12 + 90)
-- **Speed:** 40 ft., Fly 80 ft., Swim 40 ft.
-- **Initiative**: +5 (15)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 23 | +6 | +6 |
-| DEX | 12 | +1 | +6 |
-| CON | 21 | +5 | +5 |
+| FOR | 23 | +6 | +6 |
+| DES | 12 | +1 | +6 |
+| COS | 21 | +5 | +5 |
 | INT | 18 | +4 | +4 |
-| WIS | 15 | +2 | +7 |
-| CHA | 18 | +4 | +4 |
+| SAG | 15 | +2 | +7 |
+| CAR | 18 | +4 | +4 |
 
-- **Immunities**: Poison; Poisoned
-- **Skills**: Deception +9, Perception +12, Persuasion +9, Stealth +6
-- **Senses**: blindsight 60 ft., darkvision 120 ft.; Passive Perception 22
-- **Languages**: Common, Draconic
-- **CR** 15 (XP 13,000, or 15,000 in lair)
+- **Immunità**: Veleno; Avvelenato  
+- **Abilità**: Inganno +9, Percezione +12, Persuasione +9, Furtività +6  
+- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 22  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 15 (PE 13.000, o 15.000 nella tana)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The dragon can breathe air and water.
+***Anfibio.*** Il drago può respirare aria e acqua.  
 
-***Legendary Resistance (3/Day, or 4/Day in Lair).*** If the dragon fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con Incantesimi per lanciare *Puntura Mentale* (versione di 3° livello).  
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of Spellcasting to cast *Mind Spike* (level 3 version).
+***Dilaniare.*** *Tiro per colpire in mischia:* +11, portata 3 m. 15 (2d8 + 6) danni taglienti più 7 (2d6) danni da veleno.  
 
-***Rend.*** *Melee Attack Roll:* +11, reach 10 ft. 15 (2d8 + 6) Slashing damage plus 7 (2d6) Poison damage.
+***Soffio Velenoso (Ricarica 5-6).*** *TS Cos:* CD 18, ogni creatura in un Cono di 18 m. *Fallimento:* 56 (16d6) danni da veleno. *Successo:* metà danni.  
 
-***Poison Breath (Recharge 5-6).*** *Constitution Saving Throw*: DC 18, each creature in a 60-foot Cone. *Failure:*  56 (16d6) Poison damage. *Success:*  Half damage.
+***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 17):  
 
-***Spellcasting.*** The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 17):
+- **A volontà:** *Individuazione del Magico*, *Puntura Mentale*  
+- **1/giorno ciascuno:** *Geas*  
 
-- **At Will:** *Detect Magic*, *Mind Spike*
-- **1/Day Each:** *Geas*
+### Azioni Leggendarie
 
-### Legendary Actions
+***Invasione Mentale.*** Il drago usa Incantesimi per lanciare *Puntura Mentale* (livello 3).  
 
-***Mind Invasion.*** The dragon uses Spellcasting to cast *Mind Spike* (level 3 version).
+***Miasma Nocivo.*** *TS Cos:* CD 17, ogni creatura in una Sfera di raggio 6 m centrata in un punto visibile entro 27 m. *Fallimento:* 7 (2d6) danni da veleno e penalità -2 alla CA fino alla fine del suo prossimo turno. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Noxious Miasma.*** *Constitution Saving Throw*: DC 17, each creature in a 20-foot-radius Sphere [Area of Effect]|XPHB|Sphere centered on a point the dragon can see within 90 feet. *Failure:*  7 (2d6) Poison damage, and the target takes a -2 penalty to AC until the end of its next turn. *Failure or Success*:  The dragon can't take this action again until the start of its next turn.
+***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
 
-***Pounce.*** The dragon moves up to half its Speed, and it makes one Rend attack.
+## Drago Rosso Adulto
 
-## Adult Red Dragon
+*Drago Enorme (Cromatico), Caotico Malvagio*
 
-*Huge Dragon (Chromatic), Chaotic Evil*
+- **Classe Armatura:** 19  
+- **Punti Ferita:** 256 (19d12 + 133)  
+- **Velocità:** 12 m, Scalare 12 m, Volare 24 m  
+- **Iniziativa**: +4 (14)
 
-- **Armor Class:** 19
-- **Hit Points:** 256 (19d12 + 133)
-- **Speed:** 40 ft., Climb 40 ft., Fly 80 ft.
-- **Initiative**: +4 (14)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 27 | +8 | +8 |
-| DEX | 10 | +0 | +6 |
-| CON | 25 | +7 | +7 |
+| FOR | 27 | +8 | +8 |
+| DES | 10 | +0 | +6 |
+| COS | 25 | +7 | +7 |
 | INT | 16 | +3 | +3 |
-| WIS | 13 | +1 | +7 |
-| CHA | 23 | +6 | +6 |
+| SAG | 13 | +1 | +7 |
+| CAR | 23 | +6 | +6 |
 
-- **Immunities**: Fire
-- **Skills**: Perception +13, Stealth +6
-- **Senses**: blindsight 60 ft., darkvision 120 ft.; Passive Perception 23
-- **Languages**: Common, Draconic
-- **CR** 17 (XP 18,000, or 20,000 in lair)
+- **Immunità**: Fuoco  
+- **Abilità**: Percezione +13, Furtività +6  
+- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 23  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 17 (PE 18.000, o 20.000 nella tana)
 
-### Traits
+### Tratti
 
-***Legendary Resistance (3/Day, or 4/Day in Lair).*** If the dragon fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con Incantesimi per lanciare *Raggio Rovente*.  
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of Spellcasting to cast *Scorching Ray*.
+***Dilaniare.*** *Tiro per colpire in mischia:* +14, portata 3 m. 13 (1d10 + 8) danni taglienti più 5 (2d4) danni da fuoco.  
 
-***Rend.*** *Melee Attack Roll:* +14, reach 10 ft. 13 (1d10 + 8) Slashing damage plus 5 (2d4) Fire damage.
+***Soffio di Fuoco (Ricarica 5-6).*** *TS Des:* CD 21, ogni creatura in un Cono di 18 m. *Fallimento:* 59 (17d6) danni da fuoco. *Successo:* metà danni.  
 
-***Fire Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 21, each creature in a 60-foot Cone. *Failure:*  59 (17d6) Fire damage. *Success:*  Half damage.
+***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 20, +12 a colpire con incantesimi):  
 
-***Spellcasting.*** The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 20, +12 to hit with spell attacks):
+- **A volontà:** *Comando*, *Individuazione del Magico*, *Raggio Rovente*  
+- **1/giorno ciascuno:** *Palla di Fuoco*  
 
-- **At Will:** *Command*, *Detect Magic*, *Scorching Ray*
-- **1/Day Each:** *Fireball*
+### Azioni Leggendarie
 
-### Legendary Actions
+***Presenza Imponente.*** Il drago usa Incantesimi per lanciare *Comando* (livello 2). Non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Commanding Presence.*** The dragon uses Spellcasting to cast *Command* (level 2 version). The dragon can't take this action again until the start of its next turn.
+***Raggi Fiammeggianti.*** Il drago usa Incantesimi per lanciare *Raggio Rovente*. Non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Fiery Rays.*** The dragon uses Spellcasting to cast *Scorching Ray*. The dragon can't take this action again until the start of its next turn.
+***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
 
-***Pounce.*** The dragon moves up to half its Speed, and it makes one Rend attack.
+## Drago d’Argento Adulto
 
-## Adult Silver Dragon
+*Drago Enorme (Metallico), Legale Buono*
 
-*Huge Dragon (Metallic), Lawful Good*
+- **Classe Armatura:** 19  
+- **Punti Ferita:** 216 (16d12 + 112)  
+- **Velocità:** 12 m, Volare 24 m  
+- **Iniziativa**: +4 (14)
 
-- **Armor Class:** 19
-- **Hit Points:** 216 (16d12 + 112)
-- **Speed:** 40 ft., Fly 80 ft.
-- **Initiative**: +4 (14)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 27 | +8 | +8 |
-| DEX | 10 | +0 | +5 |
-| CON | 25 | +7 | +7 |
+| FOR | 27 | +8 | +8 |
+| DES | 10 | +0 | +5 |
+| COS | 25 | +7 | +7 |
 | INT | 16 | +3 | +3 |
-| WIS | 13 | +1 | +6 |
-| CHA | 22 | +6 | +6 |
+| SAG | 13 | +1 | +6 |
+| CAR | 22 | +6 | +6 |
 
-- **Immunities**: Cold
-- **Skills**: History +8, Perception +11, Stealth +5
-- **Senses**: blindsight 60 ft., darkvision 120 ft.; Passive Perception 21
-- **Languages**: Common, Draconic
-- **CR** 16 (XP 15,000, or 18,000 in lair)
+- **Immunità**: Freddo  
+- **Abilità**: Storia +8, Percezione +11, Furtività +5  
+- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 21  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 16 (PE 15.000, o 18.000 nella tana)
 
-### Traits
+### Tratti
 
-***Legendary Resistance (3/Day, or 4/Day in Lair).*** If the dragon fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con (A) Soffio Paralizzante o (B) Incantesimi per lanciare *Pugnale di Ghiaccio*.  
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of (A) Paralyzing Breath or (B) Spellcasting to cast *Ice Knife*.
+***Dilaniare.*** *Tiro per colpire in mischia:* +13, portata 3 m. 17 (2d8 + 8) danni taglienti più 4 (1d8) danni da freddo.  
 
-***Rend.*** *Melee Attack Roll:* +13, reach 10 ft. 17 (2d8 + 8) Slashing damage plus 4 (1d8) Cold damage.
+***Soffio Gelido (Ricarica 5-6).*** *TS Cos:* CD 20, ogni creatura in un Cono di 18 m. *Fallimento:* 54 (12d8) danni da freddo. *Successo:* metà danni.  
 
-***Cold Breath (Recharge 5-6).*** *Constitution Saving Throw*: DC 20, each creature in a 60-foot Cone. *Failure:*  54 (12d8) Cold damage. *Success:*  Half damage.
+***Soffio Paralizzante.*** *TS Cos:* CD 20, ogni creatura in un Cono di 18 m. *Primo Fallimento:* condizione Incapacitato fino alla fine del turno successivo, quando ripete il TS. *Secondo Fallimento:* condizione Paralizzato; ripete il TS alla fine di ciascun turno, terminando l’effetto con un successo. Dopo 1 minuto riesce automaticamente.  
 
-***Paralyzing Breath.*** *Constitution Saving Throw*: DC 20, each creature in a 60-foot Cone. *First Failure* The target has the Incapacitated condition until the end of its next turn, when it repeats the save. *Second Failure* The target has the Paralyzed condition, and it repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
+***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 19, +11 a colpire con incantesimi):  
 
-***Spellcasting.*** The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 19, +11 to hit with spell attacks):
+- **A volontà:** *Individuazione del Magico*, *Blocca Mostri*, *Pugnale di Ghiaccio*, *Mutare Forma*  
+- **1/giorno ciascuno:** *Tempesta di Ghiaccio*, *Zona di Verità*  
 
-- **At Will:** *Detect Magic*, *Hold Monster*, *Ice Knife*, *Shapechange*
-- **1e/Day Each:** *Ice Storm*, *Zone of Truth*
+### Azioni Leggendarie
 
-### Legendary Actions
+***Gelo.*** Il drago usa Incantesimi per lanciare *Blocca Mostri*. Non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Chill.*** The dragon uses Spellcasting to cast *Hold Monster*. The dragon can't take this action again until the start of its next turn.
+***Gelo Tagliente.*** *TS Des:* CD 19, ogni creatura in una Linea di 18 m per 3 m. *Fallimento:* 14 (4d6) danni da freddo e spinta fino a 9 m lontano dal drago. *Successo:* metà danni. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Cold Gale.*** *Dexterity Saving Throw*: DC 19, each creature in a 60-foot-long, 10-foot-wide Line. *Failure:*  14 (4d6) Cold damage, and the target is pushed up to 30 feet straight away from the dragon. *Success:*  Half damage only. *Failure or Success*:  The dragon can't take this action again until the start of its next turn.
+***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
 
-***Pounce.*** The dragon moves up to half its Speed, and it makes one Rend attack.
+## Drago Bianco Adulto
 
-## Adult White Dragon
+*Drago Enorme (Cromatico), Caotico Malvagio*
 
-*Huge Dragon (Chromatic), Chaotic Evil*
+- **Classe Armatura:** 18  
+- **Punti Ferita:** 200 (16d12 + 96)  
+- **Velocità:** 12 m, Scavare 9 m, Volare 24 m, Nuotare 12 m  
+- **Iniziativa**: +4 (14)
 
-- **Armor Class:** 18
-- **Hit Points:** 200 (16d12 + 96)
-- **Speed:** 40 ft., Burrow 30 ft., Fly 80 ft., Swim 40 ft.
-- **Initiative**: +4 (14)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 22 | +6 | +6 |
-| DEX | 10 | +0 | +5 |
-| CON | 22 | +6 | +6 |
-| INT | 8 | -1 | -1 |
-| WIS | 12 | +1 | +6 |
-| CHA | 12 | +1 | +1 |
+| FOR | 22 | +6 | +6 |
+| DES | 10 | +0 | +5 |
+| COS | 22 | +6 | +6 |
+| INT | 8  | -1 | -1 |
+| SAG | 12 | +1 | +6 |
+| CAR | 12 | +1 | +1 |
 
-- **Immunities**: Cold
-- **Skills**: Perception +11, Stealth +5
-- **Senses**: blindsight 60 ft., darkvision 120 ft.; Passive Perception 21
-- **Languages**: Common, Draconic
-- **CR** 13 (XP 10,000, or 11,500 in lair)
+- **Immunità**: Freddo  
+- **Abilità**: Percezione +11, Furtività +5  
+- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 21  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 13 (PE 10.000, o 11.500 nella tana)
 
-### Traits
+### Tratti
 
-***Ice Walk.*** The dragon can move across and climb icy surfaces without needing to make an ability check. Additionally, Difficult Terrain composed of ice or snow doesn't cost it extra movement.
+***Camminare sul Ghiaccio.*** Il drago può muoversi e arrampicarsi su superfici ghiacciate senza effettuare prove di caratteristica. Inoltre, il Terreno Difficile composto da ghiaccio o neve non gli costa movimento extra.  
 
-***Legendary Resistance (3/Day, or 4/Day in Lair).*** If the dragon fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare.  
 
-***Multiattack.*** The dragon makes three Rend attacks.
+***Dilaniare.*** *Tiro per colpire in mischia:* +11, portata 3 m. 13 (2d6 + 6) danni taglienti più 4 (1d8) danni da freddo.  
 
-***Rend.*** *Melee Attack Roll:* +11, reach 10 ft. 13 (2d6 + 6) Slashing damage plus 4 (1d8) Cold damage.
+***Soffio Gelido (Ricarica 5-6).*** *TS Cos:* CD 19, ogni creatura in un Cono di 18 m. *Fallimento:* 54 (12d8) danni da freddo. *Successo:* metà danni.  
 
-***Cold Breath (Recharge 5-6).*** *Constitution Saving Throw*: DC 19, each creature in a 60-foot Cone. *Failure:*  54 (12d8) Cold damage. *Success:*  Half damage.
+### Azioni Leggendarie
 
+***Esplosione Gelida.*** *TS Cos:* CD 14, ogni creatura in una Sfera di raggio 9 m centrata in un punto visibile entro 36 m. *Fallimento:* 7 (2d6) danni da freddo e Velocità 0 fino alla fine del turno successivo del bersaglio. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-### Legendary Actions
+***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
 
-***Freezing Burst.*** *Constitution Saving Throw*: DC 14, each creature in a 30-foot-radius Sphere [Area of Effect]|XPHB|Sphere centered on a point the dragon can see within 120 feet. *Failure:*  7 (2d6) Cold damage, and the target's Speed is 0 until the end of the target's next turn. *Failure or Success*:  The dragon can't take this action again until the start of its next turn.
+***Presenza Spaventosa.*** Il drago lancia *Paura*, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 14). Non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Pounce.*** The dragon moves up to half its Speed, and it makes one Rend attack.
+## Elementale dell’Aria
 
-***Frightful Presence.*** The dragon casts *Fear*, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 14). The dragon can't take this action again until the start of its next turn.
-## Air Elemental
+*Elementale Grande, Neutrale*
 
-*Large Elemental, Neutral*
+- **Classe Armatura:** 15  
+- **Punti Ferita:** 90 (12d10 + 24)  
+- **Velocità:** 3 m, Volare 27 m (fluttuare)  
+- **Iniziativa**: +5 (15)
 
-- **Armor Class:** 15
-- **Hit Points:** 90 (12d10 + 24)
-- **Speed:** 10 ft., Fly 90 ft. (hover)
-- **Initiative**: +5 (15)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 14 | +2 | +2 |
-| DEX | 20 | +5 | +5 |
-| CON | 14 | +2 | +2 |
-| INT | 6 | -2 | -2 |
-| WIS | 10 | +0 | +0 |
-| CHA | 6 | -2 | -2 |
+| FOR | 14 | +2 | +2 |
+| DES | 20 | +5 | +5 |
+| COS | 14 | +2 | +2 |
+| INT | 6  | -2 | -2 |
+| SAG | 10 | +0 | +0 |
+| CAR | 6  | -2 | -2 |
 
-- **Resistances**: Bludgeoning, Lightning, Piercing, Slashing
-- **Immunities**: Poison, Thunder; Exhaustion, Grappled, Paralyzed, Petrified, Poisoned, Prone, Restrained, Unconscious
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **Languages**: Primordial (Auran)
-- **CR** 5 (XP 1,800; PB +3)
+- **Resistenze**: Contundenti, Fulmine, Perforanti, Taglienti  
+- **Immunità**: Veleno, Tuono; Affaticato, Afferato, Paralizzato, Pietrificato, Avvelenato, Prono, Immobilizzato, Incosciente  
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 10  
+- **Linguaggi**: Primordiale (Auran)  
+- **GS** 5 (PE 1.800; PB +3)
 
-### Traits
+### Tratti
 
-***Air Form.*** The elemental can enter a creature's space and stop there. It can move through a space as narrow as 1 inch without expending extra movement to do so.
+***Forma Aerea.*** L’elementale può entrare nello spazio di una creatura e fermarsi lì. Può muoversi attraverso uno spazio largo 2,5 cm senza dover spendere movimento extra.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** L’elementale effettua due attacchi di Schianto Tonante.  
 
-***Multiattack.*** The elemental makes two Thunderous Slam attacks.
+***Schianto Tonante.*** *Tiro per colpire in mischia:* +8, portata 3 m. 14 (2d8 + 5) danni da tuono.  
 
-***Thunderous Slam.*** *Melee Attack Roll:* +8, reach 10 ft. 14 (2d8 + 5) Thunder damage.
+***Turbine (Ricarica 4-6).*** *TS For:* CD 13, una creatura Media o più piccola nello spazio dell’elementale. *Fallimento:* 24 (4d10 + 2) danni da tuono, la creatura viene spinta fino a 6 m lontano dall’elementale e cade con la condizione Prono. *Successo:* metà danni.  
 
-***Whirlwind (Recharge 4-6).*** *Strength Saving Throw*: DC 13, one Medium or smaller creature in the elemental's space. *Failure:*  24 (4d10 + 2) Thunder damage, and the target is pushed up to 20 feet straight away from the elemental and has the Prone condition. *Success:*  Half damage only.
+## Drago Nero Antico
 
-## Ancient Black Dragon
+*Drago Mastodontico (Cromatico), Caotico Malvagio*
 
-*Gargantuan Dragon (Chromatic), Chaotic Evil*
+- **Classe Armatura:** 22  
+- **Punti Ferita:** 367 (21d20 + 147)  
+- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m  
+- **Iniziativa**: +6 (16)
 
-- **Armor Class:** 22
-- **Hit Points:** 367 (21d20 + 147)
-- **Speed:** 40 ft., Fly 80 ft., Swim 40 ft.
-- **Initiative**: +6 (16)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 27 | +8 | +8 |
-| DEX | 14 | +2 | +9 |
-| CON | 25 | +7 | +7 |
+| FOR | 27 | +8 | +8 |
+| DES | 14 | +2 | +9 |
+| COS | 25 | +7 | +7 |
 | INT | 16 | +3 | +3 |
-| WIS | 15 | +2 | +9 |
-| CHA | 22 | +6 | +6 |
+| SAG | 15 | +2 | +9 |
+| CAR | 22 | +6 | +6 |
 
-- **Immunities**: Acid
-- **Skills**: Perception +16, Stealth +9
-- **Senses**: blindsight 60 ft., darkvision 120 ft.; Passive Perception 26
-- **Languages**: Common, Draconic
-- **CR** 21 (XP 33,000, or 41,000 in lair)
+- **Immunità**: Acido  
+- **Abilità**: Percezione +16, Furtività +9  
+- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 26  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 21 (PE 33.000, o 41.000 nella tana)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The dragon can breathe air and water.
+***Anfibio.*** Il drago può respirare aria e acqua.  
 
-***Legendary Resistance (4/Day, or 5/Day in Lair).*** If the dragon fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (4/Giorno, o 5/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con Incantesimi per lanciare *Freccia Acida* (versione di 4° livello).  
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of Spellcasting to cast *Acid Arrow* (level 4 version).
+***Dilaniare.*** *Tiro per colpire in mischia:* +15, portata 4,5 m. 17 (2d8 + 8) danni taglienti più 9 (2d8) danni da acido.  
 
-***Rend.*** *Melee Attack Roll:* +15, reach 15 ft. 17 (2d8 + 8) Slashing damage plus 9 (2d8) Acid damage.
+***Soffio Acido (Ricarica 5-6).*** *TS Des:* CD 22, ogni creatura in una Linea di 27 m per 3 m. *Fallimento:* 67 (15d8) danni da acido. *Successo:* metà danni.  
 
-***Acid Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 22, each creature in a 90-foot-long, 10-foot-wide Line. *Failure:*  67 (15d8) Acid damage. *Success:*  Half damage.
+***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 21, +13 a colpire con incantesimi):  
 
-***Spellcasting.*** The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 21, +13 to hit with spell attacks):
+- **A volontà:** *Individuazione del Magico*, *Paura*, *Freccia Acida*  
+- **1/giorno ciascuno:** *Creare Non Morti*, *Parlare con i Morti*, *Sfera Vitriolica*  
 
-- **At Will:** *Detect Magic*, *Fear*, *Acid Arrow*
-- **1e/Day Each:** *Create Undead*, *Speak with Dead*, *Vitriolic Sphere*
+### Azioni Leggendarie
 
-### Legendary Actions
+***Nube d’Insetti.*** *TS Des:* CD 21, una creatura visibile entro 36 m. *Fallimento:* 33 (6d10) danni da veleno e Svantaggio ai TS per mantenere la Concentrazione fino alla fine del turno successivo. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Cloud of Insects.*** *Dexterity Saving Throw*: DC 21, one creature the dragon can see within 120 feet. *Failure:*  33 (6d10) Poison damage, and the target has Disadvantage on saving throws to maintain  Concentration until the end of its next turn. *Failure or Success*:  The dragon can't take this action again until the start of its next turn.
+***Presenza Spaventosa.*** Il drago usa Incantesimi per lanciare *Paura*. Non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Frightful Presence.*** The dragon uses Spellcasting to cast *Fear*. The dragon can't take this action again until the start of its next turn.
+***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
 
-***Pounce.*** The dragon moves up to half its Speed, and it makes one Rend attack.
+## Drago Blu Antico
 
-## Ancient Blue Dragon
+*Drago Mastodontico (Cromatico), Legale Malvagio*
 
-*Gargantuan Dragon (Chromatic), Lawful Evil*
+- **Classe Armatura:** 22  
+- **Punti Ferita:** 481 (26d20 + 208)  
+- **Velocità:** 12 m, Scavare 12 m, Volare 24 m  
+- **Iniziativa**: +4 (14)
 
-- **Armor Class:** 22
-- **Hit Points:** 481 (26d20 + 208)
-- **Speed:** 40 ft., Burrow 40 ft., Fly 80 ft.
-- **Initiative**: +4 (14)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 29 | +9 | +9 |
-| DEX | 10 | +0 | +7 |
-| CON | 27 | +8 | +8 |
+| FOR | 29 | +9 | +9 |
+| DES | 10 | +0 | +7 |
+| COS | 27 | +8 | +8 |
 | INT | 18 | +4 | +4 |
-| WIS | 17 | +3 | +10 |
-| CHA | 25 | +7 | +7 |
+| SAG | 17 | +3 | +10 |
+| CAR | 25 | +7 | +7 |
 
-- **Immunities**: Lightning
-- **Skills**: Perception +17, Stealth +7
-- **Senses**: blindsight 60 ft., darkvision 120 ft.; Passive Perception 27
-- **Languages**: Common, Draconic
-- **CR** 23 (XP 50,000, or 62,000 in lair)
+- **Immunità**: Fulmine  
+- **Abilità**: Percezione +17, Furtività +7  
+- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 27  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 23 (PE 50.000, o 62.000 nella tana)
 
-### Traits
+### Tratti
 
-***Legendary Resistance (4/Day, or 5/Day in Lair).*** If the dragon fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (4/Giorno, o 5/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con Incantesimi per lanciare *Frantumare* (versione di 3° livello).  
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of Spellcasting to cast *Shatter* (level 3 version).
+***Dilaniare.*** *Tiro per colpire in mischia:* +16, portata 4,5 m. 18 (2d8 + 9) danni taglienti più 11 (2d10) danni da fulmine.  
 
-***Rend.*** *Melee Attack Roll:* +16, reach 15 ft. 18 (2d8 + 9) Slashing damage plus 11 (2d10) Lightning damage.
+***Soffio di Fulmine (Ricarica 5-6).*** *TS Des:* CD 23, ogni creatura in una Linea di 36 m per 3 m. *Fallimento:* 88 (16d10) danni da fulmine. *Successo:* metà danni.  
 
-***Lightning Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 23, each creature in a 120-foot-long, 10-foot-wide Line. *Failure:*  88 (16d10) Lightning damage. *Success:*  Half damage.
+***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 22):  
 
-***Spellcasting.*** The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 22):
+- **A volontà:** *Individuazione del Magico*, *Invisibilità*, *Mano Magica*, *Frantumare*  
+- **1/giorno ciascuno:** *Chiaroveggenza*, *Inviare*  
 
-- **At Will:** *Detect Magic*, *Invisibility*, *Mage Hand*, *Shatter*
-- **1e/Day Each:** *Scrying*, *Sending*
+### Azioni Leggendarie
 
-### Legendary Actions
+***Volo Occultato.*** Il drago usa Incantesimi per lanciare *Invisibilità* su se stesso e può volare fino a metà della sua Velocità di volo. Non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Cloaked Flight.*** The dragon uses Spellcasting to cast *Invisibility* on itself, and it can fly up to half its Fly Speed. The dragon can't take this action again until the start of its next turn.
+***Boom Sonico.*** Il drago usa Incantesimi per lanciare *Frantumare* (livello 3). Non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Sonic Boom.*** The dragon uses Spellcasting to cast *Shatter* (level 3 version). The dragon can't take this action again until the start of its next turn.
+***Colpo di Coda.*** Il drago effettua un attacco di Dilaniare.  
 
-***Tail Swipe.*** The dragon makes one Rend attack.
+## Drago d’Ottone Antico
 
-## Ancient Brass Dragon
+*Drago Mastodontico (Metallico), Caotico Buono*
 
-*Gargantuan Dragon (Metallic), Chaotic Good*
+- **Classe Armatura:** 20  
+- **Punti Ferita:** 332 (19d20 + 133)  
+- **Velocità:** 12 m, Scavare 12 m, Volare 24 m  
+- **Iniziativa**: +4 (14)
 
-- **Armor Class:** 20
-- **Hit Points:** 332 (19d20 + 133)
-- **Speed:** 40 ft., Burrow 40 ft., Fly 80 ft.
-- **Initiative**: +4 (14)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 27 | +8 | +8 |
-| DEX | 10 | +0 | +6 |
-| CON | 25 | +7 | +7 |
+| FOR | 27 | +8 | +8 |
+| DES | 10 | +0 | +6 |
+| COS | 25 | +7 | +7 |
 | INT | 16 | +3 | +3 |
-| WIS | 15 | +2 | +8 |
-| CHA | 22 | +6 | +6 |
+| SAG | 15 | +2 | +8 |
+| CAR | 22 | +6 | +6 |
 
-- **Immunities**: Fire
-- **Skills**: History +9, Perception +14, Persuasion +12, Stealth +6
-- **Senses**: blindsight 60 ft., darkvision 120 ft.; Passive Perception 24
-- **Languages**: Common, Draconic
-- **CR** 20 (XP 25,000, or 33,000 in lair)
+- **Immunità**: Fuoco  
+- **Abilità**: Storia +9, Percezione +14, Persuasione +12, Furtività +6  
+- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 24  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 20 (PE 25.000, o 33.000 nella tana)
 
-### Traits
+### Tratti
 
-***Legendary Resistance (4/Day, or 5/Day in Lair).*** If the dragon fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (4/Giorno, o 5/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con (A) Soffio del Sonno o (B) Incantesimi per lanciare *Raggio Rovente* (livello 3).  
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of (A) Sleep Breath or (B) Spellcasting to cast *Scorching Ray* (level 3 version).
+***Dilaniare.*** *Tiro per colpire in mischia:* +14, portata 4,5 m. 19 (2d10 + 8) danni taglienti più 7 (2d6) danni da fuoco.  
 
-***Rend.*** *Melee Attack Roll:* +14, reach 15 ft. 19 (2d10 + 8) Slashing damage plus 7 (2d6) Fire damage.
+***Soffio di Fuoco (Ricarica 5-6).*** *TS Des:* CD 21, ogni creatura in una Linea di 27 m per 1,5 m. *Fallimento:* 58 (13d8) danni da fuoco. *Successo:* metà danni.  
 
-***Fire Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 21, each creature in a 90-foot-long, 5-foot-wide Line. *Failure:*  58 (13d8) Fire damage. *Success:*  Half damage.
+***Soffio del Sonno.*** *TS Cos:* CD 21, ogni creatura in un Cono di 27 m. *Fallimento:* condizione Incapacitato fino alla fine del turno successivo, poi ripete il TS. *Secondo Fallimento:* condizione Incosciente per 10 minuti. L’effetto termina se la creatura subisce danni o se un’altra entro 1,5 m usa un’azione per svegliarla.  
 
-***Sleep Breath.*** *Constitution Saving Throw*: DC 21, each creature in a 90-foot Cone. *Failure:*  The target has the Incapacitated condition until the end of its next turn, at which point it repeats the save. *Second Failure* The target has the Unconscious condition for 10 minutes. This effect ends for the target if it takes damage or a creature within 5 feet of it takes an action to wake it.
+***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 20):  
 
-***Spellcasting.*** The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 20):
+- **A volontà:** *Individuazione del Magico*, *Illusione Minore*, *Raggio Rovente*, *Mutare Forma*, *Parlare con gli Animali*  
+- **1/giorno ciascuno:** *Controllare il Meteo*, *Rilevare i Pensieri*  
 
-- **At Will:** *Detect Magic*, *Minor Illusion*, *Scorching Ray*, *Shapechange*, *Speak with Animals*
-- **1e/Day Each:** *Control Weather*, *Detect Thoughts*
+### Azioni Leggendarie
 
-### Legendary Actions
+***Luce Fiammeggiante.*** Il drago usa Incantesimi per lanciare *Raggio Rovente* (livello 3).  
 
-***Blazing Light.*** The dragon uses Spellcasting to cast *Scorching Ray* (level 3 version).
+***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
 
-***Pounce.*** The dragon moves up to half its Speed, and it makes one Rend attack.
+***Sabbie Roventi.*** *TS Des:* CD 20, una creatura visibile entro 36 m. *Fallimento:* 36 (8d8) danni da fuoco e Velocità dimezzata fino alla fine del turno successivo. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Scorching Sands.*** *Dexterity Saving Throw*: DC 20, one creature the dragon can see within 120 feet. *Failure:*  36 (8d8) Fire damage, and the target's Speed is halved until the end of its next turn. *Failure or Success*:  The dragon can't take this action again until the start of its next turn.
+## Drago di Bronzo Antico
 
-## Ancient Bronze Dragon
+*Drago Mastodontico (Metallico), Legale Buono*
 
-*Gargantuan Dragon (Metallic), Lawful Good*
+- **Classe Armatura:** 22  
+- **Punti Ferita:** 444 (24d20 + 192)  
+- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m  
+- **Iniziativa**: +4 (14)
 
-- **Armor Class:** 22
-- **Hit Points:** 444 (24d20 + 192)
-- **Speed:** 40 ft., Fly 80 ft., Swim 40 ft.
-- **Initiative**: +4 (14)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 29 | +9 | +9 |
-| DEX | 10 | +0 | +7 |
-| CON | 27 | +8 | +8 |
+| FOR | 29 | +9 | +9 |
+| DES | 10 | +0 | +7 |
+| COS | 27 | +8 | +8 |
 | INT | 18 | +4 | +4 |
-| WIS | 17 | +3 | +10 |
-| CHA | 25 | +7 | +7 |
+| SAG | 17 | +3 | +10 |
+| CAR | 25 | +7 | +7 |
 
-- **Immunities**: Lightning
-- **Skills**: Insight +10, Perception +17, Stealth +7
-- **Senses**: blindsight 60 ft., darkvision 120 ft.; Passive Perception 27
-- **Languages**: Common, Draconic
-- **CR** 22 (XP 41,000, or 50,000 in lair)
+- **Immunità**: Fulmine  
+- **Abilità**: Intuizione +10, Percezione +17, Furtività +7  
+- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 27  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 22 (PE 41.000, o 50.000 nella tana)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The dragon can breathe air and water.
+***Anfibio.*** Il drago può respirare aria e acqua.  
 
-***Legendary Resistance (4/Day, or 5/Day in Lair).*** If the dragon fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (4/Giorno, o 5/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con (A) Soffio di Repulsione o (B) Incantesimi per lanciare *Dardo Tracciante* (livello 2).  
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of (A) Repulsion Breath or (B) Spellcasting to cast *Guiding Bolt* (level 2 version).
+***Dilaniare.*** *Tiro per colpire in mischia:* +16, portata 4,5 m. 18 (2d8 + 9) danni taglienti più 9 (2d8) danni da fulmine.  
 
-***Rend.*** *Melee Attack Roll:* +16, reach 15 ft. 18 (2d8 + 9) Slashing damage plus 9 (2d8) Lightning damage.
+***Soffio di Fulmine (Ricarica 5-6).*** *TS Des:* CD 23, ogni creatura in una Linea di 36 m per 3 m. *Fallimento:* 82 (15d10) danni da fulmine. *Successo:* metà danni.  
 
-***Lightning Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 23, each creature in a 120-foot-long, 10-foot-wide Line. *Failure:*  82 (15d10) Lightning damage. *Success:*  Half damage.
+***Soffio di Repulsione.*** *TS For:* CD 23, ogni creatura in un Cono di 9 m. *Fallimento:* spinta fino a 18 m lontano dal drago e condizione Prono.  
 
-***Repulsion Breath.*** *Strength Saving Throw*: DC 23, each creature in a 30-foot Cone. *Failure:*  The target is pushed up to 60 feet straight away from the dragon and has the Prone condition.
+***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 22, +14 a colpire con incantesimi):  
 
-***Spellcasting.*** The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 22, +14 to hit with spell attacks):
+- **A volontà:** *Individuazione del Magico*, *Dardo Tracciante*, *Mutare Forma*, *Parlare con gli Animali*, *Taumaturgia*  
+- **1/giorno ciascuno:** *Rilevare i Pensieri*, *Controllare l’Acqua*, *Chiaroveggenza*, *Respirare Sott’Acqua*  
 
-- **At Will:** *Detect Magic*, *Guiding Bolt*, *Shapechange*, *Speak with Animals*, *Thaumaturgy*
-- **1e/Day Each:** *Detect Thoughts*, *Control Water*, *Scrying*, *Water Breathing*
+### Azioni Leggendarie
 
-### Legendary Actions
+***Luce Guida.*** Il drago usa Incantesimi per lanciare *Dardo Tracciante* (livello 2).  
 
-***Guiding Light.*** The dragon uses Spellcasting to cast *Guiding Bolt* (level 2 version).
+***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
 
-***Pounce.*** The dragon moves up to half its Speed, and it makes one Rend attack.
+***Fragore.*** *TS Cos:* CD 22, ogni creatura in una Sfera di raggio 6 m centrata in un punto visibile entro 36 m. *Fallimento:* 13 (3d8) danni da tuono e condizione Assordato fino alla fine del turno successivo.  
 
-***Thunderclap.*** *Constitution Saving Throw*: DC 22, each creature in a 20-foot-radius Sphere [Area of Effect]|XPHB|Sphere centered on a point the dragon can see within 120 feet. *Failure:*  13 (3d8) Thunder damage, and the target has the Deafened condition until the end of its next turn.
+## Drago di Rame Antico
 
-## Ancient Copper Dragon
+*Drago Mastodontico (Metallico), Caotico Buono*
 
-*Gargantuan Dragon (Metallic), Chaotic Good*
+- **Classe Armatura:** 21  
+- **Punti Ferita:** 367 (21d20 + 147)  
+- **Velocità:** 12 m, Scalare 12 m, Volare 24 m  
+- **Iniziativa**: +5 (15)
 
-- **Armor Class:** 21
-- **Hit Points:** 367 (21d20 + 147)
-- **Speed:** 40 ft., Climb 40 ft., Fly 80 ft.
-- **Initiative**: +5 (15)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 27 | +8 | +8 |
-| DEX | 12 | +1 | +8 |
-| CON | 25 | +7 | +7 |
+| FOR | 27 | +8 | +8 |
+| DES | 12 | +1 | +8 |
+| COS | 25 | +7 | +7 |
 | INT | 20 | +5 | +5 |
-| WIS | 17 | +3 | +10 |
-| CHA | 22 | +6 | +6 |
+| SAG | 17 | +3 | +10 |
+| CAR | 22 | +6 | +6 |
 
-- **Immunities**: Acid
-- **Skills**: Deception +13, Perception +17, Stealth +8
-- **Senses**: blindsight 60 ft., darkvision 120 ft.; Passive Perception 27
-- **Languages**: Common, Draconic
-- **CR** 21 (XP 33,000, or 41,000 in lair)
+- **Immunità**: Acido  
+- **Abilità**: Inganno +13, Percezione +17, Furtività +8  
+- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 27  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 21 (PE 33.000, o 41.000 nella tana)
 
-### Traits
+### Tratti
 
-***Legendary Resistance (4/Day, or 5/Day in Lair).*** If the dragon fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (4/Giorno, o 5/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con (A) Soffio Rallentante o (B) Incantesimi per lanciare *Puntura Mentale* (livello 5).  
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of (A) Slowing Breath or (B) Spellcasting to cast *Mind Spike* (level 5 version).
+***Dilaniare.*** *Tiro per colpire in mischia:* +15, portata 4,5 m. 19 (2d10 + 8) danni taglienti più 9 (2d8) danni da acido.  
 
-***Rend.*** *Melee Attack Roll:* +15, reach 15 ft. 19 (2d10 + 8) Slashing damage plus 9 (2d8) Acid damage.
+***Soffio Acido (Ricarica 5-6).*** *TS Des:* CD 22, ogni creatura in una Linea di 27 m per 3 m. *Fallimento:* 63 (14d8) danni da acido. *Successo:* metà danni.  
 
-***Acid Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 22, each creature in an 90-foot-long, 10-foot-wide Line. *Failure:*  63 (14d8) Acid damage. *Success:*  Half damage.
+***Soffio Rallentante.*** *TS Cos:* CD 22, ogni creatura in un Cono di 27 m. *Fallimento:* la creatura non può compiere Reazioni, la sua Velocità è dimezzata e può compiere solo un’Azione o un’Azione Bonus per turno, non entrambe. L’effetto dura fino alla fine del turno successivo.  
 
-***Slowing Breath.*** *Constitution Saving Throw*: DC 22, each creature in a 90-foot Cone. *Failure:*  The target can't take Reactions; its Speed is halved; and it can take either an action or a Bonus Action on its turn, not both. This effect lasts until the end of its next turn.
+***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 21):  
 
-***Spellcasting.*** The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 21):
+- **A volontà:** *Individuazione del Magico*, *Puntura Mentale*, *Illusione Minore*, *Mutare Forma*  
+- **1/giorno ciascuno:** *Restaurazione Superiore*, *Immagine Maggiore*, *Proiezione d’Immagine*  
 
-- **At Will:** *Detect Magic*, *Mind Spike*, *Minor Illusion*, *Shapechange*
-- **1e/Day Each:** *Greater Restoration*, *Major Image*, *Project Image*
+### Azioni Leggendarie
 
-### Legendary Actions
+***Magia Sghignazzante.*** *TS Car:* CD 21, una creatura visibile entro 36 m. *Fallimento:* 31 (9d6) danni psichici. Fino alla fine del turno successivo, la creatura tira 1d8 ogni volta che effettua una prova di caratteristica o un tiro per colpire e sottrae il risultato dal tiro su d20. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Giggling Magic.*** *Charisma Saving Throw*: DC 21, one creature the dragon can see within 120 feet. *Failure:*  31 (9d6) Psychic damage. Until the end of its next turn, the target rolls 1d8 whenever it makes an ability check or attack roll and subtracts the number rolled from the D20 Test. *Failure or Success*:  The dragon can't take this action again until the start of its next turn.
+***Scossa Mentale.*** Il drago usa Incantesimi per lanciare *Puntura Mentale* (livello 5). Non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Mind Jolt.*** The dragon uses Spellcasting to cast *Mind Spike* (level 5 version). The dragon can't take this action again until the start of its next turn.
+***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
 
-***Pounce.*** The dragon moves up to half its Speed, and it makes one Rend attack.
+## Drago d’Oro Antico
 
-## Ancient Gold Dragon
+*Drago Mastodontico (Metallico), Legale Buono*
 
-*Gargantuan Dragon (Metallic), Lawful Good*
+- **Classe Armatura:** 22  
+- **Punti Ferita:** 546 (28d20 + 252)  
+- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m  
+- **Iniziativa**: +6 (16)
 
-- **Armor Class:** 22
-- **Hit Points:** 546 (28d20 + 252)
-- **Speed:** 40 ft., Fly 80 ft., Swim 40 ft.
-- **Initiative**: +6 (16)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 30 | +10 | +10 |
-| DEX | 14 | +2 | +9 |
-| CON | 29 | +9 | +9 |
+| FOR | 30 | +10 | +10 |
+| DES | 14 | +2 | +9 |
+| COS | 29 | +9 | +9 |
 | INT | 18 | +4 | +4 |
-| WIS | 17 | +3 | +10 |
-| CHA | 28 | +9 | +9 |
+| SAG | 17 | +3 | +10 |
+| CAR | 28 | +9 | +9 |
 
-- **Immunities**: Fire
-- **Skills**: Insight +10, Perception +17, Persuasion +16, Stealth +9
-- **Senses**: blindsight 60 ft., darkvision 120 ft.; Passive Perception 27
-- **Languages**: Common, Draconic
-- **CR** 24 (XP 62,000, or 75,000 in lair)
+- **Immunità**: Fuoco  
+- **Abilità**: Intuizione +10, Percezione +17, Persuasione +16, Furtività +9  
+- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 27  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 24 (PE 62.000, o 75.000 nella tana)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The dragon can breathe air and water.
+***Anfibio.*** Il drago può respirare aria e acqua.  
 
-***Legendary Resistance (4/Day, or 5/Day in Lair).*** If the dragon fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (4/Giorno, o 5/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con (A) Incantesimi per lanciare *Dardo Tracciante* (livello 4) o (B) Soffio Indebolente.  
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of (A) Spellcasting to cast *Guiding Bolt* (level 4 version) or (B) Weakening Breath.
+***Dilaniare.*** *Tiro per colpire in mischia:* +17, portata 4,5 m. 19 (2d8 + 10) danni taglienti più 9 (2d8) danni da fuoco.  
 
-***Rend.*** *Melee Attack Roll:* +17 to hit, reach 15 ft. 19 (2d8 + 10) Slashing damage plus 9 (2d8) Fire damage.
+***Soffio di Fuoco (Ricarica 5-6).*** *TS Des:* CD 24, ogni creatura in un Cono di 27 m. *Fallimento:* 71 (13d10) danni da fuoco. *Successo:* metà danni.  
 
-***Fire Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 24, each creature in a 90-foot Cone. *Failure:*  71 (13d10) Fire damage. *Success:*  Half damage.
+***Soffio Indebolente.*** *TS For:* CD 24, ogni creatura non già affetta da questo soffio in un Cono di 27 m. *Fallimento:* la creatura ha Svantaggio ai Test su d20 basati sulla Forza e sottrae 5 (1d10) ai tiri danno. Ripete il TS alla fine di ogni turno, terminando l’effetto con un successo. Dopo 1 minuto riesce automaticamente.  
 
-***Weakening Breath.*** *Strength Saving Throw*: DC 24, each creature that isn't currently affected by this breath in a 90-foot Cone. *Failure:*  The target has Disadvantage on Strength-based D20 Test and subtracts 5 (1d10) from its damage rolls. It repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
+***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 24, +16 a colpire con incantesimi):  
 
-***Spellcasting.*** The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 24, +16 to hit with spell attacks):
+- **A volontà:** *Individuazione del Magico*, *Dardo Tracciante*, *Mutare Forma*  
+- **1/giorno ciascuno:** *Colonna di Fiamme*, *Parola di Ritorno*, *Zona di Verità*  
 
-- **At Will:** *Detect Magic*, *Guiding Bolt*, *Shapechange*
-- **1e/Day Each:** *Flame Strike*, *Word of Recall*, *Zone of Truth*
+### Azioni Leggendarie
 
-### Legendary Actions
+***Bandire.*** *TS Car:* CD 24, una creatura visibile entro 36 m. *Fallimento:* 24 (7d6) danni da forza e condizione Incapacitato; inoltre viene trasportata in un semipiano innocuo fino all’inizio del turno successivo del drago, quando riappare in uno spazio non occupato scelto dal drago entro 36 m. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Banish.*** *Charisma Saving Throw*: DC 24, one creature the dragon can see within 120 feet. *Failure:*  24 (7d6) Force damage, and the target has the Incapacitated condition and is transported to a harmless demiplane until the start of the dragon's next turn, at which point it reappears in an unoccupied space of the dragon's choice within 120 feet of the dragon. *Failure or Success*:  The dragon can't take this action again until the start of its next turn.
+***Luce Guida.*** Il drago usa Incantesimi per lanciare *Dardo Tracciante* (livello 4).  
 
-***Guiding Light.*** The dragon uses Spellcasting to cast *Guiding Bolt* (level 4 version).
+***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
 
-***Pounce.*** The dragon moves up to half its Speed, and it makes one Rend attack.
+## Drago Verde Antico
 
-## Ancient Green Dragon
+*Drago Mastodontico (Cromatico), Legale Malvagio*
 
-*Gargantuan Dragon (Chromatic), Lawful Evil*
+- **Classe Armatura:** 21  
+- **Punti Ferita:** 402 (23d20 + 161)  
+- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m  
+- **Iniziativa**: +5 (15)
 
-- **Armor Class:** 21
-- **Hit Points:** 402 (23d20 + 161)
-- **Speed:** 40 ft., Fly 80 ft., Swim 40 ft.
-- **Initiative**: +5 (15)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 27 | +8 | +8 |
-| DEX | 12 | +1 | +8 |
-| CON | 25 | +7 | +7 |
+| FOR | 27 | +8 | +8 |
+| DES | 12 | +1 | +8 |
+| COS | 25 | +7 | +7 |
 | INT | 20 | +5 | +5 |
-| WIS | 17 | +3 | +10 |
-| CHA | 22 | +6 | +6 |
+| SAG | 17 | +3 | +10 |
+| CAR | 22 | +6 | +6 |
 
-- **Immunities**: Poison; Poisoned
-- **Skills**: Deception +13, Perception +17, Persuasion +13, Stealth +8
-- **Senses**: blindsight 60 ft., darkvision 120 ft.; Passive Perception 27
-- **Languages**: Common, Draconic
-- **CR** 22 (XP 41,000, or 50,000 in lair)
+- **Immunità**: Veleno; Avvelenato  
+- **Abilità**: Inganno +13, Percezione +17, Persuasione +13, Furtività +8  
+- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 27  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 22 (PE 41.000, o 50.000 nella tana)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The dragon can breathe air and water.
+***Anfibio.*** Il drago può respirare aria e acqua.  
 
-***Legendary Resistance (4/Day, or 5/Day in Lair).*** If the dragon fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (4/Giorno, o 5/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con Incantesimi per lanciare *Puntura Mentale* (livello 5).  
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of Spellcasting to cast *Mind Spike* (level 5 version).
+***Dilaniare.*** *Tiro per colpire in mischia:* +15, portata 4,5 m. 17 (2d8 + 8) danni taglienti più 10 (3d6) danni da veleno.  
 
-***Rend.*** *Melee Attack Roll:* +15, reach 15 ft. 17 (2d8 + 8) Slashing damage plus 10 (3d6) Poison damage.
+***Soffio Velenoso (Ricarica 5-6).*** *TS Cos:* CD 22, ogni creatura in un Cono di 27 m. *Fallimento:* 77 (22d6) danni da veleno. *Successo:* metà danni.  
 
-***Poison Breath (Recharge 5-6).*** *Constitution Saving Throw*: DC 22, each creature in a 90-foot Cone. *Failure:*  77 (22d6) Poison damage. *Success:*  Half damage.
+***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 21):  
 
-***Spellcasting.*** The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 21):
+- **A volontà:** *Individuazione del Magico*, *Puntura Mentale*  
+- **1/giorno ciascuno:** *Geas*, *Alterare Memoria*  
 
-- **At Will:** *Detect Magic*, *Mind Spike*
-- **1e/Day Each:** *Geas*, *Modify Memory*
+### Azioni Leggendarie
 
-### Legendary Actions
+***Invasione Mentale.*** Il drago usa Incantesimi per lanciare *Puntura Mentale* (livello 5).  
 
-***Mind Invasion.*** The dragon uses Spellcasting to cast *Mind Spike* (level 5 version).
+***Miasma Nocivo.*** *TS Cos:* CD 21, ogni creatura in una Sfera di raggio 9 m centrata in un punto visibile entro 27 m. *Fallimento:* 17 (5d6) danni da veleno e penalità -2 alla CA fino alla fine del turno successivo. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Noxious Miasma.*** *Constitution Saving Throw*: DC 21, each creature in a 30-foot-radius Sphere [Area of Effect]|XPHB|Sphere centered on a point the dragon can see within 90 feet. *Failure:*  17 (5d6) Poison damage, and the target takes a -2 penalty to AC until the end of its next turn. *Failure or Success*:  The dragon can't take this action again until the start of its next turn.
+***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
 
-***Pounce.*** The dragon moves up to half its Speed, and it makes one Rend attack.
+## Drago Rosso Antico
 
-## Ancient Red Dragon
+*Drago Mastodontico (Cromatico), Caotico Malvagio*
 
-*Gargantuan Dragon (Chromatic), Chaotic Evil*
+- **Classe Armatura:** 22  
+- **Punti Ferita:** 507 (26d20 + 234)  
+- **Velocità:** 12 m, Scalare 12 m, Volare 24 m  
+- **Iniziativa**: +4 (14)
 
-- **Armor Class:** 22
-- **Hit Points:** 507 (26d20 + 234)
-- **Speed:** 40 ft., Climb 40 ft., Fly 80 ft.
-- **Initiative**: +4 (14)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 30 | +10 | +10 |
-| DEX | 10 | +0 | +7 |
-| CON | 29 | +9 | +9 |
+| FOR | 30 | +10 | +10 |
+| DES | 10 | +0 | +7 |
+| COS | 29 | +9 | +9 |
 | INT | 18 | +4 | +4 |
-| WIS | 15 | +2 | +9 |
-| CHA | 27 | +8 | +8 |
+| SAG | 15 | +2 | +9 |
+| CAR | 27 | +8 | +8 |
 
-- **Immunities**: Fire
-- **Skills**: Perception +16, Stealth +7
-- **Senses**: blindsight 60 ft., darkvision 120 ft.; Passive Perception 26
-- **Languages**: Common, Draconic
-- **CR** 24 (XP 62,000, or 75,000 in lair)
+- **Immunità**: Fuoco  
+- **Abilità**: Percezione +16, Furtività +7  
+- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 26  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 24 (PE 62.000, o 75.000 nella tana)
 
-### Traits
+### Tratti
 
-***Legendary Resistance (4/Day, or 5/Day in Lair).*** If the dragon fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (4/Giorno, o 5/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con Incantesimi per lanciare *Raggio Rovente* (livello 3).  
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of Spellcasting to cast *Scorching Ray* (level 3 version).
+***Dilaniare.*** *Tiro per colpire in mischia:* +17, portata 4,5 m. 19 (2d8 + 10) danni taglienti più 10 (3d6) danni da fuoco.  
 
-***Rend.*** *Melee Attack Roll:* +17, reach 15 ft. 19 (2d8 + 10) Slashing damage plus 10 (3d6) Fire damage.
+***Soffio di Fuoco (Ricarica 5-6).*** *TS Des:* CD 24, ogni creatura in un Cono di 27 m. *Fallimento:* 91 (26d6) danni da fuoco. *Successo:* metà danni.  
 
-***Fire Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 24, each creature in a 90-foot Cone. *Failure:*  91 (26d6) Fire damage. *Success:*  Half damage.
+***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 23, +15 a colpire con incantesimi):  
 
-***Spellcasting.*** The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 23, +15 to hit with spell attacks):
+- **A volontà:** *Comando*, *Individuazione del Magico*, *Raggio Rovente*  
+- **1/giorno ciascuno:** *Palla di Fuoco*, *Chiaroveggenza*  
 
-- **At Will:** *Command*, *Detect Magic*, *Scorching Ray*
-- **1e/Day Each:** *Fireball*, *Scrying*
+### Azioni Leggendarie
 
-### Legendary Actions
+***Presenza Imponente.*** Il drago usa Incantesimi per lanciare *Comando* (livello 2). Non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Commanding Presence.*** The dragon uses Spellcasting to cast *Command* (level 2 version). The dragon can't take this action again until the start of its next turn.
+***Raggi Fiammeggianti.*** Il drago usa Incantesimi per lanciare *Raggio Rovente* (livello 3). Non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Fiery Rays.*** The dragon uses Spellcasting to cast *Scorching Ray* (level 3 version). The dragon can't take this action again until the start of its next turn.
+***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
 
-***Pounce.*** The dragon moves up to half its Speed, and it makes one Rend attack.
+## Drago d’Argento Antico
 
-## Ancient Silver Dragon
+*Drago Mastodontico (Metallico), Legale Buono*
 
-*Gargantuan Dragon (Metallic), Lawful Good*
+- **Classe Armatura:** 22  
+- **Punti Ferita:** 468 (24d20 + 216)  
+- **Velocità:** 12 m, Volare 24 m  
+- **Iniziativa**: +4 (14)
 
-- **Armor Class:** 22
-- **Hit Points:** 468 (24d20 + 216)
-- **Speed:** 40 ft., Fly 80 ft.
-- **Initiative**: +4 (14)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 30 | +10 | +10 |
-| DEX | 10 | +0 | +7 |
-| CON | 29 | +9 | +9 |
+| FOR | 30 | +10 | +10 |
+| DES | 10 | +0 | +7 |
+| COS | 29 | +9 | +9 |
 | INT | 18 | +4 | +4 |
-| WIS | 15 | +2 | +9 |
-| CHA | 26 | +8 | +8 |
+| SAG | 15 | +2 | +9 |
+| CAR | 26 | +8 | +8 |
 
-- **Immunities**: Cold
-- **Skills**: History +11, Perception +16, Stealth +7
-- **Senses**: blindsight 60 ft., darkvision 120 ft.; Passive Perception 26
-- **Languages**: Common, Draconic
-- **CR** 23 (XP 50,000, or 62,000 in lair)
+- **Immunità**: Freddo  
+- **Abilità**: Storia +11, Percezione +16, Furtività +7  
+- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 26  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 23 (PE 50.000, o 62.000 nella tana)
 
-### Traits
+### Tratti
 
-***Legendary Resistance (4/Day, or 5/Day in Lair).*** If the dragon fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (4/Giorno, o 5/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con (A) Soffio Paralizzante o (B) Incantesimi per lanciare *Pugnale di Ghiaccio* (livello 2).  
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of (A) Paralyzing Breath or (B) Spellcasting to cast *Ice Knife* (level 2 version).
+***Dilaniare.*** *Tiro per colpire in mischia:* +17, portata 4,5 m. 19 (2d8 + 10) danni taglienti più 9 (2d8) danni da freddo.  
 
-***Rend.*** *Melee Attack Roll:* +17, reach 15 ft. 19 (2d8 + 10) Slashing damage plus 9 (2d8) Cold damage.
+***Soffio Gelido (Ricarica 5-6).*** *TS Cos:* CD 24, ogni creatura in un Cono di 27 m. *Fallimento:* 67 (15d8) danni da freddo. *Successo:* metà danni.  
 
-***Cold Breath (Recharge 5-6).*** *Constitution Saving Throw*: DC 24, each creature in a 90-foot Cone. *Failure:*  67 (15d8) Cold damage. *Success:*  Half damage.
+***Soffio Paralizzante.*** *TS Cos:* CD 24, ogni creatura in un Cono di 27 m. *Primo Fallimento:* condizione Incapacitato fino alla fine del turno successivo, poi ripete il TS. *Secondo Fallimento:* condizione Paralizzato; ripete il TS alla fine di ogni turno, terminando con un successo. Dopo 1 minuto riesce automaticamente.  
 
-***Paralyzing Breath.*** *Constitution Saving Throw*: DC 24, each creature in a 90-foot Cone. *First Failure* The target has the Incapacitated condition until the end of its next turn, when it repeats the save. *Second Failure* The target has the Paralyzed condition, and it repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
+***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 23, +15 a colpire con incantesimi):  
 
-***Spellcasting.*** The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 23, +15 to hit with spell attacks):
+- **A volontà:** *Individuazione del Magico*, *Blocca Mostri*, *Pugnale di Ghiaccio*, *Mutare Forma*  
+- **1/giorno ciascuno:** *Controllare il Meteo*, *Tempesta di Ghiaccio*, *Teletrasporto*, *Zona di Verità*  
 
-- **At Will:** *Detect Magic*, *Hold Monster*, *Ice Knife*, *Shapechange*
-- **1e/Day Each:** *Control Weather*, *Ice Storm*, *Teleport*, *Zone of Truth*
+### Azioni Leggendarie
 
-### Legendary Actions
+***Gelo.*** Il drago usa Incantesimi per lanciare *Blocca Mostri*. Non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Chill.*** The dragon uses Spellcasting to cast *Hold Monster*. The dragon can't take this action again until the start of its next turn.
+***Gelo Tagliente.*** *TS Des:* CD 23, ogni creatura in una Linea di 18 m per 3 m. *Fallimento:* 14 (4d6) danni da freddo e spinta di 9 m lontano. *Successo:* metà danni. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Cold Gale.*** *Dexterity Saving Throw*: DC 23, each creature in a 60-foot-long, 10-foot-wide Line. *Failure:*  14 (4d6) Cold damage, and the target is pushed up to 30 feet straight away from the dragon. *Success:*  Half damage only. *Failure or Success*:  The dragon can't take this action again until the start of its next turn.
+***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
 
-***Pounce.*** The dragon moves up to half its Speed, and it makes one Rend attack.
+## Drago Bianco Antico
 
-## Ancient White Dragon
+*Drago Mastodontico (Cromatico), Caotico Malvagio*
 
-*Gargantuan Dragon (Chromatic), Chaotic Evil*
+- **Classe Armatura:** 20  
+- **Punti Ferita:** 333 (18d20 + 144)  
+- **Velocità:** 12 m, Scavare 12 m, Volare 24 m, Nuotare 12 m  
+- **Iniziativa**: +4 (14)
 
-- **Armor Class:** 20
-- **Hit Points:** 333 (18d20 + 144)
-- **Speed:** 40 ft., Burrow 40 ft., Fly 80 ft., Swim 40 ft.
-- **Initiative**: +4 (14)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 26 | +8 | +8 |
-| DEX | 10 | +0 | +6 |
-| CON | 26 | +8 | +8 |
+| FOR | 26 | +8 | +8 |
+| DES | 10 | +0 | +6 |
+| COS | 26 | +8 | +8 |
 | INT | 10 | +0 | +0 |
-| WIS | 13 | +1 | +7 |
-| CHA | 18 | +4 | +4 |
+| SAG | 13 | +1 | +7 |
+| CAR | 18 | +4 | +4 |
 
-- **Immunities**: Cold
-- **Skills**: Perception +13, Stealth +6
-- **Senses**: blindsight 60 ft., darkvision 120 ft.; Passive Perception 23
-- **Languages**: Common, Draconic
-- **CR** 20 (XP 25,000, or 33,000 in lair)
+- **Immunità**: Freddo  
+- **Abilità**: Percezione +13, Furtività +6  
+- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 23  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 20 (PE 25.000, o 33.000 nella tana)
 
-### Traits
+### Tratti
 
-***Ice Walk.*** The dragon can move across and climb icy surfaces without needing to make an ability check. Additionally, Difficult Terrain composed of ice or snow doesn't cost it extra movement.
+***Camminare sul Ghiaccio.*** Il drago può muoversi e arrampicarsi su superfici ghiacciate senza effettuare prove. Inoltre, il Terreno Difficile di ghiaccio o neve non gli costa movimento extra.  
 
-***Legendary Resistance (4/Day, or 5/Day in Lair).*** If the dragon fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (4/Giorno, o 5/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare.  
 
-***Multiattack.*** The dragon makes three Rend attacks.
+***Dilaniare.*** *Tiro per colpire in mischia:* +14, portata 4,5 m. 17 (2d8 + 8) danni taglienti più 7 (2d6) danni da freddo.  
 
-***Rend.*** *Melee Attack Roll:* +14, reach 15 ft. 17 (2d8 + 8) Slashing damage plus 7 (2d6) Cold damage.
+***Soffio Gelido (Ricarica 5-6).*** *TS Cos:* CD 22, ogni creatura in un Cono di 27 m. *Fallimento:* 63 (14d8) danni da freddo. *Successo:* metà danni.  
 
-***Cold Breath (Recharge 5-6).*** *Constitution Saving Throw*: DC 22, each creature in a 90-foot Cone. *Failure:*  63 (14d8) Cold damage. *Success:*  Half damage.
+### Azioni Leggendarie
 
+***Esplosione Gelida.*** *TS Cos:* CD 20, ogni creatura in una Sfera di raggio 9 m centrata in un punto visibile entro 36 m. *Fallimento:* 14 (4d6) danni da freddo e Velocità 0 fino alla fine del turno successivo del bersaglio. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-### Legendary Actions
+***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
 
-***Freezing Burst.*** *Constitution Saving Throw*: DC 20, each creature in a 30-foot-radius Sphere [Area of Effect]|XPHB|Sphere centered on a point the dragon can see within 120 feet. *Failure:*  14 (4d6) Cold damage, and the target's Speed is 0 until the end of the target's next turn. *Failure or Success*:  The dragon can't take this action again until the start of its next turn.
+***Presenza Spaventosa.*** Il drago lancia *Paura*, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 18). Non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Pounce.*** The dragon moves up to half its Speed, and it makes one Rend attack.
+## Armatura Animata
 
-***Frightful Presence.*** The dragon casts *Fear*, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 18). The dragon can't take this action again until the start of its next turn.
-## Animated Armor
+*Costrutto Medio, Non Allineato*
 
-*Medium Construct, Unaligned*
+- **Classe Armatura:** 18  
+- **Punti Ferita:** 33 (6d8 + 6)  
+- **Velocità:** 7,5 m  
+- **Iniziativa**: +2 (12)
 
-- **Armor Class:** 18
-- **Hit Points:** 33 (6d8 + 6)
-- **Speed:** 25 ft.
-- **Initiative**: +2 (12)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 14 | +2 | +2 |
-| DEX | 11 | +0 | +0 |
-| CON | 13 | +1 | +1 |
-| INT | 1 | -5 | -5 |
-| WIS | 3 | -4 | -4 |
-| CHA | 1 | -5 | -5 |
+| FOR | 14 | +2 | +2 |
+| DES | 11 | +0 | +0 |
+| COS | 13 | +1 | +1 |
+| INT | 1  | -5 | -5 |
+| SAG | 3  | -4 | -4 |
+| CAR | 1  | -5 | -5 |
 
-- **Immunities**: Poison, Psychic; Charmed, Deafened, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned
-- **Senses**: blindsight 60 ft.; Passive Perception 6
-- **CR** 1 (XP 200; PB +2)
+- **Immunità**: Veleno, Psichico; Affascinato, Assordato, Affaticato, Spaventato, Paralizzato, Pietrificato, Avvelenato  
+- **Sensi**: Vista cieca 18 m; Percezione Passiva 6  
+- **GS** 1 (PE 200; MB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The armor makes two Slam attacks.
+***Attacco Multiplo.*** L’armatura effettua due attacchi di Pugno.  
 
-***Slam.*** *Melee Attack Roll:* +4, reach 5 ft. 5 (1d6 + 2) Bludgeoning damage.
+***Pugno.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni contundenti.  
 
-## Animated Flying Sword
+## Spada Volante Animata
 
-*Small Construct, Unaligned*
+*Costrutto Piccolo, Non Allineato*
 
-- **Armor Class:** 17
-- **Hit Points:** 14 (4d6)
-- **Speed:** 5 ft., Fly 50 ft. (hover)
-- **Initiative**: +4 (14)
+- **Classe Armatura:** 17  
+- **Punti Ferita:** 14 (4d6)  
+- **Velocità:** 1,5 m, Volare 15 m (fluttuare)  
+- **Iniziativa**: +4 (14)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 12 | +1 | +1 |
-| DEX | 15 | +2 | +4 |
-| CON | 11 | +0 | +0 |
-| INT | 1 | -5 | -5 |
-| WIS | 5 | -3 | -3 |
-| CHA | 1 | -5 | -5 |
+| FOR | 12 | +1 | +1 |
+| DES | 15 | +2 | +4 |
+| COS | 11 | +0 | +0 |
+| INT | 1  | -5 | -5 |
+| SAG | 5  | -3 | -3 |
+| CAR | 1  | -5 | -5 |
 
-- **Immunities**: Poison, Psychic; Charmed, Deafened, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned
-- **Senses**: blindsight 60 ft.; Passive Perception 7
-- **CR** 1/4 (XP 50; PB +2)
+- **Immunità**: Veleno, Psichico; Affascinato, Assordato, Affaticato, Spaventato, Paralizzato, Pietrificato, Avvelenato  
+- **Sensi**: Vista cieca 18 m; Percezione Passiva 7  
+- **GS** 1/4 (PE 50; MB +2)
 
-### Actions
+### Azioni
 
-***Slash.*** *Melee Attack Roll:* +4, reach 5 ft. 6 (1d8 + 2) Slashing damage.
+***Fendente.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 6 (1d8 + 2) danni taglienti.  
 
-## Animated Rug of Smothering
+---
 
-*Large Construct, Unaligned*
+## Tappeto Animato Soffocante
 
-- **Armor Class:** 12
-- **Hit Points:** 27 (5d10)
-- **Speed:** 10 ft.
-- **Initiative**: +4 (14)
+*Costrutto Grande, Non Allineato*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 12  
+- **Punti Ferita:** 27 (5d10)  
+- **Velocità:** 3 m  
+- **Iniziativa**: +4 (14)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 17 | +3 | +3 |
-| DEX | 14 | +2 | +2 |
-| CON | 10 | +0 | +0 |
-| INT | 1 | -5 | -5 |
-| WIS | 3 | -4 | -4 |
-| CHA | 1 | -5 | -5 |
+| FOR | 17 | +3 | +3 |
+| DES | 14 | +2 | +2 |
+| COS | 10 | +0 | +0 |
+| INT | 1  | -5 | -5 |
+| SAG | 3  | -4 | -4 |
+| CAR | 1  | -5 | -5 |
 
-- **Immunities**: Poison, Psychic; Charmed, Deafened, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned
-- **Senses**: blindsight 60 ft.; Passive Perception 6
-- **CR** 2 (XP 450; PB +2)
+- **Immunità**: Veleno, Psichico; Affascinato, Assordato, Affaticato, Spaventato, Paralizzato, Pietrificato, Avvelenato  
+- **Sensi**: Vista cieca 18 m; Percezione Passiva 6  
+- **GS** 2 (PE 450; MB +2)
 
-### Actions
+### Azioni
 
-***Smother.*** *Melee Attack Roll:* +5, reach 5 ft. 10 (2d6 + 3) Bludgeoning damage. If the target is a Medium or smaller creature, the rug can give it the Grappled condition (escape DC 13) instead of dealing damage. Until the grapple ends, the target has the Blinded and Restrained conditions, is suffocating, and takes 10 (2d6 + 3) Bludgeoning damage at the start of each of its turns. The rug can smother only one creature at a time.
-While grappling the target, the rug can't take this action, the rug halves the damage it takes (round down), and the target takes the same amount of damage.
+***Soffocare.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) danni contundenti. Se il bersaglio è una creatura Media o più piccola, il tappeto può infliggerle la condizione Afferato (CD 13 per liberarsi) invece di infliggere danni. Finché la presa persiste, il bersaglio ha le condizioni Accecato e Immobilizzato, sta soffocando e subisce 10 (2d6 + 3) danni contundenti all’inizio di ciascun suo turno. Il tappeto può soffocare solo una creatura alla volta.  
+Mentre afferra, il tappeto non può riusare questa azione, dimezza i danni che subisce (arrotondati per difetto) e il bersaglio subisce la stessa quantità di danni.  
+
+---
 
 ## Ankheg
 
-*Large Monstrosity, Unaligned*
+*Mostruosità Grande, Non Allineato*
 
-- **Armor Class:** 14
-- **Hit Points:** 45 (6d10 + 12)
-- **Speed:** 30 ft., Burrow 10 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 14  
+- **Punti Ferita:** 45 (6d10 + 12)  
+- **Velocità:** 9 m, Scavare 3 m  
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 17 | +3 | +3 |
-| DEX | 11 | +0 | +0 |
-| CON | 14 | +2 | +2 |
-| INT | 1 | -5 | -5 |
-| WIS | 13 | +1 | +1 |
-| CHA | 6 | -2 | -2 |
+| FOR | 17 | +3 | +3 |
+| DES | 11 | +0 | +0 |
+| COS | 14 | +2 | +2 |
+| INT | 1  | -5 | -5 |
+| SAG | 13 | +1 | +1 |
+| CAR | 6  | -2 | -2 |
 
-- **Senses**: darkvision 60 ft., tremorsense 60 ft.; Passive Perception 11
-- **CR** 2 (XP 450; PB +2)
+- **Sensi**: Scurovisione 18 m, Sensi Tellurici 18 m; Percezione Passiva 11  
+- **GS** 2 (PE 450; MB +2)
 
-### Traits
+### Tratti
 
-***Tunneler.*** The ankheg can burrow through solid rock at half its Burrow Speed and leaves a 10-foot-diameter tunnel in its wake.
+***Scavatore.*** L’ankheg può scavare attraverso la roccia solida a metà della sua Velocità di Scavo e lascia dietro di sé un tunnel largo 3 m.  
 
+### Azioni
 
-### Actions
+***Morso.*** *Tiro per colpire in mischia:* +5 (con Vantaggio se il bersaglio è Afferato dall’ankheg), portata 1,5 m. 10 (2d6 + 3) danni taglienti più 3 (1d6) danni da acido. Se il bersaglio è una creatura Grande o più piccola, ottiene la condizione Afferato (CD 13 per liberarsi).  
 
-***Bite.*** *Melee Attack Roll:* +5 (with Advantage if the target is Grappled by the ankheg), reach 5 ft. 10 (2d6 + 3) Slashing damage plus 3 (1d6) Acid damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 13).
+***Spruzzo Acido (Ricarica 6).*** *TS Des:* CD 12, ogni creatura in una Linea di 9 m per 1,5 m. *Fallimento:* 14 (4d6) danni da acido. *Successo:* metà danni.  
 
-***Acid Spray (Recharge 6).*** *Dexterity Saving Throw*: DC 12, each creature in a 30-foot-long, 5-foot-wide Line. *Failure:*  14 (4d6) Acid damage. *Success:*  Half damage.
+## Arcimago
 
-## Archmage
+*Umanoide Piccolo, Neutrale*
 
-*Small Humanoid, Neutral*
+- **Classe Armatura:** 17  
+- **Punti Ferita:** 170 (31d8 + 31)  
+- **Velocità:** 9 m  
+- **Iniziativa**: +6 (16)
 
-- **Armor Class:** 17
-- **Hit Points:** 170 (31d8 + 31)
-- **Speed:** 30 ft.
-- **Initiative**: +6 (16)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 10 | +0 | +0 |
-| DEX | 14 | +2 | +2 |
-| CON | 12 | +1 | +1 |
+| FOR | 10 | +0 | +0 |
+| DES | 14 | +2 | +2 |
+| COS | 12 | +1 | +1 |
 | INT | 20 | +5 | +9 |
-| WIS | 15 | +2 | +6 |
-| CHA | 16 | +3 | +3 |
+| SAG | 15 | +2 | +6 |
+| CAR | 16 | +3 | +3 |
 
-- **Immunities**: Psychic; Charmed ((with Mind Blank))
-- **Skills**: Arcana +13, History +9, Perception +6
-- **Gear** Wand
-- **Senses**: Passive Perception 16
-- **Languages**: Common plus five other languages
-- **CR** 12 (XP 8,400; PB +4)
+- **Immunità**: Psichico; Affascinato (con *Mente Inaccessibile*)  
+- **Abilità**: Arcano +13, Storia +9, Percezione +6  
+- **Equipaggiamento**: Bacchetta  
+- **Sensi**: Percezione Passiva 16  
+- **Linguaggi**: Comune più altri cinque  
+- **GS** 12 (PE 8.400; MB +4)
 
-### Traits
+### Tratti
 
-***Magic Resistance.*** The archmage has Advantage on saving throws against spells and other magical effects.
+***Resistenza alla Magia.*** L’arcimago ha vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** L’arcimago effettua quattro attacchi di Scoppio Arcano.  
 
-***Multiattack.*** The archmage makes four Arcane Burst attacks.
+***Scoppio Arcano.*** *Attacco in mischia o a distanza:* +9, portata 1,5 m o gittata 45 m. 27 (4d10 + 5) danni da forza.  
 
-***Arcane Burst.*** *Melee or Ranged Attack Roll:* +9, reach 5 ft. or range 150 ft. 27 (4d10 + 5) Force damage.
+***Incantesimi.*** L’arcimago lancia uno dei seguenti incantesimi, usando Intelligenza come caratteristica da incantatore (CD 17):  
 
-***Spellcasting.*** The archmage casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 17):
+- **A volontà:** *Individuazione del Magico*, *Rilevare i Pensieri*, *Camuffare Sé Stesso*, *Invisibilità*, *Luce*, *Armatura Magica*, *Mano Magica*, *Prestidigitazione*  
+- **2/giorno ciascuno:** *Volare*, *Fulmine*  
+- **1/giorno ciascuno:** *Cono di Freddo*, *Mente Inaccessibile*, *Chiaroveggenza*, *Teletrasporto*  
 
-- **At Will:** *Detect Magic*, *Detect Thoughts*, *Disguise Self*, *Invisibility*, *Light*, *Mage Armor*, *Mage Hand*, *Prestidigitation*
-- **2e/Day Each:** *Fly*, *Lightning Bolt*
-- **1e/Day Each:** *Cone of Cold*, *Mind Blank*, *Scrying*, *Teleport*
+### Azioni Bonus
 
-### Bonus Actions
+***Passo Velato (3/giorno).*** L’arcimago lancia *Passo Velato*, usando la stessa caratteristica da incantatore di Incantesimi.  
 
-***Misty Step (3/Day).*** The mage casts *Misty Step*, using the same spellcasting ability as Spellcasting.
+### Reazioni
 
-### Reactions
+***Magia Protettiva (3/giorno).*** L’arcimago lancia *Controincantesimo* o *Scudo* in risposta al relativo innesco, usando la stessa caratteristica da incantatore di Incantesimi.  
 
-***Protective Magic (3/Day).*** The archmage casts *Counterspell* or *Shield* in response to the spell's trigger, using the same spellcasting ability as Spellcasting.
-## Assassin
+---
 
-*Small Humanoid, Neutral*
+## Assassino
 
-- **Armor Class:** 16
-- **Hit Points:** 97 (15d8 + 30)
-- **Speed:** 30 ft.
-- **Initiative**: +10 (20)
+*Umanoide Piccolo, Neutrale*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 16  
+- **Punti Ferita:** 97 (15d8 + 30)  
+- **Velocità:** 9 m  
+- **Iniziativa**: +10 (20)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 11 | +0 | +0 |
-| DEX | 18 | +4 | +7 |
-| CON | 14 | +2 | +2 |
+| FOR | 11 | +0 | +0 |
+| DES | 18 | +4 | +7 |
+| COS | 14 | +2 | +2 |
 | INT | 16 | +3 | +6 |
-| WIS | 11 | +0 | +0 |
-| CHA | 10 | +0 | +0 |
+| SAG | 11 | +0 | +0 |
+| CAR | 10 | +0 | +0 |
 
-- **Resistances**: Poison
-- **Skills**: Acrobatics +7, Perception +6, Stealth +10
-- **Gear** Light Crossbow, Shortsword, Studded Leather Armor
-- **Senses**: Passive Perception 16
-- **Languages**: Common, Thieves' cant
-- **CR** 8 (XP 3,900; PB +3)
+- **Resistenze**: Veleno  
+- **Abilità**: Acrobazia +7, Percezione +6, Furtività +10  
+- **Equipaggiamento**: Balestra Leggera, Spada Corta, Armatura Borchiata  
+- **Sensi**: Percezione Passiva 16  
+- **Linguaggi**: Comune, Gergo dei Ladri  
+- **GS** 8 (PE 3.900; MB +3)
 
-### Traits
+### Tratti
 
-***Evasion.*** If the assassin is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the assassin instead takes no damage if it succeeds on the save and only half damage if it fails. It can't use this trait if it has the Incapacitated condition.
+***Schivata Evasiva.*** Se l’assassino è soggetto a un effetto che gli consente un TS su Des per subire solo metà danni, subisce invece 0 danni se ha successo e solo metà danni se fallisce. Non può usare questo tratto se ha la condizione Incapacitato.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** L’assassino effettua tre attacchi, usando Spada Corta o Balestra Leggera in qualsiasi combinazione.  
 
-***Multiattack.*** The assassin makes three attacks, using Shortsword or Light Crossbow in any combination.
+***Spada Corta.*** *Attacco in mischia:* +7, portata 1,5 m. 7 (1d6 + 4) danni perforanti più 17 (5d6) danni da veleno, e il bersaglio ha la condizione Avvelenato fino all’inizio del prossimo turno dell’assassino.  
 
-***Shortsword.*** *Melee Attack Roll:* +7, reach 5 ft. 7 (1d6 + 4) Piercing damage plus 17 (5d6) Poison damage, and the target has the Poisoned condition until the start of the assassin's next turn.
+***Balestra Leggera.*** *Attacco a distanza:* +7, gittata 24/96 m. 8 (1d8 + 4) danni perforanti più 21 (6d6) danni da veleno.  
 
-***Light Crossbow.*** *Ranged Attack Roll:* +7, range 80/320 ft. 8 (1d8 + 4) Piercing damage plus 21 (6d6) Poison damage.
+### Azioni Bonus
 
+***Azione Scaltra.*** L’assassino compie l’azione Scatto, Disimpegno o Nascondersi.  
 
-### Bonus Actions
+---
 
-***Cunning Action.*** The assassin takes the Dash, Disengage, or Hide action.
+## Arbusto Risvegliato
 
-## Awakened Shrub
+*Pianta Piccola, Neutrale*
 
-*Small Plant, Neutral*
+- **Classe Armatura:** 9  
+- **Punti Ferita:** 10 (3d6)  
+- **Velocità:** 6 m  
+- **Iniziativa**: -1 (9)
 
-- **Armor Class:** 9
-- **Hit Points:** 10 (3d6)
-- **Speed:** 20 ft.
-- **Initiative**: -1 (9)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 3 | -4 | -4 |
-| DEX | 8 | -1 | -1 |
-| CON | 11 | +0 | +0 |
+| FOR | 3  | -4 | -4 |
+| DES | 8  | -1 | -1 |
+| COS | 11 | +0 | +0 |
 | INT | 10 | +0 | +0 |
-| WIS | 10 | +0 | +0 |
-| CHA | 6 | -2 | -2 |
+| SAG | 10 | +0 | +0 |
+| CAR | 6  | -2 | -2 |
 
-- **Vulnerabilities**: Fire
-- **Resistances**: Piercing
-- **Senses**: Passive Perception 10
-- **Languages**: Common plus one other language
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Vulnerabilità**: Fuoco  
+- **Resistenze**: Perforanti  
+- **Sensi**: Percezione Passiva 10  
+- **Linguaggi**: Comune più un altro linguaggio  
+- **GS** 0 (PE 0 o 10; MB +2)
 
-### Actions
+### Azioni
 
-***Rake.*** *Melee Attack Roll:* +1, reach 5 ft. 1 Slashing damage.
+***Graffio.*** *Attacco in mischia:* +1, portata 1,5 m. 1 danno tagliente.  
 
-## Awakened Tree
+## Albero Risvegliato
 
-*Huge Plant, Neutral*
+*Pianta Enorme, Neutrale*
 
-- **Armor Class:** 13
-- **Hit Points:** 59 (7d12 + 14)
-- **Speed:** 20 ft.
-- **Initiative**: -2 (8)
+- **Classe Armatura:** 13  
+- **Punti Ferita:** 59 (7d12 + 14)  
+- **Velocità:** 6 m  
+- **Iniziativa**: -2 (8)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 6 | -2 | -2 |
-| CON | 15 | +2 | +2 |
+| FOR | 19 | +4 | +4 |
+| DES | 6  | -2 | -2 |
+| COS | 15 | +2 | +2 |
 | INT | 10 | +0 | +0 |
-| WIS | 10 | +0 | +0 |
-| CHA | 7 | -2 | -2 |
+| SAG | 10 | +0 | +0 |
+| CAR | 7  | -2 | -2 |
 
-- **Vulnerabilities**: Fire
-- **Resistances**: Bludgeoning, Piercing
-- **Senses**: Passive Perception 10
-- **Languages**: Common plus one other language
-- **CR** 2 (XP 450; PB +2)
+- **Vulnerabilità**: Fuoco  
+- **Resistenze**: Contundenti, Perforanti  
+- **Sensi**: Percezione Passiva 10  
+- **Linguaggi**: Comune più un altro linguaggio  
+- **GS** 2 (PE 450; MB +2)
 
-### Actions
+### Azioni
 
-***Slam.*** *Melee Attack Roll:* +6, reach 10 ft. 13 (2d8 + 4) Bludgeoning damage.
+***Schianto.*** *Tiro per colpire in mischia:* +6, portata 3 m. 13 (2d8 + 4) danni contundenti.  
 
-## Axe Beak
+---
 
-*Large Monstrosity, Unaligned*
+## Becco d’Ascia
 
-- **Armor Class:** 11
-- **Hit Points:** 19 (3d10 + 3)
-- **Speed:** 50 ft.
-- **Initiative**: +1 (11)
+*Mostruosità Grande, Non Allineato*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 11  
+- **Punti Ferita:** 19 (3d10 + 3)  
+- **Velocità:** 15 m  
+- **Iniziativa**: +1 (11)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 14 | +2 | +2 |
-| DEX | 12 | +1 | +1 |
-| CON | 12 | +1 | +1 |
-| INT | 2 | -4 | -4 |
-| WIS | 10 | +0 | +0 |
-| CHA | 5 | -3 | -3 |
+| FOR | 14 | +2 | +2 |
+| DES | 12 | +1 | +1 |
+| COS | 12 | +1 | +1 |
+| INT | 2  | -4 | -4 |
+| SAG | 10 | +0 | +0 |
+| CAR | 5  | -3 | -3 |
 
-- **Senses**: Passive Perception 10
-- **CR** 1/4 (XP 50; PB +2)
+- **Sensi**: Percezione Passiva 10  
+- **GS** 1/4 (PE 50; MB +2)
 
-### Actions
+### Azioni
 
-***Beak.*** *Melee Attack Roll:* +4, reach 5 ft. 5 (1d6 + 2) Slashing damage.
+***Becco.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni taglienti.  
 
-## Azer Sentinel
+---
 
-*Medium Elemental, Lawful Neutral*
+## Azer Sentinella
 
-- **Armor Class:** 17
-- **Hit Points:** 39 (6d8 + 12)
-- **Speed:** 30 ft.
-- **Initiative**: +1 (11)
+*Elementale Medio, Legale Neutrale*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 17  
+- **Punti Ferita:** 39 (6d8 + 12)  
+- **Velocità:** 9 m  
+- **Iniziativa**: +1 (11)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 17 | +3 | +3 |
-| DEX | 12 | +1 | +1 |
-| CON | 15 | +2 | +4 |
+| FOR | 17 | +3 | +3 |
+| DES | 12 | +1 | +1 |
+| COS | 15 | +2 | +4 |
 | INT | 12 | +1 | +1 |
-| WIS | 13 | +1 | +1 |
-| CHA | 10 | +0 | +0 |
+| SAG | 13 | +1 | +1 |
+| CAR | 10 | +0 | +0 |
 
-- **Immunities**: Fire, Poison; Poisoned
-- **Senses**: Passive Perception 11
-- **Languages**: Primordial (Ignan)
-- **CR** 2 (XP 450; PB +2)
+- **Immunità**: Fuoco, Veleno; Avvelenato  
+- **Sensi**: Percezione Passiva 11  
+- **Linguaggi**: Primordiale (Ignan)  
+- **GS** 2 (PE 450; MB +2)
 
-### Traits
+### Tratti
 
-***Fire Aura.*** At the end of each of the azer's turns, each creature of the azer's choice in a 5-foot Emanation originating from the azer takes 5 (1d10) Fire damage unless the azer has the Incapacitated condition.
+***Aura di Fuoco.*** Alla fine di ogni turno dell’azer, ogni creatura a sua scelta entro 1,5 m subisce 5 (1d10) danni da fuoco, a meno che l’azer non abbia la condizione Incapacitato.  
 
-***Illumination.*** The azer sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.
+***Illuminazione.*** L’azer emette Luce Intensa in un raggio di 3 m e Luce Fioca per ulteriori 3 m.  
 
+### Azioni
 
-### Actions
-
-***Burning Hammer.*** *Melee Attack Roll:* +5, reach 5 ft. 8 (1d10 + 3) Bludgeoning damage plus 3 (1d6) Fire damage.
+***Martello Ardente.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 8 (1d10 + 3) danni contundenti più 3 (1d6) danni da fuoco.  
 
 ## Balor
 
-*Huge Fiend (Demon), Chaotic Evil*
+*Immane Immondo (Demone), Caotico Malvagio*
 
-- **Armor Class:** 19
-- **Hit Points:** 287 (23d12 + 138)
-- **Speed:** 40 ft., Fly 80 ft.
-- **Initiative**: +14 (24)
+- **Classe Armatura:** 19  
+- **Punti Ferita:** 287 (23d12 + 138)  
+- **Velocità:** 12 m, Volare 24 m  
+- **Iniziativa**: +14 (24)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 26 | +8 | +8 |
-| DEX | 15 | +2 | +2 |
-| CON | 22 | +6 | +12 |
+| FOR | 26 | +8 | +8 |
+| DES | 15 | +2 | +2 |
+| COS | 22 | +6 | +12 |
 | INT | 20 | +5 | +5 |
-| WIS | 16 | +3 | +9 |
-| CHA | 22 | +6 | +6 |
+| SAG | 16 | +3 | +9 |
+| CAR | 22 | +6 | +6 |
 
-- **Resistances**: Cold, Lightning
-- **Immunities**: Fire, Poison; Charmed, Frightened, Poisoned
-- **Skills**: Perception +9
-- **Senses**: truesight 120 ft.; Passive Perception 19
-- **Languages**: Abyssal; telepathy 120 ft.
-- **CR** 19 (XP 22,000; PB +6)
+- **Resistenze**: Freddo, Fulmine  
+- **Immunità**: Fuoco, Veleno; Affascinato, Spaventato, Avvelenato  
+- **Abilità**: Percezione +9  
+- **Sensi**: Vista Vera 36 m; Percezione Passiva 19  
+- **Linguaggi**: Abissale; Telepatia 36 m  
+- **GS** 19 (PE 22.000; MB +6)
 
-### Traits
+### Tratti
 
-***Death Throes.*** The balor explodes when it dies. *Dexterity Saving Throw*: DC 20, each creature in a 30-foot Emanation originating from the balor. *Failure:*  31 (9d6) Fire damage plus 31 (9d6) Force damage. *Success:*  Half damage. *Failure or Success*:  If the balor dies outside the Abyss, it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.
+***Esplosione Mortale.*** Il balor esplode alla sua morte. *TS Des:* CD 20, ogni creatura in un’emanazione di 9 m dal balor. *Fallimento:* 31 (9d6) danni da fuoco più 31 (9d6) danni da forza. *Successo:* metà danni. *Fallimento o Successo:* se il balor muore fuori dall’Abisso, ottiene subito un nuovo corpo, rianimandosi con tutti i suoi PF da qualche parte nell’Abisso.  
 
-***Fire Aura.*** At the end of each of the balor's turns, each creature in a 5-foot Emanation originating from the balor takes 13 (3d8) Fire damage.
+***Aura di Fuoco.*** Alla fine di ciascun turno del balor, ogni creatura entro 1,5 m subisce 13 (3d8) danni da fuoco.  
 
-***Legendary Resistance (3/Day).*** If the balor fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (3/Giorno).*** Se il balor fallisce un TS, può scegliere di riuscire invece.  
 
-***Magic Resistance.*** The balor has Advantage on saving throws against spells and other magical effects.
+***Resistenza alla Magia.*** Il balor ha vantaggio ai TS contro incantesimi e altri effetti magici.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il balor effettua un attacco di Frusta Infuocata e un attacco di Lama Fulminea.  
 
-***Multiattack.*** The balor makes one Flame Whip attack and one Lightning Blade attack.
+***Frusta Infuocata.*** *Attacco in mischia:* +14, portata 9 m. 18 (3d6 + 8) danni da forza più 17 (5d6) danni da fuoco. Se il bersaglio è una creatura Immane o più piccola, il balor lo trascina fino a 7,5 m verso di sé, e il bersaglio ottiene la condizione Prono.  
 
-***Flame Whip.*** *Melee Attack Roll:* +14, reach 30 ft. 18 (3d6 + 8) Force damage plus 17 (5d6) Fire damage. If the target is a Huge or smaller creature, the balor pulls the target up to 25 feet straight toward itself, and the target has the Prone condition.
+***Lama Fulminea.*** *Attacco in mischia:* +14, portata 3 m. 21 (3d8 + 8) danni da forza più 22 (4d10) danni da fulmine, e il bersaglio non può effettuare Reazioni fino all’inizio del prossimo turno del balor.  
 
-***Lightning Blade.*** *Melee Attack Roll:* +14, reach 10 ft. 21 (3d8 + 8) Force damage plus 22 (4d10) Lightning damage, and the target can't take Reactions until the start of the balor's next turn.
+### Azioni Bonus
 
+***Teletrasporto.*** Il balor si teletrasporta, o teletrasporta un demone consenziente entro 3 m, fino a 18 m in uno spazio non occupato che possa vedere.  
 
-### Bonus Actions
+---
 
-***Teleport.*** The balor teleports itself or a willing demon within 10 feet of itself up to 60 feet to an unoccupied space the balor can see.
+## Capitano dei Banditi
 
-## Bandit Captain
+*Umanoide Piccolo, Neutrale*
 
-*Small Humanoid, Neutral*
+- **Classe Armatura:** 15  
+- **Punti Ferita:** 52 (8d8 + 16)  
+- **Velocità:** 9 m  
+- **Iniziativa**: +3 (13)
 
-- **Armor Class:** 15
-- **Hit Points:** 52 (8d8 + 16)
-- **Speed:** 30 ft.
-- **Initiative**: +3 (13)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +4 |
-| DEX | 16 | +3 | +5 |
-| CON | 14 | +2 | +2 |
+| FOR | 15 | +2 | +4 |
+| DES | 16 | +3 | +5 |
+| COS | 14 | +2 | +2 |
 | INT | 14 | +2 | +2 |
-| WIS | 11 | +0 | +2 |
-| CHA | 14 | +2 | +2 |
+| SAG | 11 | +0 | +2 |
+| CAR | 14 | +2 | +2 |
 
-- **Skills**: Athletics +4, Deception +4
-- **Gear** Pistol, Scimitar, Studded Leather Armor
-- **Senses**: Passive Perception 10
-- **Languages**: Common, Thieves' cant
-- **CR** 2 (XP 450; PB +2)
+- **Abilità**: Atletica +4, Inganno +4  
+- **Equipaggiamento**: Pistola, Scimitarra, Armatura Borchiata  
+- **Sensi**: Percezione Passiva 10  
+- **Linguaggi**: Comune, Gergo dei Ladri  
+- **GS** 2 (PE 450; MB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The bandit makes two attacks, using Scimitar and Pistol in any combination.
+***Attacco Multiplo.*** Il capitano effettua due attacchi, usando Scimitarra e Pistola in qualsiasi combinazione.  
 
-***Scimitar.*** *Melee Attack Roll:* +5, reach 5 ft. 6 (1d6 + 3) Slashing damage.
+***Scimitarra.*** *Attacco in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni taglienti.  
 
-***Pistol.*** *Ranged Attack Roll:* +5, range 30/90 ft. 8 (1d10 + 3) Piercing damage.
+***Pistola.*** *Attacco a distanza:* +5, gittata 9/27 m. 8 (1d10 + 3) danni perforanti.  
 
-## Bandit
+---
 
-*Small Humanoid, Neutral*
+## Bandito
 
-- **Armor Class:** 12
-- **Hit Points:** 11 (2d8 + 2)
-- **Speed:** 30 ft.
-- **Initiative**: +1 (11)
+*Umanoide Piccolo, Neutrale*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 12  
+- **Punti Ferita:** 11 (2d8 + 2)  
+- **Velocità:** 9 m  
+- **Iniziativa**: +1 (11)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 11 | +0 | +0 |
-| DEX | 12 | +1 | +1 |
-| CON | 12 | +1 | +1 |
+| FOR | 11 | +0 | +0 |
+| DES | 12 | +1 | +1 |
+| COS | 12 | +1 | +1 |
 | INT | 10 | +0 | +0 |
-| WIS | 10 | +0 | +0 |
-| CHA | 10 | +0 | +0 |
+| SAG | 10 | +0 | +0 |
+| CAR | 10 | +0 | +0 |
 
-- **Gear** Leather Armor, Light Crossbow, Scimitar
-- **Senses**: Passive Perception 10
-- **Languages**: Common, Thieves' cant
-- **CR** 1/8 (XP 25; PB +2)
+- **Equipaggiamento**: Armatura di Cuoio, Balestra Leggera, Scimitarra  
+- **Sensi**: Percezione Passiva 10  
+- **Linguaggi**: Comune, Gergo dei Ladri  
+- **GS** 1/8 (PE 25; MB +2)
 
-### Actions
+### Azioni
 
-***Scimitar.*** *Melee Attack Roll:* +3, reach 5 ft. 4 (1d6 + 1) Slashing damage.
+***Scimitarra.*** *Attacco in mischia:* +3, portata 1,5 m. 4 (1d6 + 1) danni taglienti.  
 
-***Light Crossbow.*** *Ranged Attack Roll:* +3, range 80/320 ft. 5 (1d8 + 1) Piercing damage.
+***Balestra Leggera.*** *Attacco a distanza:* +3, gittata 24/96 m. 5 (1d8 + 1) danni perforanti.  
 
-## Barbed Devil
+## Diavolo Chiodato
 
-*Medium Fiend (Devil), Lawful Evil*
+*Immondo Medio (Diavolo), Legale Malvagio*
 
-- **Armor Class:** 15
-- **Hit Points:** 110 (13d8 + 52)
-- **Speed:** 30 ft., Climb 30 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 15  
+- **Punti Ferita:** 110 (13d8 + 52)  
+- **Velocità:** 9 m, Scalare 9 m  
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +6 |
-| DEX | 17 | +3 | +3 |
-| CON | 18 | +4 | +7 |
+| FOR | 16 | +3 | +6 |
+| DES | 17 | +3 | +3 |
+| COS | 18 | +4 | +7 |
 | INT | 12 | +1 | +1 |
-| WIS | 14 | +2 | +5 |
-| CHA | 14 | +2 | +5 |
+| SAG | 14 | +2 | +5 |
+| CAR | 14 | +2 | +5 |
 
-- **Resistances**: Cold
-- **Immunities**: Fire, Poison; Poisoned
-- **Skills**: Deception +5, Insight +5, Perception +8
-- **Senses**: darkvision 120 ft. (unimpeded by magical darkness); Passive Perception 18
-- **Languages**: Infernal; telepathy 120 ft.
-- **CR** 5 (XP 1,800; PB +3)
+- **Resistenze**: Freddo  
+- **Immunità**: Fuoco, Veleno; Avvelenato  
+- **Abilità**: Inganno +5, Intuizione +5, Percezione +8  
+- **Sensi**: Scurovisione 36 m (non ostacolata da oscurità magica); Percezione Passiva 18  
+- **Linguaggi**: Infernale; Telepatia 36 m  
+- **GS** 5 (PE 1.800; MB +3)
 
-### Traits
+### Tratti
 
-***Barbed Hide.*** At the start of each of its turns, the devil deals 5 (1d10) Piercing damage to any creature it is grappling or any creature grappling it.
+***Pelle Chiodata.*** All’inizio di ciascun suo turno, il diavolo infligge 5 (1d10) danni perforanti a ogni creatura che stia afferrando o che lo stia afferrando.  
 
-***Diabolical Restoration.*** If the devil dies outside the Nine Hells, its body disappears in sulfurous smoke, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Nine Hells.
+***Restaurazione Diabolica.*** Se il diavolo muore fuori dai Nove Inferi, il suo corpo svanisce in un fumo sulfureo e ottiene subito un nuovo corpo, rianimandosi con tutti i suoi PF da qualche parte nei Nove Inferi.  
 
-***Magic Resistance.*** The devil has Advantage on saving throws against spells and other magical effects.
+***Resistenza alla Magia.*** Il diavolo ha vantaggio ai TS contro incantesimi e altri effetti magici.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il diavolo effettua un attacco di Artigli e uno di Coda, oppure due attacchi di Lanciafiamme.  
 
-***Multiattack.*** The devil makes one Claws attack and one Tail attack, or it makes two Hurl Flame attacks.
+***Artigli.*** *Attacco in mischia:* +6, portata 1,5 m. 10 (2d6 + 3) danni perforanti. Se il bersaglio è una creatura Grande o più piccola, ottiene la condizione Afferato (CD 13 per liberarsi) da entrambi gli artigli.  
 
-***Claws.*** *Melee Attack Roll:* +6, reach 5 ft. 10 (2d6 + 3) Piercing damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 13) from both claws.
+***Coda.*** *Attacco in mischia:* +6, portata 3 m. 14 (2d10 + 3) danni taglienti.  
 
-***Tail.*** *Melee Attack Roll:* +6, reach 10 ft. 14 (2d10 + 3) Slashing damage.
+***Lanciafiamme.*** *Attacco a distanza:* +5, gittata 45 m. 17 (5d6) danni da fuoco. Se il bersaglio è un oggetto infiammabile non indossato o trasportato, prende fuoco.  
 
-***Hurl Flame.*** *Ranged Attack Roll:* +5, range 150 ft. 17 (5d6) Fire damage. If the target is a flammable object that isn't being worn or carried, it starts burning.
+## Basilisco
 
-## Basilisk
+*Mostruosità Media, Non Allineato*
 
-*Medium Monstrosity, Unaligned*
+- **Classe Armatura:** 15  
+- **Punti Ferita:** 52 (8d8 + 16)  
+- **Velocità:** 6 m  
+- **Iniziativa**: -1 (9)
 
-- **Armor Class:** 15
-- **Hit Points:** 52 (8d8 + 16)
-- **Speed:** 20 ft.
-- **Initiative**: -1 (9)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 8 | -1 | -1 |
-| CON | 15 | +2 | +2 |
-| INT | 2 | -4 | -4 |
-| WIS | 8 | -1 | -1 |
-| CHA | 7 | -2 | -2 |
+| FOR | 16 | +3 | +3 |
+| DES | 8  | -1 | -1 |
+| COS | 15 | +2 | +2 |
+| INT | 2  | -4 | -4 |
+| SAG | 8  | -1 | -1 |
+| CAR | 7  | -2 | -2 |
 
-- **Senses**: darkvision 60 ft.; Passive Perception 9
-- **CR** 3 (XP 700; PB +2)
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 9  
+- **GS** 3 (PE 700; MB +2)
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +5, reach 5 ft. 10 (2d6 + 3) Piercing damage plus 7 (2d6) Poison damage.
+***Morso.*** *Attacco in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) danni perforanti più 7 (2d6) danni da veleno.  
 
+### Azioni Bonus
 
-### Bonus Actions
+***Sguardo Pietrificante (Ricarica 4–6).*** *TS Cos:* CD 12, ogni creatura in un cono di 9 m. Se il basilisco vede il proprio riflesso entro il cono, deve effettuare anch’esso il tiro. *Primo Fallimento:* il bersaglio ottiene la condizione Immobilizzato e ripete il TS alla fine del suo turno successivo, se ancora Immobilizzato, terminando l’effetto su di sé in caso di successo. *Secondo Fallimento:* il bersaglio ottiene la condizione Pietrificato invece di Immobilizzato.  
 
-***Petrifying Gaze (Recharge 4-6).*** *Constitution Saving Throw*: DC 12, each creature in a 30-foot Cone. If the basilisk sees its reflection within the Cone, the basilisk must make this save. *First Failure* The target has the Restrained condition and repeats the save at the end of its next turn if it is still Restrained, ending the effect on itself on a success. *Second Failure* The target has the Petrified condition instead of the Restrained condition.
+## Diavolo Barbuto
 
-## Bearded Devil
+*Immndo Medio (Diavolo), Legale Malvagio*
 
-*Medium Fiend (Devil), Lawful Evil*
+- **Classe Armatura:** 13  
+- **Punti Ferita:** 58 (9d8 + 18)  
+- **Velocità:** 9 m  
+- **Iniziativa**: +2 (12)
 
-- **Armor Class:** 13
-- **Hit Points:** 58 (9d8 + 18)
-- **Speed:** 30 ft.
-- **Initiative**: +2 (12)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +5 |
-| DEX | 15 | +2 | +2 |
-| CON | 15 | +2 | +4 |
-| INT | 9 | -1 | -1 |
-| WIS | 11 | +0 | +0 |
-| CHA | 14 | +2 | +4 |
+| FOR | 16 | +3 | +5 |
+| DES | 15 | +2 | +2 |
+| COS | 15 | +2 | +4 |
+| INT | 9  | -1 | -1 |
+| SAG | 11 | +0 | +0 |
+| CAR | 14 | +2 | +4 |
 
-- **Resistances**: Cold
-- **Immunities**: Fire, Poison; Frightened, Poisoned
-- **Senses**: darkvision 120 ft. (unimpeded by magical darkness); Passive Perception 10
-- **Languages**: Infernal; telepathy 120 ft.
-- **CR** 3 (XP 700; PB +2)
+- **Resistenze**: Freddo  
+- **Immunità**: Fuoco, Veleno; Spaventato, Avvelenato  
+- **Sensi**: Scurovisione 36 m (non ostacolata da oscurità magica); Percezione Passiva 10  
+- **Linguaggi**: Infernale; Telepatia 36 m  
+- **GS** 3 (PE 700; MB +2)
 
-### Traits
+### Tratti
 
-***Magic Resistance.*** The devil has Advantage on saving throws against spells and other magical effects.
+***Resistenza alla Magia.*** Il diavolo ha vantaggio ai TS contro incantesimi e altri effetti magici.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il diavolo effettua un attacco di Barba e uno di Alabarda Infernale.  
 
-***Multiattack.*** The devil makes one Beard attack and one Infernal Glaive attack.
+***Barba.*** *Attacco in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni perforanti, e il bersaglio ottiene la condizione Avvelenato fino all’inizio del prossimo turno del diavolo. Finché è avvelenato in questo modo, il bersaglio non può recuperare PF.  
 
-***Beard.*** *Melee Attack Roll:* +5, reach 5 ft. 7 (1d8 + 3) Piercing damage, and the target has the Poisoned condition until the start of the devil's next turn. Until this poison ends, the target can't regain Hit Points.
-
-***Infernal Glaive.*** *Melee Attack Roll:* +5, reach 10 ft. 8 (1d10 + 3) Slashing damage. If the target is a creature and doesn't already have an infernal wound, it is subjected to the following effect. *Constitution Saving Throw*: DC 12. *Failure:*  The target receives an infernal wound. While wounded, the target loses 5 (1d10) Hit Points at the start of each of its turns. The wound closes after 1 minute, after a spell restores Hit Points to the target, or after the target or a creature within 5 feet of it takes an action to stanch the wound, doing so by succeeding on a DC 12 Wisdom (Medicine) check.
+***Alabarda Infernale.*** *Attacco in mischia:* +5, portata 3 m. 8 (1d10 + 3) danni taglienti. Se il bersaglio è una creatura e non ha già una ferita infernale, è soggetto al seguente effetto. *TS Cos:* CD 12. *Fallimento:* il bersaglio subisce una ferita infernale. Finché ferito, perde 5 (1d10) PF all’inizio di ciascun suo turno. La ferita si chiude dopo 1 minuto, dopo che un incantesimo ripristina PF al bersaglio, oppure dopo che il bersaglio o una creatura entro 1,5 m spende un’azione per tamponare la ferita, riuscendo in una prova di Saggezza (Medicina) CD 12.  
 
 ## Behir
 
-*Huge Monstrosity, Neutral Evil*
+*Mostruosità Enorme, Neutrale Malvagio*
 
-- **Armor Class:** 17
-- **Hit Points:** 168 (16d12 + 64)
-- **Speed:** 50 ft., Climb 50 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 17  
+- **Punti Ferita:** 168 (16d12 + 64)  
+- **Velocità:** 15 m, Scalare 15 m  
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 23 | +6 | +6 |
-| DEX | 16 | +3 | +3 |
-| CON | 18 | +4 | +4 |
-| INT | 7 | -2 | -2 |
-| WIS | 14 | +2 | +2 |
-| CHA | 12 | +1 | +1 |
+| FOR | 23 | +6 | +6 |
+| DES | 16 | +3 | +3 |
+| COS | 18 | +4 | +4 |
+| INT | 7  | -2 | -2 |
+| SAG | 14 | +2 | +2 |
+| CAR | 12 | +1 | +1 |
 
-- **Immunities**: Lightning
-- **Skills**: Perception +6, Stealth +7
-- **Senses**: darkvision 90 ft.; Passive Perception 16
-- **Languages**: Draconic
-- **CR** 11 (XP 7,200; PB +4)
+- **Immunità**: Fulmine  
+- **Abilità**: Percezione +6, Furtività +7  
+- **Sensi**: Scurovisione 27 m; Percezione Passiva 16  
+- **Linguaggi**: Draconico  
+- **GS** 11 (PE 7.200; MB +4)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The behir makes one Bite attack and uses Constrict.
+***Attacco Multiplo.*** Il behir effettua un attacco di Morso e usa Costrizione.  
 
-***Bite.*** *Melee Attack Roll:* +10, reach 10 ft. 19 (2d12 + 6) Piercing damage plus 11 (2d10) Lightning damage.
+***Morso.*** *Attacco in mischia:* +10, portata 3 m. 19 (2d12 + 6) danni perforanti più 11 (2d10) danni da fulmine.  
 
-***Constrict.*** *Strength Saving Throw*: DC 18, one Large or smaller creature the behir can see within 5 feet. *Failure:*  28 (5d8 + 6) Bludgeoning damage. The target has the Grappled condition (escape DC 16), and it has the Restrained condition until the grapple ends.
+***Costrizione.*** *TS For:* CD 18, una creatura Grande o più piccola che il behir possa vedere entro 1,5 m. *Fallimento:* 28 (5d8 + 6) danni contundenti. Il bersaglio ottiene la condizione Afferato (CD 16 per liberarsi) e la condizione Immobilizzato finché la presa dura.  
 
-***Lightning Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 16, each creature in a 90-foot-long, 5-foot-wide Line. *Failure:*  66 (12d10) Lightning damage. *Success:*  Half damage.
+***Soffio di Fulmine (Ricarica 5–6).*** *TS Des:* CD 16, ogni creatura in una linea di 27 m per 1,5 m. *Fallimento:* 66 (12d10) danni da fulmine. *Successo:* metà danni.  
 
+### Azioni Bonus
 
-### Bonus Actions
-
-***Swallow.*** *Dexterity Saving Throw*: DC 18, one Large or smaller creature Grappled by the behir (the behir can have only one creature swallowed at a time). *Failure:*  The behir swallows the target, which is no longer Grappled. While swallowed, a creature has the Blinded and Restrained conditions, has Cover|XPHB|Total Cover against attacks and other effects outside the behir, and takes 21 (6d6) Acid damage at the start of each of the behir's turns.
-If the behir takes 30 damage or more on a single turn from the swallowed creature, the behir must succeed on a DC 14 Constitution saving throw at the end of that turn or regurgitate the creature, which falls in a space within 10 feet of the behir and has the Prone condition. If the behir dies, a swallowed creature is no longer Restrained and can escape from the corpse by using 15 feet of movement, exiting Prone.
+***Ingoiare.*** *TS Des:* CD 18, una creatura Grande o più piccola afferrata dal behir (può ingoiarne solo una alla volta). *Fallimento:* il behir ingoia il bersaglio, che non è più afferrato. Mentre è inghiottita, la creatura è Accecata e Immobilizzata, ha Copertura Totale contro attacchi ed effetti esterni e subisce 21 (6d6) danni da acido all’inizio di ciascun turno del behir.  
+Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita, deve superare un TS Cos CD 14 alla fine di quel turno o rigurgitare la creatura, che cade prono entro 3 m dal behir. Se il behir muore, la creatura non è più Immobilizzata ed esce dal corpo usando 4,5 m di movimento, cadendo prona.  
 
 ## Berserker
 
-*Small Humanoid, Neutral*
+*Umanoide Piccolo, Neutrale*
 
-- **Armor Class:** 13
-- **Hit Points:** 67 (9d8 + 27)
-- **Speed:** 30 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 13  
+- **Punti Ferita:** 67 (9d8 + 27)  
+- **Velocità:** 9 m  
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 12 | +1 | +1 |
-| CON | 17 | +3 | +3 |
-| INT | 9 | -1 | -1 |
-| WIS | 11 | +0 | +0 |
-| CHA | 9 | -1 | -1 |
+| FOR | 16 | +3 | +3 |
+| DES | 12 | +1 | +1 |
+| COS | 17 | +3 | +3 |
+| INT | 9  | -1 | -1 |
+| SAG | 11 | +0 | +0 |
+| CAR | 9  | -1 | -1 |
 
-- **Gear** Greataxe, Hide Armor
-- **Senses**: Passive Perception 10
-- **Languages**: Common
-- **CR** 2 (XP 450; PB +2)
+- **Equipaggiamento**: Ascia a Due Mani, Armatura di Pelle  
+- **Sensi**: Percezione Passiva 10  
+- **Linguaggi**: Comune  
+- **GS** 2 (PE 450; MB +2)
 
-### Traits
+### Tratti
 
-***Bloodied Frenzy.*** While Bloodied, the berserker has Advantage on attack rolls and saving throws.
+***Furia Insanguinata.*** Quando è Sanguinante, il berserker ha vantaggio ai tiri per colpire e ai tiri salvezza.  
 
+### Azioni
 
-### Actions
+***Ascia a Due Mani.*** *Attacco in mischia:* +5, portata 1,5 m. 9 (1d12 + 3) danni taglienti.  
 
-***Greataxe.*** *Melee Attack Roll:* +5, reach 5 ft. 9 (1d12 + 3) Slashing damage.
+## Dragonetto Nero
 
-## Black Dragon Wyrmling
+*Drago Medio (Cromatico), Caotico Malvagio*
 
-*Medium Dragon (Chromatic), Chaotic Evil*
+- **Classe Armatura:** 17  
+- **Punti Ferita:** 33 (6d8 + 6)  
+- **Velocità:** 9 m, Volare 18 m, Nuotare 9 m  
+- **Iniziativa**: +4 (14)
 
-- **Armor Class:** 17
-- **Hit Points:** 33 (6d8 + 6)
-- **Speed:** 30 ft., Fly 60 ft., Swim 30 ft.
-- **Initiative**: +4 (14)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +2 |
-| DEX | 14 | +2 | +4 |
-| CON | 13 | +1 | +1 |
+| FOR | 15 | +2 | +2 |
+| DES | 14 | +2 | +4 |
+| COS | 13 | +1 | +1 |
 | INT | 10 | +0 | +0 |
-| WIS | 11 | +0 | +2 |
-| CHA | 13 | +1 | +1 |
+| SAG | 11 | +0 | +2 |
+| CAR | 13 | +1 | +1 |
 
-- **Immunities**: Acid
-- **Skills**: Perception +4, Stealth +4
-- **Senses**: blindsight 10 ft., darkvision 60 ft.; Passive Perception 14
-- **Languages**: Draconic
-- **CR** 2 (XP 450; PB +2)
+- **Immunità**: Acido  
+- **Abilità**: Percezione +4, Furtività +4  
+- **Sensi**: Vista Cieca 3 m, Scurovisione 18 m; Percezione Passiva 14  
+- **Linguaggi**: Draconico  
+- **GS** 2 (PE 450; MB +2)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The dragon can breathe air and water.
+***Anfibio.*** Il drago può respirare aria e acqua.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua due attacchi di Dilaniare.  
 
-***Multiattack.*** The dragon makes two Rend attacks.
+***Dilaniare.*** *Attacco in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni taglienti più 2 (1d4) danni da acido.  
 
-***Rend.*** *Melee Attack Roll:* +4, reach 5 ft. 5 (1d6 + 2) Slashing damage plus 2 (1d4) Acid damage.
+***Soffio di Acido (Ricarica 5–6).*** *TS Des:* CD 11, ogni creatura in una linea di 4,5 m per 1,5 m. *Fallimento:* 22 (5d8) danni da acido. *Successo:* metà danni.  
 
-***Acid Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 11, each creature in a 15-foot-long, 5-foot-wide Line. *Failure:*  22 (5d8) Acid damage. *Success:*  Half damage.
+## Gelatina Nera
 
-## Black Pudding
+*Melma Grande, Non Allineata*
 
-*Large Ooze, Unaligned*
+- **Classe Armatura:** 7  
+- **Punti Ferita:** 68 (8d10 + 24)  
+- **Velocità:** 6 m, Scalare 6 m  
+- **Iniziativa**: -3 (7)
 
-- **Armor Class:** 7
-- **Hit Points:** 68 (8d10 + 24)
-- **Speed:** 20 ft., Climb 20 ft.
-- **Initiative**: -3 (7)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 5 | -3 | -3 |
-| CON | 16 | +3 | +3 |
-| INT | 1 | -5 | -5 |
-| WIS | 6 | -2 | -2 |
-| CHA | 1 | -5 | -5 |
+| FOR | 16 | +3 | +3 |
+| DES | 5  | -3 | -3 |
+| COS | 16 | +3 | +3 |
+| INT | 1  | -5 | -5 |
+| SAG | 6  | -2 | -2 |
+| CAR | 1  | -5 | -5 |
 
-- **Immunities**: Acid, Cold, Lightning, Slashing; Charmed, Deafened, Exhaustion, Frightened, Grappled, Prone, Restrained
-- **Senses**: blindsight 60 ft.; Passive Perception 8
-- **CR** 4 (XP 1,100; PB +2)
+- **Immunità**: Acido, Freddo, Fulmine, Tagliente; Affascinato, Assordato, Affaticato, Spaventato, Afferrato, Prono, Immobilizzato  
+- **Sensi**: Vista Cieca 18 m; Percezione Passiva 8  
+- **GS** 4 (PE 1.100; MB +2)
 
-### Traits
+### Tratti
 
-***Amorphous.*** The pudding can move through a space as narrow as 1 inch without expending extra movement to do so.
+***Amorfa.*** La gelatina può muoversi attraverso spazi stretti fino a 2,5 cm senza costi extra di movimento.  
 
-***Corrosive Form.*** A creature that hits the pudding with a melee attack roll takes 4 (1d8) Acid damage. Nonmagical ammunition is destroyed immediately after hitting the pudding and dealing any damage. Any nonmagical weapon takes a cumulative -1 penalty to attack rolls immediately after dealing damage to the pudding and coming into contact with it. The weapon is destroyed if the penalty reaches -5. The penalty can be removed by casting the *Mending* spell on the weapon.
-In 1 minute, the pudding can eat through 2 feet of nonmagical wood or metal.
+***Forma Corrosiva.*** Una creatura che colpisce la gelatina con un attacco in mischia subisce 4 (1d8) danni da acido. Munizioni non magiche vengono distrutte subito dopo aver inflitto danno. Ogni arma non magica subisce un malus cumulativo di -1 ai tiri per colpire dopo aver colpito la gelatina. L’arma si distrugge se il malus arriva a -5. Il malus può essere rimosso con l’incantesimo *Riparare*. In 1 minuto la gelatina può corrodere 60 cm di legno o metallo non magico.  
 
-***Spider Climb.*** The pudding can climb difficult surfaces, including along ceilings, without needing to make an ability check.
+***Camminare sui Muri.*** La gelatina può scalare superfici difficili, anche i soffitti, senza prove di abilità.  
 
+### Azioni
 
-### Actions
+***Pseudopodio Dissolvente.*** *Attacco in mischia:* +5, portata 3 m. 17 (4d6 + 3) danni da acido. Un’armatura non magica indossata dal bersaglio subisce un malus cumulativo di -1 alla CA. L’armatura si distrugge se la sua CA scende a 10. Il malus può essere rimosso con *Riparare*.  
 
-***Dissolving Pseudopod.*** *Melee Attack Roll:* +5, reach 10 ft. 17 (4d6 + 3) Acid damage. Nonmagical armor worn by the target takes a -1 penalty to the AC it offers. The armor is destroyed if the penalty reduces its AC to 10. The penalty can be removed by casting the *Mending* spell on the armor.
+## Cane Lampeggiante
 
-## Blink Dog
+*Folletto Medio, Legale Buono*
 
-*Medium Fey, Lawful Good*
+- **Classe Armatura:** 13  
+- **Punti Ferita:** 22 (4d8 + 4)  
+- **Velocità:** 12 m  
+- **Iniziativa**: +3 (13)
 
-- **Armor Class:** 13
-- **Hit Points:** 22 (4d8 + 4)
-- **Speed:** 40 ft.
-- **Initiative**: +3 (13)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 12 | +1 | +1 |
-| DEX | 17 | +3 | +3 |
-| CON | 12 | +1 | +1 |
+| FOR | 12 | +1 | +1 |
+| DES | 17 | +3 | +3 |
+| COS | 12 | +1 | +1 |
 | INT | 10 | +0 | +0 |
-| WIS | 13 | +1 | +1 |
-| CHA | 11 | +0 | +0 |
+| SAG | 13 | +1 | +1 |
+| CAR | 11 | +0 | +0 |
 
-- **Skills**: Perception +5, Stealth +5
-- **Senses**: darkvision 60 ft.; Passive Perception 15
-- **Languages**: Understands Elvish and Sylvan but can't speak them
-- **CR** 1/4 (XP 50; PB +2)
+- **Abilità**: Percezione +5, Furtività +5  
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 15  
+- **Linguaggi**: comprende Elfico e Silvano ma non può parlarli  
+- **GS** 1/4 (PE 50; MB +2)
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +5, reach 5 ft. 5 (1d4 + 3) Piercing damage.
+***Morso.*** *Attacco in mischia:* +5, portata 1,5 m. 5 (1d4 + 3) danni perforanti.  
 
+### Azioni Bonus
 
-### Bonus Actions
+***Teletrasporto (Ricarica 4–6).*** Il cane si teletrasporta fino a 12 m in uno spazio non occupato che può vedere.  
 
-***Teleport (Recharge 4-6).*** The dog teleports up to 40 feet to an unoccupied space it can see.
+## Dragonetto Blu
 
-## Blue Dragon Wyrmling
+*Drago Medio (Cromatico), Legale Malvagio*
 
-*Medium Dragon (Chromatic), Lawful Evil*
+- **Classe Armatura:** 17  
+- **Punti Ferita:** 65 (10d8 + 20)  
+- **Velocità:** 9 m, Sotterrare 4,5 m, Volare 18 m  
+- **Iniziativa**: +2 (12)
 
-- **Armor Class:** 17
-- **Hit Points:** 65 (10d8 + 20)
-- **Speed:** 30 ft., Burrow 15 ft., Fly 60 ft.
-- **Initiative**: +2 (12)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 17 | +3 | +3 |
-| DEX | 10 | +0 | +2 |
-| CON | 15 | +2 | +2 |
+| FOR | 17 | +3 | +3 |
+| DES | 10 | +0 | +2 |
+| COS | 15 | +2 | +2 |
 | INT | 12 | +1 | +1 |
-| WIS | 11 | +0 | +2 |
-| CHA | 15 | +2 | +2 |
+| SAG | 11 | +0 | +2 |
+| CAR | 15 | +2 | +2 |
 
-- **Immunities**: Lightning
-- **Skills**: Perception +4, Stealth +2
-- **Senses**: blindsight 10 ft., darkvision 60 ft.; Passive Perception 14
-- **Languages**: Draconic
-- **CR** 3 (XP 700; PB +2)
+- **Immunità**: Fulmine  
+- **Abilità**: Percezione +4, Furtività +2  
+- **Sensi**: Vista Cieca 3 m, Scurovisione 18 m; Percezione Passiva 14  
+- **Linguaggi**: Draconico  
+- **GS** 3 (PE 700; MB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The dragon makes two Rend attacks.
+***Attacco Multiplo.*** Il drago effettua due attacchi di Dilaniare.  
 
-***Rend.*** *Melee Attack Roll:* +5, reach 5 ft. 8 (1d10 + 3) Slashing damage plus 3 (1d6) Lightning damage.
+***Dilaniare.*** *Attacco in mischia:* +5, portata 1,5 m. 8 (1d10 + 3) danni taglienti più 3 (1d6) danni da fulmine.  
 
-***Lightning Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 12, each creature in a 30-foot-long, 5-foot-wide Line. *Failure:*  21 (6d6) Lightning damage. *Success:*  Half damage.
+***Soffio di Fulmine (Ricarica 5–6).*** *TS Des:* CD 12, ogni creatura in una linea di 9 m per 1,5 m. *Fallimento:* 21 (6d6) danni da fulmine. *Successo:* metà danni.  
 
-## Bone Devil
+## Diavolo d’Ossa
 
-*Large Fiend (Devil), Lawful Evil*
+*Immane Immondo (Diavolo), Legale Malvagio*
 
-- **Armor Class:** 16
-- **Hit Points:** 161 (17d10 + 68)
-- **Speed:** 40 ft., Fly 40 ft.
-- **Initiative**: +7 (17)
+- **Classe Armatura:** 16  
+- **Punti Ferita:** 161 (17d10 + 68)  
+- **Velocità:** 12 m, Volare 12 m  
+- **Iniziativa**: +7 (17)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +8 |
-| DEX | 16 | +3 | +3 |
-| CON | 18 | +4 | +4 |
+| FOR | 18 | +4 | +8 |
+| DES | 16 | +3 | +3 |
+| COS | 18 | +4 | +4 |
 | INT | 13 | +1 | +5 |
-| WIS | 14 | +2 | +6 |
-| CHA | 16 | +3 | +7 |
+| SAG | 14 | +2 | +6 |
+| CAR | 16 | +3 | +7 |
 
-- **Resistances**: Cold
-- **Immunities**: Fire, Poison; Poisoned
-- **Skills**: Deception +7, Insight +6
-- **Senses**: darkvision 120 ft. (unimpeded by magical darkness); Passive Perception 12
-- **Languages**: Infernal; telepathy 120 ft.
-- **CR** 9 (XP 5,000; PB +4)
+- **Resistenze**: Freddo  
+- **Immunità**: Fuoco, Veleno; Avvelenato  
+- **Abilità**: Inganno +7, Intuizione +6  
+- **Sensi**: Scurovisione 36 m (non ostacolata da oscurità magica); Percezione Passiva 12  
+- **Linguaggi**: Infernale; telepatia 36 m  
+- **GS** 9 (PE 5.000; MB +4)
 
-### Traits
+### Tratti
 
-***Diabolical Restoration.*** If the devil dies outside the Nine Hells, its body disappears in sulfurous smoke, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Nine Hells.
+***Restaurazione Diabolica.*** Se il diavolo muore al di fuori dei Nove Inferi, il suo corpo scompare in un fumo sulfureo e ottiene immediatamente un nuovo corpo, resuscitando con tutti i suoi Punti Ferita da qualche parte nei Nove Inferi.  
 
-***Magic Resistance.*** The devil has Advantage on saving throws against spells and other magical effects.
+***Resistenza Magica.*** Il diavolo ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il diavolo effettua due attacchi di Artigli e un attacco di Pungiglione Infernale.  
 
-***Multiattack.*** The devil makes two Claw attacks and one Infernal Sting attack.
+***Artigli.*** *Attacco in mischia:* +8, portata 3 m. 13 (2d8 + 4) danni taglienti.  
 
-***Claw.*** *Melee Attack Roll:* +8, reach 10 ft. 13 (2d8 + 4) Slashing damage.
+***Pungiglione Infernale.*** *Attacco in mischia:* +8, portata 3 m. 15 (2d10 + 4) danni perforanti più 18 (4d8) danni da veleno, e il bersaglio ha la condizione Avvelenato fino all’inizio del turno successivo del diavolo. Finché è Avvelenato, il bersaglio non può recuperare Punti Ferita.  
 
-***Infernal Sting.*** *Melee Attack Roll:* +8, reach 10 ft. 15 (2d10 + 4) Piercing damage plus 18 (4d8) Poison damage, and the target has the Poisoned condition until the start of the devil's next turn. While Poisoned, the target can't regain Hit Points.
+## Dragonetto di Ottone
 
-## Brass Dragon Wyrmling
+*Drago Medio (Metallico), Caotico Buono*
 
-*Medium Dragon (Metallic), Chaotic Good*
+- **Classe Armatura:** 15  
+- **Punti Ferita:** 22 (4d8 + 4)  
+- **Velocità:** 9 m, Sotterrare 4,5 m, Volare 18 m  
+- **Iniziativa**: +2 (12)
 
-- **Armor Class:** 15
-- **Hit Points:** 22 (4d8 + 4)
-- **Speed:** 30 ft., Burrow 15 ft., Fly 60 ft.
-- **Initiative**: +2 (12)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +2 |
-| DEX | 10 | +0 | +2 |
-| CON | 13 | +1 | +1 |
+| FOR | 15 | +2 | +2 |
+| DES | 10 | +0 | +2 |
+| COS | 13 | +1 | +1 |
 | INT | 10 | +0 | +0 |
-| WIS | 11 | +0 | +2 |
-| CHA | 13 | +1 | +1 |
+| SAG | 11 | +0 | +2 |
+| CAR | 13 | +1 | +1 |
 
-- **Immunities**: Fire
-- **Skills**: Perception +4, Stealth +2
-- **Senses**: blindsight 10 ft., darkvision 60 ft.; Passive Perception 14
-- **Languages**: Draconic
-- **CR** 1 (XP 200; PB +2)
+- **Immunità**: Fuoco  
+- **Abilità**: Percezione +4, Furtività +2  
+- **Sensi**: Vista Cieca 3 m, Scurovisione 18 m; Percezione Passiva 14  
+- **Linguaggi**: Draconico  
+- **GS** 1 (PE 200; MB +2)
 
-### Actions
+### Azioni
 
-***Rend.*** *Melee Attack Roll:* +4, reach 5 ft. 7 (1d10 + 2) Slashing damage.
+***Dilaniare.*** *Attacco in mischia:* +4, portata 1,5 m. 7 (1d10 + 2) danni taglienti.  
 
-***Fire Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 11, each creature in a 20-foot-long, 5-foot-wide Line. *Failure:*  14 (4d6) Fire damage. *Success:*  Half damage.
+***Soffio di Fuoco (Ricarica 5–6).*** *TS Des:* CD 11, ogni creatura in una linea di 6 m per 1,5 m. *Fallimento:* 14 (4d6) danni da fuoco. *Successo:* metà danni.  
 
-***Sleep Breath.*** *Constitution Saving Throw*: DC 11, each creature in a 15-foot Cone. *Failure:*  The target has the Incapacitated condition until the end of its next turn, at which point it repeats the save. *Second Failure* The target has the Unconscious condition for 1 minute. This effect ends for the target if it takes damage or a creature within 5 feet of it takes an action to wake it.
+***Soffio del Sonno.*** *TS Cos:* CD 11, ogni creatura in un cono di 4,5 m. *Fallimento:* il bersaglio ha la condizione Incapacitato fino alla fine del suo prossimo turno, dopodiché ripete il tiro salvezza. *Secondo Fallimento:* il bersaglio ha la condizione Incosciente per 1 minuto. Questo effetto termina se subisce danni o se una creatura entro 1,5 m da lui usa un’azione per svegliarlo.  
 
-## Bronze Dragon Wyrmling
+## Dragonetto di Bronzo
 
-*Medium Dragon (Metallic), Lawful Good*
+*Drago Medio (Metallico), Legale Buono*
 
-- **Armor Class:** 15
-- **Hit Points:** 39 (6d8 + 12)
-- **Speed:** 30 ft., Fly 60 ft., Swim 30 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 15  
+- **Punti Ferita:** 39 (6d8 + 12)  
+- **Velocità:** 9 m, Volare 18 m, Nuotare 9 m  
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 17 | +3 | +3 |
-| DEX | 10 | +0 | +2 |
-| CON | 15 | +2 | +2 |
+| FOR | 17 | +3 | +3 |
+| DES | 10 | +0 | +2 |
+| COS | 15 | +2 | +2 |
 | INT | 12 | +1 | +1 |
-| WIS | 11 | +0 | +2 |
-| CHA | 15 | +2 | +2 |
+| SAG | 11 | +0 | +2 |
+| CAR | 15 | +2 | +2 |
 
-- **Immunities**: Lightning
-- **Skills**: Perception +4, Stealth +2
-- **Senses**: blindsight 10 ft., darkvision 60 ft.; Passive Perception 14
-- **Languages**: Draconic
-- **CR** 2 (XP 450; PB +2)
+- **Immunità**: Fulmine  
+- **Abilità**: Percezione +4, Furtività +2  
+- **Sensi**: Vista Cieca 3 m, Scurovisione 18 m; Percezione Passiva 14  
+- **Linguaggi**: Draconico  
+- **GS** 2 (PE 450; MB +2)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The dragon can breathe air and water.
+***Anfibio.*** Il drago può respirare aria e acqua.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua due attacchi di Dilaniare.  
 
-***Multiattack.*** The dragon makes two Rend attacks.
+***Dilaniare.*** *Attacco in mischia:* +5, portata 1,5 m. 8 (1d10 + 3) danni taglienti.  
 
-***Rend.*** *Melee Attack Roll:* +5, reach 5 ft. 8 (1d10 + 3) Slashing damage.
+***Soffio di Fulmine (Ricarica 5–6).*** *TS Des:* CD 12, ogni creatura in una linea di 12 m per 1,5 m. *Fallimento:* 16 (3d10) danni da fulmine. *Successo:* metà danni.  
 
-***Lightning Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 12, each creature in a 40-foot-long, 5-foot-wide Line. *Failure:*  16 (3d10) Lightning damage. *Success:*  Half damage.
+***Soffio di Repulsione.*** *TS For:* CD 12, ogni creatura in un cono di 9 m. *Fallimento:* il bersaglio è spinto fino a 9 m lontano dal drago e cade Prono.  
 
-***Repulsion Breath.*** *Strength Saving Throw*: DC 12, each creature in a 30-foot Cone. *Failure:*  The target is pushed up to 30 feet straight away from the dragon and has the Prone condition.
+## Bugbear Predatore
 
-## Bugbear Stalker
+*Folletto Medio (Goblinide), Caotico Malvagio*
 
-*Medium Fey (Goblinoid), Chaotic Evil*
+- **Classe Armatura:** 15  
+- **Punti Ferita:** 65 (10d8 + 20)  
+- **Velocità:** 9 m  
+- **Iniziativa**: +2 (12)
 
-- **Armor Class:** 15
-- **Hit Points:** 65 (10d8 + 20)
-- **Speed:** 30 ft.
-- **Initiative**: +2 (12)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 17 | +3 | +3 |
-| DEX | 14 | +2 | +2 |
-| CON | 14 | +2 | +4 |
+| FOR | 17 | +3 | +3 |
+| DES | 14 | +2 | +2 |
+| COS | 14 | +2 | +4 |
 | INT | 11 | +0 | +0 |
-| WIS | 12 | +1 | +3 |
-| CHA | 11 | +0 | +0 |
+| SAG | 12 | +1 | +3 |
+| CAR | 11 | +0 | +0 |
 
-- **Skills**: Stealth +6, Survival +3
-- **Gear** Chain Shirt, Javelin x 6, Morningstar
-- **Senses**: darkvision 60 ft.; Passive Perception 11
-- **Languages**: Common, Goblin
-- **CR** 3 (XP 700; PB +2)
+- **Abilità**: Furtività +6, Sopravvivenza +3  
+- **Equipaggiamento**: Cotta di maglia, Giavellotto × 6, Mazza ferrata  
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 11  
+- **Linguaggi**: Comune, Goblin  
+- **GS** 3 (PE 700; MB +2)
 
-### Traits
+### Tratti
 
-***Abduct.*** The bugbear needn't spend extra movement to move a creature it is grappling.
+***Rapimento.*** Il bugbear non deve spendere movimento extra per trascinare una creatura che sta afferrando.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il bugbear effettua due attacchi con Giavellotto o Mazza ferrata.  
 
-***Multiattack.*** The bugbear makes two Javelin or Morningstar attacks.
+***Giavellotto.*** *Attacco in mischia o a distanza:* +5, portata 3 m o gittata 9/36 m. 13 (3d6 + 3) danni perforanti.  
 
-***Javelin.*** *Melee or Ranged Attack Roll:* +5, reach 10 ft. or range 30/120 ft. 13 (3d6 + 3) Piercing damage.
+***Mazza ferrata.*** *Attacco in mischia:* +5 (con vantaggio se il bersaglio è afferrato dal bugbear), portata 3 m. 12 (2d8 + 3) danni perforanti.  
 
-***Morningstar.*** *Melee Attack Roll:* +5 (with Advantage if the target is Grappled by the bugbear), reach 10 ft. 12 (2d8 + 3) Piercing damage.
+### Azioni Bonus
 
+***Afferrata Rapida.*** *TS Des:* CD 13, una creatura Media o più piccola che il bugbear può vedere entro 3 m. *Fallimento:* il bersaglio ha la condizione Afferrato (CD Fuga 13).  
 
-### Bonus Actions
+## Bugbear Guerriero
 
-***Quick Grapple.*** *Dexterity Saving Throw*: DC 13, one Medium or smaller creature the bugbear can see within 10 feet. *Failure:*  The target has the Grappled condition (escape DC 13).
+*Folletto Medio (Goblinide), Caotico Malvagio*
 
-## Bugbear Warrior
+- **Classe Armatura:** 14  
+- **Punti Ferita:** 33 (6d8 + 6)  
+- **Velocità:** 9 m  
+- **Iniziativa**: +2 (12)
 
-*Medium Fey (Goblinoid), Chaotic Evil*
-
-- **Armor Class:** 14
-- **Hit Points:** 33 (6d8 + 6)
-- **Speed:** 30 ft.
-- **Initiative**: +2 (12)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +2 |
-| DEX | 14 | +2 | +2 |
-| CON | 13 | +1 | +1 |
-| INT | 8 | -1 | -1 |
-| WIS | 11 | +0 | +0 |
-| CHA | 9 | -1 | -1 |
+| FOR | 15 | +2 | +2 |
+| DES | 14 | +2 | +2 |
+| COS | 13 | +1 | +1 |
+| INT | 8  | -1 | -1 |
+| SAG | 11 | +0 | +0 |
+| CAR | 9  | -1 | -1 |
 
-- **Skills**: Stealth +6, Survival +2
-- **Gear** Hide Armor, Light Hammer x 3
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **Languages**: Common, Goblin
-- **CR** 1 (XP 200; PB +2)
+- **Abilità**: Furtività +6, Sopravvivenza +2  
+- **Equipaggiamento**: Armatura di cuoio grezzo, Martello leggero ×3  
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 10  
+- **Linguaggi**: Comune, Goblin  
+- **GS** 1 (PE 200; MB +2)
 
-### Traits
+### Tratti
 
-***Abduct.*** The bugbear needn't spend extra movement to move a creature it is grappling.
+***Rapimento.*** Il bugbear non deve spendere movimento extra per trascinare una creatura che sta afferrando.  
 
+### Azioni
 
-### Actions
+***Afferrare.*** *Attacco in mischia:* +4, portata 3 m. 9 (2d6 + 2) danni contundenti. Se il bersaglio è una creatura Media o più piccola, ottiene la condizione Afferrato (CD Fuga 12).  
 
-***Grab.*** *Melee Attack Roll:* +4, reach 10 ft. 9 (2d6 + 2) Bludgeoning damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 12).
-
-***Light Hammer.*** *Melee or Ranged Attack Roll:* +4 (with Advantage if the target is Grappled by the bugbear), reach 10 ft. or range 20/60 ft. 9 (3d4 + 2) Bludgeoning damage.
+***Martello Leggero.*** *Attacco in mischia o a distanza:* +4 (con vantaggio se il bersaglio è afferrato dal bugbear), portata 3 m o gittata 6/18 m. 9 (3d4 + 2) danni contundenti.  
 
 ## Bulette
 
-*Large Monstrosity, Unaligned*
+*Mostruosità Grande, Non Allineata*
 
-- **Armor Class:** 17
-- **Hit Points:** 94 (9d10 + 45)
-- **Speed:** 40 ft., Burrow 40 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 17  
+- **Punti Ferita:** 94 (9d10 + 45)  
+- **Velocità:** 12 m, Sotterrare 12 m  
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 11 | +0 | +0 |
-| CON | 21 | +5 | +5 |
-| INT | 2 | -4 | -4 |
-| WIS | 10 | +0 | +0 |
-| CHA | 5 | -3 | -3 |
+| FOR | 19 | +4 | +4 |
+| DES | 11 | +0 | +0 |
+| COS | 21 | +5 | +5 |
+| INT | 2  | -4 | -4 |
+| SAG | 10 | +0 | +0 |
+| CAR | 5  | -3 | -3 |
 
-- **Skills**: Perception +6
-- **Senses**: darkvision 60 ft., tremorsense 120 ft.; Passive Perception 16
-- **CR** 5 (XP 1,800; PB +3)
+- **Abilità**: Percezione +6  
+- **Sensi**: Scurovisione 18 m, Tremorsenso 36 m; Percezione Passiva 16  
+- **GS** 5 (PE 1.800; MB +3)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The bulette makes two Bite attacks.
+***Attacco Multiplo.*** La bulette effettua due attacchi di Morso.  
 
-***Bite.*** *Melee Attack Roll:* +7, reach 5 ft. 17 (2d12 + 4) Piercing damage.
+***Morso.*** *Attacco in mischia:* +7, portata 1,5 m. 17 (2d12 + 4) danni perforanti.  
 
-***Deadly Leap.*** The bulette spends 5 feet of movement to jump to a space within 15 feet that contains one or more Large or smaller creatures. *Dexterity Saving Throw*: DC 15, each creature in the bulette's destination space. *Failure:*  19 (3d12) Bludgeoning damage, and the target has the Prone condition. *Success:*  Half damage, and the target is pushed 5 feet straight away from the bulette.
+***Salto Mortale.*** La bulette spende 1,5 m di movimento per saltare in uno spazio entro 4,5 m che contiene una o più creature Grandi o più piccole. *TS Des:* CD 15, ogni creatura nello spazio di destinazione della bulette. *Fallimento:* 19 (3d12) danni contundenti, e il bersaglio cade Prono. *Successo:* metà danni, e il bersaglio è spinto di 1,5 m lontano dalla bulette.  
 
+### Azioni Bonus
 
-### Bonus Actions
+***Balzo.*** La bulette salta fino a 9 m spendendo 3 m di movimento.  
 
-***Leap.*** The bulette jumps up to 30 feet by spending 10 feet of movement.
+## Centauro Soldato
 
-## Centaur Trooper
+*Folletto Grande, Neutrale Buono*
 
-*Large Fey, Neutral Good*
+- **Classe Armatura:** 16  
+- **Punti Ferita:** 45 (6d10 + 12)  
+- **Velocità:** 15 m  
+- **Iniziativa**: +2 (12)
 
-- **Armor Class:** 16
-- **Hit Points:** 45 (6d10 + 12)
-- **Speed:** 50 ft.
-- **Initiative**: +2 (12)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 14 | +2 | +2 |
-| CON | 14 | +2 | +2 |
-| INT | 9 | -1 | -1 |
-| WIS | 13 | +1 | +1 |
-| CHA | 11 | +0 | +0 |
+| FOR | 18 | +4 | +4 |
+| DES | 14 | +2 | +2 |
+| COS | 14 | +2 | +2 |
+| INT | 9  | -1 | -1 |
+| SAG | 13 | +1 | +1 |
+| CAR | 11 | +0 | +0 |
 
-- **Skills**: Athletics +6, Perception +3
-- **Gear** Breastplate, Longbow, Pike
-- **Senses**: Passive Perception 13
-- **Languages**: Elvish, Sylvan
-- **CR** 2 (XP 450; PB +2)
+- **Abilità**: Atletica +6, Percezione +3  
+- **Equipaggiamento**: Corazza, Arco lungo, Picca  
+- **Sensi**: Percezione Passiva 13  
+- **Linguaggi**: Elfico, Silvano  
+- **GS** 2 (PE 450; MB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The centaur makes two attacks, using Pike or Longbow in any combination.
+***Attacco Multiplo.*** Il centauro effettua due attacchi, usando Picca o Arco lungo in qualsiasi combinazione.  
 
-***Pike.*** *Melee Attack Roll:* +6, reach 10 ft. 9 (1d10 + 4) Piercing damage.
+***Picca.*** *Attacco in mischia:* +6, portata 3 m. 9 (1d10 + 4) danni perforanti.  
 
-***Longbow.*** *Ranged Attack Roll:* +4, range 150/600 ft. 6 (1d8 + 2) Piercing damage.
+***Arco Lungo.*** *Attacco a distanza:* +4, gittata 45/180 m. 6 (1d8 + 2) danni perforanti.  
 
+### Azioni Bonus
 
-### Bonus Actions
+***Carica Travolgente (Ricarica 5–6).*** Il centauro si muove fino alla sua velocità senza provocare Attacchi di Opportunità e può muoversi attraverso spazi occupati da creature Medie o più piccole. Ogni creatura il cui spazio viene attraversato è bersaglio del seguente effetto. *TS For:* CD 14. *Fallimento:* 7 (1d6 + 4) danni contundenti, e il bersaglio cade Prono.  
 
-***Trampling Charge (Recharge 5-6).*** The centaur moves up to its Speed without provoking Opportunity Attacks and can move through the spaces of Medium or smaller creatures. Each creature whose space the centaur enters is targeted once by the following effect. *Strength Saving Throw*: DC 14. *Failure:*  7 (1d6 + 4) Bludgeoning damage, and the target has the Prone condition.
+## Diavolo delle Catene
 
-## Chain Devil
+*Immondo Medio (Diavolo), Legale Malvagio*
 
-*Medium Fiend (Devil), Lawful Evil*
+- **Classe Armatura:** 15  
+- **Punti Ferita:** 85 (10d8 + 40)  
+- **Velocità:** 9 m  
+- **Iniziativa**: +5 (15)
 
-- **Armor Class:** 15
-- **Hit Points:** 85 (10d8 + 40)
-- **Speed:** 30 ft.
-- **Initiative**: +5 (15)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 15 | +2 | +2 |
-| CON | 18 | +4 | +7 |
+| FOR | 18 | +4 | +4 |
+| DES | 15 | +2 | +2 |
+| COS | 18 | +4 | +7 |
 | INT | 11 | +0 | +0 |
-| WIS | 12 | +1 | +4 |
-| CHA | 14 | +2 | +2 |
+| SAG | 12 | +1 | +4 |
+| CAR | 14 | +2 | +2 |
 
-- **Resistances**: Bludgeoning, Cold, Piercing, Slashing
-- **Immunities**: Fire, Poison; Poisoned
-- **Senses**: darkvision 120 ft. (unimpeded by magical darkness); Passive Perception 11
-- **Languages**: Infernal; telepathy 120 ft.
-- **CR** 8 (XP 3,900; PB +3)
+- **Resistenze**: Contundente, Freddo, Perforante, Tagliente  
+- **Immunità**: Fuoco, Veleno; Avvelenato  
+- **Sensi**: Scurovisione 36 m (non ostacolata da oscurità magica); Percezione Passiva 11  
+- **Linguaggi**: Infernale; telepatia 36 m  
+- **GS** 8 (PE 3.900; MB +3)
 
-### Traits
+### Tratti
 
-***Diabolical Restoration.*** If the devil dies outside the Nine Hells, its body disappears in sulfurous smoke, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Nine Hells.
+***Restaurazione Diabolica.*** Se il diavolo muore al di fuori dei Nove Inferi, il suo corpo scompare in un fumo sulfureo e ottiene immediatamente un nuovo corpo, resuscitando con tutti i suoi Punti Ferita da qualche parte nei Nove Inferi.  
 
-***Magic Resistance.*** The devil has Advantage on saving throws against spells and other magical effects.
+***Resistenza Magica.*** Il diavolo ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il diavolo effettua due attacchi di Catena e usa Evocare Catena Infernale.  
 
-***Multiattack.*** The devil makes two Chain attacks and uses Conjure Infernal Chain.
+***Catena.*** *Attacco in mischia:* +7, portata 3 m. 11 (2d6 + 4) danni taglienti. Se il bersaglio è una creatura Grande o più piccola, ottiene la condizione Afferrato (CD Fuga 14) da una delle due catene, e la condizione Immobilizzato finché la presa non termina.  
 
-***Chain.*** *Melee Attack Roll:* +7, reach 10 ft. 11 (2d6 + 4) Slashing damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 14) from one of two chains, and it has the Restrained condition until the grapple ends.
-
-***Conjure Infernal Chain.*** The devil conjures a fiery chain to bind a creature. *Dexterity Saving Throw*: DC 15, one creature the devil can see within 60 feet. *Failure:*  9 (2d4 + 4) Fire damage, and the target has the Restrained condition until the end of the devil's next turn, at which point the chain disappears. If the target is Large or smaller, the devil moves the target up to 30 feet straight toward itself. *Success:*  The chain disappears.
+***Evocare Catena Infernale.*** Il diavolo evoca una catena infuocata per vincolare una creatura. *TS Des:* CD 15, una creatura che il diavolo può vedere entro 18 m. *Fallimento:* 9 (2d4 + 4) danni da fuoco, e il bersaglio ha la condizione Immobilizzato fino alla fine del prossimo turno del diavolo, dopodiché la catena scompare. Se il bersaglio è Grande o più piccolo, il diavolo lo spinge fino a 9 m dritto verso di sé. *Successo:* la catena scompare.  
 
 ## Chimera
 
-*Large Monstrosity, Chaotic Evil*
+*Mostruosità Grande, Caotico Malvagio*
 
-- **Armor Class:** 14
-- **Hit Points:** 114 (12d10 + 48)
-- **Speed:** 30 ft., Fly 60 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 14  
+- **Punti Ferita:** 114 (12d10 + 48)  
+- **Velocità:** 9 m, Volare 18 m  
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 11 | +0 | +0 |
-| CON | 19 | +4 | +4 |
-| INT | 3 | -4 | -4 |
-| WIS | 14 | +2 | +2 |
-| CHA | 10 | +0 | +0 |
+| FOR | 19 | +4 | +4 |
+| DES | 11 | +0 | +0 |
+| COS | 19 | +4 | +4 |
+| INT | 3  | -4 | -4 |
+| SAG | 14 | +2 | +2 |
+| CAR | 10 | +0 | +0 |
 
-- **Skills**: Perception +8
-- **Senses**: darkvision 60 ft.; Passive Perception 18
-- **Languages**: Understands Draconic but can't speak
-- **CR** 6 (XP 2,300; PB +3)
+- **Abilità**: Percezione +8  
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 18  
+- **Linguaggi**: comprende il Draconico ma non può parlarlo  
+- **GS** 6 (PE 2.300; MB +3)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The chimera makes one Ram attack, one Bite attack, and one Claw attack. It can replace the Claw attack with a use of Fire Breath if available.
+***Attacco Multiplo.*** La chimera effettua un attacco di Incornata, uno di Morso e uno di Artiglio. Può sostituire l’Artiglio con un uso di Soffio di Fuoco se disponibile.  
 
-***Bite.*** *Melee Attack Roll:* +7, reach 5 ft. 11 (2d6 + 4) Piercing damage, or 18 (4d6 + 4) Piercing damage if the chimera had Advantage on the attack roll.
+***Morso.*** *Attacco in mischia:* +7, portata 1,5 m. 11 (2d6 + 4) danni perforanti, oppure 18 (4d6 + 4) danni perforanti se la chimera aveva vantaggio al tiro per colpire.  
 
-***Claw.*** *Melee Attack Roll:* +7, reach 5 ft. 7 (1d6 + 4) Slashing damage.
+***Artiglio.*** *Attacco in mischia:* +7, portata 1,5 m. 7 (1d6 + 4) danni taglienti.  
 
-***Ram.*** *Melee Attack Roll:* +7, reach 5 ft. 10 (1d12 + 4) Bludgeoning damage. If the target is a Medium or smaller creature, it has the Prone condition.
+***Incornata.*** *Attacco in mischia:* +7, portata 1,5 m. 10 (1d12 + 4) danni contundenti. Se il bersaglio è una creatura Media o più piccola, ottiene la condizione Prono.  
 
-***Fire Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 15, each creature in a 15-foot Cone. *Failure:*  31 (7d8) Fire damage. *Success:*  Half damage.
+***Soffio di Fuoco (Ricarica 5–6).*** *TS Des:* CD 15, ogni creatura in un cono di 4,5 m. *Fallimento:* 31 (7d8) danni da fuoco. *Successo:* metà danni.  
 
 ## Chuul
 
-*Large Aberration, Chaotic Evil*
+*Aberrazione Grande, Caotico Malvagio*
 
-- **Armor Class:** 16
-- **Hit Points:** 76 (9d10 + 27)
-- **Speed:** 30 ft., Swim 30 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 16  
+- **Punti Ferita:** 76 (9d10 + 27)  
+- **Velocità:** 9 m, Nuotare 9 m  
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 10 | +0 | +0 |
-| CON | 16 | +3 | +3 |
-| INT | 5 | -3 | -3 |
-| WIS | 11 | +0 | +0 |
-| CHA | 5 | -3 | -3 |
+| FOR | 19 | +4 | +4 |
+| DES | 10 | +0 | +0 |
+| COS | 16 | +3 | +3 |
+| INT | 5  | -3 | -3 |
+| SAG | 11 | +0 | +0 |
+| CAR | 5  | -3 | -3 |
 
-- **Immunities**: Poison; Poisoned
-- **Skills**: Perception +4
-- **Senses**: darkvision 60 ft.; Passive Perception 14
-- **Languages**: Understands Deep Speech but can't speak
-- **CR** 4 (XP 1,100; PB +2)
+- **Immunità**: Veleno; Avvelenato  
+- **Abilità**: Percezione +4  
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 14  
+- **Linguaggi**: comprende il Linguaggio Profondo ma non può parlarlo  
+- **GS** 4 (PE 1.100; MB +2)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The chuul can breathe air and water.
+***Anfibio.*** Il chuul può respirare aria e acqua.  
 
-***Sense Magic.*** The chuul senses magic within 120 feet of itself. This trait otherwise works like the *Detect Magic* spell but isn't itself magical.
+***Individuazione della Magia.*** Il chuul percepisce la magia entro 36 m da sé. Questo tratto funziona come *Individuazione del Magico* ma non è di per sé magico.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il chuul effettua due attacchi di Chela e usa Tentacoli Paralizzanti.  
 
-***Multiattack.*** The chuul makes two Pincer attacks and uses Paralyzing Tentacles.
+***Chela.*** *Attacco in mischia:* +6, portata 3 m. 9 (1d10 + 4) danni contundenti. Se il bersaglio è una creatura Grande o più piccola, ottiene la condizione Afferrato (CD Fuga 14) da una delle due chele.  
 
-***Pincer.*** *Melee Attack Roll:* +6, reach 10 ft. 9 (1d10 + 4) Bludgeoning damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 14) from one of two pincers.
+***Tentacoli Paralizzanti.*** *TS Cos:* CD 13, una creatura afferrata dal chuul. *Fallimento:* il bersaglio ha la condizione Avvelenato e ripete il TS alla fine di ciascun suo turno, terminando l’effetto su di sé con un successo. Dopo 1 minuto riesce automaticamente. Finché è Avvelenato in questo modo, il bersaglio ha la condizione Paralizzato.  
 
-***Paralyzing Tentacles.*** *Constitution Saving Throw*: DC 13, one creature Grappled by the chuul. *Failure:*  The target has the Poisoned condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically. While Poisoned, the target has the Paralyzed condition.
+## Golem d’Argilla
 
-## Clay Golem
+*Costrutto Grande, Non Allineato*
 
-*Large Construct, Unaligned*
+- **Classe Armatura:** 14  
+- **Punti Ferita:** 123 (13d10 + 52)  
+- **Velocità:** 6 m  
+- **Iniziativa**: +3 (13)
 
-- **Armor Class:** 14
-- **Hit Points:** 123 (13d10 + 52)
-- **Speed:** 20 ft.
-- **Initiative**: +3 (13)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 20 | +5 | +5 |
-| DEX | 9 | -1 | -1 |
-| CON | 18 | +4 | +4 |
-| INT | 3 | -4 | -4 |
-| WIS | 8 | -1 | -1 |
-| CHA | 1 | -5 | -5 |
+| FOR | 20 | +5 | +5 |
+| DES | 9  | -1 | -1 |
+| COS | 18 | +4 | +4 |
+| INT | 3  | -4 | -4 |
+| SAG | 8  | -1 | -1 |
+| CAR | 1  | -5 | -5 |
 
-- **Resistances**: Bludgeoning, Piercing, Slashing
-- **Immunities**: Acid, Poison, Psychic; Charmed, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned
-- **Senses**: darkvision 60 ft.; Passive Perception 9
-- **Languages**: Common plus one other language
-- **CR** 9 (XP 5,000; PB +4)
+- **Resistenze**: Contundenti, Perforanti, Taglienti  
+- **Immunità**: Acido, Veleno, Psichico; Affascinato, Affaticato, Spaventato, Paralizzato, Pietrificato, Avvelenato  
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 9  
+- **Linguaggi**: Comune più un altro linguaggio  
+- **GS** 9 (PE 5.000; MB +4)
 
-### Traits
+### Tratti
 
-***Acid Absorption.*** Whenever the golem is subjected to Acid damage, it takes no damage and instead regains a number of Hit Points equal to the Acid damage dealt.
+***Assorbimento dell’Acido.*** Quando il golem subisce danni da acido, non subisce danni e invece recupera un numero di PF pari ai danni da acido inflitti.  
 
-***Berserk.*** Whenever the golem starts its turn Bloodied, roll 1d6. On a 6, the golem goes berserk. On each of its turns while berserk, the golem attacks the nearest creature it can see. If no creature is near enough to move to and attack, the golem attacks an object. Once the golem goes berserk, it continues to be berserk until it is destroyed or it is no longer Bloodied.
+***Furia.*** Quando inizia il suo turno Sanguinante, tira 1d6. Con un 6, il golem va in furia. In ciascun suo turno in furia, attacca la creatura più vicina che vede; se nessuna è raggiungibile, attacca un oggetto. Rimane in furia finché non viene distrutto o non è più Sanguinante.  
 
-***Immutable Form.*** The golem can't shape-shift.
+***Forma Immutabile.*** Il golem non può cambiare forma.  
 
-***Magic Resistance.*** The golem has Advantage on saving throws against spells and other magical effects.
+***Resistenza alla Magia.*** Il golem ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il golem effettua due attacchi di Schianto, o tre se ha usato Accelerare in questo turno.  
 
-***Multiattack.*** The golem makes two Slam attacks, or it makes three Slam attacks if it used Hasten this turn.
+***Schianto.*** *Attacco in mischia:* +9, portata 1,5 m. 10 (1d10 + 5) danni contundenti più 6 (1d12) danni da acido, e il massimo dei PF del bersaglio si riduce di un ammontare pari ai danni da acido subiti.  
 
-***Slam.*** *Melee Attack Roll:* +9, reach 5 ft. 10 (1d10 + 5) Bludgeoning damage plus 6 (1d12) Acid damage, and the target's Hit Point maximum decreases by an amount equal to the Acid damage taken.
+### Azioni Bonus
 
+***Accelerare (Ricarica 5–6).*** Il golem compie le azioni Scatto e Disimpegno.  
 
-### Bonus Actions
+## Manto
 
-***Hasten (Recharge 5-6).*** The golem takes the Dash and Disengage actions.
+*Aberrazione Grande, Caotico Neutrale*
 
-## Cloaker
+- **Classe Armatura:** 14  
+- **Punti Ferita:** 91 (14d10 + 14)  
+- **Velocità:** 3 m, Volare 12 m  
+- **Iniziativa**: +5 (15)
 
-*Large Aberration, Chaotic Neutral*
-
-- **Armor Class:** 14
-- **Hit Points:** 91 (14d10 + 14)
-- **Speed:** 10 ft., Fly 40 ft.
-- **Initiative**: +5 (15)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 17 | +3 | +3 |
-| DEX | 15 | +2 | +2 |
-| CON | 12 | +1 | +1 |
+| FOR | 17 | +3 | +3 |
+| DES | 15 | +2 | +2 |
+| COS | 12 | +1 | +1 |
 | INT | 13 | +1 | +1 |
-| WIS | 14 | +2 | +2 |
-| CHA | 7 | -2 | -2 |
+| SAG | 14 | +2 | +2 |
+| CAR | 7  | -2 | -2 |
 
-- **Immunities**: Frightened
-- **Skills**: Stealth +5
-- **Senses**: darkvision 120 ft.; Passive Perception 12
-- **Languages**: Deep Speech, Undercommon
-- **CR** 8 (XP 3,900; PB +3)
+- **Immunità**: Spaventato  
+- **Abilità**: Furtività +5  
+- **Sensi**: Scurovisione 36 m; Percezione Passiva 12  
+- **Linguaggi**: Linguaggio Profondo, Sottocomune  
+- **GS** 8 (PE 3.900; MB +3)
 
-### Traits
+### Tratti
 
-***Light Sensitivity.*** While in Bright Light, the cloaker has Disadvantage on attack rolls.
+***Sensibilità alla Luce.*** In Luce Intensa, il manto ha svantaggio ai tiri per colpire.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il manto effettua un attacco di Avvolgere e due attacchi di Coda.  
 
-***Multiattack.*** The cloaker makes one Attach attack and two Tail attacks.
+***Avvolgere.*** *Attacco in mischia:* +6, portata 1,5 m. 13 (3d6 + 3) danni perforanti. Se il bersaglio è una creatura Grande o più piccola, il manto si avvolge su di essa. Finché è avvolto, il bersaglio è Accecato e il manto non può usare Avvolgere su altri bersagli. Inoltre, il manto dimezza i danni che subisce (arrotondati per difetto) e il bersaglio subisce la stessa quantità di danni. Il manto può staccarsi spendendo 1,5 m di movimento. Il bersaglio o una creatura entro 1,5 m può usare un’azione per tentare di staccarlo con una prova di Forza (Atletica) CD 14.  
 
-***Attach.*** *Melee Attack Roll:* +6, reach 5 ft. 13 (3d6 + 3) Piercing damage. If the target is a Large or smaller creature, the cloaker attaches to it. While the cloaker is attached, the target has the Blinded condition, and the cloaker can't make Attach attacks against other targets. In addition, the cloaker halves the damage it takes (round down), and the target takes the same amount of damage.
-The cloaker can detach itself by spending 5 feet of movement. The target or a creature within 5 feet of it can take an action to try to detach the cloaker, doing so by succeeding on a DC 14 Strength (Athletics) check.
+***Coda.*** *Attacco in mischia:* +6, portata 3 m. 8 (1d10 + 3) danni taglienti.  
 
-***Tail.*** *Melee Attack Roll:* +6, reach 10 ft. 8 (1d10 + 3) Slashing damage.
+### Azioni Bonus
 
+***Gemito.*** *TS Sag:* CD 13, ogni creatura in un’emanazione di 18 m originata dal manto. *Fallimento:* condizione Spaventato fino alla fine del prossimo turno del manto. *Successo:* il bersaglio è immune al Gemito di questo manto per le successive 24 ore.  
 
-### Bonus Actions
+***Fantasmi (Ricarica dopo un Riposo breve o lungo).*** Il manto lancia *Doppio Illusorio*, senza componenti e usando Saggezza come caratteristica da incantatore. L’incantesimo termina in anticipo se il manto inizia o termina il suo turno in Luce Intensa.  
 
-***Moan.*** *Wisdom Saving Throw*: DC 13, each creature in a 60-foot Emanation originating from the cloaker. *Failure:*  The target has the Frightened condition until the end of the cloaker's next turn. *Success:*  The target is immune to this cloaker's Moan for the next 24 hours.
+## Gigante delle Nubi
 
-***Phantasms (Recharge after a Short or Long Rest).*** The cloaker casts the *Mirror Image* spell, requiring no spell components and using Wisdom as the spellcasting ability. The spell ends early if the cloaker starts or ends its turn in Bright Light.
-## Cloud Giant
+*Gigante Enorme, Neutrale*
 
-*Huge Giant, Neutral*
+- **Classe Armatura:** 14
+- **Punti Ferita:** 200 (16d12 + 96)
+- **Velocità:** 12 m, Volare 6 m (fluttuare)
+- **Iniziativa**: +4 (14)
 
-- **Armor Class:** 14
-- **Hit Points:** 200 (16d12 + 96)
-- **Speed:** 40 ft., Fly 20 ft. (hover)
-- **Initiative**: +4 (14)
-
-|STAT|SCORE|MOD|SAVE|
+|CARATT|PUNTEGGIO|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 27 | +8 | +8 |
-| DEX | 10 | +0 | +0 |
-| CON | 22 | +6 | +10 |
+| FOR | 27 | +8 | +8 |
+| DES | 10 | +0 | +0 |
+| COS | 22 | +6 | +10 |
 | INT | 12 | +1 | +1 |
-| WIS | 16 | +3 | +7 |
-| CHA | 16 | +3 | +3 |
+| SAG | 16 | +3 | +7 |
+| CAR | 16 | +3 | +3 |
 
-- **Skills**: Insight +7, Perception +11
-- **Senses**: Passive Perception 21
-- **Languages**: Common, Giant
-- **CR** 9 (XP 5,000; PB +4)
+- **Abilità**: Intuizione +7, Percezione +11
+- **Sensi**: Percezione Passiva 21
+- **Linguaggi**: Comune, Gigante
+- **GS** 9 (PE 5.000; PB +4)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The giant makes two attacks, using Thunderous Mace or Thundercloud in any combination. It can replace one attack with a use of Spellcasting to cast *Fog Cloud*.
+***Attacco Multiplo.*** Il gigante effettua due attacchi, usando Mazzafrusto Tonante o Nuvola Tonante in qualsiasi combinazione. Può sostituire un attacco con l’uso di Incantesimi per lanciare *Nube di Nebbia*.
 
-***Thunderous Mace.*** *Melee Attack Roll:* +12, reach 10 ft. 21 (3d8 + 8) Bludgeoning damage plus 7 (2d6) Thunder damage.
+***Mazzafrusto Tonante.*** *Tiro per Colpire in Mischia:* +12, portata 3 m. 21 (3d8 + 8) danni contundenti più 7 (2d6) danni da tuono.
 
-***Thundercloud.*** *Ranged Attack Roll:* +12, range 240 ft. 18 (3d6 + 8) Thunder damage, and the target has the Incapacitated condition until the end of its next turn.
+***Nuvola Tonante.*** *Tiro per Colpire a Distanza:* +12, gittata 72 m. 18 (3d6 + 8) danni da tuono, e il bersaglio ha la condizione Incapacitato fino alla fine del suo prossimo turno.
 
-***Spellcasting.*** The giant casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 15):
+***Incantesimi.*** Il gigante lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD tiri salvezza 15):
 
-- **At Will:** *Detect Magic*, *Fog Cloud*, *Light*
-- **1e/Day Each:** *Control Weather*, *Gaseous Form*, *Telekinesis*
+- **A volontà:** *Individuazione del Magico*, *Nube di Nebbia*, *Luce*
+- **1/giorno ciascuno:** *Controllare il Clima*, *Forma Gassosa*, *Telecinesi*
 
-### Bonus Actions
+### Azioni Bonus
 
-***Misty Step.*** The giant casts the *Misty Step* spell, using the same spellcasting ability as Spellcasting.
+***Passo Velato.*** Il gigante lancia l’incantesimo *Passo Velato*, usando la stessa caratteristica da incantatore di Incantesimi.
+
+---
+
 ## Cockatrice
 
-*Small Monstrosity, Unaligned*
+*Mostruosità Piccola, Non Allineata*
 
-- **Armor Class:** 11
-- **Hit Points:** 22 (5d6 + 5)
-- **Speed:** 20 ft., Fly 40 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 22 (5d6 + 5)
+- **Velocità:** 6 m, Volare 12 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CARATT|PUNTEGGIO|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 6 | -2 | -2 |
-| DEX | 12 | +1 | +1 |
-| CON | 12 | +1 | +1 |
+| FOR | 6 | -2 | -2 |
+| DES | 12 | +1 | +1 |
+| COS | 12 | +1 | +1 |
 | INT | 2 | -4 | -4 |
-| WIS | 13 | +1 | +1 |
-| CHA | 5 | -3 | -3 |
+| SAG | 13 | +1 | +1 |
+| CAR | 5 | -3 | -3 |
 
-- **Immunities**: Petrified
-- **Senses**: darkvision 60 ft.; Passive Perception 11
-- **CR** 1/2 (XP 100; PB +2)
+- **Immunità**: Pietrificato
+- **Sensi**: scurovisione 18 m; Percezione Passiva 11
+- **GS** 1/2 (PE 100; PB +2)
 
-### Actions
+### Azioni
 
-***Petrifying Bite.*** *Melee Attack Roll:* +3, reach 5 ft. 3 (1d4 + 1) Piercing damage. If the target is a creature, it is subjected to the following effect. *Constitution Saving Throw*: DC 11. *First Failure* The target has the Restrained condition. The target repeats the save at the end of its next turn if it is still Restrained, ending the effect on itself on a success. *Second Failure* The target has the Petrified condition, instead of the Restrained condition, for 24 hours.
+***Morso Pietrificante.*** *Tiro per Colpire in Mischia:* +3, portata 1,5 m. 3 (1d4 + 1) danni perforanti. Se il bersaglio è una creatura, subisce il seguente effetto. *Tiro Salvezza su Costituzione*: CD 11. *Primo Fallimento*: il bersaglio ha la condizione Immobilizzato. Ripete il tiro alla fine del suo turno successivo se è ancora Immobilizzato, terminando l’effetto su se stesso con un successo. *Secondo Fallimento*: il bersaglio ottiene la condizione Pietrificato, invece che Immobilizzato, per 24 ore.
 
-## Commoner
+---
 
-*Small Humanoid, Neutral*
+## Popolano
 
-- **Armor Class:** 10
-- **Hit Points:** 4 (1d8)
-- **Speed:** 30 ft.
-- **Initiative**: +0 (10)
+*Umanoide Piccolo, Neutrale*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 10
+- **Punti Ferita:** 4 (1d8)
+- **Velocità:** 9 m
+- **Iniziativa**: +0 (10)
+
+|CARATT|PUNTEGGIO|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 10 | +0 | +0 |
-| DEX | 10 | +0 | +0 |
-| CON | 10 | +0 | +0 |
+| FOR | 10 | +0 | +0 |
+| DES | 10 | +0 | +0 |
+| COS | 10 | +0 | +0 |
 | INT | 10 | +0 | +0 |
-| WIS | 10 | +0 | +0 |
-| CHA | 10 | +0 | +0 |
+| SAG | 10 | +0 | +0 |
+| CAR | 10 | +0 | +0 |
 
-- **Gear** Club
-- **Senses**: Passive Perception 10
-- **Languages**: Common
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Equipaggiamento**: Randello
+- **Sensi**: Percezione Passiva 10
+- **Linguaggi**: Comune
+- **GS** 0 (PE 0 o 10; PB +2)
 
-### Traits
+### Tratti
 
-***Training.*** The commoner has proficiency in one skill of the DM's choice and has Advantage whenever it makes an ability check using that skill.
+***Addestramento.*** Il popolano ha competenza in un’abilità a scelta del DM e ha Vantaggio ogni volta che effettua una prova di caratteristica usando quell’abilità.
 
+### Azioni
 
-### Actions
+***Randello.*** *Tiro per Colpire in Mischia:* +2, portata 1,5 m. 2 (1d4) danni contundenti.
 
-***Club.*** *Melee Attack Roll:* +2, reach 5 ft. 2 (1d4) Bludgeoning damage.
+---
 
-## Copper Dragon Wyrmling
+## Draghetto di Rame
 
-*Medium Dragon (Metallic), Chaotic Good*
+*Drago Medio (Metallico), Caotico Buono*
 
-- **Armor Class:** 16
-- **Hit Points:** 22 (4d8 + 4)
-- **Speed:** 30 ft., Climb 30 ft., Fly 60 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 16
+- **Punti Ferita:** 22 (4d8 + 4)
+- **Velocità:** 9 m, Scalare 9 m, Volare 18 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CARATT|PUNTEGGIO|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +2 |
-| DEX | 12 | +1 | +3 |
-| CON | 13 | +1 | +1 |
+| FOR | 15 | +2 | +2 |
+| DES | 12 | +1 | +3 |
+| COS | 13 | +1 | +1 |
 | INT | 14 | +2 | +2 |
-| WIS | 11 | +0 | +2 |
-| CHA | 13 | +1 | +1 |
+| SAG | 11 | +0 | +2 |
+| CAR | 13 | +1 | +1 |
 
-- **Immunities**: Acid
-- **Skills**: Perception +4, Stealth +3
-- **Senses**: blindsight 10 ft., darkvision 60 ft.; Passive Perception 14
-- **Languages**: Draconic
-- **CR** 1 (XP 200; PB +2)
+- **Immunità**: Acido
+- **Abilità**: Percezione +4, Furtività +3
+- **Sensi**: vista cieca 3 m, scurovisione 18 m; Percezione Passiva 14
+- **Linguaggi**: Draconico
+- **GS** 1 (PE 200; PB +2)
 
-### Actions
+### Azioni
 
-***Rend.*** *Melee Attack Roll:* +4, reach 5 ft. 7 (1d10 + 2) Slashing damage.
+***Lacerare.*** *Tiro per Colpire in Mischia:* +4, portata 1,5 m. 7 (1d10 + 2) danni taglienti.
 
-***Acid Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 11, each creature in a 20-foot-long, 5-foot-wide Line. *Failure:*  18 (4d8) Acid damage. *Success:*  Half damage.
+***Soffio Acido (Ricarica 5-6).*** *Tiro Salvezza su Destrezza*: CD 11, ogni creatura in una Linea di 6 m di lunghezza e 1,5 m di larghezza. *Fallimento:* 18 (4d8) danni da acido. *Successo:* metà danni.
 
-***Slowing Breath.*** *Constitution Saving Throw*: DC 11, each creature in a 15-foot Cone. *Failure:*  The target can't take Reactions; its Speed is halved; and it can take either an action or a Bonus Action on its turn, not both. This effect lasts until the end of its next turn.
+***Soffio Rallentante.*** *Tiro Salvezza su Costituzione*: CD 11, ogni creatura in un Cono di 4,5 m. *Fallimento:* il bersaglio non può compiere Reazioni; la sua Velocità è dimezzata; e può compiere solo un’azione o un’azione bonus nel suo turno, non entrambe. Questo effetto dura fino alla fine del suo prossimo turno.
 
 ## Couatl
 
-*Medium Celestial, Lawful Good*
+*Celestiale Medio, Legale Buono*
 
-- **Armor Class:** 19
-- **Hit Points:** 60 (8d8 + 24)
-- **Speed:** 30 ft., Fly 90 ft.
-- **Initiative**: +5 (15)
+- **Classe Armatura:** 19
+- **Punti Ferita:** 60 (8d8 + 24)
+- **Velocità:** 9 m, Volare 27 m
+- **Iniziativa**: +5 (15)
 
-|STAT|SCORE|MOD|SAVE|
+|CARATT|PUNTEGGIO|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 20 | +5 | +5 |
-| CON | 17 | +3 | +5 |
+| FOR | 16 | +3 | +3 |
+| DES | 20 | +5 | +5 |
+| COS | 17 | +3 | +5 |
 | INT | 18 | +4 | +4 |
-| WIS | 20 | +5 | +7 |
-| CHA | 18 | +4 | +4 |
+| SAG | 20 | +5 | +7 |
+| CAR | 18 | +4 | +4 |
 
-- **Resistances**: Bludgeoning, Piercing, Slashing
-- **Immunities**: Psychic, Radiant
-- **Senses**: truesight 120 ft.; Passive Perception 15
-- **Languages**: All; telepathy 120 ft.
-- **CR** 4 (XP 1,100; PB +2)
+- **Resistenze**: Contundenti, Perforanti, Taglienti
+- **Immunità**: Psichici, Radianti
+- **Sensi**: vista vera 36 m; Percezione Passiva 15
+- **Linguaggi**: Tutti; telepatia 36 m
+- **GS** 4 (PE 1.100; PB +2)
 
-### Traits
+### Tratti
 
-***Shielded Mind.*** The couatl's thoughts can't be read by any means, and other creatures can communicate with it telepathically only if it allows them.
+***Mente Protetta.*** I pensieri del couatl non possono essere letti in alcun modo e le altre creature possono comunicare con lui telepaticamente solo se lo consente.
 
+### Azioni
 
-### Actions
+***Morso.*** *Tiro per Colpire in Mischia:* +7, portata 1,5 m. 11 (1d12 + 5) danni perforanti, e il bersaglio ha la condizione Avvelenato fino alla fine del prossimo turno del couatl.
 
-***Bite.*** *Melee Attack Roll:* +7, reach 5 ft. 11 (1d12 + 5) Piercing damage, and the target has the Poisoned condition until the end of the couatl's next turn.
+***Stritolare.*** *Tiro Salvezza su Forza*: CD 15, una creatura Media o più piccola che il couatl può vedere entro 1,5 m. *Fallimento:* 8 (1d6 + 5) danni contundenti. Il bersaglio ha la condizione Afferrato (CD 13 per liberarsi) e ha la condizione Immobilizzato finché la presa dura.
 
-***Constrict.*** *Strength Saving Throw*: DC 15, one Medium or smaller creature the couatl can see within 5 feet. *Failure:*  8 (1d6 + 5) Bludgeoning damage. The target has the Grappled condition (escape DC 13), and it has the Restrained condition until the grapple ends.
+***Incantesimi.*** Il couatl lancia uno dei seguenti incantesimi, senza componenti e usando Saggezza come caratteristica da incantatore (CD tiri salvezza 15):
 
-***Spellcasting.*** The couatl casts one of the following spells, requiring no spell components and using Wisdom as the spellcasting ability (spell save DC 15):
+- **A volontà:** *Individuazione del Bene e del Male*, *Individuazione del Magico*, *Individuazione dei Pensieri*, *Trasformazione*
+- **1/giorno ciascuno:** *Creare Cibo e Acqua*, *Sogno*, *Restaurazione Superiore*, *Chiaroveggenza*, *Sonno*
 
-- **At Will:** *Detect Evil and Good*, *Detect Magic*, *Detect Thoughts*, *Shapechange*
-- **1e/Day Each:** *Create Food and Water*, *Dream*, *Greater Restoration*, *Scrying*, *Sleep*
+### Azioni Bonus
 
-### Bonus Actions
+***Aiuto Divino (2/giorno).*** Il couatl lancia *Benedizione*, *Restaurazione Minore* o *Santuario*, senza componenti e usando la stessa caratteristica da incantatore di Incantesimi.
 
-***Divine Aid (2/Day).*** The couatl casts *Bless*, *Lesser Restoration*, or *Sanctuary*, requiring no spell components and using the same spellcasting ability as Spellcasting.
-## Cultist Fanatic
+---
 
-*Small Humanoid, Neutral*
+## Fanatico Cultista
 
-- **Armor Class:** 13
-- **Hit Points:** 44 (8d8 + 8)
-- **Speed:** 30 ft.
-- **Initiative**: +2 (12)
+*Umanoide Piccolo, Neutrale*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 13
+- **Punti Ferita:** 44 (8d8 + 8)
+- **Velocità:** 9 m
+- **Iniziativa**: +2 (12)
+
+|CARATT|PUNTEGGIO|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 11 | +0 | +0 |
-| DEX | 14 | +2 | +2 |
-| CON | 12 | +1 | +1 |
+| FOR | 11 | +0 | +0 |
+| DES | 14 | +2 | +2 |
+| COS | 12 | +1 | +1 |
 | INT | 10 | +0 | +0 |
-| WIS | 14 | +2 | +4 |
-| CHA | 13 | +1 | +1 |
+| SAG | 14 | +2 | +4 |
+| CAR | 13 | +1 | +1 |
 
-- **Skills**: Deception +3, Persuasion +3, Religion +2
-- **Gear** Holy Symbol, Leather Armor
-- **Senses**: Passive Perception 12
-- **Languages**: Common
-- **CR** 2 (XP 450; PB +2)
+- **Abilità**: Inganno +3, Persuasione +3, Religione +2
+- **Equipaggiamento**: Simbolo Sacro, Armatura di Cuoio
+- **Sensi**: Percezione Passiva 12
+- **Linguaggi**: Comune
+- **GS** 2 (PE 450; PB +2)
 
-### Actions
+### Azioni
 
-***Pact Blade.*** *Melee Attack Roll:* +4, reach 5 ft. 6 (1d8 + 2) Slashing damage plus 7 (2d6) Necrotic damage.
+***Lama del Patto.*** *Tiro per Colpire in Mischia:* +4, portata 1,5 m. 6 (1d8 + 2) danni taglienti più 7 (2d6) danni necrotici.
 
-***Spellcasting.*** The cultist casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 12, +4 to hit with spell attacks):
+***Incantesimi.*** Il cultista lancia uno dei seguenti incantesimi, usando Saggezza come caratteristica da incantatore (CD tiri salvezza 12, +4 a colpire con gli attacchi con incantesimi):
 
-- **At Will:** *Light*, *Thaumaturgy*
-- **1/Day Each:** *Hold Person*
-- **2/Day Each:** *Command*
+- **A volontà:** *Luce*, *Taumaturgia*
+- **1/giorno ciascuno:** *Blocca Persone*
+- **2/giorno ciascuno:** *Comando*
 
-### Bonus Actions
+### Azioni Bonus
 
-***Spiritual Weapon (2/Day).*** The cultist casts the *Spiritual Weapon* spell, using the same spellcasting ability as Spellcasting.
-## Cultist
+***Arma Spirituale (2/giorno).*** Il cultista lancia *Arma Spirituale*, usando la stessa caratteristica da incantatore di Incantesimi.
 
-*Small Humanoid, Neutral*
+---
 
-- **Armor Class:** 12
-- **Hit Points:** 9 (2d8)
-- **Speed:** 30 ft.
-- **Initiative**: +1 (11)
+## Cultista
 
-|STAT|SCORE|MOD|SAVE|
+*Umanoide Piccolo, Neutrale*
+
+- **Classe Armatura:** 12
+- **Punti Ferita:** 9 (2d8)
+- **Velocità:** 9 m
+- **Iniziativa**: +1 (11)
+
+|CARATT|PUNTEGGIO|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 11 | +0 | +0 |
-| DEX | 12 | +1 | +1 |
-| CON | 10 | +0 | +0 |
+| FOR | 11 | +0 | +0 |
+| DES | 12 | +1 | +1 |
+| COS | 10 | +0 | +0 |
 | INT | 10 | +0 | +0 |
-| WIS | 11 | +0 | +2 |
-| CHA | 10 | +0 | +0 |
+| SAG | 11 | +0 | +2 |
+| CAR | 10 | +0 | +0 |
 
-- **Skills**: Deception +2, Religion +2
-- **Gear** Leather Armor, Sickle
-- **Senses**: Passive Perception 10
-- **Languages**: Common
-- **CR** 1/8 (XP 25; PB +2)
+- **Abilità**: Inganno +2, Religione +2
+- **Equipaggiamento**: Armatura di Cuoio, Falce
+- **Sensi**: Percezione Passiva 10
+- **Linguaggi**: Comune
+- **GS** 1/8 (PE 25; PB +2)
 
-### Actions
+### Azioni
 
-***Ritual Sickle.*** *Melee Attack Roll:* +3, reach 5 ft. 3 (1d4 + 1) Slashing damage plus 1 Necrotic damage.
+***Falce Rituale.*** *Tiro per Colpire in Mischia:* +3, portata 1,5 m. 3 (1d4 + 1) danni taglienti più 1 danno necrotico.
 
-## Darkmantle
+---
 
-*Small Aberration, Unaligned*
+## Manto Oscuro
 
-- **Armor Class:** 11
-- **Hit Points:** 22 (5d6 + 5)
-- **Speed:** 10 ft., Fly 30 ft.
-- **Initiative**: +3 (13)
+*Aberrazione Piccola, Non Allineata*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 11
+- **Punti Ferita:** 22 (5d6 + 5)
+- **Velocità:** 3 m, Volare 9 m
+- **Iniziativa**: +3 (13)
+
+|CARATT|PUNTEGGIO|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 12 | +1 | +1 |
-| CON | 13 | +1 | +1 |
+| FOR | 16 | +3 | +3 |
+| DES | 12 | +1 | +1 |
+| COS | 13 | +1 | +1 |
 | INT | 2 | -4 | -4 |
-| WIS | 10 | +0 | +0 |
-| CHA | 5 | -3 | -3 |
+| SAG | 10 | +0 | +0 |
+| CAR | 5 | -3 | -3 |
 
-- **Skills**: Stealth +3
-- **Senses**: blindsight 60 ft.; Passive Perception 10
-- **CR** 1/2 (XP 100; PB +2)
+- **Abilità**: Furtività +3
+- **Sensi**: vista cieca 18 m; Percezione Passiva 10
+- **GS** 1/2 (PE 100; PB +2)
 
-### Actions
+### Azioni
 
-***Crush.*** *Melee Attack Roll:* +5, reach 5 ft. 6 (1d6 + 3) Bludgeoning damage, and the darkmantle attaches to the target. If the target is a Medium or smaller creature and the darkmantle had Advantage on the attack roll, it covers the target, which has the Blinded condition and is suffocating while the darkmantle is attached in this way.
-While attached to a target, the darkmantle can attack only the target but has Advantage on its attack rolls. Its Speed becomes 0, it can't benefit from any bonus to its Speed, and it moves with the target.
-A creature can take an action to try to detach the darkmantle from itself, doing so with a successful DC 13 Strength (Athletics) check. On its turn, the darkmantle can detach itself by using 5 feet of movement.
+***Stritolare.*** *Tiro per Colpire in Mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni contundenti, e il manto oscuro si attacca al bersaglio. Se il bersaglio è una creatura Media o più piccola e il manto oscuro aveva Vantaggio sul tiro per colpire, lo ricopre: il bersaglio ottiene la condizione Accecato e soffoca finché il manto oscuro rimane attaccato.  
+Mentre è attaccato a un bersaglio, il manto oscuro può attaccare solo quel bersaglio ma ha Vantaggio ai tiri per colpire. La sua Velocità diventa 0, non beneficia di bonus alla Velocità e si muove con il bersaglio.  
+Una creatura può usare un’azione per tentare di staccare il manto oscuro da sé, riuscendoci con una prova di Forza (Atletica) CD 13. Nel suo turno, il manto oscuro può staccarsi usando 1,5 m di movimento.
 
-***Darkness Aura (1/Day).*** Magical darkness fills a 15-foot Emanation originating from the darkmantle. This effect lasts while the darkmantle maintains  Concentration on it, up to 10 minutes. Darkvision can't penetrate this area, and no light can illuminate it.
+***Aura di Oscurità (1/giorno).*** Oscurità magica riempie un’Emanazione di 4,5 m originata dal manto oscuro. L’effetto dura finché il manto oscuro mantiene Concentrazione, fino a 10 minuti. La scurovisione non può penetrare quest’area e nessuna luce può illuminarla.
 
+TODO
 ## Death Dog
 
 *Medium Monstrosity, Neutral Evil*

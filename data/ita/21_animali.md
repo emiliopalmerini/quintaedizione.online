@@ -1,2825 +1,2825 @@
-# Animals
+# Animali
 
-## Allosaurus
+## Allosauro
 
-*Large Beast (Dinosaur), Unaligned*
+*Bestia Grande (Dinosauro), Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 51 (6d10 + 18)
-- **Speed:** 60 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 51 (6d10 + 18)
+- **Velocità:** 18 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 13 | +1 | +1 |
-| CON | 17 | +3 | +3 |
+| FOR | 19 | +4 | +4 |
+| DES | 13 | +1 | +1 |
+| COS | 17 | +3 | +3 |
 | INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 5 | -3 | -3 |
+| SAG | 12 | +1 | +1 |
+| CAR | 5 | -3 | -3 |
 
-- **Skills**: Perception +5
-- **Senses**: Passive Perception 15
-- **CR** 2 (XP 450; PB +2)
+- **Abilità**: Perception +5
+- **Sensi**: Percezione Passiva 15
+- **GS** 2 (PE 450; PB +2)
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +6, reach 5 ft. 15 (2d10 + 4) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 15 (2d10 + 4) danni Perforanti.
 
-***Claws.*** *Melee Attack Roll:* +6, reach 5 ft. 8 (1d8 + 4) Slashing damage. If the target is a Large or smaller creature and the allosaurus moved 30+ feet straight toward it immediately before the hit, the target has the Prone condition, and the allosaurus can make one Bite attack against it.
+***Artigli.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 8 (1d8 + 4) danni Taglienti. Se il bersaglio è una creatura Grande o più piccola e la creatura si è mossa di 9+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio ha la condizione Prono e la creatura può effettuare un attacco con Morso contro di esso.
 
-## Ankylosaurus
+## Anchilosauro
 
-*Huge Beast (Dinosaur), Unaligned*
+*Bestia Enorme (Dinosauro), Non Allineato*
 
-- **Armor Class:** 15
-- **Hit Points:** 68 (8d12 + 16)
-- **Speed:** 30 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 15
+- **Punti Ferita:** 68 (8d12 + 16)
+- **Velocità:** 9 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +6 |
-| DEX | 11 | +0 | +0 |
-| CON | 15 | +2 | +2 |
+| FOR | 19 | +4 | +6 |
+| DES | 11 | +0 | +0 |
+| COS | 15 | +2 | +2 |
 | INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 5 | -3 | -3 |
+| SAG | 12 | +1 | +1 |
+| CAR | 5 | -3 | -3 |
 
-- **Senses**: Passive Perception 11
-- **CR** 3 (XP 700; PB +2)
+- **Sensi**: Percezione Passiva 11
+- **GS** 3 (PE 700; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The ankylosaurus makes two Tail attacks.
+***Attacco Multiplo.*** Effettua due attacchi con Coda.
 
-***Tail.*** *Melee Attack Roll:* +6, reach 10 ft. 9 (1d10 + 4) Bludgeoning damage. If the target is a Huge or smaller creature, it has the Prone condition.
+***Coda.*** *Tiro per colpire in mischia:* +6, portata 3 m. 9 (1d10 + 4) danni Contundenti. Se il bersaglio è una creatura Enorme o più piccola, ha la condizione Prono.
 
-## Ape
+## Scimmia
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 19 (3d8 + 6)
-- **Speed:** 30 ft., Climb 30 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 19 (3d8 + 6)
+- **Velocità:** 9 m, Scalare 9 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 14 | +2 | +2 |
-| CON | 14 | +2 | +2 |
+| FOR | 16 | +3 | +3 |
+| DES | 14 | +2 | +2 |
+| COS | 14 | +2 | +2 |
 | INT | 6 | -2 | -2 |
-| WIS | 12 | +1 | +1 |
-| CHA | 7 | -2 | -2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 7 | -2 | -2 |
 
-- **Skills**: Athletics +5, Perception +3
-- **Senses**: Passive Perception 13
-- **CR** 1/2 (XP 100; PB +2)
+- **Abilità**: Athletics +5, Perception +3
+- **Sensi**: Percezione Passiva 13
+- **GS** 1/2 (PE 100; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The ape makes two Fist attacks.
+***Attacco Multiplo.*** Effettua due attacchi con Pugno.
 
-***Fist.*** *Melee Attack Roll:* +5, reach 5 ft. 5 (1d4 + 3) Bludgeoning damage.
+***Pugno.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 5 (1d4 + 3) danni Contundenti.
 
-***Rock (Recharge 6).*** *Ranged Attack Roll:* +5, range 25/50 ft. 10 (2d6 + 3) Bludgeoning damage.
+***Roccia (Ricarica 6).*** *Tiro per colpire a distanza:* +5, gittata 7,5/15 m. 10 (2d6 + 3) danni Contundenti.
 
 ## Archelon
 
-*Huge Beast (Dinosaur), Unaligned*
+*Bestia Enorme (Dinosauro), Non Allineato*
 
-- **Armor Class:** 17
-- **Hit Points:** 90 (12d12 + 12)
-- **Speed:** 20 ft., Swim 80 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 17
+- **Punti Ferita:** 90 (12d12 + 12)
+- **Velocità:** 6 m, Nuoto 24 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 16 | +3 | +3 |
-| CON | 13 | +1 | +1 |
+| FOR | 18 | +4 | +4 |
+| DES | 16 | +3 | +3 |
+| COS | 13 | +1 | +1 |
 | INT | 4 | -3 | -3 |
-| WIS | 14 | +2 | +2 |
-| CHA | 6 | -2 | -2 |
+| SAG | 14 | +2 | +2 |
+| CAR | 6 | -2 | -2 |
 
-- **Skills**: Stealth +5
-- **Senses**: Passive Perception 12
-- **CR** 4 (XP 1,100; PB +2)
+- **Abilità**: Stealth +5
+- **Sensi**: Percezione Passiva 12
+- **GS** 4 (PE 1,100; PB +2)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The archelon can breathe air and water.
+***Anfibio.*** Può respirare aria e acqua.
 
 
-### Actions
+### Azioni
 
-***Multiattack.*** The archelon makes two Bite attacks.
+***Attacco Multiplo.*** Effettua due attacchi con Morso.
 
-***Bite.*** *Melee Attack Roll:* +6, reach 5 ft. 14 (3d6 + 4) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 14 (3d6 + 4) danni Perforanti.
 
-## Baboon
+## Babbuino
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 3 (1d6)
-- **Speed:** 30 ft., Climb 30 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 3 (1d6)
+- **Velocità:** 9 m, Scalare 9 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 8 | -1 | -1 |
-| DEX | 14 | +2 | +2 |
-| CON | 11 | +0 | +0 |
+| FOR | 8 | -1 | -1 |
+| DES | 14 | +2 | +2 |
+| COS | 11 | +0 | +0 |
 | INT | 4 | -3 | -3 |
-| WIS | 12 | +1 | +1 |
-| CHA | 6 | -2 | -2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 6 | -2 | -2 |
 
-- **Senses**: Passive Perception 11
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Sensi**: Percezione Passiva 11
+- **GS** 0 (PE 0 o 10; PB +2)
 
-### Traits
+### Tratti
 
-***Pack Tactics.*** The baboon has Advantage on an attack roll against a creature if at least one of the baboon's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +1, reach 5 ft. 1 (1d4 - 1) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +1, portata 1,5 m. 1 (1d4 - 1) danni Perforanti.
 
-## Bat
+## Pipistrello
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 1 (1d4 - 1)
-- **Speed:** 5 ft., Fly 30 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 1 (1d4 - 1)
+- **Velocità:** 1,5 m, Volo 9 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 2 | -4 | -4 |
-| DEX | 15 | +2 | +2 |
-| CON | 8 | -1 | -1 |
+| FOR | 2 | -4 | -4 |
+| DES | 15 | +2 | +2 |
+| COS | 8 | -1 | -1 |
 | INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 4 | -3 | -3 |
+| SAG | 12 | +1 | +1 |
+| CAR | 4 | -3 | -3 |
 
-- **Senses**: blindsight 60 ft.; Passive Perception 11
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Sensi**: Sensi Ciechi 18 m; Percezione Passiva 11
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +4 to hit, reach 5 ft. 1 Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 1 danno Perforante.
 
-## Black Bear
+## Orso Nero
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 11
-- **Hit Points:** 19 (3d8 + 6)
-- **Speed:** 30 ft., Climb 30 ft., Swim 30 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 19 (3d8 + 6)
+- **Velocità:** 9 m, Scalare 9 m, Nuoto 9 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +2 |
-| DEX | 12 | +1 | +1 |
-| CON | 14 | +2 | +2 |
+| FOR | 15 | +2 | +2 |
+| DES | 12 | +1 | +1 |
+| COS | 14 | +2 | +2 |
 | INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 7 | -2 | -2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 7 | -2 | -2 |
 
-- **Skills**: Perception +5
-- **Senses**: darkvision 60 ft.; Passive Perception 15
-- **CR** 1/2 (XP 100; PB +2)
+- **Abilità**: Perception +5
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 15
+- **GS** 1/2 (PE 100; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The bear makes two Rend attacks.
+***Attacco Multiplo.*** Effettua due attacchi con Lacerare.
 
-***Rend.*** *Melee Attack Roll:* +4, reach 5 ft. 5 (1d6 + 2) Slashing damage.
+***Lacerare.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni Taglienti.
 
-## Badger
+## Tasso
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 11
-- **Hit Points:** 5 (1d4 + 3)
-- **Speed:** 20 ft., Burrow 5 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 5 (1d4 + 3)
+- **Velocità:** 6 m, Scavare 1,5 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 10 | +0 | +0 |
-| DEX | 11 | +0 | +0 |
-| CON | 16 | +3 | +3 |
+| FOR | 10 | +0 | +0 |
+| DES | 11 | +0 | +0 |
+| COS | 16 | +3 | +3 |
 | INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 5 | -3 | -3 |
+| SAG | 12 | +1 | +1 |
+| CAR | 5 | -3 | -3 |
 
-- **Resistances**: Poison
-- **Skills**: Perception +3
-- **Senses**: darkvision 30 ft.; Passive Perception 13
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Resistenze**: Veleno
+- **Abilità**: Perception +3
+- **Sensi**: Scurovisione 9 m; Percezione Passiva 13
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +2, reach 5 ft. 1 Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 1 danni Perforanti.
 
-## Blood Hawk
+## Falco Sanguinario
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 7 (2d6)
-- **Speed:** 10 ft., Fly 60 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 7 (2d6)
+- **Velocità:** 3 m, Volo 18 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 6 | -2 | -2 |
-| DEX | 14 | +2 | +2 |
-| CON | 10 | +0 | +0 |
+| FOR | 6 | -2 | -2 |
+| DES | 14 | +2 | +2 |
+| COS | 10 | +0 | +0 |
 | INT | 3 | -4 | -4 |
-| WIS | 14 | +2 | +2 |
-| CHA | 5 | -3 | -3 |
+| SAG | 14 | +2 | +2 |
+| CAR | 5 | -3 | -3 |
 
-- **Skills**: Perception +6
-- **Senses**: Passive Perception 16
-- **CR** 1/8 (XP 25; PB +2)
+- **Abilità**: Perception +6
+- **Sensi**: Percezione Passiva 16
+- **GS** 1/8 (PE 25; PB +2)
 
-### Traits
+### Tratti
 
-***Pack Tactics.*** The hawk has Advantage on an attack roll against a creature if at least one of the hawk's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
 
 
-### Actions
+### Azioni
 
-***Beak.*** *Melee Attack Roll:* +4, reach 5 ft. 4 (1d4 + 2) Piercing damage, or 6 (1d8 + 2) Piercing damage if the target is Bloodied.
+***Becco.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni Perforanti, oppure 6 (1d8 + 2) danni Perforanti se il bersaglio è Insanguinato.
 
-## Boar
+## Cinghiale
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 11
-- **Hit Points:** 13 (2d8 + 4)
-- **Speed:** 40 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 13 (2d8 + 4)
+- **Velocità:** 12 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 13 | +1 | +1 |
-| DEX | 11 | +0 | +0 |
-| CON | 14 | +2 | +2 |
+| FOR | 13 | +1 | +1 |
+| DES | 11 | +0 | +0 |
+| COS | 14 | +2 | +2 |
 | INT | 2 | -4 | -4 |
-| WIS | 9 | -1 | -1 |
-| CHA | 5 | -3 | -3 |
+| SAG | 9 | -1 | -1 |
+| CAR | 5 | -3 | -3 |
 
-- **Senses**: Passive Perception 9
-- **CR** 1/4 (XP 50; PB +2)
+- **Sensi**: Percezione Passiva 9
+- **GS** 1/4 (PE 50; PB +2)
 
-### Traits
+### Tratti
 
-***Bloodied Fury.*** While Bloodied, the boar has Advantage on attack rolls.
+***Furia Insanguinata.*** Mentre è Insanguinato, il cinghiale ha Vantaggio ai tiri per colpire.
 
 
-### Actions
+### Azioni
 
-***Gore.*** *Melee Attack Roll:* +3, reach 5 ft. 4 (1d6 + 1) Piercing damage. If the target is a Medium or smaller creature and the boar moved 20+ feet straight toward it immediately before the hit, the target takes an extra 3 (1d6) Piercing damage and has the Prone condition.
+***Incornata.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 4 (1d6 + 1) danni Perforanti. Se il bersaglio è una creatura Media o più piccola e la creatura si è mossa di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio subisce altri 3 (1d6) danni Perforanti e ha la condizione Prono.
 
-## Brown Bear
+## Orso Bruno
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 11
-- **Hit Points:** 22 (3d10 + 6)
-- **Speed:** 40 ft., Climb 30 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 22 (3d10 + 6)
+- **Velocità:** 12 m, Scalare 9 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 17 | +3 | +3 |
-| DEX | 12 | +1 | +1 |
-| CON | 15 | +2 | +2 |
+| FOR | 17 | +3 | +3 |
+| DES | 12 | +1 | +1 |
+| COS | 15 | +2 | +2 |
 | INT | 2 | -4 | -4 |
-| WIS | 13 | +1 | +1 |
-| CHA | 7 | -2 | -2 |
+| SAG | 13 | +1 | +1 |
+| CAR | 7 | -2 | -2 |
 
-- **Skills**: Perception +3
-- **Senses**: darkvision 60 ft.; Passive Perception 13
-- **CR** 1 (XP 200; PB +2)
+- **Abilità**: Perception +3
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
+- **GS** 1 (PE 200; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The bear makes one Bite attack and one Claw attack.
+***Attacco Multiplo.*** Effettua un attacco con Morso e uno con Artiglio.
 
-***Bite.*** *Melee Attack Roll:* +5, reach 5 ft. 7 (1d8 + 3) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni Perforanti.
 
-***Claw.*** *Melee Attack Roll:* +5, reach 5 ft. 5 (1d4 + 3) Slashing damage. If the target is a Large or smaller creature, it has the Prone condition.
+***Artiglio.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 5 (1d4 + 3) danni Taglienti. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Prono.
 
-## Camel
+## Cammello
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 10
-- **Hit Points:** 17 (2d10 + 6)
-- **Speed:** 50 ft.
-- **Initiative**: -1 (9)
+- **Classe Armatura:** 10
+- **Punti Ferita:** 17 (2d10 + 6)
+- **Velocità:** 15 m
+- **Iniziativa**: -1 (9)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +2 |
-| DEX | 8 | -1 | -1 |
-| CON | 17 | +3 | +5 |
+| FOR | 15 | +2 | +2 |
+| DES | 8 | -1 | -1 |
+| COS | 17 | +3 | +5 |
 | INT | 2 | -4 | -4 |
-| WIS | 11 | +0 | +0 |
-| CHA | 5 | -3 | -3 |
+| SAG | 11 | +0 | +0 |
+| CAR | 5 | -3 | -3 |
 
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **CR** 1/8 (XP 25; PB +2)
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 10
+- **GS** 1/8 (PE 25; PB +2)
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +4, reach 5 ft. 4 (1d4 + 2) Bludgeoning damage.
+***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni Contundenti.
 
-## Cat
+## Gatto
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 2 (1d4)
-- **Speed:** 40 ft., Climb 40 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 2 (1d4)
+- **Velocità:** 12 m, Scalare 12 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 3 | -4 | -4 |
-| DEX | 15 | +2 | +4 |
-| CON | 10 | +0 | +0 |
+| FOR | 3 | -4 | -4 |
+| DES | 15 | +2 | +4 |
+| COS | 10 | +0 | +0 |
 | INT | 3 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 7 | -2 | -2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 7 | -2 | -2 |
 
-- **Skills**: Perception +3, Stealth +4
-- **Senses**: darkvision 60 ft.; Passive Perception 13
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Abilità**: Perception +3, Stealth +4
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Traits
+### Tratti
 
-***Jumper.*** The cat's jump distance is determined using its Dexterity rather than its Strength.
+***Saltatore.*** La distanza di salto del gatto è determinata usando la Destrezza anziché la Forza.
 
 
-### Actions
+### Azioni
 
-***Scratch.*** *Melee Attack Roll:* +4, reach 5 ft. 1 Slashing damage.
+***Graffio.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 1 danno Tagliente.
 
-## Constrictor Snake
+## Serpente Costrittore
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 13 (2d10 + 2)
-- **Speed:** 30 ft., Swim 30 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 13 (2d10 + 2)
+- **Velocità:** 9 m, Nuoto 9 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +2 |
-| DEX | 14 | +2 | +2 |
-| CON | 12 | +1 | +1 |
+| FOR | 15 | +2 | +2 |
+| DES | 14 | +2 | +2 |
+| COS | 12 | +1 | +1 |
 | INT | 1 | -5 | -5 |
-| WIS | 10 | +0 | +0 |
-| CHA | 3 | -4 | -4 |
+| SAG | 10 | +0 | +0 |
+| CAR | 3 | -4 | -4 |
 
-- **Skills**: Perception +2, Stealth +4
-- **Senses**: blindsight 10 ft.; Passive Perception 12
-- **CR** 1/4 (XP 50; PB +2)
+- **Abilità**: Perception +2, Stealth +4
+- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 12
+- **GS** 1/4 (PE 50; PB +2)
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +4, reach 5 ft. 6 (1d8 + 2) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 6 (1d8 + 2) danni Perforanti.
 
-***Constrict.*** *Strength Saving Throw*: DC 12, one Medium or smaller creature the snake can see within 5 feet. *Failure:*  7 (3d4) Bludgeoning damage, and the target has the Grappled condition (escape DC 12).
+***Constrict.*** *Tiro Salvezza su Forza*: CD 12, una creatura Media o più piccola che il serpente può vedere entro 1,5 m. *Fallimento:*  7 (3d4) danni Contundenti, e il bersaglio ha la condizione Afferrato (fuga CD 12).
 
-## Crab
+## Granchio
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 11
-- **Hit Points:** 3 (1d4 + 1)
-- **Speed:** 20 ft., Swim 20 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 3 (1d4 + 1)
+- **Velocità:** 6 m, Nuoto 6 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 6 | -2 | -2 |
-| DEX | 11 | +0 | +0 |
-| CON | 12 | +1 | +1 |
+| FOR | 6 | -2 | -2 |
+| DES | 11 | +0 | +0 |
+| COS | 12 | +1 | +1 |
 | INT | 1 | -5 | -5 |
-| WIS | 8 | -1 | -1 |
-| CHA | 2 | -4 | -4 |
+| SAG | 8 | -1 | -1 |
+| CAR | 2 | -4 | -4 |
 
-- **Skills**: Stealth +2
-- **Senses**: blindsight 30 ft.; Passive Perception 9
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Abilità**: Stealth +2
+- **Sensi**: Sensi Ciechi 9 m; Percezione Passiva 9
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The crab can breathe air and water.
+***Anfibio.*** Può respirare aria e acqua.
 
 
-### Actions
+### Azioni
 
-***Claw.*** *Melee Attack Roll:* +2, reach 5 ft. 1 Bludgeoning damage.
+***Chela.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 1 danno Contundente.
 
-## Crocodile
+## Coccodrillo
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 13 (2d10 + 2)
-- **Speed:** 20 ft., Swim 30 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 13 (2d10 + 2)
+- **Velocità:** 6 m, Nuoto 9 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +2 |
-| DEX | 10 | +0 | +0 |
-| CON | 13 | +1 | +3 |
+| FOR | 15 | +2 | +2 |
+| DES | 10 | +0 | +0 |
+| COS | 13 | +1 | +3 |
 | INT | 2 | -4 | -4 |
-| WIS | 10 | +0 | +0 |
-| CHA | 5 | -3 | -3 |
+| SAG | 10 | +0 | +0 |
+| CAR | 5 | -3 | -3 |
 
-- **Skills**: Stealth +2
-- **Senses**: Passive Perception 10
-- **CR** 1/2 (XP 100; PB +2)
+- **Abilità**: Stealth +2
+- **Sensi**: Percezione Passiva 10
+- **GS** 1/2 (PE 100; PB +2)
 
-### Traits
+### Tratti
 
-***Hold Breath.*** The crocodile can hold its breath for 1 hour.
+***Trattenere il Respiro.*** Può trattenere il respiro per 1 ora.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +4, reach 5 ft. 6 (1d8 + 2) Piercing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 12). While Grappled, the target has the Restrained condition.
+***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 6 (1d8 + 2) danni Perforanti. Se il bersaglio è una creatura Media o più piccola, ha la condizione Afferrato (fuga CD 12). Mentre è Afferrato, il bersaglio ha la condizione Immobilizzato.
 
-## Deer
+## Cervo
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 4 (1d8)
-- **Speed:** 50 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 4 (1d8)
+- **Velocità:** 15 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 11 | +0 | +0 |
-| DEX | 16 | +3 | +3 |
-| CON | 11 | +0 | +0 |
+| FOR | 11 | +0 | +0 |
+| DES | 16 | +3 | +3 |
+| COS | 11 | +0 | +0 |
 | INT | 2 | -4 | -4 |
-| WIS | 14 | +2 | +2 |
-| CHA | 5 | -3 | -3 |
+| SAG | 14 | +2 | +2 |
+| CAR | 5 | -3 | -3 |
 
-- **Skills**: Perception +4
-- **Senses**: darkvision 60 ft.; Passive Perception 14
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Abilità**: Perception +4
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 14
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Traits
+### Tratti
 
-***Agile.*** The deer doesn't provoke an Opportunity Attack when it moves out of an enemy's reach.
+***Agile.*** Non provoca Attacchi di Opportunità quando si muove fuori dalla portata di un nemico.
 
 
-### Actions
+### Azioni
 
-***Ram.*** *Melee Attack Roll:* +2, reach 5 ft. 2 (1d4) Bludgeoning damage.
+***Speronata.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 2 (1d4) danni Contundenti.
 
-## Dire Wolf
+## Lupo Crudele
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 14
-- **Hit Points:** 22 (3d10 + 6)
-- **Speed:** 50 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 14
+- **Punti Ferita:** 22 (3d10 + 6)
+- **Velocità:** 15 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 17 | +3 | +3 |
-| DEX | 15 | +2 | +2 |
-| CON | 15 | +2 | +2 |
+| FOR | 17 | +3 | +3 |
+| DES | 15 | +2 | +2 |
+| COS | 15 | +2 | +2 |
 | INT | 3 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 7 | -2 | -2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 7 | -2 | -2 |
 
-- **Skills**: Perception +5, Stealth +4
-- **Senses**: darkvision 60 ft.; Passive Perception 15
-- **CR** 1 (XP 200; PB +2)
+- **Abilità**: Perception +5, Stealth +4
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 15
+- **GS** 1 (PE 200; PB +2)
 
-### Traits
+### Tratti
 
-***Pack Tactics.*** The wolf has Advantage on an attack roll against a creature if at least one of the wolf's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +5, reach 5 ft. 8 (1d10 + 3) Piercing damage. If the target is a Large or smaller creature, it has the Prone condition.
+***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 8 (1d10 + 3) danni Perforanti. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Prono.
 
-## Draft Horse
+## Cavallo da Tiro
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 10
-- **Hit Points:** 15 (2d10 + 4)
-- **Speed:** 40 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 10
+- **Punti Ferita:** 15 (2d10 + 4)
+- **Velocità:** 12 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 10 | +0 | +0 |
-| CON | 15 | +2 | +2 |
+| FOR | 18 | +4 | +4 |
+| DES | 10 | +0 | +0 |
+| COS | 15 | +2 | +2 |
 | INT | 2 | -4 | -4 |
-| WIS | 11 | +0 | +0 |
-| CHA | 7 | -2 | -2 |
+| SAG | 11 | +0 | +0 |
+| CAR | 7 | -2 | -2 |
 
-- **Senses**: Passive Perception 10
-- **CR** 1/4 (XP 50; PB +2)
+- **Sensi**: Percezione Passiva 10
+- **GS** 1/4 (PE 50; PB +2)
 
-### Actions
+### Azioni
 
-***Hooves.*** *Melee Attack Roll:* +6, reach 5 ft. 6 (1d4 + 4) Bludgeoning damage.
+***Zoccoli.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 6 (1d4 + 4) danni Contundenti.
 
-## Eagle
+## Aquila
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 4 (1d6 + 1)
-- **Speed:** 10 ft., Fly 60 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 4 (1d6 + 1)
+- **Velocità:** 3 m, Volo 18 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 6 | -2 | -2 |
-| DEX | 15 | +2 | +2 |
-| CON | 12 | +1 | +1 |
+| FOR | 6 | -2 | -2 |
+| DES | 15 | +2 | +2 |
+| COS | 12 | +1 | +1 |
 | INT | 2 | -4 | -4 |
-| WIS | 14 | +2 | +2 |
-| CHA | 7 | -2 | -2 |
+| SAG | 14 | +2 | +2 |
+| CAR | 7 | -2 | -2 |
 
-- **Skills**: Perception +6
-- **Senses**: Passive Perception 16
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Abilità**: Perception +6
+- **Sensi**: Percezione Passiva 16
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Actions
+### Azioni
 
-***Talons.*** *Melee Attack Roll:* +4, reach 5 feet. 4 (1d4 + 2) Slashing damage.
+***Artigli.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni Taglienti.
 
-## Elephant
+## Elefante
 
-*Huge Beast, Unaligned*
+*Bestia Enorme, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 76 (8d12 + 24)
-- **Speed:** 40 ft.
-- **Initiative**: -1 (9)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 76 (8d12 + 24)
+- **Velocità:** 12 m
+- **Iniziativa**: -1 (9)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 22 | +6 | +6 |
-| DEX | 9 | -1 | -1 |
-| CON | 17 | +3 | +3 |
+| FOR | 22 | +6 | +6 |
+| DES | 9 | -1 | -1 |
+| COS | 17 | +3 | +3 |
 | INT | 3 | -4 | -4 |
-| WIS | 11 | +0 | +0 |
-| CHA | 6 | -2 | -2 |
+| SAG | 11 | +0 | +0 |
+| CAR | 6 | -2 | -2 |
 
-- **Senses**: Passive Perception 10
-- **CR** 4 (XP 1,100; PB +2)
+- **Sensi**: Percezione Passiva 10
+- **GS** 4 (PE 1,100; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The elephant makes two Gore attacks.
+***Attacco Multiplo.*** Effettua due attacchi con Incornata.
 
-***Gore.*** *Melee Attack Roll:* +8, reach 5 ft. 15 (2d8 + 6) Piercing damage. If the target is a Huge or smaller creature and the elephant moved 20+ feet straight toward it immediately before the hit, the target has the Prone condition.
+***Incornata.*** *Tiro per colpire in mischia:* +8, portata 1,5 m. 15 (2d8 + 6) danni Perforanti. Se il bersaglio è una creatura Enorme o più piccola e la creatura si è mossa di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio ha la condizione Prono.
 
 
-### Bonus Actions
+### Azioni Bonus
 
-***Trample.*** *Dexterity Saving Throw*: DC 16, one creature within 5 feet that has the Prone condition. *Failure:*  17 (2d10 + 6) Bludgeoning damage. *Success:*  Half damage.
+***Calpestare.*** *Tiro Salvezza su Destrezza*: CD 16, una creatura entro 1,5 m che ha la condizione Prono. *Fallimento:*  17 (2d10 + 6) danni Contundenti. *Successo:*  Metà danni.
 
-## Elk
+## Alce
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 10
-- **Hit Points:** 11 (2d10)
-- **Speed:** 50 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 10
+- **Punti Ferita:** 11 (2d10)
+- **Velocità:** 15 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 10 | +0 | +0 |
-| CON | 11 | +0 | +0 |
+| FOR | 16 | +3 | +3 |
+| DES | 10 | +0 | +0 |
+| COS | 11 | +0 | +0 |
 | INT | 2 | -4 | -4 |
-| WIS | 10 | +0 | +0 |
-| CHA | 6 | -2 | -2 |
+| SAG | 10 | +0 | +0 |
+| CAR | 6 | -2 | -2 |
 
-- **Skills**: Perception +2
-- **Senses**: darkvision 60 ft.; Passive Perception 12
-- **CR** 1/4 (XP 50; PB +2)
+- **Abilità**: Perception +2
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 12
+- **GS** 1/4 (PE 50; PB +2)
 
-### Actions
+### Azioni
 
-***Ram.*** *Melee Attack Roll:* +5, reach 5 ft. 6 (1d6 + 3) Bludgeoning damage. If the target is a Large or smaller creature and the elk moved 20+ feet straight toward it immediately before the hit, the target takes an extra 3 (1d6) Bludgeoning damage and has the Prone condition.
+***Speronata.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni Contundenti. Se il bersaglio è una creatura Grande o più piccola e la creatura si è mossa di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio subisce altri 3 (1d6) danni Contundenti e ha la condizione Prono.
 
-## Flying Snake
+## Serpente Volante
 
 *Small Monstrosity, Unaligned*
 
-- **Armor Class:** 14
-- **Hit Points:** 5 (2d4)
-- **Speed:** 30 ft., Fly 60 ft., Swim 30 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 14
+- **Punti Ferita:** 5 (2d4)
+- **Velocità:** 9 m, Volo 18 m, Nuoto 9 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 4 | -3 | -3 |
-| DEX | 15 | +2 | +2 |
-| CON | 11 | +0 | +0 |
+| FOR | 4 | -3 | -3 |
+| DES | 15 | +2 | +2 |
+| COS | 11 | +0 | +0 |
 | INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 5 | -3 | -3 |
+| SAG | 12 | +1 | +1 |
+| CAR | 5 | -3 | -3 |
 
-- **Senses**: blindsight 10 ft.; Passive Perception 11
-- **CR** 1/8 (XP 25; PB +2)
+- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 11
+- **GS** 1/8 (PE 25; PB +2)
 
-### Traits
+### Tratti
 
-***Flyby.*** The snake doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.
+***Sorvolo.*** Non provoca Attacchi di Opportunità quando vola fuori dalla portata di un nemico.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +4, reach 5 ft. 1 Piercing damage plus 5 (2d4) Poison damage.
+***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 1 danni Perforanti plus 5 (2d4) danni da Veleno.
 
-## Frog
+## Rana
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 11
-- **Hit Points:** 1 (1d4 - 1)
-- **Speed:** 20 ft., Swim 20 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 1 (1d4 - 1)
+- **Velocità:** 6 m, Nuoto 6 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 1 | -5 | -5 |
-| DEX | 13 | +1 | +1 |
-| CON | 8 | -1 | -1 |
+| FOR | 1 | -5 | -5 |
+| DES | 13 | +1 | +1 |
+| COS | 8 | -1 | -1 |
 | INT | 1 | -5 | -5 |
-| WIS | 8 | -1 | -1 |
-| CHA | 3 | -4 | -4 |
+| SAG | 8 | -1 | -1 |
+| CAR | 3 | -4 | -4 |
 
-- **Skills**: Perception +1, Stealth +3
-- **Senses**: darkvision 30 ft.; Passive Perception 11
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Abilità**: Perception +1, Stealth +3
+- **Sensi**: Scurovisione 9 m; Percezione Passiva 11
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The frog can breathe air and water.
+***Anfibio.*** Può respirare aria e acqua.
 
-***Standing Leap.*** The frog's Long Jump is up to 10 feet and its High Jump is up to 5 feet with or without a running start.
+***Balzo da Fermo.*** Può effettuare un Salto in lungo fino a 3 m e un Salto in alto fino a 1,5 m, con o senza rincorsa.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +3, reach 5 ft. 1 Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 1 danni Perforanti.
 
-## Giant Ape
+## Scimmione Gigante
 
-*Huge Beast, Unaligned*
+*Bestia Enorme, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 168 (16d12 + 64)
-- **Speed:** 40 ft., Climb 40 ft.
-- **Initiative**: +5 (15)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 168 (16d12 + 64)
+- **Velocità:** 12 m, Scalare 12 m
+- **Iniziativa**: +5 (15)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 23 | +6 | +6 |
-| DEX | 14 | +2 | +2 |
-| CON | 18 | +4 | +4 |
+| FOR | 23 | +6 | +6 |
+| DES | 14 | +2 | +2 |
+| COS | 18 | +4 | +4 |
 | INT | 5 | -3 | -3 |
-| WIS | 12 | +1 | +1 |
-| CHA | 7 | -2 | -2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 7 | -2 | -2 |
 
-- **Skills**: Athletics +9, Perception +4, Survival +4
-- **Senses**: Passive Perception 14
-- **CR** 7 (XP 2,900; PB +3)
+- **Abilità**: Athletics +9, Perception +4, Survival +4
+- **Sensi**: Percezione Passiva 14
+- **GS** 7 (PE 2,900; PB +3)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The ape makes two Fist attacks.
+***Attacco Multiplo.*** Effettua due attacchi con Pugno.
 
-***Fist.*** *Melee Attack Roll:* +9, reach 10 ft. 22 (3d10 + 6) Bludgeoning damage.
+***Pugno.*** *Tiro per colpire in mischia:* +9, portata 3 m. 22 (3d10 + 6) danni Contundenti.
 
-***Boulder Toss (Recharge 6).*** The ape hurls a boulder at a point it can see within 90 feet. *Dexterity Saving Throw*: DC 17, each creature in a 5-foot-radius Sphere [Area of Effect]|XPHB|Sphere centered on that point. *Failure:*  24 (7d6) Bludgeoning damage. If the target is a Large or smaller creature, it has the Prone condition. *Success:*  Half damage only.
+***Lancio di Macigno (Ricarica 6).*** Lancia un masso verso un punto che può vedere entro 27 m. *Tiro Salvezza su Destrezza*: CD 17, ogni creatura in una Sfera di raggio 1,5 m centrata su quel punto. *Fallimento:*  24 (7d6) danni Contundenti. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Prono. *Successo:*  Solo metà danni.
 
 
-### Bonus Actions
+### Azioni Bonus
 
-***Leap.*** The ape jumps up to 30 feet by spending 10 feet of movement.
+***Balzo.*** Salta fino a 9 m spendendo 3 m di movimento.
 
-## Giant Badger
+## Tasso Gigante
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 15 (2d8 + 6)
-- **Speed:** 30 ft., Burrow 10 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 15 (2d8 + 6)
+- **Velocità:** 9 m, Scavare 3 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 13 | +1 | +1 |
-| DEX | 10 | +0 | +0 |
-| CON | 17 | +3 | +3 |
+| FOR | 13 | +1 | +1 |
+| DES | 10 | +0 | +0 |
+| COS | 17 | +3 | +3 |
 | INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 5 | -3 | -3 |
+| SAG | 12 | +1 | +1 |
+| CAR | 5 | -3 | -3 |
 
-- **Resistances**: Poison
-- **Skills**: Perception +3
-- **Senses**: darkvision 60 ft.; Passive Perception 13
-- **CR** 1/4 (XP 50; PB +2)
+- **Resistenze**: Poison
+- **Abilità**: Perception +3
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
+- **GS** 1/4 (PE 50; PB +2)
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +3, reach 5 ft. 6 (2d4 + 1) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 6 (2d4 + 1) danni Perforanti.
 
-## Giant Bat
+## Pipistrello Gigante
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 22 (4d10)
-- **Speed:** 10 ft., Fly 60 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 22 (4d10)
+- **Velocità:** 3 m, Volo 18 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +2 |
-| DEX | 16 | +3 | +3 |
-| CON | 11 | +0 | +0 |
+| FOR | 15 | +2 | +2 |
+| DES | 16 | +3 | +3 |
+| COS | 11 | +0 | +0 |
 | INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 6 | -2 | -2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 6 | -2 | -2 |
 
-- **Senses**: blindsight 120 ft.; Passive Perception 11
-- **CR** 1/4 (XP 50; PB +2)
+- **Sensi**: Sensi Ciechi 36 m; Percezione Passiva 11
+- **GS** 1/4 (PE 50; PB +2)
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +5, reach 5 ft. 6 (1d6 + 3) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni Perforanti.
 
-## Giant Boar
+## Cinghiale Gigante
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 42 (5d10 + 15)
-- **Speed:** 40 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 42 (5d10 + 15)
+- **Velocità:** 12 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 17 | +3 | +5 |
-| DEX | 10 | +0 | +0 |
-| CON | 16 | +3 | +3 |
+| FOR | 17 | +3 | +5 |
+| DES | 10 | +0 | +0 |
+| COS | 16 | +3 | +3 |
 | INT | 2 | -4 | -4 |
-| WIS | 7 | -2 | -2 |
-| CHA | 5 | -3 | -3 |
+| SAG | 7 | -2 | -2 |
+| CAR | 5 | -3 | -3 |
 
-- **Senses**: Passive Perception 8
-- **CR** 2 (XP 450; PB +2)
+- **Sensi**: Percezione Passiva 8
+- **GS** 2 (PE 450; PB +2)
 
-### Traits
+### Tratti
 
-***Bloodied Fury.*** The boar has Advantage on melee attack rolls while it is Bloodied.
+***Furia Insanguinata.*** Ha Vantaggio ai tiri per colpire in mischia mentre è Insanguinato.
 
 
-### Actions
+### Azioni
 
-***Gore.*** *Melee Attack Roll:* +5, reach 5 ft. 10 (2d6 + 3) Piercing damage. If the target is a Large or smaller creature and the boar moved 20+ feet straight toward it immediately before the hit, the target takes an extra 7 (2d6) Piercing damage and has the Prone condition.
+***Incornata.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) danni Perforanti. Se il bersaglio è una creatura Grande o più piccola e il cinghiale si è mosso di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio subisce altri 7 (2d6) danni Perforanti e ha la condizione Prono.
 
-## Giant Centipede
+## Centopiedi Gigante
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 14
-- **Hit Points:** 9 (2d6 + 2)
-- **Speed:** 30 ft., Climb 30 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 14
+- **Punti Ferita:** 9 (2d6 + 2)
+- **Velocità:** 9 m, Scalare 9 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 5 | -3 | -3 |
-| DEX | 14 | +2 | +2 |
-| CON | 12 | +1 | +1 |
+| FOR | 5 | -3 | -3 |
+| DES | 14 | +2 | +2 |
+| COS | 12 | +1 | +1 |
 | INT | 1 | -5 | -5 |
-| WIS | 7 | -2 | -2 |
-| CHA | 3 | -4 | -4 |
+| SAG | 7 | -2 | -2 |
+| CAR | 3 | -4 | -4 |
 
-- **Senses**: blindsight 30 ft.; Passive Perception 8
-- **CR** 1/4 (XP 50; PB +2)
+- **Sensi**: Sensi Ciechi 9 m; Percezione Passiva 8
+- **GS** 1/4 (PE 50; PB +2)
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +4, reach 5 ft. 4 (1d4 + 2) Piercing damage, and the target has the Poisoned condition until the start of the centipede's next turn.
+***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni Perforanti, e il bersaglio ha la condizione Avvelenato fino all'inizio del prossimo turno del centopiedi.
 
-## Giant Constrictor Snake
+## Serpente Costrittore Gigante
 
-*Huge Beast, Unaligned*
+*Bestia Enorme, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 60 (8d12 + 8)
-- **Speed:** 30 ft., Swim 30 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 60 (8d12 + 8)
+- **Velocità:** 9 m, Nuoto 9 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 14 | +2 | +2 |
-| CON | 12 | +1 | +1 |
+| FOR | 19 | +4 | +4 |
+| DES | 14 | +2 | +2 |
+| COS | 12 | +1 | +1 |
 | INT | 1 | -5 | -5 |
-| WIS | 10 | +0 | +0 |
-| CHA | 3 | -4 | -4 |
+| SAG | 10 | +0 | +0 |
+| CAR | 3 | -4 | -4 |
 
-- **Skills**: Perception +2
-- **Senses**: blindsight 10 ft.; Passive Perception 12
-- **CR** 2 (XP 450; PB +2)
+- **Abilità**: Perception +2
+- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 12
+- **GS** 2 (PE 450; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The snake makes one Bite attack and uses Constrict.
+***Attacco Multiplo.*** Il serpente effettua un attacco con Morso e usa Constrict.
 
-***Bite.*** *Melee Attack Roll:* +6, reach 10 ft. 11 (2d6 + 4) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +6, portata 3 m. 11 (2d6 + 4) danni Perforanti.
 
-***Constrict.*** *Strength Saving Throw*: DC 14, one Large or smaller creature the snake can see within 10 feet. *Failure:*  13 (2d8 + 4) Bludgeoning damage, and the target has the Grappled condition (escape DC 14).
+***Constrict.*** *Tiro Salvezza su Forza*: CD 14, una creatura Grande o più piccola che il serpente può vedere entro 3 m. *Fallimento:*  13 (2d8 + 4) danni Contundenti, e il bersaglio ha la condizione Afferrato (fuga CD 14).
 
-## Giant Crab
+## Granchio Gigante
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 15
-- **Hit Points:** 13 (3d8)
-- **Speed:** 30 ft., Swim 30 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 15
+- **Punti Ferita:** 13 (3d8)
+- **Velocità:** 9 m, Nuoto 9 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 13 | +1 | +1 |
-| DEX | 13 | +1 | +1 |
-| CON | 11 | +0 | +0 |
+| FOR | 13 | +1 | +1 |
+| DES | 13 | +1 | +1 |
+| COS | 11 | +0 | +0 |
 | INT | 1 | -5 | -5 |
-| WIS | 9 | -1 | -1 |
-| CHA | 3 | -4 | -4 |
+| SAG | 9 | -1 | -1 |
+| CAR | 3 | -4 | -4 |
 
-- **Skills**: Stealth +3
-- **Senses**: blindsight 30 ft.; Passive Perception 9
-- **CR** 1/8 (XP 25; PB +2)
+- **Abilità**: Stealth +3
+- **Sensi**: Sensi Ciechi 9 m; Percezione Passiva 9
+- **GS** 1/8 (PE 25; PB +2)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The crab can breathe air and water.
+***Anfibio.*** Può respirare aria e acqua.
 
 
-### Actions
+### Azioni
 
-***Claw.*** *Melee Attack Roll:* +3, reach 5 ft. 4 (1d6 + 1) Bludgeoning damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 11) from one of two claws.
+***Chela.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 4 (1d6 + 1) danni Contundenti. Se il bersaglio è una creatura Media o più piccola, ha la condizione Afferrato (fuga CD 11) da una delle due chele.
 
-## Giant Crocodile
+## Coccodrillo Gigante
 
-*Huge Beast, Unaligned*
+*Bestia Enorme, Non Allineato*
 
-- **Armor Class:** 14
-- **Hit Points:** 85 (9d12 + 27)
-- **Speed:** 30 ft., Swim 50 ft.
-- **Initiative**: -1 (9)
+- **Classe Armatura:** 14
+- **Punti Ferita:** 85 (9d12 + 27)
+- **Velocità:** 9 m, Nuoto 15 m
+- **Iniziativa**: -1 (9)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 21 | +5 | +5 |
-| DEX | 9 | -1 | -1 |
-| CON | 17 | +3 | +3 |
+| FOR | 21 | +5 | +5 |
+| DES | 9 | -1 | -1 |
+| COS | 17 | +3 | +3 |
 | INT | 2 | -4 | -4 |
-| WIS | 10 | +0 | +0 |
-| CHA | 7 | -2 | -2 |
+| SAG | 10 | +0 | +0 |
+| CAR | 7 | -2 | -2 |
 
-- **Skills**: Stealth +5
-- **Senses**: Passive Perception 10
-- **CR** 5 (XP 1,800; PB +3)
+- **Abilità**: Stealth +5
+- **Sensi**: Percezione Passiva 10
+- **GS** 5 (PE 1,800; PB +3)
 
-### Traits
+### Tratti
 
-***Hold Breath.*** The crocodile can hold its breath for 1 hour.
+***Trattenere il Respiro.*** Può trattenere il respiro per 1 ora.
 
 
-### Actions
+### Azioni
 
-***Multiattack.*** The crocodile makes one Bite attack and one Tail attack.
+***Attacco Multiplo.*** Effettua un attacco con Morso e uno con Coda.
 
-***Bite.*** *Melee Attack Roll:* +8, reach 5 ft. 21 (3d10 + 5) Piercing damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 15). While Grappled, the target has the Restrained condition and can't be targeted by the crocodile's Tail.
+***Morso.*** *Tiro per colpire in mischia:* +8, portata 1,5 m. 21 (3d10 + 5) danni Perforanti. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Afferrato (fuga CD 15). Mentre è Afferrato, il bersaglio ha la condizione Immobilizzato e non può essere bersagliato dalla Coda del coccodrillo.
 
-***Tail.*** *Melee Attack Roll:* +8, reach 10 ft. 18 (3d8 + 5) Bludgeoning damage. If the target is a Large or smaller creature, it has the Prone condition.
+***Coda.*** *Tiro per colpire in mischia:* +8, portata 3 m. 18 (3d8 + 5) danni Contundenti. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Prono.
 
-## Giant Eagle
+## Aquila Gigante
 
-*Large Celestial, Neutral Good*
+*Celestiale Grande, Neutrale Buono*
 
-- **Armor Class:** 13
-- **Hit Points:** 26 (4d10 + 4)
-- **Speed:** 10 ft., Fly 80 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 26 (4d10 + 4)
+- **Velocità:** 3 m, Volo 24 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 17 | +3 | +3 |
-| CON | 13 | +1 | +1 |
+| FOR | 16 | +3 | +3 |
+| DES | 17 | +3 | +3 |
+| COS | 13 | +1 | +1 |
 | INT | 8 | -1 | -1 |
-| WIS | 14 | +2 | +2 |
-| CHA | 10 | +0 | +0 |
+| SAG | 14 | +2 | +2 |
+| CAR | 10 | +0 | +0 |
 
-- **Resistances**: Necrotic, Radiant
-- **Skills**: Perception +6
-- **Senses**: Passive Perception 16
-- **Languages**: Celestial; understands Common and Primordial (Auran) but can't speak them
-- **CR** 1 (XP 200; PB +2)
+- **Resistenze**: Necrotic, Radiant
+- **Abilità**: Perception +6
+- **Sensi**: Percezione Passiva 16
+- **Linguaggi**: Celestiale; comprende Comune e Primordiale (Auran) ma non può parlarli
+- **GS** 1 (PE 200; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The eagle makes two Rend attacks.
+***Attacco Multiplo.*** L'aquila effettua due attacchi con Lacerare.
 
-***Rend.*** *Melee Attack Roll:* +5, reach 5 ft. 5 (1d4 + 3) Slashing damage plus 3 (1d6) Radiant damage.
+***Rend.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 5 (1d4 + 3) danni Taglienti plus 3 (1d6) danni Radianti.
 
-## Giant Elk
+## Alce Gigante
 
-*Huge Celestial, Neutral Good*
+*Celestiale Enorme, Neutrale Buono*
 
-- **Armor Class:** 14
-- **Hit Points:** 42 (5d12 + 10)
-- **Speed:** 60 ft.
-- **Initiative**: +6 (16)
+- **Classe Armatura:** 14
+- **Punti Ferita:** 42 (5d12 + 10)
+- **Velocità:** 18 m
+- **Iniziativa**: +6 (16)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +6 |
-| DEX | 18 | +4 | +6 |
-| CON | 14 | +2 | +2 |
+| FOR | 19 | +4 | +6 |
+| DES | 18 | +4 | +6 |
+| COS | 14 | +2 | +2 |
 | INT | 7 | -2 | -2 |
-| WIS | 14 | +2 | +2 |
-| CHA | 10 | +0 | +0 |
+| SAG | 14 | +2 | +2 |
+| CAR | 10 | +0 | +0 |
 
-- **Resistances**: Necrotic, Radiant
-- **Skills**: Perception +4
-- **Senses**: darkvision 90 ft.; Passive Perception 14
-- **Languages**: Celestial; understands Common, Elvish, And Sylvan but can't speak them
-- **CR** 2 (XP 450; PB +2)
+- **Resistenze**: Necrotic, Radiant
+- **Abilità**: Perception +4
+- **Sensi**: Scurovisione 27 m; Percezione Passiva 14
+- **Linguaggi**: Celestiale; comprende Comune, Elfico e Silvano ma non può parlarli
+- **GS** 2 (PE 450; PB +2)
 
-### Actions
+### Azioni
 
-***Ram.*** *Melee Attack Roll:* +6, reach 10 ft. 11 (2d6 + 4) Bludgeoning damage plus 5 (2d4) Radiant damage. If the target is a Huge or smaller creature and the elk moved 20+ feet straight toward it immediately before the hit, the target takes an extra 5 (2d4) Bludgeoning damage and has the Prone condition.
+***Speronata.*** *Tiro per colpire in mischia:* +6, portata 3 m. 11 (2d6 + 4) danni Contundenti più 5 (2d4) danni Radianti. Se il bersaglio è una creatura Enorme o più piccola e l'alce si è mosso di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio subisce altri 5 (2d4) danni Contundenti e ha la condizione Prono.
 
-## Giant Fire Beetle
+## Scarabeo del Fuoco Gigante
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 4 (1d6 + 1)
-- **Speed:** 30 ft., Climb 30 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 4 (1d6 + 1)
+- **Velocità:** 9 m, Scalare 9 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 8 | -1 | -1 |
-| DEX | 10 | +0 | +0 |
-| CON | 12 | +1 | +1 |
+| FOR | 8 | -1 | -1 |
+| DES | 10 | +0 | +0 |
+| COS | 12 | +1 | +1 |
 | INT | 1 | -5 | -5 |
-| WIS | 7 | -2 | -2 |
-| CHA | 3 | -4 | -4 |
+| SAG | 7 | -2 | -2 |
+| CAR | 3 | -4 | -4 |
 
-- **Resistances**: Fire
-- **Senses**: blindsight 30 ft.; Passive Perception 8
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Resistenze**: Fire
+- **Sensi**: Sensi Ciechi 9 m; Percezione Passiva 8
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Traits
+### Tratti
 
-***Illumination.*** The beetle sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.
+***Illuminazione.*** Emette Luce intensa in un raggio di 3 m e Luce fioca per ulteriori 3 m.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +1, reach 5 ft. 1 Fire damage.
+***Morso.*** *Tiro per colpire in mischia:* +1, portata 1,5 m. 1 danni da Fuoco.
 
-## Giant Frog
+## Rana Gigante
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 11
-- **Hit Points:** 18 (4d8)
-- **Speed:** 30 ft., Swim 30 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 18 (4d8)
+- **Velocità:** 9 m, Nuoto 9 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 12 | +1 | +1 |
-| DEX | 13 | +1 | +1 |
-| CON | 11 | +0 | +0 |
+| FOR | 12 | +1 | +1 |
+| DES | 13 | +1 | +1 |
+| COS | 11 | +0 | +0 |
 | INT | 2 | -4 | -4 |
-| WIS | 10 | +0 | +0 |
-| CHA | 3 | -4 | -4 |
+| SAG | 10 | +0 | +0 |
+| CAR | 3 | -4 | -4 |
 
-- **Skills**: Perception +2, Stealth +4
-- **Senses**: darkvision 30 ft.; Passive Perception 12
-- **CR** 1/4 (XP 50; PB +2)
+- **Abilità**: Perception +2, Stealth +4
+- **Sensi**: Scurovisione 9 m; Percezione Passiva 12
+- **GS** 1/4 (PE 50; PB +2)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The frog can breathe air and water.
+***Anfibio.*** Può respirare aria e acqua.
 
-***Standing Leap.*** The frog's Long Jump is up to 20 feet and its High Jump is up to 10 feet with or without a running start.
+***Balzo da Fermo.*** Può effettuare un Salto in lungo fino a 6 m e un Salto in alto fino a 3 m, con o senza rincorsa.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +3, reach 5 ft. 5 (1d6 + 2) Piercing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 11).
+***Morso.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 5 (1d6 + 2) danni Perforanti. Se il bersaglio è una creatura Media o più piccola, ha la condizione Afferrato (fuga CD 11).
 
-***Swallow.*** The frog swallows a Small or smaller target it is grappling. While swallowed, the target isn't Grappled but has the Blinded and Restrained conditions, and it has Cover|XPHB|Total Cover against attacks and other effects outside the frog. While swallowing the target, the frog can't use Bite, and if the frog dies, the swallowed target is no longer Restrained and can escape from the corpse using 5 feet of movement, exiting with the Prone condition.
-At the end of the frog's next turn, the swallowed target takes 5 (2d4) Acid damage. If that damage doesn't kill it, the frog disgorges it, causing it to exit Prone.
+***Ingoiare.*** La rana ingoia un bersaglio Piccolo o più piccolo che sta afferrando. Mentre è inghiottito, il bersaglio non è Afferrato ma ha le condizioni Cieco e Immobilizzato, e ha Copertura Totale contro attacchi ed effetti provenienti dall’esterno della rana. Finché ha un bersaglio inghiottito, la rana non può usare Morso; se la rana muore, la creatura inghiottita non è più Immobilizzata e può uscire dal cadavere usando 1,5 m di movimento, uscendo con la condizione Prono.
+Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2d4) danni da Acido. Se quel danno non lo uccide, la rana lo rigurgita, facendolo uscire Prono.
 
-## Giant Goat
+## Capra Gigante
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 11
-- **Hit Points:** 19 (3d10 + 3)
-- **Speed:** 40 ft., Climb 30 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 19 (3d10 + 3)
+- **Velocità:** 12 m, Scalare 9 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 17 | +3 | +5 |
-| DEX | 13 | +1 | +1 |
-| CON | 12 | +1 | +1 |
+| FOR | 17 | +3 | +5 |
+| DES | 13 | +1 | +1 |
+| COS | 12 | +1 | +1 |
 | INT | 3 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 6 | -2 | -2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 6 | -2 | -2 |
 
-- **Skills**: Perception +3
-- **Senses**: darkvision 60 ft.; Passive Perception 13
-- **CR** 1/2 (XP 100; PB +2)
+- **Abilità**: Perception +3
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
+- **GS** 1/2 (PE 100; PB +2)
 
-### Actions
+### Azioni
 
-***Ram.*** *Melee Attack Roll:* +5, reach 5 ft. 6 (1d6 + 3) Bludgeoning damage. If the target is a Large or smaller creature and the goat moved 20+ feet straight toward it immediately before the hit, the target takes an extra 5 (2d4) Bludgeoning damage and has the Prone condition.
+***Speronata.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni Contundenti. Se il bersaglio è una creatura Grande o più piccola e la capra si è mossa di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio subisce altri 5 (2d4) danni Contundenti e ha la condizione Prono.
 
-## Giant Hyena
+## Iena Gigante
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 45 (6d10 + 12)
-- **Speed:** 50 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 45 (6d10 + 12)
+- **Velocità:** 15 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 14 | +2 | +2 |
-| CON | 14 | +2 | +2 |
+| FOR | 16 | +3 | +3 |
+| DES | 14 | +2 | +2 |
+| COS | 14 | +2 | +2 |
 | INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 7 | -2 | -2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 7 | -2 | -2 |
 
-- **Skills**: Perception +3
-- **Senses**: darkvision 60 ft.; Passive Perception 13
-- **CR** 1 (XP 200; PB +2)
+- **Abilità**: Perception +3
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
+- **GS** 1 (PE 200; PB +2)
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +5, reach 5 ft. 10 (2d6 + 3) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) danni Perforanti.
 
 
-### Bonus Actions
+### Azioni Bonus
 
-***Rampage (1/Day).*** Immediately after dealing damage to a creature that was already Bloodied, the hyena can move up to half its Speed, and it makes one Bite attack.
+***Furia (1/Giorno).*** Immediatamente dopo aver inflitto danni a una creatura già Insanguinata, l’iena può muoversi fino alla metà della sua Velocità ed effettuare un attacco con Morso.
 
-## Giant Lizard
+## Lucertola Gigante
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 19 (3d10 + 3)
-- **Speed:** 40 ft., Climb 40 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 19 (3d10 + 3)
+- **Velocità:** 12 m, Scalare 12 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +2 |
-| DEX | 12 | +1 | +3 |
-| CON | 13 | +1 | +1 |
+| FOR | 15 | +2 | +2 |
+| DES | 12 | +1 | +3 |
+| COS | 13 | +1 | +1 |
 | INT | 2 | -4 | -4 |
-| WIS | 10 | +0 | +0 |
-| CHA | 5 | -3 | -3 |
+| SAG | 10 | +0 | +0 |
+| CAR | 5 | -3 | -3 |
 
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **CR** 1/4 (XP 50; PB +2)
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 10
+- **GS** 1/4 (PE 50; PB +2)
 
-### Traits
+### Tratti
 
-***Spider Climb.*** The lizard can climb difficult surfaces, including along ceilings, without needing to make an ability check.
+***Camminare sui Muri.*** Può arrampicarsi su superfici difficili, anche lungo i soffitti, senza dover effettuare una prova di abilità.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +4, reach 5 ft. 6 (1d8 + 2) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 6 (1d8 + 2) danni Perforanti.
 
-## Giant Octopus
+## Polpo Gigante
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 11
-- **Hit Points:** 45 (7d10 + 7)
-- **Speed:** 10 ft., Swim 60 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 45 (7d10 + 7)
+- **Velocità:** 3 m, Nuoto 18 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 17 | +3 | +3 |
-| DEX | 13 | +1 | +1 |
-| CON | 13 | +1 | +1 |
+| FOR | 17 | +3 | +3 |
+| DES | 13 | +1 | +1 |
+| COS | 13 | +1 | +1 |
 | INT | 5 | -3 | -3 |
-| WIS | 10 | +0 | +0 |
-| CHA | 4 | -3 | -3 |
+| SAG | 10 | +0 | +0 |
+| CAR | 4 | -3 | -3 |
 
-- **Skills**: Perception +4, Stealth +5
-- **Senses**: darkvision 60 ft.; Passive Perception 14
-- **CR** 1 (XP 200; PB +2)
+- **Abilità**: Perception +4, Stealth +5
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 14
+- **GS** 1 (PE 200; PB +2)
 
-### Traits
+### Tratti
 
-***Water Breathing.*** The octopus can breathe only underwater. It can hold its breath for 1 hour outside water.
+***Respirazione Acquatica.*** Può respirare solo sott'acqua. Fuori dall'acqua può trattenere il respiro per 1 ora.
 
 
-### Actions
+### Azioni
 
-***Tentacles.*** *Melee Attack Roll:* +5, reach 10 ft. 10 (2d6 + 3) Bludgeoning damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 13) from all eight tentacles. While Grappled, the target has the Restrained condition.
+***Tentacoli.*** *Tiro per colpire in mischia:* +5, portata 3 m. 10 (2d6 + 3) danni Contundenti. Se il bersaglio è una creatura Media o più piccola, ha la condizione Afferrato (fuga CD 13) da tutti e otto i tentacoli. Mentre è Afferrato, il bersaglio ha la condizione Immobilizzato.
 
-## Giant Owl
+## Gufo Gigante
 
 *Large Celestial, Neutral*
 
-- **Armor Class:** 12
-- **Hit Points:** 19 (3d10 + 3)
-- **Speed:** 5 ft., Fly 60 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 19 (3d10 + 3)
+- **Velocità:** 1,5 m, Volo 18 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 13 | +1 | +1 |
-| DEX | 15 | +2 | +2 |
-| CON | 12 | +1 | +1 |
+| FOR | 13 | +1 | +1 |
+| DES | 15 | +2 | +2 |
+| COS | 12 | +1 | +1 |
 | INT | 10 | +0 | +0 |
-| WIS | 14 | +2 | +4 |
-| CHA | 10 | +0 | +0 |
+| SAG | 14 | +2 | +4 |
+| CAR | 10 | +0 | +0 |
 
-- **Resistances**: Necrotic, Radiant
-- **Skills**: Perception +6, Stealth +6
-- **Senses**: darkvision 120 ft.; Passive Perception 16
-- **Languages**: Celestial; understands Common, Elvish, And Sylvan but can't speak them
-- **CR** 1/4 (XP 50; PB +2)
+- **Resistenze**: Necrotic, Radiant
+- **Abilità**: Perception +6, Stealth +6
+- **Sensi**: Scurovisione 36 m; Percezione Passiva 16
+- **Linguaggi**: Celestiale; comprende Comune, Elfico e Silvano ma non può parlarli
+- **GS** 1/4 (PE 50; PB +2)
 
-### Traits
+### Tratti
 
-***Flyby.*** The owl doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.
+***Sorvolo.*** Non provoca Attacchi di Opportunità quando vola fuori dalla portata di un nemico.
 
 
-### Actions
+### Azioni
 
-***Talons.*** *Melee Attack Roll:* +4, reach 5 ft. 7 (1d10 + 2) Slashing damage.
+***Artigli.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 7 (1d10 + 2) danni Taglienti.
 
-***Spellcasting.*** The owl casts one of the following spells, requiring no spell components and using Wisdom as the spellcasting ability:
+***Lancio Incantesimi.*** Il gufo lancia uno dei seguenti incantesimi, senza componenti, usando Saggezza come caratteristica da incantatore:
 
 - **At Will:** *Detect Evil and Good*, *Detect Magic*
 - **1/Day Each:** *Clairvoyance*
-## Giant Rat
+## Ratto Gigante
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 7 (2d6)
-- **Speed:** 30 ft., Climb 30 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 7 (2d6)
+- **Velocità:** 9 m, Scalare 9 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 7 | -2 | -2 |
-| DEX | 16 | +3 | +5 |
-| CON | 11 | +0 | +0 |
+| FOR | 7 | -2 | -2 |
+| DES | 16 | +3 | +5 |
+| COS | 11 | +0 | +0 |
 | INT | 2 | -4 | -4 |
-| WIS | 10 | +0 | +0 |
-| CHA | 4 | -3 | -3 |
+| SAG | 10 | +0 | +0 |
+| CAR | 4 | -3 | -3 |
 
-- **Skills**: Perception +2
-- **Senses**: darkvision 60 ft.; Passive Perception 12
-- **CR** 1/8 (XP 25; PB +2)
+- **Abilità**: Perception +2
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 12
+- **GS** 1/8 (PE 25; PB +2)
 
-### Traits
+### Tratti
 
-***Pack Tactics.*** The rat has Advantage on an attack roll against a creature if at least one of the rat's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +5, reach 5 feet. 5 (1d4 + 3) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 5 (1d4 + 3) danni Perforanti.
 
-## Giant Scorpion
+## Scorpione Gigante
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 15
-- **Hit Points:** 52 (7d10 + 14)
-- **Speed:** 40 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 15
+- **Punti Ferita:** 52 (7d10 + 14)
+- **Velocità:** 12 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 13 | +1 | +1 |
-| CON | 15 | +2 | +2 |
+| FOR | 16 | +3 | +3 |
+| DES | 13 | +1 | +1 |
+| COS | 15 | +2 | +2 |
 | INT | 1 | -5 | -5 |
-| WIS | 9 | -1 | -1 |
-| CHA | 3 | -4 | -4 |
+| SAG | 9 | -1 | -1 |
+| CAR | 3 | -4 | -4 |
 
-- **Senses**: blindsight 60 ft.; Passive Perception 9
-- **CR** 3 (XP 700; PB +2)
+- **Sensi**: Sensi Ciechi 18 m; Percezione Passiva 9
+- **GS** 3 (PE 700; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The scorpion makes two Claw attacks and one Sting attack.
+***Attacco Multiplo.*** Lo scorpione effettua due attacchi con Chela e uno con Puntura.
 
-***Claw.*** *Melee Attack Roll:* +5, reach 5 ft. 6 (1d6 + 3) Bludgeoning damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 13) from one of two claws.
+***Chela.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni Contundenti. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Afferrato (fuga CD 13) da una delle due chele.
 
-***Sting.*** *Melee Attack Roll:* +5, reach 5 ft. 7 (1d8 + 3) Piercing damage plus 11 (2d10) Poison damage.
+***Puntura.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni Perforanti plus 11 (2d10) danni da Veleno.
 
-## Giant Seahorse
+## Cavalluccio Marino Gigante
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 14
-- **Hit Points:** 16 (3d10)
-- **Speed:** 5 ft., Swim 40 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 14
+- **Punti Ferita:** 16 (3d10)
+- **Velocità:** 1,5 m, Nuoto 12 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +2 |
-| DEX | 12 | +1 | +1 |
-| CON | 11 | +0 | +0 |
+| FOR | 15 | +2 | +2 |
+| DES | 12 | +1 | +1 |
+| COS | 11 | +0 | +0 |
 | INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 5 | -3 | -3 |
+| SAG | 12 | +1 | +1 |
+| CAR | 5 | -3 | -3 |
 
-- **Senses**: Passive Perception 11
-- **CR** 1/2 (XP 100; PB +2)
+- **Sensi**: Percezione Passiva 11
+- **GS** 1/2 (PE 100; PB +2)
 
-### Traits
+### Tratti
 
-***Water Breathing.*** The seahorse can breathe only underwater.
-
-
-### Actions
-
-***Ram.*** *Melee Attack Roll:* +4, reach 5 ft. 9 (2d6 + 2) Bludgeoning damage, or 11 (2d8 + 2) Bludgeoning damage if the seahorse moved 20+ feet straight toward the target immediately before the hit.
+***Respirazione Acquatica.*** Può respirare solo sott'acqua.
 
 
-### Bonus Actions
+### Azioni
 
-***Bubble Dash.*** While underwater, the seahorse moves up to half its Swim Speed without provoking Opportunity Attacks.
+***Speronata.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 9 (2d6 + 2) danni Contundenti, oppure 11 (2d8 + 2) danni Contundenti se il cavalluccio marino si è mosso di 6+ m in linea retta verso il bersaglio immediatamente prima di colpirlo.
 
-## Giant Shark
 
-*Huge Beast, Unaligned*
+### Azioni Bonus
 
-- **Armor Class:** 13
-- **Hit Points:** 92 (8d12 + 40)
-- **Speed:** 5 ft., Swim 60 ft.
-- **Initiative**: +3 (13)
+***Scatto a Bolle.*** Sott'acqua, si muove fino a metà della sua Velocità di Nuoto senza provocare Attacchi di Opportunità.
 
-|STAT|SCORE|MOD|SAVE|
+## Squalo Gigante
+
+*Bestia Enorme, Non Allineato*
+
+- **Classe Armatura:** 13
+- **Punti Ferita:** 92 (8d12 + 40)
+- **Velocità:** 1,5 m, Nuoto 18 m
+- **Iniziativa**: +3 (13)
+
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 23 | +6 | +6 |
-| DEX | 11 | +0 | +0 |
-| CON | 21 | +5 | +5 |
+| FOR | 23 | +6 | +6 |
+| DES | 11 | +0 | +0 |
+| COS | 21 | +5 | +5 |
 | INT | 1 | -5 | -5 |
-| WIS | 10 | +0 | +0 |
-| CHA | 5 | -3 | -3 |
+| SAG | 10 | +0 | +0 |
+| CAR | 5 | -3 | -3 |
 
-- **Skills**: Perception +3
-- **Senses**: blindsight 60 ft.; Passive Perception 13
-- **CR** 5 (XP 1,800; PB +3)
+- **Abilità**: Perception +3
+- **Sensi**: Sensi Ciechi 18 m; Percezione Passiva 13
+- **GS** 5 (PE 1,800; PB +3)
 
-### Traits
+### Tratti
 
-***Water Breathing.*** The shark can breathe only underwater.
+***Respirazione Acquatica.*** Può respirare solo sott'acqua.
 
 
-### Actions
+### Azioni
 
-***Multiattack.*** The shark makes two Bite attacks.
+***Attacco Multiplo.*** Lo squalo effettua due attacchi con Morso.
 
-***Bite.*** *Melee Attack Roll:* +9 (with Advantage if the target doesn't have all its Hit Points), reach 5 ft. 22 (3d10 + 6) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +9 (con Vantaggio se il bersaglio non ha tutti i suoi Punti Ferita), portata 1,5 m. 22 (3d10 + 6) danni Perforanti.
 
-## Giant Spider
+## Ragno Gigante
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 14
-- **Hit Points:** 26 (4d10 + 4)
-- **Speed:** 30 ft., Climb 30 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 14
+- **Punti Ferita:** 26 (4d10 + 4)
+- **Velocità:** 9 m, Scalare 9 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 14 | +2 | +2 |
-| DEX | 16 | +3 | +3 |
-| CON | 12 | +1 | +1 |
+| FOR | 14 | +2 | +2 |
+| DES | 16 | +3 | +3 |
+| COS | 12 | +1 | +1 |
 | INT | 2 | -4 | -4 |
-| WIS | 11 | +0 | +0 |
-| CHA | 4 | -3 | -3 |
+| SAG | 11 | +0 | +0 |
+| CAR | 4 | -3 | -3 |
 
-- **Skills**: Perception +4, Stealth +7
-- **Senses**: darkvision 60 ft.; Passive Perception 14
-- **CR** 1 (XP 200; PB +2)
+- **Abilità**: Perception +4, Stealth +7
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 14
+- **GS** 1 (PE 200; PB +2)
 
-### Traits
+### Tratti
 
-***Spider Climb.*** The spider can climb difficult surfaces, including along ceilings, without needing to make an ability check.
+***Camminare sui Muri.*** Può arrampicarsi su superfici difficili, anche lungo i soffitti, senza dover effettuare una prova di abilità.
 
-***Web Walker.*** The spider ignores movement restrictions caused by webs, and it knows the location of any other creature in contact with the same web.
+***Camminatore di Ragnatele.*** Ignora le restrizioni al movimento causate dalle ragnatele e conosce la posizione di qualsiasi altra creatura a contatto con la stessa ragnatela.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +5, reach 5 ft. 7 (1d8 + 3) Piercing damage plus 7 (2d6) Poison damage.
+***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni Perforanti plus 7 (2d6) danni da Veleno.
 
-***Web (Recharge 5-6).*** *Dexterity Saving Throw*: DC 13, one creature the spider can see within 60 feet. *Failure:*  The target has the Restrained condition until the web is destroyed (AC 10; HP 5; Vulnerability to Fire damage; Immunity to Poison and Psychic damage).
+***Ragnatela (Ricarica 5-6).*** *Tiro Salvezza su Destrezza*: CD 13, una creatura che il ragno può vedere entro 18 m. *Fallimento:* Il bersaglio ha la condizione Immobilizzato finché la ragnatela non è distrutta (CA 10; PF 5; Vulnerabilità ai danni da Fuoco; Immunità ai danni da Veleno e Psichici).
 
-## Giant Toad
+## Rospo Gigante
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 11
-- **Hit Points:** 39 (6d10 + 6)
-- **Speed:** 30 ft., Swim 30 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 39 (6d10 + 6)
+- **Velocità:** 9 m, Nuoto 9 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +2 |
-| DEX | 13 | +1 | +1 |
-| CON | 13 | +1 | +1 |
+| FOR | 15 | +2 | +2 |
+| DES | 13 | +1 | +1 |
+| COS | 13 | +1 | +1 |
 | INT | 2 | -4 | -4 |
-| WIS | 10 | +0 | +0 |
-| CHA | 3 | -4 | -4 |
+| SAG | 10 | +0 | +0 |
+| CAR | 3 | -4 | -4 |
 
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **CR** 1 (XP 200; PB +2)
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 10
+- **GS** 1 (PE 200; PB +2)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The toad can breathe air and water.
+***Anfibio.*** Può respirare aria e acqua.
 
-***Standing Leap.*** The toad's Long Jump is up to 20 feet and its High Jump is up to 10 feet with or without a running start.
+***Balzo da Fermo.*** Può effettuare un Salto in lungo fino a 6 m e un Salto in alto fino a 3 m, con o senza rincorsa.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +4, reach 5 ft. 5 (1d6 + 2) Piercing damage plus 5 (2d4) Poison damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 12).
+***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni Perforanti più 5 (2d4) danni da Veleno. Se il bersaglio è una creatura Media o più piccola, ha la condizione Afferrato (fuga CD 12).
 
-***Swallow.*** The toad swallows a Medium or smaller target it is grappling. While swallowed, the target isn't Grappled but has the Blinded and Restrained conditions, and it has Cover|XPHB|Total Cover against attacks and other effects outside the toad. In addition, the target takes 10 (3d6) Acid damage at the end of each of the toad's turns. The toad can have only one target swallowed at a time, and it can't use Bite while it has a swallowed target. If the toad dies, a swallowed creature is no longer Restrained and can escape from the corpse using 5 feet of movement, exiting with the Prone condition.
+***Ingoiare.*** Il rospo ingoia un bersaglio Medio o più piccolo che sta afferrando. Mentre è inghiottito, il bersaglio non è Afferrato ma ha le condizioni Cieco e Immobilizzato, e ha Copertura Totale contro attacchi ed effetti provenienti dall’esterno del rospo. Inoltre, il bersaglio subisce 10 (3d6) danni da Acido alla fine di ciascun turno del rospo. Il rospo può avere un solo bersaglio inghiottito alla volta e non può usare Morso mentre ne ha uno. Se il rospo muore, una creatura inghiottita non è più Immobilizzata e può uscire dal cadavere usando 1,5 m di movimento, uscendo con la condizione Prono.
 
-## Giant Venomous Snake
+## Serpente Velenoso Gigante
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 14
-- **Hit Points:** 11 (2d8 + 2)
-- **Speed:** 40 ft., Swim 40 ft.
-- **Initiative**: +4 (14)
+- **Classe Armatura:** 14
+- **Punti Ferita:** 11 (2d8 + 2)
+- **Velocità:** 12 m, Nuoto 12 m
+- **Iniziativa**: +4 (14)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 10 | +0 | +0 |
-| DEX | 18 | +4 | +4 |
-| CON | 13 | +1 | +1 |
+| FOR | 10 | +0 | +0 |
+| DES | 18 | +4 | +4 |
+| COS | 13 | +1 | +1 |
 | INT | 2 | -4 | -4 |
-| WIS | 10 | +0 | +0 |
-| CHA | 3 | -4 | -4 |
+| SAG | 10 | +0 | +0 |
+| CAR | 3 | -4 | -4 |
 
-- **Skills**: Perception +2
-- **Senses**: blindsight 10 ft.; Passive Perception 12
-- **CR** 1/4 (XP 50; PB +2)
+- **Abilità**: Perception +2
+- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 12
+- **GS** 1/4 (PE 50; PB +2)
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +6, reach 10 ft. 6 (1d4 + 4) Piercing damage plus 4 (1d8) Poison damage.
+***Morso.*** *Tiro per colpire in mischia:* +6, portata 3 m. 6 (1d4 + 4) danni Perforanti plus 4 (1d8) danni da Veleno.
 
-## Giant Vulture
+## Avvoltoio Gigante
 
-*Large Monstrosity, Neutral Evil*
+*Mostruosità Grande, Neutrale Malvagio*
 
-- **Armor Class:** 10
-- **Hit Points:** 25 (3d10 + 9)
-- **Speed:** 10 ft., Fly 60 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 10
+- **Punti Ferita:** 25 (3d10 + 9)
+- **Velocità:** 3 m, Volo 18 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +2 |
-| DEX | 10 | +0 | +0 |
-| CON | 16 | +3 | +3 |
+| FOR | 15 | +2 | +2 |
+| DES | 10 | +0 | +0 |
+| COS | 16 | +3 | +3 |
 | INT | 6 | -2 | -2 |
-| WIS | 12 | +1 | +1 |
-| CHA | 7 | -2 | -2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 7 | -2 | -2 |
 
-- **Resistances**: Necrotic
-- **Skills**: Perception +3
-- **Senses**: darkvision 60 ft.; Passive Perception 13
-- **Languages**: Understands Common but can't speak
-- **CR** 1 (XP 200; PB +2)
+- **Resistenze**: Necrotic
+- **Abilità**: Perception +3
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
+- **Linguaggi**: Comprende il Comune ma non può parlare
+- **GS** 1 (PE 200; PB +2)
 
-### Traits
+### Tratti
 
-***Pack Tactics.*** The vulture has Advantage on an attack roll against a creature if at least one of the vulture's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
 
 
-### Actions
+### Azioni
 
-***Gouge.*** *Melee Attack Roll:* +4, reach 5 ft. 9 (2d6 + 2) Piercing damage, and the target has the Poisoned condition until the end of its next turn.
+***Beccata.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 9 (2d6 + 2) danni Perforanti, e il bersaglio ha la condizione Avvelenato fino alla fine del suo prossimo turno.
 
-## Giant Wasp
+## Vespa Gigante
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 22 (5d8)
-- **Speed:** 10 ft., Fly 50 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 22 (5d8)
+- **Velocità:** 3 m, Volo 15 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 10 | +0 | +0 |
-| DEX | 14 | +2 | +2 |
-| CON | 10 | +0 | +0 |
+| FOR | 10 | +0 | +0 |
+| DES | 14 | +2 | +2 |
+| COS | 10 | +0 | +0 |
 | INT | 1 | -5 | -5 |
-| WIS | 10 | +0 | +0 |
-| CHA | 3 | -4 | -4 |
+| SAG | 10 | +0 | +0 |
+| CAR | 3 | -4 | -4 |
 
-- **Senses**: Passive Perception 10
-- **CR** 1/2 (XP 100; PB +2)
+- **Sensi**: Percezione Passiva 10
+- **GS** 1/2 (PE 100; PB +2)
 
-### Traits
+### Tratti
 
-***Flyby.*** The wasp doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.
+***Sorvolo.*** Non provoca Attacchi di Opportunità quando vola fuori dalla portata di un nemico.
 
 
-### Actions
+### Azioni
 
-***Sting.*** *Melee Attack Roll:* +4, reach 5 ft. 5 (1d6 + 2) Piercing damage plus 5 (2d4) Poison damage.
+***Puntura.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni Perforanti plus 5 (2d4) danni da Veleno.
 
-## Giant Weasel
+## Donnola Gigante
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 9 (2d8)
-- **Speed:** 40 ft., Climb 30 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 9 (2d8)
+- **Velocità:** 12 m, Scalare 9 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 11 | +0 | +0 |
-| DEX | 17 | +3 | +3 |
-| CON | 10 | +0 | +0 |
+| FOR | 11 | +0 | +0 |
+| DES | 17 | +3 | +3 |
+| COS | 10 | +0 | +0 |
 | INT | 4 | -3 | -3 |
-| WIS | 12 | +1 | +1 |
-| CHA | 5 | -3 | -3 |
+| SAG | 12 | +1 | +1 |
+| CAR | 5 | -3 | -3 |
 
-- **Skills**: Acrobatics +5, Perception +3, Stealth +5
-- **Senses**: darkvision 60 ft.; Passive Perception 13
-- **CR** 1/8 (XP 25; PB +2)
+- **Abilità**: Acrobatics +5, Perception +3, Stealth +5
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
+- **GS** 1/8 (PE 25; PB +2)
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +5, reach 5 ft. 5 (1d4 + 3) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 5 (1d4 + 3) danni Perforanti.
 
-## Giant Wolf Spider
+## Ragno Lupo Gigante
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 11 (2d8 + 2)
-- **Speed:** 40 ft., Climb 40 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 11 (2d8 + 2)
+- **Velocità:** 12 m, Scalare 12 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 12 | +1 | +1 |
-| DEX | 16 | +3 | +3 |
-| CON | 13 | +1 | +1 |
+| FOR | 12 | +1 | +1 |
+| DES | 16 | +3 | +3 |
+| COS | 13 | +1 | +1 |
 | INT | 3 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 4 | -3 | -3 |
+| SAG | 12 | +1 | +1 |
+| CAR | 4 | -3 | -3 |
 
-- **Skills**: Perception +3, Stealth +7
-- **Senses**: blindsight 10 ft., darkvision 60 ft.; Passive Perception 13
-- **CR** 1/4 (XP 50; PB +2)
+- **Abilità**: Perception +3, Stealth +7
+- **Sensi**: Sensi Ciechi 3 m, Scurovisione 18 m; Percezione Passiva 13
+- **GS** 1/4 (PE 50; PB +2)
 
-### Traits
+### Tratti
 
-***Spider Climb.*** The spider can climb difficult surfaces, including along ceilings, without needing to make an ability check.
+***Camminare sui Muri.*** Può arrampicarsi su superfici difficili, anche lungo i soffitti, senza dover effettuare una prova di abilità.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +5, reach 5 ft. 5 (1d4 + 3) Piercing damage plus 5 (2d4) Poison damage.
+***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 5 (1d4 + 3) danni Perforanti plus 5 (2d4) danni da Veleno.
 
-## Goat
+## Capra
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 10
-- **Hit Points:** 4 (1d8)
-- **Speed:** 40 ft., Climb 30 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 10
+- **Punti Ferita:** 4 (1d8)
+- **Velocità:** 12 m, Scalare 9 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 11 | +0 | +2 |
-| DEX | 10 | +0 | +0 |
-| CON | 11 | +0 | +0 |
+| FOR | 11 | +0 | +2 |
+| DES | 10 | +0 | +0 |
+| COS | 11 | +0 | +0 |
 | INT | 2 | -4 | -4 |
-| WIS | 10 | +0 | +0 |
-| CHA | 5 | -3 | -3 |
+| SAG | 10 | +0 | +0 |
+| CAR | 5 | -3 | -3 |
 
-- **Skills**: Perception +2
-- **Senses**: darkvision 60 ft.; Passive Perception 12
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Abilità**: Perception +2
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 12
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Actions
+### Azioni
 
-***Ram.*** *Melee Attack Roll:* +2, reach 5 ft. 1 Bludgeoning damage, or 2 (1d4) Bludgeoning damage if the goat moved 20+ feet straight toward the target immediately before the hit.
+***Speronata.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 1 danno Contundente, oppure 2 (1d4) danni Contundenti se la capra si è mossa di 6+ m in linea retta verso il bersaglio immediatamente prima di colpirlo.
 
-## Hawk
+## Falco
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 1 (1d4 - 1)
-- **Speed:** 10 ft., Fly 60 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 1 (1d4 - 1)
+- **Velocità:** 3 m, Volo 18 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 5 | -3 | -3 |
-| DEX | 16 | +3 | +3 |
-| CON | 8 | -1 | -1 |
+| FOR | 5 | -3 | -3 |
+| DES | 16 | +3 | +3 |
+| COS | 8 | -1 | -1 |
 | INT | 2 | -4 | -4 |
-| WIS | 14 | +2 | +2 |
-| CHA | 6 | -2 | -2 |
+| SAG | 14 | +2 | +2 |
+| CAR | 6 | -2 | -2 |
 
-- **Skills**: Perception +6
-- **Senses**: Passive Perception 16
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Abilità**: Perception +6
+- **Sensi**: Percezione Passiva 16
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Actions
+### Azioni
 
-***Talons.*** *Melee Attack Roll:* +5, reach 5 ft. 1 Slashing damage.
+***Artigli.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 1 danni Taglienti.
 
-## Hippopotamus
+## Ippopotamo
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 14
-- **Hit Points:** 82 (11d10 + 22)
-- **Speed:** 30 ft., Swim 30 ft.
-- **Initiative**: -2 (8)
+- **Classe Armatura:** 14
+- **Punti Ferita:** 82 (11d10 + 22)
+- **Velocità:** 9 m, Nuoto 9 m
+- **Iniziativa**: -2 (8)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 21 | +5 | +7 |
-| DEX | 7 | -2 | -2 |
-| CON | 15 | +2 | +2 |
+| FOR | 21 | +5 | +7 |
+| DES | 7 | -2 | -2 |
+| COS | 15 | +2 | +2 |
 | INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 4 | -3 | -3 |
+| SAG | 12 | +1 | +1 |
+| CAR | 4 | -3 | -3 |
 
-- **Skills**: Perception +3
-- **Senses**: Passive Perception 13
-- **CR** 4 (XP 1,100; PB +2)
+- **Abilità**: Perception +3
+- **Sensi**: Percezione Passiva 13
+- **GS** 4 (PE 1,100; PB +2)
 
-### Traits
+### Tratti
 
-***Hold Breath.*** The hippopotamus can hold its breath for 10 minutes.
+***Trattenere il Respiro.*** Può trattenere il respiro per 10 minuti.
 
 
-### Actions
+### Azioni
 
-***Multiattack.*** The hippopotamus makes two Bite attacks.
+***Attacco Multiplo.*** Effettua due attacchi con Morso.
 
-***Bite.*** *Melee Attack Roll:* +7, reach 5 ft. 16 (2d10 + 5) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +7, portata 1,5 m. 16 (2d10 + 5) danni Perforanti.
 
-## Hunter Shark
+## Squalo Cacciatore
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 45 (6d10 + 12)
-- **Speed:** 5 ft., Swim 40 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 45 (6d10 + 12)
+- **Velocità:** 1,5 m, Nuoto 12 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 14 | +2 | +2 |
-| CON | 15 | +2 | +2 |
+| FOR | 18 | +4 | +4 |
+| DES | 14 | +2 | +2 |
+| COS | 15 | +2 | +2 |
 | INT | 1 | -5 | -5 |
-| WIS | 10 | +0 | +0 |
-| CHA | 4 | -3 | -3 |
+| SAG | 10 | +0 | +0 |
+| CAR | 4 | -3 | -3 |
 
-- **Skills**: Perception +2
-- **Senses**: blindsight 60 ft.; Passive Perception 12
-- **CR** 2 (XP 450; PB +2)
+- **Abilità**: Perception +2
+- **Sensi**: Sensi Ciechi 18 m; Percezione Passiva 12
+- **GS** 2 (PE 450; PB +2)
 
-### Traits
+### Tratti
 
-***Water Breathing.*** The shark can breathe only underwater.
+***Respirazione Acquatica.*** Può respirare solo sott'acqua.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +6 (with Advantage if the target doesn't have all its Hit Points), reach 5 ft. 14 (3d6 + 4) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +6 (con Vantaggio se il bersaglio non ha tutti i suoi Punti Ferita), portata 1,5 m. 14 (3d6 + 4) danni Perforanti.
 
-## Hyena
+## Iena
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 11
-- **Hit Points:** 5 (1d8 + 1)
-- **Speed:** 50 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 5 (1d8 + 1)
+- **Velocità:** 15 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 11 | +0 | +0 |
-| DEX | 13 | +1 | +1 |
-| CON | 12 | +1 | +1 |
+| FOR | 11 | +0 | +0 |
+| DES | 13 | +1 | +1 |
+| COS | 12 | +1 | +1 |
 | INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 5 | -3 | -3 |
+| SAG | 12 | +1 | +1 |
+| CAR | 5 | -3 | -3 |
 
-- **Skills**: Perception +3
-- **Senses**: darkvision 60 ft.; Passive Perception 13
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Abilità**: Perception +3
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Traits
+### Tratti
 
-***Pack Tactics.*** The hyena has Advantage on an attack roll against a creature if at least one of the hyena's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +2, reach 5 ft. 3 (1d6) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 3 (1d6) danni Perforanti.
 
-## Jackal
+## Sciacallo
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 3 (1d6)
-- **Speed:** 40 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 3 (1d6)
+- **Velocità:** 12 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 8 | -1 | -1 |
-| DEX | 15 | +2 | +2 |
-| CON | 11 | +0 | +0 |
+| FOR | 8 | -1 | -1 |
+| DES | 15 | +2 | +2 |
+| COS | 11 | +0 | +0 |
 | INT | 3 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 6 | -2 | -2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 6 | -2 | -2 |
 
-- **Skills**: Perception +5, Stealth +4
-- **Senses**: darkvision 90 ft.; Passive Perception 15
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Abilità**: Perception +5, Stealth +4
+- **Sensi**: Scurovisione 27 m; Percezione Passiva 15
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +1, reach 5 ft. 1 (1d4 - 1) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +1, portata 1,5 m. 1 (1d4 - 1) danni Perforanti.
 
-## Killer Whale
+## Orca
 
-*Huge Beast, Unaligned*
+*Bestia Enorme, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 90 (12d12 + 12)
-- **Speed:** 5 ft., Swim 60 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 90 (12d12 + 12)
+- **Velocità:** 1,5 m, Nuoto 18 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 14 | +2 | +2 |
-| CON | 13 | +1 | +1 |
+| FOR | 19 | +4 | +4 |
+| DES | 14 | +2 | +2 |
+| COS | 13 | +1 | +1 |
 | INT | 3 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 7 | -2 | -2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 7 | -2 | -2 |
 
-- **Skills**: Perception +3, Stealth +4
-- **Senses**: blindsight 120 ft.; Passive Perception 13
-- **CR** 3 (XP 700; PB +2)
+- **Abilità**: Perception +3, Stealth +4
+- **Sensi**: Sensi Ciechi 36 m; Percezione Passiva 13
+- **GS** 3 (PE 700; PB +2)
 
-### Traits
+### Tratti
 
-***Hold Breath.*** The whale can hold its breath for 30 minutes.
+***Trattenere il Respiro.*** Può trattenere il respiro per 30 minuti.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +6, reach 5 ft. 21 (5d6 + 4) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 21 (5d6 + 4) danni Perforanti.
 
-## Lion
+## Leone
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 22 (4d10)
-- **Speed:** 50 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 22 (4d10)
+- **Velocità:** 15 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 17 | +3 | +3 |
-| DEX | 15 | +2 | +2 |
-| CON | 11 | +0 | +0 |
+| FOR | 17 | +3 | +3 |
+| DES | 15 | +2 | +2 |
+| COS | 11 | +0 | +0 |
 | INT | 3 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 8 | -1 | -1 |
+| SAG | 12 | +1 | +1 |
+| CAR | 8 | -1 | -1 |
 
-- **Skills**: Perception +3, Stealth +4
-- **Senses**: darkvision 60 ft.; Passive Perception 13
-- **CR** 1 (XP 200; PB +2)
+- **Abilità**: Perception +3, Stealth +4
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
+- **GS** 1 (PE 200; PB +2)
 
-### Traits
+### Tratti
 
-***Pack Tactics.*** The lion has Advantage on an attack roll against a creature if at least one of the lion's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
 
-***Running Leap.*** With a 10-foot running start, the lion can Long Jump up to 25 feet.
+***Balzo in Corsa.*** Con una rincorsa di 3 m, può effettuare un Salto in lungo fino a 7,5 m.
 
 
-### Actions
+### Azioni
 
-***Multiattack.*** The lion makes two Rend attacks. It can replace one attack with a use of Roar.
+***Attacco Multiplo.*** Effettua due attacchi con Lacerare. Può sostituire uno di quegli attacchi con un uso di Ruggito.
 
-***Rend.*** *Melee Attack Roll:* +5, reach 5 ft. 7 (1d8 + 3) Slashing damage.
+***Lacerare.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni Taglienti.
 
-***Roar.*** *Wisdom Saving Throw*: DC 11, one creature within 15 feet. *Failure:*  The target has the Frightened condition until the start of the lion's next turn.
+***Ruggito.*** *Tiro Salvezza su Saggezza*: CD 11, una creatura entro 4,5 m. *Fallimento:*  Il bersaglio ha la condizione Spaventato fino all'inizio del prossimo turno del leone.
 
-## Lizard
+## Lucertola
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 10
-- **Hit Points:** 2 (1d4)
-- **Speed:** 20 ft., Climb 20 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 10
+- **Punti Ferita:** 2 (1d4)
+- **Velocità:** 6 m, Scalare 6 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 2 | -4 | -4 |
-| DEX | 11 | +0 | +0 |
-| CON | 10 | +0 | +0 |
+| FOR | 2 | -4 | -4 |
+| DES | 11 | +0 | +0 |
+| COS | 10 | +0 | +0 |
 | INT | 1 | -5 | -5 |
-| WIS | 8 | -1 | -1 |
-| CHA | 3 | -4 | -4 |
+| SAG | 8 | -1 | -1 |
+| CAR | 3 | -4 | -4 |
 
-- **Senses**: darkvision 30 ft.; Passive Perception 9
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Sensi**: Scurovisione 9 m; Percezione Passiva 9
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Traits
+### Tratti
 
-***Spider Climb.*** The lizard can climb difficult surfaces, including along ceilings, without needing to make an ability check.
+***Camminare sui Muri.*** Può arrampicarsi su superfici difficili, anche lungo i soffitti, senza dover effettuare una prova di abilità.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +2, reach 5 ft. 1 Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 1 danni Perforanti.
 
-## Mammoth
+## Mammut
 
-*Huge Beast, Unaligned*
+*Bestia Enorme, Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 126 (11d12 + 55)
-- **Speed:** 50 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 126 (11d12 + 55)
+- **Velocità:** 15 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 24 | +7 | +10 |
-| DEX | 9 | -1 | -1 |
-| CON | 21 | +5 | +8 |
+| FOR | 24 | +7 | +10 |
+| DES | 9 | -1 | -1 |
+| COS | 21 | +5 | +8 |
 | INT | 3 | -4 | -4 |
-| WIS | 11 | +0 | +0 |
-| CHA | 6 | -2 | -2 |
+| SAG | 11 | +0 | +0 |
+| CAR | 6 | -2 | -2 |
 
-- **Senses**: Passive Perception 10
-- **CR** 6 (XP 2,300; PB +3)
+- **Sensi**: Percezione Passiva 10
+- **GS** 6 (PE 2,300; PB +3)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The mammoth makes two Gore attacks.
+***Attacco Multiplo.*** Effettua due attacchi con Incornata.
 
-***Gore.*** *Melee Attack Roll:* +10, reach 10 ft. 18 (2d10 + 7) Piercing damage. If the target is a Huge or smaller creature and the mammoth moved 20+ feet straight toward it immediately before the hit, the target has the Prone condition.
+***Incornata.*** *Tiro per colpire in mischia:* +10, portata 3 m. 18 (2d10 + 7) danni Perforanti. Se il bersaglio è una creatura Enorme o più piccola e la creatura si è mossa di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio ha la condizione Prono.
 
 
-### Bonus Actions
+### Azioni Bonus
 
-***Trample.*** *Dexterity Saving Throw*: DC 18, one creature within 5 feet that has the Prone condition. *Failure:*  29 (4d10 + 7) Bludgeoning damage. *Success:*  Half damage.
+***Calpestare.*** *Tiro Salvezza su Destrezza*: CD 18, una creatura entro 1,5 m che ha la condizione Prono. *Fallimento:*  29 (4d10 + 7) danni Contundenti. *Successo:*  Metà danni.
 
-## Mastiff
+## Mastino
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 5 (1d8 + 1)
-- **Speed:** 40 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 5 (1d8 + 1)
+- **Velocità:** 12 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 13 | +1 | +1 |
-| DEX | 14 | +2 | +2 |
-| CON | 12 | +1 | +1 |
+| FOR | 13 | +1 | +1 |
+| DES | 14 | +2 | +2 |
+| COS | 12 | +1 | +1 |
 | INT | 3 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 7 | -2 | -2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 7 | -2 | -2 |
 
-- **Skills**: Perception +5
-- **Senses**: darkvision 60 ft.; Passive Perception 15
-- **CR** 1/8 (XP 25; PB +2)
+- **Abilità**: Perception +5
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 15
+- **GS** 1/8 (PE 25; PB +2)
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +3, reach 5 ft. 4 (1d6 + 1) Piercing damage. If the target is a Medium or smaller creature, it has the Prone condition.
+***Morso.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 4 (1d6 + 1) danni Perforanti. Se il bersaglio è una creatura Media o più piccola, ha la condizione Prono.
 
-## Mule
+## Mulo
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 10
-- **Hit Points:** 11 (2d8 + 2)
-- **Speed:** 40 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 10
+- **Punti Ferita:** 11 (2d8 + 2)
+- **Velocità:** 12 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 14 | +2 | +4 |
-| DEX | 10 | +0 | +0 |
-| CON | 13 | +1 | +1 |
+| FOR | 14 | +2 | +4 |
+| DES | 10 | +0 | +0 |
+| COS | 13 | +1 | +1 |
 | INT | 2 | -4 | -4 |
-| WIS | 10 | +0 | +0 |
-| CHA | 5 | -3 | -3 |
+| SAG | 10 | +0 | +0 |
+| CAR | 5 | -3 | -3 |
 
-- **Senses**: Passive Perception 10
-- **CR** 1/8 (XP 25; PB +2)
+- **Sensi**: Percezione Passiva 10
+- **GS** 1/8 (PE 25; PB +2)
 
-### Traits
+### Tratti
 
-***Beast of Burden.*** The mule counts as one size larger for the purpose of determining its carrying capacity.
+***Bestia da Soma.*** Conta come una taglia più grande ai fini della capacità di carico.
 
 
-### Actions
+### Azioni
 
-***Hooves.*** *Melee Attack Roll:* +4, reach 5 ft. 4 (1d4 + 2) Bludgeoning damage.
+***Zoccoli.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni Contundenti.
 
-## Owl
+## Gufo
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 11
-- **Hit Points:** 1 (1d4 - 1)
-- **Speed:** 5 ft., Fly 60 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 1 (1d4 - 1)
+- **Velocità:** 1,5 m, Volo 18 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 3 | -4 | -4 |
-| DEX | 13 | +1 | +1 |
-| CON | 8 | -1 | -1 |
+| FOR | 3 | -4 | -4 |
+| DES | 13 | +1 | +1 |
+| COS | 8 | -1 | -1 |
 | INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 7 | -2 | -2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 7 | -2 | -2 |
 
-- **Skills**: Perception +5, Stealth +5
-- **Senses**: darkvision 120 ft.; Passive Perception 15
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Abilità**: Perception +5, Stealth +5
+- **Sensi**: Scurovisione 36 m; Percezione Passiva 15
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Traits
+### Tratti
 
-***Flyby.*** The owl doesn't provoke Opportunity Attacks when it flies out of an enemy's reach.
+***Sorvolo.*** Non provoca Attacchi di Opportunità quando vola fuori dalla portata di un nemico.
 
 
-### Actions
+### Azioni
 
-***Talons.*** *Melee Attack Roll:* +3, reach 5 ft. 1 Slashing damage.
+***Artigli.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 1 danni Taglienti.
 
-## Panther
+## Pantera
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 13 (3d8)
-- **Speed:** 50 ft., Climb 40 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 13 (3d8)
+- **Velocità:** 15 m, Scalare 12 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 14 | +2 | +2 |
-| DEX | 16 | +3 | +3 |
-| CON | 10 | +0 | +0 |
+| FOR | 14 | +2 | +2 |
+| DES | 16 | +3 | +3 |
+| COS | 10 | +0 | +0 |
 | INT | 3 | -4 | -4 |
-| WIS | 14 | +2 | +2 |
-| CHA | 7 | -2 | -2 |
+| SAG | 14 | +2 | +2 |
+| CAR | 7 | -2 | -2 |
 
-- **Skills**: Perception +4, Stealth +6
-- **Senses**: darkvision 60 ft.; Passive Perception 14
-- **CR** 1/4 (XP 50; PB +2)
+- **Abilità**: Perception +4, Stealth +6
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 14
+- **GS** 1/4 (PE 50; PB +2)
 
-### Actions
+### Azioni
 
-***Rend.*** *Melee Attack Roll:* +5, reach 5 ft. 6 (1d6 + 3) Slashing damage.
+***Rend.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni Taglienti.
 
 
-### Bonus Actions
+### Azioni Bonus
 
-***Nimble Escape.*** The panther takes the Disengage or Hide action.
+***Fuga Agile.*** La pantera compie l'azione Disimpegno o Nascondersi.
 
 ## Piranha
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 1 (1d4 - 1)
-- **Speed:** 5 ft., Swim 40 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 1 (1d4 - 1)
+- **Velocità:** 1,5 m, Nuoto 12 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 2 | -4 | -4 |
-| DEX | 16 | +3 | +3 |
-| CON | 9 | -1 | -1 |
+| FOR | 2 | -4 | -4 |
+| DES | 16 | +3 | +3 |
+| COS | 9 | -1 | -1 |
 | INT | 1 | -5 | -5 |
-| WIS | 7 | -2 | -2 |
-| CHA | 2 | -4 | -4 |
+| SAG | 7 | -2 | -2 |
+| CAR | 2 | -4 | -4 |
 
-- **Senses**: darkvision 60 ft.; Passive Perception 8
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 8
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Traits
+### Tratti
 
-***Water Breathing.*** The piranha can breathe only underwater.
+***Respirazione Acquatica.*** Può respirare solo sott'acqua.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +5 (with Advantage if the target doesn't have all its Hit Points), reach 5 ft. 1 Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +5 (con Vantaggio se il bersaglio non ha tutti i suoi Punti Ferita), portata 1,5 m. 1 danno Perforante.
 
-## Plesiosaurus
+## Plesiosauro
 
-*Large Beast (Dinosaur), Unaligned*
+*Bestia Grande (Dinosauro), Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 68 (8d10 + 24)
-- **Speed:** 20 ft., Swim 40 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 68 (8d10 + 24)
+- **Velocità:** 6 m, Nuoto 12 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 15 | +2 | +2 |
-| CON | 16 | +3 | +3 |
+| FOR | 18 | +4 | +4 |
+| DES | 15 | +2 | +2 |
+| COS | 16 | +3 | +3 |
 | INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 5 | -3 | -3 |
+| SAG | 12 | +1 | +1 |
+| CAR | 5 | -3 | -3 |
 
-- **Skills**: Perception +3, Stealth +4
-- **Senses**: Passive Perception 13
-- **CR** 2 (XP 450; PB +2)
+- **Abilità**: Perception +3, Stealth +4
+- **Sensi**: Percezione Passiva 13
+- **GS** 2 (PE 450; PB +2)
 
-### Traits
+### Tratti
 
-***Hold Breath.*** The plesiosaurus can hold its breath for 1 hour.
+***Trattenere il Respiro.*** Può trattenere il respiro per 1 ora.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +6, reach 10 ft. 11 (2d6 + 4) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +6, portata 3 m. 11 (2d6 + 4) danni Perforanti.
 
-## Polar Bear
+## Orso Polare
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 42 (5d10 + 15)
-- **Speed:** 40 ft., Swim 40 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 42 (5d10 + 15)
+- **Velocità:** 12 m, Nuoto 12 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 20 | +5 | +5 |
-| DEX | 14 | +2 | +2 |
-| CON | 16 | +3 | +3 |
+| FOR | 20 | +5 | +5 |
+| DES | 14 | +2 | +2 |
+| COS | 16 | +3 | +3 |
 | INT | 2 | -4 | -4 |
-| WIS | 13 | +1 | +1 |
-| CHA | 7 | -2 | -2 |
+| SAG | 13 | +1 | +1 |
+| CAR | 7 | -2 | -2 |
 
-- **Resistances**: Cold
-- **Skills**: Perception +5, Stealth +4
-- **Senses**: darkvision 60 ft.; Passive Perception 15
-- **CR** 2 (XP 450; PB +2)
+- **Resistenze**: Freddo
+- **Abilità**: Perception +5, Stealth +4
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 15
+- **GS** 2 (PE 450; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The bear makes two Rend attacks.
+***Attacco Multiplo.*** Effettua due attacchi con Lacerare.
 
-***Rend.*** *Melee Attack Roll:* +7, reach 5 ft. 9 (1d8 + 5) Slashing damage.
+***Rend.*** *Tiro per colpire in mischia:* +7, portata 1,5 m. 9 (1d8 + 5) danni Taglienti.
 
 ## Pony
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 10
-- **Hit Points:** 11 (2d8 + 2)
-- **Speed:** 40 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 10
+- **Punti Ferita:** 11 (2d8 + 2)
+- **Velocità:** 12 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +4 |
-| DEX | 10 | +0 | +0 |
-| CON | 13 | +1 | +1 |
+| FOR | 15 | +2 | +4 |
+| DES | 10 | +0 | +0 |
+| COS | 13 | +1 | +1 |
 | INT | 2 | -4 | -4 |
-| WIS | 11 | +0 | +0 |
-| CHA | 7 | -2 | -2 |
+| SAG | 11 | +0 | +0 |
+| CAR | 7 | -2 | -2 |
 
-- **Senses**: Passive Perception 10
-- **CR** 1/8 (XP 25; PB +2)
+- **Sensi**: Percezione Passiva 10
+- **GS** 1/8 (PE 25; PB +2)
 
-### Actions
+### Azioni
 
-***Hooves.*** *Melee Attack Roll:* +4, reach 5 ft. 4 (1d4 + 2) Bludgeoning damage.
+***Zoccoli.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni Contundenti.
 
-## Pteranodon
+## Pteranodonte
 
-*Medium Beast (Dinosaur), Unaligned*
+*Bestia Media (Dinosauro), Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 13 (3d8)
-- **Speed:** 10 ft., Fly 60 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 13 (3d8)
+- **Velocità:** 3 m, Volo 18 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 12 | +1 | +1 |
-| DEX | 15 | +2 | +2 |
-| CON | 10 | +0 | +0 |
+| FOR | 12 | +1 | +1 |
+| DES | 15 | +2 | +2 |
+| COS | 10 | +0 | +0 |
 | INT | 2 | -4 | -4 |
-| WIS | 9 | -1 | -1 |
-| CHA | 5 | -3 | -3 |
+| SAG | 9 | -1 | -1 |
+| CAR | 5 | -3 | -3 |
 
-- **Skills**: Perception +1
-- **Senses**: Passive Perception 11
-- **CR** 1/4 (XP 50; PB +2)
+- **Abilità**: Perception +1
+- **Sensi**: Percezione Passiva 11
+- **GS** 1/4 (PE 50; PB +2)
 
-### Traits
+### Tratti
 
-***Flyby.*** The pteranodon doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.
+***Sorvolo.*** Non provoca Attacchi di Opportunità quando vola fuori dalla portata di un nemico.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +4, reach 5 ft. 6 (1d8 + 2) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 6 (1d8 + 2) danni Perforanti.
 
-## Rat
+## Ratto
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 10
-- **Hit Points:** 1 (1d4 - 1)
-- **Speed:** 20 ft., Climb 20 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 10
+- **Punti Ferita:** 1 (1d4 - 1)
+- **Velocità:** 6 m, Scalare 6 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 2 | -4 | -4 |
-| DEX | 11 | +0 | +0 |
-| CON | 9 | -1 | -1 |
+| FOR | 2 | -4 | -4 |
+| DES | 11 | +0 | +0 |
+| COS | 9 | -1 | -1 |
 | INT | 2 | -4 | -4 |
-| WIS | 10 | +0 | +0 |
-| CHA | 4 | -3 | -3 |
+| SAG | 10 | +0 | +0 |
+| CAR | 4 | -3 | -3 |
 
-- **Skills**: Perception +2
-- **Senses**: darkvision 30 ft.; Passive Perception 12
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Abilità**: Perception +2
+- **Sensi**: Scurovisione 9 m; Percezione Passiva 12
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Traits
+### Tratti
 
-***Agile.*** The rat doesn't provoke Opportunity Attacks when it moves out of an enemy's reach.
+***Agile.*** Non provoca Attacchi di Opportunità quando si muove fuori dalla portata di un nemico.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +2, reach 5 ft. 1 Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 1 danni Perforanti.
 
-## Raven
+## Corvo
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 2 (1d4)
-- **Speed:** 10 ft., Fly 50 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 2 (1d4)
+- **Velocità:** 3 m, Volo 15 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 2 | -4 | -4 |
-| DEX | 14 | +2 | +2 |
-| CON | 10 | +0 | +0 |
+| FOR | 2 | -4 | -4 |
+| DES | 14 | +2 | +2 |
+| COS | 10 | +0 | +0 |
 | INT | 5 | -3 | -3 |
-| WIS | 13 | +1 | +1 |
-| CHA | 6 | -2 | -2 |
+| SAG | 13 | +1 | +1 |
+| CAR | 6 | -2 | -2 |
 
-- **Skills**: Perception +3
-- **Senses**: Passive Perception 13
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Abilità**: Perception +3
+- **Sensi**: Percezione Passiva 13
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Traits
+### Tratti
 
-***Mimicry.*** The raven can mimic simple sounds it has heard, such as a whisper or chitter. A hearer can discern the sounds are imitations with a successful DC 10 Wisdom (Insight) check.
+***Mimesi.*** Può imitare suoni semplici che ha udito, come un sussurro o uno squittio. Un ascoltatore può riconoscere l’imitazione con una prova di Saggezza (Intuizione) CD 10.
 
 
-### Actions
+### Azioni
 
-***Beak.*** *Melee Attack Roll:* +4, reach 5 ft. 1 Piercing damage.
+***Becco.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 1 danni Perforanti.
 
-## Reef Shark
+## Squalo di Scogliera
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 22 (4d8 + 4)
-- **Speed:** 5 ft., Swim 30 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 22 (4d8 + 4)
+- **Velocità:** 1,5 m, Nuoto 9 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 14 | +2 | +2 |
-| DEX | 15 | +2 | +2 |
-| CON | 13 | +1 | +1 |
+| FOR | 14 | +2 | +2 |
+| DES | 15 | +2 | +2 |
+| COS | 13 | +1 | +1 |
 | INT | 1 | -5 | -5 |
-| WIS | 10 | +0 | +0 |
-| CHA | 4 | -3 | -3 |
+| SAG | 10 | +0 | +0 |
+| CAR | 4 | -3 | -3 |
 
-- **Skills**: Perception +2
-- **Senses**: blindsight 30 ft.; Passive Perception 12
-- **CR** 1/2 (XP 100; PB +2)
+- **Abilità**: Perception +2
+- **Sensi**: Sensi Ciechi 9 m; Percezione Passiva 12
+- **GS** 1/2 (PE 100; PB +2)
 
-### Traits
+### Tratti
 
-***Pack Tactics.*** The shark has Advantage on an attack roll against a creature if at least one of the shark's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
 
-***Water Breathing.*** The shark can breathe only underwater.
+***Respirazione Acquatica.*** Può respirare solo sott'acqua.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +4, reach 5 ft. 7 (2d4 + 2) Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 7 (2d4 + 2) danni Perforanti.
 
-## Rhinoceros
+## Rinoceronte
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 45 (6d10 + 12)
-- **Speed:** 40 ft.
-- **Initiative**: -1 (9)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 45 (6d10 + 12)
+- **Velocità:** 12 m
+- **Iniziativa**: -1 (9)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 21 | +5 | +5 |
-| DEX | 8 | -1 | -1 |
-| CON | 15 | +2 | +2 |
+| FOR | 21 | +5 | +5 |
+| DES | 8 | -1 | -1 |
+| COS | 15 | +2 | +2 |
 | INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 6 | -2 | -2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 6 | -2 | -2 |
 
-- **Senses**: Passive Perception 11
-- **CR** 2 (XP 450; PB +2)
+- **Sensi**: Percezione Passiva 11
+- **GS** 2 (PE 450; PB +2)
 
-### Actions
+### Azioni
 
-***Gore.*** *Melee Attack Roll:* +7, reach 5 ft. 14 (2d8 + 5) Piercing damage. If target is a Large or smaller creature and the rhinoceros moved 20+ feet straight toward it immediately before the hit, the target takes an extra 9 (2d8) Piercing damage and has the Prone condition.
+***Incornata.*** *Tiro per colpire in mischia:* +7, portata 1,5 m. 14 (2d8 + 5) danni Perforanti. Se il bersaglio è una creatura Grande o più piccola e il rinoceronte si è mosso di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio subisce altri 9 (2d8) danni Perforanti e ha la condizione Prono.
 
-## Riding Horse
+## Cavallo da Sella
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 11
-- **Hit Points:** 13 (2d10 + 2)
-- **Speed:** 60 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 13 (2d10 + 2)
+- **Velocità:** 18 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 13 | +1 | +1 |
-| CON | 12 | +1 | +1 |
+| FOR | 16 | +3 | +3 |
+| DES | 13 | +1 | +1 |
+| COS | 12 | +1 | +1 |
 | INT | 2 | -4 | -4 |
-| WIS | 11 | +0 | +0 |
-| CHA | 7 | -2 | -2 |
+| SAG | 11 | +0 | +0 |
+| CAR | 7 | -2 | -2 |
 
-- **Senses**: Passive Perception 10
-- **CR** 1/4 (XP 50; PB +2)
+- **Sensi**: Percezione Passiva 10
+- **GS** 1/4 (PE 50; PB +2)
 
-### Actions
+### Azioni
 
-***Hooves.*** *Melee Attack Roll:* +5, reach 5 ft. 7 (1d8 + 3) Bludgeoning damage.
+***Zoccoli.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni Contundenti.
 
-## Saber-Toothed Tiger
+## Tigre dai Denti a Sciabola
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 52 (7d10 + 14)
-- **Speed:** 40 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 52 (7d10 + 14)
+- **Velocità:** 12 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +6 |
-| DEX | 17 | +3 | +5 |
-| CON | 15 | +2 | +2 |
+| FOR | 18 | +4 | +6 |
+| DES | 17 | +3 | +5 |
+| COS | 15 | +2 | +2 |
 | INT | 3 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 8 | -1 | -1 |
+| SAG | 12 | +1 | +1 |
+| CAR | 8 | -1 | -1 |
 
-- **Skills**: Perception +5, Stealth +7
-- **Senses**: darkvision 60 ft.; Passive Perception 15
-- **CR** 2 (XP 450; PB +2)
+- **Abilità**: Perception +5, Stealth +7
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 15
+- **GS** 2 (PE 450; PB +2)
 
-### Traits
+### Tratti
 
-***Running Leap.*** With a 10-foot running start, the tiger can Long Jump up to 25 feet.
-
-
-### Actions
-
-***Multiattack.*** The tiger makes two Rend attacks.
-
-***Rend.*** *Melee Attack Roll:* +6, reach 5 ft. 11 (2d6 + 4) Slashing damage.
+***Balzo in Corsa.*** Con una rincorsa di 3 m, può effettuare un Salto in lungo fino a 7,5 m.
 
 
-### Bonus Actions
+### Azioni
 
-***Nimble Escape.*** The tiger takes the Disengage or Hide action.
+***Attacco Multiplo.*** Effettua due attacchi con Lacerare.
 
-## Scorpion
+***Lacerare.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 11 (2d6 + 4) danni Taglienti.
 
-*Small Beast, Unaligned*
 
-- **Armor Class:** 11
-- **Hit Points:** 1 (1d4 - 1)
-- **Speed:** 10 ft.
-- **Initiative**: +0 (10)
+### Azioni Bonus
 
-|STAT|SCORE|MOD|SAVE|
+***Fuga Agile.*** La tigre compie l'azione Disimpegno o Nascondersi.
+
+## Scorpione
+
+*Bestia Piccola, Non Allineato*
+
+- **Classe Armatura:** 11
+- **Punti Ferita:** 1 (1d4 - 1)
+- **Velocità:** 3 m
+- **Iniziativa**: +0 (10)
+
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 2 | -4 | -4 |
-| DEX | 11 | +0 | +0 |
-| CON | 8 | -1 | -1 |
+| FOR | 2 | -4 | -4 |
+| DES | 11 | +0 | +0 |
+| COS | 8 | -1 | -1 |
 | INT | 1 | -5 | -5 |
-| WIS | 8 | -1 | -1 |
-| CHA | 2 | -4 | -4 |
+| SAG | 8 | -1 | -1 |
+| CAR | 2 | -4 | -4 |
 
-- **Senses**: blindsight 10 ft.; Passive Perception 9
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 9
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Actions
+### Azioni
 
-***Sting.*** *Melee Attack Roll:* +2, reach 5 ft. 1 Piercing damage plus 3 (1d6) Poison damage.
+***Puntura.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 1 danni Perforanti plus 3 (1d6) danni da Veleno.
 
-## Seahorse
+## Cavalluccio Marino
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 1 (1d4 - 1)
-- **Speed:** 5 ft., Swim 20 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 1 (1d4 - 1)
+- **Velocità:** 1,5 m, Nuoto 6 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 1 | -5 | -5 |
-| DEX | 12 | +1 | +1 |
-| CON | 8 | -1 | -1 |
+| FOR | 1 | -5 | -5 |
+| DES | 12 | +1 | +1 |
+| COS | 8 | -1 | -1 |
 | INT | 1 | -5 | -5 |
-| WIS | 10 | +0 | +0 |
-| CHA | 2 | -4 | -4 |
+| SAG | 10 | +0 | +0 |
+| CAR | 2 | -4 | -4 |
 
-- **Skills**: Perception +2, Stealth +5
-- **Senses**: Passive Perception 12
-- **CR** 0 (XP 0)
+- **Abilità**: Perception +2, Stealth +5
+- **Sensi**: Percezione Passiva 12
+- **GS** 0 (PE 0)
 
-### Traits
+### Tratti
 
-***Water Breathing.*** The seahorse can breathe only underwater.
+***Respirazione Acquatica.*** Può respirare solo sott'acqua.
 
 
-### Actions
+### Azioni
 
-***Bubble Dash.*** While underwater, the seahorse moves up to its Swim Speed without provoking Opportunity Attacks.
+***Scatto a Bolle.*** Sott'acqua, si muove fino alla sua Velocità di Nuoto senza provocare Attacchi di Opportunità.
 
-## Spider
+## Ragno
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 1 (1d4 - 1)
-- **Speed:** 20 ft., Climb 20 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 1 (1d4 - 1)
+- **Velocità:** 6 m, Scalare 6 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 2 | -4 | -4 |
-| DEX | 14 | +2 | +2 |
-| CON | 8 | -1 | -1 |
+| FOR | 2 | -4 | -4 |
+| DES | 14 | +2 | +2 |
+| COS | 8 | -1 | -1 |
 | INT | 1 | -5 | -5 |
-| WIS | 10 | +0 | +0 |
-| CHA | 2 | -4 | -4 |
+| SAG | 10 | +0 | +0 |
+| CAR | 2 | -4 | -4 |
 
-- **Skills**: Stealth +4
-- **Senses**: darkvision 30 ft.; Passive Perception 10
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Abilità**: Stealth +4
+- **Sensi**: Scurovisione 9 m; Percezione Passiva 10
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Traits
+### Tratti
 
-***Spider Climb.*** The spider can climb difficult surfaces, including along ceilings, without needing to make an ability check.
+***Camminare sui Muri.*** Può arrampicarsi su superfici difficili, anche lungo i soffitti, senza dover effettuare una prova di abilità.
 
-***Web Walker.*** The spider ignores movement restrictions caused by webs, and the spider knows the location of any other creature in contact with the same web.
+***Camminatore di Ragnatele.*** Ignora le restrizioni al movimento causate dalle ragnatele, e conosce la posizione di qualsiasi altra creatura a contatto con la stessa ragnatela.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +4, reach 5 ft. 1 Piercing damage plus 2 (1d4) Poison damage.
+***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 1 danni Perforanti plus 2 (1d4) danni da Veleno.
 
-## Swarm of Bats
+## Sciame di Pipistrelli
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 11 (2d10)
-- **Speed:** 5 ft., Fly 30 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 11 (2d10)
+- **Velocità:** 1,5 m, Volo 9 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 5 | -3 | -3 |
-| DEX | 15 | +2 | +2 |
-| CON | 10 | +0 | +0 |
+| FOR | 5 | -3 | -3 |
+| DES | 15 | +2 | +2 |
+| COS | 10 | +0 | +0 |
 | INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 4 | -3 | -3 |
+| SAG | 12 | +1 | +1 |
+| CAR | 4 | -3 | -3 |
 
-- **Resistances**: Bludgeoning, Piercing, Slashing
-- **Immunities**: Charmed, Frightened, Grappled, Paralyzed, Petrified, Prone, Restrained, Stunned
-- **Senses**: blindsight 60 ft.; Passive Perception 11
-- **CR** 1/4 (XP 50; PB +2)
+- **Resistenze**: Contundenti, Perforanti, Taglienti
+- **Immunità**: Affascinato, Spaventato, Afferrato, Paralizzato, Pietrificato, Prono, Immobilizzato, Stordito
+- **Sensi**: Sensi Ciechi 18 m; Percezione Passiva 11
+- **GS** 1/4 (PE 50; PB +2)
 
-### Traits
+### Tratti
 
-***Swarm.*** The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny bat. The swarm can't regain Hit Points or gain Temporary Hit Points.
+***Sciame.*** Lo sciame può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande da permettere il passaggio di un pipistrello Minuscolo. Lo sciame non può recuperare Punti Ferita né ottenere Punti Ferita Temporanei.
 
 
-### Actions
+### Azioni
 
-***Bites.*** *Melee Attack Roll:* +4, reach 5 ft. 5 (2d4) Piercing damage, or 2 (1d4) Piercing damage if the swarm is Bloodied.
+***Morsi.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (2d4) danni Perforanti, oppure 2 (1d4) danni Perforanti se lo sciame è Insanguinato.
 
-## Swarm of Insects
+## Sciame di Insetti
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 11
-- **Hit Points:** 19 (3d8 + 6)
-- **Speed:** 20 ft., Choose ? ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 19 (3d8 + 6)
+- **Velocità:** 6 m, Scegli ? m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 3 | -4 | -4 |
-| DEX | 13 | +1 | +1 |
-| CON | 14 | +2 | +2 |
+| FOR | 3 | -4 | -4 |
+| DES | 13 | +1 | +1 |
+| COS | 14 | +2 | +2 |
 | INT | 1 | -5 | -5 |
-| WIS | 7 | -2 | -2 |
-| CHA | 1 | -5 | -5 |
+| SAG | 7 | -2 | -2 |
+| CAR | 1 | -5 | -5 |
 
-- **Resistances**: Bludgeoning, Piercing, Slashing
-- **Immunities**: Charmed, Frightened, Grappled, Paralyzed, Petrified, Prone, Restrained, Stunned
-- **Senses**: blindsight 30 ft.; Passive Perception 8
-- **CR** 1/2 (XP 100; PB +2)
+- **Resistenze**: Bludgeoning, Piercing, Slashing
+- **Immunità**: Affascinato, Spaventato, Afferrato, Paralizzato, Pietrificato, Prono, Immobilizzato, Stordito
+- **Sensi**: Sensi Ciechi 9 m; Percezione Passiva 8
+- **GS** 1/2 (PE 100; PB +2)
 
-### Traits
+### Tratti
 
-***Spider Climb.*** If the swarm has a Climb Speed, the swarm can climb difficult surfaces, including along ceilings, without needing to make an ability check.
+***Camminare sui Muri.*** Se lo sciame ha una Velocità di scalare, può arrampicarsi su superfici difficili, anche lungo i soffitti, senza dover effettuare una prova di abilità.
 
-***Swarm.*** The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny insect. The swarm can't regain Hit Points or gain Temporary Hit Points.
+***Sciame.*** Lo sciame può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande da permettere il passaggio di un insetto Minuscolo. Lo sciame non può recuperare Punti Ferita né ottenere Punti Ferita Temporanei.
 
 
-### Actions
+### Azioni
 
-***Bites.*** *Melee Attack Roll:* +3, reach 5 ft. 6 (2d4 + 1) Poison damage, or 3 (1d4 + 1) Poison damage if the swarm is Bloodied.
+***Morsi.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 6 (2d4 + 1) danni da Veleno, oppure 3 (1d4 + 1) danni da Veleno se lo sciame è Insanguinato.
 
-## Swarm of Piranhas
+## Sciame di Piranha
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 28 (8d8 - 8)
-- **Speed:** 5 ft., Swim 40 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 28 (8d8 - 8)
+- **Velocità:** 1,5 m, Nuoto 12 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 13 | +1 | +1 |
-| DEX | 16 | +3 | +3 |
-| CON | 9 | -1 | -1 |
+| FOR | 13 | +1 | +1 |
+| DES | 16 | +3 | +3 |
+| COS | 9 | -1 | -1 |
 | INT | 1 | -5 | -5 |
-| WIS | 7 | -2 | -2 |
-| CHA | 2 | -4 | -4 |
+| SAG | 7 | -2 | -2 |
+| CAR | 2 | -4 | -4 |
 
-- **Resistances**: Bludgeoning, Piercing, Slashing
-- **Immunities**: Charmed, Frightened, Grappled, Paralyzed, Petrified, Prone, Restrained, Stunned
-- **Senses**: darkvision 60 ft.; Passive Perception 8
-- **CR** 1 (XP 200; PB +2)
+- **Resistenze**: Contundenti, Perforanti, Taglienti
+- **Immunità**: Charmed, Frightened, Grappled, Paralyzed, Petrified, Prone, Restrained, Stunned
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 8
+- **GS** 1 (PE 200; PB +2)
 
-### Traits
+### Tratti
 
-***Swarm.*** The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny piranha. The swarm can't regain Hit Points or gain Temporary Hit Points.
+***Sciame.*** Lo sciame può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande da permettere il passaggio di un piranha Minuscolo. Lo sciame non può recuperare Punti Ferita né ottenere Punti Ferita Temporanei.
 
-***Water Breathing.*** The swarm can breathe only underwater.
+***Respirazione Acquatica.*** Può respirare solo sott'acqua.
 
 
-### Actions
+### Azioni
 
-***Bites.*** *Melee Attack Roll:* +5 (with Advantage if the target doesn't have all its Hit Points), reach 5 ft. 8 (2d4 + 3) Piercing damage, or 5 (1d4 + 3) Piercing damage if the swarm is Bloodied.
+***Morsi.*** *Tiro per colpire in mischia:* +5 (con Vantaggio se il bersaglio non ha tutti i suoi Punti Ferita), portata 1,5 m. 8 (2d4 + 3) danni Perforanti, oppure 5 (1d4 + 3) danni Perforanti se lo sciame è Insanguinato.
 
-## Swarm of Rats
+## Sciame di Ratti
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 10
-- **Hit Points:** 14 (4d8 - 4)
-- **Speed:** 30 ft., Climb 30 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 10
+- **Punti Ferita:** 14 (4d8 - 4)
+- **Velocità:** 9 m, Scalare 9 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 9 | -1 | -1 |
-| DEX | 11 | +0 | +0 |
-| CON | 9 | -1 | -1 |
+| FOR | 9 | -1 | -1 |
+| DES | 11 | +0 | +0 |
+| COS | 9 | -1 | -1 |
 | INT | 2 | -4 | -4 |
-| WIS | 10 | +0 | +0 |
-| CHA | 3 | -4 | -4 |
+| SAG | 10 | +0 | +0 |
+| CAR | 3 | -4 | -4 |
 
-- **Resistances**: Bludgeoning, Piercing, Slashing
-- **Immunities**: Charmed, Frightened, Grappled, Paralyzed, Petrified, Prone, Restrained, Stunned
-- **Senses**: darkvision 30 ft.; Passive Perception 10
-- **CR** 1/4 (XP 50; PB +2)
+- **Resistenze**: Contundenti, Perforanti, Taglienti
+- **Immunità**: Charmed, Frightened, Grappled, Paralyzed, Petrified, Prone, Restrained, Stunned
+- **Sensi**: Scurovisione 9 m; Percezione Passiva 10
+- **GS** 1/4 (PE 50; PB +2)
 
-### Traits
+### Tratti
 
-***Swarm.*** The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny rat. The swarm can't regain Hit Points or gain Temporary Hit Points.
+***Sciame.*** Lo sciame può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande da permettere il passaggio di un ratto Minuscolo. Lo sciame non può recuperare Punti Ferita né ottenere Punti Ferita Temporanei.
 
 
-### Actions
+### Azioni
 
-***Bites.*** *Melee Attack Roll:* +2, reach 5 ft. 5 (2d4) Piercing damage, or 2 (1d4) Piercing damage if the swarm is Bloodied.
+***Morsi.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 5 (2d4) danni Perforanti, oppure 2 (1d4) danni Perforanti se lo sciame è Insanguinato.
 
-## Swarm of Ravens
+## Sciame di Corvi
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 11 (2d8 + 2)
-- **Speed:** 10 ft., Fly 50 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 11 (2d8 + 2)
+- **Velocità:** 3 m, Volo 15 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 6 | -2 | -2 |
-| DEX | 14 | +2 | +2 |
-| CON | 12 | +1 | +1 |
+| FOR | 6 | -2 | -2 |
+| DES | 14 | +2 | +2 |
+| COS | 12 | +1 | +1 |
 | INT | 5 | -3 | -3 |
-| WIS | 12 | +1 | +1 |
-| CHA | 6 | -2 | -2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 6 | -2 | -2 |
 
-- **Resistances**: Bludgeoning, Piercing, Slashing
-- **Immunities**: Charmed, Frightened, Grappled, Paralyzed, Petrified, Prone, Restrained, Stunned
-- **Skills**: Perception +5
-- **Senses**: Passive Perception 15
-- **CR** 1/4 (XP 50; PB +2)
+- **Resistenze**: Contundenti, Perforanti, Taglienti
+- **Immunità**: Charmed, Frightened, Grappled, Paralyzed, Petrified, Prone, Restrained, Stunned
+- **Abilità**: Perception +5
+- **Sensi**: Percezione Passiva 15
+- **GS** 1/4 (PE 50; PB +2)
 
-### Traits
+### Tratti
 
-***Swarm.*** The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny raven. The swarm can't regain Hit Points or gain Temporary Hit Points.
+***Sciame.*** Lo sciame può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande da permettere il passaggio di un corvo Minuscolo. Lo sciame non può recuperare Punti Ferita né ottenere Punti Ferita Temporanei.
 
 
-### Actions
+### Azioni
 
-***Beaks.*** *Melee Attack Roll:* +4, reach 5 ft. 5 (1d6 + 2) Piercing damage, or 2 (1d4) Piercing damage if the swarm is Bloodied.
+***Beccate.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni Perforanti, oppure 2 (1d4) danni Perforanti se lo sciame è Insanguinato.
 
-***Cacophony (Recharge 6).*** *Wisdom Saving Throw*: DC 10, one creature in the swarm's space. *Failure:*  The target has the Deafened condition until the start of the swarm's next turn. While Deafened, the target also has Disadvantage on ability checks and attack rolls.
+***Cacofonia (Ricarica 6).*** *Tiro Salvezza su Saggezza*: CD 10, una creatura nello spazio dello sciame. *Fallimento:*  Il bersaglio ha la condizione Assordato fino all'inizio del prossimo turno dello sciame. Mentre è Assordato, il bersaglio ha anche Svantaggio alle prove di caratteristica e ai tiri per colpire.
 
-## Swarm of Venomous Snakes
+## Sciame di Serpenti Velenosi
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 14
-- **Hit Points:** 36 (8d8)
-- **Speed:** 30 ft., Swim 30 ft.
-- **Initiative**: +4 (14)
+- **Classe Armatura:** 14
+- **Punti Ferita:** 36 (8d8)
+- **Velocità:** 9 m, Nuoto 9 m
+- **Iniziativa**: +4 (14)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 8 | -1 | -1 |
-| DEX | 18 | +4 | +4 |
-| CON | 11 | +0 | +0 |
+| FOR | 8 | -1 | -1 |
+| DES | 18 | +4 | +4 |
+| COS | 11 | +0 | +0 |
 | INT | 1 | -5 | -5 |
-| WIS | 10 | +0 | +0 |
-| CHA | 3 | -4 | -4 |
+| SAG | 10 | +0 | +0 |
+| CAR | 3 | -4 | -4 |
 
-- **Resistances**: Bludgeoning, Piercing, Slashing
-- **Immunities**: Charmed, Frightened, Grappled, Paralyzed, Petrified, Prone, Restrained, Stunned
-- **Senses**: blindsight 10 ft.; Passive Perception 10
-- **CR** 2 (XP 450; PB +2)
+- **Resistenze**: Contundenti, Perforanti, Taglienti
+- **Immunità**: Charmed, Frightened, Grappled, Paralyzed, Petrified, Prone, Restrained, Stunned
+- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 10
+- **GS** 2 (PE 450; PB +2)
 
-### Traits
+### Tratti
 
-***Swarm.*** The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny snake. The swarm can't regain Hit Points or gain Temporary Hit Points.
+***Sciame.*** Lo sciame può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande da permettere il passaggio di un serpente Minuscolo. Lo sciame non può recuperare Punti Ferita né ottenere Punti Ferita Temporanei.
 
 
-### Actions
+### Azioni
 
-***Bites.*** *Melee Attack Roll:* +6, reach 5 ft. 8 (1d8 + 4) Piercing damage—or 6 (1d4 + 4) Piercing damage if the swarm is Bloodied—plus 10 (3d6) Poison damage.
+***Morsi.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 8 (1d8 + 4) danni Perforanti, oppure 6 (1d4 + 4) danni Perforanti se lo sciame è Insanguinato, più 10 (3d6) danni da Veleno.
 
-## Tiger
+## Tigre
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 30 (4d10 + 8)
-- **Speed:** 40 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 30 (4d10 + 8)
+- **Velocità:** 12 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 17 | +3 | +3 |
-| DEX | 16 | +3 | +3 |
-| CON | 14 | +2 | +2 |
+| FOR | 17 | +3 | +3 |
+| DES | 16 | +3 | +3 |
+| COS | 14 | +2 | +2 |
 | INT | 3 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 8 | -1 | -1 |
+| SAG | 12 | +1 | +1 |
+| CAR | 8 | -1 | -1 |
 
-- **Skills**: Perception +3, Stealth +7
-- **Senses**: darkvision 60 ft.; Passive Perception 13
-- **CR** 1 (XP 200; PB +2)
+- **Abilità**: Perception +3, Stealth +7
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
+- **GS** 1 (PE 200; PB +2)
 
-### Actions
+### Azioni
 
-***Rend.*** *Melee Attack Roll:* +5, reach 5 ft. 10 (2d6 + 3) Slashing damage. If the target is a Large or smaller creature, it has the Prone condition.
+***Lacerare.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) danni Taglienti. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Prono.
 
 
-### Bonus Actions
+### Azioni Bonus
 
-***Nimble Escape.*** The tiger takes the Disengage or Hide action.
+***Fuga Agile.*** La tigre compie l'azione Disimpegno o Nascondersi.
 
-## Triceratops
+## Triceratopo
 
-*Huge Beast (Dinosaur), Unaligned*
+*Bestia Enorme (Dinosauro), Non Allineato*
 
-- **Armor Class:** 14
-- **Hit Points:** 114 (12d12 + 36)
-- **Speed:** 50 ft.
-- **Initiative**: -1 (9)
+- **Classe Armatura:** 14
+- **Punti Ferita:** 114 (12d12 + 36)
+- **Velocità:** 15 m
+- **Iniziativa**: -1 (9)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 22 | +6 | +6 |
-| DEX | 9 | -1 | -1 |
-| CON | 17 | +3 | +3 |
+| FOR | 22 | +6 | +6 |
+| DES | 9 | -1 | -1 |
+| COS | 17 | +3 | +3 |
 | INT | 2 | -4 | -4 |
-| WIS | 11 | +0 | +0 |
-| CHA | 5 | -3 | -3 |
+| SAG | 11 | +0 | +0 |
+| CAR | 5 | -3 | -3 |
 
-- **Senses**: Passive Perception 10
-- **CR** 5 (XP 1,800; PB +3)
+- **Sensi**: Percezione Passiva 10
+- **GS** 5 (PE 1,800; PB +3)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The triceratops makes two Gore attacks.
+***Attacco Multiplo.*** Effettua due attacchi con Incornata.
 
-***Gore.*** *Melee Attack Roll:* +9, reach 5 ft. 19 (2d12 + 6) Piercing damage. If the target is Huge or smaller and the triceratops moved 20+ feet straight toward it immediately before the hit, the target takes an extra 9 (2d8) Piercing damage and has the Prone condition.
+***Incornata.*** *Tiro per colpire in mischia:* +9, portata 1,5 m. 19 (2d12 + 6) danni Perforanti. Se il bersaglio è Enorme o più piccolo e il triceratopo si è mosso di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio subisce altri 9 (2d8) danni Perforanti e ha la condizione Prono.
 
-## Tyrannosaurus Rex
+## Tirannosauro Rex
 
-*Huge Beast (Dinosaur), Unaligned*
+*Bestia Enorme (Dinosauro), Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 136 (13d12 + 52)
-- **Speed:** 50 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 136 (13d12 + 52)
+- **Velocità:** 15 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 25 | +7 | +10 |
-| DEX | 10 | +0 | +0 |
-| CON | 19 | +4 | +4 |
+| FOR | 25 | +7 | +10 |
+| DES | 10 | +0 | +0 |
+| COS | 19 | +4 | +4 |
 | INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +4 |
-| CHA | 9 | -1 | -1 |
+| SAG | 12 | +1 | +4 |
+| CAR | 9 | -1 | -1 |
 
-- **Skills**: Perception +4
-- **Senses**: Passive Perception 14
-- **CR** 8 (XP 3,900; PB +3)
+- **Abilità**: Perception +4
+- **Sensi**: Percezione Passiva 14
+- **GS** 8 (PE 3,900; PB +3)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The tyrannosaurus makes one Bite attack and one Tail attack.
+***Attacco Multiplo.*** Effettua un attacco con Morso e uno con Coda.
 
-***Bite.*** *Melee Attack Roll:* +10, reach 10 ft. 33 (4d12 + 7) Piercing damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 17). While Grappled, the target has the Restrained condition and can't be targeted by the tyrannosaurus's Tail.
+***Morso.*** *Tiro per colpire in mischia:* +10, portata 3 m. 33 (4d12 + 7) danni Perforanti. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Afferrato (fuga CD 17). Mentre è Afferrato, il bersaglio ha la condizione Immobilizzato e non può essere bersagliato dalla Coda del tirannosauro.
 
-***Tail.*** *Melee Attack Roll:* +10, reach 15 ft. 25 (4d8 + 7) Bludgeoning damage. If the target is a Huge or smaller creature, it has the Prone condition.
+***Coda.*** *Tiro per colpire in mischia:* +10, portata 4,5 m. 25 (4d8 + 7) danni Contundenti. Se il bersaglio è una creatura Enorme o più piccola, ha la condizione Prono.
 
-## Venomous Snake
+## Serpente Velenoso
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 5 (2d4)
-- **Speed:** 30 ft., Swim 30 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 5 (2d4)
+- **Velocità:** 9 m, Nuoto 9 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 2 | -4 | -4 |
-| DEX | 15 | +2 | +2 |
-| CON | 11 | +0 | +0 |
+| FOR | 2 | -4 | -4 |
+| DES | 15 | +2 | +2 |
+| COS | 11 | +0 | +0 |
 | INT | 1 | -5 | -5 |
-| WIS | 10 | +0 | +0 |
-| CHA | 3 | -4 | -4 |
+| SAG | 10 | +0 | +0 |
+| CAR | 3 | -4 | -4 |
 
-- **Senses**: blindsight 10 ft.; Passive Perception 10
-- **CR** 1/8 (XP 25; PB +2)
+- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 10
+- **GS** 1/8 (PE 25; PB +2)
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +4, reach 5 ft. 4 (1d4 + 2) Piercing damage plus 3 (1d6) Poison damage.
+***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni Perforanti plus 3 (1d6) danni da Veleno.
 
-## Vulture
+## Avvoltoio
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 10
-- **Hit Points:** 5 (1d8 + 1)
-- **Speed:** 10 ft., Fly 50 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 10
+- **Punti Ferita:** 5 (1d8 + 1)
+- **Velocità:** 3 m, Volo 15 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 7 | -2 | -2 |
-| DEX | 10 | +0 | +0 |
-| CON | 13 | +1 | +1 |
+| FOR | 7 | -2 | -2 |
+| DES | 10 | +0 | +0 |
+| COS | 13 | +1 | +1 |
 | INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 4 | -3 | -3 |
+| SAG | 12 | +1 | +1 |
+| CAR | 4 | -3 | -3 |
 
-- **Skills**: Perception +3
-- **Senses**: Passive Perception 13
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Abilità**: Perception +3
+- **Sensi**: Percezione Passiva 13
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Traits
+### Tratti
 
-***Pack Tactics.*** The vulture has Advantage on an attack roll against a creature if at least one of the vulture's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
 
 
-### Actions
+### Azioni
 
-***Beak.*** *Melee Attack Roll:* +2, reach 5 ft. 2 (1d4) Piercing damage.
+***Becco.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 2 (1d4) danni Perforanti.
 
-## Warhorse
+## Cavallo da Guerra
 
-*Large Beast, Unaligned*
+*Bestia Grande, Non Allineato*
 
-- **Armor Class:** 11
-- **Hit Points:** 19 (3d10 + 3)
-- **Speed:** 60 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 19 (3d10 + 3)
+- **Velocità:** 18 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 12 | +1 | +1 |
-| CON | 13 | +1 | +1 |
+| FOR | 18 | +4 | +4 |
+| DES | 12 | +1 | +1 |
+| COS | 13 | +1 | +1 |
 | INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +3 |
-| CHA | 7 | -2 | -2 |
+| SAG | 12 | +1 | +3 |
+| CAR | 7 | -2 | -2 |
 
-- **Senses**: Passive Perception 11
-- **CR** 1/2 (XP 100; PB +2)
+- **Sensi**: Percezione Passiva 11
+- **GS** 1/2 (PE 100; PB +2)
 
-### Actions
+### Azioni
 
-***Hooves.*** *Melee Attack Roll:* +6, reach 5 ft. 9 (2d4 + 4) Bludgeoning damage. If the target is a Large or smaller creature and the horse moved 20+ feet straight toward it immediately before the hit, the target takes an extra 5 (2d4) Bludgeoning damage and has the Prone condition.
+***Zoccoli.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 9 (2d4 + 4) danni Contundenti. Se il bersaglio è una creatura Grande o più piccola e il cavallo si è mosso di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio subisce altri 5 (2d4) danni Contundenti e ha la condizione Prono.
 
-## Weasel
+## Donnola
 
-*Small Beast, Unaligned*
+*Bestia Piccola, Non Allineato*
 
-- **Armor Class:** 13
-- **Hit Points:** 1 (1d4 - 1)
-- **Speed:** 30 ft., Climb 30 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 1 (1d4 - 1)
+- **Velocità:** 9 m, Scalare 9 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 3 | -4 | -4 |
-| DEX | 16 | +3 | +3 |
-| CON | 8 | -1 | -1 |
+| FOR | 3 | -4 | -4 |
+| DES | 16 | +3 | +3 |
+| COS | 8 | -1 | -1 |
 | INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 3 | -4 | -4 |
+| SAG | 12 | +1 | +1 |
+| CAR | 3 | -4 | -4 |
 
-- **Skills**: Acrobatics +5, Perception +3, Stealth +5
-- **Senses**: darkvision 60 ft.; Passive Perception 13
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Abilità**: Acrobatics +5, Perception +3, Stealth +5
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
+- **GS** 0 (PE 0 or 10; PB +2)
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +5, reach 5 ft. 1 Piercing damage.
+***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 1 danni Perforanti.
 
-## Wolf
+## Lupo
 
-*Medium Beast, Unaligned*
+*Bestia Media, Non Allineato*
 
-- **Armor Class:** 12
-- **Hit Points:** 11 (2d8 + 2)
-- **Speed:** 40 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 11 (2d8 + 2)
+- **Velocità:** 12 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CAR|VAL|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 14 | +2 | +2 |
-| DEX | 15 | +2 | +2 |
-| CON | 12 | +1 | +1 |
+| FOR | 14 | +2 | +2 |
+| DES | 15 | +2 | +2 |
+| COS | 12 | +1 | +1 |
 | INT | 3 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 6 | -2 | -2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 6 | -2 | -2 |
 
-- **Skills**: Perception +5, Stealth +4
-- **Senses**: darkvision 60 ft.; Passive Perception 15
-- **CR** 1/4 (XP 50; PB +2)
+- **Abilità**: Perception +5, Stealth +4
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 15
+- **GS** 1/4 (PE 50; PB +2)
 
-### Traits
+### Tratti
 
-***Pack Tactics.*** The wolf has Advantage on attack rolls against a creature if at least one of the wolf's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+***Tattiche di Branco.*** Ha Vantaggio ai tiri per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
 
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +4, reach 5 ft. 5 (1d6 + 2) Piercing damage. If the target is a Medium or smaller creature, it has the Prone condition.
+***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni Perforanti. Se il bersaglio è una creatura Media o più piccola, ha la condizione Prono.

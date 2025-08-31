@@ -1,0 +1,39 @@
+# Test dependencies for D&D 5e SRD Editor
+
+# Core testing framework
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+pytest-mock>=3.11.0
+pytest-xdist>=3.3.0  # Parallel test execution
+
+# HTTP testing
+httpx>=0.24.0
+requests>=2.31.0
+
+# Database testing
+pytest-mongodb>=2.3.0
+mongomock>=4.1.0  # Mock MongoDB for unit tests
+
+# Fixtures and test data
+factory-boy>=3.3.0
+faker>=19.0.0
+
+# Performance testing
+pytest-benchmark>=4.0.0
+
+# Test reporting
+pytest-html>=3.2.0
+pytest-json-report>=1.5.0
+
+# Code quality
+flake8>=6.0.0
+black>=23.0.0
+isort>=5.12.0
+mypy>=1.5.0
+
+# Coverage tools
+coverage[toml]>=7.3.0
+
+# Development tools
+pre-commit>=3.4.0

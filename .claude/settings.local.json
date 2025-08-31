@@ -3,7 +3,12 @@
     "allow": [
       "Bash(python:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(grep:*)",
+      "Bash(sudo apt-get:*)",
+      "Bash(sudo apt-get install:*)",
+      "Bash(docker build:*)",
+      "Bash(docker system prune:*)"
     ],
     "deny": [],
     "ask": []

@@ -5,3 +5,12 @@ motor>=3.6,<4
 jinja2>=3.1.4,<3.2
 python-multipart>=0.0.9,<0.1
 markdown>=3.6,<3.8
+pydantic>=2.4.0,<3.0
+
+# Caching and optimization
+redis>=5.0.0,<6.0
+# psutil is optional and used only for performance checks in health endpoints.
+# To enable those metrics locally, install it separately: `pip install psutil`
+
+# Connection pooling and monitoring
+pymongo>=4.5.0,<5.0

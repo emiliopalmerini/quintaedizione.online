@@ -1,0 +1,78 @@
+# Docker Compose override for development with Redis caching
+# Copy this file to docker-compose.override.yml to enable Redis caching
+
+version: '3.8'
+
+services:
+  # Redis cache service
+  redis:
+    image: redis:7-alpine
+    container_name: dnd5e-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: >
+      redis-server
+      --appendonly yes
+      --appendfsync everysec
+      --maxmemory 256mb
+      --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    networks:
+      - dnd5e-network
+
+  # Editor service with Redis environment
+  editor:
+    environment:
+      # Redis configuration
+      - REDIS_URL=redis://redis:6379
+      
+      # Enhanced logging
+      - LOG_LEVEL=INFO
+      - STRUCTURED_LOGGING=true
+      
+      # Performance tuning
+      - MONGO_MAX_POOL_SIZE=50
+      - MONGO_MIN_POOL_SIZE=10
+      
+      # Cache settings
+      - CACHE_DEFAULT_TTL=300
+      - CACHE_ENABLED=true
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/healthz"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # MongoDB with optimized configuration
+  mongo:
+    command: >
+      mongod --bind_ip_all
+      --wiredTigerCacheSizeGB 1
+      --maxConns 100
+      --quiet
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+volumes:
+  redis_data:
+    driver: local
+
+networks:
+  dnd5e-network:
+    driver: bridge

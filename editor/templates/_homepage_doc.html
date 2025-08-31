@@ -7,6 +7,10 @@
         <div class="min-w-0">
           <div class="text-[11px] uppercase tracking-wide text-neutral-500">{{ doc.source or '' }}</div>
           <h2 class="text-base md:text-lg font-semibold break-words leading-snug">{{ doc.titolo or 'Documento' }}</h2>
+          {% set pages_count = (pages_items and pages_items|length) or (pages_list and pages_list|length) or 0 %}
+          {% if pages_count %}
+          <div class="text-[11px] text-neutral-500 leading-tight">Pagine indicizzate: {{ pages_count }}</div>
+          {% endif %}
           {% if pages_items and pages_items|length > 0 %}
           <nav class="mt-1 -mx-1 px-1 overflow-x-auto whitespace-nowrap flex items-center gap-1 text-[12px]" aria-label="Pagine">
             {% for it in pages_items %}

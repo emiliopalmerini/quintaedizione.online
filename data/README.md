@@ -16,8 +16,6 @@ The web parser currently supports:
 
 Other English collections (e.g., spells, magic items as itemized docs) are not yet parsed — they appear as full pages in `documenti_en`.
 
-The editor UI can switch homepage documents between IT/EN via `?lang=it|en`.
-
 ## Notes
 
 - Filenames encode an optional leading page number (e.g., `01_...`) used as `numero_di_pagina`.

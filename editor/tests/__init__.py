@@ -1,0 +1,1 @@
+"""Test suite for D&D 5e SRD Editor."""
