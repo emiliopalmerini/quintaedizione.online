@@ -65,6 +65,27 @@
             <input name="type" class="field" placeholder="Tipo (es. bestia, non morto)" value="{{ request and request.query_params.get('type','') }}" />
             <input name="alignment" class="field" placeholder="Allineamento (es. NM, NB)" value="{{ request and request.query_params.get('alignment','') }}" />
             <input name="cr" class="field" placeholder="GS (es. 1/2 o 5)" value="{{ request and request.query_params.get('cr','') }}" />
+          {% elif collection == 'weapons' %}
+            <input name="category" class="field" placeholder="Categoria (es. Semplice/Mischia)" value="{{ request and request.query_params.get('category','') }}" />
+            <input name="mastery" class="field" placeholder="Maestria (es. Rallenta/Topple)" value="{{ request and request.query_params.get('mastery','') }}" />
+            <input name="property" class="field" placeholder="Proprietà (es. Leggera/Lanciata)" value="{{ request and request.query_params.get('property','') }}" />
+          {% elif collection == 'armor' %}
+            <input name="category" class="field" placeholder="Categoria (es. Leggera/Media/Pesante/Scudo)" value="{{ request and request.query_params.get('category','') }}" />
+            <select name="stealth" class="field">
+              <option value="">Furtività (tutte)</option>
+              <option value="true" {% if request and request.query_params.get('stealth')=='true' %}selected{% endif %}>Svantaggio</option>
+              <option value="false" {% if request and request.query_params.get('stealth')=='false' %}selected{% endif %}>No svantaggio</option>
+            </select>
+            <input name="strength" class="field" placeholder="Forza richiesta (testo)" value="{{ request and request.query_params.get('strength','') }}" />
+          {% elif collection == 'tools' %}
+            <input name="ability" class="field" placeholder="Caratteristica (es. Intelligenza)" value="{{ request and request.query_params.get('ability','') }}" />
+            <input name="category" class="field" placeholder="Categoria (es. strumenti, kit)" value="{{ request and request.query_params.get('category','') }}" />
+            <input name="craft" class="field" placeholder="Può creare (es. Pozione)" value="{{ request and request.query_params.get('craft','') }}" />
+          {% elif collection == 'services' %}
+            <input name="category" class="field" placeholder="Categoria (es. servizio, equipaggiamento)" value="{{ request and request.query_params.get('category','') }}" />
+            <input name="availability" class="field" placeholder="Disponibilità (es. città, villaggio)" value="{{ request and request.query_params.get('availability','') }}" />
+          {% elif collection == 'gear' %}
+            <input name="weight" class="field" placeholder="Peso (testo)" value="{{ request and request.query_params.get('weight','') }}" />
           {% else %}
             <div class="text-xs text-neutral-600">Nessun filtro specifico per {{ collection }}.</div>
           {% endif %}

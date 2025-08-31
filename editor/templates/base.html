@@ -93,6 +93,11 @@
     [data-markdown] h6 { scroll-margin-top: calc(var(--site-header-h) + 12px); }
     [data-markdown] > :first-child { margin-top: 0 !important; }
     .top-under-header { top: var(--site-header-h); }
+    /* Page overlay indicator */
+    #page-root { position: relative; }
+    #page-loading.page-overlay { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(255,255,255,0.5); backdrop-filter: blur(1px); pointer-events: none; }
+    #page-loading.page-overlay .page-overlay-inner { display: inline-flex; gap: .5rem; align-items: center; background: rgba(255,255,255,0.9); border: 1px solid #e5e7eb; padding: .5rem .75rem; border-radius: .375rem; }
+    #page-loading.htmx-request { display: flex; }
   </style>
 </head>
 <body class="min-h-screen bg-gray-50 flex flex-col text-neutral-900">
@@ -137,8 +142,14 @@
 
   <!-- Content -->
   <main class="flex-1">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div id="page-root" hx-history-elt class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
       {% block content %}{% endblock %}
+      <div id="page-loading" class="page-overlay" aria-hidden="true">
+        <div class="page-overlay-inner">
+          <span class="spinner"></span>
+          <span class="text-sm text-neutral-700">Caricamento…</span>
+        </div>
+      </div>
     </div>
   </main>
 
