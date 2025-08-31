@@ -6,6 +6,15 @@ from typing import Callable, List
 from .parsers.classes import parse_classes
 from .parsers.backgrounds import parse_backgrounds
 from .parsers.documents import parse_document
+from .parsers.spells import parse_spells
+from .parsers.weapons import parse_weapons_en, parse_weapons_it
+from .parsers.armor import parse_armor_en, parse_armor_it
+from .parsers.tools import parse_tools_en, parse_tools_it
+from .parsers.services import parse_services_en, parse_services_it
+from .parsers.gear import parse_gear_en, parse_gear_it
+from .parsers.magic_items import parse_magic_items
+from .parsers.monsters import parse_monsters
+from .parsers.feats import parse_feats
 
 
 @dataclass
@@ -126,6 +135,15 @@ DEFAULT_WORK: List[WorkItem] = [
     WorkItem("ita/04_classi.md", "classi", parse_classes),
     # Structured backgrounds
     WorkItem("ita/05_origini_personaggio.md", "backgrounds", parse_backgrounds),
+    # IT items
+    WorkItem("ita/09_armi_items.md", "armi", parse_weapons_it),
+    WorkItem("ita/11_armatura_items.md", "armature", parse_armor_it),
+    WorkItem("ita/12_strumenti_items.md", "strumenti", parse_tools_it),
+    WorkItem("ita/13_servizi_items.md", "servizi", parse_services_it),
+    WorkItem("ita/08_equipaggiamento_items.md", "equipaggiamento", parse_gear_it),
+    WorkItem("ita/10_oggetti_magici_items.md", "oggetti_magici", parse_magic_items),
+    WorkItem("ita/16_incantesimi_items.md", "incantesimi", parse_spells),
+    WorkItem("ita/06_talenti.md", "talenti", lambda lines: parse_feats(lines, lang="it")),
     # English document pages (full-page ingestion)
     WorkItem(
         "eng/01_legal_information.md",
@@ -165,33 +183,33 @@ DEFAULT_WORK: List[WorkItem] = [
     # Items split (align numero_di_pagina to Italian list)
     WorkItem(
         "eng/07_adventuring_gear.md",
-        "documenti_en",
-        lambda lines: parse_document(lines, "08_adventuring_gear.md"),
+        "adventuring_gear_en",
+        parse_gear_en,
     ),
     WorkItem(
         "eng/07_weapons_items.md",
-        "documenti_en",
-        lambda lines: parse_document(lines, "09_weapons_items.md"),
+        "weapons_en",
+        parse_weapons_en,
     ),
     WorkItem(
         "eng/07_magic_items.md",
-        "documenti_en",
-        lambda lines: parse_document(lines, "10_magic_items.md"),
+        "magic_items_en",
+        parse_magic_items,
     ),
     WorkItem(
         "eng/07_armor_items.md",
-        "documenti_en",
-        lambda lines: parse_document(lines, "11_armor_items.md"),
+        "armor_en",
+        parse_armor_en,
     ),
     WorkItem(
         "eng/07_tools_items.md",
-        "documenti_en",
-        lambda lines: parse_document(lines, "12_tools_items.md"),
+        "tools_en",
+        parse_tools_en,
     ),
     WorkItem(
         "eng/07_services_items.md",
-        "documenti_en",
-        lambda lines: parse_document(lines, "13_services_items.md"),
+        "services_en",
+        parse_services_en,
     ),
     WorkItem(
         "eng/07_mounts_vehicles_items.md",
@@ -205,8 +223,8 @@ DEFAULT_WORK: List[WorkItem] = [
     ),
     WorkItem(
         "eng/08_spells_items.md",
-        "documenti_en",
-        lambda lines: parse_document(lines, "16_spells_items.md"),
+        "spells_en",
+        parse_spells,
     ),
     WorkItem(
         "eng/09_rules_glossary.md",
@@ -225,12 +243,13 @@ DEFAULT_WORK: List[WorkItem] = [
     ),
     WorkItem(
         "eng/13_monsters_items.md",
-        "documenti_en",
-        lambda lines: parse_document(lines, "20_monsters_items.md"),
+        "monsters_en",
+        lambda lines: parse_monsters(lines, namespace="monster"),
     ),
     WorkItem(
         "eng/14_animals_items.md",
-        "documenti_en",
-        lambda lines: parse_document(lines, "21_animals_items.md"),
+        "animals_en",
+        lambda lines: parse_monsters(lines, namespace="animal"),
     ),
+    WorkItem("eng/06_feats.md", "feats_en", lambda lines: parse_feats(lines, lang="en")),
 ]
