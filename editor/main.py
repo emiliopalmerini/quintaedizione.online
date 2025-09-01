@@ -23,7 +23,7 @@ def create_app() -> FastAPI:
     
     setup_logging(log_level, log_file, structured_logging)
     logger = get_logger(__name__)
-    logger.info("Starting D&D 5e SRD Editor application")
+    logger.info("Starting D&D 5e SRD Viewer application")
     
     @asynccontextmanager
     async def lifespan(app: FastAPI):
@@ -45,8 +45,8 @@ def create_app() -> FastAPI:
             logger.info("Application shutdown complete")
 
     app = FastAPI(
-        title="D&D SRD Editor", 
-        description="D&D 5e System Reference Document Editor",
+        title="D&D SRD Viewer", 
+        description="D&D 5e System Reference Document Viewer",
         version="1.0.0",
         lifespan=lifespan
     )

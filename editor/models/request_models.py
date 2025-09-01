@@ -124,88 +124,8 @@ class ShowPageParams(LanguageParams):
         extra = "forbid"
 
 
-class EditPageParams(LanguageParams):
-    """Parameters for edit page requests."""
-    
-    slug: str = Field(..., min_length=1, max_length=200, description="Document slug")
-    
-    @validator('slug')
-    def validate_slug(cls, v):
-        if not re.match(r'^[a-zA-Z0-9\-_]+$', v):
-            raise ValueError('Invalid slug format')
-        return v
-    
-    class Config:
-        extra = "forbid"
 
 
-class DocumentUpdateData(BaseModel):
-    """Document update validation."""
-    
-    title: Optional[str] = Field(default=None, min_length=1, max_length=500)
-    content: Optional[str] = Field(default=None, min_length=1, max_length=50000)
-    slug: Optional[str] = Field(default=None, min_length=1, max_length=200)
-    
-    # Spell-specific fields
-    level: Optional[int] = Field(default=None, ge=0, le=9)
-    school: Optional[str] = Field(default=None, max_length=50)
-    ritual: Optional[bool] = Field(default=None)
-    concentration: Optional[bool] = Field(default=None)
-    casting_time: Optional[str] = Field(default=None, max_length=100)
-    range: Optional[str] = Field(default=None, max_length=100)
-    components: Optional[str] = Field(default=None, max_length=200)
-    duration: Optional[str] = Field(default=None, max_length=100)
-    classes: Optional[list[str]] = Field(default=None)
-    
-    # Item-specific fields
-    type: Optional[str] = Field(default=None, max_length=50)
-    rarity: Optional[str] = Field(default=None, max_length=50)
-    attunement: Optional[bool] = Field(default=None)
-    
-    # Metadata
-    tags: Optional[list[str]] = Field(default=None)
-    notes: Optional[str] = Field(default=None, max_length=1000)
-    
-    @validator('title', 'content', 'casting_time', 'range', 'components', 'duration', 'type', 'rarity')
-    def validate_text_fields(cls, v):
-        if v is None:
-            return v
-        return v.strip()
-    
-    @validator('classes', 'tags')
-    def validate_string_lists(cls, v):
-        if not v:
-            return v
-        
-        # Validate each item in the list
-        cleaned = []
-        for item in v:
-            if not isinstance(item, str):
-                raise ValueError('List items must be strings')
-            
-            cleaned_item = item.strip()
-            if cleaned_item and len(cleaned_item) <= 50:
-                cleaned.append(cleaned_item)
-        
-        return cleaned if cleaned else None
-    
-    @validator('slug')
-    def validate_slug(cls, v):
-        if not v:
-            return v
-        if not re.match(r'^[a-zA-Z0-9\-_]+$', v):
-            raise ValueError('Invalid slug format')
-        return v
-    
-    @root_validator(skip_on_failure=True)
-    def validate_at_least_one_field(cls, values):
-        """Ensure at least one field is provided for update."""
-        if not any(v is not None for v in values.values()):
-            raise ValueError('At least one field must be provided for update')
-        return values
-    
-    class Config:
-        extra = "forbid"
 
 
 class CollectionParams(LanguageParams):
