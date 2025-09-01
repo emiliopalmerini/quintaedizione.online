@@ -32,7 +32,6 @@ from core.transform import to_jsonable
 from models.request_models import (
     ListPageParams, 
     ShowPageParams, 
-    EditPageParams, 
     CollectionParams, 
     PaginationParams, 
     LanguageParams

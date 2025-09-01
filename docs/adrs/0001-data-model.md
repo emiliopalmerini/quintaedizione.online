@@ -3,7 +3,7 @@
 Status: Accepted
 
 ## Context
-- I dati dell'SRD sono numerosi ed eterogenei. Serve un modello normalizzato per l'editor/visualizzatore.
+- I dati dell'SRD sono numerosi ed eterogenei. Serve un modello normalizzato per il visualizzatore.
 
 ## Decisione
 

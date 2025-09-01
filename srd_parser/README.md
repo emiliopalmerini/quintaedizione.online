@@ -38,4 +38,4 @@ Il parser delle classi produce:
 - `spellcasting_progression.by_level` (trucchetti, preparati, slot)
 - `spell_lists_by_level` (incantesimi per livello)
 
-La vista dell'editor (`show_class.html`) sfrutta questi campi per un rendering ricco.
+La vista del visualizzatore (`show_class.html`) sfrutta questi campi per un rendering ricco.
