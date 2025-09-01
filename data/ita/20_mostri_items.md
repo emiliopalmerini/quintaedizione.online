@@ -8017,843 +8017,973 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 
 ***Lancia.*** *Attacco in mischia o a distanza:* +3, portata 1,5 m o gittata 6/18 m. 4 (1d6 + 1) perforanti.
 
+## Guerriero Veterano
 
-## Wererat
+*Umanoide Piccolo, Neutrale*
 
-*Small Monstrosity, Lawful Evil*
+- **Classe Armatura:** 17
+- **Punti Ferita:** 65 (10d8 + 20)
+- **Velocità:** 9 m
+- **Iniziativa**: +3 (13)
 
-- **Armor Class:** 13
-- **Hit Points:** 60 (11d8 + 11)
-- **Speed:** 30 ft., Climb 30 ft.
-- **Initiative**: +3 (13)
-
-|STAT|SCORE|MOD|SAVE|
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
 | --- | --- | --- | ---- |
-| STR | 10 | +0 | +0 |
-| DEX | 16 | +3 | +3 |
-| CON | 12 | +1 | +1 |
-| INT | 11 | +0 | +0 |
-| WIS | 10 | +0 | +0 |
-| CHA | 8 | -1 | -1 |
-
-- **Skills**: Perception +4, Stealth +5
-- **Gear** Hand Crossbow
-- **Senses**: darkvision 60 ft.; Passive Perception 14
-- **Languages**: Common (can't speak in rat form)
-- **CR** 2 (XP 450; PB +2)
-
-### Actions
-
-***Multiattack.*** The wererat makes two attacks, using Scratch or Hand Crossbow in any combination. It can replace one attack with a Bite attack.
-
-***Bite (Rat or Hybrid Form Only).*** *Melee Attack Roll:* +5, reach 5 ft. 8 (2d4 + 3) Piercing damage. If the target is a Humanoid, it is subjected to the following effect. *Constitution Saving Throw*: DC 11. *Failure:*  The target is cursed. If the cursed target drops to 0 Hit Points, it instead becomes a Wererat under the DM's control and has 10 Hit Points. *Success:*  The target is immune to this wererat's curse for 24 hours.
-
-***Scratch.*** *Melee Attack Roll:* +5, reach 5 ft. 6 (1d6 + 3) Slashing damage.
-
-***Hand Crossbow (Humanoid or Hybrid Form Only).*** *Ranged Attack Roll:* +5, range 30/120 ft. 6 (1d6 + 3) Piercing damage.
-
-
-### Bonus Actions
-
-***Shape-Shift.*** The wererat shape-shifts into a Medium rat-humanoid hybrid or a Small rat, or it returns to its true humanoid form. Its game statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed.
-
-## Weretiger
-
-*Small Monstrosity, Neutral*
-
-- **Armor Class:** 12
-- **Hit Points:** 120 (16d8 + 48)
-- **Speed:** 30 ft., Alternate ? ft.
-- **Initiative**: +2 (12)
-
-|STAT|SCORE|MOD|SAVE|
-| --- | --- | --- | ---- |
-| STR | 17 | +3 | +3 |
-| DEX | 15 | +2 | +2 |
-| CON | 16 | +3 | +3 |
+| FOR | 16 | +3 | +3 |
+| DES | 13 | +1 | +1 |
+| COS | 14 | +2 | +2 |
 | INT | 10 | +0 | +0 |
-| WIS | 13 | +1 | +1 |
-| CHA | 11 | +0 | +0 |
+| SAG | 11 | +0 | +0 |
+| CAR | 10 | +0 | +0 |
 
-- **Skills**: Perception +5, Stealth +4
-- **Gear** Longbow
-- **Senses**: darkvision 60 ft.; Passive Perception 15
-- **Languages**: Common (can't speak in tiger form)
-- **CR** 4 (XP 1,100; PB +2)
+- **Abilità**: Atletica +5, Percezione +2  
+- **Equipaggiamento**: Spadone, Balestra Pesante, Armatura a Piastre Segmentate  
+- **Sensi**: Percezione Passiva 12  
+- **Linguaggi**: Comune più un altro  
+- **GS** 3 (PE 700; MB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The weretiger makes two attacks, using Scratch or Longbow in any combination. It can replace one attack with a Bite attack.
+***Attacco Multiplo.*** Due attacchi con Spadone o Balestra Pesante.  
 
-***Bite (Tiger or Hybrid Form Only).*** *Melee Attack Roll:* +5, reach 5 ft. 12 (2d8 + 3) Piercing damage. If the target is a Humanoid, it is subjected to the following effect. *Constitution Saving Throw*: DC 13. *Failure:*  The target is cursed. If the cursed target drops to 0 Hit Points, it instead becomes a Weretiger under the DM's control and has 10 Hit Points. *Success:*  The target is immune to this weretiger's curse for 24 hours.
+***Spadone.*** *Attacco in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) taglienti.  
 
-***Scratch.*** *Melee Attack Roll:* +5, reach 5 ft. 10 (2d6 + 3) Slashing damage.
+***Balestra Pesante.*** *Attacco a distanza:* +3, gittata 30/120 m. 12 (2d10 + 1) perforanti.  
 
-***Longbow (Humanoid or Hybrid Form Only).*** *Ranged Attack Roll:* +4, range 150/600 ft. 11 (2d8 + 2) Piercing damage.
+---
 
+## Elementale dell’Acqua
 
-### Bonus Actions
+*Elementale Grande, Neutrale*
 
-***Prowl (Tiger or Hybrid Form Only).*** The weretiger moves up to its Speed without provoking Opportunity Attacks. At the end of this movement, the weretiger can take the Hide action.
+- **Classe Armatura:** 14
+- **Punti Ferita:** 114 (12d10 + 48)
+- **Velocità:** 9 m, Nuotare 27 m
+- **Iniziativa**: +2 (12)
 
-***Shape-Shift.*** The weretiger shape-shifts into a Large tiger-humanoid hybrid or a Large tiger, or it returns to its true humanoid form. Its game statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed.
-
-## Werewolf
-
-*Small Monstrosity, Chaotic Evil*
-
-- **Armor Class:** 15
-- **Hit Points:** 71 (11d8 + 22)
-- **Speed:** 30 ft., Alternate ? ft.
-- **Initiative**: +4 (14)
-
-|STAT|SCORE|MOD|SAVE|
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 14 | +2 | +2 |
-| CON | 14 | +2 | +2 |
-| INT | 10 | +0 | +0 |
-| WIS | 11 | +0 | +0 |
-| CHA | 10 | +0 | +0 |
-
-- **Skills**: Perception +4, Stealth +4
-- **Gear** Longbow
-- **Senses**: darkvision 60 ft.; Passive Perception 14
-- **Languages**: Common (can't speak in wolf form)
-- **CR** 3 (XP 700; PB +2)
-
-### Traits
-
-***Pack Tactics.*** The werewolf has Advantage on an attack roll against a creature if at least one of the werewolf's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
-
-
-### Actions
-
-***Multiattack.*** The werewolf makes two attacks, using Scratch or Longbow in any combination. It can replace one attack with a Bite attack.
-
-***Bite (Wolf or Hybrid Form Only).*** *Melee Attack Roll:* +5, reach 5 ft. 12 (2d8 + 3) Piercing damage. If the target is a Humanoid, it is subjected to the following effect. *Constitution Saving Throw*: DC 12. *Failure:*  The target is cursed. If the cursed target drops to 0 Hit Points, it instead becomes a Werewolf under the DM's control and has 10 Hit Points. *Success:*  The target is immune to this werewolf's curse for 24 hours.
-
-***Scratch.*** *Melee Attack Roll:* +5, reach 5 ft. 10 (2d6 + 3) Slashing damage.
-
-***Longbow (Humanoid or Hybrid Form Only).*** *Ranged Attack Roll:* +4, range 150/600 ft. 11 (2d8 + 2) Piercing damage.
-
-
-### Bonus Actions
-
-***Shape-Shift.*** The werewolf shape-shifts into a Large wolf-humanoid hybrid or a Medium wolf, or it returns to its true humanoid form. Its game statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed.
-
-## White Dragon Wyrmling
-
-*Medium Dragon (Chromatic), Chaotic Evil*
-
-- **Armor Class:** 16
-- **Hit Points:** 32 (5d8 + 10)
-- **Speed:** 30 ft., Burrow 15 ft., Fly 60 ft., Swim 30 ft.
-- **Initiative**: +2 (12)
-
-|STAT|SCORE|MOD|SAVE|
-| --- | --- | --- | ---- |
-| STR | 14 | +2 | +2 |
-| DEX | 10 | +0 | +2 |
-| CON | 14 | +2 | +2 |
+| FOR | 18 | +4 | +4 |
+| DES | 14 | +2 | +2 |
+| COS | 18 | +4 | +4 |
 | INT | 5 | -3 | -3 |
-| WIS | 10 | +0 | +2 |
-| CHA | 11 | +0 | +0 |
+| SAG | 10 | +0 | +0 |
+| CAR | 8 | -1 | -1 |
 
-- **Immunities**: Cold
-- **Skills**: Perception +4, Stealth +2
-- **Senses**: blindsight 10 ft., darkvision 60 ft.; Passive Perception 14
-- **Languages**: Draconic
-- **CR** 2 (XP 450; PB +2)
+- **Resistenze**: Acido, Fuoco  
+- **Immunità**: Veleno; Affaticato, Afferrato, Paralizzato, Pietrificato, Avvelenato, Prono, Intrappolato, Incosciente  
+- **Sensi**: scurovisione 18 m; Percezione Passiva 10  
+- **Linguaggi**: Primordiale (Aquan)  
+- **GS** 5 (PE 1.800; MB +3)
 
-### Traits
+### Tratti
 
-***Ice Walk.*** The dragon can move across and climb icy surfaces without needing to make an ability check. Additionally, Difficult Terrain composed of ice or snow doesn't cost it extra movement.
+***Congelamento.*** Se subisce danni da freddo, la sua Velocità si riduce di 6 m fino alla fine del suo prossimo turno.  
 
+***Forma d’Acqua.*** Può entrare nello spazio di un nemico e fermarsi lì. Può passare attraverso fessure strette fino a 2,5 cm senza penalità di movimento.  
 
-### Actions
+### Azioni
 
-***Multiattack.*** The dragon makes two Rend attacks.
+***Attacco Multiplo.*** Due attacchi con Colpo.  
 
-***Rend.*** *Melee Attack Roll:* +4, reach 5 ft. 6 (1d8 + 2) Slashing damage plus 2 (1d4) Cold damage.
+***Colpo.*** *Attacco in mischia:* +7, portata 1,5 m. 13 (2d8 + 4) contundenti. Se il bersaglio è una creatura Media o più piccola, è Prono.  
 
-***Cold Breath (Recharge 5-6).*** *Constitution Saving Throw*: DC 12, each creature in a 15-foot Cone. *Failure:*  22 (5d8) Cold damage. *Success:*  Half damage.
+***Travolgere (Ricarica 4–6).*** *TS Forza*: CD 15, ogni creatura nello spazio dell’elementale. *Fallimento:* 22 (4d8 + 4) contundenti. Se il bersaglio è Grande o più piccolo, è Afferrato (CD 14). Finché è afferrato, è Intrappolato, soffoca a meno che non possa respirare acqua, e subisce 9 (2d8) contundenti a inizio turno dell’elementale. Può trattenere una creatura Grande o fino a due Medie/Piccole. Un alleato entro 1,5 m può estrarre una creatura superando una prova di Atletica su Forza CD 14. *Successo:* metà danno.  
 
-## Wight
+---
 
-*Medium Undead, Neutral Evil*
+## Uomo-Orso
 
-- **Armor Class:** 14
-- **Hit Points:** 82 (11d8 + 33)
-- **Speed:** 30 ft.
-- **Initiative**: +4 (14)
+*Mostruosità Piccola, Neutrale Buono*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 15
+- **Punti Ferita:** 135 (18d8 + 54)
+- **Velocità:** 9 m, Alternativa ? m, Scalare 9 m (solo forma orso)
+- **Iniziativa**: +3 (13)
+
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +2 |
-| DEX | 14 | +2 | +2 |
-| CON | 16 | +3 | +3 |
+| FOR | 19 | +4 | +4 |
+| DES | 10 | +0 | +0 |
+| COS | 17 | +3 | +3 |
+| INT | 11 | +0 | +0 |
+| SAG | 12 | +1 | +1 |
+| CAR | 12 | +1 | +1 |
+
+- **Abilità**: Percezione +7  
+- **Equipaggiamento**: Ascia a Mano ×4  
+- **Sensi**: scurovisione 18 m; Percezione Passiva 17  
+- **Linguaggi**: Comune (non parla in forma d’orso)  
+- **GS** 5 (PE 1.800; MB +3)
+
+### Azioni
+
+***Attacco Multiplo.*** Due attacchi: Ascia a Mano o Lacerare in qualsiasi combinazione. Può sostituire uno con Morso.  
+
+***Morso (solo forma orso o ibrida).*** *Attacco in mischia:* +7, portata 1,5 m. 17 (2d12 + 4) perforanti. Se il bersaglio è un Umanoide, *TS Costituzione* CD 14. *Fallimento:* il bersaglio è maledetto. Se scende a 0 PF, diventa un Uomo-Orso sotto il controllo del DM con 10 PF. *Successo:* è immune alla maledizione di questo Uomo-Orso per 24 ore.  
+
+***Ascia a Mano (solo forma umanoide o ibrida).*** *Attacco in mischia o a distanza:* +7, portata 1,5 m o gittata 6/18 m. 14 (3d6 + 4) taglienti.  
+
+***Lacerare (solo forma orso o ibrida).*** *Attacco in mischia:* +7, portata 1,5 m. 13 (2d8 + 4) taglienti.  
+
+### Azioni Bonus
+
+***Mutare Forma.*** Si trasforma in un ibrido orso-umanoide Grande o in un orso Grande, o ritorna umanoide. Le statistiche restano uguali tranne la taglia. L’equipaggiamento non cambia.  
+
+---
+
+## Uomo-Cinghiale
+
+*Mostruosità Piccola, Neutrale Malvagio*
+
+- **Classe Armatura:** 15
+- **Punti Ferita:** 97 (15d8 + 30)
+- **Velocità:** 9 m, Alternativa ? m
+- **Iniziativa**: +2 (12)
+
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+| --- | --- | --- | ---- |
+| FOR | 17 | +3 | +3 |
+| DES | 10 | +0 | +0 |
+| COS | 15 | +2 | +2 |
 | INT | 10 | +0 | +0 |
-| WIS | 13 | +1 | +1 |
-| CHA | 15 | +2 | +2 |
+| SAG | 11 | +0 | +0 |
+| CAR | 8 | -1 | -1 |
 
-- **Resistances**: Necrotic
-- **Immunities**: Poison; Exhaustion, Poisoned
-- **Skills**: Perception +3, Stealth +4
-- **Gear** Studded Leather Armor
-- **Senses**: darkvision 60 ft.; Passive Perception 13
-- **Languages**: Common plus one other language
-- **CR** 3 (XP 700; PB +2)
+- **Abilità**: Percezione +2  
+- **Equipaggiamento**: Giavellotto ×6  
+- **Sensi**: Percezione Passiva 12  
+- **Linguaggi**: Comune (non parla in forma di cinghiale)  
+- **GS** 4 (PE 1.100; MB +2)
 
-### Traits
+### Azioni
 
-***Sunlight Sensitivity.*** While in sunlight, the wight has Disadvantage on ability checks and attack rolls.
+***Attacco Multiplo.*** Due attacchi: Giavellotto o Zanna in qualsiasi combinazione. Può sostituire uno con Carica.  
 
+***Carica (solo forma cinghiale o ibrida).*** *Attacco in mischia:* +5, portata 1,5 m. 12 (2d8 + 3) perforanti. Se il bersaglio è un Umanoide, *TS Costituzione* CD 12. *Fallimento:* il bersaglio è maledetto. Se scende a 0 PF, diventa un Uomo-Cinghiale sotto il controllo del DM con 10 PF. *Successo:* è immune alla maledizione di questo Uomo-Cinghiale per 24 ore.  
 
-### Actions
+***Giavellotto (solo forma umanoide o ibrida).*** *Attacco in mischia o a distanza:* +5, portata 1,5 m o gittata 9/36 m. 13 (3d6 + 3) perforanti.  
 
-***Multiattack.*** The wight makes two attacks, using Necrotic Sword or Necrotic Bow in any combination. It can replace one attack with a use of Life Drain.
+***Zanna (solo forma cinghiale o ibrida).*** *Attacco in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) perforanti. Se il bersaglio è una creatura Media o più piccola e l’uomo-cinghiale si è mosso di almeno 6 m dritto verso di essa immediatamente prima di colpire, infligge 7 (2d6) perforanti extra e il bersaglio è Prono.  
 
-***Necrotic Sword.*** *Melee Attack Roll:* +4, reach 5 ft. 6 (1d8 + 2) Slashing damage plus 4 (1d8) Necrotic damage.
+### Azioni Bonus
 
-***Necrotic Bow.*** *Ranged Attack Roll:* +4, range 150/600 ft. 6 (1d8 + 2) Piercing damage plus 4 (1d8) Necrotic damage.
+***Mutare Forma.*** Si trasforma in un ibrido cinghiale-umanoide Medio o in un cinghiale Piccolo, o ritorna umanoide. Le statistiche restano uguali tranne la taglia. L’equipaggiamento non cambia.  
 
-***Life Drain.*** *Constitution Saving Throw*: DC 13, one creature within 5 feet. *Failure:*  6 (1d8 + 2) Necrotic damage, and the target's Hit Point maximum decreases by an amount equal to the damage taken.
-A Humanoid slain by this attack rises 24 hours later as a Zombie under the wight's control, unless the Humanoid is restored to life or its body is destroyed. The wight can have no more than twelve zombies under its control at a time.
+## Uomo-Ratto
 
-## Will-o'-Wisp
+*Mostruosità Piccola, Legale Malvagio*
 
-*Small Undead, Chaotic Evil*
+- **Classe Armatura:** 13
+- **Punti Ferita:** 60 (11d8 + 11)
+- **Velocità:** 9 m, Scalare 9 m
+- **Iniziativa**: +3 (13)
 
-- **Armor Class:** 19
-- **Hit Points:** 27 (11d4)
-- **Speed:** 5 ft., Fly 50 ft. (hover)
-- **Initiative**: +9 (19)
-
-|STAT|SCORE|MOD|SAVE|
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
 | --- | --- | --- | ---- |
-| STR | 1 | -5 | -5 |
-| DEX | 28 | +9 | +9 |
-| CON | 10 | +0 | +0 |
+| FOR | 10 | +0 | +0 |
+| DES | 16 | +3 | +3 |
+| COS | 12 | +1 | +1 |
+| INT | 11 | +0 | +0 |
+| SAG | 10 | +0 | +0 |
+| CAR | 8 | -1 | -1 |
+
+- **Abilità**: Percezione +4, Furtività +5  
+- **Equipaggiamento**: Balestra a Mano  
+- **Sensi**: scurovisione 18 m; Percezione Passiva 14  
+- **Linguaggi**: Comune (non parla in forma di ratto)  
+- **GS** 2 (PE 450; MB +2)
+
+### Azioni
+
+***Attacco Multiplo.*** Due attacchi: Graffio o Balestra a Mano in qualsiasi combinazione. Può sostituire uno con Morso.  
+
+***Morso (solo forma ratto o ibrida).*** *Attacco in mischia:* +5, portata 1,5 m. 8 (2d4 + 3) perforanti. Se il bersaglio è un Umanoide, *TS Costituzione* CD 11. *Fallimento:* maledetto. Se scende a 0 PF, diventa Uomo-Ratto sotto il controllo del DM con 10 PF. *Successo:* immune alla maledizione di questo Uomo-Ratto per 24 ore.  
+
+***Graffio.*** *Attacco in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) taglienti.  
+
+***Balestra a Mano (solo forma umanoide o ibrida).*** *Attacco a distanza:* +5, gittata 9/36 m. 6 (1d6 + 3) perforanti.  
+
+### Azioni Bonus
+
+***Mutare Forma.*** Si trasforma in un ibrido ratto-umanoide Medio o in un ratto Piccolo, o ritorna umanoide. Le statistiche restano uguali tranne la taglia. L’equipaggiamento non cambia.  
+
+---
+
+## Uomo-Tigre
+
+*Mostruosità Piccola, Neutrale*
+
+- **Classe Armatura:** 12
+- **Punti Ferita:** 120 (16d8 + 48)
+- **Velocità:** 9 m, Alternativa ? m
+- **Iniziativa**: +2 (12)
+
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+| --- | --- | --- | ---- |
+| FOR | 17 | +3 | +3 |
+| DES | 15 | +2 | +2 |
+| COS | 16 | +3 | +3 |
+| INT | 10 | +0 | +0 |
+| SAG | 13 | +1 | +1 |
+| CAR | 11 | +0 | +0 |
+
+- **Abilità**: Percezione +5, Furtività +4  
+- **Equipaggiamento**: Arco Lungo  
+- **Sensi**: scurovisione 18 m; Percezione Passiva 15  
+- **Linguaggi**: Comune (non parla in forma di tigre)  
+- **GS** 4 (PE 1.100; MB +2)
+
+### Azioni
+
+***Attacco Multiplo.*** Due attacchi: Graffio o Arco Lungo in qualsiasi combinazione. Può sostituire uno con Morso.  
+
+***Morso (solo forma tigre o ibrida).*** *Attacco in mischia:* +5, portata 1,5 m. 12 (2d8 + 3) perforanti. Se il bersaglio è un Umanoide, *TS Costituzione* CD 13. *Fallimento:* maledetto. Se scende a 0 PF, diventa Uomo-Tigre sotto il controllo del DM con 10 PF. *Successo:* immune alla maledizione di questo Uomo-Tigre per 24 ore.  
+
+***Graffio.*** *Attacco in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) taglienti.  
+
+***Arco Lungo (solo forma umanoide o ibrida).*** *Attacco a distanza:* +4, gittata 45/180 m. 11 (2d8 + 2) perforanti.  
+
+### Azioni Bonus
+
+***Appostamento (solo forma tigre o ibrida).*** Si muove fino alla sua Velocità senza provocare attacchi di opportunità. Alla fine di questo movimento può effettuare l’azione Nascondersi.  
+
+***Mutare Forma.*** Si trasforma in un ibrido tigre-umanoide Grande o in una tigre Grande, o ritorna umanoide. Le statistiche restano uguali tranne la taglia. L’equipaggiamento non cambia.  
+
+---
+
+## Uomo-Lupo
+
+*Mostruosità Piccola, Caotico Malvagio*
+
+- **Classe Armatura:** 15
+- **Punti Ferita:** 71 (11d8 + 22)
+- **Velocità:** 9 m, Alternativa ? m
+- **Iniziativa**: +4 (14)
+
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+| --- | --- | --- | ---- |
+| FOR | 16 | +3 | +3 |
+| DES | 14 | +2 | +2 |
+| COS | 14 | +2 | +2 |
+| INT | 10 | +0 | +0 |
+| SAG | 11 | +0 | +0 |
+| CAR | 10 | +0 | +0 |
+
+- **Abilità**: Percezione +4, Furtività +4  
+- **Equipaggiamento**: Arco Lungo  
+- **Sensi**: scurovisione 18 m; Percezione Passiva 14  
+- **Linguaggi**: Comune (non parla in forma di lupo)  
+- **GS** 3 (PE 700; MB +2)
+
+### Tratti
+
+***Tattiche di Branco.*** Ha vantaggio ai tiri per colpire contro una creatura se almeno un alleato è entro 1,5 m da essa e non è Incapacitato.  
+
+### Azioni
+
+***Attacco Multiplo.*** Due attacchi: Graffio o Arco Lungo in qualsiasi combinazione. Può sostituire uno con Morso.  
+
+***Morso (solo forma lupo o ibrida).*** *Attacco in mischia:* +5, portata 1,5 m. 12 (2d8 + 3) perforanti. Se il bersaglio è un Umanoide, *TS Costituzione* CD 12. *Fallimento:* maledetto. Se scende a 0 PF, diventa Uomo-Lupo sotto il controllo del DM con 10 PF. *Successo:* immune alla maledizione di questo Uomo-Lupo per 24 ore.  
+
+***Graffio.*** *Attacco in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) taglienti.  
+
+***Arco Lungo (solo forma umanoide o ibrida).*** *Attacco a distanza:* +4, gittata 45/180 m. 11 (2d8 + 2) perforanti.  
+
+### Azioni Bonus
+
+***Mutare Forma.*** Si trasforma in un ibrido lupo-umanoide Grande o in un lupo Medio, o ritorna umanoide. Le statistiche restano uguali tranne la taglia. L’equipaggiamento non cambia.  
+
+---
+
+## Draghetto Bianco
+
+*Drago Medio (Cromatico), Caotico Malvagio*
+
+- **Classe Armatura:** 16
+- **Punti Ferita:** 32 (5d8 + 10)
+- **Velocità:** 9 m, Scavare 4,5 m, Volare 18 m, Nuotare 9 m
+- **Iniziativa**: +2 (12)
+
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+| --- | --- | --- | ---- |
+| FOR | 14 | +2 | +2 |
+| DES | 10 | +0 | +2 |
+| COS | 14 | +2 | +2 |
+| INT | 5 | -3 | -3 |
+| SAG | 10 | +0 | +2 |
+| CAR | 11 | +0 | +0 |
+
+- **Immunità**: Freddo  
+- **Abilità**: Percezione +4, Furtività +2  
+- **Sensi**: vista cieca 3 m, scurovisione 18 m; Percezione Passiva 14  
+- **Linguaggi**: Draconico  
+- **GS** 2 (PE 450; MB +2)
+
+### Tratti
+
+***Camminare sul Ghiaccio.*** Può muoversi e arrampicarsi su superfici ghiacciate senza prove. Il terreno difficile composto da ghiaccio o neve non costa movimento extra.  
+
+### Azioni
+
+***Attacco Multiplo.*** Due attacchi con Lacerare.  
+
+***Lacerare.*** *Attacco in mischia:* +4, portata 1,5 m. 6 (1d8 + 2) taglienti più 2 (1d4) freddo.  
+
+***Soffio Gelido (Ricarica 5–6).*** *TS Costituzione*: CD 12, ogni creatura in un cono di 4,5 m. *Fallimento:* 22 (5d8) freddo. *Successo:* metà danno.  
+
+
+## Spettro (Wight)
+
+*Non Morto Medio, Neutrale Malvagio*
+
+- **Classe Armatura:** 14
+- **Punti Ferita:** 82 (11d8 + 33)
+- **Velocità:** 9 m
+- **Iniziativa**: +4 (14)
+
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+| --- | --- | --- | ---- |
+| FOR | 15 | +2 | +2 |
+| DES | 14 | +2 | +2 |
+| COS | 16 | +3 | +3 |
+| INT | 10 | +0 | +0 |
+| SAG | 13 | +1 | +1 |
+| CAR | 15 | +2 | +2 |
+
+- **Resistenze**: Necrotico
+- **Immunità**: Veleno; Affaticato, Avvelenato
+- **Abilità**: Percezione +3, Furtività +4
+- **Equipaggiamento**: Armatura Borchiata
+- **Sensi**: scurovisione 18 m; Percezione Passiva 13
+- **Linguaggi**: Comune più un altro
+- **GS** 3 (PE 700; MB +2)
+
+### Tratti
+
+***Sensibilità alla Luce Solare.*** In piena luce solare ha svantaggio alle prove di caratteristica e ai tiri per colpire.
+
+### Azioni
+
+***Attacco Multiplo.*** Due attacchi: Spada Necrotica o Arco Necrotico in qualsiasi combinazione. Può sostituire uno con Rubavita.
+
+***Spada Necrotica.*** *Attacco in mischia:* +4, portata 1,5 m. 6 (1d8 + 2) taglienti più 4 (1d8) necrotici.
+
+***Arco Necrotico.*** *Attacco a distanza:* +4, gittata 45/180 m. 6 (1d8 + 2) perforanti più 4 (1d8) necrotici.
+
+***Rubavita.*** *TS Costituzione*: CD 13, una creatura entro 1,5 m. *Fallimento:* 6 (1d8 + 2) necrotici e il massimo di PF del bersaglio si riduce di un valore pari ai danni subiti.  
+Un Umanoide ucciso da questo attacco si rialza 24 ore dopo come Zombie sotto il controllo dello spettro, a meno che non venga riportato in vita o il corpo distrutto. Lo spettro può controllare al massimo dodici zombie alla volta.
+
+---
+
+## Fuoco Fatuo (Will-o'-Wisp)
+
+*Non Morto Piccolo, Caotico Malvagio*
+
+- **Classe Armatura:** 19
+- **Punti Ferita:** 27 (11d4)
+- **Velocità:** 1,5 m, Volare 15 m (fluttuare)
+- **Iniziativa**: +9 (19)
+
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+| --- | --- | --- | ---- |
+| FOR | 1 | -5 | -5 |
+| DES | 28 | +9 | +9 |
+| COS | 10 | +0 | +0 |
 | INT | 13 | +1 | +1 |
-| WIS | 14 | +2 | +2 |
-| CHA | 11 | +0 | +0 |
+| SAG | 14 | +2 | +2 |
+| CAR | 11 | +0 | +0 |
 
-- **Resistances**: Acid, Bludgeoning, Cold, Fire, Necrotic, Piercing, Slashing
-- **Immunities**: Lightning, Poison; Exhaustion, Grappled, Paralyzed, Petrified, Poisoned, Prone, Restrained, Unconscious
-- **Senses**: darkvision 120 ft.; Passive Perception 12
-- **Languages**: Common plus one other language
-- **CR** 2 (XP 450; PB +2)
+- **Resistenze**: Acido, Contundenti, Freddo, Fuoco, Necrotico, Perforanti, Taglienti
+- **Immunità**: Fulmine, Veleno; Affaticato, Afferrato, Paralizzato, Pietrificato, Avvelenato, Prono, Intrappolato, Incosciente
+- **Sensi**: scurovisione 36 m; Percezione Passiva 12
+- **Linguaggi**: Comune più un altro
+- **GS** 2 (PE 450; MB +2)
 
-### Traits
+### Tratti
 
-***Ephemeral.*** The wisp can't wear or carry anything.
+***Efemero.*** Non può indossare o trasportare oggetti.
 
-***Illumination.*** The wisp sheds Bright Light in a 20-foot radius and Dim Light for an additional 20 feet.
+***Illuminazione.*** Emette luce intensa in un raggio di 6 m e luce fioca per altri 6 m.
 
-***Incorporeal Movement.*** The wisp can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object.
+***Movimento Incorporeo.*** Può muoversi attraverso creature e oggetti come terreno difficile. Subisce 5 (1d10) danni da forza se termina il turno dentro un oggetto.
 
+### Azioni
 
-### Actions
+***Scossa.*** *Attacco in mischia:* +4, portata 1,5 m. 11 (2d8 + 2) fulmine.
 
-***Shock.*** *Melee Attack Roll:* +4, reach 5 ft. 11 (2d8 + 2) Lightning damage.
+### Azioni Bonus
 
+***Consumare Vita.*** *TS Costituzione*: CD 10, una creatura vivente entro 1,5 m a 0 PF. *Fallimento:* la creatura muore e il fuoco fatuo recupera 10 (3d6) PF.
 
-### Bonus Actions
+***Svanire.*** Il fuoco fatuo e la sua luce ottengono la condizione Invisibile finché mantiene Concentrazione su questo effetto, che termina subito dopo che effettua un tiro per colpire o usa Consumare Vita.
 
-***Consume Life.*** *Constitution Saving Throw*: DC 10, one living creature the wisp can see within 5 feet that has 0 Hit Points. *Failure:*  The target dies, and the wisp regains 10 (3d6) Hit Points.
+---
 
-***Vanish.*** The wisp and its light have the Invisible condition until the wisp's  Concentration ends on this effect, which ends early immediately after the wisp makes an attack roll or uses Consume Life.
+## Lupo Invernale
 
-## Winter Wolf
+*Mostruosità Grande, Neutrale Malvagio*
 
-*Large Monstrosity, Neutral Evil*
+- **Classe Armatura:** 13
+- **Punti Ferita:** 75 (10d10 + 20)
+- **Velocità:** 15 m
+- **Iniziativa**: +1 (11)
 
-- **Armor Class:** 13
-- **Hit Points:** 75 (10d10 + 20)
-- **Speed:** 50 ft.
-- **Initiative**: +1 (11)
-
-|STAT|SCORE|MOD|SAVE|
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 13 | +1 | +1 |
-| CON | 14 | +2 | +2 |
+| FOR | 18 | +4 | +4 |
+| DES | 13 | +1 | +1 |
+| COS | 14 | +2 | +2 |
 | INT | 7 | -2 | -2 |
-| WIS | 12 | +1 | +1 |
-| CHA | 8 | -1 | -1 |
+| SAG | 12 | +1 | +1 |
+| CAR | 8 | -1 | -1 |
 
-- **Immunities**: Cold
-- **Skills**: Perception +5, Stealth +5
-- **Senses**: Passive Perception 15
-- **Languages**: Common, Giant
-- **CR** 3 (XP 700; PB +2)
+- **Immunità**: Freddo
+- **Abilità**: Percezione +5, Furtività +5
+- **Sensi**: Percezione Passiva 15
+- **Linguaggi**: Comune, Gigante
+- **GS** 3 (PE 700; MB +2)
 
-### Traits
+### Tratti
 
-***Pack Tactics.*** The wolf has Advantage on an attack roll against a creature if at least one of the wolf's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+***Tattiche di Branco.*** Ha vantaggio ai tiri per colpire contro una creatura se almeno un alleato è entro 1,5 m da essa e non è Incapacitato.
 
+### Azioni
 
-### Actions
+***Morso.*** *Attacco in mischia:* +6, portata 1,5 m. 11 (2d6 + 4) perforanti. Se il bersaglio è una creatura Grande o più piccola, è Prono.
 
-***Bite.*** *Melee Attack Roll:* +6, reach 5 ft. 11 (2d6 + 4) Piercing damage. If the target is a Large or smaller creature, it has the Prone condition.
+***Soffio Gelido (Ricarica 5–6).*** *TS Costituzione*: CD 12, ogni creatura in un cono di 4,5 m. *Fallimento:* 18 (4d8) freddo. *Successo:* metà danno.
 
-***Cold Breath (Recharge 5-6).*** *Constitution Saving Throw*: DC 12, each creature in a 15-foot Cone. *Failure:*  18 (4d8) Cold damage. *Success:*  Half damage.
+---
 
 ## Worg
 
-*Large Fey, Neutral Evil*
+*Fata Grande, Neutrale Malvagio*
 
-- **Armor Class:** 13
-- **Hit Points:** 26 (4d10 + 4)
-- **Speed:** 50 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 26 (4d10 + 4)
+- **Velocità:** 15 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 13 | +1 | +1 |
-| CON | 13 | +1 | +1 |
+| FOR | 16 | +3 | +3 |
+| DES | 13 | +1 | +1 |
+| COS | 13 | +1 | +1 |
 | INT | 7 | -2 | -2 |
-| WIS | 11 | +0 | +0 |
-| CHA | 8 | -1 | -1 |
+| SAG | 11 | +0 | +0 |
+| CAR | 8 | -1 | -1 |
 
-- **Skills**: Perception +4
-- **Senses**: darkvision 60 ft.; Passive Perception 14
-- **Languages**: Goblin, Worg
-- **CR** 1/2 (XP 100; PB +2)
+- **Abilità**: Percezione +4
+- **Sensi**: scurovisione 18 m; Percezione Passiva 14
+- **Linguaggi**: Goblin, Worg
+- **GS** 1/2 (PE 100; MB +2)
 
-### Actions
+### Azioni
 
-***Bite.*** *Melee Attack Roll:* +5, reach 5 ft. 7 (1d8 + 3) Piercing damage, and the next attack roll made against the target before the start of the worg's next turn has Advantage.
+***Morso.*** *Attacco in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) perforanti, e il prossimo tiro per colpire contro il bersaglio effettuato prima dell’inizio del prossimo turno del worg ha vantaggio.
 
-## Wraith
+## Spettro (Wraith)
 
-*Small Undead, Neutral Evil*
+*Non Morto Piccolo, Neutrale Malvagio*
 
-- **Armor Class:** 13
-- **Hit Points:** 67 (9d8 + 27)
-- **Speed:** 5 ft., Fly 60 ft. (hover)
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 67 (9d8 + 27)
+- **Velocità:** 1,5 m, Volare 18 m (fluttuare)
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
 | --- | --- | --- | ---- |
-| STR | 6 | -2 | -2 |
-| DEX | 16 | +3 | +3 |
-| CON | 16 | +3 | +3 |
+| FOR | 6 | -2 | -2 |
+| DES | 16 | +3 | +3 |
+| COS | 16 | +3 | +3 |
 | INT | 12 | +1 | +1 |
-| WIS | 14 | +2 | +2 |
-| CHA | 15 | +2 | +2 |
+| SAG | 14 | +2 | +2 |
+| CAR | 15 | +2 | +2 |
 
-- **Resistances**: Acid, Bludgeoning, Cold, Fire, Piercing, Slashing
-- **Immunities**: Necrotic, Poison; Charmed, Exhaustion, Grappled, Paralyzed, Petrified, Poisoned, Prone, Restrained, Unconscious
-- **Senses**: darkvision 60 ft.; Passive Perception 12
-- **Languages**: Common plus two other languages
-- **CR** 5 (XP 1,800; PB +3)
+- **Resistenze**: Acido, Contundenti, Freddo, Fuoco, Perforanti, Taglienti  
+- **Immunità**: Necrotico, Veleno; Affascinato, Affaticato, Afferrato, Paralizzato, Pietrificato, Avvelenato, Prono, Intrappolato, Incosciente  
+- **Sensi**: scurovisione 18 m; Percezione Passiva 12  
+- **Linguaggi**: Comune più altri due  
+- **GS** 5 (PE 1.800; MB +3)
 
-### Traits
+### Tratti
 
-***Incorporeal Movement.*** The wraith can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object.
+***Movimento Incorporeo.*** Può muoversi attraverso creature e oggetti come terreno difficile. Subisce 5 (1d10) danni da forza se termina il turno dentro un oggetto.  
 
-***Sunlight Sensitivity.*** While in sunlight, the wraith has Disadvantage on ability checks and attack rolls.
+***Sensibilità alla Luce Solare.*** In piena luce solare ha svantaggio alle prove di caratteristica e ai tiri per colpire.  
 
+### Azioni
 
-### Actions
+***Rubavita.*** *Attacco in mischia:* +6, portata 1,5 m. 21 (4d8 + 3) necrotici. Il massimo di PF del bersaglio si riduce di un valore pari ai danni subiti.  
 
-***Life Drain.*** *Melee Attack Roll:* +6, reach 5 ft. 21 (4d8 + 3) Necrotic damage. If the target is a creature, its Hit Point maximum decreases by an amount equal to the damage taken.
+***Creare Spettro.*** Bersaglia un cadavere umanoide entro 3 m morto da non più di 1 minuto. Lo spirito si rialza come Spettro sotto il controllo dello spetro. Può controllare fino a sette spettri alla volta.  
 
-***Create Specter.*** The wraith targets a Humanoid corpse within 10 feet of itself that has been dead for no longer than 1 minute. The target's spirit rises as a Specter in the space of its corpse or in the nearest unoccupied space. The specter is under the wraith's control. The wraith can have no more than seven specters under its control at a time.
+---
 
-## Wyvern
+## Viverna (Wyvern)
 
-*Large Dragon, Unaligned*
+*Drago Grande, Non Allineato*
 
-- **Armor Class:** 14
-- **Hit Points:** 127 (15d10 + 45)
-- **Speed:** 30 ft., Fly 80 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 14
+- **Punti Ferita:** 127 (15d10 + 45)
+- **Velocità:** 9 m, Volare 24 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 10 | +0 | +0 |
-| CON | 16 | +3 | +3 |
+| FOR | 19 | +4 | +4 |
+| DES | 10 | +0 | +0 |
+| COS | 16 | +3 | +3 |
 | INT | 5 | -3 | -3 |
-| WIS | 12 | +1 | +1 |
-| CHA | 6 | -2 | -2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 6 | -2 | -2 |
 
-- **Skills**: Perception +4
-- **Senses**: darkvision 120 ft.; Passive Perception 14
-- **CR** 6 (XP 2,300; PB +3)
+- **Abilità**: Percezione +4  
+- **Sensi**: scurovisione 36 m; Percezione Passiva 14  
+- **GS** 6 (PE 2.300; MB +3)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The wyvern makes one Bite attack and one Sting attack.
+***Attacco Multiplo.*** Un attacco di Morso e uno di Pungiglione.  
 
-***Bite.*** *Melee Attack Roll:* +7, reach 5 ft. 13 (2d8 + 4) Piercing damage.
+***Morso.*** *Attacco in mischia:* +7, portata 1,5 m. 13 (2d8 + 4) perforanti.  
 
-***Sting.*** *Melee Attack Roll:* +7, reach 10 ft. 11 (2d6 + 4) Piercing damage plus 24 (7d6) Poison damage, and the target has the Poisoned condition until the start of the wyvern's next turn.
+***Pungiglione.*** *Attacco in mischia:* +7, portata 3 m. 11 (2d6 + 4) perforanti più 24 (7d6) veleno, e il bersaglio è Avvelenato fino all’inizio del turno successivo della viverna.  
+
+---
 
 ## Xorn
 
-*Medium Elemental, Neutral*
+*Elementale Medio, Neutrale*
 
-- **Armor Class:** 19
-- **Hit Points:** 84 (8d8 + 48)
-- **Speed:** 20 ft., Burrow 20 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 19
+- **Punti Ferita:** 84 (8d8 + 48)
+- **Velocità:** 6 m, Scavare 6 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
 | --- | --- | --- | ---- |
-| STR | 17 | +3 | +3 |
-| DEX | 10 | +0 | +0 |
-| CON | 22 | +6 | +6 |
+| FOR | 17 | +3 | +3 |
+| DES | 10 | +0 | +0 |
+| COS | 22 | +6 | +6 |
 | INT | 11 | +0 | +0 |
-| WIS | 10 | +0 | +0 |
-| CHA | 11 | +0 | +0 |
+| SAG | 10 | +0 | +0 |
+| CAR | 11 | +0 | +0 |
 
-- **Immunities**: Poison; Paralyzed, Petrified, Poisoned
-- **Skills**: Perception +6, Stealth +6
-- **Senses**: darkvision 60 ft., tremorsense 60 ft.; Passive Perception 16
-- **Languages**: Primordial (Terran)
-- **CR** 5 (XP 1,800; PB +3)
+- **Immunità**: Veleno; Paralizzato, Pietrificato, Avvelenato  
+- **Abilità**: Percezione +6, Furtività +6  
+- **Sensi**: scurovisione 18 m, senso del terreno 18 m; Percezione Passiva 16  
+- **Linguaggi**: Primordiale (Terran)  
+- **GS** 5 (PE 1.800; MB +3)
 
-### Traits
+### Tratti
 
-***Earth Glide.*** The xorn can burrow through nonmagical, unworked earth and stone. While doing so, the xorn doesn't disturb the material it moves through.
+***Scivolare nella Terra.*** Può scavare attraverso terra e pietra non magiche senza lasciare tracce.  
 
-***Treasure Sense.*** The xorn can pinpoint the location of precious metals and stones within 60 feet of itself.
+***Senso del Tesoro.*** Può individuare metalli e gemme preziose entro 18 m.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Un attacco di Morso e tre di Artiglio.  
 
-***Multiattack.*** The xorn makes one Bite attack and three Claw attacks.
+***Morso.*** *Attacco in mischia:* +6, portata 1,5 m. 17 (4d6 + 3) perforanti.  
 
-***Bite.*** *Melee Attack Roll:* +6, reach 5 ft. 17 (4d6 + 3) Piercing damage.
+***Artiglio.*** *Attacco in mischia:* +6, portata 1,5 m. 8 (1d10 + 3) taglienti.  
 
-***Claw.*** *Melee Attack Roll:* +6, reach 5 ft. 8 (1d10 + 3) Slashing damage.
+### Azioni Bonus
 
+***Carica.*** Si muove fino alla sua Velocità o Velocità di Scavo dritto verso un nemico che può percepire.  
 
-### Bonus Actions
+---
 
-***Charge.*** The xorn moves up to its Speed or Burrow Speed straight toward an enemy it can sense.
+## Drago Nero Giovane
 
-## Young Black Dragon
+*Drago Grande (Cromatico), Caotico Malvagio*
 
-*Large Dragon (Chromatic), Chaotic Evil*
+- **Classe Armatura:** 18
+- **Punti Ferita:** 127 (15d10 + 45)
+- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m
+- **Iniziativa**: +5 (15)
 
-- **Armor Class:** 18
-- **Hit Points:** 127 (15d10 + 45)
-- **Speed:** 40 ft., Fly 80 ft., Swim 40 ft.
-- **Initiative**: +5 (15)
-
-|STAT|SCORE|MOD|SAVE|
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 14 | +2 | +5 |
-| CON | 17 | +3 | +3 |
+| FOR | 19 | +4 | +4 |
+| DES | 14 | +2 | +5 |
+| COS | 17 | +3 | +3 |
 | INT | 12 | +1 | +1 |
-| WIS | 11 | +0 | +3 |
-| CHA | 15 | +2 | +2 |
+| SAG | 11 | +0 | +3 |
+| CAR | 15 | +2 | +2 |
 
-- **Immunities**: Acid
-- **Skills**: Perception +6, Stealth +5
-- **Senses**: blindsight 30 ft., darkvision 120 ft.; Passive Perception 16
-- **Languages**: Common, Draconic
-- **CR** 7 (XP 2,900; PB +3)
+- **Immunità**: Acido  
+- **Abilità**: Percezione +6, Furtività +5  
+- **Sensi**: vista cieca 9 m, scurovisione 36 m; Percezione Passiva 16  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 7 (PE 2.900; MB +3)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The dragon can breathe air and water.
+***Anfibio.*** Può respirare aria e acqua.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Tre attacchi con Lacerare.  
 
-***Multiattack.*** The dragon makes three Rend attacks.
+***Lacerare.*** *Attacco in mischia:* +7, portata 3 m. 9 (2d4 + 4) taglienti più 3 (1d6) acido.  
 
-***Rend.*** *Melee Attack Roll:* +7, reach 10 ft. 9 (2d4 + 4) Slashing damage plus 3 (1d6) Acid damage.
+***Soffio Acido (Ricarica 5–6).*** *TS Destrezza*: CD 14, ogni creatura in una linea di 9 m per 1,5 m. *Fallimento:* 49 (14d6) acido. *Successo:* metà danno.  
 
-***Acid Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 14, each creature in a 30-foot-long, 5-foot-wide Line. *Failure:*  49 (14d6) Acid damage. *Success:*  Half damage.
+## Drago Blu Giovane
 
-## Young Blue Dragon
+*Drago Grande (Cromatico), Legale Malvagio*
 
-*Large Dragon (Chromatic), Lawful Evil*
+- **Classe Armatura:** 18
+- **Punti Ferita:** 152 (16d10 + 64)
+- **Velocità:** 12 m, Scavare 6 m, Volare 24 m
+- **Iniziativa**: +4 (14)
 
-- **Armor Class:** 18
-- **Hit Points:** 152 (16d10 + 64)
-- **Speed:** 40 ft., Burrow 20 ft., Fly 80 ft.
-- **Initiative**: +4 (14)
-
-|STAT|SCORE|MOD|SAVE|
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
 | --- | --- | --- | ---- |
-| STR | 21 | +5 | +5 |
-| DEX | 10 | +0 | +4 |
-| CON | 19 | +4 | +4 |
+| FOR | 21 | +5 | +5 |
+| DES | 10 | +0 | +4 |
+| COS | 19 | +4 | +4 |
 | INT | 14 | +2 | +2 |
-| WIS | 13 | +1 | +5 |
-| CHA | 17 | +3 | +3 |
+| SAG | 13 | +1 | +5 |
+| CAR | 17 | +3 | +3 |
 
-- **Immunities**: Lightning
-- **Skills**: Perception +9, Stealth +4
-- **Senses**: blindsight 30 ft., darkvision 120 ft.; Passive Perception 19
-- **Languages**: Common, Draconic
-- **CR** 9 (XP 5,000; PB +4)
+- **Immunità**: Fulmine  
+- **Abilità**: Percezione +9, Furtività +4  
+- **Sensi**: vista cieca 9 m, scurovisione 36 m; Percezione Passiva 19  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 9 (PE 5.000; MB +4)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The dragon makes three Rend attacks.
+***Attacco Multiplo.*** Tre attacchi con Lacerare.  
 
-***Rend.*** *Melee Attack Roll:* +9, reach 10 ft. 12 (2d6 + 5) Slashing damage plus 5 (1d10) Lightning damage.
+***Lacerare.*** *Attacco in mischia:* +9, portata 3 m. 12 (2d6 + 5) taglienti più 5 (1d10) fulmine.  
 
-***Lightning Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 16, each creature in a 60-foot-long, 5-foot-wide Line. *Failure:*  55 (10d10) Lightning damage. *Success:*  Half damage.
+***Soffio di Fulmine (Ricarica 5–6).*** *TS Destrezza*: CD 16, ogni creatura in una linea di 18 m per 1,5 m. *Fallimento:* 55 (10d10) fulmine. *Successo:* metà danno.  
 
-## Young Brass Dragon
+---
 
-*Large Dragon (Metallic), Chaotic Good*
+## Drago di Ottone Giovane
 
-- **Armor Class:** 17
-- **Hit Points:** 110 (13d10 + 39)
-- **Speed:** 40 ft., Burrow 20 ft., Fly 80 ft.
-- **Initiative**: +3 (13)
+*Drago Grande (Metallico), Caotico Buono*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 17
+- **Punti Ferita:** 110 (13d10 + 39)
+- **Velocità:** 12 m, Scavare 6 m, Volare 24 m
+- **Iniziativa**: +3 (13)
+
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 10 | +0 | +3 |
-| CON | 17 | +3 | +3 |
+| FOR | 19 | +4 | +4 |
+| DES | 10 | +0 | +3 |
+| COS | 17 | +3 | +3 |
 | INT | 12 | +1 | +1 |
-| WIS | 11 | +0 | +3 |
-| CHA | 15 | +2 | +2 |
+| SAG | 11 | +0 | +3 |
+| CAR | 15 | +2 | +2 |
 
-- **Immunities**: Fire
-- **Skills**: Perception +6, Persuasion +5, Stealth +3
-- **Senses**: blindsight 30 ft., darkvision 120 ft.; Passive Perception 16
-- **Languages**: Common, Draconic
-- **CR** 6 (XP 2,300; PB +3)
+- **Immunità**: Fuoco  
+- **Abilità**: Percezione +6, Persuasione +5, Furtività +3  
+- **Sensi**: vista cieca 9 m, scurovisione 36 m; Percezione Passiva 16  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 6 (PE 2.300; MB +3)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace two attacks with a use of Sleep Breath.
+***Attacco Multiplo.*** Tre attacchi con Lacerare. Può sostituire due attacchi con un Soffio del Sonno.  
 
-***Rend.*** *Melee Attack Roll:* +7, reach 10 ft. 15 (2d10 + 4) Slashing damage.
+***Lacerare.*** *Attacco in mischia:* +7, portata 3 m. 15 (2d10 + 4) taglienti.  
 
-***Fire Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 14, each creature in a 40-foot-long, 5-foot-wide Line. *Failure:*  38 (11d6) Fire damage. *Success:*  Half damage.
+***Soffio di Fuoco (Ricarica 5–6).*** *TS Destrezza*: CD 14, ogni creatura in una linea di 12 m per 1,5 m. *Fallimento:* 38 (11d6) fuoco. *Successo:* metà danno.  
 
-***Sleep Breath.*** *Constitution Saving Throw*: DC 14, each creature in a 30-foot Cone. *Failure:*  The target has the Incapacitated condition until the end of its next turn, at which point it repeats the save. *Second Failure* The target has the Unconscious condition for 1 minute. This effect ends for the target if it takes damage or a creature within 5 feet of it takes an action to wake it.
+***Soffio del Sonno.*** *TS Costituzione*: CD 14, ogni creatura in un cono di 9 m. *Fallimento:* condizione Incapacitato fino alla fine del prossimo turno del drago, dopo di che ripete il TS. *Secondo Fallimento:* condizione Incosciente per 1 minuto. L’effetto termina se il bersaglio subisce danni o viene svegliato da un’azione di una creatura entro 1,5 m.  
 
-## Young Bronze Dragon
+---
 
-*Large Dragon (Metallic), Lawful Good*
+## Drago di Bronzo Giovane
 
-- **Armor Class:** 17
-- **Hit Points:** 142 (15d10 + 60)
-- **Speed:** 40 ft., Fly 80 ft., Swim 40 ft.
-- **Initiative**: +3 (13)
+*Drago Grande (Metallico), Legale Buono*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 17
+- **Punti Ferita:** 142 (15d10 + 60)
+- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m
+- **Iniziativa**: +3 (13)
+
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
 | --- | --- | --- | ---- |
-| STR | 21 | +5 | +5 |
-| DEX | 10 | +0 | +3 |
-| CON | 19 | +4 | +4 |
+| FOR | 21 | +5 | +5 |
+| DES | 10 | +0 | +3 |
+| COS | 19 | +4 | +4 |
 | INT | 14 | +2 | +2 |
-| WIS | 13 | +1 | +4 |
-| CHA | 17 | +3 | +3 |
+| SAG | 13 | +1 | +4 |
+| CAR | 17 | +3 | +3 |
 
-- **Immunities**: Lightning
-- **Skills**: Insight +4, Perception +7, Stealth +3
-- **Senses**: blindsight 30 ft., darkvision 120 ft.; Passive Perception 17
-- **Languages**: Common, Draconic
-- **CR** 8 (XP 3,900; PB +3)
+- **Immunità**: Fulmine  
+- **Abilità**: Intuizione +4, Percezione +7, Furtività +3  
+- **Sensi**: vista cieca 9 m, scurovisione 36 m; Percezione Passiva 17  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 8 (PE 3.900; MB +3)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The dragon can breathe air and water.
+***Anfibio.*** Può respirare aria e acqua.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Tre attacchi con Lacerare. Può sostituirne uno con un Soffio Repulsivo.  
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of Repulsion Breath.
+***Lacerare.*** *Attacco in mischia:* +8, portata 3 m. 16 (2d10 + 5) taglienti.  
 
-***Rend.*** *Melee Attack Roll:* +8, reach 10 ft. 16 (2d10 + 5) Slashing damage.
+***Soffio di Fulmine (Ricarica 5–6).*** *TS Destrezza*: CD 15, ogni creatura in una linea di 18 m per 1,5 m. *Fallimento:* 49 (9d10) fulmine. *Successo:* metà danno.  
 
-***Lightning Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 15, each creature in a 60-foot-long, 5-foot-wide Line. *Failure:*  49 (9d10) Lightning damage. *Success:*  Half damage.
+***Soffio Repulsivo.*** *TS Forza*: CD 15, ogni creatura in un cono di 9 m. *Fallimento:* il bersaglio è spinto di 12 m lontano dal drago ed è Prono.  
 
-***Repulsion Breath.*** *Strength Saving Throw*: DC 15, each creature in a 30-foot Cone. *Failure:*  The target is pushed up to 40 feet straight away from the dragon and has the Prone condition.
+---
 
-## Young Copper Dragon
+## Drago di Rame Giovane
 
-*Large Dragon (Metallic), Chaotic Good*
+*Drago Grande (Metallico), Caotico Buono*
 
-- **Armor Class:** 17
-- **Hit Points:** 119 (14d10 + 42)
-- **Speed:** 40 ft., Climb 40 ft., Fly 80 ft.
-- **Initiative**: +4 (14)
+- **Classe Armatura:** 17
+- **Punti Ferita:** 119 (14d10 + 42)
+- **Velocità:** 12 m, Scalare 12 m, Volare 24 m
+- **Iniziativa**: +4 (14)
 
-|STAT|SCORE|MOD|SAVE|
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 12 | +1 | +4 |
-| CON | 17 | +3 | +3 |
+| FOR | 19 | +4 | +4 |
+| DES | 12 | +1 | +4 |
+| COS | 17 | +3 | +3 |
 | INT | 16 | +3 | +3 |
-| WIS | 13 | +1 | +4 |
-| CHA | 15 | +2 | +2 |
+| SAG | 13 | +1 | +4 |
+| CAR | 15 | +2 | +2 |
 
-- **Immunities**: Acid
-- **Skills**: Deception +5, Perception +7, Stealth +4
-- **Senses**: blindsight 30 ft., darkvision 120 ft.; Passive Perception 17
-- **Languages**: Common, Draconic
-- **CR** 7 (XP 2,900; PB +3)
+- **Immunità**: Acido  
+- **Abilità**: Inganno +5, Percezione +7, Furtività +4  
+- **Sensi**: vista cieca 9 m, scurovisione 36 m; Percezione Passiva 17  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 7 (PE 2.900; MB +3)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of Slowing Breath.
+***Attacco Multiplo.*** Tre attacchi con Lacerare. Può sostituirne uno con un Soffio Rallentante.  
 
-***Rend.*** *Melee Attack Roll:* +7, reach 10 ft. 15 (2d10 + 4) Slashing damage.
+***Lacerare.*** *Attacco in mischia:* +7, portata 3 m. 15 (2d10 + 4) taglienti.  
 
-***Acid Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 14, each creature in a 40-foot-long, 5-foot-wide Line. *Failure:*  40 (9d8) Acid damage. *Success:*  Half damage.
+***Soffio Acido (Ricarica 5–6).*** *TS Destrezza*: CD 14, ogni creatura in una linea di 12 m per 1,5 m. *Fallimento:* 40 (9d8) acido. *Successo:* metà danno.  
 
-***Slowing Breath.*** *Constitution Saving Throw*: DC 14, each creature in a 30-foot Cone. *Failure:*  The target can't take Reactions; its Speed is halved; and it can take either an action or a Bonus Action on its turn, not both. This effect lasts until the end of its next turn.
+***Soffio Rallentante.*** *TS Costituzione*: CD 14, ogni creatura in un cono di 9 m. *Fallimento:* non può compiere Reazioni, la sua Velocità è dimezzata e può compiere solo un’azione o un’Azione Bonus per turno, non entrambe. Dura fino alla fine del turno successivo del drago.  
 
-## Young Gold Dragon
+## Drago d’Oro Giovane
 
-*Large Dragon (Metallic), Lawful Good*
+*Drago Grande (Metallico), Legale Buono*
 
-- **Armor Class:** 18
-- **Hit Points:** 178 (17d10 + 85)
-- **Speed:** 40 ft., Fly 80 ft., Swim 40 ft.
-- **Initiative**: +6 (16)
+- **Classe Armatura:** 18
+- **Punti Ferita:** 178 (17d10 + 85)
+- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m
+- **Iniziativa**: +6 (16)
 
-|STAT|SCORE|MOD|SAVE|
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
 | --- | --- | --- | ---- |
-| STR | 23 | +6 | +6 |
-| DEX | 14 | +2 | +6 |
-| CON | 21 | +5 | +5 |
+| FOR | 23 | +6 | +6 |
+| DES | 14 | +2 | +6 |
+| COS | 21 | +5 | +5 |
 | INT | 16 | +3 | +3 |
-| WIS | 13 | +1 | +5 |
-| CHA | 20 | +5 | +5 |
+| SAG | 13 | +1 | +5 |
+| CAR | 20 | +5 | +5 |
 
-- **Immunities**: Fire
-- **Skills**: Insight +5, Perception +9, Persuasion +9, Stealth +6
-- **Senses**: blindsight 30 ft., darkvision 120 ft.; Passive Perception 19
-- **Languages**: Common, Draconic
-- **CR** 10 (XP 5,900; PB +4)
+- **Immunità**: Fuoco  
+- **Abilità**: Intuizione +5, Percezione +9, Persuasione +9, Furtività +6  
+- **Sensi**: vista cieca 9 m, scurovisione 36 m; Percezione Passiva 19  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 10 (PE 5.900; MB +4)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The dragon can breathe air and water.
+***Anfibio.*** Può respirare aria e acqua.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Tre attacchi con Lacerare. Può sostituirne uno con un Soffio Indebolente.  
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of Weakening Breath.
+***Lacerare.*** *Attacco in mischia:* +10, portata 3 m. 17 (2d10 + 6) taglienti.  
 
-***Rend.*** *Melee Attack Roll:* +10, reach 10 ft. 17 (2d10 + 6) Slashing damage.
+***Soffio di Fuoco (Ricarica 5–6).*** *TS Destrezza*: CD 17, ogni creatura in un cono di 9 m. *Fallimento:* 55 (10d10) fuoco. *Successo:* metà danno.  
 
-***Fire Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 17, each creature in a 30-foot Cone. *Failure:*  55 (10d10) Fire damage. *Success:*  Half damage.
+***Soffio Indebolente.*** *TS Forza*: CD 17, ogni creatura non già affetta in un cono di 9 m. *Fallimento:* svantaggio ai test basati su Forza e –3 (1d6) ai tiri danno. Ripete il TS a fine turno per terminare l’effetto. Dopo 1 minuto ha successo automaticamente.  
 
-***Weakening Breath.*** *Strength Saving Throw*: DC 17, each creature that isn't currently affected by this breath in a 30-foot Cone. *Failure:*  The target has Disadvantage on Strength-based D20 Test and subtracts 3 (1d6) from its damage rolls. It repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
+---
 
-## Young Green Dragon
+## Drago Verde Giovane
 
-*Large Dragon (Chromatic), Lawful Evil*
+*Drago Grande (Cromatico), Legale Malvagio*
 
-- **Armor Class:** 18
-- **Hit Points:** 136 (16d10 + 48)
-- **Speed:** 40 ft., Fly 80 ft., Swim 40 ft.
-- **Initiative**: +4 (14)
+- **Classe Armatura:** 18
+- **Punti Ferita:** 136 (16d10 + 48)
+- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m
+- **Iniziativa**: +4 (14)
 
-|STAT|SCORE|MOD|SAVE|
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 12 | +1 | +4 |
-| CON | 17 | +3 | +3 |
+| FOR | 19 | +4 | +4 |
+| DES | 12 | +1 | +4 |
+| COS | 17 | +3 | +3 |
 | INT | 16 | +3 | +3 |
-| WIS | 13 | +1 | +4 |
-| CHA | 15 | +2 | +2 |
+| SAG | 13 | +1 | +4 |
+| CAR | 15 | +2 | +2 |
 
-- **Immunities**: Poison; Poisoned
-- **Skills**: Deception +5, Perception +7, Stealth +4
-- **Senses**: blindsight 30 ft., darkvision 120 ft.; Passive Perception 17
-- **Languages**: Common, Draconic
-- **CR** 8 (XP 3,900; PB +3)
+- **Immunità**: Veleno; Avvelenato  
+- **Abilità**: Inganno +5, Percezione +7, Furtività +4  
+- **Sensi**: vista cieca 9 m, scurovisione 36 m; Percezione Passiva 17  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 8 (PE 3.900; MB +3)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The dragon can breathe air and water.
+***Anfibio.*** Può respirare aria e acqua.  
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Tre attacchi con Lacerare.  
 
-***Multiattack.*** The dragon makes three Rend attacks.
+***Lacerare.*** *Attacco in mischia:* +7, portata 3 m. 11 (2d6 + 4) taglienti più 7 (2d6) veleno.  
 
-***Rend.*** *Melee Attack Roll:* +7, reach 10 ft. 11 (2d6 + 4) Slashing damage plus 7 (2d6) Poison damage.
+***Soffio Velenoso (Ricarica 5–6).*** *TS Costituzione*: CD 14, ogni creatura in un cono di 9 m. *Fallimento:* 42 (12d6) veleno. *Successo:* metà danno.  
 
-***Poison Breath (Recharge 5-6).*** *Constitution Saving Throw*: DC 14, each creature in a 30-foot Cone. *Failure:*  42 (12d6) Poison damage. *Success:*  Half damage.
+---
 
-## Young Red Dragon
+## Drago Rosso Giovane
 
-*Large Dragon (Chromatic), Chaotic Evil*
+*Drago Grande (Cromatico), Caotico Malvagio*
 
-- **Armor Class:** 18
-- **Hit Points:** 178 (17d10 + 85)
-- **Speed:** 40 ft., Climb 40 ft., Fly 80 ft.
-- **Initiative**: +4 (14)
+- **Classe Armatura:** 18
+- **Punti Ferita:** 178 (17d10 + 85)
+- **Velocità:** 12 m, Scalare 12 m, Volare 24 m
+- **Iniziativa**: +4 (14)
 
-|STAT|SCORE|MOD|SAVE|
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
 | --- | --- | --- | ---- |
-| STR | 23 | +6 | +6 |
-| DEX | 10 | +0 | +4 |
-| CON | 21 | +5 | +5 |
+| FOR | 23 | +6 | +6 |
+| DES | 10 | +0 | +4 |
+| COS | 21 | +5 | +5 |
 | INT | 14 | +2 | +2 |
-| WIS | 11 | +0 | +4 |
-| CHA | 19 | +4 | +4 |
+| SAG | 11 | +0 | +4 |
+| CAR | 19 | +4 | +4 |
 
-- **Immunities**: Fire
-- **Skills**: Perception +8, Stealth +4
-- **Senses**: blindsight 30 ft., darkvision 120 ft.; Passive Perception 18
-- **Languages**: Common, Draconic
-- **CR** 10 (XP 5,900; PB +4)
+- **Immunità**: Fuoco  
+- **Abilità**: Percezione +8, Furtività +4  
+- **Sensi**: vista cieca 9 m, scurovisione 36 m; Percezione Passiva 18  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 10 (PE 5.900; MB +4)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The dragon makes three Rend attacks.
+***Attacco Multiplo.*** Tre attacchi con Lacerare.  
 
-***Rend.*** *Melee Attack Roll:* +10, reach 10 ft. 13 (2d6 + 6) Slashing damage plus 3 (1d6) Fire damage.
+***Lacerare.*** *Attacco in mischia:* +10, portata 3 m. 13 (2d6 + 6) taglienti più 3 (1d6) fuoco.  
 
-***Fire Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 17, each creature in a 30-foot Cone. *Failure:*  56 (16d6) Fire damage. *Success:*  Half damage.
+***Soffio di Fuoco (Ricarica 5–6).*** *TS Destrezza*: CD 17, ogni creatura in un cono di 9 m. *Fallimento:* 56 (16d6) fuoco. *Successo:* metà danno.  
 
-## Young Silver Dragon
+---
 
-*Large Dragon (Metallic), Lawful Good*
+## Drago d’Argento Giovane
 
-- **Armor Class:** 18
-- **Hit Points:** 168 (16d10 + 80)
-- **Speed:** 40 ft., Fly 80 ft.
-- **Initiative**: +4 (14)
+*Drago Grande (Metallico), Legale Buono*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 18
+- **Punti Ferita:** 168 (16d10 + 80)
+- **Velocità:** 12 m, Volare 24 m
+- **Iniziativa**: +4 (14)
+
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
 | --- | --- | --- | ---- |
-| STR | 23 | +6 | +6 |
-| DEX | 10 | +0 | +4 |
-| CON | 21 | +5 | +5 |
+| FOR | 23 | +6 | +6 |
+| DES | 10 | +0 | +4 |
+| COS | 21 | +5 | +5 |
 | INT | 14 | +2 | +2 |
-| WIS | 11 | +0 | +4 |
-| CHA | 19 | +4 | +4 |
+| SAG | 11 | +0 | +4 |
+| CAR | 19 | +4 | +4 |
 
-- **Immunities**: Cold
-- **Skills**: History +6, Perception +8, Stealth +4
-- **Senses**: blindsight 30 ft., darkvision 120 ft.; Passive Perception 18
-- **Languages**: Common, Draconic
-- **CR** 9 (XP 5,000; PB +4)
+- **Immunità**: Freddo  
+- **Abilità**: Storia +6, Percezione +8, Furtività +4  
+- **Sensi**: vista cieca 9 m, scurovisione 36 m; Percezione Passiva 18  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 9 (PE 5.000; MB +4)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The dragon makes three Rend attacks. It can replace one attack with a use of Paralyzing Breath.
+***Attacco Multiplo.*** Tre attacchi con Lacerare. Può sostituirne uno con un Soffio Paralizzante.  
 
-***Rend.*** *Melee Attack Roll:* +10, reach 10 ft. 15 (2d8 + 6) Slashing damage.
+***Lacerare.*** *Attacco in mischia:* +10, portata 3 m. 15 (2d8 + 6) taglienti.  
 
-***Cold Breath (Recharge 5-6).*** *Constitution Saving Throw*: DC 17, each creature in a 30-foot Cone. *Failure:*  49 (11d8) Cold damage. *Success:*  Half damage.
+***Soffio di Ghiaccio (Ricarica 5–6).*** *TS Costituzione*: CD 17, ogni creatura in un cono di 9 m. *Fallimento:* 49 (11d8) freddo. *Successo:* metà danno.  
 
-***Paralyzing Breath.*** *Constitution Saving Throw*: DC 17, each creature in a 30-foot Cone. *First Failure* The target has the Incapacitated condition until the end of its next turn, when it repeats the save. *Second Failure* The target has the Paralyzed condition, and it repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
-
-## Young White Dragon
-
-*Large Dragon (Chromatic), Chaotic Evil*
-
-- **Armor Class:** 17
-- **Hit Points:** 123 (13d10 + 52)
-- **Speed:** 40 ft., Burrow 20 ft., Fly 80 ft., Swim 40 ft.
-- **Initiative**: +3 (13)
-
-|STAT|SCORE|MOD|SAVE|
-| --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 10 | +0 | +3 |
-| CON | 18 | +4 | +4 |
-| INT | 6 | -2 | -2 |
-| WIS | 11 | +0 | +3 |
-| CHA | 12 | +1 | +1 |
-
-- **Immunities**: Cold
-- **Skills**: Perception +6, Stealth +3
-- **Senses**: blindsight 30 ft., darkvision 120 ft.; Passive Perception 16
-- **Languages**: Common, Draconic
-- **CR** 6 (XP 2,300; PB +3)
-
-### Traits
-
-***Ice Walk.*** The dragon can move across and climb icy surfaces without needing to make an ability check. Additionally, Difficult Terrain composed of ice or snow doesn't cost it extra movement.
-
-
-### Actions
-
-***Multiattack.*** The dragon makes three Rend attacks.
-
-***Rend.*** *Melee Attack Roll:* +7, reach 10 ft. 9 (2d4 + 4) Slashing damage plus 2 (1d4) Cold damage.
-
-***Cold Breath (Recharge 5-6).*** *Constitution Saving Throw*: DC 15, each creature in a 30-foot Cone. *Failure:*  40 (9d8) Cold damage. *Success:*  Half damage.
+***Soffio Paralizzante.*** *TS Costituzione*: CD 17, ogni creatura in un cono di 9 m. *Primo Fallimento:* condizione Incapacitato fino alla fine del prossimo turno del drago, poi ripete il TS. *Secondo Fallimento:* condizione Paralizzato, ripete il TS a fine turno per terminare l’effetto. Dopo 1 minuto ha successo automaticamente.  
 
 ## Zombie
 
-*Medium Undead, Neutral Evil*
+*Non Morto Medio, Neutrale Malvagio*
 
-- **Armor Class:** 8
-- **Hit Points:** 15 (2d8 + 6)
-- **Speed:** 20 ft.
-- **Initiative**: -2 (8)
+- **Classe Armatura:** 8
+- **Punti Ferita:** 15 (2d8 + 6)
+- **Velocità:** 6 m
+- **Iniziativa**: –2 (8)
 
-|STAT|SCORE|MOD|SAVE|
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
 | --- | --- | --- | ---- |
-| STR | 13 | +1 | +1 |
-| DEX | 6 | -2 | -2 |
-| CON | 16 | +3 | +3 |
-| INT | 3 | -4 | -4 |
-| WIS | 6 | -2 | +0 |
-| CHA | 5 | -3 | -3 |
+| FOR | 13 | +1 | +1 |
+| DES | 6 | –2 | –2 |
+| COS | 16 | +3 | +3 |
+| INT | 3 | –4 | –4 |
+| SAG | 6 | –2 | +0 |
+| CAR | 5 | –3 | –3 |
 
-- **Immunities**: Poison; Exhaustion, Poisoned
-- **Senses**: darkvision 60 ft.; Passive Perception 8
-- **Languages**: Understands Common plus one other language but can't speak
-- **CR** 1/4 (XP 50; PB +2)
+- **Immunità**: Veleno; Affaticato, Avvelenato  
+- **Sensi**: scurovisione 18 m; Percezione Passiva 8  
+- **Linguaggi**: comprende il Comune e un altro linguaggio ma non può parlare  
+- **GS** 1/4 (PE 50; MB +2)
 
-### Traits
+### Tratti
 
-***Undead Fortitude.*** If damage reduces the zombie to 0 Hit Points, it makes a Constitution saving throw (DC 5 plus the damage taken) unless the damage is Radiant or from a Critical Hit. On a successful save, the zombie drops to 1 Hit Point instead.
+***Tenacia dei Non Morti.*** Se i danni riducono lo zombie a 0 Punti Ferita, effettua un TS di Costituzione (CD 5 + danni subiti) a meno che i danni non siano Radianti o da Colpo Critico. Con un successo rimane a 1 Punto Ferita invece che a 0.  
 
+### Azioni
 
-### Actions
+***Schianto.*** *Tiro per Colpire in mischia:* +3, portata 1,5 m. 5 (1d8 + 1) contundenti.  
 
-***Slam.*** *Melee Attack Roll:* +3, reach 5 ft. 5 (1d8 + 1) Bludgeoning damage.
+---
 
-## Swarm of Crawling Claws
+## Sciame di Mani Striscianti
 
-*Medium Undead, Neutral Evil*
+*Non Morto Medio, Neutrale Malvagio*
 
-- **Armor Class:** 12
-- **Hit Points:** 49 (11d8)
-- **Speed:** 30 ft., Climb 30 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 49 (11d8)
+- **Velocità:** 9 m, Scalare 9 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
 | --- | --- | --- | ---- |
-| STR | 14 | +2 | +2 |
-| DEX | 14 | +2 | +2 |
-| CON | 11 | +0 | +0 |
-| INT | 5 | -3 | -3 |
-| WIS | 10 | +0 | +0 |
-| CHA | 4 | -3 | -3 |
+| FOR | 14 | +2 | +2 |
+| DES | 14 | +2 | +2 |
+| COS | 11 | +0 | +0 |
+| INT | 5 | –3 | –3 |
+| SAG | 10 | +0 | +0 |
+| CAR | 4 | –3 | –3 |
 
-- **Resistances**: Bludgeoning, Piercing, Slashing
-- **Immunities**: Necrotic, Poison; Charmed, Exhaustion, Frightened, Grappled, Incapacitated, Paralyzed, Petrified, Poisoned, Prone, Restrained, Stunned
-- **Senses**: blindsight 30 ft.; Passive Perception 10
-- **Languages**: Understands Common but can't speak
-- **CR** 3 (XP 700; PB +2)
+- **Resistenze**: Contundenti, Perforanti, Taglienti  
+- **Immunità**: Necrotici, Veleno; Affascinato, Affaticato, Spaventato, Afferrato, Incapacitato, Paralizzato, Pietrificato, Avvelenato, Prono, Immobilizzato, Stordito  
+- **Sensi**: vista cieca 9 m; Percezione Passiva 10  
+- **Linguaggi**: comprende il Comune ma non può parlare  
+- **GS** 3 (PE 700; MB +2)
 
-### Traits
+### Tratti
 
-***Swarm.*** The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny creature. The swarm can't regain Hit Points or gain Temporary Hit Points.
+***Sciame.*** Lo sciame può occupare lo stesso spazio di un’altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande per una creatura Minuscola. Non può recuperare Punti Ferita né guadagnare Punti Ferita Temporanei.  
 
+### Azioni
 
-### Actions
+***Sciame di Mani Affer­ranti.*** *Tiro per Colpire in mischia:* +4, portata 1,5 m. 20 (4d8 + 2) necrotici, o 11 (2d8 + 2) necrotici se lo sciame è Sanguinante. Se il bersaglio è una creatura Media o più piccola, ottiene la condizione Prono.  
 
-***Swarm of Grasping Hands.*** *Melee Attack Roll:* +4, reach 5 ft. 20 (4d8 + 2) Necrotic damage, or 11 (2d8 + 2) Necrotic damage if the swarm is Bloodied. If the target is a Medium or smaller creature, it has the Prone condition.
