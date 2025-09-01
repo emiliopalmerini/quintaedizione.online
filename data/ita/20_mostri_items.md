@@ -2580,4356 +2580,4313 @@ Una creatura può usare un’azione per tentare di staccare il manto oscuro da s
 
 ***Aura di Oscurità (1/giorno).*** Oscurità magica riempie un’Emanazione di 4,5 m originata dal manto oscuro. L’effetto dura finché il manto oscuro mantiene Concentrazione, fino a 10 minuti. La scurovisione non può penetrare quest’area e nessuna luce può illuminarla.
 
-TODO
-## Death Dog
+## Cane Infernale
 
-*Medium Monstrosity, Neutral Evil*
+*Mostruosità Media, Neutrale Malvagio*
 
-- **Armor Class:** 12
-- **Hit Points:** 39 (6d8 + 12)
-- **Speed:** 40 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 39 (6d8 + 12)
+- **Velocità:** 12 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +2 |
-| DEX | 14 | +2 | +2 |
-| CON | 14 | +2 | +2 |
+| FOR | 15 | +2 | +2 |
+| DES | 14 | +2 | +2 |
+| COS | 14 | +2 | +2 |
 | INT | 3 | -4 | -4 |
-| WIS | 13 | +1 | +1 |
-| CHA | 6 | -2 | -2 |
+| SAG | 13 | +1 | +1 |
+| CAR | 6 | -2 | -2 |
 
-- **Immunities**: Blinded, Charmed, Deafened, Frightened, Stunned, Unconscious
-- **Skills**: Perception +5, Stealth +4
-- **Senses**: darkvision 120 ft.; Passive Perception 15
-- **CR** 1 (XP 200; PB +2)
+- **Immunità**: Accecato, Affascinato, Assordato, Spaventato, Stordito, Incosciente
+- **Abilità**: Percezione +5, Furtività +4
+- **Sensi**: scurovisione 36 m; Percezione Passiva 15
+- **GS** 1 (PE 200; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The death dog makes two Bite attacks.
+***Attacco Multiplo.*** Il cane infernale effettua due attacchi di Morso.
 
-***Bite.*** *Melee Attack Roll:* +4, reach 5 ft. 4 (1d4 + 2) Piercing damage. If the target is a creature, it is subjected to the following effect. *Constitution Saving Throw*: DC 12. *First Failure* The target has the Poisoned condition. While Poisoned, the target's Hit Point maximum doesn't return to normal when finishing a Long Rest, and it repeats the save every 24 hours that elapse, ending the effect on itself on a success. Subsequent Failures: The Poisoned target's Hit Point maximum decreases by 5 (1d10).
+***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni perforanti. Se il bersaglio è una creatura, subisce il seguente effetto. *Tiro Salvezza su Costituzione*: CD 12. *Primo Fallimento*: il bersaglio è Avvelenato. Finché è Avvelenato, i suoi Punti Ferita massimi non tornano normali al termine di un Riposo Lungo, e ripete il tiro ogni 24 ore, terminando l’effetto su di sé con un successo. *Fallimenti successivi*: i Punti Ferita massimi del bersaglio Avvelenato si riducono di 5 (1d10).
+
+---
 
 ## Deva
 
-*Medium Celestial (Angel), Lawful Good*
+*Celestiale Medio (Angelo), Legale Buono*
 
-- **Armor Class:** 17
-- **Hit Points:** 229 (27d8 + 108)
-- **Speed:** 30 ft., Fly 90 ft. (hover)
-- **Initiative**: +4 (14)
+- **Classe Armatura:** 17
+- **Punti Ferita:** 229 (27d8 + 108)
+- **Velocità:** 9 m, volo 27 m (fluttuare)
+- **Iniziativa**: +4 (14)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 18 | +4 | +4 |
-| CON | 18 | +4 | +4 |
+| FOR | 18 | +4 | +4 |
+| DES | 18 | +4 | +4 |
+| COS | 18 | +4 | +4 |
 | INT | 17 | +3 | +3 |
-| WIS | 20 | +5 | +9 |
-| CHA | 20 | +5 | +9 |
+| SAG | 20 | +5 | +9 |
+| CAR | 20 | +5 | +9 |
 
-- **Resistances**: Radiant
-- **Immunities**: Charmed, Exhaustion, Frightened
-- **Skills**: Insight +9, Perception +9
-- **Senses**: darkvision 120 ft.; Passive Perception 19
-- **Languages**: All; telepathy 120 ft.
-- **CR** 10 (XP 5,900; PB +4)
+- **Resistenze**: Radiante
+- **Immunità**: Affascinato, Affaticamento, Spaventato
+- **Abilità**: Intuizione +9, Percezione +9
+- **Sensi**: scurovisione 36 m; Percezione Passiva 19
+- **Linguaggi**: Tutti; telepatia 36 m
+- **GS** 10 (PE 5.900; PB +4)
 
-### Traits
+### Tratti
 
-***Exalted Restoration.*** If the deva dies outside Mount Celestia, its body disappears, and it gains a new body instantly, reviving with all its Hit Points somewhere in Mount Celestia.
+***Restaurazione Esaltata.*** Se il deva muore fuori dal Monte Celestia, il suo corpo scompare e ottiene immediatamente un nuovo corpo, tornando in vita con tutti i suoi Punti Ferita da qualche parte sul Monte Celestia.
 
-***Magic Resistance.*** The deva has Advantage on saving throws against spells and other magical effects.
+***Resistenza Magica.*** Il deva ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il deva effettua due attacchi con la Mazza Sacra.
 
-***Multiattack.*** The deva makes two Holy Mace attacks.
+***Mazza Sacra.*** *Tiro per colpire in mischia:* +8, portata 1,5 m. 7 (1d6 + 4) danni contundenti più 18 (4d8) danni radianti.
 
-***Holy Mace.*** *Melee Attack Roll:* +8, reach 5 ft. 7 (1d6 + 4) Bludgeoning damage plus 18 (4d8) Radiant damage.
+***Lancio di Incantesimi.*** Il deva lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 17):
 
-***Spellcasting.*** The deva casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 17):
+- **A volontà:** *Individuazione del Bene e del Male*, *Metamorfosi*
+- **1/giorno ciascuno:** *Comunione*, *Resurrezione Minore*
 
-- **At Will:** *Detect Evil and Good*, *Shapechange*
-- **1e/Day Each:** *Commune*, *Raise Dead*
+### Azioni Bonus
 
-### Bonus Actions
+***Aiuto Divino (2/giorno).*** Il deva lancia *Cura Ferite*, *Restaurare Inferiore* o *Rimuovi Maledizione*, usando la stessa caratteristica da incantatore di Lancio di Incantesimi.
 
-***Divine Aid (2/Day).*** The deva casts *Cure Wounds*, *Lesser Restoration*, or *Remove Curse*, using the same spellcasting ability as Spellcasting.
-## Djinni
+---
 
-*Large Elemental (Genie), Chaotic Good*
+## Genio (Djinni)
 
-- **Armor Class:** 17
-- **Hit Points:** 218 (19d10 + 114)
-- **Speed:** 30 ft., Fly 90 ft. (hover)
-- **Initiative**: +2 (12)
+*Elementale Grande (Genio), Caotico Buono*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 17
+- **Punti Ferita:** 218 (19d10 + 114)
+- **Velocità:** 9 m, volo 27 m (fluttuare)
+- **Iniziativa**: +2 (12)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 21 | +5 | +5 |
-| DEX | 15 | +2 | +6 |
-| CON | 22 | +6 | +6 |
+| FOR | 21 | +5 | +5 |
+| DES | 15 | +2 | +6 |
+| COS | 22 | +6 | +6 |
 | INT | 15 | +2 | +2 |
-| WIS | 16 | +3 | +7 |
-| CHA | 20 | +5 | +5 |
+| SAG | 16 | +3 | +7 |
+| CAR | 20 | +5 | +5 |
 
-- **Immunities**: Lightning, Thunder
-- **Senses**: darkvision 120 ft.; Passive Perception 13
-- **Languages**: Primordial (Auran)
-- **CR** 11 (XP 7,200; PB +4)
+- **Immunità**: Fulmine, Tuono
+- **Sensi**: scurovisione 36 m; Percezione Passiva 13
+- **Linguaggi**: Primordiale (Auran)
+- **GS** 11 (PE 7.200; PB +4)
 
-### Traits
+### Tratti
 
-***Elemental Restoration.*** If the djinni dies outside the Elemental Plane of Air, its body dissolves into mist, and it gains a new body in 1d4 days, reviving with all its Hit Points somewhere on the Plane of Air.
+***Restaurazione Elementale.*** Se il genio muore fuori dal Piano Elementale dell’Aria, il suo corpo si dissolve in nebbia e ottiene un nuovo corpo in 1d4 giorni, tornando in vita con tutti i suoi Punti Ferita da qualche parte sul Piano dell’Aria.
 
-***Magic Resistance.*** The djinni has Advantage on saving throws against spells and other magical effects.
+***Resistenza Magica.*** Il genio ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
 
-***Wishes.*** The djinni has a 30 percent chance of knowing the *Wish* spell. If the djinni knows it, the djinni can cast it only on behalf of a non-genie creature who communicates a wish in a way the djinni can understand. If the djinni casts the spell for the creature, the djinni suffers none of the spell's stress. Once the djinni has cast it three times, the djinni can't do so again for 365 days.
+***Desideri.*** Il genio ha il 30% di probabilità di conoscere l’incantesimo *Desiderio*. Se lo conosce, può lanciarlo solo per conto di una creatura non-genio che comunichi un desiderio in modo comprensibile per lui. Se lancia l’incantesimo, non subisce alcuno stress. Dopo averlo lanciato tre volte, non può farlo di nuovo per 365 giorni.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il genio effettua tre attacchi, usando Lama della Tempesta o Dardo della Tempesta in qualsiasi combinazione.
 
-***Multiattack.*** The djinni makes three attacks, using Storm Blade or Storm Bolt in any combination.
+***Lama della Tempesta.*** *Tiro per colpire in mischia:* +9, portata 1,5 m. 12 (2d6 + 5) danni taglienti più 7 (2d6) danni da fulmine.
 
-***Storm Blade.*** *Melee Attack Roll:* +9, reach 5 feet. 12 (2d6 + 5) Slashing damage plus 7 (2d6) Lightning damage.
+***Dardo della Tempesta.*** *Tiro per colpire a distanza:* +9, gittata 36 m. 13 (3d8) danni da tuono. Se il bersaglio è una creatura Grande o più piccola, cade Prona.
 
-***Storm Bolt.*** *Ranged Attack Roll:* +9, range 120 feet. 13 (3d8) Thunder damage. If the target is a Large or smaller creature, it has the Prone condition.
+***Crea Turbine.*** Il genio evoca un turbine in un punto che può vedere entro 36 m. Il turbine occupa un Cilindro di 6 m di raggio e 18 m di altezza, centrato su quel punto. Il turbine dura finché il genio mantiene Concentrazione. All’inizio di ciascun suo turno, può muovere il turbine di 6 m.  
+Ogni volta che il turbine entra nello spazio di una creatura o una creatura entra nel turbine, quella creatura subisce il seguente effetto. *Tiro Salvezza su Forza*: CD 17 (una creatura effettua questo tiro solo una volta per turno; il genio non è influenzato). *Fallimento:* la creatura è Immobilizzata e si muove col turbine. All’inizio di ciascun suo turno, subisce 21 (6d6) danni da tuono. Alla fine di ciascun suo turno, ripete il tiro, terminando l’effetto con un successo.
 
-***Create Whirlwind.*** The djinni conjures a whirlwind at a point it can see within 120 feet. The whirlwind fills a 20-foot-radius, 60-foot-high Cylinder [Area of Effect]|XPHB|Cylinder centered on that point. The whirlwind lasts until the djinni's  Concentration on it ends. The djinni can move the whirlwind up to 20 feet at the start of each of its turns.
-Whenever the whirlwind enters a creature's space or a creature enters the whirlwind, that creature is subjected to the following effect. *Strength Saving Throw*: DC 17 (a creature makes this save only once per turn, and the djinni is unaffected). *Failure:*  While in the whirlwind, the target has the Restrained condition and moves with the whirlwind. At the start of each of its turns, the Restrained target takes 21 (6d6) Thunder damage. At the end of each of its turns, the target repeats the save, ending the effect on itself on a success.
+***Lancio di Incantesimi.*** Il genio lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 17):
 
-***Spellcasting.*** The djinni casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 17):
+- **A volontà:** *Individuazione del Bene e del Male*, *Individuazione del Magico*
+- **2/giorno ciascuno:** *Crea Cibo e Acqua*, *Linguaggi*, *Camminare nel Vento*
+- **1/giorno ciascuno:** *Creazione*, *Forma Gassosa*, *Invisibilità*, *Immagine Maggiore*, *Spostamento Planare*
 
-- **At Will:** *Detect Evil and Good*, *Detect Magic*
-- **2e/Day Each:** *Create Food and Water*, *Tongues*, *Wind Walk*
-- **1e/Day Each:** *Creation*, *Gaseous Form*, *Invisibility*, *Major Image*, *Plane Shift*
-## Doppelganger
+---
 
-*Medium Monstrosity, Neutral*
+## Mutapelle (Doppelganger)
 
-- **Armor Class:** 14
-- **Hit Points:** 52 (8d8 + 16)
-- **Speed:** 30 ft.
-- **Initiative**: +4 (14)
+*Mostruosità Media, Neutrale*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 14
+- **Punti Ferita:** 52 (8d8 + 16)
+- **Velocità:** 9 m
+- **Iniziativa**: +4 (14)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 11 | +0 | +0 |
-| DEX | 18 | +4 | +4 |
-| CON | 14 | +2 | +2 |
+| FOR | 11 | +0 | +0 |
+| DES | 18 | +4 | +4 |
+| COS | 14 | +2 | +2 |
 | INT | 11 | +0 | +0 |
-| WIS | 12 | +1 | +1 |
-| CHA | 14 | +2 | +2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 14 | +2 | +2 |
 
-- **Immunities**: Charmed
-- **Skills**: Deception +6, Insight +3
-- **Senses**: darkvision 60 ft.; Passive Perception 11
-- **Languages**: Common plus three other languages
-- **CR** 3 (XP 700; PB +2)
+- **Immunità**: Affascinato
+- **Abilità**: Inganno +6, Intuizione +3
+- **Sensi**: scurovisione 18 m; Percezione Passiva 11
+- **Linguaggi**: Comune più altre tre lingue
+- **GS** 3 (PE 700; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The doppelganger makes two Slam attacks and uses Unsettling Visage if available.
+***Attacco Multiplo.*** Il mutapelle effettua due attacchi di Colpo e usa Volto Inquietante se disponibile.
 
-***Slam.*** *Melee Attack Roll:* +6 (with Advantage during the first round of each combat), reach 5 ft. 11 (2d6 + 4) Bludgeoning damage.
+***Colpo.*** *Tiro per colpire in mischia:* +6 (con vantaggio durante il primo round di ogni combattimento), portata 1,5 m. 11 (2d6 + 4) danni contundenti.
 
-***Unsettling Visage (Recharge 6).*** *Wisdom Saving Throw*: DC 12, each creature in a 15-foot Emanation originating from the doppelganger that can see the doppelganger. *Failure:*  The target has the Frightened condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
+***Volto Inquietante (Ricarica 6).*** *Tiro Salvezza su Saggezza*: CD 12, da parte di ogni creatura entro un’Emanazione di 4,5 m originata dal mutapelle che possa vederlo. *Fallimento:* il bersaglio è Spaventato e ripete il tiro alla fine di ciascun suo turno, terminando l’effetto con un successo. Dopo 1 minuto, riesce automaticamente.
 
-***Read Thoughts.*** The doppelganger casts *Detect Thoughts*, requiring no spell components and using Charisma as the spellcasting ability (spell save DC 12).
+***Leggere i Pensieri.*** Il mutapelle lancia *Individuazione dei Pensieri*, senza componenti e usando Carisma come caratteristica da incantatore (CD 12).
 
-- **At Will:** *Detect Thoughts*
+- **A volontà:** *Individuazione dei Pensieri*
 
+### Azioni Bonus
 
-### Bonus Actions
+***Mutare Forma.*** Il mutapelle si trasforma in un Umanoide Medio o Piccolo, oppure ritorna alla sua vera forma. Le sue statistiche restano le stesse tranne che per la taglia. Qualsiasi equipaggiamento indossato o trasportato non viene trasformato.
 
-***Shape-Shift.*** The doppelganger shape-shifts into a Medium or Small Humanoid, or it returns to its true form. Its game statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed.
+## Tartaruga Drago
 
-## Dragon Turtle
+*Drago Mastodontico, Neutrale*
 
-*Gargantuan Dragon, Neutral*
+- **Classe Armatura:** 20
+- **Punti Ferita:** 356 (23d20 + 115)
+- **Velocità:** 6 m, nuoto 15 m
+- **Iniziativa**: +6 (16)
 
-- **Armor Class:** 20
-- **Hit Points:** 356 (23d20 + 115)
-- **Speed:** 20 ft., Swim 50 ft.
-- **Initiative**: +6 (16)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 25 | +7 | +7 |
-| DEX | 10 | +0 | +0 |
-| CON | 20 | +5 | +11 |
+| FOR | 25 | +7 | +7 |
+| DES | 10 | +0 | +0 |
+| COS | 20 | +5 | +11 |
 | INT | 10 | +0 | +0 |
-| WIS | 12 | +1 | +7 |
-| CHA | 12 | +1 | +1 |
+| SAG | 12 | +1 | +7 |
+| CAR | 12 | +1 | +1 |
 
-- **Resistances**: Fire
-- **Senses**: darkvision 120 ft.; Passive Perception 11
-- **Languages**: Draconic, Primordial (Aquan)
-- **CR** 17 (XP 18,000; PB +6)
+- **Resistenze**: Fuoco
+- **Sensi**: scurovisione 36 m; Percezione Passiva 11
+- **Linguaggi**: Draconico, Primordiale (Aquan)
+- **GS** 17 (PE 18.000; PB +6)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The dragon can breathe air and water.
+***Anfibio.*** Il drago può respirare aria e acqua.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua tre attacchi di Morso. Può sostituirne uno con un attacco di Coda.
 
-***Multiattack.*** The dragon makes three Bite attacks. It can replace one attack with a Tail attack.
+***Morso.*** *Tiro per colpire in mischia:* +13, portata 4,5 m. 23 (3d10 + 7) danni perforanti più 7 (2d6) danni da fuoco. Essere sott’acqua non garantisce Resistenza a questi danni da fuoco.
 
-***Bite.*** *Melee Attack Roll:* +13, reach 15 ft. 23 (3d10 + 7) Piercing damage plus 7 (2d6) Fire damage. Being underwater doesn't grant Resistance to this Fire damage.
+***Coda.*** *Tiro per colpire in mischia:* +13, portata 4,5 m. 18 (2d10 + 7) danni contundenti. Se il bersaglio è una creatura Enorme o più piccola, cade Prona.
 
-***Tail.*** *Melee Attack Roll:* +13, reach 15 ft. 18 (2d10 + 7) Bludgeoning damage. If the target is a Huge or smaller creature, it has the Prone condition.
+***Soffio di Vapore (Ricarica 5–6).*** *Tiro Salvezza su Costituzione*: CD 19, da parte di ogni creatura in un Cono di 18 m. *Fallimento:* 56 (16d6) danni da fuoco. *Successo:* metà danni. *In ogni caso:* essere sott’acqua non garantisce Resistenza a questi danni da fuoco.
 
-***Steam Breath (Recharge 5-6).*** *Constitution Saving Throw*: DC 19, each creature in a 60-foot Cone. *Failure:*  56 (16d6) Fire damage. *Success:*  Half damage. *Failure or Success*:  Being underwater doesn't grant Resistance to this Fire damage.
+---
 
 ## Dretch
 
-*Small Fiend (Demon), Chaotic Evil*
+*Immonda Piccola (Demone), Caotico Malvagio*
 
-- **Armor Class:** 11
-- **Hit Points:** 18 (4d6 + 4)
-- **Speed:** 20 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 18 (4d6 + 4)
+- **Velocità:** 6 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 12 | +1 | +1 |
-| DEX | 11 | +0 | +0 |
-| CON | 12 | +1 | +1 |
+| FOR | 12 | +1 | +1 |
+| DES | 11 | +0 | +0 |
+| COS | 12 | +1 | +1 |
 | INT | 5 | -3 | -3 |
-| WIS | 8 | -1 | -1 |
-| CHA | 3 | -4 | -4 |
+| SAG | 8 | -1 | -1 |
+| CAR | 3 | -4 | -4 |
 
-- **Resistances**: Cold, Fire, Lightning
-- **Immunities**: Poison; Poisoned
-- **Senses**: darkvision 60 ft.; Passive Perception 9
-- **Languages**: Abyssal; telepathy 60 ft. (works only with creatures that understand Abyssal)
-- **CR** 1/4 (XP 50; PB +2)
+- **Resistenze**: Freddo, Fuoco, Fulmine
+- **Immunità**: Veleno; Avvelenato
+- **Sensi**: scurovisione 18 m; Percezione Passiva 9
+- **Linguaggi**: Abissale; telepatia 18 m (funziona solo con creature che comprendono l’Abissale)
+- **GS** 1/4 (PE 50; PB +2)
 
-### Actions
+### Azioni
 
-***Rend.*** *Melee Attack Roll:* +3, reach 5 ft. 4 (1d6 + 1) Slashing damage.
+***Dilaniare.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 4 (1d6 + 1) danni taglienti.
 
-***Fetid Cloud (1/Day).*** *Constitution Saving Throw*: DC 11, each creature in a 10-foot Emanation originating from the dretch. *Failure:*  The target has the Poisoned condition until the end of its next turn. While Poisoned, the creature can take either an action or a Bonus Action on its turn, not both, and it can't take Reactions.
+***Nube Fetida (1/giorno).*** *Tiro Salvezza su Costituzione*: CD 11, da parte di ogni creatura in un’Emanazione di 3 m originata dal dretch. *Fallimento:* il bersaglio è Avvelenato fino alla fine del suo prossimo turno. Finché è Avvelenato, può compiere solo un’Azione o un’Azione Bonus a turno, non entrambe, e non può compiere Reazioni.
+
+---
 
 ## Drider
 
-*Large Monstrosity, Chaotic Evil*
+*Mostruosità Grande, Caotico Malvagio*
 
-- **Armor Class:** 19
-- **Hit Points:** 123 (13d10 + 52)
-- **Speed:** 30 ft., Climb 30 ft.
-- **Initiative**: +4 (14)
+- **Classe Armatura:** 19
+- **Punti Ferita:** 123 (13d10 + 52)
+- **Velocità:** 9 m, arrampicata 9 m
+- **Iniziativa**: +4 (14)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 19 | +4 | +4 |
-| CON | 18 | +4 | +4 |
+| FOR | 16 | +3 | +3 |
+| DES | 19 | +4 | +4 |
+| COS | 18 | +4 | +4 |
 | INT | 13 | +1 | +1 |
-| WIS | 16 | +3 | +3 |
-| CHA | 12 | +1 | +1 |
+| SAG | 16 | +3 | +3 |
+| CAR | 12 | +1 | +1 |
 
-- **Skills**: Perception +6, Stealth +10
-- **Senses**: darkvision 120 ft.; Passive Perception 16
-- **Languages**: Elvish, Undercommon
-- **CR** 6 (XP 2,300; PB +3)
+- **Abilità**: Percezione +6, Furtività +10
+- **Sensi**: scurovisione 36 m; Percezione Passiva 16
+- **Linguaggi**: Elfico, Sottocomune
+- **GS** 6 (PE 2.300; PB +3)
 
-### Traits
+### Tratti
 
-***Spider Climb.*** The drider can climb difficult surfaces, including along ceilings, without needing to make an ability check.
+***Camminare sul Tessuto.*** Il drider può arrampicarsi su superfici difficili, inclusi soffitti, senza prove di abilità.
 
-***Sunlight Sensitivity.*** While in sunlight, the drider has Disadvantage on ability checks and attack rolls.
+***Sensibilità alla Luce Solare.*** Mentre è alla luce del sole, il drider ha Svantaggio alle prove di abilità e ai tiri per colpire.
 
-***Web Walker.*** The drider ignores movement restrictions caused by webs, and the drider knows the location of any other creature in contact with the same web.
+***Camminatore della Tela.*** Il drider ignora le restrizioni di movimento causate dalle ragnatele e conosce la posizione di ogni altra creatura a contatto con la stessa ragnatela.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drider effettua tre attacchi, usando Zampa Anteriore o Esplosione Velenosa in qualsiasi combinazione.
 
-***Multiattack.*** The drider makes three attacks, using Foreleg or Poison Burst in any combination.
+***Zampa Anteriore.*** *Tiro per colpire in mischia:* +7, portata 3 m. 13 (2d8 + 4) danni perforanti.
 
-***Foreleg.*** *Melee Attack Roll:* +7, reach 10 ft. 13 (2d8 + 4) Piercing damage.
+***Esplosione Velenosa.*** *Tiro per colpire a distanza:* +6, gittata 36 m. 13 (3d6 + 3) danni da veleno.
 
-***Poison Burst.*** *Ranged Attack Roll:* +6, range 120 ft. 13 (3d6 + 3) Poison damage.
+### Azioni Bonus
 
+***Magia della Regina Ragno (Ricarica 5–6).*** Il drider lancia *Oscurità*, *Fuoco Fatato* o *Ragnatela*, senza componenti materiali e usando Saggezza come caratteristica da incantatore (CD 14).
 
-### Bonus Actions
+---
 
-***Magic of the Spider Queen (Recharge 5-6).*** The drider casts *Darkness*, *Faerie Fire*, or *Web*, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 14).
-## Druid
+## Druido
 
-*Small Humanoid, Neutral*
+*Umanoide Piccolo, Neutrale*
 
-- **Armor Class:** 13
-- **Hit Points:** 44 (8d8 + 8)
-- **Speed:** 30 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 44 (8d8 + 8)
+- **Velocità:** 9 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 10 | +0 | +0 |
-| DEX | 12 | +1 | +1 |
-| CON | 13 | +1 | +1 |
+| FOR | 10 | +0 | +0 |
+| DES | 12 | +1 | +1 |
+| COS | 13 | +1 | +1 |
 | INT | 12 | +1 | +1 |
-| WIS | 16 | +3 | +3 |
-| CHA | 11 | +0 | +0 |
+| SAG | 16 | +3 | +3 |
+| CAR | 11 | +0 | +0 |
 
-- **Skills**: Medicine +5, Nature +3, Perception +5
-- **Gear** Studded Leather Armor
-- **Senses**: Passive Perception 15
-- **Languages**: Common, Druidic, Sylvan
-- **CR** 2 (XP 450; PB +2)
+- **Abilità**: Medicina +5, Natura +3, Percezione +5
+- **Equipaggiamento**: Armatura di cuoio borchiato
+- **Sensi**: Percezione Passiva 15
+- **Linguaggi**: Comune, Druidico, Silvano
+- **GS** 2 (PE 450; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The druid makes two attacks, using Vine Staff or Verdant Wisp in any combination.
+***Attacco Multiplo.*** Il druido effettua due attacchi, usando Bastone di Vite o Spirito Verde in qualsiasi combinazione.
 
-***Vine Staff.*** *Melee Attack Roll:* +5, reach 5 ft. 7 (1d8 + 3) Bludgeoning damage plus 2 (1d4) Poison damage.
+***Bastone di Vite.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni contundenti più 2 (1d4) danni da veleno.
 
-***Verdant Wisp.*** *Ranged Attack Roll:* +5, range 90 ft. 10 (3d6) Radiant damage.
+***Spirito Verde.*** *Tiro per colpire a distanza:* +5, gittata 27 m. 10 (3d6) danni radianti.
 
-***Spellcasting.*** The druid casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 13):
+***Lancio di Incantesimi.*** Il druido lancia uno dei seguenti incantesimi, usando Saggezza come caratteristica da incantatore (CD 13):
 
-- **At Will:** *Druidcraft*, *Speak with Animals*
-- **2e/Day Each:** *Entangle*, *Thunderwave*
-- **1e/Day Each:** *Animal Messenger*, *Longstrider*, *Moonbeam*
-## Dryad
+- **A volontà:** *Arte Druidica*, *Parlare con gli Animali*
+- **2/giorno ciascuno:** *Intricare*, *Ondata Tonante*
+- **1/giorno ciascuno:** *Messaggero Animale*, *Passo Lungo*, *Raggio di Luna*
 
-*Medium Fey, Neutral*
+## Driade
 
-- **Armor Class:** 16
-- **Hit Points:** 22 (5d8)
-- **Speed:** 30 ft.
-- **Initiative**: +1 (11)
+*Fata Media, Neutrale*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 16
+- **Punti Ferita:** 22 (5d8)
+- **Velocità:** 9 m
+- **Iniziativa**: +1 (11)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 10 | +0 | +0 |
-| DEX | 12 | +1 | +1 |
-| CON | 11 | +0 | +0 |
+| FOR | 10 | +0 | +0 |
+| DES | 12 | +1 | +1 |
+| COS | 11 | +0 | +0 |
 | INT | 14 | +2 | +2 |
-| WIS | 15 | +2 | +2 |
-| CHA | 18 | +4 | +4 |
+| SAG | 15 | +2 | +2 |
+| CAR | 18 | +4 | +4 |
 
-- **Skills**: Perception +4, Stealth +5
-- **Senses**: darkvision 60 ft.; Passive Perception 14
-- **Languages**: Elvish, Sylvan
-- **CR** 1 (XP 200; PB +2)
+- **Abilità**: Percezione +4, Furtività +5
+- **Sensi**: scurovisione 18 m; Percezione Passiva 14
+- **Linguaggi**: Elfico, Silvano
+- **GS** 1 (PE 200; PB +2)
 
-### Traits
+### Tratti
 
-***Magic Resistance.*** The dryad has Advantage on saving throws against spells and other magical effects.
+***Resistenza Magica.*** La driade ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
 
-***Speak with Beasts and Plants.*** The dryad can communicate with Beasts and Plants as if they shared a language.
+***Parlare con Bestie e Piante.*** La driade può comunicare con Bestie e Piante come se condividesse un linguaggio.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** La driade effettua un attacco con Frustata di Vite o Esplosione di Spine e può usare Lancio di Incantesimi per lanciare *Ammaliare Mostro*.
 
-***Multiattack.*** The dryad makes one Vine Lash or Thorn Burst attack, and it can use Spellcasting to cast *Charm Monster*.
+***Frustata di Vite.*** *Tiro per colpire in mischia:* +6, portata 3 m. 8 (1d8 + 4) danni taglienti.
 
-***Vine Lash.*** *Melee Attack Roll:* +6, reach 10 ft. 8 (1d8 + 4) Slashing damage.
+***Esplosione di Spine.*** *Tiro per colpire a distanza:* +6, gittata 18 m. 7 (1d6 + 4) danni perforanti.
 
-***Thorn Burst.*** *Ranged Attack Roll:* +6, range 60 ft. 7 (1d6 + 4) Piercing damage.
+***Lancio di Incantesimi.*** La driade lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 14):
 
-***Spellcasting.*** The dryad casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 14):
+- **A volontà:** *Amicizia con gli Animali*, *Ammaliare Mostro*, *Trucchetti Druidici*
+- **1/giorno ciascuno:** *Intricare*, *Passare Senza Traccia*
 
-- **At Will:** *Animal Friendship*, *Charm Monster*, *Druidcraft*
-- **1e/Day Each:** *Entangle*, *Pass without Trace*
+### Azioni Bonus
 
-### Bonus Actions
+***Passo tra gli Alberi.*** Se si trova entro 1,5 m da un albero Grande o più grande, la driade si teletrasporta in uno spazio libero entro 1,5 m da un secondo albero Grande o più grande entro 18 m dal primo.
 
-***Tree Stride.*** If within 5 feet of a Large or bigger tree, the dryad teleports to an unoccupied space within 5 feet of a second Large or bigger tree that is within 60 feet of the previous tree.
+---
 
-## Dust Mephit
+## Mephit della Polvere
 
-*Small Elemental, Neutral Evil*
+*Elementale Piccolo, Neutrale Malvagio*
 
-- **Armor Class:** 12
-- **Hit Points:** 17 (5d6)
-- **Speed:** 30 ft., Fly 30 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 17 (5d6)
+- **Velocità:** 9 m, volo 9 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 5 | -3 | -3 |
-| DEX | 14 | +2 | +2 |
-| CON | 10 | +0 | +0 |
+| FOR | 5 | -3 | -3 |
+| DES | 14 | +2 | +2 |
+| COS | 10 | +0 | +0 |
 | INT | 9 | -1 | -1 |
-| WIS | 11 | +0 | +0 |
-| CHA | 10 | +0 | +0 |
+| SAG | 11 | +0 | +0 |
+| CAR | 10 | +0 | +0 |
 
-- **Vulnerabilities**: Fire
-- **Immunities**: Poison; Exhaustion, Poisoned
-- **Skills**: Perception +2, Stealth +4
-- **Senses**: darkvision 60 ft.; Passive Perception 12
-- **Languages**: Primordial (Auran, Terran)
-- **CR** 1/2 (XP 100; PB +2)
+- **Vulnerabilità**: Fuoco
+- **Immunità**: Veleno; Affaticamento, Avvelenato
+- **Abilità**: Percezione +2, Furtività +4
+- **Sensi**: scurovisione 18 m; Percezione Passiva 12
+- **Linguaggi**: Primordiale (Auran, Terran)
+- **GS** 1/2 (PE 100; PB +2)
 
-### Traits
+### Tratti
 
-***Death Burst.*** The mephit explodes when it dies. *Dexterity Saving Throw*: DC 10, each creature in a 5-foot Emanation originating from the mephit. *Failure:*  5 (2d4) Bludgeoning damage. *Success:*  Half damage.
+***Esplosione di Morte.*** Il mephit esplode quando muore. *Tiro Salvezza su Destrezza*: CD 10, da parte di ogni creatura in un’Emanazione di 1,5 m originata dal mephit. *Fallimento:* 5 (2d4) danni contundenti. *Successo:* metà danni.
 
+### Azioni
 
-### Actions
+***Artigli.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni taglienti.
 
-***Claw.*** *Melee Attack Roll:* +4, reach 5 ft. 4 (1d4 + 2) Slashing damage.
+***Soffio Accecante (Ricarica 6).*** *Tiro Salvezza su Destrezza*: CD 10, da parte di ogni creatura in un Cono di 4,5 m. *Fallimento:* il bersaglio è Accecato fino alla fine del prossimo turno del mephit.
 
-***Blinding Breath (Recharge 6).*** *Dexterity Saving Throw*: DC 10, each creature in a 15-foot Cone. *Failure:*  The target has the Blinded condition until the end of the mephit's next turn.
+***Sonno (1/giorno).*** Il mephit lancia *Sonno*, senza componenti e usando Carisma come caratteristica da incantatore (CD 10).
 
-***Sleep (1/Day).*** The mephit casts the *Sleep* spell, requiring no spell components and using Charisma as the spellcasting ability (spell save DC 10).
+- **A volontà:** 
+- **1/giorno ciascuno:** *Sonno*
 
-- **At Will:** 
-- **1/Day Each:** *Sleep*
-## Earth Elemental
+---
 
-*Large Elemental, Neutral*
+## Elementale della Terra
 
-- **Armor Class:** 17
-- **Hit Points:** 147 (14d10 + 70)
-- **Speed:** 30 ft., Burrow 30 ft.
-- **Initiative**: -1 (9)
+*Elementale Grande, Neutrale*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 17
+- **Punti Ferita:** 147 (14d10 + 70)
+- **Velocità:** 9 m, scavo 9 m
+- **Iniziativa**: -1 (9)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 20 | +5 | +5 |
-| DEX | 8 | -1 | -1 |
-| CON | 20 | +5 | +5 |
+| FOR | 20 | +5 | +5 |
+| DES | 8 | -1 | -1 |
+| COS | 20 | +5 | +5 |
 | INT | 5 | -3 | -3 |
-| WIS | 10 | +0 | +0 |
-| CHA | 5 | -3 | -3 |
+| SAG | 10 | +0 | +0 |
+| CAR | 5 | -3 | -3 |
 
-- **Vulnerabilities**: Thunder
-- **Immunities**: Poison; Exhaustion, Paralyzed, Petrified, Poisoned, Unconscious
-- **Senses**: darkvision 60 ft., tremorsense 60 ft.; Passive Perception 10
-- **Languages**: Primordial (Terran)
-- **CR** 5 (XP 1,800; PB +3)
+- **Vulnerabilità**: Tuono
+- **Immunità**: Veleno; Affaticamento, Paralizzato, Pietrificato, Avvelenato, Incosciente
+- **Sensi**: scurovisione 18 m, tremorsenso 18 m; Percezione Passiva 10
+- **Linguaggi**: Primordiale (Terran)
+- **GS** 5 (PE 1.800; PB +3)
 
-### Traits
+### Tratti
 
-***Earth Glide.*** The elemental can burrow through nonmagical, unworked earth and stone. While doing so, the elemental doesn't disturb the material it moves through.
+***Scivolare nella Terra.*** L’elementale può scavare attraverso terra e pietra non magiche e non lavorate. Mentre lo fa, non smuove il materiale attraversato.
 
-***Siege Monster.*** The elemental deals double damage to objects and structures.
+***Assaltatore d’Assedio.*** L’elementale infligge danni doppi a oggetti e strutture.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** L’elementale effettua due attacchi, usando Colpo o Lancio di Roccia in qualsiasi combinazione.
 
-***Multiattack.*** The elemental makes two attacks, using Slam or Rock Launch in any combination.
+***Colpo.*** *Tiro per colpire in mischia:* +8, portata 3 m. 14 (2d8 + 5) danni contundenti.
 
-***Slam.*** *Melee Attack Roll:* +8, reach 10 ft. 14 (2d8 + 5) Bludgeoning damage.
+***Lancio di Roccia.*** *Tiro per colpire a distanza:* +8, gittata 18 m. 8 (1d6 + 5) danni contundenti. Se il bersaglio è una creatura Grande o più piccola, cade Prona.
 
-***Rock Launch.*** *Ranged Attack Roll:* +8, range 60 ft. 8 (1d6 + 5) Bludgeoning damage. If the target is a Large or smaller creature, it has the Prone condition.
+---
 
 ## Efreeti
 
-*Large Elemental (Genie), Neutral*
+*Elementale Grande (Genio), Neutrale*
 
-- **Armor Class:** 17
-- **Hit Points:** 212 (17d10 + 119)
-- **Speed:** 40 ft., Fly 60 ft. (hover)
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 17
+- **Punti Ferita:** 212 (17d10 + 119)
+- **Velocità:** 12 m, volo 18 m (fluttuare)
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 22 | +6 | +6 |
-| DEX | 12 | +1 | +1 |
-| CON | 24 | +7 | +7 |
+| FOR | 22 | +6 | +6 |
+| DES | 12 | +1 | +1 |
+| COS | 24 | +7 | +7 |
 | INT | 16 | +3 | +3 |
-| WIS | 15 | +2 | +6 |
-| CHA | 19 | +4 | +8 |
+| SAG | 15 | +2 | +6 |
+| CAR | 19 | +4 | +8 |
 
-- **Immunities**: Fire
-- **Senses**: darkvision 120 ft.; Passive Perception 12
-- **Languages**: Primordial (Ignan)
-- **CR** 11 (XP 7,200; PB +4)
+- **Immunità**: Fuoco
+- **Sensi**: scurovisione 36 m; Percezione Passiva 12
+- **Linguaggi**: Primordiale (Ignan)
+- **GS** 11 (PE 7.200; PB +4)
 
-### Traits
+### Tratti
 
-***Elemental Restoration.*** If the efreeti dies outside the Elemental Plane of Fire, its body dissolves into ash, and it gains a new body in 1d4 days, reviving with all its Hit Points somewhere on the Plane of Fire.
+***Restaurazione Elementale.*** Se l’efreeti muore fuori dal Piano Elementale del Fuoco, il suo corpo si dissolve in cenere e ottiene un nuovo corpo in 1d4 giorni, tornando in vita con tutti i suoi Punti Ferita da qualche parte sul Piano del Fuoco.
 
-***Magic Resistance.*** The efreeti has Advantage on saving throws against spells and other magical effects.
+***Resistenza Magica.*** L’efreeti ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
 
-***Wishes.*** The efreeti has a 30 percent chance of knowing the *Wish* spell. If the efreeti knows it, the efreeti can cast it only on behalf of a non-genie creature who communicates a wish in a way the efreeti can understand. If the efreeti casts the spell for the creature, the efreeti suffers none of the spell's stress. Once the efreeti has cast it three times, the efreeti can't do so again for 365 days.
+***Desideri.*** L’efreeti ha il 30% di probabilità di conoscere l’incantesimo *Desiderio*. Se lo conosce, può lanciarlo solo per conto di una creatura non-genio che comunichi un desiderio in modo comprensibile per lui. Se lancia l’incantesimo per la creatura, non subisce alcuno stress. Dopo averlo lanciato tre volte, non può farlo di nuovo per 365 giorni.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** L’efreeti effettua tre attacchi, usando Lama Incandescente o Scagliare Fiamma in qualsiasi combinazione.
 
-***Multiattack.*** The efreeti makes three attacks, using Heated Blade or Hurl Flame in any combination.
+***Lama Incandescente.*** *Tiro per colpire in mischia:* +10, portata 1,5 m. 13 (2d6 + 6) danni taglienti più 13 (2d12) danni da fuoco.
 
-***Heated Blade.*** *Melee Attack Roll:* +10, reach 5 ft. 13 (2d6 + 6) Slashing damage plus 13 (2d12) Fire damage.
+***Scagliare Fiamma.*** *Tiro per colpire a distanza:* +8, gittata 36 m. 24 (7d6) danni da fuoco.
 
-***Hurl Flame.*** *Ranged Attack Roll:* +8, range 120 ft. 24 (7d6) Fire damage.
+***Lancio di Incantesimi.*** L’efreeti lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 16):
 
-***Spellcasting.*** The efreeti casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 16):
+- **A volontà:** *Individuazione del Magico*, *Elementalismo*
+- **1/giorno ciascuno:** *Forma Gassosa*, *Invisibilità*, *Immagine Maggiore*, *Spostamento Planare*, *Linguaggi*, *Muro di Fuoco*
 
-- **At Will:** *Detect Magic*, *Elementalism*
-- **1e/Day Each:** *Gaseous Form*, *Invisibility*, *Major Image*, *Plane Shift*, *Tongues*, *Wall of Fire*
 ## Erinyes
 
-*Medium Fiend (Devil), Lawful Evil*
+*Immonda Media (Diavolo), Legale Malvagio*
 
-- **Armor Class:** 18
-- **Hit Points:** 178 (21d8 + 84)
-- **Speed:** 30 ft., Fly 60 ft.
-- **Initiative**: +7 (17)
+- **Classe Armatura:** 18
+- **Punti Ferita:** 178 (21d8 + 84)
+- **Velocità:** 9 m, volo 18 m
+- **Iniziativa**: +7 (17)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 16 | +3 | +7 |
-| CON | 18 | +4 | +8 |
+| FOR | 18 | +4 | +4 |
+| DES | 16 | +3 | +7 |
+| COS | 18 | +4 | +8 |
 | INT | 14 | +2 | +2 |
-| WIS | 14 | +2 | +2 |
-| CHA | 18 | +4 | +8 |
+| SAG | 14 | +2 | +2 |
+| CAR | 18 | +4 | +8 |
 
-- **Resistances**: Cold
-- **Immunities**: Fire, Poison; Poisoned
-- **Skills**: Perception +6, Persuasion +8
-- **Senses**: truesight 120 ft.; Passive Perception 16
-- **Languages**: Infernal; telepathy 120 ft.
-- **CR** 12 (XP 8,400; PB +4)
+- **Resistenze**: Freddo
+- **Immunità**: Fuoco, Veleno; Avvelenato
+- **Abilità**: Percezione +6, Persuasione +8
+- **Sensi**: vera visione 36 m; Percezione Passiva 16
+- **Linguaggi**: Infernale; telepatia 36 m
+- **GS** 12 (PE 8.400; PB +4)
 
-### Traits
+### Tratti
 
-***Diabolical Restoration.*** If the erinyes dies outside the Nine Hells, its body disappears in sulfurous smoke, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Nine Hells.
+***Restaurazione Diabolica.*** Se l’erinyes muore fuori dai Nove Inferi, il suo corpo scompare in fumo sulfureo e ottiene immediatamente un nuovo corpo, tornando in vita con tutti i suoi Punti Ferita da qualche parte nei Nove Inferi.
 
-***Magic Resistance.*** The erinyes has Advantage on saving throws against spells and other magical effects.
+***Resistenza Magica.*** L’erinyes ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
 
-***Magic Rope.*** The erinyes has a magic rope. While bearing it, the erinyes can use the Entangling Rope action. The rope has AC 20, HP 90, and Immunity to Poison and Psychic damage. The rope turns to dust if reduced to 0 Hit Points, if it is 5+ feet away from the erinyes for 1 hour or more, or if the erinyes dies. If the rope is damaged or destroyed, the erinyes can fully restore it when finishing a Short Rest|XPHB|Short or Long Rest.
+***Corda Magica.*** L’erinyes possiede una corda magica. Finché la tiene, può usare l’azione Corda Intricante. La corda ha CA 20, PF 90 e Immunità a danni da veleno e psichici. La corda si riduce in polvere se portata a 1,5 m o più di distanza dall’erinyes per almeno 1 ora, se ridotta a 0 PF, o se l’erinyes muore. Se la corda è danneggiata o distrutta, l’erinyes può ripristinarla completamente al termine di un Riposo Breve o Lungo.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** L’erinyes effettua tre attacchi con Spada Inaridente e può usare Corda Intricante.
 
-***Multiattack.*** The erinyes makes three Withering Sword attacks and can use Entangling Rope.
+***Spada Inaridente.*** *Tiro per colpire in mischia:* +8, portata 1,5 m. 13 (2d8 + 4) danni taglienti più 11 (2d10) danni necrotici.
 
-***Withering Sword.*** *Melee Attack Roll:* +8, reach 5 ft. 13 (2d8 + 4) Slashing damage plus 11 (2d10) Necrotic damage.
+***Corda Intricante (richiede Corda Magica).*** *Tiro Salvezza su Forza*: CD 16, una creatura che l’erinyes può vedere entro 36 m. *Fallimento:* 14 (4d6) danni da forza e il bersaglio è Immobilizzato finché la corda non viene distrutta, l’erinyes non usa un’Azione Bonus per liberarlo, o non usa di nuovo Corda Intricante.
 
-***Entangling Rope (Requires Magic Rope).*** *Strength Saving Throw*: DC 16, one creature the erinyes can see within 120 feet. *Failure:*  14 (4d6) Force damage, and the target has the Restrained condition until the rope is destroyed, the erinyes uses a Bonus Action to release the target, or the erinyes uses Entangling Rope again.
+---
 
-## Ettercap
+## Ettercapo
 
-*Medium Monstrosity, Neutral Evil*
+*Mostruosità Media, Neutrale Malvagio*
 
-- **Armor Class:** 13
-- **Hit Points:** 44 (8d8 + 8)
-- **Speed:** 30 ft., Climb 30 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 44 (8d8 + 8)
+- **Velocità:** 9 m, arrampicata 9 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 14 | +2 | +2 |
-| DEX | 15 | +2 | +2 |
-| CON | 13 | +1 | +1 |
+| FOR | 14 | +2 | +2 |
+| DES | 15 | +2 | +2 |
+| COS | 13 | +1 | +1 |
 | INT | 7 | -2 | -2 |
-| WIS | 12 | +1 | +1 |
-| CHA | 8 | -1 | -1 |
+| SAG | 12 | +1 | +1 |
+| CAR | 8 | -1 | -1 |
 
-- **Skills**: Perception +3, Stealth +4, Survival +3
-- **Senses**: darkvision 60 ft.; Passive Perception 13
-- **CR** 2 (XP 450; PB +2)
+- **Abilità**: Percezione +3, Furtività +4, Sopravvivenza +3
+- **Sensi**: scurovisione 18 m; Percezione Passiva 13
+- **GS** 2 (PE 450; PB +2)
 
-### Traits
+### Tratti
 
-***Spider Climb.*** The ettercap can climb difficult surfaces, including along ceilings, without needing to make an ability check.
+***Camminare sul Tessuto.*** L’ettercapo può arrampicarsi su superfici difficili, inclusi soffitti, senza prove di abilità.
 
-***Web Walker.*** The ettercap ignores movement restrictions caused by webs, and the ettercap knows the location of any other creature in contact with the same web.
+***Camminatore della Tela.*** L’ettercapo ignora le restrizioni di movimento causate dalle ragnatele e conosce la posizione di ogni altra creatura a contatto con la stessa ragnatela.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** L’ettercapo effettua un attacco di Morso e un attacco di Artiglio.
 
-***Multiattack.*** The ettercap makes one Bite attack and one Claw attack.
+***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni perforanti più 2 (1d4) danni da veleno, e il bersaglio è Avvelenato fino all’inizio del prossimo turno dell’ettercapo.
 
-***Bite.*** *Melee Attack Roll:* +4, reach 5 ft. 5 (1d6 + 2) Piercing damage plus 2 (1d4) Poison damage, and the target has the Poisoned condition until the start of the ettercap's next turn.
+***Artiglio.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 7 (2d4 + 2) danni taglienti.
 
-***Claw.*** *Melee Attack Roll:* +4, reach 5 ft. 7 (2d4 + 2) Slashing damage.
+***Filo di Ragnatela (Ricarica 5–6).*** *Tiro Salvezza su Destrezza*: CD 12, una creatura Grande o più piccola che l’ettercapo può vedere entro 9 m. *Fallimento:* il bersaglio è Immobilizzato finché la ragnatela non viene distrutta (CA 10; PF 5; Vulnerabilità ai danni da fuoco; Immunità a danni contundenti, veleno e psichici).
 
-***Web Strand (Recharge 5-6).*** *Dexterity Saving Throw*: DC 12, one Large or smaller creature the ettercap can see within 30 feet. *Failure:*  The target has the Restrained condition until the web is destroyed (AC 10; HP 5; Vulnerability to Fire damage; Immunity to Bludgeoning, Poison, and Psychic damage).
+### Azioni Bonus
 
+***Avvolgere.*** L’ettercapo tira verso di sé fino a 7,5 m una creatura entro 9 m che sia Immobilizzata dal suo Filo di Ragnatela.
 
-### Bonus Actions
-
-***Reel.*** The ettercap pulls one creature within 30 feet of itself that is Restrained by its Web Strand up to 25 feet straight toward itself.
+---
 
 ## Ettin
 
-*Large Giant, Chaotic Evil*
+*Gigante Grande, Caotico Malvagio*
 
-- **Armor Class:** 12
-- **Hit Points:** 85 (10d10 + 30)
-- **Speed:** 40 ft.
-- **Initiative**: -1 (9)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 85 (10d10 + 30)
+- **Velocità:** 12 m
+- **Iniziativa**: -1 (9)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 21 | +5 | +5 |
-| DEX | 8 | -1 | -1 |
-| CON | 17 | +3 | +3 |
+| FOR | 21 | +5 | +5 |
+| DES | 8 | -1 | -1 |
+| COS | 17 | +3 | +3 |
 | INT | 6 | -2 | -2 |
-| WIS | 10 | +0 | +0 |
-| CHA | 8 | -1 | -1 |
+| SAG | 10 | +0 | +0 |
+| CAR | 8 | -1 | -1 |
 
-- **Immunities**: Blinded, Charmed, Deafened, Frightened, Stunned, Unconscious
-- **Skills**: Perception +4
-- **Gear** Battleaxe, Morningstar
-- **Senses**: darkvision 60 ft.; Passive Perception 14
-- **Languages**: Giant
-- **CR** 4 (XP 1,100; PB +2)
+- **Immunità**: Accecato, Affascinato, Assordato, Spaventato, Stordito, Incosciente
+- **Abilità**: Percezione +4
+- **Equipaggiamento**: Ascia da Battaglia, Mazza Ferrata
+- **Sensi**: scurovisione 18 m; Percezione Passiva 14
+- **Linguaggi**: Gigante
+- **GS** 4 (PE 1.100; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The ettin makes one Battleaxe attack and one Morningstar attack.
+***Attacco Multiplo.*** L’ettin effettua un attacco con Ascia da Battaglia e uno con Mazza Ferrata.
 
-***Battleaxe.*** *Melee Attack Roll:* +7, reach 5 ft. 14 (2d8 + 5) Slashing damage. If the target is a Large or smaller creature, it has the Prone condition.
+***Ascia da Battaglia.*** *Tiro per colpire in mischia:* +7, portata 1,5 m. 14 (2d8 + 5) danni taglienti. Se il bersaglio è una creatura Grande o più piccola, cade Prona.
 
-***Morningstar.*** *Melee Attack Roll:* +7, reach 5 ft. 14 (2d8 + 5) Piercing damage, and the target has Disadvantage on the next attack roll it makes before the end of its next turn.
+***Mazza Ferrata.*** *Tiro per colpire in mischia:* +7, portata 1,5 m. 14 (2d8 + 5) danni perforanti, e il bersaglio ha Svantaggio al prossimo tiro per colpire che effettua prima della fine del suo prossimo turno.
 
-## Fire Elemental
+---
 
-*Large Elemental, Neutral*
+## Elementale del Fuoco
 
-- **Armor Class:** 13
-- **Hit Points:** 93 (11d10 + 33)
-- **Speed:** 50 ft.
-- **Initiative**: +3 (13)
+*Elementale Grande, Neutrale*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 13
+- **Punti Ferita:** 93 (11d10 + 33)
+- **Velocità:** 15 m
+- **Iniziativa**: +3 (13)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 10 | +0 | +0 |
-| DEX | 17 | +3 | +3 |
-| CON | 16 | +3 | +3 |
+| FOR | 10 | +0 | +0 |
+| DES | 17 | +3 | +3 |
+| COS | 16 | +3 | +3 |
 | INT | 6 | -2 | -2 |
-| WIS | 10 | +0 | +0 |
-| CHA | 7 | -2 | -2 |
+| SAG | 10 | +0 | +0 |
+| CAR | 7 | -2 | -2 |
 
-- **Resistances**: Bludgeoning, Piercing, Slashing
-- **Immunities**: Fire, Poison; Exhaustion, Grappled, Paralyzed, Petrified, Poisoned, Prone, Restrained, Unconscious
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **Languages**: Primordial (Ignan)
-- **CR** 5 (XP 1,800; PB +3)
+- **Resistenze**: Contundenti, Perforanti, Taglienti
+- **Immunità**: Fuoco, Veleno; Affaticamento, Immobilizzato, Paralizzato, Pietrificato, Avvelenato, Prono, Trattenuto, Incosciente
+- **Sensi**: scurovisione 18 m; Percezione Passiva 10
+- **Linguaggi**: Primordiale (Ignan)
+- **GS** 5 (PE 1.800; PB +3)
 
-### Traits
+### Tratti
 
-***Fire Aura.*** At the end of each of the elemental's turns, each creature in a 10-foot Emanation originating from the elemental takes 5 (1d10) Fire damage. Creatures and flammable objects in the Emanation start Hitazard burning.
+***Aura di Fuoco.*** Alla fine di ogni turno dell’elementale, ogni creatura in un’Emanazione di 3 m originata da lui subisce 5 (1d10) danni da fuoco. Creature e oggetti infiammabili nell’area iniziano a bruciare.
 
-***Fire Form.*** The elemental can move through a space as narrow as 1 inch without expending extra movement to do so, and it can enter a creature's space and stop there. The first time it enters a creature's space on a turn, that creature takes 5 (1d10) Fire damage.
+***Forma di Fuoco.*** L’elementale può muoversi attraverso spazi stretti fino a 2,5 cm senza movimento extra, ed entrare nello spazio di una creatura. La prima volta che entra nello spazio di una creatura in un turno, quella subisce 5 (1d10) danni da fuoco.
 
-***Illumination.*** The elemental sheds Bright Light in a 30-foot radius and Dim Light for an additional 30 feet.
+***Illuminazione.*** L’elementale emette luce intensa in un raggio di 9 m e luce fioca per ulteriori 9 m.
 
-***Water Susceptibility.*** The elemental takes 3 (1d6) Cold damage for every 5 feet the elemental moves in water or for every gallon of water splashed on it.
+***Vulnerabilità all’Acqua.*** L’elementale subisce 3 (1d6) danni da freddo per ogni 1,5 m che si muove in acqua o per ogni gallone d’acqua che gli viene gettato addosso.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** L’elementale effettua due attacchi di Bruciatura.
 
-***Multiattack.*** The elemental makes two Burn attacks.
+***Bruciatura.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 10 (2d6 + 3) danni da fuoco. Se il bersaglio è una creatura o un oggetto infiammabile, inizia a bruciare.
 
-***Burn.*** *Melee Attack Roll:* +6, reach 5 ft. 10 (2d6 + 3) Fire damage. If the target is a creature or a flammable object, it starts burning.
+## Gigante del Fuoco
 
-## Fire Giant
+*Gigante Enorme, Legale Malvagio*
 
-*Huge Giant, Lawful Evil*
+- **Classe Armatura:** 18
+- **Punti Ferita:** 162 (13d12 + 78)
+- **Velocità:** 9 m
+- **Iniziativa**: +3 (13)
 
-- **Armor Class:** 18
-- **Hit Points:** 162 (13d12 + 78)
-- **Speed:** 30 ft.
-- **Initiative**: +3 (13)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 25 | +7 | +7 |
-| DEX | 9 | -1 | +3 |
-| CON | 23 | +6 | +10 |
+| FOR | 25 | +7 | +7 |
+| DES | 9  | -1 | +3 |
+| COS | 23 | +6 | +10 |
 | INT | 10 | +0 | +0 |
-| WIS | 14 | +2 | +2 |
-| CHA | 13 | +1 | +5 |
+| SAG | 14 | +2 | +2 |
+| CAR | 13 | +1 | +5 |
 
-- **Immunities**: Fire
-- **Skills**: Athletics +11, Perception +6
-- **Senses**: Passive Perception 16
-- **Languages**: Giant
-- **CR** 9 (XP 5,000; PB +4)
+- **Immunità**: Fuoco
+- **Abilità**: Atletica +11, Percezione +6
+- **Sensi**: Percezione Passiva 16
+- **Linguaggi**: Gigante
+- **GS** 9 (PE 5.000; PB +4)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The giant makes two attacks, using Flame Sword or Hammer Throw in any combination.
+***Attacco Multiplo.*** Il gigante effettua due attacchi, usando Spada Fiammeggiante o Lancio del Martello in qualsiasi combinazione.
 
-***Flame Sword.*** *Melee Attack Roll:* +11, reach 10 ft. 21 (4d6 + 7) Slashing damage plus 10 (3d6) Fire damage.
+***Spada Fiammeggiante.*** *Tiro per colpire in mischia:* +11, portata 3 m. 21 (4d6 + 7) danni taglienti più 10 (3d6) danni da fuoco.
 
-***Hammer Throw.*** *Ranged Attack Roll:* +11, range 60/240 ft. 23 (3d10 + 7) Bludgeoning damage plus 4 (1d8) Fire damage, and the target is pushed up to 15 feet straight away from the giant and has Disadvantage on the next attack roll it makes before the end of its next turn.
+***Lancio del Martello.*** *Tiro per colpire a distanza:* +11, gittata 18/72 m. 23 (3d10 + 7) danni contundenti più 4 (1d8) danni da fuoco, e il bersaglio viene spinto fino a 4,5 m lontano dal gigante e ha Svantaggio al prossimo tiro per colpire che effettua prima della fine del suo prossimo turno.
 
-## Flesh Golem
+---
 
-*Medium Construct, Neutral*
+## Golem di Carne
 
-- **Armor Class:** 9
-- **Hit Points:** 127 (15d8 + 60)
-- **Speed:** 30 ft.
-- **Initiative**: -1 (9)
+*Costrutto Medio, Neutrale*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 9
+- **Punti Ferita:** 127 (15d8 + 60)
+- **Velocità:** 9 m
+- **Iniziativa**: -1 (9)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 9 | -1 | -1 |
-| CON | 18 | +4 | +4 |
-| INT | 6 | -2 | -2 |
-| WIS | 10 | +0 | +0 |
-| CHA | 5 | -3 | -3 |
+| FOR | 19 | +4 | +4 |
+| DES | 9  | -1 | -1 |
+| COS | 18 | +4 | +4 |
+| INT | 6  | -2 | -2 |
+| SAG | 10 | +0 | +0 |
+| CAR | 5  | -3 | -3 |
 
-- **Immunities**: Lightning, Poison; Charmed, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **Languages**: Understands Common plus one other language but can't speak
-- **CR** 5 (XP 1,800; PB +3)
+- **Immunità**: Fulmine, Veleno; Affascinato, Affaticamento, Spaventato, Paralizzato, Pietrificato, Avvelenato
+- **Sensi**: scurovisione 18 m; Percezione Passiva 10
+- **Linguaggi**: Comprende il Comune e un’altra lingua ma non può parlare
+- **GS** 5 (PE 1.800; PB +3)
 
-### Traits
+### Tratti
 
-***Aversion to Fire.*** If the golem takes Fire damage, it has Disadvantage on attack rolls and ability checks until the end of its next turn.
+***Avversione al Fuoco.*** Se il golem subisce danni da fuoco, ha Svantaggio ai tiri per colpire e alle prove di abilità fino alla fine del suo prossimo turno.
 
-***Berserk.*** Whenever the golem starts its turn Bloodied, roll 1d6. On a 6, the golem goes berserk. On each of its turns while berserk, the golem attacks the nearest creature it can see. If no creature is near enough to move to and attack, the golem attacks an object. Once the golem goes berserk, it remains so until it is destroyed or it is no longer Bloodied.
-The golem's creator, if within 60 feet of the berserk golem, can try to calm it by taking an action to make a DC 15 Charisma (Persuasion) check; the golem must be able to hear its creator. If this check succeeds, the golem ceases being berserk until the start of its next turn, at which point it resumes rolling for the Berserk trait again if it is still Bloodied.
+***Furia Omicida.*** Quando il golem inizia il turno in condizione Sanguinante, tira 1d6. Con un 6 va in furia. Durante la furia attacca la creatura più vicina che può vedere. Se nessuna creatura è a portata, attacca un oggetto. Rimane in furia finché non viene distrutto o non è più Sanguinante.  
+Il creatore del golem, se entro 18 m, può tentare di calmarlo usando un’Azione per effettuare una prova di Carisma (Persuasione) CD 15; il golem deve poterlo sentire. Se riesce, la furia termina fino all’inizio del turno successivo, momento in cui il golem riprende a tirare per Furia Omicida se ancora Sanguinante.
 
-***Immutable Form.*** The golem can't shape-shift.
+***Forma Immutabile.*** Il golem non può mutare forma.
 
-***Lightning Absorption.*** Whenever the golem is subjected to Lightning damage, it regains a number of Hit Points equal to the Lightning damage dealt.
+***Assorbimento del Fulmine.*** Quando subisce danni da fulmine, il golem recupera un numero di Punti Ferita pari ai danni da fulmine inflitti.
 
-***Magic Resistance.*** The golem has Advantage on saving throws against spells and other magical effects.
+***Resistenza Magica.*** Il golem ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il golem effettua due attacchi di Colpo.
 
-***Multiattack.*** The golem makes two Slam attacks.
+***Colpo.*** *Tiro per colpire in mischia:* +7, portata 1,5 m. 13 (2d8 + 4) danni contundenti più 4 (1d8) danni da fulmine.
 
-***Slam.*** *Melee Attack Roll:* +7, reach 5 ft. 13 (2d8 + 4) Bludgeoning damage plus 4 (1d8) Lightning damage.
+---
 
-## Frost Giant
+## Gigante del Gelo
 
-*Huge Giant, Neutral Evil*
+*Gigante Enorme, Neutrale Malvagio*
 
-- **Armor Class:** 15
-- **Hit Points:** 149 (13d12 + 65)
-- **Speed:** 40 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 15
+- **Punti Ferita:** 149 (13d12 + 65)
+- **Velocità:** 12 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 23 | +6 | +6 |
-| DEX | 9 | -1 | -1 |
-| CON | 21 | +5 | +8 |
-| INT | 9 | -1 | -1 |
-| WIS | 10 | +0 | +3 |
-| CHA | 12 | +1 | +4 |
+| FOR | 23 | +6 | +6 |
+| DES | 9  | -1 | -1 |
+| COS | 21 | +5 | +8 |
+| INT | 9  | -1 | -1 |
+| SAG | 10 | +0 | +3 |
+| CAR | 12 | +1 | +4 |
 
-- **Immunities**: Cold
-- **Skills**: Athletics +9, Perception +3
-- **Senses**: Passive Perception 13
-- **Languages**: Giant
-- **CR** 8 (XP 3,900; PB +3)
+- **Immunità**: Freddo
+- **Abilità**: Atletica +9, Percezione +3
+- **Sensi**: Percezione Passiva 13
+- **Linguaggi**: Gigante
+- **GS** 8 (PE 3.900; PB +3)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The giant makes two attacks, using Frost Axe or Great Bow in any combination.
+***Attacco Multiplo.*** Il gigante effettua due attacchi, usando Ascia Gelida o Grande Arco in qualsiasi combinazione.
 
-***Frost Axe.*** *Melee Attack Roll:* +9, reach 10 ft. 19 (2d12 + 6) Slashing damage plus 9 (2d8) Cold damage.
+***Ascia Gelida.*** *Tiro per colpire in mischia:* +9, portata 3 m. 19 (2d12 + 6) danni taglienti più 9 (2d8) danni da freddo.
 
-***Great Bow.*** *Ranged Attack Roll:* +9, range 150/600 ft. 17 (2d10 + 6) Piercing damage plus 7 (2d6) Cold damage, and the target's Speed decreases by 10 feet until the end of its next turn.
+***Grande Arco.*** *Tiro per colpire a distanza:* +9, gittata 45/180 m. 17 (2d10 + 6) danni perforanti più 7 (2d6) danni da freddo, e la Velocità del bersaglio si riduce di 3 m fino alla fine del suo prossimo turno.
 
+### Azioni Bonus
 
-### Bonus Actions
+***Urlo di Guerra (Ricarica 5–6).*** Il gigante o una creatura a sua scelta che possa vederlo o sentirlo ottiene 16 (2d10 + 5) Punti Ferita Temporanei e vantaggio ai tiri per colpire fino all’inizio del prossimo turno del gigante.
 
-***War Cry (Recharge 5-6).*** The giant or one creature of its choice that can see or hear it gains 16 (2d10 + 5) Temporary Hit Points and has Advantage on attack rolls until the start of the giant's next turn.
+---
 
 ## Gargoyle
 
-*Medium Elemental, Chaotic Evil*
+*Elementale Medio, Caotico Malvagio*
 
-- **Armor Class:** 15
-- **Hit Points:** 67 (9d8 + 27)
-- **Speed:** 30 ft., Fly 60 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 15
+- **Punti Ferita:** 67 (9d8 + 27)
+- **Velocità:** 9 m, volo 18 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +2 |
-| DEX | 11 | +0 | +0 |
-| CON | 16 | +3 | +3 |
-| INT | 6 | -2 | -2 |
-| WIS | 11 | +0 | +0 |
-| CHA | 7 | -2 | -2 |
+| FOR | 15 | +2 | +2 |
+| DES | 11 | +0 | +0 |
+| COS | 16 | +3 | +3 |
+| INT | 6  | -2 | -2 |
+| SAG | 11 | +0 | +0 |
+| CAR | 7  | -2 | -2 |
 
-- **Immunities**: Poison; Exhaustion, Petrified, Poisoned
-- **Skills**: Stealth +4
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **Languages**: Primordial (Terran)
-- **CR** 2 (XP 450; PB +2)
+- **Immunità**: Veleno; Affaticamento, Pietrificato, Avvelenato
+- **Abilità**: Furtività +4
+- **Sensi**: scurovisione 18 m; Percezione Passiva 10
+- **Linguaggi**: Primordiale (Terran)
+- **GS** 2 (PE 450; PB +2)
 
-### Traits
+### Tratti
 
-***Flyby.*** The gargoyle doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.
+***Attacco in Volo.*** Il gargoyle non provoca Attacchi di Opportunità quando vola fuori dalla portata di un nemico.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il gargoyle effettua due attacchi con Artiglio.
 
-***Multiattack.*** The gargoyle makes two Claw attacks.
+***Artiglio.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 7 (2d4 + 2) danni taglienti.
 
-***Claw.*** *Melee Attack Roll:* +4, reach 5 ft. 7 (2d4 + 2) Slashing damage.
+## Cubo Gelatinoso
 
-## Gelatinous Cube
+*Melma Grande, Non Allineato*
 
-*Large Ooze, Unaligned*
+- **Classe Armatura:** 6
+- **Punti Ferita:** 63 (6d10 + 30)
+- **Velocità:** 4,5 m
+- **Iniziativa**: -4 (6)
 
-- **Armor Class:** 6
-- **Hit Points:** 63 (6d10 + 30)
-- **Speed:** 15 ft.
-- **Initiative**: -4 (6)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 14 | +2 | +2 |
-| DEX | 3 | -4 | -4 |
-| CON | 20 | +5 | +5 |
-| INT | 1 | -5 | -5 |
-| WIS | 6 | -2 | -2 |
-| CHA | 1 | -5 | -5 |
+| FOR | 14 | +2 | +2 |
+| DES | 3  | -4 | -4 |
+| COS | 20 | +5 | +5 |
+| INT | 1  | -5 | -5 |
+| SAG | 6  | -2 | -2 |
+| CAR | 1  | -5 | -5 |
 
-- **Immunities**: Acid; Blinded, Charmed, Deafened, Exhaustion, Frightened, Prone
-- **Senses**: blindsight 60 ft.; Passive Perception 8
-- **CR** 2 (XP 450; PB +2)
+- **Immunità**: Acido; Accecato, Affascinato, Assordato, Affaticamento, Spaventato, Prono
+- **Sensi**: percezione cieca 18 m; Percezione Passiva 8
+- **GS** 2 (PE 450; PB +2)
 
-### Traits
+### Tratti
 
-***Ooze Cube.*** The cube fills its entire space and is transparent. Other creatures can enter that space, but a creature that does so is subjected to the cube's Engulf and has Disadvantage on the saving throw.
-Creatures inside the cube have Cover|XPHB|Total Cover, and the cube can hold one Large creature or up to four Medium or Small creatures inside itself at a time.
-As an action, a creature within 5 feet of the cube can pull a creature or an object out of the cube by succeeding on a DC 12 Strength (Athletics) check, and the puller takes 10 (3d6) Acid damage.
+***Cubo di Melma.*** Il cubo riempie interamente il suo spazio ed è trasparente. Altre creature possono entrare in quello spazio, ma una creatura che lo fa è soggetta a Inghiottire e ha Svantaggio al tiro salvezza.  
+Le creature all’interno del cubo hanno Copertura Totale, e il cubo può contenere al suo interno una creatura Grande o fino a quattro creature Medie o Piccole alla volta.  
+Come azione, una creatura entro 1,5 m dal cubo può tirare fuori dal cubo una creatura o un oggetto con una prova di Forza (Atletica) CD 12; chi tira subisce 10 (3d6) danni da acido.
 
-***Transparent.*** Even when the cube is in plain sight, a creature must succeed on a DC 15 Wisdom (Perception) check to notice the cube if the creature hasn't witnessed the cube move or otherwise act.
+***Trasparente.*** Anche se il cubo è allo scoperto, una creatura deve superare una prova di Saggezza (Percezione) CD 15 per notarlo se non lo ha visto muoversi o agire.
 
+### Azioni
 
-### Actions
+***Pseudopode.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 12 (3d6 + 2) danni da acido.
 
-***Pseudopod.*** *Melee Attack Roll:* +4, reach 5 ft. 12 (3d6 + 2) Acid damage.
+***Inghiottire.*** Il cubo si muove fino alla sua Velocità senza provocare Attacchi di Opportunità. Può muoversi attraverso gli spazi di creature Grandi o più piccole se ha spazio interno per contenerle (vedi il tratto Cubo di Melma). *Tiro Salvezza su Destrezza*: CD 12, da parte di ogni creatura il cui spazio il cubo entra per la prima volta durante questo movimento. *Fallimento:* 10 (3d6) danni da acido e il bersaglio viene inghiottito. Un bersaglio inghiottito sta soffocando, non può lanciare incantesimi con componente verbale, è Immobilizzato e subisce 10 (3d6) danni da acido all’inizio di ogni turno del cubo. Quando il cubo si muove, il bersaglio inghiottito si muove con esso. Una creatura inghiottita può tentare di scappare usando un’Azione per effettuare una prova di Forza (Atletica) CD 12. Con successo, esce nello spazio non occupato più vicino. *Successo:* metà danni e la creatura si sposta in uno spazio non occupato entro 1,5 m dal cubo. Se non c’è spazio non occupato, il tiro fallisce invece.
 
-***Engulf.*** The cube moves up to its Speed without provoking Opportunity Attacks. The cube can move through the spaces of Large or smaller creatures if it has room inside itself to contain them (see the Ooze Cube [Area of Effect]|XPHB|Cube trait). *Dexterity Saving Throw*: DC 12, each creature whose space the cube enters for the first time during this move. *Failure:*  10 (3d6) Acid damage, and the target is engulfed. An engulfed target is suffocating, can't cast spells with a Verbal component, has the Restrained condition, and takes 10 (3d6) Acid damage at the start of each of the cube's turns. When the cube moves, the engulfed target moves with it. An engulfed target can try to escape by taking an action to make a DC 12 Strength (Athletics) check. On a successful check, the target escapes and enters the nearest unoccupied space. *Success:*  Half damage, and the target moves to an unoccupied space within 5 feet of the cube. If there is no unoccupied space, the target fails the save instead.
+---
 
 ## Ghast
 
-*Medium Undead, Chaotic Evil*
+*Non Morto Medio, Caotico Malvagio*
 
-- **Armor Class:** 13
-- **Hit Points:** 36 (8d8)
-- **Speed:** 30 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 36 (8d8)
+- **Velocità:** 9 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 17 | +3 | +3 |
-| CON | 10 | +0 | +0 |
+| FOR | 16 | +3 | +3 |
+| DES | 17 | +3 | +3 |
+| COS | 10 | +0 | +0 |
 | INT | 11 | +0 | +0 |
-| WIS | 10 | +0 | +2 |
-| CHA | 8 | -1 | -1 |
+| SAG | 10 | +0 | +2 |
+| CAR | 8  | -1 | -1 |
 
-- **Resistances**: Necrotic
-- **Immunities**: Poison; Charmed, Exhaustion, Poisoned
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **Languages**: Common
-- **CR** 2 (XP 450; PB +2)
+- **Resistenze**: Necrotico
+- **Immunità**: Veleno; Affascinato, Affaticamento, Avvelenato
+- **Sensi**: scurovisione 18 m; Percezione Passiva 10
+- **Linguaggi**: Comune
+- **GS** 2 (PE 450; PB +2)
 
-### Traits
+### Tratti
 
-***Stench.*** *Constitution Saving Throw*: DC 10, any creature that starts its turn in a 5-foot Emanation originating from the ghast. *Failure:*  The target has the Poisoned condition until the start of its next turn. *Success:*  The target is immune to this ghast's Stench for 24 hours.
+***Miasma.*** *Tiro Salvezza su Costituzione*: CD 10, da parte di ogni creatura che inizi il proprio turno in un’Emanazione di 1,5 m originata dal ghast. *Fallimento:* il bersaglio è Avvelenato fino all’inizio del suo prossimo turno. *Successo:* il bersaglio è immune al Miasma di questo ghast per 24 ore.
 
+### Azioni
 
-### Actions
+***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni perforanti più 9 (2d8) danni necrotici.
 
-***Bite.*** *Melee Attack Roll:* +5, reach 5 ft. 7 (1d8 + 3) Piercing damage plus 9 (2d8) Necrotic damage.
+***Artiglio.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) danni taglienti. Se il bersaglio non è un Non Morto, è soggetto al seguente effetto. *Tiro Salvezza su Costituzione*: CD 10. *Fallimento:* il bersaglio è Paralizzato fino alla fine del suo prossimo turno.
 
-***Claw.*** *Melee Attack Roll:* +5, reach 5 ft. 10 (2d6 + 3) Slashing damage. If the target is a non-Undead creature, it is subjected to the following effect. *Constitution Saving Throw*: DC 10. *Failure:*  The target has the Paralyzed condition until the end of its next turn.
+---
 
-## Ghost
+## Fantasma
 
-*Medium Undead, Neutral*
+*Non Morto Medio, Neutrale*
 
-- **Armor Class:** 11
-- **Hit Points:** 45 (10d8)
-- **Speed:** 5 ft., Fly 40 ft. (hover)
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 45 (10d8)
+- **Velocità:** 1,5 m, volo 12 m (fluttuare)
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 7 | -2 | -2 |
-| DEX | 13 | +1 | +1 |
-| CON | 10 | +0 | +0 |
+| FOR | 7  | -2 | -2 |
+| DES | 13 | +1 | +1 |
+| COS | 10 | +0 | +0 |
 | INT | 10 | +0 | +0 |
-| WIS | 12 | +1 | +1 |
-| CHA | 17 | +3 | +3 |
+| SAG | 12 | +1 | +1 |
+| CAR | 17 | +3 | +3 |
 
-- **Resistances**: Acid, Bludgeoning, Cold, Fire, Lightning, Piercing, Slashing, Thunder
-- **Immunities**: Necrotic, Poison; Charmed, Exhaustion, Frightened, Grappled, Paralyzed, Petrified, Poisoned, Prone, Restrained
-- **Senses**: darkvision 60 ft.; Passive Perception 11
-- **Languages**: Common plus one other language
-- **CR** 4 (XP 1,100; PB +2)
+- **Resistenze**: Acido, Contundenti, Freddo, Fuoco, Fulmine, Perforanti, Taglienti, Tuono
+- **Immunità**: Necrotico, Veleno; Affascinato, Affaticamento, Spaventato, Afferrato, Paralizzato, Pietrificato, Avvelenato, Prono, Immobilizzato
+- **Sensi**: scurovisione 18 m; Percezione Passiva 11
+- **Linguaggi**: Comune più un’altra lingua
+- **GS** 4 (PE 1.100; PB +2)
 
-### Traits
+### Tratti
 
-***Ethereal Sight.*** The ghost can see 60 feet into the Ethereal Plane when it is on the Material Plane.
+***Vista Eterea.*** Il fantasma può vedere per 18 m nel Piano Etereo quando si trova sul Piano Materiale.
 
-***Incorporeal Movement.*** The ghost can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object.
+***Movimento Incorporeo.*** Il fantasma può muoversi attraverso creature e oggetti come se fossero Terreno Difficile. Se termina il turno dentro un oggetto, subisce 5 (1d10) danni da forza.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il fantasma effettua due attacchi di Tocco Inaridente.
 
-***Multiattack.*** The ghost makes two Withering Touch attacks.
+***Tocco Inaridente.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 19 (3d10 + 3) danni necrotici.
 
-***Withering Touch.*** *Melee Attack Roll:* +5, reach 5 ft. 19 (3d10 + 3) Necrotic damage.
+***Aspetto Orrendo.*** *Tiro Salvezza su Saggezza*: CD 13, da parte di ogni creatura in un Cono di 18 m che possa vedere il fantasma e non sia un Non Morto. *Fallimento:* 10 (2d6 + 3) danni psichici e il bersaglio è Spaventato fino all’inizio del prossimo turno del fantasma. *Successo:* il bersaglio è immune all’Aspetto Orrendo di questo fantasma per 24 ore.
 
-***Horrific Visage.*** *Wisdom Saving Throw*: DC 13, each creature in a 60-foot Cone that can see the ghost and isn't an Undead. *Failure:*  10 (2d6 + 3) Psychic damage, and the target has the Frightened condition until the start of the ghost's next turn. *Success:*  The target is immune to this ghost's Horrific Visage for 24 hours.
+***Possessione (Ricarica 6).*** *Tiro Salvezza su Carisma*: CD 13, un Umanoide che il fantasma può vedere entro 1,5 m. *Fallimento:* il bersaglio è posseduto dal fantasma; il fantasma scompare e il bersaglio è Incapacitato e perde il controllo del proprio corpo. Il fantasma ora controlla il corpo, ma il bersaglio mantiene consapevolezza. Il fantasma non può essere bersaglio di attacchi, incantesimi o altri effetti, tranne quelli che colpiscono specificamente i Non Morti. Le statistiche del fantasma restano le stesse, tranne che usa la Velocità e i modificatori di Forza, Destrezza e Costituzione del bersaglio posseduto.  
+La possessione dura finché il corpo non scende a 0 Punti Ferita o il fantasma non lo lascia come Azione Bonus. Quando termina, il fantasma appare in uno spazio non occupato entro 1,5 m dal bersaglio, e il bersaglio è immune alla Possessione di questo fantasma per 24 ore. *Successo:* il bersaglio è immune alla Possessione di questo fantasma per 24 ore.
 
-***Possession (Recharge 6).*** *Charisma Saving Throw*: DC 13, one Humanoid the ghost can see within 5 feet. *Failure:*  The target is possessed by the ghost; the ghost disappears, and the target has the Incapacitated condition and loses control of its body. The ghost now controls the body, but the target retains awareness. The ghost can't be targeted by any attack, spell, or other effect, except ones that specifically target Undead. The ghost's game statistics are the same, except it uses the possessed target's Speed, as well as the target's Strength, Dexterity, and Constitution modifiers.
-The possession lasts until the body drops to 0 Hit Points or the ghost leaves as a Bonus Action. When the possession ends, the ghost appears in an unoccupied space within 5 feet of the target, and the target is immune to this ghost's Possession for 24 hours. *Success:*  The target is immune to this ghost's Possession for 24 hours.
+***Etereo.*** Il fantasma lancia *Etereo*, senza componenti e usando Carisma come caratteristica da incantatore. Il fantasma è visibile sul Piano Materiale mentre si trova nell’Etereo di Confine e viceversa, ma non può influenzare o essere influenzato da nulla sull’altro piano.
 
-***Etherealness.*** The ghost casts the *Etherealness* spell, requiring no spell components and using Charisma as the spellcasting ability. The ghost is visible on the Material Plane while on the Border Ethereal and vice versa, but it can't affect or be affected by anything on the other plane.
+- **A volontà:** *Etereo*
 
-- **At Will:** *Etherealness*
+---
 
 ## Ghoul
 
-*Medium Undead, Chaotic Evil*
+*Non Morto Medio, Caotico Malvagio*
 
-- **Armor Class:** 12
-- **Hit Points:** 22 (5d8)
-- **Speed:** 30 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 22 (5d8)
+- **Velocità:** 9 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 13 | +1 | +1 |
-| DEX | 15 | +2 | +2 |
-| CON | 10 | +0 | +0 |
-| INT | 7 | -2 | -2 |
-| WIS | 10 | +0 | +0 |
-| CHA | 6 | -2 | -2 |
+| FOR | 13 | +1 | +1 |
+| DES | 15 | +2 | +2 |
+| COS | 10 | +0 | +0 |
+| INT | 7  | -2 | -2 |
+| SAG | 10 | +0 | +0 |
+| CAR | 6  | -2 | -2 |
 
-- **Immunities**: Poison; Charmed, Exhaustion, Poisoned
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **Languages**: Common
-- **CR** 1 (XP 200; PB +2)
+- **Immunità**: Veleno; Affascinato, Affaticamento, Avvelenato
+- **Sensi**: scurovisione 18 m; Percezione Passiva 10
+- **Linguaggi**: Comune
+- **GS** 1 (PE 200; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The ghoul makes two Bite attacks.
+***Attacco Multiplo.*** Il ghoul effettua due attacchi di Morso.
 
-***Bite.*** *Melee Attack Roll:* +4, reach 5 ft. 5 (1d6 + 2) Piercing damage plus 3 (1d6) Necrotic damage.
+***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni perforanti più 3 (1d6) danni necrotici.
 
-***Claw.*** *Melee Attack Roll:* +4, reach 5 ft. 4 (1d4 + 2) Slashing damage. If the target is a creature that isn't an Undead or elf, it is subjected to the following effect. *Constitution Saving Throw*: DC 10. *Failure:*  The target has the Paralyzed condition until the end of its next turn.
+***Artiglio.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni taglienti. Se il bersaglio è una creatura che non sia un Non Morto né un elfo, è soggetto al seguente effetto. *Tiro Salvezza su Costituzione*: CD 10. *Fallimento:* il bersaglio è Paralizzato fino alla fine del suo prossimo turno.
 
-## Gibbering Mouther
+## Masticatore Blaterante
 
-*Medium Aberration, Chaotic Neutral*
+*Aberrazione Media, Caotico Neutrale*
 
-- **Armor Class:** 9
-- **Hit Points:** 52 (7d8 + 21)
-- **Speed:** 20 ft., Swim 20 ft.
-- **Initiative**: -1 (9)
+- **Classe Armatura:** 9
+- **Punti Ferita:** 52 (7d8 + 21)
+- **Velocità:** 6 m, nuoto 6 m
+- **Iniziativa**: -1 (9)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 10 | +0 | +0 |
-| DEX | 8 | -1 | -1 |
-| CON | 16 | +3 | +3 |
-| INT | 3 | -4 | -4 |
-| WIS | 10 | +0 | +0 |
-| CHA | 6 | -2 | -2 |
+| FOR | 10 | +0 | +0 |
+| DES | 8  | -1 | -1 |
+| COS | 16 | +3 | +3 |
+| INT | 3  | -4 | -4 |
+| SAG | 10 | +0 | +0 |
+| CAR | 6  | -2 | -2 |
 
-- **Immunities**: Prone
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **CR** 2 (XP 450; PB +2)
+- **Immunità**: Prono
+- **Sensi**: scurovisione 18 m; Percezione Passiva 10
+- **GS** 2 (PE 450; PB +2)
 
-### Traits
+### Tratti
 
-***Aberrant Ground.*** The ground in a 10-foot Emanation originating from the mouther is Difficult Terrain.
+***Terreno Aberrante.*** Il suolo in un’Emanazione di 3 m originata dal masticatore è Terreno Difficile.
 
-***Gibbering.*** The mouther babbles incoherently while it doesn't have the Incapacitated condition. *Wisdom Saving Throw*: DC 10, any creature that starts its turn within 20 feet of the mouther while it is babbling. *Failure:*  The target rolls 1d8 to determine what it does during the current turn:
+***Borbottio.*** Il masticatore farfuglia incoerentemente finché non è Incapacitato. *Tiro Salvezza su Saggezza*: CD 10, da parte di ogni creatura che inizi il suo turno entro 6 m dal masticatore mentre farfuglia. *Fallimento:* il bersaglio tira 1d8 per determinare cosa fa in questo turno:
 
+- **1–4**: Il bersaglio non fa nulla.
+- **5–6**: Il bersaglio non compie azioni né Azioni Bonus e usa tutto il suo movimento per muoversi in una direzione casuale.
+- **7–8**: Il bersaglio effettua un attacco in mischia contro una creatura casuale alla sua portata o non fa nulla se non può farlo.
 
-- **1-4**: The target does nothing.
-- **5-6**: The target takes no action or Bonus Action and uses all its movement to move in a random direction.
-- **7-8**: The target makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack.
+### Azioni
 
+***Morso.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 7 (2d6) danni perforanti. Se il bersaglio è una creatura Media o più piccola, cade Prona. Se è ridotto a 0 Punti Ferita da questo attacco, muore. Il corpo viene assorbito dal masticatore, lasciando solo l’equipaggiamento.
 
-### Actions
+***Sputo Accecante (Ricarica 5–6).*** *Tiro Salvezza su Destrezza*: CD 10, da parte di ogni creatura in una Sfera di raggio 3 m centrata su un punto entro 9 m. *Fallimento:* 7 (2d6) danni radianti e il bersaglio è Accecato fino alla fine del prossimo turno del masticatore.
 
-***Bite.*** *Melee Attack Roll:* +2, reach 5 ft. 7 (2d6) Piercing damage. If the target is a Medium or smaller creature, it has the Prone condition. The target dies if it is reduced to 0 Hit Points by this attack. Its body is then absorbed into the mouther, leaving only equipment behind.
-
-***Blinding Spittle (Recharge 5-6).*** *Dexterity Saving Throw*: DC 10, each creature in a 10-foot-radius Sphere [Area of Effect]|XPHB|Sphere centered on a point within 30 feet. *Failure:*  7 (2d6) Radiant damage, and the target has the Blinded condition until the end of the mouther's next turn.
+---
 
 ## Glabrezu
 
-*Large Fiend (Demon), Chaotic Evil*
+*Immonda Grande (Demone), Caotico Malvagio*
 
-- **Armor Class:** 17
-- **Hit Points:** 189 (18d10 + 90)
-- **Speed:** 40 ft.
-- **Initiative**: +6 (16)
+- **Classe Armatura:** 17
+- **Punti Ferita:** 189 (18d10 + 90)
+- **Velocità:** 12 m
+- **Iniziativa**: +6 (16)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 20 | +5 | +9 |
-| DEX | 15 | +2 | +2 |
-| CON | 21 | +5 | +9 |
+| FOR | 20 | +5 | +9 |
+| DES | 15 | +2 | +2 |
+| COS | 21 | +5 | +9 |
 | INT | 19 | +4 | +4 |
-| WIS | 17 | +3 | +7 |
-| CHA | 16 | +3 | +7 |
+| SAG | 17 | +3 | +7 |
+| CAR | 16 | +3 | +7 |
 
-- **Resistances**: Cold, Fire, Lightning
-- **Immunities**: Poison; Poisoned
-- **Skills**: Deception +7, Perception +7
-- **Senses**: truesight 120 ft.; Passive Perception 17
-- **Languages**: Abyssal; telepathy 120 ft.
-- **CR** 9 (XP 5,000; PB +4)
+- **Resistenze**: Freddo, Fuoco, Fulmine
+- **Immunità**: Veleno; Avvelenato
+- **Abilità**: Inganno +7, Percezione +7
+- **Sensi**: vera visione 36 m; Percezione Passiva 17
+- **Linguaggi**: Abissale; telepatia 36 m
+- **GS** 9 (PE 5.000; PB +4)
 
-### Traits
+### Tratti
 
-***Demonic Restoration.*** If the glabrezu dies outside the Abyss, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.
+***Restaurazione Demoniaca.*** Se il glabrezu muore fuori dall’Abisso, il suo corpo si dissolve in ichor e ottiene immediatamente un nuovo corpo, tornando in vita con tutti i suoi Punti Ferita da qualche parte nell’Abisso.
 
-***Magic Resistance.*** The glabrezu has Advantage on saving throws against spells and other magical effects.
+***Resistenza Magica.*** Il glabrezu ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il glabrezu effettua due attacchi di Chela e usa Spremere o Lancio di Incantesimi.
 
-***Multiattack.*** The glabrezu makes two Pincer attacks and uses Pummel or Spellcasting.
+***Chela.*** *Tiro per colpire in mischia:* +9, portata 3 m. 16 (2d10 + 5) danni taglienti. Se il bersaglio è una creatura Media o più piccola, è Afferrato (CD 15 per sfuggire) da una delle due chele.
 
-***Pincer.*** *Melee Attack Roll:* +9, reach 10 ft. 16 (2d10 + 5) Slashing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 15) from one of two pincers.
+***Spremere.*** *Tiro Salvezza su Destrezza*: CD 17, una creatura Afferrata dal glabrezu. *Fallimento:* 15 (3d6 + 5) danni contundenti. *Successo:* metà danni.
 
-***Pummel.*** *Dexterity Saving Throw*: DC 17, one creature Grappled by the glabrezu. *Failure:*  15 (3d6 + 5) Bludgeoning damage. *Success:*  Half damage.
+***Lancio di Incantesimi.*** Il glabrezu lancia uno dei seguenti incantesimi, senza componenti materiali e usando Intelligenza come caratteristica da incantatore (CD 16):
 
-***Spellcasting.*** The glabrezu casts one of the following spells, requiring no Material components and using Intelligence as the spellcasting ability (spell save DC 16):
+- **A volontà:** *Oscurità*, *Individuazione del Magico*, *Dissolvi Magie*
+- **1/giorno ciascuno:** *Confusione*, *Volare*, *Parola di Potere: Stordire*
 
-- **At Will:** *Darkness*, *Detect Magic*, *Dispel Magic*
-- **1e/Day Each:** *Confusion*, *Fly*, *Power Word Stun*
-## Gladiator
+---
 
-*Small Humanoid, Neutral*
+## Gladiatore
 
-- **Armor Class:** 16
-- **Hit Points:** 112 (15d8 + 45)
-- **Speed:** 30 ft.
-- **Initiative**: +5 (15)
+*Umanoide Piccolo, Neutrale*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 16
+- **Punti Ferita:** 112 (15d8 + 45)
+- **Velocità:** 9 m
+- **Iniziativa**: +5 (15)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +7 |
-| DEX | 15 | +2 | +5 |
-| CON | 16 | +3 | +6 |
+| FOR | 18 | +4 | +7 |
+| DES | 15 | +2 | +5 |
+| COS | 16 | +3 | +6 |
 | INT | 10 | +0 | +0 |
-| WIS | 12 | +1 | +4 |
-| CHA | 15 | +2 | +2 |
+| SAG | 12 | +1 | +4 |
+| CAR | 15 | +2 | +2 |
 
-- **Skills**: Athletics +10, Performance +5
-- **Gear** Shield, Spear x 3, Studded Leather Armor
-- **Senses**: Passive Perception 11
-- **Languages**: Common
-- **CR** 5 (XP 1,800; PB +3)
+- **Abilità**: Atletica +10, Intrattenere +5
+- **Equipaggiamento**: Scudo, Lancia × 3, Armatura di cuoio borchiato
+- **Sensi**: Percezione Passiva 11
+- **Linguaggi**: Comune
+- **GS** 5 (PE 1.800; PB +3)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The gladiator makes three Spear attacks. It can replace one attack with a use of Shield Bash.
+***Attacco Multiplo.*** Il gladiatore effettua tre attacchi con Lancia. Può sostituire un attacco con un uso di Colpo di Scudo.
 
-***Spear.*** *Melee or Ranged Attack Roll:* +7, reach 5 ft. or range 20/60 ft. 11 (2d6 + 4) Piercing damage.
+***Lancia.*** *Tiro per colpire in mischia o a distanza:* +7, portata 1,5 m o gittata 6/18 m. 11 (2d6 + 4) danni perforanti.
 
-***Shield Bash.*** *Strength Saving Throw*: DC 15, one creature within 5 feet that the gladiator can see. *Failure:*  9 (2d4 + 4) Bludgeoning damage. If the target is a Medium or smaller creature, it has the Prone condition.
+***Colpo di Scudo.*** *Tiro Salvezza su Forza*: CD 15, una creatura entro 1,5 m che il gladiatore può vedere. *Fallimento:* 9 (2d4 + 4) danni contundenti. Se il bersaglio è una creatura Media o più piccola, cade Prona.
 
-## Gnoll Warrior
+---
 
-*Medium Fiend, Chaotic Evil*
+## Guerriero Gnoll
 
-- **Armor Class:** 15
-- **Hit Points:** 27 (6d8)
-- **Speed:** 30 ft.
-- **Initiative**: +1 (11)
+*Immonda Media, Caotico Malvagio*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 15
+- **Punti Ferita:** 27 (6d8)
+- **Velocità:** 9 m
+- **Iniziativa**: +1 (11)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 14 | +2 | +2 |
-| DEX | 12 | +1 | +1 |
-| CON | 11 | +0 | +0 |
-| INT | 6 | -2 | -2 |
-| WIS | 10 | +0 | +0 |
-| CHA | 7 | -2 | -2 |
+| FOR | 14 | +2 | +2 |
+| DES | 12 | +1 | +1 |
+| COS | 11 | +0 | +0 |
+| INT | 6  | -2 | -2 |
+| SAG | 10 | +0 | +0 |
+| CAR | 7  | -2 | -2 |
 
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **Languages**: Gnoll
-- **CR** 1/2 (XP 100; PB +2)
+- **Sensi**: scurovisione 18 m; Percezione Passiva 10
+- **Linguaggi**: Gnoll
+- **GS** 1/2 (PE 100; PB +2)
 
-### Actions
+### Azioni
 
-***Rend.*** *Melee Attack Roll:* +4, reach 5 ft. 5 (1d6 + 2) Piercing damage.
+***Dilaniare.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni perforanti.
 
-***Bone Bow.*** *Ranged Attack Roll:* +3, range 150/600 ft. 6 (1d10 + 1) Piercing damage.
+***Arco d’Ossa.*** *Tiro per colpire a distanza:* +3, gittata 45/180 m. 6 (1d10 + 1) danni perforanti.
 
+### Azioni Bonus
 
-### Bonus Actions
+***Furia Omicida (1/giorno).*** Immediatamente dopo aver inflitto danni a una creatura già Sanguinante, lo gnoll si muove fino a metà della sua Velocità e effettua un attacco di Dilaniare.
 
-***Rampage (1/Day).*** Immediately after dealing damage to a creature that is already Bloodied, the gnoll moves up to half its Speed, and it makes one Rend attack.
+## Capo Goblin
 
-## Goblin Boss
+*Fata Piccola (Goblinide), Caotico Neutrale*
 
-*Small Fey (Goblinoid), Chaotic Neutral*
+- **Classe Armatura:** 17
+- **Punti Ferita:** 21 (6d6)
+- **Velocità:** 9 m
+- **Iniziativa**: +2 (12)
 
-- **Armor Class:** 17
-- **Hit Points:** 21 (6d6)
-- **Speed:** 30 ft.
-- **Initiative**: +2 (12)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 10 | +0 | +0 |
-| DEX | 15 | +2 | +2 |
-| CON | 10 | +0 | +0 |
+| FOR | 10 | +0 | +0 |
+| DES | 15 | +2 | +2 |
+| COS | 10 | +0 | +0 |
 | INT | 10 | +0 | +0 |
-| WIS | 8 | -1 | -1 |
-| CHA | 10 | +0 | +0 |
+| SAG | 8  | -1 | -1 |
+| CAR | 10 | +0 | +0 |
 
-- **Skills**: Stealth +6
-- **Gear** Chain Shirt, Scimitar, Shield, Shortbow
-- **Senses**: darkvision 60 ft.; Passive Perception 9
-- **Languages**: Common, Goblin
-- **CR** 1 (XP 200; PB +2)
+- **Abilità**: Furtività +6
+- **Equipaggiamento**: Cotta di maglia, Scimitarra, Scudo, Arco corto
+- **Sensi**: scurovisione 18 m; Percezione Passiva 9
+- **Linguaggi**: Comune, Goblin
+- **GS** 1 (PE 200; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The goblin makes two attacks, using Scimitar or Shortbow in any combination.
+***Attacco Multiplo.*** Il goblin effettua due attacchi, usando Scimitarra o Arco corto in qualsiasi combinazione.
 
-***Scimitar.*** *Melee Attack Roll:* +4, reach 5 ft. 5 (1d6 + 2) Slashing damage, plus 2 (1d4) Slashing damage if the attack roll had Advantage.
+***Scimitarra.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni taglienti, più 2 (1d4) danni taglienti se il tiro per colpire era con Vantaggio.
 
-***Shortbow.*** *Ranged Attack Roll:* +4, range 80/320 ft. 5 (1d6 + 2) Piercing damage, plus 2 (1d4) Piercing damage if the attack roll had Advantage.
+***Arco corto.*** *Tiro per colpire a distanza:* +4, gittata 24/96 m. 5 (1d6 + 2) danni perforanti, più 2 (1d4) danni perforanti se il tiro per colpire era con Vantaggio.
 
+### Azioni Bonus
 
-### Bonus Actions
+***Fuga Rapida.*** Il goblin compie l’Azione Disimpegno o Nascondersi.
 
-***Nimble Escape.*** The goblin takes the Disengage or Hide action.
+---
 
-## Goblin Minion
+## Sgherro Goblin
 
-*Small Fey (Goblinoid), Chaotic Neutral*
+*Fata Piccola (Goblinide), Caotico Neutrale*
 
-- **Armor Class:** 12
-- **Hit Points:** 7 (2d6)
-- **Speed:** 30 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 7 (2d6)
+- **Velocità:** 9 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 8 | -1 | -1 |
-| DEX | 15 | +2 | +2 |
-| CON | 10 | +0 | +0 |
+| FOR | 8  | -1 | -1 |
+| DES | 15 | +2 | +2 |
+| COS | 10 | +0 | +0 |
 | INT | 10 | +0 | +0 |
-| WIS | 8 | -1 | -1 |
-| CHA | 8 | -1 | -1 |
+| SAG | 8  | -1 | -1 |
+| CAR | 8  | -1 | -1 |
 
-- **Skills**: Stealth +6
-- **Gear** Dagger x 3
-- **Senses**: darkvision 60 ft.; Passive Perception 9
-- **Languages**: Common, Goblin
-- **CR** 1/8 (XP 25; PB +2)
+- **Abilità**: Furtività +6
+- **Equipaggiamento**: Pugnale × 3
+- **Sensi**: scurovisione 18 m; Percezione Passiva 9
+- **Linguaggi**: Comune, Goblin
+- **GS** 1/8 (PE 25; PB +2)
 
-### Actions
+### Azioni
 
-***Dagger.*** *Melee or Ranged Attack Roll:* +4, reach 5 ft. or range 20/60 ft. 4 (1d4 + 2) Piercing damage.
+***Pugnale.*** *Tiro per colpire in mischia o a distanza:* +4, portata 1,5 m o gittata 6/18 m. 4 (1d4 + 2) danni perforanti.
 
+### Azioni Bonus
 
-### Bonus Actions
+***Fuga Rapida.*** Il goblin compie l’Azione Disimpegno o Nascondersi.
 
-***Nimble Escape.*** The goblin takes the Disengage or Hide action.
+---
 
-## Goblin Warrior
+## Guerriero Goblin
 
-*Small Fey (Goblinoid), Chaotic Neutral*
+*Fata Piccola (Goblinide), Caotico Neutrale*
 
-- **Armor Class:** 15
-- **Hit Points:** 10 (3d6)
-- **Speed:** 30 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 15
+- **Punti Ferita:** 10 (3d6)
+- **Velocità:** 9 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 8 | -1 | -1 |
-| DEX | 15 | +2 | +2 |
-| CON | 10 | +0 | +0 |
+| FOR | 8  | -1 | -1 |
+| DES | 15 | +2 | +2 |
+| COS | 10 | +0 | +0 |
 | INT | 10 | +0 | +0 |
-| WIS | 8 | -1 | -1 |
-| CHA | 8 | -1 | -1 |
+| SAG | 8  | -1 | -1 |
+| CAR | 8  | -1 | -1 |
 
-- **Skills**: Stealth +6
-- **Gear** Leather Armor, Scimitar, Shield, Shortbow
-- **Senses**: darkvision 60 ft.; Passive Perception 9
-- **Languages**: Common, Goblin
-- **CR** 1/4 (XP 50; PB +2)
+- **Abilità**: Furtività +6
+- **Equipaggiamento**: Armatura di cuoio, Scimitarra, Scudo, Arco corto
+- **Sensi**: scurovisione 18 m; Percezione Passiva 9
+- **Linguaggi**: Comune, Goblin
+- **GS** 1/4 (PE 50; PB +2)
 
-### Actions
+### Azioni
 
-***Scimitar.*** *Melee Attack Roll:* +4, reach 5 ft. 5 (1d6 + 2) Slashing damage, plus 2 (1d4) Slashing damage if the attack roll had Advantage.
+***Scimitarra.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni taglienti, più 2 (1d4) danni taglienti se il tiro per colpire era con Vantaggio.
 
-***Shortbow.*** *Ranged Attack Roll:* +4, range 80/320 ft. 5 (1d6 + 2) Piercing damage, plus 2 (1d4) Piercing damage if the attack roll had Advantage.
+***Arco corto.*** *Tiro per colpire a distanza:* +4, gittata 24/96 m. 5 (1d6 + 2) danni perforanti, più 2 (1d4) danni perforanti se il tiro per colpire era con Vantaggio.
 
+### Azioni Bonus
 
-### Bonus Actions
+***Fuga Rapida.*** Il goblin compie l’Azione Disimpegno o Nascondersi.
 
-***Nimble Escape.*** The goblin takes the Disengage or Hide action.
+---
 
-## Gold Dragon Wyrmling
+## Draghetto d’Oro
 
-*Medium Dragon (Metallic), Lawful Good*
+*Drago Medio (Metallico), Legale Buono*
 
-- **Armor Class:** 17
-- **Hit Points:** 60 (8d8 + 24)
-- **Speed:** 30 ft., Fly 60 ft., Swim 30 ft.
-- **Initiative**: +4 (14)
+- **Classe Armatura:** 17
+- **Punti Ferita:** 60 (8d8 + 24)
+- **Velocità:** 9 m, volo 18 m, nuoto 9 m
+- **Iniziativa**: +4 (14)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 14 | +2 | +4 |
-| CON | 17 | +3 | +3 |
+| FOR | 19 | +4 | +4 |
+| DES | 14 | +2 | +4 |
+| COS | 17 | +3 | +3 |
 | INT | 14 | +2 | +2 |
-| WIS | 11 | +0 | +2 |
-| CHA | 16 | +3 | +3 |
+| SAG | 11 | +0 | +2 |
+| CAR | 16 | +3 | +3 |
 
-- **Immunities**: Fire
-- **Skills**: Perception +4, Stealth +4
-- **Senses**: blindsight 10 ft., darkvision 60 ft.; Passive Perception 14
-- **Languages**: Draconic
-- **CR** 3 (XP 700; PB +2)
+- **Immunità**: Fuoco
+- **Abilità**: Percezione +4, Furtività +4
+- **Sensi**: percezione cieca 3 m, scurovisione 18 m; Percezione Passiva 14
+- **Linguaggi**: Draconico
+- **GS** 3 (PE 700; PB +2)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The dragon can breathe air and water.
+***Anfibio.*** Il drago può respirare aria e acqua.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua due attacchi di Dilaniare.
 
-***Multiattack.*** The dragon makes two Rend attacks.
+***Dilaniare.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 9 (1d10 + 4) danni taglienti.
 
-***Rend.*** *Melee Attack Roll:* +6, reach 5 ft. 9 (1d10 + 4) Slashing damage.
+***Soffio di Fuoco (Ricarica 5–6).*** *Tiro Salvezza su Destrezza*: CD 13, da parte di ogni creatura in un Cono di 4,5 m. *Fallimento:* 22 (4d10) danni da fuoco. *Successo:* metà danni.
 
-***Fire Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 13, each creature in a 15-foot Cone. *Failure:*  22 (4d10) Fire damage. *Success:*  Half damage.
+***Soffio Indebolente.*** *Tiro Salvezza su Forza*: CD 13, da parte di ogni creatura non già colpita da questo soffio in un Cono di 4,5 m. *Fallimento:* il bersaglio ha Svantaggio alle prove basate su Forza e sottrae 2 (1d4) ai suoi tiri danno. Ripete il TS alla fine di ogni suo turno, terminando l’effetto su successo. Dopo 1 minuto l’effetto termina automaticamente.
 
-***Weakening Breath.*** *Strength Saving Throw*: DC 13, each creature that isn't currently affected by this breath in a 15-foot Cone. *Failure:*  The target has Disadvantage on Strength-based D20 Test and subtracts 2 (1d4) from its damage rolls. It repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
+## Gorgone
 
-## Gorgon
+*Costrutto Grande, Non Allineato*
 
-*Large Construct, Unaligned*
+- **Classe Armatura:** 19
+- **Punti Ferita:** 114 (12d10 + 48)
+- **Velocità:** 12 m
+- **Iniziativa**: +0 (10)
 
-- **Armor Class:** 19
-- **Hit Points:** 114 (12d10 + 48)
-- **Speed:** 40 ft.
-- **Initiative**: +0 (10)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 20 | +5 | +5 |
-| DEX | 11 | +0 | +0 |
-| CON | 18 | +4 | +4 |
-| INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 7 | -2 | -2 |
+| FOR | 20 | +5 | +5 |
+| DES | 11 | +0 | +0 |
+| COS | 18 | +4 | +4 |
+| INT | 2  | -4 | -4 |
+| SAG | 12 | +1 | +1 |
+| CAR | 7  | -2 | -2 |
 
-- **Immunities**: Exhaustion, Petrified
-- **Skills**: Perception +7
-- **Senses**: darkvision 60 ft.; Passive Perception 17
-- **CR** 5 (XP 1,800; PB +3)
+- **Immunità**: Affaticamento, Pietrificato
+- **Abilità**: Percezione +7
+- **Sensi**: scurovisione 18 m; Percezione Passiva 17
+- **GS** 5 (PE 1.800; PB +3)
 
-### Actions
+### Azioni
 
-***Gore.*** *Melee Attack Roll:* +8, reach 5 ft. 18 (2d12 + 5) Piercing damage. If the target is a Large or smaller creature and the gorgon moved 20+ feet straight toward it immediately before the hit, the target has the Prone condition.
+***Incornata.*** *Tiro per colpire in mischia:* +8, portata 1,5 m. 18 (2d12 + 5) danni perforanti. Se il bersaglio è una creatura Grande o più piccola e la gorgone si è mossa di almeno 6 m in linea retta verso di esso subito prima di colpire, il bersaglio cade Prono.
 
-***Petrifying Breath (Recharge 5-6).*** *Constitution Saving Throw*: DC 15, each creature in a 30-foot Cone. *First Failure* The target has the Restrained condition and repeats the save at the end of its next turn if it is still Restrained, ending the effect on itself on a success. *Second Failure* The target has the Petrified condition instead of the Restrained condition.
+***Soffio Pietrificante (Ricarica 5–6).*** *Tiro Salvezza su Costituzione*: CD 15, da parte di ogni creatura in un Cono di 9 m. *Primo Fallimento:* il bersaglio è Immobilizzato e ripete il TS alla fine del suo prossimo turno se è ancora Immobilizzato, terminando l’effetto su successo. *Secondo Fallimento:* il bersaglio diventa Pietrificato invece che Immobilizzato.
 
+### Azioni Bonus
 
-### Bonus Actions
+***Calpestare.*** *Tiro Salvezza su Destrezza*: CD 16, una creatura entro 1,5 m che sia Prona. *Fallimento:* 16 (2d10 + 5) danni contundenti. *Successo:* metà danni.
 
-***Trample.*** *Dexterity Saving Throw*: DC 16, one creature within 5 feet that has the Prone condition. *Failure:*  16 (2d10 + 5) Bludgeoning damage. *Success:*  Half damage.
+---
 
-## Gray Ooze
+## Melma Grigia
 
-*Medium Ooze, Unaligned*
+*Melma Media, Non Allineato*
 
-- **Armor Class:** 9
-- **Hit Points:** 22 (3d8 + 9)
-- **Speed:** 10 ft., Climb 10 ft.
-- **Initiative**: -2 (8)
+- **Classe Armatura:** 9
+- **Punti Ferita:** 22 (3d8 + 9)
+- **Velocità:** 3 m, arrampicata 3 m
+- **Iniziativa**: -2 (8)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 12 | +1 | +1 |
-| DEX | 6 | -2 | -2 |
-| CON | 16 | +3 | +3 |
-| INT | 1 | -5 | -5 |
-| WIS | 6 | -2 | -2 |
-| CHA | 2 | -4 | -4 |
+| FOR | 12 | +1 | +1 |
+| DES | 6  | -2 | -2 |
+| COS | 16 | +3 | +3 |
+| INT | 1  | -5 | -5 |
+| SAG | 6  | -2 | -2 |
+| CAR | 2  | -4 | -4 |
 
-- **Resistances**: Acid, Cold, Fire
-- **Immunities**: Blinded, Charmed, Deafened, Exhaustion, Frightened, Grappled, Prone, Restrained
-- **Skills**: Stealth +2
-- **Senses**: blindsight 60 ft.; Passive Perception 8
-- **CR** 1/2 (XP 100; PB +2)
+- **Resistenze**: Acido, Freddo, Fuoco
+- **Immunità**: Accecato, Affascinato, Assordato, Affaticato, Spaventato, Afferrato, Prono, Immobilizzato
+- **Abilità**: Furtività +2
+- **Sensi**: percezione cieca 18 m; Percezione Passiva 8
+- **GS** 1/2 (PE 100; PB +2)
 
-### Traits
+### Tratti
 
-***Amorphous.*** The ooze can move through a space as narrow as 1 inch without expending extra movement to do so.
+***Amorfa.*** La melma può muoversi attraverso spazi stretti fino a 2,5 cm senza movimento extra.
 
-***Corrosive Form.*** Nonmagical ammunition is destroyed immediately after hitting the ooze and dealing any damage. Any nonmagical weapon takes a cumulative -1 penalty to attack rolls immediately after dealing damage to the ooze and coming into contact with it. The weapon is destroyed if the penalty reaches -5. The penalty can be removed by casting the *Mending* spell on the weapon.
-The ooze can eat through 2-inch-thick, nonmagical metal or wood in 1 round.
+***Forma Corrosiva.*** Le munizioni non magiche vengono distrutte subito dopo aver colpito la melma e inflitto danni. Ogni arma non magica subisce una penalità cumulativa di –1 ai tiri per colpire subito dopo aver inflitto danni alla melma e venire a contatto con essa. L’arma è distrutta se la penalità raggiunge –5. La penalità può essere rimossa con *Riparare*.  
+La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 
+### Azioni
 
-### Actions
+***Pseudopode.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 10 (2d8 + 1) danni da acido. L’armatura non magica indossata dal bersaglio subisce una penalità di –1 alla CA che offre. L’armatura è distrutta se la penalità riduce la CA a 10. La penalità può essere rimossa con *Riparare*.
 
-***Pseudopod.*** *Melee Attack Roll:* +3, reach 5 ft. 10 (2d8 + 1) Acid damage. Nonmagical armor worn by the target takes a -1 penalty to the AC it offers. The armor is destroyed if the penalty reduces its AC to 10. The penalty can be removed by casting the *Mending* spell on the armor.
+---
 
-## Green Dragon Wyrmling
+## Draghetto Verde
 
-*Medium Dragon (Chromatic), Lawful Evil*
+*Drago Medio (Cromatico), Legale Malvagio*
 
-- **Armor Class:** 17
-- **Hit Points:** 38 (7d8 + 7)
-- **Speed:** 30 ft., Fly 60 ft., Swim 30 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 17
+- **Punti Ferita:** 38 (7d8 + 7)
+- **Velocità:** 9 m, volo 18 m, nuoto 9 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +2 |
-| DEX | 12 | +1 | +3 |
-| CON | 13 | +1 | +1 |
+| FOR | 15 | +2 | +2 |
+| DES | 12 | +1 | +3 |
+| COS | 13 | +1 | +1 |
 | INT | 14 | +2 | +2 |
-| WIS | 11 | +0 | +2 |
-| CHA | 13 | +1 | +1 |
+| SAG | 11 | +0 | +2 |
+| CAR | 13 | +1 | +1 |
 
-- **Immunities**: Poison; Poisoned
-- **Skills**: Perception +4, Stealth +3
-- **Senses**: blindsight 10 ft., darkvision 60 ft.; Passive Perception 14
-- **Languages**: Draconic
-- **CR** 2 (XP 450; PB +2)
+- **Immunità**: Veleno; Avvelenato
+- **Abilità**: Percezione +4, Furtività +3
+- **Sensi**: percezione cieca 3 m, scurovisione 18 m; Percezione Passiva 14
+- **Linguaggi**: Draconico
+- **GS** 2 (PE 450; PB +2)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The dragon can breathe air and water.
+***Anfibio.*** Il drago può respirare aria e acqua.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il drago effettua due attacchi di Dilaniare.
 
-***Multiattack.*** The dragon makes two Rend attacks.
+***Dilaniare.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 7 (1d10 + 2) danni taglienti più 3 (1d6) danni da veleno.
 
-***Rend.*** *Melee Attack Roll:* +4, reach 5 ft. 7 (1d10 + 2) Slashing damage plus 3 (1d6) Poison damage.
+***Soffio Velenoso (Ricarica 5–6).*** *Tiro Salvezza su Costituzione*: CD 11, da parte di ogni creatura in un Cono di 4,5 m. *Fallimento:* 21 (6d6) danni da veleno. *Successo:* metà danni.
 
-***Poison Breath (Recharge 5-6).*** *Constitution Saving Throw*: DC 11, each creature in a 15-foot Cone. *Failure:*  21 (6d6) Poison damage. *Success:*  Half damage.
+---
 
-## Green Hag
+## Megera Verde
 
-*Medium Fey, Neutral Evil*
+*Fata Media, Neutrale Malvagio*
 
-- **Armor Class:** 17
-- **Hit Points:** 82 (11d8 + 33)
-- **Speed:** 30 ft., Swim 30 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 17
+- **Punti Ferita:** 82 (11d8 + 33)
+- **Velocità:** 9 m, nuoto 9 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 12 | +1 | +1 |
-| CON | 16 | +3 | +3 |
+| FOR | 18 | +4 | +4 |
+| DES | 12 | +1 | +1 |
+| COS | 16 | +3 | +3 |
 | INT | 13 | +1 | +1 |
-| WIS | 14 | +2 | +2 |
-| CHA | 14 | +2 | +2 |
+| SAG | 14 | +2 | +2 |
+| CAR | 14 | +2 | +2 |
 
-- **Skills**: Arcana +5, Deception +4, Perception +4, Stealth +3
-- **Senses**: darkvision 60 ft.; Passive Perception 14
-- **Languages**: Common, Elvish, Sylvan
-- **CR** 3 (XP 700; PB +2)
+- **Abilità**: Arcana +5, Inganno +4, Percezione +4, Furtività +3
+- **Sensi**: scurovisione 18 m; Percezione Passiva 14
+- **Linguaggi**: Comune, Elfico, Silvano
+- **GS** 3 (PE 700; PB +2)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The hag can breathe air and water.
+***Anfibio.*** La megera può respirare aria e acqua.
 
-***Mimicry.*** The hag can mimic animal sounds and humanoid voices. A creature that hears the sounds can tell they are imitations only with a successful DC 14 Wisdom (Insight) check.
+***Mimetismo.*** La megera può imitare suoni di animali e voci umanoidi. Una creatura che li sente può riconoscerli come imitazioni solo con una prova di Saggezza (Intuizione) CD 14.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** La megera effettua due attacchi di Artiglio.
 
-***Multiattack.*** The hag makes two Claw attacks.
+***Artiglio.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 8 (1d8 + 4) danni taglienti più 3 (1d6) danni da veleno.
 
-***Claw.*** *Melee Attack Roll:* +6, reach 5 ft. 8 (1d8 + 4) Slashing damage plus 3 (1d6) Poison damage.
+***Lancio di Incantesimi.*** La megera lancia uno dei seguenti incantesimi, senza componenti materiali e usando Saggezza come caratteristica da incantatore (CD 12, +4 a colpire con gli attacchi con incantesimi):
 
-***Spellcasting.*** The hag casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 12, +4 to hit with spell attacks):
-
-- **At Will:** *Dancing Lights*, *Disguise Self*, *Invisibility*, *Minor Illusion*, *Ray of Sickness*
+- **A volontà:** *Luci Danzanti*, *Camuffare Sé Stessa*, *Invisibilità*, *Illusione Minore*, *Raggio di Malattia*
 
 ## Grick
 
-*Medium Aberration, Unaligned*
+*Aberrazione Media, Non Allineato*
 
-- **Armor Class:** 14
-- **Hit Points:** 54 (12d8)
-- **Speed:** 30 ft., Climb 30 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 14
+- **Punti Ferita:** 54 (12d8)
+- **Velocità:** 9 m, arrampicata 9 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 14 | +2 | +2 |
-| DEX | 14 | +2 | +2 |
-| CON | 11 | +0 | +0 |
-| INT | 3 | -4 | -4 |
-| WIS | 14 | +2 | +2 |
-| CHA | 5 | -3 | -3 |
+| FOR | 14 | +2 | +2 |
+| DES | 14 | +2 | +2 |
+| COS | 11 | +0 | +0 |
+| INT | 3  | -4 | -4 |
+| SAG | 14 | +2 | +2 |
+| CAR | 5  | -3 | -3 |
 
-- **Skills**: Stealth +4
-- **Senses**: darkvision 60 ft.; Passive Perception 12
-- **CR** 2 (XP 450; PB +2)
+- **Abilità**: Furtività +4
+- **Sensi**: scurovisione 18 m; Percezione Passiva 12
+- **GS** 2 (PE 450; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The grick makes one Beak attack and one Tentacles attack.
+***Attacco Multiplo.*** Il grick effettua un attacco di Becco e uno di Tentacoli.
 
-***Beak.*** *Melee Attack Roll:* +4, reach 5 ft. 9 (2d6 + 2) Piercing damage.
+***Becco.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 9 (2d6 + 2) danni perforanti.
 
-***Tentacles.*** *Melee Attack Roll:* +4, reach 5 ft. 7 (1d10 + 2) Slashing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 12) from all four tentacles.
+***Tentacoli.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 7 (1d10 + 2) danni taglienti. Se il bersaglio è una creatura Media o più piccola, è Afferrato (CD 12 per liberarsi) da tutti e quattro i tentacoli.
 
-## Griffon
+---
 
-*Large Monstrosity, Unaligned*
+## Grifone
 
-- **Armor Class:** 12
-- **Hit Points:** 59 (7d10 + 21)
-- **Speed:** 30 ft., Fly 80 ft.
-- **Initiative**: +2 (12)
+*Mostruosità Grande, Non Allineato*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 12
+- **Punti Ferita:** 59 (7d10 + 21)
+- **Velocità:** 9 m, volo 24 m
+- **Iniziativa**: +2 (12)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 15 | +2 | +2 |
-| CON | 16 | +3 | +3 |
-| INT | 2 | -4 | -4 |
-| WIS | 13 | +1 | +1 |
-| CHA | 8 | -1 | -1 |
+| FOR | 18 | +4 | +4 |
+| DES | 15 | +2 | +2 |
+| COS | 16 | +3 | +3 |
+| INT | 2  | -4 | -4 |
+| SAG | 13 | +1 | +1 |
+| CAR | 8  | -1 | -1 |
 
-- **Skills**: Perception +5
-- **Senses**: darkvision 60 ft.; Passive Perception 15
-- **CR** 2 (XP 450; PB +2)
+- **Abilità**: Percezione +5
+- **Sensi**: scurovisione 18 m; Percezione Passiva 15
+- **GS** 2 (PE 450; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The griffon makes two Rend attacks.
+***Attacco Multiplo.*** Il grifone effettua due attacchi di Dilaniare.
 
-***Rend.*** *Melee Attack Roll:* +6, reach 5 ft. 8 (1d8 + 4) Piercing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 14) from both of the griffon's front claws.
+***Dilaniare.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 8 (1d8 + 4) danni perforanti. Se il bersaglio è una creatura Media o più piccola, è Afferrato (CD 14 per liberarsi) dagli artigli anteriori del grifone.
+
+---
 
 ## Grimlock
 
-*Medium Aberration, Neutral Evil*
+*Aberrazione Media, Neutrale Malvagio*
 
-- **Armor Class:** 11
-- **Hit Points:** 11 (2d8 + 2)
-- **Speed:** 30 ft., Climb 30 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 11 (2d8 + 2)
+- **Velocità:** 9 m, arrampicata 9 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 12 | +1 | +1 |
-| CON | 12 | +1 | +1 |
-| INT | 9 | -1 | -1 |
-| WIS | 8 | -1 | -1 |
-| CHA | 6 | -2 | -2 |
+| FOR | 16 | +3 | +3 |
+| DES | 12 | +1 | +1 |
+| COS | 12 | +1 | +1 |
+| INT | 9  | -1 | -1 |
+| SAG | 8  | -1 | -1 |
+| CAR | 6  | -2 | -2 |
 
-- **Skills**: Athletics +5, Perception +3, Stealth +5
-- **Senses**: blindsight 30 ft.; Passive Perception 13
-- **CR** 1/4 (XP 50; PB +2)
+- **Abilità**: Atletica +5, Percezione +3, Furtività +5
+- **Sensi**: percezione cieca 9 m; Percezione Passiva 13
+- **GS** 1/4 (PE 50; PB +2)
 
-### Actions
+### Azioni
 
-***Bone Cudgel.*** *Melee Attack Roll:* +5, reach 5 ft. 6 (1d6 + 3) Bludgeoning damage plus 2 (1d4) Psychic damage.
+***Randello d’Ossa.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni contundenti più 2 (1d4) danni psichici.
 
-## Guard Captain
+---
 
-*Small Humanoid, Neutral*
+## Capitano della Guardia
 
-- **Armor Class:** 18
-- **Hit Points:** 75 (10d8 + 30)
-- **Speed:** 30 ft.
-- **Initiative**: +4 (14)
+*Umanoide Piccolo, Neutrale*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 18
+- **Punti Ferita:** 75 (10d8 + 30)
+- **Velocità:** 9 m
+- **Iniziativa**: +4 (14)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 14 | +2 | +2 |
-| CON | 16 | +3 | +3 |
+| FOR | 18 | +4 | +4 |
+| DES | 14 | +2 | +2 |
+| COS | 16 | +3 | +3 |
 | INT | 12 | +1 | +1 |
-| WIS | 14 | +2 | +2 |
-| CHA | 13 | +1 | +1 |
+| SAG | 14 | +2 | +2 |
+| CAR | 13 | +1 | +1 |
 
-- **Skills**: Athletics +6, Perception +4
-- **Gear** Breastplate, Javelin x 6, Longsword, Shield
-- **Senses**: Passive Perception 14
-- **Languages**: Common
-- **CR** 4 (XP 1,100; PB +2)
+- **Abilità**: Atletica +6, Percezione +4
+- **Equipaggiamento**: Corazza, Giavellotto × 6, Spada lunga, Scudo
+- **Sensi**: Percezione Passiva 14
+- **Linguaggi**: Comune
+- **GS** 4 (PE 1.100; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The guard makes two attacks, using Javelin or Longsword in any combination.
+***Attacco Multiplo.*** Il capitano effettua due attacchi, usando Giavellotto o Spada lunga in qualsiasi combinazione.
 
-***Javelin.*** *Melee or Ranged Attack Roll:* +6, reach 5 ft. or range 30/120 ft. 14 (3d6 + 4) Piercing damage.
+***Giavellotto.*** *Tiro per colpire in mischia o a distanza:* +6, portata 1,5 m o gittata 9/36 m. 14 (3d6 + 4) danni perforanti.
 
-***Longsword.*** *Melee Attack Roll:* +6, reach 5 ft. 15 (2d10 + 4) Slashing damage.
+***Spada lunga.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 15 (2d10 + 4) danni taglienti.
 
-## Guardian Naga
+## Naga Guardiana
 
-*Large Celestial, Lawful Good*
+*Celestiale Grande, Legale Buono*
 
-- **Armor Class:** 18
-- **Hit Points:** 136 (16d10 + 48)
-- **Speed:** 40 ft., Climb 40 ft., Swim 40 ft.
-- **Initiative**: +4 (14)
+- **Classe Armatura:** 18
+- **Punti Ferita:** 136 (16d10 + 48)
+- **Velocità:** 12 m, arrampicata 12 m, nuoto 12 m
+- **Iniziativa**: +4 (14)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 18 | +4 | +8 |
-| CON | 16 | +3 | +7 |
+| FOR | 19 | +4 | +4 |
+| DES | 18 | +4 | +8 |
+| COS | 16 | +3 | +7 |
 | INT | 16 | +3 | +7 |
-| WIS | 19 | +4 | +8 |
-| CHA | 18 | +4 | +8 |
+| SAG | 19 | +4 | +8 |
+| CAR | 18 | +4 | +8 |
 
-- **Immunities**: Poison; Charmed, Paralyzed, Poisoned, Restrained
-- **Skills**: Arcana +11, History +11, Religion +11
-- **Senses**: darkvision 60 ft.; Passive Perception 14
-- **Languages**: Celestial, Common
-- **CR** 10 (XP 5,900; PB +4)
+- **Immunità**: Veleno; Affascinato, Paralizzato, Avvelenato, Immobilizzato
+- **Abilità**: Arcana +11, Storia +11, Religione +11
+- **Sensi**: scurovisione 18 m; Percezione Passiva 14
+- **Linguaggi**: Celestiale, Comune
+- **GS** 10 (PE 5.900; PB +4)
 
-### Traits
+### Tratti
 
-***Celestial Restoration.*** If the naga dies, it returns to life in 1d6 days and regains all its Hit Points unless *Dispel Evil and Good* is cast on its remains.
+***Restaurazione Celestiale.*** Se la naga muore, ritorna in vita in 1d6 giorni e recupera tutti i suoi Punti Ferita, a meno che *Scacciare il Bene e il Male* non sia lanciato sui suoi resti.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** La naga effettua due attacchi di Morso. Può sostituire uno degli attacchi con un uso di Sputo Velenoso.
 
-***Multiattack.*** The naga makes two Bite attacks. It can replace any attack with a use of Poisonous Spittle.
+***Morso.*** *Tiro per colpire in mischia:* +8, portata 3 m. 17 (2d12 + 4) danni perforanti più 22 (4d10) danni da veleno.
 
-***Bite.*** *Melee Attack Roll:* +8, reach 10 ft. 17 (2d12 + 4) Piercing damage plus 22 (4d10) Poison damage.
+***Sputo Velenoso.*** *Tiro Salvezza su Costituzione*: CD 16, una creatura visibile entro 18 m. *Fallimento:* 31 (7d8) danni da veleno e il bersaglio è Accecato fino all’inizio del prossimo turno della naga. *Successo:* solo metà danni.
 
-***Poisonous Spittle.*** *Constitution Saving Throw*: DC 16, one creature the naga can see within 60 feet. *Failure:*  31 (7d8) Poison damage, and the target has the Blinded condition until the start of the naga's next turn. *Success:*  Half damage only.
+***Lancio di Incantesimi.*** La naga lancia uno dei seguenti incantesimi, senza componenti somatici o materiali e usando Saggezza come caratteristica da incantatore (CD 16):
 
-***Spellcasting.*** The naga casts one of the following spells, requiring no Somatic or Material components and using Wisdom as the spellcasting ability (spell save DC 16):
+- **A volontà:** *Taumaturgia*
+- **1/giorno ciascuno:** *Chiaroveggenza*, *Cura Ferite*, *Colonna di Fiamme*, *Geas*, *Vista Truesight*
 
-- **At Will:** *Thaumaturgy*
-- **1e/Day Each:** *Clairvoyance*, *Cure Wounds*, *Flame Strike*, *Geas*, *True Seeing*
-## Guard
+---
 
-*Small Humanoid, Neutral*
+## Guardia
 
-- **Armor Class:** 16
-- **Hit Points:** 11 (2d8 + 2)
-- **Speed:** 30 ft.
-- **Initiative**: +1 (11)
+*Umanoide Piccolo, Neutrale*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 16
+- **Punti Ferita:** 11 (2d8 + 2)
+- **Velocità:** 9 m
+- **Iniziativa**: +1 (11)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 13 | +1 | +1 |
-| DEX | 12 | +1 | +1 |
-| CON | 12 | +1 | +1 |
+| FOR | 13 | +1 | +1 |
+| DES | 12 | +1 | +1 |
+| COS | 12 | +1 | +1 |
 | INT | 10 | +0 | +0 |
-| WIS | 11 | +0 | +0 |
-| CHA | 10 | +0 | +0 |
+| SAG | 11 | +0 | +0 |
+| CAR | 10 | +0 | +0 |
 
-- **Skills**: Perception +2
-- **Gear** Chain Shirt, Shield, Spear
-- **Senses**: Passive Perception 12
-- **Languages**: Common
-- **CR** 1/8 (XP 25; PB +2)
+- **Abilità**: Percezione +2
+- **Equipaggiamento**: Cotta di maglia, Scudo, Lancia
+- **Sensi**: Percezione Passiva 12
+- **Linguaggi**: Comune
+- **GS** 1/8 (PE 25; PB +2)
 
-### Actions
+### Azioni
 
-***Spear.*** *Melee or Ranged Attack Roll:* +3, reach 5 ft. or range 20/60 ft. 4 (1d6 + 1) Piercing damage.
+***Lancia.*** *Tiro per colpire in mischia o a distanza:* +3, portata 1,5 m o gittata 6/18 m. 4 (1d6 + 1) danni perforanti.
 
-## Half-Dragon
+---
 
-*Medium Dragon, Neutral*
+## Mezzodrago
 
-- **Armor Class:** 18
-- **Hit Points:** 105 (14d8 + 42)
-- **Speed:** 40 ft.
-- **Initiative**: +5 (15)
+*Drago Medio, Neutrale*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 18
+- **Punti Ferita:** 105 (14d8 + 42)
+- **Velocità:** 12 m
+- **Iniziativa**: +5 (15)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 14 | +2 | +5 |
-| CON | 16 | +3 | +3 |
+| FOR | 19 | +4 | +4 |
+| DES | 14 | +2 | +5 |
+| COS | 16 | +3 | +3 |
 | INT | 10 | +0 | +0 |
-| WIS | 15 | +2 | +5 |
-| CHA | 14 | +2 | +2 |
+| SAG | 15 | +2 | +5 |
+| CAR | 14 | +2 | +2 |
 
-- **Resistances**: Damage type chosen for the Draconic Origin trait below
-- **Skills**: Athletics +7, Perception +5, Stealth +5
-- **Senses**: blindsight 10 ft., darkvision 60 ft.; Passive Perception 15
-- **Languages**: Common, Draconic
-- **CR** 5 (XP 1,800; PB +3)
+- **Resistenze**: tipo di danno scelto per il tratto Origine Draconica
+- **Abilità**: Atletica +7, Percezione +5, Furtività +5
+- **Sensi**: percezione cieca 3 m, scurovisione 18 m; Percezione Passiva 15
+- **Linguaggi**: Comune, Draconico
+- **GS** 5 (PE 1.800; PB +3)
 
-### Traits
+### Tratti
 
-***Draconic Origin.*** The half-dragon is related to a type of dragon associated with one of the following damage types (DM's choice): Acid, Cold, Fire, Lightning, or Poison. This choice affects other aspects of the stat block.
+***Origine Draconica.*** Il mezzodrago è legato a un tipo di drago associato a uno dei seguenti tipi di danno (scelta del DM): acido, freddo, fuoco, fulmine o veleno. Questa scelta influenza altri aspetti del blocco statistiche.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il mezzodrago effettua due attacchi di Artiglio.
 
-***Multiattack.*** The half-dragon makes two Claw attacks.
+***Artiglio.*** *Tiro per colpire in mischia:* +7, portata 3 m. 6 (1d4 + 4) danni taglienti più 7 (2d6) danni del tipo scelto con Origine Draconica.
 
-***Claw.*** *Melee Attack Roll:* +7, reach 10 ft. 6 (1d4 + 4) Slashing damage plus 7 (2d6) damage of the type chosen for the Draconic Origin trait.
+***Soffio del Drago (Ricarica 5–6).*** *Tiro Salvezza su Destrezza*: CD 14, da parte di ogni creatura in un Cono di 9 m. *Fallimento:* 28 (8d6) danni del tipo scelto con Origine Draconica. *Successo:* metà danni.
 
-***Dragon's Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 14, each creature in a 30-foot Cone. *Failure:*  28 (8d6) damage of the type chosen for the Draconic Origin trait. *Success:*  Half damage.
+### Azioni Bonus
 
+***Balzo.*** Il mezzodrago salta fino a 9 m spendendo 3 m di movimento.
 
-### Bonus Actions
+---
 
-***Leap.*** The half-dragon jumps up to 30 feet by spending 10 feet of movement.
+## Arpia
 
-## Harpy
+*Mostruosità Media, Caotico Malvagio*
 
-*Medium Monstrosity, Chaotic Evil*
+- **Classe Armatura:** 11
+- **Punti Ferita:** 38 (7d8 + 7)
+- **Velocità:** 6 m, volo 12 m
+- **Iniziativa**: +1 (11)
 
-- **Armor Class:** 11
-- **Hit Points:** 38 (7d8 + 7)
-- **Speed:** 20 ft., Fly 40 ft.
-- **Initiative**: +1 (11)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 12 | +1 | +1 |
-| DEX | 13 | +1 | +1 |
-| CON | 12 | +1 | +1 |
-| INT | 7 | -2 | -2 |
-| WIS | 10 | +0 | +0 |
-| CHA | 13 | +1 | +1 |
+| FOR | 12 | +1 | +1 |
+| DES | 13 | +1 | +1 |
+| COS | 12 | +1 | +1 |
+| INT | 7  | -2 | -2 |
+| SAG | 10 | +0 | +0 |
+| CAR | 13 | +1 | +1 |
 
-- **Senses**: Passive Perception 10
-- **Languages**: Common
-- **CR** 1 (XP 200; PB +2)
+- **Sensi**: Percezione Passiva 10
+- **Linguaggi**: Comune
+- **GS** 1 (PE 200; PB +2)
 
-### Actions
+### Azioni
 
-***Claw.*** *Melee Attack Roll:* +3, reach 5 ft. 6 (2d4 + 1) Slashing damage.
+***Artiglio.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 6 (2d4 + 1) danni taglienti.
 
-***Luring Song.*** The harpy sings a magical melody, which lasts until the harpy's  Concentration ends on it. *Wisdom Saving Throw*: DC 11, each Humanoid and Giant in a 300-foot Emanation originating from the harpy when the song starts. *Failure:*  The target has the Charmed condition until the song ends and repeats the save at the end of each of its turns. While Charmed, the target has the Incapacitated condition and ignores the Luring Song of other harpies. If the target is more than 5 feet from the harpy, the target moves on its turn toward the harpy by the most direct route, trying to get within 5 feet of the harpy. It doesn't avoid Opportunity Attacks; however, before moving into damaging terrain (such as lava or a pit) and whenever it takes damage from a source other than the harpy, the target repeats the save. *Success:*  The target is immune to this harpy's Luring Song for 24 hours.
+***Canto Ammaliatore.*** L’arpia canta una melodia magica, che dura finché mantiene la Concentrazione. *Tiro Salvezza su Saggezza*: CD 11, da parte di ogni Umanoide e Gigante in un’Emanazione di 90 m originata dall’arpia all’inizio del canto. *Fallimento:* il bersaglio è Affascinato finché il canto dura e ripete il TS alla fine di ogni suo turno. Finché è Affascinato, il bersaglio è Incapacitato e ignora i Canti Ammaliatori di altre arpie. Se il bersaglio è a più di 1,5 m dall’arpia, nel suo turno si muove verso di lei per il percorso più diretto, cercando di arrivare entro 1,5 m. Non evita gli Attacchi di Opportunità; tuttavia, prima di muoversi in un terreno dannoso (come lava o un baratro) e ogni volta che subisce danni da una fonte diversa dall’arpia, ripete il TS. *Successo:* il bersaglio è immune al Canto Ammaliatore di quell’arpia per 24 ore.
 
-## Hell Hound
+## Segugio Infernale
 
-*Medium Fiend, Lawful Evil*
+*Infernale Medio, Legale Malvagio*
 
-- **Armor Class:** 15
-- **Hit Points:** 58 (9d8 + 18)
-- **Speed:** 50 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 15
+- **Punti Ferita:** 58 (9d8 + 18)
+- **Velocità:** 15 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 17 | +3 | +3 |
-| DEX | 12 | +1 | +1 |
-| CON | 14 | +2 | +2 |
-| INT | 6 | -2 | -2 |
-| WIS | 13 | +1 | +1 |
-| CHA | 6 | -2 | -2 |
+| FOR | 17 | +3 | +3 |
+| DES | 12 | +1 | +1 |
+| COS | 14 | +2 | +2 |
+| INT | 6  | -2 | -2 |
+| SAG | 13 | +1 | +1 |
+| CAR | 6  | -2 | -2 |
 
-- **Immunities**: Fire
-- **Skills**: Perception +5
-- **Senses**: darkvision 60 ft.; Passive Perception 15
-- **Languages**: Understands Infernal but can't speak
-- **CR** 3 (XP 700; PB +2)
+- **Immunità**: Fuoco
+- **Abilità**: Percezione +5
+- **Sensi**: scurovisione 18 m; Percezione Passiva 15
+- **Linguaggi**: comprende l’Infernale ma non può parlare
+- **GS** 3 (PE 700; PB +2)
 
-### Traits
+### Tratti
 
-***Pack Tactics.*** The hound has Advantage on an attack roll against a creature if at least one of the hound's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+***Tattiche di Branco.*** Il segugio ha Vantaggio ai tiri per colpire contro una creatura se almeno un suo alleato si trova entro 1,5 m da essa e non è Incapacitato.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il segugio effettua due attacchi di Morso.
 
-***Multiattack.*** The hound makes two Bite attacks.
+***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni perforanti più 3 (1d6) danni da fuoco.
 
-***Bite.*** *Melee Attack Roll:* +5, reach 5 ft. 7 (1d8 + 3) Piercing damage plus 3 (1d6) Fire damage.
+***Soffio di Fuoco (Ricarica 5–6).*** *Tiro Salvezza su Destrezza*: CD 12, da parte di ogni creatura in un Cono di 4,5 m. *Fallimento:* 17 (5d6) danni da fuoco. *Successo:* metà danni.
 
-***Fire Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 12, each creature in a 15-foot Cone. *Failure:*  17 (5d6) Fire damage. *Success:*  Half damage.
+---
 
 ## Hezrou
 
-*Large Fiend (Demon), Chaotic Evil*
+*Infernale Grande (Demone), Caotico Malvagio*
 
-- **Armor Class:** 18
-- **Hit Points:** 157 (15d10 + 75)
-- **Speed:** 30 ft.
-- **Initiative**: +6 (16)
+- **Classe Armatura:** 18
+- **Punti Ferita:** 157 (15d10 + 75)
+- **Velocità:** 9 m
+- **Iniziativa**: +6 (16)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +7 |
-| DEX | 17 | +3 | +3 |
-| CON | 20 | +5 | +8 |
-| INT | 5 | -3 | -3 |
-| WIS | 12 | +1 | +4 |
-| CHA | 13 | +1 | +1 |
+| FOR | 19 | +4 | +7 |
+| DES | 17 | +3 | +3 |
+| COS | 20 | +5 | +8 |
+| INT | 5  | -3 | -3 |
+| SAG | 12 | +1 | +4 |
+| CAR | 13 | +1 | +1 |
 
-- **Resistances**: Cold, Fire, Lightning
-- **Immunities**: Poison; Poisoned
-- **Senses**: darkvision 120 ft.; Passive Perception 11
-- **Languages**: Abyssal; telepathy 120 ft.
-- **CR** 8 (XP 3,900; PB +3)
+- **Resistenze**: Freddo, Fuoco, Fulmine
+- **Immunità**: Veleno; Avvelenato
+- **Sensi**: scurovisione 36 m; Percezione Passiva 11
+- **Linguaggi**: Abissale; telepatia 36 m
+- **GS** 8 (PE 3.900; PB +3)
 
-### Traits
+### Tratti
 
-***Demonic Restoration.*** If the hezrou dies outside the Abyss, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.
+***Restaurazione Demoniaca.*** Se l’hezrou muore al di fuori dell’Abisso, il suo corpo si dissolve in icore e ottiene immediatamente un nuovo corpo, tornando in vita con tutti i suoi Punti Ferita in un luogo dell’Abisso.
 
-***Magic Resistance.*** The hezrou has Advantage on saving throws against spells and other magical effects.
+***Resistenza Magica.*** L’hezrou ha Vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
 
-***Stench.*** *Constitution Saving Throw*: DC 16, any creature that starts its turn in a 10-foot Emanation originating from the hezrou. *Failure:*  The target has the Poisoned condition until the start of its next turn.
+***Puzza.*** *Tiro Salvezza su Costituzione*: CD 16, da parte di ogni creatura che inizi il suo turno entro un’Emanazione di 3 m dall’hezrou. *Fallimento:* il bersaglio è Avvelenato fino all’inizio del suo prossimo turno.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** L’hezrou effettua tre attacchi di Dilaniare.
 
-***Multiattack.*** The hezrou makes three Rend attacks.
+***Dilaniare.*** *Tiro per colpire in mischia:* +7, portata 1,5 m. 6 (1d4 + 4) danni taglienti più 9 (2d8) danni da veleno.
 
-***Rend.*** *Melee Attack Roll:* +7, reach 5 ft. 6 (1d4 + 4) Slashing damage plus 9 (2d8) Poison damage.
+### Azioni Bonus
 
+***Balzo.*** L’hezrou salta fino a 9 m spendendo 3 m di movimento.
 
-### Bonus Actions
+---
 
-***Leap.*** The hezrou jumps up to 30 feet by spending 10 feet of movement.
+## Gigante delle Colline
 
-## Hill Giant
+*Gigante Enorme, Caotico Malvagio*
 
-*Huge Giant, Chaotic Evil*
+- **Classe Armatura:** 13
+- **Punti Ferita:** 105 (10d12 + 40)
+- **Velocità:** 12 m
+- **Iniziativa**: +2 (12)
 
-- **Armor Class:** 13
-- **Hit Points:** 105 (10d12 + 40)
-- **Speed:** 40 ft.
-- **Initiative**: +2 (12)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 21 | +5 | +5 |
-| DEX | 8 | -1 | -1 |
-| CON | 19 | +4 | +4 |
-| INT | 5 | -3 | -3 |
-| WIS | 9 | -1 | -1 |
-| CHA | 6 | -2 | -2 |
+| FOR | 21 | +5 | +5 |
+| DES | 8  | -1 | -1 |
+| COS | 19 | +4 | +4 |
+| INT | 5  | -3 | -3 |
+| SAG | 9  | -1 | -1 |
+| CAR | 6  | -2 | -2 |
 
-- **Skills**: Perception +2
-- **Senses**: Passive Perception 12
-- **Languages**: Giant
-- **CR** 5 (XP 1,800; PB +3)
+- **Abilità**: Percezione +2
+- **Sensi**: Percezione Passiva 12
+- **Linguaggi**: Gigante
+- **GS** 5 (PE 1.800; PB +3)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The giant makes two attacks, using Tree Club or Trash Lob in any combination.
+***Attacco Multiplo.*** Il gigante effettua due attacchi, usando Mazza d’Albero o Lancio di Rifiuti in qualsiasi combinazione.
 
-***Tree Club.*** *Melee Attack Roll:* +8, reach 10 ft. 18 (3d8 + 5) Bludgeoning damage. If the target is a Large or smaller creature, it has the Prone condition.
+***Mazza d’Albero.*** *Tiro per colpire in mischia:* +8, portata 3 m. 18 (3d8 + 5) danni contundenti. Se il bersaglio è una creatura Grande o più piccola, cade Prono.
 
-***Trash Lob.*** *Ranged Attack Roll:* +8, range 60/240 ft. 16 (2d10 + 5) Bludgeoning damage, and the target has the Poisoned condition until the end of its next turn.
+***Lancio di Rifiuti.*** *Tiro per colpire a distanza:* +8, gittata 18/72 m. 16 (2d10 + 5) danni contundenti, e il bersaglio è Avvelenato fino alla fine del suo prossimo turno.
 
-## Hippogriff
+---
 
-*Large Monstrosity, Unaligned*
+## Ippogrifo
 
-- **Armor Class:** 11
-- **Hit Points:** 26 (4d10 + 4)
-- **Speed:** 40 ft., Fly 60 ft.
-- **Initiative**: +1 (11)
+*Mostruosità Grande, Non Allineato*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 11
+- **Punti Ferita:** 26 (4d10 + 4)
+- **Velocità:** 12 m, volo 18 m
+- **Iniziativa**: +1 (11)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 17 | +3 | +3 |
-| DEX | 13 | +1 | +1 |
-| CON | 13 | +1 | +1 |
-| INT | 2 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 8 | -1 | -1 |
+| FOR | 17 | +3 | +3 |
+| DES | 13 | +1 | +1 |
+| COS | 13 | +1 | +1 |
+| INT | 2  | -4 | -4 |
+| SAG | 12 | +1 | +1 |
+| CAR | 8  | -1 | -1 |
 
-- **Skills**: Perception +5
-- **Senses**: Passive Perception 15
-- **CR** 1 (XP 200; PB +2)
+- **Abilità**: Percezione +5
+- **Sensi**: Percezione Passiva 15
+- **GS** 1 (PE 200; PB +2)
 
-### Traits
+### Tratti
 
-***Flyby.*** The hippogriff doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.
+***Volata.*** L’ippogrifo non provoca Attacchi di Opportunità quando vola fuori dalla portata di un nemico.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** L’ippogrifo effettua due attacchi di Dilaniare.
 
-***Multiattack.*** The hippogriff makes two Rend attacks.
+***Dilaniare.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni taglienti.
 
-***Rend.*** *Melee Attack Roll:* +5, reach 5 ft. 7 (1d8 + 3) Slashing damage.
+## Capitano Hobgoblin
 
-## Hobgoblin Captain
+*Fey Medio (Goblinide), Legale Malvagio*
 
-*Medium Fey (Goblinoid), Lawful Evil*
+- **Classe Armatura:** 17
+- **Punti Ferita:** 58 (9d8 + 18)
+- **Velocità:** 9 m
+- **Iniziativa**: +4 (14)
 
-- **Armor Class:** 17
-- **Hit Points:** 58 (9d8 + 18)
-- **Speed:** 30 ft.
-- **Initiative**: +4 (14)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +2 |
-| DEX | 14 | +2 | +2 |
-| CON | 14 | +2 | +2 |
+| FOR | 15 | +2 | +2 |
+| DES | 14 | +2 | +2 |
+| COS | 14 | +2 | +2 |
 | INT | 12 | +1 | +1 |
-| WIS | 10 | +0 | +0 |
-| CHA | 13 | +1 | +1 |
+| SAG | 10 | +0 | +0 |
+| CAR | 13 | +1 | +1 |
 
-- **Gear** Greatsword, Half Plate Armor, Longbow
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **Languages**: Common, Goblin
-- **CR** 3 (XP 700; PB +2)
+- **Equipaggiamento**: Spadone, Mezza Armatura, Arco lungo  
+- **Sensi**: scurovisione 18 m; Percezione Passiva 10  
+- **Linguaggi**: Comune, Goblin  
+- **GS** 3 (PE 700; PB +2)
 
-### Traits
+### Tratti
 
-***Aura of Authority.*** While in a 10-foot Emanation originating from the hobgoblin, the hobgoblin and its allies have Advantage on attack rolls and saving throws, provided the hobgoblin doesn't have the Incapacitated condition.
+***Aura di Autorità.*** Finché si trova in un’Emanazione di 3 m originata dall’hobgoblin, l’hobgoblin e i suoi alleati hanno Vantaggio ai tiri per colpire e ai tiri salvezza, a condizione che l’hobgoblin non sia Incapacitato.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** L’hobgoblin effettua due attacchi, usando Spadone o Arco lungo in qualsiasi combinazione.
 
-***Multiattack.*** The hobgoblin makes two attacks, using Greatsword or Longbow in any combination.
+***Spadone.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 9 (2d6 + 2) danni taglienti più 3 (1d6) danni da veleno.
 
-***Greatsword.*** *Melee Attack Roll:* +4, reach 5 ft. 9 (2d6 + 2) Slashing damage plus 3 (1d6) Poison damage.
+***Arco lungo.*** *Tiro per colpire a distanza:* +4, gittata 45/180 m. 6 (1d8 + 2) danni perforanti più 5 (2d4) danni da veleno.
 
-***Longbow.*** *Ranged Attack Roll:* +4, range 150/600 ft. 6 (1d8 + 2) Piercing damage plus 5 (2d4) Poison damage.
+---
 
-## Hobgoblin Warrior
+## Guerriero Hobgoblin
 
-*Medium Fey (Goblinoid), Lawful Evil*
+*Fey Medio (Goblinide), Legale Malvagio*
 
-- **Armor Class:** 18
-- **Hit Points:** 11 (2d8 + 2)
-- **Speed:** 30 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 18
+- **Punti Ferita:** 11 (2d8 + 2)
+- **Velocità:** 9 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 13 | +1 | +1 |
-| DEX | 12 | +1 | +1 |
-| CON | 12 | +1 | +1 |
+| FOR | 13 | +1 | +1 |
+| DES | 12 | +1 | +1 |
+| COS | 12 | +1 | +1 |
 | INT | 10 | +0 | +0 |
-| WIS | 10 | +0 | +0 |
-| CHA | 9 | -1 | -1 |
+| SAG | 10 | +0 | +0 |
+| CAR | 9  | -1 | -1 |
 
-- **Gear** Half Plate Armor, Longbow, Longsword, Shield
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **Languages**: Common, Goblin
-- **CR** 1/2 (XP 100; PB +2)
+- **Equipaggiamento**: Mezza Armatura, Arco lungo, Spada lunga, Scudo  
+- **Sensi**: scurovisione 18 m; Percezione Passiva 10  
+- **Linguaggi**: Comune, Goblin  
+- **GS** 1/2 (PE 100; PB +2)
 
-### Traits
+### Tratti
 
-***Pack Tactics.*** The hobgoblin has Advantage on an attack roll against a creature if at least one of the hobgoblin's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+***Tattiche di Branco.*** L’hobgoblin ha Vantaggio ai tiri per colpire contro una creatura se almeno un suo alleato si trova entro 1,5 m da essa e non è Incapacitato.
 
+### Azioni
 
-### Actions
+***Spada lunga.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 12 (2d10 + 1) danni taglienti.
 
-***Longsword.*** *Melee Attack Roll:* +3, reach 5 ft. 12 (2d10 + 1) Slashing damage.
+***Arco lungo.*** *Tiro per colpire a distanza:* +3, gittata 45/180 m. 5 (1d8 + 1) danni perforanti più 7 (3d4) danni da veleno.
 
-***Longbow.*** *Ranged Attack Roll:* +3, range 150/600 ft. 5 (1d8 + 1) Piercing damage plus 7 (3d4) Poison damage.
+---
 
 ## Homunculus
 
-*Small Construct, Neutral*
+*Costrutto Piccolo, Neutrale*
 
-- **Armor Class:** 13
-- **Hit Points:** 4 (1d4 + 2)
-- **Speed:** 20 ft., Fly 40 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 4 (1d4 + 2)
+- **Velocità:** 6 m, volo 12 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 4 | -3 | -3 |
-| DEX | 15 | +2 | +2 |
-| CON | 14 | +2 | +2 |
+| FOR | 4  | -3 | -3 |
+| DES | 15 | +2 | +2 |
+| COS | 14 | +2 | +2 |
 | INT | 10 | +0 | +0 |
-| WIS | 10 | +0 | +2 |
-| CHA | 7 | -2 | +0 |
+| SAG | 10 | +0 | +2 |
+| CAR | 7  | -2 | +0 |
 
-- **Immunities**: Poison; Charmed, Poisoned
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **Languages**: Understands Common plus one other language but can't speak
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Immunità**: Veleno; Affascinato, Avvelenato  
+- **Sensi**: scurovisione 18 m; Percezione Passiva 10  
+- **Linguaggi**: comprende il Comune e un altro linguaggio ma non può parlare  
+- **GS** 0 (PE 0 o 10; PB +2)
 
-### Traits
+### Tratti
 
-***Telepathic Bond.*** While the homunculus is on the same plane of existence as its master, the two of them can communicate telepathically with each other.
+***Legame Telepatico.*** Finché l’homunculus si trova sullo stesso piano d’esistenza del suo padrone, i due possono comunicare telepaticamente.
 
+### Azioni
 
-### Actions
+***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 1 danno perforante e il bersaglio subisce il seguente effetto. *Tiro Salvezza su Costituzione*: CD 12. *Fallimento:* il bersaglio è Avvelenato fino alla fine del turno successivo dell’homunculus. *Fallimento di 5 o più:* il bersaglio è Avvelenato per 1 minuto. Finché è Avvelenato in questo modo, il bersaglio è anche Incosciente, condizione che termina anticipatamente se subisce danni.
 
-***Bite.*** *Melee Attack Roll:* +4, reach 5 ft. 1 Piercing damage, and the target is subjected to the following effect. *Constitution Saving Throw*: DC 12. *Failure:*  The target has the Poisoned condition until the end of the homunculus's next turn. *Failure by 5 or More:* The target has the Poisoned condition for 1 minute. While Poisoned, the target has the Unconscious condition, which ends early if the target takes any damage.
+---
 
-## Horned Devil
+## Diavolo Cornuto
 
-*Large Fiend (Devil), Lawful Evil*
+*Infernale Grande (Diavolo), Legale Malvagio*
 
-- **Armor Class:** 18
-- **Hit Points:** 199 (19d10 + 95)
-- **Speed:** 30 ft., Fly 60 ft.
-- **Initiative**: +7 (17)
+- **Classe Armatura:** 18
+- **Punti Ferita:** 199 (19d10 + 95)
+- **Velocità:** 9 m, volo 18 m
+- **Iniziativa**: +7 (17)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 22 | +6 | +10 |
-| DEX | 17 | +3 | +7 |
-| CON | 21 | +5 | +5 |
+| FOR | 22 | +6 | +10 |
+| DES | 17 | +3 | +7 |
+| COS | 21 | +5 | +5 |
 | INT | 12 | +1 | +1 |
-| WIS | 16 | +3 | +7 |
-| CHA | 18 | +4 | +8 |
+| SAG | 16 | +3 | +7 |
+| CAR | 18 | +4 | +8 |
 
-- **Immunities**: Fire, Poison; Poisoned
-- **Senses**: darkvision 150 ft. (unimpeded by magical darkness); Passive Perception 13
-- **Languages**: Infernal; telepathy 120 ft.
-- **CR** 11 (XP 7,200; PB +4)
+- **Immunità**: Fuoco, Veleno; Avvelenato  
+- **Sensi**: scurovisione 45 m (non ostacolata dall’oscurità magica); Percezione Passiva 13  
+- **Linguaggi**: Infernale; telepatia 36 m  
+- **GS** 11 (PE 7.200; PB +4)
 
-### Traits
+### Tratti
 
-***Diabolical Restoration.*** If the devil dies outside the Nine Hells, its body disappears in sulfurous smoke, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Nine Hells.
+***Restaurazione Diabolica.*** Se il diavolo muore al di fuori dei Nove Inferi, il suo corpo scompare in una nube di fumo sulfureo e ottiene immediatamente un nuovo corpo, tornando in vita con tutti i suoi Punti Ferita in un luogo dei Nove Inferi.
 
-***Magic Resistance.*** The devil has Advantage on saving throws against spells and other magical effects.
+***Resistenza Magica.*** Il diavolo ha Vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il diavolo effettua tre attacchi, usando Forcone Rovente o Lanciafiamme Infernale in qualsiasi combinazione. Può sostituire uno degli attacchi con un uso di Coda Infernale.
 
-***Multiattack.*** The devil makes three attacks, using Searing Fork or Hurl Flame in any combination. It can replace one attack with a use of Infernal Tail.
+***Forcone Rovente.*** *Tiro per colpire in mischia:* +10, portata 3 m. 15 (2d8 + 6) danni perforanti più 9 (2d8) danni da fuoco.
 
-***Searing Fork.*** *Melee Attack Roll:* +10, reach 10 ft. 15 (2d8 + 6) Piercing damage plus 9 (2d8) Fire damage.
+***Lanciafiamme Infernale.*** *Tiro per colpire a distanza:* +8, gittata 45 m. 26 (5d8 + 4) danni da fuoco. Se il bersaglio è un oggetto infiammabile non indossato o trasportato, prende fuoco.
 
-***Hurl Flame.*** *Ranged Attack Roll:* +8, range 150 ft. 26 (5d8 + 4) Fire damage. If the target is a flammable object that isn't being worn or carried, it starts burning.
+***Coda Infernale.*** *Tiro Salvezza su Destrezza*: CD 17, una creatura visibile entro 3 m. *Fallimento:* 10 (1d8 + 6) danni necrotici e il bersaglio riceve una ferita infernale se non ne ha già una. Finché è ferito, il bersaglio perde 10 (3d6) Punti Ferita all’inizio di ciascun suo turno. La ferita si chiude dopo 1 minuto, dopo che un incantesimo ripristina Punti Ferita al bersaglio, oppure se il bersaglio o una creatura entro 1,5 m da lui usa un’azione per tamponare la ferita, riuscendo in una prova di Saggezza (Medicina) CD 17.
 
-***Infernal Tail.*** *Dexterity Saving Throw*: DC 17, one creature the devil can see within 10 feet. *Failure:*  10 (1d8 + 6) Necrotic damage, and the target receives an infernal wound if it doesn't have one. While wounded, the target loses 10 (3d6) Hit Points at the start of each of its turns. The wound closes after 1 minute, after a spell restores Hit Points to the target, or after the target or a creature within 5 feet of it takes an action to stanch the wound, doing so by succeeding on a DC 17 Wisdom (Medicine) check.
+## Idra
 
-## Hydra
+*Mostruosità Enorme, Non Allineato*
 
-*Huge Monstrosity, Unaligned*
+- **Classe Armatura:** 15
+- **Punti Ferita:** 184 (16d12 + 80)
+- **Velocità:** 12 m, nuoto 12 m
+- **Iniziativa**: +4 (14)
 
-- **Armor Class:** 15
-- **Hit Points:** 184 (16d12 + 80)
-- **Speed:** 40 ft., Swim 40 ft.
-- **Initiative**: +4 (14)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 20 | +5 | +5 |
-| DEX | 12 | +1 | +1 |
-| CON | 20 | +5 | +5 |
-| INT | 2 | -4 | -4 |
-| WIS | 10 | +0 | +0 |
-| CHA | 7 | -2 | -2 |
+| FOR | 20 | +5 | +5 |
+| DES | 12 | +1 | +1 |
+| COS | 20 | +5 | +5 |
+| INT | 2  | -4 | -4 |
+| SAG | 10 | +0 | +0 |
+| CAR | 7  | -2 | -2 |
 
-- **Immunities**: Blinded, Charmed, Deafened, Frightened, Stunned, Unconscious
-- **Skills**: Perception +6
-- **Senses**: darkvision 60 ft.; Passive Perception 16
-- **CR** 8 (XP 3,900; PB +3)
+- **Immunità**: Accecato, Affascinato, Assordato, Spaventato, Stordito, Incosciente
+- **Abilità**: Percezione +6
+- **Sensi**: scurovisione 18 m; Percezione Passiva 16
+- **GS** 8 (PE 3.900; PB +3)
 
-### Traits
+### Tratti
 
-***Hold Breath.*** The hydra can hold its breath for 1 hour.
+***Trattenere il Respiro.*** L’idra può trattenere il respiro per 1 ora.
 
-***Multiple Heads.*** The hydra has five heads. Whenever the hydra takes 25 damage or more on a single turn, one of its heads dies. The hydra dies if all its heads are dead. At the end of each of its turns when it has at least one living head, the hydra grows two heads for each of its heads that died since its last turn, unless it has taken Fire damage since its last turn. The hydra regains 20 Hit Points when it grows new heads.
+***Teste Multiple.*** L’idra ha cinque teste. Ogni volta che subisce 25 o più danni in un singolo turno, una delle sue teste muore. L’idra muore se tutte le sue teste sono morte. Alla fine di ciascun suo turno in cui ha almeno una testa viva, l’idra fa ricrescere due teste per ognuna delle teste morte dal suo ultimo turno, a meno che non abbia subito danni da fuoco dal suo ultimo turno. L’idra recupera 20 Punti Ferita quando fa ricrescere nuove teste.
 
-***Reactive Heads.*** For each head the hydra has beyond one, it gets an extra Reaction that can be used only for Opportunity Attacks.
+***Teste Reattive.*** Per ogni testa oltre la prima, l’idra ottiene una Reazione extra che può usare solo per Attacchi di Opportunità.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** L’idra effettua tanti attacchi di Morso quante sono le sue teste.
 
-***Multiattack.*** The hydra makes as many Bite attacks as it has heads.
+***Morso.*** *Tiro per colpire in mischia:* +8, portata 3 m. 10 (1d10 + 5) danni perforanti.
 
-***Bite.*** *Melee Attack Roll:* +8, reach 10 ft. 10 (1d10 + 5) Piercing damage.
+---
 
-## Ice Devil
+## Diavolo del Ghiaccio
 
-*Large Fiend (Devil), Lawful Evil*
+*Infernale Grande (Diavolo), Legale Malvagio*
 
-- **Armor Class:** 18
-- **Hit Points:** 228 (24d10 + 96)
-- **Speed:** 40 ft.
-- **Initiative**: +7 (17)
+- **Classe Armatura:** 18
+- **Punti Ferita:** 228 (24d10 + 96)
+- **Velocità:** 12 m
+- **Iniziativa**: +7 (17)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 21 | +5 | +5 |
-| DEX | 14 | +2 | +7 |
-| CON | 18 | +4 | +9 |
+| FOR | 21 | +5 | +5 |
+| DES | 14 | +2 | +7 |
+| COS | 18 | +4 | +9 |
 | INT | 18 | +4 | +4 |
-| WIS | 15 | +2 | +7 |
-| CHA | 18 | +4 | +9 |
+| SAG | 15 | +2 | +7 |
+| CAR | 18 | +4 | +9 |
 
-- **Immunities**: Cold, Fire, Poison; Poisoned
-- **Skills**: Insight +7, Perception +7, Persuasion +9
-- **Senses**: blindsight 120 ft.; Passive Perception 17
-- **Languages**: Infernal; telepathy 120 ft.
-- **CR** 14 (XP 11,500; PB +5)
+- **Immunità**: Freddo, Fuoco, Veleno; Avvelenato
+- **Abilità**: Intuizione +7, Percezione +7, Persuasione +9
+- **Sensi**: percezione cieca 36 m; Percezione Passiva 17
+- **Linguaggi**: Infernale; telepatia 36 m
+- **GS** 14 (PE 11.500; PB +5)
 
-### Traits
+### Tratti
 
-***Diabolical Restoration.*** If the devil dies outside the Nine Hells, its body disappears in sulfurous smoke, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Nine Hells.
+***Restaurazione Diabolica.*** Se il diavolo muore al di fuori dei Nove Inferi, il suo corpo scompare in fumo sulfureo e ottiene immediatamente un nuovo corpo, tornando in vita con tutti i suoi Punti Ferita in un luogo dei Nove Inferi.
 
-***Magic Resistance.*** The devil has Advantage on saving throws against spells and other magical effects.
+***Resistenza Magica.*** Il diavolo ha Vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il diavolo effettua tre attacchi con Lancia di Ghiaccio. Può sostituire uno degli attacchi con un attacco di Coda.
 
-***Multiattack.*** The devil makes three Ice Spear attacks. It can replace one attack with a Tail attack.
+***Lancia di Ghiaccio.*** *Tiro per colpire in mischia o a distanza:* +10, portata 1,5 m o gittata 9/36 m. 14 (2d8 + 5) danni perforanti più 10 (3d6) danni da freddo. Fino alla fine del suo prossimo turno, il bersaglio non può compiere Azioni Bonus o Reazioni, la sua Velocità si riduce di 3 m e nel suo turno può muoversi o compiere un’azione, non entrambi. La lancia torna magicamente nella mano del diavolo immediatamente dopo un attacco a distanza.
 
-***Ice Spear.*** *Melee or Ranged Attack Roll:* +10, reach 5 ft. or range 30/120 ft. 14 (2d8 + 5) Piercing damage plus 10 (3d6) Cold damage. Until the end of its next turn, the target can't take a Bonus Action or Reaction, its Speed decreases by 10 feet, and it can move or take one action on its turn, not both. HitomThe spear magically returns to the devil's hand immediately after a ranged attack.
+***Coda.*** *Tiro per colpire in mischia:* +10, portata 3 m. 15 (3d6 + 5) danni contundenti più 18 (4d8) danni da freddo.
 
-***Tail.*** *Melee Attack Roll:* +10, reach 10 ft. 15 (3d6 + 5) Bludgeoning damage plus 18 (4d8) Cold damage.
+***Muro di Ghiaccio (Ricarica 6).*** Il diavolo lancia *Muro di Ghiaccio* (versione di 8° livello), senza componenti e usando Intelligenza come caratteristica da incantatore (CD 17).
 
-***Ice Wall (Recharge 6).*** The devil casts *Wall of Ice* (level 8 version), requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 17).
+- **A volontà:** 
 
-- **At Will:** 
+---
 
-## Ice Mephit
+## Mephit del Ghiaccio
 
-*Small Elemental, Neutral Evil*
+*Elementale Piccolo, Neutrale Malvagio*
 
-- **Armor Class:** 11
-- **Hit Points:** 21 (6d6)
-- **Speed:** 30 ft., Fly 30 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 21 (6d6)
+- **Velocità:** 9 m, volo 9 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 7 | -2 | -2 |
-| DEX | 13 | +1 | +1 |
-| CON | 10 | +0 | +0 |
-| INT | 9 | -1 | -1 |
-| WIS | 11 | +0 | +0 |
-| CHA | 12 | +1 | +1 |
+| FOR | 7  | -2 | -2 |
+| DES | 13 | +1 | +1 |
+| COS | 10 | +0 | +0 |
+| INT | 9  | -1 | -1 |
+| SAG | 11 | +0 | +0 |
+| CAR | 12 | +1 | +1 |
 
-- **Vulnerabilities**: Fire
-- **Immunities**: Cold, Poison; Exhaustion, Poisoned
-- **Skills**: Perception +2, Stealth +3
-- **Senses**: darkvision 60 ft.; Passive Perception 12
-- **Languages**: Primordial (Aquan, Auran)
-- **CR** 1/2 (XP 100; PB +2)
+- **Vulnerabilità**: Fuoco
+- **Immunità**: Freddo, Veleno; Affaticamento, Avvelenato
+- **Abilità**: Percezione +2, Furtività +3
+- **Sensi**: scurovisione 18 m; Percezione Passiva 12
+- **Linguaggi**: Primordiale (Aquan, Auran)
+- **GS** 1/2 (PE 100; PB +2)
 
-### Traits
+### Tratti
 
-***Death Burst.*** The mephit explodes when it dies. *Constitution Saving Throw*: DC 10, each creature in a 5-foot Emanation originating from the mephit. *Failure:*  5 (2d4) Cold damage. *Success:*  Half damage.
+***Esplosione di Morte.*** Il mephit esplode quando muore. *Tiro Salvezza su Costituzione*: CD 10, da parte di ogni creatura in un’Emanazione di 1,5 m originata dal mephit. *Fallimento:* 5 (2d4) danni da freddo. *Successo:* metà danni.
 
+### Azioni
 
-### Actions
+***Artigli.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 3 (1d4 + 1) danni taglienti più 2 (1d4) danni da freddo.
 
-***Claw.*** *Melee Attack Roll:* +3, reach 5 ft. 3 (1d4 + 1) Slashing damage plus 2 (1d4) Cold damage.
+***Soffio Gelido (Ricarica 6).*** *Tiro Salvezza su Costituzione*: CD 10, da parte di ogni creatura in un Cono di 4,5 m. *Fallimento:* 7 (3d4) danni da freddo. *Successo:* metà danni.
 
-***Frost Breath (Recharge 6).*** *Constitution Saving Throw*: DC 10, each creature in a 15-foot Cone. *Failure:*  7 (3d4) Cold damage. *Success:*  Half damage.
+***Nube di Nebbia (1/giorno).*** Il mephit lancia *Nube di Nebbia*, senza componenti e usando Carisma come caratteristica da incantatore.
 
-***Fog Cloud (1/Day).*** The mephit casts *Fog Cloud*, requiring no spell components and using Charisma as the spellcasting ability.
+- **A volontà:** 
+- **1/giorno ciascuno:** *Nube di Nebbia*
 
-- **At Will:** 
-- **1/Day Each:** *Fog Cloud*
-## Imp
+---
 
-*Small Fiend (Devil), Lawful Evil*
+## Diavoletto
 
-- **Armor Class:** 13
-- **Hit Points:** 21 (6d4 + 6)
-- **Speed:** 20 ft., Fly 40 ft.
-- **Initiative**: +3 (13)
+*Infernale Piccolo (Diavolo), Legale Malvagio*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 13
+- **Punti Ferita:** 21 (6d4 + 6)
+- **Velocità:** 6 m, volo 12 m
+- **Iniziativa**: +3 (13)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 6 | -2 | -2 |
-| DEX | 17 | +3 | +3 |
-| CON | 13 | +1 | +1 |
+| FOR | 6  | -2 | -2 |
+| DES | 17 | +3 | +3 |
+| COS | 13 | +1 | +1 |
 | INT | 11 | +0 | +0 |
-| WIS | 12 | +1 | +1 |
-| CHA | 14 | +2 | +2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 14 | +2 | +2 |
 
-- **Resistances**: Cold
-- **Immunities**: Fire, Poison; Poisoned
-- **Skills**: Deception +4, Insight +3, Stealth +5
-- **Senses**: darkvision 120 ft. (unimpeded by magical darkness); Passive Perception 11
-- **Languages**: Common, Infernal
-- **CR** 1 (XP 200; PB +2)
+- **Resistenze**: Freddo
+- **Immunità**: Fuoco, Veleno; Avvelenato
+- **Abilità**: Inganno +4, Intuizione +3, Furtività +5
+- **Sensi**: scurovisione 36 m (non ostacolata dall’oscurità magica); Percezione Passiva 11
+- **Linguaggi**: Comune, Infernale
+- **GS** 1 (PE 200; PB +2)
 
-### Traits
+### Tratti
 
-***Magic Resistance.*** The imp has Advantage on saving throws against spells and other magical effects.
+***Resistenza Magica.*** Il diavoletto ha Vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
 
+### Azioni
 
-### Actions
+***Pungiglione.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni perforanti più 7 (2d6) danni da veleno.
 
-***Sting.*** *Melee Attack Roll:* +5, reach 5 ft. 6 (1d6 + 3) Piercing damage plus 7 (2d6) Poison damage.
+***Mutare Forma.*** Il diavoletto muta forma assumendo l’aspetto di un ratto (Velocità 6 m), di un corvo (6 m, volo 12 m) o di un ragno (6 m, arrampicata 6 m), oppure ritorna alla sua vera forma. Le sue statistiche restano le stesse in ogni forma, tranne la Velocità. Qualsiasi equipaggiamento indossato o portato non si trasforma.
 
-***Shape-Shift.*** The imp shape-shifts to resemble a rat (Speed 20 ft.), a raven (20 ft., Fly 60 ft.), or a spider (20 ft., Climb 20 ft.), or it returns to its true form. Its statistics are the same in each form, except for its Speed. Any equipment it is wearing or carrying isn't transformed.
+***Invisibilità.*** Il diavoletto lancia *Invisibilità* su se stesso, senza componenti e usando Carisma come caratteristica da incantatore.
 
-***Invisibility.*** The imp casts *Invisibility* on itself, requiring no spell components and using Charisma as the spellcasting ability.
+- **A volontà:** *Invisibilità*
 
-- **At Will:** *Invisibility*
+## Incubo
 
-## Incubus
+*Infernale Medio, Neutrale Malvagio*
 
-*Medium Fiend, Neutral Evil*
+- **Classe Armatura:** 15
+- **Punti Ferita:** 66 (12d8 + 12)
+- **Velocità:** 9 m, volo 18 m
+- **Iniziativa**: +3 (13)
 
-- **Armor Class:** 15
-- **Hit Points:** 66 (12d8 + 12)
-- **Speed:** 30 ft., Fly 60 ft.
-- **Initiative**: +3 (13)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 8 | -1 | -1 |
-| DEX | 17 | +3 | +3 |
-| CON | 13 | +1 | +1 |
+| FOR | 8  | -1 | -1 |
+| DES | 17 | +3 | +3 |
+| COS | 13 | +1 | +1 |
 | INT | 15 | +2 | +2 |
-| WIS | 12 | +1 | +1 |
-| CHA | 20 | +5 | +5 |
+| SAG | 12 | +1 | +1 |
+| CAR | 20 | +5 | +5 |
 
-- **Resistances**: Cold, Fire, Poison, Psychic
-- **Skills**: Deception +9, Insight +5, Perception +5, Persuasion +9, Stealth +7
-- **Senses**: darkvision 60 ft.; Passive Perception 15
-- **Languages**: Abyssal, Common, Infernal; telepathy 60 ft.
-- **CR** 4 (XP 1,100; PB +2)
+- **Resistenze**: Freddo, Fuoco, Veleno, Psichico
+- **Abilità**: Inganno +9, Intuizione +5, Percezione +5, Persuasione +9, Furtività +7
+- **Sensi**: scurovisione 18 m; Percezione Passiva 15
+- **Linguaggi**: Abissale, Comune, Infernale; telepatia 18 m
+- **GS** 4 (PE 1.100; PB +2)
 
-### Traits
+### Tratti
 
-***Succubus Form.*** When the incubus finishes a Long Rest, it can shape-shift into a Succubus, using that stat block instead of this one. Any equipment it's wearing or carrying isn't transformed.
+***Forma da Succube.*** Quando l’incubo termina un Riposo Lungo, può mutare forma in una Succube, usando quel blocco statistiche al posto di questo. Qualsiasi equipaggiamento indossato o trasportato non si trasforma.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** L’incubo effettua due attacchi di Tocco Inquieto.
 
-***Multiattack.*** The incubus makes two Restless Touch attacks.
+***Tocco Inquieto.*** *Tiro per colpire in mischia:* +7, portata 1,5 m. 15 (3d6 + 5) danni psichici, e il bersaglio è maledetto per 24 ore o finché l’incubo non muore. Finché la maledizione dura, il bersaglio non trae alcun beneficio dai Riposi Brevi.
 
-***Restless Touch.*** *Melee Attack Roll:* +7, reach 5 ft. 15 (3d6 + 5) Psychic damage, and the target is cursed for 24 hours or until the incubus dies. Until the curse ends, the target gains no benefit from finishing Short Rests.
+***Incantesimi.*** L’incubo lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 15 ai tiri salvezza):
 
-***Spellcasting.*** The incubus casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 15):
+- **A volontà:** *Camuffare Sé Stesso*, *Etereo*
+- **1/giorno ciascuno:** *Sogno*, *Motivo Ipnotico*
 
-- **At Will:** *Disguise Self*, *Etherealness*
-- **1e/Day Each:** *Dream*, *Hypnotic Pattern*
+### Azioni Bonus
 
-### Bonus Actions
+***Incubo (Ricarica 6).*** *Tiro Salvezza su Saggezza*: CD 15, una creatura che l’incubo può vedere entro 18 m. *Fallimento:* se il bersaglio ha 20 Punti Ferita o meno, ottiene la condizione Incosciente per 1 ora, finché non subisce danni, o finché una creatura entro 1,5 m da esso non usa un’azione per svegliarlo. Altrimenti, il bersaglio subisce 18 (4d8) danni psichici.
 
-***Nightmare (Recharge 6).*** *Wisdom Saving Throw*: DC 15, one creature the incubus can see within 60 feet. *Failure:*  If the target has 20 Hit Points or fewer, it has the Unconscious condition for 1 hour, until it takes damage, or until a creature within 5 feet of it takes an action to wake it. Otherwise, the target takes 18 (4d8) Psychic damage.
+---
 
-## Invisible Stalker
+## Predatore Invisibile
 
-*Large Elemental, Neutral*
+*Elementale Grande, Neutrale*
 
-- **Armor Class:** 14
-- **Hit Points:** 97 (13d10 + 26)
-- **Speed:** 50 ft., Fly 50 ft. (hover)
-- **Initiative**: +7 (17)
+- **Classe Armatura:** 14
+- **Punti Ferita:** 97 (13d10 + 26)
+- **Velocità:** 15 m, volo 15 m (fluttuare)
+- **Iniziativa**: +7 (17)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 19 | +4 | +4 |
-| CON | 14 | +2 | +2 |
+| FOR | 16 | +3 | +3 |
+| DES | 19 | +4 | +4 |
+| COS | 14 | +2 | +2 |
 | INT | 10 | +0 | +0 |
-| WIS | 15 | +2 | +2 |
-| CHA | 11 | +0 | +0 |
+| SAG | 15 | +2 | +2 |
+| CAR | 11 | +0 | +0 |
 
-- **Resistances**: Bludgeoning, Piercing, Slashing
-- **Immunities**: Poison; Exhaustion, Grappled, Paralyzed, Petrified, Poisoned, Prone, Restrained, Unconscious
-- **Skills**: Perception +8, Stealth +10
-- **Senses**: darkvision 60 ft.; Passive Perception 18
-- **Languages**: Common, Primordial (Auran)
-- **CR** 6 (XP 2,300; PB +3)
+- **Resistenze**: Contundenti, Perforanti, Taglienti
+- **Immunità**: Veleno; Affaticamento, Afferrato, Paralizzato, Pietrificato, Avvelenato, Prono, Trattenuto, Incosciente
+- **Abilità**: Percezione +8, Furtività +10
+- **Sensi**: scurovisione 18 m; Percezione Passiva 18
+- **Linguaggi**: Comune, Primordiale (Auran)
+- **GS** 6 (PE 2.300; PB +3)
 
-### Traits
+### Tratti
 
-***Air Form.*** The stalker can enter an enemy's space and stop there. It can move through a space as narrow as 1 inch without expending extra movement to do so.
+***Forma d’Aria.*** Il predatore può entrare nello spazio di un nemico e fermarsi lì. Può muoversi attraverso spazi stretti fino a 2,5 cm senza spendere movimento extra.
 
-***Invisibility.*** The stalker has the Invisible condition.
+***Invisibilità.*** Il predatore ha la condizione Invisibile.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il predatore effettua tre attacchi di Soffio di Vento. Può sostituire un attacco con l’uso di Vortice.
 
-***Multiattack.*** The stalker makes three Wind Swipe attacks. It can replace one attack with a use of Vortex.
+***Soffio di Vento.*** *Tiro per colpire in mischia:* +7, portata 1,5 m. 11 (2d6 + 4) danni da forza.
 
-***Wind Swipe.*** *Melee Attack Roll:* +7, reach 5 ft. 11 (2d6 + 4) Force damage.
+***Vortice.*** *Tiro Salvezza su Costituzione*: CD 14, una creatura Grande o più piccola nello spazio del predatore. *Fallimento:* 7 (1d8 + 3) danni da tuono, e il bersaglio ha la condizione Afferrato (CD 13 per liberarsi). Finché la presa dura, il bersaglio non può lanciare incantesimi con componenti verbali e subisce 7 (2d6) danni da tuono all’inizio di ciascun turno del predatore.
 
-***Vortex.*** *Constitution Saving Throw*: DC 14, one Large or smaller creature in the stalker's space. *Failure:*  7 (1d8 + 3) Thunder damage, and the target has the Grappled condition (escape DC 13). Until the grapple ends, the target can't cast spells with a Verbal component and takes 7 (2d6) Thunder damage at the start of each of the stalker's turns.
+---
 
-## Iron Golem
+## Golem di Ferro
 
-*Large Construct, Unaligned*
+*Costrutto Grande, Non Allineato*
 
-- **Armor Class:** 20
-- **Hit Points:** 252 (24d10 + 120)
-- **Speed:** 30 ft.
-- **Initiative**: +9 (19)
+- **Classe Armatura:** 20
+- **Punti Ferita:** 252 (24d10 + 120)
+- **Velocità:** 9 m
+- **Iniziativa**: +9 (19)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 24 | +7 | +7 |
-| DEX | 9 | -1 | -1 |
-| CON | 20 | +5 | +5 |
-| INT | 3 | -4 | -4 |
-| WIS | 11 | +0 | +0 |
-| CHA | 1 | -5 | -5 |
+| FOR | 24 | +7 | +7 |
+| DES | 9  | -1 | -1 |
+| COS | 20 | +5 | +5 |
+| INT | 3  | -4 | -4 |
+| SAG | 11 | +0 | +0 |
+| CAR | 1  | -5 | -5 |
 
-- **Immunities**: Fire, Poison, Psychic; Charmed, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned
-- **Senses**: darkvision 120 ft.; Passive Perception 10
-- **Languages**: Understands Common plus two other languages but can't speak
-- **CR** 16 (XP 15,000; PB +5)
+- **Immunità**: Fuoco, Veleno, Psichico; Affascinato, Affaticato, Spaventato, Paralizzato, Pietrificato, Avvelenato
+- **Sensi**: scurovisione 36 m; Percezione Passiva 10
+- **Linguaggi**: comprende il Comune più due altre lingue ma non può parlare
+- **GS** 16 (PE 15.000; PB +5)
 
-### Traits
+### Tratti
 
-***Fire Absorption.*** Whenever the golem is subjected to Fire damage, it regains a number of Hit Points equal to the Fire damage dealt.
+***Assorbimento del Fuoco.*** Ogni volta che il golem subisce danni da fuoco, recupera un numero di Punti Ferita pari ai danni da fuoco subiti.
 
-***Immutable Form.*** The golem can't shape-shift.
+***Forma Immutabile.*** Il golem non può mutare forma.
 
-***Magic Resistance.*** The golem has Advantage on saving throws against spells and other magical effects.
+***Resistenza Magica.*** Il golem ha Vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il golem effettua due attacchi, usando Braccio Lame o Dardo Infuocato in qualsiasi combinazione.
 
-***Multiattack.*** The golem makes two attacks, using Bladed Arm or Fiery Bolt in any combination.
+***Braccio Lame.*** *Tiro per colpire in mischia:* +12, portata 3 m. 20 (3d8 + 7) danni taglienti più 10 (3d6) danni da fuoco.
 
-***Bladed Arm.*** *Melee Attack Roll:* +12, reach 10 ft. 20 (3d8 + 7) Slashing damage plus 10 (3d6) Fire damage.
+***Dardo Infuocato.*** *Tiro per colpire a distanza:* +10, gittata 36 m. 36 (8d8) danni da fuoco.
 
-***Fiery Bolt.*** *Ranged Attack Roll:* +10, range 120 ft. 36 (8d8) Fire damage.
+***Soffio Velenoso (Ricarica 6).*** *Tiro Salvezza su Costituzione*: CD 18, ogni creatura in un cono di 18 m. *Fallimento:* 55 (10d10) danni da veleno. *Successo:* metà danni.
 
-***Poison Breath (Recharge 6).*** *Constitution Saving Throw*: DC 18, each creature in a 60-foot Cone. *Failure:*  55 (10d10) Poison damage. *Success:*  Half damage.
+---
 
-## Knight
+## Cavaliere
 
-*Small Humanoid, Neutral*
+*Umanoide Piccolo, Neutrale*
 
-- **Armor Class:** 18
-- **Hit Points:** 52 (8d8 + 16)
-- **Speed:** 30 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 18
+- **Punti Ferita:** 52 (8d8 + 16)
+- **Velocità:** 9 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 11 | +0 | +0 |
-| CON | 14 | +2 | +4 |
+| FOR | 16 | +3 | +3 |
+| DES | 11 | +0 | +0 |
+| COS | 14 | +2 | +4 |
 | INT | 11 | +0 | +0 |
-| WIS | 11 | +0 | +2 |
-| CHA | 15 | +2 | +2 |
+| SAG | 11 | +0 | +2 |
+| CAR | 15 | +2 | +2 |
 
-- **Immunities**: Frightened
-- **Gear** Greatsword, Heavy Crossbow, Plate Armor
-- **Senses**: Passive Perception 10
-- **Languages**: Common plus one other language
-- **CR** 3 (XP 700; PB +2)
+- **Immunità**: Spaventato
+- **Equipaggiamento**: Spadone, Balestra Pesante, Armatura a Piastre
+- **Sensi**: Percezione Passiva 10
+- **Linguaggi**: Comune più un’altra lingua
+- **GS** 3 (PE 700; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The knight makes two attacks, using Greatsword or Heavy Crossbow in any combination.
+***Attacco Multiplo.*** Il cavaliere effettua due attacchi, usando Spadone o Balestra Pesante in qualsiasi combinazione.
 
-***Greatsword.*** *Melee Attack Roll:* +5, reach 5 ft. 10 (2d6 + 3) Slashing damage plus 4 (1d8) Radiant damage.
+***Spadone.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) danni taglienti più 4 (1d8) danni radianti.
 
-***Heavy Crossbow.*** *Ranged Attack Roll:* +2, range 100/400 ft. 11 (2d10) Piercing damage plus 4 (1d8) Radiant damage.
+***Balestra Pesante.*** *Tiro per colpire a distanza:* +2, gittata 30/120 m. 11 (2d10) danni perforanti più 4 (1d8) danni radianti.
 
-## Kobold Warrior
+## Guerriero Coboldo
 
-*Small Dragon, Neutral*
+*Drago Piccolo, Neutrale*
 
-- **Armor Class:** 14
-- **Hit Points:** 7 (3d6 - 3)
-- **Speed:** 30 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 14
+- **Punti Ferita:** 7 (3d6 - 3)
+- **Velocità:** 9 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 7 | -2 | -2 |
-| DEX | 15 | +2 | +2 |
-| CON | 9 | -1 | -1 |
-| INT | 8 | -1 | -1 |
-| WIS | 7 | -2 | -2 |
-| CHA | 8 | -1 | -1 |
+| FOR | 7  | -2 | -2 |
+| DES | 15 | +2 | +2 |
+| COS | 9  | -1 | -1 |
+| INT | 8  | -1 | -1 |
+| SAG | 7  | -2 | -2 |
+| CAR | 8  | -1 | -1 |
 
-- **Gear** Dagger x 3
-- **Senses**: darkvision 60 ft.; Passive Perception 8
-- **Languages**: Common, Draconic
-- **CR** 1/8 (XP 25; PB +2)
+- **Equipaggiamento**: 3 pugnali  
+- **Sensi**: scurovisione 18 m; Percezione Passiva 8  
+- **Linguaggi**: Comune, Draconico  
+- **GS** 1/8 (PE 25; PB +2)
 
-### Traits
+### Tratti
 
-***Pack Tactics.*** The kobold has Advantage on an attack roll against a creature if at least one of the kobold's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+***Tattiche di Branco.*** Il coboldo ha vantaggio ai tiri per colpire contro una creatura se almeno un alleato del coboldo si trova entro 1,5 m dalla creatura e non ha la condizione Incapacitato.
 
-***Sunlight Sensitivity.*** While in sunlight, the kobold has Disadvantage on ability checks and attack rolls.
+***Sensibilità alla Luce Solare.*** Mentre si trova alla luce solare, il coboldo ha svantaggio alle prove di caratteristica e ai tiri per colpire.
 
+### Azioni
 
-### Actions
+***Pugnale.*** *Tiro per colpire in mischia o a distanza:* +4, portata 1,5 m o gittata 6/18 m. 4 (1d4 + 2) danni perforanti.
 
-***Dagger.*** *Melee or Ranged Attack Roll:* +4, reach 5 ft. or range 20/60 ft. 4 (1d4 + 2) Piercing damage.
+---
 
 ## Kraken
 
-*Gargantuan Monstrosity (Titan), Chaotic Evil*
+*Mostruosità Mastodontica (Titano), Caotico Malvagio*
 
-- **Armor Class:** 18
-- **Hit Points:** 481 (26d20 + 208)
-- **Speed:** 30 ft., Swim 120 ft.
-- **Initiative**: +4 (14)
+- **Classe Armatura:** 18
+- **Punti Ferita:** 481 (26d20 + 208)
+- **Velocità:** 9 m, nuoto 36 m
+- **Iniziativa**: +4 (14)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 30 | +10 | +17 |
-| DEX | 11 | +0 | +7 |
-| CON | 26 | +8 | +15 |
-| INT | 22 | +6 | +6 |
-| WIS | 18 | +4 | +11 |
-| CHA | 20 | +5 | +5 |
+| FOR | 30 | +10 | +17 |
+| DES | 11 | +0  | +7 |
+| COS | 26 | +8  | +15 |
+| INT | 22 | +6  | +6 |
+| SAG | 18 | +4  | +11 |
+| CAR | 20 | +5  | +5 |
 
-- **Immunities**: Cold, Lightning; Frightened, Grappled, Paralyzed, Restrained
-- **Skills**: History +13, Perception +11
-- **Senses**: truesight 120 ft.; Passive Perception 21
-- **Languages**: Understands Abyssal, Celestial, Infernal, And Primordial but can't speak; telepathy 120 ft.
-- **CR** 23 (XP 50,000, or 62,000 in lair)
+- **Immunità**: Freddo, Fulmine; Spaventato, Afferrato, Paralizzato, Trattenuto  
+- **Abilità**: Storia +13, Percezione +11  
+- **Sensi**: vista cieca 36 m; Percezione Passiva 21  
+- **Linguaggi**: comprende Abissale, Celestiale, Infernale e Primordiale ma non può parlare; telepatia 36 m  
+- **GS** 23 (PE 50.000; o 62.000 nella tana)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The kraken can breathe air and water.
+***Anfibio.*** Il kraken può respirare aria e acqua.
 
-***Legendary Resistance (4/Day, or 5/Day in Lair).*** If the kraken fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (4/giorno, o 5/giorno nella tana).*** Se il kraken fallisce un tiro salvezza, può scegliere di avere successo al suo posto.
 
-***Siege Monster.*** The kraken deals double damage to objects and structures.
+***Mostro d’Assedio.*** Il kraken infligge il doppio dei danni a oggetti e strutture.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il kraken effettua due attacchi di Tentacolo e usa Scagliare, Fulmine o Inghiottire.
 
-***Multiattack.*** The kraken makes two Tentacle attacks and uses Fling, Lightning Strike, or Swallow.
+***Tentacolo.*** *Tiro per colpire in mischia:* +17, portata 9 m. 24 (4d6 + 10) danni contundenti. Il bersaglio ha la condizione Afferrato (CD 20 per liberarsi) da uno dei dieci tentacoli, e la condizione Restrittto finché la presa dura.
 
-***Tentacle.*** *Melee Attack Roll:* +17, reach 30 ft. 24 (4d6 + 10) Bludgeoning damage. The target has the Grappled condition (escape DC 20) from one of ten tentacles, and it has the Restrained condition until the grapple ends.
+***Scagliare.*** Il kraken lancia una creatura Grande o più piccola che ha afferrato in uno spazio che può vedere entro 18 m e che non sia in aria. *Tiro Salvezza su Destrezza*: CD 25, per la creatura lanciata e ciascuna creatura nello spazio di destinazione. *Fallimento:* 18 (4d8) danni contundenti, e il bersaglio ha la condizione Prono. *Successo:* metà danni.
 
-***Fling.*** The kraken throws a Large or smaller creature Grappled by it to a space it can see within 60 feet of itself that isn't in the air. *Dexterity Saving Throw*: DC 25, the creature thrown and each creature in the destination space. *Failure:*  18 (4d8) Bludgeoning damage, and the target has the Prone condition. *Success:*  Half damage only.
+***Fulmine.*** *Tiro Salvezza su Destrezza*: CD 23, una creatura che il kraken può vedere entro 36 m. *Fallimento:* 33 (6d10) danni da fulmine. *Successo:* metà danni.
 
-***Lightning Strike.*** *Dexterity Saving Throw*: DC 23, one creature the kraken can see within 120 feet. *Failure:*  33 (6d10) Lightning damage. *Success:*  Half damage.
+***Inghiottire.*** *Tiro Salvezza su Destrezza*: CD 25, una creatura afferrata dal kraken (può averne fino a quattro inghiottite alla volta). *Fallimento:* 23 (3d8 + 10) danni perforanti. Se il bersaglio è Grande o più piccolo, viene inghiottito e non è più afferrato. Una creatura inghiottita ha la condizione Restrittto, ha Copertura Totale contro attacchi ed effetti dall’esterno del kraken, e subisce 24 (7d6) danni da acido all’inizio di ciascun turno del kraken.  
+Se il kraken subisce 50 o più danni in un solo turno da una creatura al suo interno, deve superare un TS su Costituzione CD 25 alla fine di quel turno o rigettare tutte le creature inghiottite, che cadono prone entro 3 m da esso. Se il kraken muore, le creature inghiottite non sono più Restrittte e possono fuggire usando 4,5 m di movimento, uscendo prone.
 
-***Swallow.*** *Dexterity Saving Throw*: DC 25, one creature Grappled by the kraken (it can have up to four creatures swallowed at a time). *Failure:*  23 (3d8 + 10) Piercing damage. If the target is Large or smaller, it is swallowed and no longer Grappled. A swallowed creature has the Restrained condition, has Cover|XPHB|Total Cover against attacks and other effects outside the kraken, and takes 24 (7d6) Acid damage at the start of each of its turns.
-If the kraken takes 50 damage or more on a single turn from a creature inside it, the kraken must succeed on a DC 25 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, each of which falls in a space within 10 feet of the kraken with the Prone condition. If the kraken dies, any swallowed creature no longer has the Restrained condition and can escape from the corpse using 15 feet of movement, exiting Prone.
+### Azioni Leggendarie
 
+***Saetta della Tempesta.*** Il kraken usa Fulmine.
 
-### Legendary Actions
+***Inchiostro Tossico.*** *Tiro Salvezza su Costituzione*: CD 23, ogni creatura in un raggio di 4,5 m dal kraken mentre è sott’acqua. *Fallimento:* il bersaglio ha le condizioni Accecato e Avvelenato fino alla fine del turno successivo del kraken. Poi il kraken si muove fino alla sua velocità. *Fallimento o Successo:* il kraken non può riutilizzare questa azione fino all’inizio del suo turno successivo.
 
-***Storm Bolt.*** The kraken uses Lightning Strike.
-
-***Toxic Ink.*** *Constitution Saving Throw*: DC 23, each creature in a 15-foot Emanation originating from the kraken while it is underwater. *Failure:*  The target has the Blinded and Poisoned conditions until the end of the kraken's next turn. The kraken then moves up to its Speed. *Failure or Success*:  The kraken can't take this action again until the start of its next turn.
+---
 
 ## Lamia
 
-*Large Fiend, Chaotic Evil*
+*Infernale Grande, Caotico Malvagio*
 
-- **Armor Class:** 13
-- **Hit Points:** 97 (13d10 + 26)
-- **Speed:** 40 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 97 (13d10 + 26)
+- **Velocità:** 12 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 13 | +1 | +1 |
-| CON | 15 | +2 | +2 |
+| FOR | 16 | +3 | +3 |
+| DES | 13 | +1 | +1 |
+| COS | 15 | +2 | +2 |
 | INT | 14 | +2 | +2 |
-| WIS | 15 | +2 | +2 |
-| CHA | 16 | +3 | +3 |
+| SAG | 15 | +2 | +2 |
+| CAR | 16 | +3 | +3 |
 
-- **Skills**: Deception +7, Insight +4, Stealth +5
-- **Senses**: darkvision 60 ft.; Passive Perception 12
-- **Languages**: Abyssal, Common
-- **CR** 4 (XP 1,100; PB +2)
+- **Abilità**: Inganno +7, Intuizione +4, Furtività +5  
+- **Sensi**: scurovisione 18 m; Percezione Passiva 12  
+- **Linguaggi**: Abissale, Comune  
+- **GS** 4 (PE 1.100; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The lamia makes two Claw attacks. It can replace one attack with a use of Corrupting Touch.
+***Attacco Multiplo.*** La lamia effettua due attacchi di Artiglio. Può sostituire un attacco con un uso di Tocco Corruttivo.
 
-***Claw.*** *Melee Attack Roll:* +5, reach 5 ft. 7 (1d8 + 3) Slashing damage plus 7 (2d6) Psychic damage.
+***Artiglio.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni taglienti più 7 (2d6) danni psichici.
 
-***Corrupting Touch.*** *Wisdom Saving Throw*: DC 13, one creature the lamia can see within 5 feet. *Failure:*  13 (3d8) Psychic damage, and the target is cursed for 1 hour. Until the curse ends, the target has the Charmed and Poisoned conditions.
+***Tocco Corruttivo.*** *Tiro Salvezza su Saggezza*: CD 13, una creatura che la lamia può vedere entro 1,5 m. *Fallimento:* 13 (3d8) danni psichici, e il bersaglio è maledetto per 1 ora. Finché la maledizione dura, il bersaglio ha le condizioni Affascinato e Avvelenato.
 
-***Spellcasting.*** The lamia casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 13):
+***Incantesimi.*** La lamia lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 13 ai TS):
 
-- **At Will:** *Disguise Self*, *Minor Illusion*
-- **1e/Day Each:** *Geas*, *Major Image*, *Scrying*
+- **A volontà:** *Camuffare Sé Stesso*, *Illusione Minore*
+- **1/giorno ciascuno:** *Geas*, *Immagine Maggiore*, *Chiaroveggenza*
 
-### Bonus Actions
+### Azioni Bonus
 
-***Leap.*** The lamia jumps up to 30 feet by spending 10 feet of movement.
+***Balzo.*** La lamia salta fino a 9 m spendendo 3 m di movimento.
+
+---
 
 ## Lemure
 
-*Medium Fiend (Devil), Lawful Evil*
+*Infernale Medio (Diavolo), Legale Malvagio*
 
-- **Armor Class:** 9
-- **Hit Points:** 9 (2d8)
-- **Speed:** 20 ft.
-- **Initiative**: -3 (7)
+- **Classe Armatura:** 9
+- **Punti Ferita:** 9 (2d8)
+- **Velocità:** 6 m
+- **Iniziativa**: -3 (7)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 10 | +0 | +0 |
-| DEX | 5 | -3 | -3 |
-| CON | 11 | +0 | +0 |
-| INT | 1 | -5 | -5 |
-| WIS | 11 | +0 | +0 |
-| CHA | 3 | -4 | -4 |
+| FOR | 10 | +0 | +0 |
+| DES | 5  | -3 | -3 |
+| COS | 11 | +0 | +0 |
+| INT | 1  | -5 | -5 |
+| SAG | 11 | +0 | +0 |
+| CAR | 3  | -4 | -4 |
 
-- **Resistances**: Cold
-- **Immunities**: Fire, Poison; Charmed, Frightened, Poisoned
-- **Senses**: darkvision 120 ft. (unimpeded by magical darkness); Passive Perception 10
-- **Languages**: Understands Infernal but can't speak
-- **CR** 0 (XP 0 or 10; PB +2)
+- **Resistenze**: Freddo  
+- **Immunità**: Fuoco, Veleno; Affascinato, Spaventato, Avvelenato  
+- **Sensi**: scurovisione 36 m (non ostacolata dall’oscurità magica); Percezione Passiva 10  
+- **Linguaggi**: comprende l’Infernale ma non può parlare  
+- **GS** 0 (PE 0 o 10; PB +2)
 
-### Traits
+### Tratti
 
-***Hellish Restoration.*** If the lemure dies in the Nine Hells, it revives with all its Hit Points in 1d10 days unless it is killed by a creature under the effects of a *Bless* spell or its remains are sprinkled with Holy Water.
+***Restaurazione Infernale.*** Se il lemure muore nei Nove Inferi, ritorna in vita con tutti i suoi PF in 1d10 giorni a meno che non venga ucciso da una creatura sotto gli effetti di *Benedizione* o le sue spoglie non vengano cosparse di Acqua Benedetta.
 
+### Azioni
 
-### Actions
-
-***Vile Slime.*** *Melee Attack Roll:* +2, reach 5 ft. 2 (1d4) Poison damage.
+***Melma Vile.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 2 (1d4) danni da veleno.
 
 ## Lich
 
-*Medium Undead (Wizard), Neutral Evil*
+*Non Morto Medio (Mago), Neutrale Malvagio*
 
-- **Armor Class:** 20
-- **Hit Points:** 315 (42d8 + 126)
-- **Speed:** 30 ft.
-- **Initiative**: +7 (17)
+- **Classe Armatura:** 20
+- **Punti Ferita:** 315 (42d8 + 126)
+- **Velocità:** 9 m
+- **Iniziativa**: +7 (17)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 11 | +0 | +0 |
-| DEX | 16 | +3 | +10 |
-| CON | 16 | +3 | +10 |
+| FOR | 11 | +0 | +0 |
+| DES | 16 | +3 | +10 |
+| COS | 16 | +3 | +10 |
 | INT | 21 | +5 | +12 |
-| WIS | 14 | +2 | +9 |
-| CHA | 16 | +3 | +3 |
+| SAG | 14 | +2 | +9 |
+| CAR | 16 | +3 | +3 |
 
-- **Resistances**: Cold, Lightning
-- **Immunities**: Necrotic, Poison; Charmed, Exhaustion, Frightened, Paralyzed, Poisoned
-- **Skills**: Arcana +19, History +12, Insight +9, Perception +9
-- **Gear** Component Pouch
-- **Senses**: truesight 120 ft.; Passive Perception 19
-- **Languages**: All
-- **CR** 21 (XP 33,000, or 41,000 in lair)
+- **Resistenze**: Freddo, Fulmine
+- **Immunità**: Necrotico, Veleno; Affascinato, Affaticato, Spaventato, Paralizzato, Avvelenato
+- **Abilità**: Arcana +19, Storia +12, Intuizione +9, Percezione +9
+- **Equipaggiamento**: Borsa dei Componenti
+- **Sensi**: vista vera 36 m; Percezione Passiva 19
+- **Linguaggi**: Tutti
+- **GS** 21 (PE 33.000; o 41.000 nella tana)
 
-### Traits
+### Tratti
 
-***Legendary Resistance (4/Day, or 5/Day in Lair).*** If the lich fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (4/giorno, o 5/giorno nella tana).*** Se il lich fallisce un tiro salvezza, può scegliere di riuscire al suo posto.
 
-***Spirit Jar.*** If destroyed, the lich reforms in 1d10 days if it has a spirit jar, reviving with all its Hit Points. The new body appears in an unoccupied space within the lich's lair.
+***Vaso Spirituale.*** Se distrutto, il lich si riforma in 1d10 giorni se possiede un vaso spiritale, tornando con tutti i suoi Punti Ferita. Il nuovo corpo appare in uno spazio non occupato all’interno della tana del lich.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il lich effettua tre attacchi, usando Esplosione Eldritch o Tocco Paralizzante in qualsiasi combinazione.
 
-***Multiattack.*** The lich makes three attacks, using Eldritch Burst or Paralyzing Touch in any combination.
+***Esplosione Eldritch.*** *Tiro per colpire in mischia o a distanza:* +12, portata 1,5 m o gittata 36 m. 31 (4d12 + 5) danni da forza.
 
-***Eldritch Burst.*** *Melee or Ranged Attack Roll:* +12, reach 5 ft. or range 120 ft. 31 (4d12 + 5) Force damage.
+***Tocco Paralizzante.*** *Tiro per colpire in mischia:* +12, portata 1,5 m. 15 (3d6 + 5) danni da freddo, e il bersaglio ha la condizione Paralizzato fino all’inizio del prossimo turno del lich.
 
-***Paralyzing Touch.*** *Melee Attack Roll:* +12, reach 5 ft. 15 (3d6 + 5) Cold damage, and the target has the Paralyzed condition until the start of the lich's next turn.
+***Incantesimi.*** Il lich lancia uno dei seguenti incantesimi, usando Intelligenza come caratteristica da incantatore (CD 20):
 
-***Spellcasting.*** The lich casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 20):
+- **A volontà:** *Rilevare Magia*, *Rilevare Pensieri*, *Dissolvi Magie*, *Palla di Fuoco*, *Invisibilità*, *Dardo Incantato*, *Mano Magica*, *Prestidigitazione*
+- **2/giorno ciascuno:** *Animare Morti*, *Porta Dimensionale*, *Spostamento Planare*
+- **1/giorno ciascuno:** *Catena di Fulmini*, *Dito della Morte*, *Parola del Potere: Uccidere*, *Chiaroveggenza a Distanza*
 
-- **At Will:** *Detect Magic*, *Detect Thoughts*, *Dispel Magic*, *Fireball*, *Invisibility*, *Lightning Bolt*, *Mage Hand*, *Prestidigitation*
-- **2e/Day Each:** *Animate Dead*, *Dimension Door*, *Plane Shift*
-- **1e/Day Each:** *Chain Lightning*, *Finger of Death*, *Power Word Kill*, *Scrying*
+### Reazioni
 
-### Reactions
+***Magia Protettiva.*** Il lich lancia *Controincantesimo* o *Scudo* in risposta al relativo innesco, usando la stessa caratteristica da incantatore di Incantesimi.
 
-***Protective Magic.*** The lich casts *Counterspell* or *Shield* in response to the spell's trigger, using the same spellcasting ability as Spellcasting.
+### Azioni Leggendarie
 
-### Legendary Actions
+***Teletrasporto Mortifero.*** Il lich si teletrasporta fino a 18 m in uno spazio non occupato che vede, e ogni creatura entro 3 m dallo spazio che ha lasciato subisce 11 (2d10) danni necrotici.
 
-***Deathly Teleport.*** The lich teleports up to 60 feet to an unoccupied space it can see, and each creature within 10 feet of the space it left takes 11 (2d10) Necrotic damage.
+***Disturbo della Vita.*** *Tiro Salvezza su Costituzione*: CD 20, da parte di ogni creatura non Non Morta in un’Emanazione di 6 m originata dal lich. *Fallimento:* 31 (9d6) danni necrotici. *Successo:* metà danni. *Fallimento o Successo:* il lich non può riutilizzare questa azione fino all’inizio del suo prossimo turno.
 
-***Disrupt Life.*** *Constitution Saving Throw*: DC 20, each creature that isn't an Undead in a 20-foot Emanation originating from the lich. *Failure:*  31 (9d6) Necrotic damage. *Success:*  Half damage. *Failure or Success*:  The lich can't take this action again until the start of its next turn.
+***Sguardo Terrificante.*** Il lich lancia *Paura*, usando la stessa caratteristica da incantatore di Incantesimi. Il lich non può riutilizzare questa azione fino all’inizio del suo prossimo turno.
 
-***Frightening Gaze.*** The lich casts *Fear*, using the same spellcasting ability as Spellcasting. The lich can't take this action again until the start of its next turn.
-## Mage
+---
 
-*Small Humanoid, Neutral*
+## Mago
 
-- **Armor Class:** 15
-- **Hit Points:** 81 (18d8)
-- **Speed:** 30 ft.
-- **Initiative**: +2 (12)
+*Umanoide Piccolo, Neutrale*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 15
+- **Punti Ferita:** 81 (18d8)
+- **Velocità:** 9 m
+- **Iniziativa**: +2 (12)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 9 | -1 | -1 |
-| DEX | 14 | +2 | +2 |
-| CON | 11 | +0 | +0 |
+| FOR | 9  | -1 | -1 |
+| DES | 14 | +2 | +2 |
+| COS | 11 | +0 | +0 |
 | INT | 17 | +3 | +6 |
-| WIS | 12 | +1 | +4 |
-| CHA | 11 | +0 | +0 |
+| SAG | 12 | +1 | +4 |
+| CAR | 11 | +0 | +0 |
 
-- **Skills**: Arcana +6, History +6, Perception +4
-- **Gear** Wand
-- **Senses**: Passive Perception 14
-- **Languages**: Common and any three languages
-- **CR** 6 (XP 2,300; PB +3)
+- **Abilità**: Arcana +6, Storia +6, Percezione +4
+- **Equipaggiamento**: Bacchetta
+- **Sensi**: Percezione Passiva 14
+- **Linguaggi**: Comune e altre tre lingue
+- **GS** 6 (PE 2.300; PB +3)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The mage makes three Arcane Burst attacks.
+***Attacco Multiplo.*** Il mago effettua tre attacchi di Esplosione Arcana.
 
-***Arcane Burst.*** *Melee or Ranged Attack Roll:* +6, reach 5 ft. or range 120 ft. 16 (3d8 + 3) Force damage.
+***Esplosione Arcana.*** *Tiro per colpire in mischia o a distanza:* +6, portata 1,5 m o gittata 36 m. 16 (3d8 + 3) danni da forza.
 
-***Spellcasting.*** The mage casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 14):
+***Incantesimi.*** Il mago lancia uno dei seguenti incantesimi, usando Intelligenza come caratteristica da incantatore (CD 14):
 
-- **At Will:** *Detect Magic*, *Light*, *Mage Armor*, *Mage Hand*, *Prestidigitation*
-- **2e/Day Each:** *Fireball*, *Invisibility*
-- **1e/Day Each:** *Cone of Cold*, *Fly*
+- **A volontà:** *Rilevare Magia*, *Luce*, *Armatura Magica*, *Mano Magica*, *Prestidigitazione*
+- **2/giorno ciascuno:** *Palla di Fuoco*, *Invisibilità*
+- **1/giorno ciascuno:** *Cono di Freddo*, *Volare*
 
-### Bonus Actions
+### Azioni Bonus
 
-***Misty Step (3/Day).*** The mage casts *Misty Step*, using the same spellcasting ability as Spellcasting.
+***Passo Velato (3/giorno).*** Il mago lancia *Passo Velato*, usando la stessa caratteristica da incantatore di Incantesimi.
 
-### Reactions
+### Reazioni
 
-***Protective Magic (3/Day).*** The mage casts *Counterspell* or *Shield* in response to the spell's trigger, using the same spellcasting ability as Spellcasting.
-## Magma Mephit
+***Magia Protettiva (3/giorno).*** Il mago lancia *Controincantesimo* o *Scudo* in risposta al relativo innesco, usando la stessa caratteristica da incantatore di Incantesimi.
 
-*Small Elemental, Neutral Evil*
+---
 
-- **Armor Class:** 11
-- **Hit Points:** 18 (4d6 + 4)
-- **Speed:** 30 ft., Fly 30 ft.
-- **Initiative**: +1 (11)
+## Mephit di Magma
 
-|STAT|SCORE|MOD|SAVE|
+*Elementale Piccolo, Neutrale Malvagio*
+
+- **Classe Armatura:** 11
+- **Punti Ferita:** 18 (4d6 + 4)
+- **Velocità:** 9 m, volo 9 m
+- **Iniziativa**: +1 (11)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 8 | -1 | -1 |
-| DEX | 12 | +1 | +1 |
-| CON | 12 | +1 | +1 |
-| INT | 7 | -2 | -2 |
-| WIS | 10 | +0 | +0 |
-| CHA | 10 | +0 | +0 |
+| FOR | 8  | -1 | -1 |
+| DES | 12 | +1 | +1 |
+| COS | 12 | +1 | +1 |
+| INT | 7  | -2 | -2 |
+| SAG | 10 | +0 | +0 |
+| CAR | 10 | +0 | +0 |
 
-- **Vulnerabilities**: Cold
-- **Immunities**: Fire, Poison; Exhaustion, Poisoned
-- **Skills**: Stealth +3
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **Languages**: Primordial (Ignan, Terran)
-- **CR** 1/2 (XP 100; PB +2)
+- **Vulnerabilità**: Freddo
+- **Immunità**: Fuoco, Veleno; Affaticamento, Avvelenato
+- **Abilità**: Furtività +3
+- **Sensi**: scurovisione 18 m; Percezione Passiva 10
+- **Linguaggi**: Primordiale (Ignan, Terran)
+- **GS** 1/2 (PE 100; PB +2)
 
-### Traits
+### Tratti
 
-***Death Burst.*** The mephit explodes when it dies. *Dexterity Saving Throw*: DC 11, each creature in a 5-foot Emanation originating from the mephit. *Failure:*  7 (2d6) Fire damage. *Success:*  Half damage.
+***Esplosione di Morte.*** Il mephit esplode quando muore. *Tiro Salvezza su Destrezza*: CD 11, da parte di ogni creatura in un’Emanazione di 1,5 m originata dal mephit. *Fallimento:* 7 (2d6) danni da fuoco. *Successo:* metà danni.
 
+### Azioni
 
-### Actions
+***Artigli.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 3 (1d4 + 1) danni taglienti più 3 (1d6) danni da fuoco.
 
-***Claw.*** *Melee Attack Roll:* +3, reach 5 ft. 3 (1d4 + 1) Slashing damage plus 3 (1d6) Fire damage.
+***Soffio di Fuoco (Ricarica 6).*** *Tiro Salvezza su Destrezza*: CD 11, da parte di ogni creatura in un Cono di 4,5 m. *Fallimento:* 7 (2d6) danni da fuoco. *Successo:* metà danni.
 
-***Fire Breath (Recharge 6).*** *Dexterity Saving Throw*: DC 11, each creature in a 15-foot Cone. *Failure:*  7 (2d6) Fire damage. *Success:*  Half damage.
+---
 
 ## Magmin
 
-*Small Elemental, Chaotic Neutral*
+*Elementale Piccolo, Caotico Neutrale*
 
-- **Armor Class:** 14
-- **Hit Points:** 13 (3d6 + 3)
-- **Speed:** 30 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 14
+- **Punti Ferita:** 13 (3d6 + 3)
+- **Velocità:** 9 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 7 | -2 | -2 |
-| DEX | 15 | +2 | +2 |
-| CON | 12 | +1 | +1 |
-| INT | 8 | -1 | -1 |
-| WIS | 11 | +0 | +0 |
-| CHA | 10 | +0 | +0 |
+| FOR | 7  | -2 | -2 |
+| DES | 15 | +2 | +2 |
+| COS | 12 | +1 | +1 |
+| INT | 8  | -1 | -1 |
+| SAG | 11 | +0 | +0 |
+| CAR | 10 | +0 | +0 |
 
-- **Immunities**: Fire
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **Languages**: Primordial (Ignan)
-- **CR** 1/2 (XP 100; PB +2)
+- **Immunità**: Fuoco
+- **Sensi**: scurovisione 18 m; Percezione Passiva 10
+- **Linguaggi**: Primordiale (Ignan)
+- **GS** 1/2 (PE 100; PB +2)
 
-### Traits
+### Tratti
 
-***Death Burst.*** The magmin explodes when it dies. *Dexterity Saving Throw*: DC 11, each creature in a 10-foot Emanation originating from the magmin. *Failure:*  7 (2d6) Fire damage. *Success:*  Half damage.
+***Esplosione di Morte.*** Il magmin esplode quando muore. *Tiro Salvezza su Destrezza*: CD 11, da parte di ogni creatura in un’Emanazione di 3 m originata dal magmin. *Fallimento:* 7 (2d6) danni da fuoco. *Successo:* metà danni.
 
+### Azioni
 
-### Actions
+***Tocco.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 7 (2d4 + 2) danni da fuoco. Se il bersaglio è una creatura o un oggetto infiammabile non indossato o trasportato, prende fuoco.
 
-***Touch.*** *Melee Attack Roll:* +4, reach 5 ft. 7 (2d4 + 2) Fire damage. If the target is a creature or a flammable object that isn't being worn or carried, it starts burning.
+### Azioni Bonus
 
+***Illuminazione Ardente.*** Il magmin si dà fuoco o estingue le proprie fiamme. Mentre è in fiamme, emette Luce Intensa in un raggio di 3 m e Luce Fioca per ulteriori 3 m.
 
-### Bonus Actions
+## Manticora
 
-***Ignited Illumination.*** The magmin sets itself ablaze or extinguishes its flames. While ablaze, the magmin sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.
+*Mostruosità Grande, Legale Malvagia*
 
-## Manticore
+- **Classe Armatura:** 14
+- **Punti Ferita:** 68 (8d10 + 24)
+- **Velocità:** 9 m, volo 15 m
+- **Iniziativa**: +3 (13)
 
-*Large Monstrosity, Lawful Evil*
-
-- **Armor Class:** 14
-- **Hit Points:** 68 (8d10 + 24)
-- **Speed:** 30 ft., Fly 50 ft.
-- **Initiative**: +3 (13)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 17 | +3 | +3 |
-| DEX | 16 | +3 | +3 |
-| CON | 17 | +3 | +3 |
-| INT | 7 | -2 | -2 |
-| WIS | 12 | +1 | +1 |
-| CHA | 8 | -1 | -1 |
+| FOR | 17 | +3 | +3 |
+| DES | 16 | +3 | +3 |
+| COS | 17 | +3 | +3 |
+| INT | 7  | -2 | -2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 8  | -1 | -1 |
 
-- **Senses**: darkvision 60 ft.; Passive Perception 11
-- **Languages**: Common
-- **CR** 3 (XP 700; PB +2)
+- **Sensi**: scurovisione 18 m; Percezione Passiva 11
+- **Linguaggi**: Comune
+- **GS** 3 (PE 700; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The manticore makes three attacks, using Rend or Tail Spike in any combination.
+***Attacco Multiplo.*** La manticora effettua tre attacchi, usando Artigliata o Dardo di Coda in qualsiasi combinazione.
 
-***Rend.*** *Melee Attack Roll:* +5, reach 5 ft. 7 (1d8 + 3) Slashing damage.
+***Artigliata.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni taglienti.
 
-***Tail Spike.*** *Ranged Attack Roll:* +5, range 100/200 ft. 7 (1d8 + 3) Piercing damage.
+***Dardo di Coda.*** *Tiro per colpire a distanza:* +5, gittata 30/60 m. 7 (1d8 + 3) danni perforanti.
+
+---
 
 ## Marilith
 
-*Large Fiend (Demon), Chaotic Evil*
+*Immonda Grande (Demone), Caotica Malvagia*
 
-- **Armor Class:** 16
-- **Hit Points:** 220 (21d10 + 105)
-- **Speed:** 40 ft., Climb 40 ft.
-- **Initiative**: +10 (20)
+- **Classe Armatura:** 16
+- **Punti Ferita:** 220 (21d10 + 105)
+- **Velocità:** 12 m, scalare 12 m
+- **Iniziativa**: +10 (20)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +9 |
-| DEX | 20 | +5 | +5 |
-| CON | 20 | +5 | +10 |
+| FOR | 18 | +4 | +9 |
+| DES | 20 | +5 | +5 |
+| COS | 20 | +5 | +10 |
 | INT | 18 | +4 | +4 |
-| WIS | 16 | +3 | +8 |
-| CHA | 20 | +5 | +10 |
+| SAG | 16 | +3 | +8 |
+| CAR | 20 | +5 | +10 |
 
-- **Resistances**: Cold, Fire, Lightning
-- **Immunities**: Poison; Poisoned
-- **Skills**: Perception +8
-- **Senses**: truesight 120 ft.; Passive Perception 18
-- **Languages**: Abyssal; telepathy 120 ft.
-- **CR** 16 (XP 15,000; PB +5)
+- **Resistenze**: Freddo, Fuoco, Fulmine
+- **Immunità**: Veleno; Avvelenato
+- **Abilità**: Percezione +8
+- **Sensi**: vista vera 36 m; Percezione Passiva 18
+- **Linguaggi**: Abissale; telepatia 36 m
+- **GS** 16 (PE 15.000; PB +5)
 
-### Traits
+### Tratti
 
-***Demonic Restoration.*** If the marilith dies outside the Abyss, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.
+***Restaurazione Demoniaca.*** Se la marilith muore al di fuori dell'Abisso, il suo corpo si dissolve in icore e ottiene subito un nuovo corpo, rianimandosi con tutti i suoi Punti Ferita da qualche parte nell'Abisso.
 
-***Magic Resistance.*** The marilith has Advantage on saving throws against spells and other magical effects.
+***Resistenza alla Magia.*** La marilith ha vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
 
-***Reactive.*** The marilith can take one Reaction on every turn of combat.
+***Reattiva.*** La marilith può compiere una Reazione in ogni turno del combattimento.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** La marilith effettua sei attacchi con la Lama del Patto e usa Stritolare.
 
-***Multiattack.*** The marilith makes six Pact Blade attacks and uses Constrict.
+***Lama del Patto.*** *Tiro per colpire in mischia:* +10, portata 1,5 m. 10 (1d10 + 5) danni taglienti più 7 (2d6) danni necrotici.
 
-***Pact Blade.*** *Melee Attack Roll:* +10, reach 5 ft. 10 (1d10 + 5) Slashing damage plus 7 (2d6) Necrotic damage.
+***Stritolare.*** *Tiro Salvezza su Forza*: CD 17, una creatura Media o più piccola che la marilith può vedere entro 1,5 m. *Fallimento:* 15 (2d10 + 4) danni contundenti. Il bersaglio ha la condizione Afferrato (CD 14 per liberarsi) e la condizione Immobilizzato finché la presa dura.
 
-***Constrict.*** *Strength Saving Throw*: DC 17, one Medium or smaller creature the marilith can see within 5 feet. *Failure:*  15 (2d10 + 4) Bludgeoning damage. The target has the Grappled condition (escape DC 14), and it has the Restrained condition until the grapple ends.
+### Azioni Bonus
 
+***Teletrasporto (Ricarica 5–6).*** La marilith si teletrasporta fino a 36 m in uno spazio non occupato che può vedere.
 
-### Bonus Actions
-
-***Teleport (Recharge 5-6).*** The marilith teleports up to 120 feet to an unoccupied space it can see.
+---
 
 ## Medusa
 
-*Medium Monstrosity, Lawful Evil*
+*Mostruosità Media, Legale Malvagia*
 
-- **Armor Class:** 15
-- **Hit Points:** 127 (17d8 + 51)
-- **Speed:** 30 ft.
-- **Initiative**: +6 (16)
+- **Classe Armatura:** 15
+- **Punti Ferita:** 127 (17d8 + 51)
+- **Velocità:** 9 m
+- **Iniziativa**: +6 (16)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 10 | +0 | +0 |
-| DEX | 17 | +3 | +3 |
-| CON | 16 | +3 | +3 |
+| FOR | 10 | +0 | +0 |
+| DES | 17 | +3 | +3 |
+| COS | 16 | +3 | +3 |
 | INT | 12 | +1 | +1 |
-| WIS | 13 | +1 | +4 |
-| CHA | 15 | +2 | +2 |
+| SAG | 13 | +1 | +4 |
+| CAR | 15 | +2 | +2 |
 
-- **Skills**: Deception +5, Perception +4, Stealth +6
-- **Senses**: darkvision 150 ft.; Passive Perception 14
-- **Languages**: Common plus one other language
-- **CR** 6 (XP 2,300; PB +3)
+- **Abilità**: Inganno +5, Percezione +4, Furtività +6
+- **Sensi**: scurovisione 45 m; Percezione Passiva 14
+- **Linguaggi**: Comune più un'altra lingua
+- **GS** 6 (PE 2.300; PB +3)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The medusa makes two Claw attacks and one Snake Hair attack, or it makes three Poison Ray attacks.
+***Attacco Multiplo.*** La medusa effettua due attacchi di Artigliata e uno di Capelli di Serpente, oppure tre attacchi con Raggio Velenoso.
 
-***Claw.*** *Melee Attack Roll:* +6, reach 5 ft. 10 (2d6 + 3) Slashing damage.
+***Artigliata.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 10 (2d6 + 3) danni taglienti.
 
-***Snake Hair.*** *Melee Attack Roll:* +6, reach 5 ft. 5 (1d4 + 3) Piercing damage plus 14 (4d6) Poison damage.
+***Capelli di Serpente.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 5 (1d4 + 3) danni perforanti più 14 (4d6) danni da veleno.
 
-***Poison Ray.*** *Ranged Attack Roll:* +5, range 150 ft. 11 (2d8 + 2) Poison damage.
+***Raggio Velenoso.*** *Tiro per colpire a distanza:* +5, gittata 45 m. 11 (2d8 + 2) danni da veleno.
 
+### Azioni Bonus
 
-### Bonus Actions
+***Sguardo Pietrificante (Ricarica 5–6).*** *Tiro Salvezza su Costituzione*: CD 13, ogni creatura in un cono di 9 m. Se la medusa vede il proprio riflesso nel cono, deve effettuare anch’essa il TS. *Primo Fallimento:* il bersaglio ha la condizione Immobilizzato e ripete il TS alla fine del suo turno se è ancora Immobilizzato, terminando l’effetto su se stesso in caso di successo. *Secondo Fallimento:* il bersaglio ottiene la condizione Pietrificato al posto di Immobilizzato.
 
-***Petrifying Gaze (Recharge 5-6).*** *Constitution Saving Throw*: DC 13, each creature in a 30-foot Cone. If the medusa sees its reflection in the Cone, the medusa must make this save. *First Failure* The target has the Restrained condition and repeats the save at the end of its next turn if it is still Restrained, ending the effect on itself on a success. *Second Failure* The target has the Petrified condition instead of the Restrained condition.
+---
 
-## Merfolk Skirmisher
+## Guerrigliero Tritone
 
-*Medium Elemental, Neutral*
+*Elementale Medio, Neutrale*
 
-- **Armor Class:** 11
-- **Hit Points:** 11 (2d8 + 2)
-- **Speed:** 10 ft., Swim 40 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 11 (2d8 + 2)
+- **Velocità:** 3 m, nuoto 12 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 10 | +0 | +0 |
-| DEX | 13 | +1 | +1 |
-| CON | 12 | +1 | +1 |
+| FOR | 10 | +0 | +0 |
+| DES | 13 | +1 | +1 |
+| COS | 12 | +1 | +1 |
 | INT | 11 | +0 | +0 |
-| WIS | 14 | +2 | +2 |
-| CHA | 12 | +1 | +1 |
+| SAG | 14 | +2 | +2 |
+| CAR | 12 | +1 | +1 |
 
-- **Senses**: Passive Perception 12
-- **Languages**: Common, Primordial (Aquan)
-- **CR** 1/8 (XP 25; PB +2)
+- **Sensi**: Percezione Passiva 12
+- **Linguaggi**: Comune, Primordiale (Aquan)
+- **GS** 1/8 (PE 25; PB +2)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The merfolk can breathe air and water.
+***Anfibio.*** Il tritone può respirare aria e acqua.
 
+### Azioni
 
-### Actions
-
-***Ocean Spear.*** *Melee or Ranged Attack Roll:* +2, reach 5 ft. or range 20/60 ft. 3 (1d6) Piercing damage plus 2 (1d4) Cold damage. If the target is a creature, its Speed decreases by 10 feet until the end of its next turn. HitomThe spear magically returns to the merfolk's hand immediately after a ranged attack.
+***Lancia Oceanica.*** *Tiro per colpire in mischia o a distanza:* +2, portata 1,5 m o gittata 6/18 m. 3 (1d6) danni perforanti più 2 (1d4) danni da freddo. Se il bersaglio è una creatura, la sua velocità si riduce di 3 m fino alla fine del suo prossimo turno. La lancia ritorna magicamente alla mano del tritone subito dopo un attacco a distanza.
 
 ## Merrow
 
-*Large Monstrosity, Chaotic Evil*
+*Mostruosità Grande, Caotica Malvagia*
 
-- **Armor Class:** 13
-- **Hit Points:** 45 (6d10 + 12)
-- **Speed:** 10 ft., Swim 40 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 45 (6d10 + 12)
+- **Velocità:** 3 m, nuoto 12 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 15 | +2 | +2 |
-| CON | 15 | +2 | +2 |
-| INT | 8 | -1 | -1 |
-| WIS | 10 | +0 | +0 |
-| CHA | 9 | -1 | -1 |
+| FOR | 18 | +4 | +4 |
+| DES | 15 | +2 | +2 |
+| COS | 15 | +2 | +2 |
+| INT | 8  | -1 | -1 |
+| SAG | 10 | +0 | +0 |
+| CAR | 9  | -1 | -1 |
 
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **Languages**: Abyssal, Primordial (Aquan)
-- **CR** 2 (XP 450; PB +2)
+- **Sensi**: scurovisione 18 m; Percezione Passiva 10
+- **Linguaggi**: Abissale, Primordiale (Aquan)
+- **GS** 2 (PE 450; PB +2)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The merrow can breathe air and water.
+***Anfibio.*** Il merrow può respirare aria e acqua.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il merrow effettua due attacchi, usando Morso, Artiglio o Arpione in qualsiasi combinazione.
 
-***Multiattack.*** The merrow makes two attacks, using Bite, Claw, or Harpoon in any combination.
+***Morso.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 6 (1d4 + 4) danni perforanti, e il bersaglio ha la condizione Avvelenato fino alla fine del prossimo turno del merrow.
 
-***Bite.*** *Melee Attack Roll:* +6, reach 5 ft. 6 (1d4 + 4) Piercing damage, and the target has the Poisoned condition until the end of the merrow's next turn.
+***Artiglio.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 9 (2d4 + 4) danni taglienti.
 
-***Claw.*** *Melee Attack Roll:* +6, reach 5 ft. 9 (2d4 + 4) Slashing damage.
+***Arpione.*** *Tiro per colpire in mischia o a distanza:* +6, portata 1,5 m o gittata 6/18 m. 11 (2d6 + 4) danni perforanti. Se il bersaglio è una creatura Grande o più piccola, il merrow lo tira fino a 4,5 m verso di sé.
 
-***Harpoon.*** *Melee or Ranged Attack Roll:* +6, reach 5 ft. or range 20/60 ft. 11 (2d6 + 4) Piercing damage. If the target is a Large or smaller creature, the merrow pulls the target up to 15 feet straight toward itself.
+---
 
 ## Mimic
 
-*Medium Monstrosity, Neutral*
+*Mostruosità Media, Neutrale*
 
-- **Armor Class:** 12
-- **Hit Points:** 58 (9d8 + 18)
-- **Speed:** 20 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 58 (9d8 + 18)
+- **Velocità:** 6 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 17 | +3 | +3 |
-| DEX | 12 | +1 | +1 |
-| CON | 15 | +2 | +2 |
-| INT | 5 | -3 | -3 |
-| WIS | 13 | +1 | +1 |
-| CHA | 8 | -1 | -1 |
+| FOR | 17 | +3 | +3 |
+| DES | 12 | +1 | +1 |
+| COS | 15 | +2 | +2 |
+| INT | 5  | -3 | -3 |
+| SAG | 13 | +1 | +1 |
+| CAR | 8  | -1 | -1 |
 
-- **Immunities**: Acid; Prone
-- **Skills**: Stealth +5
-- **Senses**: darkvision 60 ft.; Passive Perception 11
-- **CR** 2 (XP 450; PB +2)
+- **Immunità**: Acido; Prono
+- **Abilità**: Furtività +5
+- **Sensi**: scurovisione 18 m; Percezione Passiva 11
+- **GS** 2 (PE 450; PB +2)
 
-### Traits
+### Tratti
 
-***Adhesive (Object Form Only).*** The mimic adheres to anything that touches it. A Huge or smaller creature adhered to the mimic has the Grappled condition (escape DC 13). Ability checks made to escape this grapple have Disadvantage.
+***Adesivo (solo in forma di oggetto).*** Il mimic aderisce a tutto ciò che lo tocca. Una creatura Enorme o più piccola aderente al mimic ha la condizione Afferrato (CD 13 per liberarsi). Le prove di caratteristica per liberarsi da questa presa hanno svantaggio.
 
+### Azioni
 
-### Actions
+***Morso.*** *Tiro per colpire in mischia:* +5 (con vantaggio se il bersaglio è afferrato dal mimic), portata 1,5 m. 7 (1d8 + 3) danni perforanti—oppure 12 (2d8 + 3) danni perforanti se il bersaglio è afferrato dal mimic—più 4 (1d8) danni da acido.
 
-***Bite.*** *Melee Attack Roll:* +5 (with Advantage if the target is Grappled by the mimic), reach 5 ft. 7 (1d8 + 3) Piercing damage—or 12 (2d8 + 3) Piercing damage if the target is Grappled by the mimic—plus 4 (1d8) Acid damage.
+***Pseudopodio.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni contundenti più 4 (1d8) danni da acido. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Afferrato (CD 13 per liberarsi). Le prove di caratteristica per liberarsi da questa presa hanno svantaggio.
 
-***Pseudopod.*** *Melee Attack Roll:* +5, reach 5 ft. 7 (1d8 + 3) Bludgeoning damage plus 4 (1d8) Acid damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 13). Ability checks made to escape this grapple have Disadvantage.
+### Azioni Bonus
 
+***Mutare Forma.*** Il mimic muta forma per assomigliare a un oggetto Medio o Piccolo mantenendo le proprie statistiche, oppure ritorna alla sua forma reale di blob. Qualsiasi equipaggiamento che indossa o trasporta non viene trasformato.
 
-### Bonus Actions
+---
 
-***Shape-Shift.*** The mimic shape-shifts to resemble a Medium or Small object while retaining its game statistics, or it returns to its true blob form. Any equipment it is wearing or carrying isn't transformed.
+## Minotauro di Baphomet
 
-## Minotaur of Baphomet
+*Mostruosità Grande, Caotica Malvagia*
 
-*Large Monstrosity, Chaotic Evil*
+- **Classe Armatura:** 14
+- **Punti Ferita:** 85 (10d10 + 30)
+- **Velocità:** 12 m
+- **Iniziativa**: +0 (10)
 
-- **Armor Class:** 14
-- **Hit Points:** 85 (10d10 + 30)
-- **Speed:** 40 ft.
-- **Initiative**: +0 (10)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 11 | +0 | +0 |
-| CON | 16 | +3 | +3 |
-| INT | 6 | -2 | -2 |
-| WIS | 16 | +3 | +3 |
-| CHA | 9 | -1 | -1 |
+| FOR | 18 | +4 | +4 |
+| DES | 11 | +0 | +0 |
+| COS | 16 | +3 | +3 |
+| INT | 6  | -2 | -2 |
+| SAG | 16 | +3 | +3 |
+| CAR | 9  | -1 | -1 |
 
-- **Skills**: Perception +7, Survival +7
-- **Senses**: darkvision 60 ft.; Passive Perception 17
-- **Languages**: Abyssal
-- **CR** 3 (XP 700; PB +2)
+- **Abilità**: Percezione +7, Sopravvivenza +7
+- **Sensi**: scurovisione 18 m; Percezione Passiva 17
+- **Linguaggi**: Abissale
+- **GS** 3 (PE 700; PB +2)
 
-### Actions
+### Azioni
 
-***Abyssal Glaive.*** *Melee Attack Roll:* +6, reach 10 ft. 10 (1d12 + 4) Slashing damage plus 10 (3d6) Necrotic damage.
+***Alabarda Abissale.*** *Tiro per colpire in mischia:* +6, portata 3 m. 10 (1d12 + 4) danni taglienti più 10 (3d6) danni necrotici.
 
-***Gore (Recharge 5-6).*** *Melee Attack Roll:* +6, reach 5 ft. 18 (4d6 + 4) Piercing damage. If the target is a Large or smaller creature and the minotaur moved 10+ feet straight toward it immediately before the hit, the target takes an extra 10 (3d6) Piercing damage and has the Prone condition.
+***Incornata (Ricarica 5–6).*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 18 (4d6 + 4) danni perforanti. Se il bersaglio è una creatura Grande o più piccola e il minotauro si è mosso di almeno 3 m dritto verso di esso immediatamente prima di colpirlo, il bersaglio subisce 10 (3d6) danni perforanti extra e ottiene la condizione Prono.
 
-## Minotaur Skeleton
+---
 
-*Large Undead, Lawful Evil*
+## Scheletro di Minotauro
 
-- **Armor Class:** 12
-- **Hit Points:** 45 (6d10 + 12)
-- **Speed:** 40 ft.
-- **Initiative**: +0 (10)
+*Non Morto Grande, Legale Malvagio*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 12
+- **Punti Ferita:** 45 (6d10 + 12)
+- **Velocità:** 12 m
+- **Iniziativa**: +0 (10)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 11 | +0 | +0 |
-| CON | 15 | +2 | +2 |
-| INT | 6 | -2 | -2 |
-| WIS | 8 | -1 | -1 |
-| CHA | 5 | -3 | -3 |
+| FOR | 18 | +4 | +4 |
+| DES | 11 | +0 | +0 |
+| COS | 15 | +2 | +2 |
+| INT | 6  | -2 | -2 |
+| SAG | 8  | -1 | -1 |
+| CAR | 5  | -3 | -3 |
 
-- **Vulnerabilities**: Bludgeoning
-- **Immunities**: Poison; Exhaustion, Poisoned
-- **Senses**: darkvision 60 ft.; Passive Perception 9
-- **Languages**: Understands Abyssal but can't speak
-- **CR** 2 (XP 450; PB +2)
+- **Vulnerabilità**: Contundente
+- **Immunità**: Veleno; Affaticato, Avvelenato
+- **Sensi**: scurovisione 18 m; Percezione Passiva 9
+- **Linguaggi**: Comprende l'Abissale ma non può parlare
+- **GS** 2 (PE 450; PB +2)
 
-### Actions
+### Azioni
 
-***Gore.*** *Melee Attack Roll:* +6, reach 5 ft. 11 (2d6 + 4) Piercing damage. If the target is a Large or smaller creature and the skeleton moved 20+ feet straight toward it immediately before the hit, the target takes an extra 9 (2d8) Piercing damage and has the Prone condition.
+***Incornata.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 11 (2d6 + 4) danni perforanti. Se il bersaglio è una creatura Grande o più piccola e lo scheletro si è mosso di almeno 6 m dritto verso di esso immediatamente prima di colpirlo, il bersaglio subisce 9 (2d8) danni perforanti extra e ottiene la condizione Prono.
 
-***Slam.*** *Melee Attack Roll:* +6, reach 5 ft. 15 (2d10 + 4) Bludgeoning damage.
+***Schianto.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 15 (2d10 + 4) danni contundenti.
 
-## Mummy Lord
+## Signore delle Mummie
 
-*Small Undead, Lawful Evil*
+*Non Morto Piccolo, Legale Malvagio*
 
-- **Armor Class:** 17
-- **Hit Points:** 187 (25d8 + 75)
-- **Speed:** 30 ft.
-- **Initiative**: +4 (14)
+- **Classe Armatura:** 17
+- **Punti Ferita:** 187 (25d8 + 75)
+- **Velocità:** 9 m
+- **Iniziativa**: +4 (14)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 10 | +0 | +0 |
-| CON | 17 | +3 | +3 |
+| FOR | 18 | +4 | +4 |
+| DES | 10 | +0 | +0 |
+| COS | 17 | +3 | +3 |
 | INT | 11 | +0 | +5 |
-| WIS | 19 | +4 | +9 |
-| CHA | 16 | +3 | +3 |
+| SAG | 19 | +4 | +9 |
+| CAR | 16 | +3 | +3 |
 
-- **Vulnerabilities**: Fire
-- **Immunities**: Necrotic, Poison; Charmed, Exhaustion, Frightened, Paralyzed, Poisoned
-- **Skills**: History +5, Perception +9, Religion +5
-- **Senses**: truesight 60 ft.; Passive Perception 19
-- **Languages**: Common plus three other languages
-- **CR** 15 (XP 13,000, or 15,000 in lair)
+- **Vulnerabilità**: Fuoco
+- **Immunità**: Necrotico, Veleno; Affascinato, Affaticato, Spaventato, Paralizzato, Avvelenato
+- **Abilità**: Storia +5, Percezione +9, Religione +5
+- **Sensi**: vista vera 18 m; Percezione Passiva 19
+- **Linguaggi**: Comune più altre tre lingue
+- **GS** 15 (PE 13.000; o 15.000 nella tana)
 
-### Traits
+### Tratti
 
-***Legendary Resistance (3/Day, or 4/Day in Lair).*** If the mummy fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (3/giorno, o 4/giorno nella tana).*** Se la mummia fallisce un tiro salvezza, può scegliere di riuscire al suo posto.
 
-***Magic Resistance.*** The mummy has Advantage on saving throws against spells and other magical effects.
+***Resistenza alla Magia.*** La mummia ha vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
 
-***Undead Restoration.*** If destroyed, the mummy gains a new body in 24 hours if its heart is intact, reviving with all its Hit Points. The new body appears in an unoccupied space within the mummy's lair. The heart is a Tiny object that has AC 17, HP 10, and Immunity to all damage except Fire.
+***Restaurazione Non Morta.*** Se distrutta, la mummia ottiene un nuovo corpo dopo 24 ore se il suo cuore è intatto, rianimandosi con tutti i suoi Punti Ferita. Il nuovo corpo appare in uno spazio non occupato all’interno della tana della mummia. Il cuore è un oggetto Minuscolo con CA 17, PF 10 e Immunità a tutti i danni tranne il Fuoco.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** La mummia effettua un attacco Pugno Putrescente o Canalizzare Energia Negativa, e usa Sguardo Terrificante.
 
-***Multiattack.*** The mummy makes one Rotting Fist or Channel Negative Energy attack, and it uses Dreadful Glare.
+***Pugno Putrescente.*** *Tiro per colpire in mischia:* +9, portata 1,5 m. 15 (2d10 + 4) danni contundenti più 10 (3d6) danni necrotici. Se il bersaglio è una creatura, è maledetto. Finché è maledetto, il bersaglio non può recuperare Punti Ferita, non ottiene benefici dal terminare un Riposo Lungo e il suo massimo di Punti Ferita diminuisce di 10 (3d6) ogni 24 ore che passano. Una creatura muore e si riduce in polvere se viene portata a 0 PF da questo attacco.
 
-***Rotting Fist.*** *Melee Attack Roll:* +9, reach 5 ft. 15 (2d10 + 4) Bludgeoning damage plus 10 (3d6) Necrotic damage. If the target is a creature, it is cursed. While cursed, the target can't regain Hit Points, it gains no benefit from finishing a Long Rest, and its Hit Point maximum decreases by 10 (3d6) every 24 hours that elapse. A creature dies and turns to dust if reduced to 0 Hit Points by this attack.
+***Canalizzare Energia Negativa.*** *Tiro per colpire a distanza:* +9, gittata 18 m. 25 (6d6 + 4) danni necrotici.
 
-***Channel Negative Energy.*** *Ranged Attack Roll:* +9, range 60 ft. 25 (6d6 + 4) Necrotic damage.
+***Sguardo Terrificante.*** *Tiro Salvezza su Saggezza*: CD 17, una creatura che la mummia può vedere entro 18 m. *Fallimento:* 25 (6d6 + 4) danni psichici, e il bersaglio ha la condizione Paralizzato fino alla fine del prossimo turno della mummia.
 
-***Dreadful Glare.*** *Wisdom Saving Throw*: DC 17, one creature the mummy can see within 60 feet. *Failure:*  25 (6d6 + 4) Psychic damage, and the target has the Paralyzed condition until the end of the mummy's next turn.
+***Incantesimi.*** La mummia lancia uno dei seguenti incantesimi, senza componenti materiali e usando Saggezza come caratteristica da incantatore (CD 17 ai TS, +9 ai tiri per colpire con gli attacchi con incantesimi):
 
-***Spellcasting.*** The mummy casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 17, +9 to hit with spell attacks):
+- **A volontà:** *Dissolvi Magie*, *Taumaturgia*
+- **1/giorno ciascuno:** *Animare Morti*, *Danno*, *Sciame di Insetti*
 
-- **At Will:** *Dispel Magic*, *Thaumaturgy*
-- **1e/Day Each:** *Animate Dead*, *Harm*, *Insect Plague*
+### Azioni Leggendarie
 
-### Legendary Actions
+***Sguardo.*** La mummia usa Sguardo Terrificante. La mummia non può riutilizzare questa azione fino all’inizio del suo prossimo turno.
 
-***Glare.*** The mummy uses Dreadful Glare. The mummy can't take this action again until the start of its next turn.
+***Colpo Necrotico.*** La mummia effettua un attacco Pugno Putrescente o Canalizzare Energia Negativa.
 
-***Necrotic Strike.*** The mummy makes one Rotting Fist or Channel Negative Energy attack.
+***Comando Terribile.*** La mummia lancia *Comando* (versione di 2° livello), usando la stessa caratteristica da incantatore di Incantesimi. La mummia non può riutilizzare questa azione fino all’inizio del suo prossimo turno.
 
-***Dread Command.*** The mummy casts *Command* (level 2 version), using the same spellcasting ability as Spellcasting. The mummy can't take this action again until the start of its next turn.
-## Mummy
+---
 
-*Small Undead, Lawful Evil*
+## Mummia
 
-- **Armor Class:** 11
-- **Hit Points:** 58 (9d8 + 18)
-- **Speed:** 20 ft.
-- **Initiative**: -1 (9)
+*Non Morto Piccolo, Legale Malvagio*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 11
+- **Punti Ferita:** 58 (9d8 + 18)
+- **Velocità:** 6 m
+- **Iniziativa**: -1 (9)
+
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 8 | -1 | -1 |
-| CON | 15 | +2 | +2 |
-| INT | 6 | -2 | -2 |
-| WIS | 12 | +1 | +3 |
-| CHA | 12 | +1 | +1 |
+| FOR | 16 | +3 | +3 |
+| DES | 8  | -1 | -1 |
+| COS | 15 | +2 | +2 |
+| INT | 6  | -2 | -2 |
+| SAG | 12 | +1 | +3 |
+| CAR | 12 | +1 | +1 |
 
-- **Vulnerabilities**: Fire
-- **Immunities**: Necrotic, Poison; Charmed, Exhaustion, Frightened, Paralyzed, Poisoned
-- **Senses**: darkvision 60 ft.; Passive Perception 11
-- **Languages**: Common plus two other languages
-- **CR** 3 (XP 700; PB +2)
+- **Vulnerabilità**: Fuoco
+- **Immunità**: Necrotico, Veleno; Affascinato, Affaticato, Spaventato, Paralizzato, Avvelenato
+- **Sensi**: scurovisione 18 m; Percezione Passiva 11
+- **Linguaggi**: Comune più altre due lingue
+- **GS** 3 (PE 700; PB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The mummy makes two Rotting Fist attacks and uses Dreadful Glare.
+***Attacco Multiplo.*** La mummia effettua due attacchi Pugno Putrescente e usa Sguardo Terrificante.
 
-***Rotting Fist.*** *Melee Attack Roll:* +5, reach 5 ft. 8 (1d10 + 3) Bludgeoning damage plus 10 (3d6) Necrotic damage. If the target is a creature, it is cursed. While cursed, the target can't regain Hit Points, its Hit Point maximum doesn't return to normal when finishing a Long Rest, and its Hit Point maximum decreases by 10 (3d6) every 24 hours that elapse. A creature dies and turns to dust if reduced to 0 Hit Points by this attack.
+***Pugno Putrescente.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 8 (1d10 + 3) danni contundenti più 10 (3d6) danni necrotici. Se il bersaglio è una creatura, è maledetto. Finché è maledetto, il bersaglio non può recuperare Punti Ferita, il suo massimo di Punti Ferita non torna normale al termine di un Riposo Lungo, e il suo massimo di PF diminuisce di 10 (3d6) ogni 24 ore che passano. Una creatura muore e si riduce in polvere se viene portata a 0 PF da questo attacco.
 
-***Dreadful Glare.*** *Wisdom Saving Throw*: DC 11, one creature the mummy can see within 60 feet. *Failure:*  The target has the Frightened condition until the end of the mummy's next turn. *Success:*  The target is immune to this mummy's Dreadful Glare for 24 hours.
+***Sguardo Terrificante.*** *Tiro Salvezza su Saggezza*: CD 11, una creatura che la mummia può vedere entro 18 m. *Fallimento:* il bersaglio ha la condizione Spaventato fino alla fine del prossimo turno della mummia. *Successo:* il bersaglio è immune allo Sguardo Terrificante di questa mummia per 24 ore.
+
+---
 
 ## Nalfeshnee
 
-*Large Fiend (Demon), Chaotic Evil*
+*Immonda Grande (Demone), Caotica Malvagia*
 
-- **Armor Class:** 18
-- **Hit Points:** 184 (16d10 + 96)
-- **Speed:** 20 ft., Fly 30 ft.
-- **Initiative**: +5 (15)
+- **Classe Armatura:** 18
+- **Punti Ferita:** 184 (16d10 + 96)
+- **Velocità:** 6 m, volo 9 m
+- **Iniziativa**: +5 (15)
 
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 21 | +5 | +5 |
-| DEX | 10 | +0 | +0 |
-| CON | 22 | +6 | +11 |
+| FOR | 21 | +5 | +5 |
+| DES | 10 | +0 | +0 |
+| COS | 22 | +6 | +11 |
 | INT | 19 | +4 | +9 |
-| WIS | 12 | +1 | +6 |
-| CHA | 15 | +2 | +7 |
+| SAG | 12 | +1 | +6 |
+| CAR | 15 | +2 | +7 |
 
-- **Resistances**: Cold, Fire, Lightning
-- **Immunities**: Poison; Frightened, Poisoned
-- **Senses**: truesight 120 ft.; Passive Perception 11
-- **Languages**: Abyssal; telepathy 120 ft.
-- **CR** 13 (XP 10,000; PB +5)
+- **Resistenze**: Freddo, Fuoco, Fulmine
+- **Immunità**: Veleno; Spaventato, Avvelenato
+- **Sensi**: vista vera 36 m; Percezione Passiva 11
+- **Linguaggi**: Abissale; telepatia 36 m
+- **GS** 13 (PE 10.000; PB +5)
 
-### Traits
+### Tratti
 
-***Demonic Restoration.*** If the nalfeshnee dies outside the Abyss, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.
+***Restaurazione Demoniaca.*** Se il nalfeshnee muore al di fuori dell'Abisso, il suo corpo si dissolve in icore e ottiene subito un nuovo corpo, rianimandosi con tutti i suoi Punti Ferita da qualche parte nell'Abisso.
 
-***Magic Resistance.*** The nalfeshnee has Advantage on saving throws against spells and other magical effects.
+***Resistenza alla Magia.*** Il nalfeshnee ha vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** Il nalfeshnee effettua tre attacchi di Dilaniare.
 
-***Multiattack.*** The nalfeshnee makes three Rend attacks.
+***Dilaniare.*** *Tiro per colpire in mischia:* +10, portata 3 m. 16 (2d10 + 5) danni taglienti più 11 (2d10) danni da forza.
 
-***Rend.*** *Melee Attack Roll:* +10, reach 10 ft. 16 (2d10 + 5) Slashing damage plus 11 (2d10) Force damage.
+***Teletrasporto.*** Il nalfeshnee si teletrasporta fino a 36 m in uno spazio non occupato che può vedere.
 
-***Teleport.*** The nalfeshnee teleports up to 120 feet to an unoccupied space it can see.
+### Azioni Bonus
 
+***Nimbo del Terrore (Ricarica 5–6).*** *Tiro Salvezza su Saggezza*: CD 15, ogni creatura in un’Emanazione di 4,5 m originata dal nalfeshnee. *Fallimento:* 28 (8d6) danni psichici, e il bersaglio ha la condizione Spaventato per 1 minuto, finché subisce danni, o finché termina il suo turno senza linea di vista con il nalfeshnee. *Successo:* il bersaglio è immune al Nimbo del Terrore di questo nalfeshnee per 24 ore.
 
-### Bonus Actions
+---
 
-***Horror Nimbus (Recharge 5-6).*** *Wisdom Saving Throw*: DC 15, each creature in a 15-foot Emanation originating from the nalfeshnee. *Failure:*  28 (8d6) Psychic damage, and the target has the Frightened condition for 1 minute, until it takes damage, or until it ends its turn with the nalfeshnee out of line of sight. *Success:*  The target is immune to this nalfeshnee's Horror Nimbus for 24 hours.
+## Megera Notturna
 
-## Night Hag
+*Infernale Media, Neutrale Malvagia*
 
-*Medium Fiend, Neutral Evil*
+- **Classe Armatura:** 17
+- **Punti Ferita:** 112 (15d8 + 45)
+- **Velocità:** 9 m
+- **Iniziativa**: +5 (15)
 
-- **Armor Class:** 17
-- **Hit Points:** 112 (15d8 + 45)
-- **Speed:** 30 ft.
-- **Initiative**: +5 (15)
-
-|STAT|SCORE|MOD|SAVE|
+|STAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 15 | +2 | +2 |
-| CON | 16 | +3 | +3 |
+| FOR | 18 | +4 | +4 |
+| DES | 15 | +2 | +2 |
+| COS | 16 | +3 | +3 |
 | INT | 16 | +3 | +3 |
-| WIS | 14 | +2 | +2 |
-| CHA | 16 | +3 | +3 |
+| SAG | 14 | +2 | +2 |
+| CAR | 16 | +3 | +3 |
 
-- **Resistances**: Cold, Fire
-- **Immunities**: Charmed
-- **Skills**: Deception +6, Insight +5, Perception +5, Stealth +5
-- **Senses**: darkvision 120 ft.; Passive Perception 15
-- **Languages**: Abyssal, Common, Infernal, Primordial
-- **CR** 5 (XP 1,800; PB +3)
+- **Resistenze**: Freddo, Fuoco
+- **Immunità**: Affascinato
+- **Abilità**: Inganno +6, Intuizione +5, Percezione +5, Furtività +5
+- **Sensi**: scurovisione 36 m; Percezione Passiva 15
+- **Linguaggi**: Abissale, Comune, Infernale, Primordiale
+- **GS** 5 (PE 1.800; PB +3)
 
-### Traits
+### Tratti
 
-***Magic Resistance.*** The hag has Advantage on saving throws against spells and other magical effects.
+***Resistenza alla Magia.*** La megera ha vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
 
-***Soul Bag.*** The hag has a soul bag. While holding or carrying the bag, the hag can use its Nightmare Haunting action.
-The bag has AC 15, HP 20, and Resistance to all damage. The bag turns to dust if reduced to 0 Hit Points. If the bag is destroyed, any souls the bag is holding are released. The hag can create a new bag after 7 days.
+***Sacca dell’Anima.*** La megera possiede una sacca dell’anima. Mentre la regge o la porta, può usare l’azione Incubo Tormentante. La sacca ha CA 15, PF 20 e Resistenza a tutti i danni. La sacca si riduce in polvere se portata a 0 PF. Se la sacca è distrutta, qualunque anima al suo interno viene liberata. La megera può crearne una nuova dopo 7 giorni.
 
+### Azioni
 
-### Actions
+***Attacco Multiplo.*** La megera effettua due attacchi di Artiglio.
 
-***Multiattack.*** The hag makes two Claw attacks.
+***Artiglio.*** *Tiro per colpire in mischia:* +7, portata 1,5 m. 13 (2d8 + 4) danni taglienti.
 
-***Claw.*** *Melee Attack Roll:* +7, reach 5 ft. 13 (2d8 + 4) Slashing damage.
+***Incantesimi.*** La megera lancia uno dei seguenti incantesimi, senza componenti materiali e usando Intelligenza come caratteristica da incantatore (CD 14 ai TS):
 
-***Spellcasting.*** The hag casts one of the following spells, requiring no Material components and using Intelligence as the spellcasting ability (spell save DC 14):
+- **A volontà:** *Rilevare Magia*, *Etereo*, *Dardo Incantato*
+- **2/giorno ciascuno:** *Uccisore Fasmatico*, *Spostamento Planare*
 
-- **At Will:** *Detect Magic*, *Etherealness*, *Magic Missile*
-- **2e/Day Each:** *Phantasmal Killer*, *Plane Shift*
-***Nightmare Haunting (1/Day; Requires Soul Bag).*** While on the Ethereal Plane, the hag casts *Dream*, using the same spellcasting ability as Spellcasting. Only the hag can serve as the spell's messenger, and the target must be a creature the hag can see on the Material Plane. The spell fails and is wasted if the target is under the effect of the *Protection from Evil and Good* spell or within a *Magic Circle* spell.
-If the target takes damage from the *Dream* spell, the target's Hit Point maximum decreases by an amount equal to that damage. If the spell kills the target, its soul is trapped in the hag's soul bag, and the target can't be raised from the dead until its soul is released.
+***Incubo Tormentante (1/giorno; richiede Sacca dell’Anima).*** Mentre si trova sul Piano Etereo, la megera lancia *Sogno*, usando la stessa caratteristica da incantatore di Incantesimi. Solo la megera può fungere da messaggero dell’incantesimo e il bersaglio deve essere una creatura che la megera può vedere sul Piano Materiale. L’incantesimo fallisce e viene sprecato se il bersaglio è sotto gli effetti di *Protezione dal Bene e dal Male* o all’interno di un *Cerchio Magico*.  
+Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si riduce di un ammontare pari a quei danni. Se l’incantesimo uccide il bersaglio, la sua anima viene intrappolata nella sacca dell’anima della megera, e il bersaglio non può essere resuscitato finché la sua anima non viene liberata.
 
-- **At Will:** 
-- **1/Day Each:** *Dream*, *Protection from Evil and Good*, *Magic Circle*
+- **A volontà:** 
+- **1/giorno ciascuno:** *Sogno*, *Protezione dal Bene e dal Male*, *Cerchio Magico*
 
-### Bonus Actions
+### Azioni Bonus
 
-***Shape-Shift.*** The hag shape-shifts into a Small or Medium Humanoid, or it returns to its true form. Other than its size, its game statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed.
+***Mutare Forma.*** La megera muta forma in un Umanoide Piccolo o Medio, oppure ritorna alla sua forma reale. A parte la taglia, le sue statistiche di gioco sono le stesse in ogni forma. Qualsiasi equipaggiamento indossato o trasportato non viene trasformato.
 
-## Nightmare
+## Incubo
 
-*Large Fiend, Neutral Evil*
+*Mostro Grande, Neutrale Malvagio*
 
-- **Armor Class:** 13
-- **Hit Points:** 68 (8d10 + 24)
-- **Speed:** 60 ft., Fly 90 ft. (hover)
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 68 (8d10 + 24)
+- **Velocità:** 18 m, Volare 27 m (fluttuare)
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 15 | +2 | +2 |
-| CON | 16 | +3 | +3 |
+| FOR | 18 | +4 | +4 |
+| DES | 15 | +2 | +2 |
+| COS | 16 | +3 | +3 |
 | INT | 10 | +0 | +0 |
-| WIS | 13 | +1 | +1 |
-| CHA | 15 | +2 | +2 |
+| SAG | 13 | +1 | +1 |
+| CAR | 15 | +2 | +2 |
 
-- **Immunities**: Fire
-- **Senses**: Passive Perception 11
-- **Languages**: Understands Abyssal, Common, And Infernal but can't speak
-- **CR** 3 (XP 700; PB +2)
+- **Immunità**: Fuoco  
+- **Sensi**: Percezione Passiva 11  
+- **Linguaggi**: Capisce Abissale, Comune e Infernale ma non può parlare  
+- **GS** 3 (PE 700; BB +2)
 
-### Traits
+### Tratti
 
-***Confer Fire Resistance.*** The nightmare can grant Resistance to Fire damage to a rider while it is on the nightmare.
+***Concedere Resistenza al Fuoco.*** L’incubo può garantire Resistenza al danno da fuoco a un cavaliere mentre lo cavalca.  
 
-***Illumination.*** The nightmare sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.
+***Illuminazione.*** L’incubo emette luce intensa in un raggio di 3 m e luce fioca per altri 3 m.  
 
+### Azioni
 
-### Actions
+***Zoccoli.*** *Tiro per Colpire in mischia:* +6, portata 1,5 m. 13 (2d8 + 4) danni contundenti più 10 (3d6) danni da fuoco.  
 
-***Hooves.*** *Melee Attack Roll:* +6, reach 5 ft. 13 (2d8 + 4) Bludgeoning damage plus 10 (3d6) Fire damage.
+***Passo Etereo.*** L’incubo e fino a tre creature consenzienti entro 1,5 m si teletrasportano sul Piano Etereo dal Piano Materiale o viceversa.  
 
-***Ethereal Stride.*** The nightmare and up to three willing creatures within 5 feet of it teleport to the Ethereal Plane from the Material Plane or vice versa.
+---
 
-## Noble
+## Nobile
 
-*Small Humanoid, Neutral*
+*Umanoide Piccolo, Neutrale*
 
-- **Armor Class:** 15
-- **Hit Points:** 9 (2d8)
-- **Speed:** 30 ft.
-- **Initiative**: +1 (11)
+- **Classe Armatura:** 15
+- **Punti Ferita:** 9 (2d8)
+- **Velocità:** 9 m
+- **Iniziativa**: +1 (11)
 
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 11 | +0 | +0 |
-| DEX | 12 | +1 | +1 |
-| CON | 11 | +0 | +0 |
+| FOR | 11 | +0 | +0 |
+| DES | 12 | +1 | +1 |
+| COS | 11 | +0 | +0 |
 | INT | 12 | +1 | +1 |
-| WIS | 14 | +2 | +2 |
-| CHA | 16 | +3 | +3 |
+| SAG | 14 | +2 | +2 |
+| CAR | 16 | +3 | +3 |
 
-- **Skills**: Deception +5, Insight +4, Persuasion +5
-- **Gear** Breastplate, Rapier
-- **Senses**: Passive Perception 12
-- **Languages**: Common plus two other languages
-- **CR** 1/8 (XP 25; PB +2)
+- **Abilità**: Inganno +5, Intuizione +4, Persuasione +5  
+- **Equipaggiamento**: Corazza di Piastre, Stocco  
+- **Sensi**: Percezione Passiva 12  
+- **Linguaggi**: Comune più altre due lingue  
+- **GS** 1/8 (PE 25; BB +2)
 
-### Actions
+### Azioni
 
-***Rapier.*** *Melee Attack Roll:* +3, reach 5 ft. 5 (1d8 + 1) Piercing damage.
+***Stocco.*** *Tiro per Colpire in mischia:* +3, portata 1,5 m. 5 (1d8 + 1) danni perforanti.  
 
-## Ochre Jelly
+---
 
-*Large Ooze, Unaligned*
+## Gelatina Ocra
 
-- **Armor Class:** 8
-- **Hit Points:** 52 (7d10 + 14)
-- **Speed:** 20 ft., Climb 20 ft.
-- **Initiative**: -2 (8)
+*Melma Grande, Non Allineata*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 8
+- **Punti Ferita:** 52 (7d10 + 14)
+- **Velocità:** 6 m, Scalare 6 m
+- **Iniziativa**: -2 (8)
+
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +2 |
-| DEX | 6 | -2 | -2 |
-| CON | 14 | +2 | +2 |
+| FOR | 15 | +2 | +2 |
+| DES | 6 | -2 | -2 |
+| COS | 14 | +2 | +2 |
 | INT | 2 | -4 | -4 |
-| WIS | 6 | -2 | -2 |
-| CHA | 1 | -5 | -5 |
+| SAG | 6 | -2 | -2 |
+| CAR | 1 | -5 | -5 |
 
-- **Resistances**: Acid
-- **Immunities**: Lightning, Slashing; Charmed, Deafened, Exhaustion, Frightened, Grappled, Prone, Restrained
-- **Senses**: blindsight 60 ft.; Passive Perception 8
-- **CR** 2 (XP 450; PB +2)
+- **Resistenze**: Acido  
+- **Immunità**: Fulmine, Taglio; Ammaliato, Assordato, Affaticato, Spaventato, Afferrato, Prono, Immobilizzato  
+- **Sensi**: Vista Cieca 18 m; Percezione Passiva 8  
+- **GS** 2 (PE 450; BB +2)
 
-### Traits
+### Tratti
 
-***Amorphous.*** The jelly can move through a space as narrow as 1 inch without expending extra movement to do so.
+***Amorfa.*** La gelatina può muoversi attraverso spazi larghi almeno 2,5 cm senza spendere movimento extra.  
 
-***Spider Climb.*** The jelly can climb difficult surfaces, including along ceilings, without needing to make an ability check.
+***Camminare sui Muri.*** La gelatina può arrampicarsi su superfici difficili, compresi i soffitti, senza dover effettuare prove.  
 
+### Azioni
 
-### Actions
+***Pseudopodio.*** *Tiro per Colpire in mischia:* +4, portata 1,5 m. 12 (3d6 + 2) danni da acido.  
 
-***Pseudopod.*** *Melee Attack Roll:* +4, reach 5 ft. 12 (3d6 + 2) Acid damage.
+---
 
 ## Ogre
 
-*Large Giant, Chaotic Evil*
+*Gigante Grande, Caotico Malvagio*
 
-- **Armor Class:** 11
-- **Hit Points:** 68 (8d10 + 24)
-- **Speed:** 40 ft.
-- **Initiative**: -1 (9)
+- **Classe Armatura:** 11
+- **Punti Ferita:** 68 (8d10 + 24)
+- **Velocità:** 12 m
+- **Iniziativa**: -1 (9)
 
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 8 | -1 | -1 |
-| CON | 16 | +3 | +3 |
+| FOR | 19 | +4 | +4 |
+| DES | 8 | -1 | -1 |
+| COS | 16 | +3 | +3 |
 | INT | 5 | -3 | -3 |
-| WIS | 7 | -2 | -2 |
-| CHA | 7 | -2 | -2 |
+| SAG | 7 | -2 | -2 |
+| CAR | 7 | -2 | -2 |
 
-- **Gear** Greatclub, Javelin x 3
-- **Senses**: darkvision 60 ft.; Passive Perception 8
-- **Languages**: Common, Giant
-- **CR** 2 (XP 450; PB +2)
+- **Equipaggiamento**: Grande Mazza, Giavellotto x3  
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 8  
+- **Linguaggi**: Comune, Gigante  
+- **GS** 2 (PE 450; BB +2)
 
-### Actions
+### Azioni
 
-***Greatclub.*** *Melee Attack Roll:* +6, reach 5 ft. 13 (2d8 + 4) Bludgeoning damage.
+***Grande Mazza.*** *Tiro per Colpire in mischia:* +6, portata 1,5 m. 13 (2d8 + 4) danni contundenti.  
 
-***Javelin.*** *Melee or Ranged Attack Roll:* +6, reach 5 ft. or range 30/120 ft. 11 (2d6 + 4) Piercing damage.
+***Giavellotto.*** *Tiro per Colpire in mischia o a distanza:* +6, portata 1,5 m o gittata 9/36 m. 11 (2d6 + 4) danni perforanti.  
 
 ## Ogre Zombie
 
-*Large Undead, Neutral Evil*
+*Non Morto Grande, Neutrale Malvagio*
 
-- **Armor Class:** 8
-- **Hit Points:** 85 (9d10 + 36)
-- **Speed:** 30 ft.
-- **Initiative**: -2 (8)
+- **Classe Armatura:** 8
+- **Punti Ferita:** 85 (9d10 + 36)
+- **Velocità:** 9 m
+- **Iniziativa**: -2 (8)
 
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 6 | -2 | -2 |
-| CON | 18 | +4 | +4 |
+| FOR | 19 | +4 | +4 |
+| DES | 6 | -2 | -2 |
+| COS | 18 | +4 | +4 |
 | INT | 3 | -4 | -4 |
-| WIS | 6 | -2 | +0 |
-| CHA | 5 | -3 | -3 |
+| SAG | 6 | -2 | +0 |
+| CAR | 5 | -3 | -3 |
 
-- **Immunities**: Poison; Exhaustion, Poisoned
-- **Senses**: darkvision 60 ft.; Passive Perception 8
-- **Languages**: Understands Common and Giant but can't speak
-- **CR** 2 (XP 450; PB +2)
+- **Immunità**: Veleno; Affaticato, Avvelenato  
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 8  
+- **Linguaggi**: Capisce Comune e Gigante ma non può parlare  
+- **GS** 2 (PE 450; BB +2)
 
-### Traits
+### Tratti
 
-***Undead Fortitude.*** If damage reduces the zombie to 0 Hit Points, it makes a Constitution saving throw (DC 5 plus the damage taken) unless the damage is Radiant or from a Critical Hit. On a successful save, the zombie drops to 1 Hit Point instead.
+***Tenacia dei Non Morti.*** Se i danni riducono lo zombie a 0 Punti Ferita, effettua un tiro salvezza su Costituzione (CD 5 + danno subito), a meno che il danno non sia Radiante o da Colpo Critico. Con un tiro riuscito, lo zombie rimane a 1 Punto Ferita invece.  
 
+### Azioni
 
-### Actions
+***Slam.*** *Tiro per Colpire in mischia:* +6, portata 1,5 m. 13 (2d8 + 4) danni contundenti.  
 
-***Slam.*** *Melee Attack Roll:* +6, reach 5 ft. 13 (2d8 + 4) Bludgeoning damage.
+---
 
 ## Oni
 
-*Large Fiend, Lawful Evil*
+*Mostro Grande, Legale Malvagio*
 
-- **Armor Class:** 17
-- **Hit Points:** 119 (14d10 + 42)
-- **Speed:** 30 ft., Fly 30 ft. (hover)
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 17
+- **Punti Ferita:** 119 (14d10 + 42)
+- **Velocità:** 9 m, Volare 9 m (fluttuare)
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 11 | +0 | +3 |
-| CON | 16 | +3 | +6 |
+| FOR | 19 | +4 | +4 |
+| DES | 11 | +0 | +3 |
+| COS | 16 | +3 | +6 |
 | INT | 14 | +2 | +2 |
-| WIS | 12 | +1 | +4 |
-| CHA | 15 | +2 | +5 |
+| SAG | 12 | +1 | +4 |
+| CAR | 15 | +2 | +5 |
 
-- **Resistances**: Cold
-- **Skills**: Arcana +5, Deception +8, Perception +4
-- **Senses**: darkvision 60 ft.; Passive Perception 14
-- **Languages**: Common, Giant
-- **CR** 7 (XP 2,900; PB +3)
+- **Resistenze**: Freddo  
+- **Abilità**: Arcano +5, Inganno +8, Percezione +4  
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 14  
+- **Linguaggi**: Comune, Gigante  
+- **GS** 7 (PE 2.900; BB +3)
 
-### Traits
+### Tratti
 
-***Regeneration.*** The oni regains 10 Hit Points at the start of each of its turns if it has at least 1 Hit Point.
+***Rigenerazione.*** L’oni recupera 10 Punti Ferita all’inizio di ogni suo turno se ha almeno 1 Punto Ferita.  
 
+### Azioni
 
-### Actions
+***Multiattacco.*** L’oni effettua due attacchi di Artiglio o Raggio Incubo. Può sostituire un attacco con l’uso di Incantesimi.  
 
-***Multiattack.*** The oni makes two Claw or Nightmare Ray attacks. It can replace one attack with a use of Spellcasting.
+***Artiglio.*** *Tiro per Colpire in mischia:* +7, portata 3 m. 10 (1d12 + 4) danni da taglio più 9 (2d8) danni necrotici.  
 
-***Claw.*** *Melee Attack Roll:* +7, reach 10 ft. 10 (1d12 + 4) Slashing damage plus 9 (2d8) Necrotic damage.
+***Raggio Incubo.*** *Tiro per Colpire a distanza:* +5, gittata 18 m. 9 (2d6 + 2) danni psichici, e il bersaglio è Spaventato fino all’inizio del turno successivo dell’oni.  
 
-***Nightmare Ray.*** *Ranged Attack Roll:* +5, range 60 ft. 9 (2d6 + 2) Psychic damage, and the target has the Frightened condition until the start of the oni's next turn.
+***Mutare Forma.*** L’oni muta forma in un Umanoide Piccolo o Medio, o in un Gigante Grande, oppure ritorna alla sua vera forma. A parte la taglia, le sue statistiche restano le stesse. L’equipaggiamento indossato o portato non cambia.  
 
-***Shape-Shift.*** The oni shape-shifts into a Small or Medium Humanoid or a Large Giant, or it returns to its true form. Other than its size, its game statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed.
+***Incantesimi.*** L’oni lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 13):  
 
-***Spellcasting.*** The oni casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 13):
+- **A volontà:** —  
+- **1/giorno ciascuno:** *Ammaliare Persona*, *Oscurità*, *Forma Gassosa*, *Sonno*  
 
-- **At Will:** 
-- **1e/Day Each:** *Charm Person*, *Darkness*, *Gaseous Form*, *Sleep*
+### Azioni Bonus
 
-### Bonus Actions
+***Invisibilità.*** L’oni lancia *Invisibilità* su se stesso, senza componenti e usando la stessa caratteristica da incantatore di Incantesimi.  
 
-***Invisibility.*** The oni casts *Invisibility* on itself, requiring no spell components and using the same spellcasting ability as Spellcasting.
+---
+
 ## Otyugh
 
-*Large Aberration, Neutral*
+*Aberrazione Grande, Neutrale*
 
-- **Armor Class:** 14
-- **Hit Points:** 104 (11d10 + 44)
-- **Speed:** 30 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 14
+- **Punti Ferita:** 104 (11d10 + 44)
+- **Velocità:** 9 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 11 | +0 | +0 |
-| CON | 19 | +4 | +7 |
+| FOR | 16 | +3 | +3 |
+| DES | 11 | +0 | +0 |
+| COS | 19 | +4 | +7 |
 | INT | 6 | -2 | -2 |
-| WIS | 13 | +1 | +1 |
-| CHA | 6 | -2 | -2 |
+| SAG | 13 | +1 | +1 |
+| CAR | 6 | -2 | -2 |
 
-- **Senses**: darkvision 120 ft.; Passive Perception 11
-- **Languages**: Otyugh; telepathy 120 ft. (doesn't allow the receiving creature to respond telepathically)
-- **CR** 5 (XP 1,800; PB +3)
+- **Sensi**: Scurovisione 36 m; Percezione Passiva 11  
+- **Linguaggi**: Otyugh; telepatia 36 m (non permette risposta telepatica)  
+- **GS** 5 (PE 1.800; BB +3)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The otyugh makes one Bite attack and two Tentacle attacks.
+***Multiattacco.*** L’otyugh effettua un attacco di Morso e due di Tentacolo.  
 
-***Bite.*** *Melee Attack Roll:* +6, reach 5 ft. 12 (2d8 + 3) Piercing damage, and the target has the Poisoned condition. Whenever the Poisoned target finishes a Long Rest, it is subjected to the following effect. *Constitution Saving Throw*: DC 15. *Failure:*  The target's Hit Point maximum decreases by 5 (1d10) and doesn't return to normal until the Poisoned condition ends on the target. *Success:*  The Poisoned condition ends.
+***Morso.*** *Tiro per Colpire in mischia:* +6, portata 1,5 m. 12 (2d8 + 3) danni perforanti, e il bersaglio è Avvelenato. Ogni volta che il bersaglio Avvelenato termina un Riposo Lungo, subisce l’effetto seguente: *TS Costituzione* CD 15. *Fallimento:* il massimo dei suoi Punti Ferita si riduce di 5 (1d10) e non torna normale finché la condizione Avvelenato non termina. *Successo:* la condizione Avvelenato termina.  
 
-***Tentacle.*** *Melee Attack Roll:* +6, reach 10 ft. 12 (2d8 + 3) Piercing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 13) from one of two tentacles.
+***Tentacolo.*** *Tiro per Colpire in mischia:* +6, portata 3 m. 12 (2d8 + 3) danni perforanti. Se il bersaglio è una creatura Media o più piccola, è Afferrato (CD 13 per liberarsi) da uno dei due tentacoli.  
 
-***Tentacle Slam.*** *Constitution Saving Throw*: DC 14, each creature Grappled by the otyugh. *Failure:*  16 (3d8 + 3) Bludgeoning damage, and the target has the Stunned condition until the start of the otyugh's next turn. *Success:*  Half damage only.
+***Schianto con Tentacoli.*** *TS Costituzione:* CD 14, ogni creatura afferrata dall’otyugh. *Fallimento:* 16 (3d8 + 3) danni contundenti e il bersaglio è Stordito fino all’inizio del turno successivo dell’otyugh. *Successo:* solo metà danno.  
 
-## Owlbear
+---
 
-*Large Monstrosity, Unaligned*
+## Orsogufo
 
-- **Armor Class:** 13
-- **Hit Points:** 59 (7d10 + 21)
-- **Speed:** 40 ft., Climb 40 ft.
-- **Initiative**: +1 (11)
+*Mostruosità Grande, Non Allineata*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 13
+- **Punti Ferita:** 59 (7d10 + 21)
+- **Velocità:** 12 m, Scalare 12 m
+- **Iniziativa**: +1 (11)
+
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 20 | +5 | +5 |
-| DEX | 12 | +1 | +1 |
-| CON | 17 | +3 | +3 |
+| FOR | 20 | +5 | +5 |
+| DES | 12 | +1 | +1 |
+| COS | 17 | +3 | +3 |
 | INT | 3 | -4 | -4 |
-| WIS | 12 | +1 | +1 |
-| CHA | 7 | -2 | -2 |
+| SAG | 12 | +1 | +1 |
+| CAR | 7 | -2 | -2 |
 
-- **Skills**: Perception +5
-- **Senses**: darkvision 60 ft.; Passive Perception 15
-- **CR** 3 (XP 700; PB +2)
+- **Abilità**: Percezione +5  
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 15  
+- **GS** 3 (PE 700; BB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The owlbear makes two Rend attacks.
+***Multiattacco.*** L’orsogufo effettua due attacchi di Dilaniamento.  
 
-***Rend.*** *Melee Attack Roll:* +7, reach 5 ft. 14 (2d8 + 5) Slashing damage.
+***Dilaniamento.*** *Tiro per Colpire in mischia:* +7, portata 1,5 m. 14 (2d8 + 5) danni da taglio.  
 
-## Pegasus
+## Pegaso
 
-*Large Celestial, Chaotic Good*
+*Celestiale Grande, Caotico Buono*
 
-- **Armor Class:** 12
-- **Hit Points:** 59 (7d10 + 21)
-- **Speed:** 60 ft., Fly 90 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 59 (7d10 + 21)
+- **Velocità:** 18 m, Volare 27 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 15 | +2 | +4 |
-| CON | 16 | +3 | +5 |
+| FOR | 18 | +4 | +4 |
+| DES | 15 | +2 | +4 |
+| COS | 16 | +3 | +5 |
 | INT | 10 | +0 | +0 |
-| WIS | 15 | +2 | +4 |
-| CHA | 13 | +1 | +3 |
+| SAG | 15 | +2 | +4 |
+| CAR | 13 | +1 | +3 |
 
-- **Skills**: Perception +6
-- **Senses**: Passive Perception 16
-- **Languages**: Understands Celestial, Common, Elvish, And Sylvan but can't speak
-- **CR** 2 (XP 450; PB +2)
+- **Abilità**: Percezione +6  
+- **Sensi**: Percezione Passiva 16  
+- **Linguaggi**: Capisce Celestiale, Comune, Elfico e Silvano ma non può parlare  
+- **GS** 2 (PE 450; BB +2)
 
-### Actions
+### Azioni
 
-***Hooves.*** *Melee Attack Roll:* +6, reach 5 ft. 7 (1d6 + 4) Bludgeoning damage plus 5 (2d4) Radiant damage.
+***Zoccoli.*** *Tiro per Colpire in mischia:* +6, portata 1,5 m. 7 (1d6 + 4) danni contundenti più 5 (2d4) danni radianti.  
 
-## Phase Spider
+---
 
-*Large Monstrosity, Unaligned*
+## Ragno Fase
 
-- **Armor Class:** 14
-- **Hit Points:** 45 (7d10 + 7)
-- **Speed:** 30 ft., Climb 30 ft.
-- **Initiative**: +3 (13)
+*Mostruosità Grande, Non Allineata*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 14
+- **Punti Ferita:** 45 (7d10 + 7)
+- **Velocità:** 9 m, Scalare 9 m
+- **Iniziativa**: +3 (13)
+
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 15 | +2 | +2 |
-| DEX | 16 | +3 | +3 |
-| CON | 12 | +1 | +1 |
+| FOR | 15 | +2 | +2 |
+| DES | 16 | +3 | +3 |
+| COS | 12 | +1 | +1 |
 | INT | 6 | -2 | -2 |
-| WIS | 10 | +0 | +0 |
-| CHA | 6 | -2 | -2 |
+| SAG | 10 | +0 | +0 |
+| CAR | 6 | -2 | -2 |
 
-- **Skills**: Stealth +7
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **CR** 3 (XP 700; PB +2)
+- **Abilità**: Furtività +7  
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 10  
+- **GS** 3 (PE 700; BB +2)
 
-### Traits
+### Tratti
 
-***Ethereal Sight.*** The spider can see 60 feet into the Ethereal Plane while on the Material Plane and vice versa.
+***Vista Eterea.*** Il ragno può vedere fino a 18 m nel Piano Etereo mentre si trova sul Piano Materiale e viceversa.  
 
-***Spider Climb.*** The spider can climb difficult surfaces, including along ceilings, without needing to make an ability check.
+***Camminare sui Muri.*** Il ragno può arrampicarsi su superfici difficili, compresi i soffitti, senza dover effettuare prove.  
 
-***Web Walker.*** The spider ignores movement restrictions caused by webs, and the spider knows the location of any other creature in contact with the same web.
+***Camminatore di Ragnatele.*** Il ragno ignora le restrizioni di movimento causate dalle ragnatele e conosce la posizione di qualsiasi altra creatura in contatto con la stessa ragnatela.  
 
+### Azioni
 
-### Actions
+***Multiattacco.*** Il ragno effettua due attacchi di Morso.  
 
-***Multiattack.*** The spider makes two Bite attacks.
+***Morso.*** *Tiro per Colpire in mischia:* +5, portata 1,5 m. 8 (1d10 + 3) danni perforanti più 9 (2d8) danni da veleno. Se questo danno riduce il bersaglio a 0 Punti Ferita, esso diventa Stabile e ottiene la condizione Avvelenato per 1 ora. Finché è Avvelenato, ha anche la condizione Paralizzato.  
 
-***Bite.*** *Melee Attack Roll:* +5, reach 5 ft. 8 (1d10 + 3) Piercing damage plus 9 (2d8) Poison damage. If this damage reduces the target to 0 Hit Points, the target becomes Stable, and it has the Poisoned condition for 1 hour. While Poisoned, the target also has the Paralyzed condition.
+### Azioni Bonus
 
+***Balzo Etereo.*** Il ragno si teletrasporta dal Piano Materiale al Piano Etereo o viceversa.  
 
-### Bonus Actions
+---
 
-***Ethereal Jaunt.*** The spider teleports from the Material Plane to the Ethereal Plane or vice versa.
+## Capitano Pirata
 
-## Pirate Captain
+*Umanoide Piccolo, Neutrale*
 
-*Small Humanoid, Neutral*
+- **Classe Armatura:** 17
+- **Punti Ferita:** 84 (13d8 + 26)
+- **Velocità:** 9 m
+- **Iniziativa**: +7 (17)
 
-- **Armor Class:** 17
-- **Hit Points:** 84 (13d8 + 26)
-- **Speed:** 30 ft.
-- **Initiative**: +7 (17)
-
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 10 | +0 | +3 |
-| DEX | 18 | +4 | +7 |
-| CON | 14 | +2 | +2 |
+| FOR | 10 | +0 | +3 |
+| DES | 18 | +4 | +7 |
+| COS | 14 | +2 | +2 |
 | INT | 10 | +0 | +0 |
-| WIS | 14 | +2 | +5 |
-| CHA | 17 | +3 | +6 |
+| SAG | 14 | +2 | +5 |
+| CAR | 17 | +3 | +6 |
 
-- **Skills**: Acrobatics +7, Perception +5
-- **Gear** Pistol, Rapier
-- **Senses**: Passive Perception 15
-- **Languages**: Common plus one other language
-- **CR** 6 (XP 2,300; PB +3)
+- **Abilità**: Acrobazia +7, Percezione +5  
+- **Equipaggiamento** Pistola, Stocco  
+- **Sensi**: Percezione Passiva 15  
+- **Linguaggi**: Comune più un’altra lingua  
+- **GS** 6 (PE 2.300; BB +3)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The pirate makes three attacks, using Rapier or Pistol in any combination.
+***Multiattacco.*** Il pirata effettua tre attacchi, usando Stocco o Pistola in qualsiasi combinazione.  
 
-***Rapier.*** *Melee Attack Roll:* +7, reach 5 ft. 13 (2d8 + 4) Piercing damage, and the pirate has Advantage on the next attack roll it makes before the end of this turn.
+***Stocco.*** *Tiro per Colpire in mischia:* +7, portata 1,5 m. 13 (2d8 + 4) danni perforanti, e il pirata ha vantaggio al prossimo tiro per colpire che effettua prima della fine del turno.  
 
-***Pistol.*** *Ranged Attack Roll:* +7, range 30/90 ft. 15 (2d10 + 4) Piercing damage.
+***Pistola.*** *Tiro per Colpire a distanza:* +7, gittata 9/27 m. 15 (2d10 + 4) danni perforanti.  
 
+### Azioni Bonus
 
-### Bonus Actions
+***Fascino del Capitano.*** *TS Saggezza:* CD 14, una creatura che il pirata può vedere entro 9 m. *Fallimento:* il bersaglio ha la condizione Ammaliato fino all’inizio del turno successivo del pirata.  
 
-***Captain's Charm.*** *Wisdom Saving Throw*: DC 14, one creature the pirate can see within 30 feet. *Failure:*  The target has the Charmed condition until the start of the pirate's next turn.
+---
 
-## Pirate
+## Pirata
 
-*Small Humanoid, Neutral*
+*Umanoide Piccolo, Neutrale*
 
-- **Armor Class:** 14
-- **Hit Points:** 33 (6d8 + 6)
-- **Speed:** 30 ft.
-- **Initiative**: +5 (15)
+- **Classe Armatura:** 14
+- **Punti Ferita:** 33 (6d8 + 6)
+- **Velocità:** 9 m
+- **Iniziativa**: +5 (15)
 
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 10 | +0 | +0 |
-| DEX | 16 | +3 | +5 |
-| CON | 12 | +1 | +1 |
+| FOR | 10 | +0 | +0 |
+| DES | 16 | +3 | +5 |
+| COS | 12 | +1 | +1 |
 | INT | 8 | -1 | -1 |
-| WIS | 12 | +1 | +1 |
-| CHA | 14 | +2 | +4 |
+| SAG | 12 | +1 | +1 |
+| CAR | 14 | +2 | +4 |
 
-- **Gear** Dagger x 6, Leather Armor
-- **Senses**: Passive Perception 11
-- **Languages**: Common plus one other language
-- **CR** 1 (XP 200; PB +2)
+- **Equipaggiamento** 6 Pugnali, Armatura di Cuoio  
+- **Sensi**: Percezione Passiva 11  
+- **Linguaggi**: Comune più un’altra lingua  
+- **GS** 1 (PE 200; BB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The pirate makes two Dagger attacks. It can replace one attack with a use of Enthralling Panache.
+***Multiattacco.*** Il pirata effettua due attacchi con Pugnale. Può sostituire un attacco con l’uso di Panache Ipnotico.  
 
-***Dagger.*** *Melee or Ranged Attack Roll:* +5, reach 5 ft. or range 20/60 ft. 5 (1d4 + 3) Piercing damage.
+***Pugnale.*** *Tiro per Colpire in mischia o a distanza:* +5, portata 1,5 m o gittata 6/18 m. 5 (1d4 + 3) danni perforanti.  
 
-***Enthralling Panache.*** *Wisdom Saving Throw*: DC 12, one creature the pirate can see within 30 feet. *Failure:*  The target has the Charmed condition until the start of the pirate's next turn.
+***Panache Ipnotico.*** *TS Saggezza:* CD 12, una creatura che il pirata può vedere entro 9 m. *Fallimento:* il bersaglio ha la condizione Ammaliato fino all’inizio del turno successivo del pirata.  
 
-## Pit Fiend
 
-*Large Fiend (Devil), Lawful Evil*
+## Diavolo Abissale (Pit Fiend)
 
-- **Armor Class:** 21
-- **Hit Points:** 337 (27d10 + 189)
-- **Speed:** 30 ft., Fly 60 ft.
-- **Initiative**: +14 (24)
+*Mostro Grande (Diavolo), Legale Malvagio*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 21
+- **Punti Ferita:** 337 (27d10 + 189)
+- **Velocità:** 9 m, Volare 18 m
+- **Iniziativa**: +14 (24)
+
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 26 | +8 | +8 |
-| DEX | 14 | +2 | +8 |
-| CON | 24 | +7 | +7 |
+| FOR | 26 | +8 | +8 |
+| DES | 14 | +2 | +8 |
+| COS | 24 | +7 | +7 |
 | INT | 22 | +6 | +6 |
-| WIS | 18 | +4 | +10 |
-| CHA | 24 | +7 | +7 |
+| SAG | 18 | +4 | +10 |
+| CAR | 24 | +7 | +7 |
 
-- **Resistances**: Cold
-- **Immunities**: Fire, Poison; Poisoned
-- **Skills**: Perception +10, Persuasion +19
-- **Senses**: truesight 120 ft.; Passive Perception 20
-- **Languages**: Infernal; telepathy 120 ft.
-- **CR** 20 (XP 25,000; PB +6)
+- **Resistenze**: Freddo  
+- **Immunità**: Fuoco, Veleno; Avvelenato  
+- **Abilità**: Percezione +10, Persuasione +19  
+- **Sensi**: vista vera 36 m; Percezione Passiva 20  
+- **Linguaggi**: Infernale; telepatia 36 m  
+- **GS** 20 (PE 25.000; BB +6)
 
-### Traits
+### Tratti
 
-***Diabolical Restoration.*** If the pit fiend dies outside the Nine Hells, its body disappears in sulfurous smoke, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Nine Hells.
+***Restaurazione Diabolica.*** Se il diavolo abissale muore al di fuori dei Nove Inferi, il suo corpo svanisce in un fumo sulfureo e ottiene istantaneamente un nuovo corpo, rianimandosi con tutti i suoi Punti Ferita in qualche luogo dei Nove Inferi.  
 
-***Fear Aura.*** The pit fiend emanates an aura in a 20-foot Emanation while it doesn't have the Incapacitated condition. *Wisdom Saving Throw*: DC 21, any enemy that starts its turn in the aura. *Failure:*  The target has the Frightened condition until the start of its next turn. *Success:*  The target is immune to this pit fiend's aura for 24 hours.
+***Aura di Paura.*** Il diavolo abissale emana un’aura in un’emanazione di 6 m finché non è Incapacitato. *TS Saggezza:* CD 21, ogni nemico che inizia il proprio turno nell’aura. *Fallimento:* il bersaglio è Spaventato fino all’inizio del suo prossimo turno. *Successo:* il bersaglio è immune all’aura di questo diavolo abissale per 24 ore.  
 
-***Legendary Resistance (4/Day).*** If the pit fiend fails a saving throw, it can choose to succeed instead.
+***Resistenza Leggendaria (4/giorno).*** Se fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
-***Magic Resistance.*** The pit fiend has Advantage on saving throws against spells and other magical effects.
+***Resistenza alla Magia.*** Vantaggio ai tiri salvezza contro incantesimi ed effetti magici.  
 
+### Azioni
 
-### Actions
+***Multiattacco.*** Effettua un attacco di Morso, due di Artiglio Diabolico e uno di Mazza Infuocata.  
 
-***Multiattack.*** The pit fiend makes one Bite attack, two Devilish Claw attacks, and one Fiery Mace attack.
+***Morso.*** *Tiro per Colpire in mischia:* +14, portata 3 m. 18 (3d6 + 8) danni perforanti. Se il bersaglio è una creatura, deve effettuare il seguente tiro salvezza: *TS Costituzione* CD 21. *Fallimento:* il bersaglio è Avvelenato. Finché è Avvelenato, non può recuperare Punti Ferita e subisce 21 (6d6) danni da veleno all’inizio di ciascun suo turno, poi ripete il TS alla fine di ciascun suo turno, terminando l’effetto su di sé con un successo. Dopo 1 minuto, riesce automaticamente.  
 
-***Bite.*** *Melee Attack Roll:* +14, reach 10 ft. 18 (3d6 + 8) Piercing damage. If the target is a creature, it must make the following saving throw. *Constitution Saving Throw*: DC 21. *Failure:*  The target has the Poisoned condition. While Poisoned, the target can't regain Hit Points and takes 21 (6d6) Poison damage at the start of each of its turns, and it repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
+***Artiglio Diabolico.*** *Tiro per Colpire in mischia:* +14, portata 3 m. 26 (4d8 + 8) danni necrotici.  
 
-***Devilish Claw.*** *Melee Attack Roll:* +14, reach 10 ft. 26 (4d8 + 8) Necrotic damage.
+***Mazza Infuocata.*** *Tiro per Colpire in mischia:* +14, portata 3 m. 22 (4d6 + 8) danni da forza più 21 (6d6) danni da fuoco.  
 
-***Fiery Mace.*** *Melee Attack Roll:* +14, reach 10 ft. 22 (4d6 + 8) Force damage plus 21 (6d6) Fire damage.
+***Incantesimi Infernali (Ricarica 4–6).*** Lancia *Palla di Fuoco* (versione di 5° livello) due volte, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 21). Può sostituire una *Palla di Fuoco* con *Blocca Mostri* (versione di 7° livello) o *Muro di Fuoco*.  
+- **A volontà:** —  
 
-***Hellfire Spellcasting (Recharge 4-6).*** The pit fiend casts *Fireball* (level 5 version) twice, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 21). It can replace one *Fireball* with *Hold Monster* (level 7 version) or *Wall of Fire*.
-
-- **At Will:** 
+---
 
 ## Planetar
 
-*Large Celestial (Angel), Lawful Good*
+*Celestiale Grande (Angelo), Legale Buono*
 
-- **Armor Class:** 19
-- **Hit Points:** 262 (21d10 + 147)
-- **Speed:** 40 ft., Fly 120 ft. (hover)
-- **Initiative**: +10 (20)
+- **Classe Armatura:** 19
+- **Punti Ferita:** 262 (21d10 + 147)
+- **Velocità:** 12 m, Volare 36 m (fluttuare)
+- **Iniziativa**: +10 (20)
 
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 24 | +7 | +12 |
-| DEX | 20 | +5 | +5 |
-| CON | 24 | +7 | +12 |
+| FOR | 24 | +7 | +12 |
+| DES | 20 | +5 | +5 |
+| COS | 24 | +7 | +12 |
 | INT | 19 | +4 | +4 |
-| WIS | 22 | +6 | +11 |
-| CHA | 25 | +7 | +12 |
+| SAG | 22 | +6 | +11 |
+| CAR | 25 | +7 | +12 |
 
-- **Resistances**: Radiant
-- **Immunities**: Charmed, Exhaustion, Frightened
-- **Skills**: Perception +11
-- **Senses**: truesight 120 ft.; Passive Perception 21
-- **Languages**: All; telepathy 120 ft.
-- **CR** 16 (XP 15,000; PB +5)
+- **Resistenze**: Radiante  
+- **Immunità**: Ammaliato, Affaticato, Spaventato  
+- **Abilità**: Percezione +11  
+- **Sensi**: vista vera 36 m; Percezione Passiva 21  
+- **Linguaggi**: Tutte; telepatia 36 m  
+- **GS** 16 (PE 15.000; BB +5)
 
-### Traits
+### Tratti
 
-***Divine Awareness.*** The planetar knows if it hears a lie.
+***Consapevolezza Divina.*** Sa se sente una menzogna.  
 
-***Exalted Restoration.*** If the planetar dies outside Mount Celestia, its body disappears, and it gains a new body instantly, reviving with all its Hit Points somewhere in Mount Celestia.
+***Restaurazione Esaltata.*** Se muore al di fuori del Monte Celestia, il suo corpo scompare e ottiene istantaneamente un nuovo corpo, rianimandosi con tutti i suoi Punti Ferita in qualche luogo del Monte Celestia.  
 
-***Magic Resistance.*** The planetar has Advantage on saving throws against spells and other magical effects.
+***Resistenza alla Magia.*** Vantaggio ai tiri salvezza contro incantesimi ed effetti magici.  
 
+### Azioni
 
-### Actions
+***Multiattacco.*** Effettua tre attacchi di Spada Radiosa oppure usa Esplosione Sacra due volte.  
 
-***Multiattack.*** The planetar makes three Radiant Sword attacks or uses Holy Burst twice.
+***Spada Radiosa.*** *Tiro per Colpire in mischia:* +12, portata 3 m. 14 (2d6 + 7) danni da taglio più 18 (4d8) danni radianti.  
 
-***Radiant Sword.*** *Melee Attack Roll:* +12, reach 10 ft. 14 (2d6 + 7) Slashing damage plus 18 (4d8) Radiant damage.
+***Esplosione Sacra.*** *TS Destrezza:* CD 20, ogni nemico in una Sfera di raggio 6 m centrata su un punto che il planetar può vedere entro 36 m. *Fallimento:* 24 (7d6) danni radianti. *Successo:* metà danno.  
 
-***Holy Burst.*** *Dexterity Saving Throw*: DC 20, each enemy in a 20-foot-radius Sphere [Area of Effect]|XPHB|Sphere centered on a point the planetar can see within 120 feet. *Failure:*  24 (7d6) Radiant damage. *Success:*  Half damage.
+***Incantesimi.*** Lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 20):  
+- **A volontà:** *Individuazione del Bene e del Male*  
+- **1/giorno ciascuno:** *Comunione*, *Controllare il Meteo*, *Scacciare il Bene e il Male*, *Rianimare i Morti*  
 
-***Spellcasting.*** The planetar casts one of the following spells, requiring no Material components and using Charisma as spellcasting ability (spell save DC 20):
+### Azioni Bonus
 
-- **At Will:** *Detect Evil and Good*
-- **1e/Day Each:** *Commune*, *Control Weather*, *Dispel Evil and Good*, *Raise Dead*
+***Aiuto Divino (2/giorno).*** Lancia *Cura Ferite*, *Invisibilità*, *Restaurazione Minore* o *Rimuovi Maledizione* usando la stessa caratteristica da incantatore di Incantesimi.  
 
-### Bonus Actions
+---
 
-***Divine Aid (2/Day).*** The planetar casts *Cure Wounds*, *Invisibility*, *Lesser Restoration*, or *Remove Curse*, using the same spellcasting ability as Spellcasting.
-## Priest Acolyte
+## Accolito Sacerdote
 
-*Small Humanoid, Neutral*
+*Umanoide Piccolo, Neutrale*
 
-- **Armor Class:** 13
-- **Hit Points:** 11 (2d8 + 2)
-- **Speed:** 30 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 11 (2d8 + 2)
+- **Velocità:** 9 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 14 | +2 | +2 |
-| DEX | 10 | +0 | +0 |
-| CON | 12 | +1 | +1 |
+| FOR | 14 | +2 | +2 |
+| DES | 10 | +0 | +0 |
+| COS | 12 | +1 | +1 |
 | INT | 10 | +0 | +0 |
-| WIS | 14 | +2 | +2 |
-| CHA | 11 | +0 | +0 |
+| SAG | 14 | +2 | +2 |
+| CAR | 11 | +0 | +0 |
 
-- **Skills**: Medicine +4, Religion +2
-- **Gear** Chain Shirt, Holy Symbol, Mace
-- **Senses**: Passive Perception 12
-- **Languages**: Common
-- **CR** 1/4 (XP 50; PB +2)
+- **Abilità**: Medicina +4, Religione +2  
+- **Equipaggiamento** Cotta di Maglia, Simbolo Sacro, Mazza  
+- **Sensi**: Percezione Passiva 12  
+- **Linguaggi**: Comune  
+- **GS** 1/4 (PE 50; BB +2)
 
-### Actions
+### Azioni
 
-***Mace.*** *Melee Attack Roll:* +4, reach 5 ft. 5 (1d6 + 2) Bludgeoning damage plus 2 (1d4) Radiant damage.
+***Mazza.*** *Tiro per Colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni contundenti più 2 (1d4) danni radianti.  
 
-***Radiant Flame.*** *Ranged Attack Roll:* +4, range 60 ft. 7 (2d6) Radiant damage.
+***Fiamma Radiosa.*** *Tiro per Colpire a distanza:* +4, gittata 18 m. 7 (2d6) danni radianti.  
 
-***Spellcasting.*** The priest casts one of the following spells, using Wisdom as the spellcasting ability:
+***Incantesimi.*** Lancia uno dei seguenti incantesimi usando Saggezza come caratteristica da incantatore:  
+- **A volontà:** *Luce*, *Taumaturgia*  
 
-- **At Will:** *Light*, *Thaumaturgy*
+### Azioni Bonus
 
+***Aiuto Divino (1/giorno).*** Lancia *Benedizione*, *Parola Guaritrice* o *Santuario* usando la stessa caratteristica da incantatore di Incantesimi.  
 
-### Bonus Actions
+---
 
-***Divine Aid (1/Day).*** The priest casts *Bless*, *Healing Word*, or *Sanctuary*, using the same spellcasting ability as Spellcasting.
-## Priest
+## Sacerdote
 
-*Small Humanoid, Neutral*
+*Umanoide Piccolo, Neutrale*
 
-- **Armor Class:** 13
-- **Hit Points:** 38 (7d8 + 7)
-- **Speed:** 30 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 38 (7d8 + 7)
+- **Velocità:** 9 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 10 | +0 | +0 |
-| CON | 12 | +1 | +1 |
+| FOR | 16 | +3 | +3 |
+| DES | 10 | +0 | +0 |
+| COS | 12 | +1 | +1 |
 | INT | 13 | +1 | +1 |
-| WIS | 16 | +3 | +3 |
-| CHA | 13 | +1 | +1 |
+| SAG | 16 | +3 | +3 |
+| CAR | 13 | +1 | +1 |
 
-- **Skills**: Medicine +7, Perception +5, Religion +5
-- **Gear** Chain Shirt, Holy Symbol, Mace
-- **Senses**: Passive Perception 15
-- **Languages**: Common plus one other language
-- **CR** 2 (XP 450; PB +2)
+- **Abilità**: Medicina +7, Percezione +5, Religione +5  
+- **Equipaggiamento** Cotta di Maglia, Simbolo Sacro, Mazza  
+- **Sensi**: Percezione Passiva 15  
+- **Linguaggi**: Comune più un’altra lingua  
+- **GS** 2 (PE 450; BB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The priest makes two attacks, using Mace or Radiant Flame in any combination.
+***Multiattacco.*** Effettua due attacchi, usando Mazza o Fiamma Radiosa in qualsiasi combinazione.  
 
-***Mace.*** *Melee Attack Roll:* +5, reach 5 ft. 6 (1d6 + 3) Bludgeoning damage plus 5 (2d4) Radiant damage.
+***Mazza.*** *Tiro per Colpire in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni contundenti più 5 (2d4) danni radianti.  
 
-***Radiant Flame.*** *Ranged Attack Roll:* +5, range 60 ft. 11 (2d10) Radiant damage.
+***Fiamma Radiosa.*** *Tiro per Colpire a distanza:* +5, gittata 18 m. 11 (2d10) danni radianti.  
 
-***Spellcasting.*** The priest casts one of the following spells, using Wisdom as the spellcasting ability:
+***Incantesimi.*** Lancia uno dei seguenti incantesimi usando Saggezza come caratteristica da incantatore:  
+- **A volontà:** *Luce*, *Taumaturgia*  
+- **1/giorno ciascuno:** *Guardiani Spirituali*  
 
-- **At Will:** *Light*, *Thaumaturgy*
-- **1/Day Each:** *Spirit Guardians*
+### Azioni Bonus
 
-### Bonus Actions
+***Aiuto Divino (3/giorno).*** Lancia *Benedizione*, *Dissolvi Magie*, *Parola Guaritrice* o *Restaurazione Minore* usando la stessa caratteristica da incantatore di Incantesimi.  
 
-***Divine Aid (3/Day).*** The priest casts *Bless*, *Dispel Magic*, *Healing Word*, or *Lesser Restoration*, using the same spellcasting ability as Spellcasting.
-## Pseudodragon
+## Pseudodrago
 
-*Small Dragon, Neutral Good*
+*Drago Piccolo, Neutrale Buono*
 
-- **Armor Class:** 14
-- **Hit Points:** 10 (3d4 + 3)
-- **Speed:** 15 ft., Fly 60 ft.
-- **Initiative**: +2 (12)
+- **Classe Armatura:** 14
+- **Punti Ferita:** 10 (3d4 + 3)
+- **Velocità:** 4,5 m, Volare 18 m
+- **Iniziativa**: +2 (12)
 
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 6 | -2 | -2 |
-| DEX | 15 | +2 | +2 |
-| CON | 13 | +1 | +1 |
+| FOR | 6 | -2 | -2 |
+| DES | 15 | +2 | +2 |
+| COS | 13 | +1 | +1 |
 | INT | 10 | +0 | +0 |
-| WIS | 12 | +1 | +1 |
-| CHA | 10 | +0 | +0 |
+| SAG | 12 | +1 | +1 |
+| CAR | 10 | +0 | +0 |
 
-- **Skills**: Perception +5, Stealth +4
-- **Senses**: blindsight 10 ft., darkvision 60 ft.; Passive Perception 15
-- **Languages**: Understands Common and Draconic but can't speak
-- **CR** 1/4 (XP 50; PB +2)
+- **Abilità**: Percezione +5, Furtività +4  
+- **Sensi**: Vista Cieca 3 m, Scurovisione 18 m; Percezione Passiva 15  
+- **Linguaggi**: Capisce Comune e Draconico ma non può parlare  
+- **GS** 1/4 (PE 50; BB +2)
 
-### Traits
+### Tratti
 
-***Magic Resistance.*** The pseudodragon has Advantage on saving throws against spells and other magical effects.
+***Resistenza alla Magia.*** Vantaggio ai tiri salvezza contro incantesimi ed effetti magici.  
 
+### Azioni
 
-### Actions
+***Multiattacco.*** Effettua due attacchi di Morso.  
 
-***Multiattack.*** The pseudodragon makes two Bite attacks.
+***Morso.*** *Tiro per Colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni perforanti.  
 
-***Bite.*** *Melee Attack Roll:* +4, reach 5 ft. 4 (1d4 + 2) Piercing damage.
+***Pungiglione.*** *TS Costituzione:* CD 12, una creatura che il pseudodrago può vedere entro 1,5 m. *Fallimento:* 5 (2d4) danni da veleno e il bersaglio è Avvelenato per 1 ora. *Fallimento di 5 o più:* finché è Avvelenato, il bersaglio è anche Incosciente; questa condizione termina in anticipo se subisce danni o se una creatura entro 1,5 m usa un’azione per svegliarlo.  
 
-***Sting.*** *Constitution Saving Throw*: DC 12, one creature the pseudodragon can see within 5 feet. *Failure:*  5 (2d4) Poison damage, and the target has the Poisoned condition for 1 hour. *Failure by 5 or More:* While Poisoned, the target also has the Unconscious condition, which ends early if the target takes damage or a creature within 5 feet of it takes an action to wake it.
+---
 
-## Purple Worm
+## Verme Viola
 
-*Gargantuan Monstrosity, Unaligned*
+*Mostruosità Enorme, Non Allineata*
 
-- **Armor Class:** 18
-- **Hit Points:** 247 (15d20 + 90)
-- **Speed:** 50 ft., Burrow 50 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 18
+- **Punti Ferita:** 247 (15d20 + 90)
+- **Velocità:** 15 m, Scavare 15 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 28 | +9 | +9 |
-| DEX | 7 | -2 | -2 |
-| CON | 22 | +6 | +11 |
+| FOR | 28 | +9 | +9 |
+| DES | 7 | -2 | -2 |
+| COS | 22 | +6 | +11 |
 | INT | 1 | -5 | -5 |
-| WIS | 8 | -1 | +4 |
-| CHA | 4 | -3 | -3 |
+| SAG | 8 | -1 | +4 |
+| CAR | 4 | -3 | -3 |
 
-- **Senses**: blindsight 30 ft., tremorsense 60 ft.; Passive Perception 9
-- **CR** 15 (XP 13,000; PB +5)
+- **Sensi**: Vista Cieca 9 m, Tremorsenso 18 m; Percezione Passiva 9  
+- **GS** 15 (PE 13.000; BB +5)
 
-### Traits
+### Tratti
 
-***Tunneler.*** The worm can burrow through solid rock at half its Burrow Speed and leaves a 10-foot-diameter tunnel in its wake.
+***Scavatore.*** Può scavare nella roccia solida a metà della sua Velocità di Scavo e lascia un tunnel di 3 m di diametro dietro di sé.  
 
+### Azioni
 
-### Actions
+***Multiattacco.*** Effettua un attacco di Morso e uno di Pungiglione Caudale.  
 
-***Multiattack.*** The worm makes one Bite attack and one Tail Stinger attack.
+***Morso.*** *Tiro per Colpire in mischia:* +14, portata 3 m. 22 (3d8 + 9) danni perforanti. Se il bersaglio è una creatura Grande o più piccola, è Afferrato (CD 19 per sfuggire) e ha la condizione Immobilizzato finché la presa dura.  
 
-***Bite.*** *Melee Attack Roll:* +14, reach 10 ft. 22 (3d8 + 9) Piercing damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 19), and it has the Restrained condition until the grapple ends.
+***Pungiglione Caudale.*** *Tiro per Colpire in mischia:* +14, portata 3 m. 16 (2d6 + 9) danni perforanti più 35 (10d6) danni da veleno.  
 
-***Tail Stinger.*** *Melee Attack Roll:* +14, reach 10 ft. 16 (2d6 + 9) Piercing damage plus 35 (10d6) Poison damage.
+### Azioni Bonus
 
+***Inghiottire.*** *TS Forza:* CD 19, una creatura Grande o più piccola afferrata dal verme (può avere fino a tre creature inghiottite alla volta). *Fallimento:* il bersaglio è inghiottito e la condizione Afferrato termina. Una creatura inghiottita è Accecata e Immobilizzata, ha Copertura Totale contro attacchi ed effetti dall’esterno e subisce 17 (5d6) danni da acido all’inizio di ogni turno del verme.  
+Se il verme subisce 30 o più danni in un singolo turno da una creatura al suo interno, deve riuscire a un TS Costituzione CD 21 alla fine di quel turno o rigurgitare tutte le creature inghiottite, che cadono in uno spazio entro 1,5 m dal verme e sono Prone. Se il verme muore, le creature inghiottite non sono più Immobilizzate e possono uscire dal cadavere usando 6 m di movimento, uscendo Prone.  
 
-### Bonus Actions
-
-***Swallow.*** *Strength Saving Throw*: DC 19, one Large or smaller creature Grappled by the worm (it can have up to three creatures swallowed at a time). *Failure:*  The target is swallowed by the worm, and the Grappled condition ends. A swallowed creature has the Blinded and Restrained conditions, has Cover|XPHB|Total Cover against attacks and other effects outside the worm, and takes 17 (5d6) Acid damage at the start of each of the worm's turns.
-If the worm takes 30 damage or more on a single turn from a creature inside it, the worm must succeed on a DC 21 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, each of which falls in a space within 5 feet of the worm and has the Prone condition. If the worm dies, any swallowed creature no longer has the Restrained condition and can escape from the corpse using 20 feet of movement, exiting Prone.
+---
 
 ## Quasit
 
-*Small Fiend (Demon), Chaotic Evil*
+*Mostro Piccolo (Demone), Caotico Malvagio*
 
-- **Armor Class:** 13
-- **Hit Points:** 25 (10d4)
-- **Speed:** 40 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 25 (10d4)
+- **Velocità:** 12 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 5 | -3 | -3 |
-| DEX | 17 | +3 | +3 |
-| CON | 10 | +0 | +0 |
+| FOR | 5 | -3 | -3 |
+| DES | 17 | +3 | +3 |
+| COS | 10 | +0 | +0 |
 | INT | 7 | -2 | -2 |
-| WIS | 10 | +0 | +0 |
-| CHA | 10 | +0 | +0 |
+| SAG | 10 | +0 | +0 |
+| CAR | 10 | +0 | +0 |
 
-- **Resistances**: Cold, Fire, Lightning
-- **Immunities**: Poison; Poisoned
-- **Skills**: Stealth +5
-- **Senses**: darkvision 120 ft.; Passive Perception 10
-- **Languages**: Abyssal, Common
-- **CR** 1 (XP 200; PB +2)
+- **Resistenze**: Freddo, Fuoco, Fulmine  
+- **Immunità**: Veleno; Avvelenato  
+- **Abilità**: Furtività +5  
+- **Sensi**: Scurovisione 36 m; Percezione Passiva 10  
+- **Linguaggi**: Abissale, Comune  
+- **GS** 1 (PE 200; BB +2)
 
-### Traits
+### Tratti
 
-***Magic Resistance.*** The quasit has Advantage on saving throws against spells and other magical effects.
+***Resistenza alla Magia.*** Vantaggio ai tiri salvezza contro incantesimi ed effetti magici.  
 
+### Azioni
 
-### Actions
+***Dilaniamento.*** *Tiro per Colpire in mischia:* +5, portata 1,5 m. 5 (1d4 + 3) danni da taglio, e il bersaglio ha la condizione Avvelenato fino all’inizio del prossimo turno del quasit.  
 
-***Rend.*** *Melee Attack Roll:* +5, reach 5 ft. 5 (1d4 + 3) Slashing damage, and the target has the Poisoned condition until the start of the quasit's next turn.
+***Spaventare (1/giorno).*** *TS Saggezza:* CD 10, una creatura entro 6 m. *Fallimento:* il bersaglio ha la condizione Spaventato. Alla fine di ciascun suo turno ripete il TS, terminando l’effetto su di sé con un successo. Dopo 1 minuto riesce automaticamente.  
 
-***Scare (1/Day).*** *Wisdom Saving Throw*: DC 10, one creature within 20 feet. *Failure:*  The target has the Frightened condition. At the end of each of its turns, the target repeats the save, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
+***Mutare Forma.*** Assume l’aspetto di un pipistrello (Velocità 3 m, Volare 12 m), di un centopiedi (12 m, Scalare 12 m) o di un rospo (12 m, Nuotare 12 m), oppure ritorna alla vera forma. Le sue statistiche restano le stesse in ogni forma, tranne la Velocità. L’equipaggiamento indossato o portato non cambia.  
 
-***Shape-Shift.*** The quasit shape-shifts to resemble a bat (Speed 10 ft., Fly 40 ft.), a centipede (40 ft., Climb 40 ft.), or a toad (40 ft., Swim 40 ft.), or it returns to its true form. Its game statistics are the same in each form, except for its Speed. Any equipment it is wearing or carrying isn't transformed.
+***Invisibilità.*** Lancia *Invisibilità* su se stesso, senza componenti e usando Carisma come caratteristica da incantatore.  
+- **A volontà:** *Invisibilità*  
 
-***Invisibility.*** The quasit casts *Invisibility* on itself, requiring no spell components and using Charisma as the spellcasting ability.
-
-- **At Will:** *Invisibility*
+---
 
 ## Rakshasa
 
-*Medium Fiend, Lawful Evil*
+*Mostro Medio, Legale Malvagio*
 
-- **Armor Class:** 17
-- **Hit Points:** 221 (26d8 + 104)
-- **Speed:** 40 ft.
-- **Initiative**: +8 (18)
+- **Classe Armatura:** 17
+- **Punti Ferita:** 221 (26d8 + 104)
+- **Velocità:** 12 m
+- **Iniziativa**: +8 (18)
 
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 14 | +2 | +2 |
-| DEX | 17 | +3 | +3 |
-| CON | 18 | +4 | +4 |
+| FOR | 14 | +2 | +2 |
+| DES | 17 | +3 | +3 |
+| COS | 18 | +4 | +4 |
 | INT | 13 | +1 | +1 |
-| WIS | 16 | +3 | +3 |
-| CHA | 20 | +5 | +5 |
+| SAG | 16 | +3 | +3 |
+| CAR | 20 | +5 | +5 |
 
-- **Vulnerabilities**: Piercing
-- **Immunities**: Charmed, Frightened
-- **Skills**: Deception +10, Insight +8, Perception +8
-- **Senses**: truesight 60 ft.; Passive Perception 18
-- **Languages**: Common, Infernal
-- **CR** 13 (XP 10,000; PB +5)
+- **Vulnerabilità**: Perforante  
+- **Immunità**: Ammaliato, Spaventato  
+- **Abilità**: Inganno +10, Intuizione +8, Percezione +8  
+- **Sensi**: vista vera 18 m; Percezione Passiva 18  
+- **Linguaggi**: Comune, Infernale  
+- **GS** 13 (PE 10.000; BB +5)
 
-### Traits
+### Tratti
 
-***Greater Magic Resistance.*** The rakshasa automatically succeeds on saving throws against spells and other magical effects, and the attack rolls of spells automatically miss it. Without the rakshasa's permission, no spell can observe the rakshasa remotely or detect its thoughts, creature type, or alignment.
+***Grande Resistenza alla Magia.*** Riesce automaticamente ai tiri salvezza contro incantesimi ed effetti magici e i tiri per colpire degli incantesimi lo mancano automaticamente. Senza il suo permesso, nessun incantesimo può osservarlo a distanza né rilevarne pensieri, tipo di creatura o allineamento.  
 
-***Fiendish Restoration.*** If the rakshasa dies outside the Nine Hells, its body turns to ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Nine Hells.
+***Restaurazione Infernale.*** Se muore al di fuori dei Nove Inferi, il corpo si tramuta in ichor e ottiene istantaneamente un nuovo corpo, rianimandosi con tutti i suoi Punti Ferita in qualche luogo dei Nove Inferi.  
 
+### Azioni
 
-### Actions
+***Multiattacco.*** Effettua tre attacchi di Tocco Maledetto.  
 
-***Multiattack.*** The rakshasa makes three Cursed Touch attacks.
+***Tocco Maledetto.*** *Tiro per Colpire in mischia:* +10, portata 1,5 m. 12 (2d6 + 5) danni da taglio più 19 (3d12) danni necrotici. Se il bersaglio è una creatura, è maledetto. Finché è maledetto, non ottiene benefici dal terminare un Riposo Breve o Lungo.  
 
-***Cursed Touch.*** *Melee Attack Roll:* +10, reach 5 ft. 12 (2d6 + 5) Slashing damage plus 19 (3d12) Necrotic damage. If the target is a creature, it is cursed. While cursed, the target gains no benefit from finishing a Short Rest|XPHB|Short or Long Rest.
+***Comando Infausto (Ricarica 5–6).*** *TS Saggezza:* CD 18, ogni nemico in un’Emanazione di 9 m con origine dal rakshasa. *Fallimento:* 28 (8d6) danni psichici e il bersaglio è Spaventato e Incapacitato fino all’inizio del prossimo turno del rakshasa.  
 
-***Baleful Command (Recharge 5-6).*** *Wisdom Saving Throw*: DC 18, each enemy in a 30-foot Emanation originating from the rakshasa. *Failure:*  28 (8d6) Psychic damage, and the target has the Frightened and Incapacitated conditions until the start of the rakshasa's next turn.
+***Incantesimi.*** Lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 18):  
+- **A volontà:** *Individuazione della Magia*, *Individuazione dei Pensieri*, *Travestimento*, *Mano Magica*, *Illusione Minore*  
+- **1/giorno ciascuno:** *Volo*, *Invisibilità*, *Immagine Maggiore*, *Spostamento Planare*  
 
-***Spellcasting.*** The rakshasa casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 18):
+## Draghetto Rosso
 
-- **At Will:** *Detect Magic*, *Detect Thoughts*, *Disguise Self*, *Mage Hand*, *Minor Illusion*
-- **1e/Day Each:** *Fly*, *Invisibility*, *Major Image*, *Plane Shift*
-## Red Dragon Wyrmling
+*Drago Medio (Cromatico), Caotico Malvagio*
 
-*Medium Dragon (Chromatic), Chaotic Evil*
+- **Classe Armatura:** 17
+- **Punti Ferita:** 75 (10d8 + 30)
+- **Velocità:** 9 m, Scalare 9 m, Volare 18 m
+- **Iniziativa**: +2 (12)
 
-- **Armor Class:** 17
-- **Hit Points:** 75 (10d8 + 30)
-- **Speed:** 30 ft., Climb 30 ft., Fly 60 ft.
-- **Initiative**: +2 (12)
-
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 10 | +0 | +2 |
-| CON | 17 | +3 | +3 |
+| FOR | 19 | +4 | +4 |
+| DES | 10 | +0 | +2 |
+| COS | 17 | +3 | +3 |
 | INT | 12 | +1 | +1 |
-| WIS | 11 | +0 | +2 |
-| CHA | 15 | +2 | +2 |
+| SAG | 11 | +0 | +2 |
+| CAR | 15 | +2 | +2 |
 
-- **Immunities**: Fire
-- **Skills**: Perception +4, Stealth +2
-- **Senses**: blindsight 10 ft., darkvision 60 ft.; Passive Perception 14
-- **Languages**: Draconic
-- **CR** 4 (XP 1,100; PB +2)
+- **Immunità**: Fuoco  
+- **Abilità**: Percezione +4, Furtività +2  
+- **Sensi**: Vista Cieca 3 m, Scurovisione 18 m; Percezione Passiva 14  
+- **Linguaggi**: Draconico  
+- **GS** 4 (PE 1.100; BB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The dragon makes two Rend attacks.
+***Multiattacco.*** Effettua due attacchi di Dilaniamento.  
 
-***Rend.*** *Melee Attack Roll:* +6, reach 5 ft. 9 (1d10 + 4) Slashing damage plus 3 (1d6) Fire damage.
+***Dilaniamento.*** *Tiro per Colpire in mischia:* +6, portata 1,5 m. 9 (1d10 + 4) danni da taglio più 3 (1d6) danni da fuoco.  
 
-***Fire Breath (Recharge 5-6).*** *Dexterity Saving Throw*: DC 13, each creature in a 15-foot Cone. *Failure:*  24 (7d6) Fire damage. *Success:*  Half damage.
+***Soffio di Fuoco (Ricarica 5–6).*** *TS Destrezza:* CD 13, ogni creatura in un Cono di 4,5 m. *Fallimento:* 24 (7d6) danni da fuoco. *Successo:* metà danno.  
+
+---
 
 ## Remorhaz
 
-*Huge Monstrosity, Unaligned*
+*Mostruosità Enorme, Non Allineata*
 
-- **Armor Class:** 17
-- **Hit Points:** 195 (17d12 + 85)
-- **Speed:** 40 ft., Burrow 30 ft.
-- **Initiative**: +5 (15)
+- **Classe Armatura:** 17
+- **Punti Ferita:** 195 (17d12 + 85)
+- **Velocità:** 12 m, Scavare 9 m
+- **Iniziativa**: +5 (15)
 
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 24 | +7 | +7 |
-| DEX | 13 | +1 | +1 |
-| CON | 21 | +5 | +5 |
+| FOR | 24 | +7 | +7 |
+| DES | 13 | +1 | +1 |
+| COS | 21 | +5 | +5 |
 | INT | 4 | -3 | -3 |
-| WIS | 10 | +0 | +0 |
-| CHA | 5 | -3 | -3 |
+| SAG | 10 | +0 | +0 |
+| CAR | 5 | -3 | -3 |
 
-- **Immunities**: Cold, Fire
-- **Senses**: darkvision 60 ft., tremorsense 60 ft.; Passive Perception 10
-- **CR** 11 (XP 7,200; PB +4)
+- **Immunità**: Freddo, Fuoco  
+- **Sensi**: Scurovisione 18 m, Tremorsenso 18 m; Percezione Passiva 10  
+- **GS** 11 (PE 7.200; BB +4)
 
-### Traits
+### Tratti
 
-***Heat Aura.*** At the end of each of the remorhaz's turns, each creature in a 5-foot Emanation originating from the remorhaz takes 16 (3d10) Fire damage.
+***Aura di Calore.*** Alla fine di ciascun suo turno, ogni creatura entro un’emanazione di 1,5 m subisce 16 (3d10) danni da fuoco.  
 
+### Azioni
 
-### Actions
+***Morso.*** *Tiro per Colpire in mischia:* +11, portata 3 m. 18 (2d10 + 7) danni perforanti più 14 (4d6) danni da fuoco. Se il bersaglio è una creatura Grande o più piccola, è Afferrato (CD 17 per sfuggire) e ha la condizione Immobilizzato finché la presa dura.  
 
-***Bite.*** *Melee Attack Roll:* +11, reach 10 ft. 18 (2d10 + 7) Piercing damage plus 14 (4d6) Fire damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 17), and it has the Restrained condition until the grapple ends.
+### Azioni Bonus
 
+***Inghiottire.*** *TS Forza:* CD 19, una creatura Grande o più piccola afferrata (può inghiottirne fino a due). *Fallimento:* il bersaglio è inghiottito e la condizione Afferrato termina. Una creatura inghiottita è Accecata e Immobilizzata, ha Copertura Totale contro attacchi ed effetti esterni e subisce 10 (3d6) danni da acido più 10 (3d6) danni da fuoco all’inizio di ogni turno del remorhaz.  
+Se il remorhaz subisce 30 o più danni in un singolo turno da una creatura al suo interno, deve riuscire a un TS Costituzione CD 15 alla fine del turno o rigurgitare tutte le creature inghiottite, che cadono in spazi entro 1,5 m e sono Prone. Se il remorhaz muore, le creature inghiottite non sono più Immobilizzate e possono uscire dal cadavere spendendo 4,5 m di movimento, uscendo Prone.  
 
-### Bonus Actions
-
-***Swallow.*** *Strength Saving Throw*: DC 19, one Large or smaller creature Grappled by the remorhaz (it can have up to two creatures swallowed at a time). *Failure:*  The target is swallowed by the remorhaz, and the Grappled condition ends. A swallowed creature has the Blinded and Restrained conditions, it has Cover|XPHB|Total Cover against attacks and other effects outside the remorhaz, and it takes 10 (3d6) Acid damage plus 10 (3d6) Fire damage at the start of each of the remorhaz's turns.
-If the remorhaz takes 30 damage or more on a single turn from a creature inside it, the remorhaz must succeed on a DC 15 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, each of which falls in a space within 5 feet of the remorhaz and has the Prone condition. If the remorhaz dies, any swallowed creature no longer has the Restrained condition and can escape from the corpse by using 15 feet of movement, exiting Prone.
+---
 
 ## Roc
 
-*Gargantuan Monstrosity, Unaligned*
+*Mostruosità Gargantuesca, Non Allineata*
 
-- **Armor Class:** 15
-- **Hit Points:** 248 (16d20 + 80)
-- **Speed:** 20 ft., Fly 120 ft.
-- **Initiative**: +8 (18)
+- **Classe Armatura:** 15
+- **Punti Ferita:** 248 (16d20 + 80)
+- **Velocità:** 6 m, Volare 36 m
+- **Iniziativa**: +8 (18)
 
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 28 | +9 | +9 |
-| DEX | 10 | +0 | +4 |
-| CON | 20 | +5 | +5 |
+| FOR | 28 | +9 | +9 |
+| DES | 10 | +0 | +4 |
+| COS | 20 | +5 | +5 |
 | INT | 3 | -4 | -4 |
-| WIS | 10 | +0 | +4 |
-| CHA | 9 | -1 | -1 |
+| SAG | 10 | +0 | +4 |
+| CAR | 9 | -1 | -1 |
 
-- **Skills**: Perception +8
-- **Senses**: Passive Perception 18
-- **CR** 11 (XP 7,200; PB +4)
+- **Abilità**: Percezione +8  
+- **Sensi**: Percezione Passiva 18  
+- **GS** 11 (PE 7.200; BB +4)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The roc makes two Beak attacks. It can replace one attack with a Talons attack.
+***Multiattacco.*** Effettua due attacchi di Becco. Può sostituirne uno con un attacco di Artigli.  
 
-***Beak.*** *Melee Attack Roll:* +13, reach 10 ft. 28 (3d12 + 9) Piercing damage.
+***Becco.*** *Tiro per Colpire in mischia:* +13, portata 3 m. 28 (3d12 + 9) danni perforanti.  
 
-***Talons.*** *Melee Attack Roll:* +13, reach 5 ft. 23 (4d6 + 9) Slashing damage. If the target is a Huge or smaller creature, it has the Grappled condition (escape DC 19) from both talons, and it has the Restrained condition until the grapple ends.
+***Artigli.*** *Tiro per Colpire in mischia:* +13, portata 1,5 m. 23 (4d6 + 9) danni da taglio. Se il bersaglio è una creatura Enorme o più piccola, è Afferrato (CD 19 per sfuggire) da entrambi gli artigli ed è Immobilizzato finché la presa dura.  
 
+### Azioni Bonus
 
-### Bonus Actions
+***Piombata (Ricarica 5–6).*** Se ha una creatura afferrata, il roc vola fino a metà della sua Velocità di Volo senza provocare attacchi di opportunità e lascia cadere la creatura.  
 
-***Swoop (Recharge 5-6).*** If the roc has a creature Grappled, the roc flies up to half its Fly Speed without provoking Opportunity Attacks and drops that creature.
+---
 
 ## Roper
 
-*Large Aberration, Neutral Evil*
+*Aberrazione Grande, Neutrale Malvagio*
 
-- **Armor Class:** 20
-- **Hit Points:** 93 (11d10 + 33)
-- **Speed:** 10 ft., Climb 20 ft.
-- **Initiative**: +5 (15)
+- **Classe Armatura:** 20
+- **Punti Ferita:** 93 (11d10 + 33)
+- **Velocità:** 3 m, Scalare 6 m
+- **Iniziativa**: +5 (15)
 
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 8 | -1 | -1 |
-| CON | 17 | +3 | +3 |
+| FOR | 18 | +4 | +4 |
+| DES | 8 | -1 | -1 |
+| COS | 17 | +3 | +3 |
 | INT | 7 | -2 | -2 |
-| WIS | 16 | +3 | +3 |
-| CHA | 6 | -2 | -2 |
+| SAG | 16 | +3 | +3 |
+| CAR | 6 | -2 | -2 |
 
-- **Skills**: Perception +6, Stealth +5
-- **Senses**: darkvision 60 ft.; Passive Perception 16
-- **CR** 5 (XP 1,800; PB +3)
+- **Abilità**: Percezione +6, Furtività +5  
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 16  
+- **GS** 5 (PE 1.800; BB +3)
 
-### Traits
+### Tratti
 
-***Spider Climb.*** The roper can climb difficult surfaces, including along ceilings, without needing to make an ability check.
+***Camminare sui Muri.*** Può arrampicarsi su superfici difficili, compresi i soffitti, senza effettuare prove.  
 
+### Azioni
 
-### Actions
+***Multiattacco.*** Effettua due attacchi di Tentacolo, usa Trascinare e compie due attacchi di Morso.  
 
-***Multiattack.*** The roper makes two Tentacle attacks, uses Reel, and makes two Bite attacks.
+***Morso.*** *Tiro per Colpire in mischia:* +7, portata 1,5 m. 17 (3d8 + 4) danni perforanti.  
 
-***Bite.*** *Melee Attack Roll:* +7, reach 5 ft. 17 (3d8 + 4) Piercing damage.
+***Tentacolo.*** *Tiro per Colpire in mischia:* +7, portata 18 m. Il bersaglio è Afferrato (CD 14 per liberarsi) da uno dei sei tentacoli ed è Avvelenato finché la presa dura.  
+Il tentacolo può essere danneggiato, liberando una creatura afferrata se distrutto (CA 20, PF 10, Immunità a veleno e psichico). Danneggiare il tentacolo non infligge danni al roper, e un tentacolo distrutto ricresce all’inizio del turno successivo del roper.  
 
-***Tentacle.*** *Melee Attack Roll:* +7, reach 60 ft. The target has the Grappled condition (escape DC 14) from one of six tentacles, and the target has the Poisoned condition until the grapple ends.
-The tentacle can be damaged, freeing a creature it has Grappled when destroyed (AC 20, HP 10, Immunity to Poison and Psychic damage). Damaging the tentacle deals no damage to the roper, and a destroyed tentacle regrows at the start of the roper's next turn.
+***Trascinare.*** Il roper tira verso di sé ciascuna creatura afferrata fino a 9 m in linea retta.  
 
-***Reel.*** The roper pulls each creature Grappled by it up to 30 feet straight toward it.
+## Mostro della Ruggine
 
-## Rust Monster
+*Mostruosità Media, Non Allineata*
 
-*Medium Monstrosity, Unaligned*
+- **Classe Armatura:** 14
+- **Punti Ferita:** 33 (6d8 + 6)
+- **Velocità:** 12 m
+- **Iniziativa**: +1 (11)
 
-- **Armor Class:** 14
-- **Hit Points:** 33 (6d8 + 6)
-- **Speed:** 40 ft.
-- **Initiative**: +1 (11)
-
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 13 | +1 | +1 |
-| DEX | 12 | +1 | +1 |
-| CON | 13 | +1 | +1 |
+| FOR | 13 | +1 | +1 |
+| DES | 12 | +1 | +1 |
+| COS | 13 | +1 | +1 |
 | INT | 2 | -4 | -4 |
-| WIS | 13 | +1 | +1 |
-| CHA | 6 | -2 | -2 |
+| SAG | 13 | +1 | +1 |
+| CAR | 6 | -2 | -2 |
 
-- **Senses**: darkvision 60 ft.; Passive Perception 11
-- **CR** 1/2 (XP 100; PB +2)
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 11  
+- **GS** 1/2 (PE 100; BB +2)
 
-### Traits
+### Tratti
 
-***Iron Scent.*** The rust monster can pinpoint the location of ferrous metal within 30 feet of itself.
+***Fiuto del Ferro.*** Può individuare metallo ferroso entro 9 m.  
 
+### Azioni
 
-### Actions
+***Multiattacco.*** Effettua un attacco di Morso e usa due volte Antenne.  
 
-***Multiattack.*** The rust monster makes one Bite attack and uses Antennae twice.
+***Morso.*** *Tiro per Colpire in mischia:* +3, portata 1,5 m. 5 (1d8 + 1) danni perforanti.  
 
-***Bite.*** *Melee Attack Roll:* +3, reach 5 ft. 5 (1d8 + 1) Piercing damage.
+***Antenne.*** Bersaglia un oggetto metallico non magico — armatura o arma — indossato o impugnato da una creatura entro 1,5 m. *TS Destrezza:* CD 11. *Fallimento:* l’oggetto subisce una penalità di -1 alla CA (armatura) o ai tiri per colpire (arma). Un’armatura è distrutta se la penalità riduce la sua CA a 10, e un’arma è distrutta se la penalità raggiunge -5. La penalità può essere rimossa con l’incantesimo *Riparare*.  
 
-***Antennae.*** The rust monster targets one nonmagical metal object—armor or a weapon—worn or carried by a creature within 5 feet of itself. *Dexterity Saving Throw*: DC 11, the creature with the object. *Failure:*  The object takes a -1 penalty to the AC it offers (armor) or to its attack rolls (weapon). Armor is destroyed if the penalty reduces its AC to 10, and a weapon is destroyed if its penalty reaches -5. The penalty can be removed by casting the *Mending* spell on the armor or weapon.
+***Distruggere Metallo.*** Tocca un oggetto metallico non magico entro 1,5 m non indossato o trasportato, distruggendo un Cubo di 30 cm dell’oggetto.  
 
-***Destroy Metal.*** The rust monster touches a nonmagical metal object within 5 feet of itself that isn't being worn or carried. The touch destroys a 1-foot Cube [Area of Effect]|XPHB|Cube of the object.
+---
 
-## Sahuagin Warrior
+## Guerriero Sahuagin
 
-*Medium Fiend, Lawful Evil*
+*Mostro Medio, Legale Malvagio*
 
-- **Armor Class:** 12
-- **Hit Points:** 22 (4d8 + 4)
-- **Speed:** 30 ft., Swim 40 ft.
-- **Initiative**: +0 (10)
+- **Classe Armatura:** 12
+- **Punti Ferita:** 22 (4d8 + 4)
+- **Velocità:** 9 m, Nuotare 12 m
+- **Iniziativa**: +0 (10)
 
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 13 | +1 | +1 |
-| DEX | 11 | +0 | +0 |
-| CON | 12 | +1 | +1 |
+| FOR | 13 | +1 | +1 |
+| DES | 11 | +0 | +0 |
+| COS | 12 | +1 | +1 |
 | INT | 12 | +1 | +1 |
-| WIS | 13 | +1 | +1 |
-| CHA | 9 | -1 | -1 |
+| SAG | 13 | +1 | +1 |
+| CAR | 9 | -1 | -1 |
 
-- **Resistances**: Acid, Cold
-- **Skills**: Perception +5
-- **Senses**: darkvision 120 ft.; Passive Perception 15
-- **Languages**: Sahuagin
-- **CR** 1/2 (XP 100; PB +2)
+- **Resistenze**: Acido, Freddo  
+- **Abilità**: Percezione +5  
+- **Sensi**: Scurovisione 36 m; Percezione Passiva 15  
+- **Linguaggi**: Sahuagin  
+- **GS** 1/2 (PE 100; BB +2)
 
-### Traits
+### Tratti
 
-***Blood Frenzy.*** The sahuagin has Advantage on attack rolls against any creature that doesn't have all its Hit Points.
+***Frenesia di Sangue.*** Vantaggio ai tiri per colpire contro creature che non hanno tutti i Punti Ferita.  
 
-***Limited Amphibiousness.*** The sahuagin can breathe air and water, but it must be submerged at least once every 4 hours to avoid suffocating outside water.
+***Amfibia Limitata.*** Può respirare aria e acqua, ma deve immergersi almeno una volta ogni 4 ore o soffoca fuori dall’acqua.  
 
-***Shark Telepathy.*** The sahuagin can magically control sharks within 120 feet of itself, using a special telepathy.
+***Telepatia con gli Squali.*** Può controllare magicamente gli squali entro 36 m tramite telepatia speciale.  
 
+### Azioni
 
-### Actions
+***Multiattacco.*** Effettua due attacchi di Artiglio.  
 
-***Multiattack.*** The sahuagin makes two Claw attacks.
+***Artiglio.*** *Tiro per Colpire in mischia:* +3, portata 1,5 m. 4 (1d6 + 1) danni da taglio.  
 
-***Claw.*** *Melee Attack Roll:* +3, reach 5 ft. 4 (1d6 + 1) Slashing damage.
+### Azioni Bonus
 
+***Carica Acquatica.*** Nuota fino alla sua Velocità di Nuoto in linea retta verso un nemico visibile.  
 
-### Bonus Actions
+---
 
-***Aquatic Charge.*** The sahuagin swims up to its Swim Speed straight toward an enemy it can see.
+## Salamandra
 
-## Salamander
+*Elementale Grande, Neutrale Malvagio*
 
-*Large Elemental, Neutral Evil*
+- **Classe Armatura:** 15
+- **Punti Ferita:** 90 (12d10 + 24)
+- **Velocità:** 9 m, Scalare 9 m
+- **Iniziativa**: +2 (12)
 
-- **Armor Class:** 15
-- **Hit Points:** 90 (12d10 + 24)
-- **Speed:** 30 ft., Climb 30 ft.
-- **Initiative**: +2 (12)
-
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 14 | +2 | +2 |
-| CON | 15 | +2 | +2 |
+| FOR | 18 | +4 | +4 |
+| DES | 14 | +2 | +2 |
+| COS | 15 | +2 | +2 |
 | INT | 11 | +0 | +0 |
-| WIS | 10 | +0 | +0 |
-| CHA | 12 | +1 | +1 |
+| SAG | 10 | +0 | +0 |
+| CAR | 12 | +1 | +1 |
 
-- **Vulnerabilities**: Cold
-- **Immunities**: Fire
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **Languages**: Primordial (Ignan)
-- **CR** 5 (XP 1,800; PB +3)
+- **Vulnerabilità**: Freddo  
+- **Immunità**: Fuoco  
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 10  
+- **Linguaggi**: Primordiale (Ignan)  
+- **GS** 5 (PE 1.800; BB +3)
 
-### Traits
+### Tratti
 
-***Fire Aura.*** At the end of each of the salamander's turns, each creature of the salamander's choice in a 5-foot Emanation originating from the salamander takes 7 (2d6) Fire damage.
+***Aura di Fuoco.*** Alla fine di ciascun suo turno, ogni creatura a sua scelta entro un’emanazione di 1,5 m subisce 7 (2d6) danni da fuoco.  
 
+### Azioni
 
-### Actions
+***Multiattacco.*** Effettua due attacchi di Lancia Fiammeggiante. Può sostituirne uno con un uso di Stritolare.  
 
-***Multiattack.*** The salamander makes two Flame Spear attacks. It can replace one attack with a use of Constrict.
+***Lancia Fiammeggiante.*** *Tiro per Colpire in mischia o a distanza:* +7, portata 1,5 m o gittata 6/18 m. 13 (2d8 + 4) danni perforanti più 7 (2d6) danni da fuoco. La lancia ritorna magicamente nella sua mano subito dopo un attacco a distanza.  
 
-***Flame Spear.*** *Melee or Ranged Attack Roll:* +7, reach 5 ft. or range 20/60 ft. 13 (2d8 + 4) Piercing damage plus 7 (2d6) Fire damage. HitomThe spear magically returns to the salamander's hand immediately after a ranged attack.
+***Stritolare.*** *TS Forza:* CD 15, una creatura Grande o più piccola entro 3 m. *Fallimento:* 11 (2d6 + 4) danni contundenti più 7 (2d6) danni da fuoco. Il bersaglio è Afferrato (CD 14 per sfuggire) e Immobilizzato finché la presa dura.  
 
-***Constrict.*** *Strength Saving Throw*: DC 15, one Large or smaller creature the salamander can see within 10 feet. *Failure:*  11 (2d6 + 4) Bludgeoning damage plus 7 (2d6) Fire damage. The target has the Grappled condition (escape DC 14), and it has the Restrained condition until the grapple ends.
+---
 
-## Satyr
+## Satiro
 
-*Medium Fey, Chaotic Neutral*
+*Creatura Fatata Media, Caotico Neutrale*
 
-- **Armor Class:** 13
-- **Hit Points:** 31 (7d8)
-- **Speed:** 40 ft.
-- **Initiative**: +3 (13)
+- **Classe Armatura:** 13
+- **Punti Ferita:** 31 (7d8)
+- **Velocità:** 12 m
+- **Iniziativa**: +3 (13)
 
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 12 | +1 | +1 |
-| DEX | 16 | +3 | +3 |
-| CON | 11 | +0 | +0 |
+| FOR | 12 | +1 | +1 |
+| DES | 16 | +3 | +3 |
+| COS | 11 | +0 | +0 |
 | INT | 12 | +1 | +1 |
-| WIS | 10 | +0 | +0 |
-| CHA | 14 | +2 | +2 |
+| SAG | 10 | +0 | +0 |
+| CAR | 14 | +2 | +2 |
 
-- **Skills**: Perception +2, Performance +6, Stealth +5
-- **Senses**: Passive Perception 12
-- **Languages**: Common, Elvish, Sylvan
-- **CR** 1/2 (XP 100; PB +2)
+- **Abilità**: Percezione +2, Intrattenere +6, Furtività +5  
+- **Sensi**: Percezione Passiva 12  
+- **Linguaggi**: Comune, Elfico, Silvano  
+- **GS** 1/2 (PE 100; BB +2)
 
-### Traits
+### Tratti
 
-***Magic Resistance.*** The satyr has Advantage on saving throws against spells and other magical effects.
+***Resistenza alla Magia.*** Vantaggio ai tiri salvezza contro incantesimi ed effetti magici.  
 
+### Azioni
 
-### Actions
+***Zoccoli.*** *Tiro per Colpire in mischia:* +5, portata 1,5 m. 5 (1d4 + 3) danni contundenti. Se il bersaglio è una creatura Media o più piccola, il satiro lo spinge di 3 m lontano da sé.  
 
-***Hooves.*** *Melee Attack Roll:* +5, reach 5 ft. 5 (1d4 + 3) Bludgeoning damage. If the target is a Medium or smaller creature, the satyr pushes the target up to 10 feet straight away from itself.
+***Scherno.*** *TS Saggezza:* CD 12, una creatura che il satiro può vedere entro 27 m. *Fallimento:* 5 (1d6 + 2) danni psichici.  
 
-***Mockery.*** *Wisdom Saving Throw*: DC 12, one creature the satyr can see within 90 feet. *Failure:*  5 (1d6 + 2) Psychic damage.
+## Esploratore
 
-## Scout
+*Umanoide Piccolo, Neutrale*
 
-*Small Humanoid, Neutral*
+- **Classe Armatura:** 13
+- **Punti Ferita:** 16 (3d8 + 3)
+- **Velocità:** 9 m
+- **Iniziativa**: +2 (12)
 
-- **Armor Class:** 13
-- **Hit Points:** 16 (3d8 + 3)
-- **Speed:** 30 ft.
-- **Initiative**: +2 (12)
-
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 11 | +0 | +0 |
-| DEX | 14 | +2 | +2 |
-| CON | 12 | +1 | +1 |
+| FOR | 11 | +0 | +0 |
+| DES | 14 | +2 | +2 |
+| COS | 12 | +1 | +1 |
 | INT | 11 | +0 | +0 |
-| WIS | 13 | +1 | +1 |
-| CHA | 11 | +0 | +0 |
+| SAG | 13 | +1 | +1 |
+| CAR | 11 | +0 | +0 |
 
-- **Skills**: Nature +4, Perception +5, Stealth +6, Survival +5
-- **Gear** Leather Armor, Longbow, Shortsword
-- **Senses**: Passive Perception 15
-- **Languages**: Common plus one other language
-- **CR** 1/2 (XP 100; PB +2)
+- **Abilità**: Natura +4, Percezione +5, Furtività +6, Sopravvivenza +5  
+- **Equipaggiamento**: Armatura di Cuoio, Arco Lungo, Spada Corta  
+- **Sensi**: Percezione Passiva 15  
+- **Linguaggi**: Comune più un’altra lingua  
+- **GS** 1/2 (PE 100; BB +2)
 
-### Actions
+### Azioni
 
-***Multiattack.*** The scout makes two attacks, using Shortsword and Longbow in any combination.
+***Multiattacco.*** Effettua due attacchi, usando Spada Corta e Arco Lungo in qualsiasi combinazione.  
 
-***Shortsword.*** *Melee Attack Roll:* +4, reach 5 ft. 5 (1d6 + 2) Piercing damage.
+***Spada Corta.*** *Tiro per Colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni perforanti.  
 
-***Longbow.*** *Ranged Attack Roll:* +4, range 150/600 ft. 6 (1d8 + 2) Piercing damage.
+***Arco Lungo.*** *Tiro per Colpire a distanza:* +4, gittata 45/180 m. 6 (1d8 + 2) danni perforanti.  
 
-## Sea Hag
+---
 
-*Medium Fey, Chaotic Evil*
+## Megera del Mare
 
-- **Armor Class:** 14
-- **Hit Points:** 52 (7d8 + 21)
-- **Speed:** 30 ft., Swim 40 ft.
-- **Initiative**: +1 (11)
+*Creatura Fatata Media, Caotico Malvagio*
 
-|STAT|SCORE|MOD|SAVE|
+- **Classe Armatura:** 14
+- **Punti Ferita:** 52 (7d8 + 21)
+- **Velocità:** 9 m, Nuotare 12 m
+- **Iniziativa**: +1 (11)
+
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 16 | +3 | +3 |
-| DEX | 13 | +1 | +1 |
-| CON | 16 | +3 | +3 |
+| FOR | 16 | +3 | +3 |
+| DES | 13 | +1 | +1 |
+| COS | 16 | +3 | +3 |
 | INT | 12 | +1 | +1 |
-| WIS | 12 | +1 | +1 |
-| CHA | 13 | +1 | +1 |
+| SAG | 12 | +1 | +1 |
+| CAR | 13 | +1 | +1 |
 
-- **Senses**: darkvision 60 ft.; Passive Perception 11
-- **Languages**: Common, Giant, Primordial (Aquan)
-- **CR** 2 (XP 450; PB +2)
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 11  
+- **Linguaggi**: Comune, Gigante, Primordiale (Aquan)  
+- **GS** 2 (PE 450; BB +2)
 
-### Traits
+### Tratti
 
-***Amphibious.*** The hag can breathe air and water.
+***Amfibia.*** Può respirare aria e acqua.  
 
-***Vile Appearance.*** *Wisdom Saving Throw*: DC 11, any Beast or Humanoid that starts its turn within 30 feet of the hag and can see the hag's true form. *Failure:*  The target has the Frightened condition until the start of its next turn. *Success:*  The target is immune to this hag's Vile Appearance for 24 hours.
+***Aspetto Ripugnante.*** *TS Saggezza:* CD 11, ogni Bestia o Umanoide che inizia il turno entro 9 m e può vedere la sua vera forma. *Fallimento:* ottiene la condizione Spaventato fino all’inizio del turno successivo. *Successo:* è immune a questo tratto per 24 ore.  
 
+### Azioni
 
-### Actions
+***Artiglio.*** *Tiro per Colpire in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) danni da taglio.  
 
-***Claw.*** *Melee Attack Roll:* +5, reach 5 ft. 10 (2d6 + 3) Slashing damage.
+***Sguardo Mortale (Ricarica 5–6).*** *TS Saggezza:* CD 11, una creatura Spaventata che può vedere entro 9 m. *Fallimento:* se ha 20 PF o meno, scende a 0 PF. Altrimenti subisce 13 (3d8) danni psichici.  
 
-***Death Glare (Recharge 5-6).*** *Wisdom Saving Throw*: DC 11, one Frightened creature the hag can see within 30 feet. *Failure:*  If the target has 20 Hit Points or fewer, it drops to 0 Hit Points. Otherwise, the target takes 13 (3d8) Psychic damage.
+***Aspetto Illusorio.*** Lancia *Camuffare Se Stesso*, usando Costituzione come caratteristica da incantatore (CD 13). La durata è 24 ore.  
+- **A volontà:** *Camuffare Se Stesso*  
 
-***Illusory Appearance.*** The hag casts *Disguise Self*, using Constitution as the spellcasting ability (spell save DC 13). The spell's duration is 24 hours.
+---
 
-- **At Will:** *Disguise Self*
+## Ombra
 
-## Shadow
+*Non Morto Medio, Caotico Malvagio*
 
-*Medium Undead, Chaotic Evil*
+- **Classe Armatura:** 12
+- **Punti Ferita:** 27 (5d8 + 5)
+- **Velocità:** 12 m
+- **Iniziativa**: +2 (12)
 
-- **Armor Class:** 12
-- **Hit Points:** 27 (5d8 + 5)
-- **Speed:** 40 ft.
-- **Initiative**: +2 (12)
-
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 6 | -2 | -2 |
-| DEX | 14 | +2 | +2 |
-| CON | 13 | +1 | +1 |
+| FOR | 6 | -2 | -2 |
+| DES | 14 | +2 | +2 |
+| COS | 13 | +1 | +1 |
 | INT | 6 | -2 | -2 |
-| WIS | 10 | +0 | +0 |
-| CHA | 8 | -1 | -1 |
+| SAG | 10 | +0 | +0 |
+| CAR | 8 | -1 | -1 |
 
-- **Vulnerabilities**: Radiant
-- **Resistances**: Acid, Cold, Fire, Lightning, Thunder
-- **Immunities**: Necrotic, Poison; Exhaustion, Frightened, Grappled, Paralyzed, Petrified, Poisoned, Prone, Restrained, Unconscious
-- **Skills**: Stealth +6
-- **Senses**: darkvision 60 ft.; Passive Perception 10
-- **CR** 1/2 (XP 100; PB +2)
+- **Vulnerabilità**: Radiante  
+- **Resistenze**: Acido, Freddo, Fuoco, Fulmine, Tuono  
+- **Immunità**: Necrotico, Veleno; Affaticato, Spaventato, Afferrato, Paralizzato, Pietrificato, Avvelenato, Prono, Immobilizzato, Incosciente  
+- **Abilità**: Furtività +6  
+- **Sensi**: Scurovisione 18 m; Percezione Passiva 10  
+- **GS** 1/2 (PE 100; BB +2)
 
-### Traits
+### Tratti
 
-***Amorphous.*** The shadow can move through a space as narrow as 1 inch without expending extra movement to do so.
+***Amorfa.*** Può muoversi attraverso spazi larghi almeno 2,5 cm senza movimento extra.  
 
-***Sunlight Weakness.*** While in sunlight, the shadow has Disadvantage on D20 Test.
+***Debolezza alla Luce Solare.*** In piena luce solare ha Svantaggio ai tiri di dado.  
 
+### Azioni
 
-### Actions
+***Colpo Drainante.*** *Tiro per Colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni necrotici e il punteggio di Forza del bersaglio si riduce di 1d4. Muore se il punteggio scende a 0. Se un Umanoide muore per questo attacco, un’Ombra si leva dal cadavere dopo 1d4 ore.  
 
-***Draining Swipe.*** *Melee Attack Roll:* +4, reach 5 ft. 5 (1d6 + 2) Necrotic damage, and the target's Strength score decreases by 1d4. The target dies if this reduces that score to 0. If a Humanoid is slain by this attack, a Shadow rises from the corpse 1d4 hours later.
+### Azioni Bonus
 
+***Furtività delle Ombre.*** In luce fioca o oscurità usa l’azione Nascondersi.  
 
-### Bonus Actions
+---
 
-***Shadow Stealth.*** While in Dim Light or darkness, the shadow takes the Hide action.
+## Mucchio deambulante
 
-## Shambling Mound
+*Pianta Grande, Non Allineata*
 
-*Large Plant, Unaligned*
+- **Classe Armatura:** 15
+- **Punti Ferita:** 110 (13d10 + 39)
+- **Velocità:** 9 m, Nuotare 6 m
+- **Iniziativa**: -1 (9)
 
-- **Armor Class:** 15
-- **Hit Points:** 110 (13d10 + 39)
-- **Speed:** 30 ft., Swim 20 ft.
-- **Initiative**: -1 (9)
-
-|STAT|SCORE|MOD|SAVE|
+|CARAT|VALORE|MOD|TS|
 | --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 8 | -1 | -1 |
-| CON | 16 | +3 | +3 |
+| FOR | 18 | +4 | +4 |
+| DES | 8 | -1 | -1 |
+| COS | 16 | +3 | +3 |
 | INT | 5 | -3 | -3 |
-| WIS | 10 | +0 | +0 |
-| CHA | 5 | -3 | -3 |
+| SAG | 10 | +0 | +0 |
+| CAR | 5 | -3 | -3 |
 
-- **Resistances**: Cold, Fire
-- **Immunities**: Lightning; Deafened, Exhaustion
-- **Skills**: Stealth +3
-- **Senses**: blindsight 60 ft.; Passive Perception 10
-- **CR** 5 (XP 1,800; PB +3)
+- **Resistenze**: Freddo, Fuoco  
+- **Immunità**: Fulmine; Assordato, Affaticato  
+- **Abilità**: Furtività +3  
+- **Sensi**: Vista Cieca 18 m; Percezione Passiva 10  
+- **GS** 5 (PE 1.800; BB +3)
 
-### Traits
+### Tratti
 
-***Lightning Absorption.*** Whenever the shambling mound is subjected to Lightning damage, it regains a number of Hit Points equal to the Lightning damage dealt.
+***Assorbimento del Fulmine.*** Quando subisce danni da fulmine, recupera PF pari al danno subito.  
 
+### Azioni
 
-### Actions
+***Multiattacco.*** Effettua tre attacchi di Vite Cariche. Può sostituirne uno con Inghiottire.  
 
-***Multiattack.*** The shambling mound makes three Charged Tendril attacks. It can replace one attack with a use of Engulf.
+***Vite Cariche.*** *Tiro per Colpire in mischia:* +7, portata 3 m. 7 (1d6 + 4) danni contundenti più 5 (2d4) danni da fulmine. Se il bersaglio è una creatura Media o più piccola, la tira di 1,5 m verso di sé.  
 
-***Charged Tendril.*** *Melee Attack Roll:* +7, reach 10 ft. 7 (1d6 + 4) Bludgeoning damage plus 5 (2d4) Lightning damage. If the target is a Medium or smaller creature, the shambling mound pulls the target 5 feet straight toward itself.
+***Inghiottire.*** *TS Forza:* CD 15, una creatura Media o più piccola entro 1,5 m. *Fallimento:* il bersaglio viene trascinato nello spazio del mucchio e ha la condizione Afferrato (CD 14 per sfuggire). Finché la presa dura, ha le condizioni Accecato e Immobilizzato e subisce 10 (3d6) danni da fulmine all’inizio di ciascun suo turno. Quando il mucchio si muove, il bersaglio mosso con esso non spende movimento. Può avere solo una creatura afferrata in questo modo alla volta.  
 
-***Engulf.*** *Strength Saving Throw*: DC 15, one Medium or smaller creature within 5 feet. *Failure:*  The target is pulled into the shambling mound's space and has the Grappled condition (escape DC 14). Until the grapple ends, the target has the Blinded and Restrained conditions, and it takes 10 (3d6) Lightning damage at the start of each of its turns. When the shambling mound moves, the Grappled target moves with it, costing it no extra movement. The shambling mound can have only one creature Grappled by this action at a time.
-
-## Shield Guardian
-
-*Large Construct, Unaligned*
-
-- **Armor Class:** 17
-- **Hit Points:** 142 (15d10 + 60)
-- **Speed:** 30 ft.
-- **Initiative**: -1 (9)
-
-|STAT|SCORE|MOD|SAVE|
-| --- | --- | --- | ---- |
-| STR | 18 | +4 | +4 |
-| DEX | 8 | -1 | -1 |
-| CON | 18 | +4 | +4 |
-| INT | 7 | -2 | -2 |
-| WIS | 10 | +0 | +0 |
-| CHA | 3 | -4 | -4 |
-
-- **Immunities**: Poison; Charmed, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned
-- **Senses**: blindsight 10 ft., darkvision 60 ft.; Passive Perception 10
-- **Languages**: Understands commands given in any language but can't speak
-- **CR** 7 (XP 2,900; PB +3)
-
-### Traits
-
-***Bound.*** The guardian is magically bound to an amulet. While the guardian and its amulet are on the same plane of existence, the amulet's wearer can telepathically call the guardian to travel to it, and the guardian knows the distance and direction to the amulet. If the guardian is within 60 feet of the amulet's wearer, half of any damage the wearer takes (round up) is transferred to the guardian.
-
-***Regeneration.*** The guardian regains 10 Hit Points at the start of each of its turns if it has at least 1 Hit Point.
-
-***Spell Storing.*** A spellcaster who wears the guardian's amulet can cause the guardian to store one spell of level 4 or lower. To do so, the wearer must cast the spell on the guardian while within 5 feet of it. The spell has no effect but is stored within the guardian. Any previously stored spell is lost when a new spell is stored. The guardian can cast the spell stored with any parameters set by the original caster, requiring no spell components and using the caster's spellcasting ability. The stored spell is then lost.
-
-
-### Actions
-
-***Multiattack.*** The guardian makes two Fist attacks.
-
-***Fist.*** *Melee Attack Roll:* +7, reach 10 ft. 11 (2d6 + 4) Bludgeoning damage plus 7 (2d6) Force damage.
-
-## Shrieker Fungus
-
-*Medium Plant, Unaligned*
-
-- **Armor Class:** 5
-- **Hit Points:** 13 (3d8)
-- **Speed:** 5 ft.
-- **Initiative**: -5 (5)
-
-|STAT|SCORE|MOD|SAVE|
-| --- | --- | --- | ---- |
-| STR | 1 | -5 | -5 |
-| DEX | 1 | -5 | -5 |
-| CON | 10 | +0 | +0 |
-| INT | 1 | -5 | -5 |
-| WIS | 3 | -4 | -4 |
-| CHA | 1 | -5 | -5 |
-
-- **Immunities**: Blinded, Charmed, Deafened, Frightened
-- **Senses**: blindsight 30 ft.; Passive Perception 6
-- **CR** 0 (XP 0)
-
-## Silver Dragon Wyrmling
-
-*Medium Dragon (Metallic), Lawful Good*
-
-- **Armor Class:** 17
-- **Hit Points:** 45 (6d8 + 18)
-- **Speed:** 30 ft., Fly 60 ft.
-- **Initiative**: +2 (12)
-
-|STAT|SCORE|MOD|SAVE|
-| --- | --- | --- | ---- |
-| STR | 19 | +4 | +4 |
-| DEX | 10 | +0 | +2 |
-| CON | 17 | +3 | +3 |
-| INT | 12 | +1 | +1 |
-| WIS | 11 | +0 | +2 |
-| CHA | 15 | +2 | +2 |
-
-- **Immunities**: Cold
-- **Skills**: Perception +4, Stealth +2
-- **Senses**: blindsight 10 ft., darkvision 60 ft.; Passive Perception 14
-- **Languages**: Draconic
-- **CR** 2 (XP 450; PB +2)
-
-### Actions
-
-***Multiattack.*** The dragon makes two Rend attacks.
-
-***Rend.*** *Melee Attack Roll:* +6, reach 5 ft. 9 (1d10 + 4) Piercing damage.
-
-***Cold Breath (Recharge 5-6).*** *Constitution Saving Throw*: DC 13, each creature in a 15-foot Cone. *Failure:*  18 (4d8) Cold damage. *Success:*  Half damage.
-
-***Paralyzing Breath.*** *Constitution Saving Throw*: DC 13, each creature in a 15-foot Cone. *First Failure* The target has the Incapacitated condition until the end of its next turn, when it repeats the save. *Second Failure* The target has the Paralyzed condition, and it repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
-
-## Skeleton
-
-*Medium Undead, Lawful Evil*
-
-- **Armor Class:** 14
-- **Hit Points:** 13 (2d8 + 4)
-- **Speed:** 30 ft.
-- **Initiative**: +3 (13)
-
-|STAT|SCORE|MOD|SAVE|
-| --- | --- | --- | ---- |
-| STR | 10 | +0 | +0 |
-| DEX | 16 | +3 | +3 |
-| CON | 15 | +2 | +2 |
-| INT | 6 | -2 | -2 |
-| WIS | 8 | -1 | -1 |
-| CHA | 5 | -3 | -3 |
-
-- **Vulnerabilities**: Bludgeoning
-- **Immunities**: Poison; Exhaustion, Poisoned
-- **Gear** Shortbow, Shortsword
-- **Senses**: darkvision 60 ft.; Passive Perception 9
-- **Languages**: Understands Common plus one other language but can't speak
-- **CR** 1/4 (XP 50; PB +2)
-
-### Actions
-
-***Shortsword.*** *Melee Attack Roll:* +5, reach 5 ft. 6 (1d6 + 3) Piercing damage.
-
-***Shortbow.*** *Ranged Attack Roll:* +5, range 80/320 ft. 6 (1d6 + 3) Piercing damage.
 
 ## Solar
 
