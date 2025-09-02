@@ -4,7 +4,6 @@ from typing import Dict, List
 
 from .items_common import (
     collect_labeled_fields,
-    shared_id_for,
     slugify,
     split_items,
 )
@@ -67,7 +66,6 @@ def parse_weapons_en(md_lines: List[str]) -> List[Dict]:
         content = (f"## {title}\n" + "\n".join(block)).strip() + "\n"
         docs.append(
             {
-                "shared_id": shared_id_for("weapon", idx),
                 "slug": slugify(name),
                 "name": name,
                 **mapped,
@@ -89,7 +87,6 @@ def parse_weapons_it(md_lines: List[str]) -> List[Dict]:
         content = (f"## {title}\n" + "\n".join(block)).strip() + "\n"
         docs.append(
             {
-                "shared_id": shared_id_for("weapon", idx),
                 "slug": slugify(name),
                 "nome": name,
                 **mapped,
