@@ -3,7 +3,7 @@ from __future__ import annotations
 import re
 from typing import Dict, List
 
-from .items_common import first_italic_line, shared_id_for, slugify, split_items
+from .items_common import first_italic_line, slugify, split_items
 
 
 TYPE_LINE_RE = re.compile(
@@ -39,7 +39,6 @@ def parse_magic_items(md_lines: List[str]) -> List[Dict]:
         content = (f"### {title}\n" + "\n".join(block)).strip() + "\n"
         meta = _parse_type_line(type_line) if type_line else {}
         doc: Dict = {
-            "shared_id": shared_id_for("magicitem", idx),
             "slug": slugify(name),
             "nome": name,
             "content": content,

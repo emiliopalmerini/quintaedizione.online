@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Dict, List
 
-from .items_common import collect_labeled_fields, shared_id_for, slugify, split_items
+from .items_common import collect_labeled_fields, slugify, split_items
 
 
 IT_KEYS = {
@@ -44,7 +44,6 @@ def parse_armor_en(md_lines: List[str]) -> List[Dict]:
         content = (f"## {title}\n" + "\n".join(block)).strip() + "\n"
         docs.append(
             {
-                "shared_id": shared_id_for("armor", idx),
                 "slug": slugify(title),
                 "name": title.strip(),
                 **mapped,
@@ -65,7 +64,6 @@ def parse_armor_it(md_lines: List[str]) -> List[Dict]:
         content = (f"## {title}\n" + "\n".join(block)).strip() + "\n"
         docs.append(
             {
-                "shared_id": shared_id_for("armor", idx),
                 "slug": slugify(title),
                 "nome": title.strip(),
                 **mapped,

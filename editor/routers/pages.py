@@ -1,371 +1,310 @@
-# app/routers/pages.py
-from __future__ import annotations
+"""Simplified router for D&D 5e SRD Editor with consistent error handling."""
 
-from typing import Any, Dict, Mapping
+from typing import Optional
 from urllib.parse import urlencode
 
-from core.config import (
-    COLLECTIONS,
-    label_for,
-    db_collection_for,
-)
-from core.database import get_database, get_db
-from core.optimized_queries import create_optimized_query_service
-from core.errors import (
-    ApplicationError, 
-    DatabaseError, 
-    NotFoundError,
-    ValidationError,
-    ErrorCode,
-    safe_db_operation
-)
-from core.logging_config import get_logger
-from adapters.persistence.mongo_repository import MongoRepository
-from core.flatten import flatten_for_form
-from utils.markdown import render_md
-from application.query_service import build_filter, alpha_sort_expr
-from application.list_service import list_page as svc_list_page
-from application.show_service import show_doc as svc_show_doc
-from core.templates import env
-from application.home_service import load_home_document as svc_home_doc
-from core.transform import to_jsonable
-from models.request_models import (
-    ListPageParams, 
-    ShowPageParams, 
-    EditPageParams, 
-    CollectionParams, 
-    PaginationParams, 
-    LanguageParams
-)
-from fastapi import APIRouter, HTTPException, Query, Request, Depends
+from fastapi import APIRouter, HTTPException, Query, Request
 from fastapi.responses import HTMLResponse
 from pydantic import ValidationError as PydanticValidationError
+
+from core.config_simple import COLLECTIONS, get_collection_label, is_valid_collection
+from core.database_simple import health_check
+from services.content_service import get_content_service
+from core.templates import env
+from core.logging_config import get_logger
 
 router = APIRouter()
 logger = get_logger(__name__)
 
-# ---- helpers ---------------------------------------------------------------
+
+class AppError(Exception):
+    """Base application error."""
+    def __init__(self, message: str, status_code: int = 500, user_message: str = None):
+        self.message = message
+        self.status_code = status_code
+        self.user_message = user_message or message
+        super().__init__(message)
 
 
-## moved helpers to application.query_service
-
-
-# ---- pages -----------------------------------------------------------------
+def handle_error(error: Exception, template: str = "error.html") -> HTMLResponse:
+    """Consistent error handling."""
+    if isinstance(error, AppError):
+        status_code = error.status_code
+        user_message = error.user_message
+        logger.warning(f"App error: {error.message}")
+    else:
+        status_code = 500
+        user_message = "Si è verificato un errore imprevisto."
+        logger.error(f"Unexpected error: {str(error)}", exc_info=True)
+    
+    try:
+        error_template = env.get_template(template)
+        content = error_template.render(
+            error_message=user_message,
+            status_code=status_code
+        )
+        return HTMLResponse(content, status_code=status_code)
+    except Exception:
+        # Fallback to simple error response
+        return HTMLResponse(
+            f"<h1>Errore {status_code}</h1><p>{user_message}</p>",
+            status_code=status_code
+        )
 
 
 @router.get("/", response_class=HTMLResponse)
-async def index(page: int | None = Query(default=None), lang: str | None = Query(default="it")) -> HTMLResponse:
-    logger.info("Loading homepage", extra={"page": page, "lang": lang})
-    
-    # Input validation
-    if lang and lang not in ["it", "en"]:
-        raise ValidationError(
-            f"Invalid language: {lang}",
-            field="lang",
-            value=lang,
-            user_message="Lingua non supportata. Usa 'it' o 'en'."
-        )
-    
-    if page and (page < 1 or page > 10000):
-        raise ValidationError(
-            f"Invalid page number: {page}",
-            field="page", 
-            value=page,
-            user_message="Numero di pagina non valido."
-        )
-    
-    tpl = env.get_template("index.html")
-    # Collezioni logiche condivise; labels in base alla lingua
-    cols_sorted = sorted(COLLECTIONS, key=lambda c: label_for(c, lang).lower())
-    counts: Dict[str, int] = {}
-    # Language toggle: select collection based on lang
-    is_en = (lang or "it").lower().startswith("en")
-    col_home = "documenti_en" if is_en else "documenti"
-    
-    async def get_collection_counts():
-        db = await get_database()
-        query_service = create_optimized_query_service(db)
-        
-        # Use optimized batch counting
-        counts.update(await query_service.get_collection_counts_batch(cols_sorted, lang))
-        return db
-    
-    async def load_homepage_doc(db):
-        repo = MongoRepository(db)
-        doc_data = await svc_home_doc(repo, page, collection=col_home)
-        # Fallback: se EN non ha documenti, prova IT
-        if (not doc_data.get("doc")) and is_en:
-            logger.info("No EN documents found, falling back to IT")
-            doc_data = await svc_home_doc(repo, page, collection="documenti")
-        return doc_data
-    
+async def homepage(page: Optional[int] = Query(default=1, ge=1, le=1000)):
+    """Homepage with collection overview."""
     try:
-        db = await safe_db_operation(
-            get_collection_counts,
-            ErrorCode.DATABASE_CONNECTION_FAILED,
-            "getting collection counts for homepage"
+        service = await get_content_service()
+        
+        # Get collection counts
+        counts = await service.get_collection_counts()
+        
+        # Prepare collections data
+        collections_data = []
+        for collection in COLLECTIONS:
+            collections_data.append({
+                "name": collection,
+                "label": get_collection_label(collection),
+                "count": counts.get(collection, 0)
+            })
+        
+        # Sort by label
+        collections_data.sort(key=lambda x: x["label"])
+        
+        template = env.get_template("index.html")
+        content = template.render(
+            collections=collections_data,
+            page=page
         )
         
-        total = sum(counts.values()) if counts else 0
-        logger.info(f"Homepage loaded with {total} total documents")
+        return HTMLResponse(content)
         
-        # Carica un documento da 'documenti' per la homepage via service
-        doc_data = await safe_db_operation(
-            lambda: load_homepage_doc(db),
-            ErrorCode.DATABASE_OPERATION_FAILED,
-            "loading homepage document"
-        )
-        
-        # Renderizza HTML per la prima visualizzazione (coerente con la partial)
-        doc_html = ""
-        if doc_data.get("doc") and doc_data["doc"].get("content"):
-            doc_html = render_md(str(doc_data["doc"].get("content") or ""))
-    
-    except ApplicationError:
-        # Re-raise application errors to be handled by FastAPI exception handlers
-        raise
     except Exception as e:
-        # Handle any unexpected errors
-        logger.error("Unexpected error in homepage", exc_info=e)
-        raise DatabaseError(
-            "Failed to load homepage",
-            ErrorCode.DATABASE_CONNECTION_FAILED,
-            context={"page": page, "lang": lang}
-        )
-
-    return HTMLResponse(
-        tpl.render(
-            collections=cols_sorted,
-            labels={c: label_for(c, lang) for c in cols_sorted},
-            counts=counts,
-            total=total,
-            doc=to_jsonable(doc_data.get("doc")) if doc_data.get("doc") else None,
-            doc_html=doc_html,
-            prev_page=doc_data.get("prev_page"),
-            next_page=doc_data.get("next_page"),
-            prev_title=doc_data.get("prev_title"),
-            next_title=doc_data.get("next_title"),
-            pages_list=doc_data.get("pages_list"),
-            pages_items=doc_data.get("pages_items"),
-            cur_page=doc_data.get("cur_page"),
-            lang=lang or "it",
-        )
-    )
-
-
-@router.get("/home/doc", response_class=HTMLResponse)
-async def home_doc_partial(page: int | None = Query(default=None), lang: str | None = Query(default="it")) -> HTMLResponse:
-    is_en = (lang or "it").lower().startswith("en")
-    col_home = "documenti_en" if is_en else "documenti"
-    try:
-        db = await get_db()
-        repo = MongoRepository(db)
-        data = await svc_home_doc(repo, page, collection=col_home)
-        if (not data.get("doc")) and is_en:
-            data = await svc_home_doc(repo, page, collection="documenti")
-    except Exception:
-        err_tpl = env.get_template("error_db.html")
-        return HTMLResponse(err_tpl.render())
-    tpl = env.get_template("_homepage_doc.html")
-    doc = data.get("doc")
-    doc_html = ""
-    if doc and doc.get("content"):
-        doc_html = render_md(str(doc.get("content") or ""))
-    return HTMLResponse(
-        tpl.render(
-            doc=to_jsonable(doc) if doc else None,
-            doc_html=doc_html,
-            prev_page=data.get("prev_page"),
-            next_page=data.get("next_page"),
-            prev_title=data.get("prev_title"),
-            next_title=data.get("next_title"),
-            pages_list=data.get("pages_list"),
-            pages_items=data.get("pages_items"),
-            cur_page=data.get("cur_page"),
-            lang=lang or "it",
-        )
-    )
-
-
-async def validate_collection_param(collection: str) -> str:
-    """Dependency to validate collection parameter."""
-    try:
-        params = CollectionParams(collection=collection, lang="it")
-        return params.collection
-    except PydanticValidationError as e:
-        logger.warning(f"Invalid collection parameter: {collection}", extra={"errors": e.errors()})
-        raise NotFoundError(
-            f"Collection '{collection}' not found",
-            resource_type="collection",
-            resource_id=collection
-        )
+        return handle_error(e)
 
 
 @router.get("/list/{collection}", response_class=HTMLResponse)
-async def list_page(
+async def list_collection(
+    collection: str,
     request: Request,
-    collection: str = Depends(validate_collection_param),
-    params: ListPageParams = Depends()
-) -> HTMLResponse:
-    logger.info(f"Loading list page for collection: {collection}", extra={
-        "collection": collection,
-        "page": params.page,
-        "query": params.q,
-        "lang": params.lang
-    })
-    tpl = env.get_template("list.html")
-    return HTMLResponse(
-        tpl.render(
+    q: Optional[str] = Query(default=None, max_length=200),
+    page: int = Query(default=1, ge=1, le=1000),
+    page_size: int = Query(default=20, ge=5, le=100)
+):
+    """List documents in collection with search and filtering."""
+    try:
+        # Validate collection
+        if not is_valid_collection(collection):
+            raise AppError(
+                f"Collection '{collection}' not found",
+                status_code=404,
+                user_message=f"Collezione '{collection}' non trovata."
+            )
+        
+        service = await get_content_service()
+        
+        # Extract filters from query parameters
+        filters = {}
+        for key, value in request.query_params.items():
+            if key not in ["q", "page", "page_size"] and value:
+                filters[key] = value
+        
+        # Get documents
+        documents, total, has_prev, has_next = await service.list_documents(
             collection=collection,
-            q=params.q or "",
-            page=params.page,
-            page_size=params.page_size,
-            request=request,
-            lang=params.lang
+            query=q,
+            filters=filters,
+            page=page,
+            page_size=page_size
         )
-    )
+        
+        # Calculate pagination info
+        total_pages = (total + page_size - 1) // page_size
+        
+        # Build query string for navigation
+        params = dict(request.query_params)
+        params.pop("page", None)  # Remove page from query string
+        query_string = urlencode(params) if params else ""
+        
+        template = env.get_template("list.html")
+        content = template.render(
+            collection=collection,
+            collection_label=get_collection_label(collection),
+            documents=documents,
+            q=q,
+            page=page,
+            page_size=page_size,
+            total=total,
+            total_pages=total_pages,
+            has_prev=has_prev,
+            has_next=has_next,
+            qs=query_string,
+            request=request
+        )
+        
+        return HTMLResponse(content)
+        
+    except AppError:
+        raise
+    except Exception as e:
+        return handle_error(e)
+
+
+@router.get("/show/{collection}/{slug}", response_class=HTMLResponse)
+async def show_document(
+    collection: str,
+    slug: str,
+    request: Request
+):
+    """Show single document."""
+    try:
+        # Validate collection
+        if not is_valid_collection(collection):
+            raise AppError(
+                f"Collection '{collection}' not found",
+                status_code=404,
+                user_message=f"Collezione '{collection}' non trovata."
+            )
+        
+        service = await get_content_service()
+        
+        # Get document
+        doc = await service.get_document(collection, slug)
+        if not doc:
+            raise AppError(
+                f"Document '{slug}' not found in collection '{collection}'",
+                status_code=404,
+                user_message=f"Documento '{slug}' non trovato."
+            )
+        
+        # Get navigation context (prev/next)
+        filters = {}
+        for key, value in request.query_params.items():
+            if value:
+                filters[key] = value
+        
+        prev_slug, next_slug = await service.get_navigation_context(
+            collection, slug, filters
+        )
+        
+        # Render document content
+        body_html, body_raw = await service.render_document_content(doc)
+        
+        # Get document title
+        doc_title = (
+            doc.get("name") or 
+            doc.get("nome") or 
+            doc.get("title") or 
+            doc.get("titolo") or 
+            slug
+        )
+        
+        # Build query string for navigation
+        query_string = urlencode(request.query_params) if request.query_params else ""
+        
+        template = env.get_template("show.html")
+        content = template.render(
+            collection=collection,
+            collection_label=get_collection_label(collection),
+            doc_obj=doc,
+            doc_id=slug,
+            doc_title=doc_title,
+            body_html=body_html,
+            body_raw=body_raw,
+            prev_id=prev_slug,
+            next_id=next_slug,
+            qs=query_string
+        )
+        
+        return HTMLResponse(content)
+        
+    except AppError:
+        raise
+    except Exception as e:
+        return handle_error(e)
 
 
 @router.get("/view/{collection}", response_class=HTMLResponse)
-async def view_rows(
-    request: Request, collection: str, q: str = "", page: int = 1, page_size: int = 20, lang: str | None = Query(default="it")
-) -> HTMLResponse:
-    if collection not in COLLECTIONS:
-        raise HTTPException(404)
+async def view_collection_htmx(
+    collection: str,
+    request: Request,
+    q: Optional[str] = Query(default=None),
+    page: int = Query(default=1, ge=1),
+    page_size: int = Query(default=20, ge=5, le=100)
+):
+    """HTMX endpoint for dynamic collection loading."""
     try:
-        db = await get_db()
-        repo = MongoRepository(db)
-        db_collection = db_collection_for(collection, lang)
-        res = await svc_list_page(repo, db_collection, request.query_params, q, page, page_size, logical_collection=collection)
-    except Exception:
-        err_tpl = env.get_template("error_db.html")
-        return HTMLResponse(err_tpl.render())
-    items = res["items"]
-    pages = res["pages"]
-    page = res["page"]
-    total = res["total"]
-    for doc in items:
-        if doc.get("_id") is not None:
-            doc["_id"] = str(doc["_id"])
-    tpl = env.get_template("_rows.html")
-    qs = (
-        urlencode(dict(request.query_params))
-        if request and request.query_params
-        else ""
-    )
-    return HTMLResponse(
-        tpl.render(
+        # Validate collection
+        if not is_valid_collection(collection):
+            raise AppError(
+                f"Collection '{collection}' not found",
+                status_code=404,
+                user_message=f"Collezione '{collection}' non trovata."
+            )
+        
+        service = await get_content_service()
+        
+        # Extract filters
+        filters = {}
+        for key, value in request.query_params.items():
+            if key not in ["q", "page", "page_size"] and value:
+                filters[key] = value
+        
+        # Get documents
+        documents, total, has_prev, has_next = await service.list_documents(
             collection=collection,
-            items=items,
+            query=q,
+            filters=filters,
             page=page,
-            pages=pages,
-            total=total,
-            page_size=page_size,
-            q=q,
-            qs=qs,
-            lang=lang,
+            page_size=page_size
         )
-    )
-
-
-@router.get("/quicksearch/{collection}", response_class=HTMLResponse)
-async def quicksearch(request: Request, collection: str, q: str = "") -> HTMLResponse:
-    if collection not in COLLECTIONS:
-        raise HTTPException(404)
-    tpl = env.get_template("_quicksearch.html")
-    if not q.strip():
-        return HTMLResponse(tpl.render(collection=collection, q=q, items=[]))
-    try:
-        db = await get_db()
-        repo = MongoRepository(db)
-    except Exception:
-        return HTMLResponse(tpl.render(collection=collection, q=q, items=[]))
-    # Quick mode: prefisso su name/term/title
-    lang = (request.query_params.get("lang") or "it")
-    db_collection = db_collection_for(collection, lang)
-    filt = build_filter(q, collection, request.query_params, quick=True)
-    pipe = [
-        {"$match": filt},
-        {"$addFields": {"_sortkey": alpha_sort_expr()}},
-        {"$sort": {"_sortkey": 1, "_id": 1}},
-        {"$limit": 10},
-        {"$project": {"_id": 1, "name": 1, "term": 1, "title": 1, "titolo": 1, "nome": 1}},
-    ]
-    items = await repo.aggregate_list(db_collection, pipe)
-    for d in items:
-        if d.get("_id") is not None:
-            d["_id"] = str(d["_id"])
-    return HTMLResponse(tpl.render(collection=collection, q=q, items=items))
-
-
-@router.get("/show/{collection}/{doc_id}", response_class=HTMLResponse)
-async def show_doc(
-    request: Request, collection: str, doc_id: str, q: str | None = Query(default=None), lang: str | None = Query(default="it")
-) -> HTMLResponse:
-    if collection not in COLLECTIONS:
-        raise HTTPException(404)
-    try:
-        db = await get_db()
-        repo = MongoRepository(db)
-        db_collection = db_collection_for(collection, lang)
-        doc, prev_id, next_id, doc_title = await svc_show_doc(repo, db_collection, doc_id, request.query_params, q, logical_collection=collection)
-    except Exception:
-        err_tpl = env.get_template("error_db.html")
-        return HTMLResponse(err_tpl.render())
-    if not doc:
-        raise HTTPException(404, "Documento non trovato")
-    fields = flatten_for_form(doc)
-
-    if collection in ("classi", "classes"):
-        tpl_name = "show_class.html"
-    elif collection in ("backgrounds",):
-        tpl_name = "show_background.html"
-    else:
-        tpl_name = "show.html"
-    tpl = env.get_template(tpl_name)
-    qs = (
-        urlencode(dict(request.query_params))
-        if request and request.query_params
-        else ""
-    )
-    # Server-side markdown render for document body
-    body_raw: str | None = None
-    body_html: str = ""
-    cand = (
-        doc.get("description")
-        or doc.get("description_md")
-        or doc.get("content")
-    )
-    if not cand:
-        for k, v in doc.items():
-            if isinstance(k, str) and k.endswith("_md") and v:
-                cand = v
-                break
-    body_raw = str(cand) if cand is not None else None
-    if body_raw:
-        body_html = render_md(body_raw)
-
-    return HTMLResponse(
-        tpl.render(
+        
+        # Calculate pagination
+        total_pages = (total + page_size - 1) // page_size
+        start_item = (page - 1) * page_size + 1
+        end_item = min(page * page_size, total)
+        
+        # Build query string
+        params = dict(request.query_params)
+        params.pop("page", None)
+        query_string = urlencode(params) if params else ""
+        
+        template = env.get_template("_rows.html")
+        content = template.render(
             collection=collection,
-            doc_id=str(doc["_id"]),
-            doc_title=doc_title,
-            doc_slug=str(doc.get("slug") or ""),
-            fields=fields,
-            doc_obj=to_jsonable(doc),
-            body_raw=body_raw or "",
-            body_html=body_html,
-            q=q or "",
-            prev_id=prev_id,
-            next_id=next_id,
-            request=request,
-            qs=qs,
-            lang=lang,
+            documents=documents,
+            page=page,
+            page_size=page_size,
+            total=total,
+            total_pages=total_pages,
+            has_prev=has_prev,
+            has_next=has_next,
+            start_item=start_item,
+            end_item=end_item,
+            qs=query_string
         )
-    )
+        
+        return HTMLResponse(content)
+        
+    except AppError:
+        raise
+    except Exception as e:
+        return handle_error(e, "_error.html")
 
 
-# Rimosso editor per-campi: mantenuta solo la modalità JSON
-
-
-## editing removed
+@router.get("/health")
+async def health():
+    """Simple health check endpoint."""
+    try:
+        db_healthy = await health_check()
+        
+        if db_healthy:
+            return {"status": "healthy", "database": True}
+        else:
+            return {"status": "unhealthy", "database": False}
+            
+    except Exception as e:
+        logger.error(f"Health check failed: {e}")
+        return {"status": "unhealthy", "database": False, "error": str(e)}

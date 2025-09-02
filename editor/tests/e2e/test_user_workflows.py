@@ -84,15 +84,15 @@ class TestHomepageWorkflow:
         assert response.status_code == 200
         assert "D&D 5e SRD Editor" in response.text
     
-    def test_homepage_language_switching(self, client):
-        """Test language switching on homepage."""
-        # Test Italian (default)
+    def test_homepage_language_validation(self, client):
+        """Test language validation on homepage."""
+        # Test Italian (only supported language)
         response_it = client.get("/?lang=it")
         assert response_it.status_code in [200, 500]  # 500 if templates missing
         
-        # Test English
+        # Test English (no longer supported)
         response_en = client.get("/?lang=en")
-        assert response_en.status_code in [200, 500]  # 500 if templates missing
+        assert response_en.status_code == 400  # Validation error
         
         # Test invalid language
         response_invalid = client.get("/?lang=invalid")
@@ -349,12 +349,13 @@ class TestUserExperienceWorkflow:
     
     def test_content_language_workflow(self, client):
         """Test content language workflow."""
-        # Test language persistence across requests
+        # Test Italian language (only supported)
         response_it = client.get("/list/spells?lang=it")
-        response_en = client.get("/list/spells?lang=en")
+        assert response_it.status_code in [200, 404, 500]
         
-        # Both should work (or fail consistently)
-        assert response_it.status_code == response_en.status_code
+        # Test English language (no longer supported)
+        response_en = client.get("/list/spells?lang=en")
+        assert response_en.status_code == 400  # Validation error
     
     def test_search_suggestion_workflow(self, client):
         """Test search suggestion workflow."""

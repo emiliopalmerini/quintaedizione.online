@@ -13,7 +13,6 @@
       hx-push-url="true"
       class="flex flex-col gap-2"
     >
-      <input type="hidden" name="lang" value="{{ lang or 'it' }}" />
       <div class="flex items-center gap-2 flex-wrap">
         <input id="q" name="q" placeholder="Cerca…" value="{{ q or '' }}" class="field flex-1" />
         <select name="page_size" class="field w-28">
@@ -28,7 +27,7 @@
       <details class="p-2">
         <summary class="cursor-pointer text-sm text-neutral-700">Filtri</summary>
         <div class="mt-2 grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
-          {% if collection == 'spells' %}
+          {% if collection == 'incantesimi' %}
             <select name="level" class="field"><option value="">Livello (tutti)</option>{% for i in range(0,10) %}<option value="{{ i }}" {% if request and request.query_params.get('level')==i|string %}selected{% endif %}>{{ i }}</option>{% endfor %}</select>
             <select name="school" class="field">
               <option value="">Scuola (tutte)</option>
@@ -42,7 +41,7 @@
               <option value="false" {% if request and request.query_params.get('ritual')=='false' %}selected{% endif %}>No</option>
             </select>
             <input name="classes" class="field" placeholder="Classe (es. Mago)" value="{{ request and request.query_params.get('classes','') }}" />
-          {% elif collection == 'magic_items' %}
+          {% elif collection == 'oggetti_magici' %}
             <select name="rarity" class="field">
               <option value="">Rarità (tutte)</option>
               {% for r in ['Comune','Non comune','Raro','Molto raro','Leggendario','Artefatto'] %}
@@ -55,7 +54,7 @@
               <option value="true" {% if request and request.query_params.get('attunement')=='true' %}selected{% endif %}>Richiede</option>
               <option value="false" {% if request and request.query_params.get('attunement')=='false' %}selected{% endif %}>Non richiede</option>
             </select>
-          {% elif collection == 'monsters' %}
+          {% elif collection == 'mostri' %}
             <select name="size" class="field">
               <option value="">Taglia (tutte)</option>
               {% for s in ['Minuscola','Piccola','Media','Grande','Enorme','Mastodontica'] %}
@@ -65,26 +64,57 @@
             <input name="type" class="field" placeholder="Tipo (es. bestia, non morto)" value="{{ request and request.query_params.get('type','') }}" />
             <input name="alignment" class="field" placeholder="Allineamento (es. NM, NB)" value="{{ request and request.query_params.get('alignment','') }}" />
             <input name="cr" class="field" placeholder="GS (es. 1/2 o 5)" value="{{ request and request.query_params.get('cr','') }}" />
-          {% elif collection == 'weapons' %}
+          {% elif collection == 'armi' %}
             <input name="category" class="field" placeholder="Categoria (es. Semplice/Mischia)" value="{{ request and request.query_params.get('category','') }}" />
             <input name="mastery" class="field" placeholder="Maestria (es. Rallenta/Topple)" value="{{ request and request.query_params.get('mastery','') }}" />
             <input name="property" class="field" placeholder="Proprietà (es. Leggera/Lanciata)" value="{{ request and request.query_params.get('property','') }}" />
-          {% elif collection == 'armor' %}
-            <input name="category" class="field" placeholder="Categoria (es. Leggera/Media/Pesante/Scudo)" value="{{ request and request.query_params.get('category','') }}" />
+          {% elif collection == 'armature' %}
+            <select name="category" class="field">
+              <option value="">Categoria (tutte)</option>
+              {% for cat in ['Leggera','Media','Pesante','Scudo'] %}
+                <option value="{{ cat }}" {% if request and request.query_params.get('category')==cat %}selected{% endif %}>{{ cat }}</option>
+              {% endfor %}
+            </select>
             <select name="stealth" class="field">
               <option value="">Furtività (tutte)</option>
               <option value="true" {% if request and request.query_params.get('stealth')=='true' %}selected{% endif %}>Svantaggio</option>
               <option value="false" {% if request and request.query_params.get('stealth')=='false' %}selected{% endif %}>No svantaggio</option>
             </select>
-            <input name="strength" class="field" placeholder="Forza richiesta (testo)" value="{{ request and request.query_params.get('strength','') }}" />
-          {% elif collection == 'tools' %}
+            <select name="ac_base" class="field">
+              <option value="">CA Base (tutte)</option>
+              {% for ac in range(11, 19) %}
+                <option value="{{ ac }}" {% if request and request.query_params.get('ac_base')==ac|string %}selected{% endif %}>{{ ac }}</option>
+              {% endfor %}
+            </select>
+            <select name="strength" class="field">
+              <option value="">Forza richiesta (tutte)</option>
+              <option value="null" {% if request and request.query_params.get('strength')=='null' %}selected{% endif %}>Nessuna</option>
+              <option value="13" {% if request and request.query_params.get('strength')=='13' %}selected{% endif %}>13</option>
+              <option value="15" {% if request and request.query_params.get('strength')=='15' %}selected{% endif %}>15</option>
+            </select>
+            <select name="cost_range" class="field">
+              <option value="">Costo (tutti)</option>
+              <option value="0-10" {% if request and request.query_params.get('cost_range')=='0-10' %}selected{% endif %}>0-10 MO</option>
+              <option value="11-50" {% if request and request.query_params.get('cost_range')=='11-50' %}selected{% endif %}>11-50 MO</option>
+              <option value="51-200" {% if request and request.query_params.get('cost_range')=='51-200' %}selected{% endif %}>51-200 MO</option>
+              <option value="201-750" {% if request and request.query_params.get('cost_range')=='201-750' %}selected{% endif %}>201-750 MO</option>
+              <option value="751+" {% if request and request.query_params.get('cost_range')=='751+' %}selected{% endif %}>751+ MO</option>
+            </select>
+            <select name="weight_range" class="field">
+              <option value="">Peso (tutti)</option>
+              <option value="0-10" {% if request and request.query_params.get('weight_range')=='0-10' %}selected{% endif %}>0-10 lb</option>
+              <option value="11-25" {% if request and request.query_params.get('weight_range')=='11-25' %}selected{% endif %}>11-25 lb</option>
+              <option value="26-45" {% if request and request.query_params.get('weight_range')=='26-45' %}selected{% endif %}>26-45 lb</option>
+              <option value="46+" {% if request and request.query_params.get('weight_range')=='46+' %}selected{% endif %}>46+ lb</option>
+            </select>
+          {% elif collection == 'strumenti' %}
             <input name="ability" class="field" placeholder="Caratteristica (es. Intelligenza)" value="{{ request and request.query_params.get('ability','') }}" />
             <input name="category" class="field" placeholder="Categoria (es. strumenti, kit)" value="{{ request and request.query_params.get('category','') }}" />
             <input name="craft" class="field" placeholder="Può creare (es. Pozione)" value="{{ request and request.query_params.get('craft','') }}" />
-          {% elif collection == 'services' %}
+          {% elif collection == 'servizi' %}
             <input name="category" class="field" placeholder="Categoria (es. servizio, equipaggiamento)" value="{{ request and request.query_params.get('category','') }}" />
             <input name="availability" class="field" placeholder="Disponibilità (es. città, villaggio)" value="{{ request and request.query_params.get('availability','') }}" />
-          {% elif collection == 'gear' %}
+          {% elif collection == 'equipaggiamento' %}
             <input name="weight" class="field" placeholder="Peso (testo)" value="{{ request and request.query_params.get('weight','') }}" />
           {% else %}
             <div class="text-xs text-neutral-600">Nessun filtro specifico per {{ collection }}.</div>
