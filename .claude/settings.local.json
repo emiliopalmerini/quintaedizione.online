@@ -8,7 +8,8 @@
       "Bash(sudo apt-get:*)",
       "Bash(sudo apt-get install:*)",
       "Bash(docker build:*)",
-      "Bash(docker system prune:*)"
+      "Bash(docker system prune:*)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []

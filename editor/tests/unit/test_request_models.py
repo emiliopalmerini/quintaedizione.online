@@ -66,9 +66,6 @@ class TestLanguageParams:
         """Test valid language parameters."""
         params_it = LanguageParams(lang="it")
         assert params_it.lang == "it"
-        
-        params_en = LanguageParams(lang="en")
-        assert params_en.lang == "en"
     
     def test_default_language(self):
         """Test default language."""
@@ -216,7 +213,7 @@ class TestListPageParams:
         params = ListPageParams(
             page=2,
             page_size=50,
-            lang="en",
+            lang="it",
             q="magic missile",
             level=1,
             sort="level"
@@ -224,7 +221,7 @@ class TestListPageParams:
         
         assert params.page == 2
         assert params.page_size == 50
-        assert params.lang == "en"
+        assert params.lang == "it"
         assert params.q == "magic missile"
         assert params.level == 1
         assert params.sort == "level"

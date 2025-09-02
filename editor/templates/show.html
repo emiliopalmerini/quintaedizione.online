@@ -1,22 +1,45 @@
-<!-- app/templates/show.html -->
+<!-- show.html - Template unico e minimale per tutte le collezioni -->
 {% extends "base.html" %}
-{% block title %}{{ doc_title or doc_id }} • {{ collection }}{% endblock %}
-
-{% block header_actions %}
-  <nav class="flex items-center gap-2" aria-label="Azioni documento">
-    <a href="/list/{{ collection }}{% if qs %}?{{ qs }}{% endif %}" class="btn btn-ghost">← Lista</a>
-    <a class="btn btn-ghost"
-       href="/show/{{ collection }}/{{ prev_id }}{% if qs %}?{{ qs }}{% endif %}"
-       {% if not prev_id %}disabled aria-disabled="true" tabindex="-1" style="pointer-events:none;opacity:.3;background:#f9f9f9"{% endif %}
-    >‹ Precedente</a>
-    <a class="btn btn-ghost"
-       href="/show/{{ collection }}/{{ next_id }}{% if qs %}?{{ qs }}{% endif %}"
-       {% if not next_id %}disabled aria-disabled="true" tabindex="-1" style="pointer-events:none;opacity:.3;background:#f9f9f9"{% endif %}
-    >Successivo ›</a>
-  </nav>
-{% endblock %}
+{% block title %}{{ doc_title or doc_id }}{% endblock %}
 
 {% block content %}
+  <!-- Navigazione semplice -->
+  <div class="flex items-center justify-between mb-8 pb-4" style="border-bottom: 1px solid var(--notion-border);">
+    <a href="/list/{{ collection }}{% if qs %}?{{ qs }}{% endif %}" class="btn">← Lista {{ collection_label or collection }}</a>
+    
+    <div class="flex items-center gap-2">
+      <a class="btn" 
+         href="/show/{{ collection }}/{{ prev_id }}{% if qs %}?{{ qs }}{% endif %}"
+         {% if not prev_id %}style="opacity: 0.3; pointer-events: none;"{% endif %}>
+        ← Precedente
+      </a>
+      <a class="btn"
+         href="/show/{{ collection }}/{{ next_id }}{% if qs %}?{{ qs }}{% endif %}"
+         {% if not next_id %}style="opacity: 0.3; pointer-events: none;"{% endif %}>
+        Successivo →
+      </a>
+    </div>
+  </div>
+
+  {% macro is_complex_object(v) %}
+    {% if v is mapping %}
+      {% if v|length > 5 or (v.values()|list|selectattr('mapping')|list|length > 0) or (v.values()|list|selectattr('sequence')|list|length > 0) %}
+        true
+      {% else %}
+        false
+      {% endif %}
+    {% elif v is sequence and v is not string %}
+      {% if v|length > 10 or (v|selectattr('mapping')|list|length > 0) %}
+        true
+      {% else %}
+        false  
+      {% endif %}
+    {% else %}
+      false
+    {% endif %}
+  {% endmacro %}
+
+
   {% macro render_value(v) %}
     {% if v is string or v is number or v in [true,false] %}
       <div class="font-medium break-words">{{ v }}</div>
@@ -188,100 +211,20 @@
     {% endfor %}
   {% endif %}
 
-  <article class="bg-white border p-4" data-md-section>
-    <header class="mb-4">
-      <h1 class="text-2xl font-semibold mb-2">{{ doc_title }}</h1>
-      <div class="text-xs text-neutral-600 flex items-center flex-wrap gap-2">
-        <span class="mono bg-neutral-100 border px-2 py-0.5" title="{{ doc_id }}">{{ doc_id }}</span>
-      </div>
-    </header>
-
-    {# Metadati: tutti i campi esclusi description e *_md #}
-    <section class="space-y-2">
-      <h2 class="text-sm font-semibold text-neutral-700">Metadati</h2>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
-        {# Campi in ordine alfabetico, con esclusioni #}
-        {% for item in doc_obj|dictsort %}
-          {% set k = item[0] %}
-          {% set v = item[1] %}
-          {% if not (
-            k in ['_id','id','slug','table','tables','tabella_livelli']
-            or k == 'description'
-            or (k|length>0 and k[0]=='_')
-            or k.endswith('_md')
-            or k == ns.body_key
-          ) %}
-            {% if v is not none and (not (v is string) or (v|trim) != '') %}
-              <div class="min-w-0">
-                <div class="text-neutral-500">{{ k }}</div>
-                {{ render_value(v) }}
-              </div>
-            {% endif %}
-          {% endif %}
-        {% endfor %}
-      </div>
-    </section>
-
-    <hr class="my-4" />
-
-    {# Corpo SSR: preferisce description/description_md/content, fallback al primo *_md #}
+  <!-- Contenuto principale -->
+  <article data-md-section>
+    <!-- Solo contenuto markdown -->
     {% if body_html %}
-      <div class="flex justify-end mb-2">
-        <button type="button" class="btn btn-ghost !px-2 !py-1 text-xs" onclick="copyMarkdown(this)" title="Copia Markdown">Copia Markdown</button>
+      <div id="doc-md" data-markdown data-ssr="true" data-raw="{{ body_raw | e }}">
+        {{ body_html | safe }}
       </div>
-      <div id="doc-md" data-markdown data-ssr="true" data-raw="{{ body_raw | e }}" class="prose max-w-none">{{ body_html | safe }}</div>
     {% else %}
-      <div class="text-sm text-neutral-600">Nessun contenuto testuale disponibile.</div>
+      <div style="color: var(--notion-text-light); font-style: italic;">Nessuna descrizione disponibile.</div>
     {% endif %}
   </article>
 
   {# Sezione dati grezzi rimossa su richiesta #}
 {% endblock %}
 {% block scripts %}
-  {{ super() }}
-  <style>
-    .anchor-btn { visibility: hidden; margin-left: .25rem; font-size: .85em; color: #6b7280; }
-    h2:hover .anchor-btn, h3:hover .anchor-btn, h4:hover .anchor-btn { visibility: visible; }
-    .section-toggle { margin-left: .25rem; font-size: .85em; color: #6b7280; }
-  </style>
-  <script>
-    (function(){
-      const docId = {{ doc_id | tojson }};
-      function slugify(text){
-        return (text || '').toString().toLowerCase()
-          .replace(/\s+/g,'-')
-          .replace(/[^\w\-àèéìòùçñ]/g,'')
-          .replace(/\-+/g,'-')
-          .replace(/^\-+|\-+$/g,'');
-      }
-      function ensureIds(container){
-        container.querySelectorAll('h2, h3, h4').forEach(h=>{ if(!h.id){ h.id = slugify(h.textContent || 'sezione'); } });
-      }
-      function addAnchors(container){
-        container.querySelectorAll('h2, h3, h4').forEach(h=>{
-          const id = h.id; if(!id) return;
-          const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'anchor-btn'; btn.textContent = '🔗'; btn.title = 'Copia link sezione';
-          btn.addEventListener('click', ()=>{ const url = window.location.origin + window.location.pathname + '#' + id; navigator.clipboard.writeText(url).then(()=>{ try { flash(btn,'Copiato'); } catch(e){} }); });
-          h.appendChild(btn);
-        });
-      }
-      function makeCollapsible(container){
-        const hs = Array.from(container.querySelectorAll('h3'));
-        hs.forEach((h, idx)=>{
-          const nextH = hs[idx+1] || null; const wrapper = document.createElement('div'); wrapper.className = 'section-content';
-          let n = h.nextSibling; const moved = [];
-          while(n && n !== nextH){ const cur = n; n = n.nextSibling; moved.push(cur); }
-          if(!moved.length) return; moved.forEach(x=>wrapper.appendChild(x));
-          h.parentNode.insertBefore(wrapper, nextH);
-          const key = 'doc:' + docId + '#' + h.id; const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'section-toggle'; btn.textContent = '−'; btn.title = 'Comprimi sezione';
-          const apply = (c)=>{ wrapper.style.display = c ? 'none' : ''; btn.textContent = c ? '+' : '−'; btn.title = c ? 'Espandi sezione' : 'Comprimi sezione'; };
-          let collapsed = false; try { collapsed = localStorage.getItem(key) === '1'; } catch(e){}
-          apply(collapsed);
-          btn.addEventListener('click', ()=>{ collapsed = !collapsed; apply(collapsed); try { localStorage.setItem(key, collapsed ? '1' : '0'); } catch(e){} });
-          h.appendChild(btn);
-        });
-      }
-      document.addEventListener('DOMContentLoaded', function(){ const md = document.getElementById('doc-md'); if(!md) return; ensureIds(md); addAnchors(md); makeCollapsible(md); });
-    })();
-  </script>
+{{ super() }}
 {% endblock %}

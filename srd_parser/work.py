@@ -144,6 +144,9 @@ DEFAULT_WORK: List[WorkItem] = [
     WorkItem("ita/10_oggetti_magici_items.md", "oggetti_magici", parse_magic_items),
     WorkItem("ita/16_incantesimi_items.md", "incantesimi", parse_spells),
     WorkItem("ita/06_talenti.md", "talenti", lambda lines: parse_feats(lines, lang="it")),
+    # IT monsters
+    WorkItem("ita/20_mostri_items.md", "mostri", lambda lines: parse_monsters(lines, namespace="monster")),
+    WorkItem("ita/21_animali.md", "animali", lambda lines: parse_monsters(lines, namespace="animal")),
     # English document pages (full-page ingestion)
     WorkItem(
         "eng/01_legal_information.md",
