@@ -1,6 +1,6 @@
-# Editor (FastAPI + HTMX)
+# Viewer (FastAPI + HTMX)
 
-Applicazione web per cercare, visualizzare e modificare i documenti SRD.
+Applicazione web per cercare e visualizzare i documenti SRD.
 
 ## Stack
 - FastAPI, Jinja2, Motor (MongoDB)
@@ -19,7 +19,6 @@ Applicazione web per cercare, visualizzare e modificare i documenti SRD.
 ## Funzioni chiave
 - Lista con filtri per collezione (spells, magic_items, monsters, ...)
 - Vista show: corpo testuale in Markdown, metadati compatti, classi con layout dedicato
-- Editor: filtri “solo traducibili/modificati”, textarea comode (select all, copy, expand), scorciatoie (Ctrl/Cmd+S, Ctrl+Alt+D), salvataggi parziali e globali
 - Breadcrumb con quicksearch inline e link rapidi
 - Navigazione prev/next alfabetica (name→term), coerente con la lista
 
@@ -30,6 +29,6 @@ Applicazione web per cercare, visualizzare e modificare i documenti SRD.
 - `templates/*`: template Jinja2/HTMX
 
 ## Estensioni/idee
-- Anteprima Markdown live nell’editor per textarea lunghe
-- Shortcut aggiuntive (text/higher_level)
 - Dark mode CSS
+- Advanced search filters
+- Enhanced mobile UI

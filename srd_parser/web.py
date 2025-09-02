@@ -10,10 +10,9 @@ from fastapi.responses import HTMLResponse, PlainTextResponse
 from fastapi.templating import Jinja2Templates
 from pymongo import MongoClient
 
-from .work import DEFAULT_WORK
 from .adapters.persistence.mongo_repository import MongoRepository
 from .application.ingest_runner import run_ingest
-
+from .work import DEFAULT_WORK
 
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 
@@ -64,7 +63,10 @@ def _default_env() -> dict:
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
     env = _default_env()
-    work_items = [{"idx": i, "collection": w.collection, "filename": w.filename} for i, w in enumerate(DEFAULT_WORK)]
+    work_items = [
+        {"idx": i, "collection": w.collection, "filename": w.filename}
+        for i, w in enumerate(DEFAULT_WORK)
+    ]
     return templates.TemplateResponse(
         "parser_form.html",
         {
@@ -98,7 +100,10 @@ async def run(
 ):
     is_dry = dry_run is not None
     sel = selected or []
-    work_items = [{"idx": i, "collection": w.collection, "filename": w.filename} for i, w in enumerate(DEFAULT_WORK)]
+    work_items = [
+        {"idx": i, "collection": w.collection, "filename": w.filename}
+        for i, w in enumerate(DEFAULT_WORK)
+    ]
 
     messages: List[str] = []
     base = Path(input_dir)
@@ -136,7 +141,9 @@ async def run(
                     total += r.parsed
                 else:
                     total += r.written
-                    messages.append(f"Upsert {r.written} documenti in {db_name}.{r.collection}")
+                    messages.append(
+                        f"Upsert {r.written} documenti in {db_name}.{r.collection}"
+                    )
 
     if is_dry:
         messages.append(f"Dry-run completato. Totale analizzati: {total}")
@@ -185,16 +192,30 @@ async def test_conn(
         ok = True
     except Exception as e:
         err = str(e)
-    show_err = os.environ.get("DEBUG_UI", "0").strip().lower() in ("1", "true", "yes", "on")
+    show_err = os.environ.get("DEBUG_UI", "0").strip().lower() in (
+        "1",
+        "true",
+        "yes",
+        "on",
+    )
     ctx = {"request": request, "ok": ok, "err": err, "show_err": show_err}
     return templates.TemplateResponse("_conn_test_result.html", ctx)
 
 
 def _work_items_list():
-    return [{"idx": i, "collection": w.collection, "filename": w.filename} for i, w in enumerate(DEFAULT_WORK)]
+    return [
+        {"idx": i, "collection": w.collection, "filename": w.filename}
+        for i, w in enumerate(DEFAULT_WORK)
+    ]
 
 
-def _filter_params(input_q: str | None, flt_it: str | None, flt_en: str | None, flt_docs: str | None, group: str | None):
+def _filter_params(
+    input_q: str | None,
+    flt_it: str | None,
+    flt_en: str | None,
+    flt_docs: str | None,
+    group: str | None,
+):
     return {
         "q": (input_q or "").strip().lower(),
         "flt_it": flt_it is not None,
@@ -290,7 +311,9 @@ async def select_group(
     selected: List[int] | None = Form(default=None),
 ):
     params = _filter_params(q, flt_it, flt_en, flt_docs, group_view)
-    visible = _filtered_items(params["q"], params["flt_it"], params["flt_en"], params["flt_docs"])
+    visible = _filtered_items(
+        params["q"], params["flt_it"], params["flt_en"], params["flt_docs"]
+    )
     # Build index set for the target group
     grp_idxs = {w["idx"] for w in visible if _group_key(w["collection"]) == group}
     cur = set(selected or [])
@@ -325,16 +348,25 @@ async def select_bulk(
     selected: List[int] | None = Form(default=None),
 ):
     params = _filter_params(q, flt_it, flt_en, flt_docs, group)
-    visible = _filtered_items(params["q"], params["flt_it"], params["flt_en"], params["flt_docs"])
+    visible = _filtered_items(
+        params["q"], params["flt_it"], params["flt_en"], params["flt_docs"]
+    )
     vis_idxs = {w["idx"] for w in visible}
     cur = set(selected or [])
     if mode == "it-structured":
         # structured IT: exclude EN and docs
-        cur = {w["idx"] for w in visible if (not w["collection"].endswith("_en") and "documenti" not in w["collection"]) }
+        cur = {
+            w["idx"]
+            for w in visible
+            if (
+                not w["collection"].endswith("_en")
+                and "documenti" not in w["collection"]
+            )
+        }
     elif mode == "en-structured":
-        cur = {w["idx"] for w in visible if w["collection"].endswith("_en") }
+        cur = {w["idx"] for w in visible if w["collection"].endswith("_en")}
     elif mode == "docs-only":
-        cur = {w["idx"] for w in visible if "documenti" in w["collection"] }
+        cur = {w["idx"] for w in visible if "documenti" in w["collection"]}
     elif mode == "all_visible":
         cur.update(vis_idxs)
     elif mode == "none_visible":

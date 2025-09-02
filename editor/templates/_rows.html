@@ -1,74 +1,85 @@
-<!-- app/templates/_rows.html -->
-<div class="p-0">
-  <div class="border-b px-3 py-2 flex items-center justify-between">
-    <div class="text-sm text-neutral-600">
-      {{ total }} risultati • pagina {{ page }} di {{ pages }}
-    </div>
-    <div class="flex items-center gap-2">
-      <button
-        class="btn btn-ghost"
-        hx-get="/view/{{ collection }}?page=1"
-        hx-target="#rows" hx-include="#search-form" hx-push-url="true"
-        {% if page<=1 %}disabled{% endif %}
-      >« Prima</button>
-      <button
-        class="btn btn-ghost"
-        hx-get="/view/{{ collection }}?page={{ page-1 }}"
-        hx-target="#rows" hx-include="#search-form" hx-push-url="true"
-        {% if page<=1 %}disabled{% endif %}
-      >‹ Indietro</button>
-      <button
-        class="btn btn-ghost"
-        hx-get="/view/{{ collection }}?page={{ page+1 }}"
-        hx-target="#rows" hx-include="#search-form" hx-push-url="true"
-        {% if page>=pages %}disabled{% endif %}
-      >Avanti ›</button>
-      <button
-        class="btn btn-ghost"
-        hx-get="/view/{{ collection }}?page={{ pages }}"
-        hx-target="#rows" hx-include="#search-form" hx-push-url="true"
-        {% if page>=pages %}disabled{% endif %}
-      >Ultima »</button>
-    </div>
-  </div>
-
-  {% if items %}
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"
-         hx-boost="true" hx-target="#page-root" hx-select="#page-root" hx-swap="outerHTML" hx-push-url="true" hx-indicator="#page-loading">
-      {% for it in items %}
-        <div class="border p-3 hover:bg-neutral-50">
-          <a class="block" href="/show/{{ collection }}/{{ it._id }}{% if qs %}?{{ qs }}{% endif %}" aria-label="Apri documento {{ it._id }}">
-            <div class="text-base font-semibold truncate">
-              {{ it.name or it.term or it.title or it.titolo or it.nome or it.slug or '(senza titolo)' }}
-            </div>
-            <div class="text-xs text-neutral-500 mono truncate">{{ it.slug or it._id }}</div>
-          </a>
+<!-- _rows.html - HTMX template for collection rows -->
+<div class="divide-y">
+  {% for doc in documents %}
+    {% set doc_name = doc.get('name') or doc.get('nome') or doc.get('title') or doc.get('titolo') or doc.get('slug') %}
+    {% set doc_slug = doc.get('slug') or doc.get('name') or doc.get('nome') %}
+    
+    <div class="px-4 py-3 hover:bg-neutral-50">
+      <div class="flex items-center justify-between">
+        <div class="flex-1">
+          <h3 class="font-medium">
+            <a href="/show/{{ collection }}/{{ doc_slug }}{% if qs %}?{{ qs }}{% endif %}" 
+               class="text-blue-600 hover:text-blue-800">
+              {{ doc_name }}
+            </a>
+          </h3>
           
+          {% if doc.get('level') or doc.get('livello') %}
+            <span class="text-xs text-neutral-500">Livello {{ doc.get('level') or doc.get('livello') }}</span>
+          {% endif %}
+          
+          {% if doc.get('school') or doc.get('scuola') %}
+            <span class="text-xs text-neutral-500 ml-2">{{ doc.get('school') or doc.get('scuola') }}</span>
+          {% endif %}
+          
+          {% if doc.get('rarity') or doc.get('rarita') %}
+            <span class="text-xs text-neutral-500 ml-2">{{ doc.get('rarity') or doc.get('rarita') }}</span>
+          {% endif %}
+          
+          {% if doc.get('category') or doc.get('categoria') %}
+            <span class="text-xs text-neutral-500 ml-2">{{ doc.get('category') or doc.get('categoria') }}</span>
+          {% endif %}
+          
+          {% if doc.get('challenge_rating') or doc.get('cr') %}
+            <span class="text-xs text-neutral-500 ml-2">GS {{ doc.get('challenge_rating') or doc.get('cr') }}</span>
+          {% endif %}
         </div>
-      {% endfor %}
+        
+        <div class="text-xs text-neutral-400">
+          {% if doc.get('translated') %}
+            <span class="text-green-600">✓ Tradotto</span>
+          {% endif %}
+        </div>
+      </div>
     </div>
-  {% else %}
-    <div class="px-3 py-6 text-center text-sm text-neutral-600">
-      Nessun risultato. Prova a cambiare i termini di ricerca.
+  {% endfor %}
+  
+  {% if not documents %}
+    <div class="px-4 py-8 text-center text-neutral-500">
+      <p>Nessun documento trovato.</p>
     </div>
   {% endif %}
+</div>
 
-  <div class="border-t px-3 py-2 flex items-center justify-between">
-    <div class="text-xs text-neutral-500">Mostrati {{ items|length }} elementi</div>
-    <div class="flex items-center gap-2">
-      <button
-        class="btn btn-ghost"
-        hx-get="/view/{{ collection }}?page={{ page-1 }}"
-        hx-target="#rows" hx-include="#search-form" hx-push-url="true"
-        {% if page<=1 %}disabled{% endif %}
-      >‹ Indietro</button>
-      <span class="text-sm">Pag. {{ page }}/{{ pages }}</span>
-      <button
-        class="btn btn-ghost"
-        hx-get="/view/{{ collection }}?page={{ page+1 }}"
-        hx-target="#rows" hx-include="#search-form" hx-push-url="true"
-        {% if page>=pages %}disabled{% endif %}
-      >Avanti ›</button>
+<!-- Pagination -->
+{% if total > page_size %}
+<div class="px-4 py-3 border-t bg-neutral-50">
+  <div class="flex items-center justify-between text-sm text-neutral-600">
+    <div>
+      Documenti {{ start_item }}-{{ end_item }} di {{ total }}
+    </div>
+    
+    <div class="flex items-center space-x-2">
+      {% if has_prev %}
+        <button hx-get="/view/{{ collection }}?page={{ page - 1 }}{% if qs %}&{{ qs }}{% endif %}"
+                hx-target="#rows"
+                hx-include="closest form"
+                class="px-3 py-1 bg-white border rounded hover:bg-neutral-50">
+          ← Precedente
+        </button>
+      {% endif %}
+      
+      <span class="px-2">Pagina {{ page }} di {{ total_pages }}</span>
+      
+      {% if has_next %}
+        <button hx-get="/view/{{ collection }}?page={{ page + 1 }}{% if qs %}&{{ qs }}{% endif %}"
+                hx-target="#rows"
+                hx-include="closest form"
+                class="px-3 py-1 bg-white border rounded hover:bg-neutral-50">
+          Successiva →
+        </button>
+      {% endif %}
     </div>
   </div>
 </div>
+{% endif %}

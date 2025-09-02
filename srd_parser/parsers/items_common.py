@@ -60,8 +60,6 @@ def collect_labeled_fields(block: List[str]) -> Dict[str, str]:
     return fields
 
 
-def shared_id_for(namespace: str, index1: int) -> str:
-    return f"{namespace}:{index1:04d}"
 
 
 def first_italic_line(block: List[str]) -> Optional[str]:

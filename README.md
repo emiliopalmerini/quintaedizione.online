@@ -1,6 +1,6 @@
-# 5e SRD Fast Editor
+# 5e SRD Fast Viewer
 
-Editor e visualizzatore veloce per i contenuti SRD di D&D 5e, pensato per aiutare traduttori ed editor a cercare, visualizzare e tradurre rapidamente i dati.
+Visualizzatore veloce per i contenuti SRD di D&D 5e, pensato per cercare e visualizzare rapidamente i dati.
 
 • Backend FastAPI + Motor (MongoDB)
 • Templating Jinja2 + HTMX (interazioni semplici e progressive)
@@ -10,8 +10,7 @@ Editor e visualizzatore veloce per i contenuti SRD di D&D 5e, pensato per aiutar
 
 ## Funzionalità principali
 - Ricerca con filtri specifici per collezione (incantesimi, oggetti magici, mostri, ...)
-- Vista “show” leggibile: corpo in Markdown, metadati compatti, classi con layout dedicato
-- Editor ottimizzato per traduzione: textarea comode, scorciatoie, filtri “solo traducibili/modificati”, salvataggi rapidi
+- Vista "show" leggibile: corpo in Markdown, metadati compatti, classi con layout dedicato
 - Breadcrumb interattivo con quicksearch in‑place
 - Navigazione prev/next alfabetica coerente con la lista
 
@@ -30,7 +29,7 @@ make up
 ```
 make seed-restore
 ```
-- Apri l’editor: http://localhost:8000/
+- Apri il visualizzatore: http://localhost:8000/
 
 Parser SRD via Web UI:
 ```
@@ -44,21 +43,21 @@ Vedi anche `Makefile` per altri comandi utili.
 
 Comandi utili:
 ```
-make build           # build editor + srd-parser
-make build-editor    # build solo editor
+make build           # build viewer + srd-parser
+make build-editor    # build solo viewer
 make build-parser    # build solo srd-parser
 make lint            # esegue ruff/pyflakes se presenti
 make format          # esegue black se presente
 ```
 
 ## Struttura del repo
-- `editor/`: applicazione FastAPI + template HTMX/Jinja2
+- `editor/`: applicazione FastAPI + template HTMX/Jinja2 (visualizzatore)
 - `srd_parser/`: parser/ingest dei dati SRD in MongoDB
 - `seed/`: dump e script per ripristino del DB in dev
 - `docs/adr/`: Architectural Decision Records
 
 ## Documentazione
-- Editor: `editor/README.md`
+- Visualizzatore: `editor/README.md`
 - Parser: `srd_parser/README.md`
 - Seed: `seed/README.md`
 - Agenti/LLM: `AGENTS.md`, `LLMS.md`

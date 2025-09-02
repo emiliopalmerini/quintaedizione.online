@@ -6,7 +6,6 @@ from typing import Dict, List
 from .items_common import (
     collect_labeled_fields,
     first_italic_line,
-    shared_id_for,
     slugify,
     split_items,
 )
@@ -134,7 +133,6 @@ def parse_spells(md_lines: List[str]) -> List[Dict]:
         lancio = {k: v for k, v in lancio.items() if v}
         content = (f"#### {title}\n" + "\n".join(block)).strip() + "\n"
         doc: Dict = {
-            "shared_id": shared_id_for("spell", idx),
             "slug": slug,
             "nome": name,
             "content": content,
