@@ -1,4 +1,4 @@
-from srd_parser.parsers.classes import parse_classes
+from srd_parser.parsers.classes_improved import parse_classes
 from srd_parser.parsers.backgrounds import parse_backgrounds
 
 

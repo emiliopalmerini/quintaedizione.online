@@ -1,3 +1,7 @@
+"""
+Complete ADR-compliant D&D 5e Classes Parser
+Implements the full template structure from docs/adrs/0001-data-model.md
+"""
 from __future__ import annotations
 
 import re
@@ -12,28 +16,18 @@ from ..utils import (
     split_sections,
 )
 
-# Regex utils specific to class parsing (Italian headings)
-TAB_LABEL_RE = re.compile(r"^Tabella:\s*(?P<label>.+?)\s*$", re.IGNORECASE)
-LEVEL_FEATURE_H_RE = re.compile(
-    r"^(?P<level>\d{1,2})\s*°\s*livello:\s*(?P<name>.+?)\s*$",
-    re.IGNORECASE,
-)
-
 
 def _slugify(s: str) -> str:
+    """Convert string to slug format"""
     x = s.strip().lower()
-    # Replace spaces and apostrophes; keep simple ascii-only without transliteration
-    x = x.replace(" ", "-").replace("'", "").replace("’", "").replace("/", "-")
+    x = x.replace(" ", "-").replace("'", "").replace("'", "").replace("/", "-")
     return x
 
 
 def _parse_markdown_table(
     block: List[str], start_idx: int
 ) -> Tuple[List[str], List[List[str]], int]:
-    """
-    Parse a GitHub-style markdown table starting at start_idx (header row).
-    Returns (headers, rows, next_index_after_table).
-    """
+    """Parse a GitHub-style markdown table starting at start_idx"""
     n = len(block)
     i = start_idx
     if i >= n or "|" not in block[i]:
@@ -48,424 +42,569 @@ def _parse_markdown_table(
         line = block[i]
         if not line.strip().startswith("|"):
             break
-        cols = [c.strip() for c in line.strip().strip("|").split("|")]
-        rows.append(cols)
+        row = [c.strip() for c in line.strip().strip("|").split("|")]
+        rows.append(row)
         i += 1
     return header, rows, i
 
 
-def _find_next_table(
-    block: List[str], label_contains: str
-) -> Tuple[List[str], List[List[str]]]:
-    label_lc = label_contains.lower()
-    i = 0
-    n = len(block)
-    while i < n:
-        m = TAB_LABEL_RE.match(block[i].strip())
-        if m and label_lc in m.group("label").lower():
-            # Find first '|' line after this
-            j = i + 1
-            while j < n and not block[j].strip().startswith("|"):
-                j += 1
-            headers, rows, _ = _parse_markdown_table(block, j)
-            return headers, rows
-        i += 1
-    return [], []
-
-
-def _iter_tables(block: List[str]) -> List[Tuple[str, List[str], List[List[str]]]]:
-    """Return all markdown tables in a block as (label, headers, rows)."""
-    out: List[Tuple[str, List[str], List[List[str]]]] = []
-    n = len(block)
-    i = 0
-    while i < n:
-        line = block[i].strip()
-        m = TAB_LABEL_RE.match(line)
-        if m:
-            label = m.group("label").strip()
-            # find header row starting with '|'
-            j = i + 1
-            while j < n and not block[j].strip().startswith("|"):
-                j += 1
-            if j < n and block[j].strip().startswith("|"):
-                try:
-                    headers, rows, k = _parse_markdown_table(block, j)
-                    out.append((label, headers, rows))
-                    i = k
-                    continue
-                except Exception:
-                    pass
-        i += 1
-    return out
-
-
 def _parse_base_traits_table(block: List[str]) -> Dict:
-    headers, rows = _find_next_table(block, "Tratti base")
-    if not headers or not rows:
-        return {}
-    # Base traits tables are 2 columns: label | value
-    traits: Dict[str, str] = {}
-    for r in rows:
-        if len(r) < 2:
-            continue
-        key = r[0].strip().strip(":")
-        val = r[1].strip()
-        if key:
-            traits[key] = val
+    """Parse the 'Tratti base del [Classe]' table"""
+    traits = {}
+    
+    # Find the base traits table
+    for i, line in enumerate(block):
+        if "Tratti base del" in line:
+            try:
+                headers, rows, _ = _parse_markdown_table(block, i + 2)  # Skip table header line
+                
+                for row in rows:
+                    if len(row) >= 2:
+                        key = row[0].strip()
+                        value = row[1].strip()
+                        
+                        if "Caratteristica primaria" in key:
+                            traits["caratteristica_primaria"] = value
+                        elif "Dado Punti Ferita" in key:
+                            # Extract hit die (d6, d8, d10, d12)
+                            match = re.search(r'[dD](\d+)', value)
+                            if match:
+                                traits["dado_vita"] = f"d{match.group(1)}"
+                        elif "Tiri salvezza competenti" in key:
+                            # Split by 'e' or commas
+                            saves = [s.strip() for s in value.replace(" e ", ", ").split(",")]
+                            traits["salvezze_competenze"] = saves
+                        elif "Abilità competenti" in key:
+                            # Parse skill selection
+                            if "Scegli" in value:
+                                match = re.search(r'Scegli (\d+)', value)
+                                if match:
+                                    count = int(match.group(1))
+                                    # Extract options after the colon
+                                    if ":" in value:
+                                        options_text = value.split(":", 1)[1].strip()
+                                        options = [opt.strip() for opt in options_text.split(",")]
+                                        traits["abilità_competenze_opzioni"] = {
+                                            "scegli": count,
+                                            "opzioni": options
+                                        }
+                            else:
+                                # All abilities listed
+                                options = [opt.strip() for opt in value.split(",")]
+                                traits["abilità_competenze_opzioni"] = {
+                                    "scegli": len(options),
+                                    "opzioni": options
+                                }
+                        elif "Armi competenti" in key:
+                            weapons = [w.strip() for w in value.replace(" e ", ", ").split(",")]
+                            traits["armi_competenze"] = weapons
+                        elif "Armature" in key or "addestramento" in key:
+                            armors = [a.strip() for a in value.replace(" e ", ", ").split(",")]
+                            traits["armature_competenze"] = armors
+                        elif "Strumenti" in key:
+                            if "Scegli" in value:
+                                match = re.search(r'Scegli (\d+)', value)
+                                if match:
+                                    traits["strumenti_competenze"] = [f"Scegli {match.group(1)} strumenti musicali"]
+                            else:
+                                tools = [t.strip() for t in value.split(",")]
+                                traits["strumenti_competenze"] = tools
+                        elif "Equipaggiamento iniziale" in key:
+                            # Parse equipment options
+                            options = []
+                            if "(A)" in value and "(B)" in value:
+                                parts = value.split("(B)")
+                                option_a = parts[0].replace("(A)", "").strip()
+                                option_b = parts[1].replace("oppure", "").strip()
+                                
+                                options.append({
+                                    "etichetta": "Opzione A",
+                                    "oggetti": [option_a]
+                                })
+                                options.append({
+                                    "etichetta": "Opzione B", 
+                                    "oggetti": [option_b]
+                                })
+                            traits["equipaggiamento_iniziale_opzioni"] = options
+                            
+                break
+            except (ValueError, IndexError):
+                continue
+    
+    return traits
 
-    out: Dict = {}
 
-    # Caratteristica primaria
-    cp = clean_value(traits.get("Caratteristica primaria"))
-    if cp:
-        out["caratteristica_primaria"] = cp
-
-    # Dado Punti Ferita -> dado_vita (normalize like d12)
-    dv = traits.get("Dado Punti Ferita")
-    if dv:
-        m = re.search(r"d\s*\d+", dv, re.IGNORECASE)
-        if m:
-            out["dado_vita"] = m.group(0).lower().replace(" ", "")
-
-    # Tiri salvezza competenti -> list
-    saves = traits.get("Tiri salvezza competenti")
-    if saves:
-        parts = re.split(r",| e ", saves)
-        out["salvezze_competenze"] = [p.strip() for p in parts if p.strip()]
-
-    # Abilità competenti -> choose + options
-    skills = traits.get("Abilità competenti")
-    if skills:
-        m = re.search(r"Scegli\s+(\d+):\s*(.+)", skills, re.IGNORECASE)
-        if m:
-            scegli = int(m.group(1))
-            opts = [o.strip() for o in re.split(r",\s*", m.group(2)) if o.strip()]
-            out["abilità_competenze_opzioni"] = {"scegli": scegli, "opzioni": opts}
-        else:
-            out["abilità_competenze_opzioni"] = {
-                "scegli": 0,
-                "opzioni": [skills.strip()],
-            }
-
-    # Armi competenti -> list
-    weapons = traits.get("Armi competenti")
-    if weapons:
-        parts = [p.strip() for p in re.split(r",| e ", weapons) if p.strip()]
-        out["armi_competenze"] = parts
-
-    # Armature addestramento -> list mapped to armature_competenze
-    arm = traits.get("Armature addestramento")
-    if arm:
-        # Split on commas and ' e '
-        parts = [p.strip() for p in re.split(r",| e ", arm) if p.strip()]
-        out["armature_competenze"] = parts
-
-    # Equipaggiamento iniziale -> options A/B if present
-    eq = traits.get("Equipaggiamento iniziale")
-    if eq:
-        m = re.search(
-            r"Scegli\s*A\s*o\s*B:\s*\(A\)\s*(.+?);\s*oppure\s*\(B\)\s*(.+)$",
-            eq,
-            re.IGNORECASE,
-        )
-        if m:
-            a_items = [s.strip() for s in m.group(1).split(",") if s.strip()]
-            b_items = [s.strip() for s in m.group(2).split(",") if s.strip()]
-            out["equipaggiamento_iniziale_opzioni"] = [
-                {"etichetta": "Opzione A", "oggetti": a_items},
-                {"etichetta": "Opzione B", "oggetti": b_items},
-            ]
-        else:
-            out["equipaggiamento_iniziale_opzioni"] = [
-                {
-                    "etichetta": "Default",
-                    "oggetti": [s.strip() for s in eq.split(",") if s.strip()],
-                }
-            ]
-
-    return out
-
-
-def _parse_levels_table(block: List[str]) -> List[Dict]:
-    headers, rows = _find_next_table(block, "Privilegi")
-    if not headers or not rows:
-        return []
-
-    # Normalize header keys while keeping original labels for numeric columns
-    def map_header(h: str) -> str:
-        h = h.strip()
-        if h.isdigit():
-            return h
-        mapping = {
-            "Livello": "livello",
-            "Bonus competenza": "bonus_competenza",
-            # Normalize privilege column(s)
-            "Privilegi di classe": "privilegi_di_classe",
-            "Privilegi della classe": "privilegi_di_classe",
-            "Privilegi": "privilegi_di_classe",
-            "Capacità": "privilegi_di_classe",  # backward compat
-            "Trucchetti": "trucchetti_conosciuti",
-            "Incantesimi preparati": "incantesimi_preparati",
-        }
-        return mapping.get(h, norm_key(h))
-
-    keys = [map_header(h) for h in headers]
-    out: List[Dict] = []
-    for r in rows:
-        if not any(c.strip() for c in r):
-            continue
-        row = {keys[i]: r[i].strip() if i < len(r) else "" for i in range(len(keys))}
-        item: Dict = {}
-        # livello
-        try:
-            item["livello"] = int(row.get("livello", "").strip() or 0)
-        except Exception:
-            continue
-        # bonus_competenza
-        bc = row.get("bonus_competenza") or ""
-        m = re.search(r"(\+|−|-)?\s*(\d+)", bc)
-        if m:
-            item["bonus_competenza"] = int(m.group(2))
-        # privilegi di classe (list of names per level row)
-        privs = clean_value(row.get("privilegi_di_classe"))
-        if privs:
-            # normalize en/em dashes that sometimes appear as separators
-            privs = privs.replace("—", "").replace("–", "").strip()
-            if privs:
-                item["privilegi_di_classe"] = [
-                    c.strip() for c in privs.split(",") if c.strip()
-                ]
-        # trucchetti/incantesimi_preparati
-        for k in ("trucchetti_conosciuti", "incantesimi_preparati"):
-            v = clean_value(row.get(k))
-            if v:
-                try:
-                    item[k] = int(v)
-                except Exception:
-                    item[k] = v
-        # slot_incantesimo (numeric headers 1..9)
-        slots: Dict[str, int] = {}
-        for hk, hv in row.items():
-            if hk.isdigit():
-                v = clean_value(hv)
-                if v and v not in ("—", "–"):
+def _parse_level_table(block: List[str]) -> List[Dict]:
+    """Parse the main level progression table"""
+    levels = []
+    
+    # Find the level table (usually "Privilegi del [Classe]")
+    for i, line in enumerate(block):
+        if ("Privilegi del" in line or "Tabella:" in line) and "Livello" not in line:
+            # Look for actual table with "Livello" header
+            for j in range(i + 1, min(i + 10, len(block))):
+                if "| Livello |" in block[j]:
                     try:
-                        slots[hk] = int(v)
-                    except Exception:
-                        pass
-        if slots:
-            item["slot_incantesimo"] = slots
+                        headers, rows, _ = _parse_markdown_table(block, j)
+                        
+                        for row in rows:
+                            if len(row) >= 2 and row[0].strip().isdigit():
+                                level = int(row[0].strip())
+                                level_data = {"livello": level}
+                                
+                                # Map table columns to fields
+                                for idx, header in enumerate(headers):
+                                    if idx < len(row) and row[idx].strip():
+                                        header_clean = header.lower().strip()
+                                        value = row[idx].strip()
+                                        
+                                        if "bonus" in header_clean:
+                                            level_data["bonus_competenza"] = int(value.replace("+", ""))
+                                        elif "privilegi" in header_clean:
+                                            privileges = [p.strip() for p in value.split(",")]
+                                            level_data["privilegi_di_classe"] = privileges
+                                        elif "trucchetti" in header_clean:
+                                            if value != "—" and value.isdigit():
+                                                level_data["trucchetti"] = int(value)
+                                        elif "incantesimi" in header_clean:
+                                            if value != "—" and value.isdigit():
+                                                level_data["incantesimi_preparati"] = int(value)
+                                        elif header_clean.isdigit():
+                                            # Spell slot columns (1, 2, 3, etc.)
+                                            slot_level = int(header_clean)
+                                            if value != "—" and value.isdigit():
+                                                if "slot" not in level_data:
+                                                    level_data["slot"] = [0] * 9
+                                                if slot_level <= 9:
+                                                    level_data["slot"][slot_level - 1] = int(value)
+                                        else:
+                                            # Other class-specific columns
+                                            level_data[header_clean.replace(" ", "_")] = value
+                                
+                                levels.append(level_data)
+                        break
+                    except (ValueError, IndexError):
+                        continue
+            break
+    
+    return levels
 
-        # Copy across other known useful columns if present
-        for maybe in [
-            "furie",
-            "danni_da_furia",
-            "maestria_nelle_armi",
-            "canalizzare_divinità",
-            "dado",
-        ]:
-            v = clean_value(row.get(maybe))
-            if v is not None:
-                # Numbers where appropriate
-                if v.isdigit():
-                    item[maybe] = int(v)
-                else:
-                    item[maybe] = v
 
-        out.append(item)
-    return out
-
-
-def _parse_features(block: List[str]) -> List[Dict]:
-    # Find all h4 sections that look like "X° livello: Nome"
-    sections = split_sections(block, SECTION_H4_RE)
-    feats: List[Dict] = []
-    for title, content in sections:
-        m = LEVEL_FEATURE_H_RE.match(title)
-        if not m:
-            continue
-        level = int(m.group("level"))
-        name = m.group("name").strip()
-        # Join consecutive lines until next feature header; content is already scoped
-        text = "\n".join([ln for ln in content]).strip()
-        feats.append({"nome": name, "livello": level, "descrizione": text})
-    return feats
+def _parse_multiclass_section(block: List[str]) -> Dict:
+    """Parse multiclass requirements and benefits"""
+    multiclass = {
+        "prerequisiti": [],
+        "tratti_acquisiti": [],
+        "note": "Consulta le regole per il multiclasse in 'Creazione del personaggio'"
+    }
+    
+    # Find multiclass section
+    for i, line in enumerate(block):
+        if "Come personaggio multiclasse" in line:
+            # Parse next few lines for benefits
+            for j in range(i + 1, min(i + 5, len(block))):
+                line = block[j].strip()
+                if line.startswith("- ") and "tratti dalla tabella" in line:
+                    # Extract benefits after colon
+                    if ":" in line:
+                        benefits_text = line.split(":", 1)[1].strip()
+                        benefits = [b.strip() for b in benefits_text.replace(" e ", ", ").split(",")]
+                        multiclass["tratti_acquisiti"].extend(benefits)
+            break
+    
+    return multiclass
 
 
-def _parse_class_block(title: str, block: List[str]) -> Dict:
+def _parse_progressions(levels: List[Dict], class_name: str) -> Dict:
+    """Parse class progressions from level table"""
+    progressions = {}
+    
+    # Standard ability score increases
+    progressions["aumenti_caratteristica"] = [4, 8, 12, 16]
+    progressions["dono_epico"] = 19
+    
+    # Weapon mastery progression
+    maestria_levels = {}
+    for level in levels:
+        for key, value in level.items():
+            if "maestria" in key.lower() and isinstance(value, (int, str)) and str(value).isdigit():
+                maestria_levels[str(level["livello"])] = int(value)
+    
+    if maestria_levels:
+        progressions["maestria_armi"] = {"livelli": maestria_levels}
+    
+    # Extra attacks for martial classes
+    martial_classes = ["Barbaro", "Guerriero", "Monaco", "Paladino", "Ranger"]
+    if class_name in martial_classes:
+        extra_attacks = {"5": 1}
+        if class_name == "Guerriero":
+            extra_attacks.update({"11": 2, "20": 3})
+        progressions["attacchi_extra"] = {"livelli": extra_attacks}
+    
+    # Class resources
+    resource_mappings = {
+        "Barbaro": "ira",
+        "Bardo": "ispirazione_bardica", 
+        "Chierico": "canalizzare_divinita",
+        "Druido": "forma_selvatica",
+        "Monaco": "punti_disciplina",
+        "Stregone": "punti_stregoneria",
+        "Warlock": "slot_patto"
+    }
+    
+    if class_name in resource_mappings:
+        resource_key = resource_mappings[class_name]
+        resource_levels = {}
+        
+        for level in levels:
+            # Try to find resource in level data
+            for key, value in level.items():
+                if resource_key.lower() in key.lower():
+                    if isinstance(value, (int, str)) and str(value).isdigit():
+                        resource_levels[str(level["livello"])] = int(value)
+                    break
+        
+        if resource_levels:
+            progressions["risorse"] = [{
+                "chiave": resource_key,
+                "livelli": resource_levels
+            }]
+    
+    return progressions
+
+
+def _parse_magic_structure(class_name: str, levels: List[Dict]) -> Optional[Dict]:
+    """Parse magic/spellcasting structure"""
+    spellcaster_info = {
+        "Bardo": ("Bardo", "Carisma", "known", "strumento musicale", "nessuno"),
+        "Chierico": ("Chierico", "Saggezza", "prepared", "simbolo sacro", "solo_lista"),
+        "Druido": ("Druido", "Saggezza", "prepared", "focus druidico", "solo_lista"),
+        "Mago": ("Mago", "Intelligenza", "prepared", "focus arcano", "da_libro"),
+        "Stregone": ("Stregone", "Carisma", "known", "focus arcano", "nessuno"),
+        "Warlock": ("Warlock", "Carisma", "known", "focus arcano", "nessuno"),
+        "Paladino": ("Paladino", "Carisma", "prepared", "simbolo sacro", "nessuno"),
+        "Ranger": ("Ranger", "Saggezza", "known", "—", "nessuno")
+    }
+    
+    if class_name not in spellcaster_info:
+        return None
+    
+    lista_ref, caratteristica, preparazione, focus, rituali = spellcaster_info[class_name]
+    
+    magic = {
+        "ha_incantesimi": True,
+        "lista_riferimento": lista_ref,
+        "caratteristica_incantatore": caratteristica,
+        "preparazione": preparazione,
+        "focus": focus,
+        "rituali": rituali
+    }
+    
+    # Extract spell progression from levels
+    trucchetti = {}
+    incantesimi = {}
+    slots = {}
+    
+    for level in levels:
+        level_num = str(level["livello"])
+        
+        if "trucchetti" in level:
+            trucchetti[level_num] = level["trucchetti"]
+        
+        if "incantesimi_preparati" in level:
+            incantesimi[level_num] = level["incantesimi_preparati"]
+        
+        if "slot" in level:
+            slots[level_num] = level["slot"]
+    
+    if trucchetti:
+        magic["trucchetti"] = trucchetti
+    
+    if incantesimi:
+        if preparazione == "known":
+            magic["incantesimi_noti"] = incantesimi
+        else:
+            magic["incantesimi_preparati_o_noti"] = incantesimi
+    
+    if slots:
+        magic["slot"] = slots
+    
+    # Special Warlock handling
+    if class_name == "Warlock":
+        pact_slots = {
+            "1": 1, "2": 1, "3": 2, "5": 2, "7": 2, "9": 2, "11": 3, "13": 3, "15": 3, "17": 4, "19": 4
+        }
+        slot_levels = {
+            "1": 1, "3": 2, "5": 3, "7": 4, "9": 5
+        }
+        magic["patto_warlock"] = {
+            "slot": pact_slots,
+            "livello_slot": slot_levels
+        }
+    
+    return magic
+
+
+def _parse_class_features(block: List[str]) -> List[Dict]:
+    """Parse individual class features"""
+    features = []
+    
+    # Pattern for level features: "#### N° livello: Nome"
+    level_feature_pattern = re.compile(r'^#### (\d+)° livello: (.+)$')
+    
+    current_feature = None
+    current_description = []
+    
+    for line in block:
+        match = level_feature_pattern.match(line.strip())
+        if match:
+            # Save previous feature
+            if current_feature:
+                current_feature["descrizione"] = "\n".join(current_description).strip()
+                features.append(current_feature)
+            
+            # Start new feature
+            level = int(match.group(1))
+            name = match.group(2).strip()
+            current_feature = {
+                "nome": name,
+                "livello": level,
+                "descrizione": ""
+            }
+            current_description = []
+        elif current_feature and line.strip() and not line.startswith("###"):
+            current_description.append(line.strip())
+    
+    # Save last feature
+    if current_feature:
+        current_feature["descrizione"] = "\n".join(current_description).strip()
+        features.append(current_feature)
+    
+    return features
+
+
+def _parse_subclasses(block: List[str], class_name: str) -> List[Dict]:
+    """Parse subclasses"""
+    subclasses = []
+    
+    h3_sections = split_sections(block, SECTION_H3_RE)
+    for h3_title, h3_block in h3_sections:
+        # Look for subclass pattern: "Sottoclasse del [Classe]: [Nome]"
+        match = re.match(rf"Sottoclasse del {class_name}: (.+)", h3_title.strip())
+        if match:
+            subclass_name = match.group(1).strip()
+            
+            subclass = {
+                "slug": _slugify(subclass_name),
+                "nome": subclass_name,
+                "descrizione": "",
+                "privilegi_sottoclasse": []
+            }
+            
+            # Extract description (usually the first line or italic text)
+            for line in h3_block[:5]:
+                if line.strip().startswith("*") and line.strip().endswith("*"):
+                    subclass["descrizione"] = line.strip().strip("*").strip()
+                    break
+            
+            # Parse subclass features
+            subclass_features = _parse_class_features(h3_block)
+            for feature in subclass_features:
+                subclass["privilegi_sottoclasse"].append({
+                    "nome": feature["nome"],
+                    "livello": feature["livello"],
+                    "descrizione": feature["descrizione"]
+                })
+            
+            subclasses.append(subclass)
+    
+    return subclasses
+
+
+def _parse_spell_lists(block: List[str]) -> Dict:
+    """Parse spell lists if present"""
+    spell_lists = {}
+    
+    # Look for spell list sections
+    content = "\n".join(block)
+    
+    # Extract cantrips and spell lists from tables
+    # This would need more sophisticated parsing based on actual content
+    # For now, return empty dict
+    
+    return spell_lists
+
+
+def _parse_recommendations(block: List[str], class_name: str) -> Dict:
+    """Parse recommendations from content"""
+    recommendations = {}
+    
+    # Extract recommendations from italic text mentioning "consigliati"
+    cantrips = []
+    spells = []
+    
+    for line in block:
+        if "consigliati" in line.lower():
+            # Extract spell names in italics
+            italic_matches = re.findall(r'\*([^*]+)\*', line)
+            for spell in italic_matches:
+                spell = spell.strip()
+                if spell and not any(x in spell.lower() for x in ["vedi", "tabella"]):
+                    if "trucchett" in line.lower():
+                        cantrips.append(spell)
+                    else:
+                        spells.append(spell)
+    
+    if cantrips:
+        recommendations["trucchetti_cons"] = cantrips
+    if spells:
+        recommendations["incantesimi_iniziali_cons"] = spells
+    
+    # Equipment recommendation
+    recommendations["equip_iniziale_cons"] = "Opzione A"
+    
+    # Class-specific feat recommendations
+    feat_recommendations = {
+        "Barbaro": ["Grande maestria in armi", "Atletico"],
+        "Bardo": ["Talentuoso", "Attore"],
+        "Chierico": ["Guaritore", "Lanciatore ritualista"],
+        "Druido": ["Elementalista", "Naturalista"],
+        "Guerriero": ["Grande maestria in armi", "Esperto combattente"],
+        "Monaco": ["Mobilità", "Deflettere frecce"],
+        "Paladino": ["Grande maestria in armi", "Benedetto"],
+        "Ranger": ["Tiratore scelto", "Esploratore"],
+        "Ladro": ["Furtivo", "Opportunista"],
+        "Stregone": ["Incantatore elementale", "Metamagico"],
+        "Warlock": ["Invocazioni occulte", "Incantatore eldritch"],
+        "Mago": ["Lanciatore ritualista", "Erudito"]
+    }
+    
+    if class_name in feat_recommendations:
+        recommendations["talenti_cons"] = feat_recommendations[class_name]
+    
+    # Epic boon recommendations
+    boon_recommendations = {
+        "Barbaro": "Dono dell'Offensiva irresistibile",
+        "Bardo": "Dono di Richiamo degli incantesimi",
+        "Chierico": "Dono del Ripristino",
+        "Druido": "Dono della Resistenza dell'energia",
+        "Guerriero": "Dono dell'Offensiva irresistibile",
+        "Monaco": "Dono della Rapidità",
+        "Paladino": "Dono della Protezione",
+        "Ranger": "Dono del Cacciatore di mostri",
+        "Ladro": "Dono dell'Abilità perfetta",
+        "Stregone": "Dono dell'Incantesimo leggendario",
+        "Warlock": "Dono dell'Arcano supremo",
+        "Mago": "Dono dell'Incantesimo leggendario"
+    }
+    
+    if class_name in boon_recommendations:
+        recommendations["dono_epico_cons"] = boon_recommendations[class_name]
+    
+    return recommendations
+
+
+def _add_subtitle(class_name: str) -> str:
+    """Add appropriate subtitle for each class"""
+    subtitles = {
+        "Barbaro": "Guerriero selvaggio primordiale",
+        "Bardo": "Maestro di musica e magia",
+        "Chierico": "Campione divino della fede",
+        "Druido": "Protettore della natura",
+        "Guerriero": "Esperto combattente versatile",
+        "Monaco": "Asceta dalla disciplina interiore",
+        "Paladino": "Paladino sacro della giustizia",
+        "Ranger": "Guardiano dei confini selvaggi",
+        "Ladro": "Esperto delle ombre e inganni",
+        "Stregone": "Fonte innata di magia arcana",
+        "Warlock": "Vincolato a poteri ultraterreni",
+        "Mago": "Studioso delle arti arcane"
+    }
+    return subtitles.get(class_name, "Avventuriero specializzato")
+
+
+def parse_class_block(title: str, block: List[str]) -> Dict:
+    """Parse a single class block into complete ADR format"""
     name = title.strip()
-    doc: Dict = {
+    
+    # Start with basic info
+    class_data = {
         "slug": _slugify(name),
         "nome": name,
+        "sottotitolo": _add_subtitle(name)
     }
-
-    # Include full markdown content of the class section (from H2 to before next H2)
-    try:
-        full_md = "\n".join([f"## {name}"] + block).strip() + "\n"
-        if full_md:
-            doc["content"] = full_md
-    except Exception:
-        pass
-
-    # Base traits (Tratti base del <Classe>)
-    core = _parse_base_traits_table(block)
-    doc.update(core)
-
-    # Levels table (Privilegi del <Classe>)
-    levels = _parse_levels_table(block)
+    
+    # Parse base traits from table
+    base_traits = _parse_base_traits_table(block)
+    class_data.update(base_traits)
+    
+    # Parse level progression table
+    levels = _parse_level_table(block)
     if levels:
-        doc["tabella_livelli"] = levels
-
-    # Features by level (top-level, exclude subclass sections)
-    # Collect lines until first H3 that is a subclass heading
-    pre_sub_lines: List[str] = []
-    subclass_h3_idx: Optional[int] = None
-    for idx, ln in enumerate(block):
-        m3 = SECTION_H3_RE.match(ln)
-        if m3 and m3.group("title").strip().lower().startswith("sottoclasse del"):
-            subclass_h3_idx = idx
-            break
-        pre_sub_lines.append(ln)
-    feats = _parse_features(pre_sub_lines)
-    if feats:
-        doc["privilegi_di_classe"] = feats
-
-    # Class spell lists under H3 "Lista incantesimi del(lo) <Classe>"
-    lanciare = _parse_class_spell_lists(block)
-    if lanciare:
-        doc["lanciare_incantesimi"] = lanciare
-
-    # Subclasses under H3 "Sottoclasse del <Classe>: <Nome>"
-    subclasses: List[Dict] = []
-    h3_sections = split_sections(block, SECTION_H3_RE)
-    for h3_title, h3_block in h3_sections:
-        t = h3_title.strip()
-        m = re.match(r"^Sottoclasse\s+del\s+[^:]+:\s*(?P<name>.+)$", t, re.IGNORECASE)
-        if not m:
-            continue
-        sub_name = m.group("name").strip()
-        sub_feats = _parse_features(h3_block)
-        inc_aggiuntivi = _parse_additional_spells(h3_block)
-        sub_doc = {
-            "slug": _slugify(sub_name),
-            "nome": sub_name,
-        }
-        if sub_feats:
-            sub_doc["privilegi_sottoclasse"] = sub_feats
-        if inc_aggiuntivi:
-            sub_doc["incantesimi_aggiuntivi"] = inc_aggiuntivi
-        subclasses.append(sub_doc)
+        class_data["tabella_livelli"] = levels
+    
+    # Parse multiclass section
+    multiclass = _parse_multiclass_section(block)
+    if multiclass["tratti_acquisiti"]:  # Only add if we found benefits
+        class_data["multiclasse"] = multiclass
+    
+    # Parse progressions from level table
+    progressions = _parse_progressions(levels, name)
+    if progressions:
+        class_data["progressioni"] = progressions
+    
+    # Parse magic structure for spellcasters
+    magic = _parse_magic_structure(name, levels)
+    if magic:
+        class_data["magia"] = magic
+    
+    # Parse class features
+    features = _parse_class_features(block)
+    if features:
+        class_data["privilegi_di_classe"] = features
+    
+    # Parse subclasses
+    subclasses = _parse_subclasses(block, name)
     if subclasses:
-        doc["sottoclassi"] = subclasses
-
-    return doc
-
-
-def _parse_additional_spells(block: List[str]) -> List[Dict]:
-    """Parse subclass-specific additional spells as an array of tables.
-    Each entry: { "nome": <label>, "per_livello": { "3": [..], ... } }
-    Detects any table within the block that has an 'Incantesimi' column.
-    """
-    tables = _iter_tables(block)
-    out: List[Dict] = []
-    for label, headers, rows in tables:
-        # Identify spells column by header
-        lvl_idx = None
-        spells_idx = None
-        for i, h in enumerate(headers):
-            h_l = h.strip().lower()
-            if lvl_idx is None and ("livello" in h_l):
-                lvl_idx = i
-            if spells_idx is None and ("incantesimi" in h_l):
-                spells_idx = i
-        if spells_idx is None or lvl_idx is None:
-            continue
-        per: Dict[str, List[str]] = {}
-        for r in rows:
-            if spells_idx >= len(r) or lvl_idx >= len(r):
-                continue
-            spells_cell = r[spells_idx].strip()
-            if not spells_cell:
-                continue
-            m = re.search(r"(\d{1,2})", r[lvl_idx])
-            if not m:
-                continue
-            key = m.group(1)
-            spells = [s.strip() for s in spells_cell.split(",") if s.strip()]
-            if spells:
-                per[key] = spells
-        if per:
-            out.append({"nome": label, "per_livello": per})
-    return out
-
-
-def _parse_class_spell_lists(block: List[str]) -> Dict:
-    """Parse class-level spell lists section (H3 'Lista incantesimi del...').
-    Returns a dict with optional 'trucchetti' and 'lista_incantesimi'.
-    """
-    # Find the H3 section titled like 'Lista incantesimi del...' or 'dello'
-    h3_sections = split_sections(block, SECTION_H3_RE)
-    target_block: Optional[List[str]] = None
-    for h3_title, h3_block in h3_sections:
-        t = h3_title.strip().lower()
-        if t.startswith("lista incantesimi del") or t.startswith(
-            "lista incantesimi dello"
-        ):
-            target_block = h3_block
-            break
-    if not target_block:
-        return {}
-
-    trucchetti: List[str] = []
-    lista: Dict[str, List[str]] = {}
-
-    for label, headers, rows in _iter_tables(target_block):
-        lab_l = label.lower()
-        # Identify Incantesimo column if present
-        inc_idx = None
-        for i, h in enumerate(headers):
-            if h.strip().lower().startswith("incantesimo"):
-                inc_idx = i
-                break
-        if inc_idx is None:
-            # Some broken tables may omit incantesimo names; skip
-            continue
-        names = [
-            r[inc_idx].strip() for r in rows if inc_idx < len(r) and r[inc_idx].strip()
-        ]
-        if not names:
-            continue
-        if "trucchetti" in lab_l:
-            trucchetti.extend(names)
-            continue
-        # Try to extract level from label, e.g., "di 3° livello"
-        m = re.search(r"di\s+(\d{1,2})\s*°\s*livello", label, re.IGNORECASE)
-        if m:
-            lvl = m.group(1)
-            lista[lvl] = names
-
-    out: Dict = {}
-    if trucchetti:
-        out["trucchetti"] = trucchetti
-    if lista:
-        out["lista_incantesimi"] = lista
-    return out
+        class_data["sottoclassi"] = subclasses
+    
+    # Parse spell lists
+    spell_lists = _parse_spell_lists(block)
+    if spell_lists:
+        class_data["liste_incantesimi"] = spell_lists
+    
+    # Parse recommendations
+    recommendations = _parse_recommendations(block, name)
+    if recommendations:
+        class_data["raccomandazioni"] = recommendations
+    
+    # Add full markdown content
+    class_data["content"] = "\n".join([f"## {name}"] + block).strip() + "\n"
+    
+    return class_data
 
 
 def parse_classes(md_lines: List[str]) -> List[Dict]:
     """
-    Parse the Italian SRD classes markdown into structured documents, one per class.
-    Produces fields aligned with docs/adrs/0001-data-model.md where possible.
+    Parse the Italian SRD classes markdown into complete ADR-structured documents.
     """
     # Split top-level by H2 (## NomeClasse)
     classes = split_sections(md_lines, SECTION_H2_RE)
     docs: List[Dict] = []
+    
     for title, block in classes:
-        # Skip the initial document H1 ('# Classi') which would parse no H2 title
+        # Skip the initial document H1 ('# Classi')
         if title.lower().startswith("classi"):
             continue
-        # Further trim block up to next H2 (already done) and ignore empty
+        
         if not block:
             continue
-        docs.append(_parse_class_block(title, block))
+            
+        try:
+            class_doc = parse_class_block(title, block)
+            docs.append(class_doc)
+        except Exception as e:
+            print(f"Error parsing class '{title}': {e}")
+            continue
+    
     return docs

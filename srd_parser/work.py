@@ -112,9 +112,9 @@ DEFAULT_WORK: List[WorkItem] = [
         lambda lines: parse_document(lines, "17_glossario_regole.md"),
     ),
     WorkItem(
-        "ita/18_strumenti_gioco.md",
+        "ita/18_gameplay_toolbox.md",
         "documenti",
-        lambda lines: parse_document(lines, "18_strumenti_gioco.md"),
+        lambda lines: parse_document(lines, "18_gameplay_toolbox.md"),
     ),
     WorkItem(
         "ita/19_mostri.md",

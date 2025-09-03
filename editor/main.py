@@ -11,6 +11,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from core.database_simple import close_database
 from core.logging_config import setup_logging
 from routers.pages_simple import router as pages_router
+from routers.hexagonal_pages import router as hex_router
+from infrastructure.container import reset_container
 
 # Setup logging
 setup_logging()
@@ -28,6 +30,7 @@ async def lifespan(app: FastAPI):
     # Shutdown
     logger.info("Shutting down D&D 5e SRD Editor...")
     await close_database()
+    await reset_container()
 
 
 # Create FastAPI application
@@ -52,6 +55,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Include routers
 app.include_router(pages_router)
+app.include_router(hex_router)  # Hexagonal architecture demo
 
 
 if __name__ == "__main__":
