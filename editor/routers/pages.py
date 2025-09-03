@@ -89,6 +89,17 @@ async def homepage(page: Optional[int] = Query(default=1, ge=1, le=1000)):
         return handle_error(e)
 
 
+@router.get("/debug/markdown", response_class=HTMLResponse)
+async def debug_markdown():
+    """Debug page for markdown rendering issues."""
+    try:
+        template = env.get_template("debug_markdown.html")
+        content = template.render()
+        return HTMLResponse(content)
+    except Exception as e:
+        return handle_error(e)
+
+
 @router.get("/list/{collection}", response_class=HTMLResponse)
 async def list_collection(
     collection: str,
