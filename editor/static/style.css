@@ -3,9 +3,9 @@
 /* CSS Custom Properties for Design System */
 :root {
   /* Colors - D&D themed palette with Notion-like refinement */
-  --primary: #4F46E5;
-  --primary-dark: #4338CA;
-  --primary-light: #E0E7FF;
+  --primary: #EF4444;
+  --primary-dark: #DC2626;
+  --primary-light: #FEE2E2;
   --secondary: #06B6D4;
   --accent: #F59E0B;
   --success: #10B981;
@@ -333,7 +333,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, transparent 0%, rgba(79, 70, 229, 0.05) 100%);
+  background: linear-gradient(135deg, transparent 0%, rgba(239, 68, 68, 0.05) 100%);
   opacity: 0;
   transition: opacity 0.2s ease;
 }
@@ -423,7 +423,7 @@ body {
 
 .field:focus {
   outline: none;
-  box-shadow: rgba(35, 131, 226, 0.35) 0px 0px 0px 2px;
+  box-shadow: rgba(239, 68, 68, 0.35) 0px 0px 0px 2px;
 }
 
 /* Search Components */
@@ -710,7 +710,7 @@ body {
 [data-markdown] a:hover {
   opacity: 0.7;
   text-decoration: none;
-  background: #eef2ff;
+  background: #fef2f2;
 }
 
 [data-markdown] strong {
@@ -1059,16 +1059,16 @@ body {
 }
 
 /* Text color utilities */
-.text-blue-600 {
-  color: #2563eb;
+.text-red-600 {
+  color: #dc2626;
 }
 
-.text-blue-800 {
-  color: #1e40af;
+.text-red-800 {
+  color: #991b1b;
 }
 
-.hover\:text-blue-800:hover {
-  color: #1e40af;
+.hover\:text-red-800:hover {
+  color: #991b1b;
 }
 
 .text-neutral-400 {
@@ -1337,12 +1337,12 @@ body {
   background-color: var(--gray-100);
 }
 
-.bg-blue-500 {
-  background-color: #3b82f6;
+.bg-red-500 {
+  background-color: #ef4444;
 }
 
-.bg-blue-600 {
-  background-color: #2563eb;
+.bg-red-600 {
+  background-color: #dc2626;
 }
 
 .bg-purple-500 {
@@ -1394,12 +1394,12 @@ body {
 }
 
 /* Hover color utilities */
-.hover\:bg-blue-600:hover {
-  background-color: #2563eb;
+.hover\:bg-red-600:hover {
+  background-color: #dc2626;
 }
 
-.hover\:bg-blue-700:hover {
-  background-color: #1d4ed8;
+.hover\:bg-red-700:hover {
+  background-color: #b91c1c;
 }
 
 .hover\:bg-purple-600:hover {
@@ -1442,8 +1442,8 @@ body {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
-.focus\:ring-blue-500:focus {
-  --tw-ring-color: rgb(59 130 246);
+.focus\:ring-red-500:focus {
+  --tw-ring-color: rgb(239 68 68);
 }
 
 .focus\:border-transparent:focus {
