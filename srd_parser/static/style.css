@@ -582,21 +582,37 @@ input[type="checkbox"]:focus {
 /* Toast Notifications */
 .toast {
   position: fixed;
-  top: var(--space-6);
-  right: var(--space-6);
+  top: var(--space-4);
+  left: var(--space-4);
+  right: var(--space-4);
   z-index: 60;
-  max-width: 400px;
   background: var(--white);
   border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
   padding: var(--space-4);
   box-shadow: var(--shadow-lg);
-  transform: translateX(100%);
+  transform: translateY(-100%);
   transition: transform 0.3s ease;
 }
 
+@media (min-width: 640px) {
+  .toast {
+    top: var(--space-6);
+    right: var(--space-6);
+    left: auto;
+    max-width: 400px;
+    transform: translateX(100%);
+  }
+}
+
 .toast.show {
-  transform: translateX(0);
+  transform: translateY(0);
+}
+
+@media (min-width: 640px) {
+  .toast.show {
+    transform: translateX(0);
+  }
 }
 
 .toast-success {
@@ -613,4 +629,82 @@ input[type="checkbox"]:focus {
 
 .toast-info {
   border-left: 4px solid var(--primary);
+}
+
+/* Mobile-Specific Improvements */
+@media (max-width: 639px) {
+  /* Touch-friendly tap targets */
+  .btn {
+    min-height: 44px;
+    font-size: var(--font-size-sm);
+  }
+  
+  /* Larger checkboxes for mobile */
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+  }
+  
+  /* Better form field sizing */
+  .field {
+    min-height: 44px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  /* Card improvements */
+  .card {
+    padding: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+  
+  /* Collection card touch improvements */
+  .collection-card {
+    padding: var(--space-4);
+    min-height: 44px;
+  }
+  
+  /* Better mobile typography */
+  body {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  /* Improved floating bar for mobile */
+  .floating-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    max-width: none;
+    border-bottom: none;
+  }
+}
+
+/* Touch interaction improvements */
+.touch-manipulation {
+  touch-action: manipulation;
+}
+
+/* Prevent horizontal scroll */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Better focus states for mobile */
+@media (max-width: 639px) {
+  .field:focus,
+  .btn:focus,
+  input[type="checkbox"]:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+}
+
+/* Loading spinner mobile optimization */
+@media (max-width: 639px) {
+  .spinner {
+    width: 16px;
+    height: 16px;
+  }
 }

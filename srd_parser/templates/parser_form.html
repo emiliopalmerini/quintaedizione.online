@@ -2,11 +2,11 @@
 {% block title %}SRD Parser{% endblock %}
 
 {% block content %}
-<div id="page-root" class="space-y-6">
+<div id="page-root" class="space-y-4 sm:space-y-6 px-4 sm:px-6 mx-auto max-w-6xl">
   <!-- Header -->
   <div class="text-center">
-    <h1 class="text-3xl font-bold text-gray-900 mb-2">SRD Parser</h1>
-    <p class="text-gray-600">Seleziona i documenti da analizzare e processare</p>
+    <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">SRD Parser</h1>
+    <p class="text-sm sm:text-base text-gray-600">Seleziona i documenti da analizzare e processare</p>
   </div>
 
   <!-- Main Form -->
@@ -22,41 +22,45 @@
     <div class="card">
       <h2 class="text-xl font-semibold mb-4">Impostazioni</h2>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-        <div>
-          <label for="input_dir" class="block text-sm font-medium text-gray-700 mb-1">Cartella Input</label>
-          <input type="text" id="input_dir" name="input_dir" value="{{ env.input_dir }}" class="field" placeholder="/data" />
-          <p class="text-xs text-gray-500 mt-1">Percorso della cartella contenente i file SRD</p>
+      <div class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="input_dir" class="block text-sm font-medium text-gray-700 mb-1">Cartella Input</label>
+            <input type="text" id="input_dir" name="input_dir" value="{{ env.input_dir }}" class="field" placeholder="/data" />
+            <p class="text-xs text-gray-500 mt-1">Percorso della cartella contenente i file SRD</p>
+          </div>
+          
+          <div>
+            <label for="mongo_instance" class="block text-sm font-medium text-gray-700 mb-1">MongoDB Host</label>
+            <input type="text" id="mongo_instance" name="mongo_instance" value="{{ env.mongo_instance }}" class="field" placeholder="localhost:27017"
+                   hx-post="/test-conn" hx-trigger="change, keyup changed delay:500ms"
+                   hx-target="#conn-result" hx-swap="outerHTML"
+                   hx-include="[name='mongo_instance'], [name='db_name']" hx-indicator="#conn-spinner" />
+          </div>
         </div>
         
-        <div>
-          <label for="mongo_instance" class="block text-sm font-medium text-gray-700 mb-1">MongoDB Host</label>
-          <input type="text" id="mongo_instance" name="mongo_instance" value="{{ env.mongo_instance }}" class="field" placeholder="localhost:27017"
-                 hx-post="/test-conn" hx-trigger="change, keyup changed delay:500ms"
-                 hx-target="#conn-result" hx-swap="outerHTML"
-                 hx-include="[name='mongo_instance'], [name='db_name']" hx-indicator="#conn-spinner" />
-        </div>
-        
-        <div>
-          <label for="db_name" class="block text-sm font-medium text-gray-700 mb-1">Database Name</label>
-          <input type="text" id="db_name" name="db_name" value="{{ env.db_name }}" class="field" placeholder="dnd"
-                 hx-post="/test-conn" hx-trigger="change, keyup changed delay:500ms"
-                 hx-target="#conn-result" hx-swap="outerHTML"
-                 hx-include="[name='mongo_instance'], [name='db_name']" hx-indicator="#conn-spinner" />
-        </div>
-        
-        <div class="flex items-center">
-          <label class="flex items-center space-x-2">
-            <input type="checkbox" name="dry_run" {% if env.dry_run %}checked{% endif %} 
-                   class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
-            <span class="text-sm font-medium text-gray-700">Dry Run (solo test, non scrivere)</span>
-          </label>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="db_name" class="block text-sm font-medium text-gray-700 mb-1">Database Name</label>
+            <input type="text" id="db_name" name="db_name" value="{{ env.db_name }}" class="field" placeholder="dnd"
+                   hx-post="/test-conn" hx-trigger="change, keyup changed delay:500ms"
+                   hx-target="#conn-result" hx-swap="outerHTML"
+                   hx-include="[name='mongo_instance'], [name='db_name']" hx-indicator="#conn-spinner" />
+          </div>
+          
+          <div class="flex items-center pt-6">
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" name="dry_run" {% if env.dry_run %}checked{% endif %} 
+                     class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+              <span class="text-sm font-medium text-gray-700">Dry Run (solo test, non scrivere)</span>
+            </label>
+          </div>
         </div>
       </div>
       
       <!-- Connection Test -->
-      <div class="flex items-center space-x-3 pt-4 border-t">
-        <button type="button" class="btn btn-secondary"
+      <div class="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-3 pt-4 border-t">
+        <button type="button" class="btn btn-secondary w-full sm:w-auto"
                 hx-post="/test-conn" hx-target="#conn-result" hx-swap="outerHTML"
                 hx-include="[name='mongo_instance'], [name='db_name']" hx-indicator="#conn-spinner">
           Test Connessione
@@ -81,10 +85,10 @@
 
     <!-- Documents Available -->
     <div class="card">
-      <div class="flex items-center justify-between mb-4">
-        <h2 class="text-xl font-semibold">Documenti Disponibili</h2>
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 space-y-3 sm:space-y-0">
+        <h2 class="text-lg sm:text-xl font-semibold">Documenti Disponibili</h2>
         <div class="flex items-center space-x-2">
-          <input id="search" name="q" value="{{ q or '' }}" type="search" class="field w-64" placeholder="Cerca documenti..."
+          <input id="search" name="q" value="{{ q or '' }}" type="search" class="field w-full sm:w-64" placeholder="Cerca documenti..."
                  hx-post="/collections" hx-trigger="keyup changed delay:300ms" hx-include="#parser-form" 
                  hx-target="#collections-container" hx-swap="outerHTML" />
         </div>
@@ -96,8 +100,8 @@
     </div>
 
     <!-- Floating Action Bar -->
-    <div class="fixed bottom-6 right-6 z-50">
-      <div class="bg-white/95 backdrop-blur-sm rounded-lg shadow-xl border border-gray-200 p-4 max-w-sm">
+    <div class="fixed bottom-4 left-4 right-4 sm:bottom-6 sm:left-auto sm:right-6 sm:max-w-sm z-50">
+      <div class="bg-white/95 backdrop-blur-sm rounded-lg shadow-xl border border-gray-200 p-3 sm:p-4">
         
         <!-- Parse Result Feedback -->
         {% if messages and messages|length %}
@@ -145,8 +149,8 @@
         </div>
         {% endif %}
         
-        <div class="flex items-center justify-between mb-3">
-          <div class="flex items-center space-x-3">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 space-y-2 sm:space-y-0">
+          <div class="flex items-center justify-center sm:justify-start space-x-3">
             <span class="text-sm text-gray-600">
               <strong id="selected-count">0</strong> selezionati
             </span>
@@ -156,12 +160,12 @@
           </div>
         </div>
         
-        <div class="flex items-center space-x-3">
-          <span id="run-spinner" class="hidden flex items-center space-x-2 text-sm text-gray-600">
+        <div class="flex flex-col space-y-2">
+          <span id="run-spinner" class="hidden flex items-center justify-center space-x-2 text-sm text-gray-600">
             <span class="spinner"></span>
             <span>Elaborazione...</span>
           </span>
-          <button id="run-btn" type="submit" class="btn btn-primary w-full" disabled>
+          <button id="run-btn" type="submit" class="btn btn-primary w-full text-sm sm:text-base" disabled>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
             </svg>
@@ -172,7 +176,7 @@
     </div>
     
     <!-- Spacer to prevent content from being hidden behind floating bar -->
-    <div class="h-24"></div>
+    <div class="h-28 sm:h-24"></div>
   </form>
 
   <!-- Results Log -->
@@ -240,7 +244,13 @@
   // Toast notification system
   function showToast(message, type = 'info', duration = 4000) {
     const toast = document.createElement('div');
-    toast.className = `fixed top-6 right-6 z-[60] p-4 rounded-lg shadow-lg border max-w-sm transition-all duration-300 transform translate-x-full`;
+    const isMobile = window.innerWidth < 640;
+    
+    if (isMobile) {
+      toast.className = `fixed top-4 left-4 right-4 z-[60] p-3 rounded-lg shadow-lg border transition-all duration-300 transform -translate-y-full`;
+    } else {
+      toast.className = `fixed top-6 right-6 z-[60] p-4 rounded-lg shadow-lg border max-w-sm transition-all duration-300 transform translate-x-full`;
+    }
     
     const colors = {
       success: 'bg-green-50 border-green-200 text-green-800',
@@ -263,7 +273,7 @@
           ${icons[type] || icons.info}
         </div>
         <div class="flex-1 text-sm font-medium">${message}</div>
-        <button onclick="this.closest('.fixed').remove()" class="flex-shrink-0 text-gray-400 hover:text-gray-600">
+        <button onclick="this.closest('.fixed').remove()" class="flex-shrink-0 text-gray-400 hover:text-gray-600 p-1 touch-manipulation">
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
         </button>
       </div>
@@ -273,12 +283,20 @@
     
     // Animate in
     setTimeout(() => {
-      toast.classList.remove('translate-x-full');
+      if (isMobile) {
+        toast.classList.remove('-translate-y-full');
+      } else {
+        toast.classList.remove('translate-x-full');
+      }
     }, 100);
     
     // Auto remove
     setTimeout(() => {
-      toast.classList.add('translate-x-full');
+      if (isMobile) {
+        toast.classList.add('-translate-y-full');
+      } else {
+        toast.classList.add('translate-x-full');
+      }
       setTimeout(() => {
         if (toast.parentNode) {
           toast.remove();
@@ -355,15 +373,43 @@
     }
   });
   
-  // Keyboard shortcuts
+  // Mobile-friendly keyboard shortcuts
   document.addEventListener('keydown', function(e) {
     if (e.target.tagName === 'INPUT') return;
     
-    if (e.key === '/') {
+    // Only enable keyboard shortcuts on non-mobile devices
+    if (window.innerWidth >= 640 && e.key === '/') {
       e.preventDefault();
       document.getElementById('search').focus();
     }
   });
+  
+  // Handle viewport changes for mobile orientation
+  let resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      // Refresh layout calculations on orientation change
+      if (window.innerWidth < 640) {
+        document.body.classList.add('mobile-view');
+      } else {
+        document.body.classList.remove('mobile-view');
+      }
+    }, 250);
+  });
+  
+  // Add mobile class on initial load
+  if (window.innerWidth < 640) {
+    document.body.classList.add('mobile-view');
+  }
+  
+  // Prevent double-tap zoom on buttons
+  document.addEventListener('touchend', function(e) {
+    if (e.target.closest('.btn') || e.target.closest('button')) {
+      e.preventDefault();
+      e.target.click();
+    }
+  }, { passive: false });
 })();
 </script>
 {% endblock %}
