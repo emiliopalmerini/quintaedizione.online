@@ -7,14 +7,14 @@ from fastapi import APIRouter, HTTPException, Query, Request
 from fastapi.responses import HTMLResponse
 from pydantic import ValidationError as PydanticValidationError
 
-from core.config_simple import COLLECTIONS, get_collection_label, is_valid_collection
-from core.database_simple import health_check
+from core.config import COLLECTIONS, get_collection_label, is_valid_collection
+from core.database import health_check
 from services.content_service import get_content_service
 from core.templates import env
-from core.logging_config import get_logger
+import logging
 
 router = APIRouter()
-logger = get_logger(__name__)
+logger = logging.getLogger(__name__)
 
 
 class AppError(Exception):
@@ -73,9 +73,13 @@ async def homepage(page: Optional[int] = Query(default=1, ge=1, le=1000)):
         # Sort by label
         collections_data.sort(key=lambda x: x["label"])
         
+        # Calculate total count
+        total_count = sum(counts.values())
+        
         template = env.get_template("index.html")
         content = template.render(
             collections=collections_data,
+            total=total_count,
             page=page
         )
         
@@ -95,6 +99,18 @@ async def list_collection(
 ):
     """List documents in collection with search and filtering."""
     try:
+        # Handle case where collection might be a serialized dictionary
+        if collection.startswith("{") and "name" in collection:
+            try:
+                # Attempt to extract collection name from dictionary string
+                import re
+                match = re.search(r"'name':\s*'([^']+)'", collection)
+                if match:
+                    collection = match.group(1)
+                    logger.warning(f"Extracted collection name '{collection}' from malformed URL parameter")
+            except Exception as e:
+                logger.error(f"Failed to parse collection parameter: {e}")
+        
         # Validate collection
         if not is_valid_collection(collection):
             raise AppError(

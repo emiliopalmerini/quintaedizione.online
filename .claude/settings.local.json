@@ -15,7 +15,8 @@
       "Bash(curl:*)",
       "Bash(docker compose exec:*)",
       "Bash(make:*)",
-      "Bash(docker exec:*)"
+      "Bash(docker exec:*)",
+      "Bash(docker compose:*)"
     ],
     "deny": [],
     "ask": []

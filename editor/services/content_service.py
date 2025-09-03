@@ -1,7 +1,7 @@
 """Simplified content service for D&D 5e SRD operations."""
 
 from typing import Dict, List, Any, Optional, Tuple
-from core.database_simple import get_database
+from core.database import get_database
 from core.repository import SimpleRepository
 from core.query_builder import build_text_search, build_collection_filters, build_sort_criteria
 from core.config import COLLECTIONS
