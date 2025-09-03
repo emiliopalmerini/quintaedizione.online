@@ -9,18 +9,18 @@ from fastapi import APIRouter, HTTPException, Query, Request
 from fastapi.responses import HTMLResponse
 from pydantic import ValidationError as PydanticValidationError
 
-from editor.infrastructure.container import get_container
-from editor.application.query_handlers import (
+from infrastructure.container import get_container
+from application.query_handlers import (
     SearchClassesQuery,
     GetClassDetailQuery,
     GetClassesByAbilityQuery,
     GetSpellcastingClassesQuery
 )
 from core.templates import env
-from core.logging_config import get_logger
+import logging
 
 router = APIRouter(prefix="/hex")
-logger = get_logger(__name__)
+logger = logging.getLogger(__name__)
 
 
 class AppError(Exception):

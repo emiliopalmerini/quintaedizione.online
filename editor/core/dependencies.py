@@ -6,9 +6,9 @@ from fastapi import HTTPException, Request
 from pydantic import ValidationError as PydanticValidationError
 
 from core.errors import ValidationError, ErrorCode
-from core.logging_config import get_logger
+import logging
 
-logger = get_logger(__name__)
+logger = logging.getLogger(__name__)
 
 
 def handle_validation_error(e: PydanticValidationError, context: str = "request validation") -> None:
