@@ -40,7 +40,15 @@
               <option value="true" {% if request and request.query_params.get('ritual')=='true' %}selected{% endif %}>Sì</option>
               <option value="false" {% if request and request.query_params.get('ritual')=='false' %}selected{% endif %}>No</option>
             </select>
-            <input name="classes" class="field" placeholder="Classe (es. Mago)" value="{{ request and request.query_params.get('classes','') }}" />
+            <select name="classes" class="field"
+                    hx-get="/api/filter-options/incantesimi/classi"
+                    hx-trigger="load once"
+                    hx-target="this"
+                    hx-swap="innerHTML"
+                    hx-include="[name='classes']">
+              <option value="">Classe (tutte)</option>
+              <option>Caricamento...</option>
+            </select>
           {% elif collection == 'oggetti_magici' %}
             <select name="rarity" class="field">
               <option value="">Rarità (tutte)</option>
@@ -48,7 +56,15 @@
                 <option value="{{ r }}" {% if request and request.query_params.get('rarity')==r %}selected{% endif %}>{{ r }}</option>
               {% endfor %}
             </select>
-            <input name="type" class="field" placeholder="Tipo (es. arma, armatura)" value="{{ request and request.query_params.get('type','') }}" />
+            <select name="type" class="field"
+                    hx-get="/api/filter-options/oggetti_magici/tipo"
+                    hx-trigger="load once"
+                    hx-target="this"
+                    hx-swap="innerHTML"
+                    hx-include="[name='type']">
+              <option value="">Tipo (tutti)</option>
+              <option>Caricamento...</option>
+            </select>
             <select name="attunement" class="field">
               <option value="">Sintonizzazione (tutte)</option>
               <option value="true" {% if request and request.query_params.get('attunement')=='true' %}selected{% endif %}>Richiede</option>
@@ -61,9 +77,33 @@
                 <option value="{{ s }}" {% if request and request.query_params.get('size')==s %}selected{% endif %}>{{ s }}</option>
               {% endfor %}
             </select>
-            <input name="type" class="field" placeholder="Tipo (es. bestia, non morto)" value="{{ request and request.query_params.get('type','') }}" />
-            <input name="alignment" class="field" placeholder="Allineamento (es. NM, NB)" value="{{ request and request.query_params.get('alignment','') }}" />
-            <input name="cr" class="field" placeholder="GS (es. 1/2 o 5)" value="{{ request and request.query_params.get('cr','') }}" />
+            <select name="type" class="field"
+                    hx-get="/api/filter-options/mostri/tipo"
+                    hx-trigger="load once"
+                    hx-target="this"
+                    hx-swap="innerHTML"
+                    hx-include="[name='type']">
+              <option value="">Tipo (tutti)</option>
+              <option>Caricamento...</option>
+            </select>
+            <select name="alignment" class="field"
+                    hx-get="/api/filter-options/mostri/allineamento"
+                    hx-trigger="load once"
+                    hx-target="this"
+                    hx-swap="innerHTML"
+                    hx-include="[name='alignment']">
+              <option value="">Allineamento (tutti)</option>
+              <option>Caricamento...</option>
+            </select>
+            <select name="cr" class="field"
+                    hx-get="/api/filter-options/mostri/gs"
+                    hx-trigger="load once"
+                    hx-target="this"
+                    hx-swap="innerHTML"
+                    hx-include="[name='cr']">
+              <option value="">GS (tutti)</option>
+              <option>Caricamento...</option>
+            </select>
           {% elif collection == 'armi' %}
             <input name="category" class="field" placeholder="Categoria (es. Semplice/Mischia)" value="{{ request and request.query_params.get('category','') }}" />
             <input name="mastery" class="field" placeholder="Maestria (es. Rallenta/Topple)" value="{{ request and request.query_params.get('mastery','') }}" />

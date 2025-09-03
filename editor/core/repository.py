@@ -67,3 +67,8 @@ class SimpleRepository:
             "count": stats[0]["count"] if stats else 0,
             "name": collection_name
         }
+    
+    async def get_distinct_values(self, collection_name: str, field: str) -> List[Any]:
+        """Get distinct values for a field in a collection."""
+        collection = self.get_collection(collection_name)
+        return await collection.distinct(field)
