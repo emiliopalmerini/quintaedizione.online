@@ -4,14 +4,12 @@
     {% set doc_name = doc.get('name') or doc.get('nome') or doc.get('title') or doc.get('titolo') or doc.get('slug') %}
     {% set doc_slug = doc.get('slug') or doc.get('name') or doc.get('nome') %}
     
-    <div class="px-4 py-3 hover:bg-neutral-50">
+    <a href="/show/{{ collection }}/{{ doc_slug }}{% if qs %}?{{ qs }}{% endif %}" 
+       class="block px-4 py-3 hover:bg-neutral-50 text-inherit no-underline">
       <div class="flex items-center justify-between">
         <div class="flex-1">
-          <h3 class="font-medium">
-            <a href="/show/{{ collection }}/{{ doc_slug }}{% if qs %}?{{ qs }}{% endif %}" 
-               class="text-blue-600 hover:text-blue-800">
-              {{ doc_name }}
-            </a>
+          <h3 class="font-medium text-blue-600">
+            {{ doc_name }}
           </h3>
           
           {% if doc.get('level') or doc.get('livello') %}
@@ -41,7 +39,7 @@
           {% endif %}
         </div>
       </div>
-    </div>
+    </a>
   {% endfor %}
   
   {% if not documents %}
