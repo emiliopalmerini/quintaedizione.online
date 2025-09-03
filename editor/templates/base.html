@@ -5,328 +5,28 @@
   <meta charset="utf-8" />
   <title>{% block title %}Due Draghi 5e 2024 SRD{% endblock %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script src="https://cdn.tailwindcss.com/3.4.1"></script>
-  <script>
-    // Tailwind config for Notion-like theme
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            'sans': ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
-            'mono': ['ui-monospace', 'SFMono-Regular', 'Monaco', 'Consolas', 'monospace']
-          },
-          colors: {
-            'notion': {
-              50: '#fafafa',
-              100: '#f5f5f5', 
-              200: '#e5e5e5',
-              300: '#d4d4d4',
-              400: '#a3a3a3',
-              500: '#737373',
-              600: '#525252',
-              700: '#404040',
-              800: '#262626',
-              900: '#171717',
-              950: '#0a0a0a'
-            }
-          }
-        }
-      }
-    }
-  </script>
   <script src="https://unpkg.com/htmx.org@2.0.3"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <link rel="icon" href="data:,"/>
-  <style>
-    :root { 
-      --site-header-h: 56px;
-      --notion-bg: #ffffff;
-      --notion-bg-secondary: #f7f7f5;
-      --notion-text: #37352f;
-      --notion-text-light: #787774;
-      --notion-border: #e9e9e7;
-      --notion-hover: rgba(55, 53, 47, 0.08);
-      --notion-radius: 3px;
-    }
-    
-    * {
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-      font-size: 14px;
-      line-height: 1.5;
-      color: var(--notion-text);
-      background: var(--notion-bg);
-      margin: 0;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* Notion-style focus */
-    input:focus, textarea:focus, select:focus, button:focus {
-      outline: none;
-      box-shadow: rgba(35, 131, 226, 0.35) 0px 0px 0px 2px;
-    }
-
-    /* Notion-style buttons */
-    .btn {
-      display: inline-flex !important; 
-      align-items: center !important; 
-      justify-content: center !important;
-      gap: 6px !important; 
-      padding: 4px 8px !important;
-      border-radius: var(--notion-radius) !important; 
-      border: none !important;
-      font-size: 14px !important; 
-      font-weight: 400 !important;
-      background: transparent !important; 
-      color: var(--notion-text) !important; 
-      cursor: pointer !important;
-      transition: background-color 20ms ease-in 0s;
-      text-decoration: none !important;
-      user-select: none;
-      white-space: nowrap;
-      min-height: 28px;
-    }
-    
-    .btn:hover { 
-      background: var(--notion-hover) !important; 
-    }
-    
-    .btn:disabled, .btn[disabled] { 
-      opacity: 0.4 !important; 
-      cursor: not-allowed !important; 
-    }
-    
-    .btn-primary {
-      background: #2383e2 !important; 
-      color: white !important;
-    }
-    .btn-primary:hover { background: #1a73d1 !important; }
-    
-    .btn-ghost {
-      background: transparent !important;
-      border: 1px solid var(--notion-border) !important;
-    }
-    .btn-ghost:hover {
-      background: var(--notion-hover) !important;
-    }
-    
-    /* Notion-style tags */
-    .tag { 
-      display: inline-block; 
-      font-size: 12px; 
-      font-weight: 400;
-      padding: 1px 6px; 
-      background: var(--notion-bg-secondary);
-      color: var(--notion-text); 
-      border-radius: var(--notion-radius);
-      border: none;
-      line-height: 1.4;
-    }
-    
-    /* Notion-style form fields */
-    .field {
-      width: 100%; 
-      border: 1px solid var(--notion-border); 
-      border-radius: var(--notion-radius);
-      padding: 8px 12px; 
-      font-size: 14px; 
-      background: var(--notion-bg);
-      color: var(--notion-text);
-      line-height: 1.4;
-    }
-    .field::placeholder {
-      color: var(--notion-text-light);
-    }
-    
-    /* Monospace font */
-    .mono { 
-      font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; 
-      font-size: 13px;
-    }
-    
-    /* Smooth scrolling */
-    html { scroll-behavior: smooth; }
-    
-    /* Notion-style spinner */
-    .spinner { 
-      width: 16px; 
-      height: 16px; 
-      border-radius: 50%; 
-      border: 2px solid var(--notion-border); 
-      border-top-color: #2383e2; 
-      animation: spin 1s linear infinite; 
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* Notion-style markdown typography */
-    [data-markdown] { 
-      color: var(--notion-text); 
-      font-size: 16px; 
-      line-height: 1.5; 
-      max-width: none;
-    }
-    
-    [data-markdown] h1 { 
-      font-size: 40px; 
-      font-weight: 700; 
-      line-height: 1.2;
-      margin: 30px 0 10px; 
-      color: var(--notion-text);
-    }
-    [data-markdown] h2 { 
-      font-size: 30px; 
-      font-weight: 600; 
-      line-height: 1.3;
-      margin: 24px 0 8px; 
-      color: var(--notion-text);
-    }
-    [data-markdown] h3 { 
-      font-size: 24px; 
-      font-weight: 600; 
-      line-height: 1.3;
-      margin: 20px 0 6px; 
-      color: var(--notion-text);
-    }
-    [data-markdown] h4 { 
-      font-size: 20px; 
-      font-weight: 600; 
-      line-height: 1.3;
-      margin: 16px 0 4px; 
-      color: var(--notion-text);
-    }
-    
-    [data-markdown] p { 
-      margin: 3px 0; 
-      line-height: 1.5;
-    }
-    
-    [data-markdown] ul, [data-markdown] ol { 
-      margin: 3px 0; 
-      padding-left: 24px; 
-    }
-    [data-markdown] li { 
-      margin: 1px 0; 
-      line-height: 1.5;
-    }
-    
-    [data-markdown] blockquote { 
-      border-left: 3px solid var(--notion-border); 
-      padding-left: 14px; 
-      color: var(--notion-text-light); 
-      margin: 8px 0;
-      font-style: italic;
-    }
-    
-    [data-markdown] code { 
-      background: var(--notion-bg-secondary); 
-      color: #eb5757;
-      border-radius: var(--notion-radius); 
-      padding: 2px 4px; 
-      font-size: 14px;
-      font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace;
-    }
-    
-    [data-markdown] pre { 
-      background: var(--notion-bg-secondary); 
-      border-radius: var(--notion-radius); 
-      padding: 16px; 
-      overflow: auto; 
-      margin: 8px 0;
-    }
-    [data-markdown] pre code { 
-      background: transparent; 
-      color: var(--notion-text);
-      padding: 0; 
-    }
-    
-    [data-markdown] a { 
-      color: #2383e2; 
-      text-decoration: underline; 
-      transition: opacity 20ms ease-in 0s;
-    }
-    [data-markdown] a:hover { 
-      opacity: 0.7; 
-    }
-    
-    [data-markdown] strong {
-      font-weight: 600;
-    }
-    
-    [data-markdown] table { 
-      width: 100%; 
-      border-collapse: collapse; 
-      margin: 12px 0; 
-    }
-    [data-markdown] th, [data-markdown] td { 
-      border: 1px solid var(--notion-border); 
-      padding: 8px 12px; 
-      text-align: left; 
-    }
-    [data-markdown] th { 
-      background: var(--notion-bg-secondary); 
-      font-weight: 500; 
-      font-size: 14px;
-    }
-    
-    [data-markdown] hr { 
-      border: 0; 
-      border-top: 1px solid var(--notion-border); 
-      margin: 16px 0; 
-    }
-    /* Headings spacing refinement */
-    [data-markdown] h2:not(:first-child) { margin-top: 1.25rem; }
-    [data-markdown] h3:not(:first-child) { margin-top: 1rem; }
-    /* Inline code clearer */
-    [data-markdown] code { background: #f8fafc; border-color: #e2e8f0; color: #1f2937; }
-    /* Code blocks: readability */
-    [data-markdown] pre { background: #0b1020; color: #e6eaf3; border-radius: .5rem; padding: .85rem; line-height: 1.5; font-size: .9rem; }
-    [data-markdown] pre code { color: inherit; }
-    /* Feature keyword highlight: bold at paragraph/list start */
-    [data-markdown] p > strong:first-child,
-    [data-markdown] li > strong:first-child { background: #fffbe6; color: #1f2937; border: 1px solid #fde68a; border-radius: .25rem; padding: .05rem .3rem; margin-right: .25rem; }
-    /* Admonitions (Python-Markdown extension) */
-    [data-markdown] .admonition { border: 1px solid #e5e7eb; border-left-width: 4px; border-left-color: #4f46e5; background: #fafafa; padding: .5rem .75rem; border-radius: .375rem; }
-    [data-markdown] .admonition .admonition-title { font-weight: 600; margin-bottom: .25rem; }
-    /* Links hover */
-    [data-markdown] a:hover { text-decoration: none; background: #eef2ff; }
-    /* Avoid headings being hidden under the sticky header when anchored */
-    [data-markdown] h1,
-    [data-markdown] h2,
-    [data-markdown] h3,
-    [data-markdown] h4,
-    [data-markdown] h5,
-    [data-markdown] h6 { scroll-margin-top: calc(var(--site-header-h) + 12px); }
-    [data-markdown] > :first-child { margin-top: 0 !important; }
-    .top-under-header { top: var(--site-header-h); }
-    /* Page overlay indicator */
-    #page-root { position: relative; }
-    #page-loading.page-overlay { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(255,255,255,0.5); backdrop-filter: blur(1px); pointer-events: none; }
-    #page-loading.page-overlay .page-overlay-inner { display: inline-flex; gap: .5rem; align-items: center; background: rgba(255,255,255,0.9); border: 1px solid #e5e7eb; padding: .5rem .75rem; border-radius: .375rem; }
-    #page-loading.htmx-request { display: flex; }
-  </style>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml"/>
 </head>
-<body class="min-h-screen flex flex-col" style="background: var(--notion-bg); color: var(--notion-text);">
+<body style="min-height: 100vh; display: flex; flex-direction: column; background: var(--notion-bg); color: var(--notion-text);">
   <!-- Notion-style top bar -->
-  <header class="sticky top-0 z-40" style="border-bottom: 1px solid var(--notion-border); background: var(--notion-bg);">
-    <div class="max-w-4xl mx-auto px-6 py-3 flex items-center gap-4">
-      <nav class="text-sm flex items-center gap-2 relative" aria-label="Breadcrumb">
+  <header class="notion-nav">
+    <div class="notion-nav-container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="/" class="btn">Home</a>
         {% if collection %}
           <span style="color: var(--notion-text-light);">/</span>
           <a href="/list/{{ collection }}{% if qs %}?{{ qs }}{% endif %}" class="btn">{{ collection }}</a>
-          <span style="color: var(--notion-text-light);">/</span>
-          <div class="inline-flex items-center gap-1 relative">
+          <span class="breadcrumb-separator">/</span>
+          <div class="search-container">
             <input id="bc-search" name="q" placeholder="{{ doc_slug or doc_title or ('Cerca in ' ~ collection ~ '…') }}" class="field" style="width: 240px; font-size: 13px; padding: 6px 10px;"
                    hx-get="/quicksearch/{{ collection }}"
                    hx-target="#bc-results"
                    hx-trigger="keyup changed delay:200ms"
                    autocomplete="off" aria-controls="bc-results" aria-expanded="false" />
-            <div id="bc-results" class="absolute left-0 top-full mt-1 w-96 max-h-80 overflow-auto shadow-lg z-50 hidden" 
-                 style="background: var(--notion-bg); border: 1px solid var(--notion-border); border-radius: var(--notion-radius);" 
+            <div id="bc-results" class="search-results hidden" 
                  role="listbox" aria-label="Risultati ricerca rapida"></div>
           </div>
         {% endif %}
@@ -342,13 +42,13 @@
   </header>
 
   <!-- Notion-style content area -->
-  <main class="flex-1" style="background: var(--notion-bg);">
-    <div id="page-root" hx-history-elt class="max-w-4xl mx-auto px-6 py-8">
+  <main style="flex: 1; background: var(--notion-bg);">
+    <div id="page-root" hx-history-elt class="container" style="max-width: 1024px; padding-top: 2rem; padding-bottom: 2rem;">
       {% block content %}{% endblock %}
       <div id="page-loading" class="page-overlay" aria-hidden="true">
-        <div class="page-overlay-inner" style="background: var(--notion-bg); border: 1px solid var(--notion-border); border-radius: var(--notion-radius);">
+        <div class="page-overlay-inner">
           <span class="spinner"></span>
-          <span class="text-sm" style="color: var(--notion-text-light);">Caricamento…</span>
+          <span style="font-size: var(--font-size-sm); color: var(--notion-text-light);">Caricamento…</span>
         </div>
       </div>
     </div>
@@ -420,7 +120,18 @@
         if (!raw){ raw = el.textContent || ''; }
         el.dataset.raw = raw;
         if(hasMarked){ el.innerHTML = window.marked.parse(raw); }
-        else { el.innerHTML = raw.replace(/\n\n/g,'<br/><br/>'); }
+        else { 
+          // Basic markdown fallback - handle headings at least
+          let processed = raw
+            .replace(/^### (.*$)/mg, '<h3>$1</h3>')
+            .replace(/^## (.*$)/mg, '<h2>$1</h2>')
+            .replace(/^# (.*$)/mg, '<h1>$1</h1>')
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+            .replace(/\n\n/g, '</p><p>')
+            .replace(/\n/g, '<br/>');
+          el.innerHTML = '<p>' + processed + '</p>';
+        }
         el.querySelectorAll('table').forEach(tbl=>{
           const wrap = document.createElement('div');
           wrap.className = 'overflow-x-auto';

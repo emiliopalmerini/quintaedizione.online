@@ -2,35 +2,36 @@
 {% extends "base.html" %}
 {% block title %}5e SRD 2024{% endblock %}
 {% block content %}
-  <section class="bg-gradient-to-br from-indigo-50 to-white border p-6 mb-4">
-    <h1 class="text-2xl font-semibold mb-2">Il Fantastico Visualizzatore di SRD (5e 2024)</h1>
-    <a href="https://duedraghialmicrofono.com" 
-       class="text-sm text-indigo-600 mb-4 inline-block hover:underline">
+  <section class="hero">
+    <h1>Il Fantastico Visualizzatore di SRD (5e 2024)</h1>
+    <a href="https://duedraghialmicrofono.com" class="hero-link">
         sostenuto da Due Draghi al Microfono
     </a>
 
-    <p class="text-neutral-700 max-w-3xl">
+    <p>
     Questa applicazione aiuta a sfogliare, cercare e <strong>copiare rapidamente</strong> i contenuti della SRD della 5e 2024.
     Usa la ricerca testuale e i <strong>filtri specifici</strong> per ciascuna collezione; 
     </p>
-    <div class="mt-3 text-sm text-neutral-700 flex items-center gap-2">
-        <span class="text-neutral-500">Totale elementi indicizzati:</span>
-        <span class="bg-white border px-2 py-0.5">{{ total or 0 }}</span>
+    <div class="hero-stats">
+        <span style="color: var(--gray-500);">Totale elementi indicizzati:</span>
+        <span class="hero-stats-badge">{{ total or 0 }}</span>
     </div>
   </section>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <div class="collection-grid">
       {% for c in collections %}
-      <a href="/list/{{ c }}" class="group block bg-white border p-3 hover:bg-gray-50">
-          <div class="flex items-start justify-between gap-3">
-              <div>
-                  <div class="text-sm text-neutral-500 mb-1">Collezione</div>
-                  <div class="text-lg font-semibold">{{ (labels and labels.get(c)) or c }}</div>
-                  <div class="text-xs text-neutral-400 mt-1">chiave: <span class="mono">{{ c }}</span></div>
+      <a href="/list/{{ c.name }}" class="collection-card">
+          <div class="collection-card-content">
+              <div class="collection-card-header">
+                  <div>
+                      <div class="collection-card-subtitle">Collezione</div>
+                      <div class="collection-card-title">{{ c.label }}</div>
+                      <div class="collection-card-key">chiave: <span class="mono">{{ c.name }}</span></div>
+                  </div>
+                  <div class="collection-badge" title="Numero di elementi">{{ c.count }}</div>
               </div>
-              <div class="shrink-0 text-xs bg-neutral-50 border px-2 py-0.5" title="Numero di elementi">{{ counts and counts.get(c, 0) or 0 }}</div>
+              <div class="collection-card-footer">Apri →</div>
           </div>
-          <div class="mt-2 text-indigo-600 text-sm opacity-0 group-hover:opacity-100 transition">Apri →</div>
       </a>
       {% endfor %}
   </div>

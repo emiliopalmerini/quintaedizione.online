@@ -1,4 +1,4 @@
-<!-- show.html - Template unico e minimale per tutte le collezioni -->
+<!-- show.html - Template semplificato per rendering markdown standard -->
 {% extends "base.html" %}
 {% block title %}{{ doc_title or doc_id }}{% endblock %}
 
@@ -21,210 +21,34 @@
     </div>
   </div>
 
-  {% macro is_complex_object(v) %}
-    {% if v is mapping %}
-      {% if v|length > 5 or (v.values()|list|selectattr('mapping')|list|length > 0) or (v.values()|list|selectattr('sequence')|list|length > 0) %}
-        true
-      {% else %}
-        false
-      {% endif %}
-    {% elif v is sequence and v is not string %}
-      {% if v|length > 10 or (v|selectattr('mapping')|list|length > 0) %}
-        true
-      {% else %}
-        false  
-      {% endif %}
-    {% else %}
-      false
-    {% endif %}
-  {% endmacro %}
-
-
-  {% macro render_value(v) %}
-    {% if v is string or v is number or v in [true,false] %}
-      <div class="font-medium break-words">{{ v }}</div>
-    {% elif v is mapping %}
-      {% if v.get('scegli') is not none and (v.get('opzioni') is sequence) and (v.get('opzioni') is not string) %}
-        {% set choose = (v.get('scegli') | int) %}
-        {% if choose > 0 %}<div class="text-xs text-neutral-600">Scegli {{ choose }}</div>{% endif %}
-        <div class="flex flex-wrap gap-1">{% for s in v.get('opzioni') %}<span class="tag">{{ s }}</span>{% endfor %}</div>
-      {% elif v.get('lista_incantesimi') is mapping or v.get('trucchetti') %}
-        {% set per = v.get('lista_incantesimi') or {} %}
-        {% set keys = per.keys() | list %}
-        {% set lvls = (keys | map('int') | list | sort) %}
-        <div class="space-y-1">
-          {% if v.get('trucchetti') %}
-            <details>
-              <summary class="cursor-pointer py-0.5 px-2 hover:bg-neutral-50">Trucchetti</summary>
-              <div class="flex flex-wrap gap-1 p-2">{% for s in v.get('trucchetti') %}<span class="tag">{{ s }}</span>{% endfor %}</div>
-            </details>
-          {% endif %}
-          {% for lvl in lvls %}
-            {% set vals = per.get(lvl|string) %}
-            <details>
-              <summary class="cursor-pointer py-0.5 px-2 hover:bg-neutral-50"><span class="mono text-neutral-600">Lv {{ lvl }}</span></summary>
-              <div class="flex flex-wrap gap-1 p-2">{% for s in vals %}<span class="tag">{{ s }}</span>{% endfor %}</div>
-            </details>
-          {% endfor %}
-        </div>
-      {% else %}
-        <details>
-          <summary class="cursor-pointer text-neutral-600">Oggetto</summary>
-          <pre class="mono whitespace-pre-wrap bg-neutral-50 border p-2 mt-1">{{ v | tojson(indent=2) }}</pre>
-        </details>
-      {% endif %}
-    {% elif v is sequence and (v is not string) %}
-      {% set n = v|length %}
-      {% if n > 0 and (v[0] is string or v[0] is number) %}
-        <div class="flex flex-wrap gap-1">
-          {% for s in v %}<span class="tag">{{ s }}</span>{% endfor %}
-        </div>
-      {% elif n > 0 and (v[0] is mapping) %}
-        {% if v[0].get('etichetta') and (v[0].get('oggetti') is sequence) and (v[0].get('oggetti') is not string) %}
-          <div class="space-y-1">
-            {% for opt in v %}
-              <div>
-                <div class="text-xs text-neutral-500">{{ opt.get('etichetta') }}</div>
-                <div class="flex flex-wrap gap-1">{% for s in opt.get('oggetti') %}<span class="tag">{{ s }}</span>{% endfor %}</div>
-              </div>
-            {% endfor %}
-          </div>
-        {% else %}
-          {% set looks_feats = (v[0].get('nome') or v[0].get('name')) and (v[0].get('descrizione') or v[0].get('description')) %}
-          {% if looks_feats %}
-            <div class="space-y-1">
-              {% for it in v %}
-                {% set nm = it.get('nome') or it.get('name') %}
-                {% set lvl = it.get('livello') or it.get('level') %}
-                {% set desc = it.get('descrizione') or it.get('description') %}
-                <details>
-                  <summary class="cursor-pointer py-0.5 px-2 hover:bg-neutral-50">
-                    {% if lvl is not none %}<span class="mono text-neutral-600">Lv {{ lvl }}</span> — {% endif %}{{ nm }}
-                  </summary>
-                  {% if desc %}
-                    <div class="p-2 text-sm" data-markdown>{{ desc }}</div>
-                  {% endif %}
-                </details>
-              {% endfor %}
-            </div>
-          {% else %}
-            <div class="border divide-y">
-              {% for it in v[:50] %}
-                {% set title = it.get('nome') or it.get('name') or it.get('titolo') or it.get('title') or it.get('slug') or ('Elemento ' ~ loop.index) %}
-                <details>
-                  <summary class="cursor-pointer py-1 px-2 hover:bg-neutral-50">
-                    <span class="font-medium">{{ title }}</span>
-                    {% if it.get('livello') or it.get('level') %}
-                      <span class="ml-2 text-xs text-neutral-500">Lv {{ it.get('livello') or it.get('level') }}</span>
-                    {% endif %}
-                  </summary>
-                  <div class="p-2 text-sm">
-                    <pre class="mono whitespace-pre-wrap bg-neutral-50 border p-2">{{ it | tojson(indent=2) }}</pre>
-                  </div>
-                </details>
-              {% endfor %}
-            </div>
-          {% endif %}
-        {% endif %}
-        {% if n > 50 %}
-          <div class="text-xs text-neutral-500 mt-1">Mostrati 50 di {{ n }} elementi.</div>
-        {% endif %}
-      {% else %}
-        <details>
-          <summary class="cursor-pointer text-neutral-600">Lista complessa ({{ v|length }} elementi)</summary>
-          <pre class="mono whitespace-pre-wrap bg-neutral-50 border p-2 mt-1">{{ v | tojson(indent=2) }}</pre>
-        </details>
-      {% endif %}
-    {% elif v is mapping %}
-      {% set keys = v.keys() | list %}
-      {% set looks_levels = true %}
-      {% for kk in keys %}
-        {% if not ((kk|string).isdigit() or (kk|string)|lower == 'trucchetti') %}
-          {% set looks_levels = false %}
-        {% endif %}
-      {% endfor %}
-      {% if looks_levels %}
-        <div class="space-y-1">
-          {% if v.get('trucchetti') %}
-            <div>
-              <div class="text-xs text-neutral-500">Trucchetti</div>
-              <div class="flex flex-wrap gap-1">{% for s in v.get('trucchetti') %}<span class="tag">{{ s }}</span>{% endfor %}</div>
-            </div>
-          {% endif %}
-          {% set lvls = (keys | reject('equalto','trucchetti') | map('int') | list | sort) %}
-          {% for lvl in lvls %}
-            {% set sval = lvl|string %}
-            {% set vals = v.get(sval) %}
-            <div>
-              <div class="text-xs text-neutral-500">Livello {{ lvl }}</div>
-              {% if vals is sequence and (vals is not string) %}
-                {% if vals and (vals[0] is string or vals[0] is number) %}
-                  <div class="flex flex-wrap gap-1">{% for s in vals %}<span class="tag">{{ s }}</span>{% endfor %}</div>
-                {% else %}
-                  <pre class="mono whitespace-pre-wrap bg-neutral-50 border p-2 mt-1">{{ vals | tojson(indent=2) }}</pre>
-                {% endif %}
-              {% else %}
-                <div class="font-medium break-words">{{ vals }}</div>
-              {% endif %}
-            </div>
-          {% endfor %}
-        </div>
-      {% else %}
-        <details>
-          <summary class="cursor-pointer text-neutral-600">Oggetto</summary>
-          <pre class="mono whitespace-pre-wrap bg-neutral-50 border p-2 mt-1">{{ v | tojson(indent=2) }}</pre>
-        </details>
-      {% endif %}
-    {% else %}
-      <div class="font-medium break-words">{{ v }}</div>
-    {% endif %}
-  {% endmacro %}
-  {% macro render_paragraphs(val) %}
-    {% if val is string %}
-      {% for p in val.split('\n\n') %}
-        {% set t = p.strip() %}
-        {% if t %}<p class="mb-3 whitespace-pre-wrap">{{ t }}</p>{% endif %}
-      {% endfor %}
-    {% elif val is sequence and (val is not string) %}
-      {% for item in val %}
-        {{ render_paragraphs(item) }}
-      {% endfor %}
-    {% endif %}
-  {% endmacro %}
-
-  {% set ns = namespace(body=None, body_key=None) %}
-  {% if doc_obj.get('description') %}
-    {% set ns.body = doc_obj.get('description') %}
-    {% set ns.body_key = 'description' %}
-  {% elif doc_obj.get('description_md') %}
-    {% set ns.body = doc_obj.get('description_md') %}
-    {% set ns.body_key = 'description_md' %}
-  {% elif doc_obj.get('content') %}
-    {% set ns.body = doc_obj.get('content') %}
-    {% set ns.body_key = 'content' %}
-  {% else %}
-    {% for k, v in doc_obj.items() %}
-      {% if ns.body is none and (k.endswith('_md')) and v %}
-        {% set ns.body = v %}
-        {% set ns.body_key = k %}
-      {% endif %}
-    {% endfor %}
-  {% endif %}
-
   <!-- Contenuto principale -->
   <article data-md-section>
-    <!-- Solo contenuto markdown -->
+    <!-- Rendering markdown semplice -->
     {% if body_html %}
-      <div id="doc-md" data-markdown data-ssr="true" data-raw="{{ body_raw | e }}">
-        {{ body_html | safe }}
-      </div>
+      {% if body_html != body_raw %}
+        <!-- Server-side rendered markdown -->
+        <div id="doc-md" data-markdown data-ssr="true" data-raw="{{ body_raw | e }}">
+          {{ body_html | safe }}
+        </div>
+      {% else %}
+        <!-- Client-side markdown rendering -->
+        <div id="doc-md" data-markdown data-raw="{{ body_raw | e }}">
+          {{ body_raw }}
+        </div>
+      {% endif %}
     {% else %}
       <div style="color: var(--notion-text-light); font-style: italic;">Nessuna descrizione disponibile.</div>
     {% endif %}
   </article>
 
-  {# Sezione dati grezzi rimossa su richiesta #}
+  <!-- Pulsante copia markdown -->
+  <div class="mt-6 pt-4" style="border-top: 1px solid var(--notion-border);">
+    <button onclick="copyMarkdown(this)" class="btn btn-ghost">
+      Copia Markdown
+    </button>
+  </div>
 {% endblock %}
+
 {% block scripts %}
 {{ super() }}
 {% endblock %}
