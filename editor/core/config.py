@@ -9,6 +9,7 @@ DB_NAME = os.getenv("DB_NAME", "dnd")
 
 # Italian-only collections (simplified)
 COLLECTIONS: List[str] = [
+    "documenti",
     "classi",
     "backgrounds", 
     "incantesimi",
@@ -23,6 +24,7 @@ COLLECTIONS: List[str] = [
 
 # Collection display labels (Italian only)
 COLLECTION_LABELS: Dict[str, str] = {
+    "documenti": "Documenti SRD",
     "classi": "Classi",
     "backgrounds": "Background", 
     "incantesimi": "Incantesimi",
@@ -37,6 +39,7 @@ COLLECTION_LABELS: Dict[str, str] = {
 
 # Database collection mapping (Italian collections only)
 DB_COLLECTIONS: Dict[str, str] = {
+    "documenti": "documenti",
     "classi": "classi",
     "backgrounds": "backgrounds",
     "incantesimi": "incantesimi", 
