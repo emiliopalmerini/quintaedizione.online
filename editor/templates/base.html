@@ -151,7 +151,39 @@
       if (!md) md = section.querySelector('[data-ssr="true"]');
       const raw = (md && (md.dataset.raw || md.getAttribute('data-raw') || md.textContent)) || '';
       if(!raw) return;
-      navigator.clipboard.writeText(raw).then(()=>flash(btn, 'Copiato'));
+      
+      // Try modern clipboard API first (works in HTTPS/localhost)
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(raw).then(()=>flash(btn, 'Copiato')).catch(()=>{
+          fallbackCopy(raw, btn);
+        });
+      } else {
+        // Fallback for HTTP deployments
+        fallbackCopy(raw, btn);
+      }
+    }
+    
+    // Fallback copy method using temporary textarea
+    function fallbackCopy(text, btn) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.left = '-999999px';
+      textarea.style.top = '-999999px';
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+          flash(btn, 'Copiato');
+        } else {
+          flash(btn, 'Errore copia');
+        }
+      } catch (err) {
+        flash(btn, 'Errore copia');
+      }
+      document.body.removeChild(textarea);
     }
 
     // Quicksearch dropdown behavior
