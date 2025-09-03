@@ -649,6 +649,51 @@ body {
   font-family: var(--font-sans) !important;
 }
 
+/* Additional fix: Target pre elements that contain only headings */
+[data-markdown] pre:not(:has(code)):has(h1),
+[data-markdown] pre:not(:has(code)):has(h2),
+[data-markdown] pre:not(:has(code)):has(h3),
+[data-markdown] pre:not(:has(code)):has(h4),
+[data-markdown] pre:not(:has(code)):has(h5),
+[data-markdown] pre:not(:has(code)):has(h6) {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-family: inherit !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+  line-height: inherit !important;
+  font-size: inherit !important;
+}
+
+/* Broader fallback: any pre that starts with a heading should be transparent */
+[data-markdown] pre:first-child h1:first-child,
+[data-markdown] pre:first-child h2:first-child,
+[data-markdown] pre:first-child h3:first-child,
+[data-markdown] pre:first-child h4:first-child,
+[data-markdown] pre:first-child h5:first-child,
+[data-markdown] pre:first-child h6:first-child {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Force parent pre to be transparent when it contains only headings */
+[data-markdown] pre:first-child:has(h1:first-child):not(:has(code)),
+[data-markdown] pre:first-child:has(h2:first-child):not(:has(code)),
+[data-markdown] pre:first-child:has(h3:first-child):not(:has(code)),
+[data-markdown] pre:first-child:has(h4:first-child):not(:has(code)),
+[data-markdown] pre:first-child:has(h5:first-child):not(:has(code)),
+[data-markdown] pre:first-child:has(h6:first-child):not(:has(code)) {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-family: inherit !important;
+}
+
 [data-markdown] pre code {
   background: transparent;
   color: inherit;

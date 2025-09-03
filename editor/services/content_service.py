@@ -158,8 +158,18 @@ class ContentService:
         if not raw_content:
             return None, None
         
-        # Render markdown if it's a markdown field
-        if content_field and content_field.endswith("_md"):
+        # Check for markdown indicators
+        has_headers = any(line.strip().startswith(('#', '##', '###', '####', '#####', '######')) for line in raw_content.split('\n'))
+        has_markdown_syntax = any(markdown_indicator in raw_content for markdown_indicator in ['**', '*', '`', '---', '###', '##', '#'])
+        
+        # Render markdown if it's a markdown field OR contains markdown syntax
+        should_render_markdown = (
+            (content_field and content_field.endswith("_md")) or
+            # Also render markdown if content field contains markdown syntax
+            (content_field == "content" and (has_headers or has_markdown_syntax))
+        )
+        
+        if should_render_markdown:
             html_content = render_md(raw_content)
             return html_content, raw_content
         else:
