@@ -174,6 +174,43 @@ class ContentService:
             return html_content, raw_content
         else:
             return raw_content, raw_content
+    
+    async def get_distinct_values(self, collection: str, field: str) -> List[str]:
+        """Get distinct values for a field in a collection."""
+        repo = await self._get_repo()
+        
+        try:
+            # Use MongoDB distinct operation
+            values = await repo.get_distinct_values(collection, field)
+            # Filter out None, empty strings, and sort
+            filtered_values = [v for v in values if v is not None and v != ""]
+            return sorted(filtered_values)
+        except Exception:
+            return []
+    
+    async def get_filter_options(self, collection: str) -> Dict[str, List[str]]:
+        """Get all filter options for a collection."""
+        filter_configs = {
+            "incantesimi": ["classi"],
+            "oggetti_magici": ["tipo"],
+            "mostri": ["tipo", "allineamento", "gs"],
+            "armi": ["categoria", "maestria", "proprieta"],
+            "strumenti": ["caratteristica", "categoria", "puo_creare"],
+            "servizi": ["categoria", "disponibilita"],
+            "equipaggiamento": ["peso"],
+            "backgrounds": ["competenze_abilita", "competenze_strumenti", "linguaggi"],
+            "specie": ["tipo_creatura", "velocita_movimento", "aumento_caratteristica"],
+            "talenti": ["aumento_caratteristica"],
+            "classi": ["competenze_armi"],
+        }
+        
+        fields = filter_configs.get(collection, [])
+        options = {}
+        
+        for field in fields:
+            options[field] = await self.get_distinct_values(collection, field)
+        
+        return options
 
 
 # Global service instance

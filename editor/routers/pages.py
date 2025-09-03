@@ -321,6 +321,40 @@ async def view_collection_htmx(
         return handle_error(e, "_error.html")
 
 
+@router.get("/api/filter-options/{collection}/{field}")
+async def get_filter_field_options(collection: str, field: str, request: Request):
+    """API endpoint to get dropdown options for a specific field."""
+    try:
+        # Validate collection
+        if not is_valid_collection(collection):
+            return HTMLResponse("<option value=''>Errore: collezione non trovata</option>")
+        
+        service = await get_content_service()
+        values = await service.get_distinct_values(collection, field)
+        
+        # Get current selected value from request
+        current_value = request.query_params.get(field, "")
+        
+        # Generate HTML options
+        options_html = '<option value="">Tutte</option>'
+        for value in values[:50]:  # Limit to 50 options for performance
+            if value:
+                selected = 'selected' if str(value) == current_value else ''
+                options_html += f'<option value="{value}" {selected}>{value}</option>'
+        
+        return HTMLResponse(options_html)
+        
+    except Exception as e:
+        logger.error(f"Failed to get options for {collection}.{field}: {e}")
+        return HTMLResponse("<option value=''>Errore nel caricamento</option>")
+
+
+@router.get("/test")
+async def test_endpoint():
+    """Test endpoint to verify routing works."""
+    return {"message": "Test endpoint working"}
+
+
 @router.get("/health")
 async def health():
     """Simple health check endpoint."""
