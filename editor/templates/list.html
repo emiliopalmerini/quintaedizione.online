@@ -116,6 +116,78 @@
             <input name="availability" class="field" placeholder="Disponibilità (es. città, villaggio)" value="{{ request and request.query_params.get('availability','') }}" />
           {% elif collection == 'equipaggiamento' %}
             <input name="weight" class="field" placeholder="Peso (testo)" value="{{ request and request.query_params.get('weight','') }}" />
+          {% elif collection == 'backgrounds' %}
+            <input name="skill_proficiencies" class="field" placeholder="Competenze abilità" value="{{ request and request.query_params.get('skill_proficiencies','') }}" />
+            <input name="tool_proficiencies" class="field" placeholder="Competenze strumenti" value="{{ request and request.query_params.get('tool_proficiencies','') }}" />
+            <input name="languages" class="field" placeholder="Linguaggi" value="{{ request and request.query_params.get('languages','') }}" />
+          {% elif collection == 'specie' %}
+            <select name="size" class="field">
+              <option value="">Taglia (tutte)</option>
+              {% for s in ['Piccola','Media','Grande'] %}
+                <option value="{{ s }}" {% if request and request.query_params.get('size')==s %}selected{% endif %}>{{ s }}</option>
+              {% endfor %}
+            </select>
+            <input name="creature_type" class="field" placeholder="Tipo creatura (es. umanoide)" value="{{ request and request.query_params.get('creature_type','') }}" />
+            <input name="movement_speed" class="field" placeholder="Velocità (es. 9)" value="{{ request and request.query_params.get('movement_speed','') }}" />
+            <input name="ability_score_increase" class="field" placeholder="Aumento caratteristica" value="{{ request and request.query_params.get('ability_score_increase','') }}" />
+          {% elif collection == 'talenti' %}
+            <select name="prerequisite_type" class="field">
+              <option value="">Prerequisiti (tutti)</option>
+              <option value="ability" {% if request and request.query_params.get('prerequisite_type')=='ability' %}selected{% endif %}>Caratteristica</option>
+              <option value="class" {% if request and request.query_params.get('prerequisite_type')=='class' %}selected{% endif %}>Classe</option>
+              <option value="level" {% if request and request.query_params.get('prerequisite_type')=='level' %}selected{% endif %}>Livello</option>
+              <option value="none" {% if request and request.query_params.get('prerequisite_type')=='none' %}selected{% endif %}>Nessuno</option>
+            </select>
+            <input name="ability_increase" class="field" placeholder="Aumenta caratteristica (es. Forza)" value="{{ request and request.query_params.get('ability_increase','') }}" />
+            <select name="category" class="field">
+              <option value="">Categoria (tutte)</option>
+              <option value="combat" {% if request and request.query_params.get('category')=='combat' %}selected{% endif %}>Combattimento</option>
+              <option value="magic" {% if request and request.query_params.get('category')=='magic' %}selected{% endif %}>Magia</option>
+              <option value="skill" {% if request and request.query_params.get('category')=='skill' %}selected{% endif %}>Abilità</option>
+              <option value="utility" {% if request and request.query_params.get('category')=='utility' %}selected{% endif %}>Utilità</option>
+            </select>
+          {% elif collection == 'classi' %}
+            <select name="caratteristica_primaria" class="field">
+              <option value="">Caratteristica primaria (tutte)</option>
+              {% for car in ['Forza','Destrezza','Costituzione','Intelligenza','Saggezza','Carisma'] %}
+                <option value="{{ car }}" {% if request and request.query_params.get('caratteristica_primaria')==car %}selected{% endif %}>{{ car }}</option>
+              {% endfor %}
+            </select>
+            <select name="dado_vita" class="field">
+              <option value="">Dado vita (tutti)</option>
+              {% for dado in ['d6','d8','d10','d12'] %}
+                <option value="{{ dado }}" {% if request and request.query_params.get('dado_vita')==dado %}selected{% endif %}>{{ dado }}</option>
+              {% endfor %}
+            </select>
+            <select name="ha_incantesimi" class="field">
+              <option value="">Incantatori (tutti)</option>
+              <option value="true" {% if request and request.query_params.get('ha_incantesimi')=='true' %}selected{% endif %}>Incantatori</option>
+              <option value="false" {% if request and request.query_params.get('ha_incantesimi')=='false' %}selected{% endif %}>Non incantatori</option>
+            </select>
+            <select name="caratteristica_incantatore" class="field">
+              <option value="">Car. incantatore (tutte)</option>
+              {% for car in ['Intelligenza','Saggezza','Carisma'] %}
+                <option value="{{ car }}" {% if request and request.query_params.get('caratteristica_incantatore')==car %}selected{% endif %}>{{ car }}</option>
+              {% endfor %}
+            </select>
+            <select name="preparazione" class="field">
+              <option value="">Tipo preparazione (tutti)</option>
+              <option value="prepared" {% if request and request.query_params.get('preparazione')=='prepared' %}selected{% endif %}>Preparati</option>
+              <option value="known" {% if request and request.query_params.get('preparazione')=='known' %}selected{% endif %}>Conosciuti</option>
+            </select>
+            <input name="armi_competenze" class="field" placeholder="Competenza armi (es. guerra)" value="{{ request and request.query_params.get('armi_competenze','') }}" />
+          {% elif collection == 'documenti' %}
+            <input name="numero_di_pagina" class="field" placeholder="Numero pagina" value="{{ request and request.query_params.get('numero_di_pagina','') }}" />
+            <select name="category" class="field">
+              <option value="">Categoria (tutte)</option>
+              <option value="rules" {% if request and request.query_params.get('category')=='rules' %}selected{% endif %}>Regole</option>
+              <option value="equipment" {% if request and request.query_params.get('category')=='equipment' %}selected{% endif %}>Equipaggiamento</option>
+              <option value="magic" {% if request and request.query_params.get('category')=='magic' %}selected{% endif %}>Magia</option>
+              <option value="character" {% if request and request.query_params.get('category')=='character' %}selected{% endif %}>Creazione personaggio</option>
+              <option value="combat" {% if request and request.query_params.get('category')=='combat' %}selected{% endif %}>Combattimento</option>
+              <option value="spells" {% if request and request.query_params.get('category')=='spells' %}selected{% endif %}>Incantesimi</option>
+            </select>
+            <input name="content" class="field" placeholder="Contenuto documento" value="{{ request and request.query_params.get('content','') }}" />
           {% else %}
             <div class="text-xs text-neutral-600">Nessun filtro specifico per {{ collection }}.</div>
           {% endif %}

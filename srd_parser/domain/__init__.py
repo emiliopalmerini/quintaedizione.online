@@ -1,0 +1,1 @@
+# Domain layer for D&D 5e SRD classes

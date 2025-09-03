@@ -9,9 +9,16 @@
       "Bash(sudo apt-get install:*)",
       "Bash(docker build:*)",
       "Bash(docker system prune:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(chmod:*)",
+      "Bash(./test_curl_integration.sh)",
+      "Bash(curl:*)",
+      "Bash(docker compose exec:*)",
+      "Bash(make:*)",
+      "Bash(docker exec:*)"
     ],
     "deny": [],
     "ask": []
-  }
+  },
+  "outputStyle": "default"
 }

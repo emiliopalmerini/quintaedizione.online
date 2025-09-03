@@ -3,7 +3,7 @@ SHELL := /bin/sh
 # Config
 PROJECT ?= dnd
 
-.PHONY: up down logs seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh editor-sh build build-editor build-parser env-init lint format
+.PHONY: up down logs seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh editor-sh build build-editor build-parser env-init lint format help
 
 up:
 	docker compose up -d mongo editor srd-parser
@@ -16,16 +16,28 @@ logs:
 
 # Seed helpers (run inside the mongo container)
 seed-dump:
-	docker compose exec mongo sh -lc 'mkdir -p /seed && mongodump --db $(PROJECT) --gzip --archive=/seed/$(PROJECT).archive.gz'
+	@echo "Creating database backup..."
+	docker compose exec mongo mongodump --username=admin --password=password --authenticationDatabase=admin --db $(PROJECT) --gzip --archive=/tmp/$(PROJECT).archive.gz
+	docker cp $$(docker compose ps -q mongo):/tmp/$(PROJECT).archive.gz ./$(PROJECT)_backup_$$(date +%Y%m%d_%H%M%S).archive.gz
+	@echo "Backup created: $(PROJECT)_backup_$$(date +%Y%m%d_%H%M%S).archive.gz"
 
 seed-restore:
-	docker compose exec mongo sh -lc 'test -f /seed/$(PROJECT).archive.gz && mongorestore --gzip --archive=/seed/$(PROJECT).archive.gz --drop || echo "No /seed/$(PROJECT).archive.gz found"'
+	@if [ -z "$(FILE)" ]; then \
+		echo "Usage: make seed-restore FILE=backup_file.archive.gz"; \
+		echo "Available backups:"; \
+		ls -1 $(PROJECT)_backup_*.archive.gz 2>/dev/null || echo "No backup files found"; \
+	else \
+		echo "Restoring from $(FILE)..."; \
+		docker cp $(FILE) $$(docker compose ps -q mongo):/tmp/restore.archive.gz; \
+		docker compose exec mongo mongorestore --username=admin --password=password --authenticationDatabase=admin --gzip --archive=/tmp/restore.archive.gz --drop; \
+		echo "Restore completed from $(FILE)"; \
+	fi
 
 seed-dump-dir:
-	docker compose exec mongo sh -lc 'rm -rf /seed/dump && mkdir -p /seed/dump && mongodump --db $(PROJECT) --out /seed/dump'
+	docker compose exec mongo sh -lc 'rm -rf /seed/dump && mkdir -p /seed/dump && mongodump --username=admin --password=password --authenticationDatabase=admin --db $(PROJECT) --out /seed/dump'
 
 seed-restore-dir:
-	docker compose exec mongo sh -lc 'test -d /seed/dump && mongorestore --dir /seed/dump --drop || echo "No /seed/dump directory found"'
+	docker compose exec mongo sh -lc 'test -d /seed/dump && mongorestore --username=admin --password=password --authenticationDatabase=admin --dir /seed/dump --drop || echo "No /seed/dump directory found"'
 
 mongo-sh:
 	docker compose exec mongo sh
@@ -64,3 +76,37 @@ format:
 	else \
 		echo "Black not found; install black to format"; \
 	fi
+
+# Show available commands
+help:
+	@echo "D&D 5e SRD - Available Commands:"
+	@echo ""
+	@echo "Docker Services:"
+	@echo "  make up                    # Start MongoDB + Editor + SRD Parser"
+	@echo "  make down                  # Stop all services"
+	@echo "  make logs                  # View logs from all services"
+	@echo ""
+	@echo "Database Management:"
+	@echo "  make seed-dump             # Create timestamped database backup"
+	@echo "  make seed-restore FILE=x   # Restore database from backup file"
+	@echo "  make seed-dump-dir         # Dump to directory format"
+	@echo "  make seed-restore-dir      # Restore from directory format"
+	@echo ""
+	@echo "Container Access:"
+	@echo "  make mongo-sh              # Access MongoDB shell"
+	@echo "  make editor-sh             # Access Editor container shell"
+	@echo ""
+	@echo "Build Images:"
+	@echo "  make build                 # Build both editor and parser images"
+	@echo "  make build-editor          # Build only editor image"
+	@echo "  make build-parser          # Build only parser image"
+	@echo ""
+	@echo "Development:"
+	@echo "  make env-init              # Initialize .env from .env.example"
+	@echo "  make lint                  # Run ruff (preferred) or pyflakes"
+	@echo "  make format                # Run black formatter"
+	@echo "  make help                  # Show this help message"
+	@echo ""
+	@echo "URLs:"
+	@echo "  Editor: http://localhost:8000/"
+	@echo "  Parser: http://localhost:8100/"
