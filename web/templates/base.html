@@ -20,7 +20,7 @@
           <a href="/c/{{.collection}}{{if .qs}}?{{.qs}}{{end}}" class="btn">{{.collection}}</a>
           <span class="breadcrumb-separator">/</span>
           <div class="search-container">
-            <input id="bc-search" name="q" placeholder="{{default (default (printf "Cerca in %s…" .collection) .doc_title) .doc_slug}}" class="field" style="width: 240px; font-size: 13px; padding: 6px 10px;"
+            <input id="bc-search" name="q" placeholder="{{if .doc_slug}}{{.doc_slug}}{{else if .doc_title}}{{.doc_title}}{{else}}Cerca in {{.collection}}…{{end}}" class="field" style="width: 240px; font-size: 13px; padding: 6px 10px;"
                    hx-get="/quicksearch/{{.collection}}"
                    hx-target="#bc-results"
                    hx-trigger="keyup changed delay:200ms"

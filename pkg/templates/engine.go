@@ -53,18 +53,29 @@ func (e *Engine) LoadTemplates() error {
 		"default":    defaultValue,
 		"safe":       safe,
 		"markdown":   renderMarkdown,
+		"slice":      slice,
 	}
 
-	// Parse templates with glob pattern
-	pattern := filepath.Join(e.templatesDir, "**/*.html")
-	tmpl, err := template.New("").Funcs(funcMap).ParseGlob(pattern)
+	// Parse base template first
+	basePath := filepath.Join(e.templatesDir, "base.html")
+	tmpl, err := template.New("base.html").Funcs(funcMap).ParseFiles(basePath)
 	if err != nil {
-		// Try alternative pattern without subdirectories
-		pattern = filepath.Join(e.templatesDir, "*.html")
-		tmpl, err = template.New("").Funcs(funcMap).ParseGlob(pattern)
-		if err != nil {
-			return fmt.Errorf("failed to parse templates: %w", err)
-		}
+		return fmt.Errorf("failed to parse base template: %w", err)
+	}
+
+	// Parse all other templates
+	pattern := filepath.Join(e.templatesDir, "*.html")
+	tmpl, err = tmpl.ParseGlob(pattern)
+	if err != nil {
+		return fmt.Errorf("failed to parse templates: %w", err)
+	}
+
+	// Parse admin templates
+	adminPattern := filepath.Join(e.templatesDir, "admin/*.html")
+	tmpl, err = tmpl.ParseGlob(adminPattern)
+	if err != nil {
+		// Admin templates are optional
+		fmt.Printf("Warning: Could not parse admin templates: %v\n", err)
 	}
 
 	e.templates = tmpl
@@ -78,8 +89,18 @@ func (e *Engine) Render(templateName string, data interface{}) (string, error) {
 	}
 
 	var buf bytes.Buffer
-	if err := e.templates.ExecuteTemplate(&buf, templateName, data); err != nil {
-		return "", fmt.Errorf("failed to execute template %s: %w", templateName, err)
+	
+	// For most templates, we want to use the base template and execute content blocks
+	if templateName != "base.html" {
+		// Execute the base template which will call the content blocks from the specific template
+		if err := e.templates.ExecuteTemplate(&buf, "base.html", data); err != nil {
+			return "", fmt.Errorf("failed to execute template %s: %w", templateName, err)
+		}
+	} else {
+		// For base template itself, execute directly
+		if err := e.templates.ExecuteTemplate(&buf, templateName, data); err != nil {
+			return "", fmt.Errorf("failed to execute template %s: %w", templateName, err)
+		}
 	}
 
 	return buf.String(), nil
@@ -143,4 +164,17 @@ func renderMarkdown(content string) template.HTML {
 	html = strings.ReplaceAll(html, "**", "<strong>")
 	html = strings.ReplaceAll(html, "*", "<em>")
 	return template.HTML(html)
+}
+
+func slice(str string, start, end int) string {
+	if start < 0 {
+		start = 0
+	}
+	if end > len(str) {
+		end = len(str)
+	}
+	if start > end {
+		return ""
+	}
+	return str[start:end]
 }

@@ -1,6 +1,5 @@
-{{define "collection.html"}}
-{{template "base.html" .}}
 {{define "title"}}{{.title}}{{end}}
+
 {{define "content"}}
 <div class="notion-page">
   <div class="notion-page-header">
@@ -38,7 +37,7 @@
           <h3 class="notion-list-item-title">{{.nome}}</h3>
           {{if .descrizione}}
           <p class="notion-list-item-description">
-            {{.descrizione | slice 0 150}}{{if gt (len .descrizione) 150}}...{{end}}
+            {{if gt (len .descrizione) 150}}{{slice .descrizione 0 150}}...{{else}}{{.descrizione}}{{end}}
           </p>
           {{end}}
           {{if .livello}}
@@ -101,5 +100,4 @@
   </div>
   {{end}}
 </div>
-{{end}}
 {{end}}

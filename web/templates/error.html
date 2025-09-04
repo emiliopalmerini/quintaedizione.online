@@ -1,6 +1,5 @@
-{{define "error.html"}}
-{{template "base.html" .}}
 {{define "title"}}Errore {{.status_code}}{{end}}
+
 {{define "content"}}
 <div class="notion-page">
   <div class="notion-page-header" style="text-align: center;">
@@ -30,50 +29,5 @@
       </button>
     </div>
   </div>
-
-  {{if eq .status_code 404}}
-  <div class="notion-section" style="margin-top: 3rem;">
-    <h2 style="color: var(--notion-text); font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; text-align: center;">
-      Potresti essere interessato a:
-    </h2>
-    <div class="notion-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-      <div class="notion-card">
-        <a href="/c/incantesimi" class="notion-card-link">
-          <h3>Incantesimi</h3>
-          <p>Esplora la lista completa degli incantesimi</p>
-        </a>
-      </div>
-      <div class="notion-card">
-        <a href="/c/mostri" class="notion-card-link">
-          <h3>Mostri</h3>
-          <p>Scopri creature e avversari</p>
-        </a>
-      </div>
-      <div class="notion-card">
-        <a href="/c/classi" class="notion-card-link">
-          <h3>Classi</h3>
-          <p>Consulta le classi di personaggio</p>
-        </a>
-      </div>
-      <div class="notion-card">
-        <a href="/search" class="notion-card-link">
-          <h3>Ricerca</h3>
-          <p>Cerca nel database del SRD</p>
-        </a>
-      </div>
-    </div>
-  </div>
-  {{end}}
 </div>
-
-<style>
-.error-actions {
-  margin-top: 2rem;
-}
-
-.error-actions .btn + .btn {
-  margin-left: 1rem;
-}
-</style>
-{{end}}
 {{end}}
