@@ -16,7 +16,10 @@
       "Bash(docker compose exec:*)",
       "Bash(make:*)",
       "Bash(docker exec:*)",
-      "Bash(docker compose:*)"
+      "Bash(docker compose:*)",
+      "Bash(docker logs:*)",
+      "Bash(docker image rm:*)",
+      "Bash(docker-compose restart:*)"
     ],
     "deny": [],
     "ask": []
