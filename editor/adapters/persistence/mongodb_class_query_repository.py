@@ -18,10 +18,10 @@ class MongoDBClassQueryRepository(ClassQueryRepository):
     def __init__(self, connection_string: str, database_name: str):
         self.client = AsyncIOMotorClient(connection_string)
         self.db = self.client[database_name]
-        self.collection: AsyncIOMotorCollection = self.db.classes
+        self.collection: AsyncIOMotorCollection = self.db.classi
         
-        # Ensure read-optimized indexes
-        self._ensure_read_indexes()
+        # Ensure read-optimized indexes (async initialization will be handled elsewhere)
+        # self._ensure_read_indexes()
     
     async def _ensure_read_indexes(self) -> None:
         """Create indexes optimized for read operations"""
@@ -52,7 +52,7 @@ class MongoDBClassQueryRepository(ClassQueryRepository):
     async def find_by_id(self, class_id: ClassId) -> Optional[DndClass]:
         """Find class by ID with full details"""
         try:
-            doc = await self.collection.find_one({"id": class_id.value})
+            doc = await self.collection.find_one({"slug": class_id.value})
             if not doc:
                 return None
             return self._document_to_entity(doc)
@@ -64,27 +64,28 @@ class MongoDBClassQueryRepository(ClassQueryRepository):
         """Search classes with filtering and return summaries"""
         try:
             mongo_query = self._build_search_query(query)
+            logger.info(f"Class search query: {mongo_query}")
             
             # Use projection for performance - only summary fields
             projection = {
-                "id": 1,
-                "name": 1,
-                "primary_ability": 1,
-                "hit_die": 1,
+                "slug": 1,
+                "nome": 1,
+                "caratteristica_primaria": 1,
+                "dado_vita": 1,
                 "source": 1,
-                "subclasses.name": 1,  # Only subclass names for summary
-                "spell_progression.cantrips_by_level.1": 1  # Level 1 cantrips to detect spellcasters
+                "sottoclassi.nome": 1,  # Only subclass names for summary
+                "magia": 1  # Magic/spellcasting info
             }
             
             # Apply sorting and limits
             cursor = self.collection.find(mongo_query, projection)
             
-            if query.sort_by == "name":
-                cursor = cursor.sort("name", 1)
+            if query.sort_by == "name" or query.sort_by == "alpha":
+                cursor = cursor.sort("nome", 1)
             elif query.sort_by == "hit_die":
-                cursor = cursor.sort("hit_die", -1)
+                cursor = cursor.sort("dado_vita", -1)
             elif query.sort_by == "primary_ability":
-                cursor = cursor.sort("primary_ability", 1)
+                cursor = cursor.sort("caratteristica_primaria", 1)
             
             if query.limit:
                 cursor = cursor.limit(query.limit)
@@ -92,7 +93,13 @@ class MongoDBClassQueryRepository(ClassQueryRepository):
                 cursor = cursor.skip(query.offset)
             
             docs = await cursor.to_list(length=None)
-            return [self._document_to_summary(doc) for doc in docs]
+            logger.info(f"Found {len(docs)} classes")
+            if docs:
+                logger.info(f"First class doc: {docs[0]}")
+            summaries = [self._document_to_summary(doc) for doc in docs]
+            if summaries:
+                logger.info(f"First summary: {summaries[0].__dict__}")
+            return summaries
             
         except Exception as e:
             logger.error(f"Error in class search: {e}")
@@ -169,27 +176,30 @@ class MongoDBClassQueryRepository(ClassQueryRepository):
         """Build MongoDB query from search parameters"""
         mongo_query = {}
         
-        # Text search
+        # Text search - use regex for Italian documents
         if query.text_query:
-            mongo_query["$text"] = {"$search": query.text_query}
+            mongo_query["$or"] = [
+                {"nome": {"$regex": query.text_query, "$options": "i"}},
+                {"slug": {"$regex": query.text_query, "$options": "i"}}
+            ]
         
         # Filters
         if query.primary_ability:
-            mongo_query["primary_ability"] = query.primary_ability
+            mongo_query["caratteristica_primaria"] = query.primary_ability
         
         if query.min_hit_die:
-            mongo_query["hit_die"] = {"$gte": query.min_hit_die}
+            mongo_query["dado_vita"] = {"$gte": f"d{query.min_hit_die}"}
         if query.max_hit_die:
-            if "hit_die" in mongo_query:
-                mongo_query["hit_die"]["$lte"] = query.max_hit_die
+            if "dado_vita" in mongo_query:
+                mongo_query["dado_vita"]["$lte"] = f"d{query.max_hit_die}"
             else:
-                mongo_query["hit_die"] = {"$lte": query.max_hit_die}
+                mongo_query["dado_vita"] = {"$lte": f"d{query.max_hit_die}"}
         
         if query.is_spellcaster is not None:
             if query.is_spellcaster:
-                mongo_query["spell_progression"] = {"$exists": True}
+                mongo_query["magia.ha_incantesimi"] = True
             else:
-                mongo_query["spell_progression"] = {"$exists": False}
+                mongo_query["magia.ha_incantesimi"] = {"$ne": True}
         
         if query.source:
             mongo_query["source"] = query.source
@@ -198,17 +208,15 @@ class MongoDBClassQueryRepository(ClassQueryRepository):
     
     def _document_to_summary(self, doc: Dict[str, Any]) -> ClassSummary:
         """Convert MongoDB document to ClassSummary"""
-        is_spellcaster = bool(
-            doc.get("spell_progression", {}).get("cantrips_by_level", {}).get("1", 0) > 0
-        )
+        is_spellcaster = bool(doc.get("magia", {}).get("ha_incantesimi", False))
         
-        subclass_names = [sc["name"] for sc in doc.get("subclasses", [])]
+        subclass_names = [sc["nome"] for sc in doc.get("sottoclassi", [])]
         
         return ClassSummary(
-            id=doc["id"],
-            name=doc["name"],
-            primary_ability=doc["primary_ability"],
-            hit_die=doc["hit_die"],
+            id=doc["slug"],
+            name=doc["nome"],
+            primary_ability=doc["caratteristica_primaria"],
+            hit_die=doc["dado_vita"],
             source=doc.get("source", "SRD"),
             is_spellcaster=is_spellcaster,
             subclass_count=len(subclass_names),

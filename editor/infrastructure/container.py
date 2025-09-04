@@ -6,9 +6,34 @@ import os
 from typing import Optional
 import logging
 
+# Repository interfaces from shared domain
 from shared_domain.entities import ClassQueryRepository
-from editor.adapters.persistence.mongodb_class_query_repository import MongoDBClassQueryRepository
-from editor.application.query_handlers import (
+from shared_domain.spell_entities import SpellQueryRepository
+from shared_domain.monster_entities import MonsterQueryRepository
+from shared_domain.document_entities import DocumentQueryRepository
+from shared_domain.equipment_entities import EquipmentQueryRepository
+from shared_domain.background_entities import BackgroundQueryRepository, FeatQueryRepository
+
+# Repository implementations
+from adapters.persistence.mongodb_class_query_repository import MongoDBClassQueryRepository
+from adapters.persistence.mongodb_spell_query_repository import MongoDBSpellQueryRepository
+from adapters.persistence.mongodb_monster_query_repository import MongoDBMonsterQueryRepository
+from adapters.persistence.mongodb_document_query_repository import MongoDBDocumentQueryRepository
+from adapters.persistence.mongodb_equipment_query_repository import MongoDBEquipmentQueryRepository
+from adapters.persistence.mongodb_background_query_repository import (
+    MongoDBBackgroundQueryRepository, MongoDBFeatQueryRepository
+)
+
+# Use cases from shared domain
+from shared_domain.use_cases import (
+    CompleteUseCaseFactory, SearchClassesUseCase, SearchSpellsUseCase,
+    SearchMonstersUseCase, SearchDocumentsUseCase, GetDocumentUseCase,
+    GetFilterOptionsUseCase, SearchEquipmentUseCase, SearchBackgroundsUseCase,
+    SearchFeatsUseCase, UseCaseResult
+)
+
+# Legacy handlers (to be deprecated)
+from application.query_handlers import (
     SearchClassesHandler,
     GetClassDetailHandler,
     GetClassesByAbilityHandler,
@@ -24,7 +49,18 @@ class EditorContainer:
     
     def __init__(self, config: Optional[dict] = None):
         self.config = config or self._load_config()
+        
+        # Repository instances (lazy initialization)
         self._class_query_repository: Optional[ClassQueryRepository] = None
+        self._spell_query_repository: Optional[SpellQueryRepository] = None
+        self._monster_query_repository: Optional[MonsterQueryRepository] = None
+        self._document_query_repository: Optional[DocumentQueryRepository] = None
+        self._equipment_query_repository: Optional[EquipmentQueryRepository] = None
+        self._background_query_repository: Optional[BackgroundQueryRepository] = None
+        self._feat_query_repository: Optional[FeatQueryRepository] = None
+        
+        # Use case factory
+        self._use_case_factory: Optional[CompleteUseCaseFactory] = None
     
     def _load_config(self) -> dict:
         """Load configuration from environment variables"""
@@ -35,6 +71,7 @@ class EditorContainer:
             "cache_ttl_seconds": int(os.getenv("CACHE_TTL_SECONDS", "300"))
         }
     
+    # Repository getters
     def get_class_query_repository(self) -> ClassQueryRepository:
         """Get configured class query repository"""
         if self._class_query_repository is None:
@@ -44,6 +81,99 @@ class EditorContainer:
                 database_name=self.config["database_name"]
             )
         return self._class_query_repository
+    
+    def get_spell_query_repository(self) -> SpellQueryRepository:
+        """Get configured spell query repository"""
+        if self._spell_query_repository is None:
+            logger.info("Initializing MongoDB spell query repository")
+            self._spell_query_repository = MongoDBSpellQueryRepository(
+                connection_string=self.config["mongo_uri"],
+                database_name=self.config["database_name"]
+            )
+        return self._spell_query_repository
+    
+    def get_monster_query_repository(self) -> MonsterQueryRepository:
+        """Get configured monster query repository"""
+        if self._monster_query_repository is None:
+            logger.info("Initializing MongoDB monster query repository")
+            self._monster_query_repository = MongoDBMonsterQueryRepository(
+                connection_string=self.config["mongo_uri"],
+                database_name=self.config["database_name"]
+            )
+        return self._monster_query_repository
+    
+    def get_document_query_repository(self) -> DocumentQueryRepository:
+        """Get configured document query repository"""
+        if self._document_query_repository is None:
+            logger.info("Initializing MongoDB document query repository")
+            self._document_query_repository = MongoDBDocumentQueryRepository(
+                connection_string=self.config["mongo_uri"],
+                database_name=self.config["database_name"]
+            )
+        return self._document_query_repository
+    
+    def get_equipment_query_repository(self) -> EquipmentQueryRepository:
+        """Get configured equipment query repository"""
+        if self._equipment_query_repository is None:
+            logger.info("Initializing MongoDB equipment query repository")
+            self._equipment_query_repository = MongoDBEquipmentQueryRepository(
+                connection_string=self.config["mongo_uri"],
+                database_name=self.config["database_name"]
+            )
+        return self._equipment_query_repository
+    
+    def get_background_query_repository(self) -> BackgroundQueryRepository:
+        """Get configured background query repository"""
+        if self._background_query_repository is None:
+            logger.info("Initializing MongoDB background query repository")
+            self._background_query_repository = MongoDBBackgroundQueryRepository(
+                connection_string=self.config["mongo_uri"],
+                database_name=self.config["database_name"]
+            )
+        return self._background_query_repository
+    
+    def get_feat_query_repository(self) -> FeatQueryRepository:
+        """Get configured feat query repository"""
+        if self._feat_query_repository is None:
+            logger.info("Initializing MongoDB feat query repository")
+            self._feat_query_repository = MongoDBFeatQueryRepository(
+                connection_string=self.config["mongo_uri"],
+                database_name=self.config["database_name"]
+            )
+        return self._feat_query_repository
+    
+    def get_use_case_factory(self) -> CompleteUseCaseFactory:
+        """Get configured use case factory"""
+        if self._use_case_factory is None:
+            logger.info("Initializing complete use case factory")
+            # For now, we create minimal dependencies for the factory
+            # In a full implementation, we'd have proper event publisher and repositories
+            from shared_domain.use_cases import EventPublisher
+            
+            class NoOpEventPublisher(EventPublisher):
+                async def publish(self, event) -> None:
+                    pass  # No-op for now
+            
+            # Create dummy repositories for the base factory
+            # These won't be used since we override the methods we need
+            class DummyClassRepo:
+                pass
+            
+            class DummySpellRepo:
+                pass
+            
+            self._use_case_factory = CompleteUseCaseFactory(
+                class_repository=DummyClassRepo(),
+                spell_repository=DummySpellRepo(),
+                event_publisher=NoOpEventPublisher(),
+                spell_query_repository=self.get_spell_query_repository(),
+                monster_query_repository=self.get_monster_query_repository(),
+                document_query_repository=self.get_document_query_repository(),
+                equipment_query_repository=self.get_equipment_query_repository(),
+                background_query_repository=self.get_background_query_repository(),
+                feat_query_repository=self.get_feat_query_repository()
+            )
+        return self._use_case_factory
     
     def get_search_classes_handler(self) -> SearchClassesHandler:
         """Get configured handler for searching classes"""
@@ -75,11 +205,82 @@ class EditorContainer:
             class_repository=self.get_class_query_repository()
         )
     
+    # New Use Case Methods
+    def get_search_spells_use_case(self) -> SearchSpellsUseCase:
+        """Get search spells use case"""
+        return self.get_use_case_factory().create_search_spells_use_case()
+    
+    def get_search_monsters_use_case(self) -> SearchMonstersUseCase:
+        """Get search monsters use case"""
+        return self.get_use_case_factory().create_search_monsters_use_case()
+    
+    def get_search_documents_use_case(self) -> SearchDocumentsUseCase:
+        """Get search documents use case"""
+        return self.get_use_case_factory().create_search_documents_use_case()
+    
+    def get_get_document_use_case(self) -> GetDocumentUseCase:
+        """Get single document use case"""
+        return self.get_use_case_factory().create_get_document_use_case()
+    
+    def get_filter_options_use_case(self) -> GetFilterOptionsUseCase:
+        """Get filter options use case"""
+        return self.get_use_case_factory().create_get_filter_options_use_case()
+    
+    # Equipment use cases
+    def get_search_equipment_use_case(self) -> SearchEquipmentUseCase:
+        """Get search equipment use case"""
+        return self.get_use_case_factory().create_search_equipment_use_case()
+    
+    # Background and feat use cases
+    def get_search_backgrounds_use_case(self) -> SearchBackgroundsUseCase:
+        """Get search backgrounds use case"""
+        return self.get_use_case_factory().create_search_backgrounds_use_case()
+    
+    def get_search_feats_use_case(self) -> SearchFeatsUseCase:
+        """Get search feats use case"""
+        return self.get_use_case_factory().create_search_feats_use_case()
+    
+    # Advanced Use Cases (if available)
+    def get_advanced_navigation_use_case(self):
+        """Get advanced navigation use case"""
+        try:
+            return self.get_use_case_factory().create_advanced_navigation_use_case()
+        except ValueError as e:
+            logger.warning(f"Advanced navigation use case not available: {e}")
+            return None
+    
+    def get_content_discovery_use_case(self):
+        """Get content discovery use case"""
+        try:
+            return self.get_use_case_factory().create_content_discovery_use_case()
+        except ValueError as e:
+            logger.warning(f"Content discovery use case not available: {e}")
+            return None
+    
+    def get_search_suggestion_use_case(self):
+        """Get search suggestion use case"""
+        try:
+            return self.get_use_case_factory().create_search_suggestion_use_case()
+        except ValueError as e:
+            logger.warning(f"Search suggestion use case not available: {e}")
+            return None
+    
     async def close(self) -> None:
         """Clean up resources"""
-        if self._class_query_repository and hasattr(self._class_query_repository, 'close'):
-            logger.info("Closing class query repository connection")
-            await self._class_query_repository.close()
+        repositories = [
+            ("class_query_repository", self._class_query_repository),
+            ("spell_query_repository", self._spell_query_repository),
+            ("monster_query_repository", self._monster_query_repository),
+            ("document_query_repository", self._document_query_repository),
+            ("equipment_query_repository", self._equipment_query_repository),
+            ("background_query_repository", self._background_query_repository),
+            ("feat_query_repository", self._feat_query_repository)
+        ]
+        
+        for name, repo in repositories:
+            if repo and hasattr(repo, 'close'):
+                logger.info(f"Closing {name} connection")
+                await repo.close()
 
 
 # Global container instance
