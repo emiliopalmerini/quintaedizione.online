@@ -8,8 +8,8 @@
     {% for it in items %}
       {% set title = it.name or it.term or it.title or it.titolo or it.nome or '(senza titolo)' %}
       <li role="option">
-        <a href="/show/{{ collection }}/{{ it._id }}"
-           hx-get="/show/{{ collection }}/{{ it._id }}"
+        <a href="/{{ collection }}/{{ it._id }}"
+           hx-get="/{{ collection }}/{{ it._id }}"
            hx-target="#page-root" hx-select="#page-root" hx-swap="outerHTML" hx-push-url="true" hx-indicator="#page-loading"
            class="block px-3 py-2 hover:bg-neutral-50">
           <div class="truncate text-sm">{{ title }}</div>
