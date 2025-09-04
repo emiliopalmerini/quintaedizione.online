@@ -18,7 +18,7 @@
         <a href="/" class="btn">Home</a>
         {% if collection %}
           <span style="color: var(--notion-text-light);">/</span>
-          <a href="/list/{{ collection }}{% if qs %}?{{ qs }}{% endif %}" class="btn">{{ collection }}</a>
+          <a href="/{{ collection }}{% if qs %}?{{ qs }}{% endif %}" class="btn">{{ collection }}</a>
           <span class="breadcrumb-separator">/</span>
           <div class="search-container">
             <input id="bc-search" name="q" placeholder="{{ doc_slug or doc_title or ('Cerca in ' ~ collection ~ '…') }}" class="field" style="width: 240px; font-size: 13px; padding: 6px 10px;"
@@ -211,7 +211,7 @@
         if(input && document.activeElement === input){
           const first = document.querySelector('#bc-results a');
           if(first){ e.preventDefault(); window.location = first.getAttribute('href'); }
-          else if(input.value){ window.location = '/list/{{ collection or '' }}?q=' + encodeURIComponent(input.value); }
+          else if(input.value){ window.location = '/{{ collection or '' }}?q=' + encodeURIComponent(input.value); }
         }
       }
       if(e.key==='ArrowDown'){

@@ -7,7 +7,7 @@
 {% block content %}
   <section class="bg-white border p-2 mb-3">
     <form id="search-form"
-      hx-get="/view/{{ collection }}"
+      hx-get="/{{ collection }}/rows"
       hx-target="#rows"
       hx-trigger="submit, keyup delay:300ms from:#q, change from:select, change from:input[type=checkbox], change from:input[type=number]"
       hx-push-url="true"
@@ -237,15 +237,8 @@
   </section>
 
   <section class="bg-white border">
-    <div id="rows"
-         hx-get="/view/{{ collection }}?page={{ page or 1 }}"
-         hx-trigger="load"
-         hx-include="#search-form"
-         hx-push-url="true">
-      <div class="px-3 py-4 text-sm text-neutral-600 flex items-center gap-2">
-        <span class="spinner"></span>
-        <span>Caricamento risultati…</span>
-      </div>
+    <div id="rows">
+      {% include "_rows.html" %}
     </div>
   </section>
 {% endblock %}

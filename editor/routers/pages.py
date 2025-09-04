@@ -9,7 +9,7 @@ from pydantic import ValidationError as PydanticValidationError
 
 from core.config import COLLECTIONS, get_collection_label, is_valid_collection
 from core.database import health_check
-from services.content_service import get_content_service
+from services.content_service import ContentService
 from core.templates import env
 import logging
 
@@ -56,7 +56,7 @@ def handle_error(error: Exception, template: str = "error.html") -> HTMLResponse
 async def homepage(page: Optional[int] = Query(default=1, ge=1, le=1000)):
     """Homepage with collection overview."""
     try:
-        service = await get_content_service()
+        service = ContentService()
         
         # Get collection counts
         counts = await service.get_collection_counts()
@@ -100,7 +100,7 @@ async def debug_markdown():
         return handle_error(e)
 
 
-@router.get("/list/{collection}", response_class=HTMLResponse)
+@router.get("/{collection}", response_class=HTMLResponse)
 async def list_collection(
     collection: str,
     request: Request,
@@ -130,7 +130,7 @@ async def list_collection(
                 user_message=f"Collezione '{collection}' non trovata."
             )
         
-        service = await get_content_service()
+        service = ContentService()
         
         # Extract filters from query parameters
         filters = {}
@@ -149,10 +149,11 @@ async def list_collection(
         
         # Calculate pagination info
         total_pages = (total + page_size - 1) // page_size
+        start_item = (page - 1) * page_size + 1
+        end_item = min(page * page_size, total)
         
-        # Build query string for navigation
-        params = dict(request.query_params)
-        params.pop("page", None)  # Remove page from query string
+        # Build query string for navigation - only include non-empty parameters
+        params = {k: v for k, v in request.query_params.items() if k != "page" and v and v.strip()}
         query_string = urlencode(params) if params else ""
         
         template = env.get_template("list.html")
@@ -167,6 +168,8 @@ async def list_collection(
             total_pages=total_pages,
             has_prev=has_prev,
             has_next=has_next,
+            start_item=start_item,
+            end_item=end_item,
             qs=query_string,
             request=request
         )
@@ -179,81 +182,7 @@ async def list_collection(
         return handle_error(e)
 
 
-@router.get("/show/{collection}/{slug}", response_class=HTMLResponse)
-async def show_document(
-    collection: str,
-    slug: str,
-    request: Request
-):
-    """Show single document."""
-    try:
-        # Validate collection
-        if not is_valid_collection(collection):
-            raise AppError(
-                f"Collection '{collection}' not found",
-                status_code=404,
-                user_message=f"Collezione '{collection}' non trovata."
-            )
-        
-        service = await get_content_service()
-        
-        # Get document
-        doc = await service.get_document(collection, slug)
-        if not doc:
-            raise AppError(
-                f"Document '{slug}' not found in collection '{collection}'",
-                status_code=404,
-                user_message=f"Documento '{slug}' non trovato."
-            )
-        
-        # Get navigation context (prev/next)
-        filters = {}
-        for key, value in request.query_params.items():
-            if value:
-                filters[key] = value
-        
-        prev_slug, next_slug = await service.get_navigation_context(
-            collection, slug, filters
-        )
-        
-        # Render document content
-        body_html, body_raw = await service.render_document_content(doc)
-        
-        # Get document title
-        doc_title = (
-            doc.get("name") or 
-            doc.get("nome") or 
-            doc.get("title") or 
-            doc.get("titolo") or 
-            slug
-        )
-        
-        # Build query string for navigation
-        query_string = urlencode(request.query_params) if request.query_params else ""
-        
-        template = env.get_template("show.html")
-        content = template.render(
-            collection=collection,
-            collection_label=get_collection_label(collection),
-            doc_obj=doc,
-            doc_id=slug,
-            doc_title=doc_title,
-            body_html=body_html,
-            body_raw=body_raw,
-            prev_id=prev_slug,
-            next_id=next_slug,
-            qs=query_string
-        )
-        
-        return HTMLResponse(content)
-        
-    except AppError:
-        raise
-    except Exception as e:
-        return handle_error(e)
-
-
-@router.get("/view/{collection}", response_class=HTMLResponse)
+@router.get("/{collection}/rows", response_class=HTMLResponse)
 async def view_collection_htmx(
     collection: str,
     request: Request,
@@ -262,6 +191,12 @@ async def view_collection_htmx(
     page_size: int = Query(default=20, ge=5, le=100)
 ):
     """HTMX endpoint for dynamic collection loading."""
+    # Debug to file
+    try:
+        with open('/tmp/router_debug.log', 'a') as f:
+            f.write(f"ROUTER view_collection_htmx called for collection: {collection}\n")
+    except Exception:
+        pass
     try:
         # Validate collection
         if not is_valid_collection(collection):
@@ -271,7 +206,7 @@ async def view_collection_htmx(
                 user_message=f"Collezione '{collection}' non trovata."
             )
         
-        service = await get_content_service()
+        service = ContentService()
         
         # Extract filters
         filters = {}
@@ -287,15 +222,15 @@ async def view_collection_htmx(
             page=page,
             page_size=page_size
         )
+        print(f"ROUTER view_collection_htmx: Got {len(documents)} documents for {collection}")
         
         # Calculate pagination
         total_pages = (total + page_size - 1) // page_size
         start_item = (page - 1) * page_size + 1
         end_item = min(page * page_size, total)
         
-        # Build query string
-        params = dict(request.query_params)
-        params.pop("page", None)
+        # Build query string - only include non-empty parameters
+        params = {k: v for k, v in request.query_params.items() if k != "page" and v and v.strip()}
         query_string = urlencode(params) if params else ""
         
         template = env.get_template("_rows.html")
@@ -321,6 +256,85 @@ async def view_collection_htmx(
         return handle_error(e, "_error.html")
 
 
+@router.get("/{collection}/{document_id}", response_class=HTMLResponse)
+async def show_document(
+    collection: str,
+    document_id: str,
+    request: Request
+):
+    """Show single document."""
+    try:
+        # Validate collection
+        if not is_valid_collection(collection):
+            raise AppError(
+                f"Collection '{collection}' not found",
+                status_code=404,
+                user_message=f"Collezione '{collection}' non trovata."
+            )
+        
+        service = ContentService()
+        
+        # Extract user context for events
+        user_agent = request.headers.get("user-agent", "")
+        referrer = request.headers.get("referer", "")
+        
+        # Get document
+        doc = await service.get_document(collection, document_id)
+        if not doc:
+            raise AppError(
+                f"Document '{document_id}' not found in collection '{collection}'",
+                status_code=404,
+                user_message=f"Documento '{document_id}' non trovato."
+            )
+        
+        # Get navigation context (prev/next)
+        query = request.query_params.get("q")
+        filters = {}
+        for key, value in request.query_params.items():
+            if key not in ["q", "page", "page_size"] and value:
+                filters[key] = value
+        
+        # Get navigation context 
+        prev_slug, next_slug = await service.get_navigation_context(collection, document_id, query, filters)
+        
+        # Render document content
+        body_html, body_raw = await service.render_document_content(doc)
+        
+        # Get document title
+        doc_title = (
+            doc.get("name") or 
+            doc.get("nome") or 
+            doc.get("title") or 
+            doc.get("titolo") or 
+            document_id
+        )
+        
+        # Build query string for navigation - only include non-empty parameters
+        filtered_params = {k: v for k, v in request.query_params.items() if v and v.strip()}
+        query_string = urlencode(filtered_params) if filtered_params else ""
+        
+        template = env.get_template("show.html")
+        content = template.render(
+            collection=collection,
+            collection_label=get_collection_label(collection),
+            doc_obj=doc,
+            doc_id=document_id,
+            doc_title=doc_title,
+            body_html=body_html,
+            body_raw=body_raw,
+            prev_id=prev_slug,
+            next_id=next_slug,
+            qs=query_string
+        )
+        
+        return HTMLResponse(content)
+        
+    except AppError:
+        raise
+    except Exception as e:
+        return handle_error(e)
+
+
 @router.get("/api/filter-options/{collection}/{field}")
 async def get_filter_field_options(collection: str, field: str, request: Request):
     """API endpoint to get dropdown options for a specific field."""
@@ -329,8 +343,9 @@ async def get_filter_field_options(collection: str, field: str, request: Request
         if not is_valid_collection(collection):
             return HTMLResponse("<option value=''>Errore: collezione non trovata</option>")
         
-        service = await get_content_service()
-        values = await service.get_distinct_values(collection, field)
+        service = ContentService()
+        # TODO: get_distinct_values not implemented in old service
+        values = []
         
         # Get current selected value from request
         current_value = request.query_params.get(field, "")
@@ -353,6 +368,48 @@ async def get_filter_field_options(collection: str, field: str, request: Request
 async def test_endpoint():
     """Test endpoint to verify routing works."""
     return {"message": "Test endpoint working"}
+
+
+@router.get("/quicksearch/{collection}", response_class=HTMLResponse)
+async def quicksearch_collection(
+    collection: str,
+    q: Optional[str] = Query(default=None, max_length=200)
+):
+    """HTMX endpoint for quick search in collection."""
+    try:
+        # Validate collection
+        if not is_valid_collection(collection):
+            raise AppError(
+                f"Collection '{collection}' not found",
+                status_code=404,
+                user_message=f"Collezione '{collection}' non trovata."
+            )
+        
+        items = []
+        if q and q.strip():
+            service = ContentService()
+            # Get first 10 results for quick search
+            documents, _, _, _ = await service.list_documents(
+                collection=collection,
+                query=q.strip(),
+                page=1,
+                page_size=10
+            )
+            items = documents
+        
+        template = env.get_template("_quicksearch.html")
+        content = template.render(
+            collection=collection,
+            q=q,
+            items=items
+        )
+        
+        return HTMLResponse(content)
+        
+    except AppError:
+        raise
+    except Exception as e:
+        return handle_error(e, "_error.html")
 
 
 @router.get("/health")

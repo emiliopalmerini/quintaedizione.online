@@ -1,10 +1,10 @@
 <!-- _rows.html - HTMX template for collection rows -->
 <div class="divide-y">
   {% for doc in documents %}
-    {% set doc_name = doc.get('name') or doc.get('nome') or doc.get('title') or doc.get('titolo') or doc.get('slug') %}
-    {% set doc_slug = doc.get('slug') or doc.get('name') or doc.get('nome') %}
+    {% set doc_name = doc.nome or doc.get('nome') or doc.get('name') or doc.get('title') or doc.get('titolo') or doc.slug or doc.get('slug') %}
+    {% set doc_slug = doc.slug or doc.get('slug') or doc.get('id') or doc.nome or doc.get('nome') or doc.get('name') or doc._id|string %}
     
-    <a href="/show/{{ collection }}/{{ doc_slug }}{% if qs %}?{{ qs }}{% endif %}" 
+    <a href="/{{ collection }}/{{ doc_slug }}{% if qs %}?{{ qs }}{% endif %}" 
        class="block px-4 py-3 hover:bg-neutral-50 text-inherit no-underline">
       <div class="flex items-center justify-between">
         <div class="flex-1">
@@ -124,9 +124,8 @@
     
     <div class="flex items-center space-x-2">
       {% if has_prev %}
-        <button hx-get="/view/{{ collection }}?page={{ page - 1 }}{% if qs %}&{{ qs }}{% endif %}"
+        <button hx-get="/{{ collection }}/rows?page={{ page - 1 }}{% if qs %}&{{ qs }}{% endif %}"
                 hx-target="#rows"
-                hx-include="closest form"
                 class="px-3 py-1 bg-white border rounded hover:bg-neutral-50">
           ← Precedente
         </button>
@@ -135,9 +134,8 @@
       <span class="px-2">Pagina {{ page }} di {{ total_pages }}</span>
       
       {% if has_next %}
-        <button hx-get="/view/{{ collection }}?page={{ page + 1 }}{% if qs %}&{{ qs }}{% endif %}"
+        <button hx-get="/{{ collection }}/rows?page={{ page + 1 }}{% if qs %}&{{ qs }}{% endif %}"
                 hx-target="#rows"
-                hx-include="closest form"
                 class="px-3 py-1 bg-white border rounded hover:bg-neutral-50">
           Successiva →
         </button>
