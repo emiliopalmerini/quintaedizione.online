@@ -178,59 +178,13 @@ func CreateDefaultWork() []domain.WorkItem {
 	}
 }
 
-// Note: ParseDocument is implemented in documents.go
-
-func ParseClasses(lines []string) ([]map[string]interface{}, error) {
-	// TODO: Implement classes parser
-	return []map[string]interface{}{}, nil
-}
-
-func ParseBackgrounds(lines []string) ([]map[string]interface{}, error) {
-	// TODO: Implement backgrounds parser
-	return []map[string]interface{}{}, nil
-}
-
-func ParseWeapons(lines []string) ([]map[string]interface{}, error) {
-	// TODO: Implement weapons parser
-	return []map[string]interface{}{}, nil
-}
-
-func ParseArmor(lines []string) ([]map[string]interface{}, error) {
-	// TODO: Implement armor parser
-	return []map[string]interface{}{}, nil
-}
-
-func ParseTools(lines []string) ([]map[string]interface{}, error) {
-	// TODO: Implement tools parser
-	return []map[string]interface{}{}, nil
-}
-
-func ParseServices(lines []string) ([]map[string]interface{}, error) {
-	// TODO: Implement services parser
-	return []map[string]interface{}{}, nil
-}
-
-func ParseGear(lines []string) ([]map[string]interface{}, error) {
-	// TODO: Implement gear parser
-	return []map[string]interface{}{}, nil
-}
-
-func ParseMagicItems(lines []string) ([]map[string]interface{}, error) {
-	// TODO: Implement magic items parser
-	return []map[string]interface{}{}, nil
-}
-
-func ParseFeats(lines []string) ([]map[string]interface{}, error) {
-	// TODO: Implement feats parser
-	return []map[string]interface{}{}, nil
-}
-
-func ParseMonstersMonster(lines []string) ([]map[string]interface{}, error) {
-	// TODO: Implement monsters parser
-	return []map[string]interface{}{}, nil
-}
-
-func ParseMonstersAnimal(lines []string) ([]map[string]interface{}, error) {
-	// TODO: Implement animals parser
-	return []map[string]interface{}{}, nil
-}
+// Note: All parsers are implemented in their respective files:
+// - ParseDocument in documents.go
+// - ParseClasses in classes.go
+// - ParseBackgrounds in backgrounds.go
+// - ParseWeapons in weapons.go
+// - ParseArmor in armor.go
+// - ParseTools, ParseServices, ParseGear in equipment.go
+// - ParseMagicItems in magic_items.go
+// - ParseFeats in feats.go
+// - ParseMonstersMonster, ParseMonstersAnimal in monsters.go
