@@ -89,6 +89,16 @@ class ContentService:
             limit=page_size
         )
         
+        # Debug to file since Docker logs are not working
+        import json
+        try:
+            with open('/tmp/debug.log', 'a') as f:
+                f.write(f"ContentService.list_documents: collection={collection}, total={total}, found {len(documents)} documents\n")
+                if documents:
+                    f.write(f"First document: {json.dumps(documents[0], default=str)}\n")
+        except Exception as e:
+            pass
+        
         return documents, total, has_prev, has_next
     
     async def get_document(self, collection: str, slug: str) -> Optional[Dict[str, Any]]:
@@ -107,6 +117,7 @@ class ContentService:
         self, 
         collection: str, 
         current_slug: str,
+        query: Optional[str] = None,
         filters: Optional[Dict[str, str]] = None
     ) -> Tuple[Optional[str], Optional[str]]:
         """Get previous and next document slugs for navigation."""
@@ -114,9 +125,27 @@ class ContentService:
         
         # Build the same filter as used in listing
         mongo_filter = {}
+        
+        # Add text search
+        if query:
+            text_filter = build_text_search(query, [
+                "name", "nome", "title", "titolo", 
+                "description", "descrizione", "content"
+            ])
+            if text_filter:
+                mongo_filter.update(text_filter)
+        
+        # Add collection-specific filters
         if filters:
             collection_filter = build_collection_filters(collection, filters)
-            mongo_filter.update(collection_filter)
+            if collection_filter:
+                # Merge filters properly
+                if "$and" in mongo_filter and "$and" in collection_filter:
+                    mongo_filter["$and"].extend(collection_filter["$and"])
+                elif "$and" in collection_filter:
+                    mongo_filter["$and"] = collection_filter["$and"]
+                else:
+                    mongo_filter.update(collection_filter)
         
         # Get all documents with same filter/sort as list view
         sort_criteria = build_sort_criteria("alpha")

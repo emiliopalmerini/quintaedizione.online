@@ -19,6 +19,8 @@ COLLECTIONS: List[str] = [
     "equipaggiamento",
     "servizi",
     "mostri",
+    "talenti",
+    "specie",
 ]
 
 # Collection display labels (Italian only)
@@ -33,6 +35,8 @@ COLLECTION_LABELS: Dict[str, str] = {
     "equipaggiamento": "Equipaggiamento",
     "servizi": "Servizi",
     "mostri": "Mostri",
+    "talenti": "Talenti",
+    "specie": "Specie",
 }
 
 # Database collection mapping (Italian collections only)
@@ -47,6 +51,8 @@ DB_COLLECTIONS: Dict[str, str] = {
     "equipaggiamento": "equipaggiamento", 
     "servizi": "servizi",
     "mostri": "mostri",
+    "talenti": "talenti",
+    "specie": "specie",
 }
 
 
