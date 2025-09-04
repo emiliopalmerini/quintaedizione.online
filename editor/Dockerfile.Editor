@@ -6,11 +6,16 @@ ENV PYTHONPATH=/app \
     PYTHONUNBUFFERED=1
 
 WORKDIR /app
-COPY requirements.txt /app/requirements.txt
+
+# Copy requirements and install dependencies
+COPY editor/requirements.txt /app/requirements.txt
 RUN pip install --upgrade pip && pip install -r /app/requirements.txt
 
-# Copy the whole editor app (flattened structure)
-COPY . /app
+# Copy shared domain first
+COPY shared_domain /app/shared_domain
+
+# Copy editor application
+COPY editor /app
 
 ENV MONGO_URI=mongodb://mongo:27017 \
     DB_NAME=dnd
