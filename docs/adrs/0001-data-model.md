@@ -21,18 +21,6 @@ Dividiamo i dati nelle seguenti collection. Ogni entry ha `slug` e `contenuto` (
   "pagina": 1,
   "slug": "giocare",
   "titolo": "Giocare",
-  "paragrafi": [
-    {
-      "numero": 1,
-      "titolo": "Ritmo di gioco",
-      "corpo": {
-        "markdown": "…",
-        "sottoparagrafi": [
-          { "numero": 1, "titolo": "Le eccezioni superano le regole generali", "markdown": "…" }
-        ]
-      }
-    }
-  ],
   "contenuto": "# Giocare\n…"
 }
 ```
