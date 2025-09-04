@@ -31,7 +31,7 @@
           {{range $collection := slice "incantesimi" "mostri" "classi" "backgrounds" "equipaggiamento" "armi" "armature" "oggetti_magici" "talenti"}}
           <label class="checkbox-label">
             <input type="checkbox" name="collections" value="{{$collection}}" 
-                   {{if or (not $.collections) (contains $.collections $collection)}}checked{{end}}>
+                   {{if and $.collections (contains $.collections $collection)}}checked{{end}}>
             <span>{{capitalize $collection}}</span>
           </label>
           {{end}}

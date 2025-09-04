@@ -70,13 +70,6 @@ func (e *Engine) LoadTemplates() error {
 		return fmt.Errorf("failed to parse templates: %w", err)
 	}
 
-	// Parse admin templates
-	adminPattern := filepath.Join(e.templatesDir, "admin/*.html")
-	tmpl, err = tmpl.ParseGlob(adminPattern)
-	if err != nil {
-		// Admin templates are optional
-		fmt.Printf("Warning: Could not parse admin templates: %v\n", err)
-	}
 
 	e.templates = tmpl
 	return nil
@@ -84,23 +77,55 @@ func (e *Engine) LoadTemplates() error {
 
 // Render renders a template with the given data
 func (e *Engine) Render(templateName string, data interface{}) (string, error) {
-	if e.templates == nil {
-		return "", fmt.Errorf("templates not loaded")
-	}
-
 	var buf bytes.Buffer
 	
-	// For most templates, we want to use the base template and execute content blocks
-	if templateName != "base.html" {
-		// Execute the base template which will call the content blocks from the specific template
-		if err := e.templates.ExecuteTemplate(&buf, "base.html", data); err != nil {
-			return "", fmt.Errorf("failed to execute template %s: %w", templateName, err)
-		}
-	} else {
-		// For base template itself, execute directly
-		if err := e.templates.ExecuteTemplate(&buf, templateName, data); err != nil {
-			return "", fmt.Errorf("failed to execute template %s: %w", templateName, err)
-		}
+	// Create a new template set for this specific render to avoid block conflicts
+	tmpl := template.New("base").Funcs(template.FuncMap{
+		"add":        add,
+		"sub":        sub,
+		"mul":        mul,
+		"div":        div,
+		"mod":        mod,
+		"eq":         eq,
+		"ne":         ne,
+		"lt":         lt,
+		"le":         le,
+		"gt":         gt,
+		"ge":         ge,
+		"and":        and,
+		"or":         or,
+		"not":        not,
+		"len":        length,
+		"capitalize": capitalize,
+		"lower":      strings.ToLower,
+		"upper":      strings.ToUpper,
+		"trim":       strings.TrimSpace,
+		"replace":    strings.ReplaceAll,
+		"contains":   strings.Contains,
+		"hasPrefix":  strings.HasPrefix,
+		"hasSuffix":  strings.HasSuffix,
+		"slice":      slice,
+		"safe":       safe,
+		"default":    defaultValue,
+	})
+	
+	// Parse base template
+	basePattern := filepath.Join(e.templatesDir, "base.html")
+	tmpl, err := tmpl.ParseFiles(basePattern)
+	if err != nil {
+		return "", fmt.Errorf("failed to parse base template: %w", err)
+	}
+	
+	// Parse the specific template
+	specificPattern := filepath.Join(e.templatesDir, templateName)
+	tmpl, err = tmpl.ParseFiles(specificPattern)
+	if err != nil {
+		return "", fmt.Errorf("failed to parse template %s: %w", templateName, err)
+	}
+	
+	// Execute base template which will call the content blocks from the specific template
+	if err := tmpl.ExecuteTemplate(&buf, "base.html", data); err != nil {
+		return "", fmt.Errorf("failed to execute template %s: %w", templateName, err)
 	}
 
 	return buf.String(), nil

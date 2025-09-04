@@ -40,13 +40,6 @@ func (h *Handlers) RegisterRoutes(router *gin.Engine) {
 	router.GET("/search", h.handleSearch)
 	router.POST("/search", h.handleSearchPost)
 	
-	// Admin routes
-	admin := router.Group("/admin")
-	{
-		admin.GET("/", h.handleAdminHome)
-		admin.GET("/collections", h.handleAdminCollections)
-		admin.POST("/sync", h.handleAdminSync)
-	}
 }
 
 // handleHome renders the home page
@@ -335,44 +328,6 @@ func (h *Handlers) handleQuickSearch(c *gin.Context) {
 	h.renderTemplate(c, "quicksearch.html", data)
 }
 
-// Admin handlers
-func (h *Handlers) handleAdminHome(c *gin.Context) {
-	stats, err := h.contentService.GetStats(c.Request.Context())
-	if err != nil {
-		h.renderError(c, "Errore nel caricamento delle statistiche", http.StatusInternalServerError)
-		return
-	}
-	
-	data := gin.H{
-		"title": "Amministrazione",
-		"stats": stats,
-	}
-	
-	h.renderTemplate(c, "admin/home.html", data)
-}
-
-func (h *Handlers) handleAdminCollections(c *gin.Context) {
-	collections, err := h.contentService.GetCollectionStats(c.Request.Context())
-	if err != nil {
-		h.renderError(c, "Errore nel caricamento delle collezioni", http.StatusInternalServerError)
-		return
-	}
-	
-	data := gin.H{
-		"title":       "Collezioni",
-		"collections": collections,
-	}
-	
-	h.renderTemplate(c, "admin/collections.html", data)
-}
-
-func (h *Handlers) handleAdminSync(c *gin.Context) {
-	// TODO: Implement sync functionality
-	c.JSON(http.StatusOK, gin.H{
-		"status":  "success",
-		"message": "Sincronizzazione completata",
-	})
-}
 
 // Helper methods
 func (h *Handlers) renderTemplate(c *gin.Context, template string, data gin.H) {
