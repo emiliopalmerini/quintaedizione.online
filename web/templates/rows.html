@@ -1,8 +1,8 @@
 {{define "rows"}}
 <div class="divide-y">
   {{range .documents}}
-    {{$doc_name := or .nome .name .title .titolo .slug}}
-    {{$doc_slug := or .slug .id .nome .name ._id}}
+    {{$doc_name := .nome}}{{if eq $doc_name ""}}{{$doc_name = .name}}{{end}}{{if eq $doc_name ""}}{{$doc_name = .title}}{{end}}{{if eq $doc_name ""}}{{$doc_name = .titolo}}{{end}}{{if eq $doc_name ""}}{{$doc_name = .slug}}{{end}}
+    {{$doc_slug := .slug}}{{if eq $doc_slug ""}}{{$doc_slug = .id}}{{end}}{{if eq $doc_slug ""}}{{$doc_slug = .nome}}{{end}}{{if eq $doc_slug ""}}{{$doc_slug = .name}}{{end}}{{if eq $doc_slug ""}}{{$doc_slug = ._id}}{{end}}
     
     <a href="/{{$.collection}}/{{$doc_slug}}{{if $.qs}}?{{$.qs}}{{end}}" 
        class="block px-4 py-3 hover:bg-neutral-50 text-inherit no-underline"
@@ -20,48 +20,74 @@
           
           <div class="text-xs text-neutral-500 mt-1 flex flex-wrap items-center gap-2">
             {{/* Incantesimi - Level + School */}}
-            {{if or .level .livello}}
-              <span>Livello {{or .level .livello}}</span>
+            {{if .level}}
+              <span>Livello {{.level}}</span>
+            {{else if .livello}}
+              <span>Livello {{.livello}}</span>
             {{end}}
-            {{if or .school .scuola}}
-              <span>{{or .school .scuola}}</span>
+            {{if .school}}
+              <span>{{.school}}</span>
+            {{else if .scuola}}
+              <span>{{.scuola}}</span>
             {{end}}
             
             {{/* Oggetti magici - Rarity + Type */}}
-            {{if or .rarity .rarita}}
-              <span>{{or .rarity .rarita}}</span>
+            {{if .rarity}}
+              <span>{{.rarity}}</span>
+            {{else if .rarita}}
+              <span>{{.rarita}}</span>
             {{end}}
-            {{if or .type .tipo}}
-              <span>{{or .type .tipo}}</span>
+            {{if .type}}
+              <span>{{.type}}</span>
+            {{else if .tipo}}
+              <span>{{.tipo}}</span>
             {{end}}
             
             {{/* Mostri - Size + Type + CR */}}
-            {{if or .size .taglia}}
-              <span>{{or .size .taglia}}</span>
+            {{if .size}}
+              <span>{{.size}}</span>
+            {{else if .taglia}}
+              <span>{{.taglia}}</span>
             {{end}}
-            {{if or .challenge_rating .cr .gs .grado_sfida}}
-              <span>GS {{or .challenge_rating .cr .gs .grado_sfida}}</span>
+            {{if .challenge_rating}}
+              <span>GS {{.challenge_rating}}</span>
+            {{else if .cr}}
+              <span>GS {{.cr}}</span>
+            {{else if .gs}}
+              <span>GS {{.gs}}</span>
+            {{else if .grado_sfida}}
+              <span>GS {{.grado_sfida}}</span>
             {{end}}
             
             {{/* Armi - Category + Damage */}}
-            {{if or .category .categoria}}
-              <span>{{or .category .categoria}}</span>
+            {{if .category}}
+              <span>{{.category}}</span>
+            {{else if .categoria}}
+              <span>{{.categoria}}</span>
             {{end}}
-            {{if or .damage .danno}}
-              <span>{{or .damage .danno}}</span>
+            {{if .damage}}
+              <span>{{.damage}}</span>
+            {{else if .danno}}
+              <span>{{.danno}}</span>
             {{end}}
             
             {{/* Armature - Category + AC */}}
-            {{if or .ac_base .ca_base}}
-              <span>CA {{or .ac_base .ca_base}}</span>
+            {{if .ac_base}}
+              <span>CA {{.ac_base}}</span>
+            {{else if .ca_base}}
+              <span>CA {{.ca_base}}</span>
             {{end}}
             
             {{/* Altri campi generici */}}
-            {{if or .cost .costo}}
-              <span>{{or .cost .costo}}</span>
+            {{if .cost}}
+              <span>{{.cost}}</span>
+            {{else if .costo}}
+              <span>{{.costo}}</span>
             {{end}}
-            {{if or .weight .peso}}
-              <span>{{or .weight .peso}}</span>
+            {{if .weight}}
+              <span>{{.weight}}</span>
+            {{else if .peso}}
+              <span>{{.peso}}</span>
             {{end}}
           </div>
         </div>
