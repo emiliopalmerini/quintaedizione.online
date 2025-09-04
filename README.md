@@ -1,12 +1,16 @@
 # 5e SRD Fast Viewer
 
-Visualizzatore veloce per i contenuti SRD di D&D 5e, pensato per cercare e visualizzare rapidamente i dati.
+Visualizzatore veloce per i contenuti SRD di D&D 5e, pensato per cercare e visualizzare rapidamente i dati in italiano e inglese.
 
-• Backend FastAPI + Motor (MongoDB)
-• Templating Jinja2 + HTMX (interazioni semplici e progressive)
-• UI Tailwind (CDN) con componenti custom leggeri
-• DB MongoDB con seed opzionale versionabile
-• Docker Compose per ambiente locale
+## Tecnologie utilizzate
+
+• **Backend**: FastAPI + Motor (MongoDB async)
+• **Frontend**: Jinja2 + HTMX (progressive enhancement)
+• **UI**: Tailwind CSS (CDN) con componenti custom
+• **Database**: MongoDB con autenticazione
+• **Deployment**: Docker Compose per sviluppo locale
+• **Parser**: Sistema modulare per ingest dati SRD
+• **Architettura**: Hexagonal Architecture con DDD
 
 ## Funzionalità principali
 - Ricerca con filtri specifici per collezione (incantesimi, oggetti magici, mostri, ...)
@@ -50,11 +54,15 @@ make lint            # esegue ruff/pyflakes se presenti
 make format          # esegue black se presente
 ```
 
-## Struttura del repo
-- `editor/`: applicazione FastAPI + template HTMX/Jinja2 (visualizzatore)
-- `srd_parser/`: parser/ingest dei dati SRD in MongoDB
-- `seed/`: dump e script per ripristino del DB in dev
-- `docs/adr/`: Architectural Decision Records
+## Struttura del progetto
+
+- `editor/`: Applicazione web FastAPI con template HTMX/Jinja2 (visualizzatore principale)
+- `srd_parser/`: Parser modulare con web UI per ingest dati SRD in MongoDB
+- `shared_domain/`: Entità di dominio condivise tra editor e parser
+- `data/`: Dati sorgente SRD in italiano (`ita/`) e inglese (`eng/`)
+- `seed/`: Dump database e script per backup/ripristino in sviluppo
+- `docs/adrs/`: Architectural Decision Records (decisioni architetturali)
+- File di configurazione root: `.env`, `docker-compose.yml`, `Makefile`
 
 ## Documentazione
 - Visualizzatore: `editor/README.md`
@@ -67,6 +75,29 @@ make format          # esegue black se presente
 - In `docker-compose.yml` Mongo viene avviato con utente root (`admin/password`).
 - Le app usano `MONGO_URI=mongodb://admin:password@mongo:27017/?authSource=admin` di default.
 - In sviluppo locale (senza Docker) imposta `MONGO_URI` coerente, ad esempio `mongodb://admin:password@localhost:27017/?authSource=admin`.
+
+## Testing
+
+### Test di integrazione
+```bash
+# Test integrazione base (richiede servizi attivi)
+python test_basic_integration.py
+
+# Test integrazione con curl
+./test_curl_integration.sh
+
+# Test domain model (unità)
+python test_domain_model.py
+```
+
+### Test specifici per componenti
+```bash
+# Editor tests
+cd editor && pytest
+
+# Parser tests  
+cd srd_parser && pytest
+```
 
 ## Sicurezza
 - Nessun dato sensibile: l'app gestisce solo contenuti SRD.

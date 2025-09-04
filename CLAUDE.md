@@ -69,16 +69,25 @@ python web.py  # or uvicorn web:app --reload --port 8100
 
 ### SRD Parser Application (`/srd_parser`)
 - **Framework**: FastAPI with web interface for parsing operations
+- **Architecture**: Hexagonal Architecture with Domain-Driven Design
 - **Parser Structure**:
+  - `domain/`: Domain entities, value objects, and services (DDD implementation)
   - `parsers/*.py`: Domain-specific parsers (spells, monsters, classes, etc.)
   - `work.py`: Configuration of collections and source files
   - `application/`: Service layer with ingest runner and service
-  - `adapters/`: MongoDB persistence adapter
-  - `web.py`: FastAPI web interface
+  - `adapters/`: MongoDB persistence adapter and external interfaces
+  - `web.py`: FastAPI web interface (primary)
+  - `web_hexagonal.py`: Alternative hexagonal architecture web interface
 - **Key Features**:
   - Dry-run mode for analysis without database writes
   - Upsert operations for data ingestion
+  - Rich domain model with proper validation
   - Class parser generates structured data (`features_by_level`, `spellcasting_progression`)
+
+### Shared Domain (`/shared_domain`)
+- **Purpose**: Domain entities and value objects shared between editor and parser
+- **Structure**: Common business logic and domain rules
+- **Benefits**: Consistency across applications, single source of truth for domain concepts
 
 ### Database Schema
 - **MongoDB Database**: `dnd` (configurable via `DB_NAME`)
@@ -94,9 +103,11 @@ python web.py  # or uvicorn web:app --reload --port 8100
 - Error Handling: Keep error messages generic in UI, detailed logs in backend
 
 ### Testing
-- Editor tests: Located in `editor/tests/`
-- Parser tests: Located in `srd_parser/tests/`
+- **Integration tests**: Located in root directory (`test_basic_integration.py`, `test_curl_integration.sh`, `test_domain_model.py`)
+- **Editor tests**: Located in `editor/tests/`
+- **Parser tests**: Located in `srd_parser/tests/`
 - Run with pytest (configure via `pytest.ini`)
+- Integration tests require running services (MongoDB, Editor, Parser)
 
 ### Deployment Considerations
 - Uses Docker Compose for local development
