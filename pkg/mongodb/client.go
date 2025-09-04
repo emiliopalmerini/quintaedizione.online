@@ -1,0 +1,112 @@
+package mongodb
+
+import (
+	"context"
+	"fmt"
+	"log"
+	"time"
+
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
+)
+
+// Client wraps MongoDB client with common configurations
+type Client struct {
+	client   *mongo.Client
+	database *mongo.Database
+	dbName   string
+}
+
+// Config represents MongoDB connection configuration
+type Config struct {
+	URI         string
+	Database    string
+	Timeout     time.Duration
+	MaxPoolSize uint64
+}
+
+// NewClient creates a new MongoDB client with the given configuration
+func NewClient(config Config) (*Client, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), config.Timeout)
+	defer cancel()
+
+	// Set client options
+	clientOptions := options.Client().ApplyURI(config.URI)
+	
+	if config.MaxPoolSize > 0 {
+		clientOptions.SetMaxPoolSize(config.MaxPoolSize)
+	}
+	
+	// Set other recommended options
+	clientOptions.SetServerSelectionTimeout(5 * time.Second)
+	clientOptions.SetConnectTimeout(10 * time.Second)
+
+	// Connect to MongoDB
+	client, err := mongo.Connect(ctx, clientOptions)
+	if err != nil {
+		return nil, fmt.Errorf("failed to connect to MongoDB: %w", err)
+	}
+
+	// Test the connection
+	if err := client.Ping(ctx, nil); err != nil {
+		return nil, fmt.Errorf("failed to ping MongoDB: %w", err)
+	}
+
+	database := client.Database(config.Database)
+	
+	log.Printf("Connected to MongoDB database: %s", config.Database)
+
+	return &Client{
+		client:   client,
+		database: database,
+		dbName:   config.Database,
+	}, nil
+}
+
+// GetDatabase returns the database instance
+func (c *Client) GetDatabase() *mongo.Database {
+	return c.database
+}
+
+// GetCollection returns a collection from the database
+func (c *Client) GetCollection(name string) *mongo.Collection {
+	return c.database.Collection(name)
+}
+
+// GetClient returns the underlying MongoDB client
+func (c *Client) GetClient() *mongo.Client {
+	return c.client
+}
+
+// DatabaseName returns the database name
+func (c *Client) DatabaseName() string {
+	return c.dbName
+}
+
+// Close closes the MongoDB connection
+func (c *Client) Close() error {
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+	
+	if err := c.client.Disconnect(ctx); err != nil {
+		return fmt.Errorf("failed to close MongoDB connection: %w", err)
+	}
+	
+	log.Println("MongoDB connection closed")
+	return nil
+}
+
+// Ping tests the MongoDB connection
+func (c *Client) Ping(ctx context.Context) error {
+	return c.client.Ping(ctx, nil)
+}
+
+// DefaultConfig returns a default MongoDB configuration
+func DefaultConfig() Config {
+	return Config{
+		URI:         "mongodb://localhost:27017",
+		Database:    "dnd",
+		Timeout:     10 * time.Second,
+		MaxPoolSize: 100,
+	}
+}

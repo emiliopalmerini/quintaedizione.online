@@ -29,6 +29,23 @@ services:
     ports: ["8100:8000"]
     restart: unless-stopped
 
+  # Go version of parser (alternative)
+  srd-parser-go:
+    profiles: [parser-go]
+    build:
+      context: .
+      dockerfile: Dockerfile.Parser.Go
+    container_name: dnd-srd-parser-go
+    depends_on: [mongo]
+    environment:
+      - MONGO_URI=mongodb://admin:password@mongo:27017/?authSource=admin
+      - DB_NAME=dnd
+      - PORT=8100
+    volumes:
+      - ./data:/data:ro
+    ports: ["8100:8100"]
+    restart: unless-stopped
+
   editor:
     build:
       context: .
@@ -38,6 +55,21 @@ services:
     environment:
       - MONGO_URI=mongodb://admin:password@mongo:27017/?authSource=admin
       - DB_NAME=dnd
+    ports: ["8000:8000"]
+    restart: unless-stopped
+
+  # Go version of editor (alternative)
+  editor-go:
+    profiles: [editor-go]
+    build:
+      context: .
+      dockerfile: Dockerfile.Editor.Go
+    container_name: dnd-editor-go
+    depends_on: [mongo]
+    environment:
+      - MONGO_URI=mongodb://admin:password@mongo:27017/?authSource=admin
+      - DB_NAME=dnd
+      - PORT=8000
     ports: ["8000:8000"]
     restart: unless-stopped
 

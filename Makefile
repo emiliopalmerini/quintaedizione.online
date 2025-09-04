@@ -3,13 +3,20 @@ SHELL := /bin/sh
 # Config
 PROJECT ?= dnd
 
-.PHONY: up down logs seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh editor-sh build build-editor build-parser env-init lint format help
+.PHONY: up down up-go down-go logs seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh editor-sh build build-editor build-parser build-go env-init lint format help
 
 up:
 	docker compose up -d mongo editor srd-parser
 
+# Go services
+up-go:
+	docker compose --profile editor-go --profile parser-go up -d mongo editor-go srd-parser-go
+
 down:
 	docker compose down
+
+down-go:
+	docker compose --profile editor-go --profile parser-go down
 
 logs:
 	docker compose logs -f editor srd-parser mongo
@@ -49,6 +56,9 @@ editor-sh:
 build:
 	docker compose build editor srd-parser
 
+build-go:
+	docker compose --profile editor-go --profile parser-go build editor-go srd-parser-go
+
 build-editor:
 	docker compose build editor
 
@@ -82,8 +92,10 @@ help:
 	@echo "D&D 5e SRD - Available Commands:"
 	@echo ""
 	@echo "Docker Services:"
-	@echo "  make up                    # Start MongoDB + Editor + SRD Parser"
-	@echo "  make down                  # Stop all services"
+	@echo "  make up                    # Start MongoDB + Editor + SRD Parser (Python)"
+	@echo "  make up-go                 # Start MongoDB + Editor + SRD Parser (Go)"
+	@echo "  make down                  # Stop Python services"
+	@echo "  make down-go               # Stop Go services"
 	@echo "  make logs                  # View logs from all services"
 	@echo ""
 	@echo "Database Management:"
@@ -97,9 +109,10 @@ help:
 	@echo "  make editor-sh             # Access Editor container shell"
 	@echo ""
 	@echo "Build Images:"
-	@echo "  make build                 # Build both editor and parser images"
-	@echo "  make build-editor          # Build only editor image"
-	@echo "  make build-parser          # Build only parser image"
+	@echo "  make build                 # Build Python editor and parser images"
+	@echo "  make build-go              # Build Go editor and parser images"
+	@echo "  make build-editor          # Build only Python editor image"
+	@echo "  make build-parser          # Build only Python parser image"
 	@echo ""
 	@echo "Development:"
 	@echo "  make env-init              # Initialize .env from .env.example"
