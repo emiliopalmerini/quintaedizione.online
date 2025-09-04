@@ -31,8 +31,8 @@ services:
 
   editor:
     build:
-      context: ./editor
-      dockerfile: Dockerfile.Editor
+      context: .
+      dockerfile: editor/Dockerfile.Editor
     container_name: dnd-editor
     depends_on: [mongo]
     environment:

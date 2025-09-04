@@ -9,8 +9,9 @@ pydantic>=2.4.0,<3.0
 
 # Caching and optimization
 redis>=5.0.0,<6.0
-# psutil is optional and used only for performance checks in health endpoints.
-# To enable those metrics locally, install it separately: `pip install psutil`
+
+# Performance monitoring (optional - will fallback to basic metrics if not available)  
+# psutil>=5.9.0,<6.0
 
 # Connection pooling and monitoring
 pymongo>=4.5.0,<5.0
