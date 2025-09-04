@@ -4,7 +4,9 @@ import (
 	"context"
 	"fmt"
 	"strings"
+	"time"
 
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/mongodb"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -13,12 +15,14 @@ import (
 // ContentService provides business logic for content operations
 type ContentService struct {
 	mongoClient *mongodb.Client
+	cache       *infrastructure.SimpleCache
 }
 
 // NewContentService creates a new ContentService instance
 func NewContentService(mongoClient *mongodb.Client) *ContentService {
 	return &ContentService{
 		mongoClient: mongoClient,
+		cache:       infrastructure.GetGlobalCache(),
 	}
 }
 
@@ -70,12 +74,23 @@ func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (
 		return nil, fmt.Errorf("invalid collection: %s", collection)
 	}
 	
+	// Try cache first
+	cacheKey := fmt.Sprintf("item:%s:%s", collection, slug)
+	if cached, found := s.cache.Get(cacheKey); found {
+		if item, ok := cached.(map[string]interface{}); ok {
+			return item, nil
+		}
+	}
+	
 	filter := bson.M{"slug": slug}
 	
 	item, err := s.mongoClient.FindOne(ctx, collection, filter)
 	if err != nil {
 		return nil, fmt.Errorf("failed to find item: %w", err)
 	}
+	
+	// Cache the item for 10 minutes
+	s.cache.Set(cacheKey, item, 10*time.Minute)
 	
 	return item, nil
 }

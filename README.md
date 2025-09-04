@@ -1,16 +1,20 @@
 # 5e SRD Fast Viewer
 
-Visualizzatore veloce per i contenuti SRD di D&D 5e, pensato per cercare e visualizzare rapidamente i dati in italiano e inglese.
+Visualizzatore veloce per i contenuti SRD di D&D 5e, pensato per cercare e visualizzare rapidamente i dati in italiano.
+
+**🚀 Migrato a Go per migliori performance e mantenibilità!**
 
 ## Tecnologie utilizzate
 
-• **Backend**: FastAPI + Motor (MongoDB async)
-• **Frontend**: Jinja2 + HTMX (progressive enhancement)
+• **Backend**: Go + Gin + mongo-go-driver
+• **Frontend**: Go templates + HTMX (progressive enhancement)  
 • **UI**: Tailwind CSS (CDN) con componenti custom
 • **Database**: MongoDB con autenticazione
 • **Deployment**: Docker Compose per sviluppo locale
-• **Parser**: Sistema modulare per ingest dati SRD
+• **Parser**: Sistema modulare Go per ingest dati SRD italiani
 • **Architettura**: Hexagonal Architecture con DDD
+• **Performance**: Monitoring integrato, caching, metriche
+• **Legacy**: Versioni Python disponibili per compatibilità
 
 ## Funzionalità principali
 - Ricerca con filtri specifici per collezione (incantesimi, oggetti magici, mostri, ...)
@@ -22,24 +26,61 @@ Visualizzatore veloce per i contenuti SRD di D&D 5e, pensato per cercare e visua
 Requisiti: Docker, Docker Compose.
 
 - (Opzionale) Inizializza variabili da `.env.example`
-```
+```bash
 make env-init
 ```
-- Avvia Mongo + Editor
-```
-make up
-```
-- (Opzionale) Ripristina seed se presente
-```
-make seed-restore
-```
-- Apri il visualizzatore: http://localhost:8000/
 
-Parser SRD via Web UI:
+- Avvia i servizi Go (raccomandato)
+```bash
+make up                    # MongoDB + Editor + Parser (Go)
 ```
-# Avvia il servizio del parser web (se non usi make up)
-docker compose up -d srd-parser
-# Apri la web app del parser
+
+- Oppure usa le versioni Python legacy
+```bash
+make up-python             # MongoDB + Editor + Parser (Python)
+```
+
+- (Opzionale) Ripristina seed se presente
+```bash
+make seed-restore FILE=backup_file.archive.gz
+```
+
+- Apri il visualizzatore: http://localhost:8000/
+- Parser SRD: http://localhost:8100/
+
+## Vantaggi della migrazione Go
+
+### Performance
+- **~3-5x** più veloce del equivalente Python
+- **Memoria ridotta** grazie alla gestione nativa
+- **Concorrenza** migliore con goroutine native
+- **Caching integrato** con TTL per contenuti frequenti
+
+### Monitoraggio
+- Metriche di performance in tempo reale (`/health`)
+- Tracking delle richieste e tempi di risposta
+- Monitoraggio dell'uso memoria e goroutine
+- Cache hit rate e statistiche
+
+### Affidabilità  
+- **Graceful shutdown** con timeout configurabile
+- **Type safety** a compile time
+- **Gestione errori** esplicita e robusta
+- **Deploy semplificato** con binari statici
+
+## Testing e qualità
+
+```bash
+# Test Go
+make test-go               # Unit test
+make test-integration      # Test di integrazione completi
+make benchmark             # Performance benchmarks
+make lint-go               # Code quality
+
+# Test Python (legacy)
+make test                  # Test integrazione Python
+make lint                  # Lint Python
+```
 open http://localhost:8100
 ```
 

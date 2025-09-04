@@ -12,55 +12,8 @@ services:
       - mongo_data:/data/db
       - ./seed:/seed
 
-  srd-parser:
-    profiles: [parser]
-    build:
-      context: ./srd_parser
-      dockerfile: Dockerfile.Parser
-    container_name: dnd-srd-parser
-    depends_on: [mongo]
-    environment:
-      - MONGO_URI=mongodb://admin:password@mongo:27017/?authSource=admin
-      - DB_NAME=dnd
-      - INPUT_DIR=/data
-      - SOURCE_LABEL=srd 5.2.1
-    volumes:
-      - ./data:/data:ro
-    ports: ["8100:8000"]
-    restart: unless-stopped
-
-  # Go version of parser (alternative)
-  srd-parser-go:
-    profiles: [parser-go]
-    build:
-      context: .
-      dockerfile: Dockerfile.Parser.Go
-    container_name: dnd-srd-parser-go
-    depends_on: [mongo]
-    environment:
-      - MONGO_URI=mongodb://admin:password@mongo:27017/?authSource=admin
-      - DB_NAME=dnd
-      - PORT=8100
-    volumes:
-      - ./data:/data:ro
-    ports: ["8100:8100"]
-    restart: unless-stopped
-
+  # Go Editor (default)
   editor:
-    build:
-      context: .
-      dockerfile: editor/Dockerfile.Editor
-    container_name: dnd-editor
-    depends_on: [mongo]
-    environment:
-      - MONGO_URI=mongodb://admin:password@mongo:27017/?authSource=admin
-      - DB_NAME=dnd
-    ports: ["8000:8000"]
-    restart: unless-stopped
-
-  # Go version of editor (alternative)
-  editor-go:
-    profiles: [editor-go]
     build:
       context: .
       dockerfile: Dockerfile.Editor.Go
@@ -70,7 +23,57 @@ services:
       - MONGO_URI=mongodb://admin:password@mongo:27017/?authSource=admin
       - DB_NAME=dnd
       - PORT=8000
+      - ENVIRONMENT=production
     ports: ["8000:8000"]
+    restart: unless-stopped
+
+  # Go Parser (default)
+  parser:
+    build:
+      context: .
+      dockerfile: Dockerfile.Parser.Go
+    container_name: dnd-parser-go
+    depends_on: [mongo]
+    environment:
+      - MONGO_URI=mongodb://admin:password@mongo:27017/?authSource=admin
+      - DB_NAME=dnd
+      - PORT=8100
+      - ENVIRONMENT=production
+    volumes:
+      - ./data:/data:ro
+    ports: ["8100:8100"]
+    restart: unless-stopped
+
+  # Python Editor (legacy alternative)
+  editor-python:
+    profiles: [python]
+    build:
+      context: .
+      dockerfile: editor/Dockerfile.Editor
+    container_name: dnd-editor-python
+    depends_on: [mongo]
+    environment:
+      - MONGO_URI=mongodb://admin:password@mongo:27017/?authSource=admin
+      - DB_NAME=dnd
+    ports: ["8000:8000"]
+    restart: unless-stopped
+
+  # Python Parser (legacy alternative)
+  parser-python:
+    profiles: [python]
+    build:
+      context: ./srd_parser
+      dockerfile: Dockerfile.Parser
+    container_name: dnd-parser-python
+    depends_on: [mongo]
+    environment:
+      - MONGO_URI=mongodb://admin:password@mongo:27017/?authSource=admin
+      - DB_NAME=dnd
+      - INPUT_DIR=/data
+      - SOURCE_LABEL=srd 5.2.1
+    volumes:
+      - ./data:/data:ro
+    ports: ["8100:8000"]
     restart: unless-stopped
 
 volumes:

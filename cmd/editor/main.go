@@ -21,9 +21,10 @@ func main() {
 	// Load configuration
 	config := infrastructure.LoadConfig()
 
-	// Setup logging
+	// Setup logging and optimizations
 	if config.IsProduction() {
 		gin.SetMode(gin.ReleaseMode)
+		infrastructure.OptimizeForProduction()
 	}
 
 	// Initialize MongoDB client
@@ -69,17 +70,30 @@ func main() {
 	router.Use(gin.Recovery())
 	router.Use(gin.Logger())
 	router.Use(corsMiddleware())
+	router.Use(infrastructure.PerformanceMiddleware())
 
 	// Static files
 	router.Static("/static", "./web/static")
 
-	// Health check endpoint
+	// Health check endpoint with performance metrics
 	router.GET("/health", func(c *gin.Context) {
+		metrics := infrastructure.GetGlobalMetricsCollector().GetMetrics()
+		cacheStats := infrastructure.GetGlobalCache().GetStats()
+		
 		c.JSON(http.StatusOK, gin.H{
 			"status":       "healthy",
 			"version":      "3.0.0-go",
 			"architecture": "hexagonal",
 			"database":     mongoClient.DatabaseName(),
+			"performance": gin.H{
+				"request_count":     metrics.RequestCount,
+				"average_response":  metrics.AverageResponse.String(),
+				"memory_usage_mb":   metrics.MemoryUsage / 1024 / 1024,
+				"goroutine_count":   metrics.GoroutineCount,
+				"active_connections": metrics.ActiveConns,
+				"cache_hit_rate":    metrics.CacheHitRate,
+				"cache_items":       cacheStats["item_count"],
+			},
 		})
 	})
 
@@ -91,6 +105,11 @@ func main() {
 		Addr:    config.GetAddress(),
 		Handler: router,
 	}
+
+	// Start performance monitoring
+	monitorCtx, monitorCancel := context.WithCancel(context.Background())
+	defer monitorCancel()
+	infrastructure.StartPerformanceMonitoring(monitorCtx)
 
 	// Start server in goroutine
 	go func() {
@@ -107,10 +126,10 @@ func main() {
 	log.Println("🛑 Shutting down D&D 5e SRD Editor...")
 
 	// Graceful shutdown with timeout
-	ctx, cancel = context.WithTimeout(context.Background(), 30*time.Second)
-	defer cancel()
+	shutdownCtx, shutdownCancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer shutdownCancel()
 
-	if err := srv.Shutdown(ctx); err != nil {
+	if err := srv.Shutdown(shutdownCtx); err != nil {
 		log.Fatalf("Server forced to shutdown: %v", err)
 	}
 

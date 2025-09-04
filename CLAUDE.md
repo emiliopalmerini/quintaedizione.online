@@ -5,19 +5,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Overview
 
 This is a D&D 5e SRD (System Reference Document) viewer and parser system with two main components:
-- **Editor**: FastAPI web application with HTMX for viewing SRD content
-- **SRD Parser**: Web-based parser for ingesting SRD content into MongoDB
+- **Editor**: Go web application with Gin and HTMX for viewing SRD content
+- **SRD Parser**: Go web-based parser for ingesting SRD content into MongoDB
 
-The application uses Italian for UI text and documentation but code is in English.
+The system has been migrated from Python to Go for better performance and maintainability. The application uses Italian for UI text and documentation but code is in English.
+
+**Note**: Python versions are still available as legacy components but Go versions are now the default.
 
 ## Development Commands
 
 ### Docker Setup (Primary Development Method)
 ```bash
-make up                    # Start MongoDB + Editor + SRD Parser
+make up                    # Start MongoDB + Editor + Parser (Go)
+make up-python             # Start MongoDB + Editor + Parser (Python legacy)
 make down                  # Stop all services
-make logs                  # View logs from all services
-make build                 # Build both editor and parser images
+make logs                  # View Go service logs
+make build                 # Build Go images
+make build-python          # Build Python images (legacy)
 make build-editor          # Build only editor image
 make build-parser          # Build only parser image
 ```
@@ -30,14 +34,39 @@ make seed-dump-dir         # Dump to directory format
 make seed-restore-dir      # Restore from directory format
 ```
 
-### Code Quality
+### Code Quality & Testing
 ```bash
+# Go (primary)
+make lint-go               # Lint Go code with go vet and golangci-lint
+make test-go               # Run Go unit tests
+make test-integration      # Run integration tests with Go services
+make benchmark             # Run performance benchmarks
+
+# Python (legacy)
 make lint                  # Run ruff (preferred) or pyflakes
 make format                # Run black formatter
+make test                  # Run Python integration tests
 ```
 
 ### Local Development (without Docker)
-**Editor:**
+
+**Go Editor:**
+```bash
+export MONGO_URI="mongodb://admin:password@localhost:27017/?authSource=admin"
+export DB_NAME="dnd"
+export PORT="8000"
+go run cmd/editor/main.go
+```
+
+**Go Parser:**
+```bash
+export MONGO_URI="mongodb://admin:password@localhost:27017/?authSource=admin"
+export DB_NAME="dnd"
+export PORT="8100"
+go run cmd/parser/main.go
+```
+
+**Python Editor (legacy):**
 ```bash
 cd editor
 pip install -r requirements.txt
@@ -46,7 +75,7 @@ export DB_NAME="dnd"
 uvicorn main:app --reload --port 8000
 ```
 
-**SRD Parser:**
+**Python SRD Parser (legacy):**
 ```bash
 cd srd_parser
 pip install -r requirements.txt
@@ -56,33 +85,40 @@ python web.py  # or uvicorn web:app --reload --port 8100
 
 ## Architecture
 
-### Editor Application (`/editor`)
-- **Framework**: FastAPI + Jinja2 templates + HTMX for progressive enhancement
-- **Database**: MongoDB via Motor (async driver)
-- **Styling**: Tailwind CSS (CDN) + custom CSS
+### Go Editor Application (`/cmd/editor`, `/internal`, `/web`)
+- **Framework**: Gin + Go templates + HTMX for progressive enhancement
+- **Database**: MongoDB via mongo-go-driver
+- **Styling**: Tailwind CSS (CDN) + custom CSS (preserved from Python version)
+- **Performance**: Built-in metrics collection, caching, and monitoring
 - **Structure**:
-  - `main.py`: FastAPI app setup
-  - `routers/pages.py`: Main routes and view logic
-  - `core/`: Database connections, template environment, utilities
-  - `templates/`: Jinja2 templates with HTMX integration
-  - `services/`: Business logic services
+  - `cmd/editor/main.go`: Application entry point with graceful shutdown
+  - `internal/adapters/web/`: HTTP handlers and routing
+  - `internal/application/services/`: Business logic services with caching
+  - `internal/infrastructure/`: Configuration, performance monitoring, caching
+  - `pkg/mongodb/`: MongoDB client wrapper with common operations
+  - `pkg/templates/`: Template engine with helper functions
+  - `web/templates/`: Go templates with HTMX integration (converted from Jinja2)
+  - `web/static/`: CSS and static assets
 
-### SRD Parser Application (`/srd_parser`)
-- **Framework**: FastAPI with web interface for parsing operations
-- **Architecture**: Hexagonal Architecture with Domain-Driven Design
+### Go SRD Parser Application (`/cmd/parser`, `/internal/application/parsers`)
+- **Framework**: Gin with web interface for parsing operations
+- **Architecture**: Hexagonal Architecture with Domain-Driven Design (preserved)
 - **Parser Structure**:
-  - `domain/`: Domain entities, value objects, and services (DDD implementation)
-  - `parsers/*.py`: Domain-specific parsers (spells, monsters, classes, etc.)
-  - `work.py`: Configuration of collections and source files
-  - `application/`: Service layer with ingest runner and service
-  - `adapters/`: MongoDB persistence adapter and external interfaces
-  - `web.py`: FastAPI web interface (primary)
-  - `web_hexagonal.py`: Alternative hexagonal architecture web interface
+  - `internal/domain/`: Domain entities and value objects
+  - `internal/application/parsers/*.go`: Italian-only parsers (spells, monsters, classes, etc.)
+  - `internal/application/parsers/work.go`: Configuration of collections and source files
+  - `internal/application/services/`: Service layer with ingest operations
+  - `internal/adapters/mongodb/`: MongoDB persistence adapter
 - **Key Features**:
-  - Dry-run mode for analysis without database writes
+  - Italian-only content parsing (as requested)
   - Upsert operations for data ingestion
-  - Rich domain model with proper validation
-  - Class parser generates structured data (`features_by_level`, `spellcasting_progression`)
+  - Hexagonal architecture with proper separation of concerns
+  - All original parser functionality preserved
+
+### Legacy Python Applications (available via `make up-python`)
+- **Editor** (`/editor`): Original FastAPI + Jinja2 implementation
+- **Parser** (`/srd_parser`): Original FastAPI parser implementation
+- **Note**: Maintained for reference but Go versions are recommended
 
 ### Shared Domain (`/shared_domain`)
 - **Purpose**: Domain entities and value objects shared between editor and parser

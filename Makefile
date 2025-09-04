@@ -3,23 +3,27 @@ SHELL := /bin/sh
 # Config
 PROJECT ?= dnd
 
-.PHONY: up down up-go down-go logs seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh editor-sh build build-editor build-parser build-go env-init lint format help
+.PHONY: up down up-python logs logs-go seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh editor-sh build build-editor build-parser build-python env-init lint lint-go format test test-go test-integration benchmark help
 
+# Go services (default)
 up:
-	docker compose up -d mongo editor srd-parser
+	docker compose up -d mongo editor parser
 
-# Go services
-up-go:
-	docker compose --profile editor-go --profile parser-go up -d mongo editor-go srd-parser-go
+# Python services (legacy)
+up-python:
+	docker compose --profile python up -d mongo editor-python parser-python
 
 down:
 	docker compose down
 
-down-go:
-	docker compose --profile editor-go --profile parser-go down
-
 logs:
-	docker compose logs -f editor srd-parser mongo
+	docker compose logs -f editor parser mongo
+
+logs-go:
+	docker compose logs -f editor parser mongo
+
+logs-python:
+	docker compose --profile python logs -f editor-python parser-python mongo
 
 # Seed helpers (run inside the mongo container)
 seed-dump:
@@ -54,23 +58,43 @@ editor-sh:
 
 # Build images
 build:
-	docker compose build editor srd-parser
+	docker compose build editor parser
 
-build-go:
-	docker compose --profile editor-go --profile parser-go build editor-go srd-parser-go
+build-python:
+	docker compose --profile python build editor-python parser-python
 
 build-editor:
 	docker compose build editor
 
 build-parser:
-	docker compose build srd-parser
+	docker compose build parser
 
 # Initialize .env from example (no overwrite)
 env-init:
 	@test -f .env || cp .env.example .env || true
 	@echo "Loaded .env (or created from .env.example)."
 
-# Lint/format helpers (optional: ruff/black if installed; fallback: pyflakes)
+# Go tools
+lint-go:
+	go vet ./...
+	@if command -v golangci-lint >/dev/null 2>&1; then \
+		golangci-lint run; \
+	else \
+		go fmt ./...; \
+	fi
+
+test-go:
+	go test ./...
+
+test-integration:
+	@echo "Running Go integration tests..."
+	./test_go_integration.sh
+
+benchmark:
+	@echo "Running Go performance benchmarks..."
+	go test -bench=. -benchmem ./tests/benchmarks
+
+# Python tools (legacy)
 lint:
 	@if command -v ruff >/dev/null 2>&1; then \
 		ruff check editor srd_parser; \
@@ -87,16 +111,33 @@ format:
 		echo "Black not found; install black to format"; \
 	fi
 
+test:
+	python test_basic_integration.py
+
 # Show available commands
 help:
 	@echo "D&D 5e SRD - Available Commands:"
 	@echo ""
-	@echo "Docker Services:"
-	@echo "  make up                    # Start MongoDB + Editor + SRD Parser (Python)"
-	@echo "  make up-go                 # Start MongoDB + Editor + SRD Parser (Go)"
-	@echo "  make down                  # Stop Python services"
-	@echo "  make down-go               # Stop Go services"
-	@echo "  make logs                  # View logs from all services"
+	@echo "Docker Services (Go by default):"
+	@echo "  make up                    # Start MongoDB + Editor + Parser (Go)"
+	@echo "  make up-python             # Start MongoDB + Editor + Parser (Python legacy)"
+	@echo "  make down                  # Stop all services"
+	@echo "  make logs                  # View Go service logs"
+	@echo "  make logs-python           # View Python service logs"
+	@echo ""
+	@echo "Build Commands:"
+	@echo "  make build                 # Build Go images"
+	@echo "  make build-python          # Build Python images (legacy)"
+	@echo "  make build-editor          # Build only editor image"
+	@echo "  make build-parser          # Build only parser image"
+	@echo ""
+	@echo "Development Commands:"
+	@echo "  make lint-go               # Lint Go code"
+	@echo "  make test-go               # Run Go unit tests"
+	@echo "  make test-integration      # Run integration tests"
+	@echo "  make benchmark             # Run performance benchmarks"
+	@echo "  make lint                  # Lint Python code (legacy)"
+	@echo "  make test                  # Run Python tests (legacy)"
 	@echo ""
 	@echo "Database Management:"
 	@echo "  make seed-dump             # Create timestamped database backup"
