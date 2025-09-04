@@ -7,6 +7,9 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/handlers"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/mongodb"
 )
 
@@ -45,13 +48,14 @@ func main() {
 		c.String(200, "ok")
 	})
 	
-	r.GET("/", func(c *gin.Context) {
-		// TODO: Render parser form template
-		c.JSON(200, gin.H{
-			"message": "SRD Parser Web Interface (Go version)",
-			"database": mongoClient.DatabaseName(),
-		})
-	})
+	// Setup dependencies
+	repo := adapters.NewMongoParserRepository(mongoClient)
+	ingestService := services.NewIngestService(repo)
+	ingestHandler := handlers.NewIngestHandler(ingestService, getEnv("INPUT_DIR", "data"))
+
+	// Routes
+	r.GET("/", ingestHandler.GetIndex)
+	r.POST("/run", ingestHandler.PostRun)
 	
 	address := ":" + port
 	log.Printf("Starting SRD Parser (Go version) on %s", address)
