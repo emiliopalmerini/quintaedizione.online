@@ -2,21 +2,16 @@ package domain
 
 import "github.com/google/uuid"
 
-// ---------- ID ----------
-
-type ServizioID uuid.UUID
-
 // ---------- Enum / VO di supporto ----------
 
 // Categoria servizi
 type CategoriaServizio string
 
 const (
-	CategoriaServizio         CategoriaServizio = "Servizio"
-	CategoriaTenorevita      CategoriaServizio = "Tenore di vita"
-	CategoriaAlloggio        CategoriaServizio = "Alloggio"
-	CategoriaTrasporto       CategoriaServizio = "Trasporto"
-	CategoriaServizioMagico  CategoriaServizio = "Servizio Magico"
+	CategoriaTenorevita     CategoriaServizio = "Tenore di vita"
+	CategoriaAlloggio       CategoriaServizio = "Alloggio"
+	CategoriaTrasporto      CategoriaServizio = "Trasporto"
+	CategoriaServizioMagico CategoriaServizio = "Servizio Magico"
 )
 
 // Costo esteso per servizi (include "gratuito")
@@ -59,3 +54,4 @@ func NewServizio(
 		Contenuto:   contenuto,
 	}
 }
+

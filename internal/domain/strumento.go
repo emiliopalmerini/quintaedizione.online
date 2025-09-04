@@ -9,7 +9,6 @@ import (
 // ---------- ID ----------
 
 type (
-	StrumentoID      uuid.UUID
 	ClasseDifficolta int
 )
 

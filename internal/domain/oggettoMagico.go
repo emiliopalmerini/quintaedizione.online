@@ -2,10 +2,6 @@ package domain
 
 import "github.com/google/uuid"
 
-// ---------- ID ----------
-
-type OggettoMagicoID uuid.UUID
-
 // ---------- Enum / VO di supporto ----------
 
 // Rarità oggetti magici
@@ -70,4 +66,3 @@ func NewOggettoMagico(
 		Contenuto:       contenuto,
 	}
 }
-

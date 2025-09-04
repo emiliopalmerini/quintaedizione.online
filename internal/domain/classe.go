@@ -4,10 +4,6 @@ package domain
 
 import "github.com/google/uuid"
 
-// ---------- ID ----------
-
-type ClasseID uuid.UUID
-
 // ---------- Enum / VO di supporto ----------
 
 // Competenze armature

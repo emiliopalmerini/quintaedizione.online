@@ -2,12 +2,6 @@ package domain
 
 import "github.com/google/uuid"
 
-type (
-	CaratteristicaID uuid.UUID
-	AbilitaID        uuid.UUID
-	BackgroundID     uuid.UUID
-)
-
 type Background struct {
 	ID                      BackgroundID       `json:"id"                         bson:"_id"`
 	Slug                    Slug               `json:"slug"                      bson:"slug"`

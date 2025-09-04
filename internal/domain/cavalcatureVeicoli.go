@@ -2,10 +2,6 @@ package domain
 
 import "github.com/google/uuid"
 
-// ---------- ID ----------
-
-type CavalcaturaVeicoloID uuid.UUID
-
 // ---------- Enum / VO di supporto ----------
 
 // Tipo cavalcatura/veicolo
@@ -79,4 +75,3 @@ func NewCavalcaturaVeicolo(
 		Contenuto:      contenuto,
 	}
 }
-

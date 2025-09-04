@@ -2,30 +2,7 @@ package domain
 
 import "github.com/google/uuid"
 
-// ---------- ID ----------
-
-type ArmaID uuid.UUID
-
 // ---------- Enum / VO di supporto ----------
-
-// Valuta per costi
-type Valuta string
-
-const (
-	ValutaRame    Valuta = "mr"
-	ValutaArgento Valuta = "ma"
-	ValutaElettro Valuta = "me"
-	ValutaOro     Valuta = "mo"
-	ValutaPlatino Valuta = "mp"
-)
-
-// Unità di peso
-type UnitaPeso string
-
-const (
-	UnitaKg     UnitaPeso = "kg"
-	UnitaLibbre UnitaPeso = "lb"
-)
 
 // Categoria armi
 type CategoriaArma string
@@ -55,17 +32,6 @@ const (
 	ProprietaVersatile       ProprietaArma = "Versatile"
 )
 
-// Costo
-type Costo struct {
-	Valore int    `json:"valore" bson:"valore"`
-	Valuta Valuta `json:"valuta" bson:"valuta"`
-}
-
-// Peso
-type Peso struct {
-	Valore float64   `json:"valore" bson:"valore"`
-	Unita  UnitaPeso `json:"unita"  bson:"unita"`
-}
 
 // Gittata (per armi da lancio e distanza)
 type GittataArma struct {

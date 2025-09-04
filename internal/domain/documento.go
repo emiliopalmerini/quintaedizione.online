@@ -2,8 +2,6 @@ package domain
 
 import "github.com/google/uuid"
 
-type DocumentoID uuid.UUID
-
 type Documento struct {
 	ID        DocumentoID `json:"id"        bson:"_id"`
 	Pagina    int         `json:"pagina"    bson:"pagina"`

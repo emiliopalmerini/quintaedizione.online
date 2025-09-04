@@ -2,10 +2,6 @@ package domain
 
 import "github.com/google/uuid"
 
-// ---------- ID ----------
-
-type ArmaturaID uuid.UUID
-
 // ---------- Enum / VO di supporto ----------
 
 // Categoria armature

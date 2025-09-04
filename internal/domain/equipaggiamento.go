@@ -2,10 +2,6 @@ package domain
 
 import "github.com/google/uuid"
 
-// ---------- ID ----------
-
-type EquipaggiamentoID uuid.UUID
-
 // ---------- Enum / VO di supporto ----------
 
 // Unità di capacità
@@ -60,4 +56,3 @@ func NewEquipaggiamento(
 		Contenuto: contenuto,
 	}
 }
-

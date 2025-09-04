@@ -8,8 +8,6 @@ type OpzioneEquip Scelta
 
 // ---- Entità ----
 
-type SpecieID uuid.UUID
-
 type Specie struct {
 	ID                         SpecieID           `json:"id"        bson:"_id"`
 	Slug                       Slug               `json:"slug"      bson:"slug"`

@@ -2,10 +2,6 @@ package domain
 
 import "github.com/google/uuid"
 
-// ---------- ID ----------
-
-type AnimaleID uuid.UUID
-
 // ---------- Enum / VO di supporto ----------
 
 // Tipo animale (semplificato rispetto ai mostri)

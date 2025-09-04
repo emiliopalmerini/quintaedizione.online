@@ -2,10 +2,6 @@ package domain
 
 import "github.com/google/uuid"
 
-// ---------- ID ----------
-
-type IncantesimoID uuid.UUID
-
 // ---------- Enum / VO di supporto ----------
 
 type ComponenteIncantesimo string
@@ -15,9 +11,6 @@ const (
 	CompS ComponenteIncantesimo = "S"
 	CompM ComponenteIncantesimo = "M"
 )
-
-// Scuole standard 5e
-type ScuolaIncantesimoID uuid.UUID
 
 // Tempo di lancio
 type TempoTipo string

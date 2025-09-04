@@ -2,10 +2,6 @@ package domain
 
 import "github.com/google/uuid"
 
-// ---------- ID ----------
-
-type TalentoID uuid.UUID
-
 // ---------- Enum / VO di supporto ----------
 
 // Categoria talento
@@ -54,4 +50,3 @@ func NewTalento(
 		Contenuto:    contenuto,
 	}
 }
-

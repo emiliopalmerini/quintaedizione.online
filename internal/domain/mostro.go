@@ -2,23 +2,7 @@ package domain
 
 import "github.com/google/uuid"
 
-// ---------- ID ----------
-
-type MostroID uuid.UUID
-
 // ---------- Enum / VO di supporto ----------
-
-// Taglia mostro
-type Taglia string
-
-const (
-	TagliaMinuscola Taglia = "Minuscola"
-	TagliaPiccola   Taglia = "Piccola"
-	TagliaMedia     Taglia = "Media"
-	TagliaGrande    Taglia = "Grande"
-	TagliaEnorme    Taglia = "Enorme"
-	TagliaColossale Taglia = "Colossale"
-)
 
 // Tipo mostro
 type TipoMostro string
@@ -54,13 +38,6 @@ const (
 	AllineamentoCaoticoMalvagio  Allineamento = "Caotico Malvagio"
 )
 
-// Dado per rappresentare dadi (es. "20d10")
-type Dado struct {
-	Numero int `json:"numero" bson:"numero"` // numero di dadi
-	Facce  int `json:"facce"  bson:"facce"`  // facce del dado (d4, d6, d8, d10, d12, d20)
-	Bonus  int `json:"bonus"  bson:"bonus"`  // modificatore fisso
-}
-
 // Punti Esperienza
 type PuntiEsperienza struct {
 	Base int `json:"base" bson:"base"`
@@ -79,22 +56,10 @@ type TiriSalvezza map[TipoCaratteristica]int // es. "Destrezza": +5, "Saggezza":
 // Abilità
 type AbilitaMostro map[AbilitaID]int // es. "percezione": +8, "furtivita": +4
 
-type DannoID uuid.UUID
-
 // Immunità
 type Immunita struct {
 	Danni      []DannoID `json:"danni"      bson:"danni"`
 	Condizioni []string  `json:"condizioni" bson:"condizioni"`
-}
-
-type Azione struct {
-	Nome        string `json:"nome"        bson:"nome"`
-	Descrizione string `json:"descrizione" bson:"descrizione"`
-}
-
-type Tratto struct {
-	Nome        string `json:"nome"        bson:"nome"`
-	Descrizione string `json:"descrizione" bson:"descrizione"`
 }
 
 // Reazione del mostro
