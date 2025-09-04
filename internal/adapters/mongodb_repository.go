@@ -34,12 +34,12 @@ func (r *MongoParserRepository) UpsertMany(collectionName string, uniqueFields [
 
 	// Perform bulk upsert operations
 	var operations []mongo.WriteModel
-	
+
 	for _, doc := range docs {
 		// Create filter based on unique fields
 		filter := bson.M{}
 		hasUniqueField := false
-		
+
 		for _, field := range uniqueFields {
 			if value, exists := doc[field]; exists && value != nil {
 				filter[field] = value
@@ -47,7 +47,7 @@ func (r *MongoParserRepository) UpsertMany(collectionName string, uniqueFields [
 				break // Use first available unique field
 			}
 		}
-		
+
 		// Skip documents without unique fields
 		if !hasUniqueField {
 			continue
@@ -117,7 +117,7 @@ func (r *MongoParserRepository) FindByFilter(collectionName string, filter bson.
 // GetCollections returns a list of all collections in the database
 func (r *MongoParserRepository) GetCollections() ([]string, error) {
 	ctx := context.Background()
-	
+
 	names, err := r.client.GetDatabase().ListCollectionNames(ctx, bson.M{})
 	if err != nil {
 		return nil, fmt.Errorf("failed to list collections: %w", err)

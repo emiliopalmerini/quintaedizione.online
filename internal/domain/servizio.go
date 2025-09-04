@@ -54,4 +54,3 @@ func NewServizio(
 		Contenuto:   contenuto,
 	}
 }
-

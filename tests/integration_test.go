@@ -56,7 +56,7 @@ func TestServiceAvailability(t *testing.T) {
 // TestDatabaseConnection tests MongoDB connection through editor service
 func TestDatabaseConnection(t *testing.T) {
 	client := &http.Client{Timeout: 10 * time.Second}
-	
+
 	// Test collection endpoint
 	resp, err := client.Get("http://localhost:8000/c/classi")
 	if err != nil {
@@ -134,9 +134,9 @@ func TestAPIEndpoints(t *testing.T) {
 	client := &http.Client{Timeout: 10 * time.Second}
 
 	endpoints := []struct {
-		name         string
-		url          string
-		expectStatus int
+		name          string
+		url           string
+		expectStatus  int
 		expectContent string
 	}{
 		{"Home Page", "http://localhost:8000/", 200, "D&D 5e SRD"},
@@ -299,7 +299,7 @@ func TestCacheSystem(t *testing.T) {
 		}
 		resp.Body.Close()
 		times[i] = time.Since(start)
-		
+
 		if resp.StatusCode != http.StatusOK {
 			t.Fatalf("Item request returned status %d", resp.StatusCode)
 		}

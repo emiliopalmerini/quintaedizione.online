@@ -48,12 +48,12 @@ func ParseBackgrounds(lines []string) ([]map[string]interface{}, error) {
 // parseBackgroundSection parses a single background section
 func parseBackgroundSection(backgroundName string, lines []string) (map[string]interface{}, error) {
 	background := map[string]interface{}{
-		"nome":                backgroundName,
-		"slug":                domain.NormalizeID(backgroundName),
-		"descrizione":         "",
-		"contenuto_markdown":  strings.Join(lines, "\n"),
-		"fonte":               "SRD",
-		"versione":            "1.0",
+		"nome":               backgroundName,
+		"slug":               domain.NormalizeID(backgroundName),
+		"descrizione":        "",
+		"contenuto_markdown": strings.Join(lines, "\n"),
+		"fonte":              "SRD",
+		"versione":           "1.0",
 	}
 
 	// Parse background fields
@@ -74,7 +74,7 @@ func parseBackgroundSection(backgroundName string, lines []string) (map[string]i
 // parseBackgroundFields parses labeled fields in the background
 func parseBackgroundFields(lines []string) map[string]interface{} {
 	fields := make(map[string]interface{})
-	
+
 	var currentField string
 	var currentContent []string
 
@@ -121,7 +121,7 @@ func parseBackgroundFields(lines []string) map[string]interface{} {
 // normalizeFieldName normalizes field names to database keys
 func normalizeFieldName(fieldName string) string {
 	field := strings.ToLower(strings.TrimSpace(fieldName))
-	
+
 	// Map Italian field names
 	switch field {
 	case "abilità competenti":
@@ -151,7 +151,7 @@ func normalizeFieldName(fieldName string) string {
 // parseFieldValue parses specific field values based on field type
 func parseFieldValue(fieldName string, value string) interface{} {
 	fieldLower := strings.ToLower(fieldName)
-	
+
 	switch {
 	case strings.Contains(fieldLower, "equipaggiamento"):
 		return parseEquipmentOptions(value)
@@ -159,9 +159,9 @@ func parseFieldValue(fieldName string, value string) interface{} {
 		return parseSkillCompetencies(value)
 	case strings.Contains(fieldLower, "linguaggi"):
 		return parseLanguages(value)
-	case strings.Contains(fieldLower, "ideali"), 
-		 strings.Contains(fieldLower, "legami"), 
-		 strings.Contains(fieldLower, "difetti"):
+	case strings.Contains(fieldLower, "ideali"),
+		strings.Contains(fieldLower, "legami"),
+		strings.Contains(fieldLower, "difetti"):
 		return parseCharacteristicsList(value)
 	default:
 		return value
@@ -182,12 +182,12 @@ func parseEquipmentOptions(value string) []map[string]interface{} {
 	// Look for option pattern: (A) ... ; oppure (B) ...
 	optionRegex := regexp.MustCompile(`\(A\)\s*(.+?);\s*(?:oppure|o)\s*\(B\)\s*(.+?)(?:$|;)`)
 	match := optionRegex.FindStringSubmatch(cleanValue)
-	
+
 	if len(match) >= 3 {
 		// Parse both options
 		aItems := parseItemList(match[1])
 		bItems := parseItemList(match[2])
-		
+
 		return []map[string]interface{}{
 			{"etichetta": "Opzione A", "oggetti": aItems},
 			{"etichetta": "Opzione B", "oggetti": bItems},
@@ -209,14 +209,14 @@ func parseEquipmentOptions(value string) []map[string]interface{} {
 func parseItemList(value string) []string {
 	items := strings.Split(value, ",")
 	var result []string
-	
+
 	for _, item := range items {
 		item = strings.TrimSpace(item)
 		if item != "" {
 			result = append(result, item)
 		}
 	}
-	
+
 	return result
 }
 
@@ -227,7 +227,7 @@ func parseLanguages(value string) interface{} {
 		// Extract choice information
 		choiceRegex := regexp.MustCompile(`(?i)scegli\s+(\d+)`)
 		match := choiceRegex.FindStringSubmatch(value)
-		
+
 		if len(match) > 1 {
 			// Parse as choice structure
 			return map[string]interface{}{
@@ -248,23 +248,23 @@ func parseCharacteristicsList(value string) []string {
 	// Split by numbered list or semicolons
 	lines := strings.Split(value, "\n")
 	var characteristics []string
-	
+
 	for _, line := range lines {
 		line = strings.TrimSpace(line)
 		if line == "" {
 			continue
 		}
-		
+
 		// Remove numbering (1., 2., etc.)
 		numberRegex := regexp.MustCompile(`^\d+\.\s*`)
 		line = numberRegex.ReplaceAllString(line, "")
 		line = strings.TrimSpace(line)
-		
+
 		if line != "" {
 			characteristics = append(characteristics, line)
 		}
 	}
-	
+
 	return characteristics
 }
 
@@ -274,7 +274,7 @@ func extractBackgroundDescription(lines []string) string {
 
 	for _, line := range lines {
 		line = strings.TrimSpace(line)
-		
+
 		// Stop at first bold field
 		if BoldFieldRE.MatchString(line) {
 			break

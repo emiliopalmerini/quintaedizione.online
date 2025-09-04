@@ -8,10 +8,10 @@ import (
 
 var (
 	// Monster stat block patterns
-	MonsterACRE     = regexp.MustCompile(`(?i)classe\s+armatura\s+(\d+)`)
-	MonsterHPRE     = regexp.MustCompile(`(?i)punti\s+ferita\s+(\d+)`)
-	MonsterSpeedRE  = regexp.MustCompile(`(?i)velocità\s+(.+)`)
-	MonsterCRRE     = regexp.MustCompile(`(?i)grado\s+di\s+sfida\s+([\d/]+)`)
+	MonsterACRE    = regexp.MustCompile(`(?i)classe\s+armatura\s+(\d+)`)
+	MonsterHPRE    = regexp.MustCompile(`(?i)punti\s+ferita\s+(\d+)`)
+	MonsterSpeedRE = regexp.MustCompile(`(?i)velocità\s+(.+)`)
+	MonsterCRRE    = regexp.MustCompile(`(?i)grado\s+di\s+sfida\s+([\d/]+)`)
 )
 
 // ParseMonstersMonster parses Italian D&D 5e monster data from markdown
@@ -19,7 +19,7 @@ func ParseMonstersMonster(lines []string) ([]map[string]interface{}, error) {
 	return parseMonsters(lines, "monster")
 }
 
-// ParseMonstersAnimal parses Italian D&D 5e animal data from markdown  
+// ParseMonstersAnimal parses Italian D&D 5e animal data from markdown
 func ParseMonstersAnimal(lines []string) ([]map[string]interface{}, error) {
 	return parseMonsters(lines, "animal")
 }
@@ -55,12 +55,12 @@ func parseMonsterItem(title string, lines []string, namespace string) map[string
 
 	// Build monster object
 	monster := map[string]interface{}{
-		"slug":                name,
-		"nome":                name,
-		"namespace":           namespace,
-		"contenuto_markdown":  strings.Join(append([]string{"## " + title}, lines...), "\n"),
-		"fonte":               "SRD",
-		"versione":            "1.0",
+		"slug":               name,
+		"nome":               name,
+		"namespace":          namespace,
+		"contenuto_markdown": strings.Join(append([]string{"## " + title}, lines...), "\n"),
+		"fonte":              "SRD",
+		"versione":           "1.0",
 	}
 
 	// Add parsed stats
@@ -89,7 +89,7 @@ func parseMonsterStats(lines []string) map[string]interface{} {
 		}
 	}
 
-	// Parse HP  
+	// Parse HP
 	if match := MonsterHPRE.FindStringSubmatch(content); len(match) > 1 {
 		if hp, err := strconv.Atoi(match[1]); err == nil {
 			stats["punti_ferita"] = hp
@@ -118,10 +118,10 @@ func parseMonsterStats(lines []string) map[string]interface{} {
 // parseAbilityScores parses ability scores from monster text
 func parseAbilityScores(lines []string) map[string]int {
 	abilities := make(map[string]int)
-	
+
 	// Look for ability score pattern
 	abilityPattern := regexp.MustCompile(`(?i)(FOR|DES|CON|INT|SAG|CAR)\s+(\d+)`)
-	
+
 	for _, line := range lines {
 		matches := abilityPattern.FindAllStringSubmatch(line, -1)
 		for _, match := range matches {
@@ -144,13 +144,13 @@ func extractMonsterDescription(lines []string) string {
 
 	for _, line := range lines {
 		line = strings.TrimSpace(line)
-		
+
 		// Skip stat block lines
 		if strings.Contains(line, "Classe Armatura") ||
-		   strings.Contains(line, "Punti Ferita") ||
-		   strings.Contains(line, "Velocità") ||
-		   strings.Contains(line, "FOR") ||
-		   strings.Contains(line, "Grado di Sfida") {
+			strings.Contains(line, "Punti Ferita") ||
+			strings.Contains(line, "Velocità") ||
+			strings.Contains(line, "FOR") ||
+			strings.Contains(line, "Grado di Sfida") {
 			inStatBlock = true
 			continue
 		}

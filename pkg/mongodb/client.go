@@ -32,11 +32,11 @@ func NewClient(config Config) (*Client, error) {
 
 	// Set client options
 	clientOptions := options.Client().ApplyURI(config.URI)
-	
+
 	if config.MaxPoolSize > 0 {
 		clientOptions.SetMaxPoolSize(config.MaxPoolSize)
 	}
-	
+
 	// Set other recommended options
 	clientOptions.SetServerSelectionTimeout(5 * time.Second)
 	clientOptions.SetConnectTimeout(10 * time.Second)
@@ -53,7 +53,7 @@ func NewClient(config Config) (*Client, error) {
 	}
 
 	database := client.Database(config.Database)
-	
+
 	log.Printf("Connected to MongoDB database: %s", config.Database)
 
 	return &Client{
@@ -87,11 +87,11 @@ func (c *Client) DatabaseName() string {
 func (c *Client) Close() error {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	
+
 	if err := c.client.Disconnect(ctx); err != nil {
 		return fmt.Errorf("failed to close MongoDB connection: %w", err)
 	}
-	
+
 	log.Println("MongoDB connection closed")
 	return nil
 }
@@ -104,25 +104,25 @@ func (c *Client) Ping(ctx context.Context) error {
 // Find finds documents in a collection
 func (c *Client) Find(ctx context.Context, collection string, filter interface{}, opts ...*options.FindOptions) ([]map[string]interface{}, error) {
 	coll := c.GetCollection(collection)
-	
+
 	cursor, err := coll.Find(ctx, filter, opts...)
 	if err != nil {
 		return nil, fmt.Errorf("find failed: %w", err)
 	}
 	defer cursor.Close(ctx)
-	
+
 	var results []map[string]interface{}
 	if err := cursor.All(ctx, &results); err != nil {
 		return nil, fmt.Errorf("cursor decode failed: %w", err)
 	}
-	
+
 	return results, nil
 }
 
 // FindOne finds a single document in a collection
 func (c *Client) FindOne(ctx context.Context, collection string, filter interface{}) (map[string]interface{}, error) {
 	coll := c.GetCollection(collection)
-	
+
 	var result map[string]interface{}
 	if err := coll.FindOne(ctx, filter).Decode(&result); err != nil {
 		if err == mongo.ErrNoDocuments {
@@ -130,19 +130,19 @@ func (c *Client) FindOne(ctx context.Context, collection string, filter interfac
 		}
 		return nil, fmt.Errorf("findone failed: %w", err)
 	}
-	
+
 	return result, nil
 }
 
 // Count counts documents in a collection
 func (c *Client) Count(ctx context.Context, collection string, filter interface{}) (int64, error) {
 	coll := c.GetCollection(collection)
-	
+
 	count, err := coll.CountDocuments(ctx, filter)
 	if err != nil {
 		return 0, fmt.Errorf("count failed: %w", err)
 	}
-	
+
 	return count, nil
 }
 

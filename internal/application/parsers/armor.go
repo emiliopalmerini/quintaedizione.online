@@ -6,12 +6,12 @@ import (
 
 // Italian field mappings for armor
 var armorFieldsIT = map[string]string{
-	"Costo":                    "costo",
-	"Peso":                     "peso",
-	"Classe Armatura":          "classe_armatura",
-	"Categoria":                "categoria",
-	"Forza richiesta":          "forza_richiesta",
-	"Svantaggio Furtività":     "svantaggio_furtivita",
+	"Costo":                "costo",
+	"Peso":                 "peso",
+	"Classe Armatura":      "classe_armatura",
+	"Categoria":            "categoria",
+	"Forza richiesta":      "forza_richiesta",
+	"Svantaggio Furtività": "svantaggio_furtivita",
 }
 
 // ParseArmor parses Italian D&D 5e armor data from markdown
@@ -42,17 +42,17 @@ func parseArmorItem(title string, lines []string) map[string]interface{} {
 
 	// Collect labeled fields
 	fields := collectLabeledFieldsFromLines(lines)
-	
+
 	// Map Italian fields to database keys
 	mapped := mapArmorFields(fields)
 
 	// Build armor object
 	armor := map[string]interface{}{
-		"slug":                name,
-		"nome":                name,
-		"contenuto_markdown":  strings.Join(append([]string{"## " + title}, lines...), "\n"),
-		"fonte":               "SRD",
-		"versione":            "1.0",
+		"slug":               name,
+		"nome":               name,
+		"contenuto_markdown": strings.Join(append([]string{"## " + title}, lines...), "\n"),
+		"fonte":              "SRD",
+		"versione":           "1.0",
 	}
 
 	// Add mapped fields

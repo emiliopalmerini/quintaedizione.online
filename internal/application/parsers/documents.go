@@ -31,15 +31,15 @@ func parseDocument(lines []string, filename string) ([]map[string]interface{}, e
 
 	// Create document
 	doc := map[string]interface{}{
-		"titolo":              title,
-		"slug":                domain.NormalizeID(title), // Use slug for MongoDB compatibility
-		"filename":            filename,
-		"contenuto_markdown":  content,
-		"contenuto_testo":     plainText,
-		"numero_di_pagina":    extractPageNumber(filename),
-		"fonte":               "SRD",
-		"versione":            "1.0",
-		"lingua":              domain.ExtractLanguageFromPath(filename),
+		"titolo":             title,
+		"slug":               domain.NormalizeID(title), // Use slug for MongoDB compatibility
+		"filename":           filename,
+		"contenuto_markdown": content,
+		"contenuto_testo":    plainText,
+		"numero_di_pagina":   extractPageNumber(filename),
+		"fonte":              "SRD",
+		"versione":           "1.0",
+		"lingua":             domain.ExtractLanguageFromPath(filename),
 	}
 
 	return []map[string]interface{}{doc}, nil
@@ -49,7 +49,7 @@ func parseDocument(lines []string, filename string) ([]map[string]interface{}, e
 func extractDocumentTitle(lines []string) string {
 	for _, line := range lines {
 		line = strings.TrimSpace(line)
-		
+
 		// Look for markdown headers
 		if strings.HasPrefix(line, "# ") {
 			return domain.RemoveMarkdownHeaders(line)
@@ -57,40 +57,40 @@ func extractDocumentTitle(lines []string) string {
 		if strings.HasPrefix(line, "## ") {
 			return domain.RemoveMarkdownHeaders(line)
 		}
-		
+
 		// If we find content, stop looking
 		if line != "" && !strings.HasPrefix(line, "#") {
 			break
 		}
 	}
-	
+
 	return ""
 }
 
 // extractPlainText removes markdown formatting to create plain text
 func extractPlainText(markdown string) string {
 	text := markdown
-	
+
 	// Remove markdown headers
 	lines := strings.Split(text, "\n")
 	var cleanLines []string
-	
+
 	for _, line := range lines {
 		line = strings.TrimSpace(line)
-		
+
 		// Skip empty lines
 		if line == "" {
 			continue
 		}
-		
+
 		// Remove markdown formatting
 		line = domain.RemoveMarkdownHeaders(line)
-		
+
 		// Remove bold and italic formatting
 		line = strings.ReplaceAll(line, "**", "")
 		line = strings.ReplaceAll(line, "*", "")
 		line = strings.ReplaceAll(line, "_", "")
-		
+
 		// Remove links but keep text
 		// Simple regex-like replacement for [text](url) -> text
 		for strings.Contains(line, "](") {
@@ -106,16 +106,16 @@ func extractPlainText(markdown string) string {
 			if end == -1 {
 				break
 			}
-			
+
 			linkText := line[start+1 : start+middle]
 			line = line[:start] + linkText + line[start+middle+2+end+1:]
 		}
-		
+
 		if line != "" {
 			cleanLines = append(cleanLines, line)
 		}
 	}
-	
+
 	return strings.Join(cleanLines, "\n")
 }
 
@@ -130,7 +130,7 @@ func extractPageNumber(filename string) int {
 		if len(pathParts) > 0 {
 			numStr = pathParts[len(pathParts)-1]
 		}
-		
+
 		// Try to parse as number
 		var pageNum int
 		for _, char := range numStr {
@@ -142,6 +142,6 @@ func extractPageNumber(filename string) int {
 		}
 		return pageNum
 	}
-	
+
 	return 0
 }

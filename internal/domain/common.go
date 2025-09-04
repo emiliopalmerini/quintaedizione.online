@@ -174,4 +174,3 @@ func (c Caratteristica) Modificatore() int {
 func (pf PuntiFerita) Effettivi() int {
 	return pf.Attuali + pf.Temporanei
 }
-

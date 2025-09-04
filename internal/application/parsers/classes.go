@@ -51,12 +51,12 @@ func ParseClasses(lines []string) ([]map[string]interface{}, error) {
 // parseClassSection parses a single class section
 func parseClassSection(className string, lines []string) (map[string]interface{}, error) {
 	class := map[string]interface{}{
-		"nome":                className,
-		"slug":                domain.NormalizeID(className),
-		"descrizione":         "",
-		"contenuto_markdown":  strings.Join(lines, "\n"),
-		"fonte":               "SRD",
-		"versione":            "1.0",
+		"nome":               className,
+		"slug":               domain.NormalizeID(className),
+		"descrizione":        "",
+		"contenuto_markdown": strings.Join(lines, "\n"),
+		"fonte":              "SRD",
+		"versione":           "1.0",
 	}
 
 	// Parse base traits table
@@ -236,12 +236,12 @@ func parseMarkdownTable(lines []string) ([]string, [][]string) {
 func parseTableRow(line string) []string {
 	line = strings.Trim(line, "|")
 	parts := strings.Split(line, "|")
-	
+
 	var result []string
 	for _, part := range parts {
 		result = append(result, strings.TrimSpace(part))
 	}
-	
+
 	return result
 }
 
@@ -366,7 +366,7 @@ func extractLevelFeatures(lines []string, startIdx int) []map[string]interface{}
 // parseSpellcastingTable parses spellcasting progression table
 func parseSpellcastingTable(headers []string, rows [][]string) map[string]interface{} {
 	spellcasting := make(map[string]interface{})
-	
+
 	// Process each row (level)
 	for _, row := range rows {
 		if len(row) < 2 {
@@ -379,12 +379,12 @@ func parseSpellcastingTable(headers []string, rows [][]string) map[string]interf
 		}
 
 		levelData := make(map[string]interface{})
-		
+
 		// Map each column to spell slot data
 		for j := 1; j < len(row) && j < len(headers); j++ {
 			header := strings.TrimSpace(headers[j])
 			value := strings.TrimSpace(row[j])
-			
+
 			if value != "" && value != "-" && value != "—" {
 				levelData[header] = value
 			}
@@ -404,7 +404,7 @@ func extractClassDescription(lines []string) string {
 
 	for _, line := range lines {
 		line = strings.TrimSpace(line)
-		
+
 		// Stop at first table or major section
 		if strings.HasPrefix(line, "|") || strings.HasPrefix(line, "###") || strings.HasPrefix(line, "####") {
 			break

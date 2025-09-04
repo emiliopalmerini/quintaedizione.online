@@ -6,10 +6,10 @@ import (
 
 // Italian field mappings for weapons
 var weaponFieldsIT = map[string]string{
-	"Costo":              "costo",
-	"Danno":              "danno",
-	"Peso":               "peso",
-	"Proprietà":          "proprieta",
+	"Costo":     "costo",
+	"Danno":     "danno",
+	"Peso":      "peso",
+	"Proprietà": "proprieta",
 }
 
 // ParseWeapons parses Italian D&D 5e weapon data from markdown
@@ -40,17 +40,17 @@ func parseWeaponItem(title string, lines []string) map[string]interface{} {
 
 	// Collect labeled fields
 	fields := collectLabeledFieldsFromLines(lines)
-	
+
 	// Map Italian fields to database keys
 	mapped := mapWeaponFields(fields)
 
 	// Build weapon object
 	weapon := map[string]interface{}{
-		"slug":                name,
-		"nome":                name,
-		"contenuto_markdown":  strings.Join(append([]string{"## " + title}, lines...), "\n"),
-		"fonte":               "SRD",
-		"versione":            "1.0",
+		"slug":               name,
+		"nome":               name,
+		"contenuto_markdown": strings.Join(append([]string{"## " + title}, lines...), "\n"),
+		"fonte":              "SRD",
+		"versione":           "1.0",
 	}
 
 	// Add mapped fields
@@ -79,4 +79,3 @@ func mapWeaponFields(fields map[string]string) map[string]interface{} {
 
 	return mapped
 }
-

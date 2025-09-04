@@ -32,7 +32,6 @@ const (
 	ProprietaVersatile       ProprietaArma = "Versatile"
 )
 
-
 // Gittata (per armi da lancio e distanza)
 type GittataArma struct {
 	Normale string `json:"normale" bson:"normale"`

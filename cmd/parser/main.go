@@ -6,11 +6,11 @@ import (
 	"os"
 	"time"
 
-	"github.com/gin-gonic/gin"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/handlers"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/mongodb"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -18,7 +18,7 @@ func main() {
 	mongoURI := getEnv("MONGO_URI", "mongodb://localhost:27017")
 	dbName := getEnv("DB_NAME", "dnd")
 	port := getEnv("PORT", "8100")
-	
+
 	// Initialize MongoDB client
 	mongoConfig := mongodb.Config{
 		URI:         mongoURI,
@@ -26,28 +26,28 @@ func main() {
 		Timeout:     10 * time.Second,
 		MaxPoolSize: 100,
 	}
-	
+
 	mongoClient, err := mongodb.NewClient(mongoConfig)
 	if err != nil {
 		log.Fatal("Failed to connect to MongoDB:", err)
 	}
 	defer mongoClient.Close()
-	
+
 	// Test MongoDB connection
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
-	
+
 	if err := mongoClient.Ping(ctx); err != nil {
 		log.Fatal("Failed to ping MongoDB:", err)
 	}
-	
+
 	// Setup Gin router
 	r := gin.Default()
-	
+
 	r.GET("/healthz", func(c *gin.Context) {
 		c.String(200, "ok")
 	})
-	
+
 	// Setup dependencies
 	repo := adapters.NewMongoParserRepository(mongoClient)
 	ingestService := services.NewIngestService(repo)
@@ -56,7 +56,7 @@ func main() {
 	// Routes
 	r.GET("/", ingestHandler.GetIndex)
 	r.POST("/run", ingestHandler.PostRun)
-	
+
 	address := ":" + port
 	log.Printf("Starting SRD Parser (Go version) on %s", address)
 	if err := r.Run(address); err != nil {

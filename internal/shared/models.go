@@ -6,11 +6,11 @@ import (
 
 // BaseEntity represents common fields for all entities
 type BaseEntity struct {
-	ID         string    `json:"id" bson:"_id"`
-	CreatedAt  time.Time `json:"created_at" bson:"created_at"`
-	UpdatedAt  time.Time `json:"updated_at" bson:"updated_at"`
-	Version    string    `json:"version" bson:"version"`
-	Source     string    `json:"source" bson:"source"`
+	ID        string    `json:"id" bson:"_id"`
+	CreatedAt time.Time `json:"created_at" bson:"created_at"`
+	UpdatedAt time.Time `json:"updated_at" bson:"updated_at"`
+	Version   string    `json:"version" bson:"version"`
+	Source    string    `json:"source" bson:"source"`
 }
 
 // NewBaseEntity creates a new base entity with defaults
@@ -32,8 +32,8 @@ func (b *BaseEntity) UpdateTimestamp() {
 
 // MarkdownContent represents content with markdown formatting
 type MarkdownContent struct {
-	Raw       string `json:"raw" bson:"raw"`             // Original markdown
-	HTML      string `json:"html" bson:"html"`           // Rendered HTML
+	Raw       string `json:"raw" bson:"raw"`               // Original markdown
+	HTML      string `json:"html" bson:"html"`             // Rendered HTML
 	PlainText string `json:"plain_text" bson:"plain_text"` // Plain text version
 }
 
@@ -189,10 +189,10 @@ type DomainEvent interface {
 
 // BaseDomainEvent provides common domain event functionality
 type BaseDomainEvent struct {
-	EventName   string    `json:"event_name"`
-	AggregateId string    `json:"aggregate_id"`
-	Occurred    time.Time `json:"occurred_at"`
-	EventVersion int      `json:"version"`
+	EventName    string    `json:"event_name"`
+	AggregateId  string    `json:"aggregate_id"`
+	Occurred     time.Time `json:"occurred_at"`
+	EventVersion int       `json:"version"`
 }
 
 // EventType returns the event type

@@ -21,10 +21,10 @@ func NewSimpleCache() *SimpleCache {
 	cache := &SimpleCache{
 		items: make(map[string]cacheItem),
 	}
-	
+
 	// Start cleanup goroutine
 	go cache.cleanupExpired()
-	
+
 	return cache
 }
 
@@ -32,7 +32,7 @@ func NewSimpleCache() *SimpleCache {
 func (sc *SimpleCache) Set(key string, value interface{}, ttl time.Duration) {
 	sc.mu.Lock()
 	defer sc.mu.Unlock()
-	
+
 	sc.items[key] = cacheItem{
 		value:      value,
 		expiration: time.Now().Add(ttl),
@@ -43,16 +43,16 @@ func (sc *SimpleCache) Set(key string, value interface{}, ttl time.Duration) {
 func (sc *SimpleCache) Get(key string) (interface{}, bool) {
 	sc.mu.RLock()
 	defer sc.mu.RUnlock()
-	
+
 	item, exists := sc.items[key]
 	if !exists {
 		return nil, false
 	}
-	
+
 	if time.Now().After(item.expiration) {
 		return nil, false
 	}
-	
+
 	return item.value, true
 }
 
@@ -74,7 +74,7 @@ func (sc *SimpleCache) Clear() {
 func (sc *SimpleCache) cleanupExpired() {
 	ticker := time.NewTicker(5 * time.Minute)
 	defer ticker.Stop()
-	
+
 	for range ticker.C {
 		sc.mu.Lock()
 		now := time.Now()
@@ -91,7 +91,7 @@ func (sc *SimpleCache) cleanupExpired() {
 func (sc *SimpleCache) GetStats() map[string]interface{} {
 	sc.mu.RLock()
 	defer sc.mu.RUnlock()
-	
+
 	return map[string]interface{}{
 		"item_count": len(sc.items),
 	}

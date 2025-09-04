@@ -8,9 +8,9 @@ import (
 
 // Italian field mappings for tools
 var toolFieldsIT = map[string]string{
-	"Costo":      "costo",
-	"Peso":       "peso",
-	"Categoria":  "categoria",
+	"Costo":     "costo",
+	"Peso":      "peso",
+	"Categoria": "categoria",
 }
 
 // ParseTools parses Italian D&D 5e tool data from markdown
@@ -56,18 +56,18 @@ func parseEquipmentItem(title string, lines []string, itemType string) map[strin
 
 	// Collect labeled fields
 	fields := collectLabeledFieldsFromLines(lines)
-	
+
 	// Map Italian fields to database keys
 	mapped := mapEquipmentFields(fields)
 
 	// Build equipment object
 	equipment := map[string]interface{}{
-		"slug":                name,
-		"nome":                name,
-		"tipo":                itemType,
-		"contenuto_markdown":  strings.Join(append([]string{"## " + title}, lines...), "\n"),
-		"fonte":               "SRD",
-		"versione":            "1.0",
+		"slug":               name,
+		"nome":               name,
+		"tipo":               itemType,
+		"contenuto_markdown": strings.Join(append([]string{"## " + title}, lines...), "\n"),
+		"fonte":              "SRD",
+		"versione":           "1.0",
 	}
 
 	// Add mapped fields
@@ -103,7 +103,7 @@ func extractItemDescription(lines []string) string {
 
 	for _, line := range lines {
 		line = strings.TrimSpace(line)
-		
+
 		// Skip labeled fields (lines with ":")
 		if strings.Contains(line, ":") && strings.Index(line, ":") < len(line)/2 {
 			continue

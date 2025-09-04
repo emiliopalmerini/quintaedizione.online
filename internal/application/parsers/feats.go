@@ -44,11 +44,11 @@ func parseFeatItem(title string, lines []string) map[string]interface{} {
 
 	// Build feat object
 	feat := map[string]interface{}{
-		"slug":                name,
-		"nome":                name,
-		"contenuto_markdown":  strings.Join(append([]string{"## " + title}, lines...), "\n"),
-		"fonte":               "SRD",
-		"versione":            "1.0",
+		"slug":               name,
+		"nome":               name,
+		"contenuto_markdown": strings.Join(append([]string{"## " + title}, lines...), "\n"),
+		"fonte":              "SRD",
+		"versione":           "1.0",
 	}
 
 	if prerequisito != "" {
@@ -70,7 +70,7 @@ func extractFeatDescription(lines []string) string {
 
 	for _, line := range lines {
 		line = strings.TrimSpace(line)
-		
+
 		// Skip prerequisite lines
 		if strings.Contains(strings.ToLower(line), "prerequisito") {
 			continue

@@ -11,15 +11,15 @@ type Config struct {
 	// Server configuration
 	Port string
 	Host string
-	
+
 	// MongoDB configuration
 	MongoURI     string
 	DatabaseName string
-	
+
 	// Application settings
 	Environment string
 	LogLevel    string
-	
+
 	// Timeouts
 	ReadTimeout  time.Duration
 	WriteTimeout time.Duration
@@ -37,7 +37,7 @@ func LoadConfig() Config {
 		ReadTimeout:  getDurationEnv("READ_TIMEOUT", 15*time.Second),
 		WriteTimeout: getDurationEnv("WRITE_TIMEOUT", 15*time.Second),
 	}
-	
+
 	return config
 }
 

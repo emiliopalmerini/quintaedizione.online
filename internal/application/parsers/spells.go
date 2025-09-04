@@ -94,7 +94,7 @@ func ParseSpells(lines []string) ([]map[string]interface{}, error) {
 		Language: domain.ExtractLanguageFromPath("spells"),
 		Source:   "SRD",
 	}
-	
+
 	parser := NewSpellParser(context)
 	return parser.Parse(lines)
 }
@@ -130,7 +130,7 @@ func (p *SpellParser) splitItems(lines []string) [][]string {
 
 	for _, line := range lines {
 		line = strings.TrimSpace(line)
-		
+
 		// Skip empty lines at the start
 		if len(currentItem) == 0 && line == "" {
 			continue
@@ -188,7 +188,7 @@ func (p *SpellParser) parseSpellItem(lines []string) (map[string]interface{}, er
 
 	// Build spell object
 	spell := map[string]interface{}{
-		"nome":                name,
+		"nome":               name,
 		"slug":               domain.NormalizeID(name), // Use slug for MongoDB compatibility
 		"livello":            meta["livello"],
 		"scuola":             meta["scuola"],
@@ -338,7 +338,7 @@ func (p *SpellParser) normalizeClassesToIt(classes []string) []string {
 // collectLabeledFields extracts labeled fields from content lines
 func (p *SpellParser) collectLabeledFields(lines []string) map[string]string {
 	fields := make(map[string]string)
-	
+
 	var currentLabel string
 	var currentContent []string
 
@@ -383,15 +383,15 @@ func (p *SpellParser) collectLabeledFields(lines []string) map[string]string {
 // normalizeLabel normalizes field labels
 func (p *SpellParser) normalizeLabel(label string) string {
 	label = strings.ToLower(strings.TrimSpace(label))
-	
+
 	// Map English to Italian labels
 	labelMap := map[string]string{
-		"casting time":   "tempo_lancio",
-		"range":          "gittata",
-		"components":     "componenti",
-		"duration":       "durata",
-		"at higher levels": "livelli_superiori",
-		"tempo di lancio": "tempo_lancio",
+		"casting time":         "tempo_lancio",
+		"range":                "gittata",
+		"components":           "componenti",
+		"duration":             "durata",
+		"at higher levels":     "livelli_superiori",
+		"tempo di lancio":      "tempo_lancio",
 		"ai livelli superiori": "livelli_superiori",
 	}
 

@@ -50,7 +50,7 @@ func splitItemsByH2(lines []string) []Item {
 // collectLabeledFieldsFromLines extracts labeled fields from content lines
 func collectLabeledFieldsFromLines(lines []string) map[string]string {
 	fields := make(map[string]string)
-	
+
 	for _, line := range lines {
 		line = strings.TrimSpace(line)
 		if line == "" {
@@ -63,10 +63,10 @@ func collectLabeledFieldsFromLines(lines []string) map[string]string {
 			if len(parts) == 2 {
 				label := strings.TrimSpace(parts[0])
 				value := strings.TrimSpace(parts[1])
-				
+
 				// Remove bold formatting
 				label = strings.Trim(label, "*")
-				
+
 				if label != "" && value != "" {
 					fields[label] = value
 				}

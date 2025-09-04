@@ -4,10 +4,10 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/gin-gonic/gin"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/parsers"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
+	"github.com/gin-gonic/gin"
 )
 
 // IngestHandler handles ingestion HTTP requests
@@ -55,10 +55,10 @@ func (h *IngestHandler) GetIndex(c *gin.Context) {
 func (h *IngestHandler) PostRun(c *gin.Context) {
 	// Parse form data or JSON
 	var req struct {
-		InputDir  string `form:"input_dir" json:"input_dir" binding:"required"`
-		DBName    string `form:"db_name" json:"db_name" binding:"required"`
-		DryRun    bool   `form:"dry_run" json:"dry_run"`
-		Selected  []int  `form:"selected" json:"selected"`
+		InputDir string `form:"input_dir" json:"input_dir" binding:"required"`
+		DBName   string `form:"db_name" json:"db_name" binding:"required"`
+		DryRun   bool   `form:"dry_run" json:"dry_run"`
+		Selected []int  `form:"selected" json:"selected"`
 	}
 
 	if err := c.ShouldBind(&req); err != nil {

@@ -9,12 +9,12 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/gin-gonic/gin"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/mongodb"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/templates"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -76,7 +76,7 @@ func main() {
 	// Health check endpoint
 	router.GET("/health", func(c *gin.Context) {
 		cacheStats := infrastructure.GetGlobalCache().GetStats()
-		
+
 		c.JSON(http.StatusOK, gin.H{
 			"status":       "healthy",
 			"version":      "3.0.0-go",
@@ -94,7 +94,6 @@ func main() {
 		Addr:    config.GetAddress(),
 		Handler: router,
 	}
-
 
 	// Start server in goroutine
 	go func() {

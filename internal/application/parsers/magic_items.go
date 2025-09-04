@@ -6,9 +6,9 @@ import (
 
 // Italian field mappings for magic items
 var magicItemFieldsIT = map[string]string{
-	"Oggetto magico":      "tipo",
-	"Rarità":              "rarita",
-	"Sintonizzazione":     "sintonizzazione",
+	"Oggetto magico":  "tipo",
+	"Rarità":          "rarita",
+	"Sintonizzazione": "sintonizzazione",
 }
 
 // ParseMagicItems parses Italian D&D 5e magic item data from markdown
@@ -39,17 +39,17 @@ func parseMagicItemItem(title string, lines []string) map[string]interface{} {
 
 	// Collect labeled fields
 	fields := collectLabeledFieldsFromLines(lines)
-	
+
 	// Map Italian fields to database keys
 	mapped := mapMagicItemFields(fields)
 
 	// Build magic item object
 	magicItem := map[string]interface{}{
-		"slug":                name,
-		"nome":                name,
-		"contenuto_markdown":  strings.Join(append([]string{"## " + title}, lines...), "\n"),
-		"fonte":               "SRD",
-		"versione":            "1.0",
+		"slug":               name,
+		"nome":               name,
+		"contenuto_markdown": strings.Join(append([]string{"## " + title}, lines...), "\n"),
+		"fonte":              "SRD",
+		"versione":           "1.0",
 	}
 
 	// Add mapped fields
@@ -75,9 +75,9 @@ func mapMagicItemFields(fields map[string]string) map[string]interface{} {
 			switch english {
 			case "sintonizzazione":
 				// Convert to boolean
-				needsAttune := strings.Contains(strings.ToLower(value), "sì") || 
-					         strings.Contains(strings.ToLower(value), "richiesta") ||
-					         strings.Contains(strings.ToLower(value), "necessaria")
+				needsAttune := strings.Contains(strings.ToLower(value), "sì") ||
+					strings.Contains(strings.ToLower(value), "richiesta") ||
+					strings.Contains(strings.ToLower(value), "necessaria")
 				mapped[english] = needsAttune
 			default:
 				mapped[english] = value

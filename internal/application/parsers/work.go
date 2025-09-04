@@ -15,7 +15,7 @@ func CreateDefaultWork() []domain.WorkItem {
 		},
 		{
 			Filename:   "ita/02_giocare_il_gioco.md",
-			Collection: "documenti", 
+			Collection: "documenti",
 			Parser:     ParseDocument("02_giocare_il_gioco.md"),
 		},
 		{

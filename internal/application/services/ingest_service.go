@@ -104,7 +104,7 @@ func (s *IngestService) processWorkItem(baseDir string, item domain.WorkItem, dr
 // generatePreview generates a preview of parsed documents
 func (s *IngestService) generatePreview(docs []map[string]interface{}) string {
 	previewKeys := []string{"name", "term", "level", "rarity", "type", "school", "nome", "titolo"}
-	
+
 	var preview []map[string]interface{}
 	maxPreview := 5
 	if len(docs) < maxPreview {
@@ -114,13 +114,13 @@ func (s *IngestService) generatePreview(docs []map[string]interface{}) string {
 	for i := 0; i < maxPreview; i++ {
 		doc := docs[i]
 		previewDoc := make(map[string]interface{})
-		
+
 		for _, key := range previewKeys {
 			if value, exists := doc[key]; exists {
 				previewDoc[key] = value
 			}
 		}
-		
+
 		if len(previewDoc) > 0 {
 			preview = append(preview, previewDoc)
 		}
@@ -148,7 +148,7 @@ func (s *IngestService) GetCollectionStats() (map[string]int64, error) {
 	}
 
 	stats := make(map[string]int64)
-	
+
 	for _, collection := range collections {
 		// Note: We'd need to add Count method to ParserRepository interface
 		// For now, return 0 or implement differently

@@ -45,7 +45,6 @@ func (e *Engine) LoadTemplates() error {
 		return fmt.Errorf("failed to parse templates: %w", err)
 	}
 
-
 	e.templates = tmpl
 	return nil
 }
@@ -53,7 +52,7 @@ func (e *Engine) LoadTemplates() error {
 // Render renders a template with the given data
 func (e *Engine) Render(templateName string, data interface{}) (string, error) {
 	var buf bytes.Buffer
-	
+
 	// Create a new template set for this specific render to avoid block conflicts
 	tmpl := template.New("base").Funcs(template.FuncMap{
 		"add":     add,
@@ -62,26 +61,26 @@ func (e *Engine) Render(templateName string, data interface{}) (string, error) {
 		"default": defaultValue,
 		"safe":    safe,
 	})
-	
+
 	// Parse base template
 	basePattern := filepath.Join(e.templatesDir, "base.html")
 	tmpl, err := tmpl.ParseFiles(basePattern)
 	if err != nil {
 		return "", fmt.Errorf("failed to parse base template: %w", err)
 	}
-	
+
 	// Parse the specific template
 	specificPattern := filepath.Join(e.templatesDir, templateName)
 	tmpl, err = tmpl.ParseFiles(specificPattern)
 	if err != nil {
 		return "", fmt.Errorf("failed to parse template %s: %w", templateName, err)
 	}
-	
+
 	// Parse common partial templates that might be included
 	partialTemplates := []string{
 		"rows.html",
 	}
-	
+
 	for _, partial := range partialTemplates {
 		partialPath := filepath.Join(e.templatesDir, partial)
 		tmpl, err = tmpl.ParseFiles(partialPath)
@@ -90,7 +89,7 @@ func (e *Engine) Render(templateName string, data interface{}) (string, error) {
 			fmt.Printf("Warning: Could not load partial template %s: %v\n", partial, err)
 		}
 	}
-	
+
 	// Execute base template which will call the content blocks from the specific template
 	if err := tmpl.ExecuteTemplate(&buf, "base.html", data); err != nil {
 		fmt.Printf("Template execution error for %s: %v\n", templateName, err)
@@ -102,8 +101,8 @@ func (e *Engine) Render(templateName string, data interface{}) (string, error) {
 
 // Template helper functions
 
-func add(a, b int) int { return a + b }
-func sub(a, b int) int { return a - b }
+func add(a, b int) int         { return a + b }
+func sub(a, b int) int         { return a - b }
 func eq(a, b interface{}) bool { return a == b }
 
 func defaultValue(value, defaultVal interface{}) interface{} {

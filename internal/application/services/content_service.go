@@ -33,7 +33,7 @@ func (s *ContentService) GetCollectionItems(ctx context.Context, collection, sea
 	if !isValidCollection(collection) {
 		return nil, 0, fmt.Errorf("invalid collection: %s", collection)
 	}
-	
+
 	// Build filter
 	filter := bson.M{}
 	if search != "" {
@@ -46,40 +46,40 @@ func (s *ContentService) GetCollectionItems(ctx context.Context, collection, sea
 			{"contenuto_markdown": bson.M{"$regex": escapedSearch, "$options": "i"}},
 		}
 	}
-	
+
 	// Calculate skip
 	skip := (page - 1) * limit
-	
+
 	// Get total count
 	totalCount, err := s.mongoClient.Count(ctx, collection, filter)
 	if err != nil {
 		return nil, 0, fmt.Errorf("failed to count documents: %w", err)
 	}
-	
+
 	// Find options
 	opts := options.Find().
 		SetSort(bson.D{{"nome", 1}}).
 		SetSkip(int64(skip)).
 		SetLimit(int64(limit))
-	
+
 	// Get items
 	items, err := s.mongoClient.Find(ctx, collection, filter, opts)
 	if err != nil {
 		return nil, 0, fmt.Errorf("failed to find documents: %w", err)
 	}
-	
+
 	// Add display elements for each item
 	for i, item := range items {
 		items[i]["display_elements"] = s.getDisplayElements(collection, item)
 	}
-	
+
 	return items, totalCount, nil
 }
 
 // getDisplayElements returns an array of display elements for a document based on collection type
 func (s *ContentService) getDisplayElements(collection string, doc map[string]interface{}) []map[string]interface{} {
 	var elements []map[string]interface{}
-	
+
 	switch collection {
 	case "incantesimi":
 		// Incantesimi - Level + School
@@ -95,7 +95,7 @@ func (s *ContentService) getDisplayElements(collection string, doc map[string]in
 				"type":  "school",
 			})
 		}
-		
+
 	case "oggetti_magici":
 		// Oggetti magici - Rarity + Type
 		if rarity := getFieldValue(doc, "rarita"); rarity != "" {
@@ -110,7 +110,7 @@ func (s *ContentService) getDisplayElements(collection string, doc map[string]in
 				"type":  "type",
 			})
 		}
-		
+
 	case "mostri":
 		// Mostri - Size + Type + CR
 		if size := getFieldValue(doc, "taglia"); size != "" {
@@ -125,7 +125,7 @@ func (s *ContentService) getDisplayElements(collection string, doc map[string]in
 				"type":  "challenge_rating",
 			})
 		}
-		
+
 	case "armi":
 		// Armi - Category + Damage
 		if category := getFieldValue(doc, "categoria"); category != "" {
@@ -140,7 +140,7 @@ func (s *ContentService) getDisplayElements(collection string, doc map[string]in
 				"type":  "damage",
 			})
 		}
-		
+
 	case "armature":
 		// Armature - Category + AC
 		if category := getFieldValue(doc, "categoria"); category != "" {
@@ -156,7 +156,7 @@ func (s *ContentService) getDisplayElements(collection string, doc map[string]in
 			})
 		}
 	}
-	
+
 	// Add generic fields (cost, weight) for all collections
 	if cost := getFieldValue(doc, "costo"); cost != "" {
 		elements = append(elements, map[string]interface{}{
@@ -170,7 +170,7 @@ func (s *ContentService) getDisplayElements(collection string, doc map[string]in
 			"type":  "weight",
 		})
 	}
-	
+
 	return elements
 }
 
@@ -192,7 +192,7 @@ func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (
 	if !isValidCollection(collection) {
 		return nil, fmt.Errorf("invalid collection: %s", collection)
 	}
-	
+
 	// Try cache first
 	cacheKey := fmt.Sprintf("item:%s:%s", collection, slug)
 	if cached, found := s.cache.Get(cacheKey); found {
@@ -200,20 +200,19 @@ func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (
 			return item, nil
 		}
 	}
-	
+
 	filter := bson.M{"slug": slug}
-	
+
 	item, err := s.mongoClient.FindOne(ctx, collection, filter)
 	if err != nil {
 		return nil, fmt.Errorf("failed to find item: %w", err)
 	}
-	
+
 	// Cache the item for 10 minutes
 	s.cache.Set(cacheKey, item, 10*time.Minute)
-	
+
 	return item, nil
 }
-
 
 // GetStats retrieves database statistics
 func (s *ContentService) GetStats(ctx context.Context) (map[string]interface{}, error) {
@@ -221,41 +220,41 @@ func (s *ContentService) GetStats(ctx context.Context) (map[string]interface{}, 
 		"collections": make(map[string]int64),
 		"total_items": int64(0),
 	}
-	
+
 	validCollections := getValidCollections()
-	
+
 	for _, collection := range validCollections {
 		count, err := s.mongoClient.Count(ctx, collection, bson.M{})
 		if err != nil {
 			continue
 		}
-		
+
 		stats["collections"].(map[string]int64)[collection] = count
 		stats["total_items"] = stats["total_items"].(int64) + count
 	}
-	
+
 	return stats, nil
 }
 
 // GetCollectionStats retrieves statistics for all collections
 func (s *ContentService) GetCollectionStats(ctx context.Context) ([]map[string]interface{}, error) {
 	var collections []map[string]interface{}
-	
+
 	validCollections := getValidCollections()
-	
+
 	for _, collection := range validCollections {
 		count, err := s.mongoClient.Count(ctx, collection, bson.M{})
 		if err != nil {
 			continue
 		}
-		
+
 		collections = append(collections, map[string]interface{}{
 			"name":  collection,
 			"title": getCollectionTitle(collection),
 			"count": count,
 		})
 	}
-	
+
 	return collections, nil
 }
 
@@ -304,10 +303,10 @@ func getCollectionTitle(collection string) string {
 		"animali":         "Animali",
 		"documenti":       "Documenti",
 	}
-	
+
 	if title, exists := titles[collection]; exists {
 		return title
 	}
-	
+
 	return strings.Title(collection)
 }
