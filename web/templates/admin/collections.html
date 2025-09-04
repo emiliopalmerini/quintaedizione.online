@@ -1,6 +1,5 @@
-{{define "admin/collections.html"}}
-{{template "base.html" .}}
 {{define "title"}}{{.title}}{{end}}
+
 {{define "content"}}
 <div class="notion-page">
   <div class="notion-page-header">
@@ -43,7 +42,7 @@
           </div>
           <div class="table-cell">
             <div class="action-buttons">
-              <a href="/c/{{.name}}" class="btn btn-small btn-ghost" target="_blank">
+              <a href="/{{.name}}" class="btn btn-small btn-ghost" target="_blank">
                 Visualizza
               </a>
               <button class="btn btn-small btn-secondary" 
@@ -247,5 +246,4 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
-{{end}}
 {{end}}

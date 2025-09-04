@@ -29,8 +29,12 @@ func (h *Handlers) RegisterRoutes(router *gin.Engine) {
 	router.GET("/", h.handleHome)
 	
 	// Collection pages
-	router.GET("/c/:collection", h.handleCollectionList)
-	router.GET("/c/:collection/:slug", h.handleItemDetail)
+	router.GET("/:collection", h.handleCollectionList)
+	router.GET("/:collection/rows", h.handleCollectionRows)  // HTMX rows endpoint
+	router.GET("/:collection/:slug", h.handleItemDetail)
+	
+	// Quick search
+	router.GET("/quicksearch/:collection", h.handleQuickSearch)
 	
 	// Search functionality
 	router.GET("/search", h.handleSearch)
@@ -47,10 +51,39 @@ func (h *Handlers) RegisterRoutes(router *gin.Engine) {
 
 // handleHome renders the home page
 func (h *Handlers) handleHome(c *gin.Context) {
+	// Get collection stats for display
+	collections, err := h.contentService.GetCollectionStats(c.Request.Context())
+	if err != nil {
+		// If error, use default collections without counts
+		collections = []map[string]interface{}{
+			{"name": "incantesimi", "label": "Incantesimi", "count": 0},
+			{"name": "mostri", "label": "Mostri", "count": 0},
+			{"name": "classi", "label": "Classi", "count": 0},
+			{"name": "backgrounds", "label": "Background", "count": 0},
+			{"name": "equipaggiamento", "label": "Equipaggiamento", "count": 0},
+			{"name": "oggetti_magici", "label": "Oggetti Magici", "count": 0},
+			{"name": "armi", "label": "Armi", "count": 0},
+			{"name": "armature", "label": "Armature", "count": 0},
+		}
+	}
+	
+	// Calculate total items
+	total := int64(0)
+	for _, col := range collections {
+		if count, ok := col["count"].(int64); ok {
+			total += count
+			// Also set label from title if not present
+			if title, ok := col["title"].(string); ok && col["label"] == nil {
+				col["label"] = title
+			}
+		}
+	}
+	
 	data := gin.H{
-		"title":       "D&D 5e SRD Italiano",
-		"description": "System Reference Document di Dungeons & Dragons 5a Edizione in italiano",
-		"collections": []string{"incantesimi", "mostri", "classi", "backgrounds", "equipaggiamento"},
+		"title":       "5e SRD 2024",
+		"description": "Il Fantastico Visualizzatore di SRD (5e 2024)",
+		"collections": collections,
+		"total":       total,
 	}
 	
 	h.renderTemplate(c, "home.html", data)
@@ -60,33 +93,58 @@ func (h *Handlers) handleHome(c *gin.Context) {
 func (h *Handlers) handleCollectionList(c *gin.Context) {
 	collection := c.Param("collection")
 	page := c.DefaultQuery("page", "1")
-	search := c.Query("search")
+	q := c.Query("q")
+	pageSize := c.DefaultQuery("page_size", "20")
 	
 	pageNum, err := strconv.Atoi(page)
 	if err != nil || pageNum < 1 {
 		pageNum = 1
 	}
 	
+	pageSizeNum, err := strconv.Atoi(pageSize)
+	if err != nil || pageSizeNum < 1 {
+		pageSizeNum = 20
+	}
+	
 	// Get items from service
-	items, totalCount, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, search, pageNum, 20)
+	items, totalCount, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, q, pageNum, pageSizeNum)
 	if err != nil {
 		h.renderError(c, "Errore nel caricamento della collezione", http.StatusInternalServerError)
 		return
 	}
 	
 	// Calculate pagination
-	totalPages := int((totalCount + 19) / 20) // Ceiling division
+	totalPages := int((totalCount + int64(pageSizeNum) - 1) / int64(pageSizeNum))
+	startItem := (pageNum - 1) * pageSizeNum + 1
+	endItem := pageNum * pageSizeNum
+	if endItem > int(totalCount) {
+		endItem = int(totalCount)
+	}
 	
+	// Get query parameters for filters
 	data := gin.H{
 		"title":       getCollectionTitle(collection),
 		"collection":  collection,
-		"items":       items,
-		"search":      search,
+		"documents":   items,  // Use 'documents' to match the template
+		"q":           q,
 		"page":        pageNum,
-		"totalPages":  totalPages,
-		"totalCount":  totalCount,
-		"hasNext":     pageNum < totalPages,
-		"hasPrev":     pageNum > 1,
+		"page_size":   pageSizeNum,
+		"total":       totalCount,
+		"total_pages": totalPages,
+		"has_next":    pageNum < totalPages,
+		"has_prev":    pageNum > 1,
+		"start_item":  startItem,
+		"end_item":    endItem,
+		"qs":          c.Request.URL.RawQuery,
+		// Filter parameters
+		"level":       c.Query("level"),
+		"school":      c.Query("school"),
+		"ritual":      c.Query("ritual"),
+		"size":        c.Query("size"),
+		"type":        c.Query("type"),
+		"cr":          c.Query("cr"),
+		"category":    c.Query("category"),
+		"property":    c.Query("property"),
 	}
 	
 	h.renderTemplate(c, "collection.html", data)
@@ -103,10 +161,33 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 		return
 	}
 	
+	// Prepare markdown content
+	var bodyRaw string
+	var bodyHTML string
+	
+	// Try different fields for content
+	if content, ok := item["contenuto_markdown"].(string); ok {
+		bodyRaw = content
+	} else if desc, ok := item["descrizione"].(string); ok {
+		bodyRaw = desc
+	} else if body, ok := item["body"].(string); ok {
+		bodyRaw = body
+	}
+	
+	// For now, bodyHTML = bodyRaw (client-side rendering)
+	bodyHTML = bodyRaw
+	
 	data := gin.H{
-		"title":      item["nome"],
-		"collection": collection,
-		"item":       item,
+		"doc_title":        item["nome"],
+		"doc_id":           slug,
+		"collection":       collection,
+		"collection_label": getCollectionTitle(collection),
+		"body_raw":         bodyRaw,
+		"body_html":        bodyHTML,
+		"qs":               c.Request.URL.RawQuery,
+		// TODO: Add prev_id and next_id for navigation
+		"prev_id":          nil,
+		"next_id":          nil,
 	}
 	
 	h.renderTemplate(c, "item.html", data)
@@ -172,6 +253,86 @@ func (h *Handlers) handleSearchPost(c *gin.Context) {
 	}
 	
 	h.renderTemplate(c, "search_results.html", data)
+}
+
+// handleCollectionRows handles HTMX requests for collection rows
+func (h *Handlers) handleCollectionRows(c *gin.Context) {
+	collection := c.Param("collection")
+	page := c.DefaultQuery("page", "1")
+	q := c.Query("q")
+	pageSize := c.DefaultQuery("page_size", "20")
+	
+	pageNum, err := strconv.Atoi(page)
+	if err != nil || pageNum < 1 {
+		pageNum = 1
+	}
+	
+	pageSizeNum, err := strconv.Atoi(pageSize)
+	if err != nil || pageSizeNum < 1 {
+		pageSizeNum = 20
+	}
+	
+	// Get filtered items
+	items, totalCount, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, q, pageNum, pageSizeNum)
+	if err != nil {
+		h.renderError(c, "Errore nel caricamento", http.StatusInternalServerError)
+		return
+	}
+	
+	// Calculate pagination
+	totalPages := int((totalCount + int64(pageSizeNum) - 1) / int64(pageSizeNum))
+	startItem := (pageNum - 1) * pageSizeNum + 1
+	endItem := pageNum * pageSizeNum
+	if endItem > int(totalCount) {
+		endItem = int(totalCount)
+	}
+	
+	data := gin.H{
+		"collection":  collection,
+		"documents":   items,
+		"total":       totalCount,
+		"page":        pageNum,
+		"page_size":   pageSizeNum,
+		"total_pages": totalPages,
+		"has_next":    pageNum < totalPages,
+		"has_prev":    pageNum > 1,
+		"start_item":  startItem,
+		"end_item":    endItem,
+		"qs":          c.Request.URL.RawQuery,
+	}
+	
+	h.renderTemplate(c, "rows.html", data)
+}
+
+// handleQuickSearch handles quick search within a collection
+func (h *Handlers) handleQuickSearch(c *gin.Context) {
+	collection := c.Param("collection")
+	q := c.Query("q")
+	
+	// Return empty if no query
+	if q == "" {
+		data := gin.H{
+			"collection": collection,
+			"q":          q,
+			"items":      []interface{}{},
+		}
+		h.renderTemplate(c, "quicksearch.html", data)
+		return
+	}
+	
+	// Search within collection (limit to 10 results for quick search)
+	items, _, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, q, 1, 10)
+	if err != nil {
+		items = []map[string]interface{}{}
+	}
+	
+	data := gin.H{
+		"collection": collection,
+		"q":          q,
+		"items":      items,
+	}
+	
+	h.renderTemplate(c, "quicksearch.html", data)
 }
 
 // Admin handlers

@@ -19,7 +19,9 @@
       "Bash(docker compose:*)",
       "Bash(docker logs:*)",
       "Bash(docker image rm:*)",
-      "Bash(docker-compose restart:*)"
+      "Bash(docker-compose restart:*)",
+      "Bash(go build:*)",
+      "Bash(git reset:*)"
     ],
     "deny": [],
     "ask": []

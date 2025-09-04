@@ -1,6 +1,5 @@
-{{define "admin/home.html"}}
-{{template "base.html" .}}
 {{define "title"}}{{.title}}{{end}}
+
 {{define "content"}}
 <div class="notion-page">
   <div class="notion-page-header">
@@ -47,7 +46,7 @@
       <div class="collection-stat-row">
         <span class="collection-name">{{capitalize $collection}}</span>
         <span class="collection-count">{{$count}} elementi</span>
-        <a href="/c/{{$collection}}" class="btn btn-small btn-ghost">Visualizza</a>
+        <a href="/{{$collection}}" class="btn btn-small btn-ghost">Visualizza</a>
       </div>
       {{end}}
     </div>
@@ -170,5 +169,4 @@
   margin-right: 0.5rem;
 }
 </style>
-{{end}}
 {{end}}

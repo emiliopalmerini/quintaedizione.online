@@ -1,9 +1,8 @@
-{{define "search_results.html"}}
 {{if .results}}
 <div class="notion-list">
   {{range .results}}
   <div class="notion-list-item">
-    <a href="/c/{{._collection}}/{{.slug}}" class="notion-list-item-link">
+    <a href="/{{._collection}}/{{.slug}}" class="notion-list-item-link">
       <div class="notion-list-item-content">
         <h3 class="notion-list-item-title">{{.nome}}</h3>
         {{if .descrizione}}
@@ -44,5 +43,4 @@
     Nessun risultato trovato per "{{.query}}"
   </p>
 </div>
-{{end}}
 {{end}}

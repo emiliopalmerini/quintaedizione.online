@@ -1,0 +1,115 @@
+{{define "rows"}}
+<div class="divide-y">
+  {{range .documents}}
+    {{$doc_name := or .nome .name .title .titolo .slug}}
+    {{$doc_slug := or .slug .id .nome .name ._id}}
+    
+    <a href="/{{$.collection}}/{{$doc_slug}}{{if $.qs}}?{{$.qs}}{{end}}" 
+       class="block px-4 py-3 hover:bg-neutral-50 text-inherit no-underline"
+       hx-get="/{{$.collection}}/{{$doc_slug}}"
+       hx-target="#page-root"
+       hx-select="#page-root"
+       hx-swap="outerHTML"
+       hx-push-url="true"
+       hx-indicator="#page-loading">
+      <div class="flex items-center justify-between">
+        <div class="flex-1">
+          <h3 class="font-medium text-gray-900">
+            {{$doc_name}}
+          </h3>
+          
+          <div class="text-xs text-neutral-500 mt-1 flex flex-wrap items-center gap-2">
+            {{/* Incantesimi - Level + School */}}
+            {{if or .level .livello}}
+              <span>Livello {{or .level .livello}}</span>
+            {{end}}
+            {{if or .school .scuola}}
+              <span>{{or .school .scuola}}</span>
+            {{end}}
+            
+            {{/* Oggetti magici - Rarity + Type */}}
+            {{if or .rarity .rarita}}
+              <span>{{or .rarity .rarita}}</span>
+            {{end}}
+            {{if or .type .tipo}}
+              <span>{{or .type .tipo}}</span>
+            {{end}}
+            
+            {{/* Mostri - Size + Type + CR */}}
+            {{if or .size .taglia}}
+              <span>{{or .size .taglia}}</span>
+            {{end}}
+            {{if or .challenge_rating .cr .gs .grado_sfida}}
+              <span>GS {{or .challenge_rating .cr .gs .grado_sfida}}</span>
+            {{end}}
+            
+            {{/* Armi - Category + Damage */}}
+            {{if or .category .categoria}}
+              <span>{{or .category .categoria}}</span>
+            {{end}}
+            {{if or .damage .danno}}
+              <span>{{or .damage .danno}}</span>
+            {{end}}
+            
+            {{/* Armature - Category + AC */}}
+            {{if or .ac_base .ca_base}}
+              <span>CA {{or .ac_base .ca_base}}</span>
+            {{end}}
+            
+            {{/* Altri campi generici */}}
+            {{if or .cost .costo}}
+              <span>{{or .cost .costo}}</span>
+            {{end}}
+            {{if or .weight .peso}}
+              <span>{{or .weight .peso}}</span>
+            {{end}}
+          </div>
+        </div>
+        
+        {{if .translated}}
+        <div class="text-xs text-green-600">
+          ✓ Tradotto
+        </div>
+        {{end}}
+      </div>
+    </a>
+  {{end}}
+  
+  {{if not .documents}}
+    <div class="px-4 py-8 text-center text-neutral-500">
+      <p>Nessun documento trovato.</p>
+    </div>
+  {{end}}
+</div>
+
+{{/* Pagination */}}
+{{if gt .total .page_size}}
+<div class="px-4 py-3 border-t bg-neutral-50">
+  <div class="flex items-center justify-between text-sm text-neutral-600">
+    <div>
+      Documenti {{.start_item}}-{{.end_item}} di {{.total}}
+    </div>
+    
+    <div class="flex items-center space-x-2">
+      {{if .has_prev}}
+        <button hx-get="/{{.collection}}/rows?page={{sub .page 1}}{{if .qs}}&{{.qs}}{{end}}"
+                hx-target="#rows"
+                class="px-3 py-1 bg-white border rounded hover:bg-neutral-50">
+          ← Precedente
+        </button>
+      {{end}}
+      
+      <span class="px-2">Pagina {{.page}} di {{.total_pages}}</span>
+      
+      {{if .has_next}}
+        <button hx-get="/{{.collection}}/rows?page={{add .page 1}}{{if .qs}}&{{.qs}}{{end}}"
+                hx-target="#rows"
+                class="px-3 py-1 bg-white border rounded hover:bg-neutral-50">
+          Successiva →
+        </button>
+      {{end}}
+    </div>
+  </div>
+</div>
+{{end}}
+{{end}}

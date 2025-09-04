@@ -17,7 +17,7 @@
         <a href="/" class="btn">Home</a>
         {{if .collection}}
           <span style="color: var(--notion-text-light);">/</span>
-          <a href="/c/{{.collection}}{{if .qs}}?{{.qs}}{{end}}" class="btn">{{.collection}}</a>
+          <a href="/{{.collection}}{{if .qs}}?{{.qs}}{{end}}" class="btn">{{.collection}}</a>
           <span class="breadcrumb-separator">/</span>
           <div class="search-container">
             <input id="bc-search" name="q" placeholder="{{if .doc_slug}}{{.doc_slug}}{{else if .doc_title}}{{.doc_title}}{{else}}Cerca in {{.collection}}…{{end}}" class="field" style="width: 240px; font-size: 13px; padding: 6px 10px;"
@@ -29,13 +29,13 @@
                  role="listbox" aria-label="Risultati ricerca rapida"></div>
           </div>
         {{end}}
-        {{if and .doc_title (not .collection)}}
+        {{if .doc_title}}{{if not .collection}}
           <span style="color: var(--notion-text-light);">/</span>
           <span style="color: var(--notion-text); font-weight: 500; max-width: 40vw;" class="truncate" title="{{.doc_title}}">{{.doc_title}}</span>
-        {{else if and .doc_id (not .collection)}}
+        {{end}}{{else if .doc_id}}{{if not .collection}}
           <span style="color: var(--notion-text-light);">/</span>
           <span class="mono tag" title="{{.doc_id}}">{{.doc_id}}</span>
-        {{end}}
+        {{end}}{{end}}
       </nav>
     </div>
   </header>
@@ -52,36 +52,48 @@
     </div>
   </main>
 
+  {{block "scripts" .}}{{end}}
   <script>
-    // Initialize HTMX enhancements
-    document.addEventListener('DOMContentLoaded', function() {
-      // Search dropdown handling
-      const searchInput = document.getElementById('bc-search');
-      const searchResults = document.getElementById('bc-results');
-      
-      if (searchInput && searchResults) {
-        searchInput.addEventListener('focus', function() {
-          searchResults.classList.remove('hidden');
-          this.setAttribute('aria-expanded', 'true');
-        });
+    // Minimal JavaScript for Markdown rendering and clipboard
+    function initMarkdown(){
+      const hasMarked = typeof window.marked !== 'undefined';
+      if (hasMarked && window.marked.setOptions){
+        try { window.marked.setOptions({ headerIds: true, mangle: false }); } catch(e) {}
+      }
+      document.querySelectorAll('[data-markdown]').forEach(el=>{
+        if (el.getAttribute('data-ssr') === 'true') return;
+        let raw = '';
+        const srcId = el.getAttribute('data-md-src-id');
+        if (srcId){
+          const src = document.getElementById(srcId);
+          if (src) raw = src.textContent || '';
+        }
+        if (!raw){ raw = el.textContent || ''; }
+        el.dataset.raw = raw;
+        if(hasMarked){ el.innerHTML = window.marked.parse(raw); }
+      });
+    }
+    document.addEventListener('DOMContentLoaded', initMarkdown);
+    document.body.addEventListener('htmx:afterSwap', initMarkdown);
 
-        document.addEventListener('click', function(e) {
-          if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
-            searchResults.classList.add('hidden');
-            searchInput.setAttribute('aria-expanded', 'false');
-          }
+    // Copy markdown functionality
+    function copyMarkdown(btn){
+      const section = btn.closest('[data-md-section]') || btn.closest('article') || document;
+      let md = section.querySelector('[data-markdown]');
+      if (!md) md = section.querySelector('[data-ssr="true"]');
+      const raw = (md && (md.dataset.raw || md.getAttribute('data-raw') || md.textContent)) || '';
+      if(!raw) return;
+      
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(raw).then(()=>{
+          const flash = document.createElement('span');
+          flash.className = 'flash-message';
+          flash.textContent = 'Copiato';
+          btn.insertAdjacentElement('afterend', flash);
+          setTimeout(()=>flash.remove(), 1200);
         });
       }
-    });
-
-    // HTMX loading indicators
-    document.body.addEventListener('htmx:beforeRequest', function() {
-      document.getElementById('page-loading').style.display = 'flex';
-    });
-
-    document.body.addEventListener('htmx:afterRequest', function() {
-      document.getElementById('page-loading').style.display = 'none';
-    });
+    }
   </script>
 </body>
 </html>

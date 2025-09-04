@@ -1,6 +1,5 @@
-{{define "search.html"}}
-{{template "base.html" .}}
 {{define "title"}}{{.title}}{{end}}
+
 {{define "content"}}
 <div class="notion-page">
   <div class="notion-page-header">
@@ -29,11 +28,10 @@
           Cerca in:
         </label>
         <div class="filter-checkboxes" style="display: flex; flex-wrap: wrap; gap: 1rem;">
-          {{$selectedCollections := .collections}}
-          {{range $collection := (slice "incantesimi" "mostri" "classi" "backgrounds" "equipaggiamento" "armi" "armature" "oggetti_magici" "talenti")}}
+          {{range $collection := slice "incantesimi" "mostri" "classi" "backgrounds" "equipaggiamento" "armi" "armature" "oggetti_magici" "talenti"}}
           <label class="checkbox-label">
             <input type="checkbox" name="collections" value="{{$collection}}" 
-                   {{if or (not $selectedCollections) (contains $selectedCollections $collection)}}checked{{end}}>
+                   {{if or (not $.collections) (contains $.collections $collection)}}checked{{end}}>
             <span>{{capitalize $collection}}</span>
           </label>
           {{end}}
@@ -45,7 +43,37 @@
   <!-- Search results -->
   <div id="search-results">
     {{if .results}}
-    {{template "search_results.html" .}}
+    <div class="notion-list">
+      {{range .results}}
+      <div class="notion-list-item">
+        <a href="/{{._collection}}/{{.slug}}" class="notion-list-item-link">
+          <div class="notion-list-item-content">
+            <h3 class="notion-list-item-title">{{.nome}}</h3>
+            {{if .descrizione}}
+            <p class="notion-list-item-description">
+              {{if gt (len .descrizione) 200}}{{slice .descrizione 0 200}}...{{else}}{{.descrizione}}{{end}}
+            </p>
+            {{end}}
+            <div class="notion-list-item-meta">
+              <span class="tag">{{._collection_title}}</span>
+              {{if .livello}}
+              <span class="tag">Livello {{.livello}}</span>
+              {{else if .grado_sfida}}
+              <span class="tag">GS {{.grado_sfida}}</span>
+              {{else if .costo}}
+              <span class="tag">{{.costo}}</span>
+              {{end}}
+            </div>
+          </div>
+          <div class="notion-list-item-action">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M6.22 8.72a.75.75 0 0 0 1.06 1.06L10.94 6.2a.75.75 0 0 0-.53-1.28H6.75a.75.75 0 0 0 0 1.5h1.69L6.22 8.72Z"/>
+            </svg>
+          </div>
+        </a>
+      </div>
+      {{end}}
+    </div>
     {{else if .query}}
     <div class="notion-empty" style="text-align: center; padding: 2rem;">
       <p style="color: var(--notion-text-light); font-size: 1.1rem;">
@@ -83,5 +111,4 @@
   margin-top: 0.5rem;
 }
 </style>
-{{end}}
 {{end}}

@@ -1,103 +1,91 @@
 {{define "title"}}{{.title}}{{end}}
 
 {{define "content"}}
-<div class="notion-page">
-  <div class="notion-page-header">
-    <h1 style="color: var(--notion-text); font-size: 2rem; font-weight: 600; margin: 0;">
-      {{.title}}
-    </h1>
-    {{if .totalCount}}
-    <p style="color: var(--notion-text-light); margin-top: 0.5rem;">
-      {{.totalCount}} elementi{{if .search}} - filtrati per "{{.search}}"{{end}}
-    </p>
-    {{end}}
-  </div>
-
-  <!-- Search bar -->
-  <div class="search-section" style="margin-bottom: 2rem;">
-    <form method="get" class="search-form">
-      <div class="search-input-container">
-        <input name="search" type="text" placeholder="Filtra {{.title}}..." 
-               value="{{.search}}" class="field" style="flex: 1; margin-right: 10px;">
-        <button type="submit" class="btn btn-secondary">Filtra</button>
-        {{if .search}}
-        <a href="/c/{{.collection}}" class="btn btn-ghost">Cancella</a>
-        {{end}}
+  <section class="bg-white border p-2 mb-3">
+    <form id="search-form"
+      hx-get="/{{.collection}}/rows"
+      hx-target="#rows"
+      hx-trigger="submit, keyup delay:300ms from:#q, change from:select, change from:input[type=checkbox], change from:input[type=number]"
+      hx-push-url="true"
+      class="flex flex-col gap-2"
+    >
+      <div class="flex items-center gap-2 flex-wrap">
+        <input id="q" name="q" placeholder="Cerca…" value="{{.q}}" class="field flex-1" />
+        <select name="page_size" class="field w-28">
+          {{$pageSize := .page_size | default 20}}
+          <option value="10" {{if eq $pageSize 10}}selected{{end}}>10/pagina</option>
+          <option value="20" {{if eq $pageSize 20}}selected{{end}}>20/pagina</option>
+          <option value="50" {{if eq $pageSize 50}}selected{{end}}>50/pagina</option>
+          <option value="100" {{if eq $pageSize 100}}selected{{end}}>100/pagina</option>
+        </select>
+        <button class="btn" type="submit">Cerca</button>
       </div>
+
+      <details class="p-2">
+        <summary class="cursor-pointer text-sm text-neutral-700">Filtri</summary>
+        <div class="mt-2 grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
+          {{if eq .collection "incantesimi"}}
+            <select name="level" class="field">
+              <option value="">Livello (tutti)</option>
+              <option value="0" {{if eq $.level "0"}}selected{{end}}>0</option>
+              <option value="1" {{if eq $.level "1"}}selected{{end}}>1</option>
+              <option value="2" {{if eq $.level "2"}}selected{{end}}>2</option>
+              <option value="3" {{if eq $.level "3"}}selected{{end}}>3</option>
+              <option value="4" {{if eq $.level "4"}}selected{{end}}>4</option>
+              <option value="5" {{if eq $.level "5"}}selected{{end}}>5</option>
+              <option value="6" {{if eq $.level "6"}}selected{{end}}>6</option>
+              <option value="7" {{if eq $.level "7"}}selected{{end}}>7</option>
+              <option value="8" {{if eq $.level "8"}}selected{{end}}>8</option>
+              <option value="9" {{if eq $.level "9"}}selected{{end}}>9</option>
+            </select>
+            <select name="school" class="field">
+              <option value="">Scuola (tutte)</option>
+              <option value="Abiurazione" {{if eq $.school "Abiurazione"}}selected{{end}}>Abiurazione</option>
+              <option value="Ammaliamento" {{if eq $.school "Ammaliamento"}}selected{{end}}>Ammaliamento</option>
+              <option value="Divinazione" {{if eq $.school "Divinazione"}}selected{{end}}>Divinazione</option>
+              <option value="Evocazione" {{if eq $.school "Evocazione"}}selected{{end}}>Evocazione</option>
+              <option value="Illusione" {{if eq $.school "Illusione"}}selected{{end}}>Illusione</option>
+              <option value="Invocazione" {{if eq $.school "Invocazione"}}selected{{end}}>Invocazione</option>
+              <option value="Necromanzia" {{if eq $.school "Necromanzia"}}selected{{end}}>Necromanzia</option>
+              <option value="Trasmutazione" {{if eq $.school "Trasmutazione"}}selected{{end}}>Trasmutazione</option>
+            </select>
+            <select name="ritual" class="field">
+              <option value="">Rituale (tutti)</option>
+              <option value="true" {{if eq $.ritual "true"}}selected{{end}}>Sì</option>
+              <option value="false" {{if eq $.ritual "false"}}selected{{end}}>No</option>
+            </select>
+          {{else if eq .collection "mostri"}}
+            <select name="size" class="field">
+              <option value="">Taglia (tutte)</option>
+              <option value="Minuscola" {{if eq $.size "Minuscola"}}selected{{end}}>Minuscola</option>
+              <option value="Piccola" {{if eq $.size "Piccola"}}selected{{end}}>Piccola</option>
+              <option value="Media" {{if eq $.size "Media"}}selected{{end}}>Media</option>
+              <option value="Grande" {{if eq $.size "Grande"}}selected{{end}}>Grande</option>
+              <option value="Enorme" {{if eq $.size "Enorme"}}selected{{end}}>Enorme</option>
+              <option value="Mastodontica" {{if eq $.size "Mastodontica"}}selected{{end}}>Mastodontica</option>
+            </select>
+            <input name="type" class="field" placeholder="Tipo (es. drago)" value="{{.type}}" />
+            <input name="cr" class="field" placeholder="GS (es. 1/2, 5)" value="{{.cr}}" />
+          {{else if eq .collection "armi"}}
+            <input name="category" class="field" placeholder="Categoria (es. Semplice)" value="{{.category}}" />
+            <input name="property" class="field" placeholder="Proprietà (es. Leggera)" value="{{.property}}" />
+          {{else if eq .collection "armature"}}
+            <select name="category" class="field">
+              <option value="">Categoria (tutte)</option>
+              <option value="Leggera" {{if eq $.category "Leggera"}}selected{{end}}>Leggera</option>
+              <option value="Media" {{if eq $.category "Media"}}selected{{end}}>Media</option>
+              <option value="Pesante" {{if eq $.category "Pesante"}}selected{{end}}>Pesante</option>
+              <option value="Scudo" {{if eq $.category "Scudo"}}selected{{end}}>Scudo</option>
+            </select>
+          {{end}}
+        </div>
+      </details>
     </form>
-  </div>
+  </section>
 
-  <!-- Items list -->
-  {{if .items}}
-  <div class="notion-list">
-    {{range .items}}
-    <div class="notion-list-item">
-      <a href="/c/{{$.collection}}/{{.slug}}" class="notion-list-item-link">
-        <div class="notion-list-item-content">
-          <h3 class="notion-list-item-title">{{.nome}}</h3>
-          {{if .descrizione}}
-          <p class="notion-list-item-description">
-            {{if gt (len .descrizione) 150}}{{slice .descrizione 0 150}}...{{else}}{{.descrizione}}{{end}}
-          </p>
-          {{end}}
-          {{if .livello}}
-          <div class="notion-list-item-meta">
-            <span class="tag">Livello {{.livello}}</span>
-          </div>
-          {{else if .grado_sfida}}
-          <div class="notion-list-item-meta">
-            <span class="tag">GS {{.grado_sfida}}</span>
-          </div>
-          {{else if .costo}}
-          <div class="notion-list-item-meta">
-            <span class="tag">{{.costo}}</span>
-          </div>
-          {{end}}
-        </div>
-        <div class="notion-list-item-action">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-            <path d="M6.22 8.72a.75.75 0 0 0 1.06 1.06L10.94 6.2a.75.75 0 0 0-.53-1.28H6.75a.75.75 0 0 0 0 1.5h1.69L6.22 8.72Z"/>
-          </svg>
-        </div>
-      </a>
+  <section class="bg-white border">
+    <div id="rows">
+      {{template "rows" .}}
     </div>
-    {{end}}
-  </div>
-
-  <!-- Pagination -->
-  {{if gt .totalPages 1}}
-  <div class="pagination" style="margin-top: 2rem; text-align: center;">
-    {{if .hasPrev}}
-    <a href="/c/{{.collection}}?page={{sub .page 1}}{{if .search}}&search={{.search}}{{end}}" 
-       class="btn btn-secondary">← Precedente</a>
-    {{end}}
-    
-    <span style="margin: 0 1rem; color: var(--notion-text-light);">
-      Pagina {{.page}} di {{.totalPages}}
-    </span>
-    
-    {{if .hasNext}}
-    <a href="/c/{{.collection}}?page={{add .page 1}}{{if .search}}&search={{.search}}{{end}}" 
-       class="btn btn-secondary">Successiva →</a>
-    {{end}}
-  </div>
-  {{end}}
-
-  {{else}}
-  <div class="notion-empty" style="text-align: center; padding: 3rem;">
-    <p style="color: var(--notion-text-light); font-size: 1.1rem;">
-      {{if .search}}
-      Nessun elemento trovato per "{{.search}}"
-      {{else}}
-      Nessun elemento trovato in questa collezione
-      {{end}}
-    </p>
-    {{if .search}}
-    <a href="/c/{{.collection}}" class="btn btn-primary" style="margin-top: 1rem;">
-      Visualizza tutti gli elementi
-    </a>
-    {{end}}
-  </div>
-  {{end}}
-</div>
+  </section>
 {{end}}

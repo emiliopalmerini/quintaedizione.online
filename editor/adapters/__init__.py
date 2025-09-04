@@ -1,1 +1,0 @@
-# Editor infrastructure adapters

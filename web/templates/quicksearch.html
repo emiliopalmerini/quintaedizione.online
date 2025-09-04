@@ -1,0 +1,27 @@
+{{define "quicksearch"}}
+{{if or (not .q) (eq .q "")}}
+  <div class="px-3 py-2 text-xs text-neutral-600">Digita per cercare in {{.collection}}</div>
+{{else if eq (len .items) 0}}
+  <div class="px-3 py-2 text-sm text-neutral-600">Nessun risultato per "{{.q}}".</div>
+{{else}}
+  <ul class="divide-y" role="listbox" aria-label="Risultati ricerca rapida">
+    {{range .items}}
+      {{$title := or .nome .name .term .title .titolo "(senza titolo)"}}
+      {{$id := or ._id .id .slug}}
+      <li role="option">
+        <a href="/{{$.collection}}/{{$id}}"
+           hx-get="/{{$.collection}}/{{$id}}"
+           hx-target="#page-root" 
+           hx-select="#page-root" 
+           hx-swap="outerHTML" 
+           hx-push-url="true" 
+           hx-indicator="#page-loading"
+           class="block px-3 py-2 hover:bg-neutral-50">
+          <div class="truncate text-sm">{{$title}}</div>
+          <div class="mono text-[11px] text-neutral-500 truncate">{{$id}}</div>
+        </a>
+      </li>
+    {{end}}
+  </ul>
+{{end}}
+{{end}}

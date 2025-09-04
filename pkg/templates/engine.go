@@ -166,15 +166,34 @@ func renderMarkdown(content string) template.HTML {
 	return template.HTML(html)
 }
 
-func slice(str string, start, end int) string {
-	if start < 0 {
-		start = 0
+func slice(args ...interface{}) interface{} {
+	if len(args) < 1 {
+		return nil
 	}
-	if end > len(str) {
-		end = len(str)
+
+	// If first arg is string and we have start/end args, do string slicing
+	if str, ok := args[0].(string); ok && len(args) == 3 {
+		start, startOk := args[1].(int)
+		end, endOk := args[2].(int)
+		
+		if startOk && endOk {
+			if start < 0 {
+				start = 0
+			}
+			if end > len(str) {
+				end = len(str)
+			}
+			if start > end {
+				return ""
+			}
+			return str[start:end]
+		}
 	}
-	if start > end {
-		return ""
+
+	// Otherwise, create a slice from the arguments
+	result := make([]interface{}, len(args))
+	for i, arg := range args {
+		result[i] = arg
 	}
-	return str[start:end]
+	return result
 }
