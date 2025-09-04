@@ -111,9 +111,9 @@ class SpellCasting:
     """Spell casting information"""
     tempo: CastingTime
     gittata: SpellRange
+    durata: SpellDuration
     gittata_custom: Optional[str] = None
     componenti: List[SpellComponent] = field(default_factory=list)
-    durata: SpellDuration
     durata_custom: Optional[str] = None
     concentrazione: bool = False
     rituale: bool = False

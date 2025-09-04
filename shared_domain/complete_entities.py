@@ -19,8 +19,6 @@ from .entities import (
     # Repository interfaces
     ClassRepository, ClassQueryRepository,
     
-    # Use cases
-    ParseClassCommand, ParseClassUseCase, UseCaseResult,
     
     # Validation services
     ClassValidationService,
@@ -147,7 +145,6 @@ __all__ = [
     "Ability", "EntityId", "ClassId", "Level", "HitDie",
     "DndClass", "Subclass", "ClassFeature", "SpellProgression",
     "ClassRepository", "ClassQueryRepository",
-    "ParseClassCommand", "ParseClassUseCase", "UseCaseResult",
     "ClassValidationService",
     "DomainEvent", "EventPublisher",
     

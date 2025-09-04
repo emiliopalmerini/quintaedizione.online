@@ -13,8 +13,7 @@ class ClassSearchQuery:
     """Query parameters for searching classes"""
     text_query: Optional[str] = None
     primary_ability: Optional[str] = None
-    min_hit_die: Optional[int] = None
-    max_hit_die: Optional[int] = None
+    hit_die: Optional[str] = None  # Changed to single string field (e.g., "d12", "d8")
     is_spellcaster: Optional[bool] = None
     source: Optional[str] = None
     sort_by: str = "name"
@@ -28,7 +27,7 @@ class ClassSummary:
     id: str
     name: str
     primary_ability: str
-    hit_die: int
+    hit_die: str  # Changed from int to str to match database format (e.g., "d12")
     source: str
     is_spellcaster: bool = False
     subclass_count: int = 0
@@ -173,9 +172,14 @@ class MonsterSearchQuery:
     text_query: Optional[str] = None
     monster_type: Optional[str] = None
     size: Optional[str] = None
-    min_cr: Optional[float] = None
-    max_cr: Optional[float] = None
+    min_challenge_rating: Optional[float] = None
+    max_challenge_rating: Optional[float] = None
     alignment: Optional[str] = None
+    environment: Optional[str] = None
+    min_armor_class: Optional[int] = None
+    max_armor_class: Optional[int] = None
+    min_hit_points: Optional[int] = None
+    max_hit_points: Optional[int] = None
     sort_by: str = "name"
     limit: Optional[int] = None
     offset: Optional[int] = None
@@ -416,7 +420,11 @@ class FeatDetail:
 class DocumentSearchQuery:
     """Query parameters for searching documents"""
     text_query: Optional[str] = None
+    document_type: Optional[str] = None
     category: Optional[str] = None
+    item_type: Optional[str] = None
+    rarity: Optional[str] = None
+    filters: Optional[Dict[str, Any]] = None
     has_page_number: Optional[bool] = None
     keywords: List[str] = None
     sort_by: str = "title"
