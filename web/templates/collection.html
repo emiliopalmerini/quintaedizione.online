@@ -1,4 +1,8 @@
-{{define "title"}}{{.title}}{{end}}
+{{define "title"}}{{.collection}} • Lista{{end}}
+
+{{define "header_actions"}}
+  <a href="/" class="btn btn-ghost">Tutte le collezioni</a>
+{{end}}
 
 {{define "content"}}
   <section class="bg-white border p-2 mb-3">
@@ -10,7 +14,7 @@
       class="flex flex-col gap-2"
     >
       <div class="flex items-center gap-2 flex-wrap">
-        <input id="q" name="q" placeholder="Cerca…" value="{{.q}}" class="field flex-1" />
+        <input id="q" name="q" placeholder="Cerca…" value="{{.q | default ""}}" class="field flex-1" />
         <select name="page_size" class="field w-28">
           {{$pageSize := .page_size | default 20}}
           <option value="10" {{if eq $pageSize 10}}selected{{end}}>10/pagina</option>
@@ -21,65 +25,6 @@
         <button class="btn" type="submit">Cerca</button>
       </div>
 
-      <details class="p-2">
-        <summary class="cursor-pointer text-sm text-neutral-700">Filtri</summary>
-        <div class="mt-2 grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
-          {{if eq .collection "incantesimi"}}
-            <select name="level" class="field">
-              <option value="">Livello (tutti)</option>
-              <option value="0" {{if eq $.level "0"}}selected{{end}}>0</option>
-              <option value="1" {{if eq $.level "1"}}selected{{end}}>1</option>
-              <option value="2" {{if eq $.level "2"}}selected{{end}}>2</option>
-              <option value="3" {{if eq $.level "3"}}selected{{end}}>3</option>
-              <option value="4" {{if eq $.level "4"}}selected{{end}}>4</option>
-              <option value="5" {{if eq $.level "5"}}selected{{end}}>5</option>
-              <option value="6" {{if eq $.level "6"}}selected{{end}}>6</option>
-              <option value="7" {{if eq $.level "7"}}selected{{end}}>7</option>
-              <option value="8" {{if eq $.level "8"}}selected{{end}}>8</option>
-              <option value="9" {{if eq $.level "9"}}selected{{end}}>9</option>
-            </select>
-            <select name="school" class="field">
-              <option value="">Scuola (tutte)</option>
-              <option value="Abiurazione" {{if eq $.school "Abiurazione"}}selected{{end}}>Abiurazione</option>
-              <option value="Ammaliamento" {{if eq $.school "Ammaliamento"}}selected{{end}}>Ammaliamento</option>
-              <option value="Divinazione" {{if eq $.school "Divinazione"}}selected{{end}}>Divinazione</option>
-              <option value="Evocazione" {{if eq $.school "Evocazione"}}selected{{end}}>Evocazione</option>
-              <option value="Illusione" {{if eq $.school "Illusione"}}selected{{end}}>Illusione</option>
-              <option value="Invocazione" {{if eq $.school "Invocazione"}}selected{{end}}>Invocazione</option>
-              <option value="Necromanzia" {{if eq $.school "Necromanzia"}}selected{{end}}>Necromanzia</option>
-              <option value="Trasmutazione" {{if eq $.school "Trasmutazione"}}selected{{end}}>Trasmutazione</option>
-            </select>
-            <select name="ritual" class="field">
-              <option value="">Rituale (tutti)</option>
-              <option value="true" {{if eq $.ritual "true"}}selected{{end}}>Sì</option>
-              <option value="false" {{if eq $.ritual "false"}}selected{{end}}>No</option>
-            </select>
-          {{else if eq .collection "mostri"}}
-            <select name="size" class="field">
-              <option value="">Taglia (tutte)</option>
-              <option value="Minuscola" {{if eq $.size "Minuscola"}}selected{{end}}>Minuscola</option>
-              <option value="Piccola" {{if eq $.size "Piccola"}}selected{{end}}>Piccola</option>
-              <option value="Media" {{if eq $.size "Media"}}selected{{end}}>Media</option>
-              <option value="Grande" {{if eq $.size "Grande"}}selected{{end}}>Grande</option>
-              <option value="Enorme" {{if eq $.size "Enorme"}}selected{{end}}>Enorme</option>
-              <option value="Mastodontica" {{if eq $.size "Mastodontica"}}selected{{end}}>Mastodontica</option>
-            </select>
-            <input name="type" class="field" placeholder="Tipo (es. drago)" value="{{.type}}" />
-            <input name="cr" class="field" placeholder="GS (es. 1/2, 5)" value="{{.cr}}" />
-          {{else if eq .collection "armi"}}
-            <input name="category" class="field" placeholder="Categoria (es. Semplice)" value="{{.category}}" />
-            <input name="property" class="field" placeholder="Proprietà (es. Leggera)" value="{{.property}}" />
-          {{else if eq .collection "armature"}}
-            <select name="category" class="field">
-              <option value="">Categoria (tutte)</option>
-              <option value="Leggera" {{if eq $.category "Leggera"}}selected{{end}}>Leggera</option>
-              <option value="Media" {{if eq $.category "Media"}}selected{{end}}>Media</option>
-              <option value="Pesante" {{if eq $.category "Pesante"}}selected{{end}}>Pesante</option>
-              <option value="Scudo" {{if eq $.category "Scudo"}}selected{{end}}>Scudo</option>
-            </select>
-          {{end}}
-        </div>
-      </details>
     </form>
   </section>
 

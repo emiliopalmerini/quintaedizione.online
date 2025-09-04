@@ -190,9 +190,9 @@ func (p *SpellParser) parseSpellItem(lines []string) (map[string]interface{}, er
 	spell := map[string]interface{}{
 		"nome":                name,
 		"slug":               domain.NormalizeID(name), // Use slug for MongoDB compatibility
-		"livello":            meta["level"],
-		"scuola":             meta["school"],
-		"classi":             meta["classes"],
+		"livello":            meta["livello"],
+		"scuola":             meta["scuola"],
+		"classi":             meta["classi"],
 		"contenuto_markdown": strings.Join(lines, "\n"),
 		"fonte":              p.context.Source,
 		"versione":           "1.0",
@@ -280,9 +280,9 @@ func (p *SpellParser) parseMeta(line string) map[string]interface{} {
 		classes = p.normalizeClassesToIt(classes)
 	}
 
-	result["level"] = level
-	result["school"] = school
-	result["classes"] = classes
+	result["livello"] = level
+	result["scuola"] = school
+	result["classi"] = classes
 
 	return result
 }

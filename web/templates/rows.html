@@ -1,10 +1,10 @@
 {{define "rows"}}
 <div class="divide-y">
   {{range .documents}}
-    {{$doc_name := .nome}}{{if eq $doc_name ""}}{{$doc_name = .name}}{{end}}{{if eq $doc_name ""}}{{$doc_name = .title}}{{end}}{{if eq $doc_name ""}}{{$doc_name = .titolo}}{{end}}{{if eq $doc_name ""}}{{$doc_name = .slug}}{{end}}
-    {{$doc_slug := .slug}}{{if eq $doc_slug ""}}{{$doc_slug = .id}}{{end}}{{if eq $doc_slug ""}}{{$doc_slug = .nome}}{{end}}{{if eq $doc_slug ""}}{{$doc_slug = .name}}{{end}}{{if eq $doc_slug ""}}{{$doc_slug = ._id}}{{end}}
+    {{$doc_name := .nome}}{{if eq $doc_name ""}}{{$doc_name = .titolo}}{{end}}{{if eq $doc_name ""}}{{$doc_name = .slug}}{{end}}
+    {{$doc_slug := .slug}}{{if eq $doc_slug ""}}{{$doc_slug = .nome}}{{end}}{{if eq $doc_slug ""}}{{$doc_slug = ._id}}{{end}}
     
-    <a href="/{{$.collection}}/{{$doc_slug}}{{if $.qs}}?{{$.qs}}{{end}}" 
+    <a href="/{{$.collection}}/{{$doc_slug}}" 
        class="block px-4 py-3 hover:bg-neutral-50 text-inherit no-underline"
        hx-get="/{{$.collection}}/{{$doc_slug}}"
        hx-target="#page-root"
@@ -19,75 +19,8 @@
           </h3>
           
           <div class="text-xs text-neutral-500 mt-1 flex flex-wrap items-center gap-2">
-            {{/* Incantesimi - Level + School */}}
-            {{if .level}}
-              <span>Livello {{.level}}</span>
-            {{else if .livello}}
-              <span>Livello {{.livello}}</span>
-            {{end}}
-            {{if .school}}
-              <span>{{.school}}</span>
-            {{else if .scuola}}
-              <span>{{.scuola}}</span>
-            {{end}}
-            
-            {{/* Oggetti magici - Rarity + Type */}}
-            {{if .rarity}}
-              <span>{{.rarity}}</span>
-            {{else if .rarita}}
-              <span>{{.rarita}}</span>
-            {{end}}
-            {{if .type}}
-              <span>{{.type}}</span>
-            {{else if .tipo}}
-              <span>{{.tipo}}</span>
-            {{end}}
-            
-            {{/* Mostri - Size + Type + CR */}}
-            {{if .size}}
-              <span>{{.size}}</span>
-            {{else if .taglia}}
-              <span>{{.taglia}}</span>
-            {{end}}
-            {{if .challenge_rating}}
-              <span>GS {{.challenge_rating}}</span>
-            {{else if .cr}}
-              <span>GS {{.cr}}</span>
-            {{else if .gs}}
-              <span>GS {{.gs}}</span>
-            {{else if .grado_sfida}}
-              <span>GS {{.grado_sfida}}</span>
-            {{end}}
-            
-            {{/* Armi - Category + Damage */}}
-            {{if .category}}
-              <span>{{.category}}</span>
-            {{else if .categoria}}
-              <span>{{.categoria}}</span>
-            {{end}}
-            {{if .damage}}
-              <span>{{.damage}}</span>
-            {{else if .danno}}
-              <span>{{.danno}}</span>
-            {{end}}
-            
-            {{/* Armature - Category + AC */}}
-            {{if .ac_base}}
-              <span>CA {{.ac_base}}</span>
-            {{else if .ca_base}}
-              <span>CA {{.ca_base}}</span>
-            {{end}}
-            
-            {{/* Altri campi generici */}}
-            {{if .cost}}
-              <span>{{.cost}}</span>
-            {{else if .costo}}
-              <span>{{.costo}}</span>
-            {{end}}
-            {{if .weight}}
-              <span>{{.weight}}</span>
-            {{else if .peso}}
-              <span>{{.peso}}</span>
+            {{range .display_elements}}
+              <span>{{.value}}</span>
             {{end}}
           </div>
         </div>

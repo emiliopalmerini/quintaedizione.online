@@ -21,10 +21,9 @@ func main() {
 	// Load configuration
 	config := infrastructure.LoadConfig()
 
-	// Setup logging and optimizations
+	// Setup logging
 	if config.IsProduction() {
 		gin.SetMode(gin.ReleaseMode)
-		infrastructure.OptimizeForProduction()
 	}
 
 	// Initialize MongoDB client
@@ -70,14 +69,12 @@ func main() {
 	router.Use(gin.Recovery())
 	router.Use(gin.Logger())
 	router.Use(corsMiddleware())
-	router.Use(infrastructure.PerformanceMiddleware())
 
 	// Static files
 	router.Static("/static", "./web/static")
 
-	// Health check endpoint with performance metrics
+	// Health check endpoint
 	router.GET("/health", func(c *gin.Context) {
-		metrics := infrastructure.GetGlobalMetricsCollector().GetMetrics()
 		cacheStats := infrastructure.GetGlobalCache().GetStats()
 		
 		c.JSON(http.StatusOK, gin.H{
@@ -85,15 +82,7 @@ func main() {
 			"version":      "3.0.0-go",
 			"architecture": "hexagonal",
 			"database":     mongoClient.DatabaseName(),
-			"performance": gin.H{
-				"request_count":     metrics.RequestCount,
-				"average_response":  metrics.AverageResponse.String(),
-				"memory_usage_mb":   metrics.MemoryUsage / 1024 / 1024,
-				"goroutine_count":   metrics.GoroutineCount,
-				"active_connections": metrics.ActiveConns,
-				"cache_hit_rate":    metrics.CacheHitRate,
-				"cache_items":       cacheStats["item_count"],
-			},
+			"cache_items":  cacheStats["item_count"],
 		})
 	})
 
@@ -106,10 +95,6 @@ func main() {
 		Handler: router,
 	}
 
-	// Start performance monitoring
-	monitorCtx, monitorCancel := context.WithCancel(context.Background())
-	defer monitorCancel()
-	infrastructure.StartPerformanceMonitoring(monitorCtx)
 
 	// Start server in goroutine
 	go func() {

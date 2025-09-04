@@ -3,27 +3,17 @@ SHELL := /bin/sh
 # Config
 PROJECT ?= dnd
 
-.PHONY: up down up-python logs logs-go seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh editor-sh build build-editor build-parser build-python env-init lint lint-go format test test-go test-integration benchmark help
+.PHONY: up down logs seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh editor-sh build build-editor build-parser env-init lint format test test-integration benchmark help
 
 # Go services (default)
 up:
 	docker compose up -d mongo editor parser
 
-# Python services (legacy)
-up-python:
-	docker compose --profile python up -d mongo editor-python parser-python
-
 down:
 	docker compose down
 
 logs:
-	docker compose logs -f editor parser mongo
-
-logs-go:
-	docker compose logs -f editor parser mongo
-
-logs-python:
-	docker compose --profile python logs -f editor-python parser-python mongo
+	docker compose logs -f editor parser
 
 # Seed helpers (run inside the mongo container)
 seed-dump:
@@ -60,9 +50,6 @@ editor-sh:
 build:
 	docker compose build editor parser
 
-build-python:
-	docker compose --profile python build editor-python parser-python
-
 build-editor:
 	docker compose build editor
 
@@ -75,7 +62,7 @@ env-init:
 	@echo "Loaded .env (or created from .env.example)."
 
 # Go tools
-lint-go:
+lint:
 	go vet ./...
 	@if command -v golangci-lint >/dev/null 2>&1; then \
 		golangci-lint run; \
@@ -83,7 +70,7 @@ lint-go:
 		go fmt ./...; \
 	fi
 
-test-go:
+test:
 	go test ./...
 
 test-integration:
@@ -93,26 +80,6 @@ test-integration:
 benchmark:
 	@echo "Running Go performance benchmarks..."
 	go test -bench=. -benchmem ./tests/benchmarks
-
-# Python tools (legacy)
-lint:
-	@if command -v ruff >/dev/null 2>&1; then \
-		ruff check editor srd_parser; \
-	elif command -v pyflakes >/dev/null 2>&1; then \
-		pyflakes editor srd_parser; \
-	else \
-		echo "No linter found (install ruff or pyflakes)"; \
-	fi
-
-format:
-	@if command -v black >/dev/null 2>&1; then \
-		black editor srd_parser; \
-	else \
-		echo "Black not found; install black to format"; \
-	fi
-
-test:
-	python test_basic_integration.py
 
 # Show available commands
 help:

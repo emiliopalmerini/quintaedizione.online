@@ -119,7 +119,7 @@ func (r *IngestRunner) processWorkItem(item WorkItem, dryRun bool) *IngestResult
 
 // generatePreview generates a preview of the parsed documents
 func (r *IngestRunner) generatePreview(docs []map[string]interface{}) string {
-	previewKeys := []string{"name", "term", "level", "rarity", "type", "school", "nome", "titolo"}
+	previewKeys := []string{"nome", "titolo", "livello", "rarita", "tipo", "scuola"}
 	
 	var preview []map[string]interface{}
 	maxPreview := 5

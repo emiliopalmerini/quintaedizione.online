@@ -3,6 +3,7 @@ package services
 import (
 	"context"
 	"fmt"
+	"regexp"
 	"strings"
 	"time"
 
@@ -36,10 +37,13 @@ func (s *ContentService) GetCollectionItems(ctx context.Context, collection, sea
 	// Build filter
 	filter := bson.M{}
 	if search != "" {
+		// Escape special regex characters for safety
+		escapedSearch := regexp.QuoteMeta(search)
 		filter["$or"] = []bson.M{
-			{"nome": bson.M{"$regex": search, "$options": "i"}},
-			{"descrizione": bson.M{"$regex": search, "$options": "i"}},
-			{"contenuto_markdown": bson.M{"$regex": search, "$options": "i"}},
+			{"nome": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"titolo": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"descrizione": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"contenuto_markdown": bson.M{"$regex": escapedSearch, "$options": "i"}},
 		}
 	}
 	
@@ -64,7 +68,122 @@ func (s *ContentService) GetCollectionItems(ctx context.Context, collection, sea
 		return nil, 0, fmt.Errorf("failed to find documents: %w", err)
 	}
 	
+	// Add display elements for each item
+	for i, item := range items {
+		items[i]["display_elements"] = s.getDisplayElements(collection, item)
+	}
+	
 	return items, totalCount, nil
+}
+
+// getDisplayElements returns an array of display elements for a document based on collection type
+func (s *ContentService) getDisplayElements(collection string, doc map[string]interface{}) []map[string]interface{} {
+	var elements []map[string]interface{}
+	
+	switch collection {
+	case "incantesimi":
+		// Incantesimi - Level + School
+		if level := getFieldValue(doc, "livello"); level != "" {
+			elements = append(elements, map[string]interface{}{
+				"value": fmt.Sprintf("Livello %s", level),
+				"type":  "level",
+			})
+		}
+		if school := getFieldValue(doc, "scuola"); school != "" {
+			elements = append(elements, map[string]interface{}{
+				"value": school,
+				"type":  "school",
+			})
+		}
+		
+	case "oggetti_magici":
+		// Oggetti magici - Rarity + Type
+		if rarity := getFieldValue(doc, "rarita"); rarity != "" {
+			elements = append(elements, map[string]interface{}{
+				"value": rarity,
+				"type":  "rarity",
+			})
+		}
+		if objType := getFieldValue(doc, "tipo"); objType != "" {
+			elements = append(elements, map[string]interface{}{
+				"value": objType,
+				"type":  "type",
+			})
+		}
+		
+	case "mostri":
+		// Mostri - Size + Type + CR
+		if size := getFieldValue(doc, "taglia"); size != "" {
+			elements = append(elements, map[string]interface{}{
+				"value": size,
+				"type":  "size",
+			})
+		}
+		if cr := getFieldValue(doc, "cr", "gs", "grado_sfida"); cr != "" {
+			elements = append(elements, map[string]interface{}{
+				"value": fmt.Sprintf("GS %s", cr),
+				"type":  "challenge_rating",
+			})
+		}
+		
+	case "armi":
+		// Armi - Category + Damage
+		if category := getFieldValue(doc, "categoria"); category != "" {
+			elements = append(elements, map[string]interface{}{
+				"value": category,
+				"type":  "category",
+			})
+		}
+		if damage := getFieldValue(doc, "danno"); damage != "" {
+			elements = append(elements, map[string]interface{}{
+				"value": damage,
+				"type":  "damage",
+			})
+		}
+		
+	case "armature":
+		// Armature - Category + AC
+		if category := getFieldValue(doc, "categoria"); category != "" {
+			elements = append(elements, map[string]interface{}{
+				"value": category,
+				"type":  "category",
+			})
+		}
+		if ac := getFieldValue(doc, "ca_base"); ac != "" {
+			elements = append(elements, map[string]interface{}{
+				"value": fmt.Sprintf("CA %s", ac),
+				"type":  "ac",
+			})
+		}
+	}
+	
+	// Add generic fields (cost, weight) for all collections
+	if cost := getFieldValue(doc, "costo"); cost != "" {
+		elements = append(elements, map[string]interface{}{
+			"value": cost,
+			"type":  "cost",
+		})
+	}
+	if weight := getFieldValue(doc, "peso"); weight != "" {
+		elements = append(elements, map[string]interface{}{
+			"value": weight,
+			"type":  "weight",
+		})
+	}
+	
+	return elements
+}
+
+// getFieldValue returns the first non-empty value from the given field names
+func getFieldValue(doc map[string]interface{}, fieldNames ...string) string {
+	for _, fieldName := range fieldNames {
+		if value, exists := doc[fieldName]; exists && value != nil {
+			if strValue := fmt.Sprintf("%v", value); strValue != "" && strValue != "0" {
+				return strValue
+			}
+		}
+	}
+	return ""
 }
 
 // GetItem retrieves a specific item by slug
@@ -95,58 +214,6 @@ func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (
 	return item, nil
 }
 
-// Search performs cross-collection search
-func (s *ContentService) Search(ctx context.Context, query string, collections []string, limit int) ([]map[string]interface{}, error) {
-	var allResults []map[string]interface{}
-	
-	// Validate collections
-	validCollections := make([]string, 0, len(collections))
-	for _, col := range collections {
-		if isValidCollection(col) {
-			validCollections = append(validCollections, col)
-		}
-	}
-	
-	if len(validCollections) == 0 {
-		return nil, fmt.Errorf("no valid collections provided")
-	}
-	
-	// Build search filter
-	searchFilter := bson.M{
-		"$or": []bson.M{
-			{"nome": bson.M{"$regex": query, "$options": "i"}},
-			{"descrizione": bson.M{"$regex": query, "$options": "i"}},
-			{"contenuto_markdown": bson.M{"$regex": query, "$options": "i"}},
-		},
-	}
-	
-	// Search each collection
-	for _, collection := range validCollections {
-		opts := options.Find().
-			SetSort(bson.D{{"nome", 1}}).
-			SetLimit(int64(limit / len(validCollections)))
-		
-		items, err := s.mongoClient.Find(ctx, collection, searchFilter, opts)
-		if err != nil {
-			continue // Skip errors for individual collections
-		}
-		
-		// Add collection info to each item
-		for _, item := range items {
-			item["_collection"] = collection
-			item["_collection_title"] = getCollectionTitle(collection)
-		}
-		
-		allResults = append(allResults, items...)
-	}
-	
-	// Limit total results
-	if len(allResults) > limit {
-		allResults = allResults[:limit]
-	}
-	
-	return allResults, nil
-}
 
 // GetStats retrieves database statistics
 func (s *ContentService) GetStats(ctx context.Context) (map[string]interface{}, error) {

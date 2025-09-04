@@ -1,6 +1,7 @@
 package web
 
 import (
+	"fmt"
 	"net/http"
 	"strconv"
 
@@ -33,12 +34,6 @@ func (h *Handlers) RegisterRoutes(router *gin.Engine) {
 	router.GET("/:collection/rows", h.handleCollectionRows)  // HTMX rows endpoint
 	router.GET("/:collection/:slug", h.handleItemDetail)
 	
-	// Quick search
-	router.GET("/quicksearch/:collection", h.handleQuickSearch)
-	
-	// Search functionality
-	router.GET("/search", h.handleSearch)
-	router.POST("/search", h.handleSearchPost)
 	
 }
 
@@ -95,14 +90,14 @@ func (h *Handlers) handleCollectionList(c *gin.Context) {
 	}
 	
 	pageSizeNum, err := strconv.Atoi(pageSize)
-	if err != nil || pageSizeNum < 1 {
+	if err != nil || pageSizeNum < 1 || pageSizeNum > 100 {
 		pageSizeNum = 20
 	}
 	
 	// Get items from service
 	items, totalCount, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, q, pageNum, pageSizeNum)
 	if err != nil {
-		h.renderError(c, "Errore nel caricamento della collezione", http.StatusInternalServerError)
+		h.renderError(c, fmt.Sprintf("Errore nel caricamento della collezione %s: %v", collection, err), http.StatusInternalServerError)
 		return
 	}
 	
@@ -114,11 +109,10 @@ func (h *Handlers) handleCollectionList(c *gin.Context) {
 		endItem = int(totalCount)
 	}
 	
-	// Get query parameters for filters
 	data := gin.H{
 		"title":       getCollectionTitle(collection),
 		"collection":  collection,
-		"documents":   items,  // Use 'documents' to match the template
+		"documents":   items,
 		"q":           q,
 		"page":        pageNum,
 		"page_size":   pageSizeNum,
@@ -129,15 +123,6 @@ func (h *Handlers) handleCollectionList(c *gin.Context) {
 		"start_item":  startItem,
 		"end_item":    endItem,
 		"qs":          c.Request.URL.RawQuery,
-		// Filter parameters
-		"level":       c.Query("level"),
-		"school":      c.Query("school"),
-		"ritual":      c.Query("ritual"),
-		"size":        c.Query("size"),
-		"type":        c.Query("type"),
-		"cr":          c.Query("cr"),
-		"category":    c.Query("category"),
-		"property":    c.Query("property"),
 	}
 	
 	h.renderTemplate(c, "collection.html", data)
@@ -186,67 +171,6 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 	h.renderTemplate(c, "item.html", data)
 }
 
-// handleSearch handles search requests
-func (h *Handlers) handleSearch(c *gin.Context) {
-	query := c.Query("q")
-	collections := c.QueryArray("collections")
-	
-	if query == "" {
-		h.renderTemplate(c, "search.html", gin.H{"title": "Cerca"})
-		return
-	}
-	
-	if len(collections) == 0 {
-		collections = []string{"incantesimi", "mostri", "classi", "backgrounds", "equipaggiamento"}
-	}
-	
-	results, err := h.contentService.Search(c.Request.Context(), query, collections, 50)
-	if err != nil {
-		h.renderError(c, "Errore nella ricerca", http.StatusInternalServerError)
-		return
-	}
-	
-	data := gin.H{
-		"title":       "Risultati ricerca",
-		"query":       query,
-		"collections": collections,
-		"results":     results,
-		"resultCount": len(results),
-	}
-	
-	h.renderTemplate(c, "search.html", data)
-}
-
-// handleSearchPost handles POST search requests (HTMX)
-func (h *Handlers) handleSearchPost(c *gin.Context) {
-	var form struct {
-		Query       string   `form:"q" binding:"required"`
-		Collections []string `form:"collections"`
-	}
-	
-	if err := c.ShouldBind(&form); err != nil {
-		h.renderError(c, "Parametri di ricerca non validi", http.StatusBadRequest)
-		return
-	}
-	
-	if len(form.Collections) == 0 {
-		form.Collections = []string{"incantesimi", "mostri", "classi", "backgrounds", "equipaggiamento"}
-	}
-	
-	results, err := h.contentService.Search(c.Request.Context(), form.Query, form.Collections, 50)
-	if err != nil {
-		h.renderError(c, "Errore nella ricerca", http.StatusInternalServerError)
-		return
-	}
-	
-	data := gin.H{
-		"query":       form.Query,
-		"results":     results,
-		"resultCount": len(results),
-	}
-	
-	h.renderTemplate(c, "search_results.html", data)
-}
 
 // handleCollectionRows handles HTMX requests for collection rows
 func (h *Handlers) handleCollectionRows(c *gin.Context) {
@@ -261,14 +185,14 @@ func (h *Handlers) handleCollectionRows(c *gin.Context) {
 	}
 	
 	pageSizeNum, err := strconv.Atoi(pageSize)
-	if err != nil || pageSizeNum < 1 {
+	if err != nil || pageSizeNum < 1 || pageSizeNum > 100 {
 		pageSizeNum = 20
 	}
 	
 	// Get filtered items
 	items, totalCount, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, q, pageNum, pageSizeNum)
 	if err != nil {
-		h.renderError(c, "Errore nel caricamento", http.StatusInternalServerError)
+		h.renderError(c, fmt.Sprintf("Errore nel caricamento righe per %s: %v", collection, err), http.StatusInternalServerError)
 		return
 	}
 	
@@ -297,36 +221,6 @@ func (h *Handlers) handleCollectionRows(c *gin.Context) {
 	h.renderTemplate(c, "rows.html", data)
 }
 
-// handleQuickSearch handles quick search within a collection
-func (h *Handlers) handleQuickSearch(c *gin.Context) {
-	collection := c.Param("collection")
-	q := c.Query("q")
-	
-	// Return empty if no query
-	if q == "" {
-		data := gin.H{
-			"collection": collection,
-			"q":          q,
-			"items":      []interface{}{},
-		}
-		h.renderTemplate(c, "quicksearch.html", data)
-		return
-	}
-	
-	// Search within collection (limit to 10 results for quick search)
-	items, _, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, q, 1, 10)
-	if err != nil {
-		items = []map[string]interface{}{}
-	}
-	
-	data := gin.H{
-		"collection": collection,
-		"q":          q,
-		"items":      items,
-	}
-	
-	h.renderTemplate(c, "quicksearch.html", data)
-}
 
 
 // Helper methods

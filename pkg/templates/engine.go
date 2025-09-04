@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"html/template"
 	"path/filepath"
-	"strings"
 )
 
 // Engine handles template rendering
@@ -23,37 +22,13 @@ func NewEngine(templatesDir string) *Engine {
 
 // LoadTemplates loads all templates from the templates directory
 func (e *Engine) LoadTemplates() error {
-	// Create function map with helper functions
+	// Create function map with essential helper functions
 	funcMap := template.FuncMap{
-		"add":        add,
-		"sub":        sub,
-		"mul":        mul,
-		"div":        div,
-		"mod":        mod,
-		"eq":         eq,
-		"ne":         ne,
-		"lt":         lt,
-		"le":         le,
-		"gt":         gt,
-		"ge":         ge,
-		"and":        and,
-		"or":         or,
-		"not":        not,
-		"len":        length,
-		"capitalize": capitalize,
-		"lower":      strings.ToLower,
-		"upper":      strings.ToUpper,
-		"trim":       strings.TrimSpace,
-		"replace":    strings.ReplaceAll,
-		"contains":   strings.Contains,
-		"hasPrefix":  strings.HasPrefix,
-		"hasSuffix":  strings.HasSuffix,
-		"split":      strings.Split,
-		"join":       strings.Join,
-		"default":    defaultValue,
-		"safe":       safe,
-		"markdown":   renderMarkdown,
-		"slice":      slice,
+		"add":     add,
+		"sub":     sub,
+		"eq":      eq,
+		"default": defaultValue,
+		"safe":    safe,
 	}
 
 	// Parse base template first
@@ -81,32 +56,11 @@ func (e *Engine) Render(templateName string, data interface{}) (string, error) {
 	
 	// Create a new template set for this specific render to avoid block conflicts
 	tmpl := template.New("base").Funcs(template.FuncMap{
-		"add":        add,
-		"sub":        sub,
-		"mul":        mul,
-		"div":        div,
-		"mod":        mod,
-		"eq":         eq,
-		"ne":         ne,
-		"lt":         lt,
-		"le":         le,
-		"gt":         gt,
-		"ge":         ge,
-		"and":        and,
-		"or":         or,
-		"not":        not,
-		"len":        length,
-		"capitalize": capitalize,
-		"lower":      strings.ToLower,
-		"upper":      strings.ToUpper,
-		"trim":       strings.TrimSpace,
-		"replace":    strings.ReplaceAll,
-		"contains":   strings.Contains,
-		"hasPrefix":  strings.HasPrefix,
-		"hasSuffix":  strings.HasSuffix,
-		"slice":      slice,
-		"safe":       safe,
-		"default":    defaultValue,
+		"add":     add,
+		"sub":     sub,
+		"eq":      eq,
+		"default": defaultValue,
+		"safe":    safe,
 	})
 	
 	// Parse base template
@@ -123,8 +77,23 @@ func (e *Engine) Render(templateName string, data interface{}) (string, error) {
 		return "", fmt.Errorf("failed to parse template %s: %w", templateName, err)
 	}
 	
+	// Parse common partial templates that might be included
+	partialTemplates := []string{
+		"rows.html",
+	}
+	
+	for _, partial := range partialTemplates {
+		partialPath := filepath.Join(e.templatesDir, partial)
+		tmpl, err = tmpl.ParseFiles(partialPath)
+		if err != nil {
+			// Partial templates are optional, don't fail if missing
+			fmt.Printf("Warning: Could not load partial template %s: %v\n", partial, err)
+		}
+	}
+	
 	// Execute base template which will call the content blocks from the specific template
 	if err := tmpl.ExecuteTemplate(&buf, "base.html", data); err != nil {
+		fmt.Printf("Template execution error for %s: %v\n", templateName, err)
 		return "", fmt.Errorf("failed to execute template %s: %w", templateName, err)
 	}
 
@@ -133,44 +102,9 @@ func (e *Engine) Render(templateName string, data interface{}) (string, error) {
 
 // Template helper functions
 
-func add(a, b int) int       { return a + b }
-func sub(a, b int) int       { return a - b }
-func mul(a, b int) int       { return a * b }
-func div(a, b int) int       { return a / b }
-func mod(a, b int) int       { return a % b }
-func eq(a, b interface{}) bool  { return a == b }
-func ne(a, b interface{}) bool  { return a != b }
-func lt(a, b int) bool       { return a < b }
-func le(a, b int) bool       { return a <= b }
-func gt(a, b int) bool       { return a > b }
-func ge(a, b int) bool       { return a >= b }
-func and(a, b bool) bool     { return a && b }
-func or(a, b bool) bool      { return a || b }
-func not(a bool) bool        { return !a }
-
-func length(v interface{}) int {
-	switch s := v.(type) {
-	case string:
-		return len(s)
-	case []interface{}:
-		return len(s)
-	case []string:
-		return len(s)
-	case []int:
-		return len(s)
-	case map[string]interface{}:
-		return len(s)
-	default:
-		return 0
-	}
-}
-
-func capitalize(s string) string {
-	if s == "" {
-		return s
-	}
-	return strings.ToUpper(s[:1]) + strings.ToLower(s[1:])
-}
+func add(a, b int) int { return a + b }
+func sub(a, b int) int { return a - b }
+func eq(a, b interface{}) bool { return a == b }
 
 func defaultValue(value, defaultVal interface{}) interface{} {
 	if value == nil || value == "" {
@@ -181,44 +115,4 @@ func defaultValue(value, defaultVal interface{}) interface{} {
 
 func safe(s string) template.HTML {
 	return template.HTML(s)
-}
-
-func renderMarkdown(content string) template.HTML {
-	// Simple markdown rendering - in production you'd use a proper markdown library
-	html := strings.ReplaceAll(content, "\n", "<br>")
-	html = strings.ReplaceAll(html, "**", "<strong>")
-	html = strings.ReplaceAll(html, "*", "<em>")
-	return template.HTML(html)
-}
-
-func slice(args ...interface{}) interface{} {
-	if len(args) < 1 {
-		return nil
-	}
-
-	// If first arg is string and we have start/end args, do string slicing
-	if str, ok := args[0].(string); ok && len(args) == 3 {
-		start, startOk := args[1].(int)
-		end, endOk := args[2].(int)
-		
-		if startOk && endOk {
-			if start < 0 {
-				start = 0
-			}
-			if end > len(str) {
-				end = len(str)
-			}
-			if start > end {
-				return ""
-			}
-			return str[start:end]
-		}
-	}
-
-	// Otherwise, create a slice from the arguments
-	result := make([]interface{}, len(args))
-	for i, arg := range args {
-		result[i] = arg
-	}
-	return result
 }
