@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <title>{{block "title" .}}Due Draghi 5e 2024 SRD{{end}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://unpkg.com/htmx.org@2.0.3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml"/>
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column; background: var(--notion-bg); color: var(--notion-text);">
+  <!-- Notion-style top bar -->
+  <header class="notion-nav">
+    <div class="notion-nav-container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/" class="btn">Home</a>
+        {{if .collection}}
+          <span style="color: var(--notion-text-light);">/</span>
+          <a href="/c/{{.collection}}{{if .qs}}?{{.qs}}{{end}}" class="btn">{{.collection}}</a>
+          <span class="breadcrumb-separator">/</span>
+          <div class="search-container">
+            <input id="bc-search" name="q" placeholder="{{default (default (printf "Cerca in %s…" .collection) .doc_title) .doc_slug}}" class="field" style="width: 240px; font-size: 13px; padding: 6px 10px;"
+                   hx-get="/quicksearch/{{.collection}}"
+                   hx-target="#bc-results"
+                   hx-trigger="keyup changed delay:200ms"
+                   autocomplete="off" aria-controls="bc-results" aria-expanded="false" />
+            <div id="bc-results" class="search-results hidden" 
+                 role="listbox" aria-label="Risultati ricerca rapida"></div>
+          </div>
+        {{end}}
+        {{if and .doc_title (not .collection)}}
+          <span style="color: var(--notion-text-light);">/</span>
+          <span style="color: var(--notion-text); font-weight: 500; max-width: 40vw;" class="truncate" title="{{.doc_title}}">{{.doc_title}}</span>
+        {{else if and .doc_id (not .collection)}}
+          <span style="color: var(--notion-text-light);">/</span>
+          <span class="mono tag" title="{{.doc_id}}">{{.doc_id}}</span>
+        {{end}}
+      </nav>
+    </div>
+  </header>
+
+  <!-- Notion-style content area -->
+  <main style="flex: 1; background: var(--notion-bg);">
+    <div id="page-root" hx-history-elt class="container" style="max-width: 1024px; padding-top: 2rem; padding-bottom: 2rem;">
+      {{block "content" .}}{{end}}
+      <div id="page-loading" class="page-overlay" aria-hidden="true">
+        <div class="page-overlay-inner">
+          <span class="spinner"></span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Initialize HTMX enhancements
+    document.addEventListener('DOMContentLoaded', function() {
+      // Search dropdown handling
+      const searchInput = document.getElementById('bc-search');
+      const searchResults = document.getElementById('bc-results');
+      
+      if (searchInput && searchResults) {
+        searchInput.addEventListener('focus', function() {
+          searchResults.classList.remove('hidden');
+          this.setAttribute('aria-expanded', 'true');
+        });
+
+        document.addEventListener('click', function(e) {
+          if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+            searchResults.classList.add('hidden');
+            searchInput.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+    });
+
+    // HTMX loading indicators
+    document.body.addEventListener('htmx:beforeRequest', function() {
+      document.getElementById('page-loading').style.display = 'flex';
+    });
+
+    document.body.addEventListener('htmx:afterRequest', function() {
+      document.getElementById('page-loading').style.display = 'none';
+    });
+  </script>
+</body>
+</html>

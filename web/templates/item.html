@@ -1,0 +1,251 @@
+{{define "item.html"}}
+{{template "base.html" .}}
+{{define "title"}}{{.item.nome}} - {{.title}}{{end}}
+{{define "content"}}
+<div class="notion-page">
+  <div class="notion-page-header">
+    <div class="breadcrumb-nav" style="margin-bottom: 1rem;">
+      <a href="/" class="breadcrumb-link">Home</a>
+      <span class="breadcrumb-separator">→</span>
+      <a href="/c/{{.collection}}" class="breadcrumb-link">{{capitalize .collection}}</a>
+      <span class="breadcrumb-separator">→</span>
+      <span class="breadcrumb-current">{{.item.nome}}</span>
+    </div>
+    
+    <h1 style="color: var(--notion-text); font-size: 2.5rem; font-weight: 600; margin: 0;">
+      {{.item.nome}}
+    </h1>
+    
+    {{if .item.versione}}
+    <p style="color: var(--notion-text-light); margin-top: 0.5rem;">
+      Fonte: {{.item.fonte}} v{{.item.versione}}
+    </p>
+    {{end}}
+  </div>
+
+  <!-- Item metadata -->
+  <div class="notion-properties" style="margin-bottom: 2rem;">
+    {{if .item.livello}}
+    <div class="property-row">
+      <span class="property-label">Livello:</span>
+      <span class="property-value tag">{{.item.livello}}</span>
+    </div>
+    {{end}}
+    
+    {{if .item.scuola}}
+    <div class="property-row">
+      <span class="property-label">Scuola:</span>
+      <span class="property-value">{{.item.scuola}}</span>
+    </div>
+    {{end}}
+    
+    {{if .item.tempo_lancio}}
+    <div class="property-row">
+      <span class="property-label">Tempo di Lancio:</span>
+      <span class="property-value">{{.item.tempo_lancio}}</span>
+    </div>
+    {{end}}
+    
+    {{if .item.gittata}}
+    <div class="property-row">
+      <span class="property-label">Gittata:</span>
+      <span class="property-value">{{.item.gittata}}</span>
+    </div>
+    {{end}}
+    
+    {{if .item.durata}}
+    <div class="property-row">
+      <span class="property-label">Durata:</span>
+      <span class="property-value">{{.item.durata}}</span>
+    </div>
+    {{end}}
+    
+    {{if .item.grado_sfida}}
+    <div class="property-row">
+      <span class="property-label">Grado di Sfida:</span>
+      <span class="property-value tag">{{.item.grado_sfida}}</span>
+    </div>
+    {{end}}
+    
+    {{if .item.classe_armatura}}
+    <div class="property-row">
+      <span class="property-label">Classe Armatura:</span>
+      <span class="property-value">{{.item.classe_armatura}}</span>
+    </div>
+    {{end}}
+    
+    {{if .item.punti_ferita}}
+    <div class="property-row">
+      <span class="property-label">Punti Ferita:</span>
+      <span class="property-value">{{.item.punti_ferita}}</span>
+    </div>
+    {{end}}
+    
+    {{if .item.velocita}}
+    <div class="property-row">
+      <span class="property-label">Velocità:</span>
+      <span class="property-value">{{.item.velocita}}</span>
+    </div>
+    {{end}}
+    
+    {{if .item.costo}}
+    <div class="property-row">
+      <span class="property-label">Costo:</span>
+      <span class="property-value">{{.item.costo}}</span>
+    </div>
+    {{end}}
+    
+    {{if .item.peso}}
+    <div class="property-row">
+      <span class="property-label">Peso:</span>
+      <span class="property-value">{{.item.peso}}</span>
+    </div>
+    {{end}}
+    
+    {{if .item.rarita}}
+    <div class="property-row">
+      <span class="property-label">Rarità:</span>
+      <span class="property-value tag">{{.item.rarita}}</span>
+    </div>
+    {{end}}
+  </div>
+
+  <!-- Item description -->
+  {{if .item.descrizione}}
+  <div class="notion-content">
+    <h2 style="color: var(--notion-text); font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">
+      Descrizione
+    </h2>
+    <div class="notion-text">
+      {{.item.descrizione | markdown}}
+    </div>
+  </div>
+  {{end}}
+
+  <!-- Full markdown content -->
+  {{if .item.contenuto_markdown}}
+  <div class="notion-content" style="margin-top: 2rem;">
+    <h2 style="color: var(--notion-text); font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">
+      Contenuto Completo
+    </h2>
+    <div class="notion-text markdown-content">
+      {{.item.contenuto_markdown | markdown}}
+    </div>
+  </div>
+  {{end}}
+
+  <!-- Special properties for spells -->
+  {{if .item.classi_incantesimo}}
+  <div class="notion-content" style="margin-top: 2rem;">
+    <h2 style="color: var(--notion-text); font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">
+      Classi che possono lanciare questo incantesimo
+    </h2>
+    <div class="tags">
+      {{range .item.classi_incantesimo}}
+      <span class="tag">{{.}}</span>
+      {{end}}
+    </div>
+  </div>
+  {{end}}
+
+  <!-- Special properties for monsters -->
+  {{if .item.punteggi_caratteristica}}
+  <div class="notion-content" style="margin-top: 2rem;">
+    <h2 style="color: var(--notion-text); font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">
+      Punteggi Caratteristica
+    </h2>
+    <div class="ability-scores">
+      {{range $ability, $score := .item.punteggi_caratteristica}}
+      <div class="ability-score">
+        <span class="ability-name">{{$ability}}</span>
+        <span class="ability-value">{{$score}}</span>
+      </div>
+      {{end}}
+    </div>
+  </div>
+  {{end}}
+
+  <!-- Navigation -->
+  <div class="notion-navigation" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--notion-border);">
+    <a href="/c/{{.collection}}" class="btn btn-secondary">← Torna a {{capitalize .collection}}</a>
+  </div>
+</div>
+
+<style>
+.property-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.property-label {
+  font-weight: 600;
+  min-width: 150px;
+  color: var(--notion-text);
+}
+
+.property-value {
+  color: var(--notion-text-light);
+}
+
+.ability-scores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.ability-score {
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid var(--notion-border);
+  border-radius: 6px;
+}
+
+.ability-name {
+  display: block;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--notion-text-light);
+  margin-bottom: 0.5rem;
+}
+
+.ability-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--notion-text);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.markdown-content {
+  line-height: 1.6;
+}
+
+.markdown-content h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--notion-text);
+}
+
+.markdown-content p {
+  margin-bottom: 1rem;
+}
+
+.markdown-content ul, .markdown-content ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.markdown-content li {
+  margin-bottom: 0.25rem;
+}
+</style>
+{{end}}
+{{end}}

@@ -1,0 +1,105 @@
+{{define "collection.html"}}
+{{template "base.html" .}}
+{{define "title"}}{{.title}}{{end}}
+{{define "content"}}
+<div class="notion-page">
+  <div class="notion-page-header">
+    <h1 style="color: var(--notion-text); font-size: 2rem; font-weight: 600; margin: 0;">
+      {{.title}}
+    </h1>
+    {{if .totalCount}}
+    <p style="color: var(--notion-text-light); margin-top: 0.5rem;">
+      {{.totalCount}} elementi{{if .search}} - filtrati per "{{.search}}"{{end}}
+    </p>
+    {{end}}
+  </div>
+
+  <!-- Search bar -->
+  <div class="search-section" style="margin-bottom: 2rem;">
+    <form method="get" class="search-form">
+      <div class="search-input-container">
+        <input name="search" type="text" placeholder="Filtra {{.title}}..." 
+               value="{{.search}}" class="field" style="flex: 1; margin-right: 10px;">
+        <button type="submit" class="btn btn-secondary">Filtra</button>
+        {{if .search}}
+        <a href="/c/{{.collection}}" class="btn btn-ghost">Cancella</a>
+        {{end}}
+      </div>
+    </form>
+  </div>
+
+  <!-- Items list -->
+  {{if .items}}
+  <div class="notion-list">
+    {{range .items}}
+    <div class="notion-list-item">
+      <a href="/c/{{$.collection}}/{{.slug}}" class="notion-list-item-link">
+        <div class="notion-list-item-content">
+          <h3 class="notion-list-item-title">{{.nome}}</h3>
+          {{if .descrizione}}
+          <p class="notion-list-item-description">
+            {{.descrizione | slice 0 150}}{{if gt (len .descrizione) 150}}...{{end}}
+          </p>
+          {{end}}
+          {{if .livello}}
+          <div class="notion-list-item-meta">
+            <span class="tag">Livello {{.livello}}</span>
+          </div>
+          {{else if .grado_sfida}}
+          <div class="notion-list-item-meta">
+            <span class="tag">GS {{.grado_sfida}}</span>
+          </div>
+          {{else if .costo}}
+          <div class="notion-list-item-meta">
+            <span class="tag">{{.costo}}</span>
+          </div>
+          {{end}}
+        </div>
+        <div class="notion-list-item-action">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M6.22 8.72a.75.75 0 0 0 1.06 1.06L10.94 6.2a.75.75 0 0 0-.53-1.28H6.75a.75.75 0 0 0 0 1.5h1.69L6.22 8.72Z"/>
+          </svg>
+        </div>
+      </a>
+    </div>
+    {{end}}
+  </div>
+
+  <!-- Pagination -->
+  {{if gt .totalPages 1}}
+  <div class="pagination" style="margin-top: 2rem; text-align: center;">
+    {{if .hasPrev}}
+    <a href="/c/{{.collection}}?page={{sub .page 1}}{{if .search}}&search={{.search}}{{end}}" 
+       class="btn btn-secondary">← Precedente</a>
+    {{end}}
+    
+    <span style="margin: 0 1rem; color: var(--notion-text-light);">
+      Pagina {{.page}} di {{.totalPages}}
+    </span>
+    
+    {{if .hasNext}}
+    <a href="/c/{{.collection}}?page={{add .page 1}}{{if .search}}&search={{.search}}{{end}}" 
+       class="btn btn-secondary">Successiva →</a>
+    {{end}}
+  </div>
+  {{end}}
+
+  {{else}}
+  <div class="notion-empty" style="text-align: center; padding: 3rem;">
+    <p style="color: var(--notion-text-light); font-size: 1.1rem;">
+      {{if .search}}
+      Nessun elemento trovato per "{{.search}}"
+      {{else}}
+      Nessun elemento trovato in questa collezione
+      {{end}}
+    </p>
+    {{if .search}}
+    <a href="/c/{{.collection}}" class="btn btn-primary" style="margin-top: 1rem;">
+      Visualizza tutti gli elementi
+    </a>
+    {{end}}
+  </div>
+  {{end}}
+</div>
+{{end}}
+{{end}}

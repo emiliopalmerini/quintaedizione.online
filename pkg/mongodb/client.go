@@ -101,6 +101,51 @@ func (c *Client) Ping(ctx context.Context) error {
 	return c.client.Ping(ctx, nil)
 }
 
+// Find finds documents in a collection
+func (c *Client) Find(ctx context.Context, collection string, filter interface{}, opts ...*options.FindOptions) ([]map[string]interface{}, error) {
+	coll := c.GetCollection(collection)
+	
+	cursor, err := coll.Find(ctx, filter, opts...)
+	if err != nil {
+		return nil, fmt.Errorf("find failed: %w", err)
+	}
+	defer cursor.Close(ctx)
+	
+	var results []map[string]interface{}
+	if err := cursor.All(ctx, &results); err != nil {
+		return nil, fmt.Errorf("cursor decode failed: %w", err)
+	}
+	
+	return results, nil
+}
+
+// FindOne finds a single document in a collection
+func (c *Client) FindOne(ctx context.Context, collection string, filter interface{}) (map[string]interface{}, error) {
+	coll := c.GetCollection(collection)
+	
+	var result map[string]interface{}
+	if err := coll.FindOne(ctx, filter).Decode(&result); err != nil {
+		if err == mongo.ErrNoDocuments {
+			return nil, fmt.Errorf("document not found")
+		}
+		return nil, fmt.Errorf("findone failed: %w", err)
+	}
+	
+	return result, nil
+}
+
+// Count counts documents in a collection
+func (c *Client) Count(ctx context.Context, collection string, filter interface{}) (int64, error) {
+	coll := c.GetCollection(collection)
+	
+	count, err := coll.CountDocuments(ctx, filter)
+	if err != nil {
+		return 0, fmt.Errorf("count failed: %w", err)
+	}
+	
+	return count, nil
+}
+
 // DefaultConfig returns a default MongoDB configuration
 func DefaultConfig() Config {
 	return Config{

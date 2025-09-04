@@ -1,0 +1,69 @@
+{{define "home.html"}}
+{{template "base.html" .}}
+{{define "title"}}{{.title}}{{end}}
+{{define "content"}}
+<div class="notion-page">
+  <div class="notion-page-header" style="text-align: center; margin-bottom: 3rem;">
+    <h1 style="color: var(--notion-text); font-size: 2.5rem; font-weight: 600; margin: 0;">
+      {{.title}}
+    </h1>
+    <p style="color: var(--notion-text-light); font-size: 1.1rem; margin-top: 0.5rem;">
+      {{.description}}
+    </p>
+  </div>
+
+  <div class="notion-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+    {{range .collections}}
+    <div class="notion-card">
+      <a href="/c/{{.}}" class="notion-card-link">
+        <div class="notion-card-header">
+          <h3>{{capitalize .}}</h3>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M6.22 8.72a.75.75 0 0 0 1.06 1.06L10.94 6.2a.75.75 0 0 0-.53-1.28H6.75a.75.75 0 0 0 0 1.5h1.69L6.22 8.72Z"/>
+          </svg>
+        </div>
+        <p class="notion-card-description">
+          Esplora {{lower .}} disponibili nel SRD
+        </p>
+      </a>
+    </div>
+    {{end}}
+  </div>
+
+  <!-- Quick search section -->
+  <div class="notion-section" style="margin-top: 3rem;">
+    <h2 style="color: var(--notion-text); font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">
+      Ricerca Rapida
+    </h2>
+    <form hx-get="/search" hx-target="#search-results" hx-trigger="submit" class="search-form">
+      <div class="search-input-container">
+        <input name="q" type="text" placeholder="Cerca incantesimi, mostri, classi..." class="field" style="flex: 1; margin-right: 10px;" required>
+        <button type="submit" class="btn btn-primary">Cerca</button>
+      </div>
+    </form>
+    <div id="search-results" style="margin-top: 1rem;"></div>
+  </div>
+
+  <!-- Recent updates section -->
+  <div class="notion-section" style="margin-top: 3rem;">
+    <h2 style="color: var(--notion-text); font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">
+      Novità
+    </h2>
+    <div class="notion-list">
+      <div class="notion-list-item">
+        <div class="notion-list-item-content">
+          <h4>Migrazione a Go</h4>
+          <p>Sistema migrato a Go per migliori performance e mantenibilità</p>
+        </div>
+      </div>
+      <div class="notion-list-item">
+        <div class="notion-list-item-content">
+          <h4>Architettura Esagonale</h4>
+          <p>Implementata architettura esagonale per maggiore flessibilità</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{end}}
+{{end}}
