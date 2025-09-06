@@ -19,9 +19,9 @@ var (
 )
 
 // ParseAnimali parses Italian D&D 5e animal data from markdown into proper domain objects
-func ParseAnimali(lines []string) ([]map[string]interface{}, error) {
+func ParseAnimali(lines []string) ([]map[string]any, error) {
 	items := splitItemsByH2(lines)
-	var animali []map[string]interface{}
+	var animali []map[string]any
 
 	for _, item := range items {
 		if len(item.lines) == 0 {
@@ -38,7 +38,7 @@ func ParseAnimali(lines []string) ([]map[string]interface{}, error) {
 }
 
 // parseAnimaleItem parses a single animal item into the correct domain structure
-func parseAnimaleItem(title string, lines []string) map[string]interface{} {
+func parseAnimaleItem(title string, lines []string) map[string]any {
 	name := strings.TrimSpace(title)
 	if name == "" {
 		return nil
@@ -63,7 +63,7 @@ func parseAnimaleItem(title string, lines []string) map[string]interface{} {
 
 	// Build the animal document matching the domain model exactly
 	// Note: _id will be generated automatically by MongoDB
-	animale := map[string]interface{}{
+	animale := map[string]any{
 		"slug":             string(slug),
 		"nome":             name,
 		"taglia":           string(taglia),
@@ -92,7 +92,7 @@ func parseAnimalAC(content string) int {
 }
 
 // parseAnimalHP extracts hit points and creates PuntiFerita structure
-func parseAnimalHP(content string) map[string]interface{} {
+func parseAnimalHP(content string) map[string]any {
 	valore := 1 // default HP
 	numero := 1 // default dice count
 	facce := 6  // default dice faces
@@ -122,9 +122,9 @@ func parseAnimalHP(content string) map[string]interface{} {
 		}
 	}
 
-	return map[string]interface{}{
+	return map[string]any{
 		"valore": valore,
-		"dadi": map[string]interface{}{
+		"dadi": map[string]any{
 			"numero": numero,
 			"facce":  facce,
 			"bonus":  bonus,
@@ -133,7 +133,7 @@ func parseAnimalHP(content string) map[string]interface{} {
 }
 
 // parseAnimalSpeed extracts speed and creates Velocita structure
-func parseAnimalSpeed(content string) map[string]interface{} {
+func parseAnimalSpeed(content string) map[string]any {
 	valore := 9 // default speed in meters
 	if match := AnimalSpeedRE.FindStringSubmatch(content); len(match) > 1 {
 		if speed, err := strconv.Atoi(match[1]); err == nil {
@@ -141,7 +141,7 @@ func parseAnimalSpeed(content string) map[string]interface{} {
 		}
 	}
 
-	return map[string]interface{}{
+	return map[string]any{
 		"valore": valore,
 		"unita":  "m",
 	}
@@ -182,8 +182,8 @@ func parseAnimalType(content string) domain.TipoAnimale {
 }
 
 // parseAnimalAbilities parses ability scores into Caratteristica array
-func parseAnimalAbilities(lines []string) []map[string]interface{} {
-	var caratteristiche []map[string]interface{}
+func parseAnimalAbilities(lines []string) []map[string]any {
+	var caratteristiche []map[string]any
 
 	// Default ability scores if not found
 	defaultAbilities := map[string]int{
@@ -272,7 +272,7 @@ func parseAnimalAbilities(lines []string) []map[string]interface{} {
 				hasProficiency = tsValue != modifier
 			}
 
-			caratteristica := map[string]interface{}{
+			caratteristica := map[string]any{
 				"tipo":          string(tipo),
 				"valore":        valore,
 				"ts_competenza": hasProficiency,
@@ -285,8 +285,8 @@ func parseAnimalAbilities(lines []string) []map[string]interface{} {
 }
 
 // parseAnimalTraits extracts special traits
-func parseAnimalTraits(lines []string) []map[string]interface{} {
-	var tratti []map[string]interface{}
+func parseAnimalTraits(lines []string) []map[string]any {
+	var tratti []map[string]any
 	var inTraits bool
 
 	for _, line := range lines {
@@ -311,7 +311,7 @@ func parseAnimalTraits(lines []string) []map[string]interface{} {
 				descrizione := strings.TrimSpace(match[2])
 
 				if nome != "" {
-					tratto := map[string]interface{}{
+					tratto := map[string]any{
 						"nome":        nome,
 						"descrizione": descrizione,
 					}
@@ -337,8 +337,8 @@ func parseAnimalProficiencyBonus(content string) int {
 }
 
 // parseAnimalActions extracts actions from the text
-func parseAnimalActions(lines []string) []map[string]interface{} {
-	var azioni []map[string]interface{}
+func parseAnimalActions(lines []string) []map[string]any {
+	var azioni []map[string]any
 	var inActions bool
 
 	for _, line := range lines {
@@ -367,7 +367,7 @@ func parseAnimalActions(lines []string) []map[string]interface{} {
 					attacco := parseAttaccoFromDescription(descrizione)
 					ricarica := parseRicaricaFromName(nome)
 
-					azione := map[string]interface{}{
+					azione := map[string]any{
 						"nome":        nome,
 						"descrizione": descrizione,
 						"attacco":     attacco,
@@ -395,24 +395,24 @@ func parseRicaricaFromName(nome string) int {
 }
 
 // parseAttaccoFromDescription extracts attack information from action description
-func parseAttaccoFromDescription(descrizione string) map[string]interface{} {
+func parseAttaccoFromDescription(descrizione string) map[string]any {
 	// Pattern for: "Tiro per colpire in mischia: +6, portata 1,5 m. 15 (2d10 + 4) danni Perforanti"
 	// Or: "Tiro per colpire a distanza: +5, gittata 7,5/15 m. 10 (2d6 + 3) danni Contundenti"
 	attackPattern := regexp.MustCompile(`\*Tiro per colpire (?:in mischia|a distanza):\*\s*([+-]?\d+),\s*(?:portata|gittata)\s+([\d,/\s]+)\s*m\.\s*(\d+)\s*\((\d+)d(\d+)(?:\s*[+-]\s*(\d+))?\)\s*danni\s+(\w+)`)
 
 	// Default empty attack
-	attacco := map[string]interface{}{
+	attacco := map[string]any{
 		"tiro_per_colpire": 0,
-		"danno": map[string]interface{}{
+		"danno": map[string]any{
 			"valore": 0,
-			"dadi": map[string]interface{}{
+			"dadi": map[string]any{
 				"numero": 0,
 				"facce":  0,
 				"bonus":  0,
 			},
 			"tipo": "TODO",
 		},
-		"portata": map[string]interface{}{
+		"portata": map[string]any{
 			"valore": 0.0,
 			"unita":  "m",
 		},
@@ -427,7 +427,7 @@ func parseAttaccoFromDescription(descrizione string) map[string]interface{} {
 		// Parse range/reach - take first number
 		rangeStr := strings.Fields(strings.ReplaceAll(match[2], ",", "."))[0]
 		if portata, err := strconv.ParseFloat(rangeStr, 64); err == nil {
-			attacco["portata"] = map[string]interface{}{
+			attacco["portata"] = map[string]any{
 				"valore": portata,
 				"unita":  "m",
 			}
@@ -443,9 +443,9 @@ func parseAttaccoFromDescription(descrizione string) map[string]interface{} {
 				diceBonus, _ = strconv.Atoi(match[6])
 			}
 
-			attacco["danno"] = map[string]interface{}{
+			attacco["danno"] = map[string]any{
 				"valore": dannoValore,
-				"dadi": map[string]interface{}{
+				"dadi": map[string]any{
 					"numero": diceNum,
 					"facce":  diceFaces,
 					"bonus":  diceBonus,

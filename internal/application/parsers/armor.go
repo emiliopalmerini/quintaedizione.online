@@ -1,6 +1,7 @@
 package parsers
 
 import (
+	"maps"
 	"strconv"
 	"strings"
 )
@@ -16,9 +17,9 @@ var armorFieldsIT = map[string]string{
 }
 
 // ParseArmor parses Italian D&D 5e armor data from markdown
-func ParseArmor(lines []string) ([]map[string]interface{}, error) {
+func ParseArmor(lines []string) ([]map[string]any, error) {
 	items := splitItemsByH2(lines)
-	var armors []map[string]interface{}
+	var armors []map[string]any
 
 	for _, item := range items {
 		if len(item.lines) == 0 {
@@ -35,7 +36,7 @@ func ParseArmor(lines []string) ([]map[string]interface{}, error) {
 }
 
 // parseArmorItem parses a single armor item
-func parseArmorItem(title string, lines []string) map[string]interface{} {
+func parseArmorItem(title string, lines []string) map[string]any {
 	name := strings.TrimSpace(title)
 	if name == "" {
 		return nil
@@ -48,7 +49,7 @@ func parseArmorItem(title string, lines []string) map[string]interface{} {
 	mapped := mapArmorFields(fields)
 
 	// Build armor object
-	armor := map[string]interface{}{
+	armor := map[string]any{
 		"slug":               name,
 		"nome":               name,
 		"contenuto_markdown": strings.Join(append([]string{"## " + title}, lines...), "\n"),
@@ -57,16 +58,14 @@ func parseArmorItem(title string, lines []string) map[string]interface{} {
 	}
 
 	// Add mapped fields
-	for key, value := range mapped {
-		armor[key] = value
-	}
+	maps.Copy(armor, mapped)
 
 	return armor
 }
 
 // mapArmorFields maps Italian armor fields to database structure
-func mapArmorFields(fields map[string]string) map[string]interface{} {
-	mapped := make(map[string]interface{})
+func mapArmorFields(fields map[string]string) map[string]any {
+	mapped := make(map[string]any)
 
 	for italian, english := range armorFieldsIT {
 		if value, exists := fields[italian]; exists && value != "" {
@@ -102,10 +101,10 @@ func mapArmorFields(fields map[string]string) map[string]interface{} {
 }
 
 // parseCosto parses cost string into structured object
-func parseCosto(costStr string) map[string]interface{} {
+func parseCosto(costStr string) map[string]any {
 	// Handle "—" case
 	if costStr == "—" || costStr == "-" {
-		return map[string]interface{}{
+		return map[string]any{
 			"valore": 0,
 			"valuta": "",
 		}
@@ -120,7 +119,7 @@ func parseCosto(costStr string) map[string]interface{} {
 		// Try to parse amount (handle decimal comma)
 		amountStr = strings.Replace(amountStr, ",", ".", 1)
 		if amount, err := strconv.ParseFloat(amountStr, 64); err == nil {
-			return map[string]interface{}{
+			return map[string]any{
 				"valore": amount,
 				"valuta": currency,
 			}
@@ -128,17 +127,17 @@ func parseCosto(costStr string) map[string]interface{} {
 	}
 
 	// Fallback to original string
-	return map[string]interface{}{
+	return map[string]any{
 		"valore": 0,
 		"valuta": "",
 	}
 }
 
 // parsePeso parses weight string into structured object
-func parsePeso(pesoStr string) map[string]interface{} {
+func parsePeso(pesoStr string) map[string]any {
 	// Handle "—" case
 	if pesoStr == "—" || pesoStr == "-" {
-		return map[string]interface{}{
+		return map[string]any{
 			"valore": 0.0,
 			"unita":  "",
 		}
@@ -153,7 +152,7 @@ func parsePeso(pesoStr string) map[string]interface{} {
 		// Try to parse amount (handle decimal comma)
 		amountStr = strings.Replace(amountStr, ",", ".", 1)
 		if amount, err := strconv.ParseFloat(amountStr, 64); err == nil {
-			return map[string]interface{}{
+			return map[string]any{
 				"valore": amount,
 				"unita":  unit,
 			}
@@ -161,7 +160,7 @@ func parsePeso(pesoStr string) map[string]interface{} {
 	}
 
 	// Fallback to original string
-	return map[string]interface{}{
+	return map[string]any{
 		"valore": 0.0,
 		"unita":  "",
 	}

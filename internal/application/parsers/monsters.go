@@ -1,6 +1,7 @@
 package parsers
 
 import (
+	"maps"
 	"regexp"
 	"strconv"
 	"strings"
@@ -15,19 +16,19 @@ var (
 )
 
 // ParseMonstersMonster parses Italian D&D 5e monster data from markdown
-func ParseMonstersMonster(lines []string) ([]map[string]interface{}, error) {
+func ParseMonstersMonster(lines []string) ([]map[string]any, error) {
 	return parseMonsters(lines, "monster")
 }
 
 // ParseMonstersAnimal parses Italian D&D 5e animal data from markdown
-func ParseMonstersAnimal(lines []string) ([]map[string]interface{}, error) {
+func ParseMonstersAnimal(lines []string) ([]map[string]any, error) {
 	return parseMonsters(lines, "animal")
 }
 
 // parseMonsters parses monsters with a given namespace
-func parseMonsters(lines []string, namespace string) ([]map[string]interface{}, error) {
+func parseMonsters(lines []string, namespace string) ([]map[string]any, error) {
 	items := splitItemsByH2(lines)
-	var monsters []map[string]interface{}
+	var monsters []map[string]any
 
 	for _, item := range items {
 		if len(item.lines) == 0 {
@@ -44,7 +45,7 @@ func parseMonsters(lines []string, namespace string) ([]map[string]interface{}, 
 }
 
 // parseMonsterItem parses a single monster
-func parseMonsterItem(title string, lines []string, namespace string) map[string]interface{} {
+func parseMonsterItem(title string, lines []string, namespace string) map[string]any {
 	name := strings.TrimSpace(title)
 	if name == "" {
 		return nil
@@ -54,7 +55,7 @@ func parseMonsterItem(title string, lines []string, namespace string) map[string
 	stats := parseMonsterStats(lines)
 
 	// Build monster object
-	monster := map[string]interface{}{
+	monster := map[string]any{
 		"slug":               name,
 		"nome":               name,
 		"namespace":          namespace,
@@ -64,9 +65,7 @@ func parseMonsterItem(title string, lines []string, namespace string) map[string
 	}
 
 	// Add parsed stats
-	for key, value := range stats {
-		monster[key] = value
-	}
+	maps.Copy(monster, stats)
 
 	// Extract description
 	description := extractMonsterDescription(lines)
@@ -78,8 +77,8 @@ func parseMonsterItem(title string, lines []string, namespace string) map[string
 }
 
 // parseMonsterStats parses monster statistics from text
-func parseMonsterStats(lines []string) map[string]interface{} {
-	stats := make(map[string]interface{})
+func parseMonsterStats(lines []string) map[string]any {
+	stats := make(map[string]any)
 	content := strings.Join(lines, " ")
 
 	// Parse AC
