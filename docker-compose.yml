@@ -12,11 +12,10 @@ services:
       - mongo_data:/data/db
       - ./seed:/seed
 
-  # Go Editor (default)
   editor:
     build:
       context: .
-      dockerfile: Dockerfile.Editor.Go
+      dockerfile: Dockerfile.Editor
     container_name: dnd-editor-go
     depends_on: [mongo]
     environment:
@@ -27,11 +26,10 @@ services:
     ports: ["8000:8000"]
     restart: unless-stopped
 
-  # Go Parser (default)
   parser:
     build:
       context: .
-      dockerfile: Dockerfile.Parser.Go
+      dockerfile: Dockerfile.Parser
     container_name: dnd-parser-go
     depends_on: [mongo]
     environment:
