@@ -7,22 +7,25 @@ import (
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/parsers"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/templates"
 	"github.com/gin-gonic/gin"
 )
 
 // IngestHandler handles ingestion HTTP requests
 type IngestHandler struct {
-	ingestService *services.IngestService
-	defaultWork   []domain.WorkItem
-	inputDir      string
+	ingestService  *services.IngestService
+	templateEngine *templates.Engine
+	defaultWork    []domain.WorkItem
+	inputDir       string
 }
 
 // NewIngestHandler creates a new ingest handler
-func NewIngestHandler(ingestService *services.IngestService, inputDir string) *IngestHandler {
+func NewIngestHandler(ingestService *services.IngestService, templateEngine *templates.Engine, inputDir string) *IngestHandler {
 	return &IngestHandler{
-		ingestService: ingestService,
-		defaultWork:   parsers.CreateDefaultWork(),
-		inputDir:      inputDir,
+		ingestService:  ingestService,
+		templateEngine: templateEngine,
+		defaultWork:    parsers.CreateDefaultWork(),
+		inputDir:       inputDir,
 	}
 }
 
@@ -37,7 +40,7 @@ func (h *IngestHandler) GetIndex(c *gin.Context) {
 		}
 	}
 
-	response := map[string]interface{}{
+	data := map[string]interface{}{
 		"env": map[string]interface{}{
 			"input_dir": h.inputDir,
 			"db_name":   "dnd", // TODO: get from config
@@ -48,7 +51,21 @@ func (h *IngestHandler) GetIndex(c *gin.Context) {
 		"selected":   []int{},
 	}
 
-	c.JSON(http.StatusOK, response)
+	// Check if this is an HTMX request or API request
+	if c.GetHeader("HX-Request") != "" || c.GetHeader("Accept") == "application/json" {
+		c.JSON(http.StatusOK, data)
+		return
+	}
+
+	// Render HTML template
+	html, err := h.templateEngine.Render("parser.html", data)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to render template: " + err.Error()})
+		return
+	}
+
+	c.Header("Content-Type", "text/html; charset=utf-8")
+	c.String(http.StatusOK, html)
 }
 
 // PostRun handles POST /run - execute parsing
@@ -57,7 +74,6 @@ func (h *IngestHandler) PostRun(c *gin.Context) {
 	var req struct {
 		InputDir string `form:"input_dir" json:"input_dir" binding:"required"`
 		DBName   string `form:"db_name" json:"db_name" binding:"required"`
-		DryRun   bool   `form:"dry_run" json:"dry_run"`
 		Selected []int  `form:"selected" json:"selected"`
 	}
 
@@ -65,6 +81,9 @@ func (h *IngestHandler) PostRun(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+
+	// Handle checkbox manually - if present, it's checked (true), otherwise false
+	dryRun := c.PostForm("dry_run") != ""
 
 	selected := req.Selected
 
@@ -101,21 +120,21 @@ func (h *IngestHandler) PostRun(c *gin.Context) {
 		}
 
 		if len(selectedWork) > 0 {
-			results, err := h.ingestService.ExecuteIngest(req.InputDir, selectedWork, req.DryRun)
+			results, err := h.ingestService.ExecuteIngest(req.InputDir, selectedWork, dryRun)
 			if err != nil {
 				messages = append(messages, "Errore durante l'ingestion: "+err.Error())
 			} else {
 				// Process results
 				for _, result := range results {
-					if result.Error != nil {
-						messages = append(messages, "Errore parser in "+result.Filename+": "+*result.Error)
+					if result.Error != "" {
+						messages = append(messages, "Errore parser in "+result.Filename+": "+result.Error)
 						continue
 					}
 
 					messages = append(messages, "Parsing "+result.Filename+" → "+result.Collection)
 					messages = append(messages, "Estratti "+strconv.Itoa(result.Parsed)+" documenti da "+result.Filename)
 
-					if req.DryRun {
+					if dryRun {
 						total += result.Parsed
 					} else {
 						total += result.Written
@@ -127,7 +146,7 @@ func (h *IngestHandler) PostRun(c *gin.Context) {
 	}
 
 	// Add final summary
-	if req.DryRun {
+	if dryRun {
 		messages = append(messages, "Dry-run completato. Totale analizzati: "+strconv.Itoa(total))
 	} else {
 		messages = append(messages, "Fatto. Totale upsert: "+strconv.Itoa(total))
@@ -137,7 +156,7 @@ func (h *IngestHandler) PostRun(c *gin.Context) {
 	env := map[string]interface{}{
 		"input_dir": req.InputDir,
 		"db_name":   req.DBName,
-		"dry_run":   req.DryRun,
+		"dry_run":   dryRun,
 	}
 
 	response := map[string]interface{}{
@@ -145,6 +164,25 @@ func (h *IngestHandler) PostRun(c *gin.Context) {
 		"work_items": workItems,
 		"messages":   messages,
 		"selected":   selected,
+	}
+
+	// Check if this is an HTMX request
+	if c.GetHeader("HX-Request") != "" {
+		// Return just the results section for HTMX
+		if len(messages) > 0 {
+			html := `<div class="results-section">
+				<h2 class="notion-h2">Risultati</h2>
+				<div class="messages" style="background: var(--notion-bg-code); border-radius: 6px; padding: 1rem; font-family: 'Monaco', 'Menlo', monospace; font-size: 12px; line-height: 1.5;">`
+			for _, msg := range messages {
+				html += `<div style="margin-bottom: 0.25rem; color: var(--notion-text-light);">` + msg + `</div>`
+			}
+			html += `</div></div>`
+			c.Header("Content-Type", "text/html; charset=utf-8")
+			c.String(http.StatusOK, html)
+		} else {
+			c.String(http.StatusOK, "")
+		}
+		return
 	}
 
 	c.JSON(http.StatusOK, response)

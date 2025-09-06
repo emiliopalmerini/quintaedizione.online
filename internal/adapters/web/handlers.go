@@ -33,7 +33,6 @@ func (h *Handlers) RegisterRoutes(router *gin.Engine) {
 	router.GET("/:collection", h.handleCollectionList)
 	router.GET("/:collection/rows", h.handleCollectionRows) // HTMX rows endpoint
 	router.GET("/:collection/:slug", h.handleItemDetail)
-
 }
 
 // handleHome renders the home page

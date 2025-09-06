@@ -58,7 +58,7 @@ func (s *ContentService) GetCollectionItems(ctx context.Context, collection, sea
 
 	// Find options
 	opts := options.Find().
-		SetSort(bson.D{{"nome", 1}}).
+		SetSort(bson.D{{Key: "nome", Value: 1}}).
 		SetSkip(int64(skip)).
 		SetLimit(int64(limit))
 
@@ -158,13 +158,14 @@ func (s *ContentService) getDisplayElements(collection string, doc map[string]in
 	}
 
 	// Add generic fields (cost, weight) for all collections
-	if cost := getFieldValue(doc, "costo"); cost != "" {
+	// Handle structured value objects first, fallback to simple fields
+	if cost := getStructuredFieldValue(doc, "costo"); cost != "" {
 		elements = append(elements, map[string]interface{}{
 			"value": cost,
 			"type":  "cost",
 		})
 	}
-	if weight := getFieldValue(doc, "peso"); weight != "" {
+	if weight := getStructuredFieldValue(doc, "peso"); weight != "" {
 		elements = append(elements, map[string]interface{}{
 			"value": weight,
 			"type":  "weight",
@@ -175,12 +176,93 @@ func (s *ContentService) getDisplayElements(collection string, doc map[string]in
 }
 
 // getFieldValue returns the first non-empty value from the given field names
+// For simple fields, it returns the string representation
 func getFieldValue(doc map[string]interface{}, fieldNames ...string) string {
 	for _, fieldName := range fieldNames {
 		if value, exists := doc[fieldName]; exists && value != nil {
 			if strValue := fmt.Sprintf("%v", value); strValue != "" && strValue != "0" {
 				return strValue
 			}
+		}
+	}
+	return ""
+}
+
+// getStructuredFieldValue extracts and formats structured domain value objects
+func getStructuredFieldValue(doc map[string]interface{}, fieldName string) string {
+	value, exists := doc[fieldName]
+	if !exists || value == nil {
+		return ""
+	}
+
+	// Handle different structured types
+	switch fieldName {
+	case "costo":
+		return formatCosto(value)
+	case "peso":
+		return formatPeso(value)
+	case "velocita":
+		return formatVelocita(value)
+	case "gittata":
+		return formatGittata(value)
+	default:
+		// Fallback to simple field extraction
+		if strValue := fmt.Sprintf("%v", value); strValue != "" && strValue != "0" {
+			return strValue
+		}
+	}
+	return ""
+}
+
+// formatCosto formats a Costo value object to display string
+func formatCosto(value interface{}) string {
+	if costoMap, ok := value.(map[string]interface{}); ok {
+		valore, valoreOk := costoMap["valore"]
+		valuta, valutaOk := costoMap["valuta"]
+
+		if valoreOk && valutaOk {
+			return fmt.Sprintf("%v %v", valore, valuta)
+		}
+	}
+	return ""
+}
+
+// formatPeso formats a Peso value object to display string
+func formatPeso(value interface{}) string {
+	if pesoMap, ok := value.(map[string]interface{}); ok {
+		valore, valoreOk := pesoMap["valore"]
+		unita, unitaOk := pesoMap["unita"]
+
+		if valoreOk && unitaOk {
+			return fmt.Sprintf("%v %v", valore, unita)
+		}
+	}
+	return ""
+}
+
+// formatVelocita formats a Velocita value object to display string
+func formatVelocita(value interface{}) string {
+	if velocitaMap, ok := value.(map[string]interface{}); ok {
+		valore, valoreOk := velocitaMap["valore"]
+		unita, unitaOk := velocitaMap["unita"]
+
+		if valoreOk && unitaOk {
+			return fmt.Sprintf("%v %v", valore, unita)
+		}
+	}
+	return ""
+}
+
+// formatGittata formats a GittataArma value object to display string
+func formatGittata(value interface{}) string {
+	if gittataMap, ok := value.(map[string]interface{}); ok {
+		normale, normaleOk := gittataMap["normale"]
+		lunga, lungaOk := gittataMap["lunga"]
+
+		if normaleOk && lungaOk {
+			return fmt.Sprintf("%v/%v", normale, lunga)
+		} else if normaleOk {
+			return fmt.Sprintf("%v", normale)
 		}
 	}
 	return ""
