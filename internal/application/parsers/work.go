@@ -173,7 +173,7 @@ func CreateDefaultWork() []domain.WorkItem {
 		{
 			Filename:   "ita/21_animali.md",
 			Collection: "animali",
-			Parser:     ParseMonstersAnimal,
+			Parser:     ParseAnimali,
 		},
 	}
 }
@@ -187,4 +187,5 @@ func CreateDefaultWork() []domain.WorkItem {
 // - ParseTools, ParseServices, ParseGear in equipment.go
 // - ParseMagicItems in magic_items.go
 // - ParseFeats in feats.go
-// - ParseMonstersMonster, ParseMonstersAnimal in monsters.go
+// - ParseMonstersMonster in monsters.go
+// - ParseAnimali in animali.go
