@@ -51,3 +51,4 @@ This is a D&D 5e SRD (System Reference Document) management system with two main
 - Template-based web rendering with HTMX + Templ
 
 The system parses D&D content from markdown files into structured MongoDB documents, supporting only Italian SRD content with searchable and renderable formats.
+- usa l'italiano per i termini di dominio
