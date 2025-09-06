@@ -64,8 +64,13 @@ func collectLabeledFieldsFromLines(lines []string) map[string]string {
 				label := strings.TrimSpace(parts[0])
 				value := strings.TrimSpace(parts[1])
 
-				// Remove bold formatting
+				// Remove all markdown formatting from label (** or *)
 				label = strings.Trim(label, "*")
+				label = strings.TrimSpace(label)
+
+				// Clean value - remove any leading markdown that might have leaked
+				value = strings.TrimLeft(value, "* ")
+				value = strings.TrimSpace(value)
 
 				if label != "" && value != "" {
 					fields[label] = value
