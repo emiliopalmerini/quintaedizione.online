@@ -33,6 +33,9 @@ COPY --from=builder /app/parser .
 # Copy web assets if they exist
 COPY --from=builder /app/web ./web
 
+# Copy data directory for parsing
+COPY --from=builder /app/data ./data
+
 # Expose port
 EXPOSE 8100
 

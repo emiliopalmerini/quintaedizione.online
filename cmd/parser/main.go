@@ -10,6 +10,7 @@ import (
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/handlers"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/mongodb"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/templates"
 	"github.com/gin-gonic/gin"
 )
 
@@ -41,8 +42,18 @@ func main() {
 		log.Fatal("Failed to ping MongoDB:", err)
 	}
 
+	// Initialize template engine
+	templateEngine := templates.NewEngine("web/templates")
+	if err := templateEngine.LoadTemplates(); err != nil {
+		log.Fatal("Failed to load templates:", err)
+	}
+	log.Println("✅ Templates loaded")
+
 	// Setup Gin router
 	r := gin.Default()
+
+	// Static files
+	r.Static("/static", "./web/static")
 
 	r.GET("/healthz", func(c *gin.Context) {
 		c.String(200, "ok")
@@ -51,7 +62,7 @@ func main() {
 	// Setup dependencies
 	repo := adapters.NewMongoParserRepository(mongoClient)
 	ingestService := services.NewIngestService(repo)
-	ingestHandler := handlers.NewIngestHandler(ingestService, getEnv("INPUT_DIR", "data"))
+	ingestHandler := handlers.NewIngestHandler(ingestService, templateEngine, getEnv("INPUT_DIR", "data"))
 
 	// Routes
 	r.GET("/", ingestHandler.GetIndex)
