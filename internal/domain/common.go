@@ -83,11 +83,10 @@ type Velocita struct {
 	Unita  UnitaVelocita `json:"unita"  bson:"unita"`
 }
 
-// Punti Ferita unificati
+// Punti Ferita
 type PuntiFerita struct {
-	Totali     int `json:"totali"     bson:"totali"`     // punti ferita massimi
-	Attuali    int `json:"attuali"    bson:"attuali"`    // punti ferita attuali
-	Temporanei int `json:"temporanei" bson:"temporanei"` // punti ferita temporanei
+	Valore int  `json:"valore"     bson:"valore"` // punti ferita medi
+	Dadi   Dadi `json:"dadi"    bson:"dadi"`      // dadi vita
 }
 
 // Tipo di caratteristica unificato
@@ -104,12 +103,18 @@ const (
 
 // Caratteristica unificata
 type Caratteristica struct {
-	Tipo   TipoCaratteristica `json:"tipo"   bson:"tipo"`
-	Valore int                `json:"valore" bson:"valore"`
+	Tipo                   TipoCaratteristica `json:"tipo"   bson:"tipo"`
+	Valore                 int                `json:"valore" bson:"valore"`
+	TiroSalvezzaCompetenza bool               `json:"ts_competenza" bson:"ts_competenza"`
 }
 
-// Dado per rappresentare dadi (es. "20d10")
-type Dado struct {
+type (
+	BonusCompetenza int
+	ClasseArmatura  int
+)
+
+// Dadi per rappresentare dadi (es. "20d10")
+type Dadi struct {
 	Numero int `json:"numero" bson:"numero"` // numero di dadi
 	Facce  int `json:"facce"  bson:"facce"`  // facce del dado (d4, d6, d8, d10, d12, d20)
 	Bonus  int `json:"bonus"  bson:"bonus"`  // modificatore fisso
@@ -117,8 +122,30 @@ type Dado struct {
 
 // Azione generica (usata in mostri, animali, ecc.)
 type Azione struct {
-	Nome        string `json:"nome"        bson:"nome"`
-	Descrizione string `json:"descrizione" bson:"descrizione"`
+	Nome        string   `json:"nome"        bson:"nome"`
+	Descrizione string   `json:"descrizione" bson:"descrizione"`
+	Attacco     Attacco  `json:"attacco" bson:"attacco"`
+	Ricarica    Ricarica `json:"ricarica" bson:"ricarica"`
+}
+
+type Ricarica int
+
+type Attacco struct {
+	TiroPerColpire int      `json:"tiro_per_colpire" bson:"tiro_per_colpire"`
+	Danno          Danno    `json:"danno"            bson:"danno"`
+	Portata        Distanza `json:"portata"          bson:"portata"`
+}
+
+type TipoDanno string
+
+const (
+	TodoTipoDanno TipoDanno = "TODO"
+)
+
+type Danno struct {
+	Valore int       `json:"valore" bson:"valore"`
+	Dadi   Dadi      `json:"dadi"   bson:"dadi"`
+	Tipo   TipoDanno `json:"tipo"   bson:"tipo"`
 }
 
 // Tratto generico (usato in mostri, animali, ecc.)
@@ -141,28 +168,45 @@ func NewVelocita(valore int, unita UnitaVelocita) Velocita {
 	return Velocita{Valore: valore, Unita: unita}
 }
 
-func NewPuntiFerita(totali int) PuntiFerita {
-	return PuntiFerita{Totali: totali, Attuali: totali, Temporanei: 0}
-}
-
-func NewPuntiFeriteCustom(totali, attuali, temporanei int) PuntiFerita {
-	return PuntiFerita{Totali: totali, Attuali: attuali, Temporanei: temporanei}
+func NewPuntiFerita(valore int, dadi Dadi) PuntiFerita {
+	return PuntiFerita{valore, dadi}
 }
 
 func NewCaratteristica(tipo TipoCaratteristica, valore int) Caratteristica {
 	return Caratteristica{Tipo: tipo, Valore: valore}
 }
 
-func NewDado(numero, facce, bonus int) Dado {
-	return Dado{Numero: numero, Facce: facce, Bonus: bonus}
+func NewDado(numero, facce, bonus int) Dadi {
+	return Dadi{Numero: numero, Facce: facce, Bonus: bonus}
 }
 
-func NewAzione(nome, descrizione string) Azione {
-	return Azione{Nome: nome, Descrizione: descrizione}
+func NewAzione(nome, descrizione string, attacco Attacco, ricarica Ricarica) Azione {
+	return Azione{
+		Nome:        nome,
+		Descrizione: descrizione,
+		Attacco:     attacco,
+		Ricarica:    ricarica,
+	}
 }
 
 func NewTraito(nome, descrizione string) Tratto {
 	return Tratto{Nome: nome, Descrizione: descrizione}
+}
+
+func NewAttacco(tiroPerColpire int, danno Danno, portata Distanza) Attacco {
+	return Attacco{
+		TiroPerColpire: tiroPerColpire,
+		Danno:          danno,
+		Portata:        portata,
+	}
+}
+
+func NewDanno(valore int, dadi Dadi, tipo TipoDanno) Danno {
+	return Danno{
+		Valore: valore,
+		Dadi:   dadi,
+		Tipo:   tipo,
+	}
 }
 
 // ---------- Metodi ----------
@@ -171,6 +215,14 @@ func (c Caratteristica) Modificatore() int {
 	return (c.Valore - 10) / 2
 }
 
+func (c Caratteristica) TiroSalvezza(bc BonusCompetenza) int {
+	if c.TiroSalvezzaCompetenza == true {
+		return ((c.Valore - 10) / 2) + int(bc)
+	}
+
+	return (c.Valore - 10) / 2
+}
+
 func (pf PuntiFerita) Effettivi() int {
-	return pf.Attuali + pf.Temporanei
+	return pf.Valore
 }

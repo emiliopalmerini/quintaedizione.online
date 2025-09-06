@@ -154,7 +154,7 @@ type Classe struct {
 	Nome                           string                   `json:"nome"                             bson:"nome"`
 	Sottotitolo                    string                   `json:"sottotitolo"                      bson:"sottotitolo"`
 	Markdown                       string                   `json:"markdown"                         bson:"markdown"`
-	DadoVita                       Dado                     `json:"dado_vita"                        bson:"dado_vita"`
+	DadoVita                       Dadi                     `json:"dado_vita"                        bson:"dado_vita"`
 	CaratteristicaPrimaria         []Caratteristica         `json:"caratteristica_primaria"          bson:"caratteristica_primaria"`
 	SalvezzeCompetenze             []NomeCaratteristica     `json:"salvezze_competenze"              bson:"salvezze_competenze"`
 	AbilitaCompetenzeOpzioni       Scelta                   `json:"abilita_competenze_opzioni"       bson:"abilita_competenze_opzioni"`
@@ -178,10 +178,10 @@ func NewClasse(
 	nome string,
 	sottotitolo string,
 	markdown string,
-	dadoVita Dado,
+	dadoVita Dadi,
 	caratteristicaPrimaria []Caratteristica,
 	salvezzeCompetenze []NomeCaratteristica,
-	abilitaCompetenzeOpzioni AbilitaCompetenzeOpzioni,
+	abilitaCompetenzeOpzioni Scelta,
 	armiCompetenze []string,
 	armatureCompetenze []CompetenzaArmatura,
 	strumentiCompetenze []StrumentoID,

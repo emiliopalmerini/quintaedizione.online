@@ -20,13 +20,15 @@ type Animale struct {
 	Nome            string           `json:"nome"            bson:"nome"`
 	Taglia          Taglia           `json:"taglia"          bson:"taglia"`
 	Tipo            TipoAnimale      `json:"tipo"            bson:"tipo"`
-	ClasseArmatura  int              `json:"ac"              bson:"ac"`
-	PuntiFerita     PuntiFerita      `json:"hp"              bson:"hp"`
+	ClasseArmatura  ClasseArmatura   `json:"ca"              bson:"ca"`
+	PuntiFerita     PuntiFerita      `json:"pf"              bson:"pf"`
 	Velocita        Velocita         `json:"velocita"        bson:"velocita"`
 	Caratteristiche []Caratteristica `json:"caratteristiche" bson:"caratteristiche"`
 	Tratti          []Tratto         `json:"tratti"          bson:"tratti"`
 	Azioni          []Azione         `json:"azioni"          bson:"azioni"`
 	Contenuto       string           `json:"contenuto"       bson:"contenuto"`
+	// TODO: add to the parser
+	BonusCompetenza BonusCompetenza `json:"bonus_competenza" bson:"bonus_competenza"`
 }
 
 // ---------- Costruttore ----------
@@ -36,13 +38,14 @@ func NewAnimale(
 	nome string,
 	taglia Taglia,
 	tipo TipoAnimale,
-	classeArmatura int,
-	puntiFerita PuntiFerita,
+	ca ClasseArmatura,
+	pf PuntiFerita,
 	velocita Velocita,
 	caratteristiche []Caratteristica,
 	tratti []Tratto,
 	azioni []Azione,
 	contenuto string,
+	bc BonusCompetenza,
 ) *Animale {
 	slug, _ := NewSlug(nome)
 
@@ -52,12 +55,13 @@ func NewAnimale(
 		Nome:            nome,
 		Taglia:          taglia,
 		Tipo:            tipo,
-		ClasseArmatura:  classeArmatura,
-		PuntiFerita:     puntiFerita,
+		ClasseArmatura:  ca,
+		PuntiFerita:     pf,
 		Velocita:        velocita,
 		Caratteristiche: caratteristiche,
 		Tratti:          tratti,
 		Azioni:          azioni,
 		Contenuto:       contenuto,
+		BonusCompetenza: bc,
 	}
 }

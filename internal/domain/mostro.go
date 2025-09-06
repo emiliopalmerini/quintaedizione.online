@@ -93,7 +93,7 @@ type Mostro struct {
 	Allineamento      Allineamento        `json:"allineamento"        bson:"allineamento"`
 	GradoSfida        int                 `json:"gs"                  bson:"gs"`
 	PuntiEsperienza   PuntiEsperienza     `json:"pe"                  bson:"pe"`
-	ClasseArmatura    int                 `json:"ac"                  bson:"ac"`
+	ClasseArmatura    ClasseArmatura      `json:"ac"                  bson:"ac"`
 	PuntiFerita       PuntiFerita         `json:"hp"                  bson:"hp"`
 	Velocita          Velocita            `json:"velocita"            bson:"velocita"`
 	Caratteristiche   []Caratteristica    `json:"caratteristiche"     bson:"caratteristiche"`
@@ -119,7 +119,7 @@ func NewMostro(
 	allineamento Allineamento,
 	gradoSfida int,
 	puntiEsperienza PuntiEsperienza,
-	classeArmatura int,
+	classeArmatura ClasseArmatura,
 	puntiFerita PuntiFerita,
 	velocita Velocita,
 	caratteristiche []Caratteristica,

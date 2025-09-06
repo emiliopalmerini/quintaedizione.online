@@ -15,7 +15,7 @@ const (
 )
 
 // Classe Armatura
-type ClasseArmatura struct {
+type CAArmatura struct {
 	Base            int  `json:"base"             bson:"base"`
 	ModificatoreDes bool `json:"modificatore_des" bson:"modificatore_des"`
 	LimiteDes       int  `json:"limite_des"       bson:"limite_des,omitempty"` // null se non c'è limite
@@ -30,7 +30,7 @@ type Armatura struct {
 	Costo               Costo             `json:"costo"                 bson:"costo"`
 	Peso                Peso              `json:"peso"                  bson:"peso"`
 	Categoria           CategoriaArmatura `json:"categoria"             bson:"categoria"`
-	ClasseArmatura      ClasseArmatura    `json:"classe_armatura"       bson:"classe_armatura"`
+	ClasseArmatura      CAArmatura        `json:"classe_armatura"       bson:"classe_armatura"`
 	ForzaRichiesta      int               `json:"forza_richiesta"       bson:"forza_richiesta,omitempty"` // null se non richiesta
 	SvantaggioFurtivita bool              `json:"svantaggio_furtivita"  bson:"svantaggio_furtivita"`
 	Contenuto           string            `json:"contenuto"             bson:"contenuto"`
@@ -44,7 +44,7 @@ func NewArmatura(
 	costo Costo,
 	peso Peso,
 	categoria CategoriaArmatura,
-	classeArmatura ClasseArmatura,
+	classeArmatura CAArmatura,
 	forzaRichiesta int,
 	svantaggioFurtivita bool,
 	contenuto string,

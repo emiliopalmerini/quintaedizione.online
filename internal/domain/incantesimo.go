@@ -32,8 +32,8 @@ type TempoLancio struct {
 
 // Distanza
 type Distanza struct {
-	Valore int    `json:"valore" bson:"valore"`
-	Unita  string `json:"unita"  bson:"unita"` // "ft","m","km","mile"
+	Valore float64 `json:"valore" bson:"valore"`
+	Unita  string  `json:"unita"  bson:"unita"` // "ft","m","km","mile"
 }
 
 // Gittata
