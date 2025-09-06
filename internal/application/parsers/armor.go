@@ -1,6 +1,7 @@
 package parsers
 
 import (
+	"strconv"
 	"strings"
 )
 
@@ -70,6 +71,24 @@ func mapArmorFields(fields map[string]string) map[string]interface{} {
 	for italian, english := range armorFieldsIT {
 		if value, exists := fields[italian]; exists && value != "" {
 			switch english {
+			case "costo":
+				// Parse cost as object with amount and currency
+				mapped[english] = parseCosto(value)
+			case "peso":
+				// Parse weight as object with amount and unit
+				mapped[english] = parsePeso(value)
+			case "forza_richiesta":
+				// Parse strength requirement (convert "—" to 0)
+				if value == "—" || value == "-" {
+					mapped[english] = 0
+				} else {
+					// Try to parse as integer
+					if val, err := strconv.Atoi(value); err == nil {
+						mapped[english] = val
+					} else {
+						mapped[english] = value
+					}
+				}
 			case "svantaggio_furtivita":
 				// Convert to boolean
 				mapped[english] = strings.ToLower(value) == "sì" || strings.ToLower(value) == "si" || strings.ToLower(value) == "yes"
@@ -80,4 +99,70 @@ func mapArmorFields(fields map[string]string) map[string]interface{} {
 	}
 
 	return mapped
+}
+
+// parseCosto parses cost string into structured object
+func parseCosto(costStr string) map[string]interface{} {
+	// Handle "—" case
+	if costStr == "—" || costStr == "-" {
+		return map[string]interface{}{
+			"valore": 0,
+			"valuta": "",
+		}
+	}
+
+	// Split by space to separate amount and currency
+	parts := strings.Fields(costStr)
+	if len(parts) >= 2 {
+		amountStr := parts[0]
+		currency := strings.Join(parts[1:], " ")
+
+		// Try to parse amount (handle decimal comma)
+		amountStr = strings.Replace(amountStr, ",", ".", 1)
+		if amount, err := strconv.ParseFloat(amountStr, 64); err == nil {
+			return map[string]interface{}{
+				"valore": amount,
+				"valuta": currency,
+			}
+		}
+	}
+
+	// Fallback to original string
+	return map[string]interface{}{
+		"valore": 0,
+		"valuta": "",
+	}
+}
+
+// parsePeso parses weight string into structured object
+func parsePeso(pesoStr string) map[string]interface{} {
+	// Handle "—" case
+	if pesoStr == "—" || pesoStr == "-" {
+		return map[string]interface{}{
+			"valore": 0.0,
+			"unita":  "",
+		}
+	}
+
+	// Split by space to separate amount and unit
+	parts := strings.Fields(pesoStr)
+	if len(parts) >= 2 {
+		amountStr := parts[0]
+		unit := strings.Join(parts[1:], " ")
+
+		// Try to parse amount (handle decimal comma)
+		amountStr = strings.Replace(amountStr, ",", ".", 1)
+		if amount, err := strconv.ParseFloat(amountStr, 64); err == nil {
+			return map[string]interface{}{
+				"valore": amount,
+				"unita":  unit,
+			}
+		}
+	}
+
+	// Fallback to original string
+	return map[string]interface{}{
+		"valore": 0.0,
+		"unita":  "",
+	}
 }
