@@ -34,32 +34,9 @@ func NewMonstersStrategy() ParsingStrategy {
 	}
 }
 
-// Parse processes monster content and returns domain Mostro objects
-func (m *MonstersStrategy) Parse(content []string, context *ParsingContext) ([]domain.ParsedEntity, error) {
-	if err := m.Validate(content); err != nil {
-		return nil, err
-	}
-
-	sections := m.ExtractSections(content, 2) // H2 level for monsters
-	var monsters []domain.ParsedEntity
-
-	for _, section := range sections {
-		if !section.HasContent() {
-			continue
-		}
-
-		monster, err := m.parseMonsterSection(section)
-		if err != nil {
-			m.LogParsingProgress("Error parsing monster %s: %v", section.Title, err)
-			continue
-		}
-
-		if monster != nil {
-			monsters = append(monsters, monster)
-		}
-	}
-
-	return monsters, nil
+// parseSection implements the Template Method hook for monster-specific parsing
+func (m *MonstersStrategy) parseSection(section Section, context *ParsingContext) (domain.ParsedEntity, error) {
+	return m.parseMonsterSection(section)
 }
 
 func (m *MonstersStrategy) parseMonsterSection(section Section) (*domain.Mostro, error) {

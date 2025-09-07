@@ -10,12 +10,12 @@ import (
 	"github.com/google/uuid"
 )
 
-// SpellsStrategy implements the Strategy pattern for parsing spells
+// SpellsStrategy implements the Strategy pattern for parsing spells using Template Method
 type SpellsStrategy struct {
 	*BaseParser
 }
 
-// NewSpellsStrategy creates a new spells parsing strategy
+// NewSpellsStrategy creates a new spells parsing strategy (backward compatibility)
 func NewSpellsStrategy() ParsingStrategy {
 	return &SpellsStrategy{
 		BaseParser: NewBaseParser(
@@ -26,32 +26,9 @@ func NewSpellsStrategy() ParsingStrategy {
 	}
 }
 
-// Parse processes spell content and returns domain Incantesimo objects
-func (s *SpellsStrategy) Parse(content []string, context *ParsingContext) ([]domain.ParsedEntity, error) {
-	if err := s.Validate(content); err != nil {
-		return nil, err
-	}
-
-	sections := s.ExtractSections(content, 3)
-	var spells []domain.ParsedEntity
-
-	for _, section := range sections {
-		if !section.HasContent() {
-			continue
-		}
-
-		spell, err := s.parseSpellSection(section)
-		if err != nil {
-			s.LogParsingProgress("Error parsing spell %s: %v", section.Title, err)
-			continue
-		}
-
-		if spell != nil {
-			spells = append(spells, spell)
-		}
-	}
-
-	return spells, nil
+// parseSection implements the Template Method hook for spell-specific parsing
+func (s *SpellsStrategy) parseSection(section Section, context *ParsingContext) (domain.ParsedEntity, error) {
+	return s.parseSpellSection(section)
 }
 
 func (s *SpellsStrategy) parseSpellSection(section Section) (*domain.Incantesimo, error) {
@@ -86,6 +63,18 @@ func (s *SpellsStrategy) parseSpellSection(section Section) (*domain.Incantesimo
 	)
 
 	return spell, nil
+}
+
+// postProcessEntity adds language-aware post-processing for spells
+func (s *SpellsStrategy) postProcessEntity(entity domain.ParsedEntity) domain.ParsedEntity {
+	spell, ok := entity.(*domain.Incantesimo)
+	if !ok {
+		return entity
+	}
+
+	// Add any spell-specific post-processing here
+	// For example, generate slug, validate fields, etc.
+	return spell
 }
 
 func (s *SpellsStrategy) parseSpellMeta(metaLine string) (int, string, []string, error) {
