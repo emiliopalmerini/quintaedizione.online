@@ -5,7 +5,10 @@ import (
 	"fmt"
 	"path/filepath"
 
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/parsers"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure/mongodb"
 )
 
 // IngestService handles the ingestion business logic
@@ -21,8 +24,8 @@ func NewIngestService(repository domain.ParserRepository) *IngestService {
 }
 
 // ExecuteIngest runs the ingestion process
-func (s *IngestService) ExecuteIngest(baseDir string, workItems []domain.WorkItem, dryRun bool) ([]*domain.IngestResult, error) {
-	var results []*domain.IngestResult
+func (s *IngestService) ExecuteIngest(baseDir string, workItems []parsers.WorkItem, dryRun bool) ([]*parsers.IngestResult, error) {
+	var results []*parsers.IngestResult
 
 	for _, item := range workItems {
 		result := s.processWorkItem(baseDir, item, dryRun)
@@ -33,7 +36,7 @@ func (s *IngestService) ExecuteIngest(baseDir string, workItems []domain.WorkIte
 }
 
 // FilterWork filters work items by collection names
-func (s *IngestService) FilterWork(items []domain.WorkItem, only []string) []domain.WorkItem {
+func (s *IngestService) FilterWork(items []parsers.WorkItem, only []string) []parsers.WorkItem {
 	if len(only) == 0 {
 		return items
 	}
@@ -43,7 +46,7 @@ func (s *IngestService) FilterWork(items []domain.WorkItem, only []string) []dom
 		wanted[collection] = true
 	}
 
-	var filtered []domain.WorkItem
+	var filtered []parsers.WorkItem
 	for _, item := range items {
 		if wanted[item.Collection] {
 			filtered = append(filtered, item)
@@ -54,20 +57,20 @@ func (s *IngestService) FilterWork(items []domain.WorkItem, only []string) []dom
 }
 
 // processWorkItem processes a single work item
-func (s *IngestService) processWorkItem(baseDir string, item domain.WorkItem, dryRun bool) *domain.IngestResult {
-	result := domain.NewIngestResult(item.Collection, item.Filename)
+func (s *IngestService) processWorkItem(baseDir string, item parsers.WorkItem, dryRun bool) *parsers.IngestResult {
+	result := parsers.NewIngestResult(item.Collection, item.Filename)
 
 	// Build full path
 	fullPath := filepath.Join(baseDir, item.Filename)
 
 	// Check if file exists
-	if !domain.FileExists(fullPath) {
+	if !infrastructure.FileExists(fullPath) {
 		result.SetError(fmt.Errorf("missing file: %s", fullPath))
 		return result
 	}
 
 	// Read file
-	lines, err := domain.ReadLines(fullPath)
+	lines, err := infrastructure.ReadLines(fullPath)
 	if err != nil {
 		result.SetError(fmt.Errorf("failed to read file %s: %w", fullPath, err))
 		return result
@@ -89,7 +92,7 @@ func (s *IngestService) processWorkItem(baseDir string, item domain.WorkItem, dr
 		result.Written = 0
 	} else {
 		// Write to repository
-		uniqueFields := domain.GetUniqueFieldsForCollection(item.Collection)
+		uniqueFields := mongodb.GetUniqueFieldsForCollection(item.Collection)
 		written, err := s.repository.UpsertMany(item.Collection, uniqueFields, docs)
 		if err != nil {
 			result.SetError(fmt.Errorf("failed to upsert to %s: %w", item.Collection, err))
@@ -102,10 +105,10 @@ func (s *IngestService) processWorkItem(baseDir string, item domain.WorkItem, dr
 }
 
 // generatePreview generates a preview of parsed documents
-func (s *IngestService) generatePreview(docs []map[string]interface{}) string {
+func (s *IngestService) generatePreview(docs []map[string]any) string {
 	previewKeys := []string{"name", "term", "level", "rarity", "type", "school", "nome", "titolo"}
 
-	var preview []map[string]interface{}
+	var preview []map[string]any
 	maxPreview := 5
 	if len(docs) < maxPreview {
 		maxPreview = len(docs)
@@ -113,7 +116,7 @@ func (s *IngestService) generatePreview(docs []map[string]interface{}) string {
 
 	for i := 0; i < maxPreview; i++ {
 		doc := docs[i]
-		previewDoc := make(map[string]interface{})
+		previewDoc := make(map[string]any)
 
 		for _, key := range previewKeys {
 			if value, exists := doc[key]; exists {

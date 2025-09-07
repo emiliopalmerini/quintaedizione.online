@@ -6,7 +6,7 @@ import (
 
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/parsers"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/templates"
 	"github.com/gin-gonic/gin"
 )
@@ -15,7 +15,7 @@ import (
 type IngestHandler struct {
 	ingestService  *services.IngestService
 	templateEngine *templates.Engine
-	defaultWork    []domain.WorkItem
+	defaultWork    []parsers.WorkItem
 	inputDir       string
 }
 
@@ -105,14 +105,14 @@ func (h *IngestHandler) PostRun(c *gin.Context) {
 		messages = append(messages, "Nessuna collezione selezionata.")
 	}
 
-	if !domain.FileExists(req.InputDir) {
+	if !infrastructure.FileExists(req.InputDir) {
 		messages = append(messages, "Cartella input non trovata: "+req.InputDir)
 	}
 
 	// Execute ingestion if valid
-	if len(selected) > 0 && domain.FileExists(req.InputDir) {
+	if len(selected) > 0 && infrastructure.FileExists(req.InputDir) {
 		// Filter work items by selection
-		var selectedWork []domain.WorkItem
+		var selectedWork []parsers.WorkItem
 		for _, idx := range selected {
 			if idx >= 0 && idx < len(h.defaultWork) {
 				selectedWork = append(selectedWork, h.defaultWork[idx])

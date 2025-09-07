@@ -1,12 +1,277 @@
 package parsers
 
-import (
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
-)
+import ()
+
+// ParseDocument wraps DocumentsStrategy for document parsing (backward compatibility)
+func ParseDocument(filename string) func([]string) ([]map[string]any, error) {
+	return func(lines []string) ([]map[string]any, error) {
+		strategy := NewDocumentsStrategy()
+		entities, err := strategy.Parse(lines, &ParsingContext{})
+		if err != nil {
+			return nil, err
+		}
+		
+		var result []map[string]any
+		for _, entity := range entities {
+			entityMap := map[string]any{
+				"entity_type": entity.EntityType(),
+				"entity":      entity,
+				"filename":    filename, // preserve filename info
+			}
+			result = append(result, entityMap)
+		}
+		return result, nil
+	}
+}
+
+// Temporary wrapper functions to maintain compatibility with old WorkItem system
+// TODO: Migrate work.go to use strategy pattern directly
+
+// ParseClasses wraps ClassesStrategy for backward compatibility
+func ParseClasses(lines []string) ([]map[string]any, error) {
+	strategy := NewClassesStrategy()
+	entities, err := strategy.Parse(lines, &ParsingContext{})
+	if err != nil {
+		return nil, err
+	}
+	
+	// Convert ParsedEntity back to map[string]any for compatibility
+	var result []map[string]any
+	for _, entity := range entities {
+		// This is a temporary solution - ideally work.go should use strategies directly
+		entityMap := map[string]any{
+			"entity_type": entity.EntityType(),
+			"entity":      entity,
+		}
+		result = append(result, entityMap)
+	}
+	return result, nil
+}
+
+// ParseBackgrounds wraps BackgroundsStrategy for backward compatibility  
+func ParseBackgrounds(lines []string) ([]map[string]any, error) {
+	strategy := NewBackgroundsStrategy()
+	entities, err := strategy.Parse(lines, &ParsingContext{})
+	if err != nil {
+		return nil, err
+	}
+	
+	var result []map[string]any
+	for _, entity := range entities {
+		entityMap := map[string]any{
+			"entity_type": entity.EntityType(),
+			"entity":      entity,
+		}
+		result = append(result, entityMap)
+	}
+	return result, nil
+}
+
+// ParseMonstersMonster wraps MonstersStrategy for backward compatibility
+func ParseMonstersMonster(lines []string) ([]map[string]any, error) {
+	strategy := NewMonstersStrategy()
+	entities, err := strategy.Parse(lines, &ParsingContext{})
+	if err != nil {
+		return nil, err
+	}
+	
+	var result []map[string]any
+	for _, entity := range entities {
+		entityMap := map[string]any{
+			"entity_type": entity.EntityType(),
+			"entity":      entity,
+		}
+		result = append(result, entityMap)
+	}
+	return result, nil
+}
+
+// ParseWeapons wraps WeaponsStrategy for backward compatibility
+func ParseWeapons(lines []string) ([]map[string]any, error) {
+	strategy := NewWeaponsStrategy()
+	entities, err := strategy.Parse(lines, &ParsingContext{})
+	if err != nil {
+		return nil, err
+	}
+	
+	var result []map[string]any
+	for _, entity := range entities {
+		entityMap := map[string]any{
+			"entity_type": entity.EntityType(),
+			"entity":      entity,
+		}
+		result = append(result, entityMap)
+	}
+	return result, nil
+}
+
+// ParseArmor wraps ArmorStrategy for backward compatibility
+func ParseArmor(lines []string) ([]map[string]any, error) {
+	strategy := NewArmorStrategy()
+	entities, err := strategy.Parse(lines, &ParsingContext{})
+	if err != nil {
+		return nil, err
+	}
+	
+	var result []map[string]any
+	for _, entity := range entities {
+		entityMap := map[string]any{
+			"entity_type": entity.EntityType(),
+			"entity":      entity,
+		}
+		result = append(result, entityMap)
+	}
+	return result, nil
+}
+
+// ParseEquipment wraps EquipmentStrategy for backward compatibility
+func ParseEquipment(lines []string) ([]map[string]any, error) {
+	strategy := NewEquipmentStrategy()
+	entities, err := strategy.Parse(lines, &ParsingContext{})
+	if err != nil {
+		return nil, err
+	}
+	
+	var result []map[string]any
+	for _, entity := range entities {
+		entityMap := map[string]any{
+			"entity_type": entity.EntityType(),
+			"entity":      entity,
+		}
+		result = append(result, entityMap)
+	}
+	return result, nil
+}
+
+// ParseMagicItems wraps MagicItemsStrategy for backward compatibility
+func ParseMagicItems(lines []string) ([]map[string]any, error) {
+	strategy := NewMagicItemsStrategy()
+	entities, err := strategy.Parse(lines, &ParsingContext{})
+	if err != nil {
+		return nil, err
+	}
+	
+	var result []map[string]any
+	for _, entity := range entities {
+		entityMap := map[string]any{
+			"entity_type": entity.EntityType(),
+			"entity":      entity,
+		}
+		result = append(result, entityMap)
+	}
+	return result, nil
+}
+
+// ParseFeats wraps FeatsStrategy for backward compatibility
+func ParseFeats(lines []string) ([]map[string]any, error) {
+	strategy := NewFeatsStrategy()
+	entities, err := strategy.Parse(lines, &ParsingContext{})
+	if err != nil {
+		return nil, err
+	}
+	
+	var result []map[string]any
+	for _, entity := range entities {
+		entityMap := map[string]any{
+			"entity_type": entity.EntityType(),
+			"entity":      entity,
+		}
+		result = append(result, entityMap)
+	}
+	return result, nil
+}
+
+// ParseMonstersAnimal wraps AnimalsStrategy for backward compatibility
+func ParseMonstersAnimal(lines []string) ([]map[string]any, error) {
+	strategy := NewAnimalsStrategy()
+	entities, err := strategy.Parse(lines, &ParsingContext{})
+	if err != nil {
+		return nil, err
+	}
+	
+	var result []map[string]any
+	for _, entity := range entities {
+		entityMap := map[string]any{
+			"entity_type": entity.EntityType(),
+			"entity":      entity,
+		}
+		result = append(result, entityMap)
+	}
+	return result, nil
+}
+
+// ParseTools wraps EquipmentStrategy for tools parsing (backward compatibility)
+func ParseTools(lines []string) ([]map[string]any, error) {
+	// TODO: Create dedicated ToolsStrategy
+	strategy := NewEquipmentStrategy()
+	entities, err := strategy.Parse(lines, &ParsingContext{})
+	if err != nil {
+		return nil, err
+	}
+	
+	var result []map[string]any
+	for _, entity := range entities {
+		entityMap := map[string]any{
+			"entity_type": "strumento",
+			"entity":      entity,
+		}
+		result = append(result, entityMap)
+	}
+	return result, nil
+}
+
+// ParseServices wraps EquipmentStrategy for services parsing (backward compatibility)
+func ParseServices(lines []string) ([]map[string]any, error) {
+	// TODO: Create dedicated ServicesStrategy
+	strategy := NewEquipmentStrategy()
+	entities, err := strategy.Parse(lines, &ParsingContext{})
+	if err != nil {
+		return nil, err
+	}
+	
+	var result []map[string]any
+	for _, entity := range entities {
+		entityMap := map[string]any{
+			"entity_type": "servizio",
+			"entity":      entity,
+		}
+		result = append(result, entityMap)
+	}
+	return result, nil
+}
+
+// ParseGear wraps EquipmentStrategy for gear parsing (backward compatibility)
+func ParseGear(lines []string) ([]map[string]any, error) {
+	return ParseEquipment(lines)
+}
+
+// ParseAnimali wraps AnimalsStrategy for backward compatibility
+func ParseAnimali(lines []string) ([]map[string]any, error) {
+	return ParseMonstersAnimal(lines)
+}
+
+// ParseSpells wraps SpellsStrategy for backward compatibility
+func ParseSpells(lines []string) ([]map[string]any, error) {
+	strategy := NewSpellsStrategy()
+	entities, err := strategy.Parse(lines, &ParsingContext{})
+	if err != nil {
+		return nil, err
+	}
+	
+	var result []map[string]any
+	for _, entity := range entities {
+		entityMap := map[string]any{
+			"entity_type": entity.EntityType(),
+			"entity":      entity,
+		}
+		result = append(result, entityMap)
+	}
+	return result, nil
+}
 
 // CreateDefaultWork creates the default Italian work items configuration
-func CreateDefaultWork() []domain.WorkItem {
-	return []domain.WorkItem{
+func CreateDefaultWork() []WorkItem {
+	return []WorkItem{
 		// Document pages (Italian)
 		{
 			Filename:   "ita/01_informazioni_legali.md",
