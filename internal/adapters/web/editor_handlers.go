@@ -41,7 +41,7 @@ func (h *Handlers) handleHome(c *gin.Context) {
 	collections, err := h.contentService.GetCollectionStats(c.Request.Context())
 	if err != nil {
 		// If error, use default collections without counts
-		collections = []map[string]interface{}{
+		collections = []map[string]any{
 			{"name": "incantesimi", "label": "Incantesimi", "count": 0},
 			{"name": "mostri", "label": "Mostri", "count": 0},
 			{"name": "classi", "label": "Classi", "count": 0},
