@@ -51,7 +51,11 @@ featuring a clean architecture and modern web technologies.
 │   ├── domain/            # Core business logic and entities
 │   ├── application/       # Use cases, services, handlers
 │   │   ├── handlers/      # HTTP request handlers
-│   │   ├── parsers/       # Content parsing logic
+│   │   ├── parsers/       # Content parsing strategies
+│   │   │   ├── strategy.go     # ParsingStrategy interface
+│   │   │   ├── registry.go     # Parser registry management
+│   │   │   ├── content_types.go # Content type definitions
+│   │   │   └── *_strategy.go   # Concrete parser implementations
 │   │   └── services/      # Business services
 │   ├── adapters/          # External interfaces
 │   │   └── web/           # Web handlers and routing
@@ -67,6 +71,20 @@ featuring a clean architecture and modern web technologies.
     ├── static/           # CSS, JS, images
     └── templates/        # HTML templates
 ```
+
+### Parser Architecture
+
+The parser service uses **Strategy + Registry patterns** for flexible content processing:
+
+- **Strategy Pattern**: Each content type (spells, monsters, classes) has its own parsing strategy
+- **Registry Pattern**: Centralized, thread-safe management of all available parsers  
+- **Domain Objects**: Parsers return strongly-typed domain entities, not generic maps
+- **Clean Architecture**: Clear separation between domain entities and parsing logic
+
+**Key Components:**
+- `ParsingStrategy` interface in application layer (not domain)
+- `ParserRegistry` for dynamic parser registration and retrieval
+- Concrete strategies returning domain objects (e.g., `SpellsStrategy` → `domain.Incantesimo`)
 
 ### Services
 

@@ -2,6 +2,38 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Parser Architecture
+
+The parser follows Clean Architecture principles with Strategy + Registry patterns:
+
+**Domain Layer** (`internal/domain/`):
+- Contains ONLY pure business entities (Incantesimo, Mostro, Documento, etc.)
+- Domain interfaces that other layers implement (e.g., ParserRepository)
+- NO parsing logic or implementation patterns
+
+**Application Layer** (`internal/application/parsers/`):
+- ParsingStrategy interface and implementations
+- ParserRegistry for managing strategies
+- Content type definitions and mappings
+- All concrete parser implementations
+
+**Important Rules:**
+1. Parsers MUST return domain objects, not `map[string]interface{}`
+2. Strategy and Registry patterns belong in APPLICATION layer, not domain
+3. Each content type should have its own strategy implementation
+4. Use the BaseParser for common functionality
+
+**Adding a New Parser:**
+1. Create a new strategy file (e.g., `monsters_strategy.go`)
+2. Implement the `ParsingStrategy` interface
+3. Return proper domain objects
+4. Register in `CreateDefaultRegistry()`
+
+**DO NOT:**
+- Put parsing logic in the domain layer
+- Return generic maps from parsers
+- Mix domain entities with parsing strategies
+
 ## Development Commands
 
 **Docker Services (Primary Go Implementation):**
@@ -52,3 +84,17 @@ This is a D&D 5e SRD (System Reference Document) management system with two main
 
 The system parses D&D content from markdown files into structured MongoDB documents, supporting only Italian SRD content with searchable and renderable formats.
 - usa l'italiano per i termini di dominio
+- Use any instead of interface
+- Use .Contains instead of loop. Like this
+```go
+     for _, valid := range validTypes {
+        if contentType == valid {
+            return true
+        }
+    }
+```
+Use this:
+```go
+    return slices.Contains(validTypes, contentType)
+```
+- Don't call file with name relative to recent command. Name file relative to domain and beheviour. Like: don't use test_improvments but test_parser_strategies
