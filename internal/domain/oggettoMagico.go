@@ -66,3 +66,8 @@ func NewOggettoMagico(
 		Contenuto:       contenuto,
 	}
 }
+
+// EntityType implements ParsedEntity interface
+func (o *OggettoMagico) EntityType() string {
+	return "oggetto_magico"
+}

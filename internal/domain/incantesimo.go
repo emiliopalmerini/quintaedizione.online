@@ -127,3 +127,8 @@ func NewIncantesimo(
 		Contenuto: contenuto,
 	}
 }
+
+// EntityType implements ParsedEntity interface
+func (i *Incantesimo) EntityType() string {
+	return "incantesimo"
+}

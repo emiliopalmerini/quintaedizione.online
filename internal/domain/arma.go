@@ -84,3 +84,8 @@ func NewArma(
 		Contenuto: contenuto,
 	}
 }
+
+// EntityType implements ParsedEntity interface
+func (a *Arma) EntityType() string {
+	return "arma"
+}

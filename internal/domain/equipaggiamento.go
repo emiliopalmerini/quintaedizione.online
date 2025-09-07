@@ -56,3 +56,8 @@ func NewEquipaggiamento(
 		Contenuto: contenuto,
 	}
 }
+
+// EntityType implements ParsedEntity interface
+func (e *Equipaggiamento) EntityType() string {
+	return "equipaggiamento"
+}

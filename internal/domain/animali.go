@@ -65,3 +65,8 @@ func NewAnimale(
 		BonusCompetenza: bc,
 	}
 }
+
+// EntityType implements ParsedEntity interface
+func (a *Animale) EntityType() string {
+	return "animale"
+}

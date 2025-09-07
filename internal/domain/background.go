@@ -51,3 +51,8 @@ func NewBackground(
 		Contenuto:               cont,
 	}
 }
+
+// EntityType implements ParsedEntity interface
+func (b *Background) EntityType() string {
+	return "background"
+}

@@ -54,3 +54,8 @@ func NewServizio(
 		Contenuto:   contenuto,
 	}
 }
+
+// EntityType implements ParsedEntity interface
+func (s *Servizio) EntityType() string {
+	return "servizio"
+}

@@ -50,3 +50,8 @@ func NewTalento(
 		Contenuto:    contenuto,
 	}
 }
+
+// EntityType implements ParsedEntity interface
+func (t *Talento) EntityType() string {
+	return "talento"
+}

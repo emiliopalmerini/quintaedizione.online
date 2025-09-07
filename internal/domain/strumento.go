@@ -91,3 +91,8 @@ func NewStrumento(
 		Contenuto:        contenuto,
 	}
 }
+
+// EntityType implements ParsedEntity interface
+func (s *Strumento) EntityType() string {
+	return "strumento"
+}

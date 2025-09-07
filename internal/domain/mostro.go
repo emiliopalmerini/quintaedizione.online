@@ -161,3 +161,8 @@ func NewMostro(
 		Contenuto:         contenuto,
 	}
 }
+
+// EntityType implements ParsedEntity interface
+func (m *Mostro) EntityType() string {
+	return "mostro"
+}

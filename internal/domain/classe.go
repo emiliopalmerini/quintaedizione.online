@@ -220,3 +220,8 @@ func NewClasse(
 		Contenuto:                      contenuto,
 	}
 }
+
+// EntityType implements ParsedEntity interface
+func (c *Classe) EntityType() string {
+	return "classe"
+}

@@ -21,3 +21,8 @@ func NewDocumento(id uuid.UUID, pagina int, titolo, contenuto string) *Documento
 		Contenuto: contenuto,
 	}
 }
+
+// EntityType implements ParsedEntity interface
+func (d *Documento) EntityType() string {
+	return "documento"
+}
