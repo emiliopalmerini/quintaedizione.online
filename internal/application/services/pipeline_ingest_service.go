@@ -35,7 +35,6 @@ func NewPipelineIngestService(
 	config infrastructure.Config,
 	logger parsers.Logger,
 ) (*PipelineIngestService, error) {
-	
 	if logger == nil {
 		logger = &parsers.NoOpLogger{}
 	}
@@ -124,7 +123,7 @@ func (s *PipelineIngestService) ExecuteIngest(baseDir string, workItems []parser
 // processWorkItem processes a single work item through the pipeline
 func (s *PipelineIngestService) processWorkItem(ctx context.Context, baseDir string, workItem parsers.WorkItem) *parsers.IngestResult {
 	result := parsers.NewIngestResult(workItem.Collection, workItem.Filename)
-	
+
 	// Create processing data
 	fullPath := filepath.Join(baseDir, workItem.Filename)
 	data := pipeline.NewProcessingData(&workItem, fullPath)
@@ -140,7 +139,7 @@ func (s *PipelineIngestService) processWorkItem(ctx context.Context, baseDir str
 	if len(data.Errors) > 0 {
 		// There were errors during processing
 		errorMsg := fmt.Sprintf("%d errors occurred during processing", len(data.Errors))
-		result.SetError(fmt.Errorf(errorMsg))
+		result.SetError(fmt.Errorf("%s", errorMsg))
 	}
 
 	// Set counts from metadata

@@ -20,6 +20,7 @@ const (
 	ContentTypeMagicItems  ContentType = "oggetti_magici"
 	ContentTypeFeats       ContentType = "talenti"
 	ContentTypeAnimals     ContentType = "animali"
+	ContentTypeRules       ContentType = "regole"
 )
 
 // validContentTypes provides O(1) content type validation
@@ -37,6 +38,7 @@ var validContentTypes = map[ContentType]bool{
 	ContentTypeMagicItems:  true,
 	ContentTypeFeats:       true,
 	ContentTypeAnimals:     true,
+	ContentTypeRules:       true,
 }
 
 // IsValidContentType checks if a content type is valid
@@ -82,6 +84,8 @@ func GetContentTypeFromCollection(collection string) (ContentType, error) {
 		return ContentTypeFeats, nil
 	case "animali":
 		return ContentTypeAnimals, nil
+	case "regole":
+		return ContentTypeRules, nil
 	default:
 		return "", ErrInvalidContentType
 	}
