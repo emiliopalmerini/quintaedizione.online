@@ -5,32 +5,32 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/repositories"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/events"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/parsers"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/pipeline"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure/mongodb"
 )
 
 // PersistenceStage persists transformed documents to the repository
 type PersistenceStage struct {
-	repository domain.ParserRepository
-	dryRun     bool
-	eventBus   events.EventBus
-	logger     parsers.Logger
+	repositoryWrapper *repositories.ParserRepositoryWrapper
+	dryRun            bool
+	eventBus          events.EventBus
+	logger            parsers.Logger
 }
 
 // NewPersistenceStage creates a new persistence stage
-func NewPersistenceStage(repository domain.ParserRepository, dryRun bool, eventBus events.EventBus, logger parsers.Logger) *PersistenceStage {
+func NewPersistenceStage(repositoryWrapper *repositories.ParserRepositoryWrapper, dryRun bool, eventBus events.EventBus, logger parsers.Logger) *PersistenceStage {
 	if logger == nil {
 		logger = &parsers.NoOpLogger{}
 	}
 
 	return &PersistenceStage{
-		repository: repository,
-		dryRun:     dryRun,
-		eventBus:   eventBus,
-		logger:     logger,
+		repositoryWrapper: repositoryWrapper,
+		dryRun:            dryRun,
+		eventBus:          eventBus,
+		logger:            logger,
 	}
 }
 
@@ -69,7 +69,7 @@ func (s *PersistenceStage) Process(ctx context.Context, data *pipeline.Processin
 		return nil
 	}
 
-	if s.repository == nil {
+	if s.repositoryWrapper == nil {
 		err := fmt.Errorf("repository not available for persistence")
 		s.logger.Error("repository not available for persistence")
 
@@ -90,7 +90,7 @@ func (s *PersistenceStage) Process(ctx context.Context, data *pipeline.Processin
 	uniqueFields := mongodb.GetUniqueFieldsForCollection(collection)
 
 	// Persist documents using bulk upsert
-	writtenCount, err := s.repository.UpsertMany(collection, uniqueFields, data.Documents)
+	writtenCount, err := s.repositoryWrapper.UpsertMany(collection, uniqueFields, data.Documents)
 	if err != nil {
 		s.logger.Error("failed to persist %d documents to %s: %v", documentCount, collection, err)
 

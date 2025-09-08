@@ -62,3 +62,8 @@ func NewSpecie(
 		Contenuto:                  cont,
 	}, nil
 }
+
+// EntityType returns the entity type identifier
+func (s *Specie) EntityType() string {
+	return "specie"
+}

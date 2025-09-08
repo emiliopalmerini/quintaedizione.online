@@ -5,21 +5,29 @@ import (
 	"fmt"
 	"path/filepath"
 
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/repositories"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/parsers"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure/mongodb"
 )
 
 // IngestService handles the ingestion business logic
 type IngestService struct {
-	repository domain.ParserRepository
+	repositoryWrapper *repositories.ParserRepositoryWrapper
 }
 
 // NewIngestService creates a new ingest service
-func NewIngestService(repository domain.ParserRepository) *IngestService {
+func NewIngestService(repositoryWrapper *repositories.ParserRepositoryWrapper) *IngestService {
 	return &IngestService{
-		repository: repository,
+		repositoryWrapper: repositoryWrapper,
+	}
+}
+
+// NewIngestServiceFromFactory creates a new ingest service from a repository factory
+func NewIngestServiceFromFactory(factory *repositories.RepositoryFactory) *IngestService {
+	wrapper := repositories.NewParserRepositoryWrapper(factory)
+	return &IngestService{
+		repositoryWrapper: wrapper,
 	}
 }
 
@@ -85,7 +93,7 @@ func (s *IngestService) processWorkItem(baseDir string, item parsers.WorkItem, d
 
 	result.Parsed = len(docs)
 
-	if dryRun || s.repository == nil {
+	if dryRun || s.repositoryWrapper == nil {
 		// Generate preview for dry run
 		preview := s.generatePreview(docs)
 		result.SetPreview(preview)
@@ -93,7 +101,7 @@ func (s *IngestService) processWorkItem(baseDir string, item parsers.WorkItem, d
 	} else {
 		// Write to repository
 		uniqueFields := mongodb.GetUniqueFieldsForCollection(item.Collection)
-		written, err := s.repository.UpsertMany(item.Collection, uniqueFields, docs)
+		written, err := s.repositoryWrapper.UpsertMany(item.Collection, uniqueFields, docs)
 		if err != nil {
 			result.SetError(fmt.Errorf("failed to upsert to %s: %w", item.Collection, err))
 			return result
@@ -140,7 +148,7 @@ func (s *IngestService) generatePreview(docs []map[string]any) string {
 
 // GetCollectionStats returns statistics for collections
 func (s *IngestService) GetCollectionStats() (map[string]int64, error) {
-	if s.repository == nil {
+	if s.repositoryWrapper == nil {
 		return nil, fmt.Errorf("repository not available")
 	}
 

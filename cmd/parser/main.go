@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/repositories"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/mongodb"
@@ -60,8 +60,8 @@ func main() {
 	})
 
 	// Setup dependencies
-	repo := adapters.NewMongoParserRepository(mongoClient)
-	ingestService := services.NewIngestService(repo)
+	repositoryFactory := repositories.NewRepositoryFactory(mongoClient)
+	ingestService := services.NewIngestServiceFromFactory(repositoryFactory)
 	ingestHandler := web.NewIngestHandler(ingestService, templateEngine, getEnv("INPUT_DIR", "data"))
 
 	// Routes

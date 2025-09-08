@@ -75,3 +75,8 @@ func NewCavalcaturaVeicolo(
 		Contenuto:      contenuto,
 	}
 }
+
+// EntityType returns the entity type identifier
+func (c *CavalcaturaVeicolo) EntityType() string {
+	return "cavalcatura_veicolo"
+}

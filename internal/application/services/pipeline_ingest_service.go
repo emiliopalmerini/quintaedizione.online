@@ -5,31 +5,31 @@ import (
 	"fmt"
 	"path/filepath"
 
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/repositories"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/events"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/events/observers"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/parsers"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/pipeline"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/pipeline/stages"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure"
 )
 
 // PipelineIngestService handles ingestion using the pipeline architecture
 type PipelineIngestService struct {
-	pipeline        *pipeline.Pipeline
-	eventBus        events.EventBus
-	progressTracker *observers.ProgressTracker
-	errorCollector  *observers.ErrorCollector
-	logger          parsers.Logger
-	registry        *parsers.ParserRegistry
-	repository      domain.ParserRepository
-	documentBuilder *parsers.DocumentBuilder
-	config          infrastructure.Config
+	pipeline          *pipeline.Pipeline
+	eventBus          events.EventBus
+	progressTracker   *observers.ProgressTracker
+	errorCollector    *observers.ErrorCollector
+	logger            parsers.Logger
+	registry          *parsers.ParserRegistry
+	repositoryWrapper *repositories.ParserRepositoryWrapper
+	documentBuilder   *parsers.DocumentBuilder
+	config            infrastructure.Config
 }
 
 // NewPipelineIngestService creates a new pipeline-based ingest service
 func NewPipelineIngestService(
-	repository domain.ParserRepository,
+	repositoryWrapper *repositories.ParserRepositoryWrapper,
 	registry *parsers.ParserRegistry,
 	documentBuilder *parsers.DocumentBuilder,
 	config infrastructure.Config,
@@ -66,13 +66,13 @@ func NewPipelineIngestService(
 	}
 
 	service := &PipelineIngestService{
-		eventBus:        eventBus,
-		errorCollector:  errorCollector,
-		logger:          logger,
-		registry:        registry,
-		repository:      repository,
-		documentBuilder: documentBuilder,
-		config:          config,
+		eventBus:          eventBus,
+		errorCollector:    errorCollector,
+		logger:            logger,
+		registry:          registry,
+		repositoryWrapper: repositoryWrapper,
+		documentBuilder:   documentBuilder,
+		config:            config,
 	}
 
 	return service, nil
@@ -192,7 +192,7 @@ func (s *PipelineIngestService) createPipelineStages(baseDir string, dryRun bool
 			}
 
 		case "persistence":
-			persistence := stages.NewPersistenceStage(s.repository, dryRun, s.eventBus, s.logger)
+			persistence := stages.NewPersistenceStage(s.repositoryWrapper, dryRun, s.eventBus, s.logger)
 			pipelineStages = append(pipelineStages, persistence)
 
 		case "error_handling":
@@ -230,7 +230,7 @@ func (s *PipelineIngestService) FilterWork(items []parsers.WorkItem, only []stri
 
 // GetCollectionStats returns statistics for collections (same as original)
 func (s *PipelineIngestService) GetCollectionStats() (map[string]int64, error) {
-	if s.repository == nil {
+	if s.repositoryWrapper == nil {
 		return nil, fmt.Errorf("repository not available")
 	}
 
