@@ -70,7 +70,7 @@ func (b *BackgroundsStrategy) parseBackgroundSection(section Section) (*domain.B
 
 	// Parse background information from content
 	backgroundContent := strings.Join(content, "\n")
-	
+
 	// TODO: Extract skills, tools, languages from the content
 	// This is simplified - in reality we'd parse the structured content
 
@@ -79,10 +79,10 @@ func (b *BackgroundsStrategy) parseBackgroundSection(section Section) (*domain.B
 	background := domain.NewBackground(
 		uuid.New(),
 		section.Title,
-		[]uuid.UUID{}, // caratteristiche - TODO: parse from content
-		[]uuid.UUID{}, // abilita - TODO: parse from content
-		[]uuid.UUID{}, // strumenti - TODO: parse from content
-		uuid.Nil,      // talento - TODO: parse from content
+		[]uuid.UUID{},   // caratteristiche - TODO: parse from content
+		[]uuid.UUID{},   // abilita - TODO: parse from content
+		[]uuid.UUID{},   // strumenti - TODO: parse from content
+		uuid.Nil,        // talento - TODO: parse from content
 		domain.Scelta{}, // equipaggiamento iniziale - TODO: parse
 		backgroundContent,
 	)
@@ -91,7 +91,7 @@ func (b *BackgroundsStrategy) parseBackgroundSection(section Section) (*domain.B
 }
 
 // TODO: Add helper methods to extract:
-// - extractSkills: skill competencies from background content  
+// - extractSkills: skill competencies from background content
 // - extractTools: tool proficiencies from background content
 // - extractLanguages: language proficiencies from background content
 // These would parse structured content looking for specific patterns

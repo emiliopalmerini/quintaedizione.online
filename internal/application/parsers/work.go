@@ -10,7 +10,7 @@ func ParseDocument(filename string) func([]string) ([]map[string]any, error) {
 		if err != nil {
 			return nil, err
 		}
-		
+
 		var result []map[string]any
 		for _, entity := range entities {
 			entityMap := map[string]any{
@@ -34,7 +34,7 @@ func ParseClasses(lines []string) ([]map[string]any, error) {
 	if err != nil {
 		return nil, err
 	}
-	
+
 	// Convert ParsedEntity back to map[string]any for compatibility
 	var result []map[string]any
 	for _, entity := range entities {
@@ -48,14 +48,14 @@ func ParseClasses(lines []string) ([]map[string]any, error) {
 	return result, nil
 }
 
-// ParseBackgrounds wraps BackgroundsStrategy for backward compatibility  
+// ParseBackgrounds wraps BackgroundsStrategy for backward compatibility
 func ParseBackgrounds(lines []string) ([]map[string]any, error) {
 	strategy := NewBackgroundsStrategy()
 	entities, err := strategy.Parse(lines, &ParsingContext{})
 	if err != nil {
 		return nil, err
 	}
-	
+
 	var result []map[string]any
 	for _, entity := range entities {
 		entityMap := map[string]any{
@@ -74,7 +74,7 @@ func ParseMonstersMonster(lines []string) ([]map[string]any, error) {
 	if err != nil {
 		return nil, err
 	}
-	
+
 	var result []map[string]any
 	for _, entity := range entities {
 		entityMap := map[string]any{
@@ -93,7 +93,7 @@ func ParseWeapons(lines []string) ([]map[string]any, error) {
 	if err != nil {
 		return nil, err
 	}
-	
+
 	var result []map[string]any
 	for _, entity := range entities {
 		entityMap := map[string]any{
@@ -112,7 +112,7 @@ func ParseArmor(lines []string) ([]map[string]any, error) {
 	if err != nil {
 		return nil, err
 	}
-	
+
 	var result []map[string]any
 	for _, entity := range entities {
 		entityMap := map[string]any{
@@ -131,7 +131,7 @@ func ParseEquipment(lines []string) ([]map[string]any, error) {
 	if err != nil {
 		return nil, err
 	}
-	
+
 	var result []map[string]any
 	for _, entity := range entities {
 		entityMap := map[string]any{
@@ -150,7 +150,7 @@ func ParseMagicItems(lines []string) ([]map[string]any, error) {
 	if err != nil {
 		return nil, err
 	}
-	
+
 	var result []map[string]any
 	for _, entity := range entities {
 		entityMap := map[string]any{
@@ -169,7 +169,7 @@ func ParseFeats(lines []string) ([]map[string]any, error) {
 	if err != nil {
 		return nil, err
 	}
-	
+
 	var result []map[string]any
 	for _, entity := range entities {
 		entityMap := map[string]any{
@@ -188,7 +188,7 @@ func ParseMonstersAnimal(lines []string) ([]map[string]any, error) {
 	if err != nil {
 		return nil, err
 	}
-	
+
 	var result []map[string]any
 	for _, entity := range entities {
 		entityMap := map[string]any{
@@ -208,7 +208,7 @@ func ParseTools(lines []string) ([]map[string]any, error) {
 	if err != nil {
 		return nil, err
 	}
-	
+
 	var result []map[string]any
 	for _, entity := range entities {
 		entityMap := map[string]any{
@@ -228,7 +228,7 @@ func ParseServices(lines []string) ([]map[string]any, error) {
 	if err != nil {
 		return nil, err
 	}
-	
+
 	var result []map[string]any
 	for _, entity := range entities {
 		entityMap := map[string]any{
@@ -257,7 +257,7 @@ func ParseSpells(lines []string) ([]map[string]any, error) {
 	if err != nil {
 		return nil, err
 	}
-	
+
 	var result []map[string]any
 	for _, entity := range entities {
 		entityMap := map[string]any{

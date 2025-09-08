@@ -10,9 +10,9 @@ import (
 
 // LoggingObserver logs all pipeline events for debugging and monitoring
 type LoggingObserver struct {
-	logger      parsers.Logger
-	logLevel    LogLevel
-	startTimes  map[string]time.Time // Track stage start times
+	logger     parsers.Logger
+	logLevel   LogLevel
+	startTimes map[string]time.Time // Track stage start times
 }
 
 // LogLevel represents different logging levels
@@ -74,7 +74,7 @@ func (lo *LoggingObserver) logPipelineStarted(event *events.PipelineStartedEvent
 	if lo.logLevel >= LogLevelInfo {
 		lo.logger.Info("🚀 Started processing: %s → %s", event.FilePath, event.Collection)
 	}
-	
+
 	// Store start time for duration calculation
 	lo.startTimes[event.FilePath] = event.Timestamp()
 }
@@ -88,10 +88,10 @@ func (lo *LoggingObserver) logPipelineCompleted(event *events.PipelineCompletedE
 	}
 
 	if event.HasErrors {
-		lo.logger.Info("⚠️  Completed with errors: %s → %s, parsed: %d%s", 
+		lo.logger.Info("⚠️  Completed with errors: %s → %s, parsed: %d%s",
 			event.FilePath, event.Collection, event.ParsedCount, duration)
 	} else if lo.logLevel >= LogLevelInfo {
-		lo.logger.Info("✅ Completed successfully: %s → %s, parsed: %d%s", 
+		lo.logger.Info("✅ Completed successfully: %s → %s, parsed: %d%s",
 			event.FilePath, event.Collection, event.ParsedCount, duration)
 	}
 }
@@ -104,7 +104,7 @@ func (lo *LoggingObserver) logPipelineFailed(event *events.PipelineFailedEvent) 
 		delete(lo.startTimes, event.FilePath) // Clean up
 	}
 
-	lo.logger.Error("❌ Pipeline failed: %s at stage %s: %v%s", 
+	lo.logger.Error("❌ Pipeline failed: %s at stage %s: %v%s",
 		event.FilePath, event.Stage, event.Error, duration)
 }
 
@@ -113,7 +113,7 @@ func (lo *LoggingObserver) logStageStarted(event *events.StageStartedEvent) {
 	if lo.logLevel >= LogLevelDebug {
 		lo.logger.Debug("🔄 Stage started: %s for %s", event.StageName, event.FilePath)
 	}
-	
+
 	// Store stage start time
 	stageKey := fmt.Sprintf("%s:%s", event.FilePath, event.StageName)
 	lo.startTimes[stageKey] = event.Timestamp()
@@ -142,7 +142,7 @@ func (lo *LoggingObserver) logStageFailed(event *events.StageFailedEvent) {
 		delete(lo.startTimes, stageKey) // Clean up
 	}
 
-	lo.logger.Error("❌ Stage failed: %s for %s: %v%s", 
+	lo.logger.Error("❌ Stage failed: %s for %s: %v%s",
 		event.StageName, event.FilePath, event.Error, duration)
 }
 
@@ -156,7 +156,7 @@ func (lo *LoggingObserver) logFileProcessingStarted(event *events.FileProcessing
 // logFileProcessingCompleted logs file processing completed events
 func (lo *LoggingObserver) logFileProcessingCompleted(event *events.FileProcessingCompletedEvent) {
 	if lo.logLevel >= LogLevelInfo {
-		lo.logger.Info("📝 File processed: %s → %s, parsed: %d, written: %d", 
+		lo.logger.Info("📝 File processed: %s → %s, parsed: %d, written: %d",
 			event.FilePath, event.Collection, event.ParsedCount, event.WrittenCount)
 	}
 }
@@ -167,7 +167,7 @@ func (lo *LoggingObserver) logParsingError(event *events.ParsingErrorEvent) {
 	if event.LineNumber > 0 {
 		lineInfo = fmt.Sprintf(" (line %d)", event.LineNumber)
 	}
-	
+
 	lo.logger.Error("🔍 Parsing error in %s%s: %v", event.FilePath, lineInfo, event.Error)
 }
 
@@ -177,20 +177,20 @@ func (lo *LoggingObserver) logValidationError(event *events.ValidationErrorEvent
 	if event.EntityType != "" {
 		entityInfo = fmt.Sprintf(" (entity: %s)", event.EntityType)
 	}
-	
+
 	lo.logger.Error("✓ Validation error in %s%s: %v", event.FilePath, entityInfo, event.Error)
 }
 
 // logPersistenceError logs persistence error events
 func (lo *LoggingObserver) logPersistenceError(event *events.PersistenceErrorEvent) {
-	lo.logger.Error("💾 Persistence error in %s → %s (%d entities): %v", 
+	lo.logger.Error("💾 Persistence error in %s → %s (%d entities): %v",
 		event.FilePath, event.Collection, event.EntityCount, event.Error)
 }
 
 // logProgress logs progress events
 func (lo *LoggingObserver) logProgress(event *events.ProgressEvent) {
 	if lo.logLevel >= LogLevelInfo {
-		lo.logger.Info("📊 Progress: %d/%d files (%.1f%%) - current: %s", 
+		lo.logger.Info("📊 Progress: %d/%d files (%.1f%%) - current: %s",
 			event.ProcessedFiles, event.TotalFiles, event.ProgressPercent, event.CurrentFile)
 	}
 }
@@ -205,7 +205,7 @@ func (lo *LoggingObserver) logProcessingSummary(event *events.ProcessingSummaryE
 	lo.logger.Info("  Total parsed: %d", event.TotalParsed)
 	lo.logger.Info("  Total written: %d", event.TotalWritten)
 	lo.logger.Info("  Total errors: %d", event.TotalErrors)
-	
+
 	if event.FailedFiles == 0 {
 		lo.logger.Info("🎉 All files processed successfully!")
 	} else if event.SuccessfulFiles > 0 {

@@ -90,22 +90,22 @@ func GetLanguageConfigPath(language parsers.LanguageCode) string {
 // LoadAllLanguageConfigs loads configurations for all supported languages
 func LoadAllLanguageConfigs() (map[parsers.LanguageCode]*parsers.LanguageConfig, error) {
 	configs := make(map[parsers.LanguageCode]*parsers.LanguageConfig)
-	
+
 	languages := []parsers.LanguageCode{parsers.Italian, parsers.English}
-	
+
 	for _, lang := range languages {
 		configPath := GetLanguageConfigPath(lang)
 		if configPath == "" {
 			continue
 		}
-		
+
 		config, err := LoadLanguageConfig(configPath)
 		if err != nil {
 			return nil, fmt.Errorf("failed to load config for %s: %w", lang, err)
 		}
-		
+
 		configs[lang] = config
 	}
-	
+
 	return configs, nil
 }

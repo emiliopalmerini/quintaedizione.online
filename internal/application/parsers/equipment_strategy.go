@@ -64,17 +64,17 @@ func (e *EquipmentStrategy) parseEquipmentSection(section Section) (*domain.Equi
 
 	// Parse equipment information from content
 	equipmentContent := strings.Join(content, "\n")
-	
+
 	// TODO: Parse equipment stats from content
 
 	// Create domain object - using placeholder values for now
 	item := domain.NewEquipaggiamento(
 		uuid.New(),
 		section.Title,
-		domain.Costo{Valore: 0, Valuta: domain.ValutaOro}, // TODO: parse cost
+		domain.Costo{Valore: 0, Valuta: domain.ValutaOro},   // TODO: parse cost
 		domain.Peso{Valore: 0.0, Unita: domain.UnitaLibbre}, // TODO: parse weight
 		nil, // capacità - TODO: parse
-		"", // note - TODO: parse
+		"",  // note - TODO: parse
 		equipmentContent,
 	)
 

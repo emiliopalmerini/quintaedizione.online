@@ -16,12 +16,12 @@ const (
 
 // LanguageConfig holds language-specific parsing configuration
 type LanguageConfig struct {
-	DataPath         string                       `yaml:"data_path"`
-	SectionDelimiter string                       `yaml:"section_delimiter"`
-	FieldMappings    map[string]string            `yaml:"field_mappings"`
-	Patterns         map[string]*regexp.Regexp    `yaml:"-"` // compiled patterns
-	PatternStrings   map[string]string            `yaml:"patterns"`
-	RequiredFields   map[string][]string          `yaml:"required_fields"`
+	DataPath         string                    `yaml:"data_path"`
+	SectionDelimiter string                    `yaml:"section_delimiter"`
+	FieldMappings    map[string]string         `yaml:"field_mappings"`
+	Patterns         map[string]*regexp.Regexp `yaml:"-"` // compiled patterns
+	PatternStrings   map[string]string         `yaml:"patterns"`
+	RequiredFields   map[string][]string       `yaml:"required_fields"`
 }
 
 // ParserFunc represents a function that parses markdown lines into documents
@@ -29,10 +29,10 @@ type ParserFunc func([]string) ([]map[string]any, error)
 
 // WorkItem represents a parsing task
 type WorkItem struct {
-	Filename   string      `json:"filename"`
-	Collection string      `json:"collection"`
+	Filename   string       `json:"filename"`
+	Collection string       `json:"collection"`
 	Language   LanguageCode `json:"language"`
-	Parser     ParserFunc  `json:"-"`
+	Parser     ParserFunc   `json:"-"`
 }
 
 // IngestResult represents the result of processing a single work item

@@ -51,7 +51,7 @@ func (m *MonstersStrategy) parseMonsterSection(section Section) (*domain.Mostro,
 
 	// Parse monster stats from content
 	stats := m.parseMonsterStats(content)
-	
+
 	// Create monster content
 	monsterContent := strings.Join(content, "\n")
 
@@ -60,24 +60,24 @@ func (m *MonstersStrategy) parseMonsterSection(section Section) (*domain.Mostro,
 	monster := domain.NewMostro(
 		uuid.New(),
 		section.Title,
-		domain.TagliaMedia, // TODO: parse from content
-		domain.TipoBestia,  // TODO: parse from content  
-		domain.AllineamentoNeutrale, // TODO: parse from content
-		1, // grado sfida - TODO: parse from content
+		domain.TagliaMedia,                // TODO: parse from content
+		domain.TipoBestia,                 // TODO: parse from content
+		domain.AllineamentoNeutrale,       // TODO: parse from content
+		1,                                 // grado sfida - TODO: parse from content
 		domain.PuntiEsperienza{Base: 200}, // TODO: parse from content
-		domain.ClasseArmatura(stats.classeArmatura), // TODO: improve parsing
+		domain.ClasseArmatura(stats.classeArmatura),   // TODO: improve parsing
 		domain.PuntiFerita{Valore: stats.puntiFerita}, // TODO: improve parsing
-		stats.velocita, // TODO: improve parsing
-		[]domain.Caratteristica{}, // TODO: parse from content
-		domain.Sensibilita{}, // TODO: parse from content
-		domain.TiriSalvezza{}, // TODO: parse from content
-		domain.AbilitaMostro{}, // TODO: parse from content
-		domain.Immunita{}, // TODO: parse from content
-		[]domain.Azione{}, // azioni - TODO: parse from content
-		[]domain.Tratto{}, // tratti - TODO: parse from content
-		[]domain.ReazioneMostro{}, // reazioni - TODO: parse from content
+		stats.velocita,               // TODO: improve parsing
+		[]domain.Caratteristica{},    // TODO: parse from content
+		domain.Sensibilita{},         // TODO: parse from content
+		domain.TiriSalvezza{},        // TODO: parse from content
+		domain.AbilitaMostro{},       // TODO: parse from content
+		domain.Immunita{},            // TODO: parse from content
+		[]domain.Azione{},            // azioni - TODO: parse from content
+		[]domain.Tratto{},            // tratti - TODO: parse from content
+		[]domain.ReazioneMostro{},    // reazioni - TODO: parse from content
 		[]domain.AzioneLeggendaria{}, // azioni leggendarie - TODO: parse from content
-		domain.IncantesimiMostro{}, // incantesimi - TODO: parse from content
+		domain.IncantesimiMostro{},   // incantesimi - TODO: parse from content
 		monsterContent,
 	)
 
@@ -96,7 +96,7 @@ func (m *MonstersStrategy) parseMonsterStats(lines []string) MonsterStats {
 	stats := MonsterStats{
 		velocita: domain.Velocita{},
 	}
-	
+
 	content := strings.Join(lines, " ")
 
 	// Parse AC
@@ -117,7 +117,7 @@ func (m *MonstersStrategy) parseMonsterStats(lines []string) MonsterStats {
 	if match := MonsterSpeedRE.FindStringSubmatch(content); len(match) > 1 {
 		// TODO: Properly parse different speed types from the content
 		stats.velocita = domain.Velocita{
-			Valore: 9, // default speed in meters
+			Valore: 9,                 // default speed in meters
 			Unita:  domain.UnitaMetri, // TODO: determine from content
 		}
 	}

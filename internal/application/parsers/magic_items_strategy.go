@@ -64,16 +64,16 @@ func (m *MagicItemsStrategy) parseMagicItemSection(section Section) (*domain.Ogg
 
 	// Parse magic item information from content
 	itemContent := strings.Join(content, "\n")
-	
+
 	// TODO: Parse magic item stats from content
 
 	// Create domain object - using placeholder values for now
 	item := domain.NewOggettoMagico(
 		uuid.New(),
 		section.Title,
-		"", // tipo - TODO: parse from content
+		"",                  // tipo - TODO: parse from content
 		domain.RaritaComune, // rarità - TODO: parse from content
-		false, // sintonizzazione - TODO: parse from content
+		false,               // sintonizzazione - TODO: parse from content
 		itemContent,
 	)
 

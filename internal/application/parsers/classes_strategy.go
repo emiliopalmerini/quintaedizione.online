@@ -71,23 +71,23 @@ func (c *ClassesStrategy) parseClassSection(section Section) (*domain.Classe, er
 	class := domain.NewClasse(
 		uuid.New(),
 		section.Title,
-		description, // sottotitolo - could be extracted better
+		description,  // sottotitolo - could be extracted better
 		classContent, // markdown content
 		domain.Dadi{Numero: 1, Facce: 8, Bonus: 0}, // TODO: parse from content - default d8
-		[]domain.Caratteristica{}, // caratteristica primaria - TODO: parse
-		[]domain.NomeCaratteristica{}, // salvezze competenze - TODO: parse
-		domain.Scelta{}, // abilita competenze opzioni - TODO: parse
-		[]string{}, // armi competenze - TODO: parse
-		[]domain.CompetenzaArmatura{}, // armature competenze - TODO: parse
-		[]domain.StrumentoID{}, // strumenti competenze - TODO: parse
-		[]domain.EquipaggiamentoOpzione{}, // equipaggiamento iniziale - TODO: parse
-		domain.Multiclasse{}, // multiclasse - TODO: parse
-		domain.Progressioni{}, // progressioni - TODO: parse
-		domain.Magia{}, // magia - TODO: parse
-		[]domain.Privilegio{}, // privilegi - TODO: parse
-		[]domain.Sottoclasse{}, // sottoclassi - TODO: parse
-		domain.ListaIncantesimi{}, // lista incantesimi - TODO: parse
-		domain.Raccomandazioni{}, // raccomandazioni - TODO: parse
+		[]domain.Caratteristica{},                  // caratteristica primaria - TODO: parse
+		[]domain.NomeCaratteristica{},              // salvezze competenze - TODO: parse
+		domain.Scelta{},                            // abilita competenze opzioni - TODO: parse
+		[]string{},                                 // armi competenze - TODO: parse
+		[]domain.CompetenzaArmatura{},              // armature competenze - TODO: parse
+		[]domain.StrumentoID{},                     // strumenti competenze - TODO: parse
+		[]domain.EquipaggiamentoOpzione{},          // equipaggiamento iniziale - TODO: parse
+		domain.Multiclasse{},                       // multiclasse - TODO: parse
+		domain.Progressioni{},                      // progressioni - TODO: parse
+		domain.Magia{},                             // magia - TODO: parse
+		[]domain.Privilegio{},                      // privilegi - TODO: parse
+		[]domain.Sottoclasse{},                     // sottoclassi - TODO: parse
+		domain.ListaIncantesimi{},                  // lista incantesimi - TODO: parse
+		domain.Raccomandazioni{},                   // raccomandazioni - TODO: parse
 		classContent,
 	)
 
@@ -97,28 +97,28 @@ func (c *ClassesStrategy) parseClassSection(section Section) (*domain.Classe, er
 // extractClassDescription extracts the class description from content lines
 func (c *ClassesStrategy) extractClassDescription(lines []string) string {
 	var descriptionLines []string
-	
+
 	// Look for text before the first table or structured content
 	for _, line := range lines {
 		trimmed := strings.TrimSpace(line)
-		
+
 		// Stop at tables or structured content
-		if strings.HasPrefix(trimmed, "|") || 
-		   strings.Contains(trimmed, "Tratti base") ||
-		   strings.HasPrefix(trimmed, "####") {
+		if strings.HasPrefix(trimmed, "|") ||
+			strings.Contains(trimmed, "Tratti base") ||
+			strings.HasPrefix(trimmed, "####") {
 			break
 		}
-		
+
 		// Skip empty lines and headers
 		if trimmed != "" && !strings.HasPrefix(trimmed, "#") {
 			descriptionLines = append(descriptionLines, trimmed)
 		}
 	}
-	
+
 	if len(descriptionLines) == 0 {
 		return "Classe " + strings.ToLower(c.Name()) // fallback description
 	}
-	
+
 	// Take first paragraph as description
 	description := strings.Join(descriptionLines, " ")
 	if len(description) > 200 {
@@ -129,6 +129,6 @@ func (c *ClassesStrategy) extractClassDescription(lines []string) string {
 			description = description[:200] + "..."
 		}
 	}
-	
+
 	return description
 }

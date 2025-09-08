@@ -174,7 +174,7 @@ func (bp *BaseParser) postProcessEntity(entity domain.ParsedEntity) domain.Parse
 // extractSectionsWithLanguage extracts sections using language-specific configuration
 func (bp *BaseParser) extractSectionsWithLanguage(content []string) ([]Section, error) {
 	headerLevel := 2 // default header level
-	
+
 	// Use language-specific section delimiter if available
 	if bp.config != nil && bp.config.SectionDelimiter != "" {
 		// Count the # characters in the delimiter to determine header level
@@ -226,7 +226,7 @@ func (bp *BaseParser) matchPattern(patternName, content string) []string {
 // extractFieldFromLines extracts a field value from content lines
 func (bp *BaseParser) extractFieldFromLines(lines []string, fieldName string) string {
 	fieldKey := bp.getFieldName(fieldName)
-	
+
 	for _, line := range lines {
 		line = strings.TrimSpace(line)
 		if strings.HasPrefix(strings.ToLower(line), strings.ToLower("**"+fieldKey+":")) {

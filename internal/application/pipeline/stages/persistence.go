@@ -61,18 +61,18 @@ func (s *PersistenceStage) Process(ctx context.Context, data *pipeline.Processin
 		s.logger.Info("dry run: would persist %d documents to %s", documentCount, collection)
 		data.Metadata["written_count"] = 0
 		data.Metadata["dry_run"] = true
-		
+
 		// Generate preview for dry run
 		preview := s.generatePreview(data.Documents)
 		data.Metadata["preview"] = preview
-		
+
 		return nil
 	}
 
 	if s.repository == nil {
 		err := fmt.Errorf("repository not available for persistence")
 		s.logger.Error("repository not available for persistence")
-		
+
 		if s.eventBus != nil {
 			s.eventBus.Publish(&events.PersistenceErrorEvent{
 				BaseEvent:   events.BaseEvent{EventTime: time.Now()},
@@ -82,18 +82,18 @@ func (s *PersistenceStage) Process(ctx context.Context, data *pipeline.Processin
 				EntityCount: documentCount,
 			})
 		}
-		
+
 		return err
 	}
 
 	// Get unique fields for this collection
 	uniqueFields := mongodb.GetUniqueFieldsForCollection(collection)
-	
+
 	// Persist documents using bulk upsert
 	writtenCount, err := s.repository.UpsertMany(collection, uniqueFields, data.Documents)
 	if err != nil {
 		s.logger.Error("failed to persist %d documents to %s: %v", documentCount, collection, err)
-		
+
 		if s.eventBus != nil {
 			s.eventBus.Publish(&events.PersistenceErrorEvent{
 				BaseEvent:   events.BaseEvent{EventTime: time.Now()},
@@ -103,7 +103,7 @@ func (s *PersistenceStage) Process(ctx context.Context, data *pipeline.Processin
 				EntityCount: documentCount,
 			})
 		}
-		
+
 		return fmt.Errorf("failed to persist documents to %s: %w", collection, err)
 	}
 
@@ -130,7 +130,7 @@ func (s *PersistenceStage) Process(ctx context.Context, data *pipeline.Processin
 // generatePreview generates a preview of documents for dry run mode
 func (s *PersistenceStage) generatePreview(documents []map[string]any) []map[string]any {
 	previewKeys := []string{"name", "term", "level", "rarity", "type", "school", "nome", "titolo", "entity_type"}
-	
+
 	var preview []map[string]any
 	maxPreview := 5
 	if len(documents) < maxPreview {

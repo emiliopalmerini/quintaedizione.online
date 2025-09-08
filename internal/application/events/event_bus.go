@@ -224,7 +224,7 @@ func NewInMemoryEventBus(logger parsers.Logger, bufferSize int) *InMemoryEventBu
 	if logger == nil {
 		logger = &parsers.NoOpLogger{}
 	}
-	
+
 	if bufferSize <= 0 {
 		bufferSize = 100
 	}
@@ -257,7 +257,7 @@ func (bus *InMemoryEventBus) Subscribe(eventType string, handler EventHandler) U
 	}
 
 	bus.subscribers[eventType] = append(bus.subscribers[eventType], handler)
-	
+
 	bus.logger.Debug("subscribed handler for event type: %s", eventType)
 
 	// Return unsubscribe function
@@ -369,7 +369,7 @@ func (bus *InMemoryEventBus) GetSubscriberCount(eventType string) int {
 func (bus *InMemoryEventBus) GetTotalSubscribers() int {
 	bus.mu.RLock()
 	defer bus.mu.RUnlock()
-	
+
 	total := 0
 	for _, handlers := range bus.subscribers {
 		total += len(handlers)

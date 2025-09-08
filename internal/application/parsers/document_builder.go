@@ -64,11 +64,11 @@ func (db *DocumentBuilder) BuildDocument(entity domain.ParsedEntity, collection 
 
 	// Create base document structure
 	doc := map[string]any{
-		"entity_type":  entity.EntityType(),
-		"entity":       entity,
-		"collection":   collection,
-		"created_at":   time.Now(),
-		"updated_at":   time.Now(),
+		"entity_type": entity.EntityType(),
+		"entity":      entity,
+		"collection":  collection,
+		"created_at":  time.Now(),
+		"updated_at":  time.Now(),
 	}
 
 	// Add metadata from base data if available

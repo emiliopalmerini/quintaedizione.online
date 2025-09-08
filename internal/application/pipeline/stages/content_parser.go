@@ -48,7 +48,7 @@ func (s *ContentParserStage) Process(ctx context.Context, data *pipeline.Process
 	if len(data.RawContent) == 0 {
 		err := fmt.Errorf("no raw content available for parsing")
 		s.logger.Error("no raw content available for %s", data.FilePath)
-		
+
 		if s.eventBus != nil {
 			s.eventBus.Publish(&events.ParsingErrorEvent{
 				BaseEvent:  events.BaseEvent{EventTime: time.Now()},
@@ -57,7 +57,7 @@ func (s *ContentParserStage) Process(ctx context.Context, data *pipeline.Process
 				Error:      err,
 			})
 		}
-		
+
 		return err
 	}
 
@@ -65,7 +65,7 @@ func (s *ContentParserStage) Process(ctx context.Context, data *pipeline.Process
 	contentType, err := parsers.GetContentTypeFromCollection(data.WorkItem.Collection)
 	if err != nil {
 		s.logger.Error("unknown content type for collection: %s", data.WorkItem.Collection)
-		
+
 		if s.eventBus != nil {
 			s.eventBus.Publish(&events.ParsingErrorEvent{
 				BaseEvent:  events.BaseEvent{EventTime: time.Now()},
@@ -74,7 +74,7 @@ func (s *ContentParserStage) Process(ctx context.Context, data *pipeline.Process
 				Error:      err,
 			})
 		}
-		
+
 		return err
 	}
 
@@ -84,7 +84,7 @@ func (s *ContentParserStage) Process(ctx context.Context, data *pipeline.Process
 	strategy, err := s.registry.GetParser(contentType)
 	if err != nil {
 		s.logger.Error("no parser found for content type %s: %v", contentType, err)
-		
+
 		if s.eventBus != nil {
 			s.eventBus.Publish(&events.ParsingErrorEvent{
 				BaseEvent:  events.BaseEvent{EventTime: time.Now()},
@@ -93,7 +93,7 @@ func (s *ContentParserStage) Process(ctx context.Context, data *pipeline.Process
 				Error:      err,
 			})
 		}
-		
+
 		return fmt.Errorf("no parser found for content type %s: %w", contentType, err)
 	}
 
@@ -105,7 +105,7 @@ func (s *ContentParserStage) Process(ctx context.Context, data *pipeline.Process
 	parsedEntities, err := strategy.Parse(data.RawContent, context)
 	if err != nil {
 		s.logger.Error("strategy parser failed for %s: %v", data.FilePath, err)
-		
+
 		if s.eventBus != nil {
 			s.eventBus.Publish(&events.ParsingErrorEvent{
 				BaseEvent:  events.BaseEvent{EventTime: time.Now()},
@@ -114,7 +114,7 @@ func (s *ContentParserStage) Process(ctx context.Context, data *pipeline.Process
 				Error:      err,
 			})
 		}
-		
+
 		return fmt.Errorf("failed to parse %s: %w", data.FilePath, err)
 	}
 
@@ -123,7 +123,7 @@ func (s *ContentParserStage) Process(ctx context.Context, data *pipeline.Process
 	data.ContentType = contentType
 
 	s.logger.Debug("successfully parsed %d entities from %s", len(parsedEntities), data.FilePath)
-	
+
 	// Store parsing metadata
 	data.Metadata["parsed_count"] = len(parsedEntities)
 	data.Metadata["parser_type"] = "strategy"

@@ -72,9 +72,9 @@ func (s *TransformationStage) Process(ctx context.Context, data *pipeline.Proces
 	data.Metadata["transformation_errors"] = len(transformationErrors)
 
 	if len(transformationErrors) > 0 {
-		s.logger.Info("transformation completed for %s: %d successful, %d failed", 
+		s.logger.Info("transformation completed for %s: %d successful, %d failed",
 			data.FilePath, len(documents), len(transformationErrors))
-		
+
 		// Add errors to processing data but continue
 		data.Errors = append(data.Errors, transformationErrors...)
 	} else {
@@ -111,7 +111,7 @@ func (s *TransformationStage) transformEntity(entity domain.ParsedEntity, data *
 
 	// Add common metadata fields
 	if data.Metadata != nil {
-		doc["language"] = data.Metadata["language"] 
+		doc["language"] = data.Metadata["language"]
 		if doc["language"] == nil {
 			doc["language"] = "ita" // default to Italian
 		}

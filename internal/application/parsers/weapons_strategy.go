@@ -64,7 +64,7 @@ func (w *WeaponsStrategy) parseWeaponSection(section Section) (*domain.Arma, err
 
 	// Parse weapon information from content
 	weaponContent := strings.Join(content, "\n")
-	
+
 	// TODO: Parse weapon stats from content (cost, damage, weight, properties)
 	// This is simplified - in reality we'd parse the structured content
 
@@ -72,13 +72,13 @@ func (w *WeaponsStrategy) parseWeaponSection(section Section) (*domain.Arma, err
 	weapon := domain.NewArma(
 		uuid.New(),
 		section.Title,
-		domain.Costo{Valore: 0, Valuta: domain.ValutaOro}, // TODO: parse cost from content
+		domain.Costo{Valore: 0, Valuta: domain.ValutaOro},   // TODO: parse cost from content
 		domain.Peso{Valore: 0.0, Unita: domain.UnitaLibbre}, // TODO: parse weight from content
-		"", // danno - TODO: parse damage from content
+		"",                                    // danno - TODO: parse damage from content
 		domain.CategoriaArma("Arma Semplice"), // TODO: parse category from content
-		[]domain.ProprietaArma{}, // TODO: parse properties from content
-		"", // maestria - TODO: parse mastery from content
-		nil, // gittata - TODO: parse range from content
+		[]domain.ProprietaArma{},              // TODO: parse properties from content
+		"",                                    // maestria - TODO: parse mastery from content
+		nil,                                   // gittata - TODO: parse range from content
 		weaponContent,
 	)
 

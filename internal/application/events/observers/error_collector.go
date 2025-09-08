@@ -16,11 +16,11 @@ type ErrorCollector struct {
 	eventBus events.EventBus
 
 	// Error statistics
-	totalErrors      int
-	parsingErrors    int
-	validationErrors int
+	totalErrors       int
+	parsingErrors     int
+	validationErrors  int
 	persistenceErrors int
-	otherErrors      int
+	otherErrors       int
 }
 
 // ErrorInfo contains information about an error
@@ -199,7 +199,7 @@ func (ec *ErrorCollector) GetErrorsByType() map[string][]ErrorInfo {
 	defer ec.mu.RUnlock()
 
 	errorsByType := make(map[string][]ErrorInfo)
-	
+
 	for _, errorInfo := range ec.errors {
 		errorsByType[errorInfo.ErrorType] = append(errorsByType[errorInfo.ErrorType], errorInfo)
 	}
@@ -213,7 +213,7 @@ func (ec *ErrorCollector) GetErrorsByFile() map[string][]ErrorInfo {
 	defer ec.mu.RUnlock()
 
 	errorsByFile := make(map[string][]ErrorInfo)
-	
+
 	for _, errorInfo := range ec.errors {
 		errorsByFile[errorInfo.FilePath] = append(errorsByFile[errorInfo.FilePath], errorInfo)
 	}
@@ -246,7 +246,7 @@ func (ec *ErrorCollector) GenerateErrorReport() ErrorReport {
 	if len(ec.errors) < recentCount {
 		recentCount = len(ec.errors)
 	}
-	
+
 	if recentCount > 0 {
 		startIndex := len(ec.errors) - recentCount
 		report.RecentErrors = make([]ErrorInfo, recentCount)
@@ -282,10 +282,10 @@ type ErrorStatistics struct {
 
 // ErrorReport contains a comprehensive error report
 type ErrorReport struct {
-	Timestamp    time.Time            `json:"timestamp"`
-	TotalErrors  int                  `json:"total_errors"`
-	Statistics   ErrorStatistics      `json:"statistics"`
-	ErrorsByType map[string]int       `json:"errors_by_type"`
-	ErrorsByFile map[string]int       `json:"errors_by_file"`
-	RecentErrors []ErrorInfo          `json:"recent_errors"`
+	Timestamp    time.Time       `json:"timestamp"`
+	TotalErrors  int             `json:"total_errors"`
+	Statistics   ErrorStatistics `json:"statistics"`
+	ErrorsByType map[string]int  `json:"errors_by_type"`
+	ErrorsByFile map[string]int  `json:"errors_by_file"`
+	RecentErrors []ErrorInfo     `json:"recent_errors"`
 }

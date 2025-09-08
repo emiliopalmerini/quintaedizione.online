@@ -67,7 +67,7 @@ func (pt *ProgressTracker) handlePipelineStarted(event *events.PipelineStartedEv
 
 	pt.currentFile = event.FilePath
 	pt.logger.Debug("started processing file: %s", event.FilePath)
-	
+
 	// Publish progress event
 	if pt.eventBus != nil {
 		pt.publishProgressEvent()
@@ -153,7 +153,7 @@ func (pt *ProgressTracker) publishProgressEvent() {
 // publishFinalSummary publishes a final processing summary
 func (pt *ProgressTracker) publishFinalSummary() {
 	duration := time.Since(pt.startTime)
-	
+
 	pt.logger.Info("Processing completed in %v:", duration)
 	pt.logger.Info("  Total files: %d", pt.totalFiles)
 	pt.logger.Info("  Successful: %d", pt.successfulFiles)

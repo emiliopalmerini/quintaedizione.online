@@ -120,6 +120,7 @@ func CreateDefaultRegistry() (*ParserRegistry, error) {
 		NewMagicItemsStrategy(),
 		NewFeatsStrategy(),
 		NewAnimalsStrategy(),
+		NewRulesStrategy(),
 	}
 
 	for _, strategy := range strategies {
@@ -176,7 +177,7 @@ func (r *Registry) Register(key string, strategy ParsingStrategy) error {
 	if strategy == nil {
 		return errors.New("strategy cannot be nil")
 	}
-	
+
 	if key == "" {
 		return errors.New("key cannot be empty")
 	}
@@ -217,7 +218,7 @@ func (r *Registry) GetStrategyByContentType(contentType ContentType) (ParsingStr
 	if strategy, err := r.GetStrategy(contentType, Italian); err == nil {
 		return strategy, nil
 	}
-	
+
 	// Fallback to old-style key (just contentType)
 	key := string(contentType)
 	return r.GetStrategyByKey(key)

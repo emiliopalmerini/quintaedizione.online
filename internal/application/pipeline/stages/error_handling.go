@@ -41,7 +41,7 @@ func (s *ErrorHandlingStage) Process(ctx context.Context, data *pipeline.Process
 	}
 
 	errorCount := len(data.Errors)
-	
+
 	if errorCount == 0 {
 		s.logger.Debug("no errors to handle for %s", data.FilePath)
 		return nil
@@ -51,7 +51,7 @@ func (s *ErrorHandlingStage) Process(ctx context.Context, data *pipeline.Process
 
 	// Categorize errors
 	errorSummary := s.categorizeErrors(data.Errors)
-	
+
 	// Store error metadata
 	data.Metadata["error_count"] = errorCount
 	data.Metadata["error_summary"] = errorSummary
@@ -80,12 +80,12 @@ func (s *ErrorHandlingStage) Process(ctx context.Context, data *pipeline.Process
 // categorizeErrors categorizes errors by type
 func (s *ErrorHandlingStage) categorizeErrors(errors []error) map[string]int {
 	categories := map[string]int{
-		"parsing":       0,
-		"validation":    0,
+		"parsing":        0,
+		"validation":     0,
 		"transformation": 0,
-		"persistence":   0,
-		"file_io":       0,
-		"other":         0,
+		"persistence":    0,
+		"file_io":        0,
+		"other":          0,
 	}
 
 	for _, err := range errors {
@@ -119,10 +119,10 @@ func (s *ErrorHandlingStage) categorizeError(err error) string {
 // createErrorReport creates a detailed error report
 func (s *ErrorHandlingStage) createErrorReport(data *pipeline.ProcessingData) map[string]any {
 	report := map[string]any{
-		"file_path":    data.FilePath,
-		"collection":   data.WorkItem.Collection,
-		"error_count":  len(data.Errors),
-		"timestamp":    time.Now(),
+		"file_path":   data.FilePath,
+		"collection":  data.WorkItem.Collection,
+		"error_count": len(data.Errors),
+		"timestamp":   time.Now(),
 	}
 
 	// Add processing statistics

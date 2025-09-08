@@ -27,14 +27,14 @@ type Pipeline struct {
 
 // ProcessingData holds data that flows through the pipeline stages
 type ProcessingData struct {
-	WorkItem     *parsers.WorkItem
-	FilePath     string
-	RawContent   []string
-	ContentType  parsers.ContentType
-	ParsedData   []domain.ParsedEntity
-	Documents    []map[string]any // for backward compatibility
-	Metadata     map[string]any
-	Errors       []error
+	WorkItem    *parsers.WorkItem
+	FilePath    string
+	RawContent  []string
+	ContentType parsers.ContentType
+	ParsedData  []domain.ParsedEntity
+	Documents   []map[string]any // for backward compatibility
+	Metadata    map[string]any
+	Errors      []error
 }
 
 // NewPipeline creates a new processing pipeline
@@ -42,7 +42,7 @@ func NewPipeline(stages []ProcessingStage, eventBus events.EventBus, logger pars
 	if logger == nil {
 		logger = &parsers.NoOpLogger{}
 	}
-	
+
 	return &Pipeline{
 		stages:   stages,
 		eventBus: eventBus,
@@ -91,7 +91,7 @@ func (p *Pipeline) Execute(ctx context.Context, data *ProcessingData) error {
 		}
 
 		p.logger.Debug("executing stage %d/%d: %s", i+1, len(p.stages), stage.Name())
-		
+
 		// Publish stage started event
 		if p.eventBus != nil {
 			p.eventBus.Publish(&events.StageStartedEvent{
@@ -105,7 +105,7 @@ func (p *Pipeline) Execute(ctx context.Context, data *ProcessingData) error {
 		if err := stage.Process(ctx, data); err != nil {
 			data.Errors = append(data.Errors, err)
 			p.logger.Error("stage %s failed: %v", stage.Name(), err)
-			
+
 			// Publish stage failed event
 			if p.eventBus != nil {
 				p.eventBus.Publish(&events.StageFailedEvent{
@@ -132,7 +132,7 @@ func (p *Pipeline) Execute(ctx context.Context, data *ProcessingData) error {
 			}
 		} else {
 			p.logger.Debug("stage %s completed successfully", stage.Name())
-			
+
 			// Publish stage completed event
 			if p.eventBus != nil {
 				p.eventBus.Publish(&events.StageCompletedEvent{

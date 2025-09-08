@@ -64,7 +64,7 @@ func (f *FeatsStrategy) parseFeatSection(section Section) (*domain.Talento, erro
 
 	// Parse feat information from content
 	featContent := strings.Join(content, "\n")
-	
+
 	// TODO: Parse feat details from content (prerequisites, benefits, etc.)
 
 	// Create domain object - using placeholder values for now
@@ -72,8 +72,8 @@ func (f *FeatsStrategy) parseFeatSection(section Section) (*domain.Talento, erro
 		uuid.New(),
 		section.Title,
 		domain.CategoriaTalento("Generale"), // categoria - TODO: parse from content
-		"", // prerequisiti - TODO: parse from content
-		[]string{}, // benefici - TODO: parse from content
+		"",                                  // prerequisiti - TODO: parse from content
+		[]string{},                          // benefici - TODO: parse from content
 		featContent,
 	)
 

@@ -64,18 +64,18 @@ func (a *ArmorStrategy) parseArmorSection(section Section) (*domain.Armatura, er
 
 	// Parse armor information from content
 	armorContent := strings.Join(content, "\n")
-	
+
 	// TODO: Parse armor stats from content (cost, AC, weight, etc.)
 
 	// Create domain object - using placeholder values for now
 	armor := domain.NewArmatura(
 		uuid.New(),
 		section.Title,
-		domain.Costo{Valore: 0, Valuta: domain.ValutaOro}, // TODO: parse cost
+		domain.Costo{Valore: 0, Valuta: domain.ValutaOro},   // TODO: parse cost
 		domain.Peso{Valore: 0.0, Unita: domain.UnitaLibbre}, // TODO: parse weight
-		domain.CategoriaArmatura("Armatura Leggera"), // TODO: parse category
-		domain.CAArmatura{Base: 10, ModificatoreDes: true}, // TODO: parse AC
-		0,    // forza richiesta - TODO: parse
+		domain.CategoriaArmatura("Armatura Leggera"),        // TODO: parse category
+		domain.CAArmatura{Base: 10, ModificatoreDes: true},  // TODO: parse AC
+		0,     // forza richiesta - TODO: parse
 		false, // svantaggio furtività - TODO: parse
 		armorContent,
 	)

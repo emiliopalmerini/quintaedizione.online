@@ -57,7 +57,7 @@ func (s *FileReaderStage) Process(ctx context.Context, data *pipeline.Processing
 	if !infrastructure.FileExists(fullPath) {
 		err := fmt.Errorf("file not found: %s", fullPath)
 		s.logger.Error("file not found: %s", fullPath)
-		
+
 		// Publish file processing error event
 		if s.eventBus != nil {
 			s.eventBus.Publish(&events.ParsingErrorEvent{
@@ -67,7 +67,7 @@ func (s *FileReaderStage) Process(ctx context.Context, data *pipeline.Processing
 				Error:      err,
 			})
 		}
-		
+
 		return err
 	}
 
@@ -75,7 +75,7 @@ func (s *FileReaderStage) Process(ctx context.Context, data *pipeline.Processing
 	lines, err := infrastructure.ReadLines(fullPath)
 	if err != nil {
 		s.logger.Error("failed to read file %s: %v", fullPath, err)
-		
+
 		// Publish file processing error event
 		if s.eventBus != nil {
 			s.eventBus.Publish(&events.ParsingErrorEvent{
@@ -85,17 +85,17 @@ func (s *FileReaderStage) Process(ctx context.Context, data *pipeline.Processing
 				Error:      err,
 			})
 		}
-		
+
 		return fmt.Errorf("failed to read file %s: %w", fullPath, err)
 	}
 
 	// Store raw content in processing data
 	data.RawContent = lines
-	
+
 	// Store metadata
 	data.Metadata["file_size"] = len(lines)
 	data.Metadata["file_path"] = fullPath
-	
+
 	s.logger.Debug("successfully read %d lines from file: %s", len(lines), fullPath)
 
 	// Publish file processing started event

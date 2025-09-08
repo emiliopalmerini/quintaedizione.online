@@ -64,21 +64,21 @@ func (a *AnimalsStrategy) parseAnimalSection(section Section) (*domain.Animale, 
 
 	// Parse animal information from content
 	animalContent := strings.Join(content, "\n")
-	
+
 	// TODO: Parse animal stats from content (similar to monsters)
 
 	// Create domain object - using placeholder values for now
 	animal := domain.NewAnimale(
 		uuid.New(),
 		section.Title,
-		domain.TagliaMedia, // taglia - TODO: parse from content
-		domain.TipoAnimale("Bestia"), // tipo - TODO: parse from content
-		domain.ClasseArmatura(10), // CA - TODO: parse from content
+		domain.TagliaMedia,             // taglia - TODO: parse from content
+		domain.TipoAnimale("Bestia"),   // tipo - TODO: parse from content
+		domain.ClasseArmatura(10),      // CA - TODO: parse from content
 		domain.PuntiFerita{Valore: 10}, // PF - TODO: parse from content
 		domain.Velocita{Valore: 9, Unita: domain.UnitaMetri}, // velocità - TODO: parse
-		[]domain.Caratteristica{}, // caratteristiche - TODO: parse
-		[]domain.Tratto{}, // tratti - TODO: parse
-		[]domain.Azione{}, // azioni - TODO: parse
+		[]domain.Caratteristica{},                            // caratteristiche - TODO: parse
+		[]domain.Tratto{},                                    // tratti - TODO: parse
+		[]domain.Azione{},                                    // azioni - TODO: parse
 		animalContent,
 		domain.BonusCompetenza(2), // bonus competenza - TODO: calculate based on CR
 	)

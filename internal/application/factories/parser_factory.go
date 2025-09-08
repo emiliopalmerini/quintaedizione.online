@@ -28,7 +28,7 @@ func (f *ParserFactory) LoadLanguageConfig(language parsers.LanguageCode, config
 	if err != nil {
 		return fmt.Errorf("failed to load language config for %s: %w", language, err)
 	}
-	
+
 	f.languageConfigs[language] = config
 	return nil
 }
@@ -39,7 +39,7 @@ func (f *ParserFactory) LoadAllLanguageConfigs() error {
 	if err != nil {
 		return err
 	}
-	
+
 	f.languageConfigs = configs
 	return nil
 }
@@ -102,7 +102,7 @@ func (f *ParserFactory) RegisterParsersForLanguage(language parsers.LanguageCode
 		// Register with unique key (contentType + language)
 		key := fmt.Sprintf("%s_%s", contentType, language)
 		f.registry.Register(key, parser)
-		
+
 		f.logger.Info("Registered parser: %s", key)
 	}
 

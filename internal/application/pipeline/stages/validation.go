@@ -56,7 +56,7 @@ func (s *ValidationStage) Process(ctx context.Context, data *pipeline.Processing
 		if err := s.validateEntity(entity, i); err != nil {
 			validationErrors = append(validationErrors, err)
 			s.logger.Error("validation failed for entity %d in %s: %v", i, data.FilePath, err)
-			
+
 			// Publish validation error event
 			if s.eventBus != nil {
 				s.eventBus.Publish(&events.ValidationErrorEvent{
@@ -83,9 +83,9 @@ func (s *ValidationStage) Process(ctx context.Context, data *pipeline.Processing
 	data.Metadata["original_entities"] = originalCount
 
 	if len(validationErrors) > 0 {
-		s.logger.Info("validation completed for %s: %d valid, %d invalid entities", 
+		s.logger.Info("validation completed for %s: %d valid, %d invalid entities",
 			data.FilePath, len(validEntities), len(validationErrors))
-		
+
 		// For now, we continue with valid entities rather than failing completely
 		// This allows partial processing of files with some invalid entities
 		data.Errors = append(data.Errors, validationErrors...)
@@ -115,7 +115,7 @@ func (s *ValidationStage) validateEntity(entity domain.ParsedEntity, index int) 
 
 	// TODO: Add more specific validation based on entity type
 	// This could include checking required fields, data formats, etc.
-	
+
 	return nil
 }
 
@@ -123,7 +123,7 @@ func (s *ValidationStage) validateEntity(entity domain.ParsedEntity, index int) 
 func (s *ValidationStage) isValidEntityType(entityType string) bool {
 	validTypes := []string{
 		"incantesimo",
-		"mostro", 
+		"mostro",
 		"classe",
 		"background",
 		"arma",
