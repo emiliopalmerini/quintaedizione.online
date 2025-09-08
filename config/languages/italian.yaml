@@ -41,7 +41,7 @@ patterns:
   hit_points_pattern: "(?i)punti\\s+ferita\\s+(\\d+)"
   speed_pattern: "(?i)velocità\\s+(.+)"
   challenge_rating_pattern: "(?i)grado\\s+di\\s+sfida\\s+([\\d/]+)"
-  size_pattern: "(?i)(piccolissima|piccola|media|grande|enorme|mastodontica)"
+  size_pattern: "(?i)(piccola|media|grande|enorme|mastodontica)"
   type_pattern: "(?i)(aberrazione|bestia|celestiale|costrutto|drago|elementale|folletto|gigante|melma|mostruosità|non morto|pianta|umanoide)"
   alignment_pattern: "(?i)(legale|caotico|neutrale|buono|malvagio)"
 
@@ -56,3 +56,5 @@ required_fields:
   equipment: ["nome", "costo", "peso"]
   feats: ["nome", "descrizione"]
   animals: ["nome", "taglia", "tipo"]
+  rules: ["nome", "contenuto"]
+

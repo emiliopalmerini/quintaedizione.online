@@ -56,3 +56,5 @@ required_fields:
   equipment: ["name", "cost", "weight"]
   feats: ["name", "description"]
   animals: ["name", "size", "type"]
+  rules: ["name", "content"]
+

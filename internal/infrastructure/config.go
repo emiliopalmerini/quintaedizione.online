@@ -32,22 +32,22 @@ type Config struct {
 type PipelineConfig struct {
 	// Default stages to include in the pipeline
 	DefaultStages []string `json:"default_stages"`
-	
+
 	// Error handling strategy: "continue" or "stop"
 	ErrorHandling string `json:"error_handling"`
-	
+
 	// Maximum number of files to process in parallel
 	MaxParallelFiles int `json:"max_parallel_files"`
-	
+
 	// EventBus configuration
 	EventBusBufferSize int `json:"event_bus_buffer_size"`
-	
+
 	// Validation settings
 	ValidationEnabled bool `json:"validation_enabled"`
-	
+
 	// Transformation settings
 	TransformationEnabled bool `json:"transformation_enabled"`
-	
+
 	// Logging settings
 	LogProgressEvents bool   `json:"log_progress_events"`
 	LogLevel          string `json:"log_level"`
@@ -75,7 +75,7 @@ func loadPipelineConfig() PipelineConfig {
 	return PipelineConfig{
 		DefaultStages: []string{
 			"file_reader",
-			"content_parser", 
+			"content_parser",
 			"validation",
 			"transformation",
 			"persistence",
