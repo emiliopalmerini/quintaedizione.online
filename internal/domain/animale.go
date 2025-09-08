@@ -27,8 +27,7 @@ type Animale struct {
 	Tratti          []Tratto         `json:"tratti"          bson:"tratti"`
 	Azioni          []Azione         `json:"azioni"          bson:"azioni"`
 	Contenuto       string           `json:"contenuto"       bson:"contenuto"`
-	// TODO: add to the parser
-	BonusCompetenza BonusCompetenza `json:"bonus_competenza" bson:"bonus_competenza"`
+	BonusCompetenza BonusCompetenza  `json:"bonus_competenza" bson:"bonus_competenza"`
 }
 
 // ---------- Costruttore ----------

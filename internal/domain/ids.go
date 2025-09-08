@@ -22,6 +22,7 @@ type (
 	IncantesimoID        uuid.UUID
 	MostroID             uuid.UUID
 	OggettoMagicoID      uuid.UUID
+	RegolaID             uuid.UUID
 	ServizioID           uuid.UUID
 	SpecieID             uuid.UUID
 	StrumentoID          uuid.UUID
