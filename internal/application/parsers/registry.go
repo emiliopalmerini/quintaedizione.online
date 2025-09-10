@@ -110,6 +110,7 @@ func CreateDefaultRegistry() (*ParserRegistry, error) {
 
 	strategies := []ParsingStrategy{
 		NewArmatureStrategy(),
+		NewRegoleStrategy(),
 	}
 
 	for _, strategy := range strategies {
