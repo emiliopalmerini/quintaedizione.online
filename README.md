@@ -58,6 +58,9 @@ featuring a clean architecture and modern web technologies.
 │   │   │   └── *_strategy.go   # Concrete parser implementations
 │   │   └── services/      # Business services
 │   ├── adapters/          # External interfaces
+│   │   ├── repositories/  # Repository interfaces and implementations
+│   │   │   ├── factory.go # Repository factory for dependency injection
+│   │   │   └── mongodb/   # MongoDB-specific repository implementations
 │   │   └── web/           # Web handlers and routing
 │   ├── infrastructure/    # Configuration and setup
 │   └── shared/            # Common models and utilities
@@ -65,8 +68,21 @@ featuring a clean architecture and modern web technologies.
 │   ├── mongodb/           # MongoDB client and configuration
 │   └── templates/         # Template utilities
 ├── data/                  # SRD content files
-│   ├── eng/              # English SRD 5.2 markdown files
-│   └── ita/              # Italian SRD markdown files
+│   └── ita/              # Italian SRD content
+│       ├── lists/        # **Primary parsing source**: Clean entity lists
+│       │   ├── animali.md      # Animals definitions
+│       │   ├── armi.md         # Weapons definitions
+│       │   ├── armature.md     # Armor definitions
+│       │   ├── backgrounds.md  # Background definitions
+│       │   ├── classi.md       # Classes definitions
+│       │   ├── equipaggiamenti.md # Equipment definitions
+│       │   ├── incantesimi.md  # Spells definitions
+│       │   ├── mostri.md       # Monsters definitions
+│       │   ├── oggetti_magici.md # Magic items definitions
+│       │   ├── regole.md       # Rules definitions
+│       │   └── talenti.md      # Feats definitions
+│       ├── docs/         # Original SRD documentation (backup)
+│       └── DIZIONARIO_CAMPI_ITALIANI.md # Italian field terminology
 └── web/                   # Web assets
     ├── static/           # CSS, JS, images
     └── templates/        # HTML templates
@@ -86,6 +102,17 @@ The parser service uses **Strategy + Registry patterns** for flexible content pr
 - `ParserRegistry` for dynamic parser registration and retrieval
 - Concrete strategies returning domain objects (e.g., `SpellsStrategy` → `domain.Incantesimo`)
 
+### Repository Architecture
+
+The system implements entity-specific repositories using the Repository pattern:
+
+- **Repository Factory**: `internal/adapters/repositories/factory.go` provides dependency injection
+- **MongoDB Repositories**: Each domain entity has its own MongoDB repository implementation
+- **Base Repository**: Common CRUD operations in `base_mongo_repository.go`
+- **Type Safety**: Domain-specific operations for each entity type
+
+This pattern ensures clean separation between domain logic and data access, making the system easily testable and maintainable.
+
 ### Services
 
 #### 1. Editor Service (Port 8000)
@@ -104,21 +131,23 @@ The parser service uses **Strategy + Registry patterns** for flexible content pr
 **MongoDB Collections:**
 
 ```
-  'cavalcature_e_veicoli',
-  'equipaggiamento',
-  'documenti',
-  'specie',
-  'mostri',
-  'armature',
-  'backgrounds',
-  'servizi',
-  'incantesimi',
+[
   'animali',
   'armi',
-  'talenti',
-  'strumenti',
+  'armature', 
+  'backgrounds',
+  'cavalcature_e_veicoli',
+  'classi',
+  'documenti',
+  'equipaggiamento',
+  'incantesimi',
+  'mostri',
   'oggetti_magici',
-  'classi'
+  'regole',
+  'servizi',
+  'specie',
+  'strumenti',
+  'talenti'
 ]
 ```
 
@@ -184,6 +213,52 @@ make mongo-sh    # Access MongoDB container
    # Run parser locally  
    cd cmd/parser && go run main.go
    ```
+
+## 📄 Data Format Standards
+
+All files in `data/ita/lists/` follow standardized formatting for consistent parsing:
+
+### Header Hierarchy
+- **H1** (`#`) - File title
+- **H2** (`##`) - Individual entity entries  
+- **H3** (`###`) - Entity subsections (Tratti, Azioni, etc.)
+
+### Field Formatting
+- **Regular fields**: `**Campo:** valore`
+- **Monster/animal stats**: `- **Campo:** valore` (bullet points)
+
+### Table Format (Monsters/Animals)
+```markdown
+| Caratteristica | Valore | Modificatore | Tiro Salvezza |
+|----------------|--------|--------------|---------------|
+| FOR | 21 | +5 | +5 |
+| DES | 9 | -1 | +3 |
+```
+
+### Metadata Formats
+- **Spells**: `*Livello 2 Invocazione (Mago)*` or `*Trucchetto di Invocazione (Stregone, Mago)*`
+- **Magic Items**: `*Oggetto meraviglioso, molto raro (richiede sintonia)*`
+- **Monsters/Animals**: `*Aberrazione Grande, Legale Malvagio*`
+- **Feats**: `*Talento di Origine*` or `*Talento Generale (Prerequisito: Livello 4+)*`
+
+### Example Entity Structure
+```markdown
+## Nome Entità
+
+*Metadati in corsivo*
+
+**Campo Standard:** Valore del campo
+
+- **Campo Mostro:** Valore con bullet point
+
+| Tabella | Se | Necessaria |
+|---------|----| ---------- |
+| Riga 1  | 10 | +5         |
+
+### Sottosezione (se necessaria)
+
+Contenuto della sottosezione.
+```
 
 ### Environment Variables
 

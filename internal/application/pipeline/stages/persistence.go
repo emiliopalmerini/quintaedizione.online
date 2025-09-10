@@ -2,6 +2,7 @@ package stages
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"time"
 
@@ -45,14 +46,60 @@ func (s *PersistenceStage) Process(ctx context.Context, data *pipeline.Processin
 		return fmt.Errorf("processing data cannot be nil")
 	}
 
-	if len(data.Documents) == 0 {
-		s.logger.Debug("no documents to persist for %s", data.FilePath)
+	// Handle case where transformation stage was skipped
+	var documents []map[string]any
+	if len(data.Documents) > 0 {
+		documents = data.Documents
+	} else if len(data.ParsedData) > 0 {
+		// Convert parsed entities directly to documents with separated structure
+		for _, entity := range data.ParsedData {
+			// Convert entity to map first
+			entityBytes, err := json.Marshal(entity)
+			if err != nil {
+				s.logger.Error("failed to marshal entity: %v", err)
+				continue
+			}
+			
+			var entityMap map[string]any
+			if err := json.Unmarshal(entityBytes, &entityMap); err != nil {
+				s.logger.Error("failed to unmarshal entity: %v", err)
+				continue
+			}
+			
+			// Extract contenuto for metadata level
+			contenuto := ""
+			if contenutoValue, exists := entityMap["contenuto"]; exists {
+				if contenutoStr, ok := contenutoValue.(string); ok {
+					contenuto = contenutoStr
+				}
+				// Remove contenuto from domain data
+				delete(entityMap, "contenuto")
+			}
+			
+			// Create document with separated structure
+			doc := map[string]any{
+				// Metadata at root level
+				"collection":  data.WorkItem.Collection,
+				"source_file": data.FilePath,
+				"language":    "ita", 
+				"created_at":  time.Now(),
+				"contenuto":   contenuto,
+				
+				// All domain data in value object
+				"value": entityMap,
+			}
+			
+			documents = append(documents, doc)
+		}
+		s.logger.Debug("converted %d parsed entities to documents for %s", len(documents), data.FilePath)
+	} else {
+		s.logger.Debug("no documents or parsed data to persist for %s", data.FilePath)
 		data.Metadata["written_count"] = 0
 		return nil
 	}
 
 	collection := data.WorkItem.Collection
-	documentCount := len(data.Documents)
+	documentCount := len(documents)
 
 	s.logger.Debug("persisting %d documents to collection %s (dry_run: %v)", documentCount, collection, s.dryRun)
 
@@ -63,7 +110,7 @@ func (s *PersistenceStage) Process(ctx context.Context, data *pipeline.Processin
 		data.Metadata["dry_run"] = true
 
 		// Generate preview for dry run
-		preview := s.generatePreview(data.Documents)
+		preview := s.generatePreview(documents)
 		data.Metadata["preview"] = preview
 
 		return nil
@@ -90,7 +137,7 @@ func (s *PersistenceStage) Process(ctx context.Context, data *pipeline.Processin
 	uniqueFields := mongodb.GetUniqueFieldsForCollection(collection)
 
 	// Persist documents using bulk upsert
-	writtenCount, err := s.repositoryWrapper.UpsertMany(collection, uniqueFields, data.Documents)
+	writtenCount, err := s.repositoryWrapper.UpsertMany(collection, uniqueFields, documents)
 	if err != nil {
 		s.logger.Error("failed to persist %d documents to %s: %v", documentCount, collection, err)
 
@@ -132,12 +179,9 @@ func (s *PersistenceStage) generatePreview(documents []map[string]any) []map[str
 	previewKeys := []string{"name", "term", "level", "rarity", "type", "school", "nome", "titolo", "entity_type"}
 
 	var preview []map[string]any
-	maxPreview := 5
-	if len(documents) < maxPreview {
-		maxPreview = len(documents)
-	}
+	maxPreview := min(len(documents), 5)
 
-	for i := 0; i < maxPreview; i++ {
+	for i := range maxPreview {
 		doc := documents[i]
 		previewDoc := make(map[string]any)
 

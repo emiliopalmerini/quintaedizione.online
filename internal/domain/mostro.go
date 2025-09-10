@@ -1,7 +1,5 @@
 package domain
 
-import "github.com/google/uuid"
-
 // ---------- Enum / VO di supporto ----------
 
 // Tipo mostro
@@ -36,6 +34,7 @@ const (
 	AllineamentoLegaleMalvagio   Allineamento = "Legale Malvagio"
 	AllineamentoNeutraleMalvagio Allineamento = "Neutrale Malvagio"
 	AllineamentoCaoticoMalvagio  Allineamento = "Caotico Malvagio"
+	AllineamentoNonAllineato     Allineamento = "Non Allineato"
 )
 
 // Punti Esperienza
@@ -54,12 +53,12 @@ type Sensibilita struct {
 type TiriSalvezza map[TipoCaratteristica]int // es. "Destrezza": +5, "Saggezza": +3
 
 // Abilità
-type AbilitaMostro map[AbilitaID]int // es. "percezione": +8, "furtivita": +4
+type AbilitaMostro map[AbilitaSlug]int // es. "percezione": +8, "furtivita": +4
 
 // Immunità
 type Immunita struct {
-	Danni      []DannoID `json:"danni"      bson:"danni"`
-	Condizioni []string  `json:"condizioni" bson:"condizioni"`
+	Danni      []DannoSlug `json:"danni"      bson:"danni"`
+	Condizioni []string    `json:"condizioni" bson:"condizioni"`
 }
 
 // Reazione del mostro
@@ -77,15 +76,14 @@ type AzioneLeggendaria struct {
 
 // Incantesimi del mostro
 type IncantesimiMostro struct {
-	CD      *int            `json:"cd"       bson:"cd,omitempty"`      // Classe Difficoltà (opzionale)
-	Attacco *int            `json:"attacco"  bson:"attacco,omitempty"` // Bonus attacco incantesimi (opzionale)
-	Lista   []IncantesimoID `json:"lista"    bson:"lista"`             // lista incantesimi per ID
+	CD      *int              `json:"cd"       bson:"cd,omitempty"`      // Classe Difficoltà (opzionale)
+	Attacco *int              `json:"attacco"  bson:"attacco,omitempty"` // Bonus attacco incantesimi (opzionale)
+	Lista   []IncantesimoSlug `json:"lista"    bson:"lista"`             // lista incantesimi per ID
 }
 
 // ---------- Entità ----------
 
 type Mostro struct {
-	ID                MostroID            `json:"id"                  bson:"_id"`
 	Slug              Slug                `json:"slug"                bson:"slug"`
 	Nome              string              `json:"nome"                bson:"nome"`
 	Taglia            Taglia              `json:"taglia"              bson:"taglia"`
@@ -112,7 +110,6 @@ type Mostro struct {
 // ---------- Costruttore ----------
 
 func NewMostro(
-	id uuid.UUID,
 	nome string,
 	taglia Taglia,
 	tipo TipoMostro,
@@ -137,7 +134,6 @@ func NewMostro(
 	slug, _ := NewSlug(nome)
 
 	return &Mostro{
-		ID:                MostroID(id),
 		Slug:              slug,
 		Nome:              nome,
 		Taglia:            taglia,

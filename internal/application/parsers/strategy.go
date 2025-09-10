@@ -14,5 +14,5 @@ type ParsingStrategy interface {
 // TemplateParsingStrategy provides template method support for parsing strategies
 type TemplateParsingStrategy interface {
 	ParsingStrategy
-	ParseSection(section Section, context *ParsingContext) (domain.ParsedEntity, error)
+	ParseSection(section []string, context *ParsingContext) (domain.ParsedEntity, error)
 }

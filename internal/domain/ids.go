@@ -3,36 +3,34 @@ package domain
 import (
 	"regexp"
 	"strings"
-
-	"github.com/google/uuid"
 )
 
 // ---------- ID Types for all domain entities ----------
 
 type (
-	// Core entities
-	AnimaleID            uuid.UUID
-	ArmaID               uuid.UUID
-	ArmaturaID           uuid.UUID
-	BackgroundID         uuid.UUID
-	CavalcaturaVeicoloID uuid.UUID
-	ClasseID             uuid.UUID
-	DocumentoID          uuid.UUID
-	EquipaggiamentoID    uuid.UUID
-	IncantesimoID        uuid.UUID
-	MostroID             uuid.UUID
-	OggettoMagicoID      uuid.UUID
-	RegolaID             uuid.UUID
-	ServizioID           uuid.UUID
-	SpecieID             uuid.UUID
-	StrumentoID          uuid.UUID
-	TalentoID            uuid.UUID
+	// Core entities - using business identifiers (slugs)
+	AnimaleSlug            Slug
+	ArmaSlug               Slug
+	ArmaturaSlug           Slug
+	BackgroundSlug         Slug
+	CavalcaturaVeicoloSlug Slug
+	ClasseSlug             Slug
+	DocumentoSlug          Slug
+	EquipaggiamentoSlug    Slug
+	IncantesimoSlug        Slug
+	MostroSlug             Slug
+	OggettoMagicoSlug      Slug
+	RegolaSlug             Slug
+	ServizioSlug           Slug
+	SpecieSlug             Slug
+	StrumentoSlug          Slug
+	TalentoSlug            Slug
 
-	// Related entities
-	ScuolaIncantesimoID uuid.UUID
-	CaratteristicaID    uuid.UUID
-	AbilitaID           uuid.UUID
-	DannoID             uuid.UUID
+	// Related entities - using business identifiers
+	ScuolaIncantesimoSlug Slug
+	CaratteristicaSlug    Slug
+	AbilitaSlug           Slug
+	DannoSlug             Slug
 )
 
 // NormalizeID normalizes a string to be used as an ID

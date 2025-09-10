@@ -1,7 +1,5 @@
 package domain
 
-import "github.com/google/uuid"
-
 // ---------- Enum / VO di supporto ----------
 
 type ComponenteIncantesimo string
@@ -89,40 +87,40 @@ type Lancio struct {
 // ---------- Entità ----------
 
 type Incantesimo struct {
-	ID        IncantesimoID       `json:"id"       bson:"_id"`
-	Slug      Slug                `json:"slug"     bson:"slug"`
-	Nome      string              `json:"nome"     bson:"nome"`
-	Livello   uint8               `json:"livello"  bson:"livello"`
-	Scuola    ScuolaIncantesimoID `json:"scuola"   bson:"scuola"`
-	Classi    []ClasseID          `json:"classi"   bson:"classi"` // riferimenti per nome/slug; puoi sostituire con []uuid.UUID se preferisci ID
-	Lancio    Lancio              `json:"lancio"   bson:"lancio"`
-	Contenuto string              `json:"contenuto" bson:"contenuto"`
+	Slug      Slug                  `json:"slug"     bson:"slug"`
+	Nome      string                `json:"nome"     bson:"nome"`
+	Livello   uint8                 `json:"livello"  bson:"livello"`
+	Scuola    ScuolaIncantesimoSlug `json:"scuola"   bson:"scuola"`
+	Classi    []ClasseSlug          `json:"classi"   bson:"classi"` // riferimenti per nome/slug business identifiers
+	Lancio    Lancio                `json:"lancio"   bson:"lancio"`
+	Contenuto string                `json:"contenuto" bson:"contenuto"`
 }
 
 // ---------- Costruttore ----------
 
 func NewIncantesimo(
-	id uuid.UUID,
 	nome string,
 	livello uint8,
-	scuola uuid.UUID,
-	classi []uuid.UUID,
+	scuola string,
+	classi []string,
 	lancio Lancio,
 	contenuto string,
 ) *Incantesimo {
 	sg, _ := NewSlug(nome)
-	classiIDs := make([]ClasseID, len(classi))
+	classiSlugs := make([]ClasseSlug, len(classi))
 	for i, c := range classi {
-		classiIDs[i] = ClasseID(c)
+		classeSlug, _ := NewSlug(c)
+		classiSlugs[i] = ClasseSlug(classeSlug)
 	}
 
+	scuolaSlug, _ := NewSlug(scuola)
+
 	return &Incantesimo{
-		ID:        IncantesimoID(id),
 		Slug:      sg,
 		Nome:      nome,
 		Livello:   livello,
-		Scuola:    ScuolaIncantesimoID(scuola),
-		Classi:    classiIDs,
+		Scuola:    ScuolaIncantesimoSlug(scuolaSlug),
+		Classi:    classiSlugs,
 		Lancio:    lancio,
 		Contenuto: contenuto,
 	}

@@ -1,7 +1,5 @@
 package domain
 
-import "github.com/google/uuid"
-
 // ---------- Enum / VO di supporto ----------
 
 // Rarità oggetti magici
@@ -35,19 +33,17 @@ const (
 // ---------- Entità ----------
 
 type OggettoMagico struct {
-	ID              OggettoMagicoID `json:"id"             bson:"_id"`
-	Slug            Slug            `json:"slug"           bson:"slug"`
-	Nome            string          `json:"nome"           bson:"nome"`
-	Tipo            string          `json:"tipo"           bson:"tipo"` // descrizione dettagliata del tipo
-	Rarita          Rarita          `json:"rarita"         bson:"rarita"`
-	Sintonizzazione bool            `json:"sintonizzazione" bson:"sintonizzazione"` // richiede attunement
-	Contenuto       string          `json:"contenuto"      bson:"contenuto"`
+	Slug            Slug   `json:"slug"           bson:"slug"`
+	Nome            string `json:"nome"           bson:"nome"`
+	Tipo            string `json:"tipo"           bson:"tipo"` // descrizione dettagliata del tipo
+	Rarita          Rarita `json:"rarita"         bson:"rarita"`
+	Sintonizzazione bool   `json:"sintonizzazione" bson:"sintonizzazione"` // richiede attunement
+	Contenuto       string `json:"contenuto"      bson:"contenuto"`
 }
 
 // ---------- Costruttore ----------
 
 func NewOggettoMagico(
-	id uuid.UUID,
 	nome string,
 	tipo string,
 	rarita Rarita,
@@ -57,7 +53,6 @@ func NewOggettoMagico(
 	slug, _ := NewSlug(nome)
 
 	return &OggettoMagico{
-		ID:              OggettoMagicoID(id),
 		Slug:            slug,
 		Nome:            nome,
 		Tipo:            tipo,

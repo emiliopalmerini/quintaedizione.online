@@ -2,8 +2,6 @@ package domain
 
 import (
 	"fmt"
-
-	"github.com/google/uuid"
 )
 
 // ---------- ID ----------
@@ -53,12 +51,11 @@ func NewUtilizzoStrumento(descrizione string, cd int) (UtilizzoStrumento, error)
 // ---------- Entità ----------
 
 type Strumento struct {
-	ID               StrumentoID         `json:"id"                bson:"_id"`
 	Slug             Slug                `json:"slug"              bson:"slug"`
 	Nome             string              `json:"nome"              bson:"nome"`
 	Costo            Costo               `json:"costo"             bson:"costo"`
 	Peso             Peso                `json:"peso"              bson:"peso"`
-	AbilitaAssociata AbilitaID           `json:"abilita_associata" bson:"abilita_associata"`
+	AbilitaAssociata AbilitaSlug         `json:"abilita_associata" bson:"abilita_associata"`
 	Utilizzi         []UtilizzoStrumento `json:"utilizzi"          bson:"utilizzi"`
 	Creazioni        []string            `json:"creazioni"         bson:"creazioni"`
 	Contenuto        string              `json:"contenuto"         bson:"contenuto"`
@@ -67,20 +64,19 @@ type Strumento struct {
 // ---------- Costruttore ----------
 
 func NewStrumento(
-	id uuid.UUID,
 	nome string,
 	costo Costo,
 	peso Peso,
-	abilitaAssociata uuid.UUID,
+	abilitaAssociata string,
 	utilizzi []UtilizzoStrumento,
 	creazioni []string,
 	contenuto string,
 ) *Strumento {
 	slug, _ := NewSlug(nome)
-	abilita := AbilitaID(abilitaAssociata)
+	abilitaSlug, _ := NewSlug(abilitaAssociata)
+	abilita := AbilitaSlug(abilitaSlug)
 
 	return &Strumento{
-		ID:               StrumentoID(id),
 		Slug:             slug,
 		Nome:             nome,
 		Costo:            costo,

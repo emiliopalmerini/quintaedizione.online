@@ -109,18 +109,8 @@ func CreateDefaultRegistry() (*ParserRegistry, error) {
 	registry := NewParserRegistry()
 
 	strategies := []ParsingStrategy{
-		NewSpellsStrategy(),
-		NewDocumentsStrategy(),
-		NewMonstersStrategy(),
-		NewClassesStrategy(),
-		NewBackgroundsStrategy(),
-		NewWeaponsStrategy(),
-		NewArmorStrategy(),
-		NewEquipmentStrategy(),
-		NewMagicItemsStrategy(),
-		NewFeatsStrategy(),
-		NewAnimalsStrategy(),
-		NewRulesStrategy(),
+		NewArmatureStrategy(),
+		NewClassiStrategy(),
 	}
 
 	for _, strategy := range strategies {

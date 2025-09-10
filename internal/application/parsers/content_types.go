@@ -8,37 +8,39 @@ type ContentType string
 // Content type constants for Italian D&D 5e SRD
 const (
 	ContentTypeDocuments   ContentType = "documenti"
-	ContentTypeSpells      ContentType = "incantesimi"
-	ContentTypeMonsters    ContentType = "mostri"
-	ContentTypeClasses     ContentType = "classi"
+	ContentTypeIncantesimi ContentType = "incantesimi"
+	ContentTypeMostri      ContentType = "mostri"
+	ContentTypeClassi      ContentType = "classi"
 	ContentTypeBackgrounds ContentType = "backgrounds"
-	ContentTypeWeapons     ContentType = "armi"
-	ContentTypeArmor       ContentType = "armature"
-	ContentTypeTools       ContentType = "strumenti"
-	ContentTypeServices    ContentType = "servizi"
-	ContentTypeGear        ContentType = "equipaggiamento"
-	ContentTypeMagicItems  ContentType = "oggetti_magici"
-	ContentTypeFeats       ContentType = "talenti"
-	ContentTypeAnimals     ContentType = "animali"
-	ContentTypeRules       ContentType = "regole"
+	ContentTypeArmi        ContentType = "armi"
+	ContentTypeArmature    ContentType = "armature"
+	ContentTypeStrumenti   ContentType = "strumenti"
+	ContentTypeServizi     ContentType = "servizi"
+	ContentTypeEquipaggiamenti ContentType = "equipaggiamenti"
+	ContentTypeOggettiMagici  ContentType = "oggetti_magici"
+	ContentTypeTalenti     ContentType = "talenti"
+	ContentTypeAnimali     ContentType = "animali"
+	ContentTypeRegole      ContentType = "regole"
+	ContentTypeCavalcatureVeicoli ContentType = "cavalcature_veicoli"
 )
 
 // validContentTypes provides O(1) content type validation
 var validContentTypes = map[ContentType]bool{
 	ContentTypeDocuments:   true,
-	ContentTypeSpells:      true,
-	ContentTypeMonsters:    true,
-	ContentTypeClasses:     true,
+	ContentTypeIncantesimi: true,
+	ContentTypeMostri:      true,
+	ContentTypeClassi:      true,
 	ContentTypeBackgrounds: true,
-	ContentTypeWeapons:     true,
-	ContentTypeArmor:       true,
-	ContentTypeTools:       true,
-	ContentTypeServices:    true,
-	ContentTypeGear:        true,
-	ContentTypeMagicItems:  true,
-	ContentTypeFeats:       true,
-	ContentTypeAnimals:     true,
-	ContentTypeRules:       true,
+	ContentTypeArmi:        true,
+	ContentTypeArmature:    true,
+	ContentTypeStrumenti:   true,
+	ContentTypeServizi:     true,
+	ContentTypeEquipaggiamenti: true,
+	ContentTypeOggettiMagici:  true,
+	ContentTypeTalenti:     true,
+	ContentTypeAnimali:     true,
+	ContentTypeRegole:      true,
+	ContentTypeCavalcatureVeicoli: true,
 }
 
 // IsValidContentType checks if a content type is valid
@@ -61,31 +63,33 @@ func GetContentTypeFromCollection(collection string) (ContentType, error) {
 	case "documenti":
 		return ContentTypeDocuments, nil
 	case "incantesimi":
-		return ContentTypeSpells, nil
+		return ContentTypeIncantesimi, nil
 	case "mostri":
-		return ContentTypeMonsters, nil
+		return ContentTypeMostri, nil
 	case "classi":
-		return ContentTypeClasses, nil
+		return ContentTypeClassi, nil
 	case "backgrounds":
 		return ContentTypeBackgrounds, nil
 	case "armi":
-		return ContentTypeWeapons, nil
+		return ContentTypeArmi, nil
 	case "armature":
-		return ContentTypeArmor, nil
+		return ContentTypeArmature, nil
 	case "strumenti":
-		return ContentTypeTools, nil
+		return ContentTypeStrumenti, nil
 	case "servizi":
-		return ContentTypeServices, nil
-	case "equipaggiamento":
-		return ContentTypeGear, nil
+		return ContentTypeServizi, nil
+	case "equipaggiamenti":
+		return ContentTypeEquipaggiamenti, nil
 	case "oggetti_magici":
-		return ContentTypeMagicItems, nil
+		return ContentTypeOggettiMagici, nil
 	case "talenti":
-		return ContentTypeFeats, nil
+		return ContentTypeTalenti, nil
 	case "animali":
-		return ContentTypeAnimals, nil
+		return ContentTypeAnimali, nil
 	case "regole":
-		return ContentTypeRules, nil
+		return ContentTypeRegole, nil
+	case "cavalcature_veicoli":
+		return ContentTypeCavalcatureVeicoli, nil
 	default:
 		return "", ErrInvalidContentType
 	}
