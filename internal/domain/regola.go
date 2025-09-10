@@ -1,7 +1,7 @@
 package domain
 
 type Regola struct {
-	Slug      Slug
+	Slug      Slug   `json:"slug" bson:"slug"`
 	Nome      string `json:"nome" bson:"nome"`
 	Contenuto string `json:"contenuto" bson:"contenuto"`
 }

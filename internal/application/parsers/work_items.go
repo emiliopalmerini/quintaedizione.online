@@ -18,6 +18,61 @@ func CreateDefaultWorkItems() []WorkItem {
 			Collection: "animali",
 			Language:   Italian,
 		},
+		{
+			Filename:   "ita/lists/backgrounds.md",
+			Collection: "backgrounds",
+			Language:   Italian,
+		},
+		{
+			Filename:   "ita/lists/cavalcature_veicoli_items.md",
+			Collection: "cavalcature_veicoli",
+			Language:   Italian,
+		},
+		{
+			Filename:   "ita/lists/classi.md",
+			Collection: "classi",
+			Language:   Italian,
+		},
+		{
+			Filename:   "ita/lists/equipaggiamenti.md",
+			Collection: "equipaggiamenti",
+			Language:   Italian,
+		},
+		{
+			Filename:   "ita/lists/incantesimi.md",
+			Collection: "incantesimi",
+			Language:   Italian,
+		},
+		{
+			Filename:   "ita/lists/mostri.md",
+			Collection: "mostri",
+			Language:   Italian,
+		},
+		{
+			Filename:   "ita/lists/oggetti_magici.md",
+			Collection: "oggetti_magici",
+			Language:   Italian,
+		},
+		{
+			Filename:   "ita/lists/regole.md",
+			Collection: "regole",
+			Language:   Italian,
+		},
+		{
+			Filename:   "ita/lists/servizi.md",
+			Collection: "servizi",
+			Language:   Italian,
+		},
+		{
+			Filename:   "ita/lists/strumenti.md",
+			Collection: "strumenti",
+			Language:   Italian,
+		},
+		{
+			Filename:   "ita/lists/talenti.md",
+			Collection: "talenti",
+			Language:   Italian,
+		},
 	}
 }
 

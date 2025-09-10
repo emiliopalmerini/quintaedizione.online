@@ -65,7 +65,7 @@ func (db *DocumentBuilder) BuildDocument(entity domain.ParsedEntity, collection 
 	// Create base document structure
 	doc := map[string]any{
 		"entity_type": entity.EntityType(),
-		"entity":      entity,
+		"value":       entity,
 		"collection":  collection,
 		"created_at":  time.Now(),
 		"updated_at":  time.Now(),

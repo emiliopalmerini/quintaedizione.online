@@ -25,6 +25,7 @@ func (s *RegoleStrategy) Parse(content []string, context *ParsingContext) ([]dom
 	var entities []domain.ParsedEntity
 	currentSection := []string{}
 	inSection := false
+	inGlossaryContent := false
 
 	for _, line := range content {
 		line = strings.TrimSpace(line)
@@ -34,13 +35,23 @@ func (s *RegoleStrategy) Parse(content []string, context *ParsingContext) ([]dom
 			continue
 		}
 
+		// Skip introduction content until we reach the glossary definitions
+		if !inGlossaryContent && strings.Contains(line, "Di seguito trovi le definizioni") {
+			inGlossaryContent = true
+			continue
+		}
+
+		if !inGlossaryContent {
+			continue
+		}
+
 		// Check for new rule section (H2)
 		if strings.HasPrefix(line, "## ") {
 			// Process previous section if exists
 			if inSection && len(currentSection) > 0 {
-				rule, err := s.parseRuleSection(currentSection)
+				rule, err := s.parseGlossaryEntry(currentSection)
 				if err != nil {
-					context.Logger.Error(fmt.Sprintf("Failed to parse rule section: %v", err))
+					context.Logger.Error(fmt.Sprintf("Failed to parse glossary entry: %v", err))
 					currentSection = []string{}
 					inSection = false
 					continue
@@ -59,9 +70,9 @@ func (s *RegoleStrategy) Parse(content []string, context *ParsingContext) ([]dom
 
 	// Process last section
 	if inSection && len(currentSection) > 0 {
-		rule, err := s.parseRuleSection(currentSection)
+		rule, err := s.parseGlossaryEntry(currentSection)
 		if err != nil {
-			context.Logger.Error(fmt.Sprintf("Failed to parse last rule section: %v", err))
+			context.Logger.Error(fmt.Sprintf("Failed to parse last glossary entry: %v", err))
 		} else {
 			entities = append(entities, rule)
 		}
@@ -74,7 +85,7 @@ func (s *RegoleStrategy) Parse(content []string, context *ParsingContext) ([]dom
 	return entities, nil
 }
 
-func (s *RegoleStrategy) parseRuleSection(section []string) (*domain.Regola, error) {
+func (s *RegoleStrategy) parseGlossaryEntry(section []string) (*domain.Regola, error) {
 	if len(section) == 0 {
 		return nil, ErrEmptySectionContent
 	}
