@@ -182,6 +182,8 @@ func (w *ParserRepositoryWrapper) UpsertMany(collection string, uniqueFields []s
 	switch collection {
 	case "armature":
 		return w.factory.ArmaturaRepository().UpsertManyMaps(context.Background(), uniqueFields, docs)
+	case "classi":
+		return w.factory.ClasseRepository().UpsertManyMaps(context.Background(), uniqueFields, docs)
 	default:
 		return 0, fmt.Errorf("unsupported collection: %s", collection)
 	}
@@ -192,6 +194,8 @@ func (w *ParserRepositoryWrapper) Count(collection string) (int64, error) {
 	switch collection {
 	case "armature":
 		return w.factory.ArmaturaRepository().Count(context.Background())
+	case "classi":
+		return w.factory.ClasseRepository().Count(context.Background())
 	default:
 		return 0, fmt.Errorf("unsupported collection: %s", collection)
 	}
