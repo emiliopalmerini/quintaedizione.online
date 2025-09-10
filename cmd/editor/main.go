@@ -12,7 +12,8 @@ import (
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/mongodb"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure/content_repository"
+	pkgMongodb "github.com/emiliopalmerini/due-draghi-5e-srd/pkg/mongodb"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/templates"
 	"github.com/gin-gonic/gin"
 )
@@ -27,14 +28,14 @@ func main() {
 	}
 
 	// Initialize MongoDB client
-	mongoConfig := mongodb.Config{
+	mongoConfig := pkgMongodb.Config{
 		URI:         config.MongoURI,
 		Database:    config.DatabaseName,
 		Timeout:     10 * time.Second,
 		MaxPoolSize: 100,
 	}
 
-	mongoClient, err := mongodb.NewClient(mongoConfig)
+	mongoClient, err := pkgMongodb.NewClient(mongoConfig)
 	if err != nil {
 		log.Fatalf("Failed to initialize MongoDB: %v", err)
 	}
@@ -56,8 +57,11 @@ func main() {
 	}
 	log.Println("✅ Templates loaded")
 
+	// Initialize repository layer
+	contentRepo := content_repository.NewMongoDBRepository(mongoClient)
+	
 	// Initialize services
-	contentService := services.NewContentService(mongoClient)
+	contentService := services.NewContentService(contentRepo)
 
 	// Initialize web handlers
 	webHandlers := web.NewHandlers(contentService, templateEngine)

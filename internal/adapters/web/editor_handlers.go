@@ -46,10 +46,16 @@ func (h *Handlers) handleHome(c *gin.Context) {
 			{"name": "mostri", "label": "Mostri", "count": 0},
 			{"name": "classi", "label": "Classi", "count": 0},
 			{"name": "backgrounds", "label": "Background", "count": 0},
-			{"name": "equipaggiamento", "label": "Equipaggiamento", "count": 0},
+			{"name": "equipaggiamenti", "label": "Equipaggiamento", "count": 0},
 			{"name": "oggetti_magici", "label": "Oggetti Magici", "count": 0},
 			{"name": "armi", "label": "Armi", "count": 0},
 			{"name": "armature", "label": "Armature", "count": 0},
+			{"name": "talenti", "label": "Talenti", "count": 0},
+			{"name": "servizi", "label": "Servizi", "count": 0},
+			{"name": "strumenti", "label": "Strumenti", "count": 0},
+			{"name": "animali", "label": "Animali", "count": 0},
+			{"name": "regole", "label": "Regole", "count": 0},
+			{"name": "cavalcature_veicoli", "label": "Cavalcature e Veicoli", "count": 0},
 		}
 	}
 
@@ -248,18 +254,20 @@ func (h *Handlers) renderError(c *gin.Context, message string, statusCode int) {
 
 func getCollectionTitle(collection string) string {
 	titles := map[string]string{
-		"incantesimi":     "Incantesimi",
-		"mostri":          "Mostri",
-		"classi":          "Classi",
-		"backgrounds":     "Background",
-		"equipaggiamento": "Equipaggiamento",
-		"armi":            "Armi",
-		"armature":        "Armature",
-		"oggetti_magici":  "Oggetti Magici",
-		"talenti":         "Talenti",
-		"servizi":         "Servizi",
-		"strumenti":       "Strumenti",
-		"animali":         "Animali",
+		"incantesimi":         "Incantesimi",
+		"mostri":              "Mostri",
+		"classi":              "Classi",
+		"backgrounds":         "Background",
+		"equipaggiamenti":     "Equipaggiamento",
+		"armi":                "Armi",
+		"armature":            "Armature",
+		"oggetti_magici":      "Oggetti Magici",
+		"talenti":             "Talenti",
+		"servizi":             "Servizi",
+		"strumenti":           "Strumenti",
+		"animali":             "Animali",
+		"regole":              "Regole",
+		"cavalcature_veicoli": "Cavalcature e Veicoli",
 	}
 
 	if title, exists := titles[collection]; exists {

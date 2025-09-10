@@ -4,66 +4,53 @@ import (
 	"context"
 	"fmt"
 	"regexp"
-	"strings"
 	"time"
 
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/mongodb"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure/content_repository"
 	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 // ContentService provides business logic for content operations
 type ContentService struct {
-	mongoClient *mongodb.Client
+	contentRepo content_repository.Repository
 	cache       *infrastructure.SimpleCache
 }
 
 // NewContentService creates a new ContentService instance
-func NewContentService(mongoClient *mongodb.Client) *ContentService {
+func NewContentService(contentRepo content_repository.Repository) *ContentService {
 	return &ContentService{
-		mongoClient: mongoClient,
+		contentRepo: contentRepo,
 		cache:       infrastructure.GetGlobalCache(),
 	}
 }
 
 // GetCollectionItems retrieves items from a collection with pagination and search
 func (s *ContentService) GetCollectionItems(ctx context.Context, collection, search string, page, limit int) ([]map[string]interface{}, int64, error) {
-	// Validate collection name
-	if !isValidCollection(collection) {
-		return nil, 0, fmt.Errorf("invalid collection: %s", collection)
-	}
-
 	// Build filter
 	filter := bson.M{}
 	if search != "" {
 		// Escape special regex characters for safety
 		escapedSearch := regexp.QuoteMeta(search)
 		filter["$or"] = []bson.M{
-			{"nome": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"titolo": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"descrizione": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"contenuto_markdown": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"value.nome": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"value.titolo": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"value.descrizione": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"contenuto": bson.M{"$regex": escapedSearch, "$options": "i"}},
 		}
 	}
 
 	// Calculate skip
-	skip := (page - 1) * limit
+	skip := int64((page - 1) * limit)
 
 	// Get total count
-	totalCount, err := s.mongoClient.Count(ctx, collection, filter)
+	totalCount, err := s.contentRepo.Count(ctx, collection, filter)
 	if err != nil {
 		return nil, 0, fmt.Errorf("failed to count documents: %w", err)
 	}
 
-	// Find options
-	opts := options.Find().
-		SetSort(bson.D{{Key: "nome", Value: 1}}).
-		SetSkip(int64(skip)).
-		SetLimit(int64(limit))
-
 	// Get items
-	items, err := s.mongoClient.Find(ctx, collection, filter, opts)
+	items, err := s.contentRepo.FindMaps(ctx, collection, filter, skip, int64(limit))
 	if err != nil {
 		return nil, 0, fmt.Errorf("failed to find documents: %w", err)
 	}
@@ -270,11 +257,6 @@ func formatGittata(value interface{}) string {
 
 // GetItem retrieves a specific item by slug
 func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (map[string]interface{}, error) {
-	// Validate collection name
-	if !isValidCollection(collection) {
-		return nil, fmt.Errorf("invalid collection: %s", collection)
-	}
-
 	// Try cache first
 	cacheKey := fmt.Sprintf("item:%s:%s", collection, slug)
 	if cached, found := s.cache.Get(cacheKey); found {
@@ -283,9 +265,9 @@ func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (
 		}
 	}
 
-	filter := bson.M{"slug": slug}
+	filter := bson.M{"value.slug": slug}
 
-	item, err := s.mongoClient.FindOne(ctx, collection, filter)
+	item, err := s.contentRepo.FindOneMap(ctx, collection, filter)
 	if err != nil {
 		return nil, fmt.Errorf("failed to find item: %w", err)
 	}
@@ -298,21 +280,23 @@ func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (
 
 // GetStats retrieves database statistics
 func (s *ContentService) GetStats(ctx context.Context) (map[string]interface{}, error) {
+	collections, err := s.contentRepo.GetCollectionStats(ctx)
+	if err != nil {
+		return nil, fmt.Errorf("failed to get collection stats: %w", err)
+	}
+
 	stats := map[string]interface{}{
 		"collections": make(map[string]int64),
 		"total_items": int64(0),
 	}
 
-	validCollections := getValidCollections()
-
-	for _, collection := range validCollections {
-		count, err := s.mongoClient.Count(ctx, collection, bson.M{})
-		if err != nil {
-			continue
+	for _, collection := range collections {
+		if name, ok := collection["name"].(string); ok {
+			if count, ok := collection["count"].(int64); ok {
+				stats["collections"].(map[string]int64)[name] = count
+				stats["total_items"] = stats["total_items"].(int64) + count
+			}
 		}
-
-		stats["collections"].(map[string]int64)[collection] = count
-		stats["total_items"] = stats["total_items"].(int64) + count
 	}
 
 	return stats, nil
@@ -320,75 +304,6 @@ func (s *ContentService) GetStats(ctx context.Context) (map[string]interface{}, 
 
 // GetCollectionStats retrieves statistics for all collections
 func (s *ContentService) GetCollectionStats(ctx context.Context) ([]map[string]interface{}, error) {
-	var collections []map[string]interface{}
-
-	validCollections := getValidCollections()
-
-	for _, collection := range validCollections {
-		count, err := s.mongoClient.Count(ctx, collection, bson.M{})
-		if err != nil {
-			continue
-		}
-
-		collections = append(collections, map[string]interface{}{
-			"name":  collection,
-			"title": getCollectionTitle(collection),
-			"count": count,
-		})
-	}
-
-	return collections, nil
+	return s.contentRepo.GetCollectionStats(ctx)
 }
 
-// Helper functions
-func isValidCollection(collection string) bool {
-	validCollections := getValidCollections()
-	for _, valid := range validCollections {
-		if valid == collection {
-			return true
-		}
-	}
-	return false
-}
-
-func getValidCollections() []string {
-	return []string{
-		"incantesimi",
-		"mostri",
-		"classi",
-		"backgrounds",
-		"equipaggiamento",
-		"armi",
-		"armature",
-		"oggetti_magici",
-		"talenti",
-		"servizi",
-		"strumenti",
-		"animali",
-		"documenti",
-	}
-}
-
-func getCollectionTitle(collection string) string {
-	titles := map[string]string{
-		"incantesimi":     "Incantesimi",
-		"mostri":          "Mostri",
-		"classi":          "Classi",
-		"backgrounds":     "Background",
-		"equipaggiamento": "Equipaggiamento",
-		"armi":            "Armi",
-		"armature":        "Armature",
-		"oggetti_magici":  "Oggetti Magici",
-		"talenti":         "Talenti",
-		"servizi":         "Servizi",
-		"strumenti":       "Strumenti",
-		"animali":         "Animali",
-		"documenti":       "Documenti",
-	}
-
-	if title, exists := titles[collection]; exists {
-		return title
-	}
-
-	return strings.Title(collection)
-}
