@@ -96,7 +96,7 @@ func (r *ArmaturaMongoRepository) FindByType(ctx context.Context, armorType stri
 		if err := cursor.Decode(&doc); err != nil {
 			return nil, fmt.Errorf("failed to decode document: %w", err)
 		}
-		
+
 		armatura, err := extractArmaturaFromDocument(doc)
 		if err != nil {
 			return nil, fmt.Errorf("failed to extract armatura: %w", err)
@@ -140,7 +140,7 @@ func (r *ArmaturaMongoRepository) FindByACRange(ctx context.Context, minAC, maxA
 		if err := cursor.Decode(&doc); err != nil {
 			return nil, fmt.Errorf("failed to decode document: %w", err)
 		}
-		
+
 		armatura, err := extractArmaturaFromDocument(doc)
 		if err != nil {
 			return nil, fmt.Errorf("failed to extract armatura: %w", err)
@@ -184,7 +184,7 @@ func (r *ArmaturaMongoRepository) FindStealthDisadvantage(ctx context.Context, l
 		if err := cursor.Decode(&doc); err != nil {
 			return nil, fmt.Errorf("failed to decode document: %w", err)
 		}
-		
+
 		armatura, err := extractArmaturaFromDocument(doc)
 		if err != nil {
 			return nil, fmt.Errorf("failed to extract armatura: %w", err)
@@ -228,7 +228,7 @@ func (r *ArmaturaMongoRepository) FindByStrengthRequirement(ctx context.Context,
 		if err := cursor.Decode(&doc); err != nil {
 			return nil, fmt.Errorf("failed to decode document: %w", err)
 		}
-		
+
 		armatura, err := extractArmaturaFromDocument(doc)
 		if err != nil {
 			return nil, fmt.Errorf("failed to extract armatura: %w", err)
@@ -271,7 +271,7 @@ func (r *ArmaturaMongoRepository) FindByCostRange(ctx context.Context, minCost, 
 		if err := cursor.Decode(&doc); err != nil {
 			return nil, fmt.Errorf("failed to decode document: %w", err)
 		}
-		
+
 		armatura, err := extractArmaturaFromDocument(doc)
 		if err != nil {
 			return nil, fmt.Errorf("failed to extract armatura: %w", err)

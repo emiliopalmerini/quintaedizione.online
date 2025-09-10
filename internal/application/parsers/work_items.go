@@ -8,6 +8,16 @@ func CreateDefaultWorkItems() []WorkItem {
 			Collection: "armature",
 			Language:   Italian,
 		},
+		{
+			Filename:   "ita/lists/armi.md",
+			Collection: "armi",
+			Language:   Italian,
+		},
+		{
+			Filename:   "ita/lists/animali.md",
+			Collection: "animali",
+			Language:   Italian,
+		},
 	}
 }
 
@@ -55,4 +65,3 @@ func ValidateWorkItem(item WorkItem) error {
 	}
 	return nil
 }
-

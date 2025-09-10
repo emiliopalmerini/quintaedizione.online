@@ -238,7 +238,7 @@ func (r *BaseMongoRepository[T]) UpsertManyMaps(ctx context.Context, uniqueField
 	collection := r.client.GetCollection(r.collectionName)
 	var operations []mongo.WriteModel
 
-	for i, doc := range docs {
+	for _, doc := range docs {
 		filter := bson.M{}
 		hasUniqueField := false
 
