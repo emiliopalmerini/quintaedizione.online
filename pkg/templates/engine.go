@@ -11,12 +11,22 @@ import (
 type Engine struct {
 	templates    *template.Template
 	templatesDir string
+	isDev        bool
 }
 
 // NewEngine creates a new template engine
 func NewEngine(templatesDir string) *Engine {
 	return &Engine{
 		templatesDir: templatesDir,
+		isDev:        false,
+	}
+}
+
+// NewDevEngine creates a new template engine with development features
+func NewDevEngine(templatesDir string) *Engine {
+	return &Engine{
+		templatesDir: templatesDir,
+		isDev:        true,
 	}
 }
 
@@ -53,46 +63,27 @@ func (e *Engine) LoadTemplates() error {
 func (e *Engine) Render(templateName string, data interface{}) (string, error) {
 	var buf bytes.Buffer
 
-	// Create a new template set for this specific render to avoid block conflicts
-	tmpl := template.New("base").Funcs(template.FuncMap{
-		"add":     add,
-		"sub":     sub,
-		"eq":      eq,
-		"default": defaultValue,
-		"safe":    safe,
-	})
-
-	// Parse base template
-	basePattern := filepath.Join(e.templatesDir, "base.html")
-	tmpl, err := tmpl.ParseFiles(basePattern)
-	if err != nil {
-		return "", fmt.Errorf("failed to parse base template: %w", err)
-	}
-
-	// Parse the specific template
-	specificPattern := filepath.Join(e.templatesDir, templateName)
-	tmpl, err = tmpl.ParseFiles(specificPattern)
-	if err != nil {
-		return "", fmt.Errorf("failed to parse template %s: %w", templateName, err)
-	}
-
-	// Parse common partial templates that might be included
-	partialTemplates := []string{
-		"rows.html",
-	}
-
-	for _, partial := range partialTemplates {
-		partialPath := filepath.Join(e.templatesDir, partial)
-		tmpl, err = tmpl.ParseFiles(partialPath)
-		if err != nil {
-			// Partial templates are optional, don't fail if missing
-			fmt.Printf("Warning: Could not load partial template %s: %v\n", partial, err)
+	// In development mode, reload templates for each request
+	if e.isDev {
+		if err := e.LoadTemplates(); err != nil {
+			return "", fmt.Errorf("failed to reload templates in dev mode: %w", err)
 		}
 	}
 
-	// Execute base template which will call the content blocks from the specific template
-	if err := tmpl.ExecuteTemplate(&buf, "base.html", data); err != nil {
-		fmt.Printf("Template execution error for %s: %v\n", templateName, err)
+	// Use cached templates if available
+	if e.templates != nil {
+		if err := e.templates.ExecuteTemplate(&buf, templateName, data); err != nil {
+			return "", fmt.Errorf("failed to execute template %s: %w", templateName, err)
+		}
+		return buf.String(), nil
+	}
+
+	// Fallback to loading templates if not cached
+	if err := e.LoadTemplates(); err != nil {
+		return "", fmt.Errorf("failed to load templates: %w", err)
+	}
+
+	if err := e.templates.ExecuteTemplate(&buf, templateName, data); err != nil {
 		return "", fmt.Errorf("failed to execute template %s: %w", templateName, err)
 	}
 

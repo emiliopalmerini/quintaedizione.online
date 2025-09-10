@@ -1,0 +1,78 @@
+package templates
+
+import "github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/models"
+
+templ ItemPage(data models.ItemPageData) {
+	@BaseLayout(data.PageData) {
+		<div class="flex items-center justify-between mb-8 pb-4" style="border-bottom: 1px solid var(--notion-border);">
+			<a href={ templ.URL("/" + data.PageData.Collection) } class="btn">← Lista { data.CollectionLabel }</a>
+			
+			<div class="flex items-center gap-2">
+				if data.PrevID != "" {
+					<a class="btn" 
+						href={ templ.URL("/" + data.PageData.Collection + "/" + data.PrevID) }
+						hx-get={ "/" + data.PageData.Collection + "/" + data.PrevID }
+						hx-target="#page-root"
+						hx-select="#page-root"
+						hx-swap="outerHTML"
+						hx-push-url="true"
+						hx-indicator="#page-loading">
+						<span class="htmx-indicator">⟳</span>
+						← Precedente
+					</a>
+				} else {
+					<a class="btn" style="opacity: 0.3; pointer-events: none;">
+						<span class="htmx-indicator">⟳</span>
+						← Precedente
+					</a>
+				}
+				
+				if data.NextID != "" {
+					<a class="btn"
+						href={ templ.URL("/" + data.PageData.Collection + "/" + data.NextID) }
+						hx-get={ "/" + data.PageData.Collection + "/" + data.NextID }
+						hx-target="#page-root"
+						hx-select="#page-root"
+						hx-swap="outerHTML"
+						hx-push-url="true"
+						hx-indicator="#page-loading">
+						<span class="htmx-indicator">⟳</span>
+						Successivo →
+					</a>
+				} else {
+					<a class="btn" style="opacity: 0.3; pointer-events: none;">
+						<span class="htmx-indicator">⟳</span>
+						Successivo →
+					</a>
+				}
+			</div>
+		</div>
+
+		<!-- Item title -->
+		if data.PageData.DocTitle != "" {
+			<h1 class="notion-h1 mb-6">{ data.PageData.DocTitle }</h1>
+		}
+
+		<!-- Item content -->
+		<article data-md-section>
+			if data.BodyHTML != "" {
+				<div data-markdown data-ssr="true" data-raw={ data.BodyRaw }>
+					@templ.Raw(data.BodyHTML)
+				</div>
+			} else if data.BodyRaw != "" {
+				<div data-markdown data-raw={ data.BodyRaw }>
+					{ data.BodyRaw }
+				</div>
+			} else {
+				<div style="color: var(--notion-text-light); font-style: italic;">Nessuna descrizione disponibile.</div>
+			}
+		</article>
+
+		<!-- Action buttons -->
+		<div class="mt-6 pt-4" style="border-top: 1px solid var(--notion-border);">
+			<button onclick="copyMarkdown(this)" class="btn btn-ghost">
+				Copia Markdown
+			</button>
+		</div>
+	}
+}

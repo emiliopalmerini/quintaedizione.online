@@ -117,6 +117,9 @@ func (r *MongoDBRepository) FindOneMap(ctx context.Context, collection string, f
 			}
 		}
 	}
+	
+	// Ensure important root-level fields are preserved (contenuto, created_at, etc.)
+	// These are already in doc, no need to extract them separately
 
 	return doc, nil
 }

@@ -1,0 +1,46 @@
+package templates
+
+import "github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/models"
+import "strconv"
+
+templ HomePage(data models.HomePageData) {
+	@BaseLayout(data.PageData) {
+		<section class="hero">
+			<h1>Il Fantastico Visualizzatore di SRD (5e 2024)</h1>
+			<a href="https://duedraghialmicrofono.com" class="hero-link">
+				sostenuto da Due Draghi al Microfono
+			</a>
+
+			<p>
+				Questa applicazione aiuta a sfogliare, cercare e <strong>copiare rapidamente</strong> i contenuti della SRD della 5e 2024.
+				Usa la ricerca testuale e i <strong>filtri specifici</strong> per ciascuna collezione; 
+			</p>
+			if data.Total > 0 {
+				<div class="hero-stats">
+					<span style="color: var(--gray-500);">Totale elementi indicizzati:</span>
+					<span class="hero-stats-badge">{ strconv.FormatInt(data.Total, 10) }</span>
+				</div>
+			}
+		</section>
+
+		<div class="collection-grid">
+			for _, collection := range data.Collections {
+				<a href={ templ.URL("/" + collection.Name) } class="collection-card">
+					<div class="collection-card-content">
+						<div class="collection-card-header">
+							<div>
+								<div class="collection-card-subtitle">Collezione</div>
+								<div class="collection-card-title">{ collection.Label }</div>
+								<div class="collection-card-key">chiave: <span class="mono">{ collection.Name }</span></div>
+							</div>
+							if collection.Count > 0 {
+								<div class="collection-badge" title="Numero di elementi">{ strconv.FormatInt(collection.Count, 10) }</div>
+							}
+						</div>
+						<div class="collection-card-footer">Apri →</div>
+					</div>
+				</a>
+			}
+		</div>
+	}
+}

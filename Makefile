@@ -3,7 +3,7 @@ SHELL := /bin/sh
 # Configuration
 PROJECT ?= dnd
 
-.PHONY: help up down logs build build-editor build-parser env-init lint format test test-integration benchmark seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh editor-sh
+.PHONY: help up down logs build build-editor build-parser templ-generate env-init lint format test test-integration benchmark seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh editor-sh
 
 # === Docker Services ===
 up:
@@ -16,14 +16,19 @@ logs:
 	docker compose logs -f editor parser
 
 # === Build Commands ===
-build:
+build: templ-generate
 	docker compose build editor parser
 
-build-editor:
+build-editor: templ-generate
 	docker compose build editor
 
 build-parser:
 	docker compose build parser
+
+# === Template Generation ===
+templ-generate:
+	@echo "Generating Templ templates..."
+	cd web/templates && templ generate
 
 # === Development Setup ===
 env-init:
@@ -95,9 +100,10 @@ help:
 	@echo "  make logs                  # View service logs"
 	@echo ""
 	@echo "Build Commands:"
-	@echo "  make build                 # Build editor and parser images"
-	@echo "  make build-editor          # Build only editor image"
+	@echo "  make build                 # Build editor and parser images (with templ generation)"
+	@echo "  make build-editor          # Build only editor image (with templ generation)"
 	@echo "  make build-parser          # Build only parser image"
+	@echo "  make templ-generate        # Generate Go code from Templ templates"
 	@echo ""
 	@echo "Go Development:"
 	@echo "  make lint                  # Lint Go code"

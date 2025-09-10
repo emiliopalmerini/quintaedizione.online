@@ -51,6 +51,9 @@
   --space-4: 1rem;
   --space-5: 1.25rem;
   --space-6: 1.5rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
   --space-8: 2rem;
   --space-12: 3rem;
   --space-16: 4rem;
@@ -610,8 +613,8 @@ body {
 }
 
 [data-markdown] pre {
-  background: #0b1020;
-  color: #e6eaf3;
+  background: var(--notion-bg-secondary);
+  color: var(--notion-text);
   border-radius: var(--radius-lg);
   padding: 0.85rem;
   overflow: auto;
@@ -755,6 +758,47 @@ body {
 
 [data-markdown] > :first-child {
   margin-top: 0 !important;
+}
+
+/* D&D Specific Formatting for Actions and Traits */
+/* Style for action/trait names in bold italic (***Text***) */
+[data-markdown] strong em,
+[data-markdown] em strong {
+  color: var(--primary-dark);
+  font-weight: 700;
+  font-style: normal;
+  display: inline-block;
+  margin-right: 0.25rem;
+  font-size: 1.05em;
+}
+
+/* Add some spacing between actions/traits */
+[data-markdown] p:has(strong em),
+[data-markdown] p:has(em strong) {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Style for italicized mechanics text */
+[data-markdown] em:not(:has(strong)):not(strong em):not(em strong) {
+  color: var(--notion-text-light);
+  font-style: italic;
+}
+
+/* Better spacing for stat blocks */
+[data-markdown] ul li {
+  margin-bottom: 0.25rem;
+}
+
+/* Style the metadata line (e.g., "*Aberrazione Grande, Legale Malvagio*") */
+[data-markdown] p:first-of-type em {
+  color: var(--gray-600);
+  font-size: 1.1em;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--notion-border);
 }
 
 /* Page Loading Overlay */
@@ -1495,5 +1539,162 @@ body {
   .sm\:items-center {
     align-items: center;
   }
+}
+
+/* HTMX Loading Indicators */
+.htmx-indicator {
+  display: none;
+}
+
+.htmx-request .htmx-indicator,
+.htmx-request.htmx-indicator {
+  display: inline-block;
+}
+
+.htmx-request .htmx-indicator {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Spin animation for loading */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Pulse animation for loading states */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Loading overlay for major transitions */
+.htmx-request.page-transition {
+  position: relative;
+}
+
+.htmx-request.page-transition::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Skeleton loading states */
+.skeleton {
+  background: linear-gradient(90deg, var(--gray-200) 25%, var(--gray-100) 50%, var(--gray-200) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Error states */
+.error-message {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 20%, 40%, 60%, 80%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+}
+
+/* Keyboard Help Modal */
+.keyboard-help-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.keyboard-help-content {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  max-width: 400px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.keyboard-help-content h3 {
+  margin: 0 0 1rem 0;
+  color: var(--notion-text);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.keyboard-shortcuts {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.keyboard-shortcuts > div {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.keyboard-shortcuts kbd {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-300);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  min-width: 2rem;
+  text-align: center;
+}
+
+.keyboard-shortcuts span {
+  color: var(--notion-text);
+  font-size: 0.875rem;
+}
+
+.keyboard-help-content button {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.keyboard-help-content button:hover {
+  background: var(--primary-dark);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 

@@ -14,6 +14,7 @@ type RepositoryFactory struct {
 	client *pkgMongodb.Client
 
 	// Repository instances
+	contentRepo            repositories.ContentRepository
 	documentoRepo          repositories.DocumentoRepository
 	incantesimoRepo        repositories.IncantesimoRepository
 	mostroRepo             repositories.MostroRepository
@@ -149,6 +150,14 @@ func (f *RepositoryFactory) MostroRepository() repositories.MostroRepository {
 		f.mostroRepo = mongodb.NewMostroMongoRepository(f.client)
 	}
 	return f.mostroRepo
+}
+
+// ContentRepository returns the unified content repository
+func (f *RepositoryFactory) ContentRepository() repositories.ContentRepository {
+	if f.contentRepo == nil {
+		f.contentRepo = mongodb.NewContentMongoRepository(f.client)
+	}
+	return f.contentRepo
 }
 
 // GetRepositoryByEntityType returns the appropriate repository for a given entity type

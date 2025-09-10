@@ -9,10 +9,11 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/repositories"
+	web "github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure/content_repository"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure/database"
 	pkgMongodb "github.com/emiliopalmerini/due-draghi-5e-srd/pkg/mongodb"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/templates"
 	"github.com/gin-gonic/gin"
@@ -50,18 +51,32 @@ func main() {
 	}
 	log.Println("✅ MongoDB connection established")
 
-	// Initialize template engine
-	templateEngine := templates.NewEngine("web/templates")
-	if err := templateEngine.LoadTemplates(); err != nil {
-		log.Fatalf("Failed to load templates: %v", err)
+	// Initialize database indexes for optimal query performance
+	indexManager := database.NewIndexManager(mongoClient)
+	indexCtx, indexCancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer indexCancel()
+	
+	if err := indexManager.EnsureIndexes(indexCtx); err != nil {
+		log.Printf("⚠️  Failed to create indexes: %v", err)
+		// Don't fail startup, indexes can be created later
+	} else {
+		log.Println("✅ Database indexes ensured")
+	}
+
+	// Initialize Templ engine
+	var templateEngine *templates.TemplEngine
+	if config.IsProduction() {
+		templateEngine = templates.NewTemplEngine()
+	} else {
+		templateEngine = templates.NewDevTemplEngine()
 	}
 	log.Println("✅ Templates loaded")
 
-	// Initialize repository layer
-	contentRepo := content_repository.NewMongoDBRepository(mongoClient)
+	// Initialize repository factory
+	repositoryFactory := repositories.NewRepositoryFactory(mongoClient)
 	
 	// Initialize services
-	contentService := services.NewContentService(contentRepo)
+	contentService := services.NewContentService(repositoryFactory.ContentRepository())
 
 	// Initialize web handlers
 	webHandlers := web.NewHandlers(contentService, templateEngine)
@@ -70,8 +85,11 @@ func main() {
 	router := gin.Default()
 
 	// Middleware
-	router.Use(gin.Recovery())
-	router.Use(gin.Logger())
+	router.Use(web.RequestLoggingMiddleware())
+	router.Use(web.MetricsMiddleware())
+	router.Use(webHandlers.ErrorRecoveryMiddleware())
+	router.Use(web.SecurityMiddleware())
+	router.Use(web.ValidationMiddleware())
 	router.Use(corsMiddleware())
 
 	// Static files
@@ -80,14 +98,24 @@ func main() {
 	// Health check endpoint
 	router.GET("/health", func(c *gin.Context) {
 		cacheStats := infrastructure.GetGlobalCache().GetStats()
+		metrics := web.GetGlobalMetrics()
 
 		c.JSON(http.StatusOK, gin.H{
-			"status":       "healthy",
-			"version":      "3.0.0-go",
-			"architecture": "hexagonal",
-			"database":     mongoClient.DatabaseName(),
-			"cache_items":  cacheStats["item_count"],
+			"status":         "healthy",
+			"version":        "3.0.0-go",
+			"architecture":   "hexagonal",
+			"database":       mongoClient.DatabaseName(),
+			"cache_items":    cacheStats["item_count"],
+			"uptime_seconds": time.Since(metrics.StartTime).Seconds(),
+			"request_count":  metrics.RequestCount,
+			"error_rate":     float64(metrics.ErrorCount) / max(float64(metrics.RequestCount), 1) * 100,
 		})
+	})
+
+	// Detailed metrics endpoint
+	router.GET("/admin/metrics", func(c *gin.Context) {
+		metrics := web.GetGlobalMetrics()
+		c.JSON(http.StatusOK, metrics.ToJSON())
 	})
 
 	// Register routes

@@ -3,22 +3,20 @@ package services
 import (
 	"context"
 	"fmt"
-	"regexp"
 	"time"
 
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain/repositories"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure/content_repository"
-	"go.mongodb.org/mongo-driver/bson"
 )
 
 // ContentService provides business logic for content operations
 type ContentService struct {
-	contentRepo content_repository.Repository
+	contentRepo repositories.ContentRepository
 	cache       *infrastructure.SimpleCache
 }
 
 // NewContentService creates a new ContentService instance
-func NewContentService(contentRepo content_repository.Repository) *ContentService {
+func NewContentService(contentRepo repositories.ContentRepository) *ContentService {
 	return &ContentService{
 		contentRepo: contentRepo,
 		cache:       infrastructure.GetGlobalCache(),
@@ -27,32 +25,13 @@ func NewContentService(contentRepo content_repository.Repository) *ContentServic
 
 // GetCollectionItems retrieves items from a collection with pagination and search
 func (s *ContentService) GetCollectionItems(ctx context.Context, collection, search string, page, limit int) ([]map[string]interface{}, int64, error) {
-	// Build filter
-	filter := bson.M{}
-	if search != "" {
-		// Escape special regex characters for safety
-		escapedSearch := regexp.QuoteMeta(search)
-		filter["$or"] = []bson.M{
-			{"value.nome": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.titolo": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.descrizione": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"contenuto": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		}
-	}
-
 	// Calculate skip
 	skip := int64((page - 1) * limit)
 
-	// Get total count
-	totalCount, err := s.contentRepo.Count(ctx, collection, filter)
+	// Get items using the domain repository
+	items, totalCount, err := s.contentRepo.GetCollectionItems(ctx, collection, search, skip, int64(limit))
 	if err != nil {
-		return nil, 0, fmt.Errorf("failed to count documents: %w", err)
-	}
-
-	// Get items
-	items, err := s.contentRepo.FindMaps(ctx, collection, filter, skip, int64(limit))
-	if err != nil {
-		return nil, 0, fmt.Errorf("failed to find documents: %w", err)
+		return nil, 0, fmt.Errorf("failed to get collection items: %w", err)
 	}
 
 	// Add display elements for each item
@@ -265,9 +244,7 @@ func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (
 		}
 	}
 
-	filter := bson.M{"value.slug": slug}
-
-	item, err := s.contentRepo.FindOneMap(ctx, collection, filter)
+	item, err := s.contentRepo.GetItemBySlug(ctx, collection, slug)
 	if err != nil {
 		return nil, fmt.Errorf("failed to find item: %w", err)
 	}
@@ -305,5 +282,10 @@ func (s *ContentService) GetStats(ctx context.Context) (map[string]interface{}, 
 // GetCollectionStats retrieves statistics for all collections
 func (s *ContentService) GetCollectionStats(ctx context.Context) ([]map[string]interface{}, error) {
 	return s.contentRepo.GetCollectionStats(ctx)
+}
+
+// GetAdjacentItems gets the previous and next items for navigation
+func (s *ContentService) GetAdjacentItems(ctx context.Context, collection, currentSlug string) (prevSlug, nextSlug *string, err error) {
+	return s.contentRepo.GetAdjacentItems(ctx, collection, currentSlug)
 }
 

@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/models"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/templates"
 	"github.com/gin-gonic/gin"
@@ -13,11 +14,11 @@ import (
 // Handlers contains web handlers for the editor
 type Handlers struct {
 	contentService *services.ContentService
-	templateEngine *templates.Engine
+	templateEngine *templates.TemplEngine
 }
 
 // NewHandlers creates a new Handlers instance
-func NewHandlers(contentService *services.ContentService, templateEngine *templates.Engine) *Handlers {
+func NewHandlers(contentService *services.ContentService, templateEngine *templates.TemplEngine) *Handlers {
 	return &Handlers{
 		contentService: contentService,
 		templateEngine: templateEngine,
@@ -59,26 +60,48 @@ func (h *Handlers) handleHome(c *gin.Context) {
 		}
 	}
 
-	// Calculate total items
+	// Convert collections to typed format and calculate total
+	typedCollections := make([]models.Collection, 0, len(collections))
 	total := int64(0)
+	
 	for _, col := range collections {
-		if count, ok := col["count"].(int64); ok {
-			total += count
-			// Also set label from title if not present
-			if title, ok := col["title"].(string); ok && col["label"] == nil {
-				col["label"] = title
-			}
+		collection := models.Collection{
+			Name:  col["name"].(string),
+			Count: 0,
 		}
+		
+		if count, ok := col["count"].(int64); ok {
+			collection.Count = count
+			total += count
+		}
+		
+		if label, ok := col["label"].(string); ok {
+			collection.Label = label
+		} else if title, ok := col["title"].(string); ok {
+			collection.Label = title
+		} else {
+			collection.Label = collection.Name
+		}
+		
+		typedCollections = append(typedCollections, collection)
 	}
 
-	data := gin.H{
-		"title":       "5e SRD 2024",
-		"description": "Il Fantastico Visualizzatore di SRD (5e 2024)",
-		"collections": collections,
-		"total":       total,
+	data := models.HomePageData{
+		PageData: models.PageData{
+			Title:       "5e SRD 2024",
+			Description: "Il Fantastico Visualizzatore di SRD (5e 2024)",
+		},
+		Collections: typedCollections,
+		Total:       total,
 	}
 
-	h.renderTemplate(c, "home.html", data)
+	content, err := h.templateEngine.RenderHome(data)
+	if err != nil {
+		h.ErrorResponse(c, err, "Errore nel rendering della pagina home")
+		return
+	}
+
+	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
 }
 
 // handleCollectionList renders a collection list page
@@ -99,10 +122,40 @@ func (h *Handlers) handleCollectionList(c *gin.Context) {
 	}
 
 	// Get items from service
-	items, totalCount, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, q, pageNum, pageSizeNum)
+	rawItems, totalCount, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, q, pageNum, pageSizeNum)
 	if err != nil {
-		h.renderError(c, fmt.Sprintf("Errore nel caricamento della collezione %s: %v", collection, err), http.StatusInternalServerError)
+		h.ErrorResponse(c, err, fmt.Sprintf("Errore nel caricamento della collezione %s", collection))
 		return
+	}
+
+	// Convert to typed documents
+	documents := make([]models.Document, 0, len(rawItems))
+	for _, item := range rawItems {
+		doc := models.Document{}
+		
+		if id, ok := item["_id"].(string); ok {
+			doc.ID = id
+		}
+		if nome, ok := item["nome"].(string); ok {
+			doc.Nome = nome
+		}
+		if slug, ok := item["slug"].(string); ok {
+			doc.Slug = slug
+		}
+		if displayElements, ok := item["display_elements"].([]interface{}); ok {
+			for _, elem := range displayElements {
+				if elemMap, ok := elem.(map[string]interface{}); ok {
+					if value, ok := elemMap["value"].(string); ok {
+						doc.DisplayElements = append(doc.DisplayElements, models.DocumentDisplayField{Value: value})
+					}
+				}
+			}
+		}
+		if translated, ok := item["translated"].(bool); ok {
+			doc.Translated = translated
+		}
+		
+		documents = append(documents, doc)
 	}
 
 	// Calculate pagination
@@ -113,23 +166,31 @@ func (h *Handlers) handleCollectionList(c *gin.Context) {
 		endItem = int(totalCount)
 	}
 
-	data := gin.H{
-		"title":       getCollectionTitle(collection),
-		"collection":  collection,
-		"documents":   items,
-		"q":           q,
-		"page":        pageNum,
-		"page_size":   pageSizeNum,
-		"total":       totalCount,
-		"total_pages": totalPages,
-		"has_next":    pageNum < totalPages,
-		"has_prev":    pageNum > 1,
-		"start_item":  startItem,
-		"end_item":    endItem,
-		"qs":          c.Request.URL.RawQuery,
+	data := models.CollectionPageData{
+		PageData: models.PageData{
+			Title:       getCollectionTitle(collection),
+			Collection:  collection,
+			QueryString: c.Request.URL.RawQuery,
+		},
+		Documents:   documents,
+		Query:       q,
+		Page:        pageNum,
+		PageSize:    pageSizeNum,
+		Total:       totalCount,
+		TotalPages:  totalPages,
+		HasNext:     pageNum < totalPages,
+		HasPrev:     pageNum > 1,
+		StartItem:   startItem,
+		EndItem:     endItem,
 	}
 
-	h.renderTemplate(c, "collection.html", data)
+	content, err := h.templateEngine.RenderCollection(data)
+	if err != nil {
+		h.ErrorResponse(c, err, "Errore nel rendering della pagina collezione")
+		return
+	}
+
+	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
 }
 
 // handleItemDetail renders an item detail page
@@ -139,7 +200,7 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 
 	item, err := h.contentService.GetItem(c.Request.Context(), collection, slug)
 	if err != nil {
-		h.renderError(c, "Elemento non trovato", http.StatusNotFound)
+		h.ErrorResponse(c, err, "Elemento non trovato")
 		return
 	}
 
@@ -148,7 +209,9 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 	var bodyHTML string
 
 	// Try different fields for content
-	if content, ok := item["contenuto_markdown"].(string); ok {
+	if content, ok := item["contenuto"].(string); ok {
+		bodyRaw = content
+	} else if content, ok := item["contenuto_markdown"].(string); ok {
 		bodyRaw = content
 	} else if desc, ok := item["descrizione"].(string); ok {
 		bodyRaw = desc
@@ -159,20 +222,51 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 	// For now, bodyHTML = bodyRaw (client-side rendering)
 	bodyHTML = bodyRaw
 
-	data := gin.H{
-		"doc_title":        item["nome"],
-		"doc_id":           slug,
-		"collection":       collection,
-		"collection_label": getCollectionTitle(collection),
-		"body_raw":         bodyRaw,
-		"body_html":        bodyHTML,
-		"qs":               c.Request.URL.RawQuery,
-		// TODO: Add prev_id and next_id for navigation
-		"prev_id": nil,
-		"next_id": nil,
+	// Get navigation items
+	prevSlug, nextSlug, err := h.contentService.GetAdjacentItems(c.Request.Context(), collection, slug)
+	if err != nil {
+		// Log error but don't fail the request
+		fmt.Printf("Warning: Could not get adjacent items for %s/%s: %v\n", collection, slug, err)
 	}
 
-	h.renderTemplate(c, "item.html", data)
+	// Get doc title
+	docTitle := ""
+	if nome, ok := item["nome"].(string); ok {
+		docTitle = nome
+	}
+
+	// Handle navigation slugs (they're pointers)
+	prevID := ""
+	if prevSlug != nil {
+		prevID = *prevSlug
+	}
+	nextID := ""
+	if nextSlug != nil {
+		nextID = *nextSlug
+	}
+
+	data := models.ItemPageData{
+		PageData: models.PageData{
+			Title:       docTitle,
+			DocTitle:    docTitle,
+			DocID:       slug,
+			Collection:  collection,
+			QueryString: c.Request.URL.RawQuery,
+		},
+		BodyRaw:         bodyRaw,
+		BodyHTML:        bodyHTML,
+		PrevID:          prevID,
+		NextID:          nextID,
+		CollectionLabel: getCollectionTitle(collection),
+	}
+
+	content, err := h.templateEngine.RenderItem(data)
+	if err != nil {
+		h.ErrorResponse(c, err, "Errore nel rendering della pagina elemento")
+		return
+	}
+
+	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
 }
 
 // handleCollectionRows handles HTMX requests for collection rows
@@ -193,10 +287,40 @@ func (h *Handlers) handleCollectionRows(c *gin.Context) {
 	}
 
 	// Get filtered items
-	items, totalCount, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, q, pageNum, pageSizeNum)
+	rawItems, totalCount, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, q, pageNum, pageSizeNum)
 	if err != nil {
-		h.renderError(c, fmt.Sprintf("Errore nel caricamento righe per %s: %v", collection, err), http.StatusInternalServerError)
+		h.ErrorResponse(c, err, fmt.Sprintf("Errore nel caricamento righe per %s", collection))
 		return
+	}
+
+	// Convert to typed documents (same logic as collection handler)
+	documents := make([]models.Document, 0, len(rawItems))
+	for _, item := range rawItems {
+		doc := models.Document{}
+		
+		if id, ok := item["_id"].(string); ok {
+			doc.ID = id
+		}
+		if nome, ok := item["nome"].(string); ok {
+			doc.Nome = nome
+		}
+		if slug, ok := item["slug"].(string); ok {
+			doc.Slug = slug
+		}
+		if displayElements, ok := item["display_elements"].([]interface{}); ok {
+			for _, elem := range displayElements {
+				if elemMap, ok := elem.(map[string]interface{}); ok {
+					if value, ok := elemMap["value"].(string); ok {
+						doc.DisplayElements = append(doc.DisplayElements, models.DocumentDisplayField{Value: value})
+					}
+				}
+			}
+		}
+		if translated, ok := item["translated"].(bool); ok {
+			doc.Translated = translated
+		}
+		
+		documents = append(documents, doc)
 	}
 
 	// Calculate pagination
@@ -207,51 +331,33 @@ func (h *Handlers) handleCollectionRows(c *gin.Context) {
 		endItem = int(totalCount)
 	}
 
-	data := gin.H{
-		"collection":  collection,
-		"documents":   items,
-		"total":       totalCount,
-		"page":        pageNum,
-		"page_size":   pageSizeNum,
-		"total_pages": totalPages,
-		"has_next":    pageNum < totalPages,
-		"has_prev":    pageNum > 1,
-		"start_item":  startItem,
-		"end_item":    endItem,
-		"qs":          c.Request.URL.RawQuery,
+	data := models.CollectionPageData{
+		PageData: models.PageData{
+			Collection:  collection,
+			QueryString: c.Request.URL.RawQuery,
+		},
+		Documents:   documents,
+		Query:       q,
+		Page:        pageNum,
+		PageSize:    pageSizeNum,
+		Total:       totalCount,
+		TotalPages:  totalPages,
+		HasNext:     pageNum < totalPages,
+		HasPrev:     pageNum > 1,
+		StartItem:   startItem,
+		EndItem:     endItem,
 	}
 
-	h.renderTemplate(c, "rows.html", data)
-}
-
-// Helper methods
-func (h *Handlers) renderTemplate(c *gin.Context, template string, data gin.H) {
-	content, err := h.templateEngine.Render(template, data)
+	content, err := h.templateEngine.RenderRows(data)
 	if err != nil {
-		h.renderError(c, "Errore nel rendering della pagina", http.StatusInternalServerError)
+		h.ErrorResponse(c, err, "Errore nel rendering delle righe")
 		return
 	}
 
 	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
 }
 
-func (h *Handlers) renderError(c *gin.Context, message string, statusCode int) {
-	data := gin.H{
-		"title":       "Errore",
-		"error":       message,
-		"status_code": statusCode,
-	}
-
-	content, err := h.templateEngine.Render("error.html", data)
-	if err != nil {
-		// Fallback to simple error response
-		c.String(statusCode, "Errore: %s", message)
-		return
-	}
-
-	c.Data(statusCode, "text/html; charset=utf-8", []byte(content))
-}
-
+// Helper methods
 func getCollectionTitle(collection string) string {
 	titles := map[string]string{
 		"incantesimi":         "Incantesimi",
