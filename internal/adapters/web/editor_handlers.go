@@ -133,15 +133,22 @@ func (h *Handlers) handleCollectionList(c *gin.Context) {
 	for _, item := range rawItems {
 		doc := models.Document{}
 		
+		// Extract _id from document root
 		if id, ok := item["_id"].(string); ok {
 			doc.ID = id
 		}
-		if nome, ok := item["nome"].(string); ok {
-			doc.Nome = nome
+		
+		// Extract nome and slug from value object
+		if valueObj, ok := item["value"].(map[string]interface{}); ok {
+			if nome, ok := valueObj["nome"].(string); ok {
+				doc.Nome = nome
+			}
+			if slug, ok := valueObj["slug"].(string); ok {
+				doc.Slug = slug
+			}
 		}
-		if slug, ok := item["slug"].(string); ok {
-			doc.Slug = slug
-		}
+		
+		// Extract display elements (processed by ContentService)
 		if displayElements, ok := item["display_elements"].([]interface{}); ok {
 			for _, elem := range displayElements {
 				if elemMap, ok := elem.(map[string]interface{}); ok {
@@ -151,6 +158,8 @@ func (h *Handlers) handleCollectionList(c *gin.Context) {
 				}
 			}
 		}
+		
+		// Extract translated flag from document root
 		if translated, ok := item["translated"].(bool); ok {
 			doc.Translated = translated
 		}
@@ -298,15 +307,22 @@ func (h *Handlers) handleCollectionRows(c *gin.Context) {
 	for _, item := range rawItems {
 		doc := models.Document{}
 		
+		// Extract _id from document root
 		if id, ok := item["_id"].(string); ok {
 			doc.ID = id
 		}
-		if nome, ok := item["nome"].(string); ok {
-			doc.Nome = nome
+		
+		// Extract nome and slug from value object
+		if valueObj, ok := item["value"].(map[string]interface{}); ok {
+			if nome, ok := valueObj["nome"].(string); ok {
+				doc.Nome = nome
+			}
+			if slug, ok := valueObj["slug"].(string); ok {
+				doc.Slug = slug
+			}
 		}
-		if slug, ok := item["slug"].(string); ok {
-			doc.Slug = slug
-		}
+		
+		// Extract display elements (processed by ContentService)
 		if displayElements, ok := item["display_elements"].([]interface{}); ok {
 			for _, elem := range displayElements {
 				if elemMap, ok := elem.(map[string]interface{}); ok {
@@ -316,6 +332,8 @@ func (h *Handlers) handleCollectionRows(c *gin.Context) {
 				}
 			}
 		}
+		
+		// Extract translated flag from document root
 		if translated, ok := item["translated"].(bool); ok {
 			doc.Translated = translated
 		}
