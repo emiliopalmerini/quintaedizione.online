@@ -3,7 +3,6 @@ package mongodb
 import (
 	"context"
 	"fmt"
-	"regexp"
 	"slices"
 
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain/repositories"
@@ -24,14 +23,32 @@ func NewContentMongoRepository(client *pkgMongodb.Client) repositories.ContentRe
 	}
 }
 
-// GetCollectionItems retrieves items from any collection with pagination and search
-func (r *ContentMongoRepository) GetCollectionItems(ctx context.Context, collection, search string, skip int64, limit int64) ([]map[string]any, int64, error) {
+// GetCollectionItems retrieves items from any collection with pagination and pre-built filter
+func (r *ContentMongoRepository) GetCollectionItems(ctx context.Context, collection string, filter bson.M, skip int64, limit int64) ([]map[string]any, int64, error) {
 	if !r.isValidCollection(collection) {
 		return nil, 0, fmt.Errorf("invalid collection: %s", collection)
 	}
 
-	// Build search filter
-	filter := r.buildSearchFilter(collection, search)
+	// Get total count
+	totalCount, err := r.CountCollection(ctx, collection, filter)
+	if err != nil {
+		return nil, 0, fmt.Errorf("failed to count documents: %w", err)
+	}
+
+	// Get items
+	items, err := r.FindCollectionMaps(ctx, collection, filter, skip, limit)
+	if err != nil {
+		return nil, 0, fmt.Errorf("failed to find documents: %w", err)
+	}
+
+	return items, totalCount, nil
+}
+
+// GetCollectionItemsWithFilters retrieves items from any collection with pagination and pre-built filter
+func (r *ContentMongoRepository) GetCollectionItemsWithFilters(ctx context.Context, collection string, filter bson.M, skip int64, limit int64) ([]map[string]any, int64, error) {
+	if !r.isValidCollection(collection) {
+		return nil, 0, fmt.Errorf("invalid collection: %s", collection)
+	}
 
 	// Get total count
 	totalCount, err := r.CountCollection(ctx, collection, filter)
@@ -228,133 +245,3 @@ func (r *ContentMongoRepository) getCollectionTitle(collection string) string {
 	return collection
 }
 
-// buildSearchFilter creates a sophisticated search filter based on collection type and search terms
-func (r *ContentMongoRepository) buildSearchFilter(collection, search string) bson.M {
-	filter := bson.M{}
-	
-	if search == "" {
-		return filter
-	}
-	
-	// Future enhancement: Parse search terms for advanced searching
-	// terms := r.parseSearchTerms(search)
-	
-	// Base search fields that apply to all collections
-	baseSearchFields := []bson.M{
-		{"value.nome": bson.M{"$regex": regexp.QuoteMeta(search), "$options": "i"}},
-		{"value.titolo": bson.M{"$regex": regexp.QuoteMeta(search), "$options": "i"}},
-		{"contenuto": bson.M{"$regex": regexp.QuoteMeta(search), "$options": "i"}},
-	}
-	
-	// Collection-specific search fields
-	collectionSpecificFields := r.getCollectionSpecificSearchFields(collection, search)
-	
-	// Combine base and collection-specific fields
-	searchFields := append(baseSearchFields, collectionSpecificFields...)
-	
-	// Create OR filter for all search fields
-	filter["$or"] = searchFields
-	
-	return filter
-}
-
-// parseSearchTerms parses search input into individual terms, respecting quoted phrases
-func (r *ContentMongoRepository) parseSearchTerms(search string) []string {
-	var terms []string
-	var current string
-	var inQuotes bool
-	
-	for i, char := range search {
-		switch char {
-		case '"':
-			inQuotes = !inQuotes
-			if !inQuotes && current != "" {
-				terms = append(terms, current)
-				current = ""
-			}
-		case ' ':
-			if !inQuotes && current != "" {
-				terms = append(terms, current)
-				current = ""
-			} else if inQuotes {
-				current += string(char)
-			}
-		default:
-			current += string(char)
-		}
-		
-		// Handle end of string
-		if i == len(search)-1 && current != "" {
-			terms = append(terms, current)
-		}
-	}
-	
-	return terms
-}
-
-// getCollectionSpecificSearchFields returns search fields specific to each collection
-func (r *ContentMongoRepository) getCollectionSpecificSearchFields(collection, search string) []bson.M {
-	escapedSearch := regexp.QuoteMeta(search)
-	
-	switch collection {
-	case "incantesimi":
-		return []bson.M{
-			{"value.scuola": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.livello": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.classe": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.componenti": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.durata": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.gittata": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		}
-	case "mostri", "animali":
-		return []bson.M{
-			{"value.tipo": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.taglia": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.gs": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.cr": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.grado_sfida": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.ambiente": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.allineamento": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		}
-	case "armi":
-		return []bson.M{
-			{"value.categoria": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.tipo_danno": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.proprieta": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		}
-	case "armature":
-		return []bson.M{
-			{"value.categoria": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.tipo": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		}
-	case "oggetti_magici":
-		return []bson.M{
-			{"value.tipo": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.rarita": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.sintonia": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		}
-	case "classi":
-		return []bson.M{
-			{"value.dado_vita": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.abilita_primaria": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.tiri_salvezza": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		}
-	case "backgrounds":
-		return []bson.M{
-			{"value.competenze_abilita": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.competenze_linguaggi": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.competenze_strumenti": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		}
-	case "talenti":
-		return []bson.M{
-			{"value.categoria": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.prerequisiti": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		}
-	default:
-		return []bson.M{
-			{"value.descrizione": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.categoria": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.tipo": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		}
-	}
-}

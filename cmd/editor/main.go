@@ -11,6 +11,7 @@ import (
 
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/repositories"
 	web "github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/filters"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure/database"
@@ -75,8 +76,18 @@ func main() {
 	// Initialize repository factory
 	repositoryFactory := repositories.NewRepositoryFactory(mongoClient)
 	
+	// Initialize filter registry
+	filterRegistry, err := filters.NewYAMLFilterRegistry("configs/filters.yaml")
+	if err != nil {
+		log.Fatalf("Failed to initialize filter registry: %v", err)
+	}
+	log.Println("✅ Filter registry loaded")
+	
+	// Initialize filter service
+	filterService := services.NewFilterService(filterRegistry)
+	
 	// Initialize services
-	contentService := services.NewContentService(repositoryFactory.ContentRepository())
+	contentService := services.NewContentService(repositoryFactory.ContentRepository(), filterService)
 
 	// Initialize web handlers
 	webHandlers := web.NewHandlers(contentService, templateEngine)

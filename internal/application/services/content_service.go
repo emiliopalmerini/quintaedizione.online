@@ -5,21 +5,24 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain/filters"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain/repositories"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure"
 )
 
 // ContentService provides business logic for content operations
 type ContentService struct {
-	contentRepo repositories.ContentRepository
-	cache       *infrastructure.SimpleCache
+	contentRepo   repositories.ContentRepository
+	filterService filters.FilterService
+	cache         *infrastructure.SimpleCache
 }
 
 // NewContentService creates a new ContentService instance
-func NewContentService(contentRepo repositories.ContentRepository) *ContentService {
+func NewContentService(contentRepo repositories.ContentRepository, filterService filters.FilterService) *ContentService {
 	return &ContentService{
-		contentRepo: contentRepo,
-		cache:       infrastructure.GetGlobalCache(),
+		contentRepo:   contentRepo,
+		filterService: filterService,
+		cache:         infrastructure.GetGlobalCache(),
 	}
 }
 
@@ -28,10 +31,52 @@ func (s *ContentService) GetCollectionItems(ctx context.Context, collection, sea
 	// Calculate skip
 	skip := int64((page - 1) * limit)
 
+	// Build search filter using FilterService
+	collectionType := filters.CollectionType(collection)
+	searchFilter := s.filterService.BuildSearchFilter(collectionType, search)
+
 	// Get items using the domain repository
-	items, totalCount, err := s.contentRepo.GetCollectionItems(ctx, collection, search, skip, int64(limit))
+	items, totalCount, err := s.contentRepo.GetCollectionItems(ctx, collection, searchFilter, skip, int64(limit))
 	if err != nil {
 		return nil, 0, fmt.Errorf("failed to get collection items: %w", err)
+	}
+
+	// Add display elements for each item
+	for i, item := range items {
+		items[i]["display_elements"] = s.getDisplayElements(collection, item)
+	}
+
+	return items, totalCount, nil
+}
+
+// GetCollectionItemsWithFilters retrieves items from a collection with pagination, search, and field filters
+func (s *ContentService) GetCollectionItemsWithFilters(ctx context.Context, collection, search string, filterParams map[string]string, page, limit int) ([]map[string]interface{}, int64, error) {
+	// Calculate skip
+	skip := int64((page - 1) * limit)
+
+	// Parse filters using FilterService
+	collectionType := filters.CollectionType(collection)
+	filterSet, err := s.filterService.ParseFilters(collectionType, filterParams)
+	if err != nil {
+		return nil, 0, fmt.Errorf("failed to parse filters: %w", err)
+	}
+
+	// Build field filter
+	fieldFilter, err := s.filterService.BuildMongoFilter(filterSet)
+	if err != nil {
+		return nil, 0, fmt.Errorf("failed to build field filter: %w", err)
+	}
+
+	// Build search filter
+	searchFilter := s.filterService.BuildSearchFilter(collectionType, search)
+
+	// Combine filters
+	combinedFilter := s.filterService.CombineFilters(fieldFilter, searchFilter)
+
+	// Get items using the domain repository
+	items, totalCount, err := s.contentRepo.GetCollectionItemsWithFilters(ctx, collection, combinedFilter, skip, int64(limit))
+	if err != nil {
+		return nil, 0, fmt.Errorf("failed to get collection items with filters: %w", err)
 	}
 
 	// Add display elements for each item

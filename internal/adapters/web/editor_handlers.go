@@ -121,8 +121,17 @@ func (h *Handlers) handleCollectionList(c *gin.Context) {
 		pageSizeNum = 20
 	}
 
-	// Get items from service
-	rawItems, totalCount, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, q, pageNum, pageSizeNum)
+	// Extract filter parameters
+	filters := h.extractFilters(c)
+
+	// Get items from service with filters
+	var rawItems []map[string]interface{}
+	var totalCount int64
+	if len(filters) > 0 {
+		rawItems, totalCount, err = h.contentService.GetCollectionItemsWithFilters(c.Request.Context(), collection, q, filters, pageNum, pageSizeNum)
+	} else {
+		rawItems, totalCount, err = h.contentService.GetCollectionItems(c.Request.Context(), collection, q, pageNum, pageSizeNum)
+	}
 	if err != nil {
 		h.ErrorResponse(c, err, fmt.Sprintf("Errore nel caricamento della collezione %s", collection))
 		return
@@ -228,8 +237,9 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 		bodyRaw = body
 	}
 
-	// For now, bodyHTML = bodyRaw (client-side rendering)
-	bodyHTML = bodyRaw
+	// Use client-side markdown rendering - don't set bodyHTML 
+	// This will use the template path that sets data-markdown without data-ssr="true"
+	bodyHTML = ""
 
 	// Get navigation items
 	prevSlug, nextSlug, err := h.contentService.GetAdjacentItems(c.Request.Context(), collection, slug)
@@ -238,10 +248,12 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 		fmt.Printf("Warning: Could not get adjacent items for %s/%s: %v\n", collection, slug, err)
 	}
 
-	// Get doc title
+	// Get doc title from nested value object
 	docTitle := ""
-	if nome, ok := item["nome"].(string); ok {
-		docTitle = nome
+	if valueObj, ok := item["value"].(map[string]interface{}); ok {
+		if nome, ok := valueObj["nome"].(string); ok {
+			docTitle = nome
+		}
 	}
 
 	// Handle navigation slugs (they're pointers)
@@ -295,8 +307,17 @@ func (h *Handlers) handleCollectionRows(c *gin.Context) {
 		pageSizeNum = 20
 	}
 
+	// Extract filter parameters
+	filters := h.extractFilters(c)
+
 	// Get filtered items
-	rawItems, totalCount, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, q, pageNum, pageSizeNum)
+	var rawItems []map[string]interface{}
+	var totalCount int64
+	if len(filters) > 0 {
+		rawItems, totalCount, err = h.contentService.GetCollectionItemsWithFilters(c.Request.Context(), collection, q, filters, pageNum, pageSizeNum)
+	} else {
+		rawItems, totalCount, err = h.contentService.GetCollectionItems(c.Request.Context(), collection, q, pageNum, pageSizeNum)
+	}
 	if err != nil {
 		h.ErrorResponse(c, err, fmt.Sprintf("Errore nel caricamento righe per %s", collection))
 		return
@@ -399,4 +420,25 @@ func getCollectionTitle(collection string) string {
 	}
 
 	return collection
+}
+
+// extractFilters extracts all query parameters (except special ones) as filter parameters
+func (h *Handlers) extractFilters(c *gin.Context) map[string]string {
+	filters := make(map[string]string)
+	
+	// Skip special query parameters that are not filters
+	skipParams := map[string]bool{
+		"page":      true,
+		"page_size": true,
+		"q":         true,
+	}
+	
+	// Extract all other query parameters as potential filters
+	for param, values := range c.Request.URL.Query() {
+		if !skipParams[param] && len(values) > 0 && values[0] != "" {
+			filters[param] = values[0]
+		}
+	}
+	
+	return filters
 }

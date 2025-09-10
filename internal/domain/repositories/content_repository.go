@@ -8,8 +8,11 @@ import (
 
 // ContentRepository provides unified operations across all content collections
 type ContentRepository interface {
-	// GetCollectionItems retrieves items from any collection with pagination and search
-	GetCollectionItems(ctx context.Context, collection, search string, skip int64, limit int64) ([]map[string]any, int64, error)
+	// GetCollectionItems retrieves items from any collection with pagination and pre-built filter
+	GetCollectionItems(ctx context.Context, collection string, filter bson.M, skip int64, limit int64) ([]map[string]any, int64, error)
+	
+	// GetCollectionItemsWithFilters retrieves items from any collection with pagination and pre-built filter
+	GetCollectionItemsWithFilters(ctx context.Context, collection string, filter bson.M, skip int64, limit int64) ([]map[string]any, int64, error)
 	
 	// GetItemBySlug retrieves a specific item by slug from any collection
 	GetItemBySlug(ctx context.Context, collection, slug string) (map[string]any, error)

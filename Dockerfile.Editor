@@ -39,6 +39,9 @@ COPY --from=builder /app/editor .
 # Copy web assets if they exist
 COPY --from=builder /app/web ./web
 
+# Copy configuration files
+COPY --from=builder /app/configs ./configs
+
 # Expose port
 EXPOSE 8000
 

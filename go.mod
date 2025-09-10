@@ -7,6 +7,7 @@ require (
 	github.com/gin-gonic/gin v1.10.0
 	go.mongodb.org/mongo-driver v1.17.1
 	golang.org/x/text v0.27.0
+	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (
@@ -42,5 +43,4 @@ require (
 	golang.org/x/sync v0.16.0 // indirect
 	golang.org/x/sys v0.34.0 // indirect
 	google.golang.org/protobuf v1.34.1 // indirect
-	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

@@ -61,7 +61,7 @@ templ ItemPage(data models.ItemPageData) {
 				</div>
 			} else if data.BodyRaw != "" {
 				<div data-markdown data-raw={ data.BodyRaw }>
-					{ data.BodyRaw }
+					<pre style="white-space: pre-wrap; font-family: inherit; margin: 0;">{ data.BodyRaw }</pre>
 				</div>
 			} else {
 				<div style="color: var(--notion-text-light); font-style: italic;">Nessuna descrizione disponibile.</div>
