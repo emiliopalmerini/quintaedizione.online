@@ -31,7 +31,7 @@ func (s *ClassiStrategy) Parse(content []string, context *ParsingContext) ([]dom
 
 	for _, line := range content {
 		line = strings.TrimSpace(line)
-		
+
 		// Skip empty lines and main title
 		if line == "" || strings.HasPrefix(line, "# ") {
 			continue
@@ -122,11 +122,11 @@ func (s *ClassiStrategy) parseClasseSection(section []string) (*domain.Classe, e
 	}
 
 	progressioni := domain.Progressioni{
-		MaestriaArmi:    make(domain.ProgressioneLivelli),
-		AttacchiExtra:   make(domain.ProgressioneLivelli),
-		Risorse:         []domain.RisorsaClasse{},
+		MaestriaArmi:          make(domain.ProgressioneLivelli),
+		AttacchiExtra:         make(domain.ProgressioneLivelli),
+		Risorse:               []domain.RisorsaClasse{},
 		AumentiCaratteristica: []int{4, 8, 12, 16, 19},
-		DonoEpico:       19,
+		DonoEpico:             19,
 	}
 
 	// Fill progression data if available
@@ -135,12 +135,12 @@ func (s *ClassiStrategy) parseClasseSection(section []string) (*domain.Classe, e
 	}
 
 	magia := domain.Magia{
-		HaIncantesimi:     false,
-		ListaRiferimento:  make(domain.ListaIncantesimi),
-		Preparazione:      domain.PreparazioneNone,
-		Focus:             "",
-		Trucchetti:        make(domain.ListaIncantesimi),
-		Incantesimi:       make(domain.ListaIncantesimi),
+		HaIncantesimi:    false,
+		ListaRiferimento: make(domain.ListaIncantesimi),
+		Preparazione:     domain.PreparazioneNone,
+		Focus:            "",
+		Trucchetti:       make(domain.ListaIncantesimi),
+		Incantesimi:      make(domain.ListaIncantesimi),
 	}
 
 	raccomandazioni := domain.Raccomandazioni{
@@ -179,20 +179,20 @@ func (s *ClassiStrategy) parseClasseSection(section []string) (*domain.Classe, e
 func (s *ClassiStrategy) parseTraitTable(section []string) (map[string]string, error) {
 	traits := make(map[string]string)
 	inTable := false
-	
+
 	for i, line := range section {
 		// Look for trait table markers
 		if strings.Contains(line, "Tratti base del") {
 			inTable = true
 			continue
 		}
-		
+
 		if inTable && strings.HasPrefix(line, "|") {
 			// Skip table separators
 			if strings.Contains(line, "---") {
 				continue
 			}
-			
+
 			// Parse table row
 			parts := strings.Split(line, "|")
 			if len(parts) >= 3 {
@@ -203,7 +203,7 @@ func (s *ClassiStrategy) parseTraitTable(section []string) (map[string]string, e
 				}
 			}
 		}
-		
+
 		// Stop at next section
 		if inTable && (strings.HasPrefix(line, "### ") || strings.HasPrefix(line, "## ")) && i > 0 {
 			break
@@ -221,17 +221,17 @@ func (s *ClassiStrategy) parseProgressionTable(section []string) []map[string]st
 	var progressionTable []map[string]string
 	var headers []string
 	inTable := false
-	
+
 	for _, line := range section {
 		// Look for progression table
 		if strings.Contains(line, "Privilegi del") && strings.Contains(line, "Tabella:") {
 			inTable = true
 			continue
 		}
-		
+
 		if inTable && strings.HasPrefix(line, "|") {
 			parts := strings.Split(line, "|")
-			
+
 			// Parse headers
 			if len(headers) == 0 && !strings.Contains(line, "---") {
 				for _, part := range parts {
@@ -242,12 +242,12 @@ func (s *ClassiStrategy) parseProgressionTable(section []string) []map[string]st
 				}
 				continue
 			}
-			
+
 			// Skip separator
 			if strings.Contains(line, "---") {
 				continue
 			}
-			
+
 			// Parse data rows
 			if len(headers) > 0 {
 				row := make(map[string]string)
@@ -262,24 +262,24 @@ func (s *ClassiStrategy) parseProgressionTable(section []string) []map[string]st
 				}
 			}
 		}
-		
+
 		// Stop at next major section
 		if inTable && strings.HasPrefix(line, "#### ") {
 			break
 		}
 	}
-	
+
 	return progressionTable
 }
 
 func (s *ClassiStrategy) parsePrivileges(section []string) []domain.Privilegio {
 	var privileges []domain.Privilegio
-	
+
 	for i, line := range section {
 		// Look for privilege headers (#### level: name)
 		if strings.HasPrefix(line, "#### ") {
 			privilegeText := strings.TrimPrefix(line, "#### ")
-			
+
 			// Extract level and name
 			levelMatch := regexp.MustCompile(`^(\d+)° livello: (.+)$`).FindStringSubmatch(privilegeText)
 			if len(levelMatch) == 3 {
@@ -287,9 +287,9 @@ func (s *ClassiStrategy) parsePrivileges(section []string) []domain.Privilegio {
 				if err != nil {
 					continue
 				}
-				
+
 				name := levelMatch[2]
-				
+
 				// Collect description until next section
 				var description strings.Builder
 				for j := i + 1; j < len(section); j++ {
@@ -299,7 +299,7 @@ func (s *ClassiStrategy) parsePrivileges(section []string) []domain.Privilegio {
 					}
 					description.WriteString(nextLine + "\n")
 				}
-				
+
 				privilege := domain.Privilegio{
 					Nome:        name,
 					Livello:     level,
@@ -309,11 +309,11 @@ func (s *ClassiStrategy) parsePrivileges(section []string) []domain.Privilegio {
 			}
 		}
 	}
-	
+
 	return privileges
 }
 
-func (s *ClassiStrategy) parseSubclasses(section []string) []domain.Sottoclasse {
+func (s *ClassiStrategy) parseSubclasses(_ []string) []domain.Sottoclasse {
 	// For now, return empty slice as subclasses are usually in separate sections
 	return []domain.Sottoclasse{}
 }
@@ -342,10 +342,10 @@ func (s *ClassiStrategy) parseDadoVita(value string) domain.Dadi {
 
 func (s *ClassiStrategy) parseCaratteristichePrimarie(value string) []domain.Caratteristica {
 	var caratteristiche []domain.Caratteristica
-	
+
 	// Split by common separators
 	parts := regexp.MustCompile(`\s*[,/e]\s*|\s+e\s+`).Split(value, -1)
-	
+
 	for _, part := range parts {
 		part = strings.TrimSpace(part)
 		switch strings.ToLower(part) {
@@ -363,15 +363,15 @@ func (s *ClassiStrategy) parseCaratteristichePrimarie(value string) []domain.Car
 			caratteristiche = append(caratteristiche, domain.NewCaratteristica(domain.CaratteristicaCarisma, 10))
 		}
 	}
-	
+
 	return caratteristiche
 }
 
 func (s *ClassiStrategy) parseSalvezzeCompetenze(value string) []domain.NomeCaratteristica {
 	var salvezze []domain.NomeCaratteristica
-	
+
 	parts := regexp.MustCompile(`\s*[,/e]\s*|\s+e\s+`).Split(value, -1)
-	
+
 	for _, part := range parts {
 		part = strings.TrimSpace(part)
 		switch strings.ToLower(part) {
@@ -389,7 +389,7 @@ func (s *ClassiStrategy) parseSalvezzeCompetenze(value string) []domain.NomeCara
 			salvezze = append(salvezze, domain.Carisma)
 		}
 	}
-	
+
 	return salvezze
 }
 
@@ -405,44 +405,44 @@ func (s *ClassiStrategy) parseAbilitaCompetenze(value string) domain.Scelta {
 			}
 		}
 	}
-	
+
 	// Parse available abilities
 	var opzioni []any
 	abilities := []string{
-		"Addestrare Animali", "Atletica", "Intimidire", "Natura", 
+		"Addestrare Animali", "Atletica", "Intimidire", "Natura",
 		"Percezione", "Sopravvivenza", "Acrobazia", "Arcano",
 		"Indagare", "Ingannare", "Intuizione", "Storia",
 		"Medicina", "Intrattenere", "Persuasione", "Religione",
 		"Rapidità di mano", "Furtività",
 	}
-	
+
 	for _, ability := range abilities {
 		if strings.Contains(value, ability) {
 			opzioni = append(opzioni, ability)
 		}
 	}
-	
+
 	// If no specific abilities found, check for "qualunque abilità"
 	if len(opzioni) == 0 && strings.Contains(strings.ToLower(value), "qualunque") {
 		for _, ability := range abilities {
 			opzioni = append(opzioni, ability)
 		}
 	}
-	
+
 	return domain.NewScelta(uint8(numeroScelte), opzioni)
 }
 
 func (s *ClassiStrategy) parseArmiCompetenze(value string) []string {
 	var competenze []string
-	
+
 	// Common weapon types
 	weaponTypes := map[string]bool{
-		"Armi semplici": true,
-		"armi semplici": true,
+		"Armi semplici":  true,
+		"armi semplici":  true,
 		"Armi da guerra": true,
 		"armi da guerra": true,
 	}
-	
+
 	// Split and check each part
 	parts := regexp.MustCompile(`\s*[,e]\s*|\s+e\s+`).Split(value, -1)
 	for _, part := range parts {
@@ -458,13 +458,13 @@ func (s *ClassiStrategy) parseArmiCompetenze(value string) []string {
 			}
 		}
 	}
-	
+
 	return competenze
 }
 
 func (s *ClassiStrategy) parseArmatureCompetenze(value string) []domain.CompetenzaArmatura {
 	var competenze []domain.CompetenzaArmatura
-	
+
 	valueLower := strings.ToLower(value)
 	if strings.Contains(valueLower, "leggere") {
 		competenze = append(competenze, domain.CompetenzaArmatureLeggere)
@@ -478,17 +478,17 @@ func (s *ClassiStrategy) parseArmatureCompetenze(value string) []domain.Competen
 	if strings.Contains(valueLower, "scudi") {
 		competenze = append(competenze, domain.CompetenzaScudi)
 	}
-	
+
 	return competenze
 }
 
 func (s *ClassiStrategy) parseEquipaggiamentoInizialeOpzioni(value string) []domain.EquipaggiamentoOpzione {
 	var opzioni []domain.EquipaggiamentoOpzione
-	
+
 	// Look for option patterns like "(A) ... oppure (B) ..."
 	re := regexp.MustCompile(`\([A-Z]\)\s*([^;]+?)(?:\s*oppure|\s*;|$)`)
 	matches := re.FindAllStringSubmatch(value, -1)
-	
+
 	for _, match := range matches {
 		if len(match) > 1 {
 			optionText := strings.TrimSpace(match[1])
@@ -501,7 +501,7 @@ func (s *ClassiStrategy) parseEquipaggiamentoInizialeOpzioni(value string) []dom
 			}
 		}
 	}
-	
+
 	// If no options found, treat the whole thing as one option
 	if len(opzioni) == 0 && value != "" {
 		opzione := domain.EquipaggiamentoOpzione{
@@ -510,7 +510,7 @@ func (s *ClassiStrategy) parseEquipaggiamentoInizialeOpzioni(value string) []dom
 		}
 		opzioni = append(opzioni, opzione)
 	}
-	
+
 	return opzioni
 }
 
@@ -520,24 +520,24 @@ func (s *ClassiStrategy) fillProgressionData(progressioni *domain.Progressioni, 
 		if levelStr == "" {
 			continue
 		}
-		
+
 		level, err := strconv.Atoi(levelStr)
 		if err != nil {
 			continue
 		}
-		
+
 		// Parse weapon mastery progression
 		if maestriaStr := row["Maestria nelle armi"]; maestriaStr != "" {
 			if maestria, err := strconv.Atoi(maestriaStr); err == nil {
 				progressioni.MaestriaArmi[level] = maestria
 			}
 		}
-		
+
 		// Parse extra attacks (look for "Attacco extra" in privileges)
 		if privileges := row["Privilegi di classe"]; strings.Contains(privileges, "Attacco extra") {
 			progressioni.AttacchiExtra[level] = 1 // Additional attack
 		}
-		
+
 		// Parse resources (like Ira, spell slots, etc.)
 		for key, value := range row {
 			if !slices.Contains([]string{"Livello", "Bonus competenza", "Privilegi di classe", "Maestria nelle armi"}, key) && value != "" {
@@ -583,3 +583,4 @@ func (s *ClassiStrategy) Validate(content []string) error {
 	}
 	return nil
 }
+

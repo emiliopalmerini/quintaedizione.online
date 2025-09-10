@@ -63,6 +63,14 @@ func (f *RepositoryFactory) AnimaleRepository() repositories.AnimaleRepository {
 	return f.animaleRepo
 }
 
+// ArmaturaRepository returns the Armatura repository
+func (f *RepositoryFactory) ClasseRepository() repositories.ArmaturaRepository {
+	if f.classeRepo == nil {
+		f.classeRepo = mongodb.NewClasseMongoRepository(f.client)
+	}
+	return f.armaturaRepo
+}
+
 // GetRepositoryByEntityType returns the appropriate repository for a given entity type
 func (f *RepositoryFactory) GetRepositoryByEntityType(entityType string) any {
 	switch entityType {
