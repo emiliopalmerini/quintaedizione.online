@@ -1,7 +1,5 @@
 package domain
 
-import "github.com/google/uuid"
-
 // ---- Value Objects ----
 
 type OpzioneEquip Scelta
@@ -9,26 +7,24 @@ type OpzioneEquip Scelta
 // ---- Entità ----
 
 type Specie struct {
-	ID                         SpecieID           `json:"id"        bson:"_id"`
-	Slug                       Slug               `json:"slug"      bson:"slug"`
-	Nome                       string             `json:"nome"      bson:"nome"`
-	PunteggiCaratteristica     []CaratteristicaID `json:"punteggi_caratteristica" bson:"punteggi_caratteristica"`
-	AbilitaCompetenze          []AbilitaID        `json:"abilità_competenze_ids"   bson:"abilità_competenze_ids"`
-	StrumentiCompetenze        []StrumentoID      `json:"strumenti_competenze_ids" bson:"strumenti_competenze_ids"`
-	Talento                    TalentoID          `json:"talento_id"               bson:"talento_id"`
-	EquipaggiamentoInizialeOpt []OpzioneEquip     `json:"equipaggiamento_iniziale_opzioni" bson:"equipaggiamento_iniziale_opzioni"`
-	Contenuto                  string             `json:"contenuto" bson:"contenuto"`
+	Slug                       Slug                 `json:"slug"      bson:"slug"`
+	Nome                       string               `json:"nome"      bson:"nome"`
+	PunteggiCaratteristica     []CaratteristicaSlug `json:"punteggi_caratteristica" bson:"punteggi_caratteristica"`
+	AbilitaCompetenze          []AbilitaSlug        `json:"abilità_competenze_ids"   bson:"abilità_competenze_ids"`
+	StrumentiCompetenze        []StrumentoSlug      `json:"strumenti_competenze_ids" bson:"strumenti_competenze_ids"`
+	Talento                    TalentoSlug          `json:"talento_id"               bson:"talento_id"`
+	EquipaggiamentoInizialeOpt []OpzioneEquip       `json:"equipaggiamento_iniziale_opzioni" bson:"equipaggiamento_iniziale_opzioni"`
+	Contenuto                  string               `json:"contenuto" bson:"contenuto"`
 }
 
 // ---- Costruttore tip-safe ----
 
 func NewSpecie(
-	id uuid.UUID,
 	nome string,
-	car []uuid.UUID,
-	abi []uuid.UUID,
-	str []uuid.UUID,
-	tal uuid.UUID,
+	car []string,
+	abi []string,
+	str []string,
+	tal string,
 	equip []OpzioneEquip,
 	cont string,
 ) (*Specie, error) {
@@ -37,27 +33,31 @@ func NewSpecie(
 		return nil, err
 	}
 
-	toCar := make([]CaratteristicaID, len(car))
+	toCar := make([]CaratteristicaSlug, len(car))
 	for i, v := range car {
-		toCar[i] = CaratteristicaID(v)
+		carSlug, _ := NewSlug(v)
+		toCar[i] = CaratteristicaSlug(carSlug)
 	}
-	toAbi := make([]AbilitaID, len(abi))
+	toAbi := make([]AbilitaSlug, len(abi))
 	for i, v := range abi {
-		toAbi[i] = AbilitaID(v)
+		abiSlug, _ := NewSlug(v)
+		toAbi[i] = AbilitaSlug(abiSlug)
 	}
-	toStr := make([]StrumentoID, len(str))
+	toStr := make([]StrumentoSlug, len(str))
 	for i, v := range str {
-		toStr[i] = StrumentoID(v)
+		strSlug, _ := NewSlug(v)
+		toStr[i] = StrumentoSlug(strSlug)
 	}
 
+	talSlug, _ := NewSlug(tal)
+
 	return &Specie{
-		ID:                         SpecieID(id),
 		Slug:                       sg,
 		Nome:                       nome,
 		PunteggiCaratteristica:     toCar,
 		AbilitaCompetenze:          toAbi,
 		StrumentiCompetenze:        toStr,
-		Talento:                    TalentoID(tal),
+		Talento:                    TalentoSlug(talSlug),
 		EquipaggiamentoInizialeOpt: equip,
 		Contenuto:                  cont,
 	}, nil

@@ -1,7 +1,5 @@
 package domain
 
-import "github.com/google/uuid"
-
 // ---------- Enum / VO di supporto ----------
 
 // Categoria servizi
@@ -23,7 +21,6 @@ type CostoServizio struct {
 // ---------- Entità ----------
 
 type Servizio struct {
-	ID          ServizioID        `json:"id"          bson:"_id"`
 	Slug        Slug              `json:"slug"        bson:"slug"`
 	Nome        string            `json:"nome"        bson:"nome"`
 	Costo       CostoServizio     `json:"costo"       bson:"costo"`
@@ -35,7 +32,6 @@ type Servizio struct {
 // ---------- Costruttore ----------
 
 func NewServizio(
-	id uuid.UUID,
 	nome string,
 	costo CostoServizio,
 	categoria CategoriaServizio,
@@ -45,7 +41,6 @@ func NewServizio(
 	slug, _ := NewSlug(nome)
 
 	return &Servizio{
-		ID:          ServizioID(id),
 		Slug:        slug,
 		Nome:        nome,
 		Costo:       costo,

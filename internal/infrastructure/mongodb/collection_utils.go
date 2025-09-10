@@ -1,35 +1,36 @@
 package mongodb
 
 // GetUniqueFieldsForCollection returns unique fields for MongoDB upsert operations
+// All entity data is now nested under "value" object, so we use nested field paths
 func GetUniqueFieldsForCollection(collection string) []string {
 	switch collection {
 	case "documenti":
-		return []string{"slug"}
+		return []string{"value.slug"}
 	case "incantesimi":
-		return []string{"nome", "slug"}
+		return []string{"value.nome", "value.slug"}
 	case "mostri":
-		return []string{"nome", "slug"}
+		return []string{"value.nome", "value.slug"}
 	case "classi":
-		return []string{"nome", "slug"}
+		return []string{"value.nome", "value.slug"}
 	case "backgrounds":
-		return []string{"nome", "slug"}
+		return []string{"value.nome", "value.slug"}
 	case "armi":
-		return []string{"nome", "slug"}
+		return []string{"value.nome", "value.slug"}
 	case "armature":
-		return []string{"nome", "slug"}
+		return []string{"value.nome", "value.slug"}
 	case "strumenti":
-		return []string{"nome", "slug"}
+		return []string{"value.nome", "value.slug"}
 	case "servizi":
-		return []string{"nome", "slug"}
+		return []string{"value.nome", "value.slug"}
 	case "equipaggiamento":
-		return []string{"nome", "slug"}
+		return []string{"value.nome", "value.slug"}
 	case "oggetti_magici":
-		return []string{"nome", "slug"}
+		return []string{"value.nome", "value.slug"}
 	case "talenti":
-		return []string{"nome", "slug"}
+		return []string{"value.nome", "value.slug"}
 	case "animali":
-		return []string{"nome", "slug"}
+		return []string{"value.nome", "value.slug"}
 	default:
-		return []string{"slug"}
+		return []string{"value.slug"}
 	}
 }

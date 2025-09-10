@@ -234,15 +234,18 @@ func (r *BaseMongoRepository[T]) UpsertManyMaps(ctx context.Context, uniqueField
 		fields = r.uniqueFields
 	}
 
+
 	collection := r.client.GetCollection(r.collectionName)
 	var operations []mongo.WriteModel
 
-	for _, doc := range docs {
+	for i, doc := range docs {
 		filter := bson.M{}
 		hasUniqueField := false
 
 		for _, field := range fields {
-			if value, exists := doc[field]; exists && value != nil {
+			// Handle nested field paths (e.g., "value.nome")
+			value := r.getNestedValue(doc, field)
+			if value != nil && value != "" {
 				filter[field] = value
 				hasUniqueField = true
 				break // Use first available unique field
@@ -319,4 +322,39 @@ func (r *BaseMongoRepository[T]) buildFilterFromEntity(entity T) bson.M {
 // GetCollectionName returns the collection name for this repository
 func (r *BaseMongoRepository[T]) GetCollectionName() string {
 	return r.collectionName
+}
+
+// getNestedValue extracts a value from a nested map using dot notation (e.g., "value.nome")
+func (r *BaseMongoRepository[T]) getNestedValue(doc map[string]any, fieldPath string) any {
+	parts := strings.Split(fieldPath, ".")
+	current := doc
+
+	for i, part := range parts {
+		if i == len(parts)-1 {
+			// Last part, return the value
+			return current[part]
+		}
+		
+		// Navigate deeper into the structure
+		if next, exists := current[part]; exists {
+			if nextMap, ok := next.(map[string]any); ok {
+				current = nextMap
+			} else {
+				return nil // Path doesn't exist or isn't a map
+			}
+		} else {
+			return nil // Path doesn't exist
+		}
+	}
+	
+	return nil
+}
+
+// getMapKeys returns all keys from a map for debugging
+func getMapKeys(m map[string]any) []string {
+	keys := make([]string, 0, len(m))
+	for k := range m {
+		keys = append(keys, k)
+	}
+	return keys
 }

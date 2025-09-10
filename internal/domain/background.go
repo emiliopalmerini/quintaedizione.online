@@ -1,52 +1,52 @@
 package domain
 
-import "github.com/google/uuid"
-
 type Background struct {
-	ID                      BackgroundID       `json:"id"                         bson:"_id"`
-	Slug                    Slug               `json:"slug"                      bson:"slug"`
-	Nome                    string             `json:"nome"                      bson:"nome"`
-	Caratteristiche         []CaratteristicaID `json:"caratteristiche"           bson:"caratteristiche"`
-	CompetenzeAbilita       []AbilitaID        `json:"competenze_abilita_ids"    bson:"competenze_abilita_ids"`
-	CompetenzeStrumenti     []StrumentoID      `json:"competenze_strumenti_ids"  bson:"competenze_strumenti_ids"`
-	Talento                 TalentoID          `json:"talento_id"                bson:"talento_id"`
-	EquipaggiamentoIniziale Scelta             `json:"equipaggiamento_iniziale"  bson:"equipaggiamento_iniziale"`
-	Contenuto               string             `json:"contenuto"                 bson:"contenuto"`
+	Slug                    Slug                 `json:"slug"                      bson:"slug"`
+	Nome                    string               `json:"nome"                      bson:"nome"`
+	Caratteristiche         []CaratteristicaSlug `json:"caratteristiche"           bson:"caratteristiche"`
+	CompetenzeAbilita       []AbilitaSlug        `json:"competenze_abilita_ids"    bson:"competenze_abilita_ids"`
+	CompetenzeStrumenti     []StrumentoSlug      `json:"competenze_strumenti_ids"  bson:"competenze_strumenti_ids"`
+	Talento                 TalentoSlug          `json:"talento_id"                bson:"talento_id"`
+	EquipaggiamentoIniziale Scelta               `json:"equipaggiamento_iniziale"  bson:"equipaggiamento_iniziale"`
+	Contenuto               string               `json:"contenuto"                 bson:"contenuto"`
 }
 
 func NewBackground(
-	id uuid.UUID,
 	nome string,
-	car []uuid.UUID,
-	abi []uuid.UUID,
-	str []uuid.UUID,
-	tal uuid.UUID,
+	car []string,
+	abi []string,
+	str []string,
+	tal string,
 	equip Scelta,
 	cont string,
 ) *Background {
 	slug, _ := NewSlug(nome)
 
-	toCar := make([]CaratteristicaID, len(car))
+	toCar := make([]CaratteristicaSlug, len(car))
 	for i, v := range car {
-		toCar[i] = CaratteristicaID(v)
+		carSlug, _ := NewSlug(v)
+		toCar[i] = CaratteristicaSlug(carSlug)
 	}
-	toAbi := make([]AbilitaID, len(abi))
+	toAbi := make([]AbilitaSlug, len(abi))
 	for i, v := range abi {
-		toAbi[i] = AbilitaID(v)
+		abiSlug, _ := NewSlug(v)
+		toAbi[i] = AbilitaSlug(abiSlug)
 	}
-	toStr := make([]StrumentoID, len(str))
+	toStr := make([]StrumentoSlug, len(str))
 	for i, v := range str {
-		toStr[i] = StrumentoID(v)
+		strSlug, _ := NewSlug(v)
+		toStr[i] = StrumentoSlug(strSlug)
 	}
 
+	talSlug, _ := NewSlug(tal)
+
 	return &Background{
-		ID:                      BackgroundID(id),
 		Slug:                    slug,
 		Nome:                    nome,
 		Caratteristiche:         toCar,
 		CompetenzeAbilita:       toAbi,
 		CompetenzeStrumenti:     toStr,
-		Talento:                 TalentoID(tal),
+		Talento:                 TalentoSlug(talSlug),
 		EquipaggiamentoIniziale: equip,
 		Contenuto:               cont,
 	}

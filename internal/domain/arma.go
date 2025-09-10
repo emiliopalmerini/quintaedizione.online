@@ -1,7 +1,5 @@
 package domain
 
-import "github.com/google/uuid"
-
 // ---------- Enum / VO di supporto ----------
 
 // Categoria armi
@@ -41,7 +39,6 @@ type GittataArma struct {
 // ---------- Entità ----------
 
 type Arma struct {
-	ID        ArmaID          `json:"id"         bson:"_id"`
 	Slug      Slug            `json:"slug"       bson:"slug"`
 	Nome      string          `json:"nome"       bson:"nome"`
 	Costo     Costo           `json:"costo"      bson:"costo"`
@@ -57,7 +54,6 @@ type Arma struct {
 // ---------- Costruttore ----------
 
 func NewArma(
-	id uuid.UUID,
 	nome string,
 	costo Costo,
 	peso Peso,
@@ -71,7 +67,6 @@ func NewArma(
 	slug, _ := NewSlug(nome)
 
 	return &Arma{
-		ID:        ArmaID(id),
 		Slug:      slug,
 		Nome:      nome,
 		Costo:     costo,

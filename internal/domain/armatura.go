@@ -1,7 +1,5 @@
 package domain
 
-import "github.com/google/uuid"
-
 // ---------- Enum / VO di supporto ----------
 
 // Categoria armature
@@ -24,7 +22,6 @@ type CAArmatura struct {
 // ---------- Entità ----------
 
 type Armatura struct {
-	ID                  ArmaturaID        `json:"id"                    bson:"_id"`
 	Slug                Slug              `json:"slug"                  bson:"slug"`
 	Nome                string            `json:"nome"                  bson:"nome"`
 	Costo               Costo             `json:"costo"                 bson:"costo"`
@@ -39,7 +36,6 @@ type Armatura struct {
 // ---------- Costruttore ----------
 
 func NewArmatura(
-	id uuid.UUID,
 	nome string,
 	costo Costo,
 	peso Peso,
@@ -52,7 +48,6 @@ func NewArmatura(
 	slug, _ := NewSlug(nome)
 
 	return &Armatura{
-		ID:                  ArmaturaID(id),
 		Slug:                slug,
 		Nome:                nome,
 		Costo:               costo,

@@ -2,8 +2,6 @@ package domain
 
 // TODO: da controllare
 
-import "github.com/google/uuid"
-
 // ---------- Enum / VO di supporto ----------
 
 // Competenze armature
@@ -49,7 +47,7 @@ const (
 )
 
 type Abilita struct {
-	ID                     AbilitaID          `json:"id"   bson:"id"`
+	ID                     AbilitaSlug        `json:"id"   bson:"id"`
 	Nome                   NomeAbilita        `json:"nome" bson:"nome"`
 	CaratteristicaRelativa NomeCaratteristica `json:"caratteristica_relativa" bson:"caratteristica_relativa"`
 	Competenza             bool               `json:"competenza" bson:"competenza"`
@@ -57,8 +55,8 @@ type Abilita struct {
 
 // Equipaggiamento iniziale opzione
 type EquipaggiamentoOpzione struct {
-	Etichetta string              `json:"etichetta" bson:"etichetta"`
-	Oggetti   []EquipaggiamentoID `json:"oggetti"   bson:"oggetti"`
+	Etichetta string                `json:"etichetta" bson:"etichetta"`
+	Oggetti   []EquipaggiamentoSlug `json:"oggetti"   bson:"oggetti"`
 }
 
 // Multiclasse
@@ -127,29 +125,28 @@ type Privilegio struct {
 
 // Sottoclasse
 type Sottoclasse struct {
-	Slug                       Slug                       `json:"slug"                         bson:"slug"`
-	Nome                       string                     `json:"nome"                         bson:"nome"`
-	Descrizione                string                     `json:"descrizione"                  bson:"descrizione"`
-	PrivilegiSottoclasse       []Privilegio               `json:"privilegi_sottoclasse"        bson:"privilegi_sottoclasse"`
-	IncantesimiSemprePreparati map[string][]IncantesimoID `json:"incantesimi_sempre_preparati" bson:"incantesimi_sempre_preparati"`
+	Slug                       Slug                         `json:"slug"                         bson:"slug"`
+	Nome                       string                       `json:"nome"                         bson:"nome"`
+	Descrizione                string                       `json:"descrizione"                  bson:"descrizione"`
+	PrivilegiSottoclasse       []Privilegio                 `json:"privilegi_sottoclasse"        bson:"privilegi_sottoclasse"`
+	IncantesimiSemprePreparati map[string][]IncantesimoSlug `json:"incantesimi_sempre_preparati" bson:"incantesimi_sempre_preparati"`
 }
 
 // Liste incantesimi per livello
-type ListaIncantesimi map[int][]IncantesimoID
+type ListaIncantesimi map[int][]IncantesimoSlug
 
 // Raccomandazioni
 type Raccomandazioni struct {
-	TruccanettiCons         []IncantesimoID     `json:"trucchetti_cons"         bson:"trucchetti_cons"`
-	IncantesimiInizialiCons []IncantesimoID     `json:"incantesimi_iniziali_cons" bson:"incantesimi_iniziali_cons"`
-	EquipInizialecons       []EquipaggiamentoID `json:"equip_iniziale_cons"     bson:"equip_iniziale_cons"`
-	TalentiCons             []TalentoID         `json:"talenti_cons"            bson:"talenti_cons"`
-	DonoEpicoCons           []TalentoID         `json:"dono_epico_cons"         bson:"dono_epico_cons"`
+	TruccanettiCons         []IncantesimoSlug     `json:"trucchetti_cons"         bson:"trucchetti_cons"`
+	IncantesimiInizialiCons []IncantesimoSlug     `json:"incantesimi_iniziali_cons" bson:"incantesimi_iniziali_cons"`
+	EquipInizialecons       []EquipaggiamentoSlug `json:"equip_iniziale_cons"     bson:"equip_iniziale_cons"`
+	TalentiCons             []TalentoSlug         `json:"talenti_cons"            bson:"talenti_cons"`
+	DonoEpicoCons           []TalentoSlug         `json:"dono_epico_cons"         bson:"dono_epico_cons"`
 }
 
 // ---------- Entit? ----------
 
 type Classe struct {
-	ID                             ClasseID                 `json:"id"                               bson:"_id"`
 	Slug                           Slug                     `json:"slug"                             bson:"slug"`
 	Nome                           string                   `json:"nome"                             bson:"nome"`
 	Sottotitolo                    string                   `json:"sottotitolo"                      bson:"sottotitolo"`
@@ -160,7 +157,7 @@ type Classe struct {
 	AbilitaCompetenzeOpzioni       Scelta                   `json:"abilita_competenze_opzioni"       bson:"abilita_competenze_opzioni"`
 	ArmiCompetenze                 []string                 `json:"armi_competenze"                  bson:"armi_competenze"`
 	ArmatureCompetenze             []CompetenzaArmatura     `json:"armature_competenze"              bson:"armature_competenze"`
-	StrumentiCompetenze            []StrumentoID            `json:"strumenti_competenze"             bson:"strumenti_competenze"`
+	StrumentiCompetenze            []StrumentoSlug          `json:"strumenti_competenze"             bson:"strumenti_competenze"`
 	EquipaggiamentoInizialeOpzioni []EquipaggiamentoOpzione `json:"equipaggiamento_iniziale_opzioni" bson:"equipaggiamento_iniziale_opzioni"`
 	Multiclasse                    Multiclasse              `json:"multiclasse"                      bson:"multiclasse"`
 	Progressioni                   Progressioni             `json:"progressioni"                     bson:"progressioni"`
@@ -174,7 +171,6 @@ type Classe struct {
 // ---------- Costruttore ----------
 
 func NewClasse(
-	id uuid.UUID,
 	nome string,
 	sottotitolo string,
 	markdown string,
@@ -184,7 +180,7 @@ func NewClasse(
 	abilitaCompetenzeOpzioni Scelta,
 	armiCompetenze []string,
 	armatureCompetenze []CompetenzaArmatura,
-	strumentiCompetenze []StrumentoID,
+	strumentiCompetenze []StrumentoSlug,
 	equipaggiamentoInizialeOpzioni []EquipaggiamentoOpzione,
 	multiclasse Multiclasse,
 	progressioni Progressioni,
@@ -198,7 +194,6 @@ func NewClasse(
 	slug, _ := NewSlug(nome)
 
 	return &Classe{
-		ID:                             ClasseID(id),
 		Slug:                           slug,
 		Nome:                           nome,
 		Sottotitolo:                    sottotitolo,

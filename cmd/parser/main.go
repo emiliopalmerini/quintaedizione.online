@@ -8,7 +8,9 @@ import (
 
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/repositories"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/parsers"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/mongodb"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/templates"
 	"github.com/gin-gonic/gin"
@@ -16,7 +18,7 @@ import (
 
 func main() {
 	// Load configuration from environment
-	mongoURI := getEnv("MONGO_URI", "mongodb://localhost:27017")
+	mongoURI := getEnv("MONGO_URI", "mongodb://admin:password@localhost:27017/?authSource=admin")
 	dbName := getEnv("DB_NAME", "dnd")
 	port := getEnv("PORT", "8100")
 
@@ -61,7 +63,42 @@ func main() {
 
 	// Setup dependencies
 	repositoryFactory := repositories.NewRepositoryFactory(mongoClient)
-	ingestService := services.NewIngestServiceFromFactory(repositoryFactory)
+	repositoryWrapper := repositories.NewParserRepositoryWrapper(repositoryFactory)
+	
+	// Create parser registry with strategies
+	registry, err := parsers.CreateDefaultRegistry()
+	if err != nil {
+		log.Fatal("Failed to create parser registry:", err)
+	}
+	
+	// Create document builder (placeholder)
+	documentBuilder, err := parsers.NewDocumentBuilder("default", "default content", parsers.NewParsingContext("default", "ita"))
+	if err != nil {
+		log.Fatal("Failed to create document builder:", err)
+	}
+	
+	// Create default configuration
+	config := infrastructure.Config{
+		Pipeline: infrastructure.PipelineConfig{
+			DefaultStages: []string{"file_reader", "content_parser", "persistence"},
+			ErrorHandling: "stop",
+			MaxParallelFiles: 1,
+			EventBusBufferSize: 100,
+			ValidationEnabled: true,
+			TransformationEnabled: true,
+		},
+	}
+	
+	// Create logger (simple)
+	logger := &parsers.NoOpLogger{}
+	
+	// Create pipeline ingest service
+	ingestService, err := services.NewPipelineIngestService(repositoryWrapper, registry, documentBuilder, config, logger)
+	if err != nil {
+		log.Fatal("Failed to create ingest service:", err)
+	}
+	defer ingestService.Close()
+	
 	ingestHandler := web.NewIngestHandler(ingestService, templateEngine, getEnv("INPUT_DIR", "data"))
 
 	// Routes

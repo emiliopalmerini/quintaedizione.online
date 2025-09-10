@@ -32,7 +32,6 @@ type WorkItem struct {
 	Filename   string       `json:"filename"`
 	Collection string       `json:"collection"`
 	Language   LanguageCode `json:"language"`
-	Parser     ParserFunc   `json:"-"`
 }
 
 // IngestResult represents the result of processing a single work item

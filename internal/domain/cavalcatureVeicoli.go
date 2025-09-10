@@ -1,7 +1,5 @@
 package domain
 
-import "github.com/google/uuid"
-
 // ---------- Enum / VO di supporto ----------
 
 // Tipo cavalcatura/veicolo
@@ -23,7 +21,6 @@ type VelocitaVeicolo struct {
 // ---------- Entità ----------
 
 type CavalcaturaVeicolo struct {
-	ID             CavalcaturaVeicoloID   `json:"id"              bson:"_id"`
 	Slug           Slug                   `json:"slug"            bson:"slug"`
 	Nome           string                 `json:"nome"            bson:"nome"`
 	Tipo           TipoCavalcaturaVeicolo `json:"tipo"            bson:"tipo"`
@@ -42,7 +39,6 @@ type CavalcaturaVeicolo struct {
 // ---------- Costruttore ----------
 
 func NewCavalcaturaVeicolo(
-	id uuid.UUID,
 	nome string,
 	tipo TipoCavalcaturaVeicolo,
 	costo Costo,
@@ -59,7 +55,6 @@ func NewCavalcaturaVeicolo(
 	slug, _ := NewSlug(nome)
 
 	return &CavalcaturaVeicolo{
-		ID:             CavalcaturaVeicoloID(id),
 		Slug:           slug,
 		Nome:           nome,
 		Tipo:           tipo,

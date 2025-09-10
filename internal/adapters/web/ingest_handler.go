@@ -13,18 +13,18 @@ import (
 
 // IngestHandler handles ingestion HTTP requests
 type IngestHandler struct {
-	ingestService  *services.IngestService
+	ingestService  *services.PipelineIngestService
 	templateEngine *templates.Engine
 	defaultWork    []parsers.WorkItem
 	inputDir       string
 }
 
 // NewIngestHandler creates a new ingest handler
-func NewIngestHandler(ingestService *services.IngestService, templateEngine *templates.Engine, inputDir string) *IngestHandler {
+func NewIngestHandler(ingestService *services.PipelineIngestService, templateEngine *templates.Engine, inputDir string) *IngestHandler {
 	return &IngestHandler{
 		ingestService:  ingestService,
 		templateEngine: templateEngine,
-		defaultWork:    parsers.CreateDefaultWork(),
+		defaultWork:    parsers.CreateDefaultWorkItems(),
 		inputDir:       inputDir,
 	}
 }
