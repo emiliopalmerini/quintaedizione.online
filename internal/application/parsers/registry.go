@@ -110,15 +110,19 @@ func CreateDefaultRegistry() (*ParserRegistry, error) {
 
 	strategies := []ParsingStrategy{
 		NewArmatureStrategy(),
-<<<<<<< HEAD
-<<<<<<< HEAD
-		NewClassiStrategy(),
-=======
->>>>>>> 010dce8 (feat(parser): parse armor)
-=======
 		NewArmiStrategy(),
 		NewAnimaliStrategy(),
->>>>>>> b3b64cd (feat(parser): implement animals (animali) parsing support)
+		NewMostriStrategy(),
+		NewClassiStrategy(),
+		NewBackgroundsStrategy(),
+		NewIncantesimiStrategy(),
+		NewTalentiStrategy(),
+		NewEquipaggiamentiStrategy(),
+		NewServiziStrategy(),
+		NewStrumentiStrategy(),
+		NewRegoleStrategy(),
+		NewCavalcatureVeicoliStrategy(),
+		NewOggettiMagiciStrategy(),
 	}
 
 	for _, strategy := range strategies {
