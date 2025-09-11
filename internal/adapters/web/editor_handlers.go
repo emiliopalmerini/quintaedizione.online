@@ -34,6 +34,9 @@ func (h *Handlers) RegisterRoutes(router *gin.Engine) {
 	router.GET("/:collection", h.handleCollectionList)
 	router.GET("/:collection/rows", h.handleCollectionRows) // HTMX rows endpoint
 	router.GET("/:collection/:slug", h.handleItemDetail)
+	
+	// Quick search for breadcrumb
+	router.GET("/quicksearch/:collection", h.handleQuickSearch)
 }
 
 // handleHome renders the home page
@@ -441,4 +444,51 @@ func (h *Handlers) extractFilters(c *gin.Context) map[string]string {
 	}
 	
 	return filters
+}
+
+// handleQuickSearch handles HTMX requests for breadcrumb quick search
+func (h *Handlers) handleQuickSearch(c *gin.Context) {
+	collection := c.Param("collection")
+	query := c.Query("q")
+	
+	// If no query, return empty results
+	if query == "" {
+		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(""))
+		return
+	}
+	
+	// Get search results (limit to 5 for quick search)
+	rawItems, _, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, query, 1, 5)
+	if err != nil {
+		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(""))
+		return
+	}
+	
+	// Generate HTML for results
+	html := ""
+	for _, item := range rawItems {
+		var nome, slug string
+		
+		// Extract nome and slug from value object
+		if valueObj, ok := item["value"].(map[string]interface{}); ok {
+			if n, ok := valueObj["nome"].(string); ok {
+				nome = n
+			}
+			if s, ok := valueObj["slug"].(string); ok {
+				slug = s
+			}
+		}
+		
+		if nome != "" && slug != "" {
+			html += fmt.Sprintf(`<a href="/%s/%s" class="search-result">
+				<div class="search-result-title">%s</div>
+			</a>`, collection, slug, nome)
+		}
+	}
+	
+	if html == "" {
+		html = `<div class="search-result" style="color: var(--notion-text-light);">Nessun risultato trovato</div>`
+	}
+	
+	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(html))
 }

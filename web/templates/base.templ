@@ -244,5 +244,56 @@ templ baseScripts() {
 		}
 
 		document.addEventListener('DOMContentLoaded', initKeyboardNavigation);
+
+		// Breadcrumb search functionality
+		function initBreadcrumbSearch() {
+			const searchInput = document.getElementById('bc-search');
+			const searchResults = document.getElementById('bc-results');
+			
+			if (!searchInput || !searchResults) return;
+			
+			// Show results when typing
+			searchInput.addEventListener('input', function() {
+				if (this.value.trim().length > 0) {
+					searchResults.classList.remove('hidden');
+					searchResults.setAttribute('aria-expanded', 'true');
+				} else {
+					searchResults.classList.add('hidden');
+					searchResults.setAttribute('aria-expanded', 'false');
+				}
+			});
+			
+			// Hide results when clicking outside
+			document.addEventListener('click', function(e) {
+				const searchContainer = searchInput.closest('.search-container');
+				if (searchContainer && !searchContainer.contains(e.target)) {
+					searchResults.classList.add('hidden');
+					searchResults.setAttribute('aria-expanded', 'false');
+				}
+			});
+			
+			// Hide results on Escape
+			searchInput.addEventListener('keydown', function(e) {
+				if (e.key === 'Escape') {
+					searchResults.classList.add('hidden');
+					searchResults.setAttribute('aria-expanded', 'false');
+					this.blur();
+				}
+			});
+			
+			// Handle arrow navigation in results
+			searchInput.addEventListener('keydown', function(e) {
+				const results = searchResults.querySelectorAll('.search-result');
+				if (results.length === 0) return;
+				
+				if (e.key === 'ArrowDown') {
+					e.preventDefault();
+					results[0].focus();
+				}
+			});
+		}
+		
+		document.addEventListener('DOMContentLoaded', initBreadcrumbSearch);
+		document.body.addEventListener('htmx:afterSwap', initBreadcrumbSearch);
 	</script>
 }
