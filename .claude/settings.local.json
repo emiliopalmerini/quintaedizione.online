@@ -22,7 +22,8 @@
       "Bash(docker-compose restart:*)",
       "Bash(go build:*)",
       "Bash(git reset:*)",
-      "Bash(docker restart:*)"
+      "Bash(docker restart:*)",
+      "Bash(templ generate:*)"
     ],
     "deny": [],
     "ask": []
