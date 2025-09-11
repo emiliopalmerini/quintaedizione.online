@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <title>{{block "title" .}}Due Draghi 5e 2024 SRD{{end}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://unpkg.com/htmx.org@2.0.3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml"/>
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column; background: var(--notion-bg); color: var(--notion-text);">
+  <!-- Notion-style top bar -->
+  <header class="notion-nav">
+    <div class="notion-nav-container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/" class="btn">Home</a>
+        {{if .collection}}
+          <span style="color: var(--notion-text-light);">/</span>
+          <a href="/{{.collection}}{{if .qs}}?{{.qs}}{{end}}" class="btn">{{.collection}}</a>
+          <span class="breadcrumb-separator">/</span>
+          <div class="search-container">
+            <input id="bc-search" name="q" placeholder="{{if .doc_slug}}{{.doc_slug}}{{else if .doc_title}}{{.doc_title}}{{else}}Cerca in {{.collection}}…{{end}}" class="field" style="width: 240px; font-size: 13px; padding: 6px 10px;"
+                   hx-get="/quicksearch/{{.collection}}"
+                   hx-target="#bc-results"
+                   hx-trigger="keyup changed delay:200ms"
+                   autocomplete="off" aria-controls="bc-results" aria-expanded="false" />
+            <div id="bc-results" class="search-results hidden" 
+                 role="listbox" aria-label="Risultati ricerca rapida"></div>
+          </div>
+        {{end}}
+        {{if .doc_title}}{{if not .collection}}
+          <span style="color: var(--notion-text-light);">/</span>
+          <span style="color: var(--notion-text); font-weight: 500; max-width: 40vw;" class="truncate" title="{{.doc_title}}">{{.doc_title}}</span>
+        {{end}}{{else if .doc_id}}{{if not .collection}}
+          <span style="color: var(--notion-text-light);">/</span>
+          <span class="mono tag" title="{{.doc_id}}">{{.doc_id}}</span>
+        {{end}}{{end}}
+      </nav>
+    </div>
+  </header>
+
+  <!-- Notion-style content area -->
+  <main style="flex: 1; background: var(--notion-bg);">
+    <div id="page-root" hx-history-elt class="container" style="max-width: 1024px; padding-top: 2rem; padding-bottom: 2rem;">
+      {{block "content" .}}{{end}}
+      <div id="page-loading" class="page-overlay" aria-hidden="true">
+        <div class="page-overlay-inner">
+          <span class="spinner"></span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  {{block "scripts" .}}{{end}}
+  <script>
+    // Minimal JavaScript for Markdown rendering and clipboard
+    function initMarkdown(){
+      const hasMarked = typeof window.marked !== 'undefined';
+      if (hasMarked && window.marked.setOptions){
+        try { window.marked.setOptions({ headerIds: true, mangle: false }); } catch(e) {}
+      }
+      document.querySelectorAll('[data-markdown]').forEach(el=>{
+        if (el.getAttribute('data-ssr') === 'true') return;
+        let raw = '';
+        const srcId = el.getAttribute('data-md-src-id');
+        if (srcId){
+          const src = document.getElementById(srcId);
+          if (src) raw = src.textContent || '';
+        }
+        if (!raw){ raw = el.textContent || ''; }
+        el.dataset.raw = raw;
+        if(hasMarked){ el.innerHTML = window.marked.parse(raw); }
+      });
+    }
+    document.addEventListener('DOMContentLoaded', initMarkdown);
+    document.body.addEventListener('htmx:afterSwap', initMarkdown);
+
+    // Copy markdown functionality
+    function copyMarkdown(btn){
+      const section = btn.closest('[data-md-section]') || btn.closest('article') || document;
+      let md = section.querySelector('[data-markdown]');
+      if (!md) md = section.querySelector('[data-ssr="true"]');
+      const raw = (md && (md.dataset.raw || md.getAttribute('data-raw') || md.textContent)) || '';
+      if(!raw) return;
+      
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(raw).then(()=>{
+          const flash = document.createElement('span');
+          flash.className = 'flash-message';
+          flash.textContent = 'Copiato';
+          btn.insertAdjacentElement('afterend', flash);
+          setTimeout(()=>flash.remove(), 1200);
+        });
+      }
+    }
+
+    // Keyboard navigation shortcuts
+    function initKeyboardNavigation() {
+      document.addEventListener('keydown', function(e) {
+        // Don't interfere when user is typing in inputs
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.contentEditable === 'true') {
+          // Allow Escape to blur input fields
+          if (e.key === 'Escape') {
+            e.target.blur();
+          }
+          return;
+        }
+
+        // Navigation shortcuts
+        switch(e.key) {
+          case '/':
+            // Focus search input
+            e.preventDefault();
+            const searchInput = document.querySelector('#q, #bc-search');
+            if (searchInput) {
+              searchInput.focus();
+              searchInput.select();
+            }
+            break;
+
+          case 'ArrowLeft':
+          case 'h':
+            // Previous item
+            e.preventDefault();
+            const prevLink = document.querySelector('a[href*="/"][hx-get*="/"] [class*="precedente"], a[href*="/"] .htmx-indicator + span:contains("Precedente")');
+            const prevBtn = prevLink ? prevLink.closest('a') : document.querySelector('a[href]:has-text("Precedente"), a[href]:has-text("← Precedente")');
+            if (prevBtn && !prevBtn.style.pointerEvents.includes('none')) {
+              prevBtn.click();
+            }
+            break;
+
+          case 'ArrowRight':
+          case 'l':
+            // Next item
+            e.preventDefault();
+            const nextLink = document.querySelector('a[href*="/"][hx-get*="/"] [class*="successivo"], a[href*="/"] .htmx-indicator + span:contains("Successivo")');
+            const nextBtn = nextLink ? nextLink.closest('a') : document.querySelector('a[href]:has-text("Successivo"), a[href]:has-text("Successivo →")');
+            if (nextBtn && !nextBtn.style.pointerEvents.includes('none')) {
+              nextBtn.click();
+            }
+            break;
+
+          case 'u':
+          case 'ArrowUp':
+            // Go up (back to collection)
+            e.preventDefault();
+            const backLink = document.querySelector('a[href]:has-text("Lista"), a[href]:has-text("← Lista")');
+            if (backLink) {
+              backLink.click();
+            }
+            break;
+
+          case 'Home':
+          case 'g':
+            // Go home
+            e.preventDefault();
+            window.location.href = '/';
+            break;
+
+          case '?':
+            // Show keyboard shortcuts help
+            e.preventDefault();
+            showKeyboardHelp();
+            break;
+        }
+      });
+    }
+
+    // Show keyboard shortcuts help
+    function showKeyboardHelp() {
+      const helpText = `
+        Scorciatoie da tastiera:
+        
+        /          - Cerca
+        ← o h      - Elemento precedente
+        → o l      - Elemento successivo  
+        ↑ o u      - Torna alla lista
+        Home o g   - Vai alla home
+        Esc        - Chiudi ricerca
+        ?          - Mostra questa guida
+      `;
+      
+      // Create modal
+      const modal = document.createElement('div');
+      modal.className = 'keyboard-help-modal';
+      modal.innerHTML = `
+        <div class="keyboard-help-content">
+          <h3>Scorciatoie da Tastiera</h3>
+          <div class="keyboard-shortcuts">
+            <div><kbd>/</kbd> <span>Cerca</span></div>
+            <div><kbd>←</kbd> o <kbd>h</kbd> <span>Elemento precedente</span></div>
+            <div><kbd>→</kbd> o <kbd>l</kbd> <span>Elemento successivo</span></div>
+            <div><kbd>↑</kbd> o <kbd>u</kbd> <span>Torna alla lista</span></div>
+            <div><kbd>Home</kbd> o <kbd>g</kbd> <span>Vai alla home</span></div>
+            <div><kbd>Esc</kbd> <span>Chiudi ricerca/guida</span></div>
+            <div><kbd>?</kbd> <span>Mostra questa guida</span></div>
+          </div>
+          <button onclick="this.closest('.keyboard-help-modal').remove()">Chiudi</button>
+        </div>
+      `;
+      
+      document.body.appendChild(modal);
+      
+      // Close on Escape or click outside
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) modal.remove();
+      });
+      
+      document.addEventListener('keydown', function closeOnEscape(e) {
+        if (e.key === 'Escape') {
+          modal.remove();
+          document.removeEventListener('keydown', closeOnEscape);
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', initKeyboardNavigation);
+  </script>
+</body>
+</html>

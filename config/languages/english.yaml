@@ -1,0 +1,60 @@
+language: "eng"
+data_path: "data/eng"
+section_delimiter: "##"
+
+field_mappings:
+  name: "name"
+  level: "level"
+  school: "school"
+  description: "description"
+  size: "size"
+  type: "type"
+  armor_class: "armor class"
+  hit_points: "hit points"
+  speed: "speed"
+  casting_time: "casting time"
+  range: "range"
+  components: "components"
+  duration: "duration"
+  challenge_rating: "challenge rating"
+  damage: "damage"
+  properties: "properties"
+  cost: "cost"
+  weight: "weight"
+  rarity: "rarity"
+  alignment: "alignment"
+  languages: "languages"
+  senses: "senses"
+  skills: "skills"
+  saving_throws: "saving throws"
+  damage_vulnerabilities: "damage vulnerabilities"
+  damage_resistances: "damage resistances"
+  damage_immunities: "damage immunities"
+  condition_immunities: "condition immunities"
+
+patterns:
+  level_pattern: "Level\\s+(\\d+)"
+  school_pattern: "School\\s+([\\w\\s]+)"
+  cantrip_pattern: "([\\w\\s]+)\\s+Cantrip"
+  damage_pattern: "(\\d+d\\d+(?:\\s*[+\\-]\\s*\\d+)?)"
+  armor_class_pattern: "(?i)armor\\s+class\\s+(\\d+)"
+  hit_points_pattern: "(?i)hit\\s+points\\s+(\\d+)"
+  speed_pattern: "(?i)speed\\s+(.+)"
+  challenge_rating_pattern: "(?i)challenge\\s+rating\\s+([\\d/]+)"
+  size_pattern: "(?i)(tiny|small|medium|large|huge|gargantuan)"
+  type_pattern: "(?i)(aberration|beast|celestial|construct|dragon|elemental|fey|giant|ooze|monstrosity|undead|plant|humanoid)"
+  alignment_pattern: "(?i)(lawful|chaotic|neutral|good|evil)"
+
+required_fields:
+  spells: ["name", "level", "description"]
+  monsters: ["name", "size", "type", "armor class"]
+  weapons: ["name", "damage", "properties"]
+  armor: ["name", "armor class"]
+  classes: ["name", "hit die", "description"]
+  backgrounds: ["name", "description"]
+  magic_items: ["name", "rarity", "description"]
+  equipment: ["name", "cost", "weight"]
+  feats: ["name", "description"]
+  animals: ["name", "size", "type"]
+  rules: ["name", "content"]
+
