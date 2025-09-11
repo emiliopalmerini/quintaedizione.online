@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/models"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/parsers"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure"
@@ -14,13 +15,13 @@ import (
 // IngestHandler handles ingestion HTTP requests
 type IngestHandler struct {
 	ingestService  *services.PipelineIngestService
-	templateEngine *templates.Engine
+	templateEngine *templates.TemplEngine
 	defaultWork    []parsers.WorkItem
 	inputDir       string
 }
 
 // NewIngestHandler creates a new ingest handler
-func NewIngestHandler(ingestService *services.PipelineIngestService, templateEngine *templates.Engine, inputDir string) *IngestHandler {
+func NewIngestHandler(ingestService *services.PipelineIngestService, templateEngine *templates.TemplEngine, inputDir string) *IngestHandler {
 	return &IngestHandler{
 		ingestService:  ingestService,
 		templateEngine: templateEngine,
@@ -31,34 +32,49 @@ func NewIngestHandler(ingestService *services.PipelineIngestService, templateEng
 
 // GetIndex handles GET / - show parser form
 func (h *IngestHandler) GetIndex(c *gin.Context) {
-	workItems := make([]map[string]interface{}, len(h.defaultWork))
+	workItems := make([]models.ParserWorkItem, len(h.defaultWork))
 	for i, item := range h.defaultWork {
-		workItems[i] = map[string]interface{}{
-			"idx":        i,
-			"collection": item.Collection,
-			"filename":   item.Filename,
+		workItems[i] = models.ParserWorkItem{
+			Index:      i,
+			Collection: item.Collection,
+			Filename:   item.Filename,
 		}
 	}
 
-	data := map[string]interface{}{
-		"env": map[string]interface{}{
-			"input_dir": h.inputDir,
-			"db_name":   "dnd", // TODO: get from config
-			"dry_run":   true,
+	data := models.ParserPageData{
+		PageData: models.PageData{
+			Title:       "Parser D&D 5e SRD",
+			Description: "Interfaccia per importare dati SRD in MongoDB",
 		},
-		"work_items": workItems,
-		"messages":   []string{},
-		"selected":   []int{},
+		Env: models.ParserEnv{
+			InputDir: h.inputDir,
+			DBName:   "dnd", // TODO: get from config
+			DryRun:   true,
+		},
+		WorkItems: workItems,
+		Messages:  []string{},
+		Selected:  []int{},
 	}
 
 	// Check if this is an HTMX request or API request
 	if c.GetHeader("HX-Request") != "" || c.GetHeader("Accept") == "application/json" {
-		c.JSON(http.StatusOK, data)
+		// Convert back to map for JSON compatibility
+		jsonData := map[string]interface{}{
+			"env": map[string]interface{}{
+				"input_dir": data.Env.InputDir,
+				"db_name":   data.Env.DBName,
+				"dry_run":   data.Env.DryRun,
+			},
+			"work_items": data.WorkItems,
+			"messages":   data.Messages,
+			"selected":   data.Selected,
+		}
+		c.JSON(http.StatusOK, jsonData)
 		return
 	}
 
 	// Render HTML template
-	html, err := h.templateEngine.Render("parser.html", data)
+	html, err := h.templateEngine.RenderParser(data)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to render template: " + err.Error()})
 		return

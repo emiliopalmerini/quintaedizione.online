@@ -1,0 +1,128 @@
+package templates
+
+import "github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/models"
+
+templ ParserPage(data models.ParserPageData) {
+	@BaseLayout(data.PageData) {
+		<section class="bg-white border p-4 mb-4">
+			<h2 class="text-xl font-semibold mb-4">Parser D&D 5e SRD</h2>
+			<p class="text-gray-600 mb-4">Seleziona le collezioni da importare nel database MongoDB.</p>
+			
+			<form id="parser-form" method="POST" action="/run" class="space-y-4">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+					<div>
+						<label for="input_dir" class="block text-sm font-medium text-gray-700 mb-2">
+							Cartella Input:
+						</label>
+						<input 
+							type="text" 
+							id="input_dir" 
+							name="input_dir" 
+							value={ data.Env.InputDir }
+							class="field w-full"
+							required/>
+					</div>
+					
+					<div>
+						<label for="db_name" class="block text-sm font-medium text-gray-700 mb-2">
+							Nome Database:
+						</label>
+						<input 
+							type="text" 
+							id="db_name" 
+							name="db_name" 
+							value={ data.Env.DBName }
+							class="field w-full"
+							required/>
+					</div>
+				</div>
+				
+				<div class="flex items-center">
+					<input 
+						type="checkbox" 
+						id="dry_run" 
+						name="dry_run"
+						if data.Env.DryRun { 
+							checked 
+						}
+						class="mr-2"/>
+					<label for="dry_run" class="text-sm text-gray-700">
+						Dry Run (analizza senza scrivere nel database)
+					</label>
+				</div>
+				
+				<div>
+					<h3 class="text-lg font-medium text-gray-800 mb-3">Collezioni disponibili:</h3>
+					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+						for _, item := range data.WorkItems {
+							<div class="flex items-center p-2 bg-gray-50 rounded border">
+								<input 
+									type="checkbox" 
+									id={ "item_" + templ.EscapeString(string(rune(item.Index))) }
+									name="selected" 
+									value={ templ.EscapeString(string(rune(item.Index))) }
+									class="mr-2"/>
+								<label 
+									for={ "item_" + templ.EscapeString(string(rune(item.Index))) }
+									class="text-sm flex-1 cursor-pointer">
+									<span class="font-medium">{ item.Collection }</span>
+									<br/>
+									<span class="text-xs text-gray-500">{ item.Filename }</span>
+								</label>
+							</div>
+						}
+					</div>
+				</div>
+				
+				<div class="flex gap-3">
+					<button 
+						type="submit" 
+						class="btn btn-primary"
+						hx-post="/run"
+						hx-target="#results"
+						hx-indicator="#loading-indicator">
+						Esegui Parsing
+					</button>
+					<button type="button" onclick="selectAll()" class="btn">
+						Seleziona Tutto
+					</button>
+					<button type="button" onclick="deselectAll()" class="btn">
+						Deseleziona Tutto
+					</button>
+				</div>
+				
+				<div id="loading-indicator" class="htmx-indicator">
+					<div class="flex items-center gap-2 text-blue-600">
+						<div class="animate-spin">⟳</div>
+						<span>Elaborazione in corso...</span>
+					</div>
+				</div>
+			</form>
+		</section>
+		
+		<section id="results" class="bg-white border">
+			if len(data.Messages) > 0 {
+				<div class="p-4">
+					<h2 class="text-xl font-semibold mb-3">Risultati</h2>
+					<div class="bg-gray-100 rounded p-3 font-mono text-sm space-y-1">
+						for _, message := range data.Messages {
+							<div class="text-gray-700">{ message }</div>
+						}
+					</div>
+				</div>
+			}
+		</section>
+		
+		<script>
+			function selectAll() {
+				const checkboxes = document.querySelectorAll('input[name="selected"]');
+				checkboxes.forEach(cb => cb.checked = true);
+			}
+			
+			function deselectAll() {
+				const checkboxes = document.querySelectorAll('input[name="selected"]');
+				checkboxes.forEach(cb => cb.checked = false);
+			}
+		</script>
+	}
+}

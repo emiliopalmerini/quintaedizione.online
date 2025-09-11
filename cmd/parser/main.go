@@ -45,10 +45,7 @@ func main() {
 	}
 
 	// Initialize template engine
-	templateEngine := templates.NewEngine("web/templates")
-	if err := templateEngine.LoadTemplates(); err != nil {
-		log.Fatal("Failed to load templates:", err)
-	}
+	templateEngine := templates.NewTemplEngine()
 	log.Println("✅ Templates loaded")
 
 	// Setup Gin router
