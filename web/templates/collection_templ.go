@@ -120,77 +120,47 @@ func collectionFilters(collection string, pageSize int) templ.Component {
 			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		if collection == "incantesimi" {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<select name=\"level\" class=\"field w-32\"><option value=\"\">Tutti i livelli</option> <option value=\"0\">Trucchetti</option> <option value=\"1\">1° Livello</option> <option value=\"2\">2° Livello</option> <option value=\"3\">3° Livello</option> <option value=\"4\">4° Livello</option> <option value=\"5\">5° Livello</option> <option value=\"6\">6° Livello</option> <option value=\"7\">7° Livello</option> <option value=\"8\">8° Livello</option> <option value=\"9\">9° Livello</option></select> <select name=\"school\" class=\"field w-36\"><option value=\"\">Tutte le scuole</option> <option value=\"abiurazione\">Abiurazione</option> <option value=\"ammaliamento\">Ammaliamento</option> <option value=\"divinazione\">Divinazione</option> <option value=\"evocazione\">Evocazione</option> <option value=\"illusione\">Illusione</option> <option value=\"invocazione\">Invocazione</option> <option value=\"necromanzia\">Necromanzia</option> <option value=\"trasmutazione\">Trasmutazione</option></select>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		}
-		if collection == "mostri" || collection == "animali" {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<select name=\"pe\" class=\"field w-32\"><option value=\"\">Tutti i PE</option> <option value=\"0\">PE 0</option> <option value=\"10\">PE 10</option> <option value=\"25\">PE 25</option> <option value=\"50\">PE 50</option> <option value=\"100\">PE 100</option> <option value=\"200\">PE 200</option> <option value=\"450\">PE 450</option> <option value=\"700\">PE 700</option> <option value=\"1100\">PE 1.100</option> <option value=\"1800\">PE 1.800</option> <option value=\"2300\">PE 2.300</option> <option value=\"2900\">PE 2.900</option> <option value=\"3900\">PE 3.900</option> <option value=\"5000\">PE 5.000</option> <option value=\"5900\">PE 5.900</option> <option value=\"7200\">PE 7.200</option> <option value=\"8400\">PE 8.400</option> <option value=\"10000\">PE 10.000</option> <option value=\"11500\">PE 11.500</option> <option value=\"13000\">PE 13.000</option> <option value=\"15000\">PE 15.000</option> <option value=\"18000\">PE 18.000</option> <option value=\"20000\">PE 20.000</option> <option value=\"22000\">PE 22.000</option> <option value=\"25000\">PE 25.000</option> <option value=\"30000\">PE 30.000</option> <option value=\"33000\">PE 33.000</option> <option value=\"41000\">PE 41.000</option> <option value=\"50000\">PE 50.000</option> <option value=\"62000\">PE 62.000</option> <option value=\"75000\">PE 75.000</option> <option value=\"90000\">PE 90.000</option> <option value=\"105000\">PE 105.000</option> <option value=\"120000\">PE 120.000</option> <option value=\"135000\">PE 135.000</option> <option value=\"155000\">PE 155.000</option></select> <select name=\"type\" class=\"field w-36\"><option value=\"\">Tutti i tipi</option> <option value=\"aberrazione\">Aberrazione</option> <option value=\"bestia\">Bestia</option> <option value=\"celestiale\">Celestiale</option> <option value=\"costrutto\">Costrutto</option> <option value=\"drago\">Drago</option> <option value=\"elementale\">Elementale</option> <option value=\"fatato\">Fatato</option> <option value=\"immondo\">Immondo</option> <option value=\"gigante\">Gigante</option> <option value=\"monolito\">Monolito</option> <option value=\"non-morto\">Non-morto</option> <option value=\"pianta\">Pianta</option> <option value=\"umanoide\">Umanoide</option></select>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		}
-		if collection == "armi" {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "<select name=\"category\" class=\"field w-36\"><option value=\"\">Tutte le categorie</option> <option value=\"semplici\">Armi Semplici</option> <option value=\"da guerra\">Armi da Guerra</option> <option value=\"a distanza\">Armi a Distanza</option></select>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		}
-		if collection == "armature" {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "<select name=\"category\" class=\"field w-32\"><option value=\"\">Tutti i tipi</option> <option value=\"leggera\">Leggera</option> <option value=\"media\">Media</option> <option value=\"pesante\">Pesante</option> <option value=\"scudo\">Scudo</option></select>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		}
-		if collection == "oggetti_magici" {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<select name=\"rarity\" class=\"field w-32\"><option value=\"\">Tutte le rarità</option> <option value=\"comune\">Comune</option> <option value=\"non comune\">Non Comune</option> <option value=\"raro\">Raro</option> <option value=\"molto raro\">Molto Raro</option> <option value=\"leggendario\">Leggendario</option> <option value=\"artefatto\">Artefatto</option></select>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "<select name=\"page_size\" class=\"field w-28\"><option value=\"10\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<select name=\"page_size\" class=\"field w-28\"><option value=\"10\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		if pageSize == 10 {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, " selected")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, " selected")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, ">10/pagina</option> <option value=\"20\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, ">10/pagina</option> <option value=\"20\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		if pageSize == 20 {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, " selected")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, " selected")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, ">20/pagina</option> <option value=\"50\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, ">20/pagina</option> <option value=\"50\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		if pageSize == 50 {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, " selected")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, " selected")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, ">50/pagina</option> <option value=\"100\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, ">50/pagina</option> <option value=\"100\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		if pageSize == 100 {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, " selected")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, " selected")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, ">100/pagina</option></select>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, ">100/pagina</option></select>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
