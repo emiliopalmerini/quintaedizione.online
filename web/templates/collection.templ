@@ -1,0 +1,51 @@
+package templates
+
+import "github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/models"
+
+templ CollectionPage(data models.CollectionPageData) {
+	@BaseLayout(data.PageData) {
+		<section class="bg-white border p-2 mb-3">
+			<form id="search-form"
+				hx-get={ "/" + data.PageData.Collection + "/rows" }
+				hx-target="#rows"
+				hx-trigger="submit, keyup delay:300ms from:#q, change from:select, change from:input[type=checkbox], change from:input[type=number]"
+				hx-push-url="true"
+				hx-indicator="#loading-indicator"
+				class="flex flex-col gap-2">
+				<div class="flex items-center gap-2 flex-wrap">
+					<input id="q" name="q" placeholder="Cerca…" value={ data.Query } class="field flex-1"/>
+					
+					<!-- Collection-specific filters -->
+					@collectionFilters(data.PageData.Collection, data.PageSize)
+					
+					<button class="btn" type="submit">
+						<span class="htmx-indicator" id="loading-indicator">🔄</span>
+						<span>Cerca</span>
+					</button>
+				</div>
+				
+				<!-- Loading indicator -->
+				<div class="htmx-indicator flex items-center gap-2 text-sm text-gray-600" id="loading-indicator">
+					<div class="animate-spin">⟳</div>
+					<span>Caricamento in corso...</span>
+				</div>
+			</form>
+		</section>
+
+		<section class="bg-white border">
+			<div id="rows">
+				@RowsPartial(data)
+			</div>
+		</section>
+	}
+}
+
+templ collectionFilters(collection string, pageSize int) {
+	// Page size selector (always shown)
+	<select name="page_size" class="field w-28">
+		<option value="10" if pageSize == 10 { selected }>10/pagina</option>
+		<option value="20" if pageSize == 20 { selected }>20/pagina</option>
+		<option value="50" if pageSize == 50 { selected }>50/pagina</option>
+		<option value="100" if pageSize == 100 { selected }>100/pagina</option>
+	</select>
+}

@@ -1,0 +1,130 @@
+package templates
+
+import "github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/models"
+import "strconv"
+
+templ RowsPartial(data models.CollectionPageData) {
+	<div class="divide-y">
+		for _, doc := range data.Documents {
+			@documentRow(doc, data.PageData.Collection)
+		}
+		
+		if len(data.Documents) == 0 {
+			<div class="px-4 py-8 text-center text-neutral-500">
+				<p>Nessun documento trovato.</p>
+			</div>
+		}
+	</div>
+
+	if data.Total > int64(data.PageSize) {
+		@pagination(data)
+	}
+}
+
+templ documentRow(doc models.Document, collection string) {
+	<a href={ templ.URL("/" + collection + "/" + getDocSlug(doc)) } 
+		class="block px-4 py-3 hover:bg-neutral-50 text-inherit no-underline"
+		hx-get={ "/" + collection + "/" + getDocSlug(doc) }
+		hx-target="#page-root"
+		hx-select="#page-root"
+		hx-swap="outerHTML"
+		hx-push-url="true"
+		hx-indicator="#page-loading">
+		<div class="flex items-center justify-between">
+			<div class="flex-1">
+				<h3 class="font-medium text-gray-900">
+					{ getDocName(doc) }
+				</h3>
+				
+				if len(doc.DisplayElements) > 0 {
+					<div class="text-xs text-neutral-500 mt-1 flex flex-wrap items-center gap-2">
+						for _, element := range doc.DisplayElements {
+							<span>{ element.Value }</span>
+						}
+					</div>
+				}
+			</div>
+			
+			if doc.Translated {
+				<div class="text-xs text-green-600">
+					✓ Tradotto
+				</div>
+			}
+		</div>
+	</a>
+}
+
+templ pagination(data models.CollectionPageData) {
+	<div class="px-4 py-3 border-t bg-neutral-50">
+		<div class="flex items-center justify-between text-sm text-neutral-600">
+			<div>
+				Documenti { strconv.Itoa(data.StartItem) }-{ strconv.Itoa(data.EndItem) } di { strconv.FormatInt(data.Total, 10) }
+			</div>
+			
+			<div class="flex items-center space-x-2">
+				if data.HasPrev {
+					@prevButton(data)
+				}
+				
+				<span class="px-2">Pagina { strconv.Itoa(data.Page) } di { strconv.Itoa(data.TotalPages) }</span>
+				
+				if data.HasNext {
+					@nextButton(data)
+				}
+			</div>
+		</div>
+	</div>
+}
+
+// Helper functions for document name and slug
+func getDocName(doc models.Document) string {
+	if doc.Nome != "" {
+		return doc.Nome
+	}
+	if doc.Slug != "" {
+		return doc.Slug
+	}
+	return doc.ID
+}
+
+func getDocSlug(doc models.Document) string {
+	if doc.Slug != "" {
+		return doc.Slug
+	}
+	if doc.Nome != "" {
+		return doc.Nome
+	}
+	return doc.ID
+}
+
+templ prevButton(data models.CollectionPageData) {
+	if data.PageData.QueryString != "" {
+		<button hx-get={ "/" + data.PageData.Collection + "/rows?page=" + strconv.Itoa(data.Page-1) + "&" + data.PageData.QueryString }
+				hx-target="#rows"
+				class="px-3 py-1 bg-white border rounded hover:bg-neutral-50">
+			← Precedente
+		</button>
+	} else {
+		<button hx-get={ "/" + data.PageData.Collection + "/rows?page=" + strconv.Itoa(data.Page-1) }
+				hx-target="#rows"
+				class="px-3 py-1 bg-white border rounded hover:bg-neutral-50">
+			← Precedente
+		</button>
+	}
+}
+
+templ nextButton(data models.CollectionPageData) {
+	if data.PageData.QueryString != "" {
+		<button hx-get={ "/" + data.PageData.Collection + "/rows?page=" + strconv.Itoa(data.Page+1) + "&" + data.PageData.QueryString }
+				hx-target="#rows"
+				class="px-3 py-1 bg-white border rounded hover:bg-neutral-50">
+			Successiva →
+		</button>
+	} else {
+		<button hx-get={ "/" + data.PageData.Collection + "/rows?page=" + strconv.Itoa(data.Page+1) }
+				hx-target="#rows"
+				class="px-3 py-1 bg-white border rounded hover:bg-neutral-50">
+			Successiva →
+		</button>
+	}
+}

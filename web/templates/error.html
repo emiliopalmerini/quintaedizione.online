@@ -1,0 +1,33 @@
+{{define "title"}}Errore {{.status_code}}{{end}}
+
+{{define "content"}}
+<div class="notion-page">
+  <div class="notion-page-header" style="text-align: center;">
+    <h1 style="color: var(--notion-text); font-size: 3rem; font-weight: 600; margin: 0;">
+      {{.status_code}}
+    </h1>
+    <p style="color: var(--notion-text-light); font-size: 1.2rem; margin-top: 0.5rem;">
+      {{.error}}
+    </p>
+  </div>
+
+  <div class="notion-content" style="text-align: center; margin-top: 2rem;">
+    <p style="color: var(--notion-text-light); margin-bottom: 2rem;">
+      {{if eq .status_code 404}}
+      La pagina che stai cercando non esiste o è stata spostata.
+      {{else if eq .status_code 500}}
+      Si è verificato un errore interno del server. Riprova più tardi.
+      {{else}}
+      Si è verificato un errore imprevisto.
+      {{end}}
+    </p>
+    
+    <div class="error-actions">
+      <a href="/" class="btn btn-primary">Torna alla Home</a>
+      <button onclick="history.back()" class="btn btn-secondary" style="margin-left: 1rem;">
+        Indietro
+      </button>
+    </div>
+  </div>
+</div>
+{{end}}

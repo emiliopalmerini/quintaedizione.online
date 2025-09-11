@@ -2,131 +2,192 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Project Overview
+## Parser Architecture
 
-This is a D&D 5e SRD (System Reference Document) viewer and parser system with two main components:
-- **Editor**: FastAPI web application with HTMX for viewing SRD content
-- **SRD Parser**: Web-based parser for ingesting SRD content into MongoDB
+The parser follows Clean Architecture principles with Strategy + Registry patterns:
 
-The application uses Italian for UI text and documentation but code is in English.
+**Domain Layer** (`internal/domain/`):
+- Contains ONLY pure business entities (Incantesimo, Mostro, Documento, etc.)
+- Domain interfaces that other layers implement (e.g., ParserRepository)
+- NO parsing logic or implementation patterns
+
+**Application Layer** (`internal/application/parsers/`):
+- ParsingStrategy interface and implementations
+- ParserRegistry for managing strategies
+- Content type definitions and mappings
+- All concrete parser implementations
+
+**Important Rules:**
+1. Parsers MUST return domain objects, not `map[string]interface{}`
+2. Strategy and Registry patterns belong in APPLICATION layer, not domain
+3. Each content type should have its own strategy implementation
+4. Use the BaseParser for common functionality
+
+**Adding a New Parser:**
+1. Create a new strategy file (e.g., `monsters_strategy.go`)
+2. Implement the `ParsingStrategy` interface
+3. Return proper domain objects
+4. Register in `CreateDefaultRegistry()`
+
+**DO NOT:**
+- Put parsing logic in the domain layer
+- Return generic maps from parsers
+- Mix domain entities with parsing strategies
+
+## Repository Architecture
+
+The system implements entity-specific repositories using the Repository pattern with factory injection:
+
+**Repository Structure:**
+- `internal/adapters/repositories/factory.go` - Repository factory for dependency injection
+- `internal/adapters/repositories/mongodb/` - MongoDB-specific implementations
+  - Each domain entity has its own repository (e.g., `animale_mongo_repository.go`, `classe_mongo_repository.go`)
+  - Common base functionality in `base_mongo_repository.go`
+
+**Adding a New Repository:**
+1. Create entity-specific repository interface in domain layer
+2. Implement MongoDB repository in `internal/adapters/repositories/mongodb/`
+3. Register in factory.go's `CreateRepositoryFactory()` method
+4. Use dependency injection in services
+
+**Repository Pattern Benefits:**
+- Clean separation between domain and data access
+- Easy testing with mock repositories
+- Consistent CRUD operations across entities
+- Type-safe domain-specific operations
 
 ## Development Commands
 
-### Docker Setup (Primary Development Method)
-```bash
-make up                    # Start MongoDB + Editor + SRD Parser
-make down                  # Stop all services
-make logs                  # View logs from all services
-make build                 # Build both editor and parser images
-make build-editor          # Build only editor image
-make build-parser          # Build only parser image
-```
+**Docker Services (Primary Go Implementation):**
+- `make up` - Start MongoDB + Editor (port 8000) + Parser (port 8100)
+- `make down` - Stop all services
+- `make logs` - View Go service logs
+- `make build` - Build Go editor and parser images
 
-### Database Management
-```bash
-make seed-dump             # Create database backup to /seed/dnd.archive.gz
-make seed-restore          # Restore database from backup
-make seed-dump-dir         # Dump to directory format
-make seed-restore-dir      # Restore from directory format
-```
+**Go Development:**
+- `make lint` - Run go vet and golangci-lint (or go fmt as fallback)
+- `make test` - Run Go unit tests with `go test ./...`
+- `make test-integration` - Run integration tests via `./test_go_integration.sh`
+- `make benchmark` - Run performance benchmarks
 
-### Code Quality
-```bash
-make lint                  # Run ruff (preferred) or pyflakes
-make format                # Run black formatter
-```
-
-### Local Development (without Docker)
-**Editor:**
-```bash
-cd editor
-pip install -r requirements.txt
-export MONGO_URI="mongodb://admin:password@localhost:27017/?authSource=admin"
-export DB_NAME="dnd"
-uvicorn main:app --reload --port 8000
-```
-
-**SRD Parser:**
-```bash
-cd srd_parser
-pip install -r requirements.txt
-# Same MONGO_URI and DB_NAME as above
-python web.py  # or uvicorn web:app --reload --port 8100
-```
+**Database Management:**
+- `make seed-dump` - Create timestamped database backup
+- `make seed-restore FILE=backup.archive.gz` - Restore from backup
+- `make mongo-sh` - Access MongoDB container shell
+- Database: `dnd`, Credentials: `admin:password`
 
 ## Architecture
 
-### Editor Application (`/editor`)
-- **Framework**: FastAPI + Jinja2 templates + HTMX for progressive enhancement
-- **Database**: MongoDB via Motor (async driver)
-- **Styling**: Tailwind CSS (CDN) + custom CSS
-- **Structure**:
-  - `main.py`: FastAPI app setup
-  - `routers/pages.py`: Main routes and view logic
-  - `core/`: Database connections, template environment, utilities
-  - `templates/`: Jinja2 templates with HTMX integration
-  - `services/`: Business logic services
+This is a D&D 5e SRD (System Reference Document) management system with two main services:
 
-### SRD Parser Application (`/srd_parser`)
-- **Framework**: FastAPI with web interface for parsing operations
-- **Architecture**: Hexagonal Architecture with Domain-Driven Design
-- **Parser Structure**:
-  - `domain/`: Domain entities, value objects, and services (DDD implementation)
-  - `parsers/*.py`: Domain-specific parsers (spells, monsters, classes, etc.)
-  - `work.py`: Configuration of collections and source files
-  - `application/`: Service layer with ingest runner and service
-  - `adapters/`: MongoDB persistence adapter and external interfaces
-  - `web.py`: FastAPI web interface (primary)
-  - `web_hexagonal.py`: Alternative hexagonal architecture web interface
-- **Key Features**:
-  - Dry-run mode for analysis without database writes
-  - Upsert operations for data ingestion
-  - Rich domain model with proper validation
-  - Class parser generates structured data (`features_by_level`, `spellcasting_progression`)
+**Clean Architecture Pattern:**
+- `cmd/` - Application entry points (editor, parser)
+- `internal/domain/` - Core business logic and entities
+- `internal/application/` - Use cases, services, handlers, parsers
+- `internal/adapters/` - External interfaces (repository factory, MongoDB repositories, web handlers)
+  - `repositories/` - Repository interfaces and implementations
+    - `factory.go` - Repository factory for dependency injection
+    - `mongodb/` - MongoDB-specific repository implementations
+- `internal/infrastructure/` - Configuration and setup
+- `internal/shared/` - Common models (BaseEntity, MarkdownContent)
+- `pkg/` - Reusable packages (MongoDB client, templates)
 
-### Shared Domain (`/shared_domain`)
-- **Purpose**: Domain entities and value objects shared between editor and parser
-- **Structure**: Common business logic and domain rules
-- **Benefits**: Consistency across applications, single source of truth for domain concepts
+**Services:**
+1. **Editor** (port 8000) - Web interface for viewing/editing D&D content
+2. **Parser** (port 8100) - Processes markdown files from `./data/` into MongoDB
 
-### Database Schema
-- **MongoDB Database**: `dnd` (configurable via `DB_NAME`)
-- **Collections**: spells, magic_items, monsters, classes, backgrounds, etc.
-- **Authentication**: Uses `admin/password` credentials (dev environment)
+**Data Structure:**
+- `data/ita/lists/` - **Primary parsing source**: Clean list files containing only D&D entities to be parsed
+  - Files: `animali.md`, `armi.md`, `armature.md`, `backgrounds.md`, `classi.md`, `equipaggiamenti.md`, `incantesimi.md`, `mostri.md`, `oggetti_magici.md`, `regole.md`, `talenti.md`, etc.
+  - Format: H2 headers for each entity, standardized field formatting, clean structure without descriptive sections
+- `data/ita/docs/` - **Backup**: Original SRD documentation files (not used for parsing)
+- `data/ita/DIZIONARIO_CAMPI_ITALIANI.md` - Italian field terminology dictionary
+- MongoDB collections: `animali`, `armi`, `armature`, `backgrounds`, `cavalcature_e_veicoli`, `classi`, `documenti`, `equipaggiamento`, `incantesimi`, `mostri`, `oggetti_magici`, `regole`, `servizi`, `specie`, `strumenti`, `talenti`
 
-## Development Guidelines
+**Key Technologies:**
+- Go 1.24 with Gin web framework
+- MongoDB 8 for data storage
+- Docker Compose for orchestration
+- Template-based web rendering with HTMX + Templ
 
-### Code Conventions
-- Python: Use existing patterns from the codebase
-- Templates: Follow HTMX patterns for progressive enhancement
-- Database: Use Motor (async) for editor, PyMongo (sync) for parser
-- Error Handling: Keep error messages generic in UI, detailed logs in backend
+The system parses D&D content from markdown files in `data/ita/lists/` into structured MongoDB documents, supporting only Italian SRD content with searchable and renderable formats.
 
-### Testing
-- **Integration tests**: Located in root directory (`test_basic_integration.py`, `test_curl_integration.sh`, `test_domain_model.py`)
-- **Editor tests**: Located in `editor/tests/`
-- **Parser tests**: Located in `srd_parser/tests/`
-- Run with pytest (configure via `pytest.ini`)
-- Integration tests require running services (MongoDB, Editor, Parser)
+**Database Document Structure:**
+Each parsed entity follows a consistent document structure that separates metadata from domain data:
 
-### Deployment Considerations
-- Uses Docker Compose for local development
-- MongoDB runs with authentication enabled
-- Environment variables: `MONGO_URI`, `DB_NAME`, `INPUT_DIR`, `SOURCE_LABEL`
-- Ports: Editor (8000), Parser (8100), MongoDB (27017)
+```json
+{
+  "_id": ObjectId("..."),
+  "collection": "armature",
+  "source_file": "ita/lists/armature.md", 
+  "language": "ita",
+  "created_at": "2025-01-10T...",
+  "contenuto": "**Costo:** 5 mo\n**Peso:** 3,5 kg\n...",
+  "value": {
+    "nome": "Armatura Imbottita",
+    "slug": "armatura-imbottita",
+    "categoria": "Leggera",
+    "costo": { "valore": 5, "valuta": "mo" },
+    "peso": { "valore": 3.5, "unita": "kg" },
+    "classe_armatura": { "base": 11, "modificatore_des": true }
+  }
+}
+```
 
-### Commit Conventions
-Use Conventional Commits format: feat, fix, docs, chore, build, refactor, perf, test
+**Document Structure Explained:**
+- **Metadata (root level)**: System and operational data
+  - `collection`: Target MongoDB collection name
+  - `source_file`: Original markdown file path
+  - `language`: Content language (always "ita")
+  - `created_at`: Parse timestamp
+  - `contenuto`: Original markdown source for debugging/audit
+- **Domain Data (`value` object)**: All business/domain-specific fields
+  - `nome`, `slug`: Entity identification
+  - All other fields: Domain-specific structured data
 
-## Key Files to Know
+This separation allows for:
+- Consistent metadata across all collections
+- Clean domain data structure
+- Full-text search on original content
+- Easy indexing and querying strategies
 
-- `Makefile`: All development commands
-- `docker-compose.yml`: Service definitions
-- `editor/main.py`: Editor app entry point
-- `srd_parser/web.py`: Parser web interface
-- `srd_parser/work.py`: Parser configuration
-- Template files use Italian for UI text
+## Document Standards
 
-## URLs
-- Editor: http://localhost:8000/
-- Parser Web UI: http://localhost:8100/
+All files in `data/ita/lists/` follow standardized formatting:
+
+**Header Hierarchy:**
+- H1 (`#`) for file title
+- H2 (`##`) for each entity entry
+- H3 (`###`) for entity subsections (Tratti, Azioni, etc.)
+
+**Field Format:**
+- Bold field names followed by colon: `**Campo:** valore`
+- Bullet points for monster stats: `- **Campo:** valore`
+
+**Table Format (Monsters/Animals):**
+```markdown
+| Caratteristica | Valore | Modificatore | Tiro Salvezza |
+|----------------|--------|--------------|---------------|
+| FOR | 21 | +5 | +5 |
+```
+
+**Metadata Format:**
+- Spells: `*Livello X Scuola (Classi)*` or `*Trucchetto di Scuola (Classi)*`
+- Magic Items: `*Tipo, Rarità (Requisiti)*`
+- Monsters/Animals: `*Tipo Taglia, Allineamento*`
+- Feats: `*Categoria Talento*` or `*Talento Categoria (Prerequisiti)*`
+- usa l'italiano per i termini di dominio
+- Use any instead of interface
+- Use .Contains instead of loop. Like this
+```go
+     for _, valid := range validTypes {
+        if contentType == valid {
+            return true
+        }
+    }
+```
+Use this:
+```go
+    return slices.Contains(validTypes, contentType)
+```
+- Don't call file with name relative to recent command. Name file relative to domain and beheviour. Like: don't use test_improvments but test_parser_strategies

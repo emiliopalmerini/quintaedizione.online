@@ -1,20 +1,64 @@
 SHELL := /bin/sh
 
-# Config
+# Configuration
 PROJECT ?= dnd
 
-.PHONY: up down logs seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh editor-sh build build-editor build-parser env-init lint format help
+.PHONY: help up down logs build build-editor build-parser templ-generate env-init lint format test test-integration benchmark seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh editor-sh
 
+# === Docker Services ===
 up:
-	docker compose up -d mongo editor srd-parser
+	docker compose up -d mongo editor parser
 
 down:
 	docker compose down
 
 logs:
-	docker compose logs -f editor srd-parser mongo
+	docker compose logs -f editor parser
 
-# Seed helpers (run inside the mongo container)
+# === Build Commands ===
+build: templ-generate
+	docker compose build editor parser
+
+build-editor: templ-generate
+	docker compose build editor
+
+build-parser:
+	docker compose build parser
+
+# === Template Generation ===
+templ-generate:
+	@echo "Generating Templ templates..."
+	cd web/templates && templ generate
+
+# === Development Setup ===
+env-init:
+	@test -f .env || cp .env.example .env || true
+	@echo "Loaded .env (or created from .env.example)."
+
+# === Go Development ===
+lint:
+	go vet ./...
+	@if command -v golangci-lint >/dev/null 2>&1; then \
+		golangci-lint run; \
+	else \
+		go fmt ./...; \
+	fi
+
+format:
+	go fmt ./...
+
+test:
+	go test ./...
+
+test-integration:
+	@echo "Running integration tests..."
+	./test_go_integration.sh
+
+benchmark:
+	@echo "Running performance benchmarks..."
+	go test -bench=. -benchmem ./tests/benchmarks
+
+# === Database Management ===
 seed-dump:
 	@echo "Creating database backup..."
 	docker compose exec mongo mongodump --username=admin --password=password --authenticationDatabase=admin --db $(PROJECT) --gzip --archive=/tmp/$(PROJECT).archive.gz
@@ -39,52 +83,34 @@ seed-dump-dir:
 seed-restore-dir:
 	docker compose exec mongo sh -lc 'test -d /seed/dump && mongorestore --username=admin --password=password --authenticationDatabase=admin --dir /seed/dump --drop || echo "No /seed/dump directory found"'
 
+# === Container Access ===
 mongo-sh:
 	docker compose exec mongo sh
 
 editor-sh:
 	docker compose exec editor sh
 
-# Build images
-build:
-	docker compose build editor srd-parser
-
-build-editor:
-	docker compose build editor
-
-build-parser:
-	docker compose build srd-parser
-
-# Initialize .env from example (no overwrite)
-env-init:
-	@test -f .env || cp .env.example .env || true
-	@echo "Loaded .env (or created from .env.example)."
-
-# Lint/format helpers (optional: ruff/black if installed; fallback: pyflakes)
-lint:
-	@if command -v ruff >/dev/null 2>&1; then \
-		ruff check editor srd_parser; \
-	elif command -v pyflakes >/dev/null 2>&1; then \
-		pyflakes editor srd_parser; \
-	else \
-		echo "No linter found (install ruff or pyflakes)"; \
-	fi
-
-format:
-	@if command -v black >/dev/null 2>&1; then \
-		black editor srd_parser; \
-	else \
-		echo "Black not found; install black to format"; \
-	fi
-
-# Show available commands
+# === Help ===
 help:
 	@echo "D&D 5e SRD - Available Commands:"
 	@echo ""
 	@echo "Docker Services:"
-	@echo "  make up                    # Start MongoDB + Editor + SRD Parser"
+	@echo "  make up                    # Start MongoDB + Editor + Parser"
 	@echo "  make down                  # Stop all services"
-	@echo "  make logs                  # View logs from all services"
+	@echo "  make logs                  # View service logs"
+	@echo ""
+	@echo "Build Commands:"
+	@echo "  make build                 # Build editor and parser images (with templ generation)"
+	@echo "  make build-editor          # Build only editor image (with templ generation)"
+	@echo "  make build-parser          # Build only parser image"
+	@echo "  make templ-generate        # Generate Go code from Templ templates"
+	@echo ""
+	@echo "Go Development:"
+	@echo "  make lint                  # Lint Go code"
+	@echo "  make format                # Format Go code"
+	@echo "  make test                  # Run Go unit tests"
+	@echo "  make test-integration      # Run integration tests"
+	@echo "  make benchmark             # Run performance benchmarks"
 	@echo ""
 	@echo "Database Management:"
 	@echo "  make seed-dump             # Create timestamped database backup"
@@ -96,15 +122,8 @@ help:
 	@echo "  make mongo-sh              # Access MongoDB shell"
 	@echo "  make editor-sh             # Access Editor container shell"
 	@echo ""
-	@echo "Build Images:"
-	@echo "  make build                 # Build both editor and parser images"
-	@echo "  make build-editor          # Build only editor image"
-	@echo "  make build-parser          # Build only parser image"
-	@echo ""
-	@echo "Development:"
+	@echo "Setup:"
 	@echo "  make env-init              # Initialize .env from .env.example"
-	@echo "  make lint                  # Run ruff (preferred) or pyflakes"
-	@echo "  make format                # Run black formatter"
 	@echo "  make help                  # Show this help message"
 	@echo ""
 	@echo "URLs:"
