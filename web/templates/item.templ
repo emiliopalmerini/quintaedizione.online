@@ -56,12 +56,12 @@ templ ItemPage(data models.ItemPageData) {
 		<!-- Item content -->
 		<article data-md-section>
 			if data.BodyHTML != "" {
-				<div data-markdown data-ssr="true" data-raw={ data.BodyRaw }>
+				<div data-markdown data-ssr="true" data-raw={ getMarkdownWithTitle(data.PageData.DocTitle, data.BodyRaw) }>
 					@templ.Raw(data.BodyHTML)
 				</div>
 			} else if data.BodyRaw != "" {
-				<div data-markdown data-raw={ data.BodyRaw }>
-					<pre style="white-space: pre-wrap; font-family: inherit; margin: 0;">{ data.BodyRaw }</pre>
+				<div data-markdown data-raw={ getMarkdownWithTitle(data.PageData.DocTitle, data.BodyRaw) }>
+					{ data.BodyRaw }
 				</div>
 			} else {
 				<div style="color: var(--notion-text-light); font-style: italic;">Nessuna descrizione disponibile.</div>
@@ -75,4 +75,12 @@ templ ItemPage(data models.ItemPageData) {
 			</button>
 		</div>
 	}
+}
+
+// Helper function to prepend title to markdown content for copy functionality
+func getMarkdownWithTitle(title, body string) string {
+	if title == "" {
+		return body
+	}
+	return "## " + title + "\n\n" + body
 }

@@ -249,12 +249,10 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 		fmt.Printf("Warning: Could not get adjacent items for %s/%s: %v\n", collection, slug, err)
 	}
 
-	// Get doc title from nested value object
+	// Get doc title from root level
 	docTitle := ""
-	if valueObj, ok := item["value"].(map[string]interface{}); ok {
-		if nome, ok := valueObj["nome"].(string); ok {
-			docTitle = nome
-		}
+	if nome, ok := item["nome"].(string); ok {
+		docTitle = nome
 	}
 
 	// Handle navigation slugs (they're pointers)
