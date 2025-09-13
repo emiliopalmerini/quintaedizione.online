@@ -21,7 +21,7 @@ type PipelineIngestService struct {
 	progressTracker   *observers.ProgressTracker
 	errorCollector    *observers.ErrorCollector
 	logger            parsers.Logger
-	registry          *parsers.ParserRegistry
+	registry          *parsers.Registry
 	repositoryWrapper *repositories.ParserRepositoryWrapper
 	documentBuilder   *parsers.DocumentBuilder
 	config            infrastructure.Config
@@ -30,7 +30,7 @@ type PipelineIngestService struct {
 // NewPipelineIngestService creates a new pipeline-based ingest service
 func NewPipelineIngestService(
 	repositoryWrapper *repositories.ParserRepositoryWrapper,
-	registry *parsers.ParserRegistry,
+	registry *parsers.Registry,
 	documentBuilder *parsers.DocumentBuilder,
 	config infrastructure.Config,
 	logger parsers.Logger,

@@ -23,7 +23,8 @@
       "Bash(go build:*)",
       "Bash(git reset:*)",
       "Bash(docker restart:*)",
-      "Bash(templ generate:*)"
+      "Bash(templ generate:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []

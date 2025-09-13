@@ -3,16 +3,24 @@ package parsers
 import (
 	"fmt"
 	"regexp"
-	"strconv"
 	"strings"
 
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
 )
 
-type ArmiStrategy struct{}
+type ArmiStrategy struct{
+	*BaseParser
+	validator *Validator
+	// Pre-compiled patterns for weapon-specific parsing
+	proprietaPattern *regexp.Regexp
+}
 
 func NewArmiStrategy() *ArmiStrategy {
-	return &ArmiStrategy{}
+	return &ArmiStrategy{
+		BaseParser: NewBaseParser(),
+		validator:  NewValidator(),
+		proprietaPattern: regexp.MustCompile(`([^,(]+)(?:\([^)]+\))?`),
+	}
 }
 
 func (s *ArmiStrategy) Parse(content []string, context *ParsingContext) ([]domain.ParsedEntity, error) {
@@ -24,47 +32,32 @@ func (s *ArmiStrategy) Parse(content []string, context *ParsingContext) ([]domai
 		return nil, err
 	}
 
-	var entities []domain.ParsedEntity
-	currentSection := []string{}
-	inSection := false
+	// Validate content structure before parsing
+	if err := s.validator.ValidateContent(content, ContentTypeArmi); err != nil {
+		return nil, fmt.Errorf("content validation failed: %w", err)
+	}
 
-	for _, line := range content {
-		line = strings.TrimSpace(line)
-		
-		// Skip empty lines and main title
-		if line == "" || strings.HasPrefix(line, "# ") {
+	var entities []domain.ParsedEntity
+	sections := s.SplitIntoSections(content)
+
+	for _, section := range sections {
+		if len(section) == 0 {
 			continue
 		}
 
-		// Check for new weapon section (H2)
-		if strings.HasPrefix(line, "## ") {
-			// Process previous section if exists
-			if inSection && len(currentSection) > 0 {
-				arma, err := s.parseWeaponSection(currentSection)
-				if err != nil {
-					context.Logger.Error(fmt.Sprintf("Failed to parse weapon section: %v", err))
-					continue
-				}
-				entities = append(entities, arma)
-			}
-
-			// Start new section
-			currentSection = []string{line}
-			inSection = true
-		} else if inSection {
-			// Add line to current section
-			currentSection = append(currentSection, line)
-		}
-	}
-
-	// Process last section
-	if inSection && len(currentSection) > 0 {
-		arma, err := s.parseWeaponSection(currentSection)
+		arma, err := s.parseWeaponSection(section)
 		if err != nil {
-			context.Logger.Error(fmt.Sprintf("Failed to parse last weapon section: %v", err))
-		} else {
-			entities = append(entities, arma)
+			context.Logger.Error(fmt.Sprintf("Failed to parse weapon section: %v", err))
+			continue
 		}
+
+		// Validate parsed entity
+		if err := s.validator.ValidateArma(arma); err != nil {
+			context.Logger.Error(fmt.Sprintf("Weapon validation failed: %v", err))
+			continue
+		}
+
+		entities = append(entities, arma)
 	}
 
 	if len(entities) == 0 {
@@ -81,54 +74,46 @@ func (s *ArmiStrategy) parseWeaponSection(section []string) (*domain.Arma, error
 
 	// Extract name from header
 	header := section[0]
-	if !strings.HasPrefix(header, "## ") {
-		return nil, ErrMissingSectionTitle
-	}
-	nome := strings.TrimSpace(strings.TrimPrefix(header, "## "))
-
-	// Parse fields
-	fields := make(map[string]string)
-	contenuto := strings.Builder{}
-	
-	for i := 1; i < len(section); i++ {
-		line := section[i]
-		contenuto.WriteString(line + "\n")
-		
-		// Parse field format: **Field:** value
-		if strings.HasPrefix(line, "**") && strings.Contains(line, ":**") {
-			parts := strings.SplitN(line, ":**", 2)
-			if len(parts) == 2 {
-				fieldName := strings.TrimSpace(strings.Trim(parts[0], "*"))
-				fieldValue := strings.TrimSpace(parts[1])
-				fields[fieldName] = fieldValue
-			}
-		}
-	}
-
-	// Parse required fields
-	costo, err := s.parseCosto(fields["Costo"])
+	nome, err := s.ExtractNameFromHeader(header)
 	if err != nil {
-		return nil, fmt.Errorf("failed to parse costo: %w", err)
+		return nil, err
 	}
 
-	peso, err := s.parsePeso(fields["Peso"])
+	// Validate section structure
+	if err := s.validator.ValidateSection(section, nome); err != nil {
+		return nil, err
+	}
+
+	// Extract fields using base parser
+	fields, contenuto := s.ParseFieldsFromSection(section)
+
+	// Validate required fields
+	requiredFields := []string{"Costo", "Peso", "Danno", "Categoria"}
+	if err := s.validator.ValidateRequiredFields(fields, requiredFields, nome); err != nil {
+		return nil, err
+	}
+
+	// Parse required fields using base parser
+	costo, err := s.ParseCosto(fields["Costo"])
 	if err != nil {
-		return nil, fmt.Errorf("failed to parse peso: %w", err)
+		return nil, fmt.Errorf("failed to parse costo for '%s': %w", nome, err)
+	}
+
+	peso, err := s.ParsePeso(fields["Peso"])
+	if err != nil {
+		return nil, fmt.Errorf("failed to parse peso for '%s': %w", nome, err)
 	}
 
 	danno := fields["Danno"]
-	if danno == "" {
-		return nil, fmt.Errorf("missing danno field")
-	}
 
 	categoria, err := s.parseCategoria(fields["Categoria"])
 	if err != nil {
-		return nil, fmt.Errorf("failed to parse categoria: %w", err)
+		return nil, fmt.Errorf("failed to parse categoria for '%s': %w", nome, err)
 	}
 
 	proprieta, err := s.parseProprieta(fields["Proprietà"])
 	if err != nil {
-		return nil, fmt.Errorf("failed to parse proprieta: %w", err)
+		return nil, fmt.Errorf("failed to parse proprieta for '%s': %w", nome, err)
 	}
 
 	maestria := fields["Maestria"]
@@ -144,69 +129,12 @@ func (s *ArmiStrategy) parseWeaponSection(section []string) (*domain.Arma, error
 		proprieta,
 		maestria,
 		gittata,
-		strings.TrimSpace(contenuto.String()),
+		contenuto,
 	)
 
 	return arma, nil
 }
 
-func (s *ArmiStrategy) parseCosto(value string) (domain.Costo, error) {
-	if value == "" || value == "—" {
-		return domain.NewCosto(0, domain.ValutaOro), nil
-	}
-
-	// Parse format like "5 mo", "10 ma", etc.
-	re := regexp.MustCompile(`(\d+(?:\.\d+)?)\s*([a-z]{2})`)
-	matches := re.FindStringSubmatch(value)
-	if len(matches) != 3 {
-		return domain.Costo{}, fmt.Errorf("invalid costo format: %s", value)
-	}
-
-	valore, err := strconv.Atoi(matches[1])
-	if err != nil {
-		return domain.Costo{}, fmt.Errorf("invalid costo value: %s", matches[1])
-	}
-
-	var valuta domain.Valuta
-	switch matches[2] {
-	case "mr":
-		valuta = domain.ValutaRame
-	case "ma":
-		valuta = domain.ValutaArgento
-	case "me":
-		valuta = domain.ValutaElettro
-	case "mo":
-		valuta = domain.ValutaOro
-	case "mp":
-		valuta = domain.ValutaPlatino
-	default:
-		return domain.Costo{}, fmt.Errorf("unknown currency: %s", matches[2])
-	}
-
-	return domain.NewCosto(valore, valuta), nil
-}
-
-func (s *ArmiStrategy) parsePeso(value string) (domain.Peso, error) {
-	if value == "" || value == "—" {
-		return domain.NewPeso(0, domain.UnitaKg), nil
-	}
-
-	// Parse format like "3,5 kg", "4.5 kg", etc.
-	// Handle both comma and dot as decimal separator
-	value = strings.ReplaceAll(value, ",", ".")
-	re := regexp.MustCompile(`(\d+(?:\.\d+)?)\s*kg`)
-	matches := re.FindStringSubmatch(value)
-	if len(matches) != 2 {
-		return domain.Peso{}, fmt.Errorf("invalid peso format: %s", value)
-	}
-
-	valore, err := strconv.ParseFloat(matches[1], 64)
-	if err != nil {
-		return domain.Peso{}, fmt.Errorf("invalid peso value: %s", matches[1])
-	}
-
-	return domain.NewPeso(valore, domain.UnitaKg), nil
-}
 
 func (s *ArmiStrategy) parseCategoria(value string) (domain.CategoriaArma, error) {
 	switch value {
@@ -235,10 +163,10 @@ func (s *ArmiStrategy) parseProprieta(value string) ([]domain.ProprietaArma, err
 	for _, part := range parts {
 		prop := strings.TrimSpace(part)
 		
-		// Handle properties with parentheses like "Munizioni (Freccia)"
-		if strings.Contains(prop, "(") {
-			prop = strings.Split(prop, "(")[0]
-			prop = strings.TrimSpace(prop)
+		// Use regex to extract property name, ignoring parentheses
+		matches := s.proprietaPattern.FindStringSubmatch(prop)
+		if len(matches) > 1 {
+			prop = strings.TrimSpace(matches[1])
 		}
 
 		var proprietaArma domain.ProprietaArma
@@ -265,7 +193,7 @@ func (s *ArmiStrategy) parseProprieta(value string) ([]domain.ProprietaArma, err
 		case "Speciale":
 			proprietaArma = domain.ProprietaSpeciale
 		default:
-			// Skip unknown properties rather than failing
+			// Log unknown properties but continue parsing
 			continue
 		}
 		

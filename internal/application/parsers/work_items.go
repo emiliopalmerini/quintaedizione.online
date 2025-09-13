@@ -4,72 +4,72 @@ package parsers
 func CreateDefaultWorkItems() []WorkItem {
 	return []WorkItem{
 		{
-			Filename:   "ita/lists/armature.md",
+			Filename:   "armature.md",
 			Collection: "armature",
 			Language:   Italian,
 		},
 		{
-			Filename:   "ita/lists/armi.md",
+			Filename:   "armi.md",
 			Collection: "armi",
 			Language:   Italian,
 		},
 		{
-			Filename:   "ita/lists/animali.md",
+			Filename:   "animali.md",
 			Collection: "animali",
 			Language:   Italian,
 		},
 		{
-			Filename:   "ita/lists/backgrounds.md",
+			Filename:   "backgrounds.md",
 			Collection: "backgrounds",
 			Language:   Italian,
 		},
 		{
-			Filename:   "ita/lists/cavalcature_veicoli_items.md",
+			Filename:   "cavalcature_veicoli_items.md",
 			Collection: "cavalcature_veicoli",
 			Language:   Italian,
 		},
 		{
-			Filename:   "ita/lists/classi.md",
+			Filename:   "classi.md",
 			Collection: "classi",
 			Language:   Italian,
 		},
 		{
-			Filename:   "ita/lists/equipaggiamenti.md",
+			Filename:   "equipaggiamenti.md",
 			Collection: "equipaggiamenti",
 			Language:   Italian,
 		},
 		{
-			Filename:   "ita/lists/incantesimi.md",
+			Filename:   "incantesimi.md",
 			Collection: "incantesimi",
 			Language:   Italian,
 		},
 		{
-			Filename:   "ita/lists/mostri.md",
+			Filename:   "mostri.md",
 			Collection: "mostri",
 			Language:   Italian,
 		},
 		{
-			Filename:   "ita/lists/oggetti_magici.md",
+			Filename:   "oggetti_magici.md",
 			Collection: "oggetti_magici",
 			Language:   Italian,
 		},
 		{
-			Filename:   "ita/lists/regole.md",
+			Filename:   "regole.md",
 			Collection: "regole",
 			Language:   Italian,
 		},
 		{
-			Filename:   "ita/lists/servizi.md",
+			Filename:   "servizi.md",
 			Collection: "servizi",
 			Language:   Italian,
 		},
 		{
-			Filename:   "ita/lists/strumenti.md",
+			Filename:   "strumenti.md",
 			Collection: "strumenti",
 			Language:   Italian,
 		},
 		{
-			Filename:   "ita/lists/talenti.md",
+			Filename:   "talenti.md",
 			Collection: "talenti",
 			Language:   Italian,
 		},

@@ -12,13 +12,13 @@ import (
 
 // ContentParserStage parses file content using the registry system
 type ContentParserStage struct {
-	registry *parsers.ParserRegistry
+	registry *parsers.Registry
 	eventBus events.EventBus
 	logger   parsers.Logger
 }
 
 // NewContentParserStage creates a new content parser stage
-func NewContentParserStage(registry *parsers.ParserRegistry, eventBus events.EventBus, logger parsers.Logger) *ContentParserStage {
+func NewContentParserStage(registry *parsers.Registry, eventBus events.EventBus, logger parsers.Logger) *ContentParserStage {
 	if logger == nil {
 		logger = &parsers.NoOpLogger{}
 	}
@@ -81,7 +81,7 @@ func (s *ContentParserStage) Process(ctx context.Context, data *pipeline.Process
 	s.logger.Debug("parsing content for collection: %s, content type: %s", data.WorkItem.Collection, contentType)
 
 	// Get parsing strategy from registry
-	strategy, err := s.registry.GetParser(contentType)
+	strategy, err := s.registry.GetStrategyByContentType(contentType)
 	if err != nil {
 		s.logger.Error("no parser found for content type %s: %v", contentType, err)
 
