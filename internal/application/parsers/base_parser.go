@@ -20,7 +20,7 @@ type BaseParser struct {
 func NewBaseParser() *BaseParser {
 	return &BaseParser{
 		CostoPattern: regexp.MustCompile(`(\d+(?:\.\d+)?)\s*([a-z]{2})`),
-		PesoPattern:  regexp.MustCompile(`(\d+(?:\.\d+)?)\s*kg`),
+		PesoPattern:  regexp.MustCompile(`(\d+(?:\.\d+)?)\s*(kg|g)`),
 	}
 }
 
@@ -92,13 +92,20 @@ func (bp *BaseParser) ParsePeso(value string) (domain.Peso, error) {
 	// Handle both comma and dot as decimal separator
 	value = strings.ReplaceAll(value, ",", ".")
 	matches := bp.PesoPattern.FindStringSubmatch(value)
-	if len(matches) != 2 {
+	if len(matches) != 3 {
 		return domain.Peso{}, fmt.Errorf("invalid peso format: %s", value)
 	}
 
 	valore, err := strconv.ParseFloat(matches[1], 64)
 	if err != nil {
 		return domain.Peso{}, fmt.Errorf("invalid peso value: %s", matches[1])
+	}
+
+	unit := matches[2]
+	
+	// Convert grams to kilograms if needed
+	if unit == "g" {
+		valore = valore / 1000.0
 	}
 
 	return domain.NewPeso(valore, domain.UnitaKg), nil

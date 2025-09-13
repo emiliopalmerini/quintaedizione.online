@@ -241,7 +241,12 @@ func (v *Validator) ValidateRequiredFields(fields map[string]string, required []
 		value, exists := fields[field]
 		if !exists {
 			missing = append(missing, field)
-		} else if strings.TrimSpace(value) == "" || value == "—" {
+		} else if strings.TrimSpace(value) == "" {
+			empty = append(empty, field)
+		} else if field == "Peso" && value == "—" {
+			// "—" is valid for Peso field (indicates no weight)
+			continue
+		} else if value == "—" {
 			empty = append(empty, field)
 		}
 	}

@@ -22,7 +22,7 @@ func NewCavalcaturaVeicoloMongoRepository(client *mongodb.Client) repositories.C
 	base := NewBaseMongoRepository[*domain.CavalcaturaVeicolo](
 		client,
 		"cavalcature_veicoli",
-		[]string{"value.nome", "value.slug"},
+		[]string{"nome", "slug"},
 	)
 	
 	return &CavalcaturaVeicoloMongoRepository{
@@ -30,20 +30,15 @@ func NewCavalcaturaVeicoloMongoRepository(client *mongodb.Client) repositories.C
 	}
 }
 
-// extractCavalcaturaVeicoloFromDocument extracts CavalcaturaVeicolo from the nested value field
+// extractCavalcaturaVeicoloFromDocument extracts CavalcaturaVeicolo from the flattened document
 func extractCavalcaturaVeicoloFromDocument(doc bson.M) (*domain.CavalcaturaVeicolo, error) {
-	valueData, exists := doc["value"]
-	if !exists {
-		return nil, fmt.Errorf("cavalcatura_veicolo document missing value field")
-	}
-
-	valueBytes, err := bson.Marshal(valueData)
+	docBytes, err := bson.Marshal(doc)
 	if err != nil {
-		return nil, fmt.Errorf("failed to marshal value data: %w", err)
+		return nil, fmt.Errorf("failed to marshal document: %w", err)
 	}
 
 	var cavalcaturaVeicolo domain.CavalcaturaVeicolo
-	err = bson.Unmarshal(valueBytes, &cavalcaturaVeicolo)
+	err = bson.Unmarshal(docBytes, &cavalcaturaVeicolo)
 	if err != nil {
 		return nil, fmt.Errorf("failed to unmarshal cavalcatura_veicolo: %w", err)
 	}
@@ -55,7 +50,7 @@ func extractCavalcaturaVeicoloFromDocument(doc bson.M) (*domain.CavalcaturaVeico
 func (r *CavalcaturaVeicoloMongoRepository) FindByNome(ctx context.Context, nome string) (*domain.CavalcaturaVeicolo, error) {
 	collection := r.client.GetCollection(r.collectionName)
 
-	filter := bson.M{"value.nome": nome}
+	filter := bson.M{"nome": nome}
 
 	var doc bson.M
 	err := collection.FindOne(ctx, filter).Decode(&doc)
@@ -72,10 +67,10 @@ func (r *CavalcaturaVeicoloMongoRepository) FindByType(ctx context.Context, vehi
 
 	filter := bson.M{
 		"$or": []bson.M{
-			{"value.tipo": primitive.Regex{Pattern: vehicleType, Options: "i"}},
-			{"value.type": primitive.Regex{Pattern: vehicleType, Options: "i"}},
-			{"value.categoria": primitive.Regex{Pattern: vehicleType, Options: "i"}},
-			{"value.category": primitive.Regex{Pattern: vehicleType, Options: "i"}},
+			{"tipo": primitive.Regex{Pattern: vehicleType, Options: "i"}},
+			{"type": primitive.Regex{Pattern: vehicleType, Options: "i"}},
+			{"categoria": primitive.Regex{Pattern: vehicleType, Options: "i"}},
+			{"category": primitive.Regex{Pattern: vehicleType, Options: "i"}},
 		},
 	}
 
@@ -117,8 +112,8 @@ func (r *CavalcaturaVeicoloMongoRepository) FindBySpeed(ctx context.Context, min
 
 	filter := bson.M{
 		"$or": []bson.M{
-			{"value.velocita": bson.M{"$gte": minSpeed}},
-			{"value.speed": bson.M{"$gte": minSpeed}},
+			{"velocita": bson.M{"$gte": minSpeed}},
+			{"speed": bson.M{"$gte": minSpeed}},
 			{"contenuto": primitive.Regex{Pattern: fmt.Sprintf("%d", minSpeed), Options: "i"}},
 		},
 	}
@@ -161,9 +156,9 @@ func (r *CavalcaturaVeicoloMongoRepository) FindByCapacity(ctx context.Context, 
 
 	filter := bson.M{
 		"$or": []bson.M{
-			{"value.capacita": bson.M{"$gte": minCapacity}},
-			{"value.capacity": bson.M{"$gte": minCapacity}},
-			{"value.carico": bson.M{"$gte": minCapacity}},
+			{"capacita": bson.M{"$gte": minCapacity}},
+			{"capacity": bson.M{"$gte": minCapacity}},
+			{"carico": bson.M{"$gte": minCapacity}},
 			{"contenuto": primitive.Regex{Pattern: fmt.Sprintf("%d", minCapacity), Options: "i"}},
 		},
 	}

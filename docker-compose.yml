@@ -26,22 +26,6 @@ services:
     ports: ["8000:8000"]
     restart: unless-stopped
 
-  parser:
-    build:
-      context: .
-      dockerfile: Dockerfile.Parser
-    container_name: dnd-parser-go
-    depends_on: [mongo]
-    environment:
-      - MONGO_URI=mongodb://admin:password@mongo:27017/?authSource=admin
-      - DB_NAME=dnd
-      - PORT=8100
-      - ENVIRONMENT=production
-    volumes:
-      - ./data:/data:ro
-    ports: ["8100:8100"]
-    restart: unless-stopped
-
   # Python Editor (legacy alternative)
   editor-python:
     profiles: [python]

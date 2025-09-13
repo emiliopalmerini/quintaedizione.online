@@ -23,7 +23,7 @@ func NewMostroMongoRepository(client *mongodb.Client) repositories.MostroReposit
 	base := NewBaseMongoRepository[*domain.Mostro](
 		client,
 		"mostri",
-		[]string{"value.nome", "value.slug"},
+		[]string{"nome", "slug"},
 	)
 	
 	return &MostroMongoRepository{
@@ -31,20 +31,15 @@ func NewMostroMongoRepository(client *mongodb.Client) repositories.MostroReposit
 	}
 }
 
-// extractMostroFromDocument extracts Mostro from the nested value field
+// extractMostroFromDocument extracts Mostro from the flattened document
 func extractMostroFromDocument(doc bson.M) (*domain.Mostro, error) {
-	valueData, exists := doc["value"]
-	if !exists {
-		return nil, fmt.Errorf("mostro document missing value field")
-	}
-
-	valueBytes, err := bson.Marshal(valueData)
+	docBytes, err := bson.Marshal(doc)
 	if err != nil {
-		return nil, fmt.Errorf("failed to marshal value data: %w", err)
+		return nil, fmt.Errorf("failed to marshal document: %w", err)
 	}
 
 	var mostro domain.Mostro
-	err = bson.Unmarshal(valueBytes, &mostro)
+	err = bson.Unmarshal(docBytes, &mostro)
 	if err != nil {
 		return nil, fmt.Errorf("failed to unmarshal mostro: %w", err)
 	}
@@ -56,7 +51,7 @@ func extractMostroFromDocument(doc bson.M) (*domain.Mostro, error) {
 func (r *MostroMongoRepository) FindByNome(ctx context.Context, nome string) (*domain.Mostro, error) {
 	collection := r.client.GetCollection(r.collectionName)
 
-	filter := bson.M{"value.nome": nome}
+	filter := bson.M{"nome": nome}
 
 	var doc bson.M
 	err := collection.FindOne(ctx, filter).Decode(&doc)
@@ -76,8 +71,8 @@ func (r *MostroMongoRepository) FindByChallengeRating(ctx context.Context, cr fl
 	
 	filter := bson.M{
 		"$or": []bson.M{
-			{"value.grado_sfida.valore": crStr},
-			{"value.challenge_rating.value": crStr},
+			{"grado_sfida.valore": crStr},
+			{"challenge_rating.value": crStr},
 		},
 	}
 
@@ -120,8 +115,8 @@ func (r *MostroMongoRepository) FindByChallengeRatingRange(ctx context.Context, 
 	// For simplicity, use content search for CR ranges
 	filter := bson.M{
 		"$or": []bson.M{
-			{"value.grado_sfida.valore": bson.M{"$gte": minCR, "$lte": maxCR}},
-			{"value.challenge_rating.value": bson.M{"$gte": minCR, "$lte": maxCR}},
+			{"grado_sfida.valore": bson.M{"$gte": minCR, "$lte": maxCR}},
+			{"challenge_rating.value": bson.M{"$gte": minCR, "$lte": maxCR}},
 		},
 	}
 
@@ -163,10 +158,10 @@ func (r *MostroMongoRepository) FindByType(ctx context.Context, tipoMostro domai
 
 	filter := bson.M{
 		"$or": []bson.M{
-			{"value.tipo": string(tipoMostro)},
-			{"value.type": string(tipoMostro)},
-			{"value.tipo": primitive.Regex{Pattern: string(tipoMostro), Options: "i"}},
-			{"value.type": primitive.Regex{Pattern: string(tipoMostro), Options: "i"}},
+			{"tipo": string(tipoMostro)},
+			{"type": string(tipoMostro)},
+			{"tipo": primitive.Regex{Pattern: string(tipoMostro), Options: "i"}},
+			{"type": primitive.Regex{Pattern: string(tipoMostro), Options: "i"}},
 		},
 	}
 
@@ -208,8 +203,8 @@ func (r *MostroMongoRepository) FindBySize(ctx context.Context, size string, lim
 
 	filter := bson.M{
 		"$or": []bson.M{
-			{"value.taglia": primitive.Regex{Pattern: size, Options: "i"}},
-			{"value.size": primitive.Regex{Pattern: size, Options: "i"}},
+			{"taglia": primitive.Regex{Pattern: size, Options: "i"}},
+			{"size": primitive.Regex{Pattern: size, Options: "i"}},
 		},
 	}
 
@@ -251,8 +246,8 @@ func (r *MostroMongoRepository) FindByEnvironment(ctx context.Context, environme
 
 	filter := bson.M{
 		"$or": []bson.M{
-			{"value.ambiente": primitive.Regex{Pattern: environment, Options: "i"}},
-			{"value.environment": primitive.Regex{Pattern: environment, Options: "i"}},
+			{"ambiente": primitive.Regex{Pattern: environment, Options: "i"}},
+			{"environment": primitive.Regex{Pattern: environment, Options: "i"}},
 			{"contenuto": primitive.Regex{Pattern: environment, Options: "i"}},
 		},
 	}
@@ -295,8 +290,8 @@ func (r *MostroMongoRepository) FindByAlignment(ctx context.Context, alignment s
 
 	filter := bson.M{
 		"$or": []bson.M{
-			{"value.allineamento": primitive.Regex{Pattern: alignment, Options: "i"}},
-			{"value.alignment": primitive.Regex{Pattern: alignment, Options: "i"}},
+			{"allineamento": primitive.Regex{Pattern: alignment, Options: "i"}},
+			{"alignment": primitive.Regex{Pattern: alignment, Options: "i"}},
 		},
 	}
 
@@ -341,7 +336,7 @@ func (r *MostroMongoRepository) FindSpellcasters(ctx context.Context, limit int)
 	orFilters := make([]bson.M, 0, len(spellTerms)*2)
 	for _, term := range spellTerms {
 		orFilters = append(orFilters,
-			bson.M{"value.tratti.nome": primitive.Regex{Pattern: term, Options: "i"}},
+			bson.M{"tratti.nome": primitive.Regex{Pattern: term, Options: "i"}},
 			bson.M{"contenuto": primitive.Regex{Pattern: term, Options: "i"}},
 		)
 	}
@@ -386,8 +381,8 @@ func (r *MostroMongoRepository) FindLegendaryMonsters(ctx context.Context, limit
 
 	filter := bson.M{
 		"$or": []bson.M{
-			{"value.azioni_leggendarie": bson.M{"$exists": true, "$ne": nil}},
-			{"value.legendary_actions": bson.M{"$exists": true, "$ne": nil}},
+			{"azioni_leggendarie": bson.M{"$exists": true, "$ne": nil}},
+			{"legendary_actions": bson.M{"$exists": true, "$ne": nil}},
 			{"contenuto": primitive.Regex{Pattern: "legendary|leggendari", Options: "i"}},
 		},
 	}
