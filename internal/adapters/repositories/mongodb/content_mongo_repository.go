@@ -71,7 +71,7 @@ func (r *ContentMongoRepository) GetItemBySlug(ctx context.Context, collection, 
 		return nil, fmt.Errorf("invalid collection: %s", collection)
 	}
 
-	filter := bson.M{"value.slug": slug}
+	filter := bson.M{"slug": slug}
 	
 	coll := r.client.GetCollection(collection)
 	var result map[string]any
@@ -132,7 +132,7 @@ func (r *ContentMongoRepository) FindCollectionMaps(ctx context.Context, collect
 		opts.SetLimit(limit)
 	}
 	// Sort by nome for consistent ordering
-	opts.SetSort(bson.D{{Key: "value.nome", Value: 1}})
+	opts.SetSort(bson.D{{Key: "nome", Value: 1}})
 
 	cursor, err := coll.Find(ctx, filter, opts)
 	if err != nil {
@@ -157,47 +157,43 @@ func (r *ContentMongoRepository) GetAdjacentItems(ctx context.Context, collectio
 	coll := r.client.GetCollection(collection)
 	
 	// Get current item to find its position
-	currentFilter := bson.M{"value.slug": currentSlug}
+	currentFilter := bson.M{"slug": currentSlug}
 	var currentItem map[string]any
 	err = coll.FindOne(ctx, currentFilter).Decode(&currentItem)
 	if err != nil {
 		return nil, nil, fmt.Errorf("failed to find current item: %w", err)
 	}
 	
-	currentNome, ok := currentItem["value"].(map[string]any)["nome"].(string)
+	currentNome, ok := currentItem["nome"].(string)
 	if !ok {
 		return nil, nil, fmt.Errorf("current item has no valid nome field")
 	}
 
 	// Find previous item (nome < current, ordered desc, limit 1)
 	prevFilter := bson.M{
-		"value.nome": bson.M{"$lt": currentNome},
+		"nome": bson.M{"$lt": currentNome},
 	}
-	prevOpts := options.FindOne().SetSort(bson.D{{Key: "value.nome", Value: -1}})
+	prevOpts := options.FindOne().SetSort(bson.D{{Key: "nome", Value: -1}})
 	
 	var prevItem map[string]any
 	err = coll.FindOne(ctx, prevFilter, prevOpts).Decode(&prevItem)
 	if err == nil {
-		if prevValue, ok := prevItem["value"].(map[string]any); ok {
-			if slug, ok := prevValue["slug"].(string); ok {
-				prevSlug = &slug
-			}
+		if slug, ok := prevItem["slug"].(string); ok {
+			prevSlug = &slug
 		}
 	}
 
 	// Find next item (nome > current, ordered asc, limit 1)
 	nextFilter := bson.M{
-		"value.nome": bson.M{"$gt": currentNome},
+		"nome": bson.M{"$gt": currentNome},
 	}
-	nextOpts := options.FindOne().SetSort(bson.D{{Key: "value.nome", Value: 1}})
+	nextOpts := options.FindOne().SetSort(bson.D{{Key: "nome", Value: 1}})
 	
 	var nextItem map[string]any
 	err = coll.FindOne(ctx, nextFilter, nextOpts).Decode(&nextItem)
 	if err == nil {
-		if nextValue, ok := nextItem["value"].(map[string]any); ok {
-			if slug, ok := nextValue["slug"].(string); ok {
-				nextSlug = &slug
-			}
+		if slug, ok := nextItem["slug"].(string); ok {
+			nextSlug = &slug
 		}
 	}
 

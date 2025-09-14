@@ -43,7 +43,12 @@ func (s *ClassiStrategy) Parse(content []string, context *ParsingContext) ([]dom
 			if inSection && len(currentSection) > 0 {
 				classe, err := s.parseClasseSection(currentSection)
 				if err != nil {
-					context.Logger.Error(fmt.Sprintf("Failed to parse classe section: %v", err))
+					// Extract class name from previous section for better error reporting
+					className := "unknown"
+					if len(currentSection) > 0 && strings.HasPrefix(currentSection[0], "## ") {
+						className = strings.TrimSpace(strings.TrimPrefix(currentSection[0], "## "))
+					}
+					context.Logger.Error(fmt.Sprintf("Failed to parse classe section '%s': %v", className, err))
 					continue
 				}
 				entities = append(entities, classe)
@@ -62,7 +67,12 @@ func (s *ClassiStrategy) Parse(content []string, context *ParsingContext) ([]dom
 	if inSection && len(currentSection) > 0 {
 		classe, err := s.parseClasseSection(currentSection)
 		if err != nil {
-			context.Logger.Error(fmt.Sprintf("Failed to parse last classe section: %v", err))
+			// Extract class name from current section for better error reporting
+			className := "unknown"
+			if len(currentSection) > 0 && strings.HasPrefix(currentSection[0], "## ") {
+				className = strings.TrimSpace(strings.TrimPrefix(currentSection[0], "## "))
+			}
+			context.Logger.Error(fmt.Sprintf("Failed to parse last classe section '%s': %v", className, err))
 		} else {
 			entities = append(entities, classe)
 		}
@@ -179,10 +189,16 @@ func (s *ClassiStrategy) parseClasseSection(section []string) (*domain.Classe, e
 func (s *ClassiStrategy) parseTraitTable(section []string) (map[string]string, error) {
 	traits := make(map[string]string)
 	inTable := false
+	
+	// Debug: extract section name for better error reporting
+	sectionName := "unknown"
+	if len(section) > 0 && strings.HasPrefix(section[0], "## ") {
+		sectionName = strings.TrimSpace(strings.TrimPrefix(section[0], "## "))
+	}
 
 	for i, line := range section {
-		// Look for trait table markers
-		if strings.Contains(line, "Tratti base del") {
+		// Look for trait table markers - updated pattern to match actual format (case insensitive)
+		if strings.Contains(strings.ToLower(line), "tabella: tratti base del") {
 			inTable = true
 			continue
 		}
@@ -211,7 +227,7 @@ func (s *ClassiStrategy) parseTraitTable(section []string) (map[string]string, e
 	}
 
 	if len(traits) == 0 {
-		return nil, fmt.Errorf("no traits found in section")
+		return nil, fmt.Errorf("no traits found in section '%s'", sectionName)
 	}
 
 	return traits, nil

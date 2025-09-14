@@ -199,11 +199,18 @@ func (s *MostriStrategy) parseMonsterSection(section []string) (*domain.Mostro, 
 				gradoSfida, puntiEsperienza = s.parseGradoSfidaEPE(value)
 			}
 		}
+		
+		// Special case for GS field without colon format
+		if strings.HasPrefix(line, "- **GS**") && !strings.Contains(line, ":**") {
+			// Parse format: "- **GS** 10 (PE 5,900, o 7,200 nella tana)"
+			gsValue := strings.TrimSpace(strings.TrimPrefix(line, "- **GS**"))
+			gradoSfida, puntiEsperienza = s.parseGradoSfidaEPE(gsValue)
+		}
 
-		// Parse characteristics table
-		if strings.Contains(line, "|") && strings.Contains(line, "FOR") {
-			// This is the characteristic table header, parse following rows
-			caratteristiche = s.parseCaratteristicheTable(section, i)
+		// Parse characteristics table - look for the actual data line with FOR
+		if strings.Contains(line, "| FOR |") {
+			// This is a characteristics table data row, parse from this line
+			caratteristiche = s.parseCaratteristicheTable(section, i, &tiriSalvezza)
 		}
 	}
 
@@ -502,7 +509,24 @@ func (s *MostriStrategy) parseGradoSfidaEPE(value string) (int, domain.PuntiEspe
 	parts := strings.Split(value, "(")
 	if len(parts) > 0 {
 		gsValue := strings.TrimSpace(parts[0])
-		gs, _ = strconv.Atoi(gsValue)
+		// Handle fractional GS values like "1/4", "1/2", etc.
+		if strings.Contains(gsValue, "/") {
+			// For fractional GS, we could store as 0 or handle specially
+			// D&D 5e has fractional CRs: 1/8=0.125, 1/4=0.25, 1/2=0.5
+			// Since our domain expects int, we'll map common fractions to negative numbers
+			switch gsValue {
+			case "1/8":
+				gs = -3  // Representing 0.125
+			case "1/4":
+				gs = -2  // Representing 0.25
+			case "1/2":
+				gs = -1  // Representing 0.5
+			default:
+				gs = 0   // Unknown fraction
+			}
+		} else {
+			gs, _ = strconv.Atoi(gsValue)
+		}
 	}
 
 	// Extract PE values if present
@@ -534,11 +558,11 @@ func (s *MostriStrategy) parseGradoSfidaEPE(value string) (int, domain.PuntiEspe
 	return gs, pe
 }
 
-func (s *MostriStrategy) parseCaratteristicheTable(section []string, startIndex int) []domain.Caratteristica {
+func (s *MostriStrategy) parseCaratteristicheTable(section []string, startIndex int, tiriSalvezza *domain.TiriSalvezza) []domain.Caratteristica {
 	var caratteristiche []domain.Caratteristica
 
-	// Look for the data rows after the header
-	for i := startIndex + 2; i < len(section); i++ { // Skip header and separator
+	// Start from the current line (which contains FOR) and parse all table rows
+	for i := startIndex; i < len(section); i++ {
 		line := section[i]
 		if !strings.Contains(line, "|") {
 			break // End of table
@@ -554,7 +578,7 @@ func (s *MostriStrategy) parseCaratteristicheTable(section []string, startIndex 
 
 			valore, _ := strconv.Atoi(strings.TrimSpace(parts[2]))
 			
-			// Map string names to TipoCaratteristica
+			// Map string names to TipoCaratteristica first
 			var tipoCaratteristica domain.TipoCaratteristica
 			switch nome {
 			case "FOR":
@@ -571,6 +595,15 @@ func (s *MostriStrategy) parseCaratteristicheTable(section []string, startIndex 
 				tipoCaratteristica = domain.CaratteristicaCarisma
 			default:
 				continue // Skip unknown characteristics
+			}
+			
+			// Parse saving throw bonus from column 4 and store in the map
+			if len(parts) >= 5 {
+				salvezzaStr := strings.TrimSpace(parts[4])
+				if strings.HasPrefix(salvezzaStr, "+") {
+					salvezzaBonus, _ := strconv.Atoi(salvezzaStr[1:]) // Remove "+" and convert
+					(*tiriSalvezza)[tipoCaratteristica] = salvezzaBonus
+				}
 			}
 			
 			caratteristica := domain.NewCaratteristica(tipoCaratteristica, valore)

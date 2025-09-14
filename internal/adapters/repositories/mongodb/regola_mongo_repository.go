@@ -22,7 +22,7 @@ func NewRegolaMongoRepository(client *mongodb.Client) repositories.RegolaReposit
 	base := NewBaseMongoRepository[*domain.Regola](
 		client,
 		"regole",
-		[]string{"value.nome", "value.slug"},
+		[]string{"nome", "slug"},
 	)
 	
 	return &RegolaMongoRepository{
@@ -30,20 +30,15 @@ func NewRegolaMongoRepository(client *mongodb.Client) repositories.RegolaReposit
 	}
 }
 
-// extractRegolaFromDocument extracts Regola from the nested value field
+// extractRegolaFromDocument extracts Regola from the flattened document
 func extractRegolaFromDocument(doc bson.M) (*domain.Regola, error) {
-	valueData, exists := doc["value"]
-	if !exists {
-		return nil, fmt.Errorf("regola document missing value field")
-	}
-
-	valueBytes, err := bson.Marshal(valueData)
+	docBytes, err := bson.Marshal(doc)
 	if err != nil {
-		return nil, fmt.Errorf("failed to marshal value data: %w", err)
+		return nil, fmt.Errorf("failed to marshal document: %w", err)
 	}
 
 	var regola domain.Regola
-	err = bson.Unmarshal(valueBytes, &regola)
+	err = bson.Unmarshal(docBytes, &regola)
 	if err != nil {
 		return nil, fmt.Errorf("failed to unmarshal regola: %w", err)
 	}
@@ -55,7 +50,7 @@ func extractRegolaFromDocument(doc bson.M) (*domain.Regola, error) {
 func (r *RegolaMongoRepository) FindByNome(ctx context.Context, nome string) (*domain.Regola, error) {
 	collection := r.client.GetCollection(r.collectionName)
 
-	filter := bson.M{"value.nome": nome}
+	filter := bson.M{"nome": nome}
 
 	var doc bson.M
 	err := collection.FindOne(ctx, filter).Decode(&doc)
@@ -72,10 +67,10 @@ func (r *RegolaMongoRepository) FindByCategory(ctx context.Context, category str
 
 	filter := bson.M{
 		"$or": []bson.M{
-			{"value.categoria": primitive.Regex{Pattern: category, Options: "i"}},
-			{"value.category": primitive.Regex{Pattern: category, Options: "i"}},
-			{"value.tipo": primitive.Regex{Pattern: category, Options: "i"}},
-			{"value.type": primitive.Regex{Pattern: category, Options: "i"}},
+			{"categoria": primitive.Regex{Pattern: category, Options: "i"}},
+			{"category": primitive.Regex{Pattern: category, Options: "i"}},
+			{"tipo": primitive.Regex{Pattern: category, Options: "i"}},
+			{"type": primitive.Regex{Pattern: category, Options: "i"}},
 		},
 	}
 
@@ -117,10 +112,10 @@ func (r *RegolaMongoRepository) FindByKeyword(ctx context.Context, keyword strin
 
 	filter := bson.M{
 		"$or": []bson.M{
-			{"value.descrizione": primitive.Regex{Pattern: keyword, Options: "i"}},
-			{"value.description": primitive.Regex{Pattern: keyword, Options: "i"}},
+			{"descrizione": primitive.Regex{Pattern: keyword, Options: "i"}},
+			{"description": primitive.Regex{Pattern: keyword, Options: "i"}},
 			{"contenuto": primitive.Regex{Pattern: keyword, Options: "i"}},
-			{"value.nome": primitive.Regex{Pattern: keyword, Options: "i"}},
+			{"nome": primitive.Regex{Pattern: keyword, Options: "i"}},
 		},
 	}
 

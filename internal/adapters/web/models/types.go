@@ -71,25 +71,3 @@ type ErrorPageData struct {
 	ErrorCode    int
 }
 
-// ParserPageData represents data for the parser interface page
-type ParserPageData struct {
-	PageData
-	Env       ParserEnv      `json:"env"`
-	WorkItems []ParserWorkItem `json:"work_items"`
-	Messages  []string       `json:"messages"`
-	Selected  []int          `json:"selected"`
-}
-
-// ParserEnv represents parser environment configuration
-type ParserEnv struct {
-	InputDir string `json:"input_dir"`
-	DBName   string `json:"db_name"`
-	DryRun   bool   `json:"dry_run"`
-}
-
-// ParserWorkItem represents a work item in the parser interface
-type ParserWorkItem struct {
-	Index      int    `json:"idx"`
-	Collection string `json:"collection"`
-	Filename   string `json:"filename"`
-}

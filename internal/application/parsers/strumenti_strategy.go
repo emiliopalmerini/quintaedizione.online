@@ -194,17 +194,24 @@ func (s *StrumentiStrategy) parsePeso(value string) (domain.Peso, error) {
 		return domain.NewPeso(0, domain.UnitaKg), nil
 	}
 
-	// Parse format like "3,5 kg", "4 kg", etc.
+	// Parse format like "3,5 kg", "4 kg", "250 g", etc.
 	value = strings.ReplaceAll(value, ",", ".")
-	re := regexp.MustCompile(`(\d+(?:\.\d+)?)\s*kg`)
+	re := regexp.MustCompile(`(\d+(?:\.\d+)?)\s*(kg|g)`)
 	matches := re.FindStringSubmatch(value)
-	if len(matches) != 2 {
+	if len(matches) != 3 {
 		return domain.Peso{}, fmt.Errorf("invalid peso format: %s", value)
 	}
 
 	valore, err := strconv.ParseFloat(matches[1], 64)
 	if err != nil {
 		return domain.Peso{}, fmt.Errorf("invalid peso value: %s", matches[1])
+	}
+
+	unit := matches[2]
+	
+	// Convert grams to kilograms if needed
+	if unit == "g" {
+		valore = valore / 1000.0
 	}
 
 	return domain.NewPeso(valore, domain.UnitaKg), nil

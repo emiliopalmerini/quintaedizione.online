@@ -150,14 +150,12 @@ func (h *Handlers) handleCollectionList(c *gin.Context) {
 			doc.ID = id
 		}
 		
-		// Extract nome and slug from value object
-		if valueObj, ok := item["value"].(map[string]interface{}); ok {
-			if nome, ok := valueObj["nome"].(string); ok {
-				doc.Nome = nome
-			}
-			if slug, ok := valueObj["slug"].(string); ok {
-				doc.Slug = slug
-			}
+		// Extract nome and slug from root level
+		if nome, ok := item["nome"].(string); ok {
+			doc.Nome = nome
+		}
+		if slug, ok := item["slug"].(string); ok {
+			doc.Slug = slug
 		}
 		
 		// Extract display elements (processed by ContentService)
@@ -251,12 +249,10 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 		fmt.Printf("Warning: Could not get adjacent items for %s/%s: %v\n", collection, slug, err)
 	}
 
-	// Get doc title from nested value object
+	// Get doc title from root level
 	docTitle := ""
-	if valueObj, ok := item["value"].(map[string]interface{}); ok {
-		if nome, ok := valueObj["nome"].(string); ok {
-			docTitle = nome
-		}
+	if nome, ok := item["nome"].(string); ok {
+		docTitle = nome
 	}
 
 	// Handle navigation slugs (they're pointers)
@@ -336,14 +332,12 @@ func (h *Handlers) handleCollectionRows(c *gin.Context) {
 			doc.ID = id
 		}
 		
-		// Extract nome and slug from value object
-		if valueObj, ok := item["value"].(map[string]interface{}); ok {
-			if nome, ok := valueObj["nome"].(string); ok {
-				doc.Nome = nome
-			}
-			if slug, ok := valueObj["slug"].(string); ok {
-				doc.Slug = slug
-			}
+		// Extract nome and slug from root level
+		if nome, ok := item["nome"].(string); ok {
+			doc.Nome = nome
+		}
+		if slug, ok := item["slug"].(string); ok {
+			doc.Slug = slug
 		}
 		
 		// Extract display elements (processed by ContentService)

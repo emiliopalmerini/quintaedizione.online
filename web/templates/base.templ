@@ -104,23 +104,120 @@ templ baseScripts() {
 		document.addEventListener('DOMContentLoaded', initMarkdown);
 		document.body.addEventListener('htmx:afterSwap', initMarkdown);
 
-		// Copy markdown functionality
+		// Copy markdown functionality with fallback support
 		function copyMarkdown(btn){
 			const section = btn.closest('[data-md-section]') || btn.closest('article') || document;
 			let md = section.querySelector('[data-markdown]');
 			if (!md) md = section.querySelector('[data-ssr="true"]');
 			const raw = (md && (md.dataset.raw || md.getAttribute('data-raw') || md.textContent)) || '';
-			if(!raw) return;
 			
-			if (navigator.clipboard && navigator.clipboard.writeText) {
-				navigator.clipboard.writeText(raw).then(()=>{
-					const flash = document.createElement('span');
-					flash.className = 'flash-message';
-					flash.textContent = 'Copiato';
-					btn.insertAdjacentElement('afterend', flash);
-					setTimeout(()=>flash.remove(), 1200);
-				});
+			if(!raw) {
+				showCopyMessage(btn, 'Nessun contenuto da copiare', 'error');
+				return;
 			}
+			
+			// Try modern clipboard API first
+			if (navigator.clipboard && navigator.clipboard.writeText) {
+				navigator.clipboard.writeText(raw).then(() => {
+					showCopyMessage(btn, 'Copiato', 'success');
+				}).catch(() => {
+					// Fallback to legacy method if modern API fails
+					copyToClipboardFallback(raw, btn);
+				});
+			} else {
+				// Use fallback method for browsers without clipboard API
+				copyToClipboardFallback(raw, btn);
+			}
+		}
+
+		// Fallback copy method using document.execCommand
+		function copyToClipboardFallback(text, btn) {
+			try {
+				// Create temporary textarea element
+				const textarea = document.createElement('textarea');
+				textarea.value = text;
+				textarea.style.position = 'fixed';
+				textarea.style.left = '-9999px';
+				textarea.style.top = '-9999px';
+				textarea.style.opacity = '0';
+				textarea.setAttribute('readonly', '');
+				
+				document.body.appendChild(textarea);
+				
+				// Select and copy text
+				textarea.select();
+				textarea.setSelectionRange(0, textarea.value.length);
+				
+				const successful = document.execCommand('copy');
+				document.body.removeChild(textarea);
+				
+				if (successful) {
+					showCopyMessage(btn, 'Copiato', 'success');
+				} else {
+					// Final fallback: select text for manual copy
+					showSelectableText(text, btn);
+				}
+			} catch (err) {
+				// Final fallback: show selectable text
+				showSelectableText(text, btn);
+			}
+		}
+
+		// Show copy message with different types
+		function showCopyMessage(btn, message, type = 'success') {
+			// Remove any existing messages
+			const existingMessage = btn.nextElementSibling;
+			if (existingMessage && existingMessage.className.includes('flash-message')) {
+				existingMessage.remove();
+			}
+			
+			const flash = document.createElement('span');
+			flash.className = `flash-message flash-${type}`;
+			flash.textContent = message;
+			btn.insertAdjacentElement('afterend', flash);
+			setTimeout(() => flash.remove(), type === 'error' ? 3000 : 1200);
+		}
+
+		// Final fallback: show text in a modal for manual selection
+		function showSelectableText(text, btn) {
+			const modal = document.createElement('div');
+			modal.className = 'copy-text-modal';
+			modal.innerHTML = `
+				<div class="copy-text-modal-content">
+					<div class="copy-text-header">
+						<h3>Seleziona e copia il testo</h3>
+						<button onclick="this.closest('.copy-text-modal').remove()" class="copy-text-close">×</button>
+					</div>
+					<textarea readonly class="copy-text-area">${text}</textarea>
+					<div class="copy-text-footer">
+						<small>Seleziona tutto il testo (Ctrl+A) e copialo (Ctrl+C)</small>
+					</div>
+				</div>
+			`;
+			
+			document.body.appendChild(modal);
+			
+			// Auto-select text and focus textarea
+			const textarea = modal.querySelector('.copy-text-area');
+			setTimeout(() => {
+				textarea.focus();
+				textarea.select();
+			}, 100);
+			
+			// Close modal on background click
+			modal.addEventListener('click', function(e) {
+				if (e.target === modal) {
+					modal.remove();
+				}
+			});
+			
+			// Close modal on Escape key
+			document.addEventListener('keydown', function escapeHandler(e) {
+				if (e.key === 'Escape') {
+					modal.remove();
+					document.removeEventListener('keydown', escapeHandler);
+				}
+			});
 		}
 
 		// Keyboard navigation shortcuts

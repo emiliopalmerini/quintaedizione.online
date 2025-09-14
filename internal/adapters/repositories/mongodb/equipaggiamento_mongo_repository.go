@@ -22,7 +22,7 @@ func NewEquipaggiamentoMongoRepository(client *mongodb.Client) repositories.Equi
 	base := NewBaseMongoRepository[*domain.Equipaggiamento](
 		client,
 		"equipaggiamenti",
-		[]string{"value.nome", "value.slug"},
+		[]string{"nome", "slug"},
 	)
 	
 	return &EquipaggiamentoMongoRepository{
@@ -30,20 +30,15 @@ func NewEquipaggiamentoMongoRepository(client *mongodb.Client) repositories.Equi
 	}
 }
 
-// extractEquipaggiamentoFromDocument extracts Equipaggiamento from the nested value field
+// extractEquipaggiamentoFromDocument extracts Equipaggiamento from the flattened document
 func extractEquipaggiamentoFromDocument(doc bson.M) (*domain.Equipaggiamento, error) {
-	valueData, exists := doc["value"]
-	if !exists {
-		return nil, fmt.Errorf("equipaggiamento document missing value field")
-	}
-
-	valueBytes, err := bson.Marshal(valueData)
+	docBytes, err := bson.Marshal(doc)
 	if err != nil {
-		return nil, fmt.Errorf("failed to marshal value data: %w", err)
+		return nil, fmt.Errorf("failed to marshal document: %w", err)
 	}
 
 	var equipaggiamento domain.Equipaggiamento
-	err = bson.Unmarshal(valueBytes, &equipaggiamento)
+	err = bson.Unmarshal(docBytes, &equipaggiamento)
 	if err != nil {
 		return nil, fmt.Errorf("failed to unmarshal equipaggiamento: %w", err)
 	}
@@ -55,7 +50,7 @@ func extractEquipaggiamentoFromDocument(doc bson.M) (*domain.Equipaggiamento, er
 func (r *EquipaggiamentoMongoRepository) FindByNome(ctx context.Context, nome string) (*domain.Equipaggiamento, error) {
 	collection := r.client.GetCollection(r.collectionName)
 
-	filter := bson.M{"value.nome": nome}
+	filter := bson.M{"nome": nome}
 
 	var doc bson.M
 	err := collection.FindOne(ctx, filter).Decode(&doc)
@@ -72,10 +67,10 @@ func (r *EquipaggiamentoMongoRepository) FindByCategory(ctx context.Context, cat
 
 	filter := bson.M{
 		"$or": []bson.M{
-			{"value.categoria": primitive.Regex{Pattern: category, Options: "i"}},
-			{"value.category": primitive.Regex{Pattern: category, Options: "i"}},
-			{"value.tipo": primitive.Regex{Pattern: category, Options: "i"}},
-			{"value.type": primitive.Regex{Pattern: category, Options: "i"}},
+			{"categoria": primitive.Regex{Pattern: category, Options: "i"}},
+			{"category": primitive.Regex{Pattern: category, Options: "i"}},
+			{"tipo": primitive.Regex{Pattern: category, Options: "i"}},
+			{"type": primitive.Regex{Pattern: category, Options: "i"}},
 		},
 	}
 
@@ -118,13 +113,13 @@ func (r *EquipaggiamentoMongoRepository) FindByPriceRange(ctx context.Context, m
 	filter := bson.M{
 		"$or": []bson.M{
 			{
-				"value.costo.valore": bson.M{
+				"costo.valore": bson.M{
 					"$gte": minPrice,
 					"$lte": maxPrice,
 				},
 			},
 			{
-				"value.cost.value": bson.M{
+				"cost.value": bson.M{
 					"$gte": minPrice,
 					"$lte": maxPrice,
 				},
@@ -171,12 +166,12 @@ func (r *EquipaggiamentoMongoRepository) FindByWeight(ctx context.Context, maxWe
 	filter := bson.M{
 		"$or": []bson.M{
 			{
-				"value.peso.valore": bson.M{
+				"peso.valore": bson.M{
 					"$lte": maxWeight,
 				},
 			},
 			{
-				"value.weight.value": bson.M{
+				"weight.value": bson.M{
 					"$lte": maxWeight,
 				},
 			},
