@@ -18,20 +18,15 @@ type AnimaleMongoRepository struct {
 	*BaseMongoRepository[*domain.Animale]
 }
 
-// extractAnimaleFromDocument extracts Animale from the nested value field
+// extractAnimaleFromDocument extracts Animale from the flattened document
 func extractAnimaleFromDocument(doc bson.M) (*domain.Animale, error) {
-	valueData, exists := doc["value"]
-	if !exists {
-		return nil, fmt.Errorf("animale document missing value field")
-	}
-
-	valueBytes, err := bson.Marshal(valueData)
+	docBytes, err := bson.Marshal(doc)
 	if err != nil {
-		return nil, fmt.Errorf("failed to marshal value data: %w", err)
+		return nil, fmt.Errorf("failed to marshal document: %w", err)
 	}
 
 	var animale domain.Animale
-	err = bson.Unmarshal(valueBytes, &animale)
+	err = bson.Unmarshal(docBytes, &animale)
 	if err != nil {
 		return nil, fmt.Errorf("failed to unmarshal animale: %w", err)
 	}
@@ -44,7 +39,7 @@ func NewAnimaleMongoRepository(client *mongodb.Client) repositories.AnimaleRepos
 	base := NewBaseMongoRepository[*domain.Animale](
 		client,
 		"animali",
-		[]string{"value.nome", "value.slug"},
+		[]string{"nome", "slug"},
 	)
 
 	return &AnimaleMongoRepository{
@@ -56,7 +51,7 @@ func NewAnimaleMongoRepository(client *mongodb.Client) repositories.AnimaleRepos
 func (r *AnimaleMongoRepository) FindByNome(ctx context.Context, nome string) (*domain.Animale, error) {
 	collection := r.client.GetCollection(r.collectionName)
 
-	filter := bson.M{"value.nome": nome}
+	filter := bson.M{"nome": nome}
 
 	var doc bson.M
 	err := collection.FindOne(ctx, filter).Decode(&doc)
@@ -73,8 +68,8 @@ func (r *AnimaleMongoRepository) FindBySize(ctx context.Context, size string, li
 
 	filter := bson.M{
 		"$or": []bson.M{
-			{"value.taglia": primitive.Regex{Pattern: size, Options: "i"}},
-			{"value.size": primitive.Regex{Pattern: size, Options: "i"}},
+			{"taglia": primitive.Regex{Pattern: size, Options: "i"}},
+			{"size": primitive.Regex{Pattern: size, Options: "i"}},
 		},
 	}
 
@@ -119,8 +114,8 @@ func (r *AnimaleMongoRepository) FindByChallengeRating(ctx context.Context, cr f
 	
 	filter := bson.M{
 		"$or": []bson.M{
-			{"value.grado_sfida.valore": crStr},
-			{"value.challenge_rating.value": crStr},
+			{"grado_sfida.valore": crStr},
+			{"challenge_rating.value": crStr},
 		},
 	}
 
@@ -163,9 +158,8 @@ func (r *AnimaleMongoRepository) FindByEnvironment(ctx context.Context, environm
 	// Since environment isn't a direct field in our domain model, we'll search in content and traits
 	filter := bson.M{
 		"$or": []bson.M{
-			{"value.contenuto": primitive.Regex{Pattern: environment, Options: "i"}},
+			{"tratti.descrizione": primitive.Regex{Pattern: environment, Options: "i"}},
 			{"contenuto": primitive.Regex{Pattern: environment, Options: "i"}},
-			{"value.tratti.descrizione": primitive.Regex{Pattern: environment, Options: "i"}},
 		},
 	}
 

@@ -243,7 +243,7 @@ func (r *BaseMongoRepository[T]) UpsertManyMaps(ctx context.Context, uniqueField
 		hasUniqueField := false
 
 		for _, field := range fields {
-			// Handle nested field paths (e.g., "value.nome")
+			// Handle nested field paths (e.g., "nome")
 			value := r.getNestedValue(doc, field)
 			if value != nil && value != "" {
 				filter[field] = value
@@ -324,7 +324,7 @@ func (r *BaseMongoRepository[T]) GetCollectionName() string {
 	return r.collectionName
 }
 
-// getNestedValue extracts a value from a nested map using dot notation (e.g., "value.nome")
+// getNestedValue extracts a value from a nested map using dot notation (e.g., "nome")
 func (r *BaseMongoRepository[T]) getNestedValue(doc map[string]any, fieldPath string) any {
 	parts := strings.Split(fieldPath, ".")
 	current := doc

@@ -2729,29 +2729,29 @@ The spell creates the effects below within the warded area. *Dispel Magic* has n
 
 ## Guidance
 
-*Divination Cantrip (Cleric, Druid)*
+*Trucchetto di Divinazione (Chierico, Druido)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione
 
-**Range:** Touch 
+**Gittata:** Contatto
 
-**Component:** V, S 
+**Componenti:** V, S
 
-**Duration:** Concentration, up to 1 minute
+**Durata:** Concentrazione, fino a 1 minuto
 
 You touch a willing creature and choose a skill. Until the spell ends, the creature adds 1d4 to any ability check using the chosen skill.
 
 ## Guiding Bolt
 
-*Level 1 Evocation (Cleric)*
+*Livello 1 Evocazione (Chierico)*
 
-**Casting Time:** Action 
+**Tempo di Lancio:** Azione
 
-**Range:** 120 feet 
+**Gittata:** 36 m
 
-**Components:** V, S 
+**Componenti:** V, S
 
-**Duration:** 1 round
+**Durata:** 1 round
 
 You hurl a bolt of light toward a creature within range. Make a ranged spell attack against the target. On a hit, it takes 4d6 Radiant damage, and the next attack roll made against it before the end of your next turn has Advantage.
 
@@ -3397,13 +3397,13 @@ Tocchi un’arma non magica. Finché l’incantesimo dura, quell’arma diventa 
 
 *Livello 7 Evocazione (Bardo, Mago)*
 
-**Casting Time:** 1 minute 
+**Tempo di Lancio:** 1 minuto 
 
 **Gittata:** 90 m 
 
 **Componenti:** V, S, M (una porta in miniatura dal valore di almeno 15 MO) 
 
-**Duration:** 24 hours
+**Durata:** 24 ore
 
 Evochi una porta scintillante entro gittata che dura per la durata. La porta conduce a un'abitazione extradimensionale ed è larga 1,5 m e alta 3 m. Tu e qualsiasi creatura da te designata quando lanci l'incantesimo potete entrare nell'abitazione finché la porta rimane aperta. Puoi aprirla o chiuderla (nessuna azione richiesta) se ti trovi entro 9 m da essa. Quando è chiusa, la porta è impercettibile.
 

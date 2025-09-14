@@ -132,8 +132,9 @@ func (s *IncantesimiStrategy) parseSpellSection(section []string) (*domain.Incan
 		}
 	}
 
-	// Parse lancio fields
-	lancio, err := s.parseLancio(fields)
+	// Parse lancio fields (handle both Italian and English field names)
+	normalizedFields := s.normalizeFieldNames(fields)
+	lancio, err := s.parseLancio(normalizedFields)
 	if err != nil {
 		return nil, fmt.Errorf("failed to parse lancio: %w", err)
 	}
@@ -206,11 +207,30 @@ func (s *IncantesimiStrategy) parseMetadata(line string) (uint8, string, []strin
 		}
 		livello = uint8(levelInt)
 		scuola = strings.TrimSpace(matches[2])
+	} else if strings.Contains(levelSchoolStr, "° livello") {
+		// Handle Italian format: "Scuola di X° livello"
+		re := regexp.MustCompile(`(.+?)\s+di\s+(\d+)°\s+livello`)
+		matches := re.FindStringSubmatch(levelSchoolStr)
+		if len(matches) == 3 {
+			scuola = strings.TrimSpace(matches[1])
+			levelInt, err := strconv.Atoi(matches[2])
+			if err != nil {
+				return 0, "", nil, fmt.Errorf("invalid level number: %s", matches[2])
+			}
+			livello = uint8(levelInt)
+		} else {
+			return 0, "", nil, fmt.Errorf("invalid Italian spell level format: %s", levelSchoolStr)
+		}
 	} else {
 		return 0, "", nil, fmt.Errorf("unknown metadata format: %s", levelSchoolStr)
 	}
 	
 	return livello, scuola, classi, nil
+}
+
+// normalizeFieldNames is a placeholder - no normalization needed for Italian-only content
+func (s *IncantesimiStrategy) normalizeFieldNames(fields map[string]string) map[string]string {
+	return fields
 }
 
 func (s *IncantesimiStrategy) parseLancio(fields map[string]string) (domain.Lancio, error) {

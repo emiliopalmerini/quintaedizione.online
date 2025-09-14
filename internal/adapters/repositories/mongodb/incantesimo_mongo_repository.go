@@ -22,7 +22,7 @@ func NewIncantesimoMongoRepository(client *mongodb.Client) repositories.Incantes
 	base := NewBaseMongoRepository[*domain.Incantesimo](
 		client,
 		"incantesimi",
-		[]string{"value.nome", "value.slug"},
+		[]string{"nome", "slug"},
 	)
 	
 	return &IncantesimoMongoRepository{
@@ -30,20 +30,15 @@ func NewIncantesimoMongoRepository(client *mongodb.Client) repositories.Incantes
 	}
 }
 
-// extractIncantesimoFromDocument extracts Incantesimo from the nested value field
+// extractIncantesimoFromDocument extracts Incantesimo from the flattened document
 func extractIncantesimoFromDocument(doc bson.M) (*domain.Incantesimo, error) {
-	valueData, exists := doc["value"]
-	if !exists {
-		return nil, fmt.Errorf("incantesimo document missing value field")
-	}
-
-	valueBytes, err := bson.Marshal(valueData)
+	docBytes, err := bson.Marshal(doc)
 	if err != nil {
-		return nil, fmt.Errorf("failed to marshal value data: %w", err)
+		return nil, fmt.Errorf("failed to marshal document: %w", err)
 	}
 
 	var incantesimo domain.Incantesimo
-	err = bson.Unmarshal(valueBytes, &incantesimo)
+	err = bson.Unmarshal(docBytes, &incantesimo)
 	if err != nil {
 		return nil, fmt.Errorf("failed to unmarshal incantesimo: %w", err)
 	}
@@ -55,7 +50,7 @@ func extractIncantesimoFromDocument(doc bson.M) (*domain.Incantesimo, error) {
 func (r *IncantesimoMongoRepository) FindByNome(ctx context.Context, nome string) (*domain.Incantesimo, error) {
 	collection := r.client.GetCollection(r.collectionName)
 
-	filter := bson.M{"value.nome": nome}
+	filter := bson.M{"nome": nome}
 
 	var doc bson.M
 	err := collection.FindOne(ctx, filter).Decode(&doc)
@@ -72,8 +67,8 @@ func (r *IncantesimoMongoRepository) FindByLevel(ctx context.Context, level int,
 
 	filter := bson.M{
 		"$or": []bson.M{
-			{"value.livello": level},
-			{"value.level": level},
+			{"livello": level},
+			{"level": level},
 		},
 	}
 
@@ -115,8 +110,8 @@ func (r *IncantesimoMongoRepository) FindBySchool(ctx context.Context, school st
 
 	filter := bson.M{
 		"$or": []bson.M{
-			{"value.scuola": primitive.Regex{Pattern: school, Options: "i"}},
-			{"value.school": primitive.Regex{Pattern: school, Options: "i"}},
+			{"scuola": primitive.Regex{Pattern: school, Options: "i"}},
+			{"school": primitive.Regex{Pattern: school, Options: "i"}},
 		},
 	}
 
@@ -158,8 +153,8 @@ func (r *IncantesimoMongoRepository) FindByClass(ctx context.Context, className 
 
 	filter := bson.M{
 		"$or": []bson.M{
-			{"value.classi": primitive.Regex{Pattern: className, Options: "i"}},
-			{"value.classes": primitive.Regex{Pattern: className, Options: "i"}},
+			{"classi": primitive.Regex{Pattern: className, Options: "i"}},
+			{"classes": primitive.Regex{Pattern: className, Options: "i"}},
 			{"contenuto": primitive.Regex{Pattern: className, Options: "i"}},
 		},
 	}
@@ -204,14 +199,14 @@ func (r *IncantesimoMongoRepository) FindByLevelAndClass(ctx context.Context, le
 		"$and": []bson.M{
 			{
 				"$or": []bson.M{
-					{"value.livello": level},
-					{"value.level": level},
+					{"livello": level},
+					{"level": level},
 				},
 			},
 			{
 				"$or": []bson.M{
-					{"value.classi": primitive.Regex{Pattern: className, Options: "i"}},
-					{"value.classes": primitive.Regex{Pattern: className, Options: "i"}},
+					{"classi": primitive.Regex{Pattern: className, Options: "i"}},
+					{"classes": primitive.Regex{Pattern: className, Options: "i"}},
 					{"contenuto": primitive.Regex{Pattern: className, Options: "i"}},
 				},
 			},
@@ -258,8 +253,8 @@ func (r *IncantesimoMongoRepository) FindByComponents(ctx context.Context, compo
 	componentFilters := make([]bson.M, 0, len(components)*2)
 	for _, component := range components {
 		componentFilters = append(componentFilters,
-			bson.M{"value.componenti": primitive.Regex{Pattern: component, Options: "i"}},
-			bson.M{"value.components": primitive.Regex{Pattern: component, Options: "i"}},
+			bson.M{"componenti": primitive.Regex{Pattern: component, Options: "i"}},
+			bson.M{"components": primitive.Regex{Pattern: component, Options: "i"}},
 		)
 	}
 
@@ -305,8 +300,8 @@ func (r *IncantesimoMongoRepository) FindRitualSpells(ctx context.Context, limit
 
 	filter := bson.M{
 		"$or": []bson.M{
-			{"value.rituale": true},
-			{"value.ritual": true},
+			{"rituale": true},
+			{"ritual": true},
 			{"contenuto": primitive.Regex{Pattern: "rituale", Options: "i"}},
 			{"contenuto": primitive.Regex{Pattern: "ritual", Options: "i"}},
 		},
