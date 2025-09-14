@@ -35,14 +35,14 @@ func (s *RegoleStrategy) Parse(content []string, context *ParsingContext) ([]dom
 			continue
 		}
 
-		// Skip introduction content until we reach the glossary definitions
-		if !inGlossaryContent && strings.Contains(line, "Di seguito trovi le definizioni") {
-			inGlossaryContent = true
-			continue
-		}
-
+		// Skip introduction content until we reach the first glossary entry (after abbreviations table)
 		if !inGlossaryContent {
-			continue
+			// Start parsing when we find the first H2 section after the introduction
+			if strings.HasPrefix(line, "## ") && !strings.Contains(line, "Convenzioni") && !strings.Contains(line, "Abbreviazioni") {
+				inGlossaryContent = true
+			} else {
+				continue
+			}
 		}
 
 		// Check for new rule section (H2)
