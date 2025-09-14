@@ -12,11 +12,11 @@ services:
       - mongo_data:/data/db
       - ./seed:/seed
 
-  editor:
+  viewer:
     build:
       context: .
-      dockerfile: Dockerfile.Editor
-    container_name: dnd-editor-go
+      dockerfile: Dockerfile.Viewer
+    container_name: dnd-viewer-go
     depends_on: [mongo]
     environment:
       - MONGO_URI=mongodb://admin:password@mongo:27017/?authSource=admin
@@ -26,13 +26,13 @@ services:
     ports: ["8000:8000"]
     restart: unless-stopped
 
-  # Python Editor (legacy alternative)
-  editor-python:
+  # Python Viewer (legacy alternative)
+  viewer-python:
     profiles: [python]
     build:
       context: .
       dockerfile: editor/Dockerfile.Editor
-    container_name: dnd-editor-python
+    container_name: dnd-viewer-python
     depends_on: [mongo]
     environment:
       - MONGO_URI=mongodb://admin:password@mongo:27017/?authSource=admin

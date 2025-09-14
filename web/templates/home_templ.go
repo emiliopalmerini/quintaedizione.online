@@ -44,7 +44,7 @@ func HomePage(data models.HomePageData) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"hero\"><h1>Il Fantastico Visualizzatore di SRD (5e 2024)</h1><a href=\"https://duedraghialmicrofono.com\" class=\"hero-link\">sostenuto da Due Draghi al Microfono</a><p>Questa applicazione aiuta a sfogliare, cercare e <strong>copiare rapidamente</strong> i contenuti della SRD della 5e 2024. Usa la ricerca testuale e i <strong>filtri specifici</strong> per ciascuna collezione; </p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"hero\"><h1>Quinta Edizione.online</h1><a href=\"https://duedraghialmicrofono.com\" class=\"hero-link\">sostenuto da Due Draghi al Microfono</a><p>Questa applicazione aiuta a sfogliare, cercare e <strong>copiare rapidamente</strong> i contenuti della SRD della 5e 2024. Usa la ricerca testuale e i <strong>filtri specifici</strong> per ciascuna collezione; </p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

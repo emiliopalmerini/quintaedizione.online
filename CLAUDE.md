@@ -59,10 +59,10 @@ The system implements entity-specific repositories using the Repository pattern 
 ## Development Commands
 
 **Docker Services (Primary Go Implementation):**
-- `make up` - Start MongoDB + Editor (port 8000) + Parser (port 8100)
+- `make up` - Start MongoDB + Quinta Edizione.online Viewer (port 8000)
 - `make down` - Stop all services
 - `make logs` - View Go service logs
-- `make build` - Build Go editor and parser images
+- `make build` - Build Go viewer image
 
 **Go Development:**
 - `make lint` - Run go vet and golangci-lint (or go fmt as fallback)
@@ -78,10 +78,10 @@ The system implements entity-specific repositories using the Repository pattern 
 
 ## Architecture
 
-This is a D&D 5e SRD (System Reference Document) management system with two main services:
+This is a D&D 5e SRD (System Reference Document) management system with a web viewer and CLI parser:
 
 **Clean Architecture Pattern:**
-- `cmd/` - Application entry points (editor, parser)
+- `cmd/` - Application entry points (viewer, cli-parser)
 - `internal/domain/` - Core business logic and entities
 - `internal/application/` - Use cases, services, handlers, parsers
 - `internal/adapters/` - External interfaces (repository factory, MongoDB repositories, web handlers)
@@ -93,8 +93,8 @@ This is a D&D 5e SRD (System Reference Document) management system with two main
 - `pkg/` - Reusable packages (MongoDB client, templates)
 
 **Services:**
-1. **Editor** (port 8000) - Web interface for viewing/editing D&D content
-2. **Parser** (port 8100) - Processes markdown files from `./data/` into MongoDB
+1. **Quinta Edizione.online Viewer** (port 8000) - Web interface for viewing D&D content
+2. **Parser CLI** - Command-line tool that processes markdown files from `./data/` into MongoDB
 
 **Data Structure:**
 - `data/ita/lists/` - **Primary parsing source**: Clean list files containing only D&D entities to be parsed
@@ -110,7 +110,7 @@ This is a D&D 5e SRD (System Reference Document) management system with two main
 - Docker Compose for orchestration
 - Template-based web rendering with HTMX + Templ
 
-The system parses D&D content from markdown files in `data/ita/lists/` into structured MongoDB documents, supporting only Italian SRD content with searchable and renderable formats.
+The system uses a CLI parser to process D&D content from markdown files in `data/ita/lists/` into structured MongoDB documents, supporting only Italian SRD content with searchable and renderable formats through the web viewer.
 
 **Database Document Structure:**
 Each parsed entity follows a consistent document structure that separates metadata from domain data:

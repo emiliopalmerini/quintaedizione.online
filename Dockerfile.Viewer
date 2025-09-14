@@ -23,7 +23,7 @@ COPY . .
 RUN cd web/templates && templ generate
 
 # Build the application
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o editor ./cmd/editor
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o viewer ./cmd/viewer
 
 # Final stage
 FROM alpine:latest
@@ -34,7 +34,7 @@ RUN apk --no-cache add ca-certificates
 WORKDIR /root/
 
 # Copy the binary from builder stage
-COPY --from=builder /app/editor .
+COPY --from=builder /app/viewer .
 
 # Copy web assets if they exist
 COPY --from=builder /app/web ./web
@@ -46,4 +46,4 @@ COPY --from=builder /app/configs ./configs
 EXPOSE 8000
 
 # Run the binary
-CMD ["./editor"]
+CMD ["./viewer"]

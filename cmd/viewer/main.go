@@ -140,7 +140,7 @@ func main() {
 
 	// Start server in goroutine
 	go func() {
-		log.Printf("🚀 Starting D&D 5e SRD Editor on %s", config.GetAddress())
+		log.Printf("🚀 Starting D&D 5e SRD Viewer on %s", config.GetAddress())
 		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			log.Fatalf("Failed to start server: %v", err)
 		}
@@ -150,7 +150,7 @@ func main() {
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 	<-quit
-	log.Println("🛑 Shutting down D&D 5e SRD Editor...")
+	log.Println("🛑 Shutting down D&D 5e SRD Viewer...")
 
 	// Graceful shutdown with timeout
 	shutdownCtx, shutdownCancel := context.WithTimeout(context.Background(), 30*time.Second)
