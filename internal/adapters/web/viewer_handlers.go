@@ -487,14 +487,12 @@ func (h *Handlers) handleQuickSearch(c *gin.Context) {
 	for _, item := range rawItems {
 		var nome, slug string
 		
-		// Extract nome and slug from value object
-		if valueObj, ok := item["value"].(map[string]interface{}); ok {
-			if n, ok := valueObj["nome"].(string); ok {
-				nome = n
-			}
-			if s, ok := valueObj["slug"].(string); ok {
-				slug = s
-			}
+		// Extract nome and slug from root level (same as other handlers)
+		if n, ok := item["nome"].(string); ok {
+			nome = n
+		}
+		if s, ok := item["slug"].(string); ok {
+			slug = s
 		}
 		
 		if nome != "" && slug != "" {
