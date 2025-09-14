@@ -3,7 +3,9 @@ package web
 import (
 	"fmt"
 	"net/http"
+	"regexp"
 	"strconv"
+	"strings"
 
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/models"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
@@ -229,13 +231,13 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 
 	// Try different fields for content
 	if content, ok := item["contenuto"].(string); ok {
-		bodyRaw = content
+		bodyRaw = formatTraitContent(content)
 	} else if content, ok := item["contenuto_markdown"].(string); ok {
-		bodyRaw = content
+		bodyRaw = formatTraitContent(content)
 	} else if desc, ok := item["descrizione"].(string); ok {
-		bodyRaw = desc
+		bodyRaw = formatTraitContent(desc)
 	} else if body, ok := item["body"].(string); ok {
-		bodyRaw = body
+		bodyRaw = formatTraitContent(body)
 	}
 
 	// Use client-side markdown rendering - don't set bodyHTML 
@@ -391,6 +393,28 @@ func (h *Handlers) handleCollectionRows(c *gin.Context) {
 	}
 
 	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
+}
+
+// formatTraitContent cleans content and adds line breaks before bold trait names to improve readability
+func formatTraitContent(content string) string {
+	// Use simple string replacements for safety
+	formatted := content
+	
+	// Remove unwanted category sections 
+	formatted = strings.ReplaceAll(formatted, "### Talenti Generali", "")
+	formatted = strings.ReplaceAll(formatted, "### Talenti Razziali", "")
+	formatted = strings.ReplaceAll(formatted, "### Categoria Background", "")
+	
+	// Simple trait formatting - add line breaks before bold trait names
+	// Using safe regex patterns that we know work
+	formatted = regexp.MustCompile(`(\s)(\*\*\*[^*]+\.\*\*\*)`).ReplaceAllString(formatted, "\n\n$2")
+	formatted = regexp.MustCompile(`(\s)(\*\*[^*]+\.\*\*)`).ReplaceAllString(formatted, "\n\n$2")
+	
+	// Clean up multiple newlines
+	formatted = regexp.MustCompile(`\n{3,}`).ReplaceAllString(formatted, "\n\n")
+	formatted = strings.TrimSpace(formatted)
+	
+	return formatted
 }
 
 // Helper methods
