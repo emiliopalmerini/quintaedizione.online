@@ -1,5 +1,56 @@
 # Glossario delle Regole
 
+## Convenzioni del Glossario
+
+Il glossario utilizza le seguenti convenzioni:
+
+**Tag tra Parentesi Quadre.** Alcune voci hanno un tag tra parentesi quadre dopo il nome della voce, come in “Attacco [Azione]”. Un tag—Azione, Area d’Effetto, Atteggiamento, Condizione o Pericolo—indica che una regola fa parte di una famiglia di regole. I tag hanno anche voci nel glossario.
+
+**“Tu.”** Le regole del gioco—in questo glossario e altrove—spesso parlano di qualcosa che accade a te nel mondo di gioco. Quel “tu” si riferisce alla creatura o all’oggetto a cui la regola si applica in un particolare momento di gioco. Ad esempio, il “tu” nella condizione Prono è una creatura che attualmente ha quella condizione.
+
+**“Vedi Anche.”** Alcune voci del glossario includono una sezione *Vedi anche* che rimanda ad altre voci nel glossario, ad altre parti di questo documento, o entrambe.
+
+**Nessun Termine Obsoleto.** Il glossario contiene definizioni solo dei termini delle regole attuali. Se stai cercando un termine da una versione precedente delle regole della quinta edizione, consulta l’indice.
+
+**Abbreviazioni.** Le abbreviazioni elencate di seguito appaiono in questo glossario e altrove nelle regole.
+
+|    |                        |
+|----|------------------------|
+|CA  |Classe Armatura         |
+|C   |Concentrazione          |
+|CM  |Caotico Malvagio        |
+|CB  |Caotico Buono           |
+|Car.|Carisma                 |
+|CN  |Caotico Neutrale        |
+|Cos.|Costituzione            |
+|MR  |Moneta di Rame          |
+|GS  |Grado di Sfida          |
+|CD  |Classe Difficoltà       |
+|Des.|Destrezza               |
+|ME  |Moneta d’Elettro        |
+|DM  |Dungeon Master          |
+|MO  |Moneta d’Oro            |
+|PF  |Punti Ferita            |
+|Int.|Intelligenza            |
+|LM  |Legale Malvagio         |
+|LB  |Legale Buono            |
+|LN  |Legale Neutrale         |
+|M   |Componente materiale    |
+|N   |Neutrale                |
+|NM  |Neutrale Malvagio       |
+|NB  |Neutrale Buono          |
+|PNG |Personaggio non giocante|
+|BP  |Bonus di Competenza     |
+|MP  |Moneta di Platino       |
+|R   |Rituale                 |
+|S   |Componente somatica     |
+|MA  |Moneta d’Argento        |
+|For.|Forza                   |
+|V   |Componente verbale      |
+|Sag.|Saggezza                |
+|PE  |Punti Esperienza        |
+
+
 ## Prova di Caratteristica
 
 Una prova di caratteristica è un Test del D20 che rappresenta l’uso di una delle sei caratteristiche—o di un’abilità specifica associata a una caratteristica—per superare una sfida. *Vedi anche* “Giocare” (“Test del D20” e “Competenza”).
@@ -946,7 +997,7 @@ Quando effettui l’azione di Studiare, effettui una prova di Intelligenza per s
 
 La tabella Aree di Conoscenza suggerisce quali abilità sono applicabili a varie aree di conoscenza.
 
-## **Aree di Conoscenza**
+### Aree di Conoscenza
 
 |Abilità  |Aree                                                                                                                                                             |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
