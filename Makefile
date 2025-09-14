@@ -15,14 +15,14 @@ YELLOW := \033[0;33m
 BLUE := \033[0;34m
 NC := \033[0m # No Color
 
-.PHONY: help up down restart logs build build-editor templ-generate env-init lint format test test-integration benchmark seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh editor-sh cli-parser cli-build cli-install clean status health check-deps install-deps
+.PHONY: help up down restart logs build build-viewer templ-generate env-init lint format test test-integration benchmark seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh viewer-sh cli-parser cli-build cli-install clean status health check-deps install-deps
 
 # === Docker Services ===
 up: check-deps
-	@echo -e "$(BLUE)Starting MongoDB and Editor services...$(NC)"
-	$(DOCKER_COMPOSE) up -d mongo editor
+	@echo -e "$(BLUE)Starting MongoDB and Viewer services...$(NC)"
+	$(DOCKER_COMPOSE) up -d mongo viewer
 	@echo -e "$(GREEN)Services started successfully!$(NC)"
-	@echo -e "$(YELLOW)Editor: http://localhost:8000/$(NC)"
+	@echo -e "$(YELLOW)Viewer: http://localhost:8000/$(NC)"
 
 down:
 	@echo -e "$(BLUE)Stopping all services...$(NC)"
@@ -32,8 +32,8 @@ down:
 restart: down up
 
 logs:
-	@echo -e "$(BLUE)Following editor logs...$(NC)"
-	$(DOCKER_COMPOSE) logs -f editor
+	@echo -e "$(BLUE)Following viewer logs...$(NC)"
+	$(DOCKER_COMPOSE) logs -f viewer
 
 status:
 	@echo -e "$(BLUE)Service status:$(NC)"
@@ -41,14 +41,14 @@ status:
 
 # === Build Commands ===
 build: templ-generate
-	@echo -e "$(BLUE)Building editor image...$(NC)"
-	$(DOCKER_COMPOSE) build editor
+	@echo -e "$(BLUE)Building viewer image...$(NC)"
+	$(DOCKER_COMPOSE) build viewer
 	@echo -e "$(GREEN)Build completed successfully!$(NC)"
 
-build-editor: templ-generate
-	@echo -e "$(BLUE)Building editor image...$(NC)"
-	$(DOCKER_COMPOSE) build editor
-	@echo -e "$(GREEN)Editor build completed!$(NC)"
+build-viewer: templ-generate
+	@echo -e "$(BLUE)Building viewer image...$(NC)"
+	$(DOCKER_COMPOSE) build viewer
+	@echo -e "$(GREEN)Viewer build completed!$(NC)"
 
 clean:
 	@echo -e "$(BLUE)Cleaning up Docker resources...$(NC)"
@@ -131,7 +131,7 @@ benchmark:
 
 health:
 	@echo -e "$(BLUE)Checking service health...$(NC)"
-	@curl -f http://localhost:8000/health 2>/dev/null && echo -e "$(GREEN)Editor service is healthy$(NC)" || echo -e "$(RED)Editor service is not responding$(NC)"
+	@curl -f http://localhost:8000/health 2>/dev/null && echo -e "$(GREEN)Viewer service is healthy$(NC)" || echo -e "$(RED)Viewer service is not responding$(NC)"
 
 # === Database Management ===
 seed-dump:
@@ -175,9 +175,9 @@ mongo-sh:
 	@echo -e "$(BLUE)Accessing MongoDB container...$(NC)"
 	$(DOCKER_COMPOSE) exec mongo sh
 
-editor-sh:
-	@echo -e "$(BLUE)Accessing Editor container...$(NC)"
-	$(DOCKER_COMPOSE) exec editor sh
+viewer-sh:
+	@echo -e "$(BLUE)Accessing Viewer container...$(NC)"
+	$(DOCKER_COMPOSE) exec viewer sh
 
 # === CLI Parser ===
 cli-build:
@@ -202,16 +202,16 @@ help:
 	@echo -e "$(BLUE)D&D 5e SRD - Available Commands:$(NC)"
 	@echo ""
 	@echo -e "$(YELLOW)Docker Services:$(NC)"
-	@echo "  make up                    # Start MongoDB + Editor services"
+	@echo "  make up                    # Start MongoDB + Viewer services"
 	@echo "  make down                  # Stop all services"
 	@echo "  make restart               # Restart all services"
-	@echo "  make logs                  # View editor service logs"
+	@echo "  make logs                  # View viewer service logs"
 	@echo "  make status                # Show service status"
 	@echo "  make health                # Check service health"
 	@echo ""
 	@echo -e "$(YELLOW)Build Commands:$(NC)"
-	@echo "  make build                 # Build editor image (with templ generation)"
-	@echo "  make build-editor          # Build only editor image (with templ generation)"
+	@echo "  make build                 # Build viewer image (with templ generation)"
+	@echo "  make build-viewer          # Build only viewer image (with templ generation)"
 	@echo "  make templ-generate        # Generate Go code from Templ templates"
 	@echo "  make clean                 # Clean up Docker resources"
 	@echo ""
@@ -230,7 +230,7 @@ help:
 	@echo ""
 	@echo -e "$(YELLOW)Container Access:$(NC)"
 	@echo "  make mongo-sh              # Access MongoDB container shell"
-	@echo "  make editor-sh             # Access Editor container shell"
+	@echo "  make viewer-sh             # Access Viewer container shell"
 	@echo ""
 	@echo -e "$(YELLOW)CLI Parser:$(NC)"
 	@echo "  make cli-build             # Build CLI parser binary"
@@ -244,4 +244,4 @@ help:
 	@echo "  make help                  # Show this help message"
 	@echo ""
 	@echo -e "$(YELLOW)URLs:$(NC)"
-	@echo -e "  Editor: $(GREEN)http://localhost:8000/$(NC)"
+	@echo -e "  Viewer: $(GREEN)http://localhost:8000/$(NC)"

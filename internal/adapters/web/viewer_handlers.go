@@ -13,7 +13,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// Handlers contains web handlers for the editor
+// Handlers contains web handlers for the viewer
 type Handlers struct {
 	contentService *services.ContentService
 	templateEngine *templates.TemplEngine

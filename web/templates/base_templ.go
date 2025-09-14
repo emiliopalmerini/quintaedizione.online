@@ -46,7 +46,7 @@ func BaseLayout(data models.PageData) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		} else {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "Due Draghi 5e 2024 SRD")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "Quinta Edizione.online")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
