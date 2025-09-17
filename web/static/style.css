@@ -829,8 +829,6 @@ body {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, var(--primary-light) 0%, var(--white) 100%);
-  border: 2px solid var(--primary);
   border-radius: var(--radius-xl);
   padding: var(--space-6);
   margin-bottom: var(--space-6);
