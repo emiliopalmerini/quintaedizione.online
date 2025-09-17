@@ -1,0 +1,74 @@
+collections:
+  incantesimi:
+    title: "Incantesimi"
+    display_fields: ["livello", "scuola"]
+    search_fields: ["scuola", "livello", "classi"]
+
+  mostri:
+    title: "Mostri"
+    display_fields: ["taglia", "gs"]
+    search_fields:
+      ["tipo", "taglia", "gs", "cr", "grado_sfida", "ambiente", "allineamento"]
+
+  classi:
+    title: "Classi"
+    display_fields: ["dado_vita"]
+    search_fields: ["dado_vita", "abilita_primaria", "tiri_salvezza"]
+
+  backgrounds:
+    title: "Background"
+    display_fields: []
+    search_fields:
+      ["competenze_abilita", "competenze_linguaggi", "competenze_strumenti"]
+
+  equipaggiamenti:
+    title: "Equipaggiamento"
+    display_fields: ["categoria", "tipo"]
+    search_fields: ["categoria", "tipo"]
+
+  oggetti_magici:
+    title: "Oggetti Magici"
+    display_fields: ["rarita", "tipo"]
+    search_fields: ["tipo", "rarita", "sintonia"]
+
+  armi:
+    title: "Armi"
+    display_fields: ["categoria", "danno"]
+    search_fields: ["categoria", "tipo_danno", "proprieta"]
+
+  armature:
+    title: "Armature"
+    display_fields: ["categoria", "ca_base"]
+    search_fields: ["categoria", "tipo"]
+
+  talenti:
+    title: "Talenti"
+    display_fields: ["categoria", "prerequisiti"]
+    search_fields: ["categoria", "prerequisiti"]
+
+  servizi:
+    title: "Servizi"
+    display_fields: []
+    search_fields: ["categoria", "tipo"]
+
+  strumenti:
+    title: "Strumenti"
+    display_fields: []
+    search_fields: ["categoria", "tipo"]
+
+  animali:
+    title: "Animali"
+    display_fields: ["taglia", "gs"]
+    search_fields:
+      ["tipo", "taglia", "cr", "grado_sfida", "ambiente", "allineamento"]
+
+  regole:
+    title: "Regole"
+    display_fields: ["categoria", "tipo"]
+    search_fields: ["categoria", "tipo"]
+
+  cavalcature_veicoli:
+    title: "Cavalcature e Veicoli"
+    display_fields: ["categoria", "tipo"]
+    search_fields: ["categoria", "tipo"]
+
