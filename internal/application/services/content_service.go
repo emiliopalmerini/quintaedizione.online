@@ -187,20 +187,7 @@ func (s *ContentService) getDisplayElements(collection string, doc map[string]in
 }
 
 // getFieldValue returns the first non-empty value from the given field names
-// It looks in the "value" object first, then at the document root level
 func getFieldValue(doc map[string]interface{}, fieldNames ...string) string {
-	// First try to access fields from the "value" object
-	if valueObj, ok := doc["value"].(map[string]interface{}); ok {
-		for _, fieldName := range fieldNames {
-			if value, exists := valueObj[fieldName]; exists && value != nil {
-				if strValue := fmt.Sprintf("%v", value); strValue != "" && strValue != "0" {
-					return strValue
-				}
-			}
-		}
-	}
-	
-	// Fallback to document root level
 	for _, fieldName := range fieldNames {
 		if value, exists := doc[fieldName]; exists && value != nil {
 			if strValue := fmt.Sprintf("%v", value); strValue != "" && strValue != "0" {
@@ -213,19 +200,7 @@ func getFieldValue(doc map[string]interface{}, fieldNames ...string) string {
 
 // getStructuredFieldValue extracts and formats structured domain value objects
 func getStructuredFieldValue(doc map[string]interface{}, fieldName string) string {
-	var value interface{}
-	var exists bool
-	
-	// First try to access from the "value" object
-	if valueObj, ok := doc["value"].(map[string]interface{}); ok {
-		value, exists = valueObj[fieldName]
-	}
-	
-	// Fallback to document root level
-	if !exists || value == nil {
-		value, exists = doc[fieldName]
-	}
-	
+	value, exists := doc[fieldName]
 	if !exists || value == nil {
 		return ""
 	}

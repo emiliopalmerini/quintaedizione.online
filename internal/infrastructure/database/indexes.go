@@ -48,19 +48,19 @@ func (im *IndexManager) createCollectionIndexes(ctx context.Context, collectionN
 	commonIndexes := []mongo.IndexModel{
 		// Primary search fields
 		{
-			Keys: bson.D{{Key: "value.nome", Value: 1}},
+			Keys: bson.D{{Key: "nome", Value: 1}},
 			Options: options.Index().SetName("nome_1").SetBackground(true),
 		},
 		{
-			Keys: bson.D{{Key: "value.slug", Value: 1}},
+			Keys: bson.D{{Key: "slug", Value: 1}},
 			Options: options.Index().SetName("slug_1").SetUnique(true).SetBackground(true),
 		},
 		// Text search index for full-text search
 		{
 			Keys: bson.D{
-				{Key: "value.nome", Value: "text"},
+				{Key: "nome", Value: "text"},
 				{Key: "contenuto", Value: "text"},
-				{Key: "value.descrizione", Value: "text"},
+				{Key: "descrizione", Value: "text"},
 			},
 			Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
 		},
@@ -93,22 +93,22 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 	case "incantesimi":
 		return []mongo.IndexModel{
 			{
-				Keys: bson.D{{Key: "value.livello", Value: 1}},
+				Keys: bson.D{{Key: "livello", Value: 1}},
 				Options: options.Index().SetName("livello_1").SetBackground(true),
 			},
 			{
-				Keys: bson.D{{Key: "value.scuola", Value: 1}},
+				Keys: bson.D{{Key: "scuola", Value: 1}},
 				Options: options.Index().SetName("scuola_1").SetBackground(true),
 			},
 			{
 				Keys: bson.D{
-					{Key: "value.livello", Value: 1},
-					{Key: "value.scuola", Value: 1},
+					{Key: "livello", Value: 1},
+					{Key: "scuola", Value: 1},
 				},
 				Options: options.Index().SetName("livello_scuola_1").SetBackground(true),
 			},
 			{
-				Keys: bson.D{{Key: "value.classi", Value: 1}},
+				Keys: bson.D{{Key: "classi", Value: 1}},
 				Options: options.Index().SetName("classi_1").SetBackground(true),
 			},
 		}
@@ -116,29 +116,29 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 	case "mostri", "animali":
 		return []mongo.IndexModel{
 			{
-				Keys: bson.D{{Key: "value.gs", Value: 1}},
+				Keys: bson.D{{Key: "gs", Value: 1}},
 				Options: options.Index().SetName("gs_1").SetBackground(true),
 			},
 			{
-				Keys: bson.D{{Key: "value.cr", Value: 1}},
+				Keys: bson.D{{Key: "cr", Value: 1}},
 				Options: options.Index().SetName("cr_1").SetBackground(true),
 			},
 			{
-				Keys: bson.D{{Key: "value.grado_sfida", Value: 1}},
+				Keys: bson.D{{Key: "grado_sfida", Value: 1}},
 				Options: options.Index().SetName("grado_sfida_1").SetBackground(true),
 			},
 			{
-				Keys: bson.D{{Key: "value.tipo", Value: 1}},
+				Keys: bson.D{{Key: "tipo", Value: 1}},
 				Options: options.Index().SetName("tipo_1").SetBackground(true),
 			},
 			{
-				Keys: bson.D{{Key: "value.taglia", Value: 1}},
+				Keys: bson.D{{Key: "taglia", Value: 1}},
 				Options: options.Index().SetName("taglia_1").SetBackground(true),
 			},
 			{
 				Keys: bson.D{
-					{Key: "value.tipo", Value: 1},
-					{Key: "value.taglia", Value: 1},
+					{Key: "tipo", Value: 1},
+					{Key: "taglia", Value: 1},
 				},
 				Options: options.Index().SetName("tipo_taglia_1").SetBackground(true),
 			},
@@ -147,11 +147,11 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 	case "armi":
 		return []mongo.IndexModel{
 			{
-				Keys: bson.D{{Key: "value.categoria", Value: 1}},
+				Keys: bson.D{{Key: "categoria", Value: 1}},
 				Options: options.Index().SetName("categoria_1").SetBackground(true),
 			},
 			{
-				Keys: bson.D{{Key: "value.tipo_danno", Value: 1}},
+				Keys: bson.D{{Key: "tipo_danno", Value: 1}},
 				Options: options.Index().SetName("tipo_danno_1").SetBackground(true),
 			},
 		}
@@ -159,11 +159,11 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 	case "armature":
 		return []mongo.IndexModel{
 			{
-				Keys: bson.D{{Key: "value.categoria", Value: 1}},
+				Keys: bson.D{{Key: "categoria", Value: 1}},
 				Options: options.Index().SetName("categoria_1").SetBackground(true),
 			},
 			{
-				Keys: bson.D{{Key: "value.ca_base", Value: 1}},
+				Keys: bson.D{{Key: "ca_base", Value: 1}},
 				Options: options.Index().SetName("ca_base_1").SetBackground(true),
 			},
 		}
@@ -171,11 +171,11 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 	case "oggetti_magici":
 		return []mongo.IndexModel{
 			{
-				Keys: bson.D{{Key: "value.rarita", Value: 1}},
+				Keys: bson.D{{Key: "rarita", Value: 1}},
 				Options: options.Index().SetName("rarita_1").SetBackground(true),
 			},
 			{
-				Keys: bson.D{{Key: "value.tipo", Value: 1}},
+				Keys: bson.D{{Key: "tipo", Value: 1}},
 				Options: options.Index().SetName("tipo_1").SetBackground(true),
 			},
 		}
@@ -183,7 +183,7 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 	case "talenti":
 		return []mongo.IndexModel{
 			{
-				Keys: bson.D{{Key: "value.categoria", Value: 1}},
+				Keys: bson.D{{Key: "categoria", Value: 1}},
 				Options: options.Index().SetName("categoria_1").SetBackground(true),
 			},
 		}
@@ -192,7 +192,7 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 		// Default indexes for other collections
 		return []mongo.IndexModel{
 			{
-				Keys: bson.D{{Key: "value.categoria", Value: 1}},
+				Keys: bson.D{{Key: "categoria", Value: 1}},
 				Options: options.Index().SetName("categoria_1").SetBackground(true),
 			},
 		}
