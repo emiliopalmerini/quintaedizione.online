@@ -119,8 +119,8 @@ Each parsed entity follows a consistent document structure that separates metada
 {
   "_id": ObjectId("..."),
   "collection": "armature",
-  "source_file": "ita/lists/armature.md", 
-  "language": "ita",
+  "source_file": "ita/lists/armature.md",
+  "locale": "ita",
   "created_at": "2025-01-10T...",
   "contenuto": "**Costo:** 5 mo\n**Peso:** 3,5 kg\n...",
   "value": {
@@ -138,7 +138,7 @@ Each parsed entity follows a consistent document structure that separates metada
 - **Metadata (root level)**: System and operational data
   - `collection`: Target MongoDB collection name
   - `source_file`: Original markdown file path
-  - `language`: Content language (always "ita")
+  - `locale`: Content locale (always "ita")
   - `created_at`: Parse timestamp
   - `contenuto`: Original markdown source for debugging/audit
 - **Domain Data (`value` object)**: All business/domain-specific fields
