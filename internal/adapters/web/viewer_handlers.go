@@ -7,23 +7,40 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/display"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/mappers"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/models"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure/config"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/templates"
 	"github.com/gin-gonic/gin"
 )
 
 // Handlers contains web handlers for the viewer
 type Handlers struct {
-	contentService *services.ContentService
-	templateEngine *templates.TemplEngine
+	contentService     *services.ContentService
+	templateEngine     *templates.TemplEngine
+	documentMapper     mappers.DocumentMapper
+	collectionMetadata config.CollectionMetadata
 }
 
 // NewHandlers creates a new Handlers instance
 func NewHandlers(contentService *services.ContentService, templateEngine *templates.TemplEngine) *Handlers {
+	displayFactory := display.NewDisplayElementFactory()
+	documentMapper := mappers.NewDocumentMapper(displayFactory)
+
+	// Load collection metadata - fallback to hardcoded titles if config fails
+	collectionMetadata, err := config.NewCollectionMetadata()
+	if err != nil {
+		// Log error and continue with nil metadata (will fallback to hardcoded)
+		fmt.Printf("Warning: Failed to load collection metadata: %v\n", err)
+	}
+
 	return &Handlers{
-		contentService: contentService,
-		templateEngine: templateEngine,
+		contentService:     contentService,
+		templateEngine:     templateEngine,
+		documentMapper:     documentMapper,
+		collectionMetadata: collectionMetadata,
 	}
 }
 
@@ -142,42 +159,8 @@ func (h *Handlers) handleCollectionList(c *gin.Context) {
 		return
 	}
 
-	// Convert to typed documents
-	documents := make([]models.Document, 0, len(rawItems))
-	for _, item := range rawItems {
-		doc := models.Document{}
-		
-		// Extract _id from document root
-		if id, ok := item["_id"].(string); ok {
-			doc.ID = id
-		}
-		
-		// Extract nome and slug from root level
-		if nome, ok := item["nome"].(string); ok {
-			doc.Nome = nome
-		}
-		if slug, ok := item["slug"].(string); ok {
-			doc.Slug = slug
-		}
-		
-		// Extract display elements (processed by ContentService)
-		if displayElements, ok := item["display_elements"].([]interface{}); ok {
-			for _, elem := range displayElements {
-				if elemMap, ok := elem.(map[string]interface{}); ok {
-					if value, ok := elemMap["value"].(string); ok {
-						doc.DisplayElements = append(doc.DisplayElements, models.DocumentDisplayField{Value: value})
-					}
-				}
-			}
-		}
-		
-		// Extract translated flag from document root
-		if translated, ok := item["translated"].(bool); ok {
-			doc.Translated = translated
-		}
-		
-		documents = append(documents, doc)
-	}
+	// Convert to typed documents using mapper
+	documents := h.documentMapper.ToModels(collection, rawItems)
 
 	// Calculate pagination
 	totalPages := int((totalCount + int64(pageSizeNum) - 1) / int64(pageSizeNum))
@@ -189,7 +172,7 @@ func (h *Handlers) handleCollectionList(c *gin.Context) {
 
 	data := models.CollectionPageData{
 		PageData: models.PageData{
-			Title:       getCollectionTitle(collection),
+			Title:       h.getCollectionTitle(collection),
 			Collection:  collection,
 			QueryString: c.Request.URL.RawQuery,
 		},
@@ -279,7 +262,7 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 		BodyHTML:        bodyHTML,
 		PrevID:          prevID,
 		NextID:          nextID,
-		CollectionLabel: getCollectionTitle(collection),
+		CollectionLabel: h.getCollectionTitle(collection),
 	}
 
 	content, err := h.templateEngine.RenderItem(data)
@@ -324,42 +307,8 @@ func (h *Handlers) handleCollectionRows(c *gin.Context) {
 		return
 	}
 
-	// Convert to typed documents (same logic as collection handler)
-	documents := make([]models.Document, 0, len(rawItems))
-	for _, item := range rawItems {
-		doc := models.Document{}
-		
-		// Extract _id from document root
-		if id, ok := item["_id"].(string); ok {
-			doc.ID = id
-		}
-		
-		// Extract nome and slug from root level
-		if nome, ok := item["nome"].(string); ok {
-			doc.Nome = nome
-		}
-		if slug, ok := item["slug"].(string); ok {
-			doc.Slug = slug
-		}
-		
-		// Extract display elements (processed by ContentService)
-		if displayElements, ok := item["display_elements"].([]interface{}); ok {
-			for _, elem := range displayElements {
-				if elemMap, ok := elem.(map[string]interface{}); ok {
-					if value, ok := elemMap["value"].(string); ok {
-						doc.DisplayElements = append(doc.DisplayElements, models.DocumentDisplayField{Value: value})
-					}
-				}
-			}
-		}
-		
-		// Extract translated flag from document root
-		if translated, ok := item["translated"].(bool); ok {
-			doc.Translated = translated
-		}
-		
-		documents = append(documents, doc)
-	}
+	// Convert to typed documents using mapper
+	documents := h.documentMapper.ToModels(collection, rawItems)
 
 	// Calculate pagination
 	totalPages := int((totalCount + int64(pageSizeNum) - 1) / int64(pageSizeNum))
@@ -418,7 +367,13 @@ func formatTraitContent(content string) string {
 }
 
 // Helper methods
-func getCollectionTitle(collection string) string {
+func (h *Handlers) getCollectionTitle(collection string) string {
+	// Use configuration if available
+	if h.collectionMetadata != nil {
+		return h.collectionMetadata.GetTitle(collection)
+	}
+
+	// Fallback to hardcoded titles
 	titles := map[string]string{
 		"incantesimi":         "Incantesimi",
 		"mostri":              "Mostri",
