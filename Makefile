@@ -15,7 +15,10 @@ YELLOW := \033[0;33m
 BLUE := \033[0;34m
 NC := \033[0m # No Color
 
-.PHONY: help up down restart logs build build-viewer templ-generate env-init lint format test test-integration benchmark seed-dump seed-restore seed-dump-dir seed-restore-dir mongo-sh viewer-sh cli-parser cli-build cli-install clean status health check-deps install-deps
+.PHONY: help up down restart logs build templ-generate env-init lint format test test-integration benchmark seed-dump seed-restore mongo-sh viewer-sh cli-parser cli-build cli-install clean status health check-deps install-deps
+
+# Default target
+.DEFAULT_GOAL := help
 
 # === Docker Services ===
 up: check-deps
@@ -45,22 +48,16 @@ build: templ-generate
 	$(DOCKER_COMPOSE) build viewer
 	@echo -e "$(GREEN)Build completed successfully!$(NC)"
 
-build-viewer: templ-generate
-	@echo -e "$(BLUE)Building viewer image...$(NC)"
-	$(DOCKER_COMPOSE) build viewer
-	@echo -e "$(GREEN)Viewer build completed!$(NC)"
-
 clean:
 	@echo -e "$(BLUE)Cleaning up Docker resources...$(NC)"
 	$(DOCKER_COMPOSE) down --volumes --remove-orphans
 	docker system prune -f
 	@echo -e "$(GREEN)Cleanup completed!$(NC)"
 
-
-
 # === Template Generation ===
-templ-generate: check-deps
+templ-generate:
 	@echo -e "$(BLUE)Generating Templ templates...$(NC)"
+	@command -v templ >/dev/null 2>&1 || (echo -e "$(RED)Error: templ is not installed. Run 'make install-deps'$(NC)" && exit 1)
 	@if [ ! -d "web/templates" ]; then \
 		echo -e "$(RED)Error: web/templates directory not found$(NC)"; \
 		exit 1; \
@@ -160,16 +157,6 @@ seed-restore:
 		echo -e "$(RED)Restore failed!$(NC)"; \
 	fi
 
-seed-dump-dir:
-	@echo -e "$(BLUE)Dumping database to directory format...$(NC)"
-	$(DOCKER_COMPOSE) exec mongo sh -lc 'rm -rf /seed/dump && mkdir -p /seed/dump && mongodump --username=$(MONGO_USER) --password=$(MONGO_PASS) --authenticationDatabase=admin --db $(MONGO_DB) --out /seed/dump'
-	@echo -e "$(GREEN)Directory dump completed!$(NC)"
-
-seed-restore-dir:
-	@echo -e "$(BLUE)Restoring from directory format...$(NC)"
-	$(DOCKER_COMPOSE) exec mongo sh -lc 'test -d /seed/dump && mongorestore --username=$(MONGO_USER) --password=$(MONGO_PASS) --authenticationDatabase=admin --dir /seed/dump --drop || echo "No /seed/dump directory found"'
-	@echo -e "$(GREEN)Directory restore completed!$(NC)"
-
 # === Container Access ===
 mongo-sh:
 	@echo -e "$(BLUE)Accessing MongoDB container...$(NC)"
@@ -196,7 +183,6 @@ cli-parser: cli-build
 	@echo -e "$(BLUE)Running CLI parser...$(NC)"
 	./bin/cli-parser $(ARGS)
 
-
 # === Help ===
 help:
 	@echo -e "$(BLUE)D&D 5e SRD - Available Commands:$(NC)"
@@ -211,7 +197,6 @@ help:
 	@echo ""
 	@echo -e "$(YELLOW)Build Commands:$(NC)"
 	@echo "  make build                 # Build viewer image (with templ generation)"
-	@echo "  make build-viewer          # Build only viewer image (with templ generation)"
 	@echo "  make templ-generate        # Generate Go code from Templ templates"
 	@echo "  make clean                 # Clean up Docker resources"
 	@echo ""
@@ -225,8 +210,6 @@ help:
 	@echo -e "$(YELLOW)Database Management:$(NC)"
 	@echo "  make seed-dump             # Create timestamped database backup"
 	@echo "  make seed-restore FILE=x   # Restore database from backup file"
-	@echo "  make seed-dump-dir         # Dump to directory format"
-	@echo "  make seed-restore-dir      # Restore from directory format"
 	@echo ""
 	@echo -e "$(YELLOW)Container Access:$(NC)"
 	@echo "  make mongo-sh              # Access MongoDB container shell"
