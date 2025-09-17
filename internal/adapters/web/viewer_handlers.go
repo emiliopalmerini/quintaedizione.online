@@ -451,7 +451,7 @@ func (h *Handlers) handleQuickSearch(c *gin.Context) {
 		}
 		
 		if nome != "" && slug != "" {
-			html += fmt.Sprintf(`<a href="/%s/%s" class="search-result">
+			html += fmt.Sprintf(`<a href="/%s/%s" class="search-result" tabindex="-1">
 				<div class="search-result-title">%s</div>
 			</a>`, collection, slug, nome)
 		}

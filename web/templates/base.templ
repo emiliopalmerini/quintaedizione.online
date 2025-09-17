@@ -371,23 +371,75 @@ templ baseScripts() {
 				}
 			});
 			
-			// Hide results on Escape
+			// Handle keyboard navigation in search input
 			searchInput.addEventListener('keydown', function(e) {
+				const results = searchResults.querySelectorAll('.search-result');
+
 				if (e.key === 'Escape') {
 					searchResults.classList.add('hidden');
 					searchResults.setAttribute('aria-expanded', 'false');
 					this.blur();
-				}
-			});
-			
-			// Handle arrow navigation in results
-			searchInput.addEventListener('keydown', function(e) {
-				const results = searchResults.querySelectorAll('.search-result');
-				if (results.length === 0) return;
-				
-				if (e.key === 'ArrowDown') {
+				} else if (e.key === 'ArrowDown' && results.length > 0) {
 					e.preventDefault();
 					results[0].focus();
+				} else if (e.key === 'Enter') {
+					e.preventDefault();
+					// If there are search results, click the first one
+					if (results.length > 0) {
+						const firstResult = results[0];
+						if (firstResult.href) {
+							window.location.href = firstResult.href;
+						} else {
+							firstResult.click();
+						}
+					}
+					// Hide search results after selection
+					searchResults.classList.add('hidden');
+					searchResults.setAttribute('aria-expanded', 'false');
+				}
+			});
+
+			// Handle navigation within search results using event delegation
+			document.addEventListener('keydown', function(e) {
+				// Only handle if we're focused on a search result
+				if (!document.activeElement.classList.contains('search-result')) return;
+
+				const results = Array.from(searchResults.querySelectorAll('.search-result[href]'));
+				let currentIndex = -1;
+
+				// Find current focused element index
+				for (let i = 0; i < results.length; i++) {
+					if (results[i] === document.activeElement) {
+						currentIndex = i;
+						break;
+					}
+				}
+
+				if (e.key === 'ArrowDown') {
+					e.preventDefault();
+					const nextIndex = currentIndex < results.length - 1 ? currentIndex + 1 : 0;
+					results[nextIndex].focus();
+				} else if (e.key === 'ArrowUp') {
+					e.preventDefault();
+					if (currentIndex > 0) {
+						results[currentIndex - 1].focus();
+					} else {
+						searchInput.focus();
+					}
+				} else if (e.key === 'Enter') {
+					e.preventDefault();
+					const focusedResult = document.activeElement;
+					if (focusedResult.href) {
+						window.location.href = focusedResult.href;
+					} else {
+						focusedResult.click();
+					}
+					searchResults.classList.add('hidden');
+					searchResults.setAttribute('aria-expanded', 'false');
+				} else if (e.key === 'Escape') {
+					searchResults.classList.add('hidden');
+					searchResults.setAttribute('aria-expanded', 'false');
+					searchInput.focus();
 				}
 			});
 		}
