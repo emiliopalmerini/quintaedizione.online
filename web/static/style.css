@@ -1247,6 +1247,10 @@ body {
   min-width: 0px;
 }
 
+.min-w-\[44px\] {
+  min-width: 44px;
+}
+
 .max-w-none {
   max-width: none;
 }
@@ -1269,6 +1273,10 @@ body {
 
 .min-h-\[80vh\] {
   min-height: 80vh;
+}
+
+.min-h-\[44px\] {
+  min-height: 44px;
 }
 
 /* Position utilities */
@@ -1490,6 +1498,10 @@ body {
   --tw-ring-color: rgb(239 68 68);
 }
 
+.focus\:ring-blue-500:focus {
+  --tw-ring-color: rgb(59 130 246);
+}
+
 .focus\:border-transparent:focus {
   border-color: transparent;
 }
@@ -1535,9 +1547,13 @@ body {
   .sm\:flex-row {
     flex-direction: row;
   }
-  
+
   .sm\:items-center {
     align-items: center;
+  }
+
+  .sm\:min-w-auto {
+    min-width: auto;
   }
 }
 
