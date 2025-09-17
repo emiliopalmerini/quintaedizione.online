@@ -13,8 +13,14 @@ templ HomePage(data models.HomePageData) {
 
 			<p>
 				Questa applicazione aiuta a sfogliare, cercare e <strong>copiare rapidamente</strong> i contenuti della SRD della 5e 2024.
-				Usa la ricerca testuale e i <strong>filtri specifici</strong> per ciascuna collezione; 
+				Usa la ricerca testuale e i <strong>filtri specifici</strong> per ciascuna collezione;
 			</p>
+
+			<div style="background: var(--primary-light); border: 1px solid var(--primary); border-radius: var(--radius-md); padding: var(--space-3); margin: var(--space-4) 0; font-size: var(--font-size-sm);">
+				<strong>⚠️ Nota sulle traduzioni:</strong> Le traduzioni in italiano sono state realizzate con strumenti automatici e verranno progressivamente migliorate durante la fase beta.
+				Segnala eventuali errori o suggerimenti per aiutarci a migliorare la qualità dei contenuti.
+			</div>
+
 			if data.Total > 0 {
 				<div class="hero-stats">
 					<span style="color: var(--gray-500);">Totale elementi indicizzati:</span>
