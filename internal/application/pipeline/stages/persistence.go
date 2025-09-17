@@ -81,7 +81,7 @@ func (s *PersistenceStage) Process(ctx context.Context, data *pipeline.Processin
 				// Metadata at root level
 				"collection":  data.WorkItem.Collection,
 				"source_file": data.FilePath,
-				"language":    "ita", 
+				"locale":      "ita",
 				"created_at":  time.Now(),
 				"contenuto":   contenuto,
 				

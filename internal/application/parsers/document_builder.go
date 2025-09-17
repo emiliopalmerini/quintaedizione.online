@@ -73,12 +73,12 @@ func (db *DocumentBuilder) BuildDocument(entity domain.ParsedEntity, collection 
 
 	// Add metadata from base data if available
 	if db.baseData != nil {
-		doc["language"] = db.baseData.Lingua
+		doc["locale"] = db.baseData.Lingua
 		doc["source"] = db.baseData.Fonte
 		doc["source_file"] = db.baseData.FileOrigine
 	} else {
 		// Default values
-		doc["language"] = "ita"
+		doc["locale"] = "ita"
 		doc["source"] = "SRD 5.2"
 	}
 

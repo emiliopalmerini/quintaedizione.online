@@ -197,7 +197,7 @@ func (p *ParserCLI) saveEntities(entities []domain.ParsedEntity, collection stri
 		// Add metadata fields directly to the flattened document
 		entityMap["collection"] = collection
 		entityMap["source_file"] = fmt.Sprintf("ita/lists/%s.md", collection)
-		entityMap["language"] = "ita"
+		entityMap["locale"] = "ita"
 		entityMap["created_at"] = time.Now()
 		
 		docs[i] = entityMap

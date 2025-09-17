@@ -111,9 +111,9 @@ func (s *TransformationStage) transformEntity(entity domain.ParsedEntity, data *
 
 	// Add common metadata fields
 	if data.Metadata != nil {
-		doc["language"] = data.Metadata["language"]
-		if doc["language"] == nil {
-			doc["language"] = "ita" // default to Italian
+		doc["locale"] = data.Metadata["locale"]
+		if doc["locale"] == nil {
+			doc["locale"] = "ita" // default to Italian
 		}
 	}
 

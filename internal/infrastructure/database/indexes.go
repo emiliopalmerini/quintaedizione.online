@@ -62,7 +62,7 @@ func (im *IndexManager) createCollectionIndexes(ctx context.Context, collectionN
 				{Key: "contenuto", Value: "text"},
 				{Key: "value.descrizione", Value: "text"},
 			},
-			Options: options.Index().SetName("text_search").SetBackground(true),
+			Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
 		},
 		// Source file index for administrative queries
 		{
