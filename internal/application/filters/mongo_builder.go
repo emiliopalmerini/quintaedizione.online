@@ -31,7 +31,7 @@ func (b *MongoFilterBuilder) BuildFilter(filterSet *filters.FilterSet) (bson.M, 
 		if err != nil {
 			return nil, fmt.Errorf("failed to build filter for %s: %w", filterValue.Definition.Name, err)
 		}
-		
+
 		if len(condition) > 0 {
 			conditions = append(conditions, condition)
 		}
@@ -119,7 +119,7 @@ func (b *MongoFilterBuilder) buildRangeMatch(fieldPath, value string, dataType f
 		}
 		return bson.M{fieldPath: bson.M{"$gte": numValue}}, nil
 	}
-	
+
 	if strings.HasPrefix(value, "<=") {
 		numValue, err := strconv.ParseFloat(strings.TrimSpace(value[2:]), 64)
 		if err != nil {
@@ -127,7 +127,7 @@ func (b *MongoFilterBuilder) buildRangeMatch(fieldPath, value string, dataType f
 		}
 		return bson.M{fieldPath: bson.M{"$lte": numValue}}, nil
 	}
-	
+
 	if strings.HasPrefix(value, ">") {
 		numValue, err := strconv.ParseFloat(strings.TrimSpace(value[1:]), 64)
 		if err != nil {
@@ -135,7 +135,7 @@ func (b *MongoFilterBuilder) buildRangeMatch(fieldPath, value string, dataType f
 		}
 		return bson.M{fieldPath: bson.M{"$gt": numValue}}, nil
 	}
-	
+
 	if strings.HasPrefix(value, "<") {
 		numValue, err := strconv.ParseFloat(strings.TrimSpace(value[1:]), 64)
 		if err != nil {
@@ -182,7 +182,7 @@ func (b *MongoFilterBuilder) buildInMatch(fieldPath, value string) (bson.M, erro
 	// Split by comma and trim whitespace
 	values := strings.Split(value, ",")
 	trimmedValues := make([]string, 0, len(values))
-	
+
 	for _, v := range values {
 		if trimmed := strings.TrimSpace(v); trimmed != "" {
 			trimmedValues = append(trimmedValues, trimmed)
@@ -209,20 +209,19 @@ func (b *MongoFilterBuilder) BuildSearchFilter(collection filters.CollectionType
 	}
 
 	escapedSearch := regexp.QuoteMeta(searchTerm)
-	
+
 	// Base search fields that apply to all collections
 	baseSearchFields := []bson.M{
-		{"value.nome": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		{"value.titolo": bson.M{"$regex": escapedSearch, "$options": "i"}},
+		{"nome": bson.M{"$regex": escapedSearch, "$options": "i"}},
 		{"contenuto": bson.M{"$regex": escapedSearch, "$options": "i"}},
 	}
-	
+
 	// Collection-specific search fields
 	collectionSpecificFields := b.getCollectionSpecificSearchFields(collection, escapedSearch)
-	
+
 	// Combine base and collection-specific fields
 	searchFields := append(baseSearchFields, collectionSpecificFields...)
-	
+
 	return bson.M{"$or": searchFields}
 }
 
@@ -231,62 +230,59 @@ func (b *MongoFilterBuilder) getCollectionSpecificSearchFields(collection filter
 	switch collection {
 	case filters.IncantesimiCollection:
 		return []bson.M{
-			{"value.scuola": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.livello": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.classe": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.componenti": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.durata": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.gittata": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"scuola": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"livello": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"classi": bson.M{"$regex": escapedSearch, "$options": "i"}},
 		}
 	case filters.MostriCollection, filters.AnimaliCollection:
 		return []bson.M{
-			{"value.tipo": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.taglia": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.gs": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.cr": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.grado_sfida": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.ambiente": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.allineamento": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"tipo": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"taglia": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"gs": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"cr": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"grado_sfida": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"ambiente": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"allineamento": bson.M{"$regex": escapedSearch, "$options": "i"}},
 		}
 	case filters.ArmiCollection:
 		return []bson.M{
-			{"value.categoria": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.tipo_danno": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.proprieta": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"categoria": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"tipo_danno": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"proprieta": bson.M{"$regex": escapedSearch, "$options": "i"}},
 		}
 	case filters.ArmatureCollection:
 		return []bson.M{
-			{"value.categoria": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.tipo": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"categoria": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"tipo": bson.M{"$regex": escapedSearch, "$options": "i"}},
 		}
 	case filters.OggettiMagiciCollection:
 		return []bson.M{
-			{"value.tipo": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.rarita": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.sintonia": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"tipo": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"rarita": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"sintonia": bson.M{"$regex": escapedSearch, "$options": "i"}},
 		}
 	case filters.ClassiCollection:
 		return []bson.M{
-			{"value.dado_vita": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.abilita_primaria": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.tiri_salvezza": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"dado_vita": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"abilita_primaria": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"tiri_salvezza": bson.M{"$regex": escapedSearch, "$options": "i"}},
 		}
 	case filters.BackgroundsCollection:
 		return []bson.M{
-			{"value.competenze_abilita": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.competenze_linguaggi": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.competenze_strumenti": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"competenze_abilita": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"competenze_linguaggi": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"competenze_strumenti": bson.M{"$regex": escapedSearch, "$options": "i"}},
 		}
 	case filters.TalentiCollection:
 		return []bson.M{
-			{"value.categoria": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.prerequisiti": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"categoria": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"prerequisiti": bson.M{"$regex": escapedSearch, "$options": "i"}},
 		}
 	default:
 		return []bson.M{
-			{"value.descrizione": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.categoria": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"value.tipo": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"descrizione": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"categoria": bson.M{"$regex": escapedSearch, "$options": "i"}},
+			{"tipo": bson.M{"$regex": escapedSearch, "$options": "i"}},
 		}
 	}
 }
