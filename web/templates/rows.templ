@@ -22,31 +22,31 @@ templ RowsPartial(data models.CollectionPageData) {
 }
 
 templ documentRow(doc models.Document, collection string) {
-	<a href={ templ.URL("/" + collection + "/" + getDocSlug(doc)) } 
-		class="block px-4 py-3 hover:bg-neutral-50 text-inherit no-underline"
+	<a href={ templ.URL("/" + collection + "/" + getDocSlug(doc)) }
+		class="block px-2 sm:px-4 py-3 hover:bg-neutral-50 text-inherit no-underline min-h-[44px] transition-colors"
 		hx-get={ "/" + collection + "/" + getDocSlug(doc) }
 		hx-target="#page-root"
 		hx-select="#page-root"
 		hx-swap="outerHTML"
 		hx-push-url="true"
 		hx-indicator="#page-loading">
-		<div class="flex items-center justify-between">
-			<div class="flex-1">
-				<h3 class="font-medium text-gray-900">
+		<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4">
+			<div class="flex-1 min-w-0">
+				<h3 class="font-medium text-gray-900 truncate sm:whitespace-normal">
 					{ getDocName(doc) }
 				</h3>
-				
+
 				if len(doc.DisplayElements) > 0 {
-					<div class="text-xs text-neutral-500 mt-1 flex flex-wrap items-center gap-2">
+					<div class="text-xs text-neutral-500 mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-1 sm:gap-2">
 						for _, element := range doc.DisplayElements {
-							<span>{ element.Value }</span>
+							<span class="inline-block">{ element.Value }</span>
 						}
 					</div>
 				}
 			</div>
-			
+
 			if doc.Translated {
-				<div class="text-xs text-green-600">
+				<div class="text-xs text-green-600 shrink-0 self-start sm:self-auto">
 					✓ Tradotto
 				</div>
 			}
@@ -55,19 +55,22 @@ templ documentRow(doc models.Document, collection string) {
 }
 
 templ pagination(data models.CollectionPageData) {
-	<div class="px-4 py-3 border-t bg-neutral-50">
-		<div class="flex items-center justify-between text-sm text-neutral-600">
-			<div>
-				Documenti { strconv.Itoa(data.StartItem) }-{ strconv.Itoa(data.EndItem) } di { strconv.FormatInt(data.Total, 10) }
+	<div class="px-2 sm:px-4 py-3 border-t bg-neutral-50">
+		<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-sm text-neutral-600">
+			<div class="text-center sm:text-left">
+				<span class="hidden sm:inline">Documenti { strconv.Itoa(data.StartItem) }-{ strconv.Itoa(data.EndItem) } di { strconv.FormatInt(data.Total, 10) }</span>
+				<span class="sm:hidden">{ strconv.Itoa(data.StartItem) }-{ strconv.Itoa(data.EndItem) } / { strconv.FormatInt(data.Total, 10) }</span>
 			</div>
-			
-			<div class="flex items-center space-x-2">
+
+			<div class="flex items-center justify-center gap-2 sm:gap-3">
 				if data.HasPrev {
 					@prevButton(data)
 				}
-				
-				<span class="px-2">Pagina { strconv.Itoa(data.Page) } di { strconv.Itoa(data.TotalPages) }</span>
-				
+
+				<span class="px-1 sm:px-2 text-xs sm:text-sm whitespace-nowrap">
+					<span class="hidden sm:inline">Pagina </span>{ strconv.Itoa(data.Page) }<span class="hidden sm:inline"> di { strconv.Itoa(data.TotalPages) }</span><span class="sm:hidden">/{ strconv.Itoa(data.TotalPages) }</span>
+				</span>
+
 				if data.HasNext {
 					@nextButton(data)
 				}
@@ -101,14 +104,16 @@ templ prevButton(data models.CollectionPageData) {
 	if data.PageData.QueryString != "" {
 		<button hx-get={ "/" + data.PageData.Collection + "/rows?page=" + strconv.Itoa(data.Page-1) + "&" + data.PageData.QueryString }
 				hx-target="#rows"
-				class="px-3 py-1 bg-white border rounded hover:bg-neutral-50">
-			← Precedente
+				class="px-2 sm:px-3 py-2 bg-white border rounded hover:bg-neutral-50 text-xs sm:text-sm min-h-[44px] min-w-[44px] sm:min-w-auto transition-colors focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+			<span class="sm:hidden">←</span>
+			<span class="hidden sm:inline">← Precedente</span>
 		</button>
 	} else {
 		<button hx-get={ "/" + data.PageData.Collection + "/rows?page=" + strconv.Itoa(data.Page-1) }
 				hx-target="#rows"
-				class="px-3 py-1 bg-white border rounded hover:bg-neutral-50">
-			← Precedente
+				class="px-2 sm:px-3 py-2 bg-white border rounded hover:bg-neutral-50 text-xs sm:text-sm min-h-[44px] min-w-[44px] sm:min-w-auto transition-colors focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+			<span class="sm:hidden">←</span>
+			<span class="hidden sm:inline">← Precedente</span>
 		</button>
 	}
 }
@@ -117,14 +122,16 @@ templ nextButton(data models.CollectionPageData) {
 	if data.PageData.QueryString != "" {
 		<button hx-get={ "/" + data.PageData.Collection + "/rows?page=" + strconv.Itoa(data.Page+1) + "&" + data.PageData.QueryString }
 				hx-target="#rows"
-				class="px-3 py-1 bg-white border rounded hover:bg-neutral-50">
-			Successiva →
+				class="px-2 sm:px-3 py-2 bg-white border rounded hover:bg-neutral-50 text-xs sm:text-sm min-h-[44px] min-w-[44px] sm:min-w-auto transition-colors focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+			<span class="sm:hidden">→</span>
+			<span class="hidden sm:inline">Successiva →</span>
 		</button>
 	} else {
 		<button hx-get={ "/" + data.PageData.Collection + "/rows?page=" + strconv.Itoa(data.Page+1) }
 				hx-target="#rows"
-				class="px-3 py-1 bg-white border rounded hover:bg-neutral-50">
-			Successiva →
+				class="px-2 sm:px-3 py-2 bg-white border rounded hover:bg-neutral-50 text-xs sm:text-sm min-h-[44px] min-w-[44px] sm:min-w-auto transition-colors focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+			<span class="sm:hidden">→</span>
+			<span class="hidden sm:inline">Successiva →</span>
 		</button>
 	}
 }
