@@ -1048,6 +1048,22 @@ body {
   border-top: 1px solid var(--notion-border);
 }
 
+/* Remove underlines from row links */
+.divide-y a,
+.divide-y a:hover,
+.divide-y a:focus,
+.divide-y a:visited,
+.divide-y a:active {
+  text-decoration: none !important;
+}
+
+/* Also remove underlines from any nested elements */
+.divide-y a *,
+.divide-y a h3,
+.divide-y a span {
+  text-decoration: none !important;
+}
+
 /* Spacing utilities */
 .px-4 {
   padding-left: var(--space-4);
