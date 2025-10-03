@@ -93,17 +93,25 @@ func (s *StrumentiStrategy) parseToolSection(section []string) (*domain.Strument
 	// Parse fields
 	fields := make(map[string]string)
 	contenuto := strings.Builder{}
-	
+
 	for i := 1; i < len(section); i++ {
 		line := section[i]
-		contenuto.WriteString(line + "\n")
-		
+
+		// Check if line ends with period to add extra newline (paragraph break)
+		if strings.HasSuffix(strings.TrimSpace(line), ".") {
+			contenuto.WriteString(line + "\n\n")
+		} else {
+			contenuto.WriteString(line + "\n")
+		}
+
 		// Parse field format: **Field:** value
 		if strings.HasPrefix(line, "**") && strings.Contains(line, ":**") {
 			parts := strings.SplitN(line, ":**", 2)
 			if len(parts) == 2 {
 				fieldName := strings.TrimSpace(strings.Trim(parts[0], "*"))
 				fieldValue := strings.TrimSpace(parts[1])
+				// Remove trailing period for field value parsing
+				fieldValue = strings.TrimSuffix(fieldValue, ".")
 				fields[fieldName] = fieldValue
 			}
 		}

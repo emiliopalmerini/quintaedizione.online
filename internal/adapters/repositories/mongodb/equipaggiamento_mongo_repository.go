@@ -32,18 +32,7 @@ func NewEquipaggiamentoMongoRepository(client *mongodb.Client) repositories.Equi
 
 // extractEquipaggiamentoFromDocument extracts Equipaggiamento from the flattened document
 func extractEquipaggiamentoFromDocument(doc bson.M) (*domain.Equipaggiamento, error) {
-	docBytes, err := bson.Marshal(doc)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal document: %w", err)
-	}
-
-	var equipaggiamento domain.Equipaggiamento
-	err = bson.Unmarshal(docBytes, &equipaggiamento)
-	if err != nil {
-		return nil, fmt.Errorf("failed to unmarshal equipaggiamento: %w", err)
-	}
-
-	return &equipaggiamento, nil
+	return ExtractEntityFromDocument[domain.Equipaggiamento](doc, false)
 }
 
 // FindByNome retrieves equipment by its name

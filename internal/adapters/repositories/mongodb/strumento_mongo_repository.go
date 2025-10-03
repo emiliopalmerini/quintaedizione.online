@@ -32,23 +32,7 @@ func NewStrumentoMongoRepository(client *mongodb.Client) repositories.StrumentoR
 
 // extractStrumentoFromDocument extracts Strumento from the nested value field
 func extractStrumentoFromDocument(doc bson.M) (*domain.Strumento, error) {
-	valueData, exists := doc["value"]
-	if !exists {
-		return nil, fmt.Errorf("strumento document missing value field")
-	}
-
-	valueBytes, err := bson.Marshal(valueData)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal value data: %w", err)
-	}
-
-	var strumento domain.Strumento
-	err = bson.Unmarshal(valueBytes, &strumento)
-	if err != nil {
-		return nil, fmt.Errorf("failed to unmarshal strumento: %w", err)
-	}
-
-	return &strumento, nil
+	return ExtractEntityFromDocument[domain.Strumento](doc, true)
 }
 
 // FindByNome retrieves a tool by its name

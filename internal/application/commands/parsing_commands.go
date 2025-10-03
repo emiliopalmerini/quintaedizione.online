@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/parsers"
 )
@@ -13,11 +14,11 @@ import (
 type ParseFileCommand struct {
 	filePath      string
 	contentType   string
-	parserRegistry *parsers.ParserRegistry
+	parserRegistry *parsers.Registry
 }
 
 // NewParseFileCommand creates a new command to parse a file
-func NewParseFileCommand(filePath, contentType string, parserRegistry *parsers.ParserRegistry) *ParseFileCommand {
+func NewParseFileCommand(filePath, contentType string, parserRegistry *parsers.Registry) *ParseFileCommand {
 	return &ParseFileCommand{
 		filePath:      filePath,
 		contentType:   contentType,
@@ -45,17 +46,23 @@ func (c *ParseFileCommand) Validate() error {
 
 // Execute runs the command
 func (c *ParseFileCommand) Execute(ctx context.Context) error {
-	parser, err := c.parserRegistry.GetParser(c.contentType)
+	strategy, err := c.parserRegistry.GetStrategyByContentType(parsers.ContentType(c.contentType))
 	if err != nil {
 		return fmt.Errorf("failed to get parser for type %s: %w", c.contentType, err)
 	}
 
-	content, err := os.ReadFile(c.filePath)
+	contentBytes, err := os.ReadFile(c.filePath)
 	if err != nil {
 		return fmt.Errorf("failed to read file %s: %w", c.filePath, err)
 	}
 
-	_, err = parser.Parse(string(content), c.filePath)
+	// Create parsing context
+	parsingContext := parsers.NewParsingContext(c.filePath, "ita")
+
+	// Split content into lines for parser
+	content := strings.Split(string(contentBytes), "\n")
+
+	_, err = strategy.Parse(content, parsingContext)
 	if err != nil {
 		return fmt.Errorf("failed to parse file %s: %w", c.filePath, err)
 	}
@@ -66,11 +73,11 @@ func (c *ParseFileCommand) Execute(ctx context.Context) error {
 // ParseDirectoryCommand handles parsing all files in a directory
 type ParseDirectoryCommand struct {
 	directoryPath  string
-	parserRegistry *parsers.ParserRegistry
+	parserRegistry *parsers.Registry
 }
 
 // NewParseDirectoryCommand creates a new command to parse all files in a directory
-func NewParseDirectoryCommand(directoryPath string, parserRegistry *parsers.ParserRegistry) *ParseDirectoryCommand {
+func NewParseDirectoryCommand(directoryPath string, parserRegistry *parsers.Registry) *ParseDirectoryCommand {
 	return &ParseDirectoryCommand{
 		directoryPath:  directoryPath,
 		parserRegistry: parserRegistry,

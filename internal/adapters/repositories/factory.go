@@ -196,84 +196,68 @@ func (f *RepositoryFactory) GetRepositoryByEntityType(entityType string) any {
 	}
 }
 
+// RepositoryOperations defines the minimal interface needed for parser operations
+type RepositoryOperations interface {
+	UpsertManyMaps(ctx context.Context, uniqueFields []string, docs []map[string]any) (int, error)
+	Count(ctx context.Context) (int64, error)
+}
+
 // Legacy ParserRepository interface compatibility
 type ParserRepositoryWrapper struct {
 	factory *RepositoryFactory
+	// Collection name to repository getter mapping
+	repoGetters map[string]func() RepositoryOperations
 }
 
 // NewParserRepositoryWrapper creates a wrapper that implements the legacy ParserRepository interface
 func NewParserRepositoryWrapper(factory *RepositoryFactory) *ParserRepositoryWrapper {
-	return &ParserRepositoryWrapper{factory: factory}
+	w := &ParserRepositoryWrapper{
+		factory:     factory,
+		repoGetters: make(map[string]func() RepositoryOperations),
+	}
+
+	// Initialize collection-to-repository mapping
+	w.repoGetters["armature"] = func() RepositoryOperations { return factory.ArmaturaRepository() }
+	w.repoGetters["classi"] = func() RepositoryOperations { return factory.ClasseRepository() }
+	w.repoGetters["armi"] = func() RepositoryOperations { return factory.ArmaRepository() }
+	w.repoGetters["animali"] = func() RepositoryOperations { return factory.AnimaleRepository() }
+	w.repoGetters["backgrounds"] = func() RepositoryOperations { return factory.BackgroundRepository() }
+	w.repoGetters["incantesimi"] = func() RepositoryOperations { return factory.IncantesimoRepository() }
+	w.repoGetters["talenti"] = func() RepositoryOperations { return factory.TalentoRepository() }
+	w.repoGetters["equipaggiamenti"] = func() RepositoryOperations { return factory.EquipaggiamentoRepository() }
+	w.repoGetters["servizi"] = func() RepositoryOperations { return factory.ServizioRepository() }
+	w.repoGetters["strumenti"] = func() RepositoryOperations { return factory.StrumentoRepository() }
+	w.repoGetters["regole"] = func() RepositoryOperations { return factory.RegolaRepository() }
+	w.repoGetters["cavalcature_veicoli"] = func() RepositoryOperations { return factory.CavalcaturaVeicoloRepository() }
+	w.repoGetters["oggetti_magici"] = func() RepositoryOperations { return factory.OggettoMagicoRepository() }
+	w.repoGetters["mostri"] = func() RepositoryOperations { return factory.MostroRepository() }
+
+	return w
+}
+
+// getRepository retrieves the repository for a given collection name
+func (w *ParserRepositoryWrapper) getRepository(collection string) (RepositoryOperations, error) {
+	getter, exists := w.repoGetters[collection]
+	if !exists {
+		return nil, fmt.Errorf("unsupported collection: %s", collection)
+	}
+	return getter(), nil
 }
 
 // UpsertMany routes to the appropriate repository based on collection name
 func (w *ParserRepositoryWrapper) UpsertMany(collection string, uniqueFields []string, docs []map[string]any) (int, error) {
-	switch collection {
-	case "armature":
-		return w.factory.ArmaturaRepository().UpsertManyMaps(context.Background(), uniqueFields, docs)
-	case "classi":
-		return w.factory.ClasseRepository().UpsertManyMaps(context.Background(), uniqueFields, docs)
-	case "armi":
-		return w.factory.ArmaRepository().UpsertManyMaps(context.Background(), uniqueFields, docs)
-	case "animali":
-		return w.factory.AnimaleRepository().UpsertManyMaps(context.Background(), uniqueFields, docs)
-	case "backgrounds":
-		return w.factory.BackgroundRepository().UpsertManyMaps(context.Background(), uniqueFields, docs)
-	case "incantesimi":
-		return w.factory.IncantesimoRepository().UpsertManyMaps(context.Background(), uniqueFields, docs)
-	case "talenti":
-		return w.factory.TalentoRepository().UpsertManyMaps(context.Background(), uniqueFields, docs)
-	case "equipaggiamenti":
-		return w.factory.EquipaggiamentoRepository().UpsertManyMaps(context.Background(), uniqueFields, docs)
-	case "servizi":
-		return w.factory.ServizioRepository().UpsertManyMaps(context.Background(), uniqueFields, docs)
-	case "strumenti":
-		return w.factory.StrumentoRepository().UpsertManyMaps(context.Background(), uniqueFields, docs)
-	case "regole":
-		return w.factory.RegolaRepository().UpsertManyMaps(context.Background(), uniqueFields, docs)
-	case "cavalcature_veicoli":
-		return w.factory.CavalcaturaVeicoloRepository().UpsertManyMaps(context.Background(), uniqueFields, docs)
-	case "oggetti_magici":
-		return w.factory.OggettoMagicoRepository().UpsertManyMaps(context.Background(), uniqueFields, docs)
-	case "mostri":
-		return w.factory.MostroRepository().UpsertManyMaps(context.Background(), uniqueFields, docs)
-	default:
-		return 0, fmt.Errorf("unsupported collection: %s", collection)
+	repo, err := w.getRepository(collection)
+	if err != nil {
+		return 0, err
 	}
+	return repo.UpsertManyMaps(context.Background(), uniqueFields, docs)
 }
 
 // Count routes to the appropriate repository based on collection name
 func (w *ParserRepositoryWrapper) Count(collection string) (int64, error) {
-	switch collection {
-	case "armature":
-		return w.factory.ArmaturaRepository().Count(context.Background())
-	case "classi":
-		return w.factory.ClasseRepository().Count(context.Background())
-	case "armi":
-		return w.factory.ArmaRepository().Count(context.Background())
-	case "animali":
-		return w.factory.AnimaleRepository().Count(context.Background())
-	case "backgrounds":
-		return w.factory.BackgroundRepository().Count(context.Background())
-	case "incantesimi":
-		return w.factory.IncantesimoRepository().Count(context.Background())
-	case "talenti":
-		return w.factory.TalentoRepository().Count(context.Background())
-	case "equipaggiamenti":
-		return w.factory.EquipaggiamentoRepository().Count(context.Background())
-	case "servizi":
-		return w.factory.ServizioRepository().Count(context.Background())
-	case "strumenti":
-		return w.factory.StrumentoRepository().Count(context.Background())
-	case "regole":
-		return w.factory.RegolaRepository().Count(context.Background())
-	case "cavalcature_veicoli":
-		return w.factory.CavalcaturaVeicoloRepository().Count(context.Background())
-	case "oggetti_magici":
-		return w.factory.OggettoMagicoRepository().Count(context.Background())
-	case "mostri":
-		return w.factory.MostroRepository().Count(context.Background())
-	default:
-		return 0, fmt.Errorf("unsupported collection: %s", collection)
+	repo, err := w.getRepository(collection)
+	if err != nil {
+		return 0, err
 	}
+	return repo.Count(context.Background())
 }

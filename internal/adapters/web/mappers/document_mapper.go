@@ -8,10 +8,10 @@ import (
 
 // DocumentMapper handles conversion from raw documents to DTOs and Models
 type DocumentMapper interface {
-	ToDTO(collection string, item map[string]interface{}) dto.DocumentDTO
-	ToDTOs(collection string, items []map[string]interface{}) []dto.DocumentDTO
-	ToModel(collection string, item map[string]interface{}) models.Document
-	ToModels(collection string, items []map[string]interface{}) []models.Document
+	ToDTO(collection string, item map[string]any) dto.DocumentDTO
+	ToDTOs(collection string, items []map[string]any) []dto.DocumentDTO
+	ToModel(collection string, item map[string]any) models.Document
+	ToModels(collection string, items []map[string]any) []models.Document
 }
 
 type documentMapper struct {
@@ -26,7 +26,7 @@ func NewDocumentMapper(displayFactory *display.DisplayElementFactory) DocumentMa
 }
 
 // ToDTO converts a single raw document to DTO
-func (m *documentMapper) ToDTO(collection string, item map[string]interface{}) dto.DocumentDTO {
+func (m *documentMapper) ToDTO(collection string, item map[string]any) dto.DocumentDTO {
 	dto := dto.DocumentDTO{}
 
 	// Extract _id from document root
@@ -54,7 +54,7 @@ func (m *documentMapper) ToDTO(collection string, item map[string]interface{}) d
 }
 
 // ToDTOs converts multiple raw documents to DTOs
-func (m *documentMapper) ToDTOs(collection string, items []map[string]interface{}) []dto.DocumentDTO {
+func (m *documentMapper) ToDTOs(collection string, items []map[string]any) []dto.DocumentDTO {
 	documents := make([]dto.DocumentDTO, 0, len(items))
 
 	for _, item := range items {
@@ -66,7 +66,7 @@ func (m *documentMapper) ToDTOs(collection string, items []map[string]interface{
 }
 
 // ToModel converts a single raw document to the existing models.Document format
-func (m *documentMapper) ToModel(collection string, item map[string]interface{}) models.Document {
+func (m *documentMapper) ToModel(collection string, item map[string]any) models.Document {
 	model := models.Document{}
 
 	// Extract _id from document root
@@ -99,7 +99,7 @@ func (m *documentMapper) ToModel(collection string, item map[string]interface{})
 }
 
 // ToModels converts multiple raw documents to models.Document format
-func (m *documentMapper) ToModels(collection string, items []map[string]interface{}) []models.Document {
+func (m *documentMapper) ToModels(collection string, items []map[string]any) []models.Document {
 	documents := make([]models.Document, 0, len(items))
 
 	for _, item := range items {

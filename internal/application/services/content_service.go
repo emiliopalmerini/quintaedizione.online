@@ -27,7 +27,7 @@ func NewContentService(contentRepo repositories.ContentRepository, filterService
 }
 
 // GetCollectionItems retrieves items from a collection with pagination and search
-func (s *ContentService) GetCollectionItems(ctx context.Context, collection, search string, page, limit int) ([]map[string]interface{}, int64, error) {
+func (s *ContentService) GetCollectionItems(ctx context.Context, collection, search string, page, limit int) ([]map[string]any, int64, error) {
 	// Calculate skip
 	skip := int64((page - 1) * limit)
 
@@ -45,7 +45,7 @@ func (s *ContentService) GetCollectionItems(ctx context.Context, collection, sea
 }
 
 // GetCollectionItemsWithFilters retrieves items from a collection with pagination, search, and field filters
-func (s *ContentService) GetCollectionItemsWithFilters(ctx context.Context, collection, search string, filterParams map[string]string, page, limit int) ([]map[string]interface{}, int64, error) {
+func (s *ContentService) GetCollectionItemsWithFilters(ctx context.Context, collection, search string, filterParams map[string]string, page, limit int) ([]map[string]any, int64, error) {
 	// Calculate skip
 	skip := int64((page - 1) * limit)
 
@@ -78,11 +78,11 @@ func (s *ContentService) GetCollectionItemsWithFilters(ctx context.Context, coll
 }
 
 // GetItem retrieves a specific item by slug
-func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (map[string]interface{}, error) {
+func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (map[string]any, error) {
 	// Try cache first
 	cacheKey := fmt.Sprintf("item:%s:%s", collection, slug)
 	if cached, found := s.cache.Get(cacheKey); found {
-		if item, ok := cached.(map[string]interface{}); ok {
+		if item, ok := cached.(map[string]any); ok {
 			return item, nil
 		}
 	}
@@ -99,13 +99,13 @@ func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (
 }
 
 // GetStats retrieves database statistics
-func (s *ContentService) GetStats(ctx context.Context) (map[string]interface{}, error) {
+func (s *ContentService) GetStats(ctx context.Context) (map[string]any, error) {
 	collections, err := s.contentRepo.GetCollectionStats(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("failed to get collection stats: %w", err)
 	}
 
-	stats := map[string]interface{}{
+	stats := map[string]any{
 		"collections": make(map[string]int64),
 		"total_items": int64(0),
 	}
@@ -123,7 +123,7 @@ func (s *ContentService) GetStats(ctx context.Context) (map[string]interface{}, 
 }
 
 // GetCollectionStats retrieves statistics for all collections
-func (s *ContentService) GetCollectionStats(ctx context.Context) ([]map[string]interface{}, error) {
+func (s *ContentService) GetCollectionStats(ctx context.Context) ([]map[string]any, error) {
 	return s.contentRepo.GetCollectionStats(ctx)
 }
 

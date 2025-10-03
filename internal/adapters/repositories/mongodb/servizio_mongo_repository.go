@@ -32,23 +32,7 @@ func NewServizioMongoRepository(client *mongodb.Client) repositories.ServizioRep
 
 // extractServizioFromDocument extracts Servizio from the nested value field
 func extractServizioFromDocument(doc bson.M) (*domain.Servizio, error) {
-	valueData, exists := doc["value"]
-	if !exists {
-		return nil, fmt.Errorf("servizio document missing value field")
-	}
-
-	valueBytes, err := bson.Marshal(valueData)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal value data: %w", err)
-	}
-
-	var servizio domain.Servizio
-	err = bson.Unmarshal(valueBytes, &servizio)
-	if err != nil {
-		return nil, fmt.Errorf("failed to unmarshal servizio: %w", err)
-	}
-
-	return &servizio, nil
+	return ExtractEntityFromDocument[domain.Servizio](doc, true)
 }
 
 // FindByNome retrieves a service by its name

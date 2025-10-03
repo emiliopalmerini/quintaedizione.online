@@ -4,29 +4,34 @@ import "github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/model
 
 templ CollectionPage(data models.CollectionPageData) {
 	@BaseLayout(data.PageData) {
-		<section class="bg-white border p-2 mb-3">
+		<!-- Top loading bar -->
+		<div class="loading-bar"></div>
+
+		<section class="search-sticky bg-white border p-2 mb-3">
 			<form id="search-form"
 				hx-get={ "/" + data.PageData.Collection + "/rows" }
 				hx-target="#rows"
 				hx-trigger="submit, keyup delay:300ms from:#q, change from:select, change from:input[type=checkbox], change from:input[type=number]"
 				hx-push-url="true"
-				hx-indicator="#loading-indicator"
+				hx-indicator=".loading-bar"
 				class="flex flex-col gap-2">
 				<div class="flex items-center gap-2 flex-wrap">
 					<input id="q" name="q" placeholder="Cerca…" value={ data.Query } class="field flex-1"/>
-					
+
 					<!-- Collection-specific filters -->
 					@collectionFilters(data.PageData.Collection, data.PageSize)
-					
+
 					<button class="btn" type="submit">
-						<span class="htmx-indicator" id="loading-indicator">🔄</span>
+						<span class="htmx-indicator">
+							<span class="spinner"></span>
+						</span>
 						<span>Cerca</span>
 					</button>
 				</div>
-				
-				<!-- Loading indicator -->
-				<div class="htmx-indicator flex items-center gap-2 text-sm text-gray-600" id="loading-indicator">
-					<div class="animate-spin">⟳</div>
+
+				<!-- Loading indicator with enhanced animation -->
+				<div class="htmx-indicator flex items-center gap-2 text-sm text-gray-600" style="display: none;">
+					<span class="spinner"></span>
 					<span>Caricamento in corso...</span>
 				</div>
 			</form>

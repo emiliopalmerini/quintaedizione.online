@@ -20,18 +20,7 @@ type AnimaleMongoRepository struct {
 
 // extractAnimaleFromDocument extracts Animale from the flattened document
 func extractAnimaleFromDocument(doc bson.M) (*domain.Animale, error) {
-	docBytes, err := bson.Marshal(doc)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal document: %w", err)
-	}
-
-	var animale domain.Animale
-	err = bson.Unmarshal(docBytes, &animale)
-	if err != nil {
-		return nil, fmt.Errorf("failed to unmarshal animale: %w", err)
-	}
-
-	return &animale, nil
+	return ExtractEntityFromDocument[domain.Animale](doc, false)
 }
 
 // NewAnimaleMongoRepository creates a new AnimaleMongoRepository

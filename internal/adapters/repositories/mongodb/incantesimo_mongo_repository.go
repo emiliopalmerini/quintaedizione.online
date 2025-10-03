@@ -32,18 +32,7 @@ func NewIncantesimoMongoRepository(client *mongodb.Client) repositories.Incantes
 
 // extractIncantesimoFromDocument extracts Incantesimo from the flattened document
 func extractIncantesimoFromDocument(doc bson.M) (*domain.Incantesimo, error) {
-	docBytes, err := bson.Marshal(doc)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal document: %w", err)
-	}
-
-	var incantesimo domain.Incantesimo
-	err = bson.Unmarshal(docBytes, &incantesimo)
-	if err != nil {
-		return nil, fmt.Errorf("failed to unmarshal incantesimo: %w", err)
-	}
-
-	return &incantesimo, nil
+	return ExtractEntityFromDocument[domain.Incantesimo](doc, false)
 }
 
 // FindByNome retrieves a spell by its name

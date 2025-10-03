@@ -167,21 +167,5 @@ func (r *BackgroundMongoRepository) FindByToolProficiency(ctx context.Context, t
 
 // extractBackgroundFromDocument extracts Background from the nested value field
 func extractBackgroundFromDocument(doc bson.M) (*domain.Background, error) {
-	valueData, exists := doc["value"]
-	if !exists {
-		return nil, fmt.Errorf("background document missing value field")
-	}
-
-	valueBytes, err := bson.Marshal(valueData)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal value data: %w", err)
-	}
-
-	var background domain.Background
-	err = bson.Unmarshal(valueBytes, &background)
-	if err != nil {
-		return nil, fmt.Errorf("failed to unmarshal background: %w", err)
-	}
-
-	return &background, nil
+	return ExtractEntityFromDocument[domain.Background](doc, true)
 }

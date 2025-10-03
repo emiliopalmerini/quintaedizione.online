@@ -446,6 +446,29 @@ templ baseScripts() {
 		
 		document.addEventListener('DOMContentLoaded', initBreadcrumbSearch);
 		document.body.addEventListener('htmx:afterSwap', initBreadcrumbSearch);
+
+		// Sticky search bar scroll shadow effect
+		function initStickySearchShadow() {
+			const searchBar = document.querySelector('.search-sticky');
+			if (!searchBar) return;
+
+			let ticking = false;
+			const handleScroll = () => {
+				if (!ticking) {
+					window.requestAnimationFrame(() => {
+						const scrolled = window.scrollY > 10;
+						searchBar.classList.toggle('scrolled', scrolled);
+						ticking = false;
+					});
+					ticking = true;
+				}
+			};
+
+			window.addEventListener('scroll', handleScroll, { passive: true });
+		}
+
+		document.addEventListener('DOMContentLoaded', initStickySearchShadow);
+		document.body.addEventListener('htmx:afterSwap', initStickySearchShadow);
 	</script>
 }
 

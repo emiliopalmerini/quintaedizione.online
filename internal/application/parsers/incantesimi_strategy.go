@@ -87,7 +87,8 @@ func (s *IncantesimiStrategy) parseSpellSection(section []string) (*domain.Incan
 		return nil, ErrMissingSectionTitle
 	}
 	nome := strings.TrimSpace(strings.TrimPrefix(header, "## "))
-	// Remove formatting like ** from spell names
+	// Remove formatting: first remove trailing period, then ** markers
+	nome = strings.TrimSuffix(nome, ".")
 	nome = strings.Trim(nome, "*")
 
 	// Find metadata line (italics line with level/school/classes)
@@ -96,7 +97,9 @@ func (s *IncantesimiStrategy) parseSpellSection(section []string) (*domain.Incan
 	
 	for i := 1; i < len(section); i++ {
 		line := strings.TrimSpace(section[i])
-		if strings.HasPrefix(line, "*") && strings.HasSuffix(line, "*") {
+		// Match metadata line: starts with single * and ends with *.
+		// Avoid matching bold text like ***Text***
+		if strings.HasPrefix(line, "*") && strings.HasSuffix(line, "*.") && !strings.HasPrefix(line, "**") {
 			metadataLine = line
 			startIndex = i + 1
 			break
@@ -113,14 +116,15 @@ func (s *IncantesimiStrategy) parseSpellSection(section []string) (*domain.Incan
 		return nil, fmt.Errorf("failed to parse metadata: %w", err)
 	}
 
-	// Parse fields
+	// Parse fields and build contenuto
 	fields := make(map[string]string)
-	contenuto := strings.Builder{}
-	
+	metadataLines := strings.Builder{}
+	descriptionLines := strings.Builder{}
+	contentStartIndex := startIndex
+
 	for i := startIndex; i < len(section); i++ {
 		line := section[i]
-		contenuto.WriteString(line + "\n")
-		
+
 		// Parse field format: **Field:** value
 		if strings.HasPrefix(line, "**") && strings.Contains(line, ":**") {
 			parts := strings.SplitN(line, ":**", 2)
@@ -128,8 +132,34 @@ func (s *IncantesimiStrategy) parseSpellSection(section []string) (*domain.Incan
 				fieldName := strings.TrimSpace(strings.Trim(parts[0], "*"))
 				fieldValue := strings.TrimSpace(parts[1])
 				fields[fieldName] = fieldValue
+
+				// Add to metadata section
+				metadataLines.WriteString(line + "\n")
+
+				// Track when we've found Durata - description starts after it
+				if fieldName == "Durata" {
+					contentStartIndex = i + 1
+				}
 			}
 		}
+	}
+
+	// Build description starting after Durata
+	for i := contentStartIndex; i < len(section); i++ {
+		line := section[i]
+		// Skip empty lines at the start of description
+		if descriptionLines.Len() == 0 && strings.TrimSpace(line) == "" {
+			continue
+		}
+		descriptionLines.WriteString(line + "\n")
+	}
+
+	// Combine metadata and description for contenuto
+	contenuto := strings.Builder{}
+	contenuto.WriteString(strings.TrimSpace(metadataLines.String()))
+	if descriptionLines.Len() > 0 {
+		contenuto.WriteString("\n\n")
+		contenuto.WriteString(strings.TrimSpace(descriptionLines.String()))
 	}
 
 	// Parse lancio fields (handle both Italian and English field names)
@@ -145,7 +175,7 @@ func (s *IncantesimiStrategy) parseSpellSection(section []string) (*domain.Incan
 		scuola,
 		classi,
 		lancio,
-		strings.TrimSpace(contenuto.String()),
+		contenuto.String(),
 	)
 
 	return spell, nil

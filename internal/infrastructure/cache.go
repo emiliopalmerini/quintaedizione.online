@@ -88,11 +88,11 @@ func (sc *SimpleCache) cleanupExpired() {
 }
 
 // GetStats returns cache statistics
-func (sc *SimpleCache) GetStats() map[string]interface{} {
+func (sc *SimpleCache) GetStats() map[string]any {
 	sc.mu.RLock()
 	defer sc.mu.RUnlock()
 
-	return map[string]interface{}{
+	return map[string]any{
 		"item_count": len(sc.items),
 	}
 }

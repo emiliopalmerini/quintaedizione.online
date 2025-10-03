@@ -24,7 +24,7 @@ func NewMongoParserRepository(client *mongodb.Client) domain.ParserRepository {
 }
 
 // UpsertMany performs bulk upsert operations on a collection
-func (r *MongoParserRepository) UpsertMany(collectionName string, uniqueFields []string, docs []map[string]interface{}) (int, error) {
+func (r *MongoParserRepository) UpsertMany(collectionName string, uniqueFields []string, docs []map[string]any) (int, error) {
 	if len(docs) == 0 {
 		return 0, nil
 	}
@@ -91,7 +91,7 @@ func (r *MongoParserRepository) Count(collectionName string) (int64, error) {
 }
 
 // FindByFilter finds documents matching a filter
-func (r *MongoParserRepository) FindByFilter(collectionName string, filter bson.M, limit int) ([]map[string]interface{}, error) {
+func (r *MongoParserRepository) FindByFilter(collectionName string, filter bson.M, limit int) ([]map[string]any, error) {
 	collection := r.client.GetCollection(collectionName)
 	ctx := context.Background()
 
@@ -106,7 +106,7 @@ func (r *MongoParserRepository) FindByFilter(collectionName string, filter bson.
 	}
 	defer cursor.Close(ctx)
 
-	var results []map[string]interface{}
+	var results []map[string]any
 	if err = cursor.All(ctx, &results); err != nil {
 		return nil, fmt.Errorf("failed to decode documents from %s: %w", collectionName, err)
 	}

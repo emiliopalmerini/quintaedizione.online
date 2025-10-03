@@ -19,23 +19,7 @@ type ArmaMongoRepository struct {
 
 // extractArmaFromDocument extracts Arma from the nested value field
 func extractArmaFromDocument(doc bson.M) (*domain.Arma, error) {
-	valueData, exists := doc["value"]
-	if !exists {
-		return nil, fmt.Errorf("arma document missing value field")
-	}
-
-	valueBytes, err := bson.Marshal(valueData)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal value data: %w", err)
-	}
-
-	var arma domain.Arma
-	err = bson.Unmarshal(valueBytes, &arma)
-	if err != nil {
-		return nil, fmt.Errorf("failed to unmarshal arma: %w", err)
-	}
-
-	return &arma, nil
+	return ExtractEntityFromDocument[domain.Arma](doc, true)
 }
 
 // NewArmaMongoRepository creates a new ArmaMongoRepository

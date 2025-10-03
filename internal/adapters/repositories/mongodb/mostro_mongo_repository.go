@@ -33,18 +33,7 @@ func NewMostroMongoRepository(client *mongodb.Client) repositories.MostroReposit
 
 // extractMostroFromDocument extracts Mostro from the flattened document
 func extractMostroFromDocument(doc bson.M) (*domain.Mostro, error) {
-	docBytes, err := bson.Marshal(doc)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal document: %w", err)
-	}
-
-	var mostro domain.Mostro
-	err = bson.Unmarshal(docBytes, &mostro)
-	if err != nil {
-		return nil, fmt.Errorf("failed to unmarshal mostro: %w", err)
-	}
-
-	return &mostro, nil
+	return ExtractEntityFromDocument[domain.Mostro](doc, false)
 }
 
 // FindByNome retrieves a monster by its name

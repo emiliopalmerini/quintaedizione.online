@@ -11,6 +11,7 @@ import (
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/mappers"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/models"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain/collections"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure/config"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/templates"
 	"github.com/gin-gonic/gin"
@@ -63,23 +64,8 @@ func (h *Handlers) handleHome(c *gin.Context) {
 	// Get collection stats for display
 	collections, err := h.contentService.GetCollectionStats(c.Request.Context())
 	if err != nil {
-		// If error, use default collections without counts
-		collections = []map[string]any{
-			{"name": "incantesimi", "label": "Incantesimi", "count": 0},
-			{"name": "mostri", "label": "Mostri", "count": 0},
-			{"name": "classi", "label": "Classi", "count": 0},
-			{"name": "backgrounds", "label": "Background", "count": 0},
-			{"name": "equipaggiamenti", "label": "Equipaggiamento", "count": 0},
-			{"name": "oggetti_magici", "label": "Oggetti Magici", "count": 0},
-			{"name": "armi", "label": "Armi", "count": 0},
-			{"name": "armature", "label": "Armature", "count": 0},
-			{"name": "talenti", "label": "Talenti", "count": 0},
-			{"name": "servizi", "label": "Servizi", "count": 0},
-			{"name": "strumenti", "label": "Strumenti", "count": 0},
-			{"name": "animali", "label": "Animali", "count": 0},
-			{"name": "regole", "label": "Regole", "count": 0},
-			{"name": "cavalcature_veicoli", "label": "Cavalcature e Veicoli", "count": 0},
-		}
+		// If error, use default collections from registry without counts
+		collections = h.getDefaultCollections()
 	}
 
 	// Convert collections to typed format and calculate total
@@ -147,7 +133,7 @@ func (h *Handlers) handleCollectionList(c *gin.Context) {
 	filters := h.extractFilters(c)
 
 	// Get items from service with filters
-	var rawItems []map[string]interface{}
+	var rawItems []map[string]any
 	var totalCount int64
 	if len(filters) > 0 {
 		rawItems, totalCount, err = h.contentService.GetCollectionItemsWithFilters(c.Request.Context(), collection, q, filters, pageNum, pageSizeNum)
@@ -295,7 +281,7 @@ func (h *Handlers) handleCollectionRows(c *gin.Context) {
 	filters := h.extractFilters(c)
 
 	// Get filtered items
-	var rawItems []map[string]interface{}
+	var rawItems []map[string]any
 	var totalCount int64
 	if len(filters) > 0 {
 		rawItems, totalCount, err = h.contentService.GetCollectionItemsWithFilters(c.Request.Context(), collection, q, filters, pageNum, pageSizeNum)
@@ -460,6 +446,22 @@ func (h *Handlers) handleQuickSearch(c *gin.Context) {
 	if html == "" {
 		html = `<div class="search-result" style="color: var(--notion-text-light);">Nessun risultato trovato</div>`
 	}
-	
+
 	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(html))
+}
+
+// getDefaultCollections returns default collections from the registry
+func (h *Handlers) getDefaultCollections() []map[string]any {
+	allCollections := collections.GetAllWithInfo()
+	result := make([]map[string]any, 0, len(allCollections))
+
+	for _, info := range allCollections {
+		result = append(result, map[string]any{
+			"name":  info.Name.String(),
+			"label": info.Title,
+			"count": 0,
+		})
+	}
+
+	return result
 }

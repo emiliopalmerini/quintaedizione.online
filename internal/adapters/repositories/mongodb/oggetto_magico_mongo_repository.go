@@ -32,23 +32,7 @@ func NewOggettoMagicoMongoRepository(client *mongodb.Client) repositories.Oggett
 
 // extractOggettoMagicoFromDocument extracts OggettoMagico from the nested value field
 func extractOggettoMagicoFromDocument(doc bson.M) (*domain.OggettoMagico, error) {
-	valueData, exists := doc["value"]
-	if !exists {
-		return nil, fmt.Errorf("oggetto_magico document missing value field")
-	}
-
-	valueBytes, err := bson.Marshal(valueData)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal value data: %w", err)
-	}
-
-	var oggettoMagico domain.OggettoMagico
-	err = bson.Unmarshal(valueBytes, &oggettoMagico)
-	if err != nil {
-		return nil, fmt.Errorf("failed to unmarshal oggetto_magico: %w", err)
-	}
-
-	return &oggettoMagico, nil
+	return ExtractEntityFromDocument[domain.OggettoMagico](doc, true)
 }
 
 // FindByNome retrieves a magic item by its name

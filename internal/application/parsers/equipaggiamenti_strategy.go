@@ -90,15 +90,14 @@ func (s *EquipaggiamentiStrategy) parseEquipmentSection(section []string) (*doma
 	headerText := strings.TrimSpace(strings.TrimPrefix(header, "## "))
 	nome, costo := s.parseNomeECosto(headerText)
 
-	// Parse fields and content
+	// Parse fields and content - first pass to collect all data
 	fields := make(map[string]string)
-	contenuto := strings.Builder{}
 	var description []string
-	
+	var otherLines []string
+
 	for i := 1; i < len(section); i++ {
 		line := section[i]
-		contenuto.WriteString(line + "\n")
-		
+
 		// Parse field format: **Field:** value
 		if strings.HasPrefix(line, "**") && strings.Contains(line, ":**") {
 			parts := strings.SplitN(line, ":**", 2)
@@ -106,10 +105,66 @@ func (s *EquipaggiamentiStrategy) parseEquipmentSection(section []string) (*doma
 				fieldName := strings.TrimSpace(strings.Trim(parts[0], "*"))
 				fieldValue := strings.TrimSpace(parts[1])
 				fields[fieldName] = fieldValue
+
+				// Store non-Peso fields for later
+				if fieldName != "Peso" {
+					otherLines = append(otherLines, line)
+				}
 			}
 		} else if line != "" && !strings.HasPrefix(line, "**") {
 			// This is description text
 			description = append(description, line)
+		}
+	}
+
+	// Build contenuto in desired order: Costo, Peso, Other fields, Description
+	contenuto := strings.Builder{}
+
+	// 1. Add cost
+	if costo.Valore > 0 {
+		contenuto.WriteString(fmt.Sprintf("**Costo:** %d %s.\n\n", costo.Valore, costo.Valuta))
+	}
+
+	// 2. Add peso if present
+	if pesoValue := fields["Peso"]; pesoValue != "" {
+		line := fmt.Sprintf("**Peso:** %s", pesoValue)
+		// Add period if not present
+		if !strings.HasSuffix(strings.TrimSpace(line), ".") {
+			line += "."
+		}
+		contenuto.WriteString(line + "\n\n")
+	}
+
+	// 3. Add other fields
+	for _, line := range otherLines {
+		// Add period if not present
+		if !strings.HasSuffix(strings.TrimSpace(line), ".") {
+			line += "."
+		}
+		contenuto.WriteString(line + "\n\n")
+	}
+
+	// 4. Add description - split on period followed by space
+	for _, desc := range description {
+		// Split sentences on ". " to create paragraphs
+		sentences := strings.Split(desc, ". ")
+		for i, sentence := range sentences {
+			sentence = strings.TrimSpace(sentence)
+			if sentence == "" {
+				continue
+			}
+
+			// Add period back if it was removed by split (not the last sentence)
+			if i < len(sentences)-1 {
+				contenuto.WriteString(sentence + ".\n\n")
+			} else {
+				// Last sentence - check if it already has a period
+				if strings.HasSuffix(sentence, ".") {
+					contenuto.WriteString(sentence + "\n\n")
+				} else {
+					contenuto.WriteString(sentence + "\n")
+				}
+			}
 		}
 	}
 

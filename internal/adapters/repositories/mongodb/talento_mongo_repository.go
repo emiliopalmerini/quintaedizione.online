@@ -32,23 +32,7 @@ func NewTalentoMongoRepository(client *mongodb.Client) repositories.TalentoRepos
 
 // extractTalentoFromDocument extracts Talento from the nested value field
 func extractTalentoFromDocument(doc bson.M) (*domain.Talento, error) {
-	valueData, exists := doc["value"]
-	if !exists {
-		return nil, fmt.Errorf("talento document missing value field")
-	}
-
-	valueBytes, err := bson.Marshal(valueData)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal value data: %w", err)
-	}
-
-	var talento domain.Talento
-	err = bson.Unmarshal(valueBytes, &talento)
-	if err != nil {
-		return nil, fmt.Errorf("failed to unmarshal talento: %w", err)
-	}
-
-	return &talento, nil
+	return ExtractEntityFromDocument[domain.Talento](doc, true)
 }
 
 // FindByNome retrieves a feat by its name
