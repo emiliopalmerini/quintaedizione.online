@@ -49,7 +49,7 @@ func (r *MongoDBRepository) isValidCollection(collection string) bool {
 }
 
 // FindMaps retrieves items as maps with pagination and search
-func (r *MongoDBRepository) FindMaps(ctx context.Context, collection string, filter bson.M, skip, limit int64) ([]map[string]interface{}, error) {
+func (r *MongoDBRepository) FindMaps(ctx context.Context, collection string, filter bson.M, skip, limit int64) ([]map[string]any, error) {
 	if !r.isValidCollection(collection) {
 		return nil, fmt.Errorf("invalid collection: %s", collection)
 	}
@@ -67,16 +67,16 @@ func (r *MongoDBRepository) FindMaps(ctx context.Context, collection string, fil
 	}
 	defer cursor.Close(ctx)
 
-	var items []map[string]interface{}
+	var items []map[string]any
 	for cursor.Next(ctx) {
-		var doc map[string]interface{}
+		var doc map[string]any
 		if err := cursor.Decode(&doc); err != nil {
 			return nil, fmt.Errorf("failed to decode document: %w", err)
 		}
 		
 		// Extract the 'value' field and add to root level for compatibility
 		if value, exists := doc["value"]; exists {
-			if valueMap, ok := value.(map[string]interface{}); ok {
+			if valueMap, ok := value.(map[string]any); ok {
 				// Merge value fields into root document for compatibility
 				for k, v := range valueMap {
 					doc[k] = v
@@ -95,14 +95,14 @@ func (r *MongoDBRepository) FindMaps(ctx context.Context, collection string, fil
 }
 
 // FindOneMap retrieves a single item as a map
-func (r *MongoDBRepository) FindOneMap(ctx context.Context, collection string, filter bson.M) (map[string]interface{}, error) {
+func (r *MongoDBRepository) FindOneMap(ctx context.Context, collection string, filter bson.M) (map[string]any, error) {
 	if !r.isValidCollection(collection) {
 		return nil, fmt.Errorf("invalid collection: %s", collection)
 	}
 
 	mongoCollection := r.client.GetCollection(collection)
 	
-	var doc map[string]interface{}
+	var doc map[string]any
 	err := mongoCollection.FindOne(ctx, filter).Decode(&doc)
 	if err != nil {
 		return nil, fmt.Errorf("failed to find document in %s: %w", collection, err)
@@ -110,7 +110,7 @@ func (r *MongoDBRepository) FindOneMap(ctx context.Context, collection string, f
 	
 	// Extract the 'value' field and add to root level for compatibility
 	if value, exists := doc["value"]; exists {
-		if valueMap, ok := value.(map[string]interface{}); ok {
+		if valueMap, ok := value.(map[string]any); ok {
 			// Merge value fields into root document for compatibility
 			for k, v := range valueMap {
 				doc[k] = v
@@ -140,8 +140,8 @@ func (r *MongoDBRepository) Count(ctx context.Context, collection string, filter
 }
 
 // GetCollectionStats returns statistics for all collections  
-func (r *MongoDBRepository) GetCollectionStats(ctx context.Context) ([]map[string]interface{}, error) {
-	var collections []map[string]interface{}
+func (r *MongoDBRepository) GetCollectionStats(ctx context.Context) ([]map[string]any, error) {
+	var collections []map[string]any
 
 	validCollections := r.getValidCollections()
 	collectionTitles := map[string]string{
@@ -173,7 +173,7 @@ func (r *MongoDBRepository) GetCollectionStats(ctx context.Context) ([]map[strin
 			title = collection
 		}
 
-		collections = append(collections, map[string]interface{}{
+		collections = append(collections, map[string]any{
 			"name":  collection,
 			"title": title,
 			"count": count,

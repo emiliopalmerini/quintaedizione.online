@@ -6,6 +6,7 @@ import (
 
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/repositories"
+	domainRepos "github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain/repositories"
 )
 
 // CreateClasseCommand handles creation of Classe entities
@@ -46,12 +47,12 @@ func (c *CreateClasseCommand) Execute(ctx context.Context) error {
 		return fmt.Errorf("failed to get classe repository: %w", err)
 	}
 
-	classeRepo, ok := repo.(domain.ClasseRepository)
+	classeRepo, ok := repo.(domainRepos.ClasseRepository)
 	if !ok {
 		return fmt.Errorf("repository is not a ClasseRepository")
 	}
 
-	return classeRepo.Save(ctx, c.classe)
+	return classeRepo.Create(ctx, c.classe)
 }
 
 // UpdateClasseCommand handles updating Classe entities
@@ -90,12 +91,12 @@ func (c *UpdateClasseCommand) Execute(ctx context.Context) error {
 		return fmt.Errorf("failed to get classe repository: %w", err)
 	}
 
-	classeRepo, ok := repo.(domain.ClasseRepository)
+	classeRepo, ok := repo.(domainRepos.ClasseRepository)
 	if !ok {
 		return fmt.Errorf("repository is not a ClasseRepository")
 	}
 
-	return classeRepo.Update(ctx, c.slug, c.classe)
+	return classeRepo.Update(ctx, c.classe)
 }
 
 // DeleteClasseCommand handles deletion of Classe entities
@@ -127,7 +128,7 @@ func (c *DeleteClasseCommand) Execute(ctx context.Context) error {
 		return fmt.Errorf("failed to get classe repository: %w", err)
 	}
 
-	classeRepo, ok := repo.(domain.ClasseRepository)
+	classeRepo, ok := repo.(domainRepos.ClasseRepository)
 	if !ok {
 		return fmt.Errorf("repository is not a ClasseRepository")
 	}

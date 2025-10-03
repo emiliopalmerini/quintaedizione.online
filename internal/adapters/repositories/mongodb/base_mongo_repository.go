@@ -358,3 +358,34 @@ func getMapKeys(m map[string]any) []string {
 	}
 	return keys
 }
+
+// ExtractEntityFromDocument extracts a typed entity from a MongoDB document.
+// It handles two document structures:
+// 1. Nested: {"value": {entity fields}} - extracts from value field
+// 2. Flat: {entity fields directly} - extracts entire document
+func ExtractEntityFromDocument[T any](doc bson.M, hasNestedValue bool) (*T, error) {
+	var data any
+
+	if hasNestedValue {
+		valueData, exists := doc["value"]
+		if !exists {
+			return nil, fmt.Errorf("document missing value field")
+		}
+		data = valueData
+	} else {
+		data = doc
+	}
+
+	dataBytes, err := bson.Marshal(data)
+	if err != nil {
+		return nil, fmt.Errorf("failed to marshal data: %w", err)
+	}
+
+	var entity T
+	err = bson.Unmarshal(dataBytes, &entity)
+	if err != nil {
+		return nil, fmt.Errorf("failed to unmarshal entity: %w", err)
+	}
+
+	return &entity, nil
+}

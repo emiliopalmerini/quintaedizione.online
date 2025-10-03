@@ -19,23 +19,7 @@ type ArmaturaMongoRepository struct {
 
 // extractArmaturaFromDocument extracts Armatura from the nested value field
 func extractArmaturaFromDocument(doc bson.M) (*domain.Armatura, error) {
-	valueData, exists := doc["value"]
-	if !exists {
-		return nil, fmt.Errorf("armatura document missing value field")
-	}
-
-	valueBytes, err := bson.Marshal(valueData)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal value data: %w", err)
-	}
-
-	var armatura domain.Armatura
-	err = bson.Unmarshal(valueBytes, &armatura)
-	if err != nil {
-		return nil, fmt.Errorf("failed to unmarshal armatura: %w", err)
-	}
-
-	return &armatura, nil
+	return ExtractEntityFromDocument[domain.Armatura](doc, true)
 }
 
 // NewArmaturaMongoRepository creates a new ArmaturaMongoRepository

@@ -28,11 +28,10 @@ func NewBaseParser() *BaseParser {
 func (bp *BaseParser) ParseFieldsFromSection(section []string) (map[string]string, string) {
 	fields := make(map[string]string)
 	contenuto := strings.Builder{}
-	
+
 	for i := 1; i < len(section); i++ {
 		line := section[i]
-		contenuto.WriteString(line + "\n")
-		
+
 		// Parse field format: **Field:** value
 		if strings.HasPrefix(line, "**") && strings.Contains(line, ":**") {
 			parts := strings.SplitN(line, ":**", 2)
@@ -40,10 +39,23 @@ func (bp *BaseParser) ParseFieldsFromSection(section []string) (map[string]strin
 				fieldName := strings.TrimSpace(strings.Trim(parts[0], "*"))
 				fieldValue := strings.TrimSpace(parts[1])
 				fields[fieldName] = fieldValue
+
+				// Add period if not present and add double newline
+				if !strings.HasSuffix(strings.TrimSpace(line), ".") {
+					line += "."
+				}
+				contenuto.WriteString(line + "\n\n")
+			}
+		} else if line != "" {
+			// Non-field lines (descriptions, etc)
+			if strings.HasSuffix(strings.TrimSpace(line), ".") {
+				contenuto.WriteString(line + "\n\n")
+			} else {
+				contenuto.WriteString(line + "\n")
 			}
 		}
 	}
-	
+
 	return fields, strings.TrimSpace(contenuto.String())
 }
 

@@ -32,18 +32,7 @@ func NewCavalcaturaVeicoloMongoRepository(client *mongodb.Client) repositories.C
 
 // extractCavalcaturaVeicoloFromDocument extracts CavalcaturaVeicolo from the flattened document
 func extractCavalcaturaVeicoloFromDocument(doc bson.M) (*domain.CavalcaturaVeicolo, error) {
-	docBytes, err := bson.Marshal(doc)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal document: %w", err)
-	}
-
-	var cavalcaturaVeicolo domain.CavalcaturaVeicolo
-	err = bson.Unmarshal(docBytes, &cavalcaturaVeicolo)
-	if err != nil {
-		return nil, fmt.Errorf("failed to unmarshal cavalcatura_veicolo: %w", err)
-	}
-
-	return &cavalcaturaVeicolo, nil
+	return ExtractEntityFromDocument[domain.CavalcaturaVeicolo](doc, false)
 }
 
 // FindByNome retrieves a mount/vehicle by its name

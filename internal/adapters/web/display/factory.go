@@ -38,7 +38,7 @@ func (f *DisplayElementFactory) GetStrategy(collection string) DisplayElementStr
 }
 
 // GetDisplayElements extracts display elements for a document using the appropriate strategy
-func (f *DisplayElementFactory) GetDisplayElements(collection string, doc map[string]interface{}) []dto.DisplayElementDTO {
+func (f *DisplayElementFactory) GetDisplayElements(collection string, doc map[string]any) []dto.DisplayElementDTO {
 	strategy := f.GetStrategy(collection)
 	return strategy.GetElements(doc)
 }

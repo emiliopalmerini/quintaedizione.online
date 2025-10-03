@@ -3,7 +3,7 @@ package parsers
 type ParsingContext struct {
 	Filename string
 	Language string
-	Metadata map[string]interface{}
+	Metadata map[string]any
 	Logger   Logger
 }
 
@@ -11,7 +11,7 @@ func NewParsingContext(filename, language string) *ParsingContext {
 	return &ParsingContext{
 		Filename: filename,
 		Language: language,
-		Metadata: make(map[string]interface{}),
+		Metadata: make(map[string]any),
 		Logger:   &NoOpLogger{},
 	}
 }

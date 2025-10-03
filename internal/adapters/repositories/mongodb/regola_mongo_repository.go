@@ -32,18 +32,7 @@ func NewRegolaMongoRepository(client *mongodb.Client) repositories.RegolaReposit
 
 // extractRegolaFromDocument extracts Regola from the flattened document
 func extractRegolaFromDocument(doc bson.M) (*domain.Regola, error) {
-	docBytes, err := bson.Marshal(doc)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal document: %w", err)
-	}
-
-	var regola domain.Regola
-	err = bson.Unmarshal(docBytes, &regola)
-	if err != nil {
-		return nil, fmt.Errorf("failed to unmarshal regola: %w", err)
-	}
-
-	return &regola, nil
+	return ExtractEntityFromDocument[domain.Regola](doc, false)
 }
 
 // FindByNome retrieves a rule by its name

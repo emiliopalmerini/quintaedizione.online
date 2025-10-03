@@ -399,7 +399,7 @@ body {
   margin-top: var(--space-2);
   color: var(--primary);
   font-size: var(--font-size-sm);
-  opacity: 0;
+  opacity: 0.7;
   transition: opacity 0.2s ease;
 }
 
@@ -500,25 +500,13 @@ body {
   font-size: 13px;
 }
 
-/* Loading States */
-.spinner {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 2px solid var(--notion-border);
-  border-top-color: var(--primary);
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
+/* Loading States - Moved to HTMX section below */
 
 /* Markdown Typography */
 [data-markdown] {
   color: var(--notion-text);
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.7;
   max-width: none;
 }
 
@@ -537,22 +525,24 @@ body {
   font-size: 30px;
   font-weight: 600;
   line-height: 1.3;
-  margin: 24px 0 8px;
+  margin: 32px 0 12px;
+  padding-top: 16px;
+  padding-bottom: 8px;
   color: var(--notion-text);
   background: transparent !important;
   border: none !important;
-  padding: 0 !important;
+  border-bottom: 2px solid var(--notion-border) !important;
 }
 
 [data-markdown] h3 {
   font-size: 24px;
   font-weight: 600;
   line-height: 1.3;
-  margin: 20px 0 6px;
+  margin: 24px 0 10px;
+  padding-top: 12px;
   color: var(--notion-text);
   background: transparent !important;
   border: none !important;
-  padding: 0 !important;
 }
 
 [data-markdown] h4 {
@@ -567,26 +557,27 @@ body {
 }
 
 [data-markdown] p {
-  margin: 3px 0;
-  line-height: 1.5;
+  margin: 8px 0;
+  line-height: 1.7;
 }
 
 [data-markdown] ul, [data-markdown] ol {
-  margin: 3px 0;
-  padding-left: 24px;
+  margin: 12px 0;
+  padding-left: 28px;
 }
 
 [data-markdown] li {
-  margin: 1px 0;
-  line-height: 1.5;
+  margin: 4px 0;
+  line-height: 1.7;
 }
 
 [data-markdown] blockquote {
-  border-left: 3px solid var(--notion-border);
-  padding-left: 14px;
-  color: var(--notion-text-light);
-  margin: 8px 0;
-  font-style: italic;
+  border-left: 4px solid var(--primary);
+  padding: 12px 16px;
+  background: var(--notion-bg-secondary);
+  color: var(--notion-text);
+  margin: 16px 0;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
 }
 
 [data-markdown] code {
@@ -720,24 +711,44 @@ body {
 
 [data-markdown] strong {
   font-weight: 600;
+  color: var(--notion-text);
+}
+
+/* Style for field labels in markdown (e.g., **Costo:** value) */
+[data-markdown] p strong:has(+ :is(text, em, code)),
+[data-markdown] li strong {
+  color: var(--primary-dark);
+  font-weight: 600;
 }
 
 [data-markdown] table {
   width: 100%;
   border-collapse: collapse;
-  margin: 12px 0;
+  margin: 16px 0;
+  border: 1px solid var(--notion-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
 }
 
 [data-markdown] th, [data-markdown] td {
   border: 1px solid var(--notion-border);
-  padding: 8px 12px;
+  padding: 10px 14px;
   text-align: left;
 }
 
 [data-markdown] th {
   background: var(--notion-bg-secondary);
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
+  color: var(--notion-text);
+}
+
+[data-markdown] td {
+  font-size: 14px;
+}
+
+[data-markdown] tr:hover {
+  background: var(--notion-hover);
 }
 
 [data-markdown] hr {
@@ -770,15 +781,15 @@ body {
   font-weight: 700;
   font-style: normal;
   display: inline-block;
-  margin-right: 0.25rem;
+  margin-right: 0.5rem;
   font-size: 1.05em;
 }
 
 /* Add some spacing between actions/traits */
 [data-markdown] p:has(strong em),
 [data-markdown] p:has(em strong) {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  margin-top: 16px;
+  margin-bottom: 8px;
 }
 
 /* Style for italicized mechanics text */
@@ -789,18 +800,30 @@ body {
 
 /* Better spacing for stat blocks */
 [data-markdown] ul li {
-  margin-bottom: 0.25rem;
+  margin-bottom: 6px;
+  padding: 4px 0;
+}
+
+/* Highlight stat block items with strong text */
+[data-markdown] ul li strong {
+  color: var(--primary-dark);
+  font-weight: 600;
+  min-width: 120px;
+  display: inline-block;
 }
 
 /* Style the metadata line (e.g., "*Aberrazione Grande, Legale Malvagio*") */
 [data-markdown] p:first-of-type em {
-  color: var(--gray-600);
+  color: var(--gray-700);
   font-size: 1.1em;
   font-weight: 500;
   display: block;
-  margin-bottom: 1rem;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid var(--notion-border);
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  background: var(--notion-bg-secondary);
+  border-left: 4px solid var(--primary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-style: normal;
 }
 
 /* Page Loading Overlay */
@@ -1573,6 +1596,19 @@ body {
   }
 }
 
+/* Sticky Search Bar */
+.search-sticky {
+  position: sticky;
+  top: var(--site-header-h);
+  z-index: 30;
+  background: var(--notion-bg);
+  transition: box-shadow 0.2s ease;
+}
+
+.search-sticky.scrolled {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
 /* HTMX Loading Indicators */
 .htmx-indicator {
   display: none;
@@ -1580,11 +1616,63 @@ body {
 
 .htmx-request .htmx-indicator,
 .htmx-request.htmx-indicator {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .htmx-request .htmx-indicator {
   animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Top Loading Bar */
+.loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: transparent;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.loading-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
+  transition: width 0.3s ease;
+}
+
+.htmx-request .loading-bar::after {
+  animation: loading-bar-progress 2s ease-out forwards;
+}
+
+@keyframes loading-bar-progress {
+  0% { width: 0%; }
+  50% { width: 70%; }
+  100% { width: 95%; }
+}
+
+.htmx-request.htmx-swapping .loading-bar::after {
+  width: 100%;
+  transition: width 0.2s ease;
+}
+
+/* Enhanced Spinner */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid var(--notion-border);
+  border-top-color: var(--primary);
+  animation: spin 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  display: inline-block;
 }
 
 /* Spin animation for loading */
@@ -1839,13 +1927,218 @@ body {
 }
 
 @keyframes slideUp {
-  from { 
-    opacity: 0; 
-    transform: translateY(20px) scale(0.95); 
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
   }
-  to { 
-    opacity: 1; 
-    transform: translateY(0) scale(1); 
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ========================================
+   Mobile Responsive Improvements
+   ======================================== */
+
+/* Mobile-first: Base styles optimized for small screens */
+@media (max-width: 640px) {
+  /* Increase touch target sizes for mobile */
+  .btn {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    padding: 8px 12px !important;
+  }
+
+  /* Stack search form elements vertically */
+  #search-form .flex {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  #search-form input,
+  #search-form select,
+  #search-form button {
+    width: 100% !important;
+    flex: none !important;
+  }
+
+  /* Collection grid - single column on mobile */
+  .collection-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-3) !important;
+  }
+
+  /* Collection cards - larger touch targets */
+  .collection-card {
+    padding: var(--space-4) !important;
+    min-height: 80px !important;
+  }
+
+  .collection-card h3 {
+    font-size: var(--font-size-lg) !important;
+  }
+
+  /* List rows - better spacing on mobile */
+  .list-row {
+    padding: var(--space-3) !important;
+    gap: var(--space-2) !important;
+  }
+
+  .list-row a {
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  /* Navigation - fix breadcrumb overflow */
+  .breadcrumb {
+    flex-wrap: wrap !important;
+    gap: var(--space-1) !important;
+    font-size: 12px !important;
+  }
+
+  .breadcrumb .search-container {
+    flex-basis: 100% !important;
+    margin-top: var(--space-2) !important;
+  }
+
+  .breadcrumb .search-container input {
+    width: 100% !important;
+  }
+
+  /* Prev/Next navigation - prevent overflow */
+  .navigation-buttons {
+    display: flex !important;
+    gap: var(--space-2) !important;
+    flex-wrap: wrap !important;
+  }
+
+  .navigation-buttons .btn {
+    flex: 1 1 calc(50% - var(--space-1)) !important;
+    min-width: 120px !important;
+    justify-content: center !important;
+  }
+
+  /* Pagination - stack on mobile */
+  .pagination {
+    flex-wrap: wrap !important;
+    gap: var(--space-2) !important;
+    justify-content: center !important;
+  }
+
+  .pagination .btn {
+    min-width: 44px !important;
+  }
+
+  /* Form fields - larger for mobile */
+  .field {
+    min-height: 44px !important;
+    font-size: 16px !important; /* Prevents iOS zoom on focus */
+    padding: 10px 12px !important;
+  }
+
+  /* Hero section - reduce padding on mobile */
+  .hero {
+    padding: var(--space-4) !important;
+  }
+
+  .hero h1 {
+    font-size: var(--font-size-xl) !important;
+  }
+
+  /* Notion nav - reduce padding */
+  .notion-nav-container {
+    padding: var(--space-2) var(--space-3) !important;
+  }
+
+  /* Container - reduce padding on mobile */
+  .container {
+    padding: 0 var(--space-3) !important;
+  }
+
+  /* Tables - horizontal scroll on mobile */
+  [data-markdown] table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Modals - full width on mobile */
+  .keyboard-help-content,
+  .copy-text-modal-content {
+    width: 95% !important;
+    max-width: none !important;
+    margin: var(--space-3) !important;
+  }
+
+  /* Loading bar - thicker on mobile for visibility */
+  .loading-bar {
+    height: 4px !important;
+  }
+
+  /* Search results dropdown - full width on mobile */
+  .search-results {
+    left: 0 !important;
+    right: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Better spacing for markdown on mobile */
+  [data-markdown] h1 {
+    font-size: 28px !important;
+  }
+
+  [data-markdown] h2 {
+    font-size: 24px !important;
+  }
+
+  [data-markdown] h3 {
+    font-size: 20px !important;
+  }
+
+  /* Fix sticky search position on mobile */
+  .search-sticky {
+    top: 50px !important; /* Adjust based on mobile nav height */
+  }
+}
+
+/* Tablet improvements (640px - 1024px) */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .collection-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .container {
+    padding: 0 var(--space-4) !important;
+  }
+}
+
+/* Landscape phone improvements */
+@media (max-width: 640px) and (orientation: landscape) {
+  .hero {
+    padding: var(--space-3) !important;
+  }
+
+  .notion-nav-container {
+    padding: var(--space-1) var(--space-3) !important;
+  }
+}
+
+/* Fix for very small screens */
+@media (max-width: 375px) {
+  .btn {
+    font-size: 13px !important;
+    padding: 6px 10px !important;
+  }
+
+  .field {
+    font-size: 15px !important;
+  }
+
+  .navigation-buttons .btn {
+    flex: 1 1 100% !important;
   }
 }
 

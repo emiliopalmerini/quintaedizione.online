@@ -125,10 +125,45 @@ func (s *MostriStrategy) parseMonsterSection(section []string) (*domain.Mostro, 
 	inLegendaryActionsSection := false
 	currentSectionLines := []string{}
 	currentSectionType := ""
-	
+	inCaratteristicheTable := false
+
 	for i := 2; i < len(section); i++ {
 		line := section[i]
-		contenuto.WriteString(line + "\n")
+
+		// Check if we're starting the caratteristiche table
+		if strings.Contains(line, "| Caratteristica |") || strings.Contains(line, "|---|") {
+			inCaratteristicheTable = true
+			continue // Skip table header and separator
+		}
+
+		// Check if we're at a caratteristica data row
+		if inCaratteristicheTable && strings.Contains(line, "|") {
+			// Parse table row and generate simple line
+			parts := strings.Split(line, "|")
+			if len(parts) >= 5 {
+				nome := strings.TrimSpace(parts[1])
+				valore := strings.TrimSpace(parts[2])
+				modificatore := strings.TrimSpace(parts[3])
+				salvezza := strings.TrimSpace(parts[4])
+
+				// Skip separator line (contains only dashes) and header
+				if nome != "" && nome != "Caratteristica" && !strings.Contains(nome, "---") {
+					// Generate simple line: **FOR:** 21 (modificatore: +5, TS: +5)
+					contenuto.WriteString(fmt.Sprintf("- **%s:** %s (modificatore: %s, TS: %s)\n", nome, valore, modificatore, salvezza))
+				}
+			}
+			continue
+		}
+
+		// Check if table has ended
+		if inCaratteristicheTable && !strings.Contains(line, "|") {
+			inCaratteristicheTable = false
+		}
+
+		// Write regular line to contenuto if not in table
+		if !inCaratteristicheTable {
+			contenuto.WriteString(line + "\n")
+		}
 
 		// Handle section headers
 		if strings.HasPrefix(line, "### ") {

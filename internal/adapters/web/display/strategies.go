@@ -8,7 +8,7 @@ import (
 
 // DisplayElementStrategy defines how to extract display elements for a collection
 type DisplayElementStrategy interface {
-	GetElements(doc map[string]interface{}) []dto.DisplayElementDTO
+	GetElements(doc map[string]any) []dto.DisplayElementDTO
 	GetCollectionType() string
 }
 
@@ -19,7 +19,7 @@ func (s *IncantesimiDisplayStrategy) GetCollectionType() string {
 	return "incantesimi"
 }
 
-func (s *IncantesimiDisplayStrategy) GetElements(doc map[string]interface{}) []dto.DisplayElementDTO {
+func (s *IncantesimiDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
 	// Incantesimi - Level + School
@@ -60,7 +60,7 @@ func (s *OggettiMagiciDisplayStrategy) GetCollectionType() string {
 	return "oggetti_magici"
 }
 
-func (s *OggettiMagiciDisplayStrategy) GetElements(doc map[string]interface{}) []dto.DisplayElementDTO {
+func (s *OggettiMagiciDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
 	// Oggetti magici - Rarity + Type
@@ -101,7 +101,7 @@ func (s *MostriDisplayStrategy) GetCollectionType() string {
 	return "mostri"
 }
 
-func (s *MostriDisplayStrategy) GetElements(doc map[string]interface{}) []dto.DisplayElementDTO {
+func (s *MostriDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
 	// Mostri - Size + Type + CR
@@ -128,7 +128,7 @@ func (s *ArmiDisplayStrategy) GetCollectionType() string {
 	return "armi"
 }
 
-func (s *ArmiDisplayStrategy) GetElements(doc map[string]interface{}) []dto.DisplayElementDTO {
+func (s *ArmiDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
 	// Armi - Category + Damage
@@ -169,7 +169,7 @@ func (s *ArmatureDisplayStrategy) GetCollectionType() string {
 	return "armature"
 }
 
-func (s *ArmatureDisplayStrategy) GetElements(doc map[string]interface{}) []dto.DisplayElementDTO {
+func (s *ArmatureDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
 	// Armature - Category + AC
@@ -210,7 +210,7 @@ func (s *DefaultDisplayStrategy) GetCollectionType() string {
 	return "default"
 }
 
-func (s *DefaultDisplayStrategy) GetElements(doc map[string]interface{}) []dto.DisplayElementDTO {
+func (s *DefaultDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
 	// Add generic fields only
@@ -231,7 +231,7 @@ func (s *DefaultDisplayStrategy) GetElements(doc map[string]interface{}) []dto.D
 }
 
 // Helper functions (extracted from content service)
-func getFieldValue(doc map[string]interface{}, fieldNames ...string) string {
+func getFieldValue(doc map[string]any, fieldNames ...string) string {
 	for _, fieldName := range fieldNames {
 		if value, exists := doc[fieldName]; exists && value != nil {
 			if strValue := fmt.Sprintf("%v", value); strValue != "" && strValue != "0" {
@@ -242,7 +242,7 @@ func getFieldValue(doc map[string]interface{}, fieldNames ...string) string {
 	return ""
 }
 
-func getStructuredFieldValue(doc map[string]interface{}, fieldName string) string {
+func getStructuredFieldValue(doc map[string]any, fieldName string) string {
 	value, exists := doc[fieldName]
 	if !exists || value == nil {
 		return ""
@@ -268,7 +268,7 @@ func getStructuredFieldValue(doc map[string]interface{}, fieldName string) strin
 }
 
 func formatCosto(value interface{}) string {
-	if costoMap, ok := value.(map[string]interface{}); ok {
+	if costoMap, ok := value.(map[string]any); ok {
 		valore, valoreOk := costoMap["valore"]
 		valuta, valutaOk := costoMap["valuta"]
 
@@ -280,7 +280,7 @@ func formatCosto(value interface{}) string {
 }
 
 func formatPeso(value interface{}) string {
-	if pesoMap, ok := value.(map[string]interface{}); ok {
+	if pesoMap, ok := value.(map[string]any); ok {
 		valore, valoreOk := pesoMap["valore"]
 		unita, unitaOk := pesoMap["unita"]
 
@@ -292,7 +292,7 @@ func formatPeso(value interface{}) string {
 }
 
 func formatVelocita(value interface{}) string {
-	if velocitaMap, ok := value.(map[string]interface{}); ok {
+	if velocitaMap, ok := value.(map[string]any); ok {
 		valore, valoreOk := velocitaMap["valore"]
 		unita, unitaOk := velocitaMap["unita"]
 
@@ -304,7 +304,7 @@ func formatVelocita(value interface{}) string {
 }
 
 func formatGittata(value interface{}) string {
-	if gittataMap, ok := value.(map[string]interface{}); ok {
+	if gittataMap, ok := value.(map[string]any); ok {
 		normale, normaleOk := gittataMap["normale"]
 		lunga, lungaOk := gittataMap["lunga"]
 

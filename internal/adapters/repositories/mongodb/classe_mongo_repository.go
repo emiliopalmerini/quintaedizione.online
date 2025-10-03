@@ -20,23 +20,7 @@ type ClasseMongoRepository struct {
 
 // extractClasseFromDocument extracts Classe from the nested value field
 func extractClasseFromDocument(doc bson.M) (*domain.Classe, error) {
-	valueData, exists := doc["value"]
-	if !exists {
-		return nil, fmt.Errorf("classe document missing value field")
-	}
-
-	valueBytes, err := bson.Marshal(valueData)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal value data: %w", err)
-	}
-
-	var classe domain.Classe
-	err = bson.Unmarshal(valueBytes, &classe)
-	if err != nil {
-		return nil, fmt.Errorf("failed to unmarshal classe: %w", err)
-	}
-
-	return &classe, nil
+	return ExtractEntityFromDocument[domain.Classe](doc, true)
 }
 
 // NewClasseMongoRepository creates a new ClasseMongoRepository

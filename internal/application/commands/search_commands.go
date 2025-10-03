@@ -47,7 +47,7 @@ func (c *SearchCommand) Validate() error {
 }
 
 // Execute runs the search command
-func (c *SearchCommand) Execute(ctx context.Context) ([]map[string]interface{}, int64, error) {
+func (c *SearchCommand) Execute(ctx context.Context) ([]map[string]any, int64, error) {
 	if len(c.filters) > 0 {
 		return c.service.GetCollectionItemsWithFilters(ctx, c.collection, c.query, c.filters, c.page, c.pageSize)
 	}
@@ -91,8 +91,8 @@ func (c *BulkSearchCommand) Validate() error {
 }
 
 // Execute runs the bulk search across collections
-func (c *BulkSearchCommand) Execute(ctx context.Context) (map[string][]map[string]interface{}, error) {
-	results := make(map[string][]map[string]interface{})
+func (c *BulkSearchCommand) Execute(ctx context.Context) (map[string][]map[string]any, error) {
+	results := make(map[string][]map[string]any)
 
 	for _, collection := range c.collections {
 		items, _, err := c.service.GetCollectionItems(ctx, collection, c.query, 1, c.limit)
