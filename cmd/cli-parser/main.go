@@ -20,7 +20,6 @@ var (
 	dryRun      = flag.Bool("dry-run", false, "Parse but don't save to database")
 	mongoURI    = flag.String("mongo-uri", "", "MongoDB URI (default from env MONGO_URI)")
 	dbName      = flag.String("db-name", "", "Database name (default from env DB_NAME)")
-	useDocument = flag.Bool("use-document", false, "Use new Document-based parsers with HTML rendering")
 )
 
 func main() {
