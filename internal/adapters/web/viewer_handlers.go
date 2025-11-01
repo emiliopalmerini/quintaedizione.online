@@ -54,7 +54,7 @@ func (h *Handlers) RegisterRoutes(router *gin.Engine) {
 	router.GET("/:collection", h.handleCollectionList)
 	router.GET("/:collection/rows", h.handleCollectionRows) // HTMX rows endpoint
 	router.GET("/:collection/:slug", h.handleItemDetail)
-	
+
 	// Quick search for breadcrumb
 	router.GET("/quicksearch/:collection", h.handleQuickSearch)
 }
@@ -71,18 +71,27 @@ func (h *Handlers) handleHome(c *gin.Context) {
 	// Convert collections to typed format and calculate total
 	typedCollections := make([]models.Collection, 0, len(collections))
 	total := int64(0)
-	
+
 	for _, col := range collections {
+		// DocumentRepository returns "collection" field, not "name"
+		var name string
+		if collectionName, ok := col["collection"].(string); ok {
+			name = collectionName
+		} else if n, ok := col["name"].(string); ok {
+			// Fallback for backward compatibility
+			name = n
+		}
+
 		collection := models.Collection{
-			Name:  col["name"].(string),
+			Name:  name,
 			Count: 0,
 		}
-		
+
 		if count, ok := col["count"].(int64); ok {
 			collection.Count = count
 			total += count
 		}
-		
+
 		if label, ok := col["label"].(string); ok {
 			collection.Label = label
 		} else if title, ok := col["title"].(string); ok {
@@ -90,7 +99,7 @@ func (h *Handlers) handleHome(c *gin.Context) {
 		} else {
 			collection.Label = collection.Name
 		}
-		
+
 		typedCollections = append(typedCollections, collection)
 	}
 
@@ -162,16 +171,16 @@ func (h *Handlers) handleCollectionList(c *gin.Context) {
 			Collection:  collection,
 			QueryString: c.Request.URL.RawQuery,
 		},
-		Documents:   documents,
-		Query:       q,
-		Page:        pageNum,
-		PageSize:    pageSizeNum,
-		Total:       totalCount,
-		TotalPages:  totalPages,
-		HasNext:     pageNum < totalPages,
-		HasPrev:     pageNum > 1,
-		StartItem:   startItem,
-		EndItem:     endItem,
+		Documents:  documents,
+		Query:      q,
+		Page:       pageNum,
+		PageSize:   pageSizeNum,
+		Total:      totalCount,
+		TotalPages: totalPages,
+		HasNext:    pageNum < totalPages,
+		HasPrev:    pageNum > 1,
+		StartItem:  startItem,
+		EndItem:    endItem,
 	}
 
 	content, err := h.templateEngine.RenderCollection(data)
@@ -194,24 +203,20 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 		return
 	}
 
-	// Prepare markdown content
-	var bodyRaw string
+	// Extract pre-rendered HTML content and raw markdown for copy functionality
 	var bodyHTML string
+	var bodyRaw string
 
-	// Try different fields for content
-	if content, ok := item["contenuto"].(string); ok {
-		bodyRaw = formatTraitContent(content)
-	} else if content, ok := item["contenuto_markdown"].(string); ok {
-		bodyRaw = formatTraitContent(content)
-	} else if desc, ok := item["descrizione"].(string); ok {
-		bodyRaw = formatTraitContent(desc)
-	} else if body, ok := item["body"].(string); ok {
-		bodyRaw = formatTraitContent(body)
+	// New Document model: "content" field contains pre-rendered HTML
+	if content, ok := item["content"].(string); ok {
+		bodyHTML = content
 	}
 
-	// Use client-side markdown rendering - don't set bodyHTML 
-	// This will use the template path that sets data-markdown without data-ssr="true"
-	bodyHTML = ""
+	// Try to get raw markdown from old "contenuto" field (legacy data)
+	// This field contains the original markdown before HTML rendering
+	if contenuto, ok := item["contenuto"].(string); ok {
+		bodyRaw = contenuto
+	}
 
 	// Get navigation items
 	prevSlug, nextSlug, err := h.contentService.GetAdjacentItems(c.Request.Context(), collection, slug)
@@ -220,9 +225,12 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 		fmt.Printf("Warning: Could not get adjacent items for %s/%s: %v\n", collection, slug, err)
 	}
 
-	// Get doc title from root level
+	// Get doc title from root level (Document model uses "title")
 	docTitle := ""
-	if nome, ok := item["nome"].(string); ok {
+	if title, ok := item["title"].(string); ok {
+		docTitle = title
+	} else if nome, ok := item["nome"].(string); ok {
+		// Fallback to old field name for backward compatibility
 		docTitle = nome
 	}
 
@@ -309,16 +317,16 @@ func (h *Handlers) handleCollectionRows(c *gin.Context) {
 			Collection:  collection,
 			QueryString: c.Request.URL.RawQuery,
 		},
-		Documents:   documents,
-		Query:       q,
-		Page:        pageNum,
-		PageSize:    pageSizeNum,
-		Total:       totalCount,
-		TotalPages:  totalPages,
-		HasNext:     pageNum < totalPages,
-		HasPrev:     pageNum > 1,
-		StartItem:   startItem,
-		EndItem:     endItem,
+		Documents:  documents,
+		Query:      q,
+		Page:       pageNum,
+		PageSize:   pageSizeNum,
+		Total:      totalCount,
+		TotalPages: totalPages,
+		HasNext:    pageNum < totalPages,
+		HasPrev:    pageNum > 1,
+		StartItem:  startItem,
+		EndItem:    endItem,
 	}
 
 	content, err := h.templateEngine.RenderRows(data)
@@ -334,21 +342,21 @@ func (h *Handlers) handleCollectionRows(c *gin.Context) {
 func formatTraitContent(content string) string {
 	// Use simple string replacements for safety
 	formatted := content
-	
-	// Remove unwanted category sections 
+
+	// Remove unwanted category sections
 	formatted = strings.ReplaceAll(formatted, "### Talenti Generali", "")
 	formatted = strings.ReplaceAll(formatted, "### Talenti Razziali", "")
 	formatted = strings.ReplaceAll(formatted, "### Categoria Background", "")
-	
+
 	// Simple trait formatting - add line breaks before bold trait names
 	// Using safe regex patterns that we know work
 	formatted = regexp.MustCompile(`(\s)(\*\*\*[^*]+\.\*\*\*)`).ReplaceAllString(formatted, "\n\n$2")
 	formatted = regexp.MustCompile(`(\s)(\*\*[^*]+\.\*\*)`).ReplaceAllString(formatted, "\n\n$2")
-	
+
 	// Clean up multiple newlines
 	formatted = regexp.MustCompile(`\n{3,}`).ReplaceAllString(formatted, "\n\n")
 	formatted = strings.TrimSpace(formatted)
-	
+
 	return formatted
 }
 
@@ -387,21 +395,21 @@ func (h *Handlers) getCollectionTitle(collection string) string {
 // extractFilters extracts all query parameters (except special ones) as filter parameters
 func (h *Handlers) extractFilters(c *gin.Context) map[string]string {
 	filters := make(map[string]string)
-	
+
 	// Skip special query parameters that are not filters
 	skipParams := map[string]bool{
 		"page":      true,
 		"page_size": true,
 		"q":         true,
 	}
-	
+
 	// Extract all other query parameters as potential filters
 	for param, values := range c.Request.URL.Query() {
 		if !skipParams[param] && len(values) > 0 && values[0] != "" {
 			filters[param] = values[0]
 		}
 	}
-	
+
 	return filters
 }
 
@@ -409,25 +417,25 @@ func (h *Handlers) extractFilters(c *gin.Context) map[string]string {
 func (h *Handlers) handleQuickSearch(c *gin.Context) {
 	collection := c.Param("collection")
 	query := c.Query("q")
-	
+
 	// If no query, return empty results
 	if query == "" {
 		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(""))
 		return
 	}
-	
+
 	// Get search results (limit to 5 for quick search)
 	rawItems, _, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, query, 1, 5)
 	if err != nil {
 		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(""))
 		return
 	}
-	
+
 	// Generate HTML for results
 	html := ""
 	for _, item := range rawItems {
 		var nome, slug string
-		
+
 		// Extract nome and slug from root level (same as other handlers)
 		if n, ok := item["nome"].(string); ok {
 			nome = n
@@ -435,14 +443,14 @@ func (h *Handlers) handleQuickSearch(c *gin.Context) {
 		if s, ok := item["slug"].(string); ok {
 			slug = s
 		}
-		
+
 		if nome != "" && slug != "" {
 			html += fmt.Sprintf(`<a href="/%s/%s" class="search-result" tabindex="-1">
 				<div class="search-result-title">%s</div>
 			</a>`, collection, slug, nome)
 		}
 	}
-	
+
 	if html == "" {
 		html = `<div class="search-result" style="color: var(--notion-text-light);">Nessun risultato trovato</div>`
 	}

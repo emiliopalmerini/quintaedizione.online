@@ -26,7 +26,7 @@ func NewMongoDBRepository(client *mongodb.Client) Repository {
 func (r *MongoDBRepository) getValidCollections() []string {
 	return []string{
 		"incantesimi",
-		"mostri", 
+		"mostri",
 		"classi",
 		"backgrounds",
 		"equipaggiamenti", // Note: MongoDB has "equipaggiamenti" but repository uses "equipaggiamento"
@@ -35,7 +35,7 @@ func (r *MongoDBRepository) getValidCollections() []string {
 		"oggetti_magici",
 		"talenti",
 		"servizi",
-		"strumenti", 
+		"strumenti",
 		"animali",
 		"regole",
 		"cavalcature_veicoli",
@@ -55,7 +55,7 @@ func (r *MongoDBRepository) FindMaps(ctx context.Context, collection string, fil
 	}
 
 	mongoCollection := r.client.GetCollection(collection)
-	
+
 	opts := options.Find().
 		SetSort(bson.D{{Key: "value.nome", Value: 1}}).
 		SetSkip(skip).
@@ -73,7 +73,7 @@ func (r *MongoDBRepository) FindMaps(ctx context.Context, collection string, fil
 		if err := cursor.Decode(&doc); err != nil {
 			return nil, fmt.Errorf("failed to decode document: %w", err)
 		}
-		
+
 		// Extract the 'value' field and add to root level for compatibility
 		if value, exists := doc["value"]; exists {
 			if valueMap, ok := value.(map[string]any); ok {
@@ -83,7 +83,7 @@ func (r *MongoDBRepository) FindMaps(ctx context.Context, collection string, fil
 				}
 			}
 		}
-		
+
 		items = append(items, doc)
 	}
 
@@ -101,13 +101,13 @@ func (r *MongoDBRepository) FindOneMap(ctx context.Context, collection string, f
 	}
 
 	mongoCollection := r.client.GetCollection(collection)
-	
+
 	var doc map[string]any
 	err := mongoCollection.FindOne(ctx, filter).Decode(&doc)
 	if err != nil {
 		return nil, fmt.Errorf("failed to find document in %s: %w", collection, err)
 	}
-	
+
 	// Extract the 'value' field and add to root level for compatibility
 	if value, exists := doc["value"]; exists {
 		if valueMap, ok := value.(map[string]any); ok {
@@ -117,7 +117,7 @@ func (r *MongoDBRepository) FindOneMap(ctx context.Context, collection string, f
 			}
 		}
 	}
-	
+
 	// Ensure important root-level fields are preserved (contenuto, created_at, etc.)
 	// These are already in doc, no need to extract them separately
 
@@ -139,7 +139,7 @@ func (r *MongoDBRepository) Count(ctx context.Context, collection string, filter
 	return count, nil
 }
 
-// GetCollectionStats returns statistics for all collections  
+// GetCollectionStats returns statistics for all collections
 func (r *MongoDBRepository) GetCollectionStats(ctx context.Context) ([]map[string]any, error) {
 	var collections []map[string]any
 
@@ -147,7 +147,7 @@ func (r *MongoDBRepository) GetCollectionStats(ctx context.Context) ([]map[strin
 	collectionTitles := map[string]string{
 		"incantesimi":         "Incantesimi",
 		"mostri":              "Mostri",
-		"classi":              "Classi", 
+		"classi":              "Classi",
 		"backgrounds":         "Background",
 		"equipaggiamenti":     "Equipaggiamento", // Note: collection name mismatch
 		"armi":                "Armi",

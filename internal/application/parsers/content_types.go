@@ -7,39 +7,39 @@ type ContentType string
 
 // Content type constants for Italian D&D 5e SRD
 const (
-	ContentTypeDocuments   ContentType = "documenti"
-	ContentTypeIncantesimi ContentType = "incantesimi"
-	ContentTypeMostri      ContentType = "mostri"
-	ContentTypeClassi      ContentType = "classi"
-	ContentTypeBackgrounds ContentType = "backgrounds"
-	ContentTypeArmi        ContentType = "armi"
-	ContentTypeArmature    ContentType = "armature"
-	ContentTypeStrumenti   ContentType = "strumenti"
-	ContentTypeServizi     ContentType = "servizi"
-	ContentTypeEquipaggiamenti ContentType = "equipaggiamenti"
-	ContentTypeOggettiMagici  ContentType = "oggetti_magici"
-	ContentTypeTalenti     ContentType = "talenti"
-	ContentTypeAnimali     ContentType = "animali"
-	ContentTypeRegole      ContentType = "regole"
+	ContentTypeDocuments          ContentType = "documenti"
+	ContentTypeIncantesimi        ContentType = "incantesimi"
+	ContentTypeMostri             ContentType = "mostri"
+	ContentTypeClassi             ContentType = "classi"
+	ContentTypeBackgrounds        ContentType = "backgrounds"
+	ContentTypeArmi               ContentType = "armi"
+	ContentTypeArmature           ContentType = "armature"
+	ContentTypeStrumenti          ContentType = "strumenti"
+	ContentTypeServizi            ContentType = "servizi"
+	ContentTypeEquipaggiamenti    ContentType = "equipaggiamenti"
+	ContentTypeOggettiMagici      ContentType = "oggetti_magici"
+	ContentTypeTalenti            ContentType = "talenti"
+	ContentTypeAnimali            ContentType = "animali"
+	ContentTypeRegole             ContentType = "regole"
 	ContentTypeCavalcatureVeicoli ContentType = "cavalcature_veicoli"
 )
 
 // validContentTypes provides O(1) content type validation
 var validContentTypes = map[ContentType]bool{
-	ContentTypeDocuments:   true,
-	ContentTypeIncantesimi: true,
-	ContentTypeMostri:      true,
-	ContentTypeClassi:      true,
-	ContentTypeBackgrounds: true,
-	ContentTypeArmi:        true,
-	ContentTypeArmature:    true,
-	ContentTypeStrumenti:   true,
-	ContentTypeServizi:     true,
-	ContentTypeEquipaggiamenti: true,
-	ContentTypeOggettiMagici:  true,
-	ContentTypeTalenti:     true,
-	ContentTypeAnimali:     true,
-	ContentTypeRegole:      true,
+	ContentTypeDocuments:          true,
+	ContentTypeIncantesimi:        true,
+	ContentTypeMostri:             true,
+	ContentTypeClassi:             true,
+	ContentTypeBackgrounds:        true,
+	ContentTypeArmi:               true,
+	ContentTypeArmature:           true,
+	ContentTypeStrumenti:          true,
+	ContentTypeServizi:            true,
+	ContentTypeEquipaggiamenti:    true,
+	ContentTypeOggettiMagici:      true,
+	ContentTypeTalenti:            true,
+	ContentTypeAnimali:            true,
+	ContentTypeRegole:             true,
 	ContentTypeCavalcatureVeicoli: true,
 }
 

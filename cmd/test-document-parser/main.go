@@ -19,7 +19,7 @@ func main() {
 	flag.Parse()
 
 	fmt.Println("🧪 Document Parser Test")
-	fmt.Println("=======================\n")
+	fmt.Println("=======================")
 
 	// Create Document registry
 	registry, err := parsers.CreateDocumentRegistry()

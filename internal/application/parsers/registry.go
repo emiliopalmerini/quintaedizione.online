@@ -6,7 +6,6 @@ import (
 	"sync"
 )
 
-
 // CreateDocumentRegistry creates and configures the Document-based parser registry
 func CreateDocumentRegistry() (*DocumentRegistry, error) {
 	registry := NewDocumentRegistry()

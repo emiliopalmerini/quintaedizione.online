@@ -41,4 +41,21 @@ type DocumentRepository interface {
 
 	// GetAdjacentDocuments retrieves the previous and next documents
 	GetAdjacentDocuments(ctx context.Context, collection string, currentID domain.DocumentID) (prev *domain.Document, next *domain.Document, err error)
+
+	// Map-based methods for viewer compatibility (returns generic maps instead of Document structs)
+
+	// FindMapByID retrieves a document as a map by ID (slug)
+	FindMapByID(ctx context.Context, collection string, id string) (map[string]any, error)
+
+	// FindMaps retrieves documents as maps with pagination and filtering
+	FindMaps(ctx context.Context, collection string, filter map[string]any, skip int64, limit int64) ([]map[string]any, int64, error)
+
+	// CountWithFilter counts documents matching a filter
+	CountWithFilter(ctx context.Context, collection string, filter map[string]any) (int64, error)
+
+	// GetAdjacentMaps gets the previous and next document IDs for navigation
+	GetAdjacentMaps(ctx context.Context, collection string, currentID string) (prevID *string, nextID *string, err error)
+
+	// GetAllCollectionStats returns statistics for all collections
+	GetAllCollectionStats(ctx context.Context) ([]map[string]any, error)
 }

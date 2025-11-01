@@ -43,16 +43,16 @@ func (im *IndexManager) EnsureIndexes(ctx context.Context) error {
 // createCollectionIndexes creates indexes for a specific collection
 func (im *IndexManager) createCollectionIndexes(ctx context.Context, collectionName string) error {
 	collection := im.client.GetCollection(collectionName)
-	
+
 	// Common indexes for all collections
 	commonIndexes := []mongo.IndexModel{
 		// Primary search fields
 		{
-			Keys: bson.D{{Key: "nome", Value: 1}},
+			Keys:    bson.D{{Key: "nome", Value: 1}},
 			Options: options.Index().SetName("nome_1").SetBackground(true),
 		},
 		{
-			Keys: bson.D{{Key: "slug", Value: 1}},
+			Keys:    bson.D{{Key: "slug", Value: 1}},
 			Options: options.Index().SetName("slug_1").SetUnique(true).SetBackground(true),
 		},
 		// Text search index for full-text search
@@ -66,17 +66,17 @@ func (im *IndexManager) createCollectionIndexes(ctx context.Context, collectionN
 		},
 		// Source file index for administrative queries
 		{
-			Keys: bson.D{{Key: "source_file", Value: 1}},
+			Keys:    bson.D{{Key: "source_file", Value: 1}},
 			Options: options.Index().SetName("source_file_1").SetBackground(true),
 		},
 	}
 
 	// Collection-specific indexes
 	specificIndexes := im.getCollectionSpecificIndexes(collectionName)
-	
+
 	// Combine all indexes
 	allIndexes := append(commonIndexes, specificIndexes...)
-	
+
 	if len(allIndexes) > 0 {
 		_, err := collection.Indexes().CreateMany(ctx, allIndexes)
 		if err != nil {
@@ -93,11 +93,11 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 	case "incantesimi":
 		return []mongo.IndexModel{
 			{
-				Keys: bson.D{{Key: "livello", Value: 1}},
+				Keys:    bson.D{{Key: "livello", Value: 1}},
 				Options: options.Index().SetName("livello_1").SetBackground(true),
 			},
 			{
-				Keys: bson.D{{Key: "scuola", Value: 1}},
+				Keys:    bson.D{{Key: "scuola", Value: 1}},
 				Options: options.Index().SetName("scuola_1").SetBackground(true),
 			},
 			{
@@ -108,7 +108,7 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 				Options: options.Index().SetName("livello_scuola_1").SetBackground(true),
 			},
 			{
-				Keys: bson.D{{Key: "classi", Value: 1}},
+				Keys:    bson.D{{Key: "classi", Value: 1}},
 				Options: options.Index().SetName("classi_1").SetBackground(true),
 			},
 		}
@@ -116,23 +116,23 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 	case "mostri", "animali":
 		return []mongo.IndexModel{
 			{
-				Keys: bson.D{{Key: "gs", Value: 1}},
+				Keys:    bson.D{{Key: "gs", Value: 1}},
 				Options: options.Index().SetName("gs_1").SetBackground(true),
 			},
 			{
-				Keys: bson.D{{Key: "cr", Value: 1}},
+				Keys:    bson.D{{Key: "cr", Value: 1}},
 				Options: options.Index().SetName("cr_1").SetBackground(true),
 			},
 			{
-				Keys: bson.D{{Key: "grado_sfida", Value: 1}},
+				Keys:    bson.D{{Key: "grado_sfida", Value: 1}},
 				Options: options.Index().SetName("grado_sfida_1").SetBackground(true),
 			},
 			{
-				Keys: bson.D{{Key: "tipo", Value: 1}},
+				Keys:    bson.D{{Key: "tipo", Value: 1}},
 				Options: options.Index().SetName("tipo_1").SetBackground(true),
 			},
 			{
-				Keys: bson.D{{Key: "taglia", Value: 1}},
+				Keys:    bson.D{{Key: "taglia", Value: 1}},
 				Options: options.Index().SetName("taglia_1").SetBackground(true),
 			},
 			{
@@ -147,11 +147,11 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 	case "armi":
 		return []mongo.IndexModel{
 			{
-				Keys: bson.D{{Key: "categoria", Value: 1}},
+				Keys:    bson.D{{Key: "categoria", Value: 1}},
 				Options: options.Index().SetName("categoria_1").SetBackground(true),
 			},
 			{
-				Keys: bson.D{{Key: "tipo_danno", Value: 1}},
+				Keys:    bson.D{{Key: "tipo_danno", Value: 1}},
 				Options: options.Index().SetName("tipo_danno_1").SetBackground(true),
 			},
 		}
@@ -159,11 +159,11 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 	case "armature":
 		return []mongo.IndexModel{
 			{
-				Keys: bson.D{{Key: "categoria", Value: 1}},
+				Keys:    bson.D{{Key: "categoria", Value: 1}},
 				Options: options.Index().SetName("categoria_1").SetBackground(true),
 			},
 			{
-				Keys: bson.D{{Key: "ca_base", Value: 1}},
+				Keys:    bson.D{{Key: "ca_base", Value: 1}},
 				Options: options.Index().SetName("ca_base_1").SetBackground(true),
 			},
 		}
@@ -171,11 +171,11 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 	case "oggetti_magici":
 		return []mongo.IndexModel{
 			{
-				Keys: bson.D{{Key: "rarita", Value: 1}},
+				Keys:    bson.D{{Key: "rarita", Value: 1}},
 				Options: options.Index().SetName("rarita_1").SetBackground(true),
 			},
 			{
-				Keys: bson.D{{Key: "tipo", Value: 1}},
+				Keys:    bson.D{{Key: "tipo", Value: 1}},
 				Options: options.Index().SetName("tipo_1").SetBackground(true),
 			},
 		}
@@ -183,7 +183,7 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 	case "talenti":
 		return []mongo.IndexModel{
 			{
-				Keys: bson.D{{Key: "categoria", Value: 1}},
+				Keys:    bson.D{{Key: "categoria", Value: 1}},
 				Options: options.Index().SetName("categoria_1").SetBackground(true),
 			},
 		}
@@ -192,7 +192,7 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 		// Default indexes for other collections
 		return []mongo.IndexModel{
 			{
-				Keys: bson.D{{Key: "categoria", Value: 1}},
+				Keys:    bson.D{{Key: "categoria", Value: 1}},
 				Options: options.Index().SetName("categoria_1").SetBackground(true),
 			},
 		}
@@ -209,7 +209,7 @@ func (im *IndexManager) DropIndexes(ctx context.Context) error {
 
 	for _, collectionName := range collections {
 		collection := im.client.GetCollection(collectionName)
-		
+
 		// List all indexes
 		indexView := collection.Indexes()
 		cursor, err := indexView.List(ctx)
@@ -251,7 +251,7 @@ func (im *IndexManager) GetIndexStats(ctx context.Context) (map[string]any, erro
 
 	for _, collectionName := range collections {
 		collection := im.client.GetCollection(collectionName)
-		
+
 		cursor, err := collection.Indexes().List(ctx)
 		if err != nil {
 			continue
@@ -264,7 +264,7 @@ func (im *IndexManager) GetIndexStats(ctx context.Context) (map[string]any, erro
 		}
 
 		stats[collectionName] = map[string]any{
-			"count": len(indexes),
+			"count":   len(indexes),
 			"indexes": indexes,
 		}
 		totalIndexes += len(indexes)

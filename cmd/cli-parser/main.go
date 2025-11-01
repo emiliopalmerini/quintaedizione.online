@@ -72,22 +72,21 @@ func main() {
 
 func listMarkdownFiles(inputDir string) {
 	fmt.Printf("📁 Markdown files in %s:\n\n", inputDir)
-	
+
 	err := filepath.Walk(inputDir, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
 		}
-		
+
 		if !info.IsDir() && strings.HasSuffix(strings.ToLower(path), ".md") {
 			relPath, _ := filepath.Rel(inputDir, path)
 			fmt.Printf("  • %s\n", relPath)
 		}
-		
+
 		return nil
 	})
-	
+
 	if err != nil {
 		log.Printf("❌ Error listing files: %v", err)
 	}
 }
-

@@ -124,7 +124,6 @@ func (p *ParserCLI) parseFileWithDocuments(inputDir, filename string) error {
 	return nil
 }
 
-
 func (p *ParserCLI) ParseAllFiles(inputDir string) error {
 	successCount := 0
 	errorCount := 0
@@ -160,14 +159,14 @@ func (p *ParserCLI) ListAvailableParsers() {
 func (p *ParserCLI) findWorkItem(filename string) (parsers.WorkItem, error) {
 	// Remove extension for comparison
 	baseName := strings.TrimSuffix(filename, filepath.Ext(filename))
-	
+
 	for _, item := range p.workItems {
 		itemBaseName := strings.TrimSuffix(filepath.Base(item.Filename), filepath.Ext(item.Filename))
 		if itemBaseName == baseName {
 			return item, nil
 		}
 	}
-	
+
 	return parsers.WorkItem{}, fmt.Errorf("no work item found for file: %s", filename)
 }
 
@@ -192,7 +191,6 @@ func (p *ParserCLI) saveDocuments(documents []*domain.Document, collection strin
 
 	return nil
 }
-
 
 func (p *ParserCLI) Close() error {
 	// Close MongoDB connection

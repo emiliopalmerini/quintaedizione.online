@@ -41,16 +41,16 @@ type DocumentDisplayField struct {
 // CollectionPageData represents data for collection list pages
 type CollectionPageData struct {
 	PageData
-	Documents   []Document
-	Query       string
-	Page        int
-	PageSize    int
-	Total       int64
-	TotalPages  int
-	HasNext     bool
-	HasPrev     bool
-	StartItem   int
-	EndItem     int
+	Documents  []Document
+	Query      string
+	Page       int
+	PageSize   int
+	Total      int64
+	TotalPages int
+	HasNext    bool
+	HasPrev    bool
+	StartItem  int
+	EndItem    int
 }
 
 // ItemPageData represents data for individual item pages
@@ -70,4 +70,3 @@ type ErrorPageData struct {
 	ErrorMessage string
 	ErrorCode    int
 }
-

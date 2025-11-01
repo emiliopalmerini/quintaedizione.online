@@ -14,7 +14,6 @@ type RepositoryFactory struct {
 
 	// Repository instances
 	documentRepo repositories.DocumentRepository
-	contentRepo  repositories.ContentRepository
 }
 
 // NewRepositoryFactory creates a new repository factory
@@ -30,14 +29,6 @@ func (f *RepositoryFactory) DocumentRepository() repositories.DocumentRepository
 		f.documentRepo = mongodb.NewDocumentMongoRepository(f.client)
 	}
 	return f.documentRepo
-}
-
-// ContentRepository returns the unified content repository
-func (f *RepositoryFactory) ContentRepository() repositories.ContentRepository {
-	if f.contentRepo == nil {
-		f.contentRepo = mongodb.NewContentMongoRepository(f.client)
-	}
-	return f.contentRepo
 }
 
 // ParserRepositoryWrapper provides legacy compatibility for old entity-based parsers

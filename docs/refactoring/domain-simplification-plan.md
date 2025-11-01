@@ -47,7 +47,7 @@ git commit -m "docs(refactoring): add domain simplification plan"
 
 ---
 
-### Phase 1: Create New Unified Domain Model
+### Phase 1: Create New Unified Domain Model ✓
 
 **Goal:** Introduce new Document entity alongside existing entities.
 
@@ -190,9 +190,9 @@ git commit -m "feat(domain): add unified Document entity with value objects"
 
 ---
 
-### Phase 2: Replace Repository Layer
+### Phase 2: Replace Repository Layer ✓
 
-**Goal:** Create single DocumentRepository to replace 16 entity-specific repositories.
+**Goal:** Create single DocumentRepository to replace all entity-specific repositories (including ContentRepository).
 
 **2.1 Create `internal/domain/repositories/document_repository.go`:**
 ```go
@@ -403,7 +403,7 @@ git commit -m "feat(repositories): add unified DocumentRepository implementation
 
 ---
 
-### Phase 3: Update Parser Layer
+### Phase 3: Update Parser Layer ✓
 
 **Goal:** Modify parsers to output HTML and return Document instead of entity-specific types.
 
@@ -442,7 +442,7 @@ git commit -m "feat(parsers): update strategies to output HTML and Document enti
 
 ---
 
-### Phase 4: Update Application Services
+### Phase 4: Update Application Services ✓
 
 **Goal:** Update services and handlers to work with Document.
 
@@ -467,9 +467,14 @@ git add internal/application/services/ internal/adapters/web/handlers/ pkg/templ
 git commit -m "refactor(services): migrate to unified Document model"
 ```
 
+**Note:** After initial implementation, decided to remove ContentRepository entirely and consolidate to DocumentRepository only. This simplifies the architecture by:
+- Eliminating duplicate repository code
+- Using single repository with both type-safe (Document) and flexible (map) interfaces
+- Adding map-based methods to DocumentRepository for viewer compatibility
+
 ---
 
-### Phase 5: Cleanup Old Domain Files
+### Phase 5: Cleanup Old Domain Files ✓
 
 **Goal:** Remove obsolete entity files and value objects.
 
