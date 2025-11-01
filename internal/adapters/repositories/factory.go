@@ -14,6 +14,7 @@ type RepositoryFactory struct {
 	client *pkgMongodb.Client
 
 	// Repository instances
+	documentRepo           repositories.DocumentRepository
 	contentRepo            repositories.ContentRepository
 	documentoRepo          repositories.DocumentoRepository
 	incantesimoRepo        repositories.IncantesimoRepository
@@ -150,6 +151,14 @@ func (f *RepositoryFactory) MostroRepository() repositories.MostroRepository {
 		f.mostroRepo = mongodb.NewMostroMongoRepository(f.client)
 	}
 	return f.mostroRepo
+}
+
+// DocumentRepository returns the unified document repository
+func (f *RepositoryFactory) DocumentRepository() repositories.DocumentRepository {
+	if f.documentRepo == nil {
+		f.documentRepo = mongodb.NewDocumentMongoRepository(f.client)
+	}
+	return f.documentRepo
 }
 
 // ContentRepository returns the unified content repository
