@@ -10,8 +10,8 @@ import (
 
 // MarkdownRenderer converts markdown to HTML
 type MarkdownRenderer struct {
-	parser *parser.Parser
-	opts   html.RendererOptions
+	extensions parser.Extensions
+	opts       html.RendererOptions
 }
 
 // NewMarkdownRenderer creates a new markdown to HTML renderer
@@ -19,16 +19,14 @@ func NewMarkdownRenderer() *MarkdownRenderer {
 	// Configure parser extensions
 	extensions := parser.CommonExtensions | parser.AutoHeadingIDs | parser.NoEmptyLineBeforeBlock
 
-	p := parser.NewWithExtensions(extensions)
-
 	// Configure HTML renderer options
 	opts := html.RendererOptions{
 		Flags: html.CommonFlags | html.HrefTargetBlank,
 	}
 
 	return &MarkdownRenderer{
-		parser: p,
-		opts:   opts,
+		extensions: extensions,
+		opts:       opts,
 	}
 }
 
@@ -38,8 +36,11 @@ func (r *MarkdownRenderer) Render(markdownContent string) string {
 		return ""
 	}
 
+	// Create a new parser for each call (gomarkdown requirement)
+	p := parser.NewWithExtensions(r.extensions)
+
 	// Parse markdown
-	doc := r.parser.Parse([]byte(markdownContent))
+	doc := p.Parse([]byte(markdownContent))
 
 	// Render to HTML
 	renderer := html.NewRenderer(r.opts)
