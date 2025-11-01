@@ -118,8 +118,8 @@ func (s *RegoleDocumentStrategy) parseRuleSection(section []string, context *Par
 	doc, err := s.CreateDocument(
 		title,
 		"regole",
-		context.SourceFile,
-		context.Locale,
+		context.Filename,
+		context.Language,
 		strings.TrimSpace(markdownContent.String()),
 		filters,
 	)

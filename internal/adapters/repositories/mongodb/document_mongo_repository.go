@@ -24,7 +24,7 @@ func NewDocumentMongoRepository(client *pkgMongodb.Client) repositories.Document
 }
 
 func (r *documentMongoRepository) getCollection(collection string) *mongo.Collection {
-	return r.client.Database().Collection(collection)
+	return r.client.GetDatabase().Collection(collection)
 }
 
 func (r *documentMongoRepository) Create(ctx context.Context, doc *domain.Document, collection string) error {
