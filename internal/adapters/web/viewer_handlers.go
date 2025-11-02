@@ -194,14 +194,18 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 		return
 	}
 
-	// Extract pre-rendered HTML content
+	// Extract pre-rendered HTML content and raw markdown
 	var bodyHTML string
 	var bodyRaw string
 
 	// Document model: "content" field contains pre-rendered HTML
 	if content, ok := item["content"].(string); ok {
 		bodyHTML = content
-		// Note: No raw markdown available in current structure
+	}
+
+	// Extract raw markdown from "raw_content" field
+	if rawContent, ok := item["raw_content"].(string); ok {
+		bodyRaw = rawContent
 	}
 
 	// Get navigation items
