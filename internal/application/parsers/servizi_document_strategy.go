@@ -33,12 +33,13 @@ func (s *ServiziDocumentStrategy) ParseDocument(content []string, context *Parsi
 	inSection := false
 
 	for _, line := range content {
-		line = strings.TrimSpace(line)
-
-		// Skip empty lines and main title
-		if line == "" || strings.HasPrefix(line, "# ") {
+		// Skip main title only (check before trimming to preserve structure)
+		if strings.HasPrefix(line, "# ") {
 			continue
 		}
+
+		// Trim whitespace but preserve empty lines for proper markdown structure
+		line = strings.TrimSpace(line)
 
 		// Check for new service section (H2)
 		if strings.HasPrefix(line, "## ") {

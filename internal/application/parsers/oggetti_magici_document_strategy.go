@@ -33,12 +33,13 @@ func (s *OggettiMagiciDocumentStrategy) ParseDocument(content []string, context 
 	inSection := false
 
 	for _, line := range content {
-		line = strings.TrimSpace(line)
-
-		// Skip empty lines, main title, and separator lines
-		if line == "" || strings.HasPrefix(line, "# ") || line == "---" {
+		// Skip main title and separator lines only (check before trimming to preserve structure)
+		if strings.HasPrefix(line, "# ") || line == "---" {
 			continue
 		}
+
+		// Trim whitespace but preserve empty lines for proper markdown structure
+		line = strings.TrimSpace(line)
 
 		// Check for new magic item section (H2)
 		if strings.HasPrefix(line, "## ") {

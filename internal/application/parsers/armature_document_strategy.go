@@ -33,12 +33,13 @@ func (s *ArmatureDocumentStrategy) ParseDocument(content []string, context *Pars
 	inSection := false
 
 	for _, line := range content {
-		line = strings.TrimSpace(line)
-
-		// Skip empty lines and main title
-		if line == "" || strings.HasPrefix(line, "# ") {
+		// Skip main title only (check before trimming to preserve structure)
+		if strings.HasPrefix(line, "# ") {
 			continue
 		}
+
+		// Trim whitespace but preserve empty lines for proper markdown structure
+		line = strings.TrimSpace(line)
 
 		// Check for new armor section (H2)
 		if strings.HasPrefix(line, "## ") {
