@@ -3,6 +3,7 @@ package mongodb
 import (
 	"context"
 	"fmt"
+	"maps"
 
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain/repositories"
@@ -256,9 +257,7 @@ func (r *documentMongoRepository) FindMaps(ctx context.Context, collection strin
 
 	// Build MongoDB filter
 	mongoFilter := bson.M{}
-	for key, value := range filter {
-		mongoFilter[key] = value
-	}
+	maps.Copy(mongoFilter, filter)
 
 	// Set up pagination options
 	opts := options.Find()
