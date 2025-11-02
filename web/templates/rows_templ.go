@@ -341,22 +341,13 @@ func pagination(data models.CollectionPageData) templ.Component {
 
 // Helper functions for document name and slug
 func getDocName(doc models.Document) string {
-	if doc.Nome != "" {
-		return doc.Nome
-	}
-	if doc.Slug != "" {
-		return doc.Slug
+	if doc.Title != "" {
+		return doc.Title
 	}
 	return doc.ID
 }
 
 func getDocSlug(doc models.Document) string {
-	if doc.Slug != "" {
-		return doc.Slug
-	}
-	if doc.Nome != "" {
-		return doc.Nome
-	}
 	return doc.ID
 }
 
@@ -389,7 +380,7 @@ func prevButton(data models.CollectionPageData) templ.Component {
 			var templ_7745c5c3_Var18 string
 			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs("/" + data.PageData.Collection + "/rows?page=" + strconv.Itoa(data.Page-1) + "&" + data.PageData.QueryString)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `rows.templ`, Line: 105, Col: 127}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `rows.templ`, Line: 96, Col: 127}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 			if templ_7745c5c3_Err != nil {
@@ -407,7 +398,7 @@ func prevButton(data models.CollectionPageData) templ.Component {
 			var templ_7745c5c3_Var19 string
 			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs("/" + data.PageData.Collection + "/rows?page=" + strconv.Itoa(data.Page-1))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `rows.templ`, Line: 112, Col: 93}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `rows.templ`, Line: 103, Col: 93}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 			if templ_7745c5c3_Err != nil {
@@ -451,7 +442,7 @@ func nextButton(data models.CollectionPageData) templ.Component {
 			var templ_7745c5c3_Var21 string
 			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs("/" + data.PageData.Collection + "/rows?page=" + strconv.Itoa(data.Page+1) + "&" + data.PageData.QueryString)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `rows.templ`, Line: 123, Col: 127}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `rows.templ`, Line: 114, Col: 127}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 			if templ_7745c5c3_Err != nil {
@@ -469,7 +460,7 @@ func nextButton(data models.CollectionPageData) templ.Component {
 			var templ_7745c5c3_Var22 string
 			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs("/" + data.PageData.Collection + "/rows?page=" + strconv.Itoa(data.Page+1))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `rows.templ`, Line: 130, Col: 93}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `rows.templ`, Line: 121, Col: 93}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
 			if templ_7745c5c3_Err != nil {

@@ -73,13 +73,9 @@ func (h *Handlers) handleHome(c *gin.Context) {
 	total := int64(0)
 
 	for _, col := range collections {
-		// DocumentRepository returns "collection" field, not "name"
 		var name string
 		if collectionName, ok := col["collection"].(string); ok {
 			name = collectionName
-		} else if n, ok := col["name"].(string); ok {
-			// Fallback for backward compatibility
-			name = n
 		}
 
 		collection := models.Collection{
@@ -92,13 +88,8 @@ func (h *Handlers) handleHome(c *gin.Context) {
 			total += count
 		}
 
-		if label, ok := col["label"].(string); ok {
-			collection.Label = label
-		} else if title, ok := col["title"].(string); ok {
-			collection.Label = title
-		} else {
-			collection.Label = collection.Name
-		}
+		// Get Italian label using helper method
+		collection.Label = h.getCollectionTitle(name)
 
 		typedCollections = append(typedCollections, collection)
 	}
@@ -203,19 +194,14 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 		return
 	}
 
-	// Extract pre-rendered HTML content and raw markdown for copy functionality
+	// Extract pre-rendered HTML content
 	var bodyHTML string
 	var bodyRaw string
 
-	// New Document model: "content" field contains pre-rendered HTML
+	// Document model: "content" field contains pre-rendered HTML
 	if content, ok := item["content"].(string); ok {
 		bodyHTML = content
-	}
-
-	// Try to get raw markdown from old "contenuto" field (legacy data)
-	// This field contains the original markdown before HTML rendering
-	if contenuto, ok := item["contenuto"].(string); ok {
-		bodyRaw = contenuto
+		// Note: No raw markdown available in current structure
 	}
 
 	// Get navigation items
@@ -225,13 +211,10 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 		fmt.Printf("Warning: Could not get adjacent items for %s/%s: %v\n", collection, slug, err)
 	}
 
-	// Get doc title from root level (Document model uses "title")
+	// Get doc title from root level
 	docTitle := ""
 	if title, ok := item["title"].(string); ok {
 		docTitle = title
-	} else if nome, ok := item["nome"].(string); ok {
-		// Fallback to old field name for backward compatibility
-		docTitle = nome
 	}
 
 	// Handle navigation slugs (they're pointers)
@@ -434,20 +417,22 @@ func (h *Handlers) handleQuickSearch(c *gin.Context) {
 	// Generate HTML for results
 	html := ""
 	for _, item := range rawItems {
-		var nome, slug string
+		var title, slug string
 
-		// Extract nome and slug from root level (same as other handlers)
-		if n, ok := item["nome"].(string); ok {
-			nome = n
-		}
-		if s, ok := item["slug"].(string); ok {
-			slug = s
+		// Extract title from root level
+		if t, ok := item["title"].(string); ok {
+			title = t
 		}
 
-		if nome != "" && slug != "" {
+		// Extract slug from _id
+		if id, ok := item["_id"].(string); ok {
+			slug = id
+		}
+
+		if title != "" && slug != "" {
 			html += fmt.Sprintf(`<a href="/%s/%s" class="search-result" tabindex="-1">
 				<div class="search-result-title">%s</div>
-			</a>`, collection, slug, nome)
+			</a>`, collection, slug, title)
 		}
 	}
 
