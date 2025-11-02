@@ -71,8 +71,9 @@ func (p *BaseDocumentParser) CreateDocument(
 		filters.Set(key, value)
 	}
 
-	// Render HTML content
-	content := p.RenderMarkdown(markdownContent)
+	// Store both raw markdown and rendered HTML
+	rawContent := domain.NewMarkdownContent(markdownContent)
+	htmlContent := p.RenderMarkdown(markdownContent)
 
-	return domain.NewDocument(id, title, filters, content), nil
+	return domain.NewDocument(id, title, filters, htmlContent, rawContent), nil
 }
