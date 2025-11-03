@@ -175,6 +175,22 @@ func main() {
 func parseMarkdownFiles(repositoryFactory *repositories.RepositoryFactory) error {
 	ctx := context.Background()
 
+	// Drop all collections before parsing to ensure clean state
+	log.Println("🗑️  Dropping existing collections for clean parse...")
+	collections := []string{
+		"incantesimi", "mostri", "classi", "backgrounds", "equipaggiamenti",
+		"oggetti_magici", "armi", "armature", "talenti", "servizi",
+		"strumenti", "animali", "regole", "cavalcature_veicoli",
+	}
+
+	repo := repositoryFactory.DocumentRepository()
+	for _, collection := range collections {
+		if err := repo.DropCollection(ctx, collection); err != nil {
+			log.Printf("⚠️  Warning: Failed to drop collection %s: %v", collection, err)
+		}
+	}
+	log.Println("✅ Collections dropped")
+
 	// Create Document parser registry
 	documentRegistry, err := parsers.CreateDocumentRegistry()
 	if err != nil {

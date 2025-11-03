@@ -58,4 +58,7 @@ type DocumentRepository interface {
 
 	// GetAllCollectionStats returns statistics for all collections
 	GetAllCollectionStats(ctx context.Context) ([]map[string]any, error)
+
+	// DropCollection drops/deletes a collection
+	DropCollection(ctx context.Context, collection string) error
 }
