@@ -109,6 +109,7 @@ func (h *Handlers) handleHome(c *gin.Context) {
 		return
 	}
 
+	h.setCacheHeaders(c, "home")
 	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
 }
 
@@ -180,6 +181,7 @@ func (h *Handlers) handleCollectionList(c *gin.Context) {
 		return
 	}
 
+	h.setCacheHeaders(c, "collection")
 	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
 }
 
@@ -252,6 +254,7 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 		return
 	}
 
+	h.setCacheHeaders(c, "item")
 	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
 }
 
@@ -322,6 +325,7 @@ func (h *Handlers) handleCollectionRows(c *gin.Context) {
 		return
 	}
 
+	h.setCacheHeaders(c, "collection")
 	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
 }
 
@@ -345,6 +349,31 @@ func formatTraitContent(content string) string {
 	formatted = strings.TrimSpace(formatted)
 
 	return formatted
+}
+
+// setCacheHeaders sets appropriate cache headers for D&D content responses
+func (h *Handlers) setCacheHeaders(c *gin.Context, cacheType string) {
+	var maxAge int
+	switch cacheType {
+	case "home":
+		maxAge = 3600 // 1 hour - home page with collection stats
+	case "collection":
+		maxAge = 1800 // 30 minutes - collection lists and rows
+	case "item":
+		maxAge = 7200 // 2 hours - individual item details (rarely change)
+	case "search":
+		maxAge = 0 // No cache for search results
+	default:
+		maxAge = 1800 // Default 30 minutes
+	}
+
+	if maxAge > 0 {
+		c.Header("Cache-Control", fmt.Sprintf("max-age=%d, public", maxAge))
+	} else {
+		c.Header("Cache-Control", "no-cache, no-store, must-revalidate")
+		c.Header("Pragma", "no-cache")
+		c.Header("Expires", "0")
+	}
 }
 
 // Helper methods
@@ -407,6 +436,7 @@ func (h *Handlers) handleQuickSearch(c *gin.Context) {
 
 	// If no query, return empty results
 	if query == "" {
+		h.setCacheHeaders(c, "search")
 		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(""))
 		return
 	}
@@ -414,6 +444,7 @@ func (h *Handlers) handleQuickSearch(c *gin.Context) {
 	// Get search results (limit to 5 for quick search)
 	rawItems, _, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, query, 1, 5)
 	if err != nil {
+		h.setCacheHeaders(c, "search")
 		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(""))
 		return
 	}
@@ -444,6 +475,7 @@ func (h *Handlers) handleQuickSearch(c *gin.Context) {
 		html = `<div class="search-result" style="color: var(--notion-text-light);">Nessun risultato trovato</div>`
 	}
 
+	h.setCacheHeaders(c, "search")
 	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(html))
 }
 
