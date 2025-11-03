@@ -7,54 +7,68 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 The parser follows Clean Architecture principles with Strategy + Registry patterns:
 
 **Domain Layer** (`internal/domain/`):
-- Contains ONLY pure business entities (Incantesimo, Mostro, Documento, etc.)
-- Domain interfaces that other layers implement (e.g., ParserRepository)
+- Contains a single unified `Document` entity with value objects (DocumentID, DocumentFilters, HTMLContent, MarkdownContent)
+- Domain repository interfaces
 - NO parsing logic or implementation patterns
 
 **Application Layer** (`internal/application/parsers/`):
-- ParsingStrategy interface and implementations
-- ParserRegistry for managing strategies
+- `DocumentStrategy` interface for parsing content
+- `ParserRegistry` for managing strategies
+- `MarkdownRenderer` for converting markdown to HTML
 - Content type definitions and mappings
-- All concrete parser implementations
+- All concrete parser implementations (*_document_strategy.go)
 
 **Important Rules:**
-1. Parsers MUST return domain objects, not `map[string]interface{}`
-2. Strategy and Registry patterns belong in APPLICATION layer, not domain
-3. Each content type should have its own strategy implementation
-4. Use the BaseParser for common functionality
+1. ALL parsers MUST return `domain.Document` entities, not entity-specific types
+2. Parsers MUST render markdown content to HTML using `MarkdownRenderer`
+3. Strategy and Registry patterns belong in APPLICATION layer, not domain
+4. Each content type has its own strategy implementation
+5. Use `BaseDocumentParser` for common functionality
 
 **Adding a New Parser:**
-1. Create a new strategy file (e.g., `monsters_strategy.go`)
-2. Implement the `ParsingStrategy` interface
-3. Return proper domain objects
-4. Register in `CreateDefaultRegistry()`
+1. Create a new strategy file (e.g., `new_type_document_strategy.go`)
+2. Implement the `DocumentStrategy` interface
+3. Use `BaseDocumentParser.CreateDocument()` to build the Document with HTML rendering
+4. Populate `filters` map with collection-specific metadata
+5. Register in `CreateDefaultRegistry()`
 
 **DO NOT:**
 - Put parsing logic in the domain layer
-- Return generic maps from parsers
+- Return entity-specific types or generic maps
 - Mix domain entities with parsing strategies
+- Skip HTML rendering (always use MarkdownRenderer)
 
 ## Repository Architecture
 
-The system implements entity-specific repositories using the Repository pattern with factory injection:
+The system implements a unified repository using the Repository pattern with factory injection:
 
 **Repository Structure:**
 - `internal/adapters/repositories/factory.go` - Repository factory for dependency injection
-- `internal/adapters/repositories/mongodb/` - MongoDB-specific implementations
-  - Each domain entity has its own repository (e.g., `animale_mongo_repository.go`, `classe_mongo_repository.go`)
-  - Common base functionality in `base_mongo_repository.go`
+- `internal/adapters/repositories/mongodb/document_mongo_repository.go` - Single MongoDB repository implementation
+- `internal/domain/repositories/document_repository.go` - Repository interface
 
-**Adding a New Repository:**
-1. Create entity-specific repository interface in domain layer
-2. Implement MongoDB repository in `internal/adapters/repositories/mongodb/`
-3. Register in factory.go's `CreateRepositoryFactory()` method
-4. Use dependency injection in services
+**Key Changes from Previous Architecture:**
+- Replaced 16+ entity-specific repositories with a single `DocumentRepository`
+- All entities are stored and retrieved as `domain.Document` instances
+- Collection name is passed as a parameter to repository methods
+- ~85% code reduction in repository layer
+
+**Repository Interface Methods:**
+- `Create(ctx, doc, collection)` - Insert new document
+- `Update(ctx, doc, collection)` - Update existing document
+- `Delete(ctx, id, collection)` - Delete by ID
+- `FindByID(ctx, id, collection)` - Retrieve single document
+- `FindAll(ctx, collection, limit)` - Retrieve all documents
+- `FindByFilters(ctx, collection, filters, limit)` - Filter-based query
+- `UpsertMany(ctx, collection, documents)` - Bulk upsert
+- `Count(ctx, collection)` - Count documents
 
 **Repository Pattern Benefits:**
 - Clean separation between domain and data access
 - Easy testing with mock repositories
-- Consistent CRUD operations across entities
-- Type-safe domain-specific operations
+- Consistent CRUD operations across all content types
+- Type-safe operations using `domain.Document`
+- No code changes needed to add new content types
 
 ## Development Commands
 
