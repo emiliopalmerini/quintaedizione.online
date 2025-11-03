@@ -360,7 +360,7 @@ func (h *Handlers) setCacheHeaders(c *gin.Context, cacheType string) {
 	case "collection":
 		maxAge = 1800 // 30 minutes - collection lists and rows
 	case "item":
-		maxAge = 7200 // 2 hours - individual item details (rarely change)
+		maxAge = 14400 // 4 hours - individual item details (considering D&D session prep time)
 	case "search":
 		maxAge = 0 // No cache for search results
 	default:
