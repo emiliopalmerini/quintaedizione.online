@@ -47,18 +47,25 @@ Un sistema web completo per la gestione e visualizzazione dei contenuti del Syst
 │   └── cli-parser/        # Tool CLI per parsing contenuti
 ├── internal/
 │   ├── domain/            # Logica di business ed entità core
+│   │   ├── document.go          # Entità Document unificata
+│   │   ├── document_id.go       # Value object DocumentID
+│   │   ├── document_filters.go  # Value object DocumentFilters
+│   │   ├── html_content.go      # Value object HTMLContent
+│   │   ├── markdown_content.go  # Value object MarkdownContent
+│   │   └── repositories/        # Interfacce repository
 │   ├── application/       # Casi d'uso, servizi, handler
 │   │   ├── handlers/      # Handler richieste HTTP
 │   │   ├── parsers/       # Strategie di parsing contenuti
-│   │   │   ├── strategy.go     # Interfaccia ParsingStrategy
-│   │   │   ├── registry.go     # Gestione registry parser
-│   │   │   ├── content_types.go # Definizioni tipi contenuto
-│   │   │   └── *_strategy.go   # Implementazioni parser concrete
+│   │   │   ├── document_strategy.go      # Interfaccia DocumentStrategy
+│   │   │   ├── registry.go               # Gestione registry parser
+│   │   │   ├── content_types.go          # Definizioni tipi contenuto
+│   │   │   ├── markdown_renderer.go      # Rendering markdown → HTML
+│   │   │   └── *_document_strategy.go    # Implementazioni parser concrete
 │   │   └── services/      # Servizi di business
 │   ├── adapters/          # Interfacce esterne
-│   │   ├── repositories/  # Interfacce e implementazioni repository
+│   │   ├── repositories/  # Implementazioni repository
 │   │   │   ├── factory.go # Factory repository per dependency injection
-│   │   │   └── mongodb/   # Implementazioni repository specifiche MongoDB
+│   │   │   └── mongodb/   # DocumentRepository MongoDB
 │   │   └── web/           # Handler web e routing
 │   ├── infrastructure/    # Configurazione e setup
 │   └── shared/            # Modelli e utility comuni
@@ -91,25 +98,31 @@ Un sistema web completo per la gestione e visualizzazione dei contenuti del Syst
 Il servizio parser usa **Pattern Strategy + Registry** per elaborazione flessibile contenuti:
 
 - **Pattern Strategy**: Ogni tipo di contenuto (incantesimi, mostri, classi) ha la propria strategia di parsing
-- **Pattern Registry**: Gestione centralizzata e thread-safe di tutti i parser disponibili  
-- **Oggetti Domain**: I parser restituiscono entità domain fortemente tipizzate, non mappe generiche
+- **Pattern Registry**: Gestione centralizzata e thread-safe di tutti i parser disponibili
+- **Entità Document Unificata**: Tutti i parser restituiscono entità `domain.Document` con contenuto HTML renderizzato
+- **Rendering HTML**: Conversione automatica da markdown a HTML per visualizzazione web ottimizzata
 - **Clean Architecture**: Separazione chiara tra entità domain e logica di parsing
 
 **Componenti Chiave:**
-- Interfaccia `ParsingStrategy` nel layer applicativo (non domain)
+- Interfaccia `DocumentStrategy` nel layer applicativo (non domain)
 - `ParserRegistry` per registrazione e recupero dinamico parser
-- Strategie concrete che restituiscono oggetti domain (es. `SpellsStrategy` → `domain.Incantesimo`)
+- `MarkdownRenderer` per conversione markdown → HTML
+- Strategie concrete che restituiscono `domain.Document` con content HTML e metadata filters
 
 ### Architettura Repository
 
-Il sistema implementa repository specifici per entità usando il pattern Repository:
+Il sistema implementa un repository unificato usando il pattern Repository:
 
 - **Repository Factory**: `internal/adapters/repositories/factory.go` fornisce dependency injection
-- **Repository MongoDB**: Ogni entità domain ha la propria implementazione repository MongoDB
-- **Base Repository**: Operazioni CRUD comuni in `base_mongo_repository.go`
-- **Type Safety**: Operazioni specifiche per dominio per ogni tipo entità
+- **DocumentRepository**: Singolo repository che gestisce tutte le entità come documenti
+- **Operazioni CRUD Unificate**: Un'interfaccia semplificata per tutte le collezioni MongoDB
+- **Type Safety**: Utilizza l'entità `domain.Document` fortemente tipizzata
 
-Questo pattern assicura separazione pulita tra logica domain e accesso dati, rendendo il sistema facilmente testabile e manutenibile.
+Questo pattern semplificato assicura:
+- Separazione pulita tra logica domain e accesso dati
+- ~85% meno codice rispetto al precedente approccio con repository per entità
+- Sistema facilmente testabile e manutenibile
+- Flessibilità nell'aggiungere nuovi tipi di contenuto senza modificare il repository
 
 ### Servizi
 
@@ -149,9 +162,29 @@ Questo pattern assicura separazione pulita tra logica domain e accesso dati, ren
 ```
 
 **Schema Documento:**
-- **BaseEntity**: Campi comuni (ID, timestamp, versione, sorgente)
-- **MarkdownContent**: Contenuto multi-formato (markdown grezzo, HTML, testo semplice)
-- **SearchableContent**: Metadati di ricerca ottimizzati
+
+Ogni documento segue una struttura unificata con 5 campi principali:
+
+```go
+type Document struct {
+    ID         DocumentID      // Identificatore univoco (slug-based)
+    Title      string          // Titolo del documento
+    Filters    DocumentFilters // Metadati per query e filtri (collection, type, rarity, etc.)
+    Content    HTMLContent     // Contenuto renderizzato in HTML
+    RawContent MarkdownContent // Contenuto markdown originale
+}
+```
+
+**Campi chiave:**
+- **ID**: Slug generato automaticamente dal titolo (es. "palla-di-fuoco")
+- **Title**: Nome dell'entità (es. "Palla di Fuoco")
+- **Filters**: Mappa flessibile di metadati per ricerca e filtro
+  - `collection`: Nome collezione MongoDB (animali, armi, incantesimi, etc.)
+  - `type`: Tipo specifico dell'entità (Bestia, Arma Semplice, etc.)
+  - `source_file`: File markdown sorgente
+  - `locale`: Lingua del contenuto (sempre "ita")
+- **Content**: HTML pre-renderizzato per visualizzazione web ottimizzata
+- **RawContent**: Markdown originale per editing e debugging
 
 ## 🛠️ Sviluppo
 
