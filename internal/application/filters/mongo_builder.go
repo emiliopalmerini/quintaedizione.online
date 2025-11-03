@@ -212,8 +212,8 @@ func (b *MongoFilterBuilder) BuildSearchFilter(collection filters.CollectionType
 
 	// Base search fields that apply to all collections
 	baseSearchFields := []bson.M{
-		{"nome": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		{"contenuto": bson.M{"$regex": escapedSearch, "$options": "i"}},
+		{"title": bson.M{"$regex": escapedSearch, "$options": "i"}},
+		{"content": bson.M{"$regex": escapedSearch, "$options": "i"}},
 	}
 
 	// Collection-specific search fields

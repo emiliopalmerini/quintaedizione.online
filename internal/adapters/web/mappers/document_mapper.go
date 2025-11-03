@@ -29,17 +29,14 @@ func NewDocumentMapper(displayFactory *display.DisplayElementFactory) DocumentMa
 func (m *documentMapper) ToDTO(collection string, item map[string]any) dto.DocumentDTO {
 	dto := dto.DocumentDTO{}
 
-	// Extract _id from document root
+	// Extract _id (slug) from document root
 	if id, ok := item["_id"].(string); ok {
 		dto.ID = id
 	}
 
-	// Extract nome and slug from root level
-	if nome, ok := item["nome"].(string); ok {
-		dto.Nome = nome
-	}
-	if slug, ok := item["slug"].(string); ok {
-		dto.Slug = slug
+	// Extract title from Document model
+	if title, ok := item["title"].(string); ok {
+		dto.Title = title
 	}
 
 	// Extract translated flag from document root
@@ -69,17 +66,14 @@ func (m *documentMapper) ToDTOs(collection string, items []map[string]any) []dto
 func (m *documentMapper) ToModel(collection string, item map[string]any) models.Document {
 	model := models.Document{}
 
-	// Extract _id from document root
+	// Extract _id (slug) from document root
 	if id, ok := item["_id"].(string); ok {
 		model.ID = id
 	}
 
-	// Extract nome and slug from root level
-	if nome, ok := item["nome"].(string); ok {
-		model.Nome = nome
-	}
-	if slug, ok := item["slug"].(string); ok {
-		model.Slug = slug
+	// Extract title from Document model
+	if title, ok := item["title"].(string); ok {
+		model.Title = title
 	}
 
 	// Extract translated flag from document root

@@ -23,8 +23,8 @@ const (
 
 // CollectionInfo contains metadata about a collection
 type CollectionInfo struct {
-	Name          CollectionName
-	Title         string
+	Name           CollectionName
+	Title          string
 	HasNestedValue bool // True if documents use {"value": {...}} structure
 }
 

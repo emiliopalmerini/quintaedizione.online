@@ -17,16 +17,16 @@ func (h *Handlers) ErrorRecoveryMiddleware() gin.HandlerFunc {
 				// Log the panic with stack trace
 				stack := debug.Stack()
 				log.Printf("PANIC recovered: %v\n%s", err, stack)
-				
+
 				// Create error response
 				errMsg := fmt.Sprintf("Si è verificato un errore interno del server")
 				h.ErrorResponse(c, fmt.Errorf("internal server error"), errMsg)
-				
+
 				// Abort the request
 				c.Abort()
 			}
 		}()
-		
+
 		c.Next()
 	}
 }
@@ -38,20 +38,20 @@ func RequestLoggingMiddleware() gin.HandlerFunc {
 		start := c.Request.Context()
 		path := c.Request.URL.Path
 		raw := c.Request.URL.RawQuery
-		
+
 		// Process request
 		c.Next()
-		
+
 		// Log request details
 		if raw != "" {
 			path = path + "?" + raw
 		}
-		
+
 		// Log errors if any
 		if len(c.Errors) > 0 {
 			log.Printf("Request errors for %s %s: %v", c.Request.Method, path, c.Errors)
 		}
-		
+
 		// Log long-running requests
 		if start != nil {
 			// Note: We could add timing here if needed
@@ -67,7 +67,7 @@ func SecurityMiddleware() gin.HandlerFunc {
 		c.Header("X-Frame-Options", "DENY")
 		c.Header("X-XSS-Protection", "1; mode=block")
 		c.Header("Referrer-Policy", "strict-origin-when-cross-origin")
-		
+
 		c.Next()
 	}
 }
@@ -79,14 +79,14 @@ func ValidationMiddleware() gin.HandlerFunc {
 		if collection := c.Param("collection"); collection != "" {
 			if !isValidCollection(collection) {
 				c.JSON(http.StatusBadRequest, gin.H{
-					"error": "Collezione non valida",
+					"error":             "Collezione non valida",
 					"valid_collections": getValidCollections(),
 				})
 				c.Abort()
 				return
 			}
 		}
-		
+
 		c.Next()
 	}
 }

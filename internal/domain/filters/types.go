@@ -24,14 +24,14 @@ const (
 
 // FilterDefinition defines metadata for a single filter
 type FilterDefinition struct {
-	Name         string
-	FieldPath    string
-	DataType     FilterDataType
-	Operator     FilterOperator
-	Collections  []CollectionType
-	EnumValues   []string // For EnumFilter type
-	Required     bool
-	Description  string
+	Name        string
+	FieldPath   string
+	DataType    FilterDataType
+	Operator    FilterOperator
+	Collections []CollectionType
+	EnumValues  []string // For EnumFilter type
+	Required    bool
+	Description string
 }
 
 // FilterValue represents a single filter value with its definition
@@ -97,7 +97,7 @@ func (fd FilterDefinition) IsApplicableToCollection(collection CollectionType) b
 	if len(fd.Collections) == 0 {
 		return true // No restrictions means applies to all
 	}
-	
+
 	for _, c := range fd.Collections {
 		if c == collection {
 			return true
@@ -111,11 +111,11 @@ func (fd FilterDefinition) ValidateValue(value string) error {
 	if fd.Required && value == "" {
 		return NewValidationError(fd.Name, "value is required")
 	}
-	
+
 	if value == "" {
 		return nil // Empty values are valid for non-required fields
 	}
-	
+
 	switch fd.DataType {
 	case EnumFilter:
 		if len(fd.EnumValues) > 0 {
@@ -127,6 +127,6 @@ func (fd FilterDefinition) ValidateValue(value string) error {
 			return NewValidationError(fd.Name, "invalid enum value")
 		}
 	}
-	
+
 	return nil
 }

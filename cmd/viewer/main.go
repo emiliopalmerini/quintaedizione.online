@@ -56,7 +56,7 @@ func main() {
 	indexManager := database.NewIndexManager(mongoClient)
 	indexCtx, indexCancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer indexCancel()
-	
+
 	if err := indexManager.EnsureIndexes(indexCtx); err != nil {
 		log.Printf("⚠️  Failed to create indexes: %v", err)
 		// Don't fail startup, indexes can be created later
@@ -75,19 +75,19 @@ func main() {
 
 	// Initialize repository factory
 	repositoryFactory := repositories.NewRepositoryFactory(mongoClient)
-	
+
 	// Initialize filter registry
 	filterRegistry, err := filters.NewYAMLFilterRegistry("configs/filters.yaml")
 	if err != nil {
 		log.Fatalf("Failed to initialize filter registry: %v", err)
 	}
 	log.Println("✅ Filter registry loaded")
-	
+
 	// Initialize filter service
 	filterService := services.NewFilterService(filterRegistry)
-	
+
 	// Initialize services
-	contentService := services.NewContentService(repositoryFactory.ContentRepository(), filterService)
+	contentService := services.NewContentService(repositoryFactory.DocumentRepository(), filterService)
 
 	// Initialize web handlers
 	webHandlers := web.NewHandlers(contentService, templateEngine)

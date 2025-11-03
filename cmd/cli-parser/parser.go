@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -12,15 +11,16 @@ import (
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/repositories"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/parsers"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
+	domainRepos "github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain/repositories"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/mongodb"
 )
 
 type ParserCLI struct {
-	registry         *parsers.Registry
+	documentRegistry  *parsers.DocumentRegistry
 	repositoryFactory *repositories.RepositoryFactory
-	repositoryWrapper *repositories.ParserRepositoryWrapper
-	context          context.Context
-	workItems        []parsers.WorkItem
+	documentRepo      domainRepos.DocumentRepository
+	context           context.Context
+	workItems         []parsers.WorkItem
 }
 
 func NewParserCLI(mongoURI, dbName string) (*ParserCLI, error) {
@@ -39,27 +39,31 @@ func NewParserCLI(mongoURI, dbName string) (*ParserCLI, error) {
 
 	// Initialize repository factory
 	repositoryFactory := repositories.NewRepositoryFactory(mongoClient)
-	repositoryWrapper := repositories.NewParserRepositoryWrapper(repositoryFactory)
+	documentRepo := repositoryFactory.DocumentRepository()
 
-	// Create parser registry with all strategies
-	registry, err := parsers.CreateDefaultRegistry()
+	// Create Document parser registry
+	documentRegistry, err := parsers.CreateDocumentRegistry()
 	if err != nil {
-		return nil, fmt.Errorf("failed to create parser registry: %w", err)
+		return nil, fmt.Errorf("failed to create document registry: %w", err)
 	}
 
 	// Load default work items
 	workItems := parsers.CreateDefaultWorkItems()
 
 	return &ParserCLI{
-		registry:          registry,
+		documentRegistry:  documentRegistry,
 		repositoryFactory: repositoryFactory,
-		repositoryWrapper: repositoryWrapper,
-		context:          ctx,
-		workItems:        workItems,
+		documentRepo:      documentRepo,
+		context:           ctx,
+		workItems:         workItems,
 	}, nil
 }
 
 func (p *ParserCLI) ParseFile(inputDir, filename string) error {
+	return p.parseFileWithDocuments(inputDir, filename)
+}
+
+func (p *ParserCLI) parseFileWithDocuments(inputDir, filename string) error {
 	filePath := filepath.Join(inputDir, filename)
 
 	// Find matching work item
@@ -74,10 +78,10 @@ func (p *ParserCLI) ParseFile(inputDir, filename string) error {
 		return fmt.Errorf("invalid content type for collection %s: %w", workItem.Collection, err)
 	}
 
-	// Get parsing strategy
-	strategy, err := p.registry.GetStrategy(contentType, parsers.Italian)
+	// Get Document parsing strategy
+	strategy, err := p.documentRegistry.GetStrategy(contentType, parsers.Italian)
 	if err != nil {
-		return fmt.Errorf("parser not found for %s: %w", contentType, err)
+		return fmt.Errorf("document parser not found for %s: %w", contentType, err)
 	}
 
 	// Read file content
@@ -94,27 +98,27 @@ func (p *ParserCLI) ParseFile(inputDir, filename string) error {
 	parsingContext.WithLogger(parsers.NewConsoleLogger("info"))
 
 	// Parse content
-	entities, err := strategy.Parse(lines, parsingContext)
+	documents, err := strategy.ParseDocument(lines, parsingContext)
 	if err != nil {
 		return fmt.Errorf("parsing failed for %s: %w", filename, err)
 	}
 
 	if *verbose {
-		fmt.Printf("📄 Parsed %d entities from %s\n", len(entities), filename)
-		for i, entity := range entities {
-			fmt.Printf("  [%d] %s (type: %s)\n", i+1, "Entity", entity.EntityType())
+		fmt.Printf("📄 Parsed %d documents from %s\n", len(documents), filename)
+		for i, doc := range documents {
+			fmt.Printf("  [%d] %s (ID: %s)\n", i+1, doc.Title, doc.ID)
 		}
 	}
 
-	// Save entities to MongoDB if not in dry-run mode
+	// Save documents to MongoDB if not in dry-run mode
 	if !*dryRun {
-		err = p.saveEntities(entities, workItem.Collection)
+		err = p.saveDocuments(documents, workItem.Collection)
 		if err != nil {
-			return fmt.Errorf("failed to save entities: %w", err)
+			return fmt.Errorf("failed to save documents: %w", err)
 		}
-		fmt.Printf("💾 Saved %d entities to collection '%s'\n", len(entities), workItem.Collection)
+		fmt.Printf("💾 Saved %d documents to collection '%s'\n", len(documents), workItem.Collection)
 	} else {
-		fmt.Printf("🔍 Dry run: would save %d entities to collection '%s'\n", len(entities), workItem.Collection)
+		fmt.Printf("🔍 Dry run: would save %d documents to collection '%s'\n", len(documents), workItem.Collection)
 	}
 
 	return nil
@@ -143,77 +147,48 @@ func (p *ParserCLI) ParseAllFiles(inputDir string) error {
 }
 
 func (p *ParserCLI) ListAvailableParsers() {
-	parserInfos := parsers.GetAvailableParsers(p.registry)
-	
-	fmt.Println("📋 Available Parsers:")
-	fmt.Println("===================")
-	
-	for _, parser := range parserInfos {
-		fmt.Printf("• %s (%s)\n", parser.Name, parser.Key)
-		if parser.Description != "" {
-			fmt.Printf("  %s\n", parser.Description)
-		}
-		fmt.Println()
-	}
+	fmt.Println("📋 Available Document Parsers:")
+	fmt.Println("==============================")
+	fmt.Printf("\n✅ %d Document-based parsers loaded\n", p.documentRegistry.Count())
+	fmt.Println("\nAll parsers use the unified Document model with HTML rendering.")
+	fmt.Println("Supported content types: regole, incantesimi, mostri, animali, classi,")
+	fmt.Println("backgrounds, armi, armature, equipaggiamenti, servizi, strumenti,")
+	fmt.Println("talenti, oggetti_magici, cavalcature_veicoli")
 }
 
 func (p *ParserCLI) findWorkItem(filename string) (parsers.WorkItem, error) {
 	// Remove extension for comparison
 	baseName := strings.TrimSuffix(filename, filepath.Ext(filename))
-	
+
 	for _, item := range p.workItems {
 		itemBaseName := strings.TrimSuffix(filepath.Base(item.Filename), filepath.Ext(item.Filename))
 		if itemBaseName == baseName {
 			return item, nil
 		}
 	}
-	
+
 	return parsers.WorkItem{}, fmt.Errorf("no work item found for file: %s", filename)
 }
 
-func (p *ParserCLI) saveEntities(entities []domain.ParsedEntity, collection string) error {
-	if len(entities) == 0 {
+func (p *ParserCLI) saveDocuments(documents []*domain.Document, collection string) error {
+	if len(documents) == 0 {
 		return nil
 	}
-	
+
 	if *verbose {
 		fmt.Printf("🗃️  Saving to collection: %s\n", collection)
 	}
-	
-	// Convert entities to flattened maps without wrapper
-	docs := make([]map[string]any, len(entities))
-	for i, entity := range entities {
-		// Convert entity to map via JSON marshaling/unmarshaling
-		jsonData, err := json.Marshal(entity)
-		if err != nil {
-			return fmt.Errorf("failed to marshal entity %d: %w", i, err)
-		}
-		
-		var entityMap map[string]any
-		if err := json.Unmarshal(jsonData, &entityMap); err != nil {
-			return fmt.Errorf("failed to unmarshal entity %d: %w", i, err)
-		}
-		
-		// Add metadata fields directly to the flattened document
-		entityMap["collection"] = collection
-		entityMap["source_file"] = fmt.Sprintf("ita/lists/%s.md", collection)
-		entityMap["locale"] = "ita"
-		entityMap["created_at"] = time.Now()
-		
-		docs[i] = entityMap
-	}
-	
-	// Use repository wrapper to save with upsert semantics
-	uniqueFields := []string{"slug"} // Use slug as unique field
-	saved, err := p.repositoryWrapper.UpsertMany(collection, uniqueFields, docs)
+
+	// Use DocumentRepository to save documents
+	saved, err := p.documentRepo.UpsertMany(p.context, collection, documents)
 	if err != nil {
-		return fmt.Errorf("failed to save entities to collection %s: %w", collection, err)
+		return fmt.Errorf("failed to save documents to collection %s: %w", collection, err)
 	}
-	
+
 	if *verbose {
-		fmt.Printf("  Saved/updated %d entities in MongoDB\n", saved)
+		fmt.Printf("  Saved/updated %d documents in MongoDB\n", saved)
 	}
-	
+
 	return nil
 }
 
