@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -12,6 +13,7 @@ import (
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/repositories"
 	web "github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/filters"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/parsers"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure/database"
@@ -64,6 +66,15 @@ func main() {
 		log.Println("✅ Database indexes ensured")
 	}
 
+	// Initialize repository factory (needed for parsing)
+	repositoryFactory := repositories.NewRepositoryFactory(mongoClient)
+
+	// Parse markdown files into database on startup
+	log.Println("🔄 Parsing markdown files...")
+	if err := parseMarkdownFiles(repositoryFactory); err != nil {
+		log.Fatalf("❌ Failed to parse markdown files: %v", err)
+	}
+
 	// Initialize Templ engine
 	var templateEngine *templates.TemplEngine
 	if config.IsProduction() {
@@ -72,9 +83,6 @@ func main() {
 		templateEngine = templates.NewDevTemplEngine()
 	}
 	log.Println("✅ Templates loaded")
-
-	// Initialize repository factory
-	repositoryFactory := repositories.NewRepositoryFactory(mongoClient)
 
 	// Initialize filter registry
 	filterRegistry, err := filters.NewYAMLFilterRegistry("configs/filters.yaml")
@@ -161,6 +169,38 @@ func main() {
 	}
 
 	log.Println("Server shutdown completed")
+}
+
+// parseMarkdownFiles parses all markdown files into the database on startup
+func parseMarkdownFiles(repositoryFactory *repositories.RepositoryFactory) error {
+	ctx := context.Background()
+
+	// Create Document parser registry
+	documentRegistry, err := parsers.CreateDocumentRegistry()
+	if err != nil {
+		return fmt.Errorf("failed to create document registry: %w", err)
+	}
+
+	// Create parser service
+	parserService := services.NewParserService(services.ParserServiceConfig{
+		DocumentRegistry: documentRegistry,
+		DocumentRepo:     repositoryFactory.DocumentRepository(),
+		WorkItems:        nil, // Use default work items
+		Logger:           parsers.NewConsoleLogger("parser"),
+		DryRun:           false,
+	})
+
+	// Parse all files
+	result, err := parserService.ParseAllFiles(ctx, "data/ita/lists")
+	if err != nil {
+		return err
+	}
+
+	// Log summary
+	log.Printf("✅ Parsing completed: %d files, %d documents in %.2fs\n",
+		result.SuccessCount, result.TotalDocuments, result.Duration.Seconds())
+
+	return nil
 }
 
 // corsMiddleware adds CORS headers
