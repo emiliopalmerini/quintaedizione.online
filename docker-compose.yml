@@ -11,13 +11,23 @@ services:
     volumes:
       - mongo_data:/data/db
       - ./seed:/seed
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+    networks:
+      - dnd-network
 
   viewer:
     build:
       context: .
       dockerfile: Dockerfile.Viewer
     container_name: dnd-viewer-go
-    depends_on: [mongo]
+    depends_on:
+      mongo:
+        condition: service_healthy
     environment:
       - MONGO_URI=mongodb://${MONGO_USERNAME:-admin}:${MONGO_PASSWORD:-password}@mongo:27017/?authSource=admin
       - DB_NAME=${DB_NAME:-dnd}
@@ -25,6 +35,12 @@ services:
       - ENVIRONMENT=${ENVIRONMENT:-development}
     ports: ["${APP_PORT:-8000}:${APP_PORT:-8000}"]
     restart: unless-stopped
+    networks:
+      - dnd-network
 
 volumes:
   mongo_data:
+
+networks:
+  dnd-network:
+    driver: bridge
