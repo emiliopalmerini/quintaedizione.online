@@ -26,37 +26,5 @@ services:
     ports: ["8000:8000"]
     restart: unless-stopped
 
-  # Python Viewer (legacy alternative)
-  viewer-python:
-    profiles: [python]
-    build:
-      context: .
-      dockerfile: editor/Dockerfile.Editor
-    container_name: dnd-viewer-python
-    depends_on: [mongo]
-    environment:
-      - MONGO_URI=mongodb://admin:password@mongo:27017/?authSource=admin
-      - DB_NAME=dnd
-    ports: ["8000:8000"]
-    restart: unless-stopped
-
-  # Python Parser (legacy alternative)
-  parser-python:
-    profiles: [python]
-    build:
-      context: ./srd_parser
-      dockerfile: Dockerfile.Parser
-    container_name: dnd-parser-python
-    depends_on: [mongo]
-    environment:
-      - MONGO_URI=mongodb://admin:password@mongo:27017/?authSource=admin
-      - DB_NAME=dnd
-      - INPUT_DIR=/data
-      - SOURCE_LABEL=srd 5.2.1
-    volumes:
-      - ./data:/data:ro
-    ports: ["8100:8000"]
-    restart: unless-stopped
-
 volumes:
   mongo_data:

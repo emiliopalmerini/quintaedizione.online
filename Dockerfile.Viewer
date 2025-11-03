@@ -42,6 +42,9 @@ COPY --from=builder /app/web ./web
 # Copy configuration files
 COPY --from=builder /app/configs ./configs
 
+# Copy data directory for markdown parsing
+COPY --from=builder /app/data ./data
+
 # Expose port
 EXPOSE 8000
 
