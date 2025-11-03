@@ -376,3 +376,9 @@ func (r *documentMongoRepository) GetAllCollectionStats(ctx context.Context) ([]
 
 	return stats, nil
 }
+
+// DropCollection drops/deletes a collection
+func (r *documentMongoRepository) DropCollection(ctx context.Context, collection string) error {
+	coll := r.getCollection(collection)
+	return coll.Drop(ctx)
+}
