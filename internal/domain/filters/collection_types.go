@@ -4,19 +4,19 @@ package filters
 type CollectionType string
 
 const (
-	IncantesimiCollection     CollectionType = "incantesimi"
-	MostriCollection         CollectionType = "mostri"
-	ClassiCollection         CollectionType = "classi"
-	BackgroundsCollection    CollectionType = "backgrounds"
-	EquipaggiamentiCollection CollectionType = "equipaggiamenti"
-	OggettiMagiciCollection  CollectionType = "oggetti_magici"
-	ArmiCollection           CollectionType = "armi"
-	ArmatureCollection       CollectionType = "armature"
-	TalentiCollection        CollectionType = "talenti"
-	ServiziCollection        CollectionType = "servizi"
-	StrumentiCollection      CollectionType = "strumenti"
-	AnimaliCollection        CollectionType = "animali"
-	RegoleCollection         CollectionType = "regole"
+	IncantesimiCollection        CollectionType = "incantesimi"
+	MostriCollection             CollectionType = "mostri"
+	ClassiCollection             CollectionType = "classi"
+	BackgroundsCollection        CollectionType = "backgrounds"
+	EquipaggiamentiCollection    CollectionType = "equipaggiamenti"
+	OggettiMagiciCollection      CollectionType = "oggetti_magici"
+	ArmiCollection               CollectionType = "armi"
+	ArmatureCollection           CollectionType = "armature"
+	TalentiCollection            CollectionType = "talenti"
+	ServiziCollection            CollectionType = "servizi"
+	StrumentiCollection          CollectionType = "strumenti"
+	AnimaliCollection            CollectionType = "animali"
+	RegoleCollection             CollectionType = "regole"
 	CavalcatureVeicoliCollection CollectionType = "cavalcature_veicoli"
 )
 
@@ -43,7 +43,7 @@ func (c CollectionType) IsValid() bool {
 		RegoleCollection,
 		CavalcatureVeicoliCollection,
 	}
-	
+
 	for _, valid := range validCollections {
 		if c == valid {
 			return true
@@ -55,22 +55,22 @@ func (c CollectionType) IsValid() bool {
 // GetDisplayName returns a human-readable display name for the collection
 func (c CollectionType) GetDisplayName() string {
 	displayNames := map[CollectionType]string{
-		IncantesimiCollection:     "Incantesimi",
-		MostriCollection:         "Mostri",
-		ClassiCollection:         "Classi",
-		BackgroundsCollection:    "Background",
-		EquipaggiamentiCollection: "Equipaggiamento",
-		OggettiMagiciCollection:  "Oggetti Magici",
-		ArmiCollection:           "Armi",
-		ArmatureCollection:       "Armature",
-		TalentiCollection:        "Talenti",
-		ServiziCollection:        "Servizi",
-		StrumentiCollection:      "Strumenti",
-		AnimaliCollection:        "Animali",
-		RegoleCollection:         "Regole",
+		IncantesimiCollection:        "Incantesimi",
+		MostriCollection:             "Mostri",
+		ClassiCollection:             "Classi",
+		BackgroundsCollection:        "Background",
+		EquipaggiamentiCollection:    "Equipaggiamento",
+		OggettiMagiciCollection:      "Oggetti Magici",
+		ArmiCollection:               "Armi",
+		ArmatureCollection:           "Armature",
+		TalentiCollection:            "Talenti",
+		ServiziCollection:            "Servizi",
+		StrumentiCollection:          "Strumenti",
+		AnimaliCollection:            "Animali",
+		RegoleCollection:             "Regole",
 		CavalcatureVeicoliCollection: "Cavalcature e Veicoli",
 	}
-	
+
 	if name, exists := displayNames[c]; exists {
 		return name
 	}

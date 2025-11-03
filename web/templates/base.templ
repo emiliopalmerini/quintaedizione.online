@@ -16,7 +16,6 @@ templ BaseLayout(data models.PageData) {
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<script src="https://unpkg.com/htmx.org@2.0.3"></script>
-		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 		<link rel="stylesheet" href="/static/style.css"/>
 		<link rel="icon" href="/static/favicon.svg" type="image/svg+xml"/>
 	</head>
@@ -84,40 +83,17 @@ templ BaseLayout(data models.PageData) {
 
 templ baseScripts() {
 	<script>
-		// Minimal JavaScript for Markdown rendering and clipboard
-		function initMarkdown(){
-			const hasMarked = typeof window.marked !== 'undefined';
-			if (hasMarked && window.marked.setOptions){
-				try { window.marked.setOptions({ headerIds: true, mangle: false }); } catch(e) {}
-			}
-			document.querySelectorAll('[data-markdown]').forEach(el=>{
-				if (el.getAttribute('data-ssr') === 'true') return;
-				let raw = '';
-				const srcId = el.getAttribute('data-md-src-id');
-				if (srcId){
-					const src = document.getElementById(srcId);
-					if (src) raw = src.textContent || '';
-				}
-				if (!raw){ raw = el.textContent || ''; }
-				el.dataset.raw = raw;
-				if(hasMarked){ el.innerHTML = window.marked.parse(raw); }
-			});
-		}
-		document.addEventListener('DOMContentLoaded', initMarkdown);
-		document.body.addEventListener('htmx:afterSwap', initMarkdown);
-
 		// Copy markdown functionality with fallback support
 		function copyMarkdown(btn){
 			const section = btn.closest('[data-md-section]') || btn.closest('article') || document;
-			let md = section.querySelector('[data-markdown]');
-			if (!md) md = section.querySelector('[data-ssr="true"]');
-			const raw = (md && (md.dataset.raw || md.getAttribute('data-raw') || md.textContent)) || '';
-			
+			const contentEl = section.querySelector('[data-raw]');
+			const raw = (contentEl && contentEl.getAttribute('data-raw')) || '';
+
 			if(!raw) {
 				showCopyMessage(btn, 'Nessun contenuto da copiare', 'error');
 				return;
 			}
-			
+
 			// Try modern clipboard API first
 			if (navigator.clipboard && navigator.clipboard.writeText) {
 				navigator.clipboard.writeText(raw).then(() => {
@@ -444,6 +420,7 @@ templ baseScripts() {
 			});
 		}
 		
+		// Initialize breadcrumb search on page load and after HTMX swaps
 		document.addEventListener('DOMContentLoaded', initBreadcrumbSearch);
 		document.body.addEventListener('htmx:afterSwap', initBreadcrumbSearch);
 

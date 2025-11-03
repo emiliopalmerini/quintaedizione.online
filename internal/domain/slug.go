@@ -1,7 +1,6 @@
 package domain
 
 import (
-	"fmt"
 	"regexp"
 	"strings"
 	"unicode"
@@ -14,8 +13,8 @@ import (
 type Slug string
 
 func NewSlug(value string) (Slug, error) {
-	if value == "" {
-		return "", fmt.Errorf("slug cannot be empty")
+	if strings.TrimSpace(value) == "" {
+		return "", NewDocumentError("create_slug", "", ErrInvalidDocumentTitle, "slug source cannot be empty")
 	}
 	return slugify(value), nil
 }
@@ -42,9 +41,13 @@ func slugify(value string) Slug {
 		s = res
 	}
 
+	// Replace spaces with hyphens
 	s = strings.ReplaceAll(s, " ", "-")
+	// Remove non-alphanumeric characters except hyphens
 	s = nonAlnum.ReplaceAllString(s, "")
+	// Compress multiple hyphens
 	s = multiDash.ReplaceAllString(s, "-")
+	// Trim leading/trailing hyphens
 	s = strings.Trim(s, "-")
 
 	if s == "" {

@@ -54,16 +54,15 @@ func (e *TemplEngine) RenderError(data models.ErrorPageData) (string, error) {
 	return e.renderComponent(templComponents.ErrorPage(data))
 }
 
-
 // renderComponent is a helper that renders any Templ component to string
 func (e *TemplEngine) renderComponent(component templ.Component) (string, error) {
 	var buf bytes.Buffer
 	ctx := context.Background()
-	
+
 	if err := component.Render(ctx, &buf); err != nil {
 		return "", fmt.Errorf("failed to render template component: %w", err)
 	}
-	
+
 	return buf.String(), nil
 }
 

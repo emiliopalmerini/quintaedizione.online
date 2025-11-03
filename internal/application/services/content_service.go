@@ -12,15 +12,15 @@ import (
 
 // ContentService provides business logic for content operations
 type ContentService struct {
-	contentRepo   repositories.ContentRepository
+	documentRepo  repositories.DocumentRepository
 	filterService filters.FilterService
 	cache         *infrastructure.SimpleCache
 }
 
 // NewContentService creates a new ContentService instance
-func NewContentService(contentRepo repositories.ContentRepository, filterService filters.FilterService) *ContentService {
+func NewContentService(documentRepo repositories.DocumentRepository, filterService filters.FilterService) *ContentService {
 	return &ContentService{
-		contentRepo:   contentRepo,
+		documentRepo:  documentRepo,
 		filterService: filterService,
 		cache:         infrastructure.GetGlobalCache(),
 	}
@@ -35,8 +35,8 @@ func (s *ContentService) GetCollectionItems(ctx context.Context, collection, sea
 	collectionType := filters.CollectionType(collection)
 	searchFilter := s.filterService.BuildSearchFilter(collectionType, search)
 
-	// Get items using the domain repository
-	items, totalCount, err := s.contentRepo.GetCollectionItems(ctx, collection, searchFilter, skip, int64(limit))
+	// Get items using the document repository
+	items, totalCount, err := s.documentRepo.FindMaps(ctx, collection, searchFilter, skip, int64(limit))
 	if err != nil {
 		return nil, 0, fmt.Errorf("failed to get collection items: %w", err)
 	}
@@ -68,8 +68,8 @@ func (s *ContentService) GetCollectionItemsWithFilters(ctx context.Context, coll
 	// Combine filters
 	combinedFilter := s.filterService.CombineFilters(fieldFilter, searchFilter)
 
-	// Get items using the domain repository
-	items, totalCount, err := s.contentRepo.GetCollectionItemsWithFilters(ctx, collection, combinedFilter, skip, int64(limit))
+	// Get items using the document repository
+	items, totalCount, err := s.documentRepo.FindMaps(ctx, collection, combinedFilter, skip, int64(limit))
 	if err != nil {
 		return nil, 0, fmt.Errorf("failed to get collection items with filters: %w", err)
 	}
@@ -87,7 +87,7 @@ func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (
 		}
 	}
 
-	item, err := s.contentRepo.GetItemBySlug(ctx, collection, slug)
+	item, err := s.documentRepo.FindMapByID(ctx, collection, slug)
 	if err != nil {
 		return nil, fmt.Errorf("failed to find item: %w", err)
 	}
@@ -100,7 +100,7 @@ func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (
 
 // GetStats retrieves database statistics
 func (s *ContentService) GetStats(ctx context.Context) (map[string]any, error) {
-	collections, err := s.contentRepo.GetCollectionStats(ctx)
+	collections, err := s.documentRepo.GetAllCollectionStats(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("failed to get collection stats: %w", err)
 	}
@@ -111,7 +111,7 @@ func (s *ContentService) GetStats(ctx context.Context) (map[string]any, error) {
 	}
 
 	for _, collection := range collections {
-		if name, ok := collection["name"].(string); ok {
+		if name, ok := collection["collection"].(string); ok {
 			if count, ok := collection["count"].(int64); ok {
 				stats["collections"].(map[string]int64)[name] = count
 				stats["total_items"] = stats["total_items"].(int64) + count
@@ -124,11 +124,10 @@ func (s *ContentService) GetStats(ctx context.Context) (map[string]any, error) {
 
 // GetCollectionStats retrieves statistics for all collections
 func (s *ContentService) GetCollectionStats(ctx context.Context) ([]map[string]any, error) {
-	return s.contentRepo.GetCollectionStats(ctx)
+	return s.documentRepo.GetAllCollectionStats(ctx)
 }
 
 // GetAdjacentItems gets the previous and next items for navigation
 func (s *ContentService) GetAdjacentItems(ctx context.Context, collection, currentSlug string) (prevSlug, nextSlug *string, err error) {
-	return s.contentRepo.GetAdjacentItems(ctx, collection, currentSlug)
+	return s.documentRepo.GetAdjacentMaps(ctx, collection, currentSlug)
 }
-

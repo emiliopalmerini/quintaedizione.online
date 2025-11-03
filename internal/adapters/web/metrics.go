@@ -9,16 +9,16 @@ import (
 
 // Metrics holds application performance metrics
 type Metrics struct {
-	mu               sync.RWMutex
-	RequestCount     int64                    `json:"request_count"`
-	ErrorCount       int64                    `json:"error_count"`
-	TotalDuration    time.Duration            `json:"total_duration_ms"`
-	AverageDuration  time.Duration            `json:"average_duration_ms"`
-	EndpointMetrics  map[string]*EndpointStat `json:"endpoint_metrics"`
-	CollectionStats  map[string]int64         `json:"collection_stats"`
-	SearchStats      *SearchStats             `json:"search_stats"`
-	StartTime        time.Time                `json:"start_time"`
-	LastRequestTime  time.Time                `json:"last_request_time"`
+	mu              sync.RWMutex
+	RequestCount    int64                    `json:"request_count"`
+	ErrorCount      int64                    `json:"error_count"`
+	TotalDuration   time.Duration            `json:"total_duration_ms"`
+	AverageDuration time.Duration            `json:"average_duration_ms"`
+	EndpointMetrics map[string]*EndpointStat `json:"endpoint_metrics"`
+	CollectionStats map[string]int64         `json:"collection_stats"`
+	SearchStats     *SearchStats             `json:"search_stats"`
+	StartTime       time.Time                `json:"start_time"`
+	LastRequestTime time.Time                `json:"last_request_time"`
 }
 
 // EndpointStat holds statistics for a specific endpoint
@@ -33,9 +33,9 @@ type EndpointStat struct {
 
 // SearchStats holds search-related statistics
 type SearchStats struct {
-	TotalSearches    int64   `json:"total_searches"`
-	EmptyQueries     int64   `json:"empty_queries"`
-	AverageQueryTime time.Duration `json:"average_query_time_ms"`
+	TotalSearches    int64            `json:"total_searches"`
+	EmptyQueries     int64            `json:"empty_queries"`
+	AverageQueryTime time.Duration    `json:"average_query_time_ms"`
 	PopularTerms     map[string]int64 `json:"popular_terms"`
 }
 
@@ -60,22 +60,22 @@ func MetricsMiddleware() gin.HandlerFunc {
 		start := time.Now()
 		path := c.Request.URL.Path
 		method := c.Request.Method
-		
+
 		// Process request
 		c.Next()
-		
+
 		// Calculate duration
 		duration := time.Since(start)
 		statusCode := c.Writer.Status()
-		
+
 		// Update metrics
 		globalMetrics.recordRequest(method, path, duration, statusCode)
-		
+
 		// Track collection-specific stats
 		if collection := c.Param("collection"); collection != "" {
 			globalMetrics.recordCollectionAccess(collection)
 		}
-		
+
 		// Track search queries
 		if q := c.Query("q"); q != "" {
 			globalMetrics.recordSearch(q, duration)
@@ -87,32 +87,32 @@ func MetricsMiddleware() gin.HandlerFunc {
 func (m *Metrics) recordRequest(method, path string, duration time.Duration, statusCode int) {
 	m.mu.Lock()
 	defer m.mu.Unlock()
-	
+
 	// Overall metrics
 	m.RequestCount++
 	m.TotalDuration += duration
 	m.AverageDuration = m.TotalDuration / time.Duration(m.RequestCount)
 	m.LastRequestTime = time.Now()
-	
+
 	// Error tracking
 	if statusCode >= 400 {
 		m.ErrorCount++
 	}
-	
+
 	// Endpoint-specific metrics
 	endpoint := method + " " + path
 	if stat, exists := m.EndpointMetrics[endpoint]; exists {
 		stat.Count++
 		stat.TotalTime += duration
 		stat.AverageTime = stat.TotalTime / time.Duration(stat.Count)
-		
+
 		if duration < stat.MinTime || stat.MinTime == 0 {
 			stat.MinTime = duration
 		}
 		if duration > stat.MaxTime {
 			stat.MaxTime = duration
 		}
-		
+
 		if statusCode >= 400 {
 			stat.ErrorCount++
 		}
@@ -132,7 +132,7 @@ func (m *Metrics) recordRequest(method, path string, duration time.Duration, sta
 func (m *Metrics) recordCollectionAccess(collection string) {
 	m.mu.Lock()
 	defer m.mu.Unlock()
-	
+
 	m.CollectionStats[collection]++
 }
 
@@ -140,14 +140,14 @@ func (m *Metrics) recordCollectionAccess(collection string) {
 func (m *Metrics) recordSearch(query string, duration time.Duration) {
 	m.mu.Lock()
 	defer m.mu.Unlock()
-	
+
 	m.SearchStats.TotalSearches++
-	
+
 	if query == "" {
 		m.SearchStats.EmptyQueries++
 		return
 	}
-	
+
 	// Update average query time
 	if m.SearchStats.TotalSearches > 0 {
 		totalTime := m.SearchStats.AverageQueryTime * time.Duration(m.SearchStats.TotalSearches-1)
@@ -155,7 +155,7 @@ func (m *Metrics) recordSearch(query string, duration time.Duration) {
 	} else {
 		m.SearchStats.AverageQueryTime = duration
 	}
-	
+
 	// Track popular search terms (limit to top 100)
 	if len(m.SearchStats.PopularTerms) < 100 {
 		m.SearchStats.PopularTerms[query]++
@@ -171,7 +171,7 @@ func (m *Metrics) recordSearch(query string, duration time.Duration) {
 func (m *Metrics) GetMetricsSnapshot() *Metrics {
 	m.mu.RLock()
 	defer m.mu.RUnlock()
-	
+
 	snapshot := &Metrics{
 		RequestCount:    m.RequestCount,
 		ErrorCount:      m.ErrorCount,
@@ -188,7 +188,7 @@ func (m *Metrics) GetMetricsSnapshot() *Metrics {
 			PopularTerms:     make(map[string]int64),
 		},
 	}
-	
+
 	// Deep copy endpoint metrics
 	for k, v := range m.EndpointMetrics {
 		snapshot.EndpointMetrics[k] = &EndpointStat{
@@ -200,17 +200,17 @@ func (m *Metrics) GetMetricsSnapshot() *Metrics {
 			ErrorCount:  v.ErrorCount,
 		}
 	}
-	
+
 	// Copy collection stats
 	for k, v := range m.CollectionStats {
 		snapshot.CollectionStats[k] = v
 	}
-	
+
 	// Copy popular terms
 	for k, v := range m.SearchStats.PopularTerms {
 		snapshot.SearchStats.PopularTerms[k] = v
 	}
-	
+
 	return snapshot
 }
 
@@ -218,7 +218,7 @@ func (m *Metrics) GetMetricsSnapshot() *Metrics {
 func (m *Metrics) ResetMetrics() {
 	m.mu.Lock()
 	defer m.mu.Unlock()
-	
+
 	m.RequestCount = 0
 	m.ErrorCount = 0
 	m.TotalDuration = 0
@@ -235,9 +235,9 @@ func (m *Metrics) ResetMetrics() {
 // ToJSON converts metrics to JSON-serializable format
 func (m *Metrics) ToJSON() map[string]any {
 	snapshot := m.GetMetricsSnapshot()
-	
+
 	uptime := time.Since(snapshot.StartTime)
-	
+
 	// Convert durations to milliseconds for JSON
 	endpointMetricsJSON := make(map[string]map[string]any)
 	for endpoint, stat := range snapshot.EndpointMetrics {
@@ -251,24 +251,24 @@ func (m *Metrics) ToJSON() map[string]any {
 			"error_rate":   float64(stat.ErrorCount) / float64(stat.Count) * 100,
 		}
 	}
-	
+
 	return map[string]any{
-		"uptime_seconds":     uptime.Seconds(),
-		"request_count":      snapshot.RequestCount,
-		"error_count":        snapshot.ErrorCount,
-		"error_rate":         float64(snapshot.ErrorCount) / float64(snapshot.RequestCount) * 100,
-		"average_duration":   snapshot.AverageDuration.Milliseconds(),
+		"uptime_seconds":      uptime.Seconds(),
+		"request_count":       snapshot.RequestCount,
+		"error_count":         snapshot.ErrorCount,
+		"error_rate":          float64(snapshot.ErrorCount) / float64(snapshot.RequestCount) * 100,
+		"average_duration":    snapshot.AverageDuration.Milliseconds(),
 		"requests_per_second": float64(snapshot.RequestCount) / uptime.Seconds(),
-		"endpoint_metrics":   endpointMetricsJSON,
-		"collection_stats":   snapshot.CollectionStats,
+		"endpoint_metrics":    endpointMetricsJSON,
+		"collection_stats":    snapshot.CollectionStats,
 		"search_stats": map[string]any{
-			"total_searches":       snapshot.SearchStats.TotalSearches,
-			"empty_queries":        snapshot.SearchStats.EmptyQueries,
-			"average_query_time":   snapshot.SearchStats.AverageQueryTime.Milliseconds(),
-			"popular_terms":        snapshot.SearchStats.PopularTerms,
+			"total_searches":     snapshot.SearchStats.TotalSearches,
+			"empty_queries":      snapshot.SearchStats.EmptyQueries,
+			"average_query_time": snapshot.SearchStats.AverageQueryTime.Milliseconds(),
+			"popular_terms":      snapshot.SearchStats.PopularTerms,
 		},
-		"start_time":      snapshot.StartTime,
-		"last_request":    snapshot.LastRequestTime,
-		"generated_at":    time.Now(),
+		"start_time":   snapshot.StartTime,
+		"last_request": snapshot.LastRequestTime,
+		"generated_at": time.Now(),
 	}
 }

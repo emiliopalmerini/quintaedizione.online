@@ -24,27 +24,27 @@ func (e HTTPError) Error() string {
 // ErrorResponse handles different types of errors and renders appropriate responses
 func (h *Handlers) ErrorResponse(c *gin.Context, err error, fallbackMessage string) {
 	var httpErr *HTTPError
-	
+
 	// Check if it's already a structured HTTP error
 	if errors.As(err, &httpErr) {
 		h.renderErrorPage(c, httpErr.Message, httpErr.Code)
 		return
 	}
-	
+
 	// Map common errors to HTTP status codes
 	statusCode := h.getErrorStatusCode(err)
 	message := h.getErrorMessage(err, fallbackMessage)
-	
+
 	// Log error for debugging
 	log.Printf("Request error [%s %s]: %v", c.Request.Method, c.Request.URL.Path, err)
-	
+
 	h.renderErrorPage(c, message, statusCode)
 }
 
 // getErrorStatusCode maps common errors to HTTP status codes
 func (h *Handlers) getErrorStatusCode(err error) int {
 	errStr := err.Error()
-	
+
 	switch {
 	case contains(errStr, "not found", "document not found"):
 		return http.StatusNotFound
@@ -64,7 +64,7 @@ func (h *Handlers) getErrorStatusCode(err error) int {
 // getErrorMessage provides user-friendly error messages
 func (h *Handlers) getErrorMessage(err error, fallback string) string {
 	errStr := err.Error()
-	
+
 	switch {
 	case contains(errStr, "not found", "document not found"):
 		return "La pagina o l'elemento richiesto non è stato trovato."
@@ -89,7 +89,7 @@ func (h *Handlers) renderErrorPage(c *gin.Context, message string, statusCode in
 		h.renderHTMXError(c, message, statusCode)
 		return
 	}
-	
+
 	// Render full error page
 	data := gin.H{
 		"title":       "Errore",
@@ -97,14 +97,14 @@ func (h *Handlers) renderErrorPage(c *gin.Context, message string, statusCode in
 		"status_code": statusCode,
 		"show_home":   true,
 	}
-	
+
 	content, err := h.templateEngine.Render("error.html", data)
 	if err != nil {
 		// Fallback to simple error response if template rendering fails
 		c.String(statusCode, "Errore: %s", message)
 		return
 	}
-	
+
 	c.Data(statusCode, "text/html; charset=utf-8", []byte(content))
 }
 
@@ -117,7 +117,7 @@ func (h *Handlers) renderHTMXError(c *gin.Context, message string, statusCode in
 			<button onclick="this.parentElement.remove()" style="float: right; background: none; border: none; color: white; cursor: pointer;">×</button>
 		</div>
 	`, message)
-	
+
 	c.Header("HX-Reswap", "innerHTML")
 	c.Data(statusCode, "text/html; charset=utf-8", []byte(errorHTML))
 }
