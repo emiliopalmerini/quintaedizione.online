@@ -50,7 +50,7 @@ func ItemPage(data models.ItemPageData) templ.Component {
 			var templ_7745c5c3_Var3 templ.SafeURL
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/" + data.PageData.Collection))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 8, Col: 54}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/item.templ`, Line: 8, Col: 54}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
@@ -63,7 +63,7 @@ func ItemPage(data models.ItemPageData) templ.Component {
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(data.CollectionLabel)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 8, Col: 101}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/item.templ`, Line: 8, Col: 101}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -81,7 +81,7 @@ func ItemPage(data models.ItemPageData) templ.Component {
 				var templ_7745c5c3_Var5 templ.SafeURL
 				templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/" + data.PageData.Collection + "/" + data.PrevID))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 13, Col: 74}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/item.templ`, Line: 13, Col: 74}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 				if templ_7745c5c3_Err != nil {
@@ -94,7 +94,7 @@ func ItemPage(data models.ItemPageData) templ.Component {
 				var templ_7745c5c3_Var6 string
 				templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs("/" + data.PageData.Collection + "/" + data.PrevID)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 14, Col: 65}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/item.templ`, Line: 14, Col: 65}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 				if templ_7745c5c3_Err != nil {
@@ -118,7 +118,7 @@ func ItemPage(data models.ItemPageData) templ.Component {
 				var templ_7745c5c3_Var7 templ.SafeURL
 				templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/" + data.PageData.Collection + "/" + data.NextID))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 32, Col: 74}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/item.templ`, Line: 32, Col: 74}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 				if templ_7745c5c3_Err != nil {
@@ -131,7 +131,7 @@ func ItemPage(data models.ItemPageData) templ.Component {
 				var templ_7745c5c3_Var8 string
 				templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs("/" + data.PageData.Collection + "/" + data.NextID)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 33, Col: 65}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/item.templ`, Line: 33, Col: 65}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 				if templ_7745c5c3_Err != nil {
@@ -159,7 +159,7 @@ func ItemPage(data models.ItemPageData) templ.Component {
 				var templ_7745c5c3_Var9 string
 				templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(data.PageData.DocTitle)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 53, Col: 54}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/item.templ`, Line: 53, Col: 54}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 				if templ_7745c5c3_Err != nil {
@@ -182,7 +182,7 @@ func ItemPage(data models.ItemPageData) templ.Component {
 				var templ_7745c5c3_Var10 string
 				templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(getMarkdownWithTitle(data.PageData.DocTitle, data.BodyRaw))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 59, Col: 78}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/item.templ`, Line: 59, Col: 78}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 				if templ_7745c5c3_Err != nil {
