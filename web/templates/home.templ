@@ -23,6 +23,30 @@ templ HomePage(data models.HomePageData) {
                 draghi.microfono@gmail.com
 			</div>
 
+			<div class="bg-white border rounded-lg p-4 mb-4 shadow-sm" style="position: relative;">
+				<div class="flex gap-2">
+					<input
+						type="text"
+						name="q"
+						id="global-search"
+						placeholder="Cerca in tutte le collezioni..."
+						class="field flex-1"
+						autocomplete="off"
+						hx-get="/search/dropdown"
+						hx-trigger="keyup changed delay:300ms"
+						hx-target="#search-results"
+						hx-indicator="#search-spinner"
+					/>
+					<div id="search-spinner" class="htmx-indicator flex items-center">
+						<span class="spinner"></span>
+					</div>
+				</div>
+				<p class="text-xs text-gray-500 mt-2">
+					Cerca incantesimi, mostri, classi, oggetti magici e molto altro
+				</p>
+				<div id="search-results" class="search-dropdown"></div>
+			</div>
+
 			if data.Total > 0 {
 				<div class="hero-stats">
 					<span style="color: var(--gray-500);">Totale elementi indicizzati:</span>

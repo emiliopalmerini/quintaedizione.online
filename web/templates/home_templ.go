@@ -44,7 +44,7 @@ func HomePage(data models.HomePageData) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"hero\"><h1>quintaedizione.online</h1><a href=\"https://duedraghialmicrofono.com\" class=\"hero-link\">sostenuto da Due Draghi al Microfono</a><p>Questa applicazione aiuta a sfogliare, cercare e <strong>copiare rapidamente</strong> i contenuti della SRD della 5e 2024. La ricerca testuale è <strong>abbastanza smart</strong> da cercare per tipo: per esempio, cercare 'livello 2' ritorna tutti gli incantesimi di secondo livello;</p><p>In futuro saranno implementati filtri specifici</p><div style=\"background: var(--primary-light); border: 1px solid var(--primary); border-radius: var(--radius-md); padding: var(--space-3); margin: var(--space-4) 0; font-size: var(--font-size-sm);\"><strong>⚠️ Nota sulle traduzioni:</strong> Le traduzioni in italiano sono state realizzate con strumenti automatici e verranno progressivamente migliorate durante la fase beta. Segnala eventuali errori o suggerimenti per aiutarci a migliorare la qualità dei contenuti. draghi.microfono@gmail.com</div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"hero\"><h1>quintaedizione.online</h1><a href=\"https://duedraghialmicrofono.com\" class=\"hero-link\">sostenuto da Due Draghi al Microfono</a><p>Questa applicazione aiuta a sfogliare, cercare e <strong>copiare rapidamente</strong> i contenuti della SRD della 5e 2024. La ricerca testuale è <strong>abbastanza smart</strong> da cercare per tipo: per esempio, cercare 'livello 2' ritorna tutti gli incantesimi di secondo livello;</p><p>In futuro saranno implementati filtri specifici</p><div style=\"background: var(--primary-light); border: 1px solid var(--primary); border-radius: var(--radius-md); padding: var(--space-3); margin: var(--space-4) 0; font-size: var(--font-size-sm);\"><strong>⚠️ Nota sulle traduzioni:</strong> Le traduzioni in italiano sono state realizzate con strumenti automatici e verranno progressivamente migliorate durante la fase beta. Segnala eventuali errori o suggerimenti per aiutarci a migliorare la qualità dei contenuti. draghi.microfono@gmail.com</div><div class=\"bg-white border rounded-lg p-4 mb-4 shadow-sm\" style=\"position: relative;\"><div class=\"flex gap-2\"><input type=\"text\" name=\"q\" id=\"global-search\" placeholder=\"Cerca in tutte le collezioni...\" class=\"field flex-1\" autocomplete=\"off\" hx-get=\"/search/dropdown\" hx-trigger=\"keyup changed delay:300ms\" hx-target=\"#search-results\" hx-indicator=\"#search-spinner\"><div id=\"search-spinner\" class=\"htmx-indicator flex items-center\"><span class=\"spinner\"></span></div></div><p class=\"text-xs text-gray-500 mt-2\">Cerca incantesimi, mostri, classi, oggetti magici e molto altro</p><div id=\"search-results\" class=\"search-dropdown\"></div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -56,7 +56,7 @@ func HomePage(data models.HomePageData) templ.Component {
 				var templ_7745c5c3_Var3 string
 				templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.FormatInt(data.Total, 10))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 29, Col: 71}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 53, Col: 71}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 				if templ_7745c5c3_Err != nil {
@@ -79,7 +79,7 @@ func HomePage(data models.HomePageData) templ.Component {
 				var templ_7745c5c3_Var4 templ.SafeURL
 				templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/" + collection.Name))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 36, Col: 46}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 60, Col: 46}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 				if templ_7745c5c3_Err != nil {
@@ -92,7 +92,7 @@ func HomePage(data models.HomePageData) templ.Component {
 				var templ_7745c5c3_Var5 string
 				templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(collection.Label)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 41, Col: 61}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 65, Col: 61}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 				if templ_7745c5c3_Err != nil {
@@ -105,7 +105,7 @@ func HomePage(data models.HomePageData) templ.Component {
 				var templ_7745c5c3_Var6 string
 				templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(collection.Name)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 42, Col: 85}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 66, Col: 85}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 				if templ_7745c5c3_Err != nil {
@@ -123,7 +123,7 @@ func HomePage(data models.HomePageData) templ.Component {
 					var templ_7745c5c3_Var7 string
 					templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.FormatInt(collection.Count, 10))
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 45, Col: 106}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 69, Col: 106}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 					if templ_7745c5c3_Err != nil {

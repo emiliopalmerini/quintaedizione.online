@@ -54,6 +54,16 @@ func (e *TemplEngine) RenderError(data models.ErrorPageData) (string, error) {
 	return e.renderComponent(templComponents.ErrorPage(data))
 }
 
+// RenderSearch renders the global search results page
+func (e *TemplEngine) RenderSearch(data models.SearchPageData) (string, error) {
+	return e.renderComponent(templComponents.SearchPage(data))
+}
+
+// RenderSearchDropdown renders the search dropdown partial for HTMX
+func (e *TemplEngine) RenderSearchDropdown(results []models.CollectionSearchResult, query string) (string, error) {
+	return e.renderComponent(templComponents.SearchDropdown(results, query))
+}
+
 // renderComponent is a helper that renders any Templ component to string
 func (e *TemplEngine) renderComponent(component templ.Component) (string, error) {
 	var buf bytes.Buffer
