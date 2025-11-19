@@ -137,14 +137,8 @@ func (h *Handlers) handleCollectionList(c *gin.Context) {
 	// Extract filter parameters
 	filters := h.extractFilters(c)
 
-	// Get items from service with filters
-	var rawItems []map[string]any
-	var totalCount int64
-	if len(filters) > 0 {
-		rawItems, totalCount, err = h.contentService.GetCollectionItemsWithFilters(c.Request.Context(), collection, q, filters, pageNum, pageSizeNum)
-	} else {
-		rawItems, totalCount, err = h.contentService.GetCollectionItems(c.Request.Context(), collection, q, pageNum, pageSizeNum)
-	}
+	// Get items from service (filters handled internally)
+	rawItems, totalCount, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, q, filters, pageNum, pageSizeNum)
 	if err != nil {
 		h.ErrorResponse(c, err, fmt.Sprintf("Errore nel caricamento della collezione %s", collection))
 		return
@@ -154,12 +148,7 @@ func (h *Handlers) handleCollectionList(c *gin.Context) {
 	documents := h.documentMapper.ToModels(collection, rawItems)
 
 	// Calculate pagination
-	totalPages := int((totalCount + int64(pageSizeNum) - 1) / int64(pageSizeNum))
-	startItem := (pageNum-1)*pageSizeNum + 1
-	endItem := pageNum * pageSizeNum
-	if endItem > int(totalCount) {
-		endItem = int(totalCount)
-	}
+	pagination := CalculatePaginationData(pageNum, pageSizeNum, totalCount)
 
 	data := models.CollectionPageData{
 		PageData: models.PageData{
@@ -172,11 +161,11 @@ func (h *Handlers) handleCollectionList(c *gin.Context) {
 		Page:       pageNum,
 		PageSize:   pageSizeNum,
 		Total:      totalCount,
-		TotalPages: totalPages,
-		HasNext:    pageNum < totalPages,
-		HasPrev:    pageNum > 1,
-		StartItem:  startItem,
-		EndItem:    endItem,
+		TotalPages: pagination.TotalPages,
+		HasNext:    pagination.HasNext,
+		HasPrev:    pagination.HasPrev,
+		StartItem:  pagination.StartItem,
+		EndItem:    pagination.EndItem,
 	}
 
 	content, err := h.templateEngine.RenderCollection(data)
@@ -283,13 +272,7 @@ func (h *Handlers) handleCollectionRows(c *gin.Context) {
 	filters := h.extractFilters(c)
 
 	// Get filtered items
-	var rawItems []map[string]any
-	var totalCount int64
-	if len(filters) > 0 {
-		rawItems, totalCount, err = h.contentService.GetCollectionItemsWithFilters(c.Request.Context(), collection, q, filters, pageNum, pageSizeNum)
-	} else {
-		rawItems, totalCount, err = h.contentService.GetCollectionItems(c.Request.Context(), collection, q, pageNum, pageSizeNum)
-	}
+	rawItems, totalCount, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, q, filters, pageNum, pageSizeNum)
 	if err != nil {
 		h.ErrorResponse(c, err, fmt.Sprintf("Errore nel caricamento righe per %s", collection))
 		return
@@ -299,12 +282,7 @@ func (h *Handlers) handleCollectionRows(c *gin.Context) {
 	documents := h.documentMapper.ToModels(collection, rawItems)
 
 	// Calculate pagination
-	totalPages := int((totalCount + int64(pageSizeNum) - 1) / int64(pageSizeNum))
-	startItem := (pageNum-1)*pageSizeNum + 1
-	endItem := pageNum * pageSizeNum
-	if endItem > int(totalCount) {
-		endItem = int(totalCount)
-	}
+	pagination := CalculatePaginationData(pageNum, pageSizeNum, totalCount)
 
 	data := models.CollectionPageData{
 		PageData: models.PageData{
@@ -316,11 +294,11 @@ func (h *Handlers) handleCollectionRows(c *gin.Context) {
 		Page:       pageNum,
 		PageSize:   pageSizeNum,
 		Total:      totalCount,
-		TotalPages: totalPages,
-		HasNext:    pageNum < totalPages,
-		HasPrev:    pageNum > 1,
-		StartItem:  startItem,
-		EndItem:    endItem,
+		TotalPages: pagination.TotalPages,
+		HasNext:    pagination.HasNext,
+		HasPrev:    pagination.HasPrev,
+		StartItem:  pagination.StartItem,
+		EndItem:    pagination.EndItem,
 	}
 
 	content, err := h.templateEngine.RenderRows(data)
@@ -446,7 +424,7 @@ func (h *Handlers) handleQuickSearch(c *gin.Context) {
 	}
 
 	// Get search results (limit to 5 for quick search)
-	rawItems, _, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, query, 1, 5)
+	rawItems, _, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, query, nil, 1, 5)
 	if err != nil {
 		h.setCacheHeaders(c, "search")
 		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(""))

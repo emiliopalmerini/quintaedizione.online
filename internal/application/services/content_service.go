@@ -26,31 +26,28 @@ func NewContentService(documentRepo repositories.DocumentRepository, filterServi
 	}
 }
 
-// GetCollectionItems retrieves items from a collection with pagination and search
-func (s *ContentService) GetCollectionItems(ctx context.Context, collection, search string, page, limit int) ([]map[string]any, int64, error) {
+// GetCollectionItems retrieves items from a collection with pagination, search, and optional field filters
+// Pass nil or empty filterParams map to skip field filtering
+func (s *ContentService) GetCollectionItems(ctx context.Context, collection, search string, filterParams map[string]string, page, limit int) ([]map[string]any, int64, error) {
 	// Calculate skip
 	skip := int64((page - 1) * limit)
 
-	// Build search filter using FilterService
+	// Get collection type for filter building
 	collectionType := filters.CollectionType(collection)
+
+	// Build search filter
 	searchFilter := s.filterService.BuildSearchFilter(collectionType, search)
 
-	// Get items using the document repository
-	items, totalCount, err := s.documentRepo.FindMaps(ctx, collection, searchFilter, skip, int64(limit))
-	if err != nil {
-		return nil, 0, fmt.Errorf("failed to get collection items: %w", err)
+	// If no field filters, use search filter only
+	if len(filterParams) == 0 {
+		items, totalCount, err := s.documentRepo.FindMaps(ctx, collection, searchFilter, skip, int64(limit))
+		if err != nil {
+			return nil, 0, fmt.Errorf("failed to get collection items: %w", err)
+		}
+		return items, totalCount, nil
 	}
 
-	return items, totalCount, nil
-}
-
-// GetCollectionItemsWithFilters retrieves items from a collection with pagination, search, and field filters
-func (s *ContentService) GetCollectionItemsWithFilters(ctx context.Context, collection, search string, filterParams map[string]string, page, limit int) ([]map[string]any, int64, error) {
-	// Calculate skip
-	skip := int64((page - 1) * limit)
-
-	// Parse filters using FilterService
-	collectionType := filters.CollectionType(collection)
+	// Parse and apply field filters
 	filterSet, err := s.filterService.ParseFilters(collectionType, filterParams)
 	if err != nil {
 		return nil, 0, fmt.Errorf("failed to parse filters: %w", err)
@@ -61,9 +58,6 @@ func (s *ContentService) GetCollectionItemsWithFilters(ctx context.Context, coll
 	if err != nil {
 		return nil, 0, fmt.Errorf("failed to build field filter: %w", err)
 	}
-
-	// Build search filter
-	searchFilter := s.filterService.BuildSearchFilter(collectionType, search)
 
 	// Combine filters
 	combinedFilter := s.filterService.CombineFilters(fieldFilter, searchFilter)
