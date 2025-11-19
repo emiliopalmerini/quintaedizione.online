@@ -1,18 +1,8 @@
 package parsers
 
-import "github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
-
-// ParsingStrategy defines the interface for all content parsing strategies
-type ParsingStrategy interface {
-	Parse(content []string, context *ParsingContext) ([]domain.ParsedEntity, error)
-	ContentType() ContentType
-	Name() string
-	Description() string
-	Validate(content []string) error
-}
-
-// TemplateParsingStrategy provides template method support for parsing strategies
-type TemplateParsingStrategy interface {
-	ParsingStrategy
-	ParseSection(section []string, context *ParsingContext) (domain.ParsedEntity, error)
-}
+// This file is kept for historical reference.
+// All parsing strategies now implement DocumentParsingStrategy (see document_strategy.go).
+// The legacy ParsingStrategy and TemplateParsingStrategy interfaces have been removed
+// as part of the parser consolidation effort.
+//
+// See internal/application/parsers/document_strategy.go for the current strategy interface.
