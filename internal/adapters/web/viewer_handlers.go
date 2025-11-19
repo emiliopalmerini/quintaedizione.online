@@ -7,12 +7,14 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/config"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/display"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/mappers"
+	webmappers "github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/mappers"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/models"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain/collections"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure/config"
+	infraconfig "github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure/config"
+	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/mappers"
 	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/templates"
 	"github.com/gin-gonic/gin"
 )
@@ -21,17 +23,17 @@ import (
 type Handlers struct {
 	contentService     *services.ContentService
 	templateEngine     *templates.TemplEngine
-	documentMapper     mappers.DocumentMapper
-	collectionMetadata config.CollectionMetadata
+	documentMapper     webmappers.DocumentMapper
+	collectionMetadata infraconfig.CollectionMetadata
 }
 
 // NewHandlers creates a new Handlers instance
 func NewHandlers(contentService *services.ContentService, templateEngine *templates.TemplEngine) *Handlers {
 	displayFactory := display.NewDisplayElementFactory()
-	documentMapper := mappers.NewDocumentMapper(displayFactory)
+	documentMapper := webmappers.NewDocumentMapper(displayFactory)
 
 	// Load collection metadata - fallback to hardcoded titles if config fails
-	collectionMetadata, err := config.NewCollectionMetadata()
+	collectionMetadata, err := infraconfig.NewCollectionMetadata()
 	if err != nil {
 		// Log error and continue with nil metadata (will fallback to hardcoded)
 		fmt.Printf("Warning: Failed to load collection metadata: %v\n", err)
@@ -77,18 +79,15 @@ func (h *Handlers) handleHome(c *gin.Context) {
 	total := int64(0)
 
 	for _, col := range collections {
-		var name string
-		if collectionName, ok := col["collection"].(string); ok {
-			name = collectionName
-		}
+		name := mappers.GetString(col, "collection", "")
+		count := mappers.GetInt64(col, "count", 0)
 
 		collection := models.Collection{
 			Name:  name,
-			Count: 0,
+			Count: count,
 		}
 
-		if count, ok := col["count"].(int64); ok {
-			collection.Count = count
+		if count > 0 {
 			total += count
 		}
 
@@ -190,18 +189,8 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 	}
 
 	// Extract pre-rendered HTML content and raw markdown
-	var bodyHTML string
-	var bodyRaw string
-
-	// Document model: "content" field contains pre-rendered HTML
-	if content, ok := item["content"].(string); ok {
-		bodyHTML = content
-	}
-
-	// Extract raw markdown from "raw_content" field
-	if rawContent, ok := item["raw_content"].(string); ok {
-		bodyRaw = rawContent
-	}
+	bodyHTML := mappers.GetString(item, "content", "")
+	bodyRaw := mappers.GetString(item, "raw_content", "")
 
 	// Get navigation items
 	prevSlug, nextSlug, err := h.contentService.GetAdjacentItems(c.Request.Context(), collection, slug)
@@ -211,10 +200,7 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 	}
 
 	// Get doc title from root level
-	docTitle := ""
-	if title, ok := item["title"].(string); ok {
-		docTitle = title
-	}
+	docTitle := mappers.GetString(item, "title", "")
 
 	// Handle navigation slugs (they're pointers)
 	prevID := ""
@@ -334,20 +320,23 @@ func formatTraitContent(content string) string {
 }
 
 // setCacheHeaders sets appropriate cache headers for D&D content responses
-func (h *Handlers) setCacheHeaders(c *gin.Context, cacheType string) {
-	var maxAge int
-	switch cacheType {
+func (h *Handlers) setCacheHeaders(c *gin.Context, cacheTypeStr string) {
+	// Map string cache type to config type
+	var cacheType config.CacheType
+	switch cacheTypeStr {
 	case "home":
-		maxAge = 3600 // 1 hour - home page with collection stats
+		cacheType = config.CacheTypeHome
 	case "collection":
-		maxAge = 1800 // 30 minutes - collection lists and rows
+		cacheType = config.CacheTypeCollection
 	case "item":
-		maxAge = 14400 // 4 hours - individual item details (considering D&D session prep time)
+		cacheType = config.CacheTypeItem
 	case "search":
-		maxAge = 0 // No cache for search results
+		cacheType = config.CacheTypeSearch
 	default:
-		maxAge = 1800 // Default 30 minutes
+		cacheType = config.CacheTypeCollection
 	}
+
+	maxAge := config.GetCacheDuration(cacheType)
 
 	if maxAge > 0 {
 		c.Header("Cache-Control", fmt.Sprintf("max-age=%d, public", maxAge))
@@ -365,29 +354,8 @@ func (h *Handlers) getCollectionTitle(collection string) string {
 		return h.collectionMetadata.GetTitle(collection)
 	}
 
-	// Fallback to hardcoded titles
-	titles := map[string]string{
-		"incantesimi":         "Incantesimi",
-		"mostri":              "Mostri",
-		"classi":              "Classi",
-		"backgrounds":         "Background",
-		"equipaggiamenti":     "Equipaggiamento",
-		"armi":                "Armi",
-		"armature":            "Armature",
-		"oggetti_magici":      "Oggetti Magici",
-		"talenti":             "Talenti",
-		"servizi":             "Servizi",
-		"strumenti":           "Strumenti",
-		"animali":             "Animali",
-		"regole":              "Regole",
-		"cavalcature_veicoli": "Cavalcature e Veicoli",
-	}
-
-	if title, exists := titles[collection]; exists {
-		return title
-	}
-
-	return collection
+	// Fallback to config package titles
+	return config.GetCollectionTitle(collection)
 }
 
 // extractFilters extracts all query parameters (except special ones) as filter parameters
@@ -434,17 +402,8 @@ func (h *Handlers) handleQuickSearch(c *gin.Context) {
 	// Generate HTML for results
 	html := ""
 	for _, item := range rawItems {
-		var title, slug string
-
-		// Extract title from root level
-		if t, ok := item["title"].(string); ok {
-			title = t
-		}
-
-		// Extract slug from _id
-		if id, ok := item["_id"].(string); ok {
-			slug = id
-		}
+		title := mappers.GetString(item, "title", "")
+		slug := mappers.GetString(item, "_id", "")
 
 		if title != "" && slug != "" {
 			html += fmt.Sprintf(`<a href="/%s/%s" class="search-result" tabindex="-1">
