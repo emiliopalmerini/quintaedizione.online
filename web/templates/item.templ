@@ -4,10 +4,11 @@ import "github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/model
 
 templ ItemPage(data models.ItemPageData) {
 	@BaseLayout(data.PageData) {
-		<div class="flex items-center justify-between mb-8 pb-4" style="border-bottom: 1px solid var(--notion-border);">
+		<!-- Header Navigation -->
+		<div class="item-header">
 			<a href={ templ.URL("/" + data.PageData.Collection) } class="btn">← Lista { data.CollectionLabel }</a>
 			
-			<div class="flex items-center gap-2">
+			<div class="item-nav">
 				if data.PrevID != "" {
 					<a class="btn" 
 						href={ templ.URL("/" + data.PageData.Collection + "/" + data.PrevID) }
@@ -21,7 +22,7 @@ templ ItemPage(data models.ItemPageData) {
 						← Precedente
 					</a>
 				} else {
-					<a class="btn" style="opacity: 0.3; pointer-events: none;">
+					<a class="btn btn-disabled">
 						<span class="htmx-indicator">⟳</span>
 						← Precedente
 					</a>
@@ -40,7 +41,7 @@ templ ItemPage(data models.ItemPageData) {
 						Successivo →
 					</a>
 				} else {
-					<a class="btn" style="opacity: 0.3; pointer-events: none;">
+					<a class="btn btn-disabled">
 						<span class="htmx-indicator">⟳</span>
 						Successivo →
 					</a>
@@ -50,24 +51,24 @@ templ ItemPage(data models.ItemPageData) {
 
 		<!-- Item title -->
 		if data.PageData.DocTitle != "" {
-			<h1 class="notion-h1 mb-6">{ data.PageData.DocTitle }</h1>
+			<h1 class="item-title">{ data.PageData.DocTitle }</h1>
 		}
 
 		<!-- Item content -->
-		<article data-md-section>
+		<article class="item-content" data-markdown>
 			if data.BodyHTML != "" {
 				<div data-raw={ getMarkdownWithTitle(data.PageData.DocTitle, data.BodyRaw) }>
 					@templ.Raw(data.BodyHTML)
 				</div>
 			} else {
-				<div style="color: var(--notion-text-light); font-style: italic;">Nessuna descrizione disponibile.</div>
+				<div class="empty-state">Nessuna descrizione disponibile.</div>
 			}
 		</article>
 
 		<!-- Action buttons -->
-		<div class="mt-6 pt-4" style="border-top: 1px solid var(--notion-border);">
-			<button onclick="copyMarkdown(this)" class="btn btn-ghost">
-				Copia Markdown
+		<div class="item-footer">
+			<button onclick="copyMarkdown(this)" class="btn btn-primary">
+				📋 Copia Markdown
 			</button>
 		</div>
 	}
