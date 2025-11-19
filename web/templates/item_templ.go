@@ -43,14 +43,14 @@ func ItemPage(data models.ItemPageData) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"flex items-center justify-between mb-8 pb-4\" style=\"border-bottom: 1px solid var(--notion-border);\"><a href=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!-- Header Navigation --> <div class=\"item-header\"><a href=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 templ.SafeURL
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/" + data.PageData.Collection))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 8, Col: 54}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 9, Col: 54}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
@@ -63,13 +63,13 @@ func ItemPage(data models.ItemPageData) templ.Component {
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(data.CollectionLabel)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 8, Col: 101}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 9, Col: 101}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</a><div class=\"flex items-center gap-2\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</a><div class=\"item-nav\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -81,7 +81,7 @@ func ItemPage(data models.ItemPageData) templ.Component {
 				var templ_7745c5c3_Var5 templ.SafeURL
 				templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/" + data.PageData.Collection + "/" + data.PrevID))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 13, Col: 74}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 14, Col: 74}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 				if templ_7745c5c3_Err != nil {
@@ -94,7 +94,7 @@ func ItemPage(data models.ItemPageData) templ.Component {
 				var templ_7745c5c3_Var6 string
 				templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs("/" + data.PageData.Collection + "/" + data.PrevID)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 14, Col: 65}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 15, Col: 65}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 				if templ_7745c5c3_Err != nil {
@@ -105,7 +105,7 @@ func ItemPage(data models.ItemPageData) templ.Component {
 					return templ_7745c5c3_Err
 				}
 			} else {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<a class=\"btn\" style=\"opacity: 0.3; pointer-events: none;\"><span class=\"htmx-indicator\">⟳</span> ← Precedente</a> ")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<a class=\"btn btn-disabled\"><span class=\"htmx-indicator\">⟳</span> ← Precedente</a> ")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -118,7 +118,7 @@ func ItemPage(data models.ItemPageData) templ.Component {
 				var templ_7745c5c3_Var7 templ.SafeURL
 				templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/" + data.PageData.Collection + "/" + data.NextID))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 32, Col: 74}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 33, Col: 74}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 				if templ_7745c5c3_Err != nil {
@@ -131,7 +131,7 @@ func ItemPage(data models.ItemPageData) templ.Component {
 				var templ_7745c5c3_Var8 string
 				templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs("/" + data.PageData.Collection + "/" + data.NextID)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 33, Col: 65}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 34, Col: 65}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 				if templ_7745c5c3_Err != nil {
@@ -142,7 +142,7 @@ func ItemPage(data models.ItemPageData) templ.Component {
 					return templ_7745c5c3_Err
 				}
 			} else {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "<a class=\"btn\" style=\"opacity: 0.3; pointer-events: none;\"><span class=\"htmx-indicator\">⟳</span> Successivo →</a>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "<a class=\"btn btn-disabled\"><span class=\"htmx-indicator\">⟳</span> Successivo →</a>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -152,14 +152,14 @@ func ItemPage(data models.ItemPageData) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			if data.PageData.DocTitle != "" {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "<h1 class=\"notion-h1 mb-6\">")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "<h1 class=\"item-title\">")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 				var templ_7745c5c3_Var9 string
 				templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(data.PageData.DocTitle)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 53, Col: 54}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 54, Col: 50}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 				if templ_7745c5c3_Err != nil {
@@ -170,7 +170,7 @@ func ItemPage(data models.ItemPageData) templ.Component {
 					return templ_7745c5c3_Err
 				}
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, " <!-- Item content --> <article data-md-section>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, " <!-- Item content --> <article class=\"item-content\" data-markdown>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -182,7 +182,7 @@ func ItemPage(data models.ItemPageData) templ.Component {
 				var templ_7745c5c3_Var10 string
 				templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(getMarkdownWithTitle(data.PageData.DocTitle, data.BodyRaw))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 59, Col: 78}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `item.templ`, Line: 60, Col: 78}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 				if templ_7745c5c3_Err != nil {
@@ -201,12 +201,12 @@ func ItemPage(data models.ItemPageData) templ.Component {
 					return templ_7745c5c3_Err
 				}
 			} else {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "<div style=\"color: var(--notion-text-light); font-style: italic;\">Nessuna descrizione disponibile.</div>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "<div class=\"empty-state\">Nessuna descrizione disponibile.</div>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</article><!-- Action buttons --> <div class=\"mt-6 pt-4\" style=\"border-top: 1px solid var(--notion-border);\"><button onclick=\"copyMarkdown(this)\" class=\"btn btn-ghost\">Copia Markdown</button></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</article><!-- Action buttons --> <div class=\"item-footer\"><button onclick=\"copyMarkdown(this)\" class=\"btn btn-primary\">📋 Copia Markdown</button></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

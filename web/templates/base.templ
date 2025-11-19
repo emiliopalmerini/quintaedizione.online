@@ -325,6 +325,50 @@ templ baseScripts() {
 
 		document.addEventListener('DOMContentLoaded', initStickySearchShadow);
 		document.body.addEventListener('htmx:afterSwap', initStickySearchShadow);
+
+		// Global search ESC handling
+		function initGlobalSearch() {
+			const searchInput = document.getElementById('global-search');
+			const searchResults = document.getElementById('search-results');
+			const searchForm = document.getElementById('search-form');
+			const searchCloseBtn = document.getElementById('search-close-btn');
+
+			if (!searchInput) return;
+
+			// ESC key closes dropdown and clears search
+			searchInput.addEventListener('keydown', function(e) {
+				if (e.key === 'Escape') {
+					e.preventDefault();
+					if (searchResults) {
+						searchResults.innerHTML = '';
+					}
+					if (searchForm) {
+						searchForm.reset();
+					}
+					this.blur();
+				}
+			});
+
+			// Click outside closes dropdown
+			document.addEventListener('click', function(e) {
+				if (searchInput && searchResults && !searchInput.closest('.search-container-wrapper').contains(e.target)) {
+					searchResults.innerHTML = '';
+				}
+			});
+
+			// Close button clears and closes
+			if (searchCloseBtn) {
+				searchCloseBtn.addEventListener('click', function() {
+					if (searchResults) {
+						searchResults.innerHTML = '';
+					}
+					searchInput.focus();
+				});
+			}
+		}
+
+		document.addEventListener('DOMContentLoaded', initGlobalSearch);
+		document.body.addEventListener('htmx:afterSwap', initGlobalSearch);
 	</script>
 }
 

@@ -23,28 +23,42 @@ templ HomePage(data models.HomePageData) {
                 draghi.microfono@gmail.com
 			</div>
 
-			<div class="bg-white border rounded-lg p-4 mb-4 shadow-sm" style="position: relative;">
-				<div class="flex gap-2">
-					<input
-						type="text"
-						name="q"
-						id="global-search"
-						placeholder="Cerca in tutte le collezioni..."
-						class="field flex-1"
-						autocomplete="off"
-						hx-get="/search/dropdown"
-						hx-trigger="keyup changed delay:300ms"
-						hx-target="#search-results"
-						hx-indicator="#search-spinner"
-					/>
-					<div id="search-spinner" class="htmx-indicator flex items-center">
-						<span class="spinner"></span>
+			<div class="search-container-wrapper">
+				<form id="search-form" hx-get="/search/dropdown" hx-trigger="keyup changed delay:300ms from:#global-search" hx-target="#search-results" hx-indicator="#search-spinner">
+					<div class="search-input-group">
+						<svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+							<path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							<path d="M19 19L14.65 14.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+						<input
+							type="text"
+							name="q"
+							id="global-search"
+							placeholder="Cerca in tutte le collezioni..."
+							class="field flex-1"
+							autocomplete="off"
+							aria-label="Cerca contenuti"
+							aria-describedby="search-description"
+							aria-controls="search-results"
+							aria-autocomplete="list"
+						/>
+						<div id="search-spinner" class="htmx-indicator flex items-center">
+							<span class="spinner"></span>
+						</div>
+						<button
+							type="reset"
+							id="search-close-btn"
+							class="search-close-btn"
+							aria-label="Cancella ricerca"
+						>
+							✕
+						</button>
 					</div>
-				</div>
-				<p class="text-xs text-gray-500 mt-2">
+				</form>
+				<p id="search-description" class="text-xs text-gray-500 mt-2">
 					Cerca incantesimi, mostri, classi, oggetti magici e molto altro
 				</p>
-				<div id="search-results" class="search-dropdown"></div>
+				<div id="search-results" class="search-dropdown" role="listbox" aria-live="polite"></div>
 			</div>
 
 			if data.Total > 0 {
