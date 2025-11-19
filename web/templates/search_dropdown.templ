@@ -1,0 +1,57 @@
+package templates
+
+import "github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/models"
+import "strconv"
+import "fmt"
+
+templ SearchDropdown(results []models.CollectionSearchResult, query string) {
+	if len(results) == 0 && query != "" {
+		<div class="search-dropdown-empty">
+			<p>Nessun risultato trovato per "<strong>{ query }</strong>"</p>
+		</div>
+	} else if len(results) > 0 {
+		for _, result := range results {
+			<div class="search-dropdown-section">
+				<div class="search-dropdown-header">
+					<span class="search-dropdown-title">{ result.CollectionLabel }</span>
+					<span class="search-dropdown-count">
+						{ strconv.FormatInt(result.Total, 10) }
+						if result.Total == 1 {
+							risultato
+						} else {
+							risultati
+						}
+					</span>
+				</div>
+				<div>
+					for _, doc := range result.Documents {
+						<a
+							href={ templ.URL(fmt.Sprintf("/%s/%s", result.CollectionName, doc.ID)) }
+							class="search-dropdown-item"
+						>
+							<div class="search-dropdown-item-title">{ doc.Title }</div>
+							if len(doc.DisplayElements) > 0 {
+								<div class="search-dropdown-item-meta">
+									for _, elem := range doc.DisplayElements {
+										if elem.Value != "" {
+											<span class="search-dropdown-badge">{ elem.Value }</span>
+										}
+									}
+								</div>
+							}
+						</a>
+					}
+					if result.HasMore {
+						<a
+							href={ templ.URL(fmt.Sprintf("/%s?q=%s", result.CollectionName, query)) }
+							class="search-dropdown-item"
+							style="background: var(--gray-50); font-weight: 500; color: var(--primary);"
+						>
+							Vedi tutti i { strconv.FormatInt(result.Total, 10) } risultati in { result.CollectionLabel } →
+						</a>
+					}
+				</div>
+			</div>
+		}
+	}
+}

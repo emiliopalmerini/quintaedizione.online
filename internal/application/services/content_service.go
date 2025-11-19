@@ -131,3 +131,56 @@ func (s *ContentService) GetCollectionStats(ctx context.Context) ([]map[string]a
 func (s *ContentService) GetAdjacentItems(ctx context.Context, collection, currentSlug string) (prevSlug, nextSlug *string, err error) {
 	return s.documentRepo.GetAdjacentMaps(ctx, collection, currentSlug)
 }
+
+// SearchResult represents a search result from a single collection
+type SearchResult struct {
+	Collection string         `json:"collection"`
+	Items      []map[string]any `json:"items"`
+	Total      int64          `json:"total"`
+}
+
+// GlobalSearch searches across all collections and returns results grouped by collection
+func (s *ContentService) GlobalSearch(ctx context.Context, query string, limitPerCollection int) ([]SearchResult, error) {
+	if query == "" {
+		return []SearchResult{}, nil
+	}
+
+	// Get all collection names from the cache or repository
+	allCollections, err := s.documentRepo.GetAllCollectionStats(ctx)
+	if err != nil {
+		return nil, fmt.Errorf("failed to get collections: %w", err)
+	}
+
+	results := make([]SearchResult, 0)
+
+	// Search in each collection
+	for _, collectionInfo := range allCollections {
+		collectionName, ok := collectionInfo["collection"].(string)
+		if !ok {
+			continue
+		}
+
+		// Build search filter for this collection
+		collectionType := filters.CollectionType(collectionName)
+		searchFilter := s.filterService.BuildSearchFilter(collectionType, query)
+
+		// Search in this collection with limit
+		items, total, err := s.documentRepo.FindMaps(ctx, collectionName, searchFilter, 0, int64(limitPerCollection))
+		if err != nil {
+			// Log error but continue with other collections
+			fmt.Printf("Warning: Failed to search in collection %s: %v\n", collectionName, err)
+			continue
+		}
+
+		// Only include collections with results
+		if total > 0 {
+			results = append(results, SearchResult{
+				Collection: collectionName,
+				Items:      items,
+				Total:      total,
+			})
+		}
+	}
+
+	return results, nil
+}

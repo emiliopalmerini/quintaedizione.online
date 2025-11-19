@@ -50,6 +50,10 @@ func (h *Handlers) RegisterRoutes(router *gin.Engine) {
 	// Main page
 	router.GET("/", h.handleHome)
 
+	// Global search
+	router.GET("/search", h.handleGlobalSearch)
+	router.GET("/search/dropdown", h.handleSearchDropdown)
+
 	// Collection pages
 	router.GET("/:collection", h.handleCollectionList)
 	router.GET("/:collection/rows", h.handleCollectionRows) // HTMX rows endpoint
@@ -493,4 +497,106 @@ func (h *Handlers) getDefaultCollections() []map[string]any {
 	}
 
 	return result
+}
+
+// handleGlobalSearch handles global search across all collections
+func (h *Handlers) handleGlobalSearch(c *gin.Context) {
+	query := c.Query("q")
+
+	if query == "" {
+		c.Redirect(http.StatusFound, "/")
+		return
+	}
+
+	// Search across all collections (limit 5 results per collection)
+	searchResults, err := h.contentService.GlobalSearch(c.Request.Context(), query, 5)
+	if err != nil {
+		h.ErrorResponse(c, err, "Errore durante la ricerca")
+		return
+	}
+
+	// Convert to page data
+	results := make([]models.CollectionSearchResult, 0, len(searchResults))
+	totalResults := int64(0)
+
+	for _, sr := range searchResults {
+		// Convert raw items to typed documents
+		documents := h.documentMapper.ToModels(sr.Collection, sr.Items)
+
+		results = append(results, models.CollectionSearchResult{
+			CollectionName:  sr.Collection,
+			CollectionLabel: h.getCollectionTitle(sr.Collection),
+			Documents:       documents,
+			Total:           sr.Total,
+			HasMore:         sr.Total > int64(len(sr.Items)),
+		})
+
+		totalResults += sr.Total
+	}
+
+	data := models.SearchPageData{
+		PageData: models.PageData{
+			Title:       fmt.Sprintf("Risultati per: %s", query),
+			Description: "Risultati della ricerca globale",
+			QueryString: c.Request.URL.RawQuery,
+		},
+		Query:   query,
+		Results: results,
+		Total:   totalResults,
+	}
+
+	content, err := h.templateEngine.RenderSearch(data)
+	if err != nil {
+		h.ErrorResponse(c, err, "Errore nel rendering della pagina di ricerca")
+		return
+	}
+
+	h.setCacheHeaders(c, "search")
+	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
+}
+
+// handleSearchDropdown handles HTMX dropdown search requests
+func (h *Handlers) handleSearchDropdown(c *gin.Context) {
+	query := c.Query("q")
+
+	// Return empty if no query
+	if query == "" {
+		h.setCacheHeaders(c, "search")
+		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(""))
+		return
+	}
+
+	// Search across all collections (limit 3 results per collection for dropdown)
+	searchResults, err := h.contentService.GlobalSearch(c.Request.Context(), query, 3)
+	if err != nil {
+		h.setCacheHeaders(c, "search")
+		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(""))
+		return
+	}
+
+	// Convert to page data
+	results := make([]models.CollectionSearchResult, 0, len(searchResults))
+
+	for _, sr := range searchResults {
+		// Convert raw items to typed documents
+		documents := h.documentMapper.ToModels(sr.Collection, sr.Items)
+
+		results = append(results, models.CollectionSearchResult{
+			CollectionName:  sr.Collection,
+			CollectionLabel: h.getCollectionTitle(sr.Collection),
+			Documents:       documents,
+			Total:           sr.Total,
+			HasMore:         sr.Total > int64(len(sr.Items)),
+		})
+	}
+
+	content, err := h.templateEngine.RenderSearchDropdown(results, query)
+	if err != nil {
+		h.setCacheHeaders(c, "search")
+		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(""))
+		return
+	}
+
+	h.setCacheHeaders(c, "search")
+	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
 }
