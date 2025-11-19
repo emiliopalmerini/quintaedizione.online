@@ -202,27 +202,63 @@ func (b *MongoFilterBuilder) buildInMatch(fieldPath, value string) (bson.M, erro
 	return bson.M{fieldPath: bson.M{"$in": trimmedValues}}, nil
 }
 
-// BuildSearchFilter builds a text search filter (separate from field filters)
+// BuildSearchFilter builds a fuzzy text search filter (separate from field filters)
 func (b *MongoFilterBuilder) BuildSearchFilter(collection filters.CollectionType, searchTerm string) bson.M {
 	if searchTerm == "" {
 		return bson.M{}
 	}
 
-	escapedSearch := regexp.QuoteMeta(searchTerm)
+	// Build fuzzy regex pattern - allows for partial matches and word boundaries
+	fuzzyPattern := b.buildFuzzyPattern(searchTerm)
 
 	// Base search fields that apply to all collections
 	baseSearchFields := []bson.M{
-		{"title": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		{"content": bson.M{"$regex": escapedSearch, "$options": "i"}},
+		{"title": bson.M{"$regex": fuzzyPattern, "$options": "i"}},
+		{"content": bson.M{"$regex": fuzzyPattern, "$options": "i"}},
 	}
 
 	// Collection-specific search fields
-	collectionSpecificFields := b.getCollectionSpecificSearchFields(collection, escapedSearch)
+	collectionSpecificFields := b.getCollectionSpecificSearchFields(collection, fuzzyPattern)
 
 	// Combine base and collection-specific fields
 	searchFields := append(baseSearchFields, collectionSpecificFields...)
 
 	return bson.M{"$or": searchFields}
+}
+
+// buildFuzzyPattern builds a fuzzy search regex pattern
+// Splits the search term into words and allows partial matching
+func (b *MongoFilterBuilder) buildFuzzyPattern(searchTerm string) string {
+	// Trim and normalize whitespace
+	searchTerm = strings.TrimSpace(searchTerm)
+	if searchTerm == "" {
+		return ""
+	}
+
+	// Split into words
+	words := strings.Fields(searchTerm)
+	if len(words) == 0 {
+		return ""
+	}
+
+	// Build pattern for each word
+	var patterns []string
+	for _, word := range words {
+		// Escape special regex characters but allow for fuzzy matching
+		escaped := regexp.QuoteMeta(word)
+		// Allow word to appear anywhere (not just at word boundaries)
+		patterns = append(patterns, escaped)
+	}
+
+	// Join all word patterns with .* to allow any characters between them
+	// This creates a pattern like: (?=.*word1)(?=.*word2) for AND matching
+	// Or just join them for sequential fuzzy matching
+	if len(patterns) == 1 {
+		return patterns[0]
+	}
+
+	// Use sequential matching for multi-word queries (more intuitive)
+	return strings.Join(patterns, ".*")
 }
 
 // getCollectionSpecificSearchFields returns search fields specific to each collection

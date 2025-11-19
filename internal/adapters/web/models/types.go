@@ -69,3 +69,20 @@ type ErrorPageData struct {
 	ErrorMessage string
 	ErrorCode    int
 }
+
+// CollectionSearchResult represents search results from a single collection
+type CollectionSearchResult struct {
+	CollectionName  string
+	CollectionLabel string
+	Documents       []Document
+	Total           int64
+	HasMore         bool
+}
+
+// SearchPageData represents data for global search results page
+type SearchPageData struct {
+	PageData
+	Query   string
+	Results []CollectionSearchResult
+	Total   int64
+}

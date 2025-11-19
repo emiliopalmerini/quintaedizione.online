@@ -452,6 +452,97 @@ body {
   z-index: 50;
 }
 
+.search-dropdown {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + var(--space-2));
+  max-height: 480px;
+  overflow-y: auto;
+  background: var(--notion-bg);
+  border: 1px solid var(--notion-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  z-index: 50;
+}
+
+.search-dropdown:empty {
+  display: none;
+}
+
+.search-dropdown-section {
+  border-bottom: 1px solid var(--notion-border);
+}
+
+.search-dropdown-section:last-child {
+  border-bottom: none;
+}
+
+.search-dropdown-header {
+  padding: var(--space-3) var(--space-4);
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--notion-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-dropdown-title {
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  color: var(--notion-text);
+}
+
+.search-dropdown-count {
+  font-size: var(--font-size-xs);
+  color: var(--notion-text-light);
+}
+
+.search-dropdown-item {
+  display: block;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--notion-border);
+  color: var(--notion-text);
+  text-decoration: none;
+  transition: background-color 20ms ease-in 0s;
+}
+
+.search-dropdown-item:hover,
+.search-dropdown-item:focus {
+  background: var(--notion-hover);
+  outline: none;
+}
+
+.search-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.search-dropdown-item-title {
+  font-weight: 500;
+  margin-bottom: var(--space-1);
+}
+
+.search-dropdown-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+}
+
+.search-dropdown-badge {
+  background: var(--gray-100);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  color: var(--notion-text-light);
+}
+
+.search-dropdown-empty {
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+  color: var(--notion-text-light);
+}
+
 .search-result {
   display: block;
   padding: var(--space-3);
