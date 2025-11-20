@@ -54,17 +54,8 @@ func main() {
 	}
 	log.Println("✅ MongoDB connection established")
 
-	// Initialize database indexes for optimal query performance
+	// Initialize database index manager (indexes will be created after parsing)
 	indexManager := database.NewIndexManager(mongoClient)
-	indexCtx, indexCancel := context.WithTimeout(context.Background(), 30*time.Second)
-	defer indexCancel()
-
-	if err := indexManager.EnsureIndexes(indexCtx); err != nil {
-		log.Printf("⚠️  Failed to create indexes: %v", err)
-		// Don't fail startup, indexes can be created later
-	} else {
-		log.Println("✅ Database indexes ensured")
-	}
 
 	// Initialize repository factory (needed for parsing)
 	repositoryFactory := repositories.NewRepositoryFactory(mongoClient)
