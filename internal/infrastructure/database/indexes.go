@@ -46,11 +46,6 @@ func (im *IndexManager) createCollectionIndexes(ctx context.Context, collectionN
 
 	// Common indexes for all collections
 	commonIndexes := []mongo.IndexModel{
-		// Primary lookup indexes
-		{
-			Keys:    bson.D{{Key: "slug", Value: 1}},
-			Options: options.Index().SetName("slug_1").SetUnique(true).SetBackground(true),
-		},
 		// Source file index for administrative queries
 		{
 			Keys:    bson.D{{Key: "source_file", Value: 1}},

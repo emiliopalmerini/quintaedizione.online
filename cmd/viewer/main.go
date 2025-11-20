@@ -71,7 +71,7 @@ func main() {
 
 	// Parse markdown files into database on startup
 	log.Println("🔄 Parsing markdown files...")
-	if err := parseMarkdownFiles(repositoryFactory); err != nil {
+	if err := parseMarkdownFiles(repositoryFactory, indexManager); err != nil {
 		log.Fatalf("❌ Failed to parse markdown files: %v", err)
 	}
 
@@ -172,7 +172,7 @@ func main() {
 }
 
 // parseMarkdownFiles parses all markdown files into the database on startup
-func parseMarkdownFiles(repositoryFactory *repositories.RepositoryFactory) error {
+func parseMarkdownFiles(repositoryFactory *repositories.RepositoryFactory, indexManager *database.IndexManager) error {
 	ctx := context.Background()
 
 	// Drop all collections before parsing to ensure clean state
@@ -190,6 +190,16 @@ func parseMarkdownFiles(repositoryFactory *repositories.RepositoryFactory) error
 		}
 	}
 	log.Println("✅ Collections dropped")
+
+	// Recreate indexes after dropping collections
+	indexCtx, indexCancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer indexCancel()
+	if err := indexManager.EnsureIndexes(indexCtx); err != nil {
+		log.Printf("⚠️  Warning: Failed to recreate indexes: %v", err)
+		// Continue with parsing even if indexes fail
+	} else {
+		log.Println("✅ Indexes recreated")
+	}
 
 	// Create Document parser registry
 	documentRegistry, err := parsers.CreateDocumentRegistry()
