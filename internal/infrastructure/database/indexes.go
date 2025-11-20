@@ -46,24 +46,6 @@ func (im *IndexManager) createCollectionIndexes(ctx context.Context, collectionN
 
 	// Common indexes for all collections
 	commonIndexes := []mongo.IndexModel{
-		// Primary search fields
-		{
-			Keys:    bson.D{{Key: "nome", Value: 1}},
-			Options: options.Index().SetName("nome_1").SetBackground(true),
-		},
-		{
-			Keys:    bson.D{{Key: "slug", Value: 1}},
-			Options: options.Index().SetName("slug_1").SetUnique(true).SetBackground(true),
-		},
-		// Text search index for full-text search
-		{
-			Keys: bson.D{
-				{Key: "nome", Value: "text"},
-				{Key: "contenuto", Value: "text"},
-				{Key: "descrizione", Value: "text"},
-			},
-			Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
-		},
 		// Source file index for administrative queries
 		{
 			Keys:    bson.D{{Key: "source_file", Value: 1}},
@@ -92,6 +74,7 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 	switch collectionName {
 	case "incantesimi":
 		return []mongo.IndexModel{
+			// Lookup indexes
 			{
 				Keys:    bson.D{{Key: "livello", Value: 1}},
 				Options: options.Index().SetName("livello_1").SetBackground(true),
@@ -111,10 +94,24 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 				Keys:    bson.D{{Key: "classi", Value: 1}},
 				Options: options.Index().SetName("classi_1").SetBackground(true),
 			},
+			// Unified text search index (base fields + collection-specific fields)
+			// Note: MongoDB allows only one text index per collection
+			{
+				Keys: bson.D{
+					{Key: "title", Value: "text"},
+					{Key: "content", Value: "text"},
+					{Key: "raw_content", Value: "text"},
+					{Key: "filters.scuola", Value: "text"},
+					{Key: "filters.livello", Value: "text"},
+					{Key: "filters.classe", Value: "text"},
+				},
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
+			},
 		}
 
 	case "mostri", "animali":
 		return []mongo.IndexModel{
+			// Lookup indexes
 			{
 				Keys:    bson.D{{Key: "gs", Value: 1}},
 				Options: options.Index().SetName("gs_1").SetBackground(true),
@@ -142,10 +139,24 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 				},
 				Options: options.Index().SetName("tipo_taglia_1").SetBackground(true),
 			},
+			// Unified text search index (base fields + collection-specific fields)
+			{
+				Keys: bson.D{
+					{Key: "title", Value: "text"},
+					{Key: "content", Value: "text"},
+					{Key: "raw_content", Value: "text"},
+					{Key: "filters.tipo", Value: "text"},
+					{Key: "filters.taglia", Value: "text"},
+					{Key: "filters.ambiente", Value: "text"},
+					{Key: "filters.allineamento", Value: "text"},
+				},
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
+			},
 		}
 
 	case "armi":
 		return []mongo.IndexModel{
+			// Lookup indexes
 			{
 				Keys:    bson.D{{Key: "categoria", Value: 1}},
 				Options: options.Index().SetName("categoria_1").SetBackground(true),
@@ -154,10 +165,23 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 				Keys:    bson.D{{Key: "tipo_danno", Value: 1}},
 				Options: options.Index().SetName("tipo_danno_1").SetBackground(true),
 			},
+			// Unified text search index
+			{
+				Keys: bson.D{
+					{Key: "title", Value: "text"},
+					{Key: "content", Value: "text"},
+					{Key: "raw_content", Value: "text"},
+					{Key: "filters.categoria", Value: "text"},
+					{Key: "filters.tipo_danno", Value: "text"},
+					{Key: "filters.proprieta", Value: "text"},
+				},
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
+			},
 		}
 
 	case "armature":
 		return []mongo.IndexModel{
+			// Lookup indexes
 			{
 				Keys:    bson.D{{Key: "categoria", Value: 1}},
 				Options: options.Index().SetName("categoria_1").SetBackground(true),
@@ -166,10 +190,22 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 				Keys:    bson.D{{Key: "ca_base", Value: 1}},
 				Options: options.Index().SetName("ca_base_1").SetBackground(true),
 			},
+			// Unified text search index
+			{
+				Keys: bson.D{
+					{Key: "title", Value: "text"},
+					{Key: "content", Value: "text"},
+					{Key: "raw_content", Value: "text"},
+					{Key: "filters.categoria", Value: "text"},
+					{Key: "filters.tipo", Value: "text"},
+				},
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
+			},
 		}
 
 	case "oggetti_magici":
 		return []mongo.IndexModel{
+			// Lookup indexes
 			{
 				Keys:    bson.D{{Key: "rarita", Value: 1}},
 				Options: options.Index().SetName("rarita_1").SetBackground(true),
@@ -178,22 +214,58 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 				Keys:    bson.D{{Key: "tipo", Value: 1}},
 				Options: options.Index().SetName("tipo_1").SetBackground(true),
 			},
+			// Unified text search index
+			{
+				Keys: bson.D{
+					{Key: "title", Value: "text"},
+					{Key: "content", Value: "text"},
+					{Key: "raw_content", Value: "text"},
+					{Key: "filters.tipo", Value: "text"},
+					{Key: "filters.rarita", Value: "text"},
+					{Key: "filters.sintonia", Value: "text"},
+				},
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
+			},
 		}
 
 	case "talenti":
 		return []mongo.IndexModel{
+			// Lookup indexes
 			{
 				Keys:    bson.D{{Key: "categoria", Value: 1}},
 				Options: options.Index().SetName("categoria_1").SetBackground(true),
+			},
+			// Unified text search index
+			{
+				Keys: bson.D{
+					{Key: "title", Value: "text"},
+					{Key: "content", Value: "text"},
+					{Key: "raw_content", Value: "text"},
+					{Key: "filters.categoria", Value: "text"},
+					{Key: "filters.prerequisiti", Value: "text"},
+				},
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
 			},
 		}
 
 	default:
 		// Default indexes for other collections
 		return []mongo.IndexModel{
+			// Lookup indexes
 			{
 				Keys:    bson.D{{Key: "categoria", Value: 1}},
 				Options: options.Index().SetName("categoria_1").SetBackground(true),
+			},
+			// Default unified text search index
+			{
+				Keys: bson.D{
+					{Key: "title", Value: "text"},
+					{Key: "content", Value: "text"},
+					{Key: "raw_content", Value: "text"},
+					{Key: "filters.categoria", Value: "text"},
+					{Key: "filters.tipo", Value: "text"},
+				},
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
 			},
 		}
 	}

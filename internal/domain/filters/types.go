@@ -60,6 +60,13 @@ type FilterService interface {
 	ValidateFilterSet(filterSet *FilterSet) error
 	BuildMongoFilter(filterSet *FilterSet) (bson.M, error)
 	GetAvailableFilters(collection CollectionType) ([]FilterDefinition, error)
+	// BuildSearchFilter creates a MongoDB $text search filter from a search term.
+	// Uses MongoDB text indexes for efficient full-text search with support for:
+	// - Word boundaries (words match from start, not fuzzy)
+	// - Stemming and stop words (language-aware)
+	// - Phrase queries: "exact phrase" (with quotes)
+	// - Negation: -word (exclude from results)
+	// - Multiple words: word1 word2 (implicit AND)
 	BuildSearchFilter(collection CollectionType, searchTerm string) bson.M
 	CombineFilters(fieldFilter, searchFilter bson.M) bson.M
 }

@@ -202,123 +202,23 @@ func (b *MongoFilterBuilder) buildInMatch(fieldPath, value string) (bson.M, erro
 	return bson.M{fieldPath: bson.M{"$in": trimmedValues}}, nil
 }
 
-// BuildSearchFilter builds a fuzzy text search filter (separate from field filters)
+// BuildSearchFilter builds a text search filter using MongoDB text indexes
+// Uses native MongoDB $text operator which is more efficient than regex patterns
 func (b *MongoFilterBuilder) BuildSearchFilter(collection filters.CollectionType, searchTerm string) bson.M {
 	if searchTerm == "" {
 		return bson.M{}
 	}
 
-	// Build fuzzy regex pattern - allows for partial matches and word boundaries
-	fuzzyPattern := b.buildFuzzyPattern(searchTerm)
-
-	// Base search fields that apply to all collections
-	baseSearchFields := []bson.M{
-		{"title": bson.M{"$regex": fuzzyPattern, "$options": "i"}},
-		{"content": bson.M{"$regex": fuzzyPattern, "$options": "i"}},
-	}
-
-	// Collection-specific search fields
-	collectionSpecificFields := b.getCollectionSpecificSearchFields(collection, fuzzyPattern)
-
-	// Combine base and collection-specific fields
-	searchFields := append(baseSearchFields, collectionSpecificFields...)
-
-	return bson.M{"$or": searchFields}
-}
-
-// buildFuzzyPattern builds a fuzzy search regex pattern
-// Splits the search term into words and allows partial matching
-func (b *MongoFilterBuilder) buildFuzzyPattern(searchTerm string) string {
-	// Trim and normalize whitespace
-	searchTerm = strings.TrimSpace(searchTerm)
-	if searchTerm == "" {
-		return ""
-	}
-
-	// Split into words
-	words := strings.Fields(searchTerm)
-	if len(words) == 0 {
-		return ""
-	}
-
-	// Build pattern for each word
-	var patterns []string
-	for _, word := range words {
-		// Escape special regex characters but allow for fuzzy matching
-		escaped := regexp.QuoteMeta(word)
-		// Allow word to appear anywhere (not just at word boundaries)
-		patterns = append(patterns, escaped)
-	}
-
-	// Join all word patterns with .* to allow any characters between them
-	// This creates a pattern like: (?=.*word1)(?=.*word2) for AND matching
-	// Or just join them for sequential fuzzy matching
-	if len(patterns) == 1 {
-		return patterns[0]
-	}
-
-	// Use sequential matching for multi-word queries (more intuitive)
-	return strings.Join(patterns, ".*")
-}
-
-// getCollectionSpecificSearchFields returns search fields specific to each collection
-func (b *MongoFilterBuilder) getCollectionSpecificSearchFields(collection filters.CollectionType, escapedSearch string) []bson.M {
-	switch collection {
-	case filters.IncantesimiCollection:
-		return []bson.M{
-			{"scuola": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"livello": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"classi": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		}
-	case filters.MostriCollection, filters.AnimaliCollection:
-		return []bson.M{
-			{"tipo": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"taglia": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"gs": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"cr": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"grado_sfida": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"ambiente": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"allineamento": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		}
-	case filters.ArmiCollection:
-		return []bson.M{
-			{"categoria": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"tipo_danno": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"proprieta": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		}
-	case filters.ArmatureCollection:
-		return []bson.M{
-			{"categoria": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"tipo": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		}
-	case filters.OggettiMagiciCollection:
-		return []bson.M{
-			{"tipo": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"rarita": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"sintonia": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		}
-	case filters.ClassiCollection:
-		return []bson.M{
-			{"dado_vita": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"abilita_primaria": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"tiri_salvezza": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		}
-	case filters.BackgroundsCollection:
-		return []bson.M{
-			{"competenze_abilita": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"competenze_linguaggi": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"competenze_strumenti": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		}
-	case filters.TalentiCollection:
-		return []bson.M{
-			{"categoria": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"prerequisiti": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		}
-	default:
-		return []bson.M{
-			{"descrizione": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"categoria": bson.M{"$regex": escapedSearch, "$options": "i"}},
-			{"tipo": bson.M{"$regex": escapedSearch, "$options": "i"}},
-		}
+	// Use MongoDB's native $text operator which searches against text indexes
+	// This provides:
+	// - Better performance on large datasets
+	// - Language-aware stemming and stop words
+	// - Support for phrase queries with quotes
+	return bson.M{
+		"$text": bson.M{
+			"$search": searchTerm,
+		},
 	}
 }
+
+
