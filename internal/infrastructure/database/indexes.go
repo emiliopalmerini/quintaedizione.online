@@ -51,17 +51,6 @@ func (im *IndexManager) createCollectionIndexes(ctx context.Context, collectionN
 			Keys:    bson.D{{Key: "slug", Value: 1}},
 			Options: options.Index().SetName("slug_1").SetUnique(true).SetBackground(true),
 		},
-		// Base text search index for full-text search (used by all collections)
-		// MongoDB text search indexes use stemming, stop words, and word boundaries
-		// by default, providing better search experience than regex patterns
-		{
-			Keys: bson.D{
-				{Key: "title", Value: "text"},
-				{Key: "content", Value: "text"},
-				{Key: "raw_content", Value: "text"},
-			},
-			Options: options.Index().SetName("text_search_base").SetBackground(true).SetDefaultLanguage("none"),
-		},
 		// Source file index for administrative queries
 		{
 			Keys:    bson.D{{Key: "source_file", Value: 1}},
@@ -110,14 +99,18 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 				Keys:    bson.D{{Key: "classi", Value: 1}},
 				Options: options.Index().SetName("classi_1").SetBackground(true),
 			},
-			// Collection-specific text search index
+			// Unified text search index (base fields + collection-specific fields)
+			// Note: MongoDB allows only one text index per collection
 			{
 				Keys: bson.D{
+					{Key: "title", Value: "text"},
+					{Key: "content", Value: "text"},
+					{Key: "raw_content", Value: "text"},
 					{Key: "filters.scuola", Value: "text"},
 					{Key: "filters.livello", Value: "text"},
 					{Key: "filters.classe", Value: "text"},
 				},
-				Options: options.Index().SetName("text_search_incantesimi").SetBackground(true).SetDefaultLanguage("none"),
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
 			},
 		}
 
@@ -151,15 +144,18 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 				},
 				Options: options.Index().SetName("tipo_taglia_1").SetBackground(true),
 			},
-			// Collection-specific text search index
+			// Unified text search index (base fields + collection-specific fields)
 			{
 				Keys: bson.D{
+					{Key: "title", Value: "text"},
+					{Key: "content", Value: "text"},
+					{Key: "raw_content", Value: "text"},
 					{Key: "filters.tipo", Value: "text"},
 					{Key: "filters.taglia", Value: "text"},
 					{Key: "filters.ambiente", Value: "text"},
 					{Key: "filters.allineamento", Value: "text"},
 				},
-				Options: options.Index().SetName("text_search_mostri_animali").SetBackground(true).SetDefaultLanguage("none"),
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
 			},
 		}
 
@@ -174,14 +170,17 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 				Keys:    bson.D{{Key: "tipo_danno", Value: 1}},
 				Options: options.Index().SetName("tipo_danno_1").SetBackground(true),
 			},
-			// Collection-specific text search index
+			// Unified text search index
 			{
 				Keys: bson.D{
+					{Key: "title", Value: "text"},
+					{Key: "content", Value: "text"},
+					{Key: "raw_content", Value: "text"},
 					{Key: "filters.categoria", Value: "text"},
 					{Key: "filters.tipo_danno", Value: "text"},
 					{Key: "filters.proprieta", Value: "text"},
 				},
-				Options: options.Index().SetName("text_search_armi").SetBackground(true).SetDefaultLanguage("none"),
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
 			},
 		}
 
@@ -196,13 +195,16 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 				Keys:    bson.D{{Key: "ca_base", Value: 1}},
 				Options: options.Index().SetName("ca_base_1").SetBackground(true),
 			},
-			// Collection-specific text search index
+			// Unified text search index
 			{
 				Keys: bson.D{
+					{Key: "title", Value: "text"},
+					{Key: "content", Value: "text"},
+					{Key: "raw_content", Value: "text"},
 					{Key: "filters.categoria", Value: "text"},
 					{Key: "filters.tipo", Value: "text"},
 				},
-				Options: options.Index().SetName("text_search_armature").SetBackground(true).SetDefaultLanguage("none"),
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
 			},
 		}
 
@@ -217,14 +219,17 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 				Keys:    bson.D{{Key: "tipo", Value: 1}},
 				Options: options.Index().SetName("tipo_1").SetBackground(true),
 			},
-			// Collection-specific text search index
+			// Unified text search index
 			{
 				Keys: bson.D{
+					{Key: "title", Value: "text"},
+					{Key: "content", Value: "text"},
+					{Key: "raw_content", Value: "text"},
 					{Key: "filters.tipo", Value: "text"},
 					{Key: "filters.rarita", Value: "text"},
 					{Key: "filters.sintonia", Value: "text"},
 				},
-				Options: options.Index().SetName("text_search_oggetti_magici").SetBackground(true).SetDefaultLanguage("none"),
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
 			},
 		}
 
@@ -235,13 +240,16 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 				Keys:    bson.D{{Key: "categoria", Value: 1}},
 				Options: options.Index().SetName("categoria_1").SetBackground(true),
 			},
-			// Collection-specific text search index
+			// Unified text search index
 			{
 				Keys: bson.D{
+					{Key: "title", Value: "text"},
+					{Key: "content", Value: "text"},
+					{Key: "raw_content", Value: "text"},
 					{Key: "filters.categoria", Value: "text"},
 					{Key: "filters.prerequisiti", Value: "text"},
 				},
-				Options: options.Index().SetName("text_search_talenti").SetBackground(true).SetDefaultLanguage("none"),
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
 			},
 		}
 
@@ -253,13 +261,16 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 				Keys:    bson.D{{Key: "categoria", Value: 1}},
 				Options: options.Index().SetName("categoria_1").SetBackground(true),
 			},
-			// Default text search index
+			// Default unified text search index
 			{
 				Keys: bson.D{
+					{Key: "title", Value: "text"},
+					{Key: "content", Value: "text"},
+					{Key: "raw_content", Value: "text"},
 					{Key: "filters.categoria", Value: "text"},
 					{Key: "filters.tipo", Value: "text"},
 				},
-				Options: options.Index().SetName("text_search_default").SetBackground(true).SetDefaultLanguage("none"),
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
 			},
 		}
 	}
