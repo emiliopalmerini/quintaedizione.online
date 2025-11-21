@@ -267,8 +267,14 @@ func (r *documentMongoRepository) FindMaps(ctx context.Context, collection strin
 	if limit > 0 {
 		opts.SetLimit(limit)
 	}
-	// Sort by title for consistent ordering
-	opts.SetSort(bson.D{{Key: "title", Value: 1}})
+
+	// Sort by relevance score for text searches, otherwise alphabetically by title
+	if _, hasTextSearch := filter["$text"]; hasTextSearch {
+		opts.SetProjection(bson.M{"score": bson.M{"$meta": "textScore"}})
+		opts.SetSort(bson.D{{Key: "score", Value: bson.M{"$meta": "textScore"}}})
+	} else {
+		opts.SetSort(bson.D{{Key: "title", Value: 1}})
+	}
 
 	cursor, err := coll.Find(ctx, mongoFilter, opts)
 	if err != nil {

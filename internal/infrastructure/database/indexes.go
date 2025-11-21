@@ -44,6 +44,12 @@ func (im *IndexManager) EnsureIndexes(ctx context.Context) error {
 func (im *IndexManager) createCollectionIndexes(ctx context.Context, collectionName string) error {
 	collection := im.client.GetCollection(collectionName)
 
+	// Drop existing text_search index to allow recreation with new weights
+	// MongoDB won't update an existing text index with new options
+	if _, err := collection.Indexes().DropOne(ctx, "text_search"); err != nil {
+		log.Printf("Note: could not drop text_search index on %s (may not exist): %v", collectionName, err)
+	}
+
 	// Common indexes for all collections
 	commonIndexes := []mongo.IndexModel{
 		// Source file index for administrative queries
@@ -105,7 +111,8 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 					{Key: "filters.livello", Value: "text"},
 					{Key: "filters.classe", Value: "text"},
 				},
-				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none").
+					SetWeights(bson.M{"title": 10, "content": 1, "raw_content": 1, "filters.scuola": 1, "filters.livello": 1, "filters.classe": 1}),
 			},
 		}
 
@@ -150,7 +157,8 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 					{Key: "filters.ambiente", Value: "text"},
 					{Key: "filters.allineamento", Value: "text"},
 				},
-				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none").
+					SetWeights(bson.M{"title": 10, "content": 1, "raw_content": 1, "filters.tipo": 1, "filters.taglia": 1, "filters.ambiente": 1, "filters.allineamento": 1}),
 			},
 		}
 
@@ -175,7 +183,8 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 					{Key: "filters.tipo_danno", Value: "text"},
 					{Key: "filters.proprieta", Value: "text"},
 				},
-				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none").
+					SetWeights(bson.M{"title": 10, "content": 1, "raw_content": 1, "filters.categoria": 1, "filters.tipo_danno": 1, "filters.proprieta": 1}),
 			},
 		}
 
@@ -199,7 +208,8 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 					{Key: "filters.categoria", Value: "text"},
 					{Key: "filters.tipo", Value: "text"},
 				},
-				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none").
+					SetWeights(bson.M{"title": 10, "content": 1, "raw_content": 1, "filters.categoria": 1, "filters.tipo": 1}),
 			},
 		}
 
@@ -224,7 +234,8 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 					{Key: "filters.rarita", Value: "text"},
 					{Key: "filters.sintonia", Value: "text"},
 				},
-				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none").
+					SetWeights(bson.M{"title": 10, "content": 1, "raw_content": 1, "filters.tipo": 1, "filters.rarita": 1, "filters.sintonia": 1}),
 			},
 		}
 
@@ -244,7 +255,8 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 					{Key: "filters.categoria", Value: "text"},
 					{Key: "filters.prerequisiti", Value: "text"},
 				},
-				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none").
+					SetWeights(bson.M{"title": 10, "content": 1, "raw_content": 1, "filters.categoria": 1, "filters.prerequisiti": 1}),
 			},
 		}
 
@@ -265,7 +277,8 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 					{Key: "filters.categoria", Value: "text"},
 					{Key: "filters.tipo", Value: "text"},
 				},
-				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none"),
+				Options: options.Index().SetName("text_search").SetBackground(true).SetDefaultLanguage("none").
+					SetWeights(bson.M{"title": 10, "content": 1, "raw_content": 1, "filters.categoria": 1, "filters.tipo": 1}),
 			},
 		}
 	}
