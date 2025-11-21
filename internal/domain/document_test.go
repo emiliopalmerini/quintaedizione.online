@@ -11,8 +11,9 @@ func TestDocument_NewDocument(t *testing.T) {
 	title := "Test Document"
 	filters := NewDocumentFilters()
 	content := NewHTMLContent("<p>test content</p>")
+	rawContent := NewMarkdownContent("test content")
 
-	doc := NewDocument(id, title, filters, content)
+	doc := NewDocument(id, title, filters, content, rawContent)
 
 	if doc.ID != id {
 		t.Errorf("Expected ID %s, got %s", id, doc.ID)
@@ -26,14 +27,18 @@ func TestDocument_NewDocument(t *testing.T) {
 	if string(doc.Content) != string(content) {
 		t.Errorf("Expected content to match")
 	}
+	if string(doc.RawContent) != string(rawContent) {
+		t.Errorf("Expected raw content to match")
+	}
 }
 
 func TestDocument_NewDocumentFromName(t *testing.T) {
 	title := "Test Document Title"
 	filters := NewDocumentFilters()
 	content := NewHTMLContent("<p>test content</p>")
+	rawContent := NewMarkdownContent("test content")
 
-	doc, err := NewDocumentFromName(title, filters, content)
+	doc, err := NewDocumentFromName(title, filters, content, rawContent)
 	if err != nil {
 		t.Fatalf("Expected no error, got %v", err)
 	}
