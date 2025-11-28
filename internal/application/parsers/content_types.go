@@ -1,11 +1,7 @@
 package parsers
 
-// ContentType definitions and utilities
-
-// ContentType represents the type of Quintaedizione content being parsed
 type ContentType string
 
-// Content type constants for Italian Quintaedizione 5e SRD
 const (
 	ContentTypeDocuments          ContentType = "documenti"
 	ContentTypeIncantesimi        ContentType = "incantesimi"
@@ -24,7 +20,6 @@ const (
 	ContentTypeCavalcatureVeicoli ContentType = "cavalcature_veicoli"
 )
 
-// validContentTypes provides O(1) content type validation
 var validContentTypes = map[ContentType]bool{
 	ContentTypeDocuments:          true,
 	ContentTypeIncantesimi:        true,
@@ -43,12 +38,10 @@ var validContentTypes = map[ContentType]bool{
 	ContentTypeCavalcatureVeicoli: true,
 }
 
-// IsValidContentType checks if a content type is valid
 func IsValidContentType(contentType ContentType) bool {
 	return validContentTypes[contentType]
 }
 
-// GetAllContentTypes returns all valid content types
 func GetAllContentTypes() []ContentType {
 	types := make([]ContentType, 0, len(validContentTypes))
 	for contentType := range validContentTypes {
@@ -57,7 +50,6 @@ func GetAllContentTypes() []ContentType {
 	return types
 }
 
-// GetContentTypeFromCollection maps MongoDB collection names to content types
 func GetContentTypeFromCollection(collection string) (ContentType, error) {
 	switch collection {
 	case "documenti":
@@ -95,7 +87,6 @@ func GetContentTypeFromCollection(collection string) (ContentType, error) {
 	}
 }
 
-// GetCollectionFromContentType maps content types to MongoDB collection names
 func GetCollectionFromContentType(contentType ContentType) (string, error) {
 	if !IsValidContentType(contentType) {
 		return "", ErrInvalidContentType

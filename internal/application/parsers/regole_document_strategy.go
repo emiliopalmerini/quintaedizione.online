@@ -7,12 +7,10 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain"
 )
 
-// RegoleDocumentStrategy parses rules and returns Document entities with HTML content
 type RegoleDocumentStrategy struct {
 	*BaseDocumentParser
 }
 
-// NewRegoleDocumentStrategy creates a new Document-based regole strategy
 func NewRegoleDocumentStrategy() *RegoleDocumentStrategy {
 	return &RegoleDocumentStrategy{
 		BaseDocumentParser: NewBaseDocumentParser(),
@@ -34,17 +32,15 @@ func (s *RegoleDocumentStrategy) ParseDocument(content []string, context *Parsin
 	inGlossaryContent := false
 
 	for _, line := range content {
-		// Skip main title only (check before trimming to preserve structure)
+
 		if strings.HasPrefix(line, "# ") {
 			continue
 		}
 
-		// Trim whitespace but preserve empty lines for proper markdown structure
 		line = strings.TrimSpace(line)
 
-		// Skip introduction content until we reach the first glossary entry (after abbreviations table)
 		if !inGlossaryContent {
-			// Start parsing when we find the first H2 section after the introduction
+
 			if strings.HasPrefix(line, "## ") && !strings.Contains(line, "Convenzioni") && !strings.Contains(line, "Abbreviazioni") {
 				inGlossaryContent = true
 			} else {
@@ -52,9 +48,8 @@ func (s *RegoleDocumentStrategy) ParseDocument(content []string, context *Parsin
 			}
 		}
 
-		// Check for new rule section (H2)
 		if strings.HasPrefix(line, "## ") {
-			// Process previous section if exists
+
 			if inSection && len(currentSection) > 0 {
 				doc, err := s.parseRuleSection(currentSection, context)
 				if err != nil {
@@ -66,16 +61,14 @@ func (s *RegoleDocumentStrategy) ParseDocument(content []string, context *Parsin
 				documents = append(documents, doc)
 			}
 
-			// Start new section
 			currentSection = []string{line}
 			inSection = true
 		} else if inSection {
-			// Add line to current section
+
 			currentSection = append(currentSection, line)
 		}
 	}
 
-	// Process last section
 	if inSection && len(currentSection) > 0 {
 		doc, err := s.parseRuleSection(currentSection, context)
 		if err != nil {
@@ -97,25 +90,21 @@ func (s *RegoleDocumentStrategy) parseRuleSection(section []string, context *Par
 		return nil, ErrEmptySectionContent
 	}
 
-	// Extract name from header
 	header := section[0]
 	if !strings.HasPrefix(header, "## ") {
 		return nil, ErrMissingSectionTitle
 	}
 	title := strings.TrimSpace(strings.TrimPrefix(header, "## "))
 
-	// Collect all content as markdown (excluding the title)
 	markdownContent := strings.Builder{}
 	for i := 1; i < len(section); i++ {
 		markdownContent.WriteString(section[i] + "\n")
 	}
 
-	// Create filters
 	filters := map[string]any{
 		"type": "rule",
 	}
 
-	// Create document using base parser helper
 	doc, err := s.CreateDocument(
 		title,
 		"regole",

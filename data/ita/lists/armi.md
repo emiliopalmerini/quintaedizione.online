@@ -1,3 +1,4 @@
+
 # Armi
 
 ## Randello
@@ -417,4 +418,3 @@
 **Maestria:** Colpisci  
 **Gittata:** 9 m  
 **Gittata lunga:** 27 m  
-

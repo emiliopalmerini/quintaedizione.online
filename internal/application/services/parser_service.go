@@ -12,7 +12,6 @@ import (
 	domainRepos "github.com/emiliopalmerini/quintaedizione.online/internal/domain/repositories"
 )
 
-// ParserService handles parsing markdown files into documents
 type ParserService struct {
 	documentRegistry *parsers.DocumentRegistry
 	documentRepo     domainRepos.DocumentRepository
@@ -21,7 +20,6 @@ type ParserService struct {
 	dryRun           bool
 }
 
-// ParserServiceConfig contains configuration for ParserService
 type ParserServiceConfig struct {
 	DocumentRegistry *parsers.DocumentRegistry
 	DocumentRepo     domainRepos.DocumentRepository
@@ -30,7 +28,6 @@ type ParserServiceConfig struct {
 	DryRun           bool
 }
 
-// NewParserService creates a new ParserService
 func NewParserService(config ParserServiceConfig) *ParserService {
 	logger := config.Logger
 	if logger == nil {
@@ -51,7 +48,6 @@ func NewParserService(config ParserServiceConfig) *ParserService {
 	}
 }
 
-// ParseResult contains the result of a parsing operation
 type ParseResult struct {
 	TotalFiles     int
 	SuccessCount   int
@@ -61,7 +57,6 @@ type ParseResult struct {
 	FileResults    []FileResult
 }
 
-// FileResult contains the result of parsing a single file
 type FileResult struct {
 	Filename      string
 	Collection    string
@@ -69,7 +64,6 @@ type FileResult struct {
 	Error         error
 }
 
-// ParseAllFiles parses all markdown files in the input directory
 func (s *ParserService) ParseAllFiles(ctx context.Context, inputDir string) (*ParseResult, error) {
 	startTime := time.Now()
 
@@ -90,7 +84,7 @@ func (s *ParserService) ParseAllFiles(ctx context.Context, inputDir string) (*Pa
 		if fileResult.Error != nil {
 			s.logger.Error(fmt.Sprintf("Failed to parse %s: %v", filename, fileResult.Error))
 			result.ErrorCount++
-			// Return error immediately to block startup
+
 			return result, fmt.Errorf("parsing failed for %s: %w", filename, fileResult.Error)
 		}
 
@@ -106,9 +100,8 @@ func (s *ParserService) ParseAllFiles(ctx context.Context, inputDir string) (*Pa
 	return result, nil
 }
 
-// ParseFile parses a specific markdown file
 func (s *ParserService) ParseFile(ctx context.Context, inputDir, filename string) (*FileResult, error) {
-	// Find matching work item
+
 	workItem, err := s.findWorkItem(filename)
 	if err != nil {
 		return nil, fmt.Errorf("work item not found for %s: %w", filename, err)
@@ -118,45 +111,37 @@ func (s *ParserService) ParseFile(ctx context.Context, inputDir, filename string
 	return &result, nil
 }
 
-// parseFile is the internal implementation that parses a file
 func (s *ParserService) parseFile(ctx context.Context, inputDir string, workItem parsers.WorkItem) FileResult {
 	result := FileResult{
 		Filename:   filepath.Base(workItem.Filename),
 		Collection: workItem.Collection,
 	}
 
-	// Build full file path
 	filePath := filepath.Join(inputDir, filepath.Base(workItem.Filename))
 
-	// Get content type from collection
 	contentType, err := parsers.GetContentTypeFromCollection(workItem.Collection)
 	if err != nil {
 		result.Error = fmt.Errorf("invalid content type for collection %s: %w", workItem.Collection, err)
 		return result
 	}
 
-	// Get Document parsing strategy
 	strategy, err := s.documentRegistry.GetStrategy(contentType, workItem.Language)
 	if err != nil {
 		result.Error = fmt.Errorf("document parser not found for %s: %w", contentType, err)
 		return result
 	}
 
-	// Read file content
 	content, err := os.ReadFile(filePath)
 	if err != nil {
 		result.Error = fmt.Errorf("failed to read file %s: %w", filePath, err)
 		return result
 	}
 
-	// Split content into lines
 	lines := strings.Split(string(content), "\n")
 
-	// Create parsing context
 	parsingContext := parsers.NewParsingContext(result.Filename, string(workItem.Language))
 	parsingContext.WithLogger(s.logger)
 
-	// Parse content
 	documents, err := strategy.ParseDocument(lines, parsingContext)
 	if err != nil {
 		result.Error = fmt.Errorf("parsing failed for %s: %w", result.Filename, err)
@@ -165,7 +150,6 @@ func (s *ParserService) parseFile(ctx context.Context, inputDir string, workItem
 
 	result.DocumentCount = len(documents)
 
-	// Save documents to MongoDB if not in dry-run mode
 	if !s.dryRun {
 		saved, err := s.documentRepo.UpsertMany(ctx, workItem.Collection, documents)
 		if err != nil {
@@ -173,16 +157,14 @@ func (s *ParserService) parseFile(ctx context.Context, inputDir string, workItem
 			return result
 		}
 
-		// Update document count with actual saved count
 		result.DocumentCount = saved
 	}
 
 	return result
 }
 
-// findWorkItem finds a work item by filename
 func (s *ParserService) findWorkItem(filename string) (parsers.WorkItem, error) {
-	// Remove extension for comparison
+
 	baseName := strings.TrimSuffix(filename, filepath.Ext(filename))
 
 	for _, item := range s.workItems {
@@ -195,12 +177,10 @@ func (s *ParserService) findWorkItem(filename string) (parsers.WorkItem, error) 
 	return parsers.WorkItem{}, fmt.Errorf("no work item found for file: %s", filename)
 }
 
-// GetWorkItems returns the configured work items
 func (s *ParserService) GetWorkItems() []parsers.WorkItem {
 	return s.workItems
 }
 
-// SetDryRun sets the dry-run mode
 func (s *ParserService) SetDryRun(dryRun bool) {
 	s.dryRun = dryRun
 }

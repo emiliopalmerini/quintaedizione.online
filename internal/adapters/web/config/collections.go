@@ -1,6 +1,5 @@
 package config
 
-// CollectionTitles maps collection names to their Italian display titles
 var CollectionTitles = map[string]string{
 	"incantesimi":         "Incantesimi",
 	"mostri":              "Mostri",
@@ -18,7 +17,6 @@ var CollectionTitles = map[string]string{
 	"cavalcature_veicoli": "Cavalcature e Veicoli",
 }
 
-// GetCollectionTitle returns the Italian title for a collection
 func GetCollectionTitle(collection string) string {
 	if title, exists := CollectionTitles[collection]; exists {
 		return title

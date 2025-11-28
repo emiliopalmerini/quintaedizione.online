@@ -1,3 +1,4 @@
+
 ## Descrizioni degli Incantesimi
 
 ### Incantesimi A
@@ -6125,4 +6126,3 @@ Devi designare un luogo, come un tempio, come santuario lanciando lì questo inc
 Crei una zona magica che ostacola l’inganno in una **Sfera** di raggio **4,5 m** centrata su un punto entro gittata. Finché dura, una creatura che entra nell’area per la prima volta in un turno o che inizia lì il proprio turno effettua un tiro salvezza su **Carisma**. Con un fallimento, non può pronunciare menzogne deliberatamente mentre si trova nel raggio. Sai se una creatura ha avuto successo o no nel tiro.
 
 Una creatura affetta è consapevole dell’incantesimo e può evitare di rispondere a domande a cui normalmente risponderebbe con una menzogna. Può essere evasiva, ma deve dire la verità.
-

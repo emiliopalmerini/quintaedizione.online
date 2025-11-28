@@ -6,13 +6,11 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/dto"
 )
 
-// DisplayElementStrategy defines how to extract display elements for a collection
 type DisplayElementStrategy interface {
 	GetElements(doc map[string]any) []dto.DisplayElementDTO
 	GetCollectionType() string
 }
 
-// IncantesimiDisplayStrategy handles display elements for spells
 type IncantesimiDisplayStrategy struct{}
 
 func (s *IncantesimiDisplayStrategy) GetCollectionType() string {
@@ -22,7 +20,6 @@ func (s *IncantesimiDisplayStrategy) GetCollectionType() string {
 func (s *IncantesimiDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
-	// Incantesimi - Level + School
 	if level := getFieldValue(doc, "livello"); level != "" {
 		elements = append(elements, dto.DisplayElementDTO{
 			Value: fmt.Sprintf("Livello %s", level),
@@ -36,7 +33,6 @@ func (s *IncantesimiDisplayStrategy) GetElements(doc map[string]any) []dto.Displ
 		})
 	}
 
-	// Add generic fields (cost, weight)
 	if cost := getStructuredFieldValue(doc, "costo"); cost != "" {
 		elements = append(elements, dto.DisplayElementDTO{
 			Value: cost,
@@ -53,7 +49,6 @@ func (s *IncantesimiDisplayStrategy) GetElements(doc map[string]any) []dto.Displ
 	return elements
 }
 
-// OggettiMagiciDisplayStrategy handles display elements for magic items
 type OggettiMagiciDisplayStrategy struct{}
 
 func (s *OggettiMagiciDisplayStrategy) GetCollectionType() string {
@@ -63,7 +58,6 @@ func (s *OggettiMagiciDisplayStrategy) GetCollectionType() string {
 func (s *OggettiMagiciDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
-	// Oggetti magici - Rarity + Type
 	if rarity := getFieldValue(doc, "rarita"); rarity != "" {
 		elements = append(elements, dto.DisplayElementDTO{
 			Value: rarity,
@@ -77,7 +71,6 @@ func (s *OggettiMagiciDisplayStrategy) GetElements(doc map[string]any) []dto.Dis
 		})
 	}
 
-	// Add generic fields
 	if cost := getStructuredFieldValue(doc, "costo"); cost != "" {
 		elements = append(elements, dto.DisplayElementDTO{
 			Value: cost,
@@ -94,7 +87,6 @@ func (s *OggettiMagiciDisplayStrategy) GetElements(doc map[string]any) []dto.Dis
 	return elements
 }
 
-// MostriDisplayStrategy handles display elements for monsters
 type MostriDisplayStrategy struct{}
 
 func (s *MostriDisplayStrategy) GetCollectionType() string {
@@ -104,7 +96,6 @@ func (s *MostriDisplayStrategy) GetCollectionType() string {
 func (s *MostriDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
-	// Mostri - Size + Type + CR
 	if size := getFieldValue(doc, "taglia"); size != "" {
 		elements = append(elements, dto.DisplayElementDTO{
 			Value: size,
@@ -121,7 +112,6 @@ func (s *MostriDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayEle
 	return elements
 }
 
-// ArmiDisplayStrategy handles display elements for weapons
 type ArmiDisplayStrategy struct{}
 
 func (s *ArmiDisplayStrategy) GetCollectionType() string {
@@ -131,7 +121,6 @@ func (s *ArmiDisplayStrategy) GetCollectionType() string {
 func (s *ArmiDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
-	// Armi - Category + Damage
 	if category := getFieldValue(doc, "categoria"); category != "" {
 		elements = append(elements, dto.DisplayElementDTO{
 			Value: category,
@@ -145,7 +134,6 @@ func (s *ArmiDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayEleme
 		})
 	}
 
-	// Add generic fields
 	if cost := getStructuredFieldValue(doc, "costo"); cost != "" {
 		elements = append(elements, dto.DisplayElementDTO{
 			Value: cost,
@@ -162,7 +150,6 @@ func (s *ArmiDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayEleme
 	return elements
 }
 
-// ArmatureDisplayStrategy handles display elements for armor
 type ArmatureDisplayStrategy struct{}
 
 func (s *ArmatureDisplayStrategy) GetCollectionType() string {
@@ -172,7 +159,6 @@ func (s *ArmatureDisplayStrategy) GetCollectionType() string {
 func (s *ArmatureDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
-	// Armature - Category + AC
 	if category := getFieldValue(doc, "categoria"); category != "" {
 		elements = append(elements, dto.DisplayElementDTO{
 			Value: category,
@@ -186,7 +172,6 @@ func (s *ArmatureDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayE
 		})
 	}
 
-	// Add generic fields
 	if cost := getStructuredFieldValue(doc, "costo"); cost != "" {
 		elements = append(elements, dto.DisplayElementDTO{
 			Value: cost,
@@ -203,7 +188,6 @@ func (s *ArmatureDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayE
 	return elements
 }
 
-// DefaultDisplayStrategy is the fallback strategy for other collections
 type DefaultDisplayStrategy struct{}
 
 func (s *DefaultDisplayStrategy) GetCollectionType() string {
@@ -213,7 +197,6 @@ func (s *DefaultDisplayStrategy) GetCollectionType() string {
 func (s *DefaultDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
-	// Add generic fields only
 	if cost := getStructuredFieldValue(doc, "costo"); cost != "" {
 		elements = append(elements, dto.DisplayElementDTO{
 			Value: cost,
@@ -230,7 +213,6 @@ func (s *DefaultDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayEl
 	return elements
 }
 
-// Helper functions (extracted from content service)
 func getFieldValue(doc map[string]any, fieldNames ...string) string {
 	for _, fieldName := range fieldNames {
 		if value, exists := doc[fieldName]; exists && value != nil {
@@ -248,7 +230,6 @@ func getStructuredFieldValue(doc map[string]any, fieldName string) string {
 		return ""
 	}
 
-	// Handle different structured types
 	switch fieldName {
 	case "costo":
 		return formatCosto(value)
@@ -259,7 +240,7 @@ func getStructuredFieldValue(doc map[string]any, fieldName string) string {
 	case "gittata":
 		return formatGittata(value)
 	default:
-		// Fallback to simple field extraction
+
 		if strValue := fmt.Sprintf("%v", value); strValue != "" && strValue != "0" {
 			return strValue
 		}

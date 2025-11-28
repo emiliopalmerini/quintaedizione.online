@@ -7,4 +7,3 @@ Il *System Reference Document 5.2* (“SRD 5.2”) è fornito gratuitamente da W
 Non includere altre attribuzioni a Wizards o alla sua società madre o affiliate oltre a quella fornita sopra. Puoi, tuttavia, includere nel tuo lavoro una dichiarazione che indichi che esso è “compatibile con la quinta edizione” o “compatibile con 5E”.
 
 La sezione 5 della CC-BY-4.0 include una *Dichiarazione di esclusione di garanzie e limitazione di responsabilità* che limita la nostra responsabilità nei tuoi confronti.
-

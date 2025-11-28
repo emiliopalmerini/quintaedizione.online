@@ -12,17 +12,14 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-// IndexManager handles database index creation and management
 type IndexManager struct {
 	client *pkgMongodb.Client
 }
 
-// NewIndexManager creates a new index manager
 func NewIndexManager(client *pkgMongodb.Client) *IndexManager {
 	return &IndexManager{client: client}
 }
 
-// EnsureIndexes creates all necessary indexes for optimal performance
 func (im *IndexManager) EnsureIndexes(ctx context.Context) error {
 	collections := []string{
 		"incantesimi", "mostri", "classi", "backgrounds", "equipaggiamenti",
@@ -40,29 +37,23 @@ func (im *IndexManager) EnsureIndexes(ctx context.Context) error {
 	return nil
 }
 
-// createCollectionIndexes creates indexes for a specific collection
 func (im *IndexManager) createCollectionIndexes(ctx context.Context, collectionName string) error {
 	collection := im.client.GetCollection(collectionName)
 
-	// Drop existing text_search index to allow recreation with new weights
-	// MongoDB won't update an existing text index with new options
 	if _, err := collection.Indexes().DropOne(ctx, "text_search"); err != nil {
 		log.Printf("Note: could not drop text_search index on %s (may not exist): %v", collectionName, err)
 	}
 
-	// Common indexes for all collections
 	commonIndexes := []mongo.IndexModel{
-		// Source file index for administrative queries
+
 		{
 			Keys:    bson.D{{Key: "source_file", Value: 1}},
 			Options: options.Index().SetName("source_file_1").SetBackground(true),
 		},
 	}
 
-	// Collection-specific indexes
 	specificIndexes := im.getCollectionSpecificIndexes(collectionName)
 
-	// Combine all indexes
 	allIndexes := append(commonIndexes, specificIndexes...)
 
 	if len(allIndexes) > 0 {
@@ -75,12 +66,11 @@ func (im *IndexManager) createCollectionIndexes(ctx context.Context, collectionN
 	return nil
 }
 
-// getCollectionSpecificIndexes returns indexes specific to each collection type
 func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mongo.IndexModel {
 	switch collectionName {
 	case "incantesimi":
 		return []mongo.IndexModel{
-			// Lookup indexes
+
 			{
 				Keys:    bson.D{{Key: "livello", Value: 1}},
 				Options: options.Index().SetName("livello_1").SetBackground(true),
@@ -100,8 +90,7 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 				Keys:    bson.D{{Key: "classi", Value: 1}},
 				Options: options.Index().SetName("classi_1").SetBackground(true),
 			},
-			// Unified text search index (base fields + collection-specific fields)
-			// Note: MongoDB allows only one text index per collection
+
 			{
 				Keys: bson.D{
 					{Key: "title", Value: "text"},
@@ -118,7 +107,7 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 
 	case "mostri", "animali":
 		return []mongo.IndexModel{
-			// Lookup indexes
+
 			{
 				Keys:    bson.D{{Key: "gs", Value: 1}},
 				Options: options.Index().SetName("gs_1").SetBackground(true),
@@ -146,7 +135,7 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 				},
 				Options: options.Index().SetName("tipo_taglia_1").SetBackground(true),
 			},
-			// Unified text search index (base fields + collection-specific fields)
+
 			{
 				Keys: bson.D{
 					{Key: "title", Value: "text"},
@@ -164,7 +153,7 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 
 	case "armi":
 		return []mongo.IndexModel{
-			// Lookup indexes
+
 			{
 				Keys:    bson.D{{Key: "categoria", Value: 1}},
 				Options: options.Index().SetName("categoria_1").SetBackground(true),
@@ -173,7 +162,7 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 				Keys:    bson.D{{Key: "tipo_danno", Value: 1}},
 				Options: options.Index().SetName("tipo_danno_1").SetBackground(true),
 			},
-			// Unified text search index
+
 			{
 				Keys: bson.D{
 					{Key: "title", Value: "text"},
@@ -190,7 +179,7 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 
 	case "armature":
 		return []mongo.IndexModel{
-			// Lookup indexes
+
 			{
 				Keys:    bson.D{{Key: "categoria", Value: 1}},
 				Options: options.Index().SetName("categoria_1").SetBackground(true),
@@ -199,7 +188,7 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 				Keys:    bson.D{{Key: "ca_base", Value: 1}},
 				Options: options.Index().SetName("ca_base_1").SetBackground(true),
 			},
-			// Unified text search index
+
 			{
 				Keys: bson.D{
 					{Key: "title", Value: "text"},
@@ -215,7 +204,7 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 
 	case "oggetti_magici":
 		return []mongo.IndexModel{
-			// Lookup indexes
+
 			{
 				Keys:    bson.D{{Key: "rarita", Value: 1}},
 				Options: options.Index().SetName("rarita_1").SetBackground(true),
@@ -224,7 +213,7 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 				Keys:    bson.D{{Key: "tipo", Value: 1}},
 				Options: options.Index().SetName("tipo_1").SetBackground(true),
 			},
-			// Unified text search index
+
 			{
 				Keys: bson.D{
 					{Key: "title", Value: "text"},
@@ -241,12 +230,12 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 
 	case "talenti":
 		return []mongo.IndexModel{
-			// Lookup indexes
+
 			{
 				Keys:    bson.D{{Key: "categoria", Value: 1}},
 				Options: options.Index().SetName("categoria_1").SetBackground(true),
 			},
-			// Unified text search index
+
 			{
 				Keys: bson.D{
 					{Key: "title", Value: "text"},
@@ -261,14 +250,14 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 		}
 
 	default:
-		// Default indexes for other collections
+
 		return []mongo.IndexModel{
-			// Lookup indexes
+
 			{
 				Keys:    bson.D{{Key: "categoria", Value: 1}},
 				Options: options.Index().SetName("categoria_1").SetBackground(true),
 			},
-			// Default unified text search index
+
 			{
 				Keys: bson.D{
 					{Key: "title", Value: "text"},
@@ -284,7 +273,6 @@ func (im *IndexManager) getCollectionSpecificIndexes(collectionName string) []mo
 	}
 }
 
-// DropIndexes removes all custom indexes (useful for testing/migration)
 func (im *IndexManager) DropIndexes(ctx context.Context) error {
 	collections := []string{
 		"incantesimi", "mostri", "classi", "backgrounds", "equipaggiamenti",
@@ -295,7 +283,6 @@ func (im *IndexManager) DropIndexes(ctx context.Context) error {
 	for _, collectionName := range collections {
 		collection := im.client.GetCollection(collectionName)
 
-		// List all indexes
 		indexView := collection.Indexes()
 		cursor, err := indexView.List(ctx)
 		if err != nil {
@@ -303,7 +290,6 @@ func (im *IndexManager) DropIndexes(ctx context.Context) error {
 		}
 		defer cursor.Close(ctx)
 
-		// Drop all indexes except _id_
 		var indexes []bson.M
 		if err = cursor.All(ctx, &indexes); err != nil {
 			return fmt.Errorf("failed to decode indexes for %s: %w", collectionName, err)
@@ -323,7 +309,6 @@ func (im *IndexManager) DropIndexes(ctx context.Context) error {
 	return nil
 }
 
-// GetIndexStats returns index usage statistics
 func (im *IndexManager) GetIndexStats(ctx context.Context) (map[string]any, error) {
 	collections := []string{
 		"incantesimi", "mostri", "classi", "backgrounds", "equipaggiamenti",

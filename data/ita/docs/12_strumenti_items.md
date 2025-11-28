@@ -1,3 +1,4 @@
+
 # Strumenti
 
 ## Strumenti da alchimista (50 MO)
@@ -315,4 +316,3 @@
 **Categoria:** strumenti  
 **Abilità:** Destrezza  
 **Utilizzo:** Scassinare una serratura (CD 15) o disattivare una trappola (CD 15)  
-

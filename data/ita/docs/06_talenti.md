@@ -1,3 +1,4 @@
+
 # Talenti
 
 ## Descrizione dei Talenti
@@ -181,4 +182,3 @@ Ottieni i seguenti benefici.
 **Aumento dei Punteggi di Caratteristica.** Aumenti un punteggio di caratteristica a tua scelta di 1, fino a un massimo di 30.
 
 **Vista Vera.** Ottieni Vista Vera con una portata di 18 metri.
-

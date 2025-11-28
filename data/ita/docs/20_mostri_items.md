@@ -36,7 +36,6 @@ Mentre la creatura maledetta si trova fuori da un corpo d'acqua, subisce 6 (1d12
 
 ***Telepatia Esplorativa.*** Se una creatura che l'aboleth può vedere comunica telepaticamente con lui, l'aboleth apprende i desideri più grandi della creatura.
 
-
 ### Azioni
 
 ***Attacco Multiplo.*** L'aboleth effettua due attacchi con Tentacolo e usa o Divora Ricordi o Dominare la Mente se disponibili.
@@ -47,7 +46,6 @@ Mentre la creatura maledetta si trova fuori da un corpo d'acqua, subisce 6 (1d12
 
 ***Dominare la Mente (2/Giorno).*** *Tiro Salvezza su Saggezza*: CD 16, una creatura che l'aboleth può vedere entro 9 m. *Fallimento:*  Il bersaglio ha la condizione Affascinato finché l'aboleth non muore o si trova su un piano di esistenza diverso da quello del bersaglio. Mentre è Affascinato, il bersaglio agisce come un alleato dell'aboleth ed è sotto il suo controllo finché si trova entro 18 m da esso. Inoltre, l'aboleth e il bersaglio possono comunicare telepaticamente tra loro a qualsiasi distanza.
 Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo ogni 24 ore trascorse ad almeno 1,6 km dall'aboleth, terminando l'effetto su se stesso con un successo.
-
 
 ### Azioni Leggendarie
 
@@ -84,7 +82,6 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 ***Anfibio.*** Il drago può respirare aria e acqua.
 
 ***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.
-
 
 ### Azioni
 
@@ -134,7 +131,6 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 ### Tratti
 
 ***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.
-
 
 ### Azioni
 
@@ -6098,7 +6094,6 @@ Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si ridu
 
 ***Panache Ipnotico.*** *TS Saggezza:* CD 12, una creatura che il pirata può vedere entro 9 m. *Fallimento:* il bersaglio ha la condizione Ammaliato fino all’inizio del turno successivo del pirata.  
 
-
 ## Diavolo Abissale (Pit Fiend)
 
 *Mostro Grande (Diavolo), Legale Malvagio*
@@ -8331,7 +8326,6 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 
 ***Soffio Gelido (Ricarica 5–6).*** *TS Costituzione*: CD 12, ogni creatura in un cono di 4,5 m. *Fallimento:* 22 (5d8) freddo. *Successo:* metà danno.  
 
-
 ## Spettro (Wight)
 
 *Non Morto Medio, Neutrale Malvagio*
@@ -8986,4 +8980,3 @@ Un Umanoide ucciso da questo attacco si rialza 24 ore dopo come Zombie sotto il 
 ### Azioni
 
 ***Sciame di Mani Affer­ranti.*** *Tiro per Colpire in mischia:* +4, portata 1,5 m. 20 (4d8 + 2) necrotici, o 11 (2d8 + 2) necrotici se lo sciame è Sanguinante. Se il bersaglio è una creatura Media o più piccola, ottiene la condizione Prono.  
-

@@ -1,3 +1,4 @@
+
 # Giocare
 
 ## Ritmo di gioco
@@ -618,4 +619,3 @@ Con esse hai gli strumenti per:
 - esplorare mondi fantastici;  
 - affrontare avversari formidabili;  
 - vivere avventure che cambiano il destino del multiverso.
-

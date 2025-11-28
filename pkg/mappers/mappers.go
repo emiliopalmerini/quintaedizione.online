@@ -1,6 +1,5 @@
 package mappers
 
-// GetString extracts a string value from a map with a default fallback
 func GetString(m map[string]any, key string, defaultValue string) string {
 	if m == nil {
 		return defaultValue
@@ -11,7 +10,6 @@ func GetString(m map[string]any, key string, defaultValue string) string {
 	return defaultValue
 }
 
-// GetInt64 extracts an int64 value from a map with a default fallback
 func GetInt64(m map[string]any, key string, defaultValue int64) int64 {
 	if m == nil {
 		return defaultValue
@@ -22,7 +20,6 @@ func GetInt64(m map[string]any, key string, defaultValue int64) int64 {
 	return defaultValue
 }
 
-// GetBool extracts a bool value from a map with a default fallback
 func GetBool(m map[string]any, key string, defaultValue bool) bool {
 	if m == nil {
 		return defaultValue
@@ -33,7 +30,6 @@ func GetBool(m map[string]any, key string, defaultValue bool) bool {
 	return defaultValue
 }
 
-// GetSlice extracts a slice of any type from a map with a default fallback
 func GetSlice(m map[string]any, key string, defaultValue []any) []any {
 	if m == nil {
 		return defaultValue
@@ -44,7 +40,6 @@ func GetSlice(m map[string]any, key string, defaultValue []any) []any {
 	return defaultValue
 }
 
-// GetMap extracts a nested map from a map with a default fallback
 func GetMap(m map[string]any, key string, defaultValue map[string]any) map[string]any {
 	if m == nil {
 		return defaultValue

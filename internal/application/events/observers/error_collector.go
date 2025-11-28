@@ -8,14 +8,12 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/parsers"
 )
 
-// ErrorCollector collects and categorizes errors from pipeline processing
 type ErrorCollector struct {
 	errors   []ErrorInfo
 	mu       sync.RWMutex
 	logger   parsers.Logger
 	eventBus events.EventBus
 
-	// Error statistics
 	totalErrors       int
 	parsingErrors     int
 	validationErrors  int
@@ -23,7 +21,6 @@ type ErrorCollector struct {
 	otherErrors       int
 }
 
-// ErrorInfo contains information about an error
 type ErrorInfo struct {
 	Timestamp  time.Time `json:"timestamp"`
 	FilePath   string    `json:"file_path"`
@@ -35,7 +32,6 @@ type ErrorInfo struct {
 	LineNumber int       `json:"line_number,omitempty"`
 }
 
-// NewErrorCollector creates a new error collector
 func NewErrorCollector(eventBus events.EventBus, logger parsers.Logger) *ErrorCollector {
 	if logger == nil {
 		logger = &parsers.NoOpLogger{}
@@ -48,7 +44,6 @@ func NewErrorCollector(eventBus events.EventBus, logger parsers.Logger) *ErrorCo
 	}
 }
 
-// HandleEvent processes events to collect errors
 func (ec *ErrorCollector) HandleEvent(event events.Event) {
 	switch e := event.(type) {
 	case *events.ParsingErrorEvent:
@@ -64,7 +59,6 @@ func (ec *ErrorCollector) HandleEvent(event events.Event) {
 	}
 }
 
-// handleParsingError handles parsing error events
 func (ec *ErrorCollector) handleParsingError(event *events.ParsingErrorEvent) {
 	ec.mu.Lock()
 	defer ec.mu.Unlock()
@@ -85,7 +79,6 @@ func (ec *ErrorCollector) handleParsingError(event *events.ParsingErrorEvent) {
 	ec.logger.Error("parsing error in %s: %s", event.FilePath, event.Error.Error())
 }
 
-// handleValidationError handles validation error events
 func (ec *ErrorCollector) handleValidationError(event *events.ValidationErrorEvent) {
 	ec.mu.Lock()
 	defer ec.mu.Unlock()
@@ -106,7 +99,6 @@ func (ec *ErrorCollector) handleValidationError(event *events.ValidationErrorEve
 	ec.logger.Error("validation error in %s: %s", event.FilePath, event.Error.Error())
 }
 
-// handlePersistenceError handles persistence error events
 func (ec *ErrorCollector) handlePersistenceError(event *events.PersistenceErrorEvent) {
 	ec.mu.Lock()
 	defer ec.mu.Unlock()
@@ -126,7 +118,6 @@ func (ec *ErrorCollector) handlePersistenceError(event *events.PersistenceErrorE
 	ec.logger.Error("persistence error in %s: %s", event.FilePath, event.Error.Error())
 }
 
-// handlePipelineFailed handles pipeline failed events
 func (ec *ErrorCollector) handlePipelineFailed(event *events.PipelineFailedEvent) {
 	ec.mu.Lock()
 	defer ec.mu.Unlock()
@@ -147,7 +138,6 @@ func (ec *ErrorCollector) handlePipelineFailed(event *events.PipelineFailedEvent
 	ec.logger.Error("pipeline failed for %s at stage %s: %s", event.FilePath, event.Stage, event.Error.Error())
 }
 
-// handleStageFailed handles stage failed events
 func (ec *ErrorCollector) handleStageFailed(event *events.StageFailedEvent) {
 	ec.mu.Lock()
 	defer ec.mu.Unlock()
@@ -168,18 +158,15 @@ func (ec *ErrorCollector) handleStageFailed(event *events.StageFailedEvent) {
 	ec.logger.Error("stage %s failed for %s: %s", event.StageName, event.FilePath, event.Error.Error())
 }
 
-// GetErrors returns all collected errors
 func (ec *ErrorCollector) GetErrors() []ErrorInfo {
 	ec.mu.RLock()
 	defer ec.mu.RUnlock()
 
-	// Return a copy to avoid race conditions
 	errorsCopy := make([]ErrorInfo, len(ec.errors))
 	copy(errorsCopy, ec.errors)
 	return errorsCopy
 }
 
-// GetErrorStatistics returns error statistics
 func (ec *ErrorCollector) GetErrorStatistics() ErrorStatistics {
 	ec.mu.RLock()
 	defer ec.mu.RUnlock()
@@ -193,7 +180,6 @@ func (ec *ErrorCollector) GetErrorStatistics() ErrorStatistics {
 	}
 }
 
-// GetErrorsByType returns errors grouped by type
 func (ec *ErrorCollector) GetErrorsByType() map[string][]ErrorInfo {
 	ec.mu.RLock()
 	defer ec.mu.RUnlock()
@@ -207,7 +193,6 @@ func (ec *ErrorCollector) GetErrorsByType() map[string][]ErrorInfo {
 	return errorsByType
 }
 
-// GetErrorsByFile returns errors grouped by file
 func (ec *ErrorCollector) GetErrorsByFile() map[string][]ErrorInfo {
 	ec.mu.RLock()
 	defer ec.mu.RUnlock()
@@ -221,7 +206,6 @@ func (ec *ErrorCollector) GetErrorsByFile() map[string][]ErrorInfo {
 	return errorsByFile
 }
 
-// GenerateErrorReport generates a comprehensive error report
 func (ec *ErrorCollector) GenerateErrorReport() ErrorReport {
 	ec.mu.RLock()
 	defer ec.mu.RUnlock()
@@ -235,13 +219,11 @@ func (ec *ErrorCollector) GenerateErrorReport() ErrorReport {
 		RecentErrors: make([]ErrorInfo, 0),
 	}
 
-	// Count errors by type and file
 	for _, errorInfo := range ec.errors {
 		report.ErrorsByType[errorInfo.ErrorType]++
 		report.ErrorsByFile[errorInfo.FilePath]++
 	}
 
-	// Get recent errors (last 10)
 	recentCount := 10
 	if len(ec.errors) < recentCount {
 		recentCount = len(ec.errors)
@@ -256,7 +238,6 @@ func (ec *ErrorCollector) GenerateErrorReport() ErrorReport {
 	return report
 }
 
-// Clear clears all collected errors
 func (ec *ErrorCollector) Clear() {
 	ec.mu.Lock()
 	defer ec.mu.Unlock()
@@ -271,7 +252,6 @@ func (ec *ErrorCollector) Clear() {
 	ec.logger.Debug("error collector cleared")
 }
 
-// ErrorStatistics contains error statistics
 type ErrorStatistics struct {
 	TotalErrors       int `json:"total_errors"`
 	ParsingErrors     int `json:"parsing_errors"`
@@ -280,7 +260,6 @@ type ErrorStatistics struct {
 	OtherErrors       int `json:"other_errors"`
 }
 
-// ErrorReport contains a comprehensive error report
 type ErrorReport struct {
 	Timestamp    time.Time       `json:"timestamp"`
 	TotalErrors  int             `json:"total_errors"`

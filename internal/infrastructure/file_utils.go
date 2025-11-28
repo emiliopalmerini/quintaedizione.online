@@ -7,13 +7,11 @@ import (
 	"strings"
 )
 
-// FileExists checks if a file exists
 func FileExists(filename string) bool {
 	_, err := os.Stat(filename)
 	return !os.IsNotExist(err)
 }
 
-// ReadLines reads all lines from a file
 func ReadLines(filename string) ([]string, error) {
 	file, err := os.Open(filename)
 	if err != nil {
@@ -34,7 +32,6 @@ func ReadLines(filename string) ([]string, error) {
 	return lines, nil
 }
 
-// ExtractLanguageFromPath extracts language code from file path
 func ExtractLanguageFromPath(path string) string {
 	dir := filepath.Dir(path)
 	parts := strings.Split(dir, "/")
@@ -45,17 +42,15 @@ func ExtractLanguageFromPath(path string) string {
 		}
 	}
 
-	// Default to Italian
 	return "ita"
 }
 
-// RemoveMarkdownHeaders removes markdown headers from content
 func RemoveMarkdownHeaders(content string) string {
 	lines := strings.Split(content, "\n")
 	var result []string
 
 	for _, line := range lines {
-		// Skip lines that start with # (headers)
+
 		if !strings.HasPrefix(strings.TrimSpace(line), "#") {
 			result = append(result, line)
 		}

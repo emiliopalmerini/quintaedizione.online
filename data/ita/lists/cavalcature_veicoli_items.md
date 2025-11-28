@@ -1,3 +1,4 @@
+
 # Cavalcature e Veicoli
 
 ## Cavalcatura - Cammello
@@ -187,4 +188,3 @@
 **PF:** 500  
 **Soglia Danni:** 20  
 **Descrizione:** Una nave pesantemente armata progettata per il combattimento navale.  
-

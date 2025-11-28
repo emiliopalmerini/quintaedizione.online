@@ -1,3 +1,4 @@
+
 # Armature
 
 ## Armatura Imbottita
@@ -142,4 +143,3 @@
 **Limite Des:** —  
 **Forza richiesta:** —  
 **Svantaggio Furtività:** no  
-

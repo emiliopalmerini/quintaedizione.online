@@ -10,61 +10,50 @@ import (
 	templComponents "github.com/emiliopalmerini/quintaedizione.online/web/templates"
 )
 
-// TemplEngine handles Templ-based template rendering
 type TemplEngine struct {
 	isDev bool
 }
 
-// NewTemplEngine creates a new Templ-based template engine
 func NewTemplEngine() *TemplEngine {
 	return &TemplEngine{
 		isDev: false,
 	}
 }
 
-// NewDevTemplEngine creates a new Templ-based template engine with development features
 func NewDevTemplEngine() *TemplEngine {
 	return &TemplEngine{
 		isDev: true,
 	}
 }
 
-// RenderHome renders the home page
 func (e *TemplEngine) RenderHome(data models.HomePageData) (string, error) {
 	return e.renderComponent(templComponents.HomePage(data))
 }
 
-// RenderCollection renders a collection page
 func (e *TemplEngine) RenderCollection(data models.CollectionPageData) (string, error) {
 	return e.renderComponent(templComponents.CollectionPage(data))
 }
 
-// RenderItem renders an item page
 func (e *TemplEngine) RenderItem(data models.ItemPageData) (string, error) {
 	return e.renderComponent(templComponents.ItemPage(data))
 }
 
-// RenderRows renders rows partial (for HTMX updates)
 func (e *TemplEngine) RenderRows(data models.CollectionPageData) (string, error) {
 	return e.renderComponent(templComponents.RowsPartial(data))
 }
 
-// RenderError renders an error page
 func (e *TemplEngine) RenderError(data models.ErrorPageData) (string, error) {
 	return e.renderComponent(templComponents.ErrorPage(data))
 }
 
-// RenderSearch renders the global search results page
 func (e *TemplEngine) RenderSearch(data models.SearchPageData) (string, error) {
 	return e.renderComponent(templComponents.SearchPage(data))
 }
 
-// RenderSearchDropdown renders the search dropdown partial for HTMX
 func (e *TemplEngine) RenderSearchDropdown(results []models.CollectionSearchResult, query string) (string, error) {
 	return e.renderComponent(templComponents.SearchDropdown(results, query))
 }
 
-// renderComponent is a helper that renders any Templ component to string
 func (e *TemplEngine) renderComponent(component templ.Component) (string, error) {
 	var buf bytes.Buffer
 	ctx := context.Background()
@@ -76,8 +65,6 @@ func (e *TemplEngine) renderComponent(component templ.Component) (string, error)
 	return buf.String(), nil
 }
 
-// Legacy method for backwards compatibility during transition
-// This will be removed once all handlers are updated
 func (e *TemplEngine) Render(templateName string, data interface{}) (string, error) {
 	return "", fmt.Errorf("legacy Render method called with template %s - use specific Render methods instead", templateName)
 }

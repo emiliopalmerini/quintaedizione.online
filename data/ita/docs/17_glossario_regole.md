@@ -1,3 +1,4 @@
+
 # Glossario delle Regole
 
 ## Convenzioni del Glossario

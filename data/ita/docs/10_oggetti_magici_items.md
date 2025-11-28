@@ -568,5 +568,3 @@ Dà bonus CA 15 + Des, vantaggio ai TS contro incantesimi e bonus agli incantesi
 Permette di lanciare *Dardo Incantato* e spostarsi sul Piano Astrale.  
 
 ---
-
-

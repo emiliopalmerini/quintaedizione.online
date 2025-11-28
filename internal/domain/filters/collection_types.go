@@ -1,6 +1,5 @@
 package filters
 
-// CollectionType represents a valid collection in the system
 type CollectionType string
 
 const (
@@ -20,12 +19,10 @@ const (
 	CavalcatureVeicoliCollection CollectionType = "cavalcature_veicoli"
 )
 
-// String returns the string representation of the collection type
 func (c CollectionType) String() string {
 	return string(c)
 }
 
-// IsValid checks if the collection type is valid
 func (c CollectionType) IsValid() bool {
 	validCollections := []CollectionType{
 		IncantesimiCollection,
@@ -52,7 +49,6 @@ func (c CollectionType) IsValid() bool {
 	return false
 }
 
-// GetDisplayName returns a human-readable display name for the collection
 func (c CollectionType) GetDisplayName() string {
 	displayNames := map[CollectionType]string{
 		IncantesimiCollection:        "Incantesimi",

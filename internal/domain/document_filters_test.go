@@ -19,19 +19,16 @@ func TestNewDocumentFilters(t *testing.T) {
 func TestDocumentFilters_Set(t *testing.T) {
 	filters := NewDocumentFilters()
 
-	// Test setting string value
 	filters.Set("collection", "spells")
 	if filters["collection"] != "spells" {
 		t.Errorf("Expected collection to be 'spells', got %v", filters["collection"])
 	}
 
-	// Test setting int value
 	filters.Set("level", 3)
 	if filters["level"] != 3 {
 		t.Errorf("Expected level to be 3, got %v", filters["level"])
 	}
 
-	// Test overwriting existing value
 	filters.Set("collection", "weapons")
 	if filters["collection"] != "weapons" {
 		t.Errorf("Expected collection to be 'weapons', got %v", filters["collection"])
@@ -83,7 +80,7 @@ func TestDocumentFilters_GetString(t *testing.T) {
 		expected string
 	}{
 		{"existing string", "collection", "spells"},
-		{"int value", "level", ""}, // GetString only works for actual strings
+		{"int value", "level", ""},
 		{"nil value", "missing", ""},
 		{"non-existing key", "nonexistent", ""},
 	}
@@ -113,8 +110,8 @@ func TestDocumentFilters_Has(t *testing.T) {
 	}{
 		{"existing non-empty", "collection", true},
 		{"existing int", "level", true},
-		{"existing empty string", "empty", true}, // Has checks existence, not emptiness
-		{"nil value", "nil", true},               // Has checks existence, not nil-ness
+		{"existing empty string", "empty", true},
+		{"nil value", "nil", true},
 		{"non-existing key", "nonexistent", false},
 	}
 
@@ -135,13 +132,11 @@ func TestDocumentFilters_Delete(t *testing.T) {
 		"school":     "evocation",
 	}
 
-	// Delete existing key
 	filters.Delete("level")
 	if _, exists := filters.Get("level"); exists {
 		t.Error("Expected level to be deleted")
 	}
 
-	// Verify other keys still exist
 	if collection, exists := filters.Get("collection"); !exists || collection != "spells" {
 		t.Error("Expected collection to still exist")
 	}
@@ -149,6 +144,5 @@ func TestDocumentFilters_Delete(t *testing.T) {
 		t.Error("Expected school to still exist")
 	}
 
-	// Delete non-existing key (should not panic)
 	filters.Delete("nonexistent")
 }

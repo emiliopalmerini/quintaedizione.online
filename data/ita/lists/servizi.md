@@ -216,4 +216,3 @@
 **Costo:** 5 AP  
 **Categoria:** servizio  
 **Descrizione:** Stabulazione giornaliera per una cavalcatura.
-
