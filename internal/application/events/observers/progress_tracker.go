@@ -8,7 +8,6 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/parsers"
 )
 
-// ProgressTracker tracks overall processing progress across multiple files
 type ProgressTracker struct {
 	totalFiles     int
 	processedFiles int
@@ -18,7 +17,6 @@ type ProgressTracker struct {
 	logger         parsers.Logger
 	eventBus       events.EventBus
 
-	// Statistics
 	successfulFiles int
 	failedFiles     int
 	totalParsed     int
@@ -26,7 +24,6 @@ type ProgressTracker struct {
 	totalErrors     int
 }
 
-// NewProgressTracker creates a new progress tracker
 func NewProgressTracker(totalFiles int, eventBus events.EventBus, logger parsers.Logger) *ProgressTracker {
 	if logger == nil {
 		logger = &parsers.NoOpLogger{}
@@ -46,7 +43,6 @@ func NewProgressTracker(totalFiles int, eventBus events.EventBus, logger parsers
 	}
 }
 
-// HandleEvent processes events to track progress
 func (pt *ProgressTracker) HandleEvent(event events.Event) {
 	switch e := event.(type) {
 	case *events.PipelineStartedEvent:
@@ -60,7 +56,6 @@ func (pt *ProgressTracker) HandleEvent(event events.Event) {
 	}
 }
 
-// handlePipelineStarted handles pipeline started events
 func (pt *ProgressTracker) handlePipelineStarted(event *events.PipelineStartedEvent) {
 	pt.mu.Lock()
 	defer pt.mu.Unlock()
@@ -68,13 +63,11 @@ func (pt *ProgressTracker) handlePipelineStarted(event *events.PipelineStartedEv
 	pt.currentFile = event.FilePath
 	pt.logger.Debug("started processing file: %s", event.FilePath)
 
-	// Publish progress event
 	if pt.eventBus != nil {
 		pt.publishProgressEvent()
 	}
 }
 
-// handlePipelineCompleted handles pipeline completed events
 func (pt *ProgressTracker) handlePipelineCompleted(event *events.PipelineCompletedEvent) {
 	pt.mu.Lock()
 	defer pt.mu.Unlock()
@@ -90,18 +83,15 @@ func (pt *ProgressTracker) handlePipelineCompleted(event *events.PipelineComplet
 		pt.logger.Debug("completed file %s successfully (%d/%d)", event.FilePath, pt.processedFiles, pt.totalFiles)
 	}
 
-	// Publish progress event
 	if pt.eventBus != nil {
 		pt.publishProgressEvent()
 	}
 
-	// Check if all files are processed
 	if pt.processedFiles >= pt.totalFiles {
 		pt.publishFinalSummary()
 	}
 }
 
-// handlePipelineFailed handles pipeline failed events
 func (pt *ProgressTracker) handlePipelineFailed(event *events.PipelineFailedEvent) {
 	pt.mu.Lock()
 	defer pt.mu.Unlock()
@@ -112,18 +102,15 @@ func (pt *ProgressTracker) handlePipelineFailed(event *events.PipelineFailedEven
 
 	pt.logger.Error("failed to process file %s: %v (%d/%d)", event.FilePath, event.Error, pt.processedFiles, pt.totalFiles)
 
-	// Publish progress event
 	if pt.eventBus != nil {
 		pt.publishProgressEvent()
 	}
 
-	// Check if all files are processed
 	if pt.processedFiles >= pt.totalFiles {
 		pt.publishFinalSummary()
 	}
 }
 
-// handleFileProcessingCompleted handles file processing completed events
 func (pt *ProgressTracker) handleFileProcessingCompleted(event *events.FileProcessingCompletedEvent) {
 	pt.mu.Lock()
 	defer pt.mu.Unlock()
@@ -132,7 +119,6 @@ func (pt *ProgressTracker) handleFileProcessingCompleted(event *events.FileProce
 	pt.logger.Debug("file %s: parsed %d, written %d", event.FilePath, event.ParsedCount, event.WrittenCount)
 }
 
-// publishProgressEvent publishes a progress event with current statistics
 func (pt *ProgressTracker) publishProgressEvent() {
 	progressPercent := 0.0
 	if pt.totalFiles > 0 {
@@ -150,7 +136,6 @@ func (pt *ProgressTracker) publishProgressEvent() {
 	pt.eventBus.PublishAsync(progressEvent)
 }
 
-// publishFinalSummary publishes a final processing summary
 func (pt *ProgressTracker) publishFinalSummary() {
 	duration := time.Since(pt.startTime)
 
@@ -162,7 +147,6 @@ func (pt *ProgressTracker) publishFinalSummary() {
 	pt.logger.Info("  Total written: %d", pt.totalWritten)
 	pt.logger.Info("  Total errors: %d", pt.totalErrors)
 
-	// Create final summary event
 	summaryEvent := &events.ProcessingSummaryEvent{
 		BaseEvent:       events.BaseEvent{EventTime: time.Now()},
 		TotalFiles:      pt.totalFiles,
@@ -179,7 +163,6 @@ func (pt *ProgressTracker) publishFinalSummary() {
 	}
 }
 
-// GetProgress returns current progress information
 func (pt *ProgressTracker) GetProgress() ProgressInfo {
 	pt.mu.RLock()
 	defer pt.mu.RUnlock()
@@ -204,7 +187,6 @@ func (pt *ProgressTracker) GetProgress() ProgressInfo {
 	}
 }
 
-// ProgressInfo contains progress information
 type ProgressInfo struct {
 	TotalFiles      int           `json:"total_files"`
 	ProcessedFiles  int           `json:"processed_files"`

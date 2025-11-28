@@ -301,4 +301,3 @@ Tabella: Retaggi Infernali
 | Abissale  | Hai Resistenza ai danni da Veleno. Conosci anche il trucchetto *Spruzzo Velenoso*. | *Raggio di Malattia* | *Blocca Persone*      |
 | Ctonio    | Hai Resistenza ai danni Necrotici. Conosci anche il trucchetto *Tocco Gelido*.    | *Falsa Vita*        | *Raggio d’Indebolimento* |
 | Infernale | Hai Resistenza ai danni da Fuoco. Conosci anche il trucchetto *Dardo di Fuoco*.   | *Rimprovero Infernale* | *Oscurità*          |
-

@@ -10,15 +10,12 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-// MongoFilterBuilder builds MongoDB queries from filter sets
 type MongoFilterBuilder struct{}
 
-// NewMongoFilterBuilder creates a new MongoDB filter builder
 func NewMongoFilterBuilder() *MongoFilterBuilder {
 	return &MongoFilterBuilder{}
 }
 
-// BuildFilter builds a MongoDB filter from a filter set
 func (b *MongoFilterBuilder) BuildFilter(filterSet *filters.FilterSet) (bson.M, error) {
 	if !filterSet.HasFilters() {
 		return bson.M{}, nil
@@ -46,13 +43,12 @@ func (b *MongoFilterBuilder) BuildFilter(filterSet *filters.FilterSet) (bson.M, 
 	}
 }
 
-// buildSingleFilter builds a MongoDB condition for a single filter
 func (b *MongoFilterBuilder) buildSingleFilter(filterValue filters.FilterValue) (bson.M, error) {
 	def := filterValue.Definition
 	value := filterValue.Value
 
 	if value == "" {
-		return bson.M{}, nil // Skip empty values
+		return bson.M{}, nil
 	}
 
 	switch def.Operator {
@@ -69,7 +65,6 @@ func (b *MongoFilterBuilder) buildSingleFilter(filterValue filters.FilterValue) 
 	}
 }
 
-// buildExactMatch builds an exact match condition
 func (b *MongoFilterBuilder) buildExactMatch(fieldPath, value string, dataType filters.FilterDataType) (bson.M, error) {
 	switch dataType {
 	case filters.StringFilter, filters.EnumFilter:
@@ -91,7 +86,6 @@ func (b *MongoFilterBuilder) buildExactMatch(fieldPath, value string, dataType f
 	}
 }
 
-// buildRegexMatch builds a case-insensitive regex match condition
 func (b *MongoFilterBuilder) buildRegexMatch(fieldPath, value string) (bson.M, error) {
 	escapedValue := regexp.QuoteMeta(value)
 	return bson.M{
@@ -102,16 +96,13 @@ func (b *MongoFilterBuilder) buildRegexMatch(fieldPath, value string) (bson.M, e
 	}, nil
 }
 
-// buildRangeMatch builds a range match condition (for numeric values)
 func (b *MongoFilterBuilder) buildRangeMatch(fieldPath, value string, dataType filters.FilterDataType) (bson.M, error) {
 	if dataType != filters.NumberFilter {
 		return nil, fmt.Errorf("range match only supported for number filters")
 	}
 
-	// Parse range formats like "100-500", ">100", "<500", ">=100", "<=500"
 	value = strings.TrimSpace(value)
 
-	// Handle comparison operators
 	if strings.HasPrefix(value, ">=") {
 		numValue, err := strconv.ParseFloat(strings.TrimSpace(value[2:]), 64)
 		if err != nil {
@@ -144,7 +135,6 @@ func (b *MongoFilterBuilder) buildRangeMatch(fieldPath, value string, dataType f
 		return bson.M{fieldPath: bson.M{"$lt": numValue}}, nil
 	}
 
-	// Handle range format like "100-500"
 	if strings.Contains(value, "-") {
 		parts := strings.Split(value, "-")
 		if len(parts) != 2 {
@@ -169,7 +159,6 @@ func (b *MongoFilterBuilder) buildRangeMatch(fieldPath, value string, dataType f
 		}, nil
 	}
 
-	// Handle exact number (fallback to exact match)
 	numValue, err := strconv.ParseFloat(value, 64)
 	if err != nil {
 		return nil, fmt.Errorf("invalid number value: %s", value)
@@ -177,9 +166,8 @@ func (b *MongoFilterBuilder) buildRangeMatch(fieldPath, value string, dataType f
 	return bson.M{fieldPath: numValue}, nil
 }
 
-// buildInMatch builds an IN condition for multiple values
 func (b *MongoFilterBuilder) buildInMatch(fieldPath, value string) (bson.M, error) {
-	// Split by comma and trim whitespace
+
 	values := strings.Split(value, ",")
 	trimmedValues := make([]string, 0, len(values))
 
@@ -194,26 +182,18 @@ func (b *MongoFilterBuilder) buildInMatch(fieldPath, value string) (bson.M, erro
 	}
 
 	if len(trimmedValues) == 1 {
-		// Single value, use exact match
+
 		return bson.M{fieldPath: trimmedValues[0]}, nil
 	}
 
-	// Multiple values, use $in
 	return bson.M{fieldPath: bson.M{"$in": trimmedValues}}, nil
 }
 
-// BuildSearchFilter builds a text search filter using MongoDB text indexes
-// Uses native MongoDB $text operator which is more efficient than regex patterns
 func (b *MongoFilterBuilder) BuildSearchFilter(collection filters.CollectionType, searchTerm string) bson.M {
 	if searchTerm == "" {
 		return bson.M{}
 	}
 
-	// Use MongoDB's native $text operator which searches against text indexes
-	// This provides:
-	// - Better performance on large datasets
-	// - Language-aware stemming and stop words
-	// - Support for phrase queries with quotes
 	return bson.M{
 		"$text": bson.M{
 			"$search": searchTerm,

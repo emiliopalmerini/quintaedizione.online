@@ -1,3 +1,4 @@
+
 # Mostri
 
 ## Panoramica della Scheda Statistica
@@ -200,4 +201,3 @@ Usabili alla fine del turno di un altro. Numero limitato per turno, ricaricate a
 - **X/Giorno.** Recuperate con un Riposo Lungo.
 - **Ricarica X–Y.** Ricarica con tiro di d6 o con un Riposo Breve/Lungo.
 - **Ricarica dopo Riposo Breve o Lungo.**
-

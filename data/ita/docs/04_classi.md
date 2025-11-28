@@ -1,3 +1,4 @@
+
 # Classi 
 
 ## Barbaro
@@ -3403,4 +3404,3 @@ Puoi aumentare la potenza dei tuoi incantesimi. Quando lanci un incantesimo da M
 La prima volta che lo fai non subisci conseguenze. Se usi nuovamente questo privilegio prima di terminare un Riposo Lungo, subisci 2d12 danni necrotici per ogni livello dello slot incantesimo immediatamente dopo averlo lanciato. Questi danni ignorano Resistenza e Immunità.
 
 Ogni volta che usi nuovamente questo privilegio prima di terminare un Riposo Lungo, i danni necrotici per livello di incantesimo aumentano di 1d12.
-

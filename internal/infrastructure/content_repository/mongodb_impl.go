@@ -10,26 +10,23 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-// MongoDBRepository implements Repository using MongoDB client directly for map access
 type MongoDBRepository struct {
 	client *mongodb.Client
 }
 
-// NewMongoDBRepository creates a new MongoDBRepository
 func NewMongoDBRepository(client *mongodb.Client) Repository {
 	return &MongoDBRepository{
 		client: client,
 	}
 }
 
-// getValidCollections returns the list of valid collection names
 func (r *MongoDBRepository) getValidCollections() []string {
 	return []string{
 		"incantesimi",
 		"mostri",
 		"classi",
 		"backgrounds",
-		"equipaggiamenti", // Note: MongoDB has "equipaggiamenti" but repository uses "equipaggiamento"
+		"equipaggiamenti",
 		"armi",
 		"armature",
 		"oggetti_magici",
@@ -42,13 +39,11 @@ func (r *MongoDBRepository) getValidCollections() []string {
 	}
 }
 
-// isValidCollection validates if a collection name is supported
 func (r *MongoDBRepository) isValidCollection(collection string) bool {
 	validCollections := r.getValidCollections()
 	return slices.Contains(validCollections, collection)
 }
 
-// FindMaps retrieves items as maps with pagination and search
 func (r *MongoDBRepository) FindMaps(ctx context.Context, collection string, filter bson.M, skip, limit int64) ([]map[string]any, error) {
 	if !r.isValidCollection(collection) {
 		return nil, fmt.Errorf("invalid collection: %s", collection)
@@ -74,10 +69,9 @@ func (r *MongoDBRepository) FindMaps(ctx context.Context, collection string, fil
 			return nil, fmt.Errorf("failed to decode document: %w", err)
 		}
 
-		// Extract the 'value' field and add to root level for compatibility
 		if value, exists := doc["value"]; exists {
 			if valueMap, ok := value.(map[string]any); ok {
-				// Merge value fields into root document for compatibility
+
 				for k, v := range valueMap {
 					doc[k] = v
 				}
@@ -94,7 +88,6 @@ func (r *MongoDBRepository) FindMaps(ctx context.Context, collection string, fil
 	return items, nil
 }
 
-// FindOneMap retrieves a single item as a map
 func (r *MongoDBRepository) FindOneMap(ctx context.Context, collection string, filter bson.M) (map[string]any, error) {
 	if !r.isValidCollection(collection) {
 		return nil, fmt.Errorf("invalid collection: %s", collection)
@@ -108,23 +101,18 @@ func (r *MongoDBRepository) FindOneMap(ctx context.Context, collection string, f
 		return nil, fmt.Errorf("failed to find document in %s: %w", collection, err)
 	}
 
-	// Extract the 'value' field and add to root level for compatibility
 	if value, exists := doc["value"]; exists {
 		if valueMap, ok := value.(map[string]any); ok {
-			// Merge value fields into root document for compatibility
+
 			for k, v := range valueMap {
 				doc[k] = v
 			}
 		}
 	}
 
-	// Ensure important root-level fields are preserved (contenuto, created_at, etc.)
-	// These are already in doc, no need to extract them separately
-
 	return doc, nil
 }
 
-// Count returns the total number of items matching the filter
 func (r *MongoDBRepository) Count(ctx context.Context, collection string, filter bson.M) (int64, error) {
 	if !r.isValidCollection(collection) {
 		return 0, fmt.Errorf("invalid collection: %s", collection)
@@ -139,7 +127,6 @@ func (r *MongoDBRepository) Count(ctx context.Context, collection string, filter
 	return count, nil
 }
 
-// GetCollectionStats returns statistics for all collections
 func (r *MongoDBRepository) GetCollectionStats(ctx context.Context) ([]map[string]any, error) {
 	var collections []map[string]any
 
@@ -149,7 +136,7 @@ func (r *MongoDBRepository) GetCollectionStats(ctx context.Context) ([]map[strin
 		"mostri":              "Mostri",
 		"classi":              "Classi",
 		"backgrounds":         "Background",
-		"equipaggiamenti":     "Equipaggiamento", // Note: collection name mismatch
+		"equipaggiamenti":     "Equipaggiamento",
 		"armi":                "Armi",
 		"armature":            "Armature",
 		"oggetti_magici":      "Oggetti Magici",
@@ -164,7 +151,7 @@ func (r *MongoDBRepository) GetCollectionStats(ctx context.Context) ([]map[strin
 	for _, collection := range validCollections {
 		count, err := r.Count(ctx, collection, bson.M{})
 		if err != nil {
-			// Skip collections that have errors
+
 			continue
 		}
 

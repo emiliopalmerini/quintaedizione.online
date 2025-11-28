@@ -6,59 +6,39 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain"
 )
 
-// DocumentRepository handles all document CRUD operations
-// This replaces all entity-specific repositories with a unified interface
 type DocumentRepository interface {
-	// Create inserts a new document
+
 	Create(ctx context.Context, doc *domain.Document, collection string) error
 
-	// Update updates an existing document
 	Update(ctx context.Context, doc *domain.Document, collection string) error
 
-	// Delete removes a document by ID
 	Delete(ctx context.Context, id domain.DocumentID, collection string) error
 
-	// FindByID retrieves a document by ID
 	FindByID(ctx context.Context, id domain.DocumentID, collection string) (*domain.Document, error)
 
-	// FindAll retrieves all documents in a collection
 	FindAll(ctx context.Context, collection string, limit int) ([]*domain.Document, error)
 
-	// FindByFilters retrieves documents matching filters
 	FindByFilters(ctx context.Context, collection string, filters map[string]any, limit int) ([]*domain.Document, error)
 
-	// Count returns the number of documents in a collection
 	Count(ctx context.Context, collection string) (int64, error)
 
-	// UpsertMany performs bulk upsert operations
 	UpsertMany(ctx context.Context, collection string, documents []*domain.Document) (int, error)
 
-	// UpsertManyMaps performs bulk upsert from raw maps (for parser compatibility)
 	UpsertManyMaps(ctx context.Context, collection string, uniqueFields []string, docs []map[string]any) (int, error)
 
-	// GetCollectionStats returns statistics for a collection
 	GetCollectionStats(ctx context.Context, collection string) (map[string]any, error)
 
-	// GetAdjacentDocuments retrieves the previous and next documents
 	GetAdjacentDocuments(ctx context.Context, collection string, currentID domain.DocumentID) (prev *domain.Document, next *domain.Document, err error)
 
-	// Map-based methods for viewer compatibility (returns generic maps instead of Document structs)
-
-	// FindMapByID retrieves a document as a map by ID (slug)
 	FindMapByID(ctx context.Context, collection string, id string) (map[string]any, error)
 
-	// FindMaps retrieves documents as maps with pagination and filtering
 	FindMaps(ctx context.Context, collection string, filter map[string]any, skip int64, limit int64) ([]map[string]any, int64, error)
 
-	// CountWithFilter counts documents matching a filter
 	CountWithFilter(ctx context.Context, collection string, filter map[string]any) (int64, error)
 
-	// GetAdjacentMaps gets the previous and next document IDs for navigation
 	GetAdjacentMaps(ctx context.Context, collection string, currentID string) (prevID *string, nextID *string, err error)
 
-	// GetAllCollectionStats returns statistics for all collections
 	GetAllCollectionStats(ctx context.Context) ([]map[string]any, error)
 
-	// DropCollection drops/deletes a collection
 	DropCollection(ctx context.Context, collection string) error
 }

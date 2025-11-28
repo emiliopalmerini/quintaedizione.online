@@ -23,15 +23,13 @@ import (
 )
 
 func main() {
-	// Load configuration
+
 	config := infrastructure.LoadConfig()
 
-	// Setup logging
 	if config.IsProduction() {
 		gin.SetMode(gin.ReleaseMode)
 	}
 
-	// Initialize MongoDB client
 	mongoConfig := pkgMongodb.Config{
 		URI:         config.MongoURI,
 		Database:    config.DatabaseName,
@@ -45,7 +43,6 @@ func main() {
 	}
 	defer mongoClient.Close()
 
-	// Check database connection
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
@@ -54,19 +51,15 @@ func main() {
 	}
 	log.Println("MongoDB connection established")
 
-	// Initialize database index manager (indexes will be created after parsing)
 	indexManager := database.NewIndexManager(mongoClient)
 
-	// Initialize repository factory (needed for parsing)
 	repositoryFactory := repositories.NewRepositoryFactory(mongoClient)
 
-	// Parse markdown files into database on startup
 	log.Println("Parsing markdown files...")
 	if err := parseMarkdownFiles(repositoryFactory, indexManager); err != nil {
 		log.Fatalf("Failed to parse markdown files: %v", err)
 	}
 
-	// Initialize Templ engine
 	var templateEngine *templates.TemplEngine
 	if config.IsProduction() {
 		templateEngine = templates.NewTemplEngine()
@@ -75,26 +68,20 @@ func main() {
 	}
 	log.Println("Templates loaded")
 
-	// Initialize filter registry
 	filterRegistry, err := filters.NewYAMLFilterRegistry("configs/filters.yaml")
 	if err != nil {
 		log.Fatalf("Failed to initialize filter registry: %v", err)
 	}
 	log.Println("Filter registry loaded")
 
-	// Initialize filter service
 	filterService := services.NewFilterService(filterRegistry)
 
-	// Initialize services
 	contentService := services.NewContentService(repositoryFactory.DocumentRepository(), filterService)
 
-	// Initialize web handlers
 	webHandlers := web.NewHandlers(contentService, templateEngine)
 
-	// Setup Gin router
 	router := gin.Default()
 
-	// Middleware
 	router.Use(web.RequestLoggingMiddleware())
 	router.Use(web.MetricsMiddleware())
 	router.Use(webHandlers.ErrorRecoveryMiddleware())
@@ -102,10 +89,8 @@ func main() {
 	router.Use(web.ValidationMiddleware())
 	router.Use(corsMiddleware())
 
-	// Static files
 	router.Static("/static", "./web/static")
 
-	// Health check endpoint
 	router.GET("/health", func(c *gin.Context) {
 		cacheStats := infrastructure.GetGlobalCache().GetStats()
 		metrics := web.GetGlobalMetrics()
@@ -122,22 +107,18 @@ func main() {
 		})
 	})
 
-	// Detailed metrics endpoint
 	router.GET("/admin/metrics", func(c *gin.Context) {
 		metrics := web.GetGlobalMetrics()
 		c.JSON(http.StatusOK, metrics.ToJSON())
 	})
 
-	// Register routes
 	webHandlers.RegisterRoutes(router)
 
-	// Setup HTTP server
 	srv := &http.Server{
 		Addr:    config.GetAddress(),
 		Handler: router,
 	}
 
-	// Start server in goroutine
 	go func() {
 		log.Printf("Starting Quintaedizione 5e SRD Viewer on %s", config.GetAddress())
 		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
@@ -145,13 +126,11 @@ func main() {
 		}
 	}()
 
-	// Wait for interrupt signal to gracefully shutdown
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 	<-quit
 	log.Println("Shutting down Quintaedizione 5e SRD Viewer...")
 
-	// Graceful shutdown with timeout
 	shutdownCtx, shutdownCancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer shutdownCancel()
 
@@ -162,11 +141,9 @@ func main() {
 	log.Println("Server shutdown completed")
 }
 
-// parseMarkdownFiles parses all markdown files into the database on startup
 func parseMarkdownFiles(repositoryFactory *repositories.RepositoryFactory, indexManager *database.IndexManager) error {
 	ctx := context.Background()
 
-	// Drop all collections before parsing to ensure clean state
 	log.Println("Dropping existing collections for clean parse...")
 	collections := []string{
 		"incantesimi", "mostri", "classi", "backgrounds", "equipaggiamenti",
@@ -182,45 +159,39 @@ func parseMarkdownFiles(repositoryFactory *repositories.RepositoryFactory, index
 	}
 	log.Println("Collections dropped")
 
-	// Recreate indexes after dropping collections
 	indexCtx, indexCancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer indexCancel()
 	if err := indexManager.EnsureIndexes(indexCtx); err != nil {
 		log.Printf("Warning: Failed to recreate indexes: %v", err)
-		// Continue with parsing even if indexes fail
+
 	} else {
 		log.Println("✅ Indexes recreated")
 	}
 
-	// Create Document parser registry
 	documentRegistry, err := parsers.CreateDocumentRegistry()
 	if err != nil {
 		return fmt.Errorf("failed to create document registry: %w", err)
 	}
 
-	// Create parser service
 	parserService := services.NewParserService(services.ParserServiceConfig{
 		DocumentRegistry: documentRegistry,
 		DocumentRepo:     repositoryFactory.DocumentRepository(),
-		WorkItems:        nil, // Use default work items
+		WorkItems:        nil,
 		Logger:           parsers.NewConsoleLogger("parser"),
 		DryRun:           false,
 	})
 
-	// Parse all files
 	result, err := parserService.ParseAllFiles(ctx, "data/ita/lists")
 	if err != nil {
 		return err
 	}
 
-	// Log summary
 	log.Printf("Parsing completed: %d files, %d documents in %.2fs\n",
 		result.SuccessCount, result.TotalDocuments, result.Duration.Seconds())
 
 	return nil
 }
 
-// corsMiddleware adds CORS headers
 func corsMiddleware() gin.HandlerFunc {
 	return gin.HandlerFunc(func(c *gin.Context) {
 		c.Header("Access-Control-Allow-Origin", "*")

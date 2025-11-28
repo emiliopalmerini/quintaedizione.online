@@ -5,7 +5,6 @@ import (
 	"fmt"
 )
 
-// Domain errors
 var (
 	ErrDocumentNotFound      = errors.New("document not found")
 	ErrInvalidDocumentID     = errors.New("invalid document ID")
@@ -13,12 +12,11 @@ var (
 	ErrDocumentAlreadyExists = errors.New("document already exists")
 )
 
-// DocumentError represents a domain-level error with additional context
 type DocumentError struct {
-	Op  string     // Operation that failed
-	ID  DocumentID // Document ID if applicable
-	Err error      // Underlying error
-	Msg string     // Additional message
+	Op  string
+	ID  DocumentID
+	Err error
+	Msg string
 }
 
 func (e *DocumentError) Error() string {
@@ -32,7 +30,6 @@ func (e *DocumentError) Unwrap() error {
 	return e.Err
 }
 
-// NewDocumentError creates a new DocumentError
 func NewDocumentError(op string, id DocumentID, err error, msg string) *DocumentError {
 	return &DocumentError{
 		Op:  op,
@@ -42,7 +39,6 @@ func NewDocumentError(op string, id DocumentID, err error, msg string) *Document
 	}
 }
 
-// IsDocumentNotFound checks if an error indicates a document was not found
 func IsDocumentNotFound(err error) bool {
 	if err == nil {
 		return false
@@ -54,7 +50,6 @@ func IsDocumentNotFound(err error) bool {
 	return errors.Is(err, ErrDocumentNotFound)
 }
 
-// IsInvalidDocumentID checks if an error indicates an invalid document ID
 func IsInvalidDocumentID(err error) bool {
 	if err == nil {
 		return false

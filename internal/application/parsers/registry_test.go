@@ -6,7 +6,6 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain"
 )
 
-// MockDocumentStrategy is a test implementation of DocumentParsingStrategy
 type MockDocumentStrategy struct {
 	contentType ContentType
 	name        string
@@ -57,25 +56,21 @@ func TestDocumentRegistry_Register(t *testing.T) {
 		description: "Mock spell parser",
 	}
 
-	// Test successful registration
 	err := registry.Register("spells_ita", strategy)
 	if err != nil {
 		t.Errorf("Expected no error, got %v", err)
 	}
 
-	// Test duplicate registration
 	err = registry.Register("spells_ita", strategy)
 	if err == nil {
 		t.Error("Expected error for duplicate registration")
 	}
 
-	// Test registration with empty key
 	err = registry.Register("", strategy)
 	if err == nil {
 		t.Error("Expected error for empty key")
 	}
 
-	// Test registration with nil strategy
 	err = registry.Register("nil_strategy", nil)
 	if err == nil {
 		t.Error("Expected error for nil strategy")
@@ -93,7 +88,6 @@ func TestDocumentRegistry_GetStrategyByKey(t *testing.T) {
 	key := "spells_ita"
 	registry.Register(key, strategy)
 
-	// Test successful retrieval
 	retrieved, err := registry.GetStrategyByKey(key)
 	if err != nil {
 		t.Errorf("Expected no error, got %v", err)
@@ -102,7 +96,6 @@ func TestDocumentRegistry_GetStrategyByKey(t *testing.T) {
 		t.Error("Expected retrieved strategy to match registered strategy")
 	}
 
-	// Test retrieval of non-existent key
 	_, err = registry.GetStrategyByKey("nonexistent")
 	if err == nil {
 		t.Error("Expected error for non-existent key")
@@ -120,7 +113,6 @@ func TestDocumentRegistry_GetStrategy(t *testing.T) {
 	key := "incantesimi_ita"
 	registry.Register(key, strategy)
 
-	// Test successful retrieval
 	retrieved, err := registry.GetStrategy(ContentTypeIncantesimi, Italian)
 	if err != nil {
 		t.Errorf("Expected no error, got %v", err)
@@ -129,7 +121,6 @@ func TestDocumentRegistry_GetStrategy(t *testing.T) {
 		t.Error("Expected retrieved strategy to match registered strategy")
 	}
 
-	// Test retrieval of non-existent strategy
 	_, err = registry.GetStrategy(ContentType("nonexistent"), Italian)
 	if err == nil {
 		t.Error("Expected error for non-existent strategy")
@@ -139,7 +130,6 @@ func TestDocumentRegistry_GetStrategy(t *testing.T) {
 func TestDocumentRegistry_ListKeys(t *testing.T) {
 	registry := NewDocumentRegistry()
 
-	// Register multiple strategies
 	strategies := map[string]*MockDocumentStrategy{
 		"spells_ita": {
 			contentType: ContentTypeIncantesimi,
@@ -165,7 +155,6 @@ func TestDocumentRegistry_ListKeys(t *testing.T) {
 		t.Errorf("Expected %d keys, got %d", len(strategies), len(keys))
 	}
 
-	// Verify all expected keys are present
 	keyMap := make(map[string]bool)
 	for _, key := range keys {
 		keyMap[key] = true
@@ -181,12 +170,10 @@ func TestDocumentRegistry_ListKeys(t *testing.T) {
 func TestDocumentRegistry_Count(t *testing.T) {
 	registry := NewDocumentRegistry()
 
-	// Initially empty
 	if count := registry.Count(); count != 0 {
 		t.Errorf("Expected count 0, got %d", count)
 	}
 
-	// Add strategies
 	strategy := &MockDocumentStrategy{
 		contentType: ContentTypeIncantesimi,
 		name:        "Spells",
@@ -213,14 +200,12 @@ func TestCreateDocumentRegistry(t *testing.T) {
 		t.Error("Expected non-nil registry")
 	}
 
-	// Should have registered strategies for all content types
-	expectedStrategies := 14 // Based on the CreateDocumentRegistry function
+	expectedStrategies := 14
 
 	if count := registry.Count(); count != expectedStrategies {
 		t.Errorf("Expected %d strategies, got %d", expectedStrategies, count)
 	}
 
-	// Test that we can retrieve a specific strategy
 	strategy, err := registry.GetStrategy(ContentTypeIncantesimi, Italian)
 	if err != nil {
 		t.Errorf("Expected no error retrieving spells strategy, got %v", err)

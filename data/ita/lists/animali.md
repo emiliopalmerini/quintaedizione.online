@@ -1,3 +1,4 @@
+
 # Animali
 
 ## Allosauro
@@ -111,7 +112,6 @@
 
 ***Anfibio.*** Può respirare aria e acqua.
 
-
 ### Azioni
 
 ***Attacco Multiplo.*** Effettua due attacchi con Morso.
@@ -142,7 +142,6 @@
 ### Tratti
 
 ***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
-
 
 ### Azioni
 
@@ -254,7 +253,6 @@
 
 ***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
 
-
 ### Azioni
 
 ***Becco.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni Perforanti, oppure 6 (1d8 + 2) danni Perforanti se il bersaglio è Insanguinato.
@@ -283,7 +281,6 @@
 ### Tratti
 
 ***Furia Insanguinata.*** Mentre è Insanguinato, il cinghiale ha Vantaggio ai tiri per colpire.
-
 
 ### Azioni
 
@@ -370,7 +367,6 @@
 
 ***Saltatore.*** La distanza di salto del gatto è determinata usando la Destrezza anziché la Forza.
 
-
 ### Azioni
 
 ***Graffio.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 1 danno Tagliente.
@@ -429,7 +425,6 @@
 
 ***Anfibio.*** Può respirare aria e acqua.
 
-
 ### Azioni
 
 ***Chela.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 1 danno Contundente.
@@ -459,7 +454,6 @@
 ### Tratti
 
 ***Trattenere il Respiro.*** Può trattenere il respiro per 1 ora.
-
 
 ### Azioni
 
@@ -491,7 +485,6 @@
 
 ***Agile.*** Non provoca Attacchi di Opportunità quando si muove fuori dalla portata di un nemico.
 
-
 ### Azioni
 
 ***Speronata.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 2 (1d4) danni Contundenti.
@@ -521,7 +514,6 @@
 ### Tratti
 
 ***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
-
 
 ### Azioni
 
@@ -605,7 +597,6 @@
 
 ***Incornata.*** *Tiro per colpire in mischia:* +8, portata 1,5 m. 15 (2d8 + 6) danni Perforanti. Se il bersaglio è una creatura Enorme o più piccola e la creatura si è mossa di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio ha la condizione Prono.
 
-
 ### Azioni Bonus
 
 ***Calpestare.*** *Tiro Salvezza su Destrezza*: CD 16, una creatura entro 1,5 m che ha la condizione Prono. *Fallimento:*  17 (2d10 + 6) danni Contundenti. *Successo:*  Metà danni.
@@ -661,7 +652,6 @@
 
 ***Sorvolo.*** Non provoca Attacchi di Opportunità quando vola fuori dalla portata di un nemico.
 
-
 ### Azioni
 
 ***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 1 danni Perforanti plus 5 (2d4) danni da Veleno.
@@ -693,7 +683,6 @@
 ***Anfibio.*** Può respirare aria e acqua.
 
 ***Balzo da Fermo.*** Può effettuare un Salto in lungo fino a 3 m e un Salto in alto fino a 1,5 m, con o senza rincorsa.
-
 
 ### Azioni
 
@@ -728,7 +717,6 @@
 ***Pugno.*** *Tiro per colpire in mischia:* +9, portata 3 m. 22 (3d10 + 6) danni Contundenti.
 
 ***Lancio di Macigno (Ricarica 6).*** Lancia un masso verso un punto che può vedere entro 27 m. *Tiro Salvezza su Destrezza*: CD 17, ogni creatura in una Sfera di raggio 1,5 m centrata su quel punto. *Fallimento:*  24 (7d6) danni Contundenti. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Prono. *Successo:*  Solo metà danni.
-
 
 ### Azioni Bonus
 
@@ -810,7 +798,6 @@
 ### Tratti
 
 ***Furia Insanguinata.*** Ha Vantaggio ai tiri per colpire in mischia mentre è Insanguinato.
-
 
 ### Azioni
 
@@ -897,7 +884,6 @@
 
 ***Anfibio.*** Può respirare aria e acqua.
 
-
 ### Azioni
 
 ***Chela.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 4 (1d6 + 1) danni Contundenti. Se il bersaglio è una creatura Media o più piccola, ha la condizione Afferrato (fuga CD 11) da una delle due chele.
@@ -927,7 +913,6 @@
 ### Tratti
 
 ***Trattenere il Respiro.*** Può trattenere il respiro per 1 ora.
-
 
 ### Azioni
 
@@ -1021,7 +1006,6 @@
 
 ***Illuminazione.*** Emette Luce intensa in un raggio di 3 m e Luce fioca per ulteriori 3 m.
 
-
 ### Azioni
 
 ***Morso.*** *Tiro per colpire in mischia:* +1, portata 1,5 m. 1 danni da Fuoco.
@@ -1053,7 +1037,6 @@
 ***Anfibio.*** Può respirare aria e acqua.
 
 ***Balzo da Fermo.*** Può effettuare un Salto in lungo fino a 6 m e un Salto in alto fino a 3 m, con o senza rincorsa.
-
 
 ### Azioni
 
@@ -1114,7 +1097,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 ***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) danni Perforanti.
 
-
 ### Azioni Bonus
 
 ***Furia (1/Giorno).*** Immediatamente dopo aver inflitto danni a una creatura già Insanguinata, l’iena può muoversi fino alla metà della sua Velocità ed effettuare un attacco con Morso.
@@ -1143,7 +1125,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ### Tratti
 
 ***Camminare sui Muri.*** Può arrampicarsi su superfici difficili, anche lungo i soffitti, senza dover effettuare una prova di abilità.
-
 
 ### Azioni
 
@@ -1174,7 +1155,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ### Tratti
 
 ***Respirazione Acquatica.*** Può respirare solo sott'acqua. Fuori dall'acqua può trattenere il respiro per 1 ora.
-
 
 ### Azioni
 
@@ -1207,7 +1187,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ### Tratti
 
 ***Sorvolo.*** Non provoca Attacchi di Opportunità quando vola fuori dalla portata di un nemico.
-
 
 ### Azioni
 
@@ -1242,7 +1221,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ### Tratti
 
 ***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
-
 
 ### Azioni
 
@@ -1302,11 +1280,9 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 ***Respirazione Acquatica.*** Può respirare solo sott'acqua.
 
-
 ### Azioni
 
 ***Speronata.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 9 (2d6 + 2) danni Contundenti, oppure 11 (2d8 + 2) danni Contundenti se il cavalluccio marino si è mosso di 6+ m in linea retta verso il bersaglio immediatamente prima di colpirlo.
-
 
 ### Azioni Bonus
 
@@ -1337,7 +1313,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ### Tratti
 
 ***Respirazione Acquatica.*** Può respirare solo sott'acqua.
-
 
 ### Azioni
 
@@ -1373,7 +1348,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 ***Camminatore di Ragnatele.*** Ignora le restrizioni al movimento causate dalle ragnatele e conosce la posizione di qualsiasi altra creatura a contatto con la stessa ragnatela.
 
-
 ### Azioni
 
 ***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni Perforanti plus 7 (2d6) danni da Veleno.
@@ -1406,7 +1380,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ***Anfibio.*** Può respirare aria e acqua.
 
 ***Balzo da Fermo.*** Può effettuare un Salto in lungo fino a 6 m e un Salto in alto fino a 3 m, con o senza rincorsa.
-
 
 ### Azioni
 
@@ -1468,7 +1441,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 ***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
 
-
 ### Azioni
 
 ***Beccata.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 9 (2d6 + 2) danni Perforanti, e il bersaglio ha la condizione Avvelenato fino alla fine del suo prossimo turno.
@@ -1497,7 +1469,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ### Tratti
 
 ***Sorvolo.*** Non provoca Attacchi di Opportunità quando vola fuori dalla portata di un nemico.
-
 
 ### Azioni
 
@@ -1554,7 +1525,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ### Tratti
 
 ***Camminare sui Muri.*** Può arrampicarsi su superfici difficili, anche lungo i soffitti, senza dover effettuare una prova di abilità.
-
 
 ### Azioni
 
@@ -1638,7 +1608,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 ***Trattenere il Respiro.*** Può trattenere il respiro per 10 minuti.
 
-
 ### Azioni
 
 ***Attacco Multiplo.*** Effettua due attacchi con Morso.
@@ -1671,7 +1640,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 ***Respirazione Acquatica.*** Può respirare solo sott'acqua.
 
-
 ### Azioni
 
 ***Morso.*** *Tiro per colpire in mischia:* +6 (con Vantaggio se il bersaglio non ha tutti i suoi Punti Ferita), portata 1,5 m. 14 (3d6 + 4) danni Perforanti.
@@ -1701,7 +1669,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ### Tratti
 
 ***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
-
 
 ### Azioni
 
@@ -1759,7 +1726,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 ***Trattenere il Respiro.*** Può trattenere il respiro per 30 minuti.
 
-
 ### Azioni
 
 ***Morso.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 21 (5d6 + 4) danni Perforanti.
@@ -1791,7 +1757,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
 
 ***Balzo in Corsa.*** Con una rincorsa di 3 m, può effettuare un Salto in lungo fino a 7,5 m.
-
 
 ### Azioni
 
@@ -1826,7 +1791,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 ***Camminare sui Muri.*** Può arrampicarsi su superfici difficili, anche lungo i soffitti, senza dover effettuare una prova di abilità.
 
-
 ### Azioni
 
 ***Morso.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 1 danni Perforanti.
@@ -1857,7 +1821,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ***Attacco Multiplo.*** Effettua due attacchi con Incornata.
 
 ***Incornata.*** *Tiro per colpire in mischia:* +10, portata 3 m. 18 (2d10 + 7) danni Perforanti. Se il bersaglio è una creatura Enorme o più piccola e la creatura si è mossa di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio ha la condizione Prono.
-
 
 ### Azioni Bonus
 
@@ -1914,7 +1877,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 ***Bestia da Soma.*** Conta come una taglia più grande ai fini della capacità di carico.
 
-
 ### Azioni
 
 ***Zoccoli.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni Contundenti.
@@ -1944,7 +1906,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ### Tratti
 
 ***Sorvolo.*** Non provoca Attacchi di Opportunità quando vola fuori dalla portata di un nemico.
-
 
 ### Azioni
 
@@ -1976,7 +1937,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 ***Rend.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni Taglienti.
 
-
 ### Azioni Bonus
 
 ***Fuga Agile.*** La pantera compie l'azione Disimpegno o Nascondersi.
@@ -2005,7 +1965,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ### Tratti
 
 ***Respirazione Acquatica.*** Può respirare solo sott'acqua.
-
 
 ### Azioni
 
@@ -2036,7 +1995,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ### Tratti
 
 ***Trattenere il Respiro.*** Può trattenere il respiro per 1 ora.
-
 
 ### Azioni
 
@@ -2122,7 +2080,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 ***Sorvolo.*** Non provoca Attacchi di Opportunità quando vola fuori dalla portata di un nemico.
 
-
 ### Azioni
 
 ***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 6 (1d8 + 2) danni Perforanti.
@@ -2153,7 +2110,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 ***Agile.*** Non provoca Attacchi di Opportunità quando si muove fuori dalla portata di un nemico.
 
-
 ### Azioni
 
 ***Morso.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 1 danni Perforanti.
@@ -2183,7 +2139,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ### Tratti
 
 ***Mimesi.*** Può imitare suoni semplici che ha udito, come un sussurro o uno squittio. Un ascoltatore può riconoscere l’imitazione con una prova di Saggezza (Intuizione) CD 10.
-
 
 ### Azioni
 
@@ -2216,7 +2171,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
 
 ***Respirazione Acquatica.*** Può respirare solo sott'acqua.
-
 
 ### Azioni
 
@@ -2298,13 +2252,11 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 ***Balzo in Corsa.*** Con una rincorsa di 3 m, può effettuare un Salto in lungo fino a 7,5 m.
 
-
 ### Azioni
 
 ***Attacco Multiplo.*** Effettua due attacchi con Lacerare.
 
 ***Lacerare.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 11 (2d6 + 4) danni Taglienti.
-
 
 ### Azioni Bonus
 
@@ -2361,7 +2313,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 ***Respirazione Acquatica.*** Può respirare solo sott'acqua.
 
-
 ### Azioni
 
 ***Scatto a Bolle.*** Sott'acqua, si muove fino alla sua Velocità di Nuoto senza provocare Attacchi di Opportunità.
@@ -2394,7 +2345,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 ***Camminatore di Ragnatele.*** Ignora le restrizioni al movimento causate dalle ragnatele, e conosce la posizione di qualsiasi altra creatura a contatto con la stessa ragnatela.
 
-
 ### Azioni
 
 ***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 1 danni Perforanti plus 2 (1d4) danni da Veleno.
@@ -2425,7 +2375,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ### Tratti
 
 ***Sciame.*** Lo sciame può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande da permettere il passaggio di un pipistrello Minuscolo. Lo sciame non può recuperare Punti Ferita né ottenere Punti Ferita Temporanei.
-
 
 ### Azioni
 
@@ -2460,7 +2409,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 ***Sciame.*** Lo sciame può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande da permettere il passaggio di un insetto Minuscolo. Lo sciame non può recuperare Punti Ferita né ottenere Punti Ferita Temporanei.
 
-
 ### Azioni
 
 ***Morsi.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 6 (2d4 + 1) danni da Veleno, oppure 3 (1d4 + 1) danni da Veleno se lo sciame è Insanguinato.
@@ -2494,7 +2442,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 ***Respirazione Acquatica.*** Può respirare solo sott'acqua.
 
-
 ### Azioni
 
 ***Morsi.*** *Tiro per colpire in mischia:* +5 (con Vantaggio se il bersaglio non ha tutti i suoi Punti Ferita), portata 1,5 m. 8 (2d4 + 3) danni Perforanti, oppure 5 (1d4 + 3) danni Perforanti se lo sciame è Insanguinato.
@@ -2525,7 +2472,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ### Tratti
 
 ***Sciame.*** Lo sciame può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande da permettere il passaggio di un ratto Minuscolo. Lo sciame non può recuperare Punti Ferita né ottenere Punti Ferita Temporanei.
-
 
 ### Azioni
 
@@ -2558,7 +2504,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ### Tratti
 
 ***Sciame.*** Lo sciame può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande da permettere il passaggio di un corvo Minuscolo. Lo sciame non può recuperare Punti Ferita né ottenere Punti Ferita Temporanei.
-
 
 ### Azioni
 
@@ -2593,7 +2538,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 ***Sciame.*** Lo sciame può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande da permettere il passaggio di un serpente Minuscolo. Lo sciame non può recuperare Punti Ferita né ottenere Punti Ferita Temporanei.
 
-
 ### Azioni
 
 ***Morsi.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 8 (1d8 + 4) danni Perforanti, oppure 6 (1d4 + 4) danni Perforanti se lo sciame è Insanguinato, più 10 (3d6) danni da Veleno.
@@ -2623,7 +2567,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ### Azioni
 
 ***Lacerare.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) danni Taglienti. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Prono.
-
 
 ### Azioni Bonus
 
@@ -2737,7 +2680,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 ***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
 
-
 ### Azioni
 
 ***Becco.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 2 (1d4) danni Perforanti.
@@ -2818,7 +2760,6 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 ### Tratti
 
 ***Tattiche di Branco.*** Ha Vantaggio ai tiri per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
-
 
 ### Azioni
 

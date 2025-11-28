@@ -50,7 +50,6 @@ Il glossario utilizza le seguenti convenzioni:
 |Sag.|Saggezza                |
 |PE  |Punti Esperienza        |
 
-
 ## Prova di Caratteristica
 
 Una prova di caratteristica è un Test del D20 che rappresenta l’uso di una delle sei caratteristiche—o di un’abilità specifica associata a una caratteristica—per superare una sfida. *Vedi anche* “Giocare” (“Test del D20” e “Competenza”).

@@ -9,13 +9,11 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-// FilterService implements the domain FilterService interface
 type FilterService struct {
 	registry     domainFilters.FilterRepository
 	mongoBuilder *filters.MongoFilterBuilder
 }
 
-// NewFilterService creates a new filter service
 func NewFilterService(registry domainFilters.FilterRepository) *FilterService {
 	return &FilterService{
 		registry:     registry,
@@ -23,7 +21,6 @@ func NewFilterService(registry domainFilters.FilterRepository) *FilterService {
 	}
 }
 
-// ParseFilters parses query parameters into a validated filter set
 func (s *FilterService) ParseFilters(collection domainFilters.CollectionType, queryParams map[string]string) (*domainFilters.FilterSet, error) {
 	if !collection.IsValid() {
 		return nil, fmt.Errorf("invalid collection: %s", collection)
@@ -31,51 +28,43 @@ func (s *FilterService) ParseFilters(collection domainFilters.CollectionType, qu
 
 	filterSet := domainFilters.NewFilterSet(collection)
 
-	// Get available filters for this collection
 	availableFilters, err := s.registry.GetFiltersForCollection(collection)
 	if err != nil {
 		return nil, fmt.Errorf("failed to get available filters: %w", err)
 	}
 
-	// Create a map for quick lookup
 	filterMap := make(map[string]domainFilters.FilterDefinition)
 	for _, filter := range availableFilters {
 		filterMap[filter.Name] = filter
 	}
 
-	// Parse each query parameter
 	for paramName, paramValue := range queryParams {
 		if paramValue == "" {
-			continue // Skip empty values
+			continue
 		}
 
-		// Check if this parameter corresponds to a known filter
 		filterDef, exists := filterMap[paramName]
 		if !exists {
-			// Try to find filter by name in registry (for filters that apply to all collections)
+
 			filterDef, exists = s.registry.GetFilterByName(paramName)
 			if !exists {
-				continue // Skip unknown parameters
+				continue
 			}
 
-			// Check if the found filter applies to this collection
 			if !filterDef.IsApplicableToCollection(collection) {
 				return nil, domainFilters.NewUnsupportedFilterError(paramName, collection)
 			}
 		}
 
-		// Validate the value
 		if err := filterDef.ValidateValue(paramValue); err != nil {
 			return nil, fmt.Errorf("validation failed for filter %s: %w", paramName, err)
 		}
 
-		// Convert value based on data type
 		rawValue, err := s.convertValue(paramValue, filterDef.DataType)
 		if err != nil {
 			return nil, fmt.Errorf("failed to convert value for filter %s: %w", paramName, err)
 		}
 
-		// Create filter value and add to set
 		filterValue := domainFilters.FilterValue{
 			Definition: filterDef,
 			Value:      paramValue,
@@ -88,7 +77,6 @@ func (s *FilterService) ParseFilters(collection domainFilters.CollectionType, qu
 	return filterSet, nil
 }
 
-// ValidateFilterSet validates a complete filter set
 func (s *FilterService) ValidateFilterSet(filterSet *domainFilters.FilterSet) error {
 	if filterSet == nil {
 		return fmt.Errorf("filter set cannot be nil")
@@ -98,7 +86,6 @@ func (s *FilterService) ValidateFilterSet(filterSet *domainFilters.FilterSet) er
 		return fmt.Errorf("invalid collection: %s", filterSet.Collection)
 	}
 
-	// Validate each filter in the set
 	for _, filterValue := range filterSet.Filters {
 		if err := filterValue.Definition.ValidateValue(filterValue.Value); err != nil {
 			return fmt.Errorf("validation failed for filter %s: %w", filterValue.Definition.Name, err)
@@ -112,7 +99,6 @@ func (s *FilterService) ValidateFilterSet(filterSet *domainFilters.FilterSet) er
 	return nil
 }
 
-// BuildMongoFilter builds a MongoDB filter from a filter set
 func (s *FilterService) BuildMongoFilter(filterSet *domainFilters.FilterSet) (bson.M, error) {
 	if filterSet == nil {
 		return bson.M{}, nil
@@ -125,7 +111,6 @@ func (s *FilterService) BuildMongoFilter(filterSet *domainFilters.FilterSet) (bs
 	return s.mongoBuilder.BuildFilter(filterSet)
 }
 
-// GetAvailableFilters returns all filters available for a collection
 func (s *FilterService) GetAvailableFilters(collection domainFilters.CollectionType) ([]domainFilters.FilterDefinition, error) {
 	if !collection.IsValid() {
 		return nil, fmt.Errorf("invalid collection: %s", collection)
@@ -134,12 +119,10 @@ func (s *FilterService) GetAvailableFilters(collection domainFilters.CollectionT
 	return s.registry.GetFiltersForCollection(collection)
 }
 
-// BuildSearchFilter builds a text search filter (separate from field filters)
 func (s *FilterService) BuildSearchFilter(collection domainFilters.CollectionType, searchTerm string) bson.M {
 	return s.mongoBuilder.BuildSearchFilter(collection, searchTerm)
 }
 
-// CombineFilters combines field filters and search filters into a single MongoDB query
 func (s *FilterService) CombineFilters(fieldFilter, searchFilter bson.M) bson.M {
 	var conditions []bson.M
 
@@ -160,7 +143,6 @@ func (s *FilterService) CombineFilters(fieldFilter, searchFilter bson.M) bson.M 
 	}
 }
 
-// convertValue converts a string value to the appropriate type
 func (s *FilterService) convertValue(value string, dataType domainFilters.FilterDataType) (any, error) {
 	switch dataType {
 	case domainFilters.StringFilter, domainFilters.EnumFilter:

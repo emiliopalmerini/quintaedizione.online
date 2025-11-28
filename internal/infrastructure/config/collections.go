@@ -8,19 +8,16 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-// CollectionConfig represents configuration for a single collection
 type CollectionConfig struct {
 	Title         string   `yaml:"title"`
 	DisplayFields []string `yaml:"display_fields"`
 	SearchFields  []string `yaml:"search_fields"`
 }
 
-// CollectionsConfig represents the entire collections configuration
 type CollectionsConfig struct {
 	Collections map[string]CollectionConfig `yaml:"collections"`
 }
 
-// CollectionMetadata provides metadata and configuration for collections
 type CollectionMetadata interface {
 	GetTitle(collection string) string
 	GetDisplayFields(collection string) []string
@@ -33,7 +30,6 @@ type collectionMetadata struct {
 	config *CollectionsConfig
 }
 
-// NewCollectionMetadata creates a new collection metadata provider
 func NewCollectionMetadata() (CollectionMetadata, error) {
 	config, err := LoadCollectionsConfig()
 	if err != nil {
@@ -45,16 +41,14 @@ func NewCollectionMetadata() (CollectionMetadata, error) {
 	}, nil
 }
 
-// GetTitle returns the display title for a collection
 func (cm *collectionMetadata) GetTitle(collection string) string {
 	if config, exists := cm.config.Collections[collection]; exists {
 		return config.Title
 	}
-	// Fallback to collection name if not found
+
 	return collection
 }
 
-// GetDisplayFields returns the display fields for a collection
 func (cm *collectionMetadata) GetDisplayFields(collection string) []string {
 	if config, exists := cm.config.Collections[collection]; exists {
 		return config.DisplayFields
@@ -62,7 +56,6 @@ func (cm *collectionMetadata) GetDisplayFields(collection string) []string {
 	return []string{}
 }
 
-// GetSearchFields returns the search fields for a collection
 func (cm *collectionMetadata) GetSearchFields(collection string) []string {
 	if config, exists := cm.config.Collections[collection]; exists {
 		return config.SearchFields
@@ -70,20 +63,17 @@ func (cm *collectionMetadata) GetSearchFields(collection string) []string {
 	return []string{}
 }
 
-// GetAllCollections returns all configured collections
 func (cm *collectionMetadata) GetAllCollections() map[string]CollectionConfig {
 	return cm.config.Collections
 }
 
-// IsValidCollection checks if a collection is configured
 func (cm *collectionMetadata) IsValidCollection(collection string) bool {
 	_, exists := cm.config.Collections[collection]
 	return exists
 }
 
-// LoadCollectionsConfig loads the collections configuration from YAML file
 func LoadCollectionsConfig() (*CollectionsConfig, error) {
-	// Try to find the config file
+
 	configPaths := []string{
 		"configs/collections.yaml",
 		"./configs/collections.yaml",
@@ -114,15 +104,13 @@ func LoadCollectionsConfig() (*CollectionsConfig, error) {
 	return &config, nil
 }
 
-// GetConfigPath returns the absolute path to the config directory
 func GetConfigPath() (string, error) {
-	// Get the current working directory
+
 	wd, err := os.Getwd()
 	if err != nil {
 		return "", err
 	}
 
-	// Look for configs directory
 	configPaths := []string{
 		filepath.Join(wd, "configs"),
 		filepath.Join(wd, "..", "configs"),

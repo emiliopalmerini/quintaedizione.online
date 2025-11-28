@@ -1,3 +1,4 @@
+
 # Strumenti di Gioco
 
 ## Andatura di Viaggio
@@ -672,4 +673,3 @@ Se l’incontro include una creatura con GS superiore al livello del gruppo, sap
 #### Tratti Insoliti
 
 Se un mostro ha un tratto che i personaggi di basso livello non possono superare facilmente, evita di inserirlo in incontri per livelli inferiori al suo GS.
-

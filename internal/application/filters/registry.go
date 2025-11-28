@@ -8,7 +8,6 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-// ConfigFilterDefinition represents a filter definition in the YAML config
 type ConfigFilterDefinition struct {
 	Name        string   `yaml:"name"`
 	FieldPath   string   `yaml:"field_path"`
@@ -20,18 +19,15 @@ type ConfigFilterDefinition struct {
 	Description string   `yaml:"description,omitempty"`
 }
 
-// FilterConfig represents the structure of the filters.yaml file
 type FilterConfig struct {
 	Filters []ConfigFilterDefinition `yaml:"filters"`
 }
 
-// YAMLFilterRegistry implements FilterRepository using YAML configuration
 type YAMLFilterRegistry struct {
 	filters    []filters.FilterDefinition
 	configPath string
 }
 
-// NewYAMLFilterRegistry creates a new YAML-based filter registry
 func NewYAMLFilterRegistry(configPath string) (*YAMLFilterRegistry, error) {
 	registry := &YAMLFilterRegistry{
 		configPath: configPath,
@@ -45,7 +41,6 @@ func NewYAMLFilterRegistry(configPath string) (*YAMLFilterRegistry, error) {
 	return registry, nil
 }
 
-// GetFiltersForCollection returns all filters applicable to a collection
 func (r *YAMLFilterRegistry) GetFiltersForCollection(collection filters.CollectionType) ([]filters.FilterDefinition, error) {
 	result := make([]filters.FilterDefinition, 0)
 
@@ -58,7 +53,6 @@ func (r *YAMLFilterRegistry) GetFiltersForCollection(collection filters.Collecti
 	return result, nil
 }
 
-// GetFilterByName returns a filter definition by name
 func (r *YAMLFilterRegistry) GetFilterByName(name string) (filters.FilterDefinition, bool) {
 	for _, filter := range r.filters {
 		if filter.Name == name {
@@ -68,12 +62,10 @@ func (r *YAMLFilterRegistry) GetFilterByName(name string) (filters.FilterDefinit
 	return filters.FilterDefinition{}, false
 }
 
-// GetAllFilters returns all available filter definitions
 func (r *YAMLFilterRegistry) GetAllFilters() ([]filters.FilterDefinition, error) {
 	return r.filters, nil
 }
 
-// loadConfig loads filter definitions from the YAML configuration file
 func (r *YAMLFilterRegistry) loadConfig() error {
 	data, err := os.ReadFile(r.configPath)
 	if err != nil {
@@ -98,7 +90,6 @@ func (r *YAMLFilterRegistry) loadConfig() error {
 	return nil
 }
 
-// convertConfigToFilter converts a config filter to a domain filter definition
 func (r *YAMLFilterRegistry) convertConfigToFilter(config ConfigFilterDefinition) (filters.FilterDefinition, error) {
 	dataType, err := parseDataType(config.DataType)
 	if err != nil {
@@ -131,7 +122,6 @@ func (r *YAMLFilterRegistry) convertConfigToFilter(config ConfigFilterDefinition
 	}, nil
 }
 
-// parseDataType converts string data type to enum
 func parseDataType(dataType string) (filters.FilterDataType, error) {
 	switch dataType {
 	case "string":
@@ -147,7 +137,6 @@ func parseDataType(dataType string) (filters.FilterDataType, error) {
 	}
 }
 
-// parseOperator converts string operator to enum
 func parseOperator(operator string) (filters.FilterOperator, error) {
 	switch operator {
 	case "exact":
@@ -163,24 +152,20 @@ func parseOperator(operator string) (filters.FilterOperator, error) {
 	}
 }
 
-// InMemoryFilterRegistry provides an in-memory implementation for testing
 type InMemoryFilterRegistry struct {
 	filters map[string]filters.FilterDefinition
 }
 
-// NewInMemoryFilterRegistry creates a new in-memory filter registry
 func NewInMemoryFilterRegistry() *InMemoryFilterRegistry {
 	return &InMemoryFilterRegistry{
 		filters: make(map[string]filters.FilterDefinition),
 	}
 }
 
-// AddFilter adds a filter definition to the registry
 func (r *InMemoryFilterRegistry) AddFilter(filter filters.FilterDefinition) {
 	r.filters[filter.Name] = filter
 }
 
-// GetFiltersForCollection returns all filters applicable to a collection
 func (r *InMemoryFilterRegistry) GetFiltersForCollection(collection filters.CollectionType) ([]filters.FilterDefinition, error) {
 	result := make([]filters.FilterDefinition, 0)
 
@@ -193,13 +178,11 @@ func (r *InMemoryFilterRegistry) GetFiltersForCollection(collection filters.Coll
 	return result, nil
 }
 
-// GetFilterByName returns a filter definition by name
 func (r *InMemoryFilterRegistry) GetFilterByName(name string) (filters.FilterDefinition, bool) {
 	filter, exists := r.filters[name]
 	return filter, exists
 }
 
-// GetAllFilters returns all available filter definitions
 func (r *InMemoryFilterRegistry) GetAllFilters() ([]filters.FilterDefinition, error) {
 	result := make([]filters.FilterDefinition, 0, len(r.filters))
 	for _, filter := range r.filters {

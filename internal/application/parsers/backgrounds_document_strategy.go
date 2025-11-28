@@ -7,12 +7,10 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain"
 )
 
-// BackgroundsDocumentStrategy parses backgrounds and returns Document entities with HTML content
 type BackgroundsDocumentStrategy struct {
 	*BaseDocumentParser
 }
 
-// NewBackgroundsDocumentStrategy creates a new Document-based backgrounds strategy
 func NewBackgroundsDocumentStrategy() *BackgroundsDocumentStrategy {
 	return &BackgroundsDocumentStrategy{
 		BaseDocumentParser: NewBaseDocumentParser(),
@@ -33,17 +31,15 @@ func (s *BackgroundsDocumentStrategy) ParseDocument(content []string, context *P
 	inSection := false
 
 	for _, line := range content {
-		// Skip main title only (check before trimming to preserve structure)
+
 		if strings.HasPrefix(line, "# ") {
 			continue
 		}
 
-		// Trim whitespace but preserve empty lines for proper markdown structure
 		line = strings.TrimSpace(line)
 
-		// Check for new background section (H2)
 		if strings.HasPrefix(line, "## ") {
-			// Process previous section if exists
+
 			if inSection && len(currentSection) > 0 {
 				doc, err := s.parseBackgroundSection(currentSection, context)
 				if err != nil {
@@ -55,16 +51,14 @@ func (s *BackgroundsDocumentStrategy) ParseDocument(content []string, context *P
 				documents = append(documents, doc)
 			}
 
-			// Start new section
 			currentSection = []string{line}
 			inSection = true
 		} else if inSection {
-			// Add line to current section
+
 			currentSection = append(currentSection, line)
 		}
 	}
 
-	// Process last section
 	if inSection && len(currentSection) > 0 {
 		doc, err := s.parseBackgroundSection(currentSection, context)
 		if err != nil {
@@ -86,7 +80,6 @@ func (s *BackgroundsDocumentStrategy) parseBackgroundSection(section []string, c
 		return nil, ErrEmptySectionContent
 	}
 
-	// Extract title from header
 	header := section[0]
 	if !strings.HasPrefix(header, "## ") {
 		return nil, ErrMissingSectionTitle
@@ -94,18 +87,15 @@ func (s *BackgroundsDocumentStrategy) parseBackgroundSection(section []string, c
 	title := strings.TrimPrefix(header, "## ")
 	title = strings.TrimSpace(title)
 
-	// Collect content as markdown
 	markdownContent := strings.Builder{}
 	for i := 1; i < len(section); i++ {
 		markdownContent.WriteString(section[i] + "\n")
 	}
 
-	// Create filters
 	filters := map[string]any{
 		"type": "background",
 	}
 
-	// Create document
 	doc, err := s.CreateDocument(
 		title,
 		"backgrounds",

@@ -2,7 +2,6 @@ package parsers
 
 import "errors"
 
-// Parsing errors
 var (
 	ErrEmptyContent        = errors.New("content is empty")
 	ErrInvalidContentType  = errors.New("invalid content type")

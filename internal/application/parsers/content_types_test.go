@@ -43,19 +43,17 @@ func TestIsValidContentType(t *testing.T) {
 func TestGetAllContentTypes(t *testing.T) {
 	contentTypes := GetAllContentTypes()
 
-	expectedCount := 15 // Based on the validContentTypes map
+	expectedCount := 15
 	if len(contentTypes) != expectedCount {
 		t.Errorf("Expected %d content types, got %d", expectedCount, len(contentTypes))
 	}
 
-	// Verify all types are valid
 	for _, ct := range contentTypes {
 		if !IsValidContentType(ct) {
 			t.Errorf("Content type %s should be valid", ct)
 		}
 	}
 
-	// Verify no duplicates (convert to map)
 	seen := make(map[ContentType]bool)
 	for _, ct := range contentTypes {
 		if seen[ct] {

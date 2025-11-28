@@ -64,7 +64,6 @@ func TestNewDocumentID(t *testing.T) {
 				t.Errorf("Expected %s, got %s", tt.expected, result)
 			}
 
-			// Test that result is valid slug
 			if !isValidSlug(string(result)) {
 				t.Errorf("Generated ID %s is not a valid slug", result)
 			}
@@ -81,30 +80,25 @@ func TestDocumentID_String(t *testing.T) {
 	}
 }
 
-// Helper function to validate slug format
 func isValidSlug(s string) bool {
 	if s == "" {
 		return false
 	}
 
-	// Check lowercase
 	if s != strings.ToLower(s) {
 		return false
 	}
 
-	// Check only allowed characters: lowercase letters, numbers, hyphens
 	for _, r := range s {
 		if !((r >= 'a' && r <= 'z') || (r >= '0' && r <= '9') || r == '-') {
 			return false
 		}
 	}
 
-	// Check no leading/trailing hyphens
 	if strings.HasPrefix(s, "-") || strings.HasSuffix(s, "-") {
 		return false
 	}
 
-	// Check no consecutive hyphens
 	if strings.Contains(s, "--") {
 		return false
 	}

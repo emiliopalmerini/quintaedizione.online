@@ -17,7 +17,6 @@ type documentMongoRepository struct {
 	client *pkgMongodb.Client
 }
 
-// NewDocumentMongoRepository creates a MongoDB implementation of DocumentRepository
 func NewDocumentMongoRepository(client *pkgMongodb.Client) repositories.DocumentRepository {
 	return &documentMongoRepository{
 		client: client,
@@ -69,7 +68,7 @@ func (r *documentMongoRepository) FindAll(ctx context.Context, collection string
 	if limit > 0 {
 		opts.SetLimit(int64(limit))
 	}
-	// Sort by title for consistent ordering
+
 	opts.SetSort(bson.D{{Key: "title", Value: 1}})
 
 	cursor, err := coll.Find(ctx, bson.M{}, opts)
@@ -88,7 +87,6 @@ func (r *documentMongoRepository) FindAll(ctx context.Context, collection string
 func (r *documentMongoRepository) FindByFilters(ctx context.Context, collection string, filters map[string]any, limit int) ([]*domain.Document, error) {
 	coll := r.getCollection(collection)
 
-	// Build filter query - search within the filters field
 	filter := bson.M{}
 	for key, value := range filters {
 		filter[fmt.Sprintf("filters.%s", key)] = value
@@ -151,7 +149,7 @@ func (r *documentMongoRepository) UpsertManyMaps(ctx context.Context, collection
 
 	var models []mongo.WriteModel
 	for _, doc := range docs {
-		// Build filter based on unique fields
+
 		filter := bson.M{}
 		for _, field := range uniqueFields {
 			if val, ok := doc[field]; ok {
@@ -159,7 +157,6 @@ func (r *documentMongoRepository) UpsertManyMaps(ctx context.Context, collection
 			}
 		}
 
-		// If no unique fields specified, use _id
 		if len(filter) == 0 {
 			if id, ok := doc["_id"]; ok {
 				filter["_id"] = id
@@ -196,13 +193,11 @@ func (r *documentMongoRepository) GetCollectionStats(ctx context.Context, collec
 func (r *documentMongoRepository) GetAdjacentDocuments(ctx context.Context, collection string, currentID domain.DocumentID) (prev *domain.Document, next *domain.Document, err error) {
 	coll := r.getCollection(collection)
 
-	// Get current document to find its position
 	current, err := r.FindByID(ctx, currentID, collection)
 	if err != nil {
 		return nil, nil, err
 	}
 
-	// Find previous document (title < current.Title, sorted descending, limit 1)
 	prevFilter := bson.M{"title": bson.M{"$lt": current.Title}}
 	prevOpts := options.FindOne().SetSort(bson.D{{Key: "title", Value: -1}})
 	var prevDoc domain.Document
@@ -214,7 +209,6 @@ func (r *documentMongoRepository) GetAdjacentDocuments(ctx context.Context, coll
 		prev = &prevDoc
 	}
 
-	// Find next document (title > current.Title, sorted ascending, limit 1)
 	nextFilter := bson.M{"title": bson.M{"$gt": current.Title}}
 	nextOpts := options.FindOne().SetSort(bson.D{{Key: "title", Value: 1}})
 	var nextDoc domain.Document
@@ -229,9 +223,6 @@ func (r *documentMongoRepository) GetAdjacentDocuments(ctx context.Context, coll
 	return prev, next, nil
 }
 
-// Map-based methods for viewer compatibility
-
-// FindMapByID retrieves a document as a map by ID (slug stored in _id)
 func (r *documentMongoRepository) FindMapByID(ctx context.Context, collection string, id string) (map[string]any, error) {
 	coll := r.getCollection(collection)
 	filter := bson.M{"_id": id}
@@ -245,21 +236,17 @@ func (r *documentMongoRepository) FindMapByID(ctx context.Context, collection st
 	return result, nil
 }
 
-// FindMaps retrieves documents as maps with pagination and filtering
 func (r *documentMongoRepository) FindMaps(ctx context.Context, collection string, filter map[string]any, skip int64, limit int64) ([]map[string]any, int64, error) {
 	coll := r.getCollection(collection)
 
-	// Count total documents matching filter
 	totalCount, err := r.CountWithFilter(ctx, collection, filter)
 	if err != nil {
 		return nil, 0, fmt.Errorf("failed to count documents: %w", err)
 	}
 
-	// Build MongoDB filter
 	mongoFilter := bson.M{}
 	maps.Copy(mongoFilter, filter)
 
-	// Set up pagination options
 	opts := options.Find()
 	if skip > 0 {
 		opts.SetSkip(skip)
@@ -268,7 +255,6 @@ func (r *documentMongoRepository) FindMaps(ctx context.Context, collection strin
 		opts.SetLimit(limit)
 	}
 
-	// Sort by relevance score for text searches, otherwise alphabetically by title
 	if _, hasTextSearch := filter["$text"]; hasTextSearch {
 		opts.SetProjection(bson.M{"score": bson.M{"$meta": "textScore"}})
 		opts.SetSort(bson.D{{Key: "score", Value: bson.M{"$meta": "textScore"}}})
@@ -290,11 +276,9 @@ func (r *documentMongoRepository) FindMaps(ctx context.Context, collection strin
 	return results, totalCount, nil
 }
 
-// CountWithFilter counts documents matching a filter
 func (r *documentMongoRepository) CountWithFilter(ctx context.Context, collection string, filter map[string]any) (int64, error) {
 	coll := r.getCollection(collection)
 
-	// Build MongoDB filter
 	mongoFilter := bson.M{}
 	for key, value := range filter {
 		mongoFilter[key] = value
@@ -308,11 +292,9 @@ func (r *documentMongoRepository) CountWithFilter(ctx context.Context, collectio
 	return count, nil
 }
 
-// GetAdjacentMaps gets the previous and next document IDs for navigation
 func (r *documentMongoRepository) GetAdjacentMaps(ctx context.Context, collection string, currentID string) (prevID *string, nextID *string, err error) {
 	coll := r.getCollection(collection)
 
-	// Get current document to find its title for ordering
 	var current map[string]any
 	err = coll.FindOne(ctx, bson.M{"_id": currentID}).Decode(&current)
 	if err != nil {
@@ -324,7 +306,6 @@ func (r *documentMongoRepository) GetAdjacentMaps(ctx context.Context, collectio
 		return nil, nil, fmt.Errorf("current document missing title field")
 	}
 
-	// Find previous document (title < current.Title, sorted descending, limit 1)
 	prevFilter := bson.M{"title": bson.M{"$lt": currentTitle}}
 	prevOpts := options.FindOne().SetSort(bson.D{{Key: "title", Value: -1}})
 	var prevDoc map[string]any
@@ -338,7 +319,6 @@ func (r *documentMongoRepository) GetAdjacentMaps(ctx context.Context, collectio
 		}
 	}
 
-	// Find next document (title > current.Title, sorted ascending, limit 1)
 	nextFilter := bson.M{"title": bson.M{"$gt": currentTitle}}
 	nextOpts := options.FindOne().SetSort(bson.D{{Key: "title", Value: 1}})
 	var nextDoc map[string]any
@@ -355,9 +335,8 @@ func (r *documentMongoRepository) GetAdjacentMaps(ctx context.Context, collectio
 	return prevID, nextID, nil
 }
 
-// GetAllCollectionStats returns statistics for all valid collections
 func (r *documentMongoRepository) GetAllCollectionStats(ctx context.Context) ([]map[string]any, error) {
-	// List of valid collections (from configs/collections.yaml logic)
+
 	validCollections := []string{
 		"incantesimi", "mostri", "classi", "backgrounds",
 		"equipaggiamenti", "oggetti_magici", "armi", "armature",
@@ -370,7 +349,7 @@ func (r *documentMongoRepository) GetAllCollectionStats(ctx context.Context) ([]
 	for _, collection := range validCollections {
 		count, err := r.Count(ctx, collection)
 		if err != nil {
-			// Skip collections that don't exist or have errors
+
 			continue
 		}
 
@@ -383,7 +362,6 @@ func (r *documentMongoRepository) GetAllCollectionStats(ctx context.Context) ([]
 	return stats, nil
 }
 
-// DropCollection drops/deletes a collection
 func (r *documentMongoRepository) DropCollection(ctx context.Context, collection string) error {
 	coll := r.getCollection(collection)
 	return coll.Drop(ctx)

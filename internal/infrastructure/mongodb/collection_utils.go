@@ -1,7 +1,5 @@
 package mongodb
 
-// GetUniqueFieldsForCollection returns unique fields for MongoDB upsert operations
-// All entity data is now nested under "value" object, so we use nested field paths
 func GetUniqueFieldsForCollection(collection string) []string {
 	switch collection {
 	case "documenti":

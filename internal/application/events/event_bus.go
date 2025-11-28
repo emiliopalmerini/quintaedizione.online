@@ -7,24 +7,18 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/parsers"
 )
 
-// BaseEvent provides common event functionality
 type BaseEvent struct {
 	EventTime time.Time `json:"timestamp"`
 }
 
-// EventType returns the base event type
 func (e *BaseEvent) EventType() string {
 	return "base"
 }
 
-// Timestamp returns the event timestamp
 func (e *BaseEvent) Timestamp() time.Time {
 	return e.EventTime
 }
 
-// Pipeline Events
-
-// PipelineStartedEvent signals pipeline execution start
 type PipelineStartedEvent struct {
 	BaseEvent
 	FilePath   string `json:"file_path"`
@@ -35,7 +29,6 @@ func (e *PipelineStartedEvent) EventType() string {
 	return "pipeline_started"
 }
 
-// PipelineCompletedEvent signals successful pipeline completion
 type PipelineCompletedEvent struct {
 	BaseEvent
 	FilePath    string `json:"file_path"`
@@ -48,7 +41,6 @@ func (e *PipelineCompletedEvent) EventType() string {
 	return "pipeline_completed"
 }
 
-// PipelineFailedEvent signals pipeline failure
 type PipelineFailedEvent struct {
 	BaseEvent
 	FilePath   string `json:"file_path"`
@@ -61,7 +53,6 @@ func (e *PipelineFailedEvent) EventType() string {
 	return "pipeline_failed"
 }
 
-// StageStartedEvent signals stage execution start
 type StageStartedEvent struct {
 	BaseEvent
 	StageName  string `json:"stage_name"`
@@ -73,7 +64,6 @@ func (e *StageStartedEvent) EventType() string {
 	return "stage_started"
 }
 
-// StageCompletedEvent signals successful stage completion
 type StageCompletedEvent struct {
 	BaseEvent
 	StageName  string `json:"stage_name"`
@@ -85,7 +75,6 @@ func (e *StageCompletedEvent) EventType() string {
 	return "stage_completed"
 }
 
-// StageFailedEvent signals stage failure
 type StageFailedEvent struct {
 	BaseEvent
 	StageName  string `json:"stage_name"`
@@ -98,7 +87,6 @@ func (e *StageFailedEvent) EventType() string {
 	return "stage_failed"
 }
 
-// FileProcessingStartedEvent signals file processing start
 type FileProcessingStartedEvent struct {
 	BaseEvent
 	FilePath   string `json:"file_path"`
@@ -109,7 +97,6 @@ func (e *FileProcessingStartedEvent) EventType() string {
 	return "file_processing_started"
 }
 
-// FileProcessingCompletedEvent signals successful file processing completion
 type FileProcessingCompletedEvent struct {
 	BaseEvent
 	FilePath     string `json:"file_path"`
@@ -122,7 +109,6 @@ func (e *FileProcessingCompletedEvent) EventType() string {
 	return "file_processing_completed"
 }
 
-// ParsingErrorEvent signals parsing error
 type ParsingErrorEvent struct {
 	BaseEvent
 	FilePath   string `json:"file_path"`
@@ -135,7 +121,6 @@ func (e *ParsingErrorEvent) EventType() string {
 	return "parsing_error"
 }
 
-// ValidationErrorEvent signals validation error
 type ValidationErrorEvent struct {
 	BaseEvent
 	FilePath   string `json:"file_path"`
@@ -148,7 +133,6 @@ func (e *ValidationErrorEvent) EventType() string {
 	return "validation_error"
 }
 
-// PersistenceErrorEvent signals persistence error
 type PersistenceErrorEvent struct {
 	BaseEvent
 	FilePath    string `json:"file_path"`
@@ -161,7 +145,6 @@ func (e *PersistenceErrorEvent) EventType() string {
 	return "persistence_error"
 }
 
-// ProgressEvent signals processing progress
 type ProgressEvent struct {
 	BaseEvent
 	TotalFiles      int     `json:"total_files"`
@@ -174,7 +157,6 @@ func (e *ProgressEvent) EventType() string {
 	return "progress"
 }
 
-// ProcessingSummaryEvent signals final processing summary
 type ProcessingSummaryEvent struct {
 	BaseEvent
 	TotalFiles      int           `json:"total_files"`
@@ -190,16 +172,13 @@ func (e *ProcessingSummaryEvent) EventType() string {
 	return "processing_summary"
 }
 
-// Event represents any event that can be published
 type Event interface {
 	EventType() string
 	Timestamp() time.Time
 }
 
-// EventHandler handles published events
 type EventHandler func(event Event)
 
-// EventBus manages event publishing and subscription
 type EventBus interface {
 	Subscribe(eventType string, handler EventHandler) UnsubscribeFunc
 	Publish(event Event)
@@ -207,10 +186,8 @@ type EventBus interface {
 	Close()
 }
 
-// UnsubscribeFunc removes an event subscription
 type UnsubscribeFunc func()
 
-// InMemoryEventBus provides an in-memory event bus implementation
 type InMemoryEventBus struct {
 	subscribers map[string][]EventHandler
 	mu          sync.RWMutex
@@ -219,7 +196,6 @@ type InMemoryEventBus struct {
 	eventBuffer chan Event
 }
 
-// NewInMemoryEventBus creates a new in-memory event bus
 func NewInMemoryEventBus(logger parsers.Logger, bufferSize int) *InMemoryEventBus {
 	if logger == nil {
 		logger = &parsers.NoOpLogger{}
@@ -235,13 +211,11 @@ func NewInMemoryEventBus(logger parsers.Logger, bufferSize int) *InMemoryEventBu
 		eventBuffer: make(chan Event, bufferSize),
 	}
 
-	// Start async event processing goroutine
 	go bus.processAsyncEvents()
 
 	return bus
 }
 
-// Subscribe adds an event handler for a specific event type
 func (bus *InMemoryEventBus) Subscribe(eventType string, handler EventHandler) UnsubscribeFunc {
 	if handler == nil {
 		bus.logger.Error("attempted to subscribe nil handler for event type: %s", eventType)
@@ -260,13 +234,11 @@ func (bus *InMemoryEventBus) Subscribe(eventType string, handler EventHandler) U
 
 	bus.logger.Debug("subscribed handler for event type: %s", eventType)
 
-	// Return unsubscribe function
 	return func() {
 		bus.unsubscribe(eventType, handler)
 	}
 }
 
-// Publish synchronously publishes an event to all subscribers
 func (bus *InMemoryEventBus) Publish(event Event) {
 	if event == nil {
 		bus.logger.Error("attempted to publish nil event")
@@ -298,7 +270,6 @@ func (bus *InMemoryEventBus) Publish(event Event) {
 	}
 }
 
-// PublishAsync asynchronously publishes an event to all subscribers
 func (bus *InMemoryEventBus) PublishAsync(event Event) {
 	if event == nil {
 		bus.logger.Error("attempted to publish nil event")
@@ -318,7 +289,6 @@ func (bus *InMemoryEventBus) PublishAsync(event Event) {
 	}
 }
 
-// Close shuts down the event bus
 func (bus *InMemoryEventBus) Close() {
 	bus.mu.Lock()
 	defer bus.mu.Unlock()
@@ -332,7 +302,6 @@ func (bus *InMemoryEventBus) Close() {
 	bus.logger.Info("event bus closed")
 }
 
-// processAsyncEvents processes events from the async buffer
 func (bus *InMemoryEventBus) processAsyncEvents() {
 	for event := range bus.eventBuffer {
 		if event != nil {
@@ -341,15 +310,13 @@ func (bus *InMemoryEventBus) processAsyncEvents() {
 	}
 }
 
-// unsubscribe removes a handler for a specific event type
 func (bus *InMemoryEventBus) unsubscribe(eventType string, targetHandler EventHandler) {
 	bus.mu.Lock()
 	defer bus.mu.Unlock()
 
 	handlers := bus.subscribers[eventType]
 	for i, handler := range handlers {
-		// Note: This comparison is not perfect for function equality,
-		// but works for most practical cases
+
 		if &handler == &targetHandler {
 			bus.subscribers[eventType] = append(handlers[:i], handlers[i+1:]...)
 			bus.logger.Debug("unsubscribed handler for event type: %s", eventType)
@@ -358,14 +325,12 @@ func (bus *InMemoryEventBus) unsubscribe(eventType string, targetHandler EventHa
 	}
 }
 
-// GetSubscriberCount returns the number of subscribers for an event type
 func (bus *InMemoryEventBus) GetSubscriberCount(eventType string) int {
 	bus.mu.RLock()
 	defer bus.mu.RUnlock()
 	return len(bus.subscribers[eventType])
 }
 
-// GetTotalSubscribers returns the total number of event subscriptions
 func (bus *InMemoryEventBus) GetTotalSubscribers() int {
 	bus.mu.RLock()
 	defer bus.mu.RUnlock()

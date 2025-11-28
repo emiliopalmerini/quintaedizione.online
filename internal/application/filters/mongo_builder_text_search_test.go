@@ -103,7 +103,6 @@ func TestBuildSearchFilter_Collections(t *testing.T) {
 		t.Run(col.String(), func(t *testing.T) {
 			result := builder.BuildSearchFilter(col, searchTerm)
 
-			// All collections should use the same $text operator
 			textOp, ok := result["$text"]
 			if !ok {
 				t.Errorf("collection %s: $text operator not found", col)
