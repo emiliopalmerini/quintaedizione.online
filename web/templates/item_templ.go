@@ -100,12 +100,12 @@ func ItemPage(data models.ItemPageData) templ.Component {
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "\" hx-target=\"#page-root\" hx-select=\"#page-root\" hx-swap=\"outerHTML\" hx-push-url=\"true\" hx-indicator=\"#page-loading\"><span class=\"htmx-indicator\">⟳</span> ← Precedente</a> ")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "\" hx-target=\"#page-root\" hx-select=\"#page-root\" hx-swap=\"outerHTML\" hx-push-url=\"true\" hx-indicator=\"#page-loading\"><span class=\"htmx-indicator\">loading</span> ← Precedente</a> ")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 			} else {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<a class=\"btn btn-disabled\"><span class=\"htmx-indicator\">⟳</span> ← Precedente</a> ")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<a class=\"btn btn-disabled\"><span class=\"htmx-indicator\">loading</span> ← Precedente</a> ")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -137,12 +137,12 @@ func ItemPage(data models.ItemPageData) templ.Component {
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "\" hx-target=\"#page-root\" hx-select=\"#page-root\" hx-swap=\"outerHTML\" hx-push-url=\"true\" hx-indicator=\"#page-loading\"><span class=\"htmx-indicator\">⟳</span> Successivo →</a>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "\" hx-target=\"#page-root\" hx-select=\"#page-root\" hx-swap=\"outerHTML\" hx-push-url=\"true\" hx-indicator=\"#page-loading\"><span class=\"htmx-indicator\">loading</span> Successivo →</a>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 			} else {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "<a class=\"btn btn-disabled\"><span class=\"htmx-indicator\">⟳</span> Successivo →</a>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "<a class=\"btn btn-disabled\"><span class=\"htmx-indicator\">loading</span> Successivo →</a>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -206,7 +206,7 @@ func ItemPage(data models.ItemPageData) templ.Component {
 					return templ_7745c5c3_Err
 				}
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</article><!-- Action buttons --> <div class=\"item-footer\"><button onclick=\"copyMarkdown(this)\" class=\"btn btn-primary\">📋 Copia Markdown</button></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</article><!-- Action buttons --> <div class=\"item-footer\"><button onclick=\"copyMarkdown(this)\" class=\"btn btn-primary\">Copy Markdown</button></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
