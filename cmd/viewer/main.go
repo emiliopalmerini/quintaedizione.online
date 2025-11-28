@@ -52,7 +52,7 @@ func main() {
 	if err := mongoClient.Ping(ctx); err != nil {
 		log.Fatalf("MongoDB health check failed: %v", err)
 	}
-	log.Println("✅ MongoDB connection established")
+	log.Println("MongoDB connection established")
 
 	// Initialize database index manager (indexes will be created after parsing)
 	indexManager := database.NewIndexManager(mongoClient)
@@ -61,9 +61,9 @@ func main() {
 	repositoryFactory := repositories.NewRepositoryFactory(mongoClient)
 
 	// Parse markdown files into database on startup
-	log.Println("🔄 Parsing markdown files...")
+	log.Println("Parsing markdown files...")
 	if err := parseMarkdownFiles(repositoryFactory, indexManager); err != nil {
-		log.Fatalf("❌ Failed to parse markdown files: %v", err)
+		log.Fatalf("Failed to parse markdown files: %v", err)
 	}
 
 	// Initialize Templ engine
@@ -73,14 +73,14 @@ func main() {
 	} else {
 		templateEngine = templates.NewDevTemplEngine()
 	}
-	log.Println("✅ Templates loaded")
+	log.Println("Templates loaded")
 
 	// Initialize filter registry
 	filterRegistry, err := filters.NewYAMLFilterRegistry("configs/filters.yaml")
 	if err != nil {
 		log.Fatalf("Failed to initialize filter registry: %v", err)
 	}
-	log.Println("✅ Filter registry loaded")
+	log.Println("Filter registry loaded")
 
 	// Initialize filter service
 	filterService := services.NewFilterService(filterRegistry)
@@ -139,7 +139,7 @@ func main() {
 
 	// Start server in goroutine
 	go func() {
-		log.Printf("🚀 Starting Quintaedizione 5e SRD Viewer on %s", config.GetAddress())
+		log.Printf("Starting Quintaedizione 5e SRD Viewer on %s", config.GetAddress())
 		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			log.Fatalf("Failed to start server: %v", err)
 		}
@@ -149,7 +149,7 @@ func main() {
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 	<-quit
-	log.Println("🛑 Shutting down Quintaedizione 5e SRD Viewer...")
+	log.Println("Shutting down Quintaedizione 5e SRD Viewer...")
 
 	// Graceful shutdown with timeout
 	shutdownCtx, shutdownCancel := context.WithTimeout(context.Background(), 30*time.Second)
@@ -167,7 +167,7 @@ func parseMarkdownFiles(repositoryFactory *repositories.RepositoryFactory, index
 	ctx := context.Background()
 
 	// Drop all collections before parsing to ensure clean state
-	log.Println("🗑️  Dropping existing collections for clean parse...")
+	log.Println("Dropping existing collections for clean parse...")
 	collections := []string{
 		"incantesimi", "mostri", "classi", "backgrounds", "equipaggiamenti",
 		"oggetti_magici", "armi", "armature", "talenti", "servizi",
@@ -177,16 +177,16 @@ func parseMarkdownFiles(repositoryFactory *repositories.RepositoryFactory, index
 	repo := repositoryFactory.DocumentRepository()
 	for _, collection := range collections {
 		if err := repo.DropCollection(ctx, collection); err != nil {
-			log.Printf("⚠️  Warning: Failed to drop collection %s: %v", collection, err)
+			log.Printf("Warning: Failed to drop collection %s: %v", collection, err)
 		}
 	}
-	log.Println("✅ Collections dropped")
+	log.Println("Collections dropped")
 
 	// Recreate indexes after dropping collections
 	indexCtx, indexCancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer indexCancel()
 	if err := indexManager.EnsureIndexes(indexCtx); err != nil {
-		log.Printf("⚠️  Warning: Failed to recreate indexes: %v", err)
+		log.Printf("Warning: Failed to recreate indexes: %v", err)
 		// Continue with parsing even if indexes fail
 	} else {
 		log.Println("✅ Indexes recreated")
@@ -214,7 +214,7 @@ func parseMarkdownFiles(repositoryFactory *repositories.RepositoryFactory, index
 	}
 
 	// Log summary
-	log.Printf("✅ Parsing completed: %d files, %d documents in %.2fs\n",
+	log.Printf("Parsing completed: %d files, %d documents in %.2fs\n",
 		result.SuccessCount, result.TotalDocuments, result.Duration.Seconds())
 
 	return nil
