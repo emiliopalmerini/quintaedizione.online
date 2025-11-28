@@ -3,7 +3,7 @@ package parsers
 import (
 	"testing"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain"
 )
 
 // MockDocumentStrategy is a test implementation of DocumentParsingStrategy

@@ -1,4 +1,4 @@
-module github.com/emiliopalmerini/due-draghi-5e-srd
+module github.com/emiliopalmerini/quintaedizione.online
 
 go 1.24
 

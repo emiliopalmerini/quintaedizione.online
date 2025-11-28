@@ -2350,7 +2350,7 @@ You can designate a password when you cast the spell. A creature that speaks the
 
 The spell's area can't overlap with the area of another *Forbiddance* spell. If you cast *Forbiddance* every day for 30 days in the same location, the spell lasts until it is dispelled, and the Material components are consumed on the last casting.
 
-# Incantesimi D&D - Traduzione Italiana.
+# Incantesimi Quintaedizione - Traduzione Italiana.
 
 ## Gabbia di Forza.
 

@@ -67,10 +67,10 @@ func TestGetAllContentTypes(t *testing.T) {
 
 func TestGetContentTypeFromCollection(t *testing.T) {
 	tests := []struct {
-		name         string
-		collection   string
-		expected     ContentType
-		expectError  bool
+		name        string
+		collection  string
+		expected    ContentType
+		expectError bool
 	}{
 		{"incantesimi", "incantesimi", ContentTypeIncantesimi, false},
 		{"mostri", "mostri", ContentTypeMostri, false},
@@ -116,10 +116,10 @@ func TestGetContentTypeFromCollection(t *testing.T) {
 
 func TestGetCollectionFromContentType(t *testing.T) {
 	tests := []struct {
-		name         string
-		contentType  ContentType
-		expected     string
-		expectError  bool
+		name        string
+		contentType ContentType
+		expected    string
+		expectError bool
 	}{
 		{"incantesimi", ContentTypeIncantesimi, "incantesimi", false},
 		{"mostri", ContentTypeMostri, "mostri", false},

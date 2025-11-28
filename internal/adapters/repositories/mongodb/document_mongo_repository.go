@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"maps"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain/repositories"
-	pkgMongodb "github.com/emiliopalmerini/due-draghi-5e-srd/pkg/mongodb"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/repositories"
+	pkgMongodb "github.com/emiliopalmerini/quintaedizione.online/pkg/mongodb"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"

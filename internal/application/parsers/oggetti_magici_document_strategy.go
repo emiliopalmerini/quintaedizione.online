@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain"
 )
 
 // OggettiMagiciDocumentStrategy parses magic items and returns Document entities with HTML content
@@ -130,7 +130,7 @@ func (s *OggettiMagiciDocumentStrategy) Name() string {
 }
 
 func (s *OggettiMagiciDocumentStrategy) Description() string {
-	return "Parses Italian D&D 5e magic items and returns Document entities with HTML content"
+	return "Parses Italian Quintaedizione 5e magic items and returns Document entities with HTML content"
 }
 
 func (s *OggettiMagiciDocumentStrategy) Validate(content []string) error {

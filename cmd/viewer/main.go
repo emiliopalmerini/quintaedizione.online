@@ -10,15 +10,15 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/repositories"
-	web "github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/filters"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/parsers"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure/database"
-	pkgMongodb "github.com/emiliopalmerini/due-draghi-5e-srd/pkg/mongodb"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/templates"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/repositories"
+	web "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/application/filters"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/application/parsers"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/application/services"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/infrastructure"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/infrastructure/database"
+	pkgMongodb "github.com/emiliopalmerini/quintaedizione.online/pkg/mongodb"
+	"github.com/emiliopalmerini/quintaedizione.online/pkg/templates"
 	"github.com/gin-gonic/gin"
 )
 
@@ -139,7 +139,7 @@ func main() {
 
 	// Start server in goroutine
 	go func() {
-		log.Printf("🚀 Starting D&D 5e SRD Viewer on %s", config.GetAddress())
+		log.Printf("🚀 Starting Quintaedizione 5e SRD Viewer on %s", config.GetAddress())
 		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			log.Fatalf("Failed to start server: %v", err)
 		}
@@ -149,7 +149,7 @@ func main() {
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 	<-quit
-	log.Println("🛑 Shutting down D&D 5e SRD Viewer...")
+	log.Println("🛑 Shutting down Quintaedizione 5e SRD Viewer...")
 
 	// Graceful shutdown with timeout
 	shutdownCtx, shutdownCancel := context.WithTimeout(context.Background(), 30*time.Second)

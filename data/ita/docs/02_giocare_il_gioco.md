@@ -2,7 +2,7 @@
 
 ## Ritmo di gioco
 
-I tre pilastri principali del gioco di D&D sono l’interazione sociale, l’esplorazione e il combattimento. Qualunque di questi tu stia vivendo, il gioco si sviluppa secondo questo schema di base:
+I tre pilastri principali del gioco di Quintaedizione sono l’interazione sociale, l’esplorazione e il combattimento. Qualunque di questi tu stia vivendo, il gioco si sviluppa secondo questo schema di base:
 
 1. **Il Game Master descrive una scena.** Il GM racconta ai giocatori dove si trovano gli avventurieri e cosa c’è attorno a loro (quante porte ci sono in una stanza, cosa c’è su un tavolo, e così via).
 

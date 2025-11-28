@@ -1,9 +1,9 @@
 package mappers
 
 import (
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/display"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/dto"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/models"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/display"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/dto"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
 )
 
 // DocumentMapper handles conversion from raw documents to DTOs and Models

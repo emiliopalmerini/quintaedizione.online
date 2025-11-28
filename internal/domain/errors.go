@@ -7,18 +7,18 @@ import (
 
 // Domain errors
 var (
-	ErrDocumentNotFound     = errors.New("document not found")
-	ErrInvalidDocumentID    = errors.New("invalid document ID")
-	ErrInvalidDocumentTitle = errors.New("invalid document title")
+	ErrDocumentNotFound      = errors.New("document not found")
+	ErrInvalidDocumentID     = errors.New("invalid document ID")
+	ErrInvalidDocumentTitle  = errors.New("invalid document title")
 	ErrDocumentAlreadyExists = errors.New("document already exists")
 )
 
 // DocumentError represents a domain-level error with additional context
 type DocumentError struct {
-	Op   string // Operation that failed
-	ID   DocumentID // Document ID if applicable
-	Err  error  // Underlying error
-	Msg  string // Additional message
+	Op  string     // Operation that failed
+	ID  DocumentID // Document ID if applicable
+	Err error      // Underlying error
+	Msg string     // Additional message
 }
 
 func (e *DocumentError) Error() string {

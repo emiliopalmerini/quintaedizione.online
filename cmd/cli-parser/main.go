@@ -25,7 +25,7 @@ var (
 func main() {
 	flag.Parse()
 
-	fmt.Println("🧙‍♂️ D&D 5e SRD CLI Parser")
+	fmt.Println("Quintaedizione srd parser")
 	fmt.Println("==========================")
 
 	// Handle simple listing commands first

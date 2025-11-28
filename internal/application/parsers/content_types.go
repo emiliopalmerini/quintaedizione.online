@@ -2,10 +2,10 @@ package parsers
 
 // ContentType definitions and utilities
 
-// ContentType represents the type of D&D content being parsed
+// ContentType represents the type of Quintaedizione content being parsed
 type ContentType string
 
-// Content type constants for Italian D&D 5e SRD
+// Content type constants for Italian Quintaedizione 5e SRD
 const (
 	ContentTypeDocuments          ContentType = "documenti"
 	ContentTypeIncantesimi        ContentType = "incantesimi"

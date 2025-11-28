@@ -6,8 +6,8 @@ import (
 	"fmt"
 
 	"github.com/a-h/templ"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/models"
-	templComponents "github.com/emiliopalmerini/due-draghi-5e-srd/web/templates"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
+	templComponents "github.com/emiliopalmerini/quintaedizione.online/web/templates"
 )
 
 // TemplEngine handles Templ-based template rendering

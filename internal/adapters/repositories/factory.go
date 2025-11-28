@@ -3,9 +3,9 @@ package repositories
 import (
 	"context"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/repositories/mongodb"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain/repositories"
-	pkgMongodb "github.com/emiliopalmerini/due-draghi-5e-srd/pkg/mongodb"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/repositories/mongodb"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/repositories"
+	pkgMongodb "github.com/emiliopalmerini/quintaedizione.online/pkg/mongodb"
 )
 
 // RepositoryFactory creates and manages all repository instances

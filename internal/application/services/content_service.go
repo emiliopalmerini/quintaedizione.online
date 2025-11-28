@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain/filters"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain/repositories"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/filters"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/repositories"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/infrastructure"
 )
 
 // ContentService provides business logic for content operations
@@ -128,9 +128,9 @@ func (s *ContentService) GetAdjacentItems(ctx context.Context, collection, curre
 
 // SearchResult represents a search result from a single collection
 type SearchResult struct {
-	Collection string         `json:"collection"`
+	Collection string           `json:"collection"`
 	Items      []map[string]any `json:"items"`
-	Total      int64          `json:"total"`
+	Total      int64            `json:"total"`
 }
 
 // GlobalSearch searches across all collections and returns results grouped by collection

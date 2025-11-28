@@ -8,7 +8,7 @@ package templates
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import "github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/models"
+import "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
 import "strconv"
 
 func HomePage(data models.HomePageData) templ.Component {

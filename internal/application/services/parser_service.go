@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/parsers"
-	domainRepos "github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain/repositories"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/application/parsers"
+	domainRepos "github.com/emiliopalmerini/quintaedizione.online/internal/domain/repositories"
 )
 
 // ParserService handles parsing markdown files into documents
@@ -53,20 +53,20 @@ func NewParserService(config ParserServiceConfig) *ParserService {
 
 // ParseResult contains the result of a parsing operation
 type ParseResult struct {
-	TotalFiles      int
-	SuccessCount    int
-	ErrorCount      int
-	TotalDocuments  int
-	Duration        time.Duration
-	FileResults     []FileResult
+	TotalFiles     int
+	SuccessCount   int
+	ErrorCount     int
+	TotalDocuments int
+	Duration       time.Duration
+	FileResults    []FileResult
 }
 
 // FileResult contains the result of parsing a single file
 type FileResult struct {
-	Filename       string
-	Collection     string
-	DocumentCount  int
-	Error          error
+	Filename      string
+	Collection    string
+	DocumentCount int
+	Error         error
 }
 
 // ParseAllFiles parses all markdown files in the input directory
@@ -76,8 +76,8 @@ func (s *ParserService) ParseAllFiles(ctx context.Context, inputDir string) (*Pa
 	s.logger.Info(fmt.Sprintf("Starting parsing of %d files from %s", len(s.workItems), inputDir))
 
 	result := &ParseResult{
-		TotalFiles:   len(s.workItems),
-		FileResults:  make([]FileResult, 0, len(s.workItems)),
+		TotalFiles:  len(s.workItems),
+		FileResults: make([]FileResult, 0, len(s.workItems)),
 	}
 
 	for _, workItem := range s.workItems {

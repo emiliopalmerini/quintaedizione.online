@@ -3,7 +3,7 @@ package repositories
 import (
 	"context"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain"
 )
 
 // DocumentRepository handles all document CRUD operations

@@ -3,7 +3,7 @@ package display
 import (
 	"fmt"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/dto"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/dto"
 )
 
 // DisplayElementStrategy defines how to extract display elements for a collection

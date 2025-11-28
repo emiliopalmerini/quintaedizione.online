@@ -2,7 +2,7 @@
 
 /* CSS Custom Properties for Design System */
 :root {
-  /* Colors - D&D themed palette with Notion-like refinement */
+  /* Colors - Quintaedizione themed palette with Notion-like refinement */
   --primary: #EF4444;
   --primary-dark: #DC2626;
   --primary-light: #FEE2E2;
@@ -1107,7 +1107,7 @@ body {
   margin-top: 0 !important;
 }
 
-/* D&D Specific Formatting for Actions and Traits */
+/* Quintaedizione Specific Formatting for Actions and Traits */
 /* Style for action/trait names in bold italic (***Text***) */
 [data-markdown] strong em,
 [data-markdown] em strong {

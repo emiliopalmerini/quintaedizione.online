@@ -46,9 +46,9 @@ func TestDocumentFilters_Get(t *testing.T) {
 	}
 
 	tests := []struct {
-		name      string
-		key       string
-		expected  interface{}
+		name        string
+		key         string
+		expected    interface{}
 		shouldExist bool
 	}{
 		{"existing string", "collection", "spells", true},
@@ -114,7 +114,7 @@ func TestDocumentFilters_Has(t *testing.T) {
 		{"existing non-empty", "collection", true},
 		{"existing int", "level", true},
 		{"existing empty string", "empty", true}, // Has checks existence, not emptiness
-		{"nil value", "nil", true}, // Has checks existence, not nil-ness
+		{"nil value", "nil", true},               // Has checks existence, not nil-ness
 		{"non-existing key", "nonexistent", false},
 	}
 

@@ -12,7 +12,7 @@ type PaginationData struct {
 // CalculatePaginationData calculates pagination values from page number, size, and total count
 func CalculatePaginationData(pageNum, pageSize int, totalCount int64) *PaginationData {
 	totalPages := int((totalCount + int64(pageSize) - 1) / int64(pageSize))
-	startItem := (pageNum - 1) * pageSize + 1
+	startItem := (pageNum-1)*pageSize + 1
 	endItem := pageNum * pageSize
 
 	if endItem > int(totalCount) {

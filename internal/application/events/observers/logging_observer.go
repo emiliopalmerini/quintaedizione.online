@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/events"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/parsers"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/application/events"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/application/parsers"
 )
 
 // LoggingObserver logs all pipeline events for debugging and monitoring
