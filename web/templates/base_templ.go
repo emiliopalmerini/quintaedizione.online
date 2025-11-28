@@ -8,7 +8,7 @@ package templates
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import "github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/models"
+import "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
 
 func BaseLayout(data models.PageData) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {

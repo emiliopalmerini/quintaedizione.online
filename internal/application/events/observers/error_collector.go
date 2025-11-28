@@ -4,8 +4,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/events"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/parsers"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/application/events"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/application/parsers"
 )
 
 // ErrorCollector collects and categorizes errors from pipeline processing

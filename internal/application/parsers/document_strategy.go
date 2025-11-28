@@ -1,6 +1,6 @@
 package parsers
 
-import "github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
+import "github.com/emiliopalmerini/quintaedizione.online/internal/domain"
 
 // DocumentParsingStrategy defines the interface for Document-based parsing strategies
 // This is the new interface that outputs unified Document entities with HTML content

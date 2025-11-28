@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/parsers"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/application/parsers"
 )
 
 // BaseEvent provides common event functionality

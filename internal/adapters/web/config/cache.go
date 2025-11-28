@@ -18,7 +18,7 @@ const (
 var CacheDurations = map[CacheType]int{
 	CacheTypeHome:       3600,  // 1 hour - home page with collection stats
 	CacheTypeCollection: 1800,  // 30 minutes - collection lists and rows
-	CacheTypeItem:       14400, // 4 hours - individual item details (considering D&D session prep time)
+	CacheTypeItem:       14400, // 4 hours - individual item details (considering Quintaedizione session prep time)
 	CacheTypeSearch:     0,     // No cache for search results
 }
 

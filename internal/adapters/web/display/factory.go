@@ -1,6 +1,6 @@
 package display
 
-import "github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/dto"
+import "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/dto"
 
 // DisplayElementFactory creates the appropriate display strategy for a collection
 type DisplayElementFactory struct {

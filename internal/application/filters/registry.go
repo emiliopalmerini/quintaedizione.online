@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain/filters"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/filters"
 	"gopkg.in/yaml.v3"
 )
 

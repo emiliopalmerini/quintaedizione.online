@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/filters"
-	domainFilters "github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain/filters"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/application/filters"
+	domainFilters "github.com/emiliopalmerini/quintaedizione.online/internal/domain/filters"
 	"go.mongodb.org/mongo-driver/bson"
 )
 

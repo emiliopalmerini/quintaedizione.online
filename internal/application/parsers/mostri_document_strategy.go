@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain"
 )
 
 // MostriDocumentStrategy parses monsters and returns Document entities with HTML content
@@ -130,7 +130,7 @@ func (s *MostriDocumentStrategy) Name() string {
 }
 
 func (s *MostriDocumentStrategy) Description() string {
-	return "Parses Italian D&D 5e monsters and returns Document entities with HTML content"
+	return "Parses Italian Quintaedizione 5e monsters and returns Document entities with HTML content"
 }
 
 func (s *MostriDocumentStrategy) Validate(content []string) error {

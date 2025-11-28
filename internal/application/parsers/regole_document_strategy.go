@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain"
 )
 
 // RegoleDocumentStrategy parses rules and returns Document entities with HTML content
@@ -140,7 +140,7 @@ func (s *RegoleDocumentStrategy) Name() string {
 }
 
 func (s *RegoleDocumentStrategy) Description() string {
-	return "Parses Italian D&D 5e rules and returns Document entities with HTML content"
+	return "Parses Italian Quintaedizione 5e rules and returns Document entities with HTML content"
 }
 
 func (s *RegoleDocumentStrategy) Validate(content []string) error {

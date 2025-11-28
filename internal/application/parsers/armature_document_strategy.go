@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain"
 )
 
 // ArmatureDocumentStrategy parses armor and returns Document entities with HTML content
@@ -130,7 +130,7 @@ func (s *ArmatureDocumentStrategy) Name() string {
 }
 
 func (s *ArmatureDocumentStrategy) Description() string {
-	return "Parses Italian D&D 5e armor and returns Document entities with HTML content"
+	return "Parses Italian Quintaedizione 5e armor and returns Document entities with HTML content"
 }
 
 func (s *ArmatureDocumentStrategy) Validate(content []string) error {

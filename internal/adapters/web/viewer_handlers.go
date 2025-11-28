@@ -7,15 +7,15 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/config"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/display"
-	webmappers "github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/mappers"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/web/models"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain/collections"
-	infraconfig "github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure/config"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/mappers"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/templates"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/config"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/display"
+	webmappers "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/mappers"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/application/services"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
+	infraconfig "github.com/emiliopalmerini/quintaedizione.online/internal/infrastructure/config"
+	"github.com/emiliopalmerini/quintaedizione.online/pkg/mappers"
+	"github.com/emiliopalmerini/quintaedizione.online/pkg/templates"
 	"github.com/gin-gonic/gin"
 )
 
@@ -319,7 +319,7 @@ func formatTraitContent(content string) string {
 	return formatted
 }
 
-// setCacheHeaders sets appropriate cache headers for D&D content responses
+// setCacheHeaders sets appropriate cache headers for Quintaedizione content responses
 func (h *Handlers) setCacheHeaders(c *gin.Context, cacheTypeStr string) {
 	// Map string cache type to config type
 	var cacheType config.CacheType

@@ -4,8 +4,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/events"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/parsers"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/application/events"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/application/parsers"
 )
 
 // ProgressTracker tracks overall processing progress across multiple files

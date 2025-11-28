@@ -3,7 +3,7 @@ package parsers
 import (
 	"regexp"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/infrastructure"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/infrastructure"
 )
 
 // LanguageCode represents supported languages

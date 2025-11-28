@@ -1,6 +1,6 @@
 package domain
 
-// Document represents a unified D&D 5e SRD content entity.
+// Document represents a unified Quintaedizione 5e SRD content entity.
 // This is the core domain model that replaces all specific entity types
 // (Mostro, Classe, Incantesimo, etc.) with a flexible document structure.
 type Document struct {

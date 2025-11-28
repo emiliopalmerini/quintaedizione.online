@@ -26,7 +26,7 @@ type HomePageData struct {
 
 // Document represents a document in a collection
 type Document struct {
-	ID              string                 `json:"_id"` // Slug/identifier from Document model
+	ID              string                 `json:"_id"`   // Slug/identifier from Document model
 	Title           string                 `json:"title"` // Display name from Document model
 	DisplayElements []DocumentDisplayField `json:"display_elements"`
 	Translated      bool                   `json:"translated"`

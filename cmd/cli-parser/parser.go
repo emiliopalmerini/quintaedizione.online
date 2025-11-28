@@ -7,10 +7,10 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/adapters/repositories"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/parsers"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/application/services"
-	"github.com/emiliopalmerini/due-draghi-5e-srd/pkg/mongodb"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/repositories"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/application/parsers"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/application/services"
+	"github.com/emiliopalmerini/quintaedizione.online/pkg/mongodb"
 )
 
 type ParserCLI struct {

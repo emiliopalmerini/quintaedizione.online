@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/emiliopalmerini/due-draghi-5e-srd/internal/domain"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain"
 )
 
 // CavalcatureVeicoliDocumentStrategy parses mounts/vehicles and returns Document entities with HTML content
@@ -130,7 +130,7 @@ func (s *CavalcatureVeicoliDocumentStrategy) Name() string {
 }
 
 func (s *CavalcatureVeicoliDocumentStrategy) Description() string {
-	return "Parses Italian D&D 5e mounts and vehicles and returns Document entities with HTML content"
+	return "Parses Italian Quintaedizione 5e mounts and vehicles and returns Document entities with HTML content"
 }
 
 func (s *CavalcatureVeicoliDocumentStrategy) Validate(content []string) error {
