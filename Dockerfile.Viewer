@@ -1,5 +1,5 @@
 # Build stage
-FROM golang:1.24-alpine AS builder
+FROM golang:1.25-alpine AS builder
 
 # Install git (needed for some Go modules)
 RUN apk add --no-cache git
@@ -25,6 +25,9 @@ RUN cd web/templates && templ generate
 # Build the application
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o viewer ./cmd/viewer
 
+# Ensure required directories exist
+RUN mkdir -p configs data
+
 # Final stage
 FROM alpine:latest
 
@@ -36,13 +39,11 @@ WORKDIR /root/
 # Copy the binary from builder stage
 COPY --from=builder /app/viewer .
 
-# Copy web assets if they exist
+# Copy web assets
 COPY --from=builder /app/web ./web
 
-# Copy configuration files
+# Copy configs and data directories (created as empty if they don't exist)
 COPY --from=builder /app/configs ./configs
-
-# Copy data directory for markdown parsing
 COPY --from=builder /app/data ./data
 
 # Expose port

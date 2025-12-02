@@ -17,10 +17,10 @@ templ HomePage(data models.HomePageData) {
 			</p>
             <p> In futuro saranno implementati filtri specifici</p>
 
-			<div style="background: var(--primary-light); border: 1px solid var(--primary); border-radius: var(--radius-md); padding: var(--space-3); margin: var(--space-4) 0; font-size: var(--font-size-sm);">
+			<div class="bg-primary-light border border-primary rounded-md p-3 my-4 text-sm">
 				<strong>⚠️ Nota sulle traduzioni:</strong> Le traduzioni in italiano sono state realizzate con strumenti automatici e verranno progressivamente migliorate durante la fase beta.
 				Segnala eventuali errori o suggerimenti per aiutarci a migliorare la qualità dei contenuti.
-                draghi.microfono@gmail.com
+			draghi.microfono@gmail.com
 			</div>
 
 			<div class="search-container-wrapper">
@@ -63,7 +63,7 @@ templ HomePage(data models.HomePageData) {
 
 			if data.Total > 0 {
 				<div class="hero-stats">
-					<span style="color: var(--gray-500);">Totale elementi indicizzati:</span>
+					<span class="text-secondary">Totale elementi indicizzati:</span>
 					<span class="hero-stats-badge">{ strconv.FormatInt(data.Total, 10) }</span>
 				</div>
 			}

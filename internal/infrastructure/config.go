@@ -1,13 +1,15 @@
 package infrastructure
 
 import (
+	"log"
 	"os"
 	"strconv"
 	"time"
+
+	"github.com/joho/godotenv"
 )
 
 type Config struct {
-
 	Port string
 	Host string
 
@@ -24,7 +26,6 @@ type Config struct {
 }
 
 type PipelineConfig struct {
-
 	DefaultStages []string `json:"default_stages"`
 
 	ErrorHandling string `json:"error_handling"`
@@ -42,6 +43,11 @@ type PipelineConfig struct {
 }
 
 func LoadConfig() Config {
+	// Load .env file if it exists (don't error if it doesn't)
+	if err := godotenv.Load(); err != nil {
+		log.Println("Note: .env file not found, using environment variables")
+	}
+
 	config := Config{
 		Port:         getEnv("PORT", "8000"),
 		Host:         getEnv("HOST", "0.0.0.0"),

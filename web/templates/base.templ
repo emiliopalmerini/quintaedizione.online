@@ -16,17 +16,22 @@ templ BaseLayout(data models.PageData) {
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<script src="https://unpkg.com/htmx.org@2.0.3"></script>
-		<link rel="stylesheet" href="/static/style.css"/>
+		<!-- Design System Styles -->
+		<link rel="stylesheet" href="/design-system/tokens.css"/>
+		<link rel="stylesheet" href="/design-system/main.css"/>
+		<link rel="stylesheet" href="/design-system/utilities.css"/>
+		<!-- Project-specific styles -->
+		<link rel="stylesheet" href="/static/quintaedizione.css"/>
 		<link rel="icon" href="/static/favicon.svg" type="image/svg+xml"/>
 	</head>
-	<body style="min-height: 100vh; display: flex; flex-direction: column; background: var(--notion-bg); color: var(--notion-text);">
+	<body class="flex flex-col min-h-screen text-primary">
 		<!-- Notion-style top bar -->
 		<header class="notion-nav">
 			<div class="notion-nav-container">
 				<nav class="breadcrumb" aria-label="Breadcrumb">
 					<a href="/" class="btn">Home</a>
 					if data.Collection != "" {
-						<span style="color: var(--notion-text-light);">/</span>
+						<span class="text-secondary">/</span>
 						if data.QueryString != "" {
 							<a href={ templ.URL("/" + data.Collection + "?" + data.QueryString) } class="btn">{ data.Collection }</a>
 						} else {
@@ -42,7 +47,7 @@ templ BaseLayout(data models.PageData) {
 								} else { 
 									placeholder={ "Cerca in " + data.Collection + "…" } 
 								}
-								class="field" style="width: 240px; font-size: 13px; padding: 6px 10px;"
+								class="field"
 								hx-get={ "/quicksearch/" + data.Collection }
 								hx-target="#bc-results"
 								hx-trigger="keyup changed delay:200ms"
@@ -52,10 +57,10 @@ templ BaseLayout(data models.PageData) {
 						</div>
 					}
 					if data.DocTitle != "" && data.Collection == "" {
-						<span style="color: var(--notion-text-light);">/</span>
-						<span style="color: var(--notion-text); font-weight: 500; max-width: 40vw;" class="truncate" title={ data.DocTitle }>{ data.DocTitle }</span>
+						<span class="text-secondary">/</span>
+						<span class="font-bold truncate" style="max-width: 40vw;" title={ data.DocTitle }>{ data.DocTitle }</span>
 					} else if data.DocID != "" && data.Collection == "" {
-						<span style="color: var(--notion-text-light);">/</span>
+						<span class="text-secondary">/</span>
 						<span class="mono tag" title={ data.DocID }>{ data.DocID }</span>
 					}
 				</nav>
@@ -63,8 +68,8 @@ templ BaseLayout(data models.PageData) {
 		</header>
 
 		<!-- Notion-style content area -->
-		<main style="flex: 1; background: var(--notion-bg);">
-			<div id="page-root" hx-history-elt class="container" style="max-width: 1024px; padding-top: 2rem; padding-bottom: 2rem;">
+		<main class="flex-1">
+			<div id="page-root" hx-history-elt class="container mx-auto max-w-4xl py-8">
 				{ children... }
 				<div id="page-loading" class="page-overlay" aria-hidden="true">
 					<div class="page-overlay-inner">
@@ -373,13 +378,13 @@ templ baseScripts() {
 }
 
 templ legalFooter() {
-	<footer style="background: var(--notion-bg); border-top: 1px solid var(--notion-border); margin-top: auto; padding: 1.5rem 0;">
-		<div class="container" style="max-width: 1024px; text-align: center;">
-			<p style="font-size: 12px; color: var(--notion-text-light); line-height: 1.4; margin: 0;">
+	<footer class="mt-auto border-t py-6">
+		<div class="container mx-auto max-w-4xl text-center">
+			<p class="text-xs text-secondary leading-relaxed m-0">
 				This work includes material from the System Reference Document 5.2.1 ("SRD 5.2.1") by Wizards of the Coast LLC, available at
-				<a href="https://www.dndbeyond.com/srd" target="_blank" rel="noopener noreferrer" style="color: var(--notion-link);">https://www.dndbeyond.com/srd</a>.
+				<a href="https://www.dndbeyond.com/srd" target="_blank" rel="noopener noreferrer" class="text-primary">https://www.dndbeyond.com/srd</a>.
 				The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at
-				<a href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank" rel="noopener noreferrer" style="color: var(--notion-link);">https://creativecommons.org/licenses/by/4.0/legalcode</a>.
+				<a href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank" rel="noopener noreferrer" class="text-primary">https://creativecommons.org/licenses/by/4.0/legalcode</a>.
 			</p>
 		</div>
 	</footer>

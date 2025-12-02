@@ -7,7 +7,6 @@ import (
 )
 
 type DocumentRepository interface {
-
 	Create(ctx context.Context, doc *domain.Document, collection string) error
 
 	Update(ctx context.Context, doc *domain.Document, collection string) error

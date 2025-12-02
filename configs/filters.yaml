@@ -1,0 +1,38 @@
+filters:
+  - name: "rarity"
+    field_path: "rarity"
+    data_type: "enum"
+    operator: "exact"
+    collections: ["oggetti_magici"]
+    enum_values: ["Comune", "Non Comune", "Raro", "Molto Raro", "Leggendario", "Artefatto"]
+    description: "Filter magical items by rarity level"
+  
+  - name: "level"
+    field_path: "livello"
+    data_type: "number"
+    operator: "exact"
+    collections: ["incantesimi"]
+    description: "Filter spells by spell level"
+  
+  - name: "school"
+    field_path: "scuola"
+    data_type: "enum"
+    operator: "exact"
+    collections: ["incantesimi"]
+    enum_values: ["Abiurazione", "Ammaliamento", "Divinazione", "Evocazione", "Illusione", "Invocazione", "Necromanzia", "Trasmutazione"]
+    description: "Filter spells by school of magic"
+  
+  - name: "type"
+    field_path: "type"
+    data_type: "string"
+    operator: "regex"
+    collections: ["mostri", "armi", "armature"]
+    description: "Filter items by type"
+  
+  - name: "armor_type"
+    field_path: "tipo"
+    data_type: "enum"
+    operator: "exact"
+    collections: ["armature"]
+    enum_values: ["Armatura Leggera", "Armatura Media", "Armatura Pesante"]
+    description: "Filter armor by type"

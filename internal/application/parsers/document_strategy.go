@@ -3,7 +3,6 @@ package parsers
 import "github.com/emiliopalmerini/quintaedizione.online/internal/domain"
 
 type DocumentParsingStrategy interface {
-
 	ParseDocument(content []string, context *ParsingContext) ([]*domain.Document, error)
 
 	ContentType() ContentType

@@ -6,7 +6,6 @@ import (
 )
 
 type Repository interface {
-
 	FindMaps(ctx context.Context, collection string, filter bson.M, skip, limit int64) ([]map[string]any, error)
 
 	FindOneMap(ctx context.Context, collection string, filter bson.M) (map[string]any, error)
