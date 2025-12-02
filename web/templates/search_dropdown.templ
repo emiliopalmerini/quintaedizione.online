@@ -59,8 +59,7 @@ templ SearchDropdown(results []models.CollectionSearchResult, query string) {
 					if result.HasMore {
 						<a
 							href={ templ.URL(fmt.Sprintf("/%s?q=%s", result.CollectionName, query)) }
-							class="search-dropdown-item"
-							style="background: var(--gray-50); font-weight: 500; color: var(--primary);"
+							class="search-dropdown-item bg-gray-100 font-bold text-primary"
 						>
 							Vedi tutti i { strconv.FormatInt(result.Total, 10) } risultati in { result.CollectionLabel } →
 						</a>

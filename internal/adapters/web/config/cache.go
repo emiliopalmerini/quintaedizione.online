@@ -3,7 +3,6 @@ package config
 type CacheType string
 
 const (
-
 	CacheTypeHome CacheType = "home"
 
 	CacheTypeCollection CacheType = "collection"

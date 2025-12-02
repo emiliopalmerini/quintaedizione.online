@@ -48,14 +48,15 @@ func (h *Handlers) RegisterRoutes(router *gin.Engine) {
 
 	router.GET("/", h.handleHome)
 
+	// Specific routes must be registered before wildcard routes
 	router.GET("/search", h.handleGlobalSearch)
 	router.GET("/search/dropdown", h.handleSearchDropdown)
+	router.GET("/quicksearch/:collection", h.handleQuickSearch)
 
+	// Wildcard routes (must come last)
 	router.GET("/:collection", h.handleCollectionList)
 	router.GET("/:collection/rows", h.handleCollectionRows)
 	router.GET("/:collection/:slug", h.handleItemDetail)
-
-	router.GET("/quicksearch/:collection", h.handleQuickSearch)
 }
 
 func (h *Handlers) handleHome(c *gin.Context) {

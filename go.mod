@@ -1,10 +1,14 @@
 module github.com/emiliopalmerini/quintaedizione.online
 
-go 1.24
+go 1.25.2
 
 require (
-	github.com/a-h/templ v0.3.943
+	github.com/a-h/templ v0.3.960
+	github.com/emiliopalmerini/due-draghi-design-system v0.3.0
 	github.com/gin-gonic/gin v1.10.0
+	github.com/gomarkdown/markdown v0.0.0-20250810172220-2e2c11897d1a
+	github.com/google/go-cmp v0.7.0
+	github.com/joho/godotenv v1.5.1
 	go.mongodb.org/mongo-driver v1.17.1
 	golang.org/x/text v0.27.0
 	gopkg.in/yaml.v3 v3.0.1
@@ -22,8 +26,6 @@ require (
 	github.com/go-playground/validator/v10 v10.20.0 // indirect
 	github.com/goccy/go-json v0.10.2 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
-	github.com/gomarkdown/markdown v0.0.0-20250810172220-2e2c11897d1a // indirect
-	github.com/google/go-cmp v0.7.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/compress v1.13.6 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.7 // indirect
