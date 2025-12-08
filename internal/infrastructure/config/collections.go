@@ -85,6 +85,7 @@ func LoadCollectionsConfig() (*CollectionsConfig, error) {
 
 	for _, path := range configPaths {
 		if _, err := os.Stat(path); err == nil {
+			// #nosec G304 - path is hardcoded relative path from predefined list, not user input
 			if data, readErr := os.ReadFile(path); readErr == nil {
 				configData = data
 				break
