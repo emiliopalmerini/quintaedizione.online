@@ -1,6 +1,7 @@
 package web
 
 import (
+	"encoding/html"
 	"fmt"
 	"net/http"
 	"regexp"
@@ -361,24 +362,29 @@ func (h *Handlers) handleQuickSearch(c *gin.Context) {
 		return
 	}
 
-	html := ""
+	htmlContent := ""
 	for _, item := range rawItems {
 		title := mappers.GetString(item, "title", "")
 		slug := mappers.GetString(item, "_id", "")
 
 		if title != "" && slug != "" {
-			html += fmt.Sprintf(`<a href="/%s/%s" class="search-result" tabindex="-1">
+			// Escape HTML special characters to prevent XSS attacks
+			escapedTitle := html.EscapeString(title)
+			escapedSlug := html.EscapeString(slug)
+			escapedCollection := html.EscapeString(collection)
+
+			htmlContent += fmt.Sprintf(`<a href="/%s/%s" class="search-result" tabindex="-1">
 				<div class="search-result-title">%s</div>
-			</a>`, collection, slug, title)
+			</a>`, escapedCollection, escapedSlug, escapedTitle)
 		}
 	}
 
-	if html == "" {
-		html = `<div class="search-result" style="color: var(--notion-text-light);">Nessun risultato trovato</div>`
+	if htmlContent == "" {
+		htmlContent = `<div class="search-result" style="color: var(--notion-text-light);">Nessun risultato trovato</div>`
 	}
 
 	h.setCacheHeaders(c, "search")
-	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(html))
+	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(htmlContent))
 }
 
 func (h *Handlers) getDefaultCollections() []map[string]any {
