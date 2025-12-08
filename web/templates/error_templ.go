@@ -83,7 +83,7 @@ func ErrorPage(data models.ErrorPageData) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</p></div><div class=\"space-x-4\"><a href=\"/\" class=\"btn\">← Torna alla Home</a> <button onclick=\"history.back()\" class=\"btn btn-secondary\">Indietro</button></div></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</p></div><div class=\"space-x-4\"><a href=\"/\" class=\"btn\">← Torna alla Home</a> <button id=\"back-btn\" class=\"btn btn-secondary\">Indietro</button></div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

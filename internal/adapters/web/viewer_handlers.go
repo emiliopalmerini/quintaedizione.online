@@ -1,7 +1,7 @@
 package web
 
 import (
-	"encoding/html"
+	"html"
 	"fmt"
 	"net/http"
 	"regexp"

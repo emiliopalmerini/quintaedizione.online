@@ -51,7 +51,7 @@ func BaseLayout(data models.PageData) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><script src=\"https://unpkg.com/htmx.org@2.0.3\"></script><!-- Design System Styles --><link rel=\"stylesheet\" href=\"/design-system/tokens.css\"><link rel=\"stylesheet\" href=\"/design-system/main.css\"><link rel=\"stylesheet\" href=\"/design-system/utilities.css\"><!-- Project-specific styles --><link rel=\"stylesheet\" href=\"/static/quintaedizione.css\"><link rel=\"icon\" href=\"/static/favicon.svg\" type=\"image/svg+xml\"></head><body class=\"flex flex-col min-h-screen text-primary\"><!-- Notion-style top bar --><header class=\"notion-nav\"><div class=\"notion-nav-container\"><nav class=\"breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"/\" class=\"btn\">Home</a> ")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><script src=\"https://unpkg.com/htmx.org@2.0.3\"></script><!-- Design System Styles --><link rel=\"stylesheet\" href=\"/design-system/tokens.css\"><link rel=\"stylesheet\" href=\"/design-system/main.css\"><link rel=\"stylesheet\" href=\"/design-system/utilities.css\"><!-- Project-specific styles --><link rel=\"stylesheet\" href=\"/static/quintaedizione.css\"><link rel=\"icon\" href=\"/static/favicon.svg\" type=\"image/svg+xml\"><script src=\"/static/main.js\" defer></script></head><body class=\"flex flex-col min-h-screen text-primary\"><!-- Notion-style top bar --><header class=\"notion-nav\"><div class=\"notion-nav-container\"><nav class=\"breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"/\" class=\"btn\">Home</a> ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -68,7 +68,7 @@ func BaseLayout(data models.PageData) templ.Component {
 				var templ_7745c5c3_Var3 templ.SafeURL
 				templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/" + data.Collection + "?" + data.QueryString))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 36, Col: 74}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 37, Col: 74}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 				if templ_7745c5c3_Err != nil {
@@ -81,7 +81,7 @@ func BaseLayout(data models.PageData) templ.Component {
 				var templ_7745c5c3_Var4 string
 				templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(data.Collection)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 36, Col: 106}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 37, Col: 106}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 				if templ_7745c5c3_Err != nil {
@@ -99,7 +99,7 @@ func BaseLayout(data models.PageData) templ.Component {
 				var templ_7745c5c3_Var5 templ.SafeURL
 				templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/" + data.Collection))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 38, Col: 49}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 39, Col: 49}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 				if templ_7745c5c3_Err != nil {
@@ -112,7 +112,7 @@ func BaseLayout(data models.PageData) templ.Component {
 				var templ_7745c5c3_Var6 string
 				templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(data.Collection)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 38, Col: 81}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 39, Col: 81}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 				if templ_7745c5c3_Err != nil {
@@ -135,7 +135,7 @@ func BaseLayout(data models.PageData) templ.Component {
 				var templ_7745c5c3_Var7 string
 				templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(data.DocTitle)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 44, Col: 36}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 45, Col: 36}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 				if templ_7745c5c3_Err != nil {
@@ -158,7 +158,7 @@ func BaseLayout(data models.PageData) templ.Component {
 				var templ_7745c5c3_Var8 string
 				templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(data.DocID)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 46, Col: 33}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 47, Col: 33}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 				if templ_7745c5c3_Err != nil {
@@ -176,7 +176,7 @@ func BaseLayout(data models.PageData) templ.Component {
 				var templ_7745c5c3_Var9 string
 				templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs("Cerca in " + data.Collection + "…")
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 48, Col: 60}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 49, Col: 60}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 				if templ_7745c5c3_Err != nil {
@@ -194,7 +194,7 @@ func BaseLayout(data models.PageData) templ.Component {
 			var templ_7745c5c3_Var10 string
 			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs("/quicksearch/" + data.Collection)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 51, Col: 50}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 52, Col: 50}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
@@ -213,7 +213,7 @@ func BaseLayout(data models.PageData) templ.Component {
 			var templ_7745c5c3_Var11 string
 			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(data.DocTitle)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 61, Col: 85}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 62, Col: 85}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
@@ -226,7 +226,7 @@ func BaseLayout(data models.PageData) templ.Component {
 			var templ_7745c5c3_Var12 string
 			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(data.DocTitle)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 61, Col: 103}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 62, Col: 103}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -244,7 +244,7 @@ func BaseLayout(data models.PageData) templ.Component {
 			var templ_7745c5c3_Var13 string
 			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(data.DocID)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 64, Col: 47}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 65, Col: 47}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
@@ -257,7 +257,7 @@ func BaseLayout(data models.PageData) templ.Component {
 			var templ_7745c5c3_Var14 string
 			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(data.DocID)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 64, Col: 62}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 65, Col: 62}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
@@ -284,40 +284,7 @@ func BaseLayout(data models.PageData) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = baseScripts().Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, "</body></html>")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		return nil
-	})
-}
-
-func baseScripts() templ.Component {
-	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
-		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
-		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
-			return templ_7745c5c3_CtxErr
-		}
-		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
-		if !templ_7745c5c3_IsBuffer {
-			defer func() {
-				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err == nil {
-					templ_7745c5c3_Err = templ_7745c5c3_BufErr
-				}
-			}()
-		}
-		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var15 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var15 == nil {
-			templ_7745c5c3_Var15 = templ.NopComponent
-		}
-		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, "<script>\n\t\t// Copy markdown functionality with fallback support\n\t\tfunction copyMarkdown(btn){\n\t\t\tconst section = btn.closest('[data-md-section]') || btn.closest('article') || document;\n\t\t\tconst contentEl = section.querySelector('[data-raw]');\n\t\t\tconst raw = (contentEl && contentEl.getAttribute('data-raw')) || '';\n\n\t\t\tif(!raw) {\n\t\t\t\tshowCopyMessage(btn, 'Nessun contenuto da copiare', 'error');\n\t\t\t\treturn;\n\t\t\t}\n\n\t\t\t// Try modern clipboard API first\n\t\t\tif (navigator.clipboard && navigator.clipboard.writeText) {\n\t\t\t\tnavigator.clipboard.writeText(raw).then(() => {\n\t\t\t\t\tshowCopyMessage(btn, 'Copiato', 'success');\n\t\t\t\t}).catch(() => {\n\t\t\t\t\t// Fallback to legacy method if modern API fails\n\t\t\t\t\tcopyToClipboardFallback(raw, btn);\n\t\t\t\t});\n\t\t\t} else {\n\t\t\t\t// Use fallback method for browsers without clipboard API\n\t\t\t\tcopyToClipboardFallback(raw, btn);\n\t\t\t}\n\t\t}\n\n\t\t// Fallback copy method using document.execCommand\n\t\tfunction copyToClipboardFallback(text, btn) {\n\t\t\ttry {\n\t\t\t\t// Create temporary textarea element\n\t\t\t\tconst textarea = document.createElement('textarea');\n\t\t\t\ttextarea.value = text;\n\t\t\t\ttextarea.style.position = 'fixed';\n\t\t\t\ttextarea.style.left = '-9999px';\n\t\t\t\ttextarea.style.top = '-9999px';\n\t\t\t\ttextarea.style.opacity = '0';\n\t\t\t\ttextarea.setAttribute('readonly', '');\n\t\t\t\t\n\t\t\t\tdocument.body.appendChild(textarea);\n\t\t\t\t\n\t\t\t\t// Select and copy text\n\t\t\t\ttextarea.select();\n\t\t\t\ttextarea.setSelectionRange(0, textarea.value.length);\n\t\t\t\t\n\t\t\t\tconst successful = document.execCommand('copy');\n\t\t\t\tdocument.body.removeChild(textarea);\n\t\t\t\t\n\t\t\t\tif (successful) {\n\t\t\t\t\tshowCopyMessage(btn, 'Copiato', 'success');\n\t\t\t\t} else {\n\t\t\t\t\t// Final fallback: select text for manual copy\n\t\t\t\t\tshowSelectableText(text, btn);\n\t\t\t\t}\n\t\t\t} catch (err) {\n\t\t\t\t// Final fallback: show selectable text\n\t\t\t\tshowSelectableText(text, btn);\n\t\t\t}\n\t\t}\n\n\t\t// Show copy message with different types\n\t\tfunction showCopyMessage(btn, message, type = 'success') {\n\t\t\t// Remove any existing messages\n\t\t\tconst existingMessage = btn.nextElementSibling;\n\t\t\tif (existingMessage && existingMessage.className.includes('flash-message')) {\n\t\t\t\texistingMessage.remove();\n\t\t\t}\n\t\t\t\n\t\t\tconst flash = document.createElement('span');\n\t\t\tflash.className = `flash-message flash-${type}`;\n\t\t\tflash.textContent = message;\n\t\t\tbtn.insertAdjacentElement('afterend', flash);\n\t\t\tsetTimeout(() => flash.remove(), type === 'error' ? 3000 : 1200);\n\t\t}\n\n\t\t// Final fallback: show text in a modal for manual selection\n\t\tfunction showSelectableText(text, btn) {\n\t\t\tconst modal = document.createElement('div');\n\t\t\tmodal.className = 'copy-text-modal';\n\t\t\tmodal.innerHTML = `\n\t\t\t\t<div class=\"copy-text-modal-content\">\n\t\t\t\t\t<div class=\"copy-text-header\">\n\t\t\t\t\t\t<h3>Seleziona e copia il testo</h3>\n\t\t\t\t\t\t<button onclick=\"this.closest('.copy-text-modal').remove()\" class=\"copy-text-close\">×</button>\n\t\t\t\t\t</div>\n\t\t\t\t\t<textarea readonly class=\"copy-text-area\">${text}</textarea>\n\t\t\t\t\t<div class=\"copy-text-footer\">\n\t\t\t\t\t\t<small>Seleziona tutto il testo (Ctrl+A) e copialo (Ctrl+C)</small>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t`;\n\t\t\t\n\t\t\tdocument.body.appendChild(modal);\n\t\t\t\n\t\t\t// Auto-select text and focus textarea\n\t\t\tconst textarea = modal.querySelector('.copy-text-area');\n\t\t\tsetTimeout(() => {\n\t\t\t\ttextarea.focus();\n\t\t\t\ttextarea.select();\n\t\t\t}, 100);\n\t\t\t\n\t\t\t// Close modal on background click\n\t\t\tmodal.addEventListener('click', function(e) {\n\t\t\t\tif (e.target === modal) {\n\t\t\t\t\tmodal.remove();\n\t\t\t\t}\n\t\t\t});\n\t\t\t\n\t\t\t// Close modal on Escape key\n\t\t\tdocument.addEventListener('keydown', function escapeHandler(e) {\n\t\t\t\tif (e.key === 'Escape') {\n\t\t\t\t\tmodal.remove();\n\t\t\t\t\tdocument.removeEventListener('keydown', escapeHandler);\n\t\t\t\t}\n\t\t\t});\n\t\t}\n\n\n\t\t// Breadcrumb search functionality\n\t\tfunction initBreadcrumbSearch() {\n\t\t\tconst searchInput = document.getElementById('bc-search');\n\t\t\tconst searchResults = document.getElementById('bc-results');\n\t\t\t\n\t\t\tif (!searchInput || !searchResults) return;\n\t\t\t\n\t\t\t// Show results when typing\n\t\t\tsearchInput.addEventListener('input', function() {\n\t\t\t\tif (this.value.trim().length > 0) {\n\t\t\t\t\tsearchResults.classList.remove('hidden');\n\t\t\t\t\tsearchResults.setAttribute('aria-expanded', 'true');\n\t\t\t\t} else {\n\t\t\t\t\tsearchResults.classList.add('hidden');\n\t\t\t\t\tsearchResults.setAttribute('aria-expanded', 'false');\n\t\t\t\t}\n\t\t\t});\n\t\t\t\n\t\t\t// Hide results when clicking outside\n\t\t\tdocument.addEventListener('click', function(e) {\n\t\t\t\tconst searchContainer = searchInput.closest('.search-container');\n\t\t\t\tif (searchContainer && !searchContainer.contains(e.target)) {\n\t\t\t\t\tsearchResults.classList.add('hidden');\n\t\t\t\t\tsearchResults.setAttribute('aria-expanded', 'false');\n\t\t\t\t}\n\t\t\t});\n\t\t\t\n\t\t\t// Handle keyboard navigation in search input\n\t\t\tsearchInput.addEventListener('keydown', function(e) {\n\t\t\t\tconst results = searchResults.querySelectorAll('.search-result');\n\n\t\t\t\tif (e.key === 'Escape') {\n\t\t\t\t\tsearchResults.classList.add('hidden');\n\t\t\t\t\tsearchResults.setAttribute('aria-expanded', 'false');\n\t\t\t\t\tthis.blur();\n\t\t\t\t} else if (e.key === 'ArrowDown' && results.length > 0) {\n\t\t\t\t\te.preventDefault();\n\t\t\t\t\tresults[0].focus();\n\t\t\t\t} else if (e.key === 'Enter') {\n\t\t\t\t\te.preventDefault();\n\t\t\t\t\t// If there are search results, click the first one\n\t\t\t\t\tif (results.length > 0) {\n\t\t\t\t\t\tconst firstResult = results[0];\n\t\t\t\t\t\tif (firstResult.href) {\n\t\t\t\t\t\t\twindow.location.href = firstResult.href;\n\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\tfirstResult.click();\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\t// Hide search results after selection\n\t\t\t\t\tsearchResults.classList.add('hidden');\n\t\t\t\t\tsearchResults.setAttribute('aria-expanded', 'false');\n\t\t\t\t}\n\t\t\t});\n\n\t\t\t// Handle navigation within search results using event delegation\n\t\t\tdocument.addEventListener('keydown', function(e) {\n\t\t\t\t// Only handle if we're focused on a search result\n\t\t\t\tif (!document.activeElement.classList.contains('search-result')) return;\n\n\t\t\t\tconst results = Array.from(searchResults.querySelectorAll('.search-result[href]'));\n\t\t\t\tlet currentIndex = -1;\n\n\t\t\t\t// Find current focused element index\n\t\t\t\tfor (let i = 0; i < results.length; i++) {\n\t\t\t\t\tif (results[i] === document.activeElement) {\n\t\t\t\t\t\tcurrentIndex = i;\n\t\t\t\t\t\tbreak;\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\tif (e.key === 'ArrowDown') {\n\t\t\t\t\te.preventDefault();\n\t\t\t\t\tconst nextIndex = currentIndex < results.length - 1 ? currentIndex + 1 : 0;\n\t\t\t\t\tresults[nextIndex].focus();\n\t\t\t\t} else if (e.key === 'ArrowUp') {\n\t\t\t\t\te.preventDefault();\n\t\t\t\t\tif (currentIndex > 0) {\n\t\t\t\t\t\tresults[currentIndex - 1].focus();\n\t\t\t\t\t} else {\n\t\t\t\t\t\tsearchInput.focus();\n\t\t\t\t\t}\n\t\t\t\t} else if (e.key === 'Enter') {\n\t\t\t\t\te.preventDefault();\n\t\t\t\t\tconst focusedResult = document.activeElement;\n\t\t\t\t\tif (focusedResult.href) {\n\t\t\t\t\t\twindow.location.href = focusedResult.href;\n\t\t\t\t\t} else {\n\t\t\t\t\t\tfocusedResult.click();\n\t\t\t\t\t}\n\t\t\t\t\tsearchResults.classList.add('hidden');\n\t\t\t\t\tsearchResults.setAttribute('aria-expanded', 'false');\n\t\t\t\t} else if (e.key === 'Escape') {\n\t\t\t\t\tsearchResults.classList.add('hidden');\n\t\t\t\t\tsearchResults.setAttribute('aria-expanded', 'false');\n\t\t\t\t\tsearchInput.focus();\n\t\t\t\t}\n\t\t\t});\n\t\t}\n\t\t\n\t\t// Initialize breadcrumb search on page load and after HTMX swaps\n\t\tdocument.addEventListener('DOMContentLoaded', initBreadcrumbSearch);\n\t\tdocument.body.addEventListener('htmx:afterSwap', initBreadcrumbSearch);\n\n\t\t// Sticky search bar scroll shadow effect\n\t\tfunction initStickySearchShadow() {\n\t\t\tconst searchBar = document.querySelector('.search-sticky');\n\t\t\tif (!searchBar) return;\n\n\t\t\tlet ticking = false;\n\t\t\tconst handleScroll = () => {\n\t\t\t\tif (!ticking) {\n\t\t\t\t\twindow.requestAnimationFrame(() => {\n\t\t\t\t\t\tconst scrolled = window.scrollY > 10;\n\t\t\t\t\t\tsearchBar.classList.toggle('scrolled', scrolled);\n\t\t\t\t\t\tticking = false;\n\t\t\t\t\t});\n\t\t\t\t\tticking = true;\n\t\t\t\t}\n\t\t\t};\n\n\t\t\twindow.addEventListener('scroll', handleScroll, { passive: true });\n\t\t}\n\n\t\tdocument.addEventListener('DOMContentLoaded', initStickySearchShadow);\n\t\tdocument.body.addEventListener('htmx:afterSwap', initStickySearchShadow);\n\n\t\t// Global search ESC handling\n\t\tfunction initGlobalSearch() {\n\t\t\tconst searchInput = document.getElementById('global-search');\n\t\t\tconst searchResults = document.getElementById('search-results');\n\t\t\tconst searchForm = document.getElementById('search-form');\n\t\t\tconst searchCloseBtn = document.getElementById('search-close-btn');\n\n\t\t\tif (!searchInput) return;\n\n\t\t\t// ESC key closes dropdown and clears search\n\t\t\tsearchInput.addEventListener('keydown', function(e) {\n\t\t\t\tif (e.key === 'Escape') {\n\t\t\t\t\te.preventDefault();\n\t\t\t\t\tif (searchResults) {\n\t\t\t\t\t\tsearchResults.innerHTML = '';\n\t\t\t\t\t}\n\t\t\t\t\tif (searchForm) {\n\t\t\t\t\t\tsearchForm.reset();\n\t\t\t\t\t}\n\t\t\t\t\tthis.blur();\n\t\t\t\t}\n\t\t\t});\n\n\t\t\t// Click outside closes dropdown\n\t\t\tdocument.addEventListener('click', function(e) {\n\t\t\t\tif (searchInput && searchResults && !searchInput.closest('.search-container-wrapper').contains(e.target)) {\n\t\t\t\t\tsearchResults.innerHTML = '';\n\t\t\t\t}\n\t\t\t});\n\n\t\t\t// Close button clears and closes\n\t\t\tif (searchCloseBtn) {\n\t\t\t\tsearchCloseBtn.addEventListener('click', function() {\n\t\t\t\t\tif (searchResults) {\n\t\t\t\t\t\tsearchResults.innerHTML = '';\n\t\t\t\t\t}\n\t\t\t\t\tsearchInput.focus();\n\t\t\t\t});\n\t\t\t}\n\t\t}\n\n\t\tdocument.addEventListener('DOMContentLoaded', initGlobalSearch);\n\t\tdocument.body.addEventListener('htmx:afterSwap', initGlobalSearch);\n\t</script>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -341,12 +308,12 @@ func legalFooter() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var16 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var16 == nil {
-			templ_7745c5c3_Var16 = templ.NopComponent
+		templ_7745c5c3_Var15 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var15 == nil {
+			templ_7745c5c3_Var15 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 31, "<footer class=\"mt-auto border-t py-6\"><div class=\"container mx-auto max-w-4xl text-center\"><p class=\"text-xs text-secondary leading-relaxed m-0\">This work includes material from the System Reference Document 5.2.1 (\"SRD 5.2.1\") by Wizards of the Coast LLC, available at <a href=\"https://www.dndbeyond.com/srd\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary\">https://www.dndbeyond.com/srd</a>. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at <a href=\"https://creativecommons.org/licenses/by/4.0/legalcode\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary\">https://creativecommons.org/licenses/by/4.0/legalcode</a>.</p></div></footer>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, "<footer class=\"mt-auto border-t py-6\"><div class=\"container mx-auto max-w-4xl text-center\"><p class=\"text-xs text-secondary leading-relaxed m-0\">This work includes material from the System Reference Document 5.2.1 (\"SRD 5.2.1\") by Wizards of the Coast LLC, available at <a href=\"https://www.dndbeyond.com/srd\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary\">https://www.dndbeyond.com/srd</a>. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at <a href=\"https://creativecommons.org/licenses/by/4.0/legalcode\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary\">https://creativecommons.org/licenses/by/4.0/legalcode</a>.</p></div></footer>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
