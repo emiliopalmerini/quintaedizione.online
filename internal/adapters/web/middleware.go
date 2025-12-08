@@ -67,10 +67,10 @@ func SecurityMiddleware() gin.HandlerFunc {
 		c.Header("X-Frame-Options", "DENY")
 		c.Header("X-XSS-Protection", "1; mode=block")
 		c.Header("Referrer-Policy", "strict-origin-when-cross-origin")
-		
+
 		// Content-Security-Policy prevents inline scripts and restricts resource loading
 		c.Header("Content-Security-Policy", "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'")
-		
+
 		// Strict-Transport-Security enforces HTTPS connections
 		c.Header("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
 
