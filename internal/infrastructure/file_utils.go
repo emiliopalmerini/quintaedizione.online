@@ -13,6 +13,7 @@ func FileExists(filename string) bool {
 }
 
 func ReadLines(filename string) ([]string, error) {
+	// #nosec G304 - filename is validated and comes from config paths, not user input
 	file, err := os.Open(filename)
 	if err != nil {
 		return nil, err

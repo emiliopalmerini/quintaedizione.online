@@ -121,8 +121,9 @@ func main() {
 	webHandlers.RegisterRoutes(router)
 
 	srv := &http.Server{
-		Addr:    config.GetAddress(),
-		Handler: router,
+		Addr:              config.GetAddress(),
+		Handler:           router,
+		ReadHeaderTimeout: 15 * time.Second,
 	}
 
 	go func() {
