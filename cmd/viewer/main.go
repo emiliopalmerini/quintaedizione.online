@@ -81,10 +81,14 @@ func main() {
 
 	router := gin.Default()
 
+	// Initialize rate limiter
+	rateLimiter := web.NewRateLimiter()
+
 	router.Use(web.RequestLoggingMiddleware())
 	router.Use(web.MetricsMiddleware())
 	router.Use(webHandlers.ErrorRecoveryMiddleware())
 	router.Use(web.SecurityMiddleware())
+	router.Use(web.RateLimitMiddleware(rateLimiter))
 	router.Use(web.ValidationMiddleware())
 	router.Use(corsMiddleware())
 
