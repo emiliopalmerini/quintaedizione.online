@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"runtime/debug"
 
 	"github.com/gin-gonic/gin"
@@ -14,8 +15,16 @@ func (h *Handlers) ErrorRecoveryMiddleware() gin.HandlerFunc {
 		defer func() {
 			if err := recover(); err != nil {
 
-				stack := debug.Stack()
-				log.Printf("PANIC recovered: %v\n%s", err, stack)
+				// Only log detailed stack trace in development mode
+				isProduction := os.Getenv("ENVIRONMENT") == "production"
+				if isProduction {
+					// In production, log minimal information for security
+					log.Printf("PANIC recovered: %v", err)
+				} else {
+					// In development, log full stack trace for debugging
+					stack := debug.Stack()
+					log.Printf("PANIC recovered: %v\n%s", err, stack)
+				}
 
 				errMsg := fmt.Sprintf("Si è verificato un errore interno del server")
 				h.ErrorResponse(c, fmt.Errorf("internal server error"), errMsg)
