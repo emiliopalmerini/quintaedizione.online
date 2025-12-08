@@ -206,7 +206,7 @@ func ItemPage(data models.ItemPageData) templ.Component {
 					return templ_7745c5c3_Err
 				}
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</article><!-- Action buttons --> <div class=\"item-footer\"><button onclick=\"copyMarkdown(this)\" class=\"btn btn-primary\">📋 Copia Markdown</button></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</article><!-- Action buttons --> <div class=\"item-footer\"><button id=\"copy-markdown-btn\" class=\"btn btn-primary\">📋 Copia Markdown</button></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
