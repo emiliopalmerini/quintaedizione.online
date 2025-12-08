@@ -91,7 +91,7 @@ func (h *Handlers) handleHome(c *gin.Context) {
 
 	data := models.HomePageData{
 		PageData: models.PageData{
-			Title:       "5e SRD 2024",
+			Title:       "quintaedizione.online",
 			Description: "Il Fantastico Visualizzatore di SRD (5e 2024)",
 		},
 		Collections: typedCollections,
