@@ -91,6 +91,8 @@ func defaultValue(value, defaultVal interface{}) interface{} {
 	return value
 }
 
+// safe marks a string as HTML-safe. This should only be used with trusted content.
+// #nosec G203 - We explicitly trust the input for rendering HTML content.
 func safe(s string) template.HTML {
 	return template.HTML(s)
 }
