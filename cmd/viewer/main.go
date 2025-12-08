@@ -201,13 +201,13 @@ func parseMarkdownFiles(repositoryFactory *repositories.RepositoryFactory, index
 func corsMiddleware() gin.HandlerFunc {
 	return gin.HandlerFunc(func(c *gin.Context) {
 		origin := c.Request.Header.Get("Origin")
-		
+
 		// Whitelist allowed origins
 		allowedOrigins := map[string]bool{
-			"https://quintaedizione.online": true,
+			"https://quintaedizione.online":     true,
 			"https://www.quintaedizione.online": true,
 		}
-		
+
 		// Add localhost origins for development
 		if !isProduction(c) {
 			allowedOrigins["http://localhost:3000"] = true
@@ -215,12 +215,12 @@ func corsMiddleware() gin.HandlerFunc {
 			allowedOrigins["http://127.0.0.1:3000"] = true
 			allowedOrigins["http://127.0.0.1:8000"] = true
 		}
-		
+
 		if allowedOrigins[origin] {
 			c.Header("Access-Control-Allow-Origin", origin)
 			c.Header("Access-Control-Allow-Credentials", "true")
 		}
-		
+
 		c.Header("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
 		c.Header("Access-Control-Allow-Methods", "GET, OPTIONS")
 		c.Header("Access-Control-Max-Age", "3600")
