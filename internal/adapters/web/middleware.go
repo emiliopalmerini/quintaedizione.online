@@ -6,8 +6,10 @@ import (
 	"net/http"
 	"os"
 	"runtime/debug"
+	"sync"
 
 	"github.com/gin-gonic/gin"
+	"golang.org/x/time/rate"
 )
 
 func (h *Handlers) ErrorRecoveryMiddleware() gin.HandlerFunc {
@@ -111,5 +113,56 @@ func getValidCollections() []string {
 		"incantesimi", "mostri", "classi", "backgrounds", "equipaggiamenti",
 		"oggetti_magici", "armi", "armature", "talenti", "servizi",
 		"strumenti", "animali", "regole", "cavalcature_veicoli",
+	}
+}
+
+// RateLimiter stores per-IP rate limiters
+type RateLimiter struct {
+	limiters map[string]*rate.Limiter
+	mu       sync.RWMutex
+}
+
+// NewRateLimiter creates a new rate limiter with per-IP tracking
+func NewRateLimiter() *RateLimiter {
+	return &RateLimiter{
+		limiters: make(map[string]*rate.Limiter),
+	}
+}
+
+// GetLimiter returns a rate limiter for the given IP, creating one if needed
+func (rl *RateLimiter) GetLimiter(ip string) *rate.Limiter {
+	rl.mu.Lock()
+	defer rl.mu.Unlock()
+
+	if limiter, exists := rl.limiters[ip]; exists {
+		return limiter
+	}
+
+	// 100 requests per second per IP, burst of 10
+	limiter := rate.NewLimiter(rate.Limit(100), 10)
+	rl.limiters[ip] = limiter
+	return limiter
+}
+
+// RateLimitMiddleware enforces per-IP rate limiting
+func RateLimitMiddleware(rl *RateLimiter) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		// Get client IP
+		clientIP := c.ClientIP()
+
+		// Get the rate limiter for this IP
+		limiter := rl.GetLimiter(clientIP)
+
+		// Check if request is allowed
+		if !limiter.Allow() {
+			c.Header("Retry-After", "1")
+			c.JSON(http.StatusTooManyRequests, gin.H{
+				"error": "Troppi richieste. Per favore riprova tra un secondo.",
+			})
+			c.Abort()
+			return
+		}
+
+		c.Next()
 	}
 }
