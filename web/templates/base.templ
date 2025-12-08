@@ -15,7 +15,7 @@ templ BaseLayout(data models.PageData) {
 			}
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<script src="https://unpkg.com/htmx.org@2.0.3"></script>
+		<script src="/static/htmx.min.js" defer></script>
 		<!-- Design System Styles -->
 		<link rel="stylesheet" href="/design-system/tokens.css"/>
 		<link rel="stylesheet" href="/design-system/main.css"/>
@@ -38,24 +38,6 @@ templ BaseLayout(data models.PageData) {
 						} else {
 							<a href={ templ.URL("/" + data.Collection) } class="btn">{ data.Collection }</a>
 						}
-						<span class="breadcrumb-separator">/</span>
-						<div class="search-container">
-							<input id="bc-search" name="q" 
-								if data.DocTitle != "" { 
-									placeholder={ data.DocTitle } 
-								} else if data.DocID != "" { 
-									placeholder={ data.DocID } 
-								} else { 
-									placeholder={ "Cerca in " + data.Collection + "…" } 
-								}
-								class="field"
-								hx-get={ "/quicksearch/" + data.Collection }
-								hx-target="#bc-results"
-								hx-trigger="keyup changed delay:200ms"
-								autocomplete="off" aria-controls="bc-results" aria-expanded="false"/>
-							<div id="bc-results" class="search-results hidden" 
-								role="listbox" aria-label="Risultati ricerca rapida"></div>
-						</div>
 					}
 					if data.DocTitle != "" && data.Collection == "" {
 						<span class="text-secondary">/</span>

@@ -1,7 +1,6 @@
 package web
 
 import (
-	"html"
 	"fmt"
 	"net/http"
 	"regexp"
@@ -52,7 +51,6 @@ func (h *Handlers) RegisterRoutes(router *gin.Engine) {
 	// Specific routes must be registered before wildcard routes
 	router.GET("/search", h.handleGlobalSearch)
 	router.GET("/search/dropdown", h.handleSearchDropdown)
-	router.GET("/quicksearch/:collection", h.handleQuickSearch)
 
 	// Wildcard routes (must come last)
 	router.GET("/:collection", h.handleCollectionList)
@@ -91,7 +89,7 @@ func (h *Handlers) handleHome(c *gin.Context) {
 
 	data := models.HomePageData{
 		PageData: models.PageData{
-			Title:       "5e SRD 2024",
+			Title:       "quintaedizione.online",
 			Description: "Il Fantastico Visualizzatore di SRD (5e 2024)",
 		},
 		Collections: typedCollections,
@@ -343,48 +341,6 @@ func (h *Handlers) extractFilters(c *gin.Context) map[string]string {
 	}
 
 	return filters
-}
-
-func (h *Handlers) handleQuickSearch(c *gin.Context) {
-	collection := c.Param("collection")
-	query := c.Query("q")
-
-	if query == "" {
-		h.setCacheHeaders(c, "search")
-		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(""))
-		return
-	}
-
-	rawItems, _, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, query, nil, 1, 5)
-	if err != nil {
-		h.setCacheHeaders(c, "search")
-		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(""))
-		return
-	}
-
-	htmlContent := ""
-	for _, item := range rawItems {
-		title := mappers.GetString(item, "title", "")
-		slug := mappers.GetString(item, "_id", "")
-
-		if title != "" && slug != "" {
-			// Escape HTML special characters to prevent XSS attacks
-			escapedTitle := html.EscapeString(title)
-			escapedSlug := html.EscapeString(slug)
-			escapedCollection := html.EscapeString(collection)
-
-			htmlContent += fmt.Sprintf(`<a href="/%s/%s" class="search-result" tabindex="-1">
-				<div class="search-result-title">%s</div>
-			</a>`, escapedCollection, escapedSlug, escapedTitle)
-		}
-	}
-
-	if htmlContent == "" {
-		htmlContent = `<div class="search-result" style="color: var(--notion-text-light);">Nessun risultato trovato</div>`
-	}
-
-	h.setCacheHeaders(c, "search")
-	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(htmlContent))
 }
 
 func (h *Handlers) getDefaultCollections() []map[string]any {

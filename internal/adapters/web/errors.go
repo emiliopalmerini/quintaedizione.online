@@ -1,9 +1,9 @@
 package web
 
 import (
-	"encoding/html"
 	"errors"
 	"fmt"
+	"html"
 	"log"
 	"net/http"
 

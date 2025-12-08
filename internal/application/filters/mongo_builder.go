@@ -194,9 +194,63 @@ func (b *MongoFilterBuilder) BuildSearchFilter(collection filters.CollectionType
 		return bson.M{}
 	}
 
+	// Validate and sanitize the search term
+	if !isValidSearchTerm(searchTerm) {
+		// Return empty filter on invalid input instead of proceeding
+		return bson.M{}
+	}
+
+	sanitized := sanitizeSearchTerm(searchTerm)
+
 	return bson.M{
 		"$text": bson.M{
-			"$search": searchTerm,
+			"$search": sanitized,
 		},
 	}
+}
+
+// isValidSearchTerm validates search terms to prevent MongoDB injection attacks.
+// It checks for dangerous patterns and enforces length limits.
+func isValidSearchTerm(term string) bool {
+	// Reject terms with MongoDB operators and dangerous patterns
+	invalidPatterns := []string{
+		"$where", "$regex", "$ne", "$gt", "$lt",
+		"$in", "$or", "$and", "||", "&&", ";",
+	}
+
+	lowerTerm := strings.ToLower(term)
+	for _, pattern := range invalidPatterns {
+		if strings.Contains(lowerTerm, pattern) {
+			return false
+		}
+	}
+
+	// Reject terms with shell metacharacters
+	// These characters are dangerous in search contexts and should not appear in user input
+	dangerousChars := []string{"|", "<", ">", "`", "$", "(", ")", "{", "}", "[", "]", "\\"}
+	for _, char := range dangerousChars {
+		if strings.Contains(term, char) {
+			return false
+		}
+	}
+
+	// Enforce maximum length limit (500 characters)
+	if len(term) > 500 {
+		return false
+	}
+
+	return true
+}
+
+// sanitizeSearchTerm removes or escapes dangerous characters from search terms.
+// While MongoDB text search has limited operator support, this provides defense in depth.
+func sanitizeSearchTerm(term string) string {
+	term = strings.TrimSpace(term)
+
+	// Remove shell metacharacters that could be dangerous
+	// Keep quotes and hyphens as they are valid MongoDB text search operators
+	dangerous := regexp.MustCompile(`[;|&$<>(){}[\]\\]`)
+	term = dangerous.ReplaceAllString(term, "")
+
+	return term
 }
