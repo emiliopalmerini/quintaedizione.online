@@ -48,10 +48,20 @@ func LoadConfig() Config {
 		log.Println("Note: .env file not found, using environment variables")
 	}
 
+	mongoURI := getEnv("MONGO_URI", "")
+	if mongoURI == "" {
+		// Require explicit configuration in production; allow localhost in development
+		env := getEnv("ENVIRONMENT", "development")
+		if env == "production" {
+			log.Fatalf("MONGO_URI environment variable is required in production")
+		}
+		mongoURI = "mongodb://localhost:27017"
+	}
+
 	config := Config{
 		Port:         getEnv("PORT", "8000"),
 		Host:         getEnv("HOST", "0.0.0.0"),
-		MongoURI:     getEnv("MONGO_URI", "mongodb://localhost:27017"),
+		MongoURI:     mongoURI,
 		DatabaseName: getEnv("DB_NAME", "dnd"),
 		Environment:  getEnv("ENVIRONMENT", "development"),
 		LogLevel:     getEnv("LOG_LEVEL", "info"),
