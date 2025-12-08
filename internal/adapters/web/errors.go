@@ -1,6 +1,7 @@
 package web
 
 import (
+	"encoding/html"
 	"errors"
 	"fmt"
 	"log"
@@ -100,12 +101,15 @@ func (h *Handlers) renderErrorPage(c *gin.Context, message string, statusCode in
 
 func (h *Handlers) renderHTMXError(c *gin.Context, message string, statusCode int) {
 
+	// Escape HTML special characters to prevent XSS in error messages
+	escapedMessage := html.EscapeString(message)
+
 	errorHTML := fmt.Sprintf(`
 		<div class="error-message" style="padding: 1rem; background: var(--error); color: white; border-radius: 4px; margin: 1rem 0;">
 			<strong>Errore:</strong> %s
 			<button onclick="this.parentElement.remove()" style="float: right; background: none; border: none; color: white; cursor: pointer;">×</button>
 		</div>
-	`, message)
+	`, escapedMessage)
 
 	c.Header("HX-Reswap", "innerHTML")
 	c.Data(statusCode, "text/html; charset=utf-8", []byte(errorHTML))
