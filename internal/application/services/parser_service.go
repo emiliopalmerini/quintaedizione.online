@@ -131,6 +131,7 @@ func (s *ParserService) parseFile(ctx context.Context, inputDir string, workItem
 		return result
 	}
 
+	// #nosec G304 - filePath is constructed from inputDir and validated workItem filename
 	content, err := os.ReadFile(filePath)
 	if err != nil {
 		result.Error = fmt.Errorf("failed to read file %s: %w", filePath, err)
