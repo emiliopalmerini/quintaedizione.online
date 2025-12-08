@@ -205,10 +205,30 @@ func parseMarkdownFiles(repositoryFactory *repositories.RepositoryFactory, index
 
 func corsMiddleware() gin.HandlerFunc {
 	return gin.HandlerFunc(func(c *gin.Context) {
-		c.Header("Access-Control-Allow-Origin", "*")
-		c.Header("Access-Control-Allow-Credentials", "true")
+		origin := c.Request.Header.Get("Origin")
+		
+		// Whitelist allowed origins
+		allowedOrigins := map[string]bool{
+			"https://quintaedizione.online": true,
+			"https://www.quintaedizione.online": true,
+		}
+		
+		// Add localhost origins for development
+		if !isProduction(c) {
+			allowedOrigins["http://localhost:3000"] = true
+			allowedOrigins["http://localhost:8000"] = true
+			allowedOrigins["http://127.0.0.1:3000"] = true
+			allowedOrigins["http://127.0.0.1:8000"] = true
+		}
+		
+		if allowedOrigins[origin] {
+			c.Header("Access-Control-Allow-Origin", origin)
+			c.Header("Access-Control-Allow-Credentials", "true")
+		}
+		
 		c.Header("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
-		c.Header("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT, DELETE")
+		c.Header("Access-Control-Allow-Methods", "GET, OPTIONS")
+		c.Header("Access-Control-Max-Age", "3600")
 
 		if c.Request.Method == "OPTIONS" {
 			c.AbortWithStatus(204)
@@ -217,6 +237,11 @@ func corsMiddleware() gin.HandlerFunc {
 
 		c.Next()
 	})
+}
+
+func isProduction(c *gin.Context) bool {
+	env := os.Getenv("ENVIRONMENT")
+	return env == "production"
 }
 
 func serveEmbeddedFile(c *gin.Context, filePath string, fs embed.FS) {
