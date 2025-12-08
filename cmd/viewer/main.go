@@ -118,11 +118,6 @@ func main() {
 		})
 	})
 
-	router.GET("/admin/metrics", func(c *gin.Context) {
-		metrics := web.GetGlobalMetrics()
-		c.JSON(http.StatusOK, metrics.ToJSON())
-	})
-
 	webHandlers.RegisterRoutes(router)
 
 	srv := &http.Server{
