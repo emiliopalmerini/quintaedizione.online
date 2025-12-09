@@ -157,7 +157,7 @@ func RateLimitMiddleware(rl *RateLimiter) gin.HandlerFunc {
 		if !limiter.Allow() {
 			c.Header("Retry-After", "1")
 			c.JSON(http.StatusTooManyRequests, gin.H{
-				"error": "Troppi richieste. Per favore riprova tra un secondo.",
+				"error": "Troppe richieste. Per favore riprova tra un secondo.",
 			})
 			c.Abort()
 			return
