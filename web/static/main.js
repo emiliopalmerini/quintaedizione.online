@@ -254,14 +254,13 @@ function initGlobalSearch() {
 
 	if (!searchInput) return;
 
-	// Prevent search with less than 2 characters
-	searchInput.addEventListener('keyup', function(e) {
-		if (this.value.trim().length < 2) {
+	// Prevent HTMX request with less than 2 characters
+	searchForm.addEventListener('htmx:beforeRequest', function(evt) {
+		if (searchInput.value.trim().length < 2) {
+			evt.detail.cancel = true;
 			if (searchResults) {
 				searchResults.innerHTML = '';
 			}
-			// Disable HTMX request for short queries
-			htmx.config.refreshOnHistoryMiss = false;
 		}
 	});
 
