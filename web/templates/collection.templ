@@ -11,7 +11,7 @@ templ CollectionPage(data models.CollectionPageData) {
 			<form id="search-form"
 				hx-get={ "/" + data.PageData.Collection + "/rows" }
 				hx-target="#rows"
-				hx-trigger="submit, keyup delay:500ms from:#q, change from:select, change from:input[type=checkbox], change from:input[type=number]"
+				hx-trigger="submit, keyup delay:100ms from:#q, change from:select, change from:input[type=checkbox], change from:input[type=number]"
 				hx-push-url="true"
 				hx-indicator=".loading-bar"
 				class="flex flex-col gap-2">
