@@ -254,6 +254,17 @@ function initGlobalSearch() {
 
 	if (!searchInput) return;
 
+	// Prevent search with less than 2 characters
+	searchInput.addEventListener('keyup', function(e) {
+		if (this.value.trim().length < 2) {
+			if (searchResults) {
+				searchResults.innerHTML = '';
+			}
+			// Disable HTMX request for short queries
+			htmx.config.refreshOnHistoryMiss = false;
+		}
+	});
+
 	// ESC key closes dropdown and clears search
 	searchInput.addEventListener('keydown', function(e) {
 		if (e.key === 'Escape') {

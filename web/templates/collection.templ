@@ -11,12 +11,12 @@ templ CollectionPage(data models.CollectionPageData) {
 			<form id="search-form"
 				hx-get={ "/" + data.PageData.Collection + "/rows" }
 				hx-target="#rows"
-				hx-trigger="submit, keyup delay:300ms from:#q, change from:select, change from:input[type=checkbox], change from:input[type=number]"
+				hx-trigger="submit, keyup delay:500ms from:#q, change from:select, change from:input[type=checkbox], change from:input[type=number]"
 				hx-push-url="true"
 				hx-indicator=".loading-bar"
 				class="flex flex-col gap-2">
 				<div class="flex items-center gap-2 flex-wrap">
-					<input id="q" name="q" placeholder="Cerca…" value={ data.Query } class="field flex-1"/>
+					<input id="q" name="q" placeholder="Cerca…" value={ data.Query } class="field flex-1" minlength="2"/>
 
 					<!-- Collection-specific filters -->
 					@collectionFilters(data.PageData.Collection, data.PageSize)
