@@ -1,0 +1,25 @@
+collections:
+  armature:
+    title: "Armature"
+    display_fields: ["nome", "tipo", "ca"]
+    search_fields: ["nome", "tipo"]
+  
+  incantesimi:
+    title: "Incantesimi"
+    display_fields: ["nome", "livello", "scuola", "tempo_lancio"]
+    search_fields: ["nome", "scuola"]
+  
+  mostri:
+    title: "Mostri"
+    display_fields: ["nome", "type", "ca", "pf"]
+    search_fields: ["nome", "type"]
+  
+  armi:
+    title: "Armi"
+    display_fields: ["nome", "type", "danni"]
+    search_fields: ["nome", "type"]
+  
+  oggetti_magici:
+    title: "Oggetti Magici"
+    display_fields: ["nome", "rarity", "type"]
+    search_fields: ["nome", "rarity"]
