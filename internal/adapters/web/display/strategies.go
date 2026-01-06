@@ -2,6 +2,8 @@ package display
 
 import (
 	"fmt"
+	"regexp"
+	"strings"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/dto"
 )
@@ -20,29 +22,32 @@ func (s *IncantesimiDisplayStrategy) GetCollectionType() string {
 func (s *IncantesimiDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
-	if level := getFieldValue(doc, "livello"); level != "" {
-		elements = append(elements, dto.DisplayElementDTO{
-			Value: fmt.Sprintf("Livello %s", level),
-			Type:  "level",
-		})
-	}
-	if school := getFieldValue(doc, "scuola"); school != "" {
-		elements = append(elements, dto.DisplayElementDTO{
-			Value: school,
-			Type:  "school",
-		})
-	}
+	rawContent := getRawContent(doc)
 
-	if cost := getStructuredFieldValue(doc, "costo"); cost != "" {
+	if level, school := extractSpellLevelAndSchool(rawContent); level != "" || school != "" {
+		if level != "" {
+			elements = append(elements, dto.DisplayElementDTO{
+				Value: level,
+				Type:  "level",
+			})
+		}
+		if school != "" {
+			elements = append(elements, dto.DisplayElementDTO{
+				Value: school,
+				Type:  "school",
+			})
+		}
+	}
+	if tempo := extractSpellField(rawContent, "Tempo di Lancio"); tempo != "" {
 		elements = append(elements, dto.DisplayElementDTO{
-			Value: cost,
-			Type:  "cost",
+			Value: tempo,
+			Type:  "casting_time",
 		})
 	}
-	if weight := getStructuredFieldValue(doc, "peso"); weight != "" {
+	if gittata := extractSpellField(rawContent, "Gittata"); gittata != "" {
 		elements = append(elements, dto.DisplayElementDTO{
-			Value: weight,
-			Type:  "weight",
+			Value: gittata,
+			Type:  "range",
 		})
 	}
 
@@ -96,15 +101,56 @@ func (s *MostriDisplayStrategy) GetCollectionType() string {
 func (s *MostriDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
-	if size := getFieldValue(doc, "taglia"); size != "" {
+	rawContent := getRawContent(doc)
+
+	if ca := extractMonsterCA(rawContent); ca != "" {
 		elements = append(elements, dto.DisplayElementDTO{
-			Value: size,
-			Type:  "size",
+			Value: fmt.Sprintf("CA %s", ca),
+			Type:  "ac",
 		})
 	}
-	if cr := getFieldValue(doc, "cr", "gs", "grado_sfida"); cr != "" {
+	if pf := extractMonsterPF(rawContent); pf != "" {
 		elements = append(elements, dto.DisplayElementDTO{
-			Value: fmt.Sprintf("GS %s", cr),
+			Value: fmt.Sprintf("PF %s", pf),
+			Type:  "hp",
+		})
+	}
+	if gs := extractMonsterGS(rawContent); gs != "" {
+		elements = append(elements, dto.DisplayElementDTO{
+			Value: fmt.Sprintf("GS %s", gs),
+			Type:  "challenge_rating",
+		})
+	}
+
+	return elements
+}
+
+type AnimaliDisplayStrategy struct{}
+
+func (s *AnimaliDisplayStrategy) GetCollectionType() string {
+	return "animali"
+}
+
+func (s *AnimaliDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
+	var elements []dto.DisplayElementDTO
+
+	rawContent := getRawContent(doc)
+
+	if ca := extractMonsterCA(rawContent); ca != "" {
+		elements = append(elements, dto.DisplayElementDTO{
+			Value: fmt.Sprintf("CA %s", ca),
+			Type:  "ac",
+		})
+	}
+	if pf := extractMonsterPF(rawContent); pf != "" {
+		elements = append(elements, dto.DisplayElementDTO{
+			Value: fmt.Sprintf("PF %s", pf),
+			Type:  "hp",
+		})
+	}
+	if gs := extractMonsterGS(rawContent); gs != "" {
+		elements = append(elements, dto.DisplayElementDTO{
+			Value: fmt.Sprintf("GS %s", gs),
 			Type:  "challenge_rating",
 		})
 	}
@@ -182,6 +228,75 @@ func (s *ArmatureDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayE
 		elements = append(elements, dto.DisplayElementDTO{
 			Value: weight,
 			Type:  "weight",
+		})
+	}
+
+	return elements
+}
+
+type BackgroundsDisplayStrategy struct{}
+
+func (s *BackgroundsDisplayStrategy) GetCollectionType() string {
+	return "backgrounds"
+}
+
+func (s *BackgroundsDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
+	var elements []dto.DisplayElementDTO
+
+	rawContent := getRawContent(doc)
+
+	if abilita := extractBackgroundField(rawContent, "Competenze in Abilità"); abilita != "" {
+		elements = append(elements, dto.DisplayElementDTO{
+			Value: abilita,
+			Type:  "skills",
+		})
+	}
+	if talento := extractBackgroundField(rawContent, "Talento"); talento != "" {
+		elements = append(elements, dto.DisplayElementDTO{
+			Value: talento,
+			Type:  "feat",
+		})
+	}
+
+	return elements
+}
+
+type TalentiDisplayStrategy struct{}
+
+func (s *TalentiDisplayStrategy) GetCollectionType() string {
+	return "talenti"
+}
+
+func (s *TalentiDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
+	var elements []dto.DisplayElementDTO
+
+	rawContent := getRawContent(doc)
+
+	if category := extractFeatCategory(rawContent); category != "" {
+		elements = append(elements, dto.DisplayElementDTO{
+			Value: category,
+			Type:  "category",
+		})
+	}
+
+	return elements
+}
+
+type ClassiDisplayStrategy struct{}
+
+func (s *ClassiDisplayStrategy) GetCollectionType() string {
+	return "classi"
+}
+
+func (s *ClassiDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
+	var elements []dto.DisplayElementDTO
+
+	rawContent := getRawContent(doc)
+
+	if hitDie := extractClassHitDie(rawContent); hitDie != "" {
+		elements = append(elements, dto.DisplayElementDTO{
+			Value: hitDie,
+			Type:  "hit_die",
 		})
 	}
 
@@ -294,6 +409,93 @@ func formatGittata(value interface{}) string {
 		} else if normaleOk {
 			return fmt.Sprintf("%v", normale)
 		}
+	}
+	return ""
+}
+
+func getRawContent(doc map[string]any) string {
+	if content, ok := doc["raw_content"].(string); ok {
+		return content
+	}
+	return ""
+}
+
+func extractMonsterCA(rawContent string) string {
+	re := regexp.MustCompile(`\*\*Classe Armatura:\*\*\s*(\d+)`)
+	if matches := re.FindStringSubmatch(rawContent); len(matches) > 1 {
+		return matches[1]
+	}
+	return ""
+}
+
+func extractMonsterPF(rawContent string) string {
+	re := regexp.MustCompile(`\*\*Punti Ferita:\*\*\s*(\d+)`)
+	if matches := re.FindStringSubmatch(rawContent); len(matches) > 1 {
+		return matches[1]
+	}
+	return ""
+}
+
+func extractMonsterGS(rawContent string) string {
+	re := regexp.MustCompile(`\*\*GS\*\*\s*(\d+(?:/\d+)?)|GS\s+(\d+(?:/\d+)?)`)
+	if matches := re.FindStringSubmatch(rawContent); len(matches) > 0 {
+		if matches[1] != "" {
+			return matches[1]
+		}
+		if len(matches) > 2 && matches[2] != "" {
+			return matches[2]
+		}
+	}
+	return ""
+}
+
+func extractSpellLevelAndSchool(rawContent string) (level string, school string) {
+	re := regexp.MustCompile(`^\*(?:Livello\s+(\d+)|Trucchetto(?:\s+di)?)\s+(\w+)`)
+	if matches := re.FindStringSubmatch(rawContent); len(matches) > 0 {
+		if matches[1] != "" {
+			level = fmt.Sprintf("Livello %s", matches[1])
+		} else {
+			level = "Trucchetto"
+		}
+		if len(matches) > 2 {
+			school = matches[2]
+		}
+	}
+	return level, school
+}
+
+func extractSpellField(rawContent string, fieldName string) string {
+	pattern := fmt.Sprintf(`\*\*%s:\*\*\s*([^\n]+)`, regexp.QuoteMeta(fieldName))
+	re := regexp.MustCompile(pattern)
+	if matches := re.FindStringSubmatch(rawContent); len(matches) > 1 {
+		return strings.TrimSuffix(strings.TrimSpace(matches[1]), ".")
+	}
+	return ""
+}
+
+func extractBackgroundField(rawContent string, fieldName string) string {
+	pattern := fmt.Sprintf(`\*\*%s:\*\*\s*([^\n]+)`, regexp.QuoteMeta(fieldName))
+	re := regexp.MustCompile(pattern)
+	if matches := re.FindStringSubmatch(rawContent); len(matches) > 1 {
+		value := strings.TrimSpace(matches[1])
+		value = strings.TrimSuffix(value, "  ")
+		return value
+	}
+	return ""
+}
+
+func extractFeatCategory(rawContent string) string {
+	re := regexp.MustCompile(`^\*Talento\s+(?:di\s+)?(\w+(?:\s+di\s+\w+)?)\s*(?:\([^)]*\))?\*`)
+	if matches := re.FindStringSubmatch(rawContent); len(matches) > 1 {
+		return matches[1]
+	}
+	return ""
+}
+
+func extractClassHitDie(rawContent string) string {
+	re := regexp.MustCompile(`Dado Punti Ferita\s*\|\s*(D\d+)`)
+	if matches := re.FindStringSubmatch(rawContent); len(matches) > 1 {
+		return matches[1]
 	}
 	return ""
 }

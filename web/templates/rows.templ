@@ -34,15 +34,18 @@ templ documentRow(doc models.Document, collection string) {
 			<div class="flex-1 min-w-0">
 				<h3 class="font-medium text-gray-900 truncate sm:whitespace-normal">
 					{ getDocName(doc) }
+					if len(doc.DisplayElements) > 0 {
+						<span class="text-sm font-normal text-neutral-500 ml-2">
+							—
+							for i, element := range doc.DisplayElements {
+								if i > 0 {
+									<span class="mx-1">·</span>
+								}
+								{ element.Value }
+							}
+						</span>
+					}
 				</h3>
-
-				if len(doc.DisplayElements) > 0 {
-					<div class="text-xs text-neutral-500 mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-1 sm:gap-2">
-						for _, element := range doc.DisplayElements {
-							<span class="inline-block">{ element.Value }</span>
-						}
-					</div>
-				}
 			</div>
 
 			if doc.Translated {
