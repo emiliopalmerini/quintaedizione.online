@@ -62,7 +62,7 @@ func RequestLoggingMiddleware() gin.HandlerFunc {
 	}
 }
 
-func SecurityMiddleware() gin.HandlerFunc {
+func SecurityMiddleware(plausibleURL string) gin.HandlerFunc {
 	return func(c *gin.Context) {
 
 		c.Header("X-Content-Type-Options", "nosniff")
@@ -71,7 +71,14 @@ func SecurityMiddleware() gin.HandlerFunc {
 		c.Header("Referrer-Policy", "strict-origin-when-cross-origin")
 
 		// Content-Security-Policy prevents inline scripts and restricts resource loading
-		c.Header("Content-Security-Policy", "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'")
+		scriptSrc := "'self'"
+		connectSrc := "'self'"
+		if plausibleURL != "" {
+			scriptSrc = "'self' " + plausibleURL
+			connectSrc = "'self' " + plausibleURL
+		}
+		csp := fmt.Sprintf("default-src 'self'; style-src 'self' 'unsafe-inline'; script-src %s; img-src 'self' data: https:; font-src 'self'; connect-src %s", scriptSrc, connectSrc)
+		c.Header("Content-Security-Policy", csp)
 
 		// Strict-Transport-Security enforces HTTPS connections
 		c.Header("Strict-Transport-Security", "max-age=31536000; includeSubDomains")

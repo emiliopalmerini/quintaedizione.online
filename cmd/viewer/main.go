@@ -12,6 +12,7 @@ import (
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/repositories"
 	web "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/filters"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/parsers"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/services"
@@ -75,7 +76,14 @@ func main() {
 
 	contentService := services.NewContentService(repositoryFactory.DocumentRepository(), filterService)
 
-	webHandlers := web.NewHandlers(contentService, templateEngine)
+	// Prepare analytics data for templates
+	analyticsData := models.AnalyticsData{
+		Enabled:      config.Analytics.Enabled,
+		PlausibleURL: config.Analytics.PlausibleURL,
+		Domain:       config.Analytics.Domain,
+	}
+
+	webHandlers := web.NewHandlers(contentService, templateEngine, analyticsData)
 
 	router := gin.Default()
 
@@ -85,7 +93,7 @@ func main() {
 	router.Use(web.RequestLoggingMiddleware())
 	router.Use(web.MetricsMiddleware())
 	router.Use(webHandlers.ErrorRecoveryMiddleware())
-	router.Use(web.SecurityMiddleware())
+	router.Use(web.SecurityMiddleware(config.Analytics.PlausibleURL))
 	router.Use(web.RateLimitMiddleware(rateLimiter))
 	router.Use(web.ValidationMiddleware())
 	router.Use(corsMiddleware())
@@ -109,6 +117,18 @@ func main() {
 	})
 
 	webHandlers.RegisterRoutes(router)
+
+	// Register analytics API if configured
+	if config.Analytics.Enabled && config.Analytics.APIKey != "" {
+		analyticsService := services.NewAnalyticsService(services.AnalyticsServiceConfig{
+			BaseURL: config.Analytics.PlausibleURL,
+			APIKey:  config.Analytics.APIKey,
+			SiteID:  config.Analytics.Domain,
+		})
+		analyticsHandlers := web.NewAnalyticsHandlers(analyticsService)
+		analyticsHandlers.RegisterRoutes(router)
+		log.Println("Analytics API enabled")
+	}
 
 	srv := &http.Server{
 		Addr:              config.GetAddress(),

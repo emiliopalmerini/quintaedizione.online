@@ -299,6 +299,18 @@ function initGlobalSearch() {
 document.addEventListener('DOMContentLoaded', initGlobalSearch);
 document.body.addEventListener('htmx:afterSwap', initGlobalSearch);
 
+// Track search results after HTMX swap
+document.body.addEventListener('htmx:afterSwap', function(evt) {
+	if (evt.detail.target && evt.detail.target.id === 'search-results') {
+		const searchInput = document.getElementById('global-search');
+		const query = searchInput ? searchInput.value.trim() : '';
+		if (query && window.Analytics) {
+			const resultsCount = evt.detail.target.querySelectorAll('.search-result').length;
+			window.Analytics.trackSearch(query, resultsCount);
+		}
+	}
+});
+
 // Back button handler
 function initBackButton() {
 	const backBtn = document.getElementById('back-btn');
@@ -313,6 +325,13 @@ function initCopyMarkdownButton() {
 	if (copyBtn) {
 		copyBtn.addEventListener('click', function() {
 			copyMarkdown(this);
+			// Track copy event
+			if (window.Analytics) {
+				const pathParts = window.location.pathname.split('/').filter(Boolean);
+				if (pathParts.length >= 2) {
+					window.Analytics.trackCopyMarkdown(pathParts[0], pathParts[1]);
+				}
+			}
 		});
 	}
 }

@@ -15,12 +15,19 @@ templ BaseLayout(data models.PageData) {
 			}
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		if data.Analytics.Enabled && data.Analytics.PlausibleURL != "" {
+			<script defer data-domain={ data.Analytics.Domain } src={ data.Analytics.PlausibleURL + "/js/script.js" }></script>
+			<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+		}
 		<script src="/static/htmx.min.js" defer></script>
 		<link rel="stylesheet" href="/static/css/tokens.css"/>
 		<link rel="stylesheet" href="/static/css/main.css"/>
 		<link rel="stylesheet" href="/static/css/utilities.css"/>
 		<link rel="stylesheet" href="/static/quintaedizione.css"/>
 		<link rel="icon" href="/static/favicon.svg" type="image/svg+xml"/>
+		if data.Analytics.Enabled {
+			<script src="/static/analytics.js" defer></script>
+		}
 		<script src="/static/main.js" defer></script>
 	</head>
 	<body class="flex flex-col min-h-screen text-primary">

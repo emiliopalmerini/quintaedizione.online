@@ -24,9 +24,10 @@ type Handlers struct {
 	templateEngine     *templates.TemplEngine
 	documentMapper     webmappers.DocumentMapper
 	collectionMetadata infraconfig.CollectionMetadata
+	analyticsData      models.AnalyticsData
 }
 
-func NewHandlers(contentService *services.ContentService, templateEngine *templates.TemplEngine) *Handlers {
+func NewHandlers(contentService *services.ContentService, templateEngine *templates.TemplEngine, analyticsData models.AnalyticsData) *Handlers {
 	displayFactory := display.NewDisplayElementFactory()
 	documentMapper := webmappers.NewDocumentMapper(displayFactory)
 
@@ -41,6 +42,7 @@ func NewHandlers(contentService *services.ContentService, templateEngine *templa
 		templateEngine:     templateEngine,
 		documentMapper:     documentMapper,
 		collectionMetadata: collectionMetadata,
+		analyticsData:      analyticsData,
 	}
 }
 
@@ -91,6 +93,7 @@ func (h *Handlers) handleHome(c *gin.Context) {
 		PageData: models.PageData{
 			Title:       "quintaedizione.online",
 			Description: "Il Fantastico Visualizzatore di SRD (5e 2024)",
+			Analytics:   h.analyticsData,
 		},
 		Collections: typedCollections,
 		Total:       total,
@@ -139,6 +142,7 @@ func (h *Handlers) handleCollectionList(c *gin.Context) {
 			Title:       h.getCollectionTitle(collection),
 			Collection:  collection,
 			QueryString: c.Request.URL.RawQuery,
+			Analytics:   h.analyticsData,
 		},
 		Documents:  documents,
 		Query:      q,
@@ -199,6 +203,7 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 			DocID:       slug,
 			Collection:  collection,
 			QueryString: c.Request.URL.RawQuery,
+			Analytics:   h.analyticsData,
 		},
 		BodyRaw:         bodyRaw,
 		BodyHTML:        bodyHTML,
@@ -249,6 +254,7 @@ func (h *Handlers) handleCollectionRows(c *gin.Context) {
 		PageData: models.PageData{
 			Collection:  collection,
 			QueryString: c.Request.URL.RawQuery,
+			Analytics:   h.analyticsData,
 		},
 		Documents:  documents,
 		Query:      q,
@@ -395,6 +401,7 @@ func (h *Handlers) handleGlobalSearch(c *gin.Context) {
 			Title:       fmt.Sprintf("Risultati per: %s", query),
 			Description: "Risultati della ricerca globale",
 			QueryString: c.Request.URL.RawQuery,
+			Analytics:   h.analyticsData,
 		},
 		Query:   query,
 		Results: results,

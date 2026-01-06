@@ -7,6 +7,13 @@ type PageData struct {
 	DocTitle    string
 	DocID       string
 	QueryString string
+	Analytics   AnalyticsData
+}
+
+type AnalyticsData struct {
+	Enabled      bool
+	PlausibleURL string
+	Domain       string
 }
 
 type Collection struct {

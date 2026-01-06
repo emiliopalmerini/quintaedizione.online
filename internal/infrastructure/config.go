@@ -22,7 +22,15 @@ type Config struct {
 	ReadTimeout  time.Duration
 	WriteTimeout time.Duration
 
-	Pipeline PipelineConfig
+	Pipeline  PipelineConfig
+	Analytics AnalyticsConfig
+}
+
+type AnalyticsConfig struct {
+	Enabled      bool
+	PlausibleURL string
+	Domain       string
+	APIKey       string
 }
 
 type PipelineConfig struct {
@@ -68,9 +76,19 @@ func LoadConfig() Config {
 		ReadTimeout:  getDurationEnv("READ_TIMEOUT", 15*time.Second),
 		WriteTimeout: getDurationEnv("WRITE_TIMEOUT", 15*time.Second),
 		Pipeline:     loadPipelineConfig(),
+		Analytics:    loadAnalyticsConfig(),
 	}
 
 	return config
+}
+
+func loadAnalyticsConfig() AnalyticsConfig {
+	return AnalyticsConfig{
+		Enabled:      getBoolEnv("PLAUSIBLE_ENABLED", false),
+		PlausibleURL: getEnv("PLAUSIBLE_BASE_URL", ""),
+		Domain:       getEnv("PLAUSIBLE_DOMAIN", ""),
+		APIKey:       getEnv("PLAUSIBLE_API_KEY", ""),
+	}
 }
 
 func loadPipelineConfig() PipelineConfig {
