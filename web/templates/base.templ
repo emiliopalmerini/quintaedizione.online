@@ -30,20 +30,20 @@ templ BaseLayout(data models.PageData) {
 		<header class="notion-nav">
 			<div class="notion-nav-container">
 				<nav class="breadcrumb" aria-label="Breadcrumb">
-					<a href="/" class="btn">Home</a>
+					<a href="/">Home</a>
 					if data.Collection != "" {
-						<span class="text-secondary">/</span>
+						<span class="breadcrumb-separator">/</span>
 						if data.QueryString != "" {
-							<a href={ templ.URL("/" + data.Collection + "?" + data.QueryString) } class="btn">{ data.Collection }</a>
+							<a href={ templ.URL("/" + data.Collection + "?" + data.QueryString) }>{ data.Collection }</a>
 						} else {
-							<a href={ templ.URL("/" + data.Collection) } class="btn">{ data.Collection }</a>
+							<a href={ templ.URL("/" + data.Collection) }>{ data.Collection }</a>
 						}
 					}
 					if data.DocTitle != "" && data.Collection == "" {
-						<span class="text-secondary">/</span>
+						<span class="breadcrumb-separator">/</span>
 						<span class="font-bold truncate" style="max-width: 40vw;" title={ data.DocTitle }>{ data.DocTitle }</span>
 					} else if data.DocID != "" && data.Collection == "" {
-						<span class="text-secondary">/</span>
+						<span class="breadcrumb-separator">/</span>
 						<span class="mono tag" title={ data.DocID }>{ data.DocID }</span>
 					}
 				</nav>
