@@ -1,0 +1,154 @@
+/* Due Draghi Design System - Design Tokens */
+/* Notion-like aesthetic matching quintaedizione.online */
+
+:root {
+  /* ===== Color Palette ===== */
+  /* Primary Colors - Red/Crimson + Cyan */
+  --primary: #EF4444;
+  --primary-dark: #DC2626;
+  --primary-light: #FEE2E2;
+  --secondary: #06B6D4;
+  --accent: #F59E0B;
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+
+  /* Grayscale Palette */
+  --gray-25: #FCFCFC;
+  --gray-50: #FAFAFA;
+  --gray-75: #F7F7F7;
+  --gray-100: #F5F5F5;
+  --gray-150: #EEEEEE;
+  --gray-200: #E5E5E5;
+  --gray-250: #DEDEDE;
+  --gray-300: #D4D4D4;
+  --gray-400: #A3A3A3;
+  --gray-500: #737373;
+  --gray-600: #525252;
+  --gray-650: #464646;
+  --gray-700: #404040;
+  --gray-750: #353535;
+  --gray-800: #262626;
+  --gray-850: #1F1F1F;
+  --gray-900: #171717;
+  --gray-950: #0A0A0A;
+  --white: #FFFFFF;
+
+  /* Alpha Overlays */
+  --overlay-light: rgba(255, 255, 255, 0.95);
+  --overlay-medium: rgba(255, 255, 255, 0.8);
+  --overlay-dark: rgba(0, 0, 0, 0.5);
+  --overlay-darker: rgba(0, 0, 0, 0.75);
+
+  /* Notion-inspired colors */
+  --notion-bg: #ffffff;
+  --notion-bg-secondary: #f7f7f5;
+  --notion-text: #37352f;
+  --notion-text-light: #787774;
+  --notion-border: #e9e9e7;
+  --notion-hover: rgba(55, 53, 47, 0.08);
+  --notion-radius: 3px;
+
+  /* Semantic mappings */
+  --text-primary: #000000;
+  --text-secondary: #000000;
+  --text-muted: #666666;
+  --text-inverse: #ffffff;
+  --background-color: #ffffff;
+  --surface-color: #ffffff;
+  --border-color: #000000;
+  --border-light: #e0e0e0;
+
+  /* ===== Typography ===== */
+  --font-sans: 'Inter', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Monaco, Consolas, 'PT Mono', 'Liberation Mono', Courier, monospace;
+
+  --font-size-2xs: 0.6875rem;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.0625rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 3rem;
+  --font-size-5xl: 4rem;
+  --font-size-6xl: 6rem;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  --line-height-tighter: 0.95;
+  --line-height-tight: 1;
+  --line-height-snug: 1.25;
+  --line-height-normal: 1.4;
+  --line-height-relaxed: 1.5;
+  --line-height-loose: 1.75;
+
+  --letter-spacing-tighter: -0.03em;
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.05em;
+  --letter-spacing-wider: 0.1em;
+
+  /* ===== Spacing Scale ===== */
+  --space-1: 0.25rem;
+  --space-1-5: 0.375rem;
+  --space-2: 0.5rem;
+  --space-2-5: 0.625rem;
+  --space-3: 0.75rem;
+  --space-3-5: 0.875rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 1.75rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-14: 3.5rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* ===== Border Radius ===== */
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+
+  /* ===== Shadows ===== */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+  /* ===== Transitions ===== */
+  --transition-speed-fast: 0.15s;
+  --transition-speed-base: 0.3s;
+  --transition-speed-slow: 0.5s;
+
+  /* ===== Layout ===== */
+  --container-max-width: 1200px;
+  --container-padding: 1rem;
+  --site-header-h: 56px;
+  --input-height: 36px;
+}
+
+/* ===== Reduced Motion Support ===== */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-speed-fast: 0s;
+    --transition-speed-base: 0s;
+    --transition-speed-slow: 0s;
+  }
+}
