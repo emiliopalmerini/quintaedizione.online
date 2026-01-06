@@ -8,6 +8,7 @@ require (
 	github.com/gomarkdown/markdown v0.0.0-20250810172220-2e2c11897d1a
 	github.com/google/go-cmp v0.7.0
 	github.com/joho/godotenv v1.5.1
+	github.com/lithammer/fuzzysearch v1.1.8
 	go.mongodb.org/mongo-driver v1.17.1
 	golang.org/x/text v0.27.0
 	golang.org/x/time v0.9.0

@@ -14,6 +14,7 @@ import (
 	web "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/filters"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/parsers"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/application/search"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/services"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/infrastructure"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/infrastructure/database"
@@ -75,7 +76,10 @@ func main() {
 
 	contentService := services.NewContentService(repositoryFactory.DocumentRepository(), filterService)
 
-	webHandlers := web.NewHandlers(contentService, templateEngine)
+	searchService := search.NewFuzzySearchService(repositoryFactory.SearchRepository())
+	log.Println("Fuzzy search service initialized")
+
+	webHandlers := web.NewHandlers(contentService, searchService, templateEngine)
 
 	router := gin.Default()
 
