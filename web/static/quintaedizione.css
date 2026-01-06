@@ -870,3 +870,189 @@
 .copy-text-footer small {
   color: var(--gray-600);
 }
+
+/* ========================================================================
+   MOBILE RESPONSIVENESS FIXES
+   ======================================================================== */
+
+/* Fix: Hero title overflow */
+.hero h1 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Fix: Table horizontal scroll - use wrapper approach */
+[data-markdown] {
+  overflow-x: auto;
+}
+
+[data-markdown] table {
+  min-width: 100%;
+  width: max-content;
+}
+
+/* Mobile-specific overrides */
+@media (max-width: 480px) {
+  /* Smaller hero title on very small screens */
+  .hero h1 {
+    font-size: clamp(1.5rem, 7vw, 2.5rem);
+    letter-spacing: var(--letter-spacing-tight);
+  }
+
+  /* Hero padding reduction */
+  .hero {
+    padding: var(--space-4) var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  /* Item header stacking */
+  .item-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+  }
+
+  .item-nav {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .item-nav .btn {
+    flex: 1;
+    max-width: 48%;
+    text-align: center;
+  }
+
+  /* Item content padding */
+  .item-content {
+    padding: var(--space-3);
+    margin-bottom: var(--space-6);
+  }
+
+  /* Footer adjustments */
+  footer a {
+    word-break: break-all;
+  }
+
+  footer .container {
+    padding: 0 var(--space-3);
+  }
+
+  footer p {
+    font-size: var(--font-size-2xs);
+  }
+
+  /* Markdown list bold */
+  [data-markdown] ul li strong {
+    min-width: auto;
+    display: inline;
+  }
+
+  /* Error page button spacing */
+  .space-x-4 {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .space-x-4 > * + * {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Table adjustments on mobile */
+  [data-markdown] table {
+    font-size: var(--font-size-sm);
+  }
+
+  [data-markdown] th,
+  [data-markdown] td {
+    padding: var(--space-2);
+    white-space: nowrap;
+  }
+
+  /* Search dropdown touch targets */
+  .search-dropdown-item {
+    padding: var(--space-4) var(--space-4);
+    min-height: 44px;
+  }
+
+  /* Copy modal mobile */
+  .copy-text-modal {
+    padding: var(--space-2);
+  }
+
+  .copy-text-modal-content {
+    max-width: 100%;
+  }
+
+  .copy-text-area {
+    min-height: 200px;
+    font-size: 14px;
+  }
+
+  .copy-text-footer small {
+    font-size: var(--font-size-2xs);
+  }
+}
+
+@media (max-width: 400px) {
+  /* Search sticky form stacking */
+  .search-sticky .flex-wrap,
+  .search-sticky .flex.flex-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-sticky .field {
+    width: 100%;
+    flex: none;
+  }
+
+  .search-sticky select.field {
+    width: 100%;
+  }
+
+  .search-sticky .btn {
+    width: 100%;
+  }
+
+  /* Page size select */
+  .w-28 {
+    width: 100%;
+  }
+}
+
+/* Search icon fix for all mobile devices */
+@media (max-width: 640px) {
+  .search-icon {
+    left: var(--space-2);
+    width: 16px;
+    height: 16px;
+  }
+
+  .search-input-group input.field {
+    padding-left: calc(var(--space-2) + 16px + var(--space-3));
+    font-size: 16px;
+  }
+}
+
+/* Error page button spacing (default) */
+.space-x-4 > * + * {
+  margin-left: var(--space-4);
+}
+
+/* Safe area support for notched devices */
+@supports (padding: env(safe-area-inset-bottom)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  footer {
+    padding-bottom: calc(var(--space-6) + env(safe-area-inset-bottom));
+  }
+}
