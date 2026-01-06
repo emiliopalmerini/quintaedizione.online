@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"embed"
 	"fmt"
 	"log"
 	"net/http"
@@ -11,7 +10,6 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/emiliopalmerini/due-draghi-design-system"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/repositories"
 	web "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/filters"
@@ -93,18 +91,6 @@ func main() {
 	router.Use(corsMiddleware())
 
 	router.Static("/static", "./web/static")
-
-	// Serve design system static files from embed
-	// StaticFiles contains css/ and js/ subdirectories
-	router.GET("/design-system/tokens.css", func(c *gin.Context) {
-		serveEmbeddedFile(c, "css/tokens.css", designsystem.StaticFiles)
-	})
-	router.GET("/design-system/main.css", func(c *gin.Context) {
-		serveEmbeddedFile(c, "css/main.css", designsystem.StaticFiles)
-	})
-	router.GET("/design-system/utilities.css", func(c *gin.Context) {
-		serveEmbeddedFile(c, "css/utilities.css", designsystem.StaticFiles)
-	})
 
 	router.GET("/health", func(c *gin.Context) {
 		cacheStats := infrastructure.GetGlobalCache().GetStats()
@@ -242,20 +228,4 @@ func corsMiddleware() gin.HandlerFunc {
 func isProduction(c *gin.Context) bool {
 	env := os.Getenv("ENVIRONMENT")
 	return env == "production"
-}
-
-func serveEmbeddedFile(c *gin.Context, filePath string, fs embed.FS) {
-	data, err := fs.ReadFile(filePath)
-	if err != nil {
-		c.AbortWithStatus(http.StatusNotFound)
-		return
-	}
-
-	// Set content type based on file extension
-	contentType := "text/css"
-	if len(filePath) > 3 && filePath[len(filePath)-3:] == ".js" {
-		contentType = "application/javascript"
-	}
-
-	c.Data(http.StatusOK, contentType, data)
 }
