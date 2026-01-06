@@ -7,6 +7,7 @@ import (
 	"os"
 	"runtime/debug"
 	"sync"
+	"time"
 
 	"github.com/gin-gonic/gin"
 	"golang.org/x/time/rate"
@@ -116,31 +117,53 @@ func getValidCollections() []string {
 	}
 }
 
-// RateLimiter stores per-IP rate limiters
-type RateLimiter struct {
-	limiters map[string]*rate.Limiter
-	mu       sync.RWMutex
+type rateLimiterEntry struct {
+	limiter  *rate.Limiter
+	lastSeen time.Time
 }
 
-// NewRateLimiter creates a new rate limiter with per-IP tracking
+type RateLimiter struct {
+	limiters map[string]*rateLimiterEntry
+	mu       sync.RWMutex
+	maxAge   time.Duration
+}
+
 func NewRateLimiter() *RateLimiter {
-	return &RateLimiter{
-		limiters: make(map[string]*rate.Limiter),
+	rl := &RateLimiter{
+		limiters: make(map[string]*rateLimiterEntry),
+		maxAge:   time.Hour,
+	}
+	go rl.cleanup()
+	return rl
+}
+
+func (rl *RateLimiter) cleanup() {
+	ticker := time.NewTicker(10 * time.Minute)
+	for range ticker.C {
+		rl.mu.Lock()
+		for ip, entry := range rl.limiters {
+			if time.Since(entry.lastSeen) > rl.maxAge {
+				delete(rl.limiters, ip)
+			}
+		}
+		rl.mu.Unlock()
 	}
 }
 
-// GetLimiter returns a rate limiter for the given IP, creating one if needed
 func (rl *RateLimiter) GetLimiter(ip string) *rate.Limiter {
 	rl.mu.Lock()
 	defer rl.mu.Unlock()
 
-	if limiter, exists := rl.limiters[ip]; exists {
-		return limiter
+	if entry, exists := rl.limiters[ip]; exists {
+		entry.lastSeen = time.Now()
+		return entry.limiter
 	}
 
-	// 100 requests per second per IP, burst of 10
 	limiter := rate.NewLimiter(rate.Limit(100), 10)
-	rl.limiters[ip] = limiter
+	rl.limiters[ip] = &rateLimiterEntry{
+		limiter:  limiter,
+		lastSeen: time.Now(),
+	}
 	return limiter
 }
 

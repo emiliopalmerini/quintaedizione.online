@@ -13,6 +13,7 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/services"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/search"
 	infraconfig "github.com/emiliopalmerini/quintaedizione.online/internal/infrastructure/config"
 	"github.com/emiliopalmerini/quintaedizione.online/pkg/mappers"
 	"github.com/emiliopalmerini/quintaedizione.online/pkg/templates"
@@ -21,23 +22,24 @@ import (
 
 type Handlers struct {
 	contentService     *services.ContentService
+	searchService      search.SearchService
 	templateEngine     *templates.TemplEngine
 	documentMapper     webmappers.DocumentMapper
 	collectionMetadata infraconfig.CollectionMetadata
 }
 
-func NewHandlers(contentService *services.ContentService, templateEngine *templates.TemplEngine) *Handlers {
+func NewHandlers(contentService *services.ContentService, searchService search.SearchService, templateEngine *templates.TemplEngine) *Handlers {
 	displayFactory := display.NewDisplayElementFactory()
 	documentMapper := webmappers.NewDocumentMapper(displayFactory)
 
 	collectionMetadata, err := infraconfig.NewCollectionMetadata()
 	if err != nil {
-
 		fmt.Printf("Warning: Failed to load collection metadata: %v\n", err)
 	}
 
 	return &Handlers{
 		contentService:     contentService,
+		searchService:      searchService,
 		templateEngine:     templateEngine,
 		documentMapper:     documentMapper,
 		collectionMetadata: collectionMetadata,
@@ -366,25 +368,30 @@ func (h *Handlers) handleGlobalSearch(c *gin.Context) {
 		return
 	}
 
-	searchResults, err := h.contentService.GlobalSearch(c.Request.Context(), query, 5)
+	fuzzyResults, err := h.searchService.Search(c.Request.Context(), query, 5)
 	if err != nil {
 		h.ErrorResponse(c, err, "Errore durante la ricerca")
 		return
 	}
 
-	results := make([]models.CollectionSearchResult, 0, len(searchResults))
+	results := make([]models.CollectionSearchResult, 0, len(fuzzyResults))
 	totalResults := int64(0)
 
-	for _, sr := range searchResults {
-
-		documents := h.documentMapper.ToModels(sr.Collection, sr.Items)
+	for _, sr := range fuzzyResults {
+		documents := make([]models.Document, 0, len(sr.Results))
+		for _, r := range sr.Results {
+			documents = append(documents, models.Document{
+				ID:    r.ID,
+				Title: r.Title,
+			})
+		}
 
 		results = append(results, models.CollectionSearchResult{
 			CollectionName:  sr.Collection,
 			CollectionLabel: h.getCollectionTitle(sr.Collection),
 			Documents:       documents,
 			Total:           sr.Total,
-			HasMore:         sr.Total > int64(len(sr.Items)),
+			HasMore:         sr.Total > int64(len(sr.Results)),
 		})
 
 		totalResults += sr.Total
@@ -420,25 +427,30 @@ func (h *Handlers) handleSearchDropdown(c *gin.Context) {
 		return
 	}
 
-	searchResults, err := h.contentService.GlobalSearch(c.Request.Context(), query, 3)
+	fuzzyResults, err := h.searchService.Search(c.Request.Context(), query, 3)
 	if err != nil {
 		h.setCacheHeaders(c, "search")
 		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(""))
 		return
 	}
 
-	results := make([]models.CollectionSearchResult, 0, len(searchResults))
+	results := make([]models.CollectionSearchResult, 0, len(fuzzyResults))
 
-	for _, sr := range searchResults {
-
-		documents := h.documentMapper.ToModels(sr.Collection, sr.Items)
+	for _, sr := range fuzzyResults {
+		documents := make([]models.Document, 0, len(sr.Results))
+		for _, r := range sr.Results {
+			documents = append(documents, models.Document{
+				ID:    r.ID,
+				Title: r.Title,
+			})
+		}
 
 		results = append(results, models.CollectionSearchResult{
 			CollectionName:  sr.Collection,
 			CollectionLabel: h.getCollectionTitle(sr.Collection),
 			Documents:       documents,
 			Total:           sr.Total,
-			HasMore:         sr.Total > int64(len(sr.Items)),
+			HasMore:         sr.Total > int64(len(sr.Results)),
 		})
 	}
 

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep:*)",
+      "WebFetch(domain:googlefonts.github.io)",
+      "Bash(go get:*)",
+      "Bash(go mod tidy:*)",
+      "WebSearch",
+      "Bash(mkdir:*)"
+    ]
+  }
+}

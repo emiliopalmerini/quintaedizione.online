@@ -5,6 +5,7 @@ import (
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/repositories/mongodb"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/repositories"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/search"
 	pkgMongodb "github.com/emiliopalmerini/quintaedizione.online/pkg/mongodb"
 )
 
@@ -12,6 +13,7 @@ type RepositoryFactory struct {
 	client *pkgMongodb.Client
 
 	documentRepo repositories.DocumentRepository
+	searchRepo   search.SearchRepository
 }
 
 func NewRepositoryFactory(client *pkgMongodb.Client) *RepositoryFactory {
@@ -25,6 +27,13 @@ func (f *RepositoryFactory) DocumentRepository() repositories.DocumentRepository
 		f.documentRepo = mongodb.NewDocumentMongoRepository(f.client)
 	}
 	return f.documentRepo
+}
+
+func (f *RepositoryFactory) SearchRepository() search.SearchRepository {
+	if f.searchRepo == nil {
+		f.searchRepo = mongodb.NewSearchRepository(f.client)
+	}
+	return f.searchRepo
 }
 
 type ParserRepositoryWrapper struct {
