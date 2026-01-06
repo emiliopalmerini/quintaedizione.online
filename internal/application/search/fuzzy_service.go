@@ -45,15 +45,15 @@ func (svc *FuzzySearchService) Search(ctx context.Context, query string, limitPe
 			continue
 		}
 
-		collectionResults := svc.searchInCollection(items, query, limitPerCollection)
-		if len(collectionResults) == 0 {
+		collectionResults, totalMatches := svc.searchInCollection(items, query, limitPerCollection)
+		if totalMatches == 0 {
 			continue
 		}
 
 		results = append(results, domainsearch.SearchResultSet{
 			Collection: collection,
 			Results:    collectionResults,
-			Total:      int64(len(collectionResults)),
+			Total:      int64(totalMatches),
 		})
 	}
 
@@ -83,10 +83,11 @@ func (svc *FuzzySearchService) SearchCollection(ctx context.Context, collection,
 	}
 
 	query = strings.ToLower(strings.TrimSpace(query))
-	return svc.searchInCollection(items, query, limit), nil
+	results, _ := svc.searchInCollection(items, query, limit)
+	return results, nil
 }
 
-func (svc *FuzzySearchService) searchInCollection(items []domainsearch.SearchableItem, query string, limit int) []domainsearch.SearchResult {
+func (svc *FuzzySearchService) searchInCollection(items []domainsearch.SearchableItem, query string, limit int) ([]domainsearch.SearchResult, int) {
 	type rankedItem struct {
 		item  domainsearch.SearchableItem
 		score int
@@ -117,6 +118,8 @@ func (svc *FuzzySearchService) searchInCollection(items []domainsearch.Searchabl
 		ranked = append(ranked, rankedItem{item: item, score: score})
 	}
 
+	totalMatches := len(ranked)
+
 	sort.Slice(ranked, func(i, j int) bool {
 		return ranked[i].score > ranked[j].score
 	})
@@ -135,7 +138,7 @@ func (svc *FuzzySearchService) searchInCollection(items []domainsearch.Searchabl
 		})
 	}
 
-	return results
+	return results, totalMatches
 }
 
 func (svc *FuzzySearchService) RefreshIndex(ctx context.Context) error {
