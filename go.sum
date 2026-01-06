@@ -11,8 +11,8 @@ github.com/cloudwego/iasm v0.2.0/go.mod h1:8rXZaNYT2n95jn+zTI1sDr+IgcD2GVs0nlbbQ
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/emiliopalmerini/due-draghi-design-system v0.4.0 h1:mWRgBeneoJkEIBgSewqzD6btS4+kYiCJEGB8J/pLeU8=
-github.com/emiliopalmerini/due-draghi-design-system v0.4.0/go.mod h1:psDPME5u1qL0+VzQIG6V7IUPFmg9lSorEzT0pA8MlMU=
+github.com/emiliopalmerini/due-draghi-design-system v0.5.0 h1:BQCkJC0RqT+fcA7fsVw1mm66V2I8k71gP3YdaO3vpWE=
+github.com/emiliopalmerini/due-draghi-design-system v0.5.0/go.mod h1:psDPME5u1qL0+VzQIG6V7IUPFmg9lSorEzT0pA8MlMU=
 github.com/gabriel-vasile/mimetype v1.4.3 h1:in2uUcidCuFcDKtdcBxlR0rJ1+fsokWf+uqxgUFjbI0=
 github.com/gabriel-vasile/mimetype v1.4.3/go.mod h1:d8uq/6HKRL6CGdk+aubisF/M5GcPfT7nKyLpA0lbSSk=
 github.com/gin-contrib/sse v0.1.0 h1:Y/yl/+YNO8GZSjAhjMsSuLt29uWRFHdHYUb5lYOV9qE=
