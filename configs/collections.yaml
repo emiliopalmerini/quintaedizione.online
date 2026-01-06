@@ -1,25 +1,70 @@
 collections:
-  armature:
-    title: "Armature"
-    display_fields: ["nome", "tipo", "ca"]
-    search_fields: ["nome", "tipo"]
-  
   incantesimi:
     title: "Incantesimi"
     display_fields: ["nome", "livello", "scuola", "tempo_lancio"]
     search_fields: ["nome", "scuola"]
-  
+
   mostri:
     title: "Mostri"
     display_fields: ["nome", "type", "ca", "pf"]
     search_fields: ["nome", "type"]
-  
-  armi:
-    title: "Armi"
-    display_fields: ["nome", "type", "danni"]
-    search_fields: ["nome", "type"]
-  
+
+  classi:
+    title: "Classi"
+    display_fields: ["nome"]
+    search_fields: ["nome"]
+
+  backgrounds:
+    title: "Background"
+    display_fields: ["nome"]
+    search_fields: ["nome"]
+
+  equipaggiamenti:
+    title: "Equipaggiamento"
+    display_fields: ["nome", "costo"]
+    search_fields: ["nome"]
+
   oggetti_magici:
     title: "Oggetti Magici"
     display_fields: ["nome", "rarity", "type"]
     search_fields: ["nome", "rarity"]
+
+  armi:
+    title: "Armi"
+    display_fields: ["nome", "type", "danni"]
+    search_fields: ["nome", "type"]
+
+  armature:
+    title: "Armature"
+    display_fields: ["nome", "tipo", "ca"]
+    search_fields: ["nome", "tipo"]
+
+  talenti:
+    title: "Talenti"
+    display_fields: ["nome"]
+    search_fields: ["nome"]
+
+  servizi:
+    title: "Servizi"
+    display_fields: ["nome", "costo"]
+    search_fields: ["nome"]
+
+  strumenti:
+    title: "Strumenti"
+    display_fields: ["nome", "costo"]
+    search_fields: ["nome"]
+
+  animali:
+    title: "Animali"
+    display_fields: ["nome", "type"]
+    search_fields: ["nome"]
+
+  regole:
+    title: "Regole"
+    display_fields: ["nome"]
+    search_fields: ["nome"]
+
+  cavalcature_veicoli:
+    title: "Cavalcature e Veicoli"
+    display_fields: ["nome", "costo"]
+    search_fields: ["nome"]
