@@ -181,12 +181,12 @@
 }
 
 .search-dropdown-badge {
-  background: var(--border-color);
+  background: transparent;
   padding: var(--space-1) var(--space-2);
   border-radius: 0;
-  border: 2px solid var(--border-color);
+  border: none;
   font-size: var(--font-size-xs);
-  color: var(--text-inverse);
+  color: var(--text-muted);
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-wide);
