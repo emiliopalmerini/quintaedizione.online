@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"net/http"
 	"regexp"
-	"strconv"
 	"strings"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/config"
@@ -112,23 +111,11 @@ func (h *Handlers) handleHome(c *gin.Context) {
 
 func (h *Handlers) handleCollectionList(c *gin.Context) {
 	collection := c.Param("collection")
-	page := c.DefaultQuery("page", "1")
-	q := c.Query("q")
-	pageSize := c.DefaultQuery("page_size", "20")
-
-	pageNum, err := strconv.Atoi(page)
-	if err != nil || pageNum < 1 {
-		pageNum = 1
-	}
-
-	pageSizeNum, err := strconv.Atoi(pageSize)
-	if err != nil || pageSizeNum < 1 || pageSizeNum > 100 {
-		pageSizeNum = 20
-	}
+	params := ExtractPaginationParams(c)
 
 	filters := h.extractFilters(c)
 
-	rawItems, totalCount, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, q, filters, pageNum, pageSizeNum)
+	rawItems, totalCount, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, params.Query, filters, params.PageNum, params.PageSize)
 	if err != nil {
 		h.ErrorResponse(c, err, fmt.Sprintf("Errore nel caricamento della collezione %s", collection))
 		return
@@ -136,7 +123,7 @@ func (h *Handlers) handleCollectionList(c *gin.Context) {
 
 	documents := h.documentMapper.ToModels(collection, rawItems)
 
-	pagination := CalculatePaginationData(pageNum, pageSizeNum, totalCount)
+	pagination := CalculatePaginationData(params.PageNum, params.PageSize, totalCount)
 
 	data := models.CollectionPageData{
 		PageData: models.PageData{
@@ -145,9 +132,9 @@ func (h *Handlers) handleCollectionList(c *gin.Context) {
 			QueryString: c.Request.URL.RawQuery,
 		},
 		Documents:  documents,
-		Query:      q,
-		Page:       pageNum,
-		PageSize:   pageSizeNum,
+		Query:      params.Query,
+		Page:       params.PageNum,
+		PageSize:   params.PageSize,
 		Total:      totalCount,
 		TotalPages: pagination.TotalPages,
 		HasNext:    pagination.HasNext,
@@ -223,23 +210,11 @@ func (h *Handlers) handleItemDetail(c *gin.Context) {
 
 func (h *Handlers) handleCollectionRows(c *gin.Context) {
 	collection := c.Param("collection")
-	page := c.DefaultQuery("page", "1")
-	q := c.Query("q")
-	pageSize := c.DefaultQuery("page_size", "20")
-
-	pageNum, err := strconv.Atoi(page)
-	if err != nil || pageNum < 1 {
-		pageNum = 1
-	}
-
-	pageSizeNum, err := strconv.Atoi(pageSize)
-	if err != nil || pageSizeNum < 1 || pageSizeNum > 100 {
-		pageSizeNum = 20
-	}
+	params := ExtractPaginationParams(c)
 
 	filters := h.extractFilters(c)
 
-	rawItems, totalCount, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, q, filters, pageNum, pageSizeNum)
+	rawItems, totalCount, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, params.Query, filters, params.PageNum, params.PageSize)
 	if err != nil {
 		h.ErrorResponse(c, err, fmt.Sprintf("Errore nel caricamento righe per %s", collection))
 		return
@@ -247,7 +222,7 @@ func (h *Handlers) handleCollectionRows(c *gin.Context) {
 
 	documents := h.documentMapper.ToModels(collection, rawItems)
 
-	pagination := CalculatePaginationData(pageNum, pageSizeNum, totalCount)
+	pagination := CalculatePaginationData(params.PageNum, params.PageSize, totalCount)
 
 	data := models.CollectionPageData{
 		PageData: models.PageData{
@@ -255,9 +230,9 @@ func (h *Handlers) handleCollectionRows(c *gin.Context) {
 			QueryString: c.Request.URL.RawQuery,
 		},
 		Documents:  documents,
-		Query:      q,
-		Page:       pageNum,
-		PageSize:   pageSizeNum,
+		Query:      params.Query,
+		Page:       params.PageNum,
+		PageSize:   params.PageSize,
 		Total:      totalCount,
 		TotalPages: pagination.TotalPages,
 		HasNext:    pagination.HasNext,
@@ -376,28 +351,7 @@ func (h *Handlers) handleGlobalSearch(c *gin.Context) {
 		return
 	}
 
-	results := make([]models.CollectionSearchResult, 0, len(fuzzyResults))
-	totalResults := int64(0)
-
-	for _, sr := range fuzzyResults {
-		documents := make([]models.Document, 0, len(sr.Results))
-		for _, r := range sr.Results {
-			documents = append(documents, models.Document{
-				ID:    r.ID,
-				Title: r.Title,
-			})
-		}
-
-		results = append(results, models.CollectionSearchResult{
-			CollectionName:  sr.Collection,
-			CollectionLabel: h.getCollectionTitle(sr.Collection),
-			Documents:       documents,
-			Total:           sr.Total,
-			HasMore:         sr.Total > int64(len(sr.Results)),
-		})
-
-		totalResults += sr.Total
-	}
+	results, totalResults := h.transformSearchResults(fuzzyResults)
 
 	data := models.SearchPageData{
 		PageData: models.PageData{
@@ -436,7 +390,25 @@ func (h *Handlers) handleSearchDropdown(c *gin.Context) {
 		return
 	}
 
+	results, _ := h.transformSearchResults(fuzzyResults)
+
+	content, err := h.templateEngine.RenderSearchDropdown(results, query)
+	if err != nil {
+		h.setCacheHeaders(c, "search")
+		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(""))
+		return
+	}
+
+	h.setCacheHeaders(c, "search")
+	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
+}
+
+// transformSearchResults converts fuzzy search results to CollectionSearchResult models.
+// Applies collection title resolution and calculates hasMore flag.
+// Returns the transformed results and total result count across all collections.
+func (h *Handlers) transformSearchResults(fuzzyResults []search.SearchResultSet) ([]models.CollectionSearchResult, int64) {
 	results := make([]models.CollectionSearchResult, 0, len(fuzzyResults))
+	totalResults := int64(0)
 
 	for _, sr := range fuzzyResults {
 		documents := make([]models.Document, 0, len(sr.Results))
@@ -454,17 +426,11 @@ func (h *Handlers) handleSearchDropdown(c *gin.Context) {
 			Total:           sr.Total,
 			HasMore:         sr.Total > int64(len(sr.Results)),
 		})
+
+		totalResults += sr.Total
 	}
 
-	content, err := h.templateEngine.RenderSearchDropdown(results, query)
-	if err != nil {
-		h.setCacheHeaders(c, "search")
-		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(""))
-		return
-	}
-
-	h.setCacheHeaders(c, "search")
-	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
+	return results, totalResults
 }
 
 func (h *Handlers) handleRobotsTxt(c *gin.Context) {
