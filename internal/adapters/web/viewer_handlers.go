@@ -53,6 +53,8 @@ func (h *Handlers) RegisterRoutes(router *gin.Engine) {
 	// Specific routes must be registered before wildcard routes
 	router.GET("/search", h.handleGlobalSearch)
 	router.GET("/search/dropdown", h.handleSearchDropdown)
+	router.GET("/robots.txt", h.handleRobotsTxt)
+	router.GET("/sitemap.xml", h.handleSitemap)
 
 	// Wildcard routes (must come last)
 	router.GET("/:collection", h.handleCollectionList)
@@ -463,4 +465,40 @@ func (h *Handlers) handleSearchDropdown(c *gin.Context) {
 
 	h.setCacheHeaders(c, "search")
 	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
+}
+
+func (h *Handlers) handleRobotsTxt(c *gin.Context) {
+	c.Header("Cache-Control", "max-age=86400, public")
+	c.File("./web/static/robots.txt")
+}
+
+func (h *Handlers) handleSitemap(c *gin.Context) {
+	sitemap := h.generateSitemap()
+	c.Header("Cache-Control", "max-age=86400, public")
+	c.Data(http.StatusOK, "application/xml; charset=utf-8", []byte(sitemap))
+}
+
+func (h *Handlers) generateSitemap() string {
+	baseURL := "https://quintaedizione.online"
+	sitemap := `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>` + baseURL + `/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>`
+
+	collections := getValidCollections()
+	for _, collection := range collections {
+		sitemap += `
+  <url>
+    <loc>` + baseURL + `/` + collection + `</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`
+	}
+
+	sitemap += `
+</urlset>`
+	return sitemap
 }
