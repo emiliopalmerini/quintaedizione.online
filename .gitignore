@@ -27,3 +27,6 @@ bin/
 .DS_Store
 
 .env
+
+# Claude Code settings
+.claude/
