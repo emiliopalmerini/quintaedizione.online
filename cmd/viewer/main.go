@@ -56,6 +56,14 @@ func main() {
 
 	repositoryFactory := repositories.NewRepositoryFactory(mongoClient)
 
+	log.Println("Generating keywords.json from markdown files...")
+	keywordGenerator := parsers.NewKeywordGenerator("data", "configs/keywords.json")
+	if err := keywordGenerator.Generate(); err != nil {
+		log.Printf("Warning: Failed to generate keywords file: %v", err)
+	} else {
+		log.Println("Keywords file generated successfully")
+	}
+
 	log.Println("Parsing markdown files...")
 	if err := parseMarkdownFiles(repositoryFactory, indexManager); err != nil {
 		log.Fatalf("Failed to parse markdown files: %v", err)
