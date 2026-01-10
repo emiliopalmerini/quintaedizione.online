@@ -454,8 +454,8 @@ func (h *Handlers) generateSitemap() string {
     <priority>1.0</priority>
   </url>`
 
-	collections := getValidCollections()
-	for _, collection := range collections {
+	collectionNames := getValidCollections()
+	for _, collection := range collectionNames {
 		sitemap += `
   <url>
     <loc>` + baseURL + `/` + collection + `</loc>

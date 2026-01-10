@@ -6,6 +6,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/filters"
 	"go.mongodb.org/mongo-driver/bson"
 )
@@ -189,7 +190,7 @@ func (b *MongoFilterBuilder) buildInMatch(fieldPath, value string) (bson.M, erro
 	return bson.M{fieldPath: bson.M{"$in": trimmedValues}}, nil
 }
 
-func (b *MongoFilterBuilder) BuildSearchFilter(collection filters.CollectionType, searchTerm string) bson.M {
+func (b *MongoFilterBuilder) BuildSearchFilter(collection collections.CollectionName, searchTerm string) bson.M {
 	if searchTerm == "" {
 		return bson.M{}
 	}

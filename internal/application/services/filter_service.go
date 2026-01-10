@@ -5,6 +5,7 @@ import (
 	"strconv"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/filters"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
 	domainFilters "github.com/emiliopalmerini/quintaedizione.online/internal/domain/filters"
 	"go.mongodb.org/mongo-driver/bson"
 )
@@ -21,8 +22,8 @@ func NewFilterService(registry domainFilters.FilterRepository) *FilterService {
 	}
 }
 
-func (s *FilterService) ParseFilters(collection domainFilters.CollectionType, queryParams map[string]string) (*domainFilters.FilterSet, error) {
-	if !collection.IsValid() {
+func (s *FilterService) ParseFilters(collection collections.CollectionName, queryParams map[string]string) (*domainFilters.FilterSet, error) {
+	if !collections.IsValid(collection.String()) {
 		return nil, fmt.Errorf("invalid collection: %s", collection)
 	}
 
@@ -82,7 +83,7 @@ func (s *FilterService) ValidateFilterSet(filterSet *domainFilters.FilterSet) er
 		return fmt.Errorf("filter set cannot be nil")
 	}
 
-	if !filterSet.Collection.IsValid() {
+	if !collections.IsValid(filterSet.Collection.String()) {
 		return fmt.Errorf("invalid collection: %s", filterSet.Collection)
 	}
 
@@ -111,15 +112,15 @@ func (s *FilterService) BuildMongoFilter(filterSet *domainFilters.FilterSet) (bs
 	return s.mongoBuilder.BuildFilter(filterSet)
 }
 
-func (s *FilterService) GetAvailableFilters(collection domainFilters.CollectionType) ([]domainFilters.FilterDefinition, error) {
-	if !collection.IsValid() {
+func (s *FilterService) GetAvailableFilters(collection collections.CollectionName) ([]domainFilters.FilterDefinition, error) {
+	if !collections.IsValid(collection.String()) {
 		return nil, fmt.Errorf("invalid collection: %s", collection)
 	}
 
 	return s.registry.GetFiltersForCollection(collection)
 }
 
-func (s *FilterService) BuildSearchFilter(collection domainFilters.CollectionType, searchTerm string) bson.M {
+func (s *FilterService) BuildSearchFilter(collection collections.CollectionName, searchTerm string) bson.M {
 	return s.mongoBuilder.BuildSearchFilter(collection, searchTerm)
 }
 

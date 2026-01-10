@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/filters"
 	"gopkg.in/yaml.v3"
 )
@@ -41,7 +42,7 @@ func NewYAMLFilterRegistry(configPath string) (*YAMLFilterRegistry, error) {
 	return registry, nil
 }
 
-func (r *YAMLFilterRegistry) GetFiltersForCollection(collection filters.CollectionType) ([]filters.FilterDefinition, error) {
+func (r *YAMLFilterRegistry) GetFiltersForCollection(collection collections.CollectionName) ([]filters.FilterDefinition, error) {
 	result := make([]filters.FilterDefinition, 0)
 
 	for _, filter := range r.filters {
@@ -101,13 +102,13 @@ func (r *YAMLFilterRegistry) convertConfigToFilter(config ConfigFilterDefinition
 		return filters.FilterDefinition{}, fmt.Errorf("invalid operator %s: %w", config.Operator, err)
 	}
 
-	collections := make([]filters.CollectionType, 0, len(config.Collections))
+	collectionNames := make([]collections.CollectionName, 0, len(config.Collections))
 	for _, collName := range config.Collections {
-		collection := filters.CollectionType(collName)
-		if !collection.IsValid() {
+		collection, valid := collections.FromString(collName)
+		if !valid {
 			return filters.FilterDefinition{}, fmt.Errorf("invalid collection %s", collName)
 		}
-		collections = append(collections, collection)
+		collectionNames = append(collectionNames, collection)
 	}
 
 	return filters.FilterDefinition{
@@ -115,7 +116,7 @@ func (r *YAMLFilterRegistry) convertConfigToFilter(config ConfigFilterDefinition
 		FieldPath:   config.FieldPath,
 		DataType:    dataType,
 		Operator:    operator,
-		Collections: collections,
+		Collections: collectionNames,
 		EnumValues:  config.EnumValues,
 		Required:    config.Required,
 		Description: config.Description,
@@ -166,7 +167,7 @@ func (r *InMemoryFilterRegistry) AddFilter(filter filters.FilterDefinition) {
 	r.filters[filter.Name] = filter
 }
 
-func (r *InMemoryFilterRegistry) GetFiltersForCollection(collection filters.CollectionType) ([]filters.FilterDefinition, error) {
+func (r *InMemoryFilterRegistry) GetFiltersForCollection(collection collections.CollectionName) ([]filters.FilterDefinition, error) {
 	result := make([]filters.FilterDefinition, 0)
 
 	for _, filter := range r.filters {

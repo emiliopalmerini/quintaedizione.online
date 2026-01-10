@@ -3,8 +3,8 @@ package content_repository
 import (
 	"context"
 	"fmt"
-	"slices"
 
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
 	"github.com/emiliopalmerini/quintaedizione.online/pkg/mongodb"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -21,27 +21,11 @@ func NewMongoDBRepository(client *mongodb.Client) Repository {
 }
 
 func (r *MongoDBRepository) getValidCollections() []string {
-	return []string{
-		"incantesimi",
-		"mostri",
-		"classi",
-		"backgrounds",
-		"equipaggiamenti",
-		"armi",
-		"armature",
-		"oggetti_magici",
-		"talenti",
-		"servizi",
-		"strumenti",
-		"animali",
-		"regole",
-		"cavalcature_veicoli",
-	}
+	return collections.GetAllCollectionNames()
 }
 
 func (r *MongoDBRepository) isValidCollection(collection string) bool {
-	validCollections := r.getValidCollections()
-	return slices.Contains(validCollections, collection)
+	return collections.IsValid(collection)
 }
 
 func (r *MongoDBRepository) FindMaps(ctx context.Context, collection string, filter bson.M, skip, limit int64) ([]map[string]any, error) {
@@ -128,25 +112,9 @@ func (r *MongoDBRepository) Count(ctx context.Context, collection string, filter
 }
 
 func (r *MongoDBRepository) GetCollectionStats(ctx context.Context) ([]map[string]any, error) {
-	var collections []map[string]any
+	var collectionsList []map[string]any
 
 	validCollections := r.getValidCollections()
-	collectionTitles := map[string]string{
-		"incantesimi":         "Incantesimi",
-		"mostri":              "Mostri",
-		"classi":              "Classi",
-		"backgrounds":         "Background",
-		"equipaggiamenti":     "Equipaggiamento",
-		"armi":                "Armi",
-		"armature":            "Armature",
-		"oggetti_magici":      "Oggetti Magici",
-		"talenti":             "Talenti",
-		"servizi":             "Servizi",
-		"strumenti":           "Strumenti",
-		"animali":             "Animali",
-		"regole":              "Regole",
-		"cavalcature_veicoli": "Cavalcature e Veicoli",
-	}
 
 	for _, collection := range validCollections {
 		count, err := r.Count(ctx, collection, bson.M{})
@@ -155,17 +123,14 @@ func (r *MongoDBRepository) GetCollectionStats(ctx context.Context) ([]map[strin
 			continue
 		}
 
-		title := collectionTitles[collection]
-		if title == "" {
-			title = collection
-		}
+		title := collections.GetTitle(collection)
 
-		collections = append(collections, map[string]any{
+		collectionsList = append(collectionsList, map[string]any{
 			"name":  collection,
 			"title": title,
 			"count": count,
 		})
 	}
 
-	return collections, nil
+	return collectionsList, nil
 }

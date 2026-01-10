@@ -1,6 +1,10 @@
 package filters
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
+)
 
 type ValidationError struct {
 	FilterName string
@@ -20,14 +24,14 @@ func NewValidationError(filterName, message string) ValidationError {
 
 type UnsupportedFilterError struct {
 	FilterName string
-	Collection CollectionType
+	Collection collections.CollectionName
 }
 
 func (e UnsupportedFilterError) Error() string {
 	return fmt.Sprintf("filter '%s' is not supported for collection '%s'", e.FilterName, e.Collection)
 }
 
-func NewUnsupportedFilterError(filterName string, collection CollectionType) UnsupportedFilterError {
+func NewUnsupportedFilterError(filterName string, collection collections.CollectionName) UnsupportedFilterError {
 	return UnsupportedFilterError{
 		FilterName: filterName,
 		Collection: collection,
