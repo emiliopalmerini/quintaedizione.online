@@ -65,7 +65,7 @@ Puoi entrare in Ira un numero di volte pari a quello mostrato per il tuo livello
 
 Mentre è attiva, la tua Ira segue le regole seguenti.  
 
-**Resistenza ai danni.** Hai resistenza ai danni contundenti, perforanti e taglienti.  
+**Resistenza ai danni.** Hai resistenza ai danni Contundenti, perforanti e taglienti.  
 
 **Danni da Ira.** Quando effettui un attacco usando la Forza — con un’arma o un colpo senz’armi — e infliggi danno al bersaglio, aggiungi un bonus al danno che aumenta con i tuoi livelli da Barbaro, come mostrato nella colonna Danni da Ira.  
 
@@ -1145,7 +1145,7 @@ Quando tiri Iniziativa, recuperi tutti i Punti concentrazione e PF pari al livel
 
 #### 3° livello: Deviare attacchi
 
-Con Reazione, riduci i danni contundenti, perforanti o taglienti di 1d10 + Destrezza + livello da Monaco.  
+Con Reazione, riduci i danni Contundenti, perforanti o taglienti di 1d10 + Destrezza + livello da Monaco.  
 Se riduci a 0, puoi spendere 1 punto per ridirigere l’attacco: bersaglio entro 1,5 m (mischia) o entro 18 m senza copertura totale (distanza) deve superare un TS Destrezza o subire 2dadi arti marziali + Destrezza danni.
 
 #### 3° livello: Sottoclasse del Monaco
@@ -1406,7 +1406,7 @@ Sempre preparati:
 
 #### 3° livello: Arma sacra
 
-Con Canale Divinità, incanti un’arma da mischia: +Carisma ai tiri per colpire (min. +1) e danni radianti. Luce brillante 6 m, luce fioca altri 6 m.
+Con Canale Divinità, incanti un’arma da mischia: +Carisma ai tiri per colpire (min. +1) e danni Radianti. Luce brillante 6 m, luce fioca altri 6 m.
 
 #### 7° livello: Aura di devozione
 
@@ -1421,7 +1421,7 @@ Quando lanci *Punizione divina*, tu e alleati nell’aura guadagnate Mezza coper
 Azione bonus: potenzi l’Aura di protezione per 10 minuti. Una volta per Riposo lungo, o spendendo slot di 5°.  
 
 - **Difesa sacra.** Vantaggio ai TS contro Immondi e Non morti.  
-- **Danni radianti.** Nemici che iniziano il turno nell’aura subiscono danni radianti = Carisma + Bonus competenza.  
+- **Danni radianti.** Nemici che iniziano il turno nell’aura subiscono danni Radianti = Carisma + Bonus competenza.  
 - **Luce solare.** L’aura emette luce solare brillante.
 
 ## Ranger
@@ -2555,7 +2555,7 @@ Quando lanci *Trova Famiglio*, infondi il famiglio evocato con parte del tuo pot
 
 - **Aereo o Acquatico.** Il famiglio ottiene una Velocità di Volo o di Nuoto (a tua scelta) di 12 metri.  
 - **Attacco Rapido.** Come Azione Bonus, puoi ordinare al famiglio di usare l’Azione Attacco.  
-- **Danni Necrotici o Radianti.** Ogni volta che il famiglio infligge danni contundenti, perforanti o taglienti, puoi far sì che infligga invece danni Necrotici o Radianti.  
+- **Danni Necrotici o Radianti.** Ogni volta che il famiglio infligge danni Contundenti, perforanti o taglienti, puoi far sì che infligga invece danni Necrotici o Radianti.  
 - **CD Incantesimi.** Se il famiglio forza una creatura a effettuare un tiro salvezza, usa la tua CD degli incantesimi.  
 - **Resistenza.** Quando il famiglio subisce danni, puoi usare la tua Reazione per concedergli Resistenza a quel danno.
 
@@ -3401,6 +3401,6 @@ Ogni volta che lanci un incantesimo da Mago della scuola di Evocazione, puoi agg
 
 Puoi aumentare la potenza dei tuoi incantesimi. Quando lanci un incantesimo da Mago di livello 1–5 che infligge danni, puoi far sì che infligga il massimo dei danni nel turno in cui lo lanci.
 
-La prima volta che lo fai non subisci conseguenze. Se usi nuovamente questo privilegio prima di terminare un Riposo Lungo, subisci 2d12 danni necrotici per ogni livello dello slot incantesimo immediatamente dopo averlo lanciato. Questi danni ignorano Resistenza e Immunità.
+La prima volta che lo fai non subisci conseguenze. Se usi nuovamente questo privilegio prima di terminare un Riposo Lungo, subisci 2d12 danni Necrotici per ogni livello dello slot incantesimo immediatamente dopo averlo lanciato. Questi danni ignorano Resistenza e Immunità.
 
-Ogni volta che usi nuovamente questo privilegio prima di terminare un Riposo Lungo, i danni necrotici per livello di incantesimo aumentano di 1d12.
+Ogni volta che usi nuovamente questo privilegio prima di terminare un Riposo Lungo, i danni Necrotici per livello di incantesimo aumentano di 1d12.

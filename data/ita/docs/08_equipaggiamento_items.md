@@ -33,13 +33,13 @@ Munizioni per armi che usano aghi. Confezione da 50. Conservati in una sacca.
 
 ## Acido (25 mo)
 
-Azione Attacco → sostituisci un attacco lanciando una fiala entro 6 m. TS Des (CD 8 + mod Des + bonus competenza) fallito → 2d6 danni da acido.
+Azione Attacco → sostituisci un attacco lanciando una fiala entro 6 m. TS Des (CD 8 + mod Des + bonus competenza) fallito → 2d6 danni da Acido.
 
 **Peso:** 0,5 kg
 
 ## Fuoco dell’Alchimista (50 mo)
 
-Azione Attacco → sostituisci un attacco lanciando una fiasca entro 6 m. TS Des fallito → 1d4 danni da fuoco e condizione Ardente (vedi Glossario).
+Azione Attacco → sostituisci un attacco lanciando una fiasca entro 6 m. TS Des fallito → 1d4 danni da Fuoco e condizione Ardente (vedi Glossario).
 
 **Peso:** 0,5 kg
 
@@ -123,7 +123,7 @@ Contiene: Zaino, Sfere, Campanella, 10 Candele, Piede di porco, Lanterna scherma
 
 ## Triboli (1 mo)
 
-Azione Utilizzare: spargi in 0,9 m² entro 1,5 m. TS Des CD 15 fallito → 1 danno perforante e velocità 0. Recupero: 10 min.
+Azione Utilizzare: spargi in 0,9 m² entro 1,5 m. TS Des CD 15 fallito → 1 danno Perforante e velocità 0. Recupero: 10 min.
 
 **Peso:** 0,9 kg
 
@@ -283,13 +283,13 @@ Come sopra. Va tenuto in mano.
 
 ## Acqua Santa (25 mo)
 
-Azione Attacco: lancia una fiasca entro 6 m. TS Des fallito → 2d8 danni radianti (solo a Demoni o Non Morti).
+Azione Attacco: lancia una fiasca entro 6 m. TS Des fallito → 2d8 danni Radianti (solo a Demoni o Non Morti).
 
 **Peso:** 0,5 kg
 
 ## Trappola da caccia (5 mo)
 
-Azione Utilizzare: posiziona trappola a scatto. TS Des CD 13 fallito → 1d4 danni perforanti + velocità 0. Legata a catena (1 m). Si libera con prova Forza CD 13.
+Azione Utilizzare: posiziona trappola a scatto. TS Des CD 13 fallito → 1d4 danni Perforanti + velocità 0. Legata a catena (1 m). Si libera con prova Forza CD 13.
 
 **Peso:** 11 kg
 
@@ -372,7 +372,7 @@ Azione Attacco: lancia entro 4,5 m. TS Des fallito → Immobilizzato. Esca con F
 ## Olio (1 ma)
 
 Può essere versato o usato come combustibile.  
-- **Creatura/Oggetto:** TS Des fallito → coperto d’olio, subisce +5 danni da fuoco se incendiato entro 1 min.  
+- **Creatura/Oggetto:** TS Des fallito → coperto d’olio, subisce +5 danni da Fuoco se incendiato entro 1 min.  
 - **A terra:** copre 0,9 m², resta 12 s se incendiato.  
 - **Combustibile:** 1 fiasca brucia 6 h in lampada/lanterna.
 
@@ -394,7 +394,7 @@ Fiala 120 ml. Per 1 h dal suo uso → vantaggio a prove Car/Persuasione per infl
 
 ## Veleno Base (100 mo)
 
-Azione Bonus: unga un’arma o 3 munizioni. Entro 1 min, al primo colpo infliggono +1d4 danni da veleno.
+Azione Bonus: unga un’arma o 3 munizioni. Entro 1 min, al primo colpo infliggono +1d4 danni da Veleno.
 
 ## Palo (5 mr)
 
@@ -522,7 +522,7 @@ Contenitore con pietra focaia, acciaio, esca. Accende candele/lanterne/torce con
 
 ## Torcia (1 mr)
 
-Brucia 1 h. Luce intensa 6 m, fioca altri 6 m. Può essere usata come arma (1 danno da fuoco).
+Brucia 1 h. Luce intensa 6 m, fioca altri 6 m. Può essere usata come arma (1 danno da Fuoco).
 
 **Peso:** 0,5 kg
 
