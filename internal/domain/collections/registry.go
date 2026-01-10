@@ -78,6 +78,24 @@ func GetAllCollections() []CollectionName {
 	return collections
 }
 
+// GetAllCollectionNames returns collection names as strings.
+// This is useful for middleware, repositories, and other components that work with string collection names.
+func GetAllCollectionNames() []string {
+	names := make([]string, 0, len(Registry))
+	for name := range Registry {
+		names = append(names, name.String())
+	}
+	return names
+}
+
+// FromString converts a string to CollectionName if it's valid.
+// Returns the CollectionName and a boolean indicating if the conversion was successful.
+func FromString(name string) (CollectionName, bool) {
+	cn := CollectionName(name)
+	_, exists := Registry[cn]
+	return cn, exists
+}
+
 func GetAllWithInfo() map[CollectionName]CollectionInfo {
 	return Registry
 }
