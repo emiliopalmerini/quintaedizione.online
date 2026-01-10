@@ -7,7 +7,6 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/filters"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
 	domainFilters "github.com/emiliopalmerini/quintaedizione.online/internal/domain/filters"
-	"go.mongodb.org/mongo-driver/bson"
 )
 
 type FilterService struct {
@@ -100,9 +99,9 @@ func (s *FilterService) ValidateFilterSet(filterSet *domainFilters.FilterSet) er
 	return nil
 }
 
-func (s *FilterService) BuildMongoFilter(filterSet *domainFilters.FilterSet) (bson.M, error) {
+func (s *FilterService) BuildMongoFilter(filterSet *domainFilters.FilterSet) (map[string]any, error) {
 	if filterSet == nil {
-		return bson.M{}, nil
+		return map[string]any{}, nil
 	}
 
 	if err := s.ValidateFilterSet(filterSet); err != nil {
@@ -120,12 +119,12 @@ func (s *FilterService) GetAvailableFilters(collection collections.CollectionNam
 	return s.registry.GetFiltersForCollection(collection)
 }
 
-func (s *FilterService) BuildSearchFilter(collection collections.CollectionName, searchTerm string) bson.M {
+func (s *FilterService) BuildSearchFilter(collection collections.CollectionName, searchTerm string) map[string]any {
 	return s.mongoBuilder.BuildSearchFilter(collection, searchTerm)
 }
 
-func (s *FilterService) CombineFilters(fieldFilter, searchFilter bson.M) bson.M {
-	var conditions []bson.M
+func (s *FilterService) CombineFilters(fieldFilter, searchFilter map[string]any) map[string]any {
+	var conditions []map[string]any
 
 	if len(fieldFilter) > 0 {
 		conditions = append(conditions, fieldFilter)
@@ -136,11 +135,11 @@ func (s *FilterService) CombineFilters(fieldFilter, searchFilter bson.M) bson.M 
 	}
 
 	if len(conditions) == 0 {
-		return bson.M{}
+		return map[string]any{}
 	} else if len(conditions) == 1 {
 		return conditions[0]
 	} else {
-		return bson.M{"$and": conditions}
+		return map[string]any{"$and": conditions}
 	}
 }
 

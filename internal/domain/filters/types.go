@@ -1,8 +1,6 @@
 package filters
 
 import (
-	"go.mongodb.org/mongo-driver/bson"
-
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
 )
 
@@ -55,11 +53,11 @@ type FilterRepository interface {
 type FilterService interface {
 	ParseFilters(collection collections.CollectionName, queryParams map[string]string) (*FilterSet, error)
 	ValidateFilterSet(filterSet *FilterSet) error
-	BuildMongoFilter(filterSet *FilterSet) (bson.M, error)
+	BuildMongoFilter(filterSet *FilterSet) (map[string]any, error)
 	GetAvailableFilters(collection collections.CollectionName) ([]FilterDefinition, error)
 
-	BuildSearchFilter(collection collections.CollectionName, searchTerm string) bson.M
-	CombineFilters(fieldFilter, searchFilter bson.M) bson.M
+	BuildSearchFilter(collection collections.CollectionName, searchTerm string) map[string]any
+	CombineFilters(fieldFilter, searchFilter map[string]any) map[string]any
 }
 
 func NewFilterSet(collection collections.CollectionName) *FilterSet {

@@ -4,7 +4,6 @@ import (
 	"testing"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
-	"go.mongodb.org/mongo-driver/bson"
 )
 
 func TestBuildSearchFilter(t *testing.T) {
@@ -63,9 +62,9 @@ func TestBuildSearchFilter(t *testing.T) {
 			}
 
 			if tt.shouldHaveText {
-				textSearch, ok := textOp.(bson.M)
+				textSearch, ok := textOp.(map[string]any)
 				if !ok {
-					t.Errorf("$text value is not a bson.M: %T", textOp)
+					t.Errorf("$text value is not a map[string]any: %T", textOp)
 					return
 				}
 
@@ -109,9 +108,9 @@ func TestBuildSearchFilter_Collections(t *testing.T) {
 				return
 			}
 
-			textSearch, ok := textOp.(bson.M)
+			textSearch, ok := textOp.(map[string]any)
 			if !ok {
-				t.Errorf("collection %s: $text is not a bson.M: %T", col, textOp)
+				t.Errorf("collection %s: $text is not a map[string]any: %T", col, textOp)
 				return
 			}
 
@@ -158,7 +157,7 @@ func TestBuildSearchFilter_SpecialCharacters(t *testing.T) {
 				t.Errorf("$text operator not found")
 			}
 
-			textSearch := result["$text"].(bson.M)
+			textSearch := result["$text"].(map[string]any)
 			if search, ok := textSearch["$search"]; ok && search != tt.searchTerm {
 				t.Errorf("search term mismatch: got %v, want %v", search, tt.searchTerm)
 			}
