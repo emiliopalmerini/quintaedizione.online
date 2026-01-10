@@ -8,7 +8,6 @@ import (
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/filters"
-	"go.mongodb.org/mongo-driver/bson"
 )
 
 type MongoFilterBuilder struct{}
@@ -17,12 +16,12 @@ func NewMongoFilterBuilder() *MongoFilterBuilder {
 	return &MongoFilterBuilder{}
 }
 
-func (b *MongoFilterBuilder) BuildFilter(filterSet *filters.FilterSet) (bson.M, error) {
+func (b *MongoFilterBuilder) BuildFilter(filterSet *filters.FilterSet) (map[string]any, error) {
 	if !filterSet.HasFilters() {
-		return bson.M{}, nil
+		return map[string]any{}, nil
 	}
 
-	var conditions []bson.M
+	var conditions []map[string]any
 
 	for _, filterValue := range filterSet.Filters {
 		condition, err := b.buildSingleFilter(filterValue)
@@ -36,20 +35,20 @@ func (b *MongoFilterBuilder) BuildFilter(filterSet *filters.FilterSet) (bson.M, 
 	}
 
 	if len(conditions) == 0 {
-		return bson.M{}, nil
+		return map[string]any{}, nil
 	} else if len(conditions) == 1 {
 		return conditions[0], nil
 	} else {
-		return bson.M{"$and": conditions}, nil
+		return map[string]any{"$and": conditions}, nil
 	}
 }
 
-func (b *MongoFilterBuilder) buildSingleFilter(filterValue filters.FilterValue) (bson.M, error) {
+func (b *MongoFilterBuilder) buildSingleFilter(filterValue filters.FilterValue) (map[string]any, error) {
 	def := filterValue.Definition
 	value := filterValue.Value
 
 	if value == "" {
-		return bson.M{}, nil
+		return map[string]any{}, nil
 	}
 
 	switch def.Operator {
@@ -66,38 +65,38 @@ func (b *MongoFilterBuilder) buildSingleFilter(filterValue filters.FilterValue) 
 	}
 }
 
-func (b *MongoFilterBuilder) buildExactMatch(fieldPath, value string, dataType filters.FilterDataType) (bson.M, error) {
+func (b *MongoFilterBuilder) buildExactMatch(fieldPath, value string, dataType filters.FilterDataType) (map[string]any, error) {
 	switch dataType {
 	case filters.StringFilter, filters.EnumFilter:
-		return bson.M{fieldPath: value}, nil
+		return map[string]any{fieldPath: value}, nil
 	case filters.NumberFilter:
 		numValue, err := strconv.ParseFloat(value, 64)
 		if err != nil {
 			return nil, fmt.Errorf("invalid number value: %s", value)
 		}
-		return bson.M{fieldPath: numValue}, nil
+		return map[string]any{fieldPath: numValue}, nil
 	case filters.BooleanFilter:
 		boolValue, err := strconv.ParseBool(value)
 		if err != nil {
 			return nil, fmt.Errorf("invalid boolean value: %s", value)
 		}
-		return bson.M{fieldPath: boolValue}, nil
+		return map[string]any{fieldPath: boolValue}, nil
 	default:
 		return nil, fmt.Errorf("unsupported data type for exact match: %d", dataType)
 	}
 }
 
-func (b *MongoFilterBuilder) buildRegexMatch(fieldPath, value string) (bson.M, error) {
+func (b *MongoFilterBuilder) buildRegexMatch(fieldPath, value string) (map[string]any, error) {
 	escapedValue := regexp.QuoteMeta(value)
-	return bson.M{
-		fieldPath: bson.M{
+	return map[string]any{
+		fieldPath: map[string]any{
 			"$regex":   escapedValue,
 			"$options": "i",
 		},
 	}, nil
 }
 
-func (b *MongoFilterBuilder) buildRangeMatch(fieldPath, value string, dataType filters.FilterDataType) (bson.M, error) {
+func (b *MongoFilterBuilder) buildRangeMatch(fieldPath, value string, dataType filters.FilterDataType) (map[string]any, error) {
 	if dataType != filters.NumberFilter {
 		return nil, fmt.Errorf("range match only supported for number filters")
 	}
@@ -109,7 +108,7 @@ func (b *MongoFilterBuilder) buildRangeMatch(fieldPath, value string, dataType f
 		if err != nil {
 			return nil, fmt.Errorf("invalid range value: %s", value)
 		}
-		return bson.M{fieldPath: bson.M{"$gte": numValue}}, nil
+		return map[string]any{fieldPath: map[string]any{"$gte": numValue}}, nil
 	}
 
 	if strings.HasPrefix(value, "<=") {
@@ -117,7 +116,7 @@ func (b *MongoFilterBuilder) buildRangeMatch(fieldPath, value string, dataType f
 		if err != nil {
 			return nil, fmt.Errorf("invalid range value: %s", value)
 		}
-		return bson.M{fieldPath: bson.M{"$lte": numValue}}, nil
+		return map[string]any{fieldPath: map[string]any{"$lte": numValue}}, nil
 	}
 
 	if strings.HasPrefix(value, ">") {
@@ -125,7 +124,7 @@ func (b *MongoFilterBuilder) buildRangeMatch(fieldPath, value string, dataType f
 		if err != nil {
 			return nil, fmt.Errorf("invalid range value: %s", value)
 		}
-		return bson.M{fieldPath: bson.M{"$gt": numValue}}, nil
+		return map[string]any{fieldPath: map[string]any{"$gt": numValue}}, nil
 	}
 
 	if strings.HasPrefix(value, "<") {
@@ -133,7 +132,7 @@ func (b *MongoFilterBuilder) buildRangeMatch(fieldPath, value string, dataType f
 		if err != nil {
 			return nil, fmt.Errorf("invalid range value: %s", value)
 		}
-		return bson.M{fieldPath: bson.M{"$lt": numValue}}, nil
+		return map[string]any{fieldPath: map[string]any{"$lt": numValue}}, nil
 	}
 
 	if strings.Contains(value, "-") {
@@ -152,8 +151,8 @@ func (b *MongoFilterBuilder) buildRangeMatch(fieldPath, value string, dataType f
 			return nil, fmt.Errorf("invalid range max value: %s", parts[1])
 		}
 
-		return bson.M{
-			fieldPath: bson.M{
+		return map[string]any{
+			fieldPath: map[string]any{
 				"$gte": minValue,
 				"$lte": maxValue,
 			},
@@ -164,10 +163,10 @@ func (b *MongoFilterBuilder) buildRangeMatch(fieldPath, value string, dataType f
 	if err != nil {
 		return nil, fmt.Errorf("invalid number value: %s", value)
 	}
-	return bson.M{fieldPath: numValue}, nil
+	return map[string]any{fieldPath: numValue}, nil
 }
 
-func (b *MongoFilterBuilder) buildInMatch(fieldPath, value string) (bson.M, error) {
+func (b *MongoFilterBuilder) buildInMatch(fieldPath, value string) (map[string]any, error) {
 
 	values := strings.Split(value, ",")
 	trimmedValues := make([]string, 0, len(values))
@@ -179,32 +178,32 @@ func (b *MongoFilterBuilder) buildInMatch(fieldPath, value string) (bson.M, erro
 	}
 
 	if len(trimmedValues) == 0 {
-		return bson.M{}, nil
+		return map[string]any{}, nil
 	}
 
 	if len(trimmedValues) == 1 {
 
-		return bson.M{fieldPath: trimmedValues[0]}, nil
+		return map[string]any{fieldPath: trimmedValues[0]}, nil
 	}
 
-	return bson.M{fieldPath: bson.M{"$in": trimmedValues}}, nil
+	return map[string]any{fieldPath: map[string]any{"$in": trimmedValues}}, nil
 }
 
-func (b *MongoFilterBuilder) BuildSearchFilter(collection collections.CollectionName, searchTerm string) bson.M {
+func (b *MongoFilterBuilder) BuildSearchFilter(collection collections.CollectionName, searchTerm string) map[string]any {
 	if searchTerm == "" {
-		return bson.M{}
+		return map[string]any{}
 	}
 
 	// Validate and sanitize the search term
 	if !isValidSearchTerm(searchTerm) {
 		// Return empty filter on invalid input instead of proceeding
-		return bson.M{}
+		return map[string]any{}
 	}
 
 	sanitized := sanitizeSearchTerm(searchTerm)
 
-	return bson.M{
-		"$text": bson.M{
+	return map[string]any{
+		"$text": map[string]any{
 			"$search": sanitized,
 		},
 	}
