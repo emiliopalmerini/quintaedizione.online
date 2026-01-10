@@ -10,8 +10,8 @@
 - **Velocità:** 18 m
 - **Iniziativa**: +1 (11)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 13 | +1 | +1 |
 | COS | 17 | +3 | +3 |
@@ -38,8 +38,8 @@
 - **Velocità:** 9 m
 - **Iniziativa**: +0 (10)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 19 | +4 | +6 |
 | DES | 11 | +0 | +0 |
 | COS | 15 | +2 | +2 |
@@ -65,8 +65,8 @@
 - **Velocità:** 9 m, Scalare 9 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 14 | +2 | +2 |
 | COS | 14 | +2 | +2 |
@@ -95,8 +95,8 @@
 - **Velocità:** 6 m, Nuoto 24 m
 - **Iniziativa**: +3 (13)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 16 | +3 | +3 |
 | COS | 13 | +1 | +1 |
@@ -127,8 +127,8 @@
 - **Velocità:** 9 m, Scalare 9 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 8 | -1 | -1 |
 | DES | 14 | +2 | +2 |
 | COS | 11 | +0 | +0 |
@@ -156,8 +156,8 @@
 - **Velocità:** 1,5 m, Volo 9 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 2 | -4 | -4 |
 | DES | 15 | +2 | +2 |
 | COS | 8 | -1 | -1 |
@@ -165,7 +165,7 @@
 | SAG | 12 | +1 | +1 |
 | CAR | 4 | -3 | -3 |
 
-- **Sensi**: Sensi Ciechi 18 m; Percezione Passiva 11
+- **Sensi**: Vista cieca 18 m; Percezione Passiva 11
 - **GS** 0 (PE 0 or 10; PB +2)
 
 ### Azioni
@@ -181,8 +181,8 @@
 - **Velocità:** 9 m, Scalare 9 m, Nuoto 9 m
 - **Iniziativa**: +1 (11)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 12 | +1 | +1 |
 | COS | 14 | +2 | +2 |
@@ -209,8 +209,8 @@
 - **Velocità:** 6 m, Scavare 1,5 m
 - **Iniziativa**: +0 (10)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 10 | +0 | +0 |
 | DES | 11 | +0 | +0 |
 | COS | 16 | +3 | +3 |
@@ -236,8 +236,8 @@
 - **Velocità:** 3 m, Volo 18 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 6 | -2 | -2 |
 | DES | 14 | +2 | +2 |
 | COS | 10 | +0 | +0 |
@@ -266,8 +266,8 @@
 - **Velocità:** 12 m
 - **Iniziativa**: +0 (10)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 13 | +1 | +1 |
 | DES | 11 | +0 | +0 |
 | COS | 14 | +2 | +2 |
@@ -295,8 +295,8 @@
 - **Velocità:** 12 m, Scalare 9 m
 - **Iniziativa**: +1 (11)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 12 | +1 | +1 |
 | COS | 15 | +2 | +2 |
@@ -325,8 +325,8 @@
 - **Velocità:** 15 m
 - **Iniziativa**: -1 (9)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 8 | -1 | -1 |
 | COS | 17 | +3 | +5 |
@@ -350,8 +350,8 @@
 - **Velocità:** 12 m, Scalare 12 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 3 | -4 | -4 |
 | DES | 15 | +2 | +4 |
 | COS | 10 | +0 | +0 |
@@ -380,8 +380,8 @@
 - **Velocità:** 9 m, Nuoto 9 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 14 | +2 | +2 |
 | COS | 12 | +1 | +1 |
@@ -390,7 +390,7 @@
 | CAR | 3 | -4 | -4 |
 
 - **Abilità**: Percezione +2, Furtività +4
-- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 12
+- **Sensi**: Vista cieca 3 m; Percezione Passiva 12
 - **GS** 1/4 (PE 50; PB +2)
 
 ### Azioni
@@ -408,8 +408,8 @@
 - **Velocità:** 6 m, Nuoto 6 m
 - **Iniziativa**: +0 (10)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 6 | -2 | -2 |
 | DES | 11 | +0 | +0 |
 | COS | 12 | +1 | +1 |
@@ -418,7 +418,7 @@
 | CAR | 2 | -4 | -4 |
 
 - **Abilità**: Furtività +2
-- **Sensi**: Sensi Ciechi 9 m; Percezione Passiva 9
+- **Sensi**: Vista cieca 9 m; Percezione Passiva 9
 - **GS** 0 (PE 0 or 10; PB +2)
 
 ### Tratti
@@ -438,8 +438,8 @@
 - **Velocità:** 6 m, Nuoto 9 m
 - **Iniziativa**: +0 (10)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 10 | +0 | +0 |
 | COS | 13 | +1 | +3 |
@@ -468,8 +468,8 @@
 - **Velocità:** 15 m
 - **Iniziativa**: +3 (13)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 11 | +0 | +0 |
 | DES | 16 | +3 | +3 |
 | COS | 11 | +0 | +0 |
@@ -498,8 +498,8 @@
 - **Velocità:** 15 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 15 | +2 | +2 |
 | COS | 15 | +2 | +2 |
@@ -528,8 +528,8 @@
 - **Velocità:** 12 m
 - **Iniziativa**: +0 (10)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 10 | +0 | +0 |
 | COS | 15 | +2 | +2 |
@@ -553,8 +553,8 @@
 - **Velocità:** 3 m, Volo 18 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 6 | -2 | -2 |
 | DES | 15 | +2 | +2 |
 | COS | 12 | +1 | +1 |
@@ -579,8 +579,8 @@
 - **Velocità:** 12 m
 - **Iniziativa**: -1 (9)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 22 | +6 | +6 |
 | DES | 9 | -1 | -1 |
 | COS | 17 | +3 | +3 |
@@ -610,8 +610,8 @@
 - **Velocità:** 15 m
 - **Iniziativa**: +0 (10)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 10 | +0 | +0 |
 | COS | 11 | +0 | +0 |
@@ -636,8 +636,8 @@
 - **Velocità:** 9 m, Volo 18 m, Nuoto 9 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 4 | -3 | -3 |
 | DES | 15 | +2 | +2 |
 | COS | 11 | +0 | +0 |
@@ -645,7 +645,7 @@
 | SAG | 12 | +1 | +1 |
 | CAR | 5 | -3 | -3 |
 
-- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 11
+- **Sensi**: Vista cieca 3 m; Percezione Passiva 11
 - **GS** 1/8 (PE 25; PB +2)
 
 ### Tratti
@@ -665,8 +665,8 @@
 - **Velocità:** 6 m, Nuoto 6 m
 - **Iniziativa**: +1 (11)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 1 | -5 | -5 |
 | DES | 13 | +1 | +1 |
 | COS | 8 | -1 | -1 |
@@ -697,8 +697,8 @@
 - **Velocità:** 12 m, Scalare 12 m
 - **Iniziativa**: +5 (15)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 23 | +6 | +6 |
 | DES | 14 | +2 | +2 |
 | COS | 18 | +4 | +4 |
@@ -731,8 +731,8 @@
 - **Velocità:** 9 m, Scavare 3 m
 - **Iniziativa**: +0 (10)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 13 | +1 | +1 |
 | DES | 10 | +0 | +0 |
 | COS | 17 | +3 | +3 |
@@ -758,8 +758,8 @@
 - **Velocità:** 3 m, Volo 18 m
 - **Iniziativa**: +3 (13)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 16 | +3 | +3 |
 | COS | 11 | +0 | +0 |
@@ -767,7 +767,7 @@
 | SAG | 12 | +1 | +1 |
 | CAR | 6 | -2 | -2 |
 
-- **Sensi**: Sensi Ciechi 36 m; Percezione Passiva 11
+- **Sensi**: Vista cieca 36 m; Percezione Passiva 11
 - **GS** 1/4 (PE 50; PB +2)
 
 ### Azioni
@@ -783,8 +783,8 @@
 - **Velocità:** 12 m
 - **Iniziativa**: +0 (10)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 17 | +3 | +5 |
 | DES | 10 | +0 | +0 |
 | COS | 16 | +3 | +3 |
@@ -812,8 +812,8 @@
 - **Velocità:** 9 m, Scalare 9 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 5 | -3 | -3 |
 | DES | 14 | +2 | +2 |
 | COS | 12 | +1 | +1 |
@@ -821,7 +821,7 @@
 | SAG | 7 | -2 | -2 |
 | CAR | 3 | -4 | -4 |
 
-- **Sensi**: Sensi Ciechi 9 m; Percezione Passiva 8
+- **Sensi**: Vista cieca 9 m; Percezione Passiva 8
 - **GS** 1/4 (PE 50; PB +2)
 
 ### Azioni
@@ -837,8 +837,8 @@
 - **Velocità:** 9 m, Nuoto 9 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 14 | +2 | +2 |
 | COS | 12 | +1 | +1 |
@@ -847,7 +847,7 @@
 | CAR | 3 | -4 | -4 |
 
 - **Abilità**: Percezione +2
-- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 12
+- **Sensi**: Vista cieca 3 m; Percezione Passiva 12
 - **GS** 2 (PE 450; PB +2)
 
 ### Azioni
@@ -867,8 +867,8 @@
 - **Velocità:** 9 m, Nuoto 9 m
 - **Iniziativa**: +1 (11)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 13 | +1 | +1 |
 | DES | 13 | +1 | +1 |
 | COS | 11 | +0 | +0 |
@@ -877,7 +877,7 @@
 | CAR | 3 | -4 | -4 |
 
 - **Abilità**: Furtività +3
-- **Sensi**: Sensi Ciechi 9 m; Percezione Passiva 9
+- **Sensi**: Vista cieca 9 m; Percezione Passiva 9
 - **GS** 1/8 (PE 25; PB +2)
 
 ### Tratti
@@ -897,8 +897,8 @@
 - **Velocità:** 9 m, Nuoto 15 m
 - **Iniziativa**: -1 (9)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 21 | +5 | +5 |
 | DES | 9 | -1 | -1 |
 | COS | 17 | +3 | +3 |
@@ -931,8 +931,8 @@
 - **Velocità:** 3 m, Volo 24 m
 - **Iniziativa**: +3 (13)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 17 | +3 | +3 |
 | COS | 13 | +1 | +1 |
@@ -950,7 +950,7 @@
 
 ***Attacco Multiplo.*** L'aquila effettua due attacchi con Lacerare.
 
-***Rend.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 5 (1d4 + 3) danni Taglienti plus 3 (1d6) danni Radiantei.
+***Rend.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 5 (1d4 + 3) danni Taglienti plus 3 (1d6) danni Radianti.
 
 ## Alce Gigante
 
@@ -961,8 +961,8 @@
 - **Velocità:** 18 m
 - **Iniziativa**: +6 (16)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 19 | +4 | +6 |
 | DES | 18 | +4 | +6 |
 | COS | 14 | +2 | +2 |
@@ -978,7 +978,7 @@
 
 ### Azioni
 
-***Speronata.*** *Tiro per colpire in mischia:* +6, portata 3 m. 11 (2d6 + 4) danni Contundenti più 5 (2d4) danni Radiantei. Se il bersaglio è una creatura Enorme o più piccola e l'alce si è mosso di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio subisce altri 5 (2d4) danni Contundenti e ha la condizione Prono.
+***Speronata.*** *Tiro per colpire in mischia:* +6, portata 3 m. 11 (2d6 + 4) danni Contundenti più 5 (2d4) danni Radianti. Se il bersaglio è una creatura Enorme o più piccola e l'alce si è mosso di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio subisce altri 5 (2d4) danni Contundenti e ha la condizione Prono.
 
 ## Scarabeo del Fuoco Gigante
 
@@ -989,8 +989,8 @@
 - **Velocità:** 9 m, Scalare 9 m
 - **Iniziativa**: +0 (10)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 8 | -1 | -1 |
 | DES | 10 | +0 | +0 |
 | COS | 12 | +1 | +1 |
@@ -999,7 +999,7 @@
 | CAR | 3 | -4 | -4 |
 
 - **Resistenze**: Fuoco
-- **Sensi**: Sensi Ciechi 9 m; Percezione Passiva 8
+- **Sensi**: Vista cieca 9 m; Percezione Passiva 8
 - **GS** 0 (PE 0 or 10; PB +2)
 
 ### Tratti
@@ -1019,8 +1019,8 @@
 - **Velocità:** 9 m, Nuoto 9 m
 - **Iniziativa**: +1 (11)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 12 | +1 | +1 |
 | DES | 13 | +1 | +1 |
 | COS | 11 | +0 | +0 |
@@ -1054,8 +1054,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 12 m, Scalare 9 m
 - **Iniziativa**: +1 (11)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 17 | +3 | +5 |
 | DES | 13 | +1 | +1 |
 | COS | 12 | +1 | +1 |
@@ -1080,8 +1080,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 15 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 14 | +2 | +2 |
 | COS | 14 | +2 | +2 |
@@ -1110,8 +1110,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 12 m, Scalare 12 m
 - **Iniziativa**: +1 (11)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 12 | +1 | +3 |
 | COS | 13 | +1 | +1 |
@@ -1139,8 +1139,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 3 m, Nuoto 18 m
 - **Iniziativa**: +1 (11)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 13 | +1 | +1 |
 | COS | 13 | +1 | +1 |
@@ -1169,8 +1169,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 1,5 m, Volo 18 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 13 | +1 | +1 |
 | DES | 15 | +2 | +2 |
 | COS | 12 | +1 | +1 |
@@ -1205,8 +1205,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 9 m, Scalare 9 m
 - **Iniziativa**: +3 (13)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 7 | -2 | -2 |
 | DES | 16 | +3 | +5 |
 | COS | 11 | +0 | +0 |
@@ -1235,8 +1235,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 12 m
 - **Iniziativa**: +1 (11)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 13 | +1 | +1 |
 | COS | 15 | +2 | +2 |
@@ -1244,7 +1244,7 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 | SAG | 9 | -1 | -1 |
 | CAR | 3 | -4 | -4 |
 
-- **Sensi**: Sensi Ciechi 18 m; Percezione Passiva 9
+- **Sensi**: Vista cieca 18 m; Percezione Passiva 9
 - **GS** 3 (PE 700; PB +2)
 
 ### Azioni
@@ -1264,8 +1264,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 1,5 m, Nuoto 12 m
 - **Iniziativa**: +1 (11)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 12 | +1 | +1 |
 | COS | 11 | +0 | +0 |
@@ -1297,8 +1297,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 1,5 m, Nuoto 18 m
 - **Iniziativa**: +3 (13)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 23 | +6 | +6 |
 | DES | 11 | +0 | +0 |
 | COS | 21 | +5 | +5 |
@@ -1307,7 +1307,7 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 | CAR | 5 | -3 | -3 |
 
 - **Abilità**: Percezione +3
-- **Sensi**: Sensi Ciechi 18 m; Percezione Passiva 13
+- **Sensi**: Vista cieca 18 m; Percezione Passiva 13
 - **GS** 5 (PE 1,800; PB +3)
 
 ### Tratti
@@ -1329,8 +1329,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 9 m, Scalare 9 m
 - **Iniziativa**: +3 (13)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 14 | +2 | +2 |
 | DES | 16 | +3 | +3 |
 | COS | 12 | +1 | +1 |
@@ -1363,8 +1363,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 9 m, Nuoto 9 m
 - **Iniziativa**: +1 (11)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 13 | +1 | +1 |
 | COS | 13 | +1 | +1 |
@@ -1396,8 +1396,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 12 m, Nuoto 12 m
 - **Iniziativa**: +4 (14)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 10 | +0 | +0 |
 | DES | 18 | +4 | +4 |
 | COS | 13 | +1 | +1 |
@@ -1406,7 +1406,7 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 | CAR | 3 | -4 | -4 |
 
 - **Abilità**: Percezione +2
-- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 12
+- **Sensi**: Vista cieca 3 m; Percezione Passiva 12
 - **GS** 1/4 (PE 50; PB +2)
 
 ### Azioni
@@ -1422,8 +1422,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 3 m, Volo 18 m
 - **Iniziativa**: +0 (10)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 10 | +0 | +0 |
 | COS | 16 | +3 | +3 |
@@ -1454,8 +1454,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 3 m, Volo 15 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 10 | +0 | +0 |
 | DES | 14 | +2 | +2 |
 | COS | 10 | +0 | +0 |
@@ -1483,8 +1483,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 12 m, Scalare 9 m
 - **Iniziativa**: +3 (13)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 11 | +0 | +0 |
 | DES | 17 | +3 | +3 |
 | COS | 10 | +0 | +0 |
@@ -1509,8 +1509,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 12 m, Scalare 12 m
 - **Iniziativa**: +3 (13)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 12 | +1 | +1 |
 | DES | 16 | +3 | +3 |
 | COS | 13 | +1 | +1 |
@@ -1519,7 +1519,7 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 | CAR | 4 | -3 | -3 |
 
 - **Abilità**: Percezione +3, Furtività +7
-- **Sensi**: Sensi Ciechi 3 m, Scurovisione 18 m; Percezione Passiva 13
+- **Sensi**: Vista cieca 3 m, Scurovisione 18 m; Percezione Passiva 13
 - **GS** 1/4 (PE 50; PB +2)
 
 ### Tratti
@@ -1539,8 +1539,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 12 m, Scalare 9 m
 - **Iniziativa**: +0 (10)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 11 | +0 | +2 |
 | DES | 10 | +0 | +0 |
 | COS | 11 | +0 | +0 |
@@ -1565,8 +1565,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 3 m, Volo 18 m
 - **Iniziativa**: +3 (13)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 5 | -3 | -3 |
 | DES | 16 | +3 | +3 |
 | COS | 8 | -1 | -1 |
@@ -1591,8 +1591,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 9 m, Nuoto 9 m
 - **Iniziativa**: -2 (8)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 21 | +5 | +7 |
 | DES | 7 | -2 | -2 |
 | COS | 15 | +2 | +2 |
@@ -1623,8 +1623,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 1,5 m, Nuoto 12 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 14 | +2 | +2 |
 | COS | 15 | +2 | +2 |
@@ -1633,7 +1633,7 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 | CAR | 4 | -3 | -3 |
 
 - **Abilità**: Percezione +2
-- **Sensi**: Sensi Ciechi 18 m; Percezione Passiva 12
+- **Sensi**: Vista cieca 18 m; Percezione Passiva 12
 - **GS** 2 (PE 450; PB +2)
 
 ### Tratti
@@ -1653,8 +1653,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 15 m
 - **Iniziativa**: +1 (11)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 11 | +0 | +0 |
 | DES | 13 | +1 | +1 |
 | COS | 12 | +1 | +1 |
@@ -1683,8 +1683,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 12 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 8 | -1 | -1 |
 | DES | 15 | +2 | +2 |
 | COS | 11 | +0 | +0 |
@@ -1709,8 +1709,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 1,5 m, Nuoto 18 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 14 | +2 | +2 |
 | COS | 13 | +1 | +1 |
@@ -1719,7 +1719,7 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 | CAR | 7 | -2 | -2 |
 
 - **Abilità**: Percezione +3, Furtività +4
-- **Sensi**: Sensi Ciechi 36 m; Percezione Passiva 13
+- **Sensi**: Vista cieca 36 m; Percezione Passiva 13
 - **GS** 3 (PE 700; PB +2)
 
 ### Tratti
@@ -1739,8 +1739,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 15 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 15 | +2 | +2 |
 | COS | 11 | +0 | +0 |
@@ -1775,8 +1775,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 6 m, Scalare 6 m
 - **Iniziativa**: +0 (10)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 2 | -4 | -4 |
 | DES | 11 | +0 | +0 |
 | COS | 10 | +0 | +0 |
@@ -1804,8 +1804,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 15 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 24 | +7 | +10 |
 | DES | 9 | -1 | -1 |
 | COS | 21 | +5 | +8 |
@@ -1835,8 +1835,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 12 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 13 | +1 | +1 |
 | DES | 14 | +2 | +2 |
 | COS | 12 | +1 | +1 |
@@ -1861,8 +1861,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 12 m
 - **Iniziativa**: +0 (10)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 14 | +2 | +4 |
 | DES | 10 | +0 | +0 |
 | COS | 13 | +1 | +1 |
@@ -1890,8 +1890,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 1,5 m, Volo 18 m
 - **Iniziativa**: +1 (11)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 3 | -4 | -4 |
 | DES | 13 | +1 | +1 |
 | COS | 8 | -1 | -1 |
@@ -1920,8 +1920,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 15 m, Scalare 12 m
 - **Iniziativa**: +3 (13)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 14 | +2 | +2 |
 | DES | 16 | +3 | +3 |
 | COS | 10 | +0 | +0 |
@@ -1950,8 +1950,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 1,5 m, Nuoto 12 m
 - **Iniziativa**: +3 (13)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 2 | -4 | -4 |
 | DES | 16 | +3 | +3 |
 | COS | 9 | -1 | -1 |
@@ -1979,8 +1979,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 6 m, Nuoto 12 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 15 | +2 | +2 |
 | COS | 16 | +3 | +3 |
@@ -2009,8 +2009,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 12 m, Nuoto 12 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 20 | +5 | +5 |
 | DES | 14 | +2 | +2 |
 | COS | 16 | +3 | +3 |
@@ -2038,8 +2038,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 12 m
 - **Iniziativa**: +0 (10)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 15 | +2 | +4 |
 | DES | 10 | +0 | +0 |
 | COS | 13 | +1 | +1 |
@@ -2063,8 +2063,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 3 m, Volo 18 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 12 | +1 | +1 |
 | DES | 15 | +2 | +2 |
 | COS | 10 | +0 | +0 |
@@ -2093,8 +2093,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 6 m, Scalare 6 m
 - **Iniziativa**: +0 (10)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 2 | -4 | -4 |
 | DES | 11 | +0 | +0 |
 | COS | 9 | -1 | -1 |
@@ -2123,8 +2123,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 3 m, Volo 15 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 2 | -4 | -4 |
 | DES | 14 | +2 | +2 |
 | COS | 10 | +0 | +0 |
@@ -2153,8 +2153,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 1,5 m, Nuoto 9 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 14 | +2 | +2 |
 | DES | 15 | +2 | +2 |
 | COS | 13 | +1 | +1 |
@@ -2163,7 +2163,7 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 | CAR | 4 | -3 | -3 |
 
 - **Abilità**: Percezione +2
-- **Sensi**: Sensi Ciechi 9 m; Percezione Passiva 12
+- **Sensi**: Vista cieca 9 m; Percezione Passiva 12
 - **GS** 1/2 (PE 100; PB +2)
 
 ### Tratti
@@ -2185,8 +2185,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 12 m
 - **Iniziativa**: -1 (9)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 21 | +5 | +5 |
 | DES | 8 | -1 | -1 |
 | COS | 15 | +2 | +2 |
@@ -2210,8 +2210,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 18 m
 - **Iniziativa**: +1 (11)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 13 | +1 | +1 |
 | COS | 12 | +1 | +1 |
@@ -2235,8 +2235,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 12 m
 - **Iniziativa**: +3 (13)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 18 | +4 | +6 |
 | DES | 17 | +3 | +5 |
 | COS | 15 | +2 | +2 |
@@ -2271,8 +2271,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 3 m
 - **Iniziativa**: +0 (10)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 2 | -4 | -4 |
 | DES | 11 | +0 | +0 |
 | COS | 8 | -1 | -1 |
@@ -2280,7 +2280,7 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 | SAG | 8 | -1 | -1 |
 | CAR | 2 | -4 | -4 |
 
-- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 9
+- **Sensi**: Vista cieca 3 m; Percezione Passiva 9
 - **GS** 0 (PE 0 or 10; PB +2)
 
 ### Azioni
@@ -2296,8 +2296,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 1,5 m, Nuoto 6 m
 - **Iniziativa**: +1 (11)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 1 | -5 | -5 |
 | DES | 12 | +1 | +1 |
 | COS | 8 | -1 | -1 |
@@ -2326,8 +2326,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 6 m, Scalare 6 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 2 | -4 | -4 |
 | DES | 14 | +2 | +2 |
 | COS | 8 | -1 | -1 |
@@ -2358,8 +2358,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 1,5 m, Volo 9 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 5 | -3 | -3 |
 | DES | 15 | +2 | +2 |
 | COS | 10 | +0 | +0 |
@@ -2369,7 +2369,7 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 - **Resistenze**: Contundenti, Perforanti, Taglienti
 - **Immunità**: Affascinato, Spaventato, Afferrato, Paralizzato, Pietrificato, Prono, Immobilizzato, Stordito
-- **Sensi**: Sensi Ciechi 18 m; Percezione Passiva 11
+- **Sensi**: Vista cieca 18 m; Percezione Passiva 11
 - **GS** 1/4 (PE 50; PB +2)
 
 ### Tratti
@@ -2389,8 +2389,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 6 m, Scegli ? m
 - **Iniziativa**: +1 (11)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 3 | -4 | -4 |
 | DES | 13 | +1 | +1 |
 | COS | 14 | +2 | +2 |
@@ -2400,7 +2400,7 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 - **Resistenze**: Contundente, Perforante, Tagliente
 - **Immunità**: Affascinato, Spaventato, Afferrato, Paralizzato, Pietrificato, Prono, Immobilizzato, Stordito
-- **Sensi**: Sensi Ciechi 9 m; Percezione Passiva 8
+- **Sensi**: Vista cieca 9 m; Percezione Passiva 8
 - **GS** 1/2 (PE 100; PB +2)
 
 ### Tratti
@@ -2422,8 +2422,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 1,5 m, Nuoto 12 m
 - **Iniziativa**: +3 (13)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 13 | +1 | +1 |
 | DES | 16 | +3 | +3 |
 | COS | 9 | -1 | -1 |
@@ -2455,8 +2455,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 9 m, Scalare 9 m
 - **Iniziativa**: +0 (10)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 9 | -1 | -1 |
 | DES | 11 | +0 | +0 |
 | COS | 9 | -1 | -1 |
@@ -2486,8 +2486,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 3 m, Volo 15 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 6 | -2 | -2 |
 | DES | 14 | +2 | +2 |
 | COS | 12 | +1 | +1 |
@@ -2520,8 +2520,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 9 m, Nuoto 9 m
 - **Iniziativa**: +4 (14)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 8 | -1 | -1 |
 | DES | 18 | +4 | +4 |
 | COS | 11 | +0 | +0 |
@@ -2531,7 +2531,7 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 
 - **Resistenze**: Contundenti, Perforanti, Taglienti
 - **Immunità**: Charmed, Frightened, Grappled, Paralyzed, Petrified, Prone, Restrained, Stunned
-- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 10
+- **Sensi**: Vista cieca 3 m; Percezione Passiva 10
 - **GS** 2 (PE 450; PB +2)
 
 ### Tratti
@@ -2551,8 +2551,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 12 m
 - **Iniziativa**: +3 (13)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 16 | +3 | +3 |
 | COS | 14 | +2 | +2 |
@@ -2581,8 +2581,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 15 m
 - **Iniziativa**: -1 (9)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 22 | +6 | +6 |
 | DES | 9 | -1 | -1 |
 | COS | 17 | +3 | +3 |
@@ -2608,8 +2608,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 15 m
 - **Iniziativa**: +3 (13)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 25 | +7 | +10 |
 | DES | 10 | +0 | +0 |
 | COS | 19 | +4 | +4 |
@@ -2638,8 +2638,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 9 m, Nuoto 9 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 2 | -4 | -4 |
 | DES | 15 | +2 | +2 |
 | COS | 11 | +0 | +0 |
@@ -2647,7 +2647,7 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 | SAG | 10 | +0 | +0 |
 | CAR | 3 | -4 | -4 |
 
-- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 10
+- **Sensi**: Vista cieca 3 m; Percezione Passiva 10
 - **GS** 1/8 (PE 25; PB +2)
 
 ### Azioni
@@ -2663,8 +2663,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 3 m, Volo 15 m
 - **Iniziativa**: +0 (10)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 7 | -2 | -2 |
 | DES | 10 | +0 | +0 |
 | COS | 13 | +1 | +1 |
@@ -2693,8 +2693,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 18 m
 - **Iniziativa**: +1 (11)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 12 | +1 | +1 |
 | COS | 13 | +1 | +1 |
@@ -2718,8 +2718,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 9 m, Scalare 9 m
 - **Iniziativa**: +3 (13)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 3 | -4 | -4 |
 | DES | 16 | +3 | +3 |
 | COS | 8 | -1 | -1 |
@@ -2744,8 +2744,8 @@ Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2
 - **Velocità:** 12 m
 - **Iniziativa**: +2 (12)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VALORE|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 14 | +2 | +2 |
 | DES | 15 | +2 | +2 |
 | COS | 12 | +1 | +1 |

@@ -13,7 +13,7 @@ Tira un d100: 1–20 fallisce e non accade nulla; 21–100 trasporta te e fino a
 ## Amuleto della Protezione dai Dardi
 *Oggetto meraviglioso, raro (richiede sintonia)*
 
-Mentre indossi questo amuleto, hai resistenza ai danni perforanti provenienti da attacchi a distanza.
+Mentre indossi questo amuleto, hai resistenza ai danni Perforanti provenienti da attacchi a distanza.
 
 ---
 
@@ -66,7 +66,7 @@ Questo oggetto di metallo a forma di barile pesa 500 kg e richiede due creature 
 
 Con un’Azione, puoi entrare e chiudere l’apparato, trasformandolo in un costrutto meccanico simile a un granchio gigante. L’apparato ha velocità di 9 m a terra e 9 m a nuoto. È dotato di dieci leve che controllano funzioni diverse (gambe, chele, movimento, apertura/chiusura, periscopio, ecc.).  
 
-Può infliggere danni contundenti con le chele (2d6 + For) e sollevare oggetti. Può operare sott’acqua fino a 200 m di profondità per 24 ore senza aria. Dopo, i passeggeri devono respirare con le proprie risorse.  
+Può infliggere danni Contundenti con le chele (2d6 + For) e sollevare oggetti. Può operare sott’acqua fino a 200 m di profondità per 24 ore senza aria. Dopo, i passeggeri devono respirare con le proprie risorse.  
 
 ---
 
@@ -270,7 +270,7 @@ Il cubo ha 3 cariche e recupera 1d3 cariche all’alba.
 ## Dardo Fulminante (Dagger of Venom / Javelin of Lightning ecc.)  
 *Arma (pugnale), rara*  
 
-Con un’Azione Bonus puoi attivarlo: il prossimo attacco in mischia infligge 2d10 danni da veleno aggiuntivi. Una volta usato, non può essere riutilizzato fino all’alba.  
+Con un’Azione Bonus puoi attivarlo: il prossimo attacco in mischia infligge 2d10 danni da Veleno aggiuntivi. Una volta usato, non può essere riutilizzato fino all’alba.  
 
 ---
 
@@ -326,7 +326,7 @@ Una volta al giorno puoi evocare serpenti velenosi attaccati alla frusta.
 ## Giavellotto del Fulmine (Javelin of Lightning)  
 *Arma (giavellotto), non comune*  
 
-Quando lo scagli, diventa un fulmine lungo la traiettoria. Ogni creatura sulla linea deve superare TS Des CD 13 o subire 4d6 danni da fulmine.  
+Quando lo scagli, diventa un fulmine lungo la traiettoria. Ogni creatura sulla linea deve superare TS Des CD 13 o subire 4d6 danni da Fulmine.  
 
 ---
 
@@ -414,7 +414,7 @@ Puoi lanciare *Levitazione* a volontà.
 
 ---
 
-## Manto della Resistenza alla Magia (Mantle of Spell Resistance)  
+## Manto della Resistenza alla Magia  
 *Oggetto meraviglioso, raro (richiede sintonia)*  
 
 Hai vantaggio ai tiri salvezza contro incantesimi.  
@@ -424,7 +424,7 @@ Hai vantaggio ai tiri salvezza contro incantesimi.
 ## Munizione della Carneficina
 *Arma (qualsiasi munizione), molto rara*
 
-Questa munizione magica è destinata a uccidere creature di un tipo particolare, scelto dal DM o determinato casualmente tirando sulla tabella sottostante. Se una creatura di quel tipo subisce danno dalla munizione, deve effettuare un tiro salvezza di Costituzione CD 17, subendo 6d10 danni da forza aggiuntivi con un fallimento o la metà con un successo.
+Questa munizione magica è destinata a uccidere creature di un tipo particolare, scelto dal DM o determinato casualmente tirando sulla tabella sottostante. Se una creatura di quel tipo subisce danno dalla munizione, deve effettuare un tiro salvezza di Costituzione CD 17, subendo 6d10 danni da Forza aggiuntivi con un fallimento o la metà con un successo.
 
 Dopo aver inflitto il danno extra, la munizione diventa non magica.
 

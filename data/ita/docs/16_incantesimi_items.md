@@ -35,7 +35,7 @@ Crei una bolla acida in un punto entro gittata, dove esplode in una Sfera di rag
 
 **_Miglioramento Trucchetto._** I danni aumentano di 1d6 quando raggiungi i livelli 5 (2d6), 11 (3d6) e 17 (4d6).
 
-## **Aiuto**
+## Aiuto
 
 *Livello 2 Abiurazione (Bardo, Chierico, Druido, Paladino, Ranger)* 
 
@@ -69,7 +69,7 @@ Imposti un allarme contro le intrusioni. Scegli una porta, una finestra o un'are
 
 **Allarme Mentale.** Ricevi un segnale mentale se ti trovi entro 1,6 km dall'area protetta. Questo segnale ti sveglia se stai dormendo.
 
-## **Alterare Sé Stesso**
+## Alterare Sé Stesso
 
 *Livello 2 Trasmutazione (Stregone, Mago)*
 
@@ -269,7 +269,7 @@ Mentre lanci l'incantesimo, scegli se crea antipatia o sintonia e bersaglia una 
 
 **_Fine dell'Effetto._** Se la creatura Spaventata o Affascinata termina il proprio turno a più di 36 m dal bersaglio, effettua un tiro salvezza su Saggezza. Con un successo, la creatura non è più influenzata dal bersaglio. Una creatura che ha successo nel tiro contro questo effetto è immune per 1 minuto, dopo di che può esserne influenzata di nuovo.
 
-## **Occhio Arcano**
+## Occhio Arcano
 
 *Livello 4 Divinazione (Mago)*
 
@@ -1001,7 +1001,7 @@ Scateni una raffica d'aria gelida. Ogni creatura in un Cono di 18 m con origine 
 
 **_Usare uno Slot di Livello Superiore._** I danni aumentano di 1d8 per ogni livello di slot sopra il 5.
 
-## **Confusione**
+## Confusione
 
 *Livello 4 Ammaliamento (Bardo, Druido, Stregone, Mago)*
 
@@ -1092,7 +1092,7 @@ Con un fallimento, il bersaglio subisce 4d8 danni del tipo dello spirito. Con un
 
 **_Usare uno Slot di Livello Superiore._** I danni aumentano di 1d8 per ogni livello di slot sopra il 5.
 
-## **Evoca Fatato**
+## Evoca Fatato
 
 *Livello 6 Evocazione (Druido)*
 
@@ -2284,7 +2284,7 @@ Il destriero somiglia a un grande animale cavalcabile a tua scelta, come un cava
 >
 > **_Tocco Curativo (solo Celestiale; si ricarica dopo un Riposo Lungo)._** Una creatura entro 1,5 m dal destriero recupera un numero di Punti Ferita pari a 2d8 più il livello dell'incantesimo.
 
-## **Trova il Percorso**
+## Trova il Percorso
 
 *Livello 6 Divinazione (Bardo, Chierico, Druido)*
 
@@ -3463,7 +3463,7 @@ Tocchi una creatura. La Velocità del bersaglio aumenta di 3 m finché l'incante
 
 ### Incantesimi M e N
 
-## **Armatura Magica**
+## Armatura Magica
 
 *Livello 1 Abiurazione (Stregone, Mago)*
 
@@ -5547,7 +5547,7 @@ Tabella: Esito del Teletrasporto
 
 ***A Bersaglio.*** Appari dove intendevi.
 
-## **Cerchio di Teletrasporto**
+## Cerchio di Teletrasporto
 
 *Livello 5 Evocazione (Bardo, Stregone, Warlock, Mago)*
 
