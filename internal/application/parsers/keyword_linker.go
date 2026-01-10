@@ -13,8 +13,8 @@ import (
 
 // KeywordLinker adds hyperlinks to game terminology in HTML content
 type KeywordLinker struct {
-	keywords map[string]string
-	linked   map[string]bool
+	keywords      map[string]string
+	compiledRegex map[string]*regexp.Regexp
 }
 
 type keywordConfig struct {
@@ -22,6 +22,14 @@ type keywordConfig struct {
 	Conditions    map[string]string `json:"conditions"`
 	CoreMechanics map[string]string `json:"core_mechanics"`
 	CreatureTypes map[string]string `json:"creature_types"`
+	Spells        map[string]string `json:"spells"`
+	Monsters      map[string]string `json:"monsters"`
+	Equipment     map[string]string `json:"equipment"`
+	MagicItems    map[string]string `json:"magic_items"`
+	Weapons       map[string]string `json:"weapons"`
+	Backgrounds   map[string]string `json:"backgrounds"`
+	Armor         map[string]string `json:"armor"`
+	Classes       map[string]string `json:"classes"`
 }
 
 // NewKeywordLinker creates a KeywordLinker from a JSON configuration file
@@ -31,26 +39,41 @@ func NewKeywordLinker(configPath string) (*KeywordLinker, error) {
 		return nil, err
 	}
 
+	keywords := flattenKeywords(config)
+
+	// Pre-compile regex patterns for all keywords
+	compiledRegex := make(map[string]*regexp.Regexp, len(keywords))
+	for keyword := range keywords {
+		pattern := `\b` + regexp.QuoteMeta(keyword) + `\b`
+		compiledRegex[keyword] = regexp.MustCompile(pattern)
+	}
+
 	return &KeywordLinker{
-		keywords: flattenKeywords(config),
-		linked:   make(map[string]bool),
+		keywords:      keywords,
+		compiledRegex: compiledRegex,
 	}, nil
 }
 
-// LinkKeywords adds links to keywords in HTML content (first occurrence only per document)
+// LinkKeywords adds links to keywords in HTML content (all occurrences)
+// This method is thread-safe for concurrent calls.
 func (kl *KeywordLinker) LinkKeywords(htmlContent string) string {
 	if htmlContent == "" {
 		return htmlContent
 	}
 
-	kl.resetLinkedTracker()
+	// Performance optimization: pre-filter keywords to only those present in document
+	// This reduces processing from ~850 to ~20-50 keywords per document
+	filteredKeywords := kl.prefilterKeywords(htmlContent)
+	if len(filteredKeywords) == 0 {
+		return htmlContent
+	}
 
 	doc, err := html.Parse(strings.NewReader(htmlContent))
 	if err != nil {
 		return htmlContent
 	}
 
-	kl.processNode(doc)
+	kl.processNodeWithKeywords(doc, filteredKeywords)
 
 	return renderHTML(doc, htmlContent)
 }
@@ -74,10 +97,21 @@ func loadKeywordConfig(path string) (*keywordConfig, error) {
 func flattenKeywords(config *keywordConfig) map[string]string {
 	keywords := make(map[string]string)
 
+	// Game mechanics categories
 	mergeKeywords(keywords, config.DamageTypes)
 	mergeKeywords(keywords, config.Conditions)
 	mergeKeywords(keywords, config.CoreMechanics)
 	mergeKeywords(keywords, config.CreatureTypes)
+
+	// Content categories
+	mergeKeywords(keywords, config.Spells)
+	mergeKeywords(keywords, config.Monsters)
+	mergeKeywords(keywords, config.Equipment)
+	mergeKeywords(keywords, config.MagicItems)
+	mergeKeywords(keywords, config.Weapons)
+	mergeKeywords(keywords, config.Backgrounds)
+	mergeKeywords(keywords, config.Armor)
+	mergeKeywords(keywords, config.Classes)
 
 	return keywords
 }
@@ -89,24 +123,35 @@ func mergeKeywords(dest, source map[string]string) {
 	}
 }
 
-// resetLinkedTracker clears the linked keywords tracker for a new document
-func (kl *KeywordLinker) resetLinkedTracker() {
-	kl.linked = make(map[string]bool)
+// prefilterKeywords scans document text and returns only keywords present in the content
+// This optimization reduces keyword processing from ~850 to ~20-50 keywords per document
+func (kl *KeywordLinker) prefilterKeywords(text string) map[string]string {
+	filtered := make(map[string]string)
+	textLower := strings.ToLower(text)
+
+	for keyword, url := range kl.keywords {
+		keywordLower := strings.ToLower(keyword)
+		if strings.Contains(textLower, keywordLower) {
+			filtered[keyword] = url
+		}
+	}
+
+	return filtered
 }
 
-// processNode recursively processes HTML nodes to add keyword links
-func (kl *KeywordLinker) processNode(n *html.Node) {
+// processNodeWithKeywords recursively processes HTML nodes to add keyword links
+func (kl *KeywordLinker) processNodeWithKeywords(n *html.Node, filteredKeywords map[string]string) {
 	// Handle text nodes
 	if n.Type == html.TextNode {
 		if !isInSkippedTag(n) {
-			kl.replaceTextNodeWithLinks(n)
+			kl.replaceTextNodeWithLinks(n, filteredKeywords)
 		}
 		return
 	}
 
 	// Process children for all other node types
 	for c := n.FirstChild; c != nil; c = c.NextSibling {
-		kl.processNode(c)
+		kl.processNodeWithKeywords(c, filteredKeywords)
 	}
 }
 
@@ -127,8 +172,8 @@ func isInSkippedTag(n *html.Node) bool {
 	return false
 }
 
-// replaceTextNodeWithLinks replaces a text node with text + link nodes for keywords
-func (kl *KeywordLinker) replaceTextNodeWithLinks(n *html.Node) {
+// replaceTextNodeWithLinks replaces a text node with text + link nodes for keywords (all occurrences)
+func (kl *KeywordLinker) replaceTextNodeWithLinks(n *html.Node, filteredKeywords map[string]string) {
 	text := n.Data
 	parent := n.Parent
 
@@ -136,58 +181,58 @@ func (kl *KeywordLinker) replaceTextNodeWithLinks(n *html.Node) {
 		return
 	}
 
-	// Find the first matching keyword
-	for _, keyword := range kl.sortedKeywordsByLength() {
-		if kl.linked[keyword] {
+	// Sort keywords by length (longest first) to prevent partial matches
+	sortedKeywords := kl.getSortedKeywords(filteredKeywords)
+
+	// Process keywords longest-first, replacing one keyword at a time
+	// Since we sort by length, we don't need recursion - the outer processNode loop handles all text nodes
+	for _, keyword := range sortedKeywords {
+		// Use pre-compiled regex for performance
+		re := kl.compiledRegex[keyword]
+
+		// Find ALL occurrences of this keyword
+		allMatches := re.FindAllStringIndex(text, -1)
+		if allMatches == nil || len(allMatches) == 0 {
 			continue
 		}
 
-		pattern := `\b` + regexp.QuoteMeta(keyword) + `\b`
-		re := regexp.MustCompile(pattern)
+		// Build nodes: interleave text and link nodes for all occurrences
+		nodes := make([]*html.Node, 0)
+		lastEnd := 0
 
-		loc := re.FindStringIndex(text)
-		if loc == nil {
-			continue
+		for _, loc := range allMatches {
+			// Add text before this match
+			if loc[0] > lastEnd {
+				nodes = append(nodes, &html.Node{
+					Type: html.TextNode,
+					Data: text[lastEnd:loc[0]],
+				})
+			}
+
+			// Add link node for this match
+			linkNode := &html.Node{
+				Type: html.ElementNode,
+				Data: "a",
+				Attr: []html.Attribute{
+					{Key: "href", Val: filteredKeywords[keyword]},
+					{Key: "class", Val: "keyword-link"},
+				},
+			}
+			linkText := &html.Node{
+				Type: html.TextNode,
+				Data: text[loc[0]:loc[1]],
+			}
+			linkNode.AppendChild(linkText)
+			nodes = append(nodes, linkNode)
+
+			lastEnd = loc[1]
 		}
 
-		// Mark as linked
-		kl.linked[keyword] = true
-
-		// Split text into: before + keyword + after
-		before := text[:loc[0]]
-		matched := text[loc[0]:loc[1]]
-		after := text[loc[1]:]
-
-		// Create nodes: text(before) + link(keyword) + text(after)
-		nodes := make([]*html.Node, 0, 3)
-
-		if before != "" {
+		// Add remaining text after last match
+		if lastEnd < len(text) {
 			nodes = append(nodes, &html.Node{
 				Type: html.TextNode,
-				Data: before,
-			})
-		}
-
-		// Create link node
-		linkNode := &html.Node{
-			Type: html.ElementNode,
-			Data: "a",
-			Attr: []html.Attribute{
-				{Key: "href", Val: kl.keywords[keyword]},
-				{Key: "class", Val: "keyword-link"},
-			},
-		}
-		linkText := &html.Node{
-			Type: html.TextNode,
-			Data: matched,
-		}
-		linkNode.AppendChild(linkText)
-		nodes = append(nodes, linkNode)
-
-		if after != "" {
-			nodes = append(nodes, &html.Node{
-				Type: html.TextNode,
-				Data: after,
+				Data: text[lastEnd:],
 			})
 		}
 
@@ -209,15 +254,16 @@ func (kl *KeywordLinker) replaceTextNodeWithLinks(n *html.Node) {
 			}
 		}
 
+		// Keyword replaced successfully, exit to let processNode handle remaining text nodes
 		return
 	}
 }
 
-// sortedKeywordsByLength returns keywords sorted by length (longest first)
+// getSortedKeywords returns keywords sorted by length (longest first)
 // This prevents partial matching of shorter keywords within longer ones
-func (kl *KeywordLinker) sortedKeywordsByLength() []string {
-	keywords := make([]string, 0, len(kl.keywords))
-	for keyword := range kl.keywords {
+func (kl *KeywordLinker) getSortedKeywords(keywordMap map[string]string) []string {
+	keywords := make([]string, 0, len(keywordMap))
+	for keyword := range keywordMap {
 		keywords = append(keywords, keyword)
 	}
 

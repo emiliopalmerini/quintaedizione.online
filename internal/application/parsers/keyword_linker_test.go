@@ -111,10 +111,10 @@ func TestKeywordLinker_LinkKeywords_FirstOccurrenceOnly(t *testing.T) {
 	input := "<p>Contundenti first. Contundenti second.</p>"
 	result := linker.LinkKeywords(input)
 
-	// Count occurrences of the link
+	// Should link ALL occurrences (changed behavior from first-only to all)
 	linkCount := strings.Count(result, `href="/regole/tipi-di-danno"`)
-	if linkCount != 1 {
-		t.Errorf("Expected 1 link, got %d", linkCount)
+	if linkCount != 2 {
+		t.Errorf("Expected 2 links (all occurrences), got %d", linkCount)
 	}
 }
 
