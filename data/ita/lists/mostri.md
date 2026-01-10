@@ -10,8 +10,8 @@
 - **Velocità:** 3 m, Nuoto 12 m
 - **Iniziativa**: +3 (13)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VAL|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 21 | +5 | +5 |
 | DES | 9 | -1 | +3 |
 | COS | 15 | +2 | +6 |
@@ -63,8 +63,8 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 12 m, Volo 24 m, Nuoto 12 m
 - **Iniziativa**: +6 (16)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VAL|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 23 | +6 | +6 |
 | DES | 14 | +2 | +7 |
 | COS | 21 | +5 | +5 |
@@ -114,8 +114,8 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 12 m, Scavare 9 m, Volo 24 m
 - **Iniziativa**: +4 (14)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
+|STAT|VAL|MOD|TS|
+| --- | --- | --- | ---- |
 | FOR | 25 | +7 | +7 |
 | DES | 10 | +0 | +5 |
 | COS | 23 | +6 | +6 |
@@ -163,7 +163,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 12 m, Scavare 9 m, Volare 24 m
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 23 | +6 | +6 |
 | DES | 10 | +0 | +5 |
@@ -214,7 +214,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 12 m, Volare 24 m, Nuotare 12 m
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 25 | +7 | +7 |
 | DES | 10 | +0 | +5 |
@@ -267,7 +267,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 12 m, Scalare 12 m, Volare 24 m  
 - **Iniziativa**: +5 (15)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 23 | +6 | +6 |
 | DES | 12 | +1 | +6 |
@@ -314,7 +314,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 12 m, Volare 24 m, Nuotare 12 m  
 - **Iniziativa**: +6 (16)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 27 | +8 | +8 |
 | DES | 14 | +2 | +8 |
@@ -367,7 +367,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 12 m, Volare 24 m, Nuotare 12 m  
 - **Iniziativa**: +5 (15)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 23 | +6 | +6 |
 | DES | 12 | +1 | +6 |
@@ -418,7 +418,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 12 m, Scalare 12 m, Volare 24 m  
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 27 | +8 | +8 |
 | DES | 10 | +0 | +6 |
@@ -467,7 +467,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 12 m, Volare 24 m  
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 27 | +8 | +8 |
 | DES | 10 | +0 | +5 |
@@ -518,7 +518,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 12 m, Scavare 9 m, Volare 24 m, Nuotare 12 m  
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 22 | +6 | +6 |
 | DES | 10 | +0 | +5 |
@@ -564,7 +564,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 3 m, Volare 27 m (fluttuare)  
 - **Iniziativa**: +5 (15)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 14 | +2 | +2 |
 | DES | 20 | +5 | +5 |
@@ -600,7 +600,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 12 m, Volare 24 m, Nuotare 12 m  
 - **Iniziativa**: +6 (16)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 27 | +8 | +8 |
 | DES | 14 | +2 | +9 |
@@ -651,7 +651,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 12 m, Scavare 12 m, Volare 24 m  
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 29 | +9 | +9 |
 | DES | 10 | +0 | +7 |
@@ -700,7 +700,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 12 m, Scavare 12 m, Volare 24 m  
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 27 | +8 | +8 |
 | DES | 10 | +0 | +6 |
@@ -751,7 +751,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 12 m, Volare 24 m, Nuotare 12 m  
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 29 | +9 | +9 |
 | DES | 10 | +0 | +7 |
@@ -804,7 +804,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 12 m, Scalare 12 m, Volare 24 m  
 - **Iniziativa**: +5 (15)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 27 | +8 | +8 |
 | DES | 12 | +1 | +8 |
@@ -855,7 +855,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 12 m, Volare 24 m, Nuotare 12 m  
 - **Iniziativa**: +6 (16)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 30 | +10 | +10 |
 | DES | 14 | +2 | +9 |
@@ -908,7 +908,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 12 m, Volare 24 m, Nuotare 12 m  
 - **Iniziativa**: +5 (15)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 27 | +8 | +8 |
 | DES | 12 | +1 | +8 |
@@ -959,7 +959,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 12 m, Scalare 12 m, Volare 24 m  
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 30 | +10 | +10 |
 | DES | 10 | +0 | +7 |
@@ -1008,7 +1008,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 12 m, Volare 24 m  
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 30 | +10 | +10 |
 | DES | 10 | +0 | +7 |
@@ -1059,7 +1059,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 12 m, Scavare 12 m, Volare 24 m, Nuotare 12 m  
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 26 | +8 | +8 |
 | DES | 10 | +0 | +6 |
@@ -1105,7 +1105,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 7,5 m  
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 14 | +2 | +2 |
 | DES | 11 | +0 | +0 |
@@ -1133,7 +1133,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 1,5 m, Volare 15 m (fluttuare)  
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 12 | +1 | +1 |
 | DES | 15 | +2 | +4 |
@@ -1161,7 +1161,7 @@ Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo o
 - **Velocità:** 3 m  
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 14 | +2 | +2 |
@@ -1190,7 +1190,7 @@ Mentre afferra, il tappeto non può riusare questa azione, dimezza i danni che s
 - **Velocità:** 9 m, Scavare 3 m  
 - **Iniziativa**: +0 (10)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 11 | +0 | +0 |
@@ -1221,7 +1221,7 @@ Mentre afferra, il tappeto non può riusare questa azione, dimezza i danni che s
 - **Velocità:** 9 m  
 - **Iniziativa**: +6 (16)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 10 | +0 | +0 |
 | DES | 14 | +2 | +2 |
@@ -1272,7 +1272,7 @@ Mentre afferra, il tappeto non può riusare questa azione, dimezza i danni che s
 - **Velocità:** 9 m  
 - **Iniziativa**: +10 (20)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 11 | +0 | +0 |
 | DES | 18 | +4 | +7 |
@@ -1315,7 +1315,7 @@ Mentre afferra, il tappeto non può riusare questa azione, dimezza i danni che s
 - **Velocità:** 6 m  
 - **Iniziativa**: -1 (9)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 3  | -4 | -4 |
 | DES | 8  | -1 | -1 |
@@ -1343,7 +1343,7 @@ Mentre afferra, il tappeto non può riusare questa azione, dimezza i danni che s
 - **Velocità:** 6 m  
 - **Iniziativa**: -2 (8)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 6  | -2 | -2 |
@@ -1373,7 +1373,7 @@ Mentre afferra, il tappeto non può riusare questa azione, dimezza i danni che s
 - **Velocità:** 15 m  
 - **Iniziativa**: +1 (11)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 14 | +2 | +2 |
 | DES | 12 | +1 | +1 |
@@ -1400,7 +1400,7 @@ Mentre afferra, il tappeto non può riusare questa azione, dimezza i danni che s
 - **Velocità:** 9 m  
 - **Iniziativa**: +1 (11)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 12 | +1 | +1 |
@@ -1433,7 +1433,7 @@ Mentre afferra, il tappeto non può riusare questa azione, dimezza i danni che s
 - **Velocità:** 12 m, Volare 24 m  
 - **Iniziativa**: +14 (24)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 26 | +8 | +8 |
 | DES | 15 | +2 | +2 |
@@ -1482,7 +1482,7 @@ Mentre afferra, il tappeto non può riusare questa azione, dimezza i danni che s
 - **Velocità:** 9 m  
 - **Iniziativa**: +3 (13)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 15 | +2 | +4 |
 | DES | 16 | +3 | +5 |
@@ -1516,7 +1516,7 @@ Mentre afferra, il tappeto non può riusare questa azione, dimezza i danni che s
 - **Velocità:** 9 m  
 - **Iniziativa**: +1 (11)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 11 | +0 | +0 |
 | DES | 12 | +1 | +1 |
@@ -1545,7 +1545,7 @@ Mentre afferra, il tappeto non può riusare questa azione, dimezza i danni che s
 - **Velocità:** 9 m, Scalare 9 m  
 - **Iniziativa**: +3 (13)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +6 |
 | DES | 17 | +3 | +3 |
@@ -1588,7 +1588,7 @@ Mentre afferra, il tappeto non può riusare questa azione, dimezza i danni che s
 - **Velocità:** 6 m  
 - **Iniziativa**: -1 (9)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 8  | -1 | -1 |
@@ -1617,7 +1617,7 @@ Mentre afferra, il tappeto non può riusare questa azione, dimezza i danni che s
 - **Velocità:** 9 m  
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +5 |
 | DES | 15 | +2 | +2 |
@@ -1653,7 +1653,7 @@ Mentre afferra, il tappeto non può riusare questa azione, dimezza i danni che s
 - **Velocità:** 15 m, Scalare 15 m  
 - **Iniziativa**: +3 (13)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 23 | +6 | +6 |
 | DES | 16 | +3 | +3 |
@@ -1692,7 +1692,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 9 m  
 - **Iniziativa**: +1 (11)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 12 | +1 | +1 |
@@ -1723,7 +1723,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 9 m, Volare 18 m, Nuotare 9 m  
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 14 | +2 | +4 |
@@ -1759,7 +1759,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 6 m, Scalare 6 m  
 - **Iniziativa**: -3 (7)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 5  | -3 | -3 |
@@ -1793,7 +1793,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 12 m  
 - **Iniziativa**: +3 (13)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 12 | +1 | +1 |
 | DES | 17 | +3 | +3 |
@@ -1824,7 +1824,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 9 m, Sotterrare 4,5 m, Volare 18 m  
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 10 | +0 | +2 |
@@ -1856,7 +1856,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 12 m, Volare 12 m  
 - **Iniziativa**: +7 (17)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +8 |
 | DES | 16 | +3 | +3 |
@@ -1895,7 +1895,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 9 m, Sotterrare 4,5 m, Volare 18 m  
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 10 | +0 | +2 |
@@ -1927,7 +1927,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 9 m, Volare 18 m, Nuotare 9 m  
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 10 | +0 | +2 |
@@ -1965,7 +1965,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 9 m  
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 14 | +2 | +2 |
@@ -2005,7 +2005,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 9 m  
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 14 | +2 | +2 |
@@ -2039,7 +2039,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 12 m, Sotterrare 12 m  
 - **Iniziativa**: +0 (10)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 11 | +0 | +0 |
@@ -2073,7 +2073,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 15 m  
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 14 | +2 | +2 |
@@ -2109,7 +2109,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 9 m  
 - **Iniziativa**: +5 (15)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 15 | +2 | +2 |
@@ -2147,7 +2147,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 9 m, Volare 18 m  
 - **Iniziativa**: +0 (10)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 11 | +0 | +0 |
@@ -2182,7 +2182,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 9 m, Nuotare 9 m  
 - **Iniziativa**: +0 (10)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 10 | +0 | +0 |
@@ -2220,7 +2220,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 6 m  
 - **Iniziativa**: +3 (13)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 20 | +5 | +5 |
 | DES | 9  | -1 | -1 |
@@ -2264,7 +2264,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 3 m, Volare 12 m  
 - **Iniziativa**: +5 (15)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 15 | +2 | +2 |
@@ -2306,7 +2306,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 12 m, Volare 6 m (fluttuare)
 - **Iniziativa**: +4 (14)
 
-|CARATT|PUNTEGGIO|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 27 | +8 | +8 |
 | DES | 10 | +0 | +0 |
@@ -2348,7 +2348,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 6 m, Volare 12 m
 - **Iniziativa**: +1 (11)
 
-|CARATT|PUNTEGGIO|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 6 | -2 | -2 |
 | DES | 12 | +1 | +1 |
@@ -2376,7 +2376,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 9 m
 - **Iniziativa**: +0 (10)
 
-|CARATT|PUNTEGGIO|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 10 | +0 | +0 |
 | DES | 10 | +0 | +0 |
@@ -2409,7 +2409,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 9 m, Scalare 9 m, Volare 18 m
 - **Iniziativa**: +3 (13)
 
-|CARATT|PUNTEGGIO|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 12 | +1 | +3 |
@@ -2441,7 +2441,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 9 m, Volare 27 m
 - **Iniziativa**: +5 (15)
 
-|CARATT|PUNTEGGIO|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 20 | +5 | +5 |
@@ -2486,7 +2486,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 9 m
 - **Iniziativa**: +2 (12)
 
-|CARATT|PUNTEGGIO|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 11 | +0 | +0 |
 | DES | 14 | +2 | +2 |
@@ -2526,7 +2526,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 9 m
 - **Iniziativa**: +1 (11)
 
-|CARATT|PUNTEGGIO|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 11 | +0 | +0 |
 | DES | 12 | +1 | +1 |
@@ -2556,7 +2556,7 @@ Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita,
 - **Velocità:** 3 m, Volare 9 m
 - **Iniziativa**: +3 (13)
 
-|CARATT|PUNTEGGIO|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 12 | +1 | +1 |
@@ -2586,7 +2586,7 @@ Una creatura può usare un’azione per tentare di staccare il manto oscuro da s
 - **Velocità:** 12 m
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 14 | +2 | +2 |
@@ -2617,7 +2617,7 @@ Una creatura può usare un’azione per tentare di staccare il manto oscuro da s
 - **Velocità:** 9 m, volo 27 m (fluttuare)
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 18 | +4 | +4 |
@@ -2665,7 +2665,7 @@ Una creatura può usare un’azione per tentare di staccare il manto oscuro da s
 - **Velocità:** 9 m, volo 27 m (fluttuare)
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 21 | +5 | +5 |
 | DES | 15 | +2 | +6 |
@@ -2715,7 +2715,7 @@ Ogni volta che il turbine entra nello spazio di una creatura o una creatura entr
 - **Velocità:** 9 m
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 11 | +0 | +0 |
 | DES | 18 | +4 | +4 |
@@ -2755,7 +2755,7 @@ Ogni volta che il turbine entra nello spazio di una creatura o una creatura entr
 - **Velocità:** 6 m, nuoto 15 m
 - **Iniziativa**: +6 (16)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 25 | +7 | +7 |
 | DES | 10 | +0 | +0 |
@@ -2794,7 +2794,7 @@ Ogni volta che il turbine entra nello spazio di una creatura o una creatura entr
 - **Velocità:** 6 m
 - **Iniziativa**: +0 (10)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 12 | +1 | +1 |
 | DES | 11 | +0 | +0 |
@@ -2826,7 +2826,7 @@ Ogni volta che il turbine entra nello spazio di una creatura o una creatura entr
 - **Velocità:** 9 m, arrampicata 9 m
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 19 | +4 | +4 |
@@ -2871,7 +2871,7 @@ Ogni volta che il turbine entra nello spazio di una creatura o una creatura entr
 - **Velocità:** 9 m
 - **Iniziativa**: +1 (11)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 10 | +0 | +0 |
 | DES | 12 | +1 | +1 |
@@ -2909,7 +2909,7 @@ Ogni volta che il turbine entra nello spazio di una creatura o una creatura entr
 - **Velocità:** 9 m
 - **Iniziativa**: +1 (11)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 10 | +0 | +0 |
 | DES | 12 | +1 | +1 |
@@ -2957,7 +2957,7 @@ Ogni volta che il turbine entra nello spazio di una creatura o una creatura entr
 - **Velocità:** 9 m, volo 9 m
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 5 | -3 | -3 |
 | DES | 14 | +2 | +2 |
@@ -2999,7 +2999,7 @@ Ogni volta che il turbine entra nello spazio di una creatura o una creatura entr
 - **Velocità:** 9 m, scavo 9 m
 - **Iniziativa**: -1 (9)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 20 | +5 | +5 |
 | DES | 8 | -1 | -1 |
@@ -3039,7 +3039,7 @@ Ogni volta che il turbine entra nello spazio di una creatura o una creatura entr
 - **Velocità:** 12 m, volo 18 m (fluttuare)
 - **Iniziativa**: +1 (11)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 22 | +6 | +6 |
 | DES | 12 | +1 | +1 |
@@ -3083,7 +3083,7 @@ Ogni volta che il turbine entra nello spazio di una creatura o una creatura entr
 - **Velocità:** 9 m, volo 18 m
 - **Iniziativa**: +7 (17)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 16 | +3 | +7 |
@@ -3126,7 +3126,7 @@ Ogni volta che il turbine entra nello spazio di una creatura o una creatura entr
 - **Velocità:** 9 m, arrampicata 9 m
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 14 | +2 | +2 |
 | DES | 15 | +2 | +2 |
@@ -3170,7 +3170,7 @@ Ogni volta che il turbine entra nello spazio di una creatura o una creatura entr
 - **Velocità:** 12 m
 - **Iniziativa**: -1 (9)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 21 | +5 | +5 |
 | DES | 8 | -1 | -1 |
@@ -3205,7 +3205,7 @@ Ogni volta che il turbine entra nello spazio di una creatura o una creatura entr
 - **Velocità:** 15 m
 - **Iniziativa**: +3 (13)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 10 | +0 | +0 |
 | DES | 17 | +3 | +3 |
@@ -3245,7 +3245,7 @@ Ogni volta che il turbine entra nello spazio di una creatura o una creatura entr
 - **Velocità:** 9 m
 - **Iniziativa**: +3 (13)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 25 | +7 | +7 |
 | DES | 9  | -1 | +3 |
@@ -3279,7 +3279,7 @@ Ogni volta che il turbine entra nello spazio di una creatura o una creatura entr
 - **Velocità:** 9 m
 - **Iniziativa**: -1 (9)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 9  | -1 | -1 |
@@ -3323,7 +3323,7 @@ Il creatore del golem, se entro 18 m, può tentare di calmarlo usando un’Azion
 - **Velocità:** 12 m
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 23 | +6 | +6 |
 | DES | 9  | -1 | -1 |
@@ -3361,7 +3361,7 @@ Il creatore del golem, se entro 18 m, può tentare di calmarlo usando un’Azion
 - **Velocità:** 9 m, volo 18 m
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 11 | +0 | +0 |
@@ -3395,7 +3395,7 @@ Il creatore del golem, se entro 18 m, può tentare di calmarlo usando un’Azion
 - **Velocità:** 4,5 m
 - **Iniziativa**: -4 (6)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 14 | +2 | +2 |
 | DES | 3  | -4 | -4 |
@@ -3433,7 +3433,7 @@ Come azione, una creatura entro 1,5 m dal cubo può tirare fuori dal cubo una cr
 - **Velocità:** 9 m
 - **Iniziativa**: +3 (13)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 17 | +3 | +3 |
@@ -3469,7 +3469,7 @@ Come azione, una creatura entro 1,5 m dal cubo può tirare fuori dal cubo una cr
 - **Velocità:** 1,5 m, volo 12 m (fluttuare)
 - **Iniziativa**: +1 (11)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 7  | -2 | -2 |
 | DES | 13 | +1 | +1 |
@@ -3516,7 +3516,7 @@ La possessione dura finché il corpo non scende a 0 Punti Ferita o il fantasma n
 - **Velocità:** 9 m
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 13 | +1 | +1 |
 | DES | 15 | +2 | +2 |
@@ -3547,7 +3547,7 @@ La possessione dura finché il corpo non scende a 0 Punti Ferita o il fantasma n
 - **Velocità:** 6 m, nuoto 6 m
 - **Iniziativa**: -1 (9)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 10 | +0 | +0 |
 | DES | 8  | -1 | -1 |
@@ -3587,7 +3587,7 @@ La possessione dura finché il corpo non scende a 0 Punti Ferita o il fantasma n
 - **Velocità:** 12 m
 - **Iniziativa**: +6 (16)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 20 | +5 | +9 |
 | DES | 15 | +2 | +2 |
@@ -3633,7 +3633,7 @@ La possessione dura finché il corpo non scende a 0 Punti Ferita o il fantasma n
 - **Velocità:** 9 m
 - **Iniziativa**: +5 (15)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +7 |
 | DES | 15 | +2 | +5 |
@@ -3667,7 +3667,7 @@ La possessione dura finché il corpo non scende a 0 Punti Ferita o il fantasma n
 - **Velocità:** 9 m
 - **Iniziativa**: +1 (11)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 14 | +2 | +2 |
 | DES | 12 | +1 | +1 |
@@ -3699,7 +3699,7 @@ La possessione dura finché il corpo non scende a 0 Punti Ferita o il fantasma n
 - **Velocità:** 9 m
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 10 | +0 | +0 |
 | DES | 15 | +2 | +2 |
@@ -3737,7 +3737,7 @@ La possessione dura finché il corpo non scende a 0 Punti Ferita o il fantasma n
 - **Velocità:** 9 m
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 8  | -1 | -1 |
 | DES | 15 | +2 | +2 |
@@ -3771,7 +3771,7 @@ La possessione dura finché il corpo non scende a 0 Punti Ferita o il fantasma n
 - **Velocità:** 9 m
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 8  | -1 | -1 |
 | DES | 15 | +2 | +2 |
@@ -3807,7 +3807,7 @@ La possessione dura finché il corpo non scende a 0 Punti Ferita o il fantasma n
 - **Velocità:** 9 m, volo 18 m, nuoto 9 m
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 14 | +2 | +4 |
@@ -3845,7 +3845,7 @@ La possessione dura finché il corpo non scende a 0 Punti Ferita o il fantasma n
 - **Velocità:** 12 m
 - **Iniziativa**: +0 (10)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 20 | +5 | +5 |
 | DES | 11 | +0 | +0 |
@@ -3880,7 +3880,7 @@ La possessione dura finché il corpo non scende a 0 Punti Ferita o il fantasma n
 - **Velocità:** 3 m, arrampicata 3 m
 - **Iniziativa**: -2 (8)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 12 | +1 | +1 |
 | DES | 6  | -2 | -2 |
@@ -3917,7 +3917,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 9 m, volo 18 m, nuoto 9 m
 - **Iniziativa**: +3 (13)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 12 | +1 | +3 |
@@ -3955,7 +3955,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 9 m, nuoto 9 m
 - **Iniziativa**: +1 (11)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 12 | +1 | +1 |
@@ -3994,7 +3994,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 9 m, arrampicata 9 m
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 14 | +2 | +2 |
 | DES | 14 | +2 | +2 |
@@ -4026,7 +4026,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 9 m, volo 24 m
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 15 | +2 | +2 |
@@ -4056,7 +4056,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 9 m, arrampicata 9 m
 - **Iniziativa**: +1 (11)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 12 | +1 | +1 |
@@ -4084,7 +4084,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 9 m
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 14 | +2 | +2 |
@@ -4116,7 +4116,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 12 m, arrampicata 12 m, nuoto 12 m
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 18 | +4 | +8 |
@@ -4159,7 +4159,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 9 m
 - **Iniziativa**: +1 (11)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 13 | +1 | +1 |
 | DES | 12 | +1 | +1 |
@@ -4189,7 +4189,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 12 m
 - **Iniziativa**: +5 (15)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 14 | +2 | +5 |
@@ -4231,7 +4231,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 6 m, volo 12 m
 - **Iniziativa**: +1 (11)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 12 | +1 | +1 |
 | DES | 13 | +1 | +1 |
@@ -4259,7 +4259,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 15 m
 - **Iniziativa**: +1 (11)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 12 | +1 | +1 |
@@ -4297,7 +4297,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 9 m
 - **Iniziativa**: +6 (16)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 19 | +4 | +7 |
 | DES | 17 | +3 | +3 |
@@ -4341,7 +4341,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 12 m
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 21 | +5 | +5 |
 | DES | 8  | -1 | -1 |
@@ -4374,7 +4374,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 12 m, volo 18 m
 - **Iniziativa**: +1 (11)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 13 | +1 | +1 |
@@ -4406,7 +4406,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 9 m
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 14 | +2 | +2 |
@@ -4443,7 +4443,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 9 m
 - **Iniziativa**: +3 (13)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 13 | +1 | +1 |
 | DES | 12 | +1 | +1 |
@@ -4478,7 +4478,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 6 m, volo 12 m
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 4  | -3 | -3 |
 | DES | 15 | +2 | +2 |
@@ -4511,7 +4511,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 9 m, volo 18 m
 - **Iniziativa**: +7 (17)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 22 | +6 | +10 |
 | DES | 17 | +3 | +7 |
@@ -4550,7 +4550,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 12 m, nuoto 12 m
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 20 | +5 | +5 |
 | DES | 12 | +1 | +1 |
@@ -4589,7 +4589,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 12 m
 - **Iniziativa**: +7 (17)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 21 | +5 | +5 |
 | DES | 14 | +2 | +7 |
@@ -4633,7 +4633,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 9 m, volo 9 m
 - **Iniziativa**: +1 (11)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 7  | -2 | -2 |
 | DES | 13 | +1 | +1 |
@@ -4675,7 +4675,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 6 m, volo 12 m
 - **Iniziativa**: +3 (13)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 6  | -2 | -2 |
 | DES | 17 | +3 | +3 |
@@ -4714,7 +4714,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 9 m, volo 18 m
 - **Iniziativa**: +3 (13)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 8  | -1 | -1 |
 | DES | 17 | +3 | +3 |
@@ -4759,7 +4759,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 15 m, volo 15 m (fluttuare)
 - **Iniziativa**: +7 (17)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 19 | +4 | +4 |
@@ -4800,7 +4800,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 9 m
 - **Iniziativa**: +9 (19)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 24 | +7 | +7 |
 | DES | 9  | -1 | -1 |
@@ -4843,7 +4843,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 9 m
 - **Iniziativa**: +0 (10)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 11 | +0 | +0 |
@@ -4875,7 +4875,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 9 m
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 7  | -2 | -2 |
 | DES | 15 | +2 | +2 |
@@ -4910,7 +4910,7 @@ La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
 - **Velocità:** 9 m, nuoto 36 m
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 30 | +10 | +17 |
 | DES | 11 | +0  | +7 |
@@ -4963,7 +4963,7 @@ Se il kraken subisce 50 o più danni in un solo turno da una creatura al suo int
 - **Velocità:** 12 m
 - **Iniziativa**: +1 (11)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 13 | +1 | +1 |
@@ -5005,7 +5005,7 @@ Se il kraken subisce 50 o più danni in un solo turno da una creatura al suo int
 - **Velocità:** 6 m
 - **Iniziativa**: -3 (7)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 10 | +0 | +0 |
 | DES | 5  | -3 | -3 |
@@ -5037,7 +5037,7 @@ Se il kraken subisce 50 o più danni in un solo turno da una creatura al suo int
 - **Velocità:** 9 m
 - **Iniziativa**: +7 (17)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 11 | +0 | +0 |
 | DES | 16 | +3 | +10 |
@@ -5097,7 +5097,7 @@ Se il kraken subisce 50 o più danni in un solo turno da una creatura al suo int
 - **Velocità:** 9 m
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 9  | -1 | -1 |
 | DES | 14 | +2 | +2 |
@@ -5143,7 +5143,7 @@ Se il kraken subisce 50 o più danni in un solo turno da una creatura al suo int
 - **Velocità:** 9 m, volo 9 m
 - **Iniziativa**: +1 (11)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 8  | -1 | -1 |
 | DES | 12 | +1 | +1 |
@@ -5180,7 +5180,7 @@ Se il kraken subisce 50 o più danni in un solo turno da una creatura al suo int
 - **Velocità:** 9 m
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 7  | -2 | -2 |
 | DES | 15 | +2 | +2 |
@@ -5215,7 +5215,7 @@ Se il kraken subisce 50 o più danni in un solo turno da una creatura al suo int
 - **Velocità:** 9 m, volo 15 m
 - **Iniziativa**: +3 (13)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 16 | +3 | +3 |
@@ -5247,7 +5247,7 @@ Se il kraken subisce 50 o più danni in un solo turno da una creatura al suo int
 - **Velocità:** 12 m, scalare 12 m
 - **Iniziativa**: +10 (20)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +9 |
 | DES | 20 | +5 | +5 |
@@ -5294,7 +5294,7 @@ Se il kraken subisce 50 o più danni in un solo turno da una creatura al suo int
 - **Velocità:** 9 m
 - **Iniziativa**: +6 (16)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 10 | +0 | +0 |
 | DES | 17 | +3 | +3 |
@@ -5333,7 +5333,7 @@ Se il kraken subisce 50 o più danni in un solo turno da una creatura al suo int
 - **Velocità:** 3 m, nuoto 12 m
 - **Iniziativa**: +1 (11)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 10 | +0 | +0 |
 | DES | 13 | +1 | +1 |
@@ -5363,7 +5363,7 @@ Se il kraken subisce 50 o più danni in un solo turno da una creatura al suo int
 - **Velocità:** 3 m, nuoto 12 m
 - **Iniziativa**: +2 (12)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 15 | +2 | +2 |
@@ -5401,7 +5401,7 @@ Se il kraken subisce 50 o più danni in un solo turno da una creatura al suo int
 - **Velocità:** 6 m
 - **Iniziativa**: +3 (13)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 12 | +1 | +1 |
@@ -5440,7 +5440,7 @@ Se il kraken subisce 50 o più danni in un solo turno da una creatura al suo int
 - **Velocità:** 12 m
 - **Iniziativa**: +0 (10)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 11 | +0 | +0 |
@@ -5471,7 +5471,7 @@ Se il kraken subisce 50 o più danni in un solo turno da una creatura al suo int
 - **Velocità:** 12 m
 - **Iniziativa**: +0 (10)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 11 | +0 | +0 |
@@ -5501,7 +5501,7 @@ Se il kraken subisce 50 o più danni in un solo turno da una creatura al suo int
 - **Velocità:** 9 m
 - **Iniziativa**: +4 (14)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 10 | +0 | +0 |
@@ -5559,7 +5559,7 @@ Se il kraken subisce 50 o più danni in un solo turno da una creatura al suo int
 - **Velocità:** 6 m
 - **Iniziativa**: -1 (9)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 8  | -1 | -1 |
@@ -5593,7 +5593,7 @@ Se il kraken subisce 50 o più danni in un solo turno da una creatura al suo int
 - **Velocità:** 6 m, volo 9 m
 - **Iniziativa**: +5 (15)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 21 | +5 | +5 |
 | DES | 10 | +0 | +0 |
@@ -5637,7 +5637,7 @@ Se il kraken subisce 50 o più danni in un solo turno da una creatura al suo int
 - **Velocità:** 9 m
 - **Iniziativa**: +5 (15)
 
-|STAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 15 | +2 | +2 |
@@ -5689,7 +5689,7 @@ Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si ridu
 - **Velocità:** 18 m, Volare 27 m (fluttuare)
 - **Iniziativa**: +2 (12)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 15 | +2 | +2 |
@@ -5726,7 +5726,7 @@ Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si ridu
 - **Velocità:** 9 m
 - **Iniziativa**: +1 (11)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 11 | +0 | +0 |
 | DES | 12 | +1 | +1 |
@@ -5756,7 +5756,7 @@ Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si ridu
 - **Velocità:** 6 m, Scalare 6 m
 - **Iniziativa**: -2 (8)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 6 | -2 | -2 |
@@ -5791,7 +5791,7 @@ Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si ridu
 - **Velocità:** 12 m
 - **Iniziativa**: -1 (9)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 8 | -1 | -1 |
@@ -5820,7 +5820,7 @@ Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si ridu
 - **Velocità:** 9 m
 - **Iniziativa**: -2 (8)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 6 | -2 | -2 |
@@ -5853,7 +5853,7 @@ Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si ridu
 - **Velocità:** 9 m, Volare 9 m (fluttuare)
 - **Iniziativa**: +0 (10)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 11 | +0 | +3 |
@@ -5902,7 +5902,7 @@ Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si ridu
 - **Velocità:** 9 m
 - **Iniziativa**: +0 (10)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 11 | +0 | +0 |
@@ -5936,7 +5936,7 @@ Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si ridu
 - **Velocità:** 12 m, Scalare 12 m
 - **Iniziativa**: +1 (11)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 20 | +5 | +5 |
 | DES | 12 | +1 | +1 |
@@ -5964,7 +5964,7 @@ Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si ridu
 - **Velocità:** 18 m, Volare 27 m
 - **Iniziativa**: +2 (12)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 15 | +2 | +4 |
@@ -5993,7 +5993,7 @@ Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si ridu
 - **Velocità:** 9 m, Scalare 9 m
 - **Iniziativa**: +3 (13)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 16 | +3 | +3 |
@@ -6035,7 +6035,7 @@ Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si ridu
 - **Velocità:** 9 m
 - **Iniziativa**: +7 (17)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 10 | +0 | +3 |
 | DES | 18 | +4 | +7 |
@@ -6073,7 +6073,7 @@ Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si ridu
 - **Velocità:** 9 m
 - **Iniziativa**: +5 (15)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 10 | +0 | +0 |
 | DES | 16 | +3 | +5 |
@@ -6104,7 +6104,7 @@ Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si ridu
 - **Velocità:** 9 m, Volare 18 m
 - **Iniziativa**: +14 (24)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 26 | +8 | +8 |
 | DES | 14 | +2 | +8 |
@@ -6154,7 +6154,7 @@ Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si ridu
 - **Velocità:** 12 m, Volare 36 m (fluttuare)
 - **Iniziativa**: +10 (20)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 24 | +7 | +12 |
 | DES | 20 | +5 | +5 |
@@ -6205,7 +6205,7 @@ Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si ridu
 - **Velocità:** 9 m
 - **Iniziativa**: +0 (10)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 14 | +2 | +2 |
 | DES | 10 | +0 | +0 |
@@ -6244,7 +6244,7 @@ Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si ridu
 - **Velocità:** 9 m
 - **Iniziativa**: +0 (10)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 10 | +0 | +0 |
@@ -6284,7 +6284,7 @@ Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si ridu
 - **Velocità:** 4,5 m, Volare 18 m
 - **Iniziativa**: +2 (12)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 6 | -2 | -2 |
 | DES | 15 | +2 | +2 |
@@ -6321,7 +6321,7 @@ Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si ridu
 - **Velocità:** 15 m, Scavare 15 m
 - **Iniziativa**: +3 (13)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 28 | +9 | +9 |
 | DES | 7 | -2 | -2 |
@@ -6361,7 +6361,7 @@ Se il verme subisce 30 o più danni in un singolo turno da una creatura al suo i
 - **Velocità:** 12 m
 - **Iniziativa**: +3 (13)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 5 | -3 | -3 |
 | DES | 17 | +3 | +3 |
@@ -6403,7 +6403,7 @@ Se il verme subisce 30 o più danni in un singolo turno da una creatura al suo i
 - **Velocità:** 12 m
 - **Iniziativa**: +8 (18)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 14 | +2 | +2 |
 | DES | 17 | +3 | +3 |
@@ -6446,7 +6446,7 @@ Se il verme subisce 30 o più danni in un singolo turno da una creatura al suo i
 - **Velocità:** 9 m, Scalare 9 m, Volare 18 m
 - **Iniziativa**: +2 (12)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 10 | +0 | +2 |
@@ -6480,7 +6480,7 @@ Se il verme subisce 30 o più danni in un singolo turno da una creatura al suo i
 - **Velocità:** 12 m, Scavare 9 m
 - **Iniziativa**: +5 (15)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 24 | +7 | +7 |
 | DES | 13 | +1 | +1 |
@@ -6517,7 +6517,7 @@ Se il remorhaz subisce 30 o più danni in un singolo turno da una creatura al su
 - **Velocità:** 6 m, Volare 36 m
 - **Iniziativa**: +8 (18)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 28 | +9 | +9 |
 | DES | 10 | +0 | +4 |
@@ -6553,7 +6553,7 @@ Se il remorhaz subisce 30 o più danni in un singolo turno da una creatura al su
 - **Velocità:** 3 m, Scalare 6 m
 - **Iniziativa**: +5 (15)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 8 | -1 | -1 |
@@ -6590,7 +6590,7 @@ Il tentacolo può essere danneggiato, liberando una creatura afferrata se distru
 - **Velocità:** 12 m
 - **Iniziativa**: +1 (11)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 13 | +1 | +1 |
 | DES | 12 | +1 | +1 |
@@ -6627,7 +6627,7 @@ Il tentacolo può essere danneggiato, liberando una creatura afferrata se distru
 - **Velocità:** 9 m, Nuotare 12 m
 - **Iniziativa**: +0 (10)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 13 | +1 | +1 |
 | DES | 11 | +0 | +0 |
@@ -6671,7 +6671,7 @@ Il tentacolo può essere danneggiato, liberando una creatura afferrata se distru
 - **Velocità:** 9 m, Scalare 9 m
 - **Iniziativa**: +2 (12)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 14 | +2 | +2 |
@@ -6709,7 +6709,7 @@ Il tentacolo può essere danneggiato, liberando una creatura afferrata se distru
 - **Velocità:** 12 m
 - **Iniziativa**: +3 (13)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 12 | +1 | +1 |
 | DES | 16 | +3 | +3 |
@@ -6742,7 +6742,7 @@ Il tentacolo può essere danneggiato, liberando una creatura afferrata se distru
 - **Velocità:** 9 m
 - **Iniziativa**: +2 (12)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 11 | +0 | +0 |
 | DES | 14 | +2 | +2 |
@@ -6776,7 +6776,7 @@ Il tentacolo può essere danneggiato, liberando una creatura afferrata se distru
 - **Velocità:** 9 m, Nuotare 12 m
 - **Iniziativa**: +1 (11)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 13 | +1 | +1 |
@@ -6815,7 +6815,7 @@ Il tentacolo può essere danneggiato, liberando una creatura afferrata se distru
 - **Velocità:** 12 m
 - **Iniziativa**: +2 (12)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 6 | -2 | -2 |
 | DES | 14 | +2 | +2 |
@@ -6856,7 +6856,7 @@ Il tentacolo può essere danneggiato, liberando una creatura afferrata se distru
 - **Velocità:** 9 m, Nuotare 6 m
 - **Iniziativa**: -1 (9)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 8 | -1 | -1 |
@@ -6892,7 +6892,7 @@ Il tentacolo può essere danneggiato, liberando una creatura afferrata se distru
 - **Velocità:** 9 m
 - **Iniziativa**: -1 (9)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 8 | -1 | -1 |
@@ -6931,7 +6931,7 @@ Il tentacolo può essere danneggiato, liberando una creatura afferrata se distru
 - **Velocità:** 1,5 m
 - **Iniziativa**: -5 (5)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 1 | -5 | -5 |
 | DES | 1 | -5 | -5 |
@@ -6955,7 +6955,7 @@ Il tentacolo può essere danneggiato, liberando una creatura afferrata se distru
 - **Velocità:** 9 m, Volare 18 m
 - **Iniziativa**: +2 (12)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 10 | +0 | +2 |
@@ -6991,7 +6991,7 @@ Il tentacolo può essere danneggiato, liberando una creatura afferrata se distru
 - **Velocità:** 9 m
 - **Iniziativa**: +3 (13)
 
-|CARAT|VALORE|MOD|TS|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 10 | +0 | +0 |
 | DES | 16 | +3 | +3 |
@@ -7022,7 +7022,7 @@ Il tentacolo può essere danneggiato, liberando una creatura afferrata se distru
 - **Velocità:** 15 m, Volare 45 m (fluttuare)
 - **Iniziativa**: +20 (30)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 26 | +8 | +8 |
 | DES | 22 | +6 | +6 |
@@ -7080,7 +7080,7 @@ Il tentacolo può essere danneggiato, liberando una creatura afferrata se distru
 - **Velocità:** 9 m, Volare 15 m (fluttuare)
 - **Iniziativa**: +2 (12)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 1 | -5 | -5 |
 | DES | 14 | +2 | +2 |
@@ -7116,7 +7116,7 @@ Il tentacolo può essere danneggiato, liberando una creatura afferrata se distru
 - **Velocità:** 12 m, Volare 18 m
 - **Iniziativa**: +6 (16)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 15 | +2 | +2 |
@@ -7167,7 +7167,7 @@ Il tentacolo può essere danneggiato, liberando una creatura afferrata se distru
 - **Velocità:** 12 m, Volare 18 m
 - **Iniziativa**: +4 (14)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 22 | +6 | +6 |
 | DES | 10 | +0 | +6 |
@@ -7219,7 +7219,7 @@ Il tentacolo può essere danneggiato, liberando una creatura afferrata se distru
 - **Velocità:** 9 m, Volare 9 m
 - **Iniziativa**: +0 (10)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 5 | -3 | -3 |
 | DES | 11 | +0 | +0 |
@@ -7257,7 +7257,7 @@ Il tentacolo può essere danneggiato, liberando una creatura afferrata se distru
 - **Velocità:** 3 m, Volare 12 m
 - **Iniziativa**: +3 (13)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 4 | -3 | -3 |
 | DES | 16 | +3 | +3 |
@@ -7285,7 +7285,7 @@ La stirge può staccarsi spendendo 1,5 m di movimento. Il bersaglio o una creatu
 - **Velocità:** 12 m
 - **Iniziativa**: +5 (15)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 23 | +6 | +6 |
 | DES | 15 | +2 | +5 |
@@ -7318,7 +7318,7 @@ La stirge può staccarsi spendendo 1,5 m di movimento. Il bersaglio o una creatu
 - **Velocità:** 9 m
 - **Iniziativa**: +3 (13)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 22 | +6 | +6 |
 | DES | 9 | -1 | -1 |
@@ -7359,7 +7359,7 @@ La stirge può staccarsi spendendo 1,5 m di movimento. Il bersaglio o una creatu
 - **Velocità:** 15 m, Volare 7,5 m (fluttuare), Nuotare 15 m
 - **Iniziativa**: +7 (17)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 29 | +9 | +14 |
 | DES | 14 | +2 | +2 |
@@ -7404,7 +7404,7 @@ La stirge può staccarsi spendendo 1,5 m di movimento. Il bersaglio o una creatu
 - **Velocità:** 9 m, Volare 18 m
 - **Iniziativa**: +3 (13)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 8 | -1 | -1 |
 | DES | 17 | +3 | +3 |
@@ -7448,7 +7448,7 @@ La stirge può staccarsi spendendo 1,5 m di movimento. Il bersaglio o una creatu
 - **Velocità:** 18 m, Sotterrare 12 m, Scalare 18 m
 - **Iniziativa**: +18 (28)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 30 | +10 | +10 |
 | DES | 11 | +0 | +9 |
@@ -7507,7 +7507,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 9 m
 - **Iniziativa**: +2 (12)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 17 | +3 | +5 |
 | DES | 14 | +2 | +2 |
@@ -7542,7 +7542,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 9 m
 - **Iniziativa**: +1 (11)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 12 | +1 | +1 |
@@ -7577,7 +7577,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 9 m
 - **Iniziativa**: +3 (13)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 23 | +6 | +6 |
 | DES | 8 | -1 | -1 |
@@ -7617,7 +7617,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 6 m
 - **Iniziativa**: +1 (11)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 12 | +1 | +1 |
@@ -7650,7 +7650,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 9 m
 - **Iniziativa**: +1 (11)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 13 | +1 | +1 |
@@ -7689,7 +7689,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 15 m
 - **Iniziativa**: +8 (18)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 14 | +2 | +2 |
@@ -7742,7 +7742,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 9 m, Scalare 9 m
 - **Iniziativa**: +5 (15)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 16 | +3 | +5 |
@@ -7784,7 +7784,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 12 m, Scalare 12 m
 - **Iniziativa**: +8 (18)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 18 | +4 | +9 |
@@ -7844,7 +7844,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 9 m
 - **Iniziativa**: +3 (13)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 16 | +3 | +6 |
@@ -7890,7 +7890,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 1,5 m
 - **Iniziativa**: -5 (5)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 3 | -4 | -4 |
 | DES | 1 | -5 | -5 |
@@ -7920,7 +7920,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 12 m, Volare 18 m
 - **Iniziativa**: +2 (12)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 15 | +2 | +5 |
@@ -7962,7 +7962,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 18 m
 - **Iniziativa**: +1 (11)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 12 | +1 | +1 |
@@ -7991,7 +7991,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 9 m
 - **Iniziativa**: +0 (10)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 13 | +1 | +1 |
 | DES | 11 | +0 | +0 |
@@ -8022,7 +8022,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 9 m
 - **Iniziativa**: +3 (13)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 13 | +1 | +1 |
@@ -8056,7 +8056,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 9 m, Nuotare 27 m
 - **Iniziativa**: +2 (12)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 14 | +2 | +2 |
@@ -8096,7 +8096,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 9 m, Alternativa ? m, Scalare 9 m (solo forma orso)
 - **Iniziativa**: +3 (13)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 10 | +0 | +0 |
@@ -8136,7 +8136,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 9 m, Alternativa ? m
 - **Iniziativa**: +2 (12)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 10 | +0 | +0 |
@@ -8174,7 +8174,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 9 m, Scalare 9 m
 - **Iniziativa**: +3 (13)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 10 | +0 | +0 |
 | DES | 16 | +3 | +3 |
@@ -8214,7 +8214,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 9 m, Alternativa ? m
 - **Iniziativa**: +2 (12)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 15 | +2 | +2 |
@@ -8256,7 +8256,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 9 m, Alternativa ? m
 - **Iniziativa**: +4 (14)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 14 | +2 | +2 |
@@ -8300,7 +8300,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 9 m, Scavare 4,5 m, Volare 18 m, Nuotare 9 m
 - **Iniziativa**: +2 (12)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 14 | +2 | +2 |
 | DES | 10 | +0 | +2 |
@@ -8336,7 +8336,7 @@ Se subisce 60 o più danni in un turno da creature al suo interno, deve superare
 - **Velocità:** 9 m
 - **Iniziativa**: +4 (14)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 15 | +2 | +2 |
 | DES | 14 | +2 | +2 |
@@ -8379,7 +8379,7 @@ Un Umanoide ucciso da questo attacco si rialza 24 ore dopo come Zombie sotto il 
 - **Velocità:** 1,5 m, Volare 15 m (fluttuare)
 - **Iniziativa**: +9 (19)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 1 | -5 | -5 |
 | DES | 28 | +9 | +9 |
@@ -8423,7 +8423,7 @@ Un Umanoide ucciso da questo attacco si rialza 24 ore dopo come Zombie sotto il 
 - **Velocità:** 15 m
 - **Iniziativa**: +1 (11)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 18 | +4 | +4 |
 | DES | 13 | +1 | +1 |
@@ -8459,7 +8459,7 @@ Un Umanoide ucciso da questo attacco si rialza 24 ore dopo come Zombie sotto il 
 - **Velocità:** 15 m
 - **Iniziativa**: +1 (11)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 16 | +3 | +3 |
 | DES | 13 | +1 | +1 |
@@ -8486,7 +8486,7 @@ Un Umanoide ucciso da questo attacco si rialza 24 ore dopo come Zombie sotto il 
 - **Velocità:** 1,5 m, Volare 18 m (fluttuare)
 - **Iniziativa**: +3 (13)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 6 | -2 | -2 |
 | DES | 16 | +3 | +3 |
@@ -8524,7 +8524,7 @@ Un Umanoide ucciso da questo attacco si rialza 24 ore dopo come Zombie sotto il 
 - **Velocità:** 9 m, Volare 24 m
 - **Iniziativa**: +0 (10)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 10 | +0 | +0 |
@@ -8556,7 +8556,7 @@ Un Umanoide ucciso da questo attacco si rialza 24 ore dopo come Zombie sotto il 
 - **Velocità:** 6 m, Scavare 6 m
 - **Iniziativa**: +0 (10)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 17 | +3 | +3 |
 | DES | 10 | +0 | +0 |
@@ -8600,7 +8600,7 @@ Un Umanoide ucciso da questo attacco si rialza 24 ore dopo come Zombie sotto il 
 - **Velocità:** 12 m, Volare 24 m, Nuotare 12 m
 - **Iniziativa**: +5 (15)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 14 | +2 | +5 |
@@ -8636,7 +8636,7 @@ Un Umanoide ucciso da questo attacco si rialza 24 ore dopo come Zombie sotto il 
 - **Velocità:** 12 m, Scavare 6 m, Volare 24 m
 - **Iniziativa**: +4 (14)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 21 | +5 | +5 |
 | DES | 10 | +0 | +4 |
@@ -8670,7 +8670,7 @@ Un Umanoide ucciso da questo attacco si rialza 24 ore dopo come Zombie sotto il 
 - **Velocità:** 12 m, Scavare 6 m, Volare 24 m
 - **Iniziativa**: +3 (13)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 10 | +0 | +3 |
@@ -8706,7 +8706,7 @@ Un Umanoide ucciso da questo attacco si rialza 24 ore dopo come Zombie sotto il 
 - **Velocità:** 12 m, Volare 24 m, Nuotare 12 m
 - **Iniziativa**: +3 (13)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 21 | +5 | +5 |
 | DES | 10 | +0 | +3 |
@@ -8746,7 +8746,7 @@ Un Umanoide ucciso da questo attacco si rialza 24 ore dopo come Zombie sotto il 
 - **Velocità:** 12 m, Scalare 12 m, Volare 24 m
 - **Iniziativa**: +4 (14)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 12 | +1 | +4 |
@@ -8780,7 +8780,7 @@ Un Umanoide ucciso da questo attacco si rialza 24 ore dopo come Zombie sotto il 
 - **Velocità:** 12 m, Volare 24 m, Nuotare 12 m
 - **Iniziativa**: +6 (16)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 23 | +6 | +6 |
 | DES | 14 | +2 | +6 |
@@ -8820,7 +8820,7 @@ Un Umanoide ucciso da questo attacco si rialza 24 ore dopo come Zombie sotto il 
 - **Velocità:** 12 m, Volare 24 m, Nuotare 12 m
 - **Iniziativa**: +4 (14)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 19 | +4 | +4 |
 | DES | 12 | +1 | +4 |
@@ -8858,7 +8858,7 @@ Un Umanoide ucciso da questo attacco si rialza 24 ore dopo come Zombie sotto il 
 - **Velocità:** 12 m, Scalare 12 m, Volare 24 m
 - **Iniziativa**: +4 (14)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 23 | +6 | +6 |
 | DES | 10 | +0 | +4 |
@@ -8892,7 +8892,7 @@ Un Umanoide ucciso da questo attacco si rialza 24 ore dopo come Zombie sotto il 
 - **Velocità:** 12 m, Volare 24 m
 - **Iniziativa**: +4 (14)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 23 | +6 | +6 |
 | DES | 10 | +0 | +4 |
@@ -8926,7 +8926,7 @@ Un Umanoide ucciso da questo attacco si rialza 24 ore dopo come Zombie sotto il 
 - **Velocità:** 6 m
 - **Iniziativa**: –2 (8)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 13 | +1 | +1 |
 | DES | 6 | –2 | –2 |
@@ -8959,7 +8959,7 @@ Un Umanoide ucciso da questo attacco si rialza 24 ore dopo come Zombie sotto il 
 - **Velocità:** 9 m, Scalare 9 m
 - **Iniziativa**: +2 (12)
 
-|CARATTERISTICA|PUNTEGGIO|MOD|TIRO SALVEZZA|
+|STAT|VAL|MOD|TS|
 | --- | --- | --- | ---- |
 | FOR | 14 | +2 | +2 |
 | DES | 14 | +2 | +2 |
