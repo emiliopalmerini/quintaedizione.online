@@ -1,5 +1,11 @@
 package web
 
+import (
+	"strconv"
+
+	"github.com/gin-gonic/gin"
+)
+
 type PaginationData struct {
 	TotalPages int
 	StartItem  int
@@ -23,5 +29,36 @@ func CalculatePaginationData(pageNum, pageSize int, totalCount int64) *Paginatio
 		EndItem:    endItem,
 		HasNext:    pageNum < totalPages,
 		HasPrev:    pageNum > 1,
+	}
+}
+
+// PaginationParams holds parsed pagination query parameters
+type PaginationParams struct {
+	PageNum  int
+	PageSize int
+	Query    string
+}
+
+// ExtractPaginationParams extracts and validates pagination parameters from gin context.
+// Returns default values: page=1, pageSize=20 if invalid or missing.
+func ExtractPaginationParams(c *gin.Context) PaginationParams {
+	page := c.DefaultQuery("page", "1")
+	pageSize := c.DefaultQuery("page_size", "20")
+	q := c.Query("q")
+
+	pageNum, err := strconv.Atoi(page)
+	if err != nil || pageNum < 1 {
+		pageNum = 1
+	}
+
+	pageSizeNum, err := strconv.Atoi(pageSize)
+	if err != nil || pageSizeNum < 1 || pageSizeNum > 100 {
+		pageSizeNum = 20
+	}
+
+	return PaginationParams{
+		PageNum:  pageNum,
+		PageSize: pageSizeNum,
+		Query:    q,
 	}
 }
