@@ -1,5 +1,7 @@
 package collections
 
+import "sort"
+
 type CollectionName string
 
 const (
@@ -78,13 +80,14 @@ func GetAllCollections() []CollectionName {
 	return collections
 }
 
-// GetAllCollectionNames returns collection names as strings.
+// GetAllCollectionNames returns collection names as strings in alphabetical order.
 // This is useful for middleware, repositories, and other components that work with string collection names.
 func GetAllCollectionNames() []string {
 	names := make([]string, 0, len(Registry))
 	for name := range Registry {
 		names = append(names, name.String())
 	}
+	sort.Strings(names)
 	return names
 }
 

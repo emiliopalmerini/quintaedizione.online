@@ -2,6 +2,7 @@ package web
 
 import (
 	"net/http"
+	"sort"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
@@ -73,6 +74,11 @@ func (h *HomeHandler) getDefaultCollections() []map[string]any {
 			"count": 0,
 		})
 	}
+
+	// Sort alphabetically by name
+	sort.Slice(result, func(i, j int) bool {
+		return result[i]["name"].(string) < result[j]["name"].(string)
+	})
 
 	return result
 }
