@@ -1,0 +1,78 @@
+package web
+
+import (
+	"net/http"
+
+	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
+	"github.com/emiliopalmerini/quintaedizione.online/pkg/mappers"
+	"github.com/gin-gonic/gin"
+)
+
+// HomeHandler handles home page requests.
+type HomeHandler struct {
+	*baseHandler
+}
+
+// handleHome renders the home page with collection statistics.
+func (h *HomeHandler) handleHome(c *gin.Context) {
+	collectionStats, err := h.contentService.GetCollectionStats(c.Request.Context())
+	if err != nil {
+		collectionStats = h.getDefaultCollections()
+	}
+
+	typedCollections := make([]models.Collection, 0, len(collectionStats))
+	total := int64(0)
+
+	for _, col := range collectionStats {
+		name := mappers.GetString(col, "collection", "")
+		count := mappers.GetInt64(col, "count", 0)
+
+		collection := models.Collection{
+			Name:  name,
+			Count: count,
+		}
+
+		if count > 0 {
+			total += count
+		}
+
+		collection.Label = h.getCollectionTitle(name)
+
+		typedCollections = append(typedCollections, collection)
+	}
+
+	data := models.HomePageData{
+		PageData: models.PageData{
+			Title:       "quintaedizione.online",
+			Description: "Il Fantastico Visualizzatore di SRD (5e 2024)",
+		},
+		Collections: typedCollections,
+		Total:       total,
+	}
+
+	content, err := h.templateEngine.RenderHome(data)
+	if err != nil {
+		h.ErrorResponse(c, err, "Errore nel rendering della pagina home")
+		return
+	}
+
+	h.setCacheHeaders(c, "home")
+	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
+}
+
+// getDefaultCollections returns default collection data when stats are unavailable.
+func (h *HomeHandler) getDefaultCollections() []map[string]any {
+	allCollections := collections.GetAllWithInfo()
+	result := make([]map[string]any, 0, len(allCollections))
+
+	for _, info := range allCollections {
+		result = append(result, map[string]any{
+			"name":  info.Name.String(),
+			"label": info.Title,
+			"count": 0,
+		})
+	}
+
+	return result
+}

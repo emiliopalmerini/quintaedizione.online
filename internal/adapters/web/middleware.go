@@ -15,6 +15,7 @@ import (
 )
 
 func (h *Handlers) ErrorRecoveryMiddleware() gin.HandlerFunc {
+	base := h.baseHandlerForMiddleware()
 	return func(c *gin.Context) {
 		defer func() {
 			if err := recover(); err != nil {
@@ -31,7 +32,7 @@ func (h *Handlers) ErrorRecoveryMiddleware() gin.HandlerFunc {
 				}
 
 				errMsg := fmt.Sprintf("Si è verificato un errore interno del server")
-				h.ErrorResponse(c, fmt.Errorf("internal server error"), errMsg)
+				base.ErrorResponse(c, fmt.Errorf("internal server error"), errMsg)
 
 				c.Abort()
 			}
