@@ -10,9 +10,9 @@ import (
 )
 
 type MarkdownRenderer struct {
-	extensions     parser.Extensions
-	opts           html.RendererOptions
-	keywordLinker  *KeywordLinker
+	extensions    parser.Extensions
+	opts          html.RendererOptions
+	keywordLinker *KeywordLinker
 }
 
 func NewMarkdownRenderer(keywordConfigPath string) *MarkdownRenderer {
