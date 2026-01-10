@@ -20,7 +20,7 @@ func (e HTTPError) Error() string {
 	return fmt.Sprintf("HTTP %d: %s", e.Code, e.Message)
 }
 
-func (h *Handlers) ErrorResponse(c *gin.Context, err error, fallbackMessage string) {
+func (h *baseHandler) ErrorResponse(c *gin.Context, err error, fallbackMessage string) {
 	var httpErr *HTTPError
 
 	if errors.As(err, &httpErr) {
@@ -36,7 +36,7 @@ func (h *Handlers) ErrorResponse(c *gin.Context, err error, fallbackMessage stri
 	h.renderErrorPage(c, message, statusCode)
 }
 
-func (h *Handlers) getErrorStatusCode(err error) int {
+func (h *baseHandler) getErrorStatusCode(err error) int {
 	errStr := err.Error()
 
 	switch {
@@ -55,7 +55,7 @@ func (h *Handlers) getErrorStatusCode(err error) int {
 	}
 }
 
-func (h *Handlers) getErrorMessage(err error, fallback string) string {
+func (h *baseHandler) getErrorMessage(err error, fallback string) string {
 	errStr := err.Error()
 
 	switch {
@@ -75,7 +75,7 @@ func (h *Handlers) getErrorMessage(err error, fallback string) string {
 	}
 }
 
-func (h *Handlers) renderErrorPage(c *gin.Context, message string, statusCode int) {
+func (h *baseHandler) renderErrorPage(c *gin.Context, message string, statusCode int) {
 
 	if c.GetHeader("HX-Request") == "true" {
 		h.renderHTMXError(c, message, statusCode)
@@ -99,7 +99,7 @@ func (h *Handlers) renderErrorPage(c *gin.Context, message string, statusCode in
 	c.Data(statusCode, "text/html; charset=utf-8", []byte(content))
 }
 
-func (h *Handlers) renderHTMXError(c *gin.Context, message string, statusCode int) {
+func (h *baseHandler) renderHTMXError(c *gin.Context, message string, statusCode int) {
 
 	// Escape HTML special characters to prevent XSS in error messages
 	escapedMessage := html.EscapeString(message)

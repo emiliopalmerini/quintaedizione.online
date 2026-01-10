@@ -12,16 +12,20 @@ import (
 )
 
 type ContentService struct {
-	documentRepo  repositories.DocumentRepository
-	filterService filters.FilterService
-	cache         *infrastructure.SimpleCache
+	documentReader repositories.DocumentReader
+	documentStats  repositories.DocumentStatistics
+	documentNav    repositories.DocumentNavigation
+	filterService  filters.FilterService
+	cache          *infrastructure.SimpleCache
 }
 
 func NewContentService(documentRepo repositories.DocumentRepository, filterService filters.FilterService) *ContentService {
 	return &ContentService{
-		documentRepo:  documentRepo,
-		filterService: filterService,
-		cache:         infrastructure.GetGlobalCache(),
+		documentReader: documentRepo,
+		documentStats:  documentRepo,
+		documentNav:    documentRepo,
+		filterService:  filterService,
+		cache:          infrastructure.GetGlobalCache(),
 	}
 }
 
@@ -35,7 +39,7 @@ func (s *ContentService) GetCollectionItems(ctx context.Context, collection, sea
 	searchFilter := s.filterService.BuildSearchFilter(collectionType, search)
 
 	if len(filterParams) == 0 {
-		items, totalCount, err := s.documentRepo.FindMaps(ctx, collection, searchFilter, skip, int64(limit))
+		items, totalCount, err := s.documentReader.FindMaps(ctx, collection, searchFilter, skip, int64(limit))
 		if err != nil {
 			return nil, 0, fmt.Errorf("failed to get collection items: %w", err)
 		}
@@ -54,7 +58,7 @@ func (s *ContentService) GetCollectionItems(ctx context.Context, collection, sea
 
 	combinedFilter := s.filterService.CombineFilters(fieldFilter, searchFilter)
 
-	items, totalCount, err := s.documentRepo.FindMaps(ctx, collection, combinedFilter, skip, int64(limit))
+	items, totalCount, err := s.documentReader.FindMaps(ctx, collection, combinedFilter, skip, int64(limit))
 	if err != nil {
 		return nil, 0, fmt.Errorf("failed to get collection items with filters: %w", err)
 	}
@@ -71,7 +75,7 @@ func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (
 		}
 	}
 
-	item, err := s.documentRepo.FindMapByID(ctx, collection, slug)
+	item, err := s.documentReader.FindMapByID(ctx, collection, slug)
 	if err != nil {
 		return nil, fmt.Errorf("failed to find item: %w", err)
 	}
@@ -82,7 +86,7 @@ func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (
 }
 
 func (s *ContentService) GetStats(ctx context.Context) (map[string]any, error) {
-	collections, err := s.documentRepo.GetAllCollectionStats(ctx)
+	collections, err := s.documentStats.GetAllCollectionStats(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("failed to get collection stats: %w", err)
 	}
@@ -105,11 +109,11 @@ func (s *ContentService) GetStats(ctx context.Context) (map[string]any, error) {
 }
 
 func (s *ContentService) GetCollectionStats(ctx context.Context) ([]map[string]any, error) {
-	return s.documentRepo.GetAllCollectionStats(ctx)
+	return s.documentStats.GetAllCollectionStats(ctx)
 }
 
 func (s *ContentService) GetAdjacentItems(ctx context.Context, collection, currentSlug string) (prevSlug, nextSlug *string, err error) {
-	return s.documentRepo.GetAdjacentMaps(ctx, collection, currentSlug)
+	return s.documentNav.GetAdjacentMaps(ctx, collection, currentSlug)
 }
 
 type SearchResult struct {
@@ -123,7 +127,7 @@ func (s *ContentService) GlobalSearch(ctx context.Context, query string, limitPe
 		return []SearchResult{}, nil
 	}
 
-	allCollections, err := s.documentRepo.GetAllCollectionStats(ctx)
+	allCollections, err := s.documentStats.GetAllCollectionStats(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("failed to get collections: %w", err)
 	}
@@ -140,7 +144,7 @@ func (s *ContentService) GlobalSearch(ctx context.Context, query string, limitPe
 		collectionType, _ := collections.FromString(collectionName)
 		searchFilter := s.filterService.BuildSearchFilter(collectionType, query)
 
-		items, total, err := s.documentRepo.FindMaps(ctx, collectionName, searchFilter, 0, int64(limitPerCollection))
+		items, total, err := s.documentReader.FindMaps(ctx, collectionName, searchFilter, 0, int64(limitPerCollection))
 		if err != nil {
 
 			fmt.Printf("Warning: Failed to search in collection %s: %v\n", collectionName, err)

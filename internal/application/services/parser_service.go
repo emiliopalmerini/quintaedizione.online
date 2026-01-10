@@ -14,7 +14,7 @@ import (
 
 type ParserService struct {
 	documentRegistry *parsers.DocumentRegistry
-	documentRepo     domainRepos.DocumentRepository
+	bulkOps          domainRepos.DocumentBulkOperations
 	workItems        []parsers.WorkItem
 	logger           parsers.Logger
 	dryRun           bool
@@ -41,7 +41,7 @@ func NewParserService(config ParserServiceConfig) *ParserService {
 
 	return &ParserService{
 		documentRegistry: config.DocumentRegistry,
-		documentRepo:     config.DocumentRepo,
+		bulkOps:          config.DocumentRepo,
 		workItems:        workItems,
 		logger:           logger,
 		dryRun:           config.DryRun,
@@ -152,7 +152,7 @@ func (s *ParserService) parseFile(ctx context.Context, inputDir string, workItem
 	result.DocumentCount = len(documents)
 
 	if !s.dryRun {
-		saved, err := s.documentRepo.UpsertMany(ctx, workItem.Collection, documents)
+		saved, err := s.bulkOps.UpsertMany(ctx, workItem.Collection, documents)
 		if err != nil {
 			result.Error = fmt.Errorf("failed to save documents: %w", err)
 			return result
