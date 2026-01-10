@@ -1,6 +1,10 @@
 package parsers
 
-import "github.com/emiliopalmerini/quintaedizione.online/internal/domain"
+import (
+	"os"
+
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain"
+)
 
 type DocumentParsingStrategy interface {
 	ParseDocument(content []string, context *ParsingContext) ([]*domain.Document, error)
@@ -20,8 +24,27 @@ type BaseDocumentParser struct {
 
 func NewBaseDocumentParser() *BaseDocumentParser {
 	return &BaseDocumentParser{
-		renderer: NewMarkdownRenderer(),
+		renderer: NewMarkdownRenderer(getKeywordConfigPath()),
 	}
+}
+
+// getKeywordConfigPath returns the path to keywords.json, trying multiple locations
+func getKeywordConfigPath() string {
+	configPaths := []string{
+		"configs/keywords.json",
+		"./configs/keywords.json",
+		"../configs/keywords.json",
+		"../../configs/keywords.json",
+	}
+
+	for _, path := range configPaths {
+		if _, err := os.Stat(path); err == nil {
+			return path
+		}
+	}
+
+	// Return empty string if not found - keyword linking will be disabled
+	return ""
 }
 
 func (p *BaseDocumentParser) RenderMarkdown(markdown string) domain.HTMLContent {
