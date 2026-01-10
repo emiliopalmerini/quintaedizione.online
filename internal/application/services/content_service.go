@@ -19,13 +19,13 @@ type ContentService struct {
 	cache          *infrastructure.SimpleCache
 }
 
-func NewContentService(documentRepo repositories.DocumentRepository, filterService filters.FilterService) *ContentService {
+func NewContentService(documentRepo repositories.DocumentRepository, filterService filters.FilterService, cache *infrastructure.SimpleCache) *ContentService {
 	return &ContentService{
 		documentReader: documentRepo,
 		documentStats:  documentRepo,
 		documentNav:    documentRepo,
 		filterService:  filterService,
-		cache:          infrastructure.GetGlobalCache(),
+		cache:          cache,
 	}
 }
 

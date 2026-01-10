@@ -6,6 +6,7 @@ import (
 	"html"
 	"log"
 	"net/http"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 )
@@ -36,43 +37,64 @@ func (h *baseHandler) ErrorResponse(c *gin.Context, err error, fallbackMessage s
 	h.renderErrorPage(c, message, statusCode)
 }
 
+// errorMapping defines error patterns and their corresponding status codes and messages.
+type errorMapping struct {
+	patterns   []string
+	statusCode int
+	message    string
+}
+
+// errorMappings is an ordered list of error patterns to match.
+// Order matters: more specific patterns should come first.
+var errorMappings = []errorMapping{
+	{
+		patterns:   []string{"not found", "document not found"},
+		statusCode: http.StatusNotFound,
+		message:    "La pagina o l'elemento richiesto non è stato trovato.",
+	},
+	{
+		patterns:   []string{"invalid collection", "invalid"},
+		statusCode: http.StatusBadRequest,
+		message:    "Collezione non valida o non supportata.",
+	},
+	{
+		patterns:   []string{"unauthorized", "forbidden"},
+		statusCode: http.StatusUnauthorized,
+		message:    "Accesso non autorizzato.",
+	},
+	{
+		patterns:   []string{"timeout", "context deadline exceeded"},
+		statusCode: http.StatusGatewayTimeout,
+		message:    "Il server ha impiegato troppo tempo a rispondere. Riprova più tardi.",
+	},
+	{
+		patterns:   []string{"connection", "network"},
+		statusCode: http.StatusServiceUnavailable,
+		message:    "Problema di connessione al database. Riprova più tardi.",
+	},
+}
+
 func (h *baseHandler) getErrorStatusCode(err error) int {
 	errStr := err.Error()
-
-	switch {
-	case contains(errStr, "not found", "document not found"):
-		return http.StatusNotFound
-	case contains(errStr, "invalid collection", "invalid"):
-		return http.StatusBadRequest
-	case contains(errStr, "unauthorized", "forbidden"):
-		return http.StatusUnauthorized
-	case contains(errStr, "timeout", "context deadline exceeded"):
-		return http.StatusGatewayTimeout
-	case contains(errStr, "connection", "network"):
-		return http.StatusServiceUnavailable
-	default:
-		return http.StatusInternalServerError
+	for _, mapping := range errorMappings {
+		if contains(errStr, mapping.patterns...) {
+			return mapping.statusCode
+		}
 	}
+	return http.StatusInternalServerError
 }
 
 func (h *baseHandler) getErrorMessage(err error, fallback string) string {
 	errStr := err.Error()
-
-	switch {
-	case contains(errStr, "not found", "document not found"):
-		return "La pagina o l'elemento richiesto non è stato trovato."
-	case contains(errStr, "invalid collection"):
-		return "Collezione non valida o non supportata."
-	case contains(errStr, "timeout"):
-		return "Il server ha impiegato troppo tempo a rispondere. Riprova più tardi."
-	case contains(errStr, "connection", "network"):
-		return "Problema di connessione al database. Riprova più tardi."
-	default:
-		if fallback != "" {
-			return fallback
+	for _, mapping := range errorMappings {
+		if contains(errStr, mapping.patterns...) {
+			return mapping.message
 		}
-		return "Si è verificato un errore inaspettato. Riprova più tardi."
 	}
+	if fallback != "" {
+		return fallback
+	}
+	return "Si è verificato un errore inaspettato. Riprova più tardi."
 }
 
 func (h *baseHandler) renderErrorPage(c *gin.Context, message string, statusCode int) {
@@ -131,29 +153,11 @@ func NewHTTPErrorWithDetail(code int, message, detail string) *HTTPError {
 }
 
 func contains(str string, substrings ...string) bool {
-	str = fmt.Sprintf("%s", str)
+	lowerStr := strings.ToLower(str)
 	for _, substr := range substrings {
-		if len(str) >= len(substr) {
-			for i := 0; i <= len(str)-len(substr); i++ {
-				match := true
-				for j := 0; j < len(substr); j++ {
-					if toLower(str[i+j]) != toLower(substr[j]) {
-						match = false
-						break
-					}
-				}
-				if match {
-					return true
-				}
-			}
+		if strings.Contains(lowerStr, strings.ToLower(substr)) {
+			return true
 		}
 	}
 	return false
-}
-
-func toLower(b byte) byte {
-	if b >= 'A' && b <= 'Z' {
-		return b + ('a' - 'A')
-	}
-	return b
 }
