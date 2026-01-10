@@ -1,6 +1,10 @@
 package filters
 
-import "go.mongodb.org/mongo-driver/bson"
+import (
+	"go.mongodb.org/mongo-driver/bson"
+
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
+)
 
 type FilterDataType int
 
@@ -25,7 +29,7 @@ type FilterDefinition struct {
 	FieldPath   string
 	DataType    FilterDataType
 	Operator    FilterOperator
-	Collections []CollectionType
+	Collections []collections.CollectionName
 	EnumValues  []string
 	Required    bool
 	Description string
@@ -38,27 +42,27 @@ type FilterValue struct {
 }
 
 type FilterSet struct {
-	Collection CollectionType
+	Collection collections.CollectionName
 	Filters    []FilterValue
 }
 
 type FilterRepository interface {
-	GetFiltersForCollection(collection CollectionType) ([]FilterDefinition, error)
+	GetFiltersForCollection(collection collections.CollectionName) ([]FilterDefinition, error)
 	GetFilterByName(name string) (FilterDefinition, bool)
 	GetAllFilters() ([]FilterDefinition, error)
 }
 
 type FilterService interface {
-	ParseFilters(collection CollectionType, queryParams map[string]string) (*FilterSet, error)
+	ParseFilters(collection collections.CollectionName, queryParams map[string]string) (*FilterSet, error)
 	ValidateFilterSet(filterSet *FilterSet) error
 	BuildMongoFilter(filterSet *FilterSet) (bson.M, error)
-	GetAvailableFilters(collection CollectionType) ([]FilterDefinition, error)
+	GetAvailableFilters(collection collections.CollectionName) ([]FilterDefinition, error)
 
-	BuildSearchFilter(collection CollectionType, searchTerm string) bson.M
+	BuildSearchFilter(collection collections.CollectionName, searchTerm string) bson.M
 	CombineFilters(fieldFilter, searchFilter bson.M) bson.M
 }
 
-func NewFilterSet(collection CollectionType) *FilterSet {
+func NewFilterSet(collection collections.CollectionName) *FilterSet {
 	return &FilterSet{
 		Collection: collection,
 		Filters:    make([]FilterValue, 0),
@@ -82,7 +86,7 @@ func (fs *FilterSet) GetFilter(name string) (FilterValue, bool) {
 	return FilterValue{}, false
 }
 
-func (fd FilterDefinition) IsApplicableToCollection(collection CollectionType) bool {
+func (fd FilterDefinition) IsApplicableToCollection(collection collections.CollectionName) bool {
 	if len(fd.Collections) == 0 {
 		return true
 	}

@@ -6,6 +6,7 @@ import (
 	"maps"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/repositories"
 	pkgMongodb "github.com/emiliopalmerini/quintaedizione.online/pkg/mongodb"
 	"go.mongodb.org/mongo-driver/bson"
@@ -337,12 +338,7 @@ func (r *documentMongoRepository) GetAdjacentMaps(ctx context.Context, collectio
 
 func (r *documentMongoRepository) GetAllCollectionStats(ctx context.Context) ([]map[string]any, error) {
 
-	validCollections := []string{
-		"incantesimi", "mostri", "classi", "backgrounds",
-		"equipaggiamenti", "oggetti_magici", "armi", "armature",
-		"talenti", "servizi", "strumenti", "animali",
-		"regole", "cavalcature_veicoli",
-	}
+	validCollections := collections.GetAllCollectionNames()
 
 	stats := make([]map[string]any, 0, len(validCollections))
 

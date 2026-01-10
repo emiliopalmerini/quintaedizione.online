@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/filters"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/repositories"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/infrastructure"
@@ -28,7 +29,8 @@ func (s *ContentService) GetCollectionItems(ctx context.Context, collection, sea
 
 	skip := int64((page - 1) * limit)
 
-	collectionType := filters.CollectionType(collection)
+	// Convert string to CollectionName (we assume collection is already validated by middleware)
+	collectionType, _ := collections.FromString(collection)
 
 	searchFilter := s.filterService.BuildSearchFilter(collectionType, search)
 
@@ -134,7 +136,8 @@ func (s *ContentService) GlobalSearch(ctx context.Context, query string, limitPe
 			continue
 		}
 
-		collectionType := filters.CollectionType(collectionName)
+		// Convert string to CollectionName (we assume collection names from DB are valid)
+		collectionType, _ := collections.FromString(collectionName)
 		searchFilter := s.filterService.BuildSearchFilter(collectionType, query)
 
 		items, total, err := s.documentRepo.FindMaps(ctx, collectionName, searchFilter, 0, int64(limitPerCollection))

@@ -9,6 +9,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/time/rate"
 )
@@ -100,21 +101,11 @@ func ValidationMiddleware() gin.HandlerFunc {
 }
 
 func isValidCollection(collection string) bool {
-	validCollections := getValidCollections()
-	for _, valid := range validCollections {
-		if collection == valid {
-			return true
-		}
-	}
-	return false
+	return collections.IsValid(collection)
 }
 
 func getValidCollections() []string {
-	return []string{
-		"incantesimi", "mostri", "classi", "backgrounds", "equipaggiamenti",
-		"oggetti_magici", "armi", "armature", "talenti", "servizi",
-		"strumenti", "animali", "regole", "cavalcature_veicoli",
-	}
+	return collections.GetAllCollectionNames()
 }
 
 type rateLimiterEntry struct {

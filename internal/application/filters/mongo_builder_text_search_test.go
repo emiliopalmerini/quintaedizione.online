@@ -3,7 +3,7 @@ package filters
 import (
 	"testing"
 
-	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/filters"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
 	"go.mongodb.org/mongo-driver/bson"
 )
 
@@ -49,7 +49,7 @@ func TestBuildSearchFilter(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			result := builder.BuildSearchFilter(filters.IncantesimiCollection, tt.searchTerm)
+			result := builder.BuildSearchFilter(collections.Incantesimi, tt.searchTerm)
 
 			textOp, ok := result["$text"]
 			if !ok && tt.shouldHaveText {
@@ -87,19 +87,19 @@ func TestBuildSearchFilter_Collections(t *testing.T) {
 	builder := NewMongoFilterBuilder()
 	searchTerm := "test"
 
-	collections := []filters.CollectionType{
-		filters.IncantesimiCollection,
-		filters.MostriCollection,
-		filters.AnimaliCollection,
-		filters.ArmiCollection,
-		filters.ArmatureCollection,
-		filters.OggettiMagiciCollection,
-		filters.ClassiCollection,
-		filters.BackgroundsCollection,
-		filters.TalentiCollection,
+	collectionList := []collections.CollectionName{
+		collections.Incantesimi,
+		collections.Mostri,
+		collections.Animali,
+		collections.Armi,
+		collections.Armature,
+		collections.OggettiMagici,
+		collections.Classi,
+		collections.Backgrounds,
+		collections.Talenti,
 	}
 
-	for _, col := range collections {
+	for _, col := range collectionList {
 		t.Run(col.String(), func(t *testing.T) {
 			result := builder.BuildSearchFilter(col, searchTerm)
 
@@ -152,7 +152,7 @@ func TestBuildSearchFilter_SpecialCharacters(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			result := builder.BuildSearchFilter(filters.IncantesimiCollection, tt.searchTerm)
+			result := builder.BuildSearchFilter(collections.Incantesimi, tt.searchTerm)
 
 			if _, ok := result["$text"]; !ok {
 				t.Errorf("$text operator not found")
@@ -447,7 +447,7 @@ func TestBuildSearchFilter_InjectionPrevention(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			result := builder.BuildSearchFilter(filters.IncantesimiCollection, tt.input)
+			result := builder.BuildSearchFilter(collections.Incantesimi, tt.input)
 
 			hasText := len(result) > 0 && result["$text"] != nil
 
