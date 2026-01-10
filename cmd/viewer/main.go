@@ -74,7 +74,9 @@ func main() {
 
 	filterService := services.NewFilterService(filterRegistry)
 
-	contentService := services.NewContentService(repositoryFactory.DocumentRepository(), filterService)
+	cache := infrastructure.NewSimpleCache()
+
+	contentService := services.NewContentService(repositoryFactory.DocumentRepository(), filterService, cache)
 
 	searchService := search.NewFuzzySearchService(repositoryFactory.SearchRepository())
 	log.Println("Fuzzy search service initialized")
@@ -97,7 +99,7 @@ func main() {
 	router.Static("/static", "./web/static")
 
 	router.GET("/health", func(c *gin.Context) {
-		cacheStats := infrastructure.GetGlobalCache().GetStats()
+		cacheStats := cache.GetStats()
 		metrics := web.GetGlobalMetrics()
 
 		c.JSON(http.StatusOK, gin.H{

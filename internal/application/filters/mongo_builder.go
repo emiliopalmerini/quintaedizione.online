@@ -66,24 +66,11 @@ func (b *MongoFilterBuilder) buildSingleFilter(filterValue filters.FilterValue) 
 }
 
 func (b *MongoFilterBuilder) buildExactMatch(fieldPath, value string, dataType filters.FilterDataType) (map[string]any, error) {
-	switch dataType {
-	case filters.StringFilter, filters.EnumFilter:
-		return map[string]any{fieldPath: value}, nil
-	case filters.NumberFilter:
-		numValue, err := strconv.ParseFloat(value, 64)
-		if err != nil {
-			return nil, fmt.Errorf("invalid number value: %s", value)
-		}
-		return map[string]any{fieldPath: numValue}, nil
-	case filters.BooleanFilter:
-		boolValue, err := strconv.ParseBool(value)
-		if err != nil {
-			return nil, fmt.Errorf("invalid boolean value: %s", value)
-		}
-		return map[string]any{fieldPath: boolValue}, nil
-	default:
-		return nil, fmt.Errorf("unsupported data type for exact match: %d", dataType)
+	convertedValue, err := filters.ConvertValue(value, dataType)
+	if err != nil {
+		return nil, err
 	}
+	return map[string]any{fieldPath: convertedValue}, nil
 }
 
 func (b *MongoFilterBuilder) buildRegexMatch(fieldPath, value string) (map[string]any, error) {

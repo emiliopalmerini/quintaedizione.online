@@ -2,7 +2,6 @@ package services
 
 import (
 	"fmt"
-	"strconv"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/filters"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
@@ -144,24 +143,5 @@ func (s *FilterService) CombineFilters(fieldFilter, searchFilter map[string]any)
 }
 
 func (s *FilterService) convertValue(value string, dataType domainFilters.FilterDataType) (any, error) {
-	switch dataType {
-	case domainFilters.StringFilter, domainFilters.EnumFilter:
-		return value, nil
-	case domainFilters.NumberFilter:
-		if floatValue, err := strconv.ParseFloat(value, 64); err == nil {
-			return floatValue, nil
-		}
-		if intValue, err := strconv.ParseInt(value, 10, 64); err == nil {
-			return intValue, nil
-		}
-		return nil, fmt.Errorf("invalid number format: %s", value)
-	case domainFilters.BooleanFilter:
-		boolValue, err := strconv.ParseBool(value)
-		if err != nil {
-			return nil, fmt.Errorf("invalid boolean format: %s", value)
-		}
-		return boolValue, nil
-	default:
-		return value, nil
-	}
+	return domainFilters.ConvertValue(value, dataType)
 }
