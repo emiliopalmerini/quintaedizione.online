@@ -8,7 +8,7 @@ YELLOW := \033[0;33m
 BLUE := \033[0;34m
 NC := \033[0m # No Color
 
-.PHONY: help setup build run templ-generate test clean
+.PHONY: help setup build run templ-generate test clean pdf-setup pdf-convert
 
 .DEFAULT_GOAL := help
 
@@ -47,6 +47,25 @@ clean:
 	go clean
 	@echo -e "$(GREEN)Cleanup completed!$(NC)"
 
+pdf-setup:
+	@echo -e "$(BLUE)Setting up PDF pipeline environment...$(NC)"
+	@command -v uv >/dev/null 2>&1 || (echo -e "$(RED)Error: uv is not installed. Visit https://docs.astral.sh/uv/$(NC)" && exit 1)
+	@if [ ! -d "scripts/pdf-pipeline" ]; then \
+		echo -e "$(RED)Error: scripts/pdf-pipeline directory not found$(NC)"; \
+		exit 1; \
+	fi
+	cd scripts/pdf-pipeline && uv sync
+	@echo -e "$(GREEN)PDF pipeline setup completed!$(NC)"
+
+pdf-convert: pdf-setup
+	@if [ -z "$(PDF)" ]; then \
+		echo -e "$(RED)Error: PDF argument required. Usage: make pdf-convert PDF=path/to/file.pdf$(NC)"; \
+		exit 1; \
+	fi
+	@echo -e "$(BLUE)Running PDF conversion pipeline...$(NC)"
+	cd scripts/pdf-pipeline && uv run pdf-pipeline run ../../$(PDF) --output-dir ../../data/ita/lists/
+	@echo -e "$(GREEN)PDF conversion completed!$(NC)"
+
 help:
 	@echo -e "$(BLUE) quintaedizione.online - Available Commands:$(NC)"
 	@echo ""
@@ -60,3 +79,7 @@ help:
 	@echo -e "$(YELLOW)Go Development:$(NC)"
 	@echo "  make format                # Format Go code"
 	@echo "  make test                  # Run Go unit tests"
+	@echo ""
+	@echo -e "$(YELLOW)PDF Pipeline:$(NC)"
+	@echo "  make pdf-setup             # Setup PDF pipeline environment (uv sync)"
+	@echo "  make pdf-convert PDF=<path> # Convert PDF to markdown (includes setup)"
