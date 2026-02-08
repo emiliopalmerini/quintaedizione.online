@@ -1,2766 +1,2395 @@
+# **Animali**
 
-# Animali
+### **Alce**
 
-## Allosauro
+_Bestia Grande, senza allineamento_
 
-*Bestia Grande (Dinosauro), Non Allineato*
+**CA** 10 **Iniziativa** +0 (10)
+**PF** 11 (2d10)
+**Velocità** 15 m
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 51 (6d10 + 18)
-- **Velocità:** 18 m
-- **Iniziativa**: +1 (11)
+**Abilità** Percezione +2
+**Sensi** Percezione passiva 12; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 19 | +4 | +4 |
-| DES | 13 | +1 | +1 |
-| COS | 17 | +3 | +3 |
-| INT | 2 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 5 | -3 | -3 |
+Azioni
 
-- **Abilità**: Percezione +5
-- **Sensi**: Percezione Passiva 15
-- **GS** 2 (PE 450; PB +2)
+_**Sfondamento.**_ _Tiro per colpire in mischia:_ +5, portata
+1,5 m. _Colpito:_ 6 (1d6 + 3) danni contundenti. Se il bersaglio è una creatura di taglia Grande o inferiore e l'alce
+si è mosso di 6 metri o più in linea retta verso di esso
+subito prima del colpo, il bersaglio subisce 3 (1d6)
+danni contundenti extra e cade a terra prono.
 
-### Azioni
+### **Alce gigante**
 
-***Morso.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 15 (2d10 + 4) danni Perforanti.
+_Celestiale Enorme, neutrale buono_
 
-***Artigli.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 8 (1d8 + 4) danni Taglienti. Se il bersaglio è una creatura Grande o più piccola e la creatura si è mossa di 9+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio ha la condizione Prono e la creatura può effettuare un attacco con Morso contro di esso.
+**CA** 14 **Iniziativa** +6 (16)
+**PF** 42 (5d12 + 10)
+**Velocità** 18 m
 
-## Anchilosauro
+**Abilità** Percezione +4
+**Resistenze** necrotico, radioso
+**Sensi** Percezione passiva 14; scurovisione 27 m
+**Lingue** Celestiale; capisce il Comune, l'Elfico e il Silvano
 
-*Bestia Enorme (Dinosauro), Non Allineato*
+ma non li parla
+**GS** 2 (PE 450; BC +2)
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 68 (8d12 + 16)
-- **Velocità:** 9 m
-- **Iniziativa**: +0 (10)
+Azioni
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 19 | +4 | +6 |
-| DES | 11 | +0 | +0 |
-| COS | 15 | +2 | +2 |
-| INT | 2 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 5 | -3 | -3 |
+_**Sfondamento.**_ _Tiro per colpire in mischia:_ +6, portata
+3 m. _Colpito:_ 11 (2d6 + 4) danni contundenti più
+5 (2d4) danni radiosi. Se il bersaglio è una creatura di
+taglia Enorme o inferiore e l'alce si è mosso di 6 metri
 
-- **Sensi**: Percezione Passiva 11
-- **GS** 3 (PE 700; PB +2)
+      - più in linea retta verso di esso subito prima del colpo,
 
-### Azioni
+il bersaglio subisce 5 (2d4) danni contundenti extra
+e cade a terra prono.
 
-***Attacco Multiplo.*** Effettua due attacchi con Coda.
+### **Allosauro**
 
-***Coda.*** *Tiro per colpire in mischia:* +6, portata 3 m. 9 (1d10 + 4) danni Contundenti. Se il bersaglio è una creatura Enorme o più piccola, ha la condizione Prono.
+_Bestia Grande (dinosauro), senza allineamento_
 
-## Scimmia
+**CA** 13 **Iniziativa** +1 (11)
+**PF** 51 (6d10 + 18)
+**Velocità** 18 m
 
-*Bestia Media, Non Allineato*
+**385** System Reference Document 5.2.1
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 19 (3d8 + 6)
-- **Velocità:** 9 m, Scalare 9 m
-- **Iniziativa**: +2 (12)
+**Abilità** Percezione +5
+**Sensi** Percezione passiva 15
+**Lingue** nessuna
+**GS** 2 (PE 450; BC +2)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 16 | +3 | +3 |
-| DES | 14 | +2 | +2 |
-| COS | 14 | +2 | +2 |
-| INT | 6 | -2 | -2 |
-| SAG | 12 | +1 | +1 |
-| CAR | 7 | -2 | -2 |
+Azioni
 
-- **Abilità**: Atletica +5, Percezione +3
-- **Sensi**: Percezione Passiva 13
-- **GS** 1/2 (PE 100; PB +2)
+_**Artigli.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 8 (1d8 + 4) danni taglienti. Se il bersaglio è
+una creatura di taglia Grande o inferiore e l'allosauro
+si è mosso di 9 metri o più in linea retta verso di esso
+subito prima del colpo, il bersaglio cade a terra prono
+e l'allosauro può effettuare un attacco Morso contro di
+esso.
 
-### Azioni
+_**Morso.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 15 (2d10 + 4) danni perforanti.
 
-***Attacco Multiplo.*** Effettua due attacchi con Pugno.
+### **Anchilosauro**
 
-***Pugno.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 5 (1d4 + 3) danni Contundenti.
+_Bestia Enorme (dinosauro), senza allineamento_
 
-***Roccia (Ricarica 6).*** *Tiro per colpire a distanza:* +5, gittata 7,5/15 m. 10 (2d6 + 3) danni Contundenti.
+**CA** 15 **Iniziativa** +0 (10)
+**PF** 68 (8d12 + 16)
+**Velocità** 9 m
 
-## Archelon
+**Sensi** Percezione passiva 11
+**Lingue** nessuna
+**GS** 3 (PE 700; BC +2)
 
-*Bestia Enorme (Dinosauro), Non Allineato*
+Azioni
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 90 (12d12 + 12)
-- **Velocità:** 6 m, Nuoto 24 m
-- **Iniziativa**: +3 (13)
+_**Multiattacco.**_ L'anchilosauro effettua due attacchi
+Coda.
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 18 | +4 | +4 |
-| DES | 16 | +3 | +3 |
-| COS | 13 | +1 | +1 |
-| INT | 4 | -3 | -3 |
-| SAG | 14 | +2 | +2 |
-| CAR | 6 | -2 | -2 |
+_**Coda.**_ _Tiro per colpire in mischia:_ +6, portata 3 m.
+_Colpito:_ 9 (1d10 + 4) danni contundenti. Se il bersaglio
+è una creatura di taglia Enorme o inferiore, cade a terra
+prono.
 
-- **Abilità**: Furtività +5
-- **Sensi**: Percezione Passiva 12
-- **GS** 4 (PE 1,100; PB +2)
+### **Aquila**
 
-### Tratti
+_Bestia Piccola, senza allineamento_
 
-***Anfibio.*** Può respirare aria e acqua.
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 4 (1d6 + 1)
+**Velocità** 3 m, volo 18 m
 
-### Azioni
+**Abilità** Percezione +6
+**Sensi** Percezione passiva 16
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-***Attacco Multiplo.*** Effettua due attacchi con Morso.
+Azioni
 
-***Morso.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 14 (3d6 + 4) danni Perforanti.
+_**Speroni.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m.
+_Colpito:_ 4 (1d4 + 2) danni taglienti.
 
-## Babbuino
+### **Aquila gigante**
 
-*Bestia Piccola, Non Allineato*
+_Celestiale Grande, neutrale buono_
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 3 (1d6)
-- **Velocità:** 9 m, Scalare 9 m
-- **Iniziativa**: +2 (12)
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 26 (4d10 + 4)
+**Velocità** 3 m, volo 24 m
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 8 | -1 | -1 |
-| DES | 14 | +2 | +2 |
-| COS | 11 | +0 | +0 |
-| INT | 4 | -3 | -3 |
-| SAG | 12 | +1 | +1 |
-| CAR | 6 | -2 | -2 |
+**Abilità** Percezione +6
+**Resistenze** necrotico, radioso
+**Sensi** Percezione passiva 16
+**Lingue** Celestiale; capisce il Comune e il Primordiale
 
-- **Sensi**: Percezione Passiva 11
-- **GS** 0 (PE 0 o 10; PB +2)
+(Auran) ma non li parla
+**GS** 1 (PE 200; BC +2)
 
-### Tratti
+Azioni
 
-***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
+_**Multiattacco.**_ L'aquila effettua due attacchi Squarcio.
 
-### Azioni
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m.
+_Colpito:_ 5 (1d4 + 3) danni taglienti più 3 (1d6) danni
+radiosi.
 
-***Morso.*** *Tiro per colpire in mischia:* +1, portata 1,5 m. 1 (1d4 - 1) danni Perforanti.
+### **Archelon**
 
-## Pipistrello
+_Bestia Enorme (dinosauro), senza allineamento_
 
-*Bestia Piccola, Non Allineato*
+**CA** 17 **Iniziativa** +3 (13)
+**PF** 90 (12d12 + 12)
+**Velocità** 6 m, nuoto 24 m
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 1 (1d4 - 1)
-- **Velocità:** 1,5 m, Volo 9 m
-- **Iniziativa**: +2 (12)
+**Abilità** Furtività +5
+**Sensi** Percezione passiva 12
+**Lingue** nessuna
+**GS** 4 (PE 1.100; BC +2)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 2 | -4 | -4 |
-| DES | 15 | +2 | +2 |
-| COS | 8 | -1 | -1 |
-| INT | 2 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 4 | -3 | -3 |
+Tratti
 
-- **Sensi**: Sensi Ciechi 18 m; Percezione Passiva 11
-- **GS** 0 (PE 0 or 10; PB +2)
+_**Anfibio.**_ L'archelon può respirare in aria e in acqua.
 
-### Azioni
+Azioni
 
-***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 1 danno Perforante.
+_**Multiattacco.**_ L'archelon effettua due attacchi Morso.
 
-## Orso Nero
+_**Morso.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 14 (3d6 + 4) danni perforanti.
 
-*Bestia Media, Non Allineato*
+### **Avvoltoio**
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 19 (3d8 + 6)
-- **Velocità:** 9 m, Scalare 9 m, Nuoto 9 m
-- **Iniziativa**: +1 (11)
+_Bestia Media, senza allineamento_
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 15 | +2 | +2 |
-| DES | 12 | +1 | +1 |
-| COS | 14 | +2 | +2 |
-| INT | 2 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 7 | -2 | -2 |
+**CA** 10 **Iniziativa** +0 (10)
+**PF** 5 (1d8 + 1)
+**Velocità** 3 m, volo 15 m
 
-- **Abilità**: Percezione +5
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 15
-- **GS** 1/2 (PE 100; PB +2)
+**386** System Reference Document 5.2.1
 
-### Azioni
+**Abilità** Percezione +3
+**Sensi** Percezione passiva 13
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-***Attacco Multiplo.*** Effettua due attacchi con Lacerare.
+Tratti
 
-***Lacerare.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni Taglienti.
+_**Tattiche del branco.**_ L'avvoltoio dispone di vantaggio
+a un tiro per colpire contro una creatura se almeno
+uno dei suoi alleati si trova entro 1,5 metri dalla creatura e non è incapacitato.
 
-## Tasso
+Azioni
 
-*Bestia Piccola, Non Allineato*
+_**Becco.**_ _Tiro per colpire in mischia:_ +2, portata 1,5 m.
+_Colpito:_ 2 (1d4) danni perforanti.
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 5 (1d4 + 3)
-- **Velocità:** 6 m, Scavare 1,5 m
-- **Iniziativa**: +0 (10)
+### **Avvoltoio gigante**
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 10 | +0 | +0 |
-| DES | 11 | +0 | +0 |
-| COS | 16 | +3 | +3 |
-| INT | 2 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 5 | -3 | -3 |
+_Mostruosità Grande, neutrale malvagio_
 
-- **Resistenze**: Veleno
-- **Abilità**: Percezione +3
-- **Sensi**: Scurovisione 9 m; Percezione Passiva 13
-- **GS** 0 (PE 0 or 10; PB +2)
+**CA** 10 **Iniziativa** +0 (10)
+**PF** 25 (3d10 + 9)
+**Velocità** 3 m, volo 18 m
 
-### Azioni
+**Abilità** Percezione +3
+**Resistenze** necrotico
+**Sensi** Percezione passiva 13; scurovisione 18 m
+**Lingue** capisce il Comune ma non lo parla
+**GS** 1 (PE 200; BC +2)
 
-***Morso.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 1 danni Perforanti.
+Tratti
 
-## Falco Sanguinario
+_**Tattiche del branco.**_ L'avvoltoio dispone di vantaggio
+a un tiro per colpire contro una creatura se almeno
+uno dei suoi alleati si trova entro 1,5 metri dalla creatura e non è incapacitato.
 
-*Bestia Piccola, Non Allineato*
+Azioni
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 7 (2d6)
-- **Velocità:** 3 m, Volo 18 m
-- **Iniziativa**: +2 (12)
+_**Cavare.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m.
+_Colpito:_ 9 (2d6 + 2) danni perforanti, e il bersaglio è
+avvelenato fino al termine del proprio turno successivo.
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 6 | -2 | -2 |
-| DES | 14 | +2 | +2 |
-| COS | 10 | +0 | +0 |
-| INT | 3 | -4 | -4 |
-| SAG | 14 | +2 | +2 |
-| CAR | 5 | -3 | -3 |
+### **Babbuino**
 
-- **Abilità**: Percezione +6
-- **Sensi**: Percezione Passiva 16
-- **GS** 1/8 (PE 25; PB +2)
+_Bestia Piccola, senza allineamento_
 
-### Tratti
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 3 (1d6)
+**Velocità** 9 m, scalata 9 m
 
-***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
+**Sensi** Percezione passiva 11
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-### Azioni
+Tratti
 
-***Becco.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni Perforanti, oppure 6 (1d8 + 2) danni Perforanti se il bersaglio è Insanguinato.
+_**Tattiche del branco.**_ Il babbuino dispone di vantaggio
+a un tiro per colpire contro una creatura se almeno
+uno dei suoi alleati si trova entro 1,5 metri dalla creatura e non è incapacitato.
 
-## Cinghiale
+Azioni
 
-*Bestia Media, Non Allineato*
+_**Morso.**_ _Tiro per colpire in mischia:_ +1, portata 1,5 m
+_Colpito:_ 1 (1d4 − 1) danni perforanti.
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 13 (2d8 + 4)
-- **Velocità:** 12 m
-- **Iniziativa**: +0 (10)
+### **Banco di piranha**
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 13 | +1 | +1 |
-| DES | 11 | +0 | +0 |
-| COS | 14 | +2 | +2 |
-| INT | 2 | -4 | -4 |
-| SAG | 9 | -1 | -1 |
-| CAR | 5 | -3 | -3 |
+_Sciame Medio di bestie Minuscole, senza allineamento_
 
-- **Sensi**: Percezione Passiva 9
-- **GS** 1/4 (PE 50; PB +2)
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 28 (8d8 − 8)
+**Velocità** 1,5 m, nuoto 12 m
 
-### Tratti
+**Resistenze** contundente, perforante, tagliente
+**Immunità** affascinato, afferrato, paralizzato, pietrificato,
 
-***Furia Insanguinata.*** Mentre è Insanguinato, il cinghiale ha Vantaggio ai tiri per colpire.
+prono, spaventato, stordito, trattenuto
+**Sensi** Percezione passiva 8; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1 (PE 200; BC +2)
 
-### Azioni
+Tratti
 
-***Incornata.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 4 (1d6 + 1) danni Perforanti. Se il bersaglio è una creatura Media o più piccola e la creatura si è mossa di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio subisce altri 3 (1d6) danni Perforanti e ha la condizione Prono.
+_**Respirare sott'acqua.**_ Il banco può respirare soltanto
+sott'acqua.
 
-## Orso Bruno
+_**Sciame.**_ Il banco di pesci può occupare lo spazio di
+un'altra creatura e viceversa, e può muoversi attraverso
+qualsiasi apertura abbastanza grande per un piranha di
+taglia Minuscola. L'orda non può recuperare punti ferita
 
-*Bestia Grande, Non Allineato*
+      - ottenere punti ferita temporanei.
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 22 (3d10 + 6)
-- **Velocità:** 12 m, Scalare 9 m
-- **Iniziativa**: +1 (11)
+Azioni
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 17 | +3 | +3 |
-| DES | 12 | +1 | +1 |
-| COS | 15 | +2 | +2 |
-| INT | 2 | -4 | -4 |
-| SAG | 13 | +1 | +1 |
-| CAR | 7 | -2 | -2 |
+_**Morsi.**_ _Tiro per colpire in mischia:_ +5 (con vantaggio
+se il bersaglio non ha tutti i punti ferita), portata 1,5 m.
+_Colpito:_ 8 (2d4 + 3) danni perforanti, o 5 (1d4 + 3)
+danni perforanti se il banco è sanguinante.
 
-- **Abilità**: Percezione +3
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
-- **GS** 1 (PE 200; PB +2)
+### **Cammello**
 
-### Azioni
+_Bestia Grande, senza allineamento_
 
-***Attacco Multiplo.*** Effettua un attacco con Morso e uno con Artiglio.
+**CA** 10 **Iniziativa** –1 (9)
+**PF** 17 (2d10 + 6)
+**Velocità** 15 m
 
-***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni Perforanti.
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1/8 (PE 25; BC +2)
 
-***Artiglio.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 5 (1d4 + 3) danni Taglienti. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Prono.
+**387** System Reference Document 5.2.1
 
-## Cammello
+Azioni
 
-*Bestia Grande, Non Allineato*
+_**Morso.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m.
+_Colpito:_ 4 (1d4 + 2) danni contundenti.
 
-- **Classe Armatura:** 10
-- **Punti Ferita:** 17 (2d10 + 6)
-- **Velocità:** 15 m
-- **Iniziativa**: -1 (9)
+### **Capra**
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 15 | +2 | +2 |
-| DES | 8 | -1 | -1 |
-| COS | 17 | +3 | +5 |
-| INT | 2 | -4 | -4 |
-| SAG | 11 | +0 | +0 |
-| CAR | 5 | -3 | -3 |
+_Bestia Media, senza allineamento_
 
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 10
-- **GS** 1/8 (PE 25; PB +2)
+**CA** 10 **Iniziativa** +0 (10)
+**PF** 4 (1d8)
+**Velocità** 12 m, scalata 9 m
 
-### Azioni
+**Abilità** Percezione +2
+**Sensi** Percezione passiva 12; scurovisione 18 m
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni Contundenti.
+Azioni
 
-## Gatto
+_**Sfondamento.**_ _Tiro per colpire in mischia:_ +2, portata
+1,5 m. _Colpito:_ 1 danno contundente, o 2 (1d4) danni
+contundenti se la capra si è mossa di 6 metri o più in
+linea retta verso il bersaglio subito prima del colpo.
 
-*Bestia Piccola, Non Allineato*
+### **Capra gigante**
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 2 (1d4)
-- **Velocità:** 12 m, Scalare 12 m
-- **Iniziativa**: +2 (12)
+_Bestia Grande, senza allineamento_
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 3 | -4 | -4 |
-| DES | 15 | +2 | +4 |
-| COS | 10 | +0 | +0 |
-| INT | 3 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 7 | -2 | -2 |
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 19 (3d10 + 3)
+**Velocità** 12 m, scalata 9 m
 
-- **Abilità**: Percezione +3, Furtività +4
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
-- **GS** 0 (PE 0 or 10; PB +2)
+**Abilità** Percezione +3
+**Sensi** Percezione passiva 13; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1/2 (PE 100; BC +2)
 
-### Tratti
+Azioni
 
-***Saltatore.*** La distanza di salto del gatto è determinata usando la Destrezza anziché la Forza.
+_**Sfondamento.**_ _Tiro per colpire in mischia:_ +5, portata
+1,5 m. _Colpito:_ 6 (1d6 + 3) danni contundenti. Se il bersaglio è una creatura di taglia Grande o inferiore e la
+capra si è mossa di 6 metri o più in linea retta verso di
+esso subito prima del colpo, il bersaglio subisce 5 (2d4)
+danni contundenti extra e cade a terra prono.
 
-### Azioni
+### **Cavallo da galoppo**
 
-***Graffio.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 1 danno Tagliente.
+_Bestia Grande, senza allineamento_
 
-## Serpente Costrittore
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 13 (2d10 + 2)
+**Velocità** 18 m
 
-*Bestia Grande, Non Allineato*
+**Sensi** Percezione passiva 10
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 13 (2d10 + 2)
-- **Velocità:** 9 m, Nuoto 9 m
-- **Iniziativa**: +2 (12)
+Azioni
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 15 | +2 | +2 |
-| DES | 14 | +2 | +2 |
-| COS | 12 | +1 | +1 |
-| INT | 1 | -5 | -5 |
-| SAG | 10 | +0 | +0 |
-| CAR | 3 | -4 | -4 |
+_**Zoccoli.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 7 (1d8 + 3) danni contundenti.
 
-- **Abilità**: Percezione +2, Furtività +4
-- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 12
-- **GS** 1/4 (PE 50; PB +2)
+### **Cavallo da guerra**
 
-### Azioni
+_Bestia Grande, senza allineamento_
 
-***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 6 (1d8 + 2) danni Perforanti.
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 19 (3d10 + 3)
+**Velocità** 18 m
 
-***Constrict.*** *Tiro Salvezza su Forza*: CD 12, una creatura Media o più piccola che il serpente può vedere entro 1,5 m. *Fallimento:*  7 (3d4) danni Contundenti, e il bersaglio ha la condizione Afferrato (fuga CD 12).
+**Sensi** Percezione passiva 11
+**Lingue** nessuna
+**GS** 1/2 (PE 100; BC +2)
 
-## Granchio
+Azioni
 
-*Bestia Piccola, Non Allineato*
+_**Zoccoli.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 9 (2d4 + 4) danni contundenti. Se il bersaglio
+è una creatura di taglia Grande o inferiore e il cavallo
+si è mosso di 6 metri o più in linea retta verso di esso
+subito prima del colpo, il bersaglio subisce 5 (2d4)
+danni contundenti extra e cade a terra prono.
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 3 (1d4 + 1)
-- **Velocità:** 6 m, Nuoto 6 m
-- **Iniziativa**: +0 (10)
+### **Cavallo da tiro**
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 6 | -2 | -2 |
-| DES | 11 | +0 | +0 |
-| COS | 12 | +1 | +1 |
-| INT | 1 | -5 | -5 |
-| SAG | 8 | -1 | -1 |
-| CAR | 2 | -4 | -4 |
+_Bestia Grande, senza allineamento_
 
-- **Abilità**: Furtività +2
-- **Sensi**: Sensi Ciechi 9 m; Percezione Passiva 9
-- **GS** 0 (PE 0 or 10; PB +2)
+**CA** 10 **Iniziativa** +0 (10)
+**PF** 15 (2d10 + 4)
+**Velocità** 12 m
 
-### Tratti
+**Sensi** Percezione passiva 10
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-***Anfibio.*** Può respirare aria e acqua.
+Azioni
 
-### Azioni
+_**Zoccoli.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m
+_Colpito:_ 6 (1d4 + 4) danni contundenti.
 
-***Chela.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 1 danno Contundente.
+### **Cavalluccio marino**
 
-## Coccodrillo
+_Bestia Minuscola, senza allineamento_
 
-*Bestia Grande, Non Allineato*
+**CA** 12 **Iniziativa** +1 (11)
+**PF** 1 (1d4 − 1)
+**Velocità** 1,5 m, nuoto 6 m
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 13 (2d10 + 2)
-- **Velocità:** 6 m, Nuoto 9 m
-- **Iniziativa**: +0 (10)
+**388** System Reference Document 5.2.1
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 15 | +2 | +2 |
-| DES | 10 | +0 | +0 |
-| COS | 13 | +1 | +3 |
-| INT | 2 | -4 | -4 |
-| SAG | 10 | +0 | +0 |
-| CAR | 5 | -3 | -3 |
+**Abilità** Furtività +5, Percezione +2
+**Sensi** Percezione passiva 12
+**Lingue** nessuna
+**GS** 0 (PE 0; BC +2)
 
-- **Abilità**: Furtività +2
-- **Sensi**: Percezione Passiva 10
-- **GS** 1/2 (PE 100; PB +2)
+Tratti
 
-### Tratti
+_**Respirare sott'acqua.**_ Il cavalluccio marino può respirare solo sott'acqua.
 
-***Trattenere il Respiro.*** Può trattenere il respiro per 1 ora.
+Azioni
 
-### Azioni
+_**Scatto acquatico.**_ Finché è sott'acqua, il cavalluccio
+marino può muoversi fino alla sua velocità di nuoto
+massima senza provocare attacchi di opportunità.
 
-***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 6 (1d8 + 2) danni Perforanti. Se il bersaglio è una creatura Media o più piccola, ha la condizione Afferrato (fuga CD 12). Mentre è Afferrato, il bersaglio ha la condizione Immobilizzato.
+### **Cavalluccio marino gigante**
 
-## Cervo
+_Bestia Grande, senza allineamento_
 
-*Bestia Media, Non Allineato*
+**CA** 14 **Iniziativa** +1 (11)
+**PF** 16 (3d10)
+**Velocità** 1,5 m, nuoto 12 m
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 4 (1d8)
-- **Velocità:** 15 m
-- **Iniziativa**: +3 (13)
+**Sensi** Percezione passiva 11
+**Lingue** nessuna
+**GS** 1/2 (PE 100; BC +2)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 11 | +0 | +0 |
-| DES | 16 | +3 | +3 |
-| COS | 11 | +0 | +0 |
-| INT | 2 | -4 | -4 |
-| SAG | 14 | +2 | +2 |
-| CAR | 5 | -3 | -3 |
+Tratti
 
-- **Abilità**: Percezione +4
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 14
-- **GS** 0 (PE 0 or 10; PB +2)
+_**Respirare sott'acqua.**_ Il cavalluccio marino può respirare solo sott'acqua.
 
-### Tratti
+Azioni
 
-***Agile.*** Non provoca Attacchi di Opportunità quando si muove fuori dalla portata di un nemico.
+_**Sfondamento.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m _Colpito:_ 9 (2d6 + 2) danni contundenti,
 
-### Azioni
+- 11 (2d8 + 2) danni contundenti se il cavalluccio
+  marino si è mosso di 6 metri o più in linea retta verso
+  il bersaglio subito prima del colpo.
 
-***Speronata.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 2 (1d4) danni Contundenti.
+Azioni bonus
 
-## Lupo Crudele
+_**Scatto acquatico.**_ Finché è sott'acqua, il cavalluccio
+marino può muoversi fino alla metà della sua velocità
+di nuoto senza provocare attacchi di opportunità.
 
-*Bestia Grande, Non Allineato*
+### **Cinghiale**
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 22 (3d10 + 6)
-- **Velocità:** 15 m
-- **Iniziativa**: +2 (12)
+_Bestia Media, senza allineamento_
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 17 | +3 | +3 |
-| DES | 15 | +2 | +2 |
-| COS | 15 | +2 | +2 |
-| INT | 3 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 7 | -2 | -2 |
+**CA** 11 **Iniziativa** +0 (10)
+**PF** 13 (2d8 + 4)
+**Velocità** 12 m
 
-- **Abilità**: Percezione +5, Furtività +4
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 15
-- **GS** 1 (PE 200; PB +2)
+**Sensi** Percezione passiva 9
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-### Tratti
+Tratti
 
-***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
+_**Furia sanguinante.**_ Se il cinghiale è sanguinante, ha
+vantaggio ai tiri per colpire.
 
-### Azioni
+Azioni
 
-***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 8 (1d10 + 3) danni Perforanti. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Prono.
+_**Trafiggere.**_ _Tiro per colpire in mischia:_ +3, portata
+1,5 m _Colpito:_ 4 (1d6 + 1) danni perforanti. Se il
+bersaglio è una creatura di taglia Media o inferiore e il
+cinghiale si è mosso di 6 metri o più in linea retta verso
+di esso subito prima del colpo, il bersaglio subisce
+3 (1d6) danni perforanti extra e cade a terra prono.
 
-## Cavallo da Tiro
+### **Cinghiale gigante**
 
-*Bestia Grande, Non Allineato*
+_Bestia Grande, senza allineamento_
 
-- **Classe Armatura:** 10
-- **Punti Ferita:** 15 (2d10 + 4)
-- **Velocità:** 12 m
-- **Iniziativa**: +0 (10)
+**CA** 13 **Iniziativa** +0 (10)
+**PF** 42 (5d10 + 15)
+**Velocità** 12 m
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 18 | +4 | +4 |
-| DES | 10 | +0 | +0 |
-| COS | 15 | +2 | +2 |
-| INT | 2 | -4 | -4 |
-| SAG | 11 | +0 | +0 |
-| CAR | 7 | -2 | -2 |
+**Sensi** Percezione passiva 8
+**Lingue** nessuna
+**GS** 2 (PE 450; BC +2)
 
-- **Sensi**: Percezione Passiva 10
-- **GS** 1/4 (PE 50; PB +2)
+Tratti
 
-### Azioni
+_**Furia sanguinante.**_ Il cinghiale dispone di vantaggio
+ai tiri per colpire in mischia mentre è sanguinante.
 
-***Zoccoli.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 6 (1d4 + 4) danni Contundenti.
+Azioni
 
-## Aquila
+_**Trafiggere.**_ _Tiro per colpire in mischia:_ +5, portata
+1,5 m. _Colpito:_ 10 (2d6 + 3) danni perforanti. Se il
+bersaglio è una creatura di taglia Grande o inferiore
+e il cinghiale si è mosso di 6 metri o più in linea retta
+verso di esso subito prima del colpo, il bersaglio subisce 7 (2d6) danni perforanti extra e cade a terra prono.
 
-*Bestia Piccola, Non Allineato*
+### **Coccodrillo**
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 4 (1d6 + 1)
-- **Velocità:** 3 m, Volo 18 m
-- **Iniziativa**: +2 (12)
+_Bestia Grande, senza allineamento_
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 6 | -2 | -2 |
-| DES | 15 | +2 | +2 |
-| COS | 12 | +1 | +1 |
-| INT | 2 | -4 | -4 |
-| SAG | 14 | +2 | +2 |
-| CAR | 7 | -2 | -2 |
+**CA** 12 **Iniziativa** +0 (10)
+**PF** 13 (2d10 + 2)
+**Velocità** 6 m, nuoto 9 m
 
-- **Abilità**: Percezione +6
-- **Sensi**: Percezione Passiva 16
-- **GS** 0 (PE 0 or 10; PB +2)
+**389** System Reference Document 5.2.1
 
-### Azioni
+**Abilità** Furtività +2
+**Sensi** Percezione passiva 10
+**Lingue** nessuna
+**GS** 1/2 (PE 100; BC +2)
 
-***Artigli.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni Taglienti.
+Tratti
 
-## Elefante
+_**Apnea.**_ Il coccodrillo può trattenere il respiro per 1 ora.
 
-*Bestia Enorme, Non Allineato*
+Azioni
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 76 (8d12 + 24)
-- **Velocità:** 12 m
-- **Iniziativa**: -1 (9)
+_**Morso.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m.
+_Colpito:_ 6 (1d8 + 2) danni perforanti. Se il bersaglio
+è una creatura di taglia Media o inferiore, è afferrato
+(CD 12 per sfuggire). Mentre è afferrato, il bersaglio è
+anche trattenuto.
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 22 | +6 | +6 |
-| DES | 9 | -1 | -1 |
-| COS | 17 | +3 | +3 |
-| INT | 3 | -4 | -4 |
-| SAG | 11 | +0 | +0 |
-| CAR | 6 | -2 | -2 |
+### **Coccodrillo gigante**
 
-- **Sensi**: Percezione Passiva 10
-- **GS** 4 (PE 1,100; PB +2)
+_Bestia Enorme, senza allineamento_
 
-### Azioni
+**CA** 14 **Iniziativa** –1 (9)
+**PF** 85 (9d12 + 27)
+**Velocità** 9 m, nuoto 15 m
 
-***Attacco Multiplo.*** Effettua due attacchi con Incornata.
+**Abilità** Furtività +5
+**Sensi** Percezione passiva 10
+**Lingue** nessuna
+**GS** 5 (PE 1.800; BC +3)
 
-***Incornata.*** *Tiro per colpire in mischia:* +8, portata 1,5 m. 15 (2d8 + 6) danni Perforanti. Se il bersaglio è una creatura Enorme o più piccola e la creatura si è mossa di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio ha la condizione Prono.
+Tratti
 
-### Azioni Bonus
+_**Apnea.**_ Il coccodrillo può trattenere il respiro per 1 ora.
 
-***Calpestare.*** *Tiro Salvezza su Destrezza*: CD 16, una creatura entro 1,5 m che ha la condizione Prono. *Fallimento:*  17 (2d10 + 6) danni Contundenti. *Successo:*  Metà danni.
+Azioni
 
-## Alce
+_**Multiattacco.**_ Il coccodrillo effettua un attacco Morso
+e un attacco Coda.
 
-*Bestia Grande, Non Allineato*
+_**Coda.**_ _Tiro per colpire in mischia:_ +8, portata 3 m.
+_Colpito:_ 18 (3d8 + 5) danni contundenti. Se il bersaglio
+è una creatura di taglia Grande o inferiore, cade a terra
+prono.
 
-- **Classe Armatura:** 10
-- **Punti Ferita:** 11 (2d10)
-- **Velocità:** 15 m
-- **Iniziativa**: +0 (10)
+_**Morso.**_ _Tiro per colpire in mischia:_ +8, portata 1,5 m.
+_Colpito:_ 21 (3d10 + 5) danni perforanti. Se il bersaglio
+è una creatura di taglia Grande o inferiore, è afferrato
+(CD 15 per sfuggire). Mentre è afferrato, il bersaglio è
+trattenuto e non può essere bersagliato dalla Coda del
+coccodrillo.
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 16 | +3 | +3 |
-| DES | 10 | +0 | +0 |
-| COS | 11 | +0 | +0 |
-| INT | 2 | -4 | -4 |
-| SAG | 10 | +0 | +0 |
-| CAR | 6 | -2 | -2 |
+### **Colonia di serpenti velenosi**
 
-- **Abilità**: Percezione +2
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 12
-- **GS** 1/4 (PE 50; PB +2)
+_Sciame Medio di bestie Minuscole, senza allineamento_
 
-### Azioni
+**CA** 14 **Iniziativa** +4 (14)
+**PF** 36 (8d8)
+**Velocità** 9 m, nuoto 9 m
 
-***Speronata.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni Contundenti. Se il bersaglio è una creatura Grande o più piccola e la creatura si è mossa di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio subisce altri 3 (1d6) danni Contundenti e ha la condizione Prono.
+**Resistenze** contundente, perforante, tagliente
+**Immunità** affascinato, afferrato, paralizzato, pietrificato,
 
-## Serpente Volante
+prono, spaventato, stordito, trattenuto
+**Sensi** Percezione passiva 10; vista cieca 3 m
+**Lingue** nessuna
+**GS** 2 (PE 450; BC +2)
 
-*Mostruosità Piccola, Non Allineato*
+Tratti
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 5 (2d4)
-- **Velocità:** 9 m, Volo 18 m, Nuoto 9 m
-- **Iniziativa**: +2 (12)
+_**Sciame.**_ La colonia può occupare lo spazio di un'altra
+creatura e viceversa, e può muoversi attraverso qualsiasi apertura sufficientemente larga da far passare un
+serpente Minuscolo. L'orda non può recuperare punti
+ferita o ottenere punti ferita temporanei.
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 4 | -3 | -3 |
-| DES | 15 | +2 | +2 |
-| COS | 11 | +0 | +0 |
-| INT | 2 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 5 | -3 | -3 |
+Azioni
 
-- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 11
-- **GS** 1/8 (PE 25; PB +2)
+_**Morsi.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito: 8 (1d4 + 4) danni perforanti, o 6 (1d8 + 4)_
+_danni perforanti se la colonia è sanguinante, più_
+_10 (3d6) danni da veleno._
 
-### Tratti
+### **Colonia di topi**
 
-***Sorvolo.*** Non provoca Attacchi di Opportunità quando vola fuori dalla portata di un nemico.
+_Sciame Medio di bestie Minuscole, senza allineamento_
 
-### Azioni
+**CA** 10 **Iniziativa** +0 (10)
+**PF** 14 (4d8 − 4)
+**Velocità** 9 m, scalata 9 m
 
-***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 1 danni Perforanti plus 5 (2d4) danni da Veleno.
+**Resistenze** contundente, perforante, tagliente
+**Immunità** affascinato, afferrato, paralizzato, pietrificato,
 
-## Rana
+prono, spaventato, stordito, trattenuto
+**Sensi** Percezione passiva 10; scurovisione 9 m
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-*Bestia Piccola, Non Allineato*
+Tratti
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 1 (1d4 - 1)
-- **Velocità:** 6 m, Nuoto 6 m
-- **Iniziativa**: +1 (11)
+_**Sciame.**_ La colonia può occupare lo spazio di un'altra
+creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande per un topo Minuscolo.
+L'orda non può recuperare punti ferita o ottenere punti
+ferita temporanei.
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 1 | -5 | -5 |
-| DES | 13 | +1 | +1 |
-| COS | 8 | -1 | -1 |
-| INT | 1 | -5 | -5 |
-| SAG | 8 | -1 | -1 |
-| CAR | 3 | -4 | -4 |
+Azioni
 
-- **Abilità**: Percezione +1, Furtività +3
-- **Sensi**: Scurovisione 9 m; Percezione Passiva 11
-- **GS** 0 (PE 0 or 10; PB +2)
+_**Morsi.**_ _Tiro per colpire in mischia:_ +2, portata 1,5 m.
+_Colpito:_ 5 (2d4) danni perforanti, o 2 (1d4) danni perforanti se lo sciame è sanguinante.
 
-### Tratti
+### **Corvo**
 
-***Anfibio.*** Può respirare aria e acqua.
+_Bestia Minuscola, senza allineamento_
 
-***Balzo da Fermo.*** Può effettuare un Salto in lungo fino a 3 m e un Salto in alto fino a 1,5 m, con o senza rincorsa.
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 2 (1d4)
+**Velocità** 3 m, volo 15 m
 
-### Azioni
+**390** System Reference Document 5.2.1
 
-***Morso.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 1 danni Perforanti.
+**Abilità** Percezione +3
+**Sensi** Percezione passiva 13
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-## Scimmione Gigante
+Tratti
 
-*Bestia Enorme, Non Allineato*
+_**Imitare.**_ Il corvo può imitare dei suoni semplici che ha
+sentito, come sussurri o cinguettii. Chi li ascolta può
+capire che si tratta di imitazioni superando una prova
+di Saggezza (Intuizione) con CD 10.
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 168 (16d12 + 64)
-- **Velocità:** 12 m, Scalare 12 m
-- **Iniziativa**: +5 (15)
+Azioni
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 23 | +6 | +6 |
-| DES | 14 | +2 | +2 |
-| COS | 18 | +4 | +4 |
-| INT | 5 | -3 | -3 |
-| SAG | 12 | +1 | +1 |
-| CAR | 7 | -2 | -2 |
+_**Becco.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m.
+_Colpito:_ 1 danno perforante.
 
-- **Abilità**: Atletica +9, Percezione +4, Sopravvivenza +4
-- **Sensi**: Percezione Passiva 14
-- **GS** 7 (PE 2,900; PB +3)
+### **Daino**
 
-### Azioni
+_Bestia Media, senza allineamento_
 
-***Attacco Multiplo.*** Effettua due attacchi con Pugno.
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 4 (1d8)
+**Velocità** 15 m
 
-***Pugno.*** *Tiro per colpire in mischia:* +9, portata 3 m. 22 (3d10 + 6) danni Contundenti.
+**Abilità** Percezione +4
+**Sensi** Percezione passiva 14; scurovisione 18 m
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-***Lancio di Macigno (Ricarica 6).*** Lancia un masso verso un punto che può vedere entro 27 m. *Tiro Salvezza su Destrezza*: CD 17, ogni creatura in una Sfera di raggio 1,5 m centrata su quel punto. *Fallimento:*  24 (7d6) danni Contundenti. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Prono. *Successo:*  Solo metà danni.
+Tratti
 
-### Azioni Bonus
+_**Agile.**_ Il daino non provoca attacchi di opportunità
+quando esce dalla portata di un nemico.
 
-***Balzo.*** Salta fino a 9 m spendendo 3 m di movimento.
+Azioni
 
-## Tasso Gigante
+_**Sfondamento.**_ _Tiro per colpire in mischia:_ +2, portata
+1,5 m. _Colpito:_ 2 (1d4) danni contundenti.
 
-*Bestia Media, Non Allineato*
+### **Elefante**
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 15 (2d8 + 6)
-- **Velocità:** 9 m, Scavare 3 m
-- **Iniziativa**: +0 (10)
+_Bestia Enorme, senza allineamento_
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 13 | +1 | +1 |
-| DES | 10 | +0 | +0 |
-| COS | 17 | +3 | +3 |
-| INT | 2 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 5 | -3 | -3 |
+**CA** 12 **Iniziativa** –1 (9)
+**PF** 76 (8d12 + 24)
+**Velocità** 12 m
 
-- **Resistenze**: Veleno
-- **Abilità**: Percezione +3
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
-- **GS** 1/4 (PE 50; PB +2)
+**Sensi** Percezione passiva 10
+**Lingue** nessuna
+**GS** 4 (PE 1.100; BC +2)
 
-### Azioni
+Azioni
 
-***Morso.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 6 (2d4 + 1) danni Perforanti.
+_**Multiattacco.**_ L'elefante effettua due attacchi Trafiggere.
 
-## Pipistrello Gigante
+_**Trafiggere**_ **.** _Tiro per colpire in mischia:_ +8, portata
+1,5 m _Colpito:_ 15 (2d8 + 6) danni perforanti. Se
+il bersaglio è una creatura di taglia Enorme o inferiore
+e ­l'elefante si è mosso di 6 metri o più in linea retta
+verso di esso subito prima del colpo, il bersaglio cade
+a terra prono.
 
-*Bestia Grande, Non Allineato*
+Azioni bonus
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 22 (4d10)
-- **Velocità:** 3 m, Volo 18 m
-- **Iniziativa**: +3 (13)
+_**Calpestare.**_ _Tiro salvezza su Destrezza:_ CD 16, una creatura prona entro 1,5 metri. _Fallimento:_ 17 (2d10 + 6)
+danni contundenti. _Successo:_ danni dimezzati.
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 15 | +2 | +2 |
-| DES | 16 | +3 | +3 |
-| COS | 11 | +0 | +0 |
-| INT | 2 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 6 | -2 | -2 |
+### **Faina**
 
-- **Sensi**: Sensi Ciechi 36 m; Percezione Passiva 11
-- **GS** 1/4 (PE 50; PB +2)
+_Bestia Minuscola, senza allineamento_
 
-### Azioni
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 1 (1d4 − 1)
+**Velocità** 9 m, scalata 9 m
 
-***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni Perforanti.
+**Abilità** Acrobazia +5, Percezione +3, Furtività +5
+**Sensi** Percezione passiva 13; scurovisione 18 m
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-## Cinghiale Gigante
+Azioni
 
-*Bestia Grande, Non Allineato*
+_**Morso.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m.
+_Colpito:_ 1 danno perforante.
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 42 (5d10 + 15)
-- **Velocità:** 12 m
-- **Iniziativa**: +0 (10)
+### **Faina gigante**
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 17 | +3 | +5 |
-| DES | 10 | +0 | +0 |
-| COS | 16 | +3 | +3 |
-| INT | 2 | -4 | -4 |
-| SAG | 7 | -2 | -2 |
-| CAR | 5 | -3 | -3 |
+_Bestia Media, senza allineamento_
 
-- **Sensi**: Percezione Passiva 8
-- **GS** 2 (PE 450; PB +2)
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 9 (2d8)
+**Velocità** 12 m, scalata 9 m
 
-### Tratti
+**Abilità** Acrobazia +5, Percezione +3, Furtività +5
+**Sensi** Percezione passiva 13; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1/8 (PE 25; BC +2)
 
-***Furia Insanguinata.*** Ha Vantaggio ai tiri per colpire in mischia mentre è Insanguinato.
+Azioni
 
-### Azioni
+_**Morso.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m.
+_Colpito:_ 5 (1d4 + 3) danni perforanti.
 
-***Incornata.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) danni Perforanti. Se il bersaglio è una creatura Grande o più piccola e il cinghiale si è mosso di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio subisce altri 7 (2d6) danni Perforanti e ha la condizione Prono.
+### **Falco**
 
-## Centopiedi Gigante
+_Bestia Minuscola, senza allineamento_
 
-*Bestia Piccola, Non Allineato*
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 1 (1d4 − 1)
+**Velocità** 3 m, volo 18 m
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 9 (2d6 + 2)
-- **Velocità:** 9 m, Scalare 9 m
-- **Iniziativa**: +2 (12)
+**391** System Reference Document 5.2.1
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 5 | -3 | -3 |
-| DES | 14 | +2 | +2 |
-| COS | 12 | +1 | +1 |
-| INT | 1 | -5 | -5 |
-| SAG | 7 | -2 | -2 |
-| CAR | 3 | -4 | -4 |
+**Abilità** Percezione +6
+**Sensi** Percezione passiva 16
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-- **Sensi**: Sensi Ciechi 9 m; Percezione Passiva 8
-- **GS** 1/4 (PE 50; PB +2)
+Azioni
 
-### Azioni
+_**Speroni.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m.
+_Colpito:_ 1 danno tagliente.
 
-***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni Perforanti, e il bersaglio ha la condizione Avvelenato fino all'inizio del prossimo turno del centopiedi.
+### **Falco di sangue**
 
-## Serpente Costrittore Gigante
+_Bestia Piccola, senza allineamento_
 
-*Bestia Enorme, Non Allineato*
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 7 (2d6)
+**Velocità** 3 m, volo 18 m
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 60 (8d12 + 8)
-- **Velocità:** 9 m, Nuoto 9 m
-- **Iniziativa**: +2 (12)
+**Abilità** Percezione +6
+**Sensi** Percezione passiva 16
+**Lingue** nessuna
+**GS** 1/8 (PE 25; BC +2)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 19 | +4 | +4 |
-| DES | 14 | +2 | +2 |
-| COS | 12 | +1 | +1 |
-| INT | 1 | -5 | -5 |
-| SAG | 10 | +0 | +0 |
-| CAR | 3 | -4 | -4 |
+Tratti
 
-- **Abilità**: Percezione +2
-- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 12
-- **GS** 2 (PE 450; PB +2)
+_**Tattiche del branco.**_ Il falco dispone di vantaggio a un
+tiro per colpire contro una creatura se almeno uno dei
+suoi alleati si trova entro 1,5 metri dalla creatura e non
+è incapacitato.
 
-### Azioni
+Azioni
 
-***Attacco Multiplo.*** Il serpente effettua un attacco con Morso e usa Constrict.
+_**Becco.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m.
+_Colpito:_ 4 (1d4 + 2) danni perforanti, o 6 (1d8 + 2)
+danni perforanti se il bersaglio è sanguinante.
 
-***Morso.*** *Tiro per colpire in mischia:* +6, portata 3 m. 11 (2d6 + 4) danni Perforanti.
+### **Gatto**
 
-***Constrict.*** *Tiro Salvezza su Forza*: CD 14, una creatura Grande o più piccola che il serpente può vedere entro 3 m. *Fallimento:*  13 (2d8 + 4) danni Contundenti, e il bersaglio ha la condizione Afferrato (fuga CD 14).
+_Bestia Minuscola, senza allineamento_
 
-## Granchio Gigante
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 2 (1d4)
+**Velocità** 12 m, scalata 12 m
 
-*Bestia Media, Non Allineato*
+**Abilità** Furtività +4, Percezione +3
+**Sensi** Percezione passiva 13; scurovisione 18 m
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 13 (3d8)
-- **Velocità:** 9 m, Nuoto 9 m
-- **Iniziativa**: +1 (11)
+Tratti
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 13 | +1 | +1 |
-| DES | 13 | +1 | +1 |
-| COS | 11 | +0 | +0 |
-| INT | 1 | -5 | -5 |
-| SAG | 9 | -1 | -1 |
-| CAR | 3 | -4 | -4 |
+_**Saltatore.**_ La distanza dei salti del gatto è determinata
+dalla sua Destrezza piuttosto che dalla Forza.
 
-- **Abilità**: Furtività +3
-- **Sensi**: Sensi Ciechi 9 m; Percezione Passiva 9
-- **GS** 1/8 (PE 25; PB +2)
+Azioni
 
-### Tratti
+_**Graffio.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m.
+_Colpito:_ 1 danno tagliente.
 
-***Anfibio.*** Può respirare aria e acqua.
+### **Gorilla**
 
-### Azioni
+_Bestia Media, senza allineamento_
 
-***Chela.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 4 (1d6 + 1) danni Contundenti. Se il bersaglio è una creatura Media o più piccola, ha la condizione Afferrato (fuga CD 11) da una delle due chele.
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 19 (3d8 + 6)
+**Velocità** 9 m, scalata 9 m
 
-## Coccodrillo Gigante
+**Abilità** Atletica +5, Percezione +3
+**Sensi** Percezione passiva 13
+**Lingue** nessuna
+**GS** 1/2 (PE 100; BC +2)
 
-*Bestia Enorme, Non Allineato*
+Azioni
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 85 (9d12 + 27)
-- **Velocità:** 9 m, Nuoto 15 m
-- **Iniziativa**: -1 (9)
+_**Multiattacco.**_ Il gorilla effettua due attacchi Pugno.
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 21 | +5 | +5 |
-| DES | 9 | -1 | -1 |
-| COS | 17 | +3 | +3 |
-| INT | 2 | -4 | -4 |
-| SAG | 10 | +0 | +0 |
-| CAR | 7 | -2 | -2 |
+_**Pugno.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 5 (1d4 + 3) danni contundenti.
 
-- **Abilità**: Furtività +5
-- **Sensi**: Percezione Passiva 10
-- **GS** 5 (PE 1,800; PB +3)
+_**Roccia (ricarica 6).**_ _Tiro per colpire a distanza:_ +5, gittata 7,5/15 m _Colpito:_ 10 (2d6 + 3) danni contundenti.
 
-### Tratti
+### **Gorilla gigante**
 
-***Trattenere il Respiro.*** Può trattenere il respiro per 1 ora.
+_Bestia Enorme, senza allineamento_
 
-### Azioni
+**CA** 12 **Iniziativa** +5 (15)
+**PF** 168 (16d12 + 64)
+**Velocità** 12 m, scalata 12 m
 
-***Attacco Multiplo.*** Effettua un attacco con Morso e uno con Coda.
+**Abilità** Atletica +9, Percezione +4, Sopravvivenza +4
+**Sensi** Percezione passiva 14
+**Lingue** nessuna
+**GS** 7 (PE 2.900; BC +3)
 
-***Morso.*** *Tiro per colpire in mischia:* +8, portata 1,5 m. 21 (3d10 + 5) danni Perforanti. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Afferrato (fuga CD 15). Mentre è Afferrato, il bersaglio ha la condizione Immobilizzato e non può essere bersagliato dalla Coda del coccodrillo.
+Azioni
 
-***Coda.*** *Tiro per colpire in mischia:* +8, portata 3 m. 18 (3d8 + 5) danni Contundenti. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Prono.
+_**Multiattacco.**_ Il gorilla effettua due attacchi Pugno.
 
-## Aquila Gigante
+_**Pugno.**_ _Tiro per colpire in mischia:_ +9, portata 3 m.
+_Colpito:_ 22 (3d10 + 6) danni contundenti.
 
-*Celestiale Grande, Neutrale Buono*
+_**Lancio di massi (ricarica 6).**_ Il gorilla scaglia un masso
+verso un punto che è in grado di vedere entro 27 metri.
+_Tiro salvezza su Destrezza:_ CD 17, tutte le creature in
+una sfera dal raggio di 1,5 metri centrata su quel punto.
+_Fallimento:_ 24 (7d6) danni contundenti. Se il bersaglio
+è una creatura di taglia Grande o inferiore, cade a terra
+prono. _Successo:_ danni dimezzati.
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 26 (4d10 + 4)
-- **Velocità:** 3 m, Volo 24 m
-- **Iniziativa**: +3 (13)
+Azioni bonus
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 16 | +3 | +3 |
-| DES | 17 | +3 | +3 |
-| COS | 13 | +1 | +1 |
-| INT | 8 | -1 | -1 |
-| SAG | 14 | +2 | +2 |
-| CAR | 10 | +0 | +0 |
+_**Balzo.**_ Il gorilla salta fino a 9 metri usando 3 metri di
+movimento.
 
-- **Resistenze**: Necrotico, Radiante
-- **Abilità**: Percezione +6
-- **Sensi**: Percezione Passiva 16
-- **Linguaggi**: Celestiale; comprende Comune e Primordiale (Auran) ma non può parlarli
-- **GS** 1 (PE 200; PB +2)
+**392** System Reference Document 5.2.1
 
-### Azioni
+### **Granchio**
 
-***Attacco Multiplo.*** L'aquila effettua due attacchi con Lacerare.
+_Bestia Minuscola, senza allineamento_
 
-***Rend.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 5 (1d4 + 3) danni Taglienti plus 3 (1d6) danni Radiantei.
+**CA** 11 **Iniziativa** +0 (10)
+**PF** 3 (1d4 + 1)
+**Velocità** 6 m, nuoto 6 m
 
-## Alce Gigante
+**Abilità** Furtività +2
+**Sensi** Percezione passiva 9; vista cieca 9 m
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-*Celestiale Enorme, Neutrale Buono*
+Tratti
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 42 (5d12 + 10)
-- **Velocità:** 18 m
-- **Iniziativa**: +6 (16)
+_**Anfibio.**_ Il granchio può respirare in aria e in acqua.
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 19 | +4 | +6 |
-| DES | 18 | +4 | +6 |
-| COS | 14 | +2 | +2 |
-| INT | 7 | -2 | -2 |
-| SAG | 14 | +2 | +2 |
-| CAR | 10 | +0 | +0 |
+Azioni
 
-- **Resistenze**: Necrotico, Radiante
-- **Abilità**: Percezione +4
-- **Sensi**: Scurovisione 27 m; Percezione Passiva 14
-- **Linguaggi**: Celestiale; comprende Comune, Elfico e Silvano ma non può parlarli
-- **GS** 2 (PE 450; PB +2)
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +2, portata 1,5 m.
+_Colpito:_ 1 danno contundente.
 
-### Azioni
+### **Granchio gigante**
 
-***Speronata.*** *Tiro per colpire in mischia:* +6, portata 3 m. 11 (2d6 + 4) danni Contundenti più 5 (2d4) danni Radiantei. Se il bersaglio è una creatura Enorme o più piccola e l'alce si è mosso di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio subisce altri 5 (2d4) danni Contundenti e ha la condizione Prono.
+_Bestia Media, senza allineamento_
 
-## Scarabeo del Fuoco Gigante
+**CA** 15 **Iniziativa** +1 (11)
+**PF** 13 (3d8)
+**Velocità** 9 m, nuoto 9 m
 
-*Bestia Piccola, Non Allineato*
+**Abilità** Furtività +3
+**Sensi** Percezione passiva 9; vista cieca 9 m
+**Lingue** nessuna
+**GS** 1/8 (PE 25; BC +2)
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 4 (1d6 + 1)
-- **Velocità:** 9 m, Scalare 9 m
-- **Iniziativa**: +0 (10)
+Tratti
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 8 | -1 | -1 |
-| DES | 10 | +0 | +0 |
-| COS | 12 | +1 | +1 |
-| INT | 1 | -5 | -5 |
-| SAG | 7 | -2 | -2 |
-| CAR | 3 | -4 | -4 |
+_**Anfibio.**_ Il granchio può respirare in aria e in acqua.
 
-- **Resistenze**: Fuoco
-- **Sensi**: Sensi Ciechi 9 m; Percezione Passiva 8
-- **GS** 0 (PE 0 or 10; PB +2)
+Azioni
 
-### Tratti
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +3, portata 1,5 m
+_Colpito:_ 4 (1d6 + 1) danni contundenti. Se il bersaglio
+è una creatura di taglia Media o inferiore, è afferrato
+(CD 11 per sfuggire) da una delle due chele.
 
-***Illuminazione.*** Emette Luce intensa in un raggio di 3 m e Luce fioca per ulteriori 3 m.
+### **Gufo**
 
-### Azioni
+_Bestia Minuscola, senza allineamento_
 
-***Morso.*** *Tiro per colpire in mischia:* +1, portata 1,5 m. 1 danni da Fuoco.
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 1 (1d4 − 1)
+**Velocità** 1,5 m, volo 18 m
 
-## Rana Gigante
+**Abilità** Furtività +5, Percezione +5
+**Sensi** Percezione passiva 15; scurovisione 36 m
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-*Bestia Media, Non Allineato*
+Tratti
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 18 (4d8)
-- **Velocità:** 9 m, Nuoto 9 m
-- **Iniziativa**: +1 (11)
+_**Volo sfuggente.**_ Il gufo non provoca attacchi di opportunità quando vola oltre la portata di un nemico.
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 12 | +1 | +1 |
-| DES | 13 | +1 | +1 |
-| COS | 11 | +0 | +0 |
-| INT | 2 | -4 | -4 |
-| SAG | 10 | +0 | +0 |
-| CAR | 3 | -4 | -4 |
+Azioni
 
-- **Abilità**: Percezione +2, Furtività +4
-- **Sensi**: Scurovisione 9 m; Percezione Passiva 12
-- **GS** 1/4 (PE 50; PB +2)
+_**Speroni.**_ _Tiro per colpire in mischia:_ +3, portata 1,5 m.
+_Colpito:_ 1 danno tagliente.
 
-### Tratti
+### **Gufo gigante**
 
-***Anfibio.*** Può respirare aria e acqua.
+_Celestiale Grande, neutrale_
 
-***Balzo da Fermo.*** Può effettuare un Salto in lungo fino a 6 m e un Salto in alto fino a 3 m, con o senza rincorsa.
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 19 (3d10 + 3)
+**Velocità** 1,5 m, volo 18 m
 
-### Azioni
+**Abilità** Furtività +6, Percezione +6
+**Resistenze** necrotico, radioso
+**Sensi** Percezione passiva 16; scurovisione 36 m
+**Lingue** Celestiale; capisce il Comune, l'Elfico e il Silvano
 
-***Morso.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 5 (1d6 + 2) danni Perforanti. Se il bersaglio è una creatura Media o più piccola, ha la condizione Afferrato (fuga CD 11).
+ma non li parla
+**GS** 1/4 (PE 50; BC +2)
 
-***Ingoiare.*** La rana ingoia un bersaglio Piccolo o più piccolo che sta afferrando. Mentre è inghiottito, il bersaglio non è Afferrato ma ha le condizioni Cieco e Immobilizzato, e ha Copertura Totale contro attacchi ed effetti provenienti dall’esterno della rana. Finché ha un bersaglio inghiottito, la rana non può usare Morso; se la rana muore, la creatura inghiottita non è più Immobilizzata e può uscire dal cadavere usando 1,5 m di movimento, uscendo con la condizione Prono.
-Alla fine del turno successivo della rana, il bersaglio inghiottito subisce 5 (2d4) danni da Acido. Se quel danno non lo uccide, la rana lo rigurgita, facendolo uscire Prono.
+Tratti
 
-## Capra Gigante
+_**Volo sfuggente.**_ Il gufo non provoca attacchi di opportunità quando vola oltre la portata di un nemico.
 
-*Bestia Grande, Non Allineato*
+Azioni
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 19 (3d10 + 3)
-- **Velocità:** 12 m, Scalare 9 m
-- **Iniziativa**: +1 (11)
+_**Speroni.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m.
+_Colpito:_ 7 (1d10 + 2) danni taglienti.
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 17 | +3 | +5 |
-| DES | 13 | +1 | +1 |
-| COS | 12 | +1 | +1 |
-| INT | 3 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 6 | -2 | -2 |
+_**Incantesimi.**_ Il gufo lancia uno dei seguenti incantesimi,
+senza bisogno di componenti, utilizzando Saggezza
+come caratteristica da incantatore:
 
-- **Abilità**: Percezione +3
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
-- **GS** 1/2 (PE 100; PB +2)
+**1/giorno:** _Chiaroveggenza_
+**A volontà:** _Individuazione del bene e del male_, _indivi-_
 
-### Azioni
+_duazione del magico_
 
-***Speronata.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni Contundenti. Se il bersaglio è una creatura Grande o più piccola e la capra si è mossa di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio subisce altri 5 (2d4) danni Contundenti e ha la condizione Prono.
+### **Iena**
 
-## Iena Gigante
+_Bestia Media, senza allineamento_
 
-*Bestia Grande, Non Allineato*
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 5 (1d8 + 1)
+**Velocità** 15 m
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 45 (6d10 + 12)
-- **Velocità:** 15 m
-- **Iniziativa**: +2 (12)
+**Abilità** Percezione +3
+**Sensi** Percezione passiva 13; scurovisione 18 m
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 16 | +3 | +3 |
-| DES | 14 | +2 | +2 |
-| COS | 14 | +2 | +2 |
-| INT | 2 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 7 | -2 | -2 |
+**393** System Reference Document 5.2.1
 
-- **Abilità**: Percezione +3
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
-- **GS** 1 (PE 200; PB +2)
+Tratti
 
-### Azioni
+_**Tattiche del branco.**_ La iena dispone di vantaggio a un
+tiro per colpire contro una creatura se almeno uno dei
+suoi alleati si trova entro 1,5 metri dalla creatura e non
+è incapacitato.
 
-***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) danni Perforanti.
+Azioni
 
-### Azioni Bonus
+_**Morso.**_ _Tiro per colpire in mischia:_ +2, portata 1,5 m.
+_Colpito:_ 3 (1d6) danni perforanti.
 
-***Furia (1/Giorno).*** Immediatamente dopo aver inflitto danni a una creatura già Insanguinata, l’iena può muoversi fino alla metà della sua Velocità ed effettuare un attacco con Morso.
+### **Iena gigante**
 
-## Lucertola Gigante
+_Bestia Grande, senza allineamento_
 
-*Bestia Grande, Non Allineato*
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 45 (6d10 + 12)
+**Velocità** 15 m
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 19 (3d10 + 3)
-- **Velocità:** 12 m, Scalare 12 m
-- **Iniziativa**: +1 (11)
+**Abilità** Percezione +3
+**Sensi** Percezione passiva 13; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1 (PE 200; BC +2)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 15 | +2 | +2 |
-| DES | 12 | +1 | +3 |
-| COS | 13 | +1 | +1 |
-| INT | 2 | -4 | -4 |
-| SAG | 10 | +0 | +0 |
-| CAR | 5 | -3 | -3 |
+Azioni
 
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 10
-- **GS** 1/4 (PE 50; PB +2)
+_**Morso.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m.
+_Colpito:_ 10 (2d6 + 3) danni perforanti.
 
-### Tratti
+Azioni bonus
 
-***Camminare sui Muri.*** Può arrampicarsi su superfici difficili, anche lungo i soffitti, senza dover effettuare una prova di abilità.
+_**Furia (1/giorno).**_ Subito dopo aver inflitto danni a una
+creatura già sanguinante, la iena si muove fino a metà
+della sua velocità, ed effettua un attacco Morso.
 
-### Azioni
+### **Ippopotamo**
 
-***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 6 (1d8 + 2) danni Perforanti.
+_Bestia Grande, senza allineamento_
 
-## Polpo Gigante
+**CA** 14 **Iniziativa** −2 (8)
+**PF** 82 (11d10 + 22)
+**Velocità** 9 m, nuoto 9 m
 
-*Bestia Grande, Non Allineato*
+**Abilità** Percezione +3
+**Sensi** Percezione passiva 13
+**Lingue** nessuna
+**GS** 4 (PE 1.100; BC +2)
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 45 (7d10 + 7)
-- **Velocità:** 3 m, Nuoto 18 m
-- **Iniziativa**: +1 (11)
+Tratti
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 17 | +3 | +3 |
-| DES | 13 | +1 | +1 |
-| COS | 13 | +1 | +1 |
-| INT | 5 | -3 | -3 |
-| SAG | 10 | +0 | +0 |
-| CAR | 4 | -3 | -3 |
+_**Apnea.**_ L'ippopotamo può trattenere il respiro per
+10 minuti.
 
-- **Abilità**: Percezione +4, Furtività +5
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 14
-- **GS** 1 (PE 200; PB +2)
+Azioni
 
-### Tratti
+_**Multiattacco.**_ L'ippopotamo effettua due attacchi
+Morso.
 
-***Respirazione Acquatica.*** Può respirare solo sott'acqua. Fuori dall'acqua può trattenere il respiro per 1 ora.
+_**Morso.**_ _Tiro per colpire in mischia:_ +7, portata 1,5 m.
+_Colpito:_ 16 (2d10 + 5) danni perforanti.
 
-### Azioni
+### **Leone**
 
-***Tentacoli.*** *Tiro per colpire in mischia:* +5, portata 3 m. 10 (2d6 + 3) danni Contundenti. Se il bersaglio è una creatura Media o più piccola, ha la condizione Afferrato (fuga CD 13) da tutti e otto i tentacoli. Mentre è Afferrato, il bersaglio ha la condizione Immobilizzato.
+_Bestia Grande, senza allineamento_
 
-## Gufo Gigante
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 22 (4d10)
+**Velocità** 15 m
 
-*Celestiale Grande, Neutrale*
+**Abilità** Furtività +4, Percezione +3
+**Sensi** Percezione passiva 13; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1 (PE 200; BC +2)
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 19 (3d10 + 3)
-- **Velocità:** 1,5 m, Volo 18 m
-- **Iniziativa**: +2 (12)
+Tratti
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 13 | +1 | +1 |
-| DES | 15 | +2 | +2 |
-| COS | 12 | +1 | +1 |
-| INT | 10 | +0 | +0 |
-| SAG | 14 | +2 | +4 |
-| CAR | 10 | +0 | +0 |
+_**Balzo in corsa.**_ Dopo una rincorsa di 3 metri, il leone
+può effettuare un salto in lungo di un massimo di
+7,5 metri.
 
-- **Resistenze**: Necrotico, Radiante
-- **Abilità**: Percezione +6, Furtività +6
-- **Sensi**: Scurovisione 36 m; Percezione Passiva 16
-- **Linguaggi**: Celestiale; comprende Comune, Elfico e Silvano ma non può parlarli
-- **GS** 1/4 (PE 50; PB +2)
+_**Tattiche del branco.**_ Il leone dispone di vantaggio
+a un tiro per colpire contro una creatura se almeno uno
+degli alleati dell'animale si trova entro 1,5 metri dalla
+creatura e non ha la condizione incapacitato.
 
-### Tratti
+Azioni
 
-***Sorvolo.*** Non provoca Attacchi di Opportunità quando vola fuori dalla portata di un nemico.
+_**Multiattacco.**_ Il leone effettua due attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di Ruggito.
 
-### Azioni
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m.
+_Colpito:_ 7 (1d8 + 3) danni taglienti.
 
-***Artigli.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 7 (1d10 + 2) danni Taglienti.
+_**Ruggito.**_ _Tiro salvezza su Saggezza:_ CD 11, una creatura entro 4,5 metri. _Fallimento:_ il bersaglio è spaventato fino all'inizio del turno successivo del leone.
 
-***Lancio Incantesimi.*** Il gufo lancia uno dei seguenti incantesimi, senza componenti, usando Saggezza come caratteristica da incantatore:
+### **Lucertola**
 
-- **A Volontà:** *Individuare il Bene e il Male*, *Individuare Magia*
-- **1/Day Each:** *Clairvoyance*
-## Ratto Gigante
+_Bestia Minuscola, senza allineamento_
 
-*Bestia Piccola, Non Allineato*
+**CA** 10 **Iniziativa** +0 (10)
+**PF** 2 (1d4)
+**Velocità** 6 m, scalata 6 m
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 7 (2d6)
-- **Velocità:** 9 m, Scalare 9 m
-- **Iniziativa**: +3 (13)
+**Sensi** Percezione passiva 9; scurovisione 9 m
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 7 | -2 | -2 |
-| DES | 16 | +3 | +5 |
-| COS | 11 | +0 | +0 |
-| INT | 2 | -4 | -4 |
-| SAG | 10 | +0 | +0 |
-| CAR | 4 | -3 | -3 |
+Tratti
 
-- **Abilità**: Percezione +2
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 12
-- **GS** 1/8 (PE 25; PB +2)
+_**Movimenti del ragno.**_ La lucertola può scalare le
+superfici difficili, compresi i soffitti, senza effettuare
+una prova di caratteristica.
 
-### Tratti
+Azioni
 
-***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
+_**Morso.**_ _Tiro per colpire in mischia:_ +2, portata 1,5 m.
+_Colpito:_ 1 danno perforante.
 
-### Azioni
+**394** System Reference Document 5.2.1
 
-***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 5 (1d4 + 3) danni Perforanti.
+### **Lucertola gigante**
 
-## Scorpione Gigante
+_Bestia Grande, senza allineamento_
 
-*Bestia Grande, Non Allineato*
+**CA** 12 **Iniziativa** +1 (11)
+**PF** 19 (3d10 + 3)
+**Velocità** 12 m, scalata 12 m
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 52 (7d10 + 14)
-- **Velocità:** 12 m
-- **Iniziativa**: +1 (11)
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 16 | +3 | +3 |
-| DES | 13 | +1 | +1 |
-| COS | 15 | +2 | +2 |
-| INT | 1 | -5 | -5 |
-| SAG | 9 | -1 | -1 |
-| CAR | 3 | -4 | -4 |
+Tratti
 
-- **Sensi**: Sensi Ciechi 18 m; Percezione Passiva 9
-- **GS** 3 (PE 700; PB +2)
+_**Movimenti del ragno.**_ La lucertola può scalare le
+superfici difficili, compresi i soffitti, senza effettuare
+una prova di caratteristica.
 
-### Azioni
+Azioni
 
-***Attacco Multiplo.*** Lo scorpione effettua due attacchi con Chela e uno con Puntura.
+_**Morso.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 6 (1d8 + 2) danni perforanti.
 
-***Chela.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni Contundenti. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Afferrato (fuga CD 13) da una delle due chele.
+### **Lupo**
 
-***Puntura.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni Perforanti plus 11 (2d10) danni da Veleno.
+_Bestia Media, senza allineamento_
 
-## Cavalluccio Marino Gigante
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 11 (2d8 + 2)
+**Velocità** 12 m
 
-*Bestia Grande, Non Allineato*
+**Abilità** Furtività +4, Percezione +5
+**Sensi** Percezione passiva 15; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 16 (3d10)
-- **Velocità:** 1,5 m, Nuoto 12 m
-- **Iniziativa**: +1 (11)
+Tratti
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 15 | +2 | +2 |
-| DES | 12 | +1 | +1 |
-| COS | 11 | +0 | +0 |
-| INT | 2 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 5 | -3 | -3 |
+_**Tattiche del branco.**_ Il lupo dispone di vantaggio ai tiri
+per colpire contro una creatura se almeno uno degli
+alleati dell'animale si trova entro 1,5 metri dalla creatura e non è incapacitato.
 
-- **Sensi**: Percezione Passiva 11
-- **GS** 1/2 (PE 100; PB +2)
+Azioni
 
-### Tratti
+_**Morso.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m.
+_Colpito:_ 5 (1d6 + 2) danni perforanti. Se il bersaglio è
+una creatura di taglia Media o inferiore, cade a terra
+prono.
 
-***Respirazione Acquatica.*** Può respirare solo sott'acqua.
+### **Lupo feroce**
 
-### Azioni
+_Bestia Grande, senza allineamento_
 
-***Speronata.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 9 (2d6 + 2) danni Contundenti, oppure 11 (2d8 + 2) danni Contundenti se il cavalluccio marino si è mosso di 6+ m in linea retta verso il bersaglio immediatamente prima di colpirlo.
+**CA** 14 **Iniziativa** +2 (12)
+**PF** 22 (3d10 + 6)
+**Velocità** 15 m
 
-### Azioni Bonus
+**Abilità** Furtività +4, Percezione +5
+**Sensi** Percezione passiva 15; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1 (PE 200; BC +2)
 
-***Scatto a Bolle.*** Sott'acqua, si muove fino a metà della sua Velocità di Nuoto senza provocare Attacchi di Opportunità.
+Tratti
 
-## Squalo Gigante
+_**Tattiche del branco.**_ Il lupo dispone di vantaggio al
+tiro per colpire contro una creatura se almeno uno
+degli alleati dell'animale si trova entro 1,5 metri dalla
+creatura e non è incapacitato.
 
-*Bestia Enorme, Non Allineato*
+Azioni
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 92 (8d12 + 40)
-- **Velocità:** 1,5 m, Nuoto 18 m
-- **Iniziativa**: +3 (13)
+_**Morso.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 8 (1d10 + 3) danni perforanti. Se il bersaglio è
+una creatura di taglia Grande o inferiore, cade a terra
+prono.
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 23 | +6 | +6 |
-| DES | 11 | +0 | +0 |
-| COS | 21 | +5 | +5 |
-| INT | 1 | -5 | -5 |
-| SAG | 10 | +0 | +0 |
-| CAR | 5 | -3 | -3 |
+### **Mammut**
 
-- **Abilità**: Percezione +3
-- **Sensi**: Sensi Ciechi 18 m; Percezione Passiva 13
-- **GS** 5 (PE 1,800; PB +3)
+_Bestia Enorme, senza allineamento_
 
-### Tratti
+**CA** 13 **Iniziativa** +2 (12)
+**PF** 126 (11d12 + 55)
+**Velocità** 15 m
 
-***Respirazione Acquatica.*** Può respirare solo sott'acqua.
+**Sensi** Percezione passiva 10
+**Lingue** nessuna
+**GS** 6 (PE 2.300; BC +3)
 
-### Azioni
+Azioni
 
-***Attacco Multiplo.*** Lo squalo effettua due attacchi con Morso.
+_**Multiattacco.**_ Il mammut effettua due attacchi
+Trafiggere.
 
-***Morso.*** *Tiro per colpire in mischia:* +9 (con Vantaggio se il bersaglio non ha tutti i suoi Punti Ferita), portata 1,5 m. 22 (3d10 + 6) danni Perforanti.
+_**Trafiggere.**_ _Tiro per colpire in mischia:_ +10, portata
+3 m. _Colpito:_ 18 (2d10 + 7) danni perforanti. Se il
+bersaglio è una creatura di taglia Enorme o inferiore
+e il mammut si è mosso di 6 metri o più in linea retta
+verso di esso subito prima del colpo, il bersaglio cade
+a terra prono.
 
-## Ragno Gigante
+Azioni bonus
 
-*Bestia Grande, Non Allineato*
+_**Calpestare.**_ _Tiro salvezza su Destrezza:_ CD 18, una creatura prona entro 1,5 metri. _Fallimento:_ 29 (4d10 + 7)
+danni contundenti. _Successo:_ danni dimezzati.
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 26 (4d10 + 4)
-- **Velocità:** 9 m, Scalare 9 m
-- **Iniziativa**: +3 (13)
+### **Mastino**
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 14 | +2 | +2 |
-| DES | 16 | +3 | +3 |
-| COS | 12 | +1 | +1 |
-| INT | 2 | -4 | -4 |
-| SAG | 11 | +0 | +0 |
-| CAR | 4 | -3 | -3 |
+_Bestia Media, senza allineamento_
 
-- **Abilità**: Percezione +4, Furtività +7
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 14
-- **GS** 1 (PE 200; PB +2)
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 5 (1d8 + 1)
+**Velocità** 12 m
 
-### Tratti
+**395** System Reference Document 5.2.1
 
-***Camminare sui Muri.*** Può arrampicarsi su superfici difficili, anche lungo i soffitti, senza dover effettuare una prova di abilità.
+**Abilità** Percezione +5
+**Sensi** Percezione passiva 15; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1/8 (PE 25; BC +2)
 
-***Camminatore di Ragnatele.*** Ignora le restrizioni al movimento causate dalle ragnatele e conosce la posizione di qualsiasi altra creatura a contatto con la stessa ragnatela.
+Azioni
 
-### Azioni
+_**Morso.**_ _Tiro per colpire in mischia:_ +3, portata 1,5 m.
+_Colpito:_ 4 (1d6 + 1) danni perforanti. Se il bersaglio è
+una creatura di taglia Media o inferiore, cade a terra
+prono.
 
-***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni Perforanti plus 7 (2d6) danni da Veleno.
+### **Millepiedi gigante**
 
-***Ragnatela (Ricarica 5-6).*** *Tiro Salvezza su Destrezza*: CD 13, una creatura che il ragno può vedere entro 18 m. *Fallimento:* Il bersaglio ha la condizione Immobilizzato finché la ragnatela non è distrutta (CA 10; PF 5; Vulnerabilità ai danni da Fuoco; Immunità ai danni da Veleno e Psichici).
+_Bestia Piccola, senza allineamento_
 
-## Rospo Gigante
+**CA** 14 **Iniziativa** +2 (12)
+**PF** 9 (2d6 + 2)
+**Velocità** 9 m, scalata 9 m
 
-*Bestia Grande, Non Allineato*
+**Sensi** Percezione passiva 8; vista cieca 9 m
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 39 (6d10 + 6)
-- **Velocità:** 9 m, Nuoto 9 m
-- **Iniziativa**: +1 (11)
+Azioni
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 15 | +2 | +2 |
-| DES | 13 | +1 | +1 |
-| COS | 13 | +1 | +1 |
-| INT | 2 | -4 | -4 |
-| SAG | 10 | +0 | +0 |
-| CAR | 3 | -4 | -4 |
+_**Morso.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 4 (1d4 + 2) danni perforanti, e il bersaglio
+è avvelenato fino all'inizio del turno successivo del
+millepiedi.
 
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 10
-- **GS** 1 (PE 200; PB +2)
+### **Mulo**
 
-### Tratti
+_Bestia Media, senza allineamento_
 
-***Anfibio.*** Può respirare aria e acqua.
+**CA** 10 **Iniziativa** +0 (10)
+**PF** 11 (2d8 + 2)
+**Velocità** 12 m
 
-***Balzo da Fermo.*** Può effettuare un Salto in lungo fino a 6 m e un Salto in alto fino a 3 m, con o senza rincorsa.
+**Sensi** Percezione passiva 10
+**Lingue** nessuna
+**GS** 1/8 (PE 25; BC +2)
 
-### Azioni
+Tratti
 
-***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni Perforanti più 5 (2d4) danni da Veleno. Se il bersaglio è una creatura Media o più piccola, ha la condizione Afferrato (fuga CD 12).
+_**Bestia da soma.**_ Per determinare la sua capacità di
+carico, il mulo è considerato come se fosse di una
+categoria di taglia superiore.
 
-***Ingoiare.*** Il rospo ingoia un bersaglio Medio o più piccolo che sta afferrando. Mentre è inghiottito, il bersaglio non è Afferrato ma ha le condizioni Cieco e Immobilizzato, e ha Copertura Totale contro attacchi ed effetti provenienti dall’esterno del rospo. Inoltre, il bersaglio subisce 10 (3d6) danni da Acido alla fine di ciascun turno del rospo. Il rospo può avere un solo bersaglio inghiottito alla volta e non può usare Morso mentre ne ha uno. Se il rospo muore, una creatura inghiottita non è più Immobilizzata e può uscire dal cadavere usando 1,5 m di movimento, uscendo con la condizione Prono.
+Azioni
 
-## Serpente Velenoso Gigante
+_**Zoccoli.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m.
+_Colpito:_ 4 (1d4 + 2) danni contundenti.
 
-*Bestia Media, Non Allineato*
+### **Orca assassina**
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 11 (2d8 + 2)
-- **Velocità:** 12 m, Nuoto 12 m
-- **Iniziativa**: +4 (14)
+_Bestia Enorme, senza allineamento_
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 10 | +0 | +0 |
-| DES | 18 | +4 | +4 |
-| COS | 13 | +1 | +1 |
-| INT | 2 | -4 | -4 |
-| SAG | 10 | +0 | +0 |
-| CAR | 3 | -4 | -4 |
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 90 (12d12 + 12)
+**Velocità** 1,5 metri, nuoto 18 metri
 
-- **Abilità**: Percezione +2
-- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 12
-- **GS** 1/4 (PE 50; PB +2)
+**Abilità** Furtività +4, Percezione +3
+**Sensi** Percezione passiva 13; vista cieca 36 m
+**Lingue** nessuna
+**GS** 3 (PE 700; BC +2)
 
-### Azioni
+Tratti
 
-***Morso.*** *Tiro per colpire in mischia:* +6, portata 3 m. 6 (1d4 + 4) danni Perforanti plus 4 (1d8) danni da Veleno.
+_**Apnea.**_ L'orca può trattenere il respiro per 30 minuti.
 
-## Avvoltoio Gigante
+Azioni
 
-*Mostruosità Grande, Neutrale Malvagio*
+_**Morso.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 21 (5d6 + 4) danni perforanti.
 
-- **Classe Armatura:** 10
-- **Punti Ferita:** 25 (3d10 + 9)
-- **Velocità:** 3 m, Volo 18 m
-- **Iniziativa**: +0 (10)
+### **Orso bruno**
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 15 | +2 | +2 |
-| DES | 10 | +0 | +0 |
-| COS | 16 | +3 | +3 |
-| INT | 6 | -2 | -2 |
-| SAG | 12 | +1 | +1 |
-| CAR | 7 | -2 | -2 |
+_Bestia Grande, senza allineamento_
 
-- **Resistenze**: Necrotico
-- **Abilità**: Percezione +3
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
-- **Linguaggi**: Comprende il Comune ma non può parlare
-- **GS** 1 (PE 200; PB +2)
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 22 (3d10 + 6)
+**Velocità** 12 m, scalata 9 m
 
-### Tratti
+**Abilità** Percezione +3
+**Sensi** Percezione passiva 13; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1 (PE 200; BC +2)
 
-***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
+Azioni
 
-### Azioni
+_**Multiattacco.**_ L'orso effettua un attacco Morso e
+un attacco Artiglio.
 
-***Beccata.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 9 (2d6 + 2) danni Perforanti, e il bersaglio ha la condizione Avvelenato fino alla fine del suo prossimo turno.
+_**Artiglio**_ **.** _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 5 (1d4 + 3) danni taglienti. Se il bersaglio è
+una creatura di taglia Grande o inferiore, cade a terra
+prono.
 
-## Vespa Gigante
+_**Morso**_ **.** _Tiro per colpire in mischia:_ +5, portata 1,5 m.
+_Colpito:_ 7 (1d8 + 3) danni perforanti.
 
-*Bestia Media, Non Allineato*
+### **Orso nero**
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 22 (5d8)
-- **Velocità:** 3 m, Volo 15 m
-- **Iniziativa**: +2 (12)
+_Bestia Media, senza allineamento_
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 10 | +0 | +0 |
-| DES | 14 | +2 | +2 |
-| COS | 10 | +0 | +0 |
-| INT | 1 | -5 | -5 |
-| SAG | 10 | +0 | +0 |
-| CAR | 3 | -4 | -4 |
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 19 (3d8 + 6)
+**Velocità** 9 m, scalata 9 m, nuoto 9 m
 
-- **Sensi**: Percezione Passiva 10
-- **GS** 1/2 (PE 100; PB +2)
+**396** System Reference Document 5.2.1
 
-### Tratti
+**Abilità** Percezione +5
+**Sensi** Percezione passiva 15; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1/2 (PE 100; BC +2)
 
-***Sorvolo.*** Non provoca Attacchi di Opportunità quando vola fuori dalla portata di un nemico.
+Azioni
 
-### Azioni
+_**Multiattacco.**_ L'orso effettua due attacchi Squarcio.
 
-***Puntura.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni Perforanti plus 5 (2d4) danni da Veleno.
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m.
+_Colpito:_ 5 (1d6 + 2) danni taglienti.
 
-## Donnola Gigante
+### **Orso polare**
 
-*Bestia Media, Non Allineato*
+_Bestia Grande, senza allineamento_
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 9 (2d8)
-- **Velocità:** 12 m, Scalare 9 m
-- **Iniziativa**: +3 (13)
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 42 (5d10 + 15)
+**Velocità** 12 m, nuoto 12 m
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 11 | +0 | +0 |
-| DES | 17 | +3 | +3 |
-| COS | 10 | +0 | +0 |
-| INT | 4 | -3 | -3 |
-| SAG | 12 | +1 | +1 |
-| CAR | 5 | -3 | -3 |
+**Abilità** Furtività +4, Percezione +5
+**Resistenze** freddo
+**Sensi** Percezione passiva 15; scurovisione 18 m
+**Lingue** nessuna
+**GS** 2 (PE 450; BC +2)
 
-- **Abilità**: Acrobazia +5, Percezione +3, Furtività +5
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
-- **GS** 1/8 (PE 25; PB +2)
+Azioni
 
-### Azioni
+_**Multiattacco.**_ L'orso effettua due attacchi Squarcio.
 
-***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 5 (1d4 + 3) danni Perforanti.
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +7, portata 1,5 m.
+_Colpito:_ 9 (1d8 + 5) danni taglienti.
 
-## Ragno Lupo Gigante
+### **Pantera**
 
-*Bestia Media, Non Allineato*
+_Bestia Media, senza allineamento_
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 11 (2d8 + 2)
-- **Velocità:** 12 m, Scalare 12 m
-- **Iniziativa**: +3 (13)
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 13 (3d8)
+**Velocità** 15 m, scalata 12 m
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 12 | +1 | +1 |
-| DES | 16 | +3 | +3 |
-| COS | 13 | +1 | +1 |
-| INT | 3 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 4 | -3 | -3 |
+**Abilità** Furtività +7, Percezione +4
+**Sensi** Percezione passiva 14; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-- **Abilità**: Percezione +3, Furtività +7
-- **Sensi**: Sensi Ciechi 3 m, Scurovisione 18 m; Percezione Passiva 13
-- **GS** 1/4 (PE 50; PB +2)
+Azioni
 
-### Tratti
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 6 (1d6 + 3) danni taglienti.
 
-***Camminare sui Muri.*** Può arrampicarsi su superfici difficili, anche lungo i soffitti, senza dover effettuare una prova di abilità.
+Azioni bonus
 
-### Azioni
+_**Fuga agile.**_ La pantera effettua l'azione di Disimpegno
 
-***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 5 (1d4 + 3) danni Perforanti plus 5 (2d4) danni da Veleno.
+- Nascondersi.
 
-## Capra
+### **Piovra**
 
-*Bestia Media, Non Allineato*
+_Bestia Piccola, senza allineamento_
 
-- **Classe Armatura:** 10
-- **Punti Ferita:** 4 (1d8)
-- **Velocità:** 12 m, Scalare 9 m
-- **Iniziativa**: +0 (10)
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 3 (1d6)
+**Velocità** 1,5 m, nuoto 9 m
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 11 | +0 | +2 |
-| DES | 10 | +0 | +0 |
-| COS | 11 | +0 | +0 |
-| INT | 2 | -4 | -4 |
-| SAG | 10 | +0 | +0 |
-| CAR | 5 | -3 | -3 |
+**Abilità** Furtività +6, Percezione +2
+**Sensi** Percezione passiva 12; scurovisione 9 m
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-- **Abilità**: Percezione +2
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 12
-- **GS** 0 (PE 0 or 10; PB +2)
+Tratti
 
-### Azioni
+_**Compressione.**_ La piovra può muoversi attraverso uno
+spazio stretto fino a 2,5 centimetri senza consumare
+movimento extra per farlo.
 
-***Speronata.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 1 danno Contundente, oppure 2 (1d4) danni Contundenti se la capra si è mossa di 6+ m in linea retta verso il bersaglio immediatamente prima di colpirlo.
+_**Respirare sott'acqua.**_ La piovra può respirare soltanto
+sott'acqua.
 
-## Falco
+Azioni
 
-*Bestia Piccola, Non Allineato*
+_**Tentacoli.**_ _Tiro per colpire in mischia:_ +4, portata
+1,5 m. _Colpito:_ 1 danno contundente.
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 1 (1d4 - 1)
-- **Velocità:** 3 m, Volo 18 m
-- **Iniziativa**: +3 (13)
+Reazioni
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 5 | -3 | -3 |
-| DES | 16 | +3 | +3 |
-| COS | 8 | -1 | -1 |
-| INT | 2 | -4 | -4 |
-| SAG | 14 | +2 | +2 |
-| CAR | 6 | -2 | -2 |
+_**Nube di inchiostro (1/Giorno).**_ _Attivazione:_ una
+creatura termina il suo turno entro 1,5 metri dalla
+piovra sott'acqua. _Esito:_ la piovra rilascia abbastanza
+inchiostro da riempire un cubo con spigolo di 1,5 metri
+intorno a sé e può muoversi fino alla sua velocità di
+nuoto massima. Il cubo è pesantemente oscurato per
+1 minuto, o finché una corrente forte o un altro effetto
+simile non disperde l'inchiostro.
 
-- **Abilità**: Percezione +6
-- **Sensi**: Percezione Passiva 16
-- **GS** 0 (PE 0 or 10; PB +2)
+### **Piovra gigante**
 
-### Azioni
+_Bestia Grande, senza allineamento_
 
-***Artigli.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 1 danni Taglienti.
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 45 (7d10 + 7)
+**Velocità** 3 m, nuoto 18 m
 
-## Ippopotamo
+**Abilità** Furtività +5, Percezione +4
+**Sensi** Percezione passiva 14; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1 (PE 200; BC +2)
 
-*Bestia Grande, Non Allineato*
+Tratti
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 82 (11d10 + 22)
-- **Velocità:** 9 m, Nuoto 9 m
-- **Iniziativa**: -2 (8)
+_**Respirare sott'acqua.**_ La piovra può respirare soltanto
+sott'acqua e può trattenere il respiro per 1 ora fuori
+dall'acqua.
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 21 | +5 | +7 |
-| DES | 7 | -2 | -2 |
-| COS | 15 | +2 | +2 |
-| INT | 2 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 4 | -3 | -3 |
+**397** System Reference Document 5.2.1
 
-- **Abilità**: Percezione +3
-- **Sensi**: Percezione Passiva 13
-- **GS** 4 (PE 1,100; PB +2)
+Azioni
 
-### Tratti
+_**Tentacoli.**_ _Tiro per colpire in mischia:_ +5, portata 3 m.
+_Colpito:_ 10 (2d6 + 3) danni contundenti. Se il bersaglio
+è una creatura di taglia Media o inferiore, è afferrato
+(CD 13 per sfuggire) da tutti e otto i tentacoli. Mentre
+è afferrato, il bersaglio è anche trattenuto.
 
-***Trattenere il Respiro.*** Può trattenere il respiro per 10 minuti.
+Reazioni
 
-### Azioni
+_**Nube di inchiostro (1/Giorno).**_ _Attivazione:_ la piovra
+subisce danni finché si trova sott'acqua. _Esito:_ la piovra
+rilascia abbastanza inchiostro da riempire un cubo con
+spigolo di 3 metri intorno a sé, e può muoversi fino alla
+sua velocità di nuoto massima. Il cubo è pesantemente
+oscurato per 1 minuto, o finché una corrente forte o un
+altro effetto simile non disperde l'inchiostro.
 
-***Attacco Multiplo.*** Effettua due attacchi con Morso.
+### **Pipistrello**
 
-***Morso.*** *Tiro per colpire in mischia:* +7, portata 1,5 m. 16 (2d10 + 5) danni Perforanti.
+_Bestia Minuscola, senza allineamento_
 
-## Squalo Cacciatore
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 1 (1d4 − 1)
+**Velocità** 1,5 m, volo 9 m
 
-*Bestia Grande, Non Allineato*
+**Sensi** Percezione passiva 11; vista cieca 18 m
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 45 (6d10 + 12)
-- **Velocità:** 1,5 m, Nuoto 12 m
-- **Iniziativa**: +2 (12)
+Azioni
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 18 | +4 | +4 |
-| DES | 14 | +2 | +2 |
-| COS | 15 | +2 | +2 |
-| INT | 1 | -5 | -5 |
-| SAG | 10 | +0 | +0 |
-| CAR | 4 | -3 | -3 |
+_**Morso.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m.
+_Colpito:_ 1 danno perforante.
 
-- **Abilità**: Percezione +2
-- **Sensi**: Sensi Ciechi 18 m; Percezione Passiva 12
-- **GS** 2 (PE 450; PB +2)
+### **Pipistrello gigante**
 
-### Tratti
+_Bestia Grande, senza allineamento_
 
-***Respirazione Acquatica.*** Può respirare solo sott'acqua.
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 22 (4d10)
+**Velocità** 3 m, volo 18 m
 
-### Azioni
+**Sensi** Percezione passiva 11; vista cieca 36 m
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-***Morso.*** *Tiro per colpire in mischia:* +6 (con Vantaggio se il bersaglio non ha tutti i suoi Punti Ferita), portata 1,5 m. 14 (3d6 + 4) danni Perforanti.
+Azioni
 
-## Iena
+_**Morso.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m.
+_Colpito:_ 6 (1d6 + 3) danni perforanti.
 
-*Bestia Media, Non Allineato*
+### **Piranha**
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 5 (1d8 + 1)
-- **Velocità:** 15 m
-- **Iniziativa**: +1 (11)
+_Bestia Minuscola, senza allineamento_
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 11 | +0 | +0 |
-| DES | 13 | +1 | +1 |
-| COS | 12 | +1 | +1 |
-| INT | 2 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 5 | -3 | -3 |
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 1 (1d4 − 1)
+**Velocità** 1,5 m, nuoto 12 m
 
-- **Abilità**: Percezione +3
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
-- **GS** 0 (PE 0 or 10; PB +2)
+**Sensi** Percezione passiva 8; scurovisione 18 m
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-### Tratti
+Tratti
 
-***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
+_**Respirare sott'acqua.**_ Il piranha può respirare soltanto
+sott'acqua.
 
-### Azioni
+Azioni
 
-***Morso.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 3 (1d6) danni Perforanti.
+_**Morso.**_ _Tiro per colpire in mischia:_ +5 (con vantaggio
+se il bersaglio non ha tutti i punti ferita), portata 1,5 m.
+_Colpito:_ 1 danno perforante.
 
-## Sciacallo
+### **Plesiosauro**
 
-*Bestia Piccola, Non Allineato*
+_Bestia Grande (dinosauro), senza allineamento_
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 3 (1d6)
-- **Velocità:** 12 m
-- **Iniziativa**: +2 (12)
+**CA** 13 **Iniziativa** +2 (12)
+**PF** 68 (8d10 + 24)
+**Velocità** 6 m, nuoto 12 m
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 8 | -1 | -1 |
-| DES | 15 | +2 | +2 |
-| COS | 11 | +0 | +0 |
-| INT | 3 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 6 | -2 | -2 |
+**Abilità** Furtività +4, Percezione +3
+**Sensi** Percezione passiva 13
+**Lingue** nessuna
+**GS** 2 (PE 450; BC +2)
 
-- **Abilità**: Percezione +5, Furtività +4
-- **Sensi**: Scurovisione 27 m; Percezione Passiva 15
-- **GS** 0 (PE 0 or 10; PB +2)
+Tratti
 
-### Azioni
+_**Apnea.**_ Il plesiosauro può trattenere il respiro per 1 ora.
 
-***Morso.*** *Tiro per colpire in mischia:* +1, portata 1,5 m. 1 (1d4 - 1) danni Perforanti.
+Azioni
 
-## Orca
+_**Morso.**_ _Tiro per colpire in mischia:_ +6, portata 3 m.
+_Colpito:_ 11 (2d6 + 4) danni perforanti.
 
-*Bestia Enorme, Non Allineato*
+### **Pony**
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 90 (12d12 + 12)
-- **Velocità:** 1,5 m, Nuoto 18 m
-- **Iniziativa**: +2 (12)
+_Bestia Media, senza allineamento_
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 19 | +4 | +4 |
-| DES | 14 | +2 | +2 |
-| COS | 13 | +1 | +1 |
-| INT | 3 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 7 | -2 | -2 |
+**CA** 10 **Iniziativa** +0 (10)
+**PF** 11 (2d8 + 2)
+**Velocità** 12 m
 
-- **Abilità**: Percezione +3, Furtività +4
-- **Sensi**: Sensi Ciechi 36 m; Percezione Passiva 13
-- **GS** 3 (PE 700; PB +2)
+**Sensi** Percezione passiva 10
+**Lingue** nessuna
+**GS** 1/8 (PE 25; BC +2)
 
-### Tratti
+Azioni
 
-***Trattenere il Respiro.*** Può trattenere il respiro per 30 minuti.
+_**Zoccoli.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m.
+_Colpito:_ 4 (1d4 + 2) danni contundenti.
 
-### Azioni
+**398** System Reference Document 5.2.1
 
-***Morso.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 21 (5d6 + 4) danni Perforanti.
+### **Pteranodonte**
 
-## Leone
+_Bestia Media (dinosauro), senza allineamento_
 
-*Bestia Grande, Non Allineato*
+**CA** 13 **Iniziativa** +2 (12)
+**PF** 13 (3d8)
+**Velocità** 3 m, volo 18 m
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 22 (4d10)
-- **Velocità:** 15 m
-- **Iniziativa**: +2 (12)
+**Abilità** Percezione +1
+**Sensi** Percezione passiva 11
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 17 | +3 | +3 |
-| DES | 15 | +2 | +2 |
-| COS | 11 | +0 | +0 |
-| INT | 3 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 8 | -1 | -1 |
+Tratti
 
-- **Abilità**: Percezione +3, Furtività +4
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
-- **GS** 1 (PE 200; PB +2)
+_**Volo sfuggente.**_ Lo pteranodonte non provoca attacchi
+di opportunità quando vola oltre la portata di un
+nemico.
 
-### Tratti
+Azioni
 
-***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
+_**Morso.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 6 (1d8 + 2) danni perforanti.
 
-***Balzo in Corsa.*** Con una rincorsa di 3 m, può effettuare un Salto in lungo fino a 7,5 m.
+### **Ragno**
 
-### Azioni
+_Bestia Minuscola, senza allineamento_
 
-***Attacco Multiplo.*** Effettua due attacchi con Lacerare. Può sostituire uno di quegli attacchi con un uso di Ruggito.
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 1 (1d4 − 1)
+**Velocità** 6 m, scalata 6 m
 
-***Lacerare.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni Taglienti.
+**Abilità** Furtività +4
+**Sensi** Percezione passiva 10; scurovisione 9 m
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-***Ruggito.*** *Tiro Salvezza su Saggezza*: CD 11, una creatura entro 4,5 m. *Fallimento:*  Il bersaglio ha la condizione Spaventato fino all'inizio del prossimo turno del leone.
+Tratti
 
-## Lucertola
+_**Andatura sulla ragnatela.**_ Il ragno ignora le restrizioni
+di movimento causate dalle ragnatele e conosce
+­l'ubicazione di qualsiasi altra creatura a contatto con
+la medesima ragnatela.
 
-*Bestia Piccola, Non Allineato*
+_**Movimenti del ragno.**_ Il ragno può scalare le superfici
+difficili, compresi i soffitti, senza effettuare una prova di
+caratteristica.
 
-- **Classe Armatura:** 10
-- **Punti Ferita:** 2 (1d4)
-- **Velocità:** 6 m, Scalare 6 m
-- **Iniziativa**: +0 (10)
+Azioni
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 2 | -4 | -4 |
-| DES | 11 | +0 | +0 |
-| COS | 10 | +0 | +0 |
-| INT | 1 | -5 | -5 |
-| SAG | 8 | -1 | -1 |
-| CAR | 3 | -4 | -4 |
+_**Morso.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 1 danno perforante più 2 (1d4) danni da
+veleno.
 
-- **Sensi**: Scurovisione 9 m; Percezione Passiva 9
-- **GS** 0 (PE 0 or 10; PB +2)
+### **Ragno gigante**
 
-### Tratti
+_Bestia Grande, senza allineamento_
 
-***Camminare sui Muri.*** Può arrampicarsi su superfici difficili, anche lungo i soffitti, senza dover effettuare una prova di abilità.
+**CA** 14 **Iniziativa** +3 (13)
+**PF** 26 (4d10 + 4)
+**Velocità** 9 m, scalata 9 m
 
-### Azioni
+**Abilità** Furtività +7, Percezione +4
+**Sensi** Percezione passiva 14; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1 (PE 200; BC +2)
 
-***Morso.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 1 danni Perforanti.
+Tratti
 
-## Mammut
+_**Andatura sulla ragnatela.**_ Il ragno ignora le restrizioni
+di movimento causate dalle ragnatele e conosce
+­l'ubicazione esatta di ogni altra creatura a contatto con
+la stessa ragnatela.
 
-*Bestia Enorme, Non Allineato*
+_**Movimenti del ragno.**_ Il ragno può scalare le superfici
+difficili, compresi i soffitti, senza effettuare una prova di
+caratteristica.
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 126 (11d12 + 55)
-- **Velocità:** 15 m
-- **Iniziativa**: +2 (12)
+Azioni
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 24 | +7 | +10 |
-| DES | 9 | -1 | -1 |
-| COS | 21 | +5 | +8 |
-| INT | 3 | -4 | -4 |
-| SAG | 11 | +0 | +0 |
-| CAR | 6 | -2 | -2 |
+_**Morso.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 7 (1d8 + 3) danni perforanti più 7 (2d6) danni
+da veleno.
 
-- **Sensi**: Percezione Passiva 10
-- **GS** 6 (PE 2,300; PB +3)
+_**Ragnatela (ricarica 5–6).**_ _Tiro salvezza su Destrezza:_
+CD 13, una creatura che il ragno è in grado di vedere
+entro 18 metri. _Fallimento:_ il bersaglio è trattenuto
+finché la ragnatela non viene distrutta (CA 10; PF 5;
+vulnerabilità ai danni da fuoco; immunità ai danni da
+veleno e psichici).
 
-### Azioni
+### **Ragno lupo gigante**
 
-***Attacco Multiplo.*** Effettua due attacchi con Incornata.
+_Bestia Media, senza allineamento_
 
-***Incornata.*** *Tiro per colpire in mischia:* +10, portata 3 m. 18 (2d10 + 7) danni Perforanti. Se il bersaglio è una creatura Enorme o più piccola e la creatura si è mossa di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio ha la condizione Prono.
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 11 (2d8 + 2)
+**Velocità** 12 m, scalata 12 m
 
-### Azioni Bonus
+**Abilità** Furtività +7, Percezione +3
+**Sensi** Percezione passiva 10; scurovisione 18 m, vista
 
-***Calpestare.*** *Tiro Salvezza su Destrezza*: CD 18, una creatura entro 1,5 m che ha la condizione Prono. *Fallimento:*  29 (4d10 + 7) danni Contundenti. *Successo:*  Metà danni.
+cieca 3 m
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-## Mastino
+Tratti
 
-*Bestia Media, Non Allineato*
+_**Movimenti del ragno.**_ Il ragno può scalare le superfici
+difficili, compresi i soffitti, senza effettuare una prova di
+caratteristica.
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 5 (1d8 + 1)
-- **Velocità:** 12 m
-- **Iniziativa**: +2 (12)
+**399** System Reference Document 5.2.1
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 13 | +1 | +1 |
-| DES | 14 | +2 | +2 |
-| COS | 12 | +1 | +1 |
-| INT | 3 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 7 | -2 | -2 |
+Azioni
 
-- **Abilità**: Percezione +5
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 15
-- **GS** 1/8 (PE 25; PB +2)
+_**Morso.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 5 (1d4 + 3) danni perforanti più 5 (2d4) danni
+da veleno.
 
-### Azioni
+### **Rana**
 
-***Morso.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 4 (1d6 + 1) danni Perforanti. Se il bersaglio è una creatura Media o più piccola, ha la condizione Prono.
+_Bestia Minuscola, senza allineamento_
 
-## Mulo
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 1 (1d4 − 1)
+**Velocità** 6 m, nuoto 6 m
 
-*Bestia Media, Non Allineato*
+**Abilità** Furtività +3, Percezione +1
+**Sensi** Percezione passiva 11; scurovisione 9 m
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-- **Classe Armatura:** 10
-- **Punti Ferita:** 11 (2d8 + 2)
-- **Velocità:** 12 m
-- **Iniziativa**: +0 (10)
+Tratti
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 14 | +2 | +4 |
-| DES | 10 | +0 | +0 |
-| COS | 13 | +1 | +1 |
-| INT | 2 | -4 | -4 |
-| SAG | 10 | +0 | +0 |
-| CAR | 5 | -3 | -3 |
+_**Anfibio.**_ La rana può respirare in aria e in acqua.
 
-- **Sensi**: Percezione Passiva 10
-- **GS** 1/8 (PE 25; PB +2)
+_**Balzo da fermo.**_ La rana può compiere un salto in
+lungo di un massimo di 3 metri e uno in alto di un
+massimo di 1,5 metri, con o senza rincorsa.
 
-### Tratti
+Azioni
 
-***Bestia da Soma.*** Conta come una taglia più grande ai fini della capacità di carico.
+_**Morso.**_ _Tiro per colpire in mischia:_ +3, portata 1,5 m.
+_Colpito:_ 1 danno perforante.
 
-### Azioni
+### **Rana gigante**
 
-***Zoccoli.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni Contundenti.
+_Bestia Media, senza allineamento_
 
-## Gufo
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 18 (4d8)
+**Velocità** 9 m, nuoto 9 m
 
-*Bestia Piccola, Non Allineato*
+**Abilità** Furtività +4, Percezione +2
+**Sensi** Percezione passiva 12; scurovisione 9 m
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 1 (1d4 - 1)
-- **Velocità:** 1,5 m, Volo 18 m
-- **Iniziativa**: +1 (11)
+Tratti
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 3 | -4 | -4 |
-| DES | 13 | +1 | +1 |
-| COS | 8 | -1 | -1 |
-| INT | 2 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 7 | -2 | -2 |
+_**Anfibio.**_ La rana può respirare in aria e in acqua.
 
-- **Abilità**: Percezione +5, Furtività +5
-- **Sensi**: Scurovisione 36 m; Percezione Passiva 15
-- **GS** 0 (PE 0 or 10; PB +2)
+_**Balzo da fermo.**_ La rana può compiere un salto in
+lungo di un massimo di 6 metri e uno in alto di un
+massimo di 3 metri, con o senza rincorsa.
 
-### Tratti
+Azioni
 
-***Sorvolo.*** Non provoca Attacchi di Opportunità quando vola fuori dalla portata di un nemico.
+_**Morso.**_ _Tiro per colpire in mischia:_ +3, portata 1,5 m.
+_Colpito:_ 5 (1d6 + 2) danni perforanti. Se il bersaglio
+è una creatura di taglia Media o inferiore, è afferrato
+(CD 11 per sfuggire).
 
-### Azioni
+_**Inghiottire.**_ La rana inghiotte un bersaglio di taglia Piccola o inferiore che sta afferrando. La creatura inghiottita non è afferrata, ma è accecata e trattenuta, e beneficia di copertura totale contro attacchi e altri effetti al
+di fuori della rana. Mentre inghiotte il bersaglio, la rana
+non può usare Morso; se la rana muore, il bersaglio
+inghiottito non è più trattenuto e può fuggire dal cadavere usando 1,5 metri di movimento, uscendo prono.
 
-***Artigli.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 1 danni Taglienti.
+Alla fine del turno successivo della rana, il bersaglio
+inghiottito subisce 5 (2d4) danni da acido. Se i danni
+non uccidono il bersaglio, la rana lo vomita, facendolo
+uscire prono.
 
-## Pantera
+### **Rinoceronte**
 
-*Bestia Media, Non Allineato*
+_Bestia Grande, senza allineamento_
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 13 (3d8)
-- **Velocità:** 15 m, Scalare 12 m
-- **Iniziativa**: +3 (13)
+**CA** 13 **Iniziativa** –1 (9)
+**PF** 45 (6d10 + 12)
+**Velocità** 12 m
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 14 | +2 | +2 |
-| DES | 16 | +3 | +3 |
-| COS | 10 | +0 | +0 |
-| INT | 3 | -4 | -4 |
-| SAG | 14 | +2 | +2 |
-| CAR | 7 | -2 | -2 |
+**Sensi** Percezione passiva 11
+**Lingue** nessuna
+**GS** 2 (PE 450; BC +2)
 
-- **Abilità**: Percezione +4, Furtività +6
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 14
-- **GS** 1/4 (PE 50; PB +2)
+Azioni
 
-### Azioni
+_**Trafiggere.**_ _Tiro per colpire in mischia:_ +7, portata
+1,5 m. _Colpito:_ 14 (2d8 + 5) danni perforanti. Se il bersaglio è una creatura di taglia Grande o inferiore
+e il rinoceronte si è mosso di 6 metri o più in linea retta
+verso di esso subito prima del colpo, il bersaglio subisce 9 (2d8) danni perforanti extra e cade a terra prono.
 
-***Rend.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni Taglienti.
+### **Rospo gigante**
 
-### Azioni Bonus
+_Bestia Grande, senza allineamento_
 
-***Fuga Agile.*** La pantera compie l'azione Disimpegno o Nascondersi.
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 39 (6d10 + 6)
+**Velocità** 9 m, nuoto 9 m
 
-## Piranha
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1 (PE 200; BC +2)
 
-*Bestia Piccola, Non Allineato*
+Tratti
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 1 (1d4 - 1)
-- **Velocità:** 1,5 m, Nuoto 12 m
-- **Iniziativa**: +3 (13)
+_**Anfibio.**_ Il rospo può respirare in aria e in acqua.
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 2 | -4 | -4 |
-| DES | 16 | +3 | +3 |
-| COS | 9 | -1 | -1 |
-| INT | 1 | -5 | -5 |
-| SAG | 7 | -2 | -2 |
-| CAR | 2 | -4 | -4 |
+_**Balzo da fermo.**_ Il rospo può compiere un salto in
+lungo di massimo 6 metri e uno in alto di massimo
+3 metri, con o senza rincorsa.
 
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 8
-- **GS** 0 (PE 0 or 10; PB +2)
+**400** System Reference Document 5.2.1
 
-### Tratti
+Azioni
 
-***Respirazione Acquatica.*** Può respirare solo sott'acqua.
+_**Morso.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 5 (1d6 + 2) danni perforanti più 5 (2d4) danni
+da veleno. Se il bersaglio è una creatura di taglia Media
 
-### Azioni
+- inferiore, è afferrato (CD 12 per sfuggire).
 
-***Morso.*** *Tiro per colpire in mischia:* +5 (con Vantaggio se il bersaglio non ha tutti i suoi Punti Ferita), portata 1,5 m. 1 danno Perforante.
+_**Inghiottire.**_ Il rospo inghiotte un bersaglio di taglia
+Media o inferiore che sta afferrando. La creatura
+inghiottita non è afferrata, ma è accecata e trattenuta,
+e beneficia di copertura totale contro attacchi e altri
+effetti al di fuori del rospo. Inoltre, il bersaglio subisce
+10 (3d6) danni da acido al termine di ogni turno del
+rospo. Il rospo può inghiottire un solo bersaglio alla
+volta e non può usare Morso finché ha un bersaglio
+inghiottito. Se il rospo muore, la creatura inghiottita
+non è più trattenuta e può fuggire dal cadavere usando
+1,5 metri di movimento, uscendo prona.
 
-## Plesiosauro
+### **Scarabeo di fuoco gigante**
 
-*Bestia Grande (Dinosauro), Non Allineato*
+_Bestia Piccola, senza allineamento_
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 68 (8d10 + 24)
-- **Velocità:** 6 m, Nuoto 12 m
-- **Iniziativa**: +2 (12)
+**CA** 13 **Iniziativa** +0 (10)
+**PF** 4 (1d6 + 1)
+**Velocità** 9 m, scalata 9 m
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 18 | +4 | +4 |
-| DES | 15 | +2 | +2 |
-| COS | 16 | +3 | +3 |
-| INT | 2 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 5 | -3 | -3 |
+**Resistenze** : fuoco
+**Sensi** Percezione passiva 8; vista cieca 9 m
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-- **Abilità**: Percezione +3, Furtività +4
-- **Sensi**: Percezione Passiva 13
-- **GS** 2 (PE 450; PB +2)
+Tratti
 
-### Tratti
+_**Illuminazione.**_ Lo scarabeo proietta luce intensa in
+un raggio di 3 metri e luce fioca per altri 3 metri.
 
-***Trattenere il Respiro.*** Può trattenere il respiro per 1 ora.
+Azioni
 
-### Azioni
+_**Morso.**_ _Tiro per colpire in mischia:_ +1, portata 1,5 m
+_Colpito:_ 1 danno da fuoco.
 
-***Morso.*** *Tiro per colpire in mischia:* +6, portata 3 m. 11 (2d6 + 4) danni Perforanti.
+### **Sciacallo**
 
-## Orso Polare
+_Bestia Piccola, senza allineamento_
 
-*Bestia Grande, Non Allineato*
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 3 (1d6)
+**Velocità** 12 m
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 42 (5d10 + 15)
-- **Velocità:** 12 m, Nuoto 12 m
-- **Iniziativa**: +2 (12)
+**Abilità** Furtività +4, Percezione +5
+**Sensi** Percezione passiva 15; scurovisione 27 m
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 20 | +5 | +5 |
-| DES | 14 | +2 | +2 |
-| COS | 16 | +3 | +3 |
-| INT | 2 | -4 | -4 |
-| SAG | 13 | +1 | +1 |
-| CAR | 7 | -2 | -2 |
+Azioni
 
-- **Resistenze**: Freddo
-- **Abilità**: Percezione +5, Furtività +4
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 15
-- **GS** 2 (PE 450; PB +2)
+_**Morso.**_ _Tiro per colpire in mischia:_ +1, portata 1,5 m.
+_Colpito:_ 1 (1d4 − 1) danni perforanti.
 
-### Azioni
+### **Sciame di insetti**
 
-***Attacco Multiplo.*** Effettua due attacchi con Lacerare.
+_Sciame Medio di bestie Minuscole, senza allineamento_
 
-***Rend.*** *Tiro per colpire in mischia:* +7, portata 1,5 m. 9 (1d8 + 5) danni Taglienti.
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 19 (3d8 + 6)
+**Velocità** 6 m, scalata o volo 6 m (a scelta del GM)
 
-## Pony
+**Resistenze** contundente, perforante, tagliente
+**Immunità** affascinato, afferrato, paralizzato, pietrificato,
 
-*Bestia Media, Non Allineato*
+prono, spaventato, stordito, trattenuto
+**Sensi** Percezione passiva 8; vista cieca 9 m
+**Lingue** nessuna
+**GS** 1/2 (PE 100; BC +2)
 
-- **Classe Armatura:** 10
-- **Punti Ferita:** 11 (2d8 + 2)
-- **Velocità:** 12 m
-- **Iniziativa**: +0 (10)
+Tratti
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 15 | +2 | +4 |
-| DES | 10 | +0 | +0 |
-| COS | 13 | +1 | +1 |
-| INT | 2 | -4 | -4 |
-| SAG | 11 | +0 | +0 |
-| CAR | 7 | -2 | -2 |
+_**Movimenti del ragno.**_ Se lo sciame ha una velocità
+di scalata, può scalare le superfici difficili, compresi i
+soffitti, senza effettuare una prova di caratteristica.
 
-- **Sensi**: Percezione Passiva 10
-- **GS** 1/8 (PE 25; PB +2)
+_**Sciame.**_ Lo sciame può occupare lo spazio di un'altra
+creatura e viceversa, e può muoversi attraverso qualsiasi apertura sufficientemente larga da far passare un
+insetto Minuscolo. L'orda non può recuperare punti
+ferita o ottenere punti ferita temporanei.
 
-### Azioni
+Azioni
 
-***Zoccoli.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni Contundenti.
+_**Morsi.**_ _Tiro per colpire in mischia:_ +3, portata 1,5 m.
+_Colpito:_ 6 (2d4 + 1) danni da veleno, o 3 (1d4 + 1)
+danni da veleno se lo sciame è sanguinante.
 
-## Pteranodonte
+### **Sciame di pipistrelli**
 
-*Bestia Media (Dinosauro), Non Allineato*
+_Sciame Grande di bestie Minuscole, senza allineamento_
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 13 (3d8)
-- **Velocità:** 3 m, Volo 18 m
-- **Iniziativa**: +2 (12)
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 11 (2d10)
+**Velocità** 1,5 m, volo 9 m
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 12 | +1 | +1 |
-| DES | 15 | +2 | +2 |
-| COS | 10 | +0 | +0 |
-| INT | 2 | -4 | -4 |
-| SAG | 9 | -1 | -1 |
-| CAR | 5 | -3 | -3 |
+**Resistenze** contundente, perforante, tagliente
+**Immunità** affascinato, afferrato, paralizzato, pietrificato,
 
-- **Abilità**: Percezione +1
-- **Sensi**: Percezione Passiva 11
-- **GS** 1/4 (PE 50; PB +2)
+prono, spaventato, stordito, trattenuto
+**Sensi** Percezione passiva 11; vista cieca 18 m
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-### Tratti
+Tratti
 
-***Sorvolo.*** Non provoca Attacchi di Opportunità quando vola fuori dalla portata di un nemico.
+_**Sciame.**_ Lo sciame può occupare lo spazio di un'altra
+creatura e viceversa, e può muoversi attraverso qualsiasi apertura sufficientemente larga da far passare un
+pipistrello di taglia Minuscola. L'orda non può recuperare punti ferita o ottenere punti ferita temporanei.
 
-### Azioni
+**401** System Reference Document 5.2.1
 
-***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 6 (1d8 + 2) danni Perforanti.
+Azioni
 
-## Ratto
+_**Morsi.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m.
+_Colpito:_ 5 (2d4) danni perforanti, o 2 (1d4) danni perforanti se lo sciame è sanguinante.
 
-*Bestia Piccola, Non Allineato*
+### **Scorpione**
 
-- **Classe Armatura:** 10
-- **Punti Ferita:** 1 (1d4 - 1)
-- **Velocità:** 6 m, Scalare 6 m
-- **Iniziativa**: +0 (10)
+_Bestia Minuscola, senza allineamento_
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 2 | -4 | -4 |
-| DES | 11 | +0 | +0 |
-| COS | 9 | -1 | -1 |
-| INT | 2 | -4 | -4 |
-| SAG | 10 | +0 | +0 |
-| CAR | 4 | -3 | -3 |
+**CA** 11 **Iniziativa** +0 (10)
+**PF** 1 (1d4 − 1)
+**Velocità** 3 m
 
-- **Abilità**: Percezione +2
-- **Sensi**: Scurovisione 9 m; Percezione Passiva 12
-- **GS** 0 (PE 0 or 10; PB +2)
+**Sensi** Percezione passiva 9; vista cieca 3 m
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-### Tratti
+Azioni
 
-***Agile.*** Non provoca Attacchi di Opportunità quando si muove fuori dalla portata di un nemico.
+_**Pungiglione.**_ _Tiro per colpire in mischia:_ +2, portata
+1,5 m _Colpito:_ 1 danno perforante più 3 (1d6) danni da
+veleno.
 
-### Azioni
+### **Scorpione gigante**
 
-***Morso.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 1 danni Perforanti.
+_Bestia Grande, senza allineamento_
 
-## Corvo
+**CA** 15 **Iniziativa** +1 (11)
+**PF** 52 (7d10 + 14)
+**Velocità** 12 m
 
-*Bestia Piccola, Non Allineato*
+**Sensi** Percezione passiva 9; vista cieca 18 m
+**Lingue** nessuna
+**GS** 3 (PE 700; BC +2)
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 2 (1d4)
-- **Velocità:** 3 m, Volo 15 m
-- **Iniziativa**: +2 (12)
+Azioni
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 2 | -4 | -4 |
-| DES | 14 | +2 | +2 |
-| COS | 10 | +0 | +0 |
-| INT | 5 | -3 | -3 |
-| SAG | 13 | +1 | +1 |
-| CAR | 6 | -2 | -2 |
+_**Multiattacco.**_ Lo scorpione effettua due attacchi Artiglio e un attacco Pungiglione.
 
-- **Abilità**: Percezione +3
-- **Sensi**: Percezione Passiva 13
-- **GS** 0 (PE 0 or 10; PB +2)
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m.
+_Colpito:_ 6 (1d6 + 3) danni contundenti. Se il bersaglio
+è una creatura di taglia Grande o inferiore, è afferrato
+(CD 13 per sfuggire) da una delle due chele.
 
-### Tratti
+_**Pungiglione.**_ _Tiro per colpire in mischia:_ +5, portata
+1,5 m _Colpito:_ 7 (1d8 + 3) danni perforanti più
+11 (2d10) danni da veleno.
 
-***Mimesi.*** Può imitare suoni semplici che ha udito, come un sussurro o uno squittio. Un ascoltatore può riconoscere l’imitazione con una prova di Saggezza (Intuizione) CD 10.
+### **Serpente stritolatore**
 
-### Azioni
+_Bestia Grande, senza allineamento_
 
-***Becco.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 1 danni Perforanti.
+**CA** 13 **Iniziativa** +2 (12)
+**PF** 13 (2d10 + 2)
+**Velocità** 9 m, nuoto 9 m
 
-## Squalo di Scogliera
+**Abilità** Furtività +4, Percezione +2
+**Sensi** Percezione passiva 12; vista cieca 3 m
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-*Bestia Media, Non Allineato*
+Azioni
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 22 (4d8 + 4)
-- **Velocità:** 1,5 m, Nuoto 9 m
-- **Iniziativa**: +2 (12)
+_**Morso.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m.
+_Colpito:_ 6 (1d8 + 2) danni perforanti.
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 14 | +2 | +2 |
-| DES | 15 | +2 | +2 |
-| COS | 13 | +1 | +1 |
-| INT | 1 | -5 | -5 |
-| SAG | 10 | +0 | +0 |
-| CAR | 4 | -3 | -3 |
+_**Stritolare.**_ _Tiro salvezza su Forza:_ CD 12, una creatura
+di taglia Media o inferiore che il serpente è in grado
+di vedere entro 1,5 metri. _Fallimento:_ 7 (3d4) danni
+contundenti e il bersaglio viene afferrato (CD 12 per
+sfuggire).
 
-- **Abilità**: Percezione +2
-- **Sensi**: Sensi Ciechi 9 m; Percezione Passiva 12
-- **GS** 1/2 (PE 100; PB +2)
+### **Serpente stritolatore gigante**
 
-### Tratti
+_Bestia Enorme, senza allineamento_
 
-***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 60 (8d12 + 8)
+**Velocità** 9 m, nuoto 9 m
 
-***Respirazione Acquatica.*** Può respirare solo sott'acqua.
+**Abilità** Percezione +2
+**Sensi** Percezione passiva 12; vista cieca 3 m
+**Lingue** nessuna
+**GS** 2 (PE 450; BC +2)
 
-### Azioni
+Azioni
 
-***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 7 (2d4 + 2) danni Perforanti.
+_**Multiattacco.**_ Il serpente effettua un attacco Morso
+e usa Stritolare.
 
-## Rinoceronte
+_**Morso.**_ _Tiro per colpire in mischia:_ +6, portata 3 m.
+_Colpito:_ 11 (2d6 + 4) danni perforanti.
 
-*Bestia Grande, Non Allineato*
+_**Stritolare.**_ _Tiro salvezza su Forza:_ CD 14, una creatura
+di taglia Grande o inferiore che il serpente è in grado
+di vedere entro 3 metri. _Fallimento:_ 13 (2d8 + 4) danni
+contundenti, e il bersaglio è afferrato (CD 14 per
+sfuggire).
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 45 (6d10 + 12)
-- **Velocità:** 12 m
-- **Iniziativa**: -1 (9)
+### **Serpente velenoso**
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 21 | +5 | +5 |
-| DES | 8 | -1 | -1 |
-| COS | 15 | +2 | +2 |
-| INT | 2 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 6 | -2 | -2 |
+_Bestia Minuscola, senza allineamento_
 
-- **Sensi**: Percezione Passiva 11
-- **GS** 2 (PE 450; PB +2)
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 5 (2d4)
+**Velocità** 9 m, nuoto 9 m
 
-### Azioni
+**Sensi** Percezione passiva 10; vista cieca 3 m
+**Lingue** nessuna
+**GS** 1/8 (PE 25; BC +2)
 
-***Incornata.*** *Tiro per colpire in mischia:* +7, portata 1,5 m. 14 (2d8 + 5) danni Perforanti. Se il bersaglio è una creatura Grande o più piccola e il rinoceronte si è mosso di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio subisce altri 9 (2d8) danni Perforanti e ha la condizione Prono.
+**402** System Reference Document 5.2.1
 
-## Cavallo da Sella
+Azioni
 
-*Bestia Grande, Non Allineato*
+_**Morso.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 4 (1d4 + 2) danni perforanti più 3 (1d6) danni
+da veleno.
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 13 (2d10 + 2)
-- **Velocità:** 18 m
-- **Iniziativa**: +1 (11)
+### **Serpente velenoso gigante**
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 16 | +3 | +3 |
-| DES | 13 | +1 | +1 |
-| COS | 12 | +1 | +1 |
-| INT | 2 | -4 | -4 |
-| SAG | 11 | +0 | +0 |
-| CAR | 7 | -2 | -2 |
+_Bestia Media, senza allineamento_
 
-- **Sensi**: Percezione Passiva 10
-- **GS** 1/4 (PE 50; PB +2)
+**CA** 14 **Iniziativa** +4 (14)
+**PF** 11 (2d8 + 2)
+**Velocità** 12 m, nuoto 12 m
 
-### Azioni
+**Abilità** Percezione +2
+**Sensi** Percezione passiva 12; vista cieca 3 m
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-***Zoccoli.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni Contundenti.
+Azioni
 
-## Tigre dai Denti a Sciabola
+_**Morso.**_ _Tiro per colpire in mischia:_ +6, portata 3 m.
+_Colpito:_ 6 (1d4 + 4) danni perforanti più 4 (1d8) danni
+da veleno.
 
-*Bestia Grande, Non Allineato*
+### **Serpente volante**
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 52 (7d10 + 14)
-- **Velocità:** 12 m
-- **Iniziativa**: +3 (13)
+_Mostruosità Minuscola, senza allineamento_
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 18 | +4 | +6 |
-| DES | 17 | +3 | +5 |
-| COS | 15 | +2 | +2 |
-| INT | 3 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 8 | -1 | -1 |
+**CA** 14 **Iniziativa** +2 (12)
+**PF** 5 (2d4)
+**Velocità** 9 m, nuoto 9 m, volo 18 m
 
-- **Abilità**: Percezione +5, Furtività +7
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 15
-- **GS** 2 (PE 450; PB +2)
+**Sensi** Percezione passiva 11; vista cieca 3 m
+**Lingue** nessuna
+**GS** 1/8 (PE 25; BC +2)
 
-### Tratti
+Tratti
 
-***Balzo in Corsa.*** Con una rincorsa di 3 m, può effettuare un Salto in lungo fino a 7,5 m.
+_**Volo sfuggente.**_ Il serpente non provoca attacchi di
+opportunità quando vola oltre la portata di un nemico.
 
-### Azioni
+Azioni
 
-***Attacco Multiplo.*** Effettua due attacchi con Lacerare.
+_**Morso.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m.
+_Colpito:_ 1 danno perforante più 5 (2d4) danni da
+veleno.
 
-***Lacerare.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 11 (2d6 + 4) danni Taglienti.
+### **Squalo cacciatore**
 
-### Azioni Bonus
+_Bestia Grande, senza allineamento_
 
-***Fuga Agile.*** La tigre compie l'azione Disimpegno o Nascondersi.
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 45 (6d10 + 12)
+**Velocità** 1,5 m, nuoto 12 m
 
-## Scorpione
+**Abilità** Percezione +2
+**Sensi** Percezione passiva 12; vista cieca 18 m
+**Lingue** nessuna
+**GS** 2 (PE 450; BC +2)
 
-*Bestia Piccola, Non Allineato*
+Tratti
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 1 (1d4 - 1)
-- **Velocità:** 3 m
-- **Iniziativa**: +0 (10)
+_**Respirare sott'acqua.**_ Lo squalo può respirare soltanto
+sott'acqua.
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 2 | -4 | -4 |
-| DES | 11 | +0 | +0 |
-| COS | 8 | -1 | -1 |
-| INT | 1 | -5 | -5 |
-| SAG | 8 | -1 | -1 |
-| CAR | 2 | -4 | -4 |
+Azioni
 
-- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 9
-- **GS** 0 (PE 0 or 10; PB +2)
+_**Morso.**_ _Tiro per colpire in mischia:_ +6 (con vantaggio
+se il bersaglio non ha tutti i punti ferita), portata 1,5 m.
+_Colpito:_ 14 (3d6 + 4) danni perforanti.
 
-### Azioni
+### **Squalo gigante**
 
-***Puntura.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 1 danni Perforanti plus 3 (1d6) danni da Veleno.
+_Bestia Enorme, senza allineamento_
 
-## Cavalluccio Marino
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 92 (8d12 + 40)
+**Velocità** 1,5 metri, nuoto 18 metri
 
-*Bestia Piccola, Non Allineato*
+**Abilità** Percezione +3
+**Sensi** Percezione passiva 13; vista cieca 18 m
+**Lingue** nessuna
+**GS** 5 (PE 1.800; BC +3)
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 1 (1d4 - 1)
-- **Velocità:** 1,5 m, Nuoto 6 m
-- **Iniziativa**: +1 (11)
+Tratti
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 1 | -5 | -5 |
-| DES | 12 | +1 | +1 |
-| COS | 8 | -1 | -1 |
-| INT | 1 | -5 | -5 |
-| SAG | 10 | +0 | +0 |
-| CAR | 2 | -4 | -4 |
+_**Respirare sott'acqua.**_ Lo squalo può respirare soltanto
+sott'acqua.
 
-- **Abilità**: Percezione +2, Furtività +5
-- **Sensi**: Percezione Passiva 12
-- **GS** 0 (PE 0)
+Azioni
 
-### Tratti
+_**Multiattacco.**_ Lo squalo effettua due attacchi Morso.
 
-***Respirazione Acquatica.*** Può respirare solo sott'acqua.
+_**Morso.**_ _Tiro per colpire in mischia:_ +9 (con vantaggio
+se il bersaglio non ha tutti i punti ferita), portata 1,5 m.
+_Colpito:_ 22 (3d10 + 6) danni perforanti.
 
-### Azioni
+### **Squalo tropicale**
 
-***Scatto a Bolle.*** Sott'acqua, si muove fino alla sua Velocità di Nuoto senza provocare Attacchi di Opportunità.
+_Bestia Media, senza allineamento_
 
-## Ragno
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 22 (4d8 + 4)
+**Velocità** 1,5 m, nuoto 9 m
 
-*Bestia Piccola, Non Allineato*
+**Abilità** Percezione +2
+**Sensi** Percezione passiva 12; vista cieca 9 m
+**Lingue** nessuna
+**GS** 1/2 (PE 100; BC +2)
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 1 (1d4 - 1)
-- **Velocità:** 6 m, Scalare 6 m
-- **Iniziativa**: +2 (12)
+**403** System Reference Document 5.2.1
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 2 | -4 | -4 |
-| DES | 14 | +2 | +2 |
-| COS | 8 | -1 | -1 |
-| INT | 1 | -5 | -5 |
-| SAG | 10 | +0 | +0 |
-| CAR | 2 | -4 | -4 |
+Tratti
 
-- **Abilità**: Furtività +4
-- **Sensi**: Scurovisione 9 m; Percezione Passiva 10
-- **GS** 0 (PE 0 or 10; PB +2)
+_**Tattiche del branco.**_ Lo squalo dispone di vantaggio
+a un tiro per colpire contro una creatura se almeno
+uno dei suoi alleati si trova entro 1,5 metri dalla creatura e non è incapacitato.
 
-### Tratti
+_**Respirare sott'acqua.**_ Lo squalo può respirare soltanto
+sott'acqua.
 
-***Camminare sui Muri.*** Può arrampicarsi su superfici difficili, anche lungo i soffitti, senza dover effettuare una prova di abilità.
+Azioni
 
-***Camminatore di Ragnatele.*** Ignora le restrizioni al movimento causate dalle ragnatele, e conosce la posizione di qualsiasi altra creatura a contatto con la stessa ragnatela.
+_**Morso.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 7 (2d4 + 2) danni perforanti.
 
-### Azioni
+### **Stormo di corvi**
 
-***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 1 danni Perforanti plus 2 (1d4) danni da Veleno.
+_Sciame Medio di bestie Minuscole, senza allineamento_
 
-## Sciame di Pipistrelli
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 11 (2d8 + 2)
+**Velocità** 3 m, volo 15 m
 
-*Bestia Grande, Non Allineato*
+**Abilità** Percezione +5
+**Resistenze** contundente, perforante, tagliente
+**Immunità** affascinato, afferrato, paralizzato, pietrificato,
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 11 (2d10)
-- **Velocità:** 1,5 m, Volo 9 m
-- **Iniziativa**: +2 (12)
+prono, spaventato, stordito, trattenuto
+**Sensi** Percezione passiva 15
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 5 | -3 | -3 |
-| DES | 15 | +2 | +2 |
-| COS | 10 | +0 | +0 |
-| INT | 2 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 4 | -3 | -3 |
+Tratti
 
-- **Resistenze**: Contundenti, Perforanti, Taglienti
-- **Immunità**: Affascinato, Spaventato, Afferrato, Paralizzato, Pietrificato, Prono, Immobilizzato, Stordito
-- **Sensi**: Sensi Ciechi 18 m; Percezione Passiva 11
-- **GS** 1/4 (PE 50; PB +2)
+_**Sciame.**_ Lo stormo può occupare lo spazio di un'altra
+creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande per un corvo Minuscolo. L'orda non può recuperare punti ferita o ottenere
+punti ferita temporanei.
 
-### Tratti
+Azioni
 
-***Sciame.*** Lo sciame può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande da permettere il passaggio di un pipistrello Minuscolo. Lo sciame non può recuperare Punti Ferita né ottenere Punti Ferita Temporanei.
+_**Becchi.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m.
+_Colpito:_ 5 (1d6 + 2) danni perforanti, o 2 (1d4) danni
+perforanti se lo stormo è sanguinante.
 
-### Azioni
+_**Cacofonia (ricarica 6).**_ _Tiro salvezza su Saggezza:_
+CD 10, una creatura nello spazio dello stormo.
+_Fallimento:_ il bersaglio è assordato fino all'inizio del
+turno successivo dello stormo. Quando è assordato, il
+bersaglio subisce svantaggio alle prove di caratteristica
+e ai tiri per colpire.
 
-***Morsi.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (2d4) danni Perforanti, oppure 2 (1d4) danni Perforanti se lo sciame è Insanguinato.
+### **Tasso**
 
-## Sciame di Insetti
+_Bestia Minuscola, senza allineamento_
 
-*Bestia Media, Non Allineato*
+**CA** 11 **Iniziativa** +0 (10)
+**PF** 5 (1d4 + 3)
+**Velocità** 6 m, scavo 1,5 m
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 19 (3d8 + 6)
-- **Velocità:** 6 m, Scegli ? m
-- **Iniziativa**: +1 (11)
+**Abilità** Percezione +3
+**Resistenze** veleno
+**Sensi** Percezione passiva 13; scurovisione 9 m
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 3 | -4 | -4 |
-| DES | 13 | +1 | +1 |
-| COS | 14 | +2 | +2 |
-| INT | 1 | -5 | -5 |
-| SAG | 7 | -2 | -2 |
-| CAR | 1 | -5 | -5 |
+Azioni
 
-- **Resistenze**: Contundente, Perforante, Tagliente
-- **Immunità**: Affascinato, Spaventato, Afferrato, Paralizzato, Pietrificato, Prono, Immobilizzato, Stordito
-- **Sensi**: Sensi Ciechi 9 m; Percezione Passiva 8
-- **GS** 1/2 (PE 100; PB +2)
+_**Morso.**_ _Tiro per colpire in mischia:_ +2, portata 1,5 m.
+_Colpito:_ 1 danno perforante.
 
-### Tratti
+### **Tasso gigante**
 
-***Camminare sui Muri.*** Se lo sciame ha una Velocità di scalare, può arrampicarsi su superfici difficili, anche lungo i soffitti, senza dover effettuare una prova di abilità.
+_Bestia Media, senza allineamento_
 
-***Sciame.*** Lo sciame può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande da permettere il passaggio di un insetto Minuscolo. Lo sciame non può recuperare Punti Ferita né ottenere Punti Ferita Temporanei.
+**CA** 13 **Iniziativa** +0 (10)
+**PF** 15 (2d8 + 6)
+**Velocità** 9 m, scavo 3 m
 
-### Azioni
+**Abilità** Percezione +3
+**Resistenze** veleno
+**Sensi** Percezione passiva 13; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-***Morsi.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 6 (2d4 + 1) danni da Veleno, oppure 3 (1d4 + 1) danni da Veleno se lo sciame è Insanguinato.
+Azioni
 
-## Sciame di Piranha
+_**Morso.**_ _Tiro per colpire in mischia:_ +3, portata 1,5 m.
+_Colpito:_ 6 (2d4 + 1) danni perforanti.
 
-*Bestia Media, Non Allineato*
+### **Tigre**
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 28 (8d8 - 8)
-- **Velocità:** 1,5 m, Nuoto 12 m
-- **Iniziativa**: +3 (13)
+_Bestia Grande, senza allineamento_
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 13 | +1 | +1 |
-| DES | 16 | +3 | +3 |
-| COS | 9 | -1 | -1 |
-| INT | 1 | -5 | -5 |
-| SAG | 7 | -2 | -2 |
-| CAR | 2 | -4 | -4 |
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 30 (4d10 + 8)
+**Velocità** 12 m
 
-- **Resistenze**: Contundenti, Perforanti, Taglienti
-- **Immunità**: Charmed, Frightened, Grappled, Paralyzed, Petrified, Prone, Restrained, Stunned
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 8
-- **GS** 1 (PE 200; PB +2)
+**Abilità** Furtività +7, Percezione +3
+**Sensi** Percezione passiva 13; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1 (PE 200; BC +2)
 
-### Tratti
+Azioni
 
-***Sciame.*** Lo sciame può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande da permettere il passaggio di un piranha Minuscolo. Lo sciame non può recuperare Punti Ferita né ottenere Punti Ferita Temporanei.
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m.
+_Colpito:_ 10 (2d6 + 3) danni taglienti. Se il bersaglio è
+una creatura di taglia Grande o inferiore, cade a terra
+prono.
 
-***Respirazione Acquatica.*** Può respirare solo sott'acqua.
+Azioni bonus
 
-### Azioni
+_**Fuga agile.**_ La tigre effettua l'azione di Disimpegno
 
-***Morsi.*** *Tiro per colpire in mischia:* +5 (con Vantaggio se il bersaglio non ha tutti i suoi Punti Ferita), portata 1,5 m. 8 (2d4 + 3) danni Perforanti, oppure 5 (1d4 + 3) danni Perforanti se lo sciame è Insanguinato.
+     - Nascondersi.
 
-## Sciame di Ratti
+**404** System Reference Document 5.2.1
 
-*Bestia Media, Non Allineato*
+### **Tigre dai denti a sciabola**
 
-- **Classe Armatura:** 10
-- **Punti Ferita:** 14 (4d8 - 4)
-- **Velocità:** 9 m, Scalare 9 m
-- **Iniziativa**: +0 (10)
+_Bestia Grande, senza allineamento_
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 9 | -1 | -1 |
-| DES | 11 | +0 | +0 |
-| COS | 9 | -1 | -1 |
-| INT | 2 | -4 | -4 |
-| SAG | 10 | +0 | +0 |
-| CAR | 3 | -4 | -4 |
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 52 (7d10 + 14)
+**Velocità** 12 m
 
-- **Resistenze**: Contundenti, Perforanti, Taglienti
-- **Immunità**: Charmed, Frightened, Grappled, Paralyzed, Petrified, Prone, Restrained, Stunned
-- **Sensi**: Scurovisione 9 m; Percezione Passiva 10
-- **GS** 1/4 (PE 50; PB +2)
+**Abilità** Furtività +7, Percezione +5
+**Sensi** Percezione passiva 15; scurovisione 18 m
+**Lingue** nessuna
+**GS** 2 (PE 450; BC +2)
 
-### Tratti
+Tratti
 
-***Sciame.*** Lo sciame può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande da permettere il passaggio di un ratto Minuscolo. Lo sciame non può recuperare Punti Ferita né ottenere Punti Ferita Temporanei.
+_**Balzo in corsa.**_ Dopo una rincorsa di 3 metri, la tigre
+può effettuare un salto in lungo di un massimo di
+7,5 metri.
 
-### Azioni
+Azioni
 
-***Morsi.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 5 (2d4) danni Perforanti, oppure 2 (1d4) danni Perforanti se lo sciame è Insanguinato.
+_**Multiattacco.**_ La tigre effettua due attacchi Squarcio.
 
-## Sciame di Corvi
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 11 (2d6 + 4) danni taglienti.
 
-*Bestia Media, Non Allineato*
+Azioni bonus
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 11 (2d8 + 2)
-- **Velocità:** 3 m, Volo 15 m
-- **Iniziativa**: +2 (12)
+_**Fuga agile.**_ La tigre effettua l'azione di Disimpegno
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 6 | -2 | -2 |
-| DES | 14 | +2 | +2 |
-| COS | 12 | +1 | +1 |
-| INT | 5 | -3 | -3 |
-| SAG | 12 | +1 | +1 |
-| CAR | 6 | -2 | -2 |
+- Nascondersi.
 
-- **Resistenze**: Contundenti, Perforanti, Taglienti
-- **Immunità**: Charmed, Frightened, Grappled, Paralyzed, Petrified, Prone, Restrained, Stunned
-- **Abilità**: Percezione +5
-- **Sensi**: Percezione Passiva 15
-- **GS** 1/4 (PE 50; PB +2)
+### **Tirannosauro**
 
-### Tratti
+_Bestia Enorme (dinosauro), senza allineamento_
 
-***Sciame.*** Lo sciame può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande da permettere il passaggio di un corvo Minuscolo. Lo sciame non può recuperare Punti Ferita né ottenere Punti Ferita Temporanei.
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 136 (13d12 + 52)
+**Velocità** 15 m
 
-### Azioni
+**Abilità** Percezione +4
+**Sensi** Percezione passiva 14
+**Lingue** nessuna
+**GS** 8 (PE 3.900; BC +3)
 
-***Beccate.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni Perforanti, oppure 2 (1d4) danni Perforanti se lo sciame è Insanguinato.
+Azioni
 
-***Cacofonia (Ricarica 6).*** *Tiro Salvezza su Saggezza*: CD 10, una creatura nello spazio dello sciame. *Fallimento:*  Il bersaglio ha la condizione Assordato fino all'inizio del prossimo turno dello sciame. Mentre è Assordato, il bersaglio ha anche Svantaggio alle prove di caratteristica e ai tiri per colpire.
+_**Multiattacco.**_ Il tirannosauro effettua un attacco Morso
+e un attacco Coda.
 
-## Sciame di Serpenti Velenosi
+_**Coda.**_ _Tiro per colpire in mischia:_ +10, portata 4,5 m.
+_Colpito:_ 25 (4d8 + 7) danni contundenti. Se il bersaglio
+è una creatura di taglia Enorme o inferiore, cade a terra
+prono.
 
-*Bestia Media, Non Allineato*
+_**Morso.**_ _Tiro per colpire in mischia:_ +10, portata 3 m.
+_Colpito:_ 33 (4d12 + 7) danni perforanti. Se il bersaglio
+è una creatura di taglia Grande o inferiore, è afferrato
+(CD 17 per sfuggire). Mentre è afferrato, il bersaglio è
+trattenuto e non può essere bersagliato dalla Coda del
+tirannosauro.
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 36 (8d8)
-- **Velocità:** 9 m, Nuoto 9 m
-- **Iniziativa**: +4 (14)
+### **Topo**
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 8 | -1 | -1 |
-| DES | 18 | +4 | +4 |
-| COS | 11 | +0 | +0 |
-| INT | 1 | -5 | -5 |
-| SAG | 10 | +0 | +0 |
-| CAR | 3 | -4 | -4 |
+_Bestia Minuscola, senza allineamento_
 
-- **Resistenze**: Contundenti, Perforanti, Taglienti
-- **Immunità**: Charmed, Frightened, Grappled, Paralyzed, Petrified, Prone, Restrained, Stunned
-- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 10
-- **GS** 2 (PE 450; PB +2)
+**CA** 10 **Iniziativa** +0 (10)
+**PF** 1 (1d4 − 1)
+**Velocità** 6 m, scalata 6 m
 
-### Tratti
+**Abilità** Percezione +2
+**Sensi** Percezione passiva 12; scurovisione 9 m
+**Lingue** nessuna
+**GS** 0 (PE 10; BC +2)
 
-***Sciame.*** Lo sciame può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande da permettere il passaggio di un serpente Minuscolo. Lo sciame non può recuperare Punti Ferita né ottenere Punti Ferita Temporanei.
+Tratti
 
-### Azioni
+_**Agile.**_ Il topo non provoca attacchi di opportunità
+quando esce dalla portata di un nemico.
 
-***Morsi.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 8 (1d8 + 4) danni Perforanti, oppure 6 (1d4 + 4) danni Perforanti se lo sciame è Insanguinato, più 10 (3d6) danni da Veleno.
+Azioni
 
-## Tigre
+_**Morso.**_ _Tiro per colpire in mischia:_ +2, portata 1,5 m
+_Colpito:_ 1 danno perforante.
 
-*Bestia Grande, Non Allineato*
+### **Topo gigante**
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 30 (4d10 + 8)
-- **Velocità:** 12 m
-- **Iniziativa**: +3 (13)
+_Bestia Piccola, senza allineamento_
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 17 | +3 | +3 |
-| DES | 16 | +3 | +3 |
-| COS | 14 | +2 | +2 |
-| INT | 3 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 8 | -1 | -1 |
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 7 (2d6)
+**Velocità** 9 m, scalata 9 m
 
-- **Abilità**: Percezione +3, Furtività +7
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
-- **GS** 1 (PE 200; PB +2)
+**Abilità** Percezione +2
+**Sensi** Percezione passiva 12; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1/8 (PE 25; BC +2)
 
-### Azioni
+Tratti
 
-***Lacerare.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) danni Taglienti. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Prono.
+_**Tattiche del branco.**_ Il topo dispone di vantaggio a
+un tiro per colpire contro una creatura se almeno uno
+degli alleati del topo si trova entro 1,5 metri dalla creatura e non è incapacitato.
 
-### Azioni Bonus
+Azioni
 
-***Fuga Agile.*** La tigre compie l'azione Disimpegno o Nascondersi.
+_**Morso.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m.
+_Colpito:_ 5 (1d4 + 3) danni perforanti.
 
-## Triceratopo
+**405** System Reference Document 5.2.1
 
-*Bestia Enorme (Dinosauro), Non Allineato*
+### **Triceratopo**
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 114 (12d12 + 36)
-- **Velocità:** 15 m
-- **Iniziativa**: -1 (9)
+_Bestia Enorme (dinosauro), senza allineamento_
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 22 | +6 | +6 |
-| DES | 9 | -1 | -1 |
-| COS | 17 | +3 | +3 |
-| INT | 2 | -4 | -4 |
-| SAG | 11 | +0 | +0 |
-| CAR | 5 | -3 | -3 |
+**CA** 14 **Iniziativa** –1 (9)
+**PF** 114 (12d12 + 36)
+**Velocità** 15 m
 
-- **Sensi**: Percezione Passiva 10
-- **GS** 5 (PE 1,800; PB +3)
+**Sensi** Percezione passiva 10
+**Lingue** nessuna
+**GS** 5 (PE 1.800; BC +3)
 
-### Azioni
+Azioni
 
-***Attacco Multiplo.*** Effettua due attacchi con Incornata.
+_**Multiattacco. Il triceratopo effettua due attacchi**_
+_**Trafiggere.**_
 
-***Incornata.*** *Tiro per colpire in mischia:* +9, portata 1,5 m. 19 (2d12 + 6) danni Perforanti. Se il bersaglio è Enorme o più piccolo e il triceratopo si è mosso di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio subisce altri 9 (2d8) danni Perforanti e ha la condizione Prono.
+_**Trafiggere.**_ _Tiro per colpire in mischia:_ +9, portata
+1,5 m. _Colpito:_ 19 (2d12 + 6) danni perforanti. Se
+il bersaglio è una creatura di taglia Enorme o inferiore
+e il triceratopo si è mosso di 6 metri o più in linea retta
+verso di esso subito prima del colpo, il bersaglio subisce 9 (2d8) danni perforanti extra e cade a terra prono.
 
-## Tirannosauro Rex
+### **Vespa gigante**
 
-*Bestia Enorme (Dinosauro), Non Allineato*
+_Bestia Media, senza allineamento_
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 136 (13d12 + 52)
-- **Velocità:** 15 m
-- **Iniziativa**: +3 (13)
+**CA** 13 **Iniziativa** +2 (12)
+**PF** 22 (5d8)
+**Velocità** 3 m, volo 15 m
 
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 25 | +7 | +10 |
-| DES | 10 | +0 | +0 |
-| COS | 19 | +4 | +4 |
-| INT | 2 | -4 | -4 |
-| SAG | 12 | +1 | +4 |
-| CAR | 9 | -1 | -1 |
+**Sensi** Percezione passiva 10
+**Lingue** nessuna
+**GS** 1/2 (PE 100; BC +2)
 
-- **Abilità**: Percezione +4
-- **Sensi**: Percezione Passiva 14
-- **GS** 8 (PE 3,900; PB +3)
+Tratti
 
-### Azioni
+_**Volo sfuggente.**_ La vespa non provoca attacchi di
+opportunità quando vola oltre la portata di un nemico.
 
-***Attacco Multiplo.*** Effettua un attacco con Morso e uno con Coda.
+Azioni
 
-***Morso.*** *Tiro per colpire in mischia:* +10, portata 3 m. 33 (4d12 + 7) danni Perforanti. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Afferrato (fuga CD 17). Mentre è Afferrato, il bersaglio ha la condizione Immobilizzato e non può essere bersagliato dalla Coda del tirannosauro.
-
-***Coda.*** *Tiro per colpire in mischia:* +10, portata 4,5 m. 25 (4d8 + 7) danni Contundenti. Se il bersaglio è una creatura Enorme o più piccola, ha la condizione Prono.
-
-## Serpente Velenoso
-
-*Bestia Piccola, Non Allineato*
-
-- **Classe Armatura:** 12
-- **Punti Ferita:** 5 (2d4)
-- **Velocità:** 9 m, Nuoto 9 m
-- **Iniziativa**: +2 (12)
-
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 2 | -4 | -4 |
-| DES | 15 | +2 | +2 |
-| COS | 11 | +0 | +0 |
-| INT | 1 | -5 | -5 |
-| SAG | 10 | +0 | +0 |
-| CAR | 3 | -4 | -4 |
-
-- **Sensi**: Sensi Ciechi 3 m; Percezione Passiva 10
-- **GS** 1/8 (PE 25; PB +2)
-
-### Azioni
-
-***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni Perforanti plus 3 (1d6) danni da Veleno.
-
-## Avvoltoio
-
-*Bestia Media, Non Allineato*
-
-- **Classe Armatura:** 10
-- **Punti Ferita:** 5 (1d8 + 1)
-- **Velocità:** 3 m, Volo 15 m
-- **Iniziativa**: +0 (10)
-
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 7 | -2 | -2 |
-| DES | 10 | +0 | +0 |
-| COS | 13 | +1 | +1 |
-| INT | 2 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 4 | -3 | -3 |
-
-- **Abilità**: Percezione +3
-- **Sensi**: Percezione Passiva 13
-- **GS** 0 (PE 0 or 10; PB +2)
-
-### Tratti
-
-***Tattiche di Branco.*** Ha Vantaggio a un tiro per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
-
-### Azioni
-
-***Becco.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 2 (1d4) danni Perforanti.
-
-## Cavallo da Guerra
-
-*Bestia Grande, Non Allineato*
-
-- **Classe Armatura:** 11
-- **Punti Ferita:** 19 (3d10 + 3)
-- **Velocità:** 18 m
-- **Iniziativa**: +1 (11)
-
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 18 | +4 | +4 |
-| DES | 12 | +1 | +1 |
-| COS | 13 | +1 | +1 |
-| INT | 2 | -4 | -4 |
-| SAG | 12 | +1 | +3 |
-| CAR | 7 | -2 | -2 |
-
-- **Sensi**: Percezione Passiva 11
-- **GS** 1/2 (PE 100; PB +2)
-
-### Azioni
-
-***Zoccoli.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 9 (2d4 + 4) danni Contundenti. Se il bersaglio è una creatura Grande o più piccola e il cavallo si è mosso di 6+ m in linea retta verso di esso immediatamente prima di colpirlo, il bersaglio subisce altri 5 (2d4) danni Contundenti e ha la condizione Prono.
-
-## Donnola
-
-*Bestia Piccola, Non Allineato*
-
-- **Classe Armatura:** 13
-- **Punti Ferita:** 1 (1d4 - 1)
-- **Velocità:** 9 m, Scalare 9 m
-- **Iniziativa**: +3 (13)
-
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 3 | -4 | -4 |
-| DES | 16 | +3 | +3 |
-| COS | 8 | -1 | -1 |
-| INT | 2 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 3 | -4 | -4 |
-
-- **Abilità**: Acrobazia +5, Percezione +3, Furtività +5
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 13
-- **GS** 0 (PE 0 or 10; PB +2)
-
-### Azioni
-
-***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 1 danni Perforanti.
-
-## Lupo
-
-*Bestia Media, Non Allineato*
-
-- **Classe Armatura:** 12
-- **Punti Ferita:** 11 (2d8 + 2)
-- **Velocità:** 12 m
-- **Iniziativa**: +2 (12)
-
-| Caratteristica | Valore | Modificatore | Tiro Salvezza |
-|----------------|--------|--------------|---------------|
-| FOR | 14 | +2 | +2 |
-| DES | 15 | +2 | +2 |
-| COS | 12 | +1 | +1 |
-| INT | 3 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 6 | -2 | -2 |
-
-- **Abilità**: Percezione +5, Furtività +4
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 15
-- **GS** 1/4 (PE 50; PB +2)
-
-### Tratti
-
-***Tattiche di Branco.*** Ha Vantaggio ai tiri per colpire contro una creatura se almeno un alleato si trova entro 1,5 m dal bersaglio e quell’alleato non è Incapacitato.
-
-### Azioni
-
-***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni Perforanti. Se il bersaglio è una creatura Media o più piccola, ha la condizione Prono.
+_**Pungiglione.**_ _Tiro per colpire in mischia:_ +4, portata
+1,5 m. _Colpito:_ 5 (1d6 +2) danni perforanti più 5 (2d4)
+danni da veleno.

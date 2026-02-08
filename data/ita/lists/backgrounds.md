@@ -1,303 +1,669 @@
-# Backgrounds 
+# Backgrounds
 
-## Accolito
+# **Origini dei** **personaggi**
+## **Background dei personaggi**
 
-**Punteggi di Caratteristica:** Intelligenza, Saggezza, Carisma  
+Il background è un insieme di caratteristiche
+che rappresentano il luogo e l'occupazione più
+importanti nella formazione del tuo personaggio
+prima che decidesse di intraprendere una vita
+d'avventura.
+#### **Elementi di un background**
 
-**Talento:** Iniziato alla Magia (Chierico) (vedi “Talenti”)  
+Il background è composto dai seguenti elementi.
 
-**Competenze in Abilità:** Intuizione e Religione  
+**Punteggi di caratteristica**
+In un background sono elencati tre punteggi di
+caratteristica del personaggio. Puoi aumentarne
+uno di 2 e uno di 1, oppure tutti e tre di 1. Nessuno
+di questi incrementi può far salire il punteggio al di
+sopra di 20.
 
-**Competenza negli Strumenti:** Strumenti da Calligrafo  
+**Talento**
+Un background fornisce al tuo personaggio un
+determinato talento delle origini (come descritto
+nel capitolo "Talenti").
 
-**Equipaggiamento:** *Scegli A o B:* (A) Strumenti da Calligrafo, Libro (preghiere), Simbolo Sacro, Pergamena (10 fogli), Veste, 8 mo; oppure (B) 50 mo
+**Competenze nelle abilità**
+Un background fornisce al tuo personaggio competenza in due abilità specifiche.
 
-## Criminale
+**Competenza negli strumenti**
+Ciascun background fornisce al personaggio
+competenza in uno strumento specifico o a scelta
+dalla categoria degli strumenti da artigiano. Gli
+strumenti sono descritti nel capitolo "Strumenti".
 
-**Punteggi di Caratteristica:** Destrezza, Costituzione, Intelligenza  
+**Equipaggiamento**
+Ciascun background offre una scelta tra una dotazione di equipaggiamento e 50 mo.
+#### **Descrizioni dei background**
 
-**Talento:** Allerta (vedi “Talenti”)  
+**Accolito**
+**Punteggi di caratteristica:** Intelligenza, Saggezza,
 
-**Competenze in Abilità:** Rapidità di Mano e Furtività  
+Carisma
+**Talento:** Iniziato alla magia (chierico) (vedi capitolo
 
-**Competenza negli Strumenti:** Strumenti da Scassinatore  
+"Talenti")
+**Competenze nelle abilità:** Intuizione e Religione
+**Competenza negli strumenti:** scorte da calligrafo
+**Equipaggiamento:** _a scelta tra A e B:_ (A) scorte da cal
+ligrafo, libro (preghiere), simbolo sacro, pergamena
+(10 fogli), tunica, 8 mo; o (B) 50 mo
 
-**Equipaggiamento:** *Scegli A o B:* (A) 2 Pugnali, Strumenti da Scassinatore, Piede di Porco, 2 Sacche, Vestiti da Viaggiatore, 16 mo; oppure (B) 50 mo
 
-## Sapiente
+**93** System Reference Document 5.2.1
 
-**Punteggi di Caratteristica:** Costituzione, Intelligenza, Saggezza  
 
-**Talento:** Iniziato alla Magia (Mago) (vedi “Talenti”)  
 
-**Competenze in Abilità:** Arcano e Storia  
+**Criminale**
+**Punteggi di caratteristica:** Destrezza, Costituzione,
 
-**Competenza negli Strumenti:** Strumenti da Calligrafo  
+Intelligenza
+**Talento:** Allerta (vedi "Talenti")
+**Competenze nelle abilità:** Rapidità di mano e
 
-**Equipaggiamento:** *Scegli A o B:* (A) Bastone Ferrato, Strumenti da Calligrafo, Libro (storia), Pergamena (8 fogli), Veste, 8 mo; oppure (B) 50 mo
+Furtività
+**Competenza negli strumenti:** arnesi da scasso
+**Equipaggiamento:** _a scelta tra A e B:_ (A) 2 pugnali,
 
-## Soldato
+arnesi da scasso, piede di porco, 2 borse, abiti da
+viaggiatore, 16 mo; o (B) 50 mo
 
-**Punteggi di Caratteristica:** Forza, Destrezza, Costituzione  
+**Sapiente**
+**Punteggi di caratteristica:** Costituzione, Intelligenza,
 
-**Talento:** Attaccante Selvaggio (vedi “Talenti”)  
+Saggezza
+**Talento:** Iniziato alla magia (mago) (vedi capitolo
 
-**Competenze in Abilità:** Atletica e Intimidire  
+"Talenti")
+**Competenze nelle abilità:** Arcano e Storia
+**Competenza negli strumenti:** scorte da calligrafo
+**Equipaggiamento:** _a scelta tra A e B:_ (A) bastone fer
+rato, scorte da calligrafo, libro (storia) pergamena
+(8 fogli), tunica, 8 mo; o (B) 50 mo
 
-**Competenza negli Strumenti:** *Scegli un tipo di Set da Gioco* (vedi “Equipaggiamento”)  
+**Soldato**
+**Punteggi di caratteristica:** Forza, Destrezza,
 
-**Equipaggiamento:** *Scegli A o B:* (A) Lancia, Arco Corto, 20 Frecce, Set da Gioco (come sopra), Kit del Guaritore, Faretra, Vestiti da Viaggiatore, 14 mo; oppure (B) 50 mo
+Costituzione
+**Talento:** Aggressore selvaggio (vedi capitolo "Talenti")
+**Competenze nelle abilità:** Atletica e Intimidire
+**Competenza negli strumenti:** _Un tipo di gioco a scelta_
 
-## Specie del Personaggio
+(vedi "Equipaggiamento")
+**Equipaggiamento:** _a scelta tra A e B:_ (A) lancia, arco
 
-Quando scegli la specie del tuo personaggio, determini se sia un umano o un membro di una specie fantastica, come un dragonide o uno gnomo.
+corto, 20 frecce, gioco (lo stesso scelto sopra),
+borsa del guaritore, faretra, abiti da viaggiatore,
+14 mo; o (B) 50 mo
+## **Specie dei personaggi**
 
-I popoli del multiverso provengono da mondi differenti e comprendono molte forme di vita senzienti. La specie di un personaggio giocante è l’insieme dei tratti di gioco che un avventuriero ottiene dall’essere uno di quei viventi.
+Il tuo personaggio può essere un umano o appartenere a un'altra specie fantastica, come i dragonidi o
+gli gnomi.
 
-Alcune specie possono ricondurre la propria origine a un solo mondo, piano d’esistenza o divinità, mentre altre sono apparse in più reami contemporaneamente. Qualunque sia la genesi di una specie, i suoi membri si sono diffusi nel multiverso contribuendo a molte culture differenti.
+I popoli del multiverso di provengono da mondi
+diversi e includono una grande varietà di forme
+di vita senzienti. Come parte di una determinata
+specie, il personaggio ottiene dei tratti che può
+sfruttare nel gioco.
 
-I membri della maggior parte delle specie vivono circa 80 anni, con eccezioni indicate nel testo della specie in “Origini del Personaggio”. A prescindere dalla durata della vita, i membri di tutte le specie raggiungono la maturità fisica più o meno alla stessa età. Il tuo personaggio può avere qualsiasi età che non superi la normale durata di vita della sua specie.
+Alcune specie possono ricondurre le proprie
+origini a un unico mondo, piano di esistenza o divinità, mentre altre sono apparse per la prima volta
+contemporaneamente in più regni. A prescindere
+dalla loro genesi, i membri di ciascuna specie si
+sono diffusi in tutto il multiverso, contribuendo alla
+creazione di svariate culture.
 
-### Parti di una Specie
+La maggior parte di queste creature vive per circa
+80 anni, con determinate eccezioni elencate in "Origini dei personaggi". Al di là della propria aspettativa di vita, tutte loro raggiungono la maturità fisica
+più o meno alla stessa età. Per il tuo personaggio
 
-Una specie include le seguenti parti.
 
-#### Tipo di Creatura
 
-La specie di un personaggio determina il suo tipo di creatura, descritto in “Glossario delle Regole”. Ogni specie in “Origini del Personaggio” è Umanoide; specie giocabili non Umanoidi appaiono in altri manuali.
 
-#### Taglia
+puoi scegliere l'età che preferisci, purché non superi
+la normale longevità della specie selezionata.
+#### **Elementi di una specie**
 
-La specie del tuo personaggio determina la sua taglia. Gli individui all’interno di una specie coprono un’ampia gamma di altezze, e alcune specie includono tale diversità da permettere di scegliere se il tuo personaggio sia Piccolo o Medio.
+I seguenti elementi sono ciò che caratterizza una
+specie:
 
-#### **Velocità**
+**Tipo di creatura**
+La specie di un personaggio determina il tipo
+di creatura, come descritto nel "Glossario delle
+regole". Tutte le specie in "Origini dei personaggi"
+sono umanoidi, mentre potrai trovare quelle non
+umanoidi in altri libri.
 
-La specie del tuo personaggio determina la sua Velocità.
+**Taglia**
+La specie del personaggio determina la sua taglia.
+All'interno di una specie, l'altezza di ciascun individuo può variare, ma ne esistono alcune in cui la differenza è tale da conferirti la possibilità di scegliere
+tra la taglia Piccola e quella Media.
 
-#### **Tratti Speciali**
+**Velocità**
+La specie del personaggio ne determina la velocità.
 
-Ogni specie conferisce a un personaggio tratti speciali basati sulla fisiologia o sulla natura magica della specie stessa. Quando scegli una specie, il tuo personaggio ottiene tutti i tratti speciali elencati per essa. Alcuni tratti implicano una scelta tra opzioni.
+**Tratti speciali**
+Ciascuna specie conferisce al personaggio dei tratti
+speciali, ovvero caratteristiche uniche basate sulla
+fisionomia o sulla natura magica della specie stessa.
+Quando selezioni una specie, il tuo personaggio
+ottiene tutti i suoi tratti speciali, con alcuni che
+richiedono di effettuare una scelta tra una manciata
+di opzioni.
+#### **Descrizioni delle specie**
 
-## Dragonide
+**Dragonide**
+**Tipo di creatura:** umanoide
+**Taglia:** Media (altezza di circa 150-210 centimetri)
+**Velocità:** 9 metri
 
-**Tipo di Creatura:** Umanoide  
 
-**Taglia:** Media (circa 1,5–2,1 m di altezza)  
+In quanto dragonide, il personaggio ha i seguenti
+tratti speciali.
 
-**Velocità:** 9 m  
+_**Discendenza draconica.**_ Il personaggio discende
+da un progenitore draconico. Scegli la tipologia
+dalla tabella Antenati draconici. La tua decisione
+definisce il tipo soffio e il tratto di resistenza ai
+danni, ma anche l'aspetto del personaggio.
 
-In quanto Dragonide, hai i seguenti tratti speciali.
 
-**Ascendenza Draconica.** La tua discendenza deriva da un drago progenitore. Scegli il tipo di drago dalla tabella Ascendenze Draconiche. La tua scelta influenza i tratti Arma a Soffio e Resistenza al Danno, oltre al tuo aspetto.
+**Antenati draconici**
 
-Tabella: Ascendenze Draconiche  
+**Drago** **Tipo di danni** **Drago** **Tipo di danni**
 
-| Drago  | Tipo di Danno |
-|--------|---------------|
-| Nero   | Acido         |
-| Blu    | Fulmine       |
-| Ottone | Fuoco         |
-| Bronzo | Fulmine       |
-| Rame   | Acido         |
-| Oro    | Fuoco         |
-| Verde  | Veleno        |
-| Rosso  | Fuoco         |
-| Argento| Gelo          |
-| Bianco | Gelo          |
+Argento Freddo Oro Fuoco
 
-**Arma a Soffio.** Quando compi l’azione Attacco nel tuo turno, puoi sostituire uno dei tuoi attacchi con un’esalazione di energia magica sotto forma di Cono di 4,5 m o Linea di 9 m lunga e 1,5 m larga (scegli la forma ogni volta). Ogni creatura nell’area deve superare un tiro salvezza su Destrezza (CD 8 + il tuo modificatore di Costituzione + il tuo Bonus di Competenza). Se fallisce, subisce 1d10 danni del tipo determinato dal tratto Ascendenza Draconica. Se riesce, subisce metà danni. Questi danni aumentano di 1d10 ai livelli 5 (2d10), 11 (3d10) e 17 (4d10).
+Bianco Freddo Ottone Fuoco
 
-Puoi usare l’Arma a Soffio un numero di volte pari al tuo Bonus di Competenza, e recuperi tutti gli usi spesi al termine di un Riposo Lungo.
+Blu Fulmine Rame Acido
 
-**Resistenza al Danno.** Hai Resistenza al tipo di danno determinato dal tuo tratto Ascendenza Draconica.
+Bronzo Fulmine Rosso Fuoco
 
-**Scurovisione.** Hai Scurovisione con un raggio di 18 m.
+Nero Acido Verde Veleno
 
-**Volo Draconico.** Quando raggiungi il 5° livello, puoi incanalare magia draconica per darti un volo temporaneo. Come Azione Bonus, fai spuntare ali spettrali sulla tua schiena che durano 10 minuti o finché non le ritrai (nessuna azione richiesta) o diventi Incapacitato. Durante quel tempo, hai una Velocità di Volo pari alla tua Velocità. Le ali sembrano fatte della stessa energia del tuo Arma a Soffio. Dopo aver usato questo tratto, non puoi riutilizzarlo finché non completi un Riposo Lungo.
 
-## Nano
+_**Soffio.**_ Quando il personaggio esegue l'azione di
+Attacco durante il turno, può sostituire uno dei suoi
 
-**Tipo di Creatura:** Umanoide  
 
-**Taglia:** Media (circa 1,2–1,5 m di altezza)  
+**94** System Reference Document 5.2.1
 
-**Velocità:** 9 m  
 
-In quanto Nano, hai i seguenti tratti speciali.
 
-**Scurovisione.** Hai Scurovisione con un raggio di 36 m.
+attacchi con un'esalazione di energia magica in un
+cono di 4,5 metri o in una linea lunga 9 metri e larga
+1,5 (puoi scegliere la forma a ogni utilizzo). Ogni
+creatura nell'area deve effettuare un tiro salvezza
+su Destrezza (CD 8 più il modificatore di Costituzione e il bonus di competenza del personaggio).
+In caso di fallimento, vengono inflitti 1d10 danni del
+tipo determinato dal tratto Discendenza draconica.
+In caso di successo, subisce soltanto la metà di quei
+danni. I danni aumentano di 1d10 quando il personaggio raggiunge il 5º livello (2d10), l'11º livello
+(3d10) e il 17º livello (4d10).
 
-**Resilienza Nanica.** Hai Resistenza ai danni da Veleno. Hai inoltre Vantaggio ai tiri salvezza per evitare o terminare la condizione Avvelenato.
+Il personaggio può utilizzare il Soffio un numero
+di volte pari al valore del suo bonus di competenza
+e recuperare tutti gli utilizzi spesi quando completa
+un riposo lungo.
 
-**Tempra Nanica.** Il tuo massimo dei Punti Ferita aumenta di 1, e aumenta di nuovo di 1 ogni volta che sali di livello.
 
-**Conoscenza della Pietra.** Come Azione Bonus, ottieni Sensi Tellurici con un raggio di 18 m per 10 minuti. Devi trovarti su una superficie di pietra o toccarla per usare questo senso. La pietra può essere naturale o lavorata.
 
-Puoi usare questa Azione Bonus un numero di volte pari al tuo Bonus di Competenza, e recuperi tutti gli usi spesi al termine di un Riposo Lungo.
+_**Resistenza ai danni.**_ Il personaggio dispone di
+resistenza ai danni del tipo determinato dal tratto
+Discendenza draconica.
 
----
 
-## Elfo
 
-**Tipo di Creatura:** Umanoide  
+_**Scurovisione.**_ Il personaggio ha scurovisione fino
+a un raggio di 18 metri.
 
-**Taglia:** Media (circa 1,5–1,8 m di altezza)  
+_**Volo draconico.**_ Quando il personaggio raggiunge
+il 5º livello, può incanalare dell'energia draconica
+per volare temporaneamente. Come azione bonus,
+può far spuntare delle ali spettrali dalla sua schiena
+che durano per 10 minuti, fino al momento in cui
+decide di farle scomparire (nessuna azione richiesta) o finché non diventa incapacitato. Durante quel
+periodo, è dotato di una velocità di volo pari alla
+sua velocità. L'aspetto delle ali varia in base al tipo
+di energia del Soffio. Dopo aver usato questo tratto,
+il personaggio non può riutilizzarlo prima di aver
+completato un riposo lungo.
 
-**Velocità:** 9 m  
 
-In quanto Elfo, hai i seguenti tratti speciali.
 
-**Scurovisione.** Hai Scurovisione con un raggio di 18 m.
+**Elfo**
+**Tipo di creatura:** umanoide
+**Taglia:** Media (altezza di circa 150-180 centimetri)
+**Velocità:** 9 metri
 
-**Discendenza Elfica.** Fai parte di una discendenza che ti concede capacità soprannaturali. Scegli una discendenza dalla tabella Discendenze Elfiche. Ottieni il beneficio di livello 1 di quella discendenza.  
 
-Quando raggiungi i livelli 3 e 5, impari un incantesimo di livello superiore come mostrato nella tabella. Hai sempre quell’incantesimo preparato. Puoi lanciarlo una volta senza slot, e recuperi questa capacità al termine di un Riposo Lungo. Puoi anche lanciarlo usando gli slot che possiedi.  
 
-Tabella: Discendenze Elfiche  
+In quanto elfo, il personaggio ha i seguenti tratti
+speciali.
 
-| Discendenza | Livello 1                                                                                                 | Livello 3     | Livello 5          |
-|-------------|-----------------------------------------------------------------------------------------------------------|---------------|--------------------|
-| Drow        | Il raggio della tua Scurovisione aumenta a 36 m. Conosci inoltre il trucchetto *Luci Danzanti*.           | *Fuoco Fatato*| *Oscurità*         |
-| Alto Elfo   | Conosci il trucchetto *Prestidigitazione*. Al termine di un Riposo Lungo puoi sostituirlo con un altro trucchetto dalla lista del Mago. | *Individuazione del Magico* | *Passo Velato* |
-| Elfo dei Boschi | La tua Velocità aumenta a 10,5 m. Conosci inoltre il trucchetto *Druidcraft*. | *Passo Lungo* | *Passare Senza Tracce* |
 
-Intelligenza, Saggezza o Carisma è la tua caratteristica da incantatore per gli incantesimi di questo tratto (scegli quando selezioni la discendenza).
 
-**Retaggio Fatato.** Hai Vantaggio ai tiri salvezza per evitare o terminare la condizione Incantato.
+_**Scurovisione.**_ Il personaggio ha scurovisione fino
+a un raggio di 18 metri.
 
-**Sensi Acuti.** Hai competenza in una tra Intuizione, Percezione o Sopravvivenza.
 
-**Trance.** Non hai bisogno di dormire e la magia non può addormentarti. Completi un Riposo Lungo in 4 ore se trascorse in meditazione in stato di trance, restando cosciente.
 
----
+_**Lignaggio elfico.**_ Come parte di un lignaggio,
+è dotato di abilità soprannaturali. Scegli un lignaggio dalla tabella Lignaggi elfici. Il personaggio
+otterrà il beneficio di 1º livello di quel determinato
+lignaggio.
 
-## Gnomo
 
-**Tipo di Creatura:** Umanoide  
 
-**Taglia:** Piccola (circa 0,9–1,2 m di altezza)  
+Quando raggiunge i livelli 3 e 5, apprenderà un
+incantesimo di livello superiore, come mostrato
+nella tabella. Tale incantesimo è sempre considerato
+come preparato. Può lanciarlo una volta senza consumare uno slot incantesimo e ne recupera l'utilizzo
+in questo modo dopo aver completato un riposo
+lungo. Può anche lanciarlo usando gli slot incantesimo a sua disposizione del livello appropriato.
 
-**Velocità:** 9 m  
+La caratteristica da incantatore del personaggio
+può essere Intelligenza, Saggezza o Carisma per
 
-In quanto Gnomo, hai i seguenti tratti speciali.
 
-**Scurovisione.** Hai Scurovisione con un raggio di 18 m.
 
-**Astuzia Gnomesca.** Hai Vantaggio ai tiri salvezza su Intelligenza, Saggezza e Carisma.
 
-**Discendenza Gnomesca.** Fai parte di una discendenza che ti concede capacità soprannaturali. Scegli una delle seguenti opzioni; qualunque tu scelga, Intelligenza, Saggezza o Carisma è la tua caratteristica da incantatore (scegli al momento).  
+**Lignaggi elfici**
 
-**Gnomo delle Foreste.** Conosci il trucchetto *Illusione Minore*. Hai sempre l’incantesimo *Parlare con gli Animali* preparato. Puoi lanciarlo senza slot un numero di volte pari al tuo Bonus di Competenza, recuperando gli usi al termine di un Riposo Lungo. Puoi anche usare gli slot che possiedi.  
+**Lignaggio** **Livello 1** **Livello 3** **Livello 5**
 
-**Gnomo delle Rocce.** Conosci i trucchetti *Riparare* e *Prestidigitazione*. Inoltre, puoi spendere 10 minuti per lanciare *Prestidigitazione* e creare un piccolo congegno meccanico (CA 5, 1 PF), come un giocattolo, un accendino o una scatola musicale. Al momento della creazione scegli un effetto di *Prestidigitazione* che il dispositivo produrrà quando attivato con un’Azione Bonus e un tocco. Puoi avere fino a tre dispositivi attivi; ognuno si disgrega dopo 8 ore o se lo smantelli con un’Azione Usare.  
 
----
 
-## Goliath
+Drow La portata di scurovisione aumenta fino a 36 metri.
+Inoltre, il personaggio conosce il trucchetto _luci danzanti_ .
 
-**Tipo di Creatura:** Umanoide  
+Elfo alto Il personaggio impara il trucchetto _prestidigitazione_ . Ogni
+volta che completa un riposo lungo, può sostituirlo con
+un altro trucchetto dalla lista degli incantesimi del mago.
 
-**Taglia:** Media (circa 2,1–2,4 m di altezza)  
 
-**Velocità:** 10,5 m  
 
-In quanto Goliath, hai i seguenti tratti speciali.
+_Luminescenza_ _Oscurità_
 
-**Ascendenza Gigantesca.** Discendi dai Giganti. Scegli uno dei seguenti benefici, che puoi usare un numero di volte pari al tuo Bonus di Competenza, recuperando gli usi al termine di un Riposo Lungo:
 
-- **Balzo delle Nubi (Gigante delle Nubi).** Come Azione Bonus, ti teletrasporti magicamente fino a 9 m in uno spazio libero che vedi.  
-- **Bruciore del Fuoco (Gigante del Fuoco).** Quando colpisci un bersaglio con un attacco e gli infliggi danni, puoi infliggere anche 1d10 danni da Fuoco.  
-- **Gelo del Freddo (Gigante del Gelo).** Quando colpisci un bersaglio, puoi infliggergli anche 1d6 danni da Gelo e ridurne la Velocità di 3 m fino all’inizio del tuo prossimo turno.  
-- **Caduta della Collina (Gigante delle Colline).** Quando colpisci una creatura Grande o più piccola, puoi infliggerle la condizione Prono.  
-- **Resistenza della Pietra (Gigante della Pietra).** Quando subisci danni, puoi usare una Reazione per tirare 1d12, aggiungere il tuo modificatore di Costituzione e ridurre i danni di quel totale.  
-- **Tuono della Tempesta (Gigante delle Tempeste).** Quando subisci danni da una creatura entro 18 m, puoi usare una Reazione per infliggerle 1d8 danni da Tuono.
 
-**Forma Imponente.** Dal 5° livello, puoi aumentare la tua taglia a Grande come Azione Bonus se lo spazio lo permette. La trasformazione dura 10 minuti o finché non la termini (nessuna azione). Durante quel tempo hai Vantaggio alle prove di Forza e la tua Velocità aumenta di 3 m. Dopo aver usato questo tratto, non puoi riutilizzarlo finché non completi un Riposo Lungo.
+_Individuazione del_
+_magico_
 
-**Costruzione Possente.** Hai Vantaggio alle prove per terminare la condizione Afferrato. Inoltre conti come una taglia più grande nel determinare la capacità di carico.
 
----
 
-## Halfling
+_Passo velato_
 
-**Tipo di Creatura:** Umanoide  
 
-**Taglia:** Piccola (circa 0,6–0,9 m di altezza)  
 
-**Velocità:** 9 m  
+Elfo dei
+boschi
 
-In quanto Halfling, hai i seguenti tratti speciali.
 
-**Coraggioso.** Hai Vantaggio ai tiri salvezza per evitare o terminare la condizione Spaventato.
 
-**Agilità Halfling.** Puoi muoverti attraverso lo spazio di una creatura più grande di te, ma non puoi fermarti lì.
+La velocità del personaggio aumenta a 10,5 metri. Inoltre,
+conosce il trucchetto _artificio druidico_ .
 
-**Fortuna.** Quando tiri un 1 su un d20 in una Prova su d20, puoi ritirare il dado e devi usare il nuovo risultato.
 
-**Naturalmente Furtivo.** Puoi compiere l’Azione Nascondersi anche quando sei oscurato solo da una creatura di almeno una taglia più grande di te.
 
----
+_Passo veloce_ _Passare senza tracce_
 
-## Umano
 
-**Tipo di Creatura:** Umanoide  
 
-**Taglia:** Media (circa 1,2–2,1 m di altezza) o Piccola (circa 0,6–1,2 m di altezza), scelta quando selezioni questa specie  
+gli incantesimi lanciati con questo tratto (decidi
+l'abilità quando scegli il lignaggio).
 
-**Velocità:** 9 m  
 
-In quanto Umano, hai i seguenti tratti speciali.
 
-**Ingegnoso.** Ottieni Ispirazione Eroica ogni volta che completi un Riposo Lungo.
+_**Retaggio fatato.**_ Dispone di vantaggio ai tiri salvezza eseguiti per evitare o terminare la condizione
+affascinato su se stesso.
 
-**Abile.** Ottieni competenza in un’abilità a tua scelta.
 
-**Versatile.** Ottieni un talento di Origine a tua scelta (vedi “Talenti”). Si raccomanda *Competente*.
 
----
+_**Sensi acuti.**_ Ha competenza nelle abilità Intuizione, Percezione o Sopravvivenza.
 
-## Orco
 
-**Tipo di Creatura:** Umanoide  
 
-**Taglia:** Media (circa 1,8–2,1 m di altezza)  
+_**Trance.**_ Non ha bisogno di dormire e la magia non
+può farlo addormentare. Può completare un riposo
+lungo in 4 ore rimanendo in uno stato di trance
+meditativa, durante il quale resta cosciente.
 
-**Velocità:** 9 m  
 
-In quanto Orco, hai i seguenti tratti speciali.
 
-**Scarica di Adrenalina.** Puoi compiere l’Azione Scatto come Azione Bonus. Quando lo fai, ottieni un numero di Punti Ferita Temporanei pari al tuo Bonus di Competenza. Puoi usare questo tratto un numero di volte pari al tuo Bonus di Competenza, e recuperi gli usi spesi al termine di un Riposo Breve o Lungo.
+**Gnomo**
+**Tipo di creatura:** umanoide
+**Taglia:** Piccola (altezza di circa 90-120 centimetri)
+**Velocità:** 9 metri
 
-**Scurovisione.** Hai Scurovisione con un raggio di 36 m.
 
-**Resistenza Implacabile.** Quando sei ridotto a 0 Punti Ferita ma non ucciso sul colpo, puoi invece scendere a 1 PF. Dopo aver usato questo tratto, non puoi riutilizzarlo finché non completi un Riposo Lungo.
 
----
+In quanto gnomo, il personaggio ha i seguenti tratti
+speciali.
 
-## Tiefling
 
-**Tipo di Creatura:** Umanoide  
 
-**Taglia:** Media (circa 1,2–2,1 m di altezza) o Piccola (circa 0,9–1,2 m di altezza), scelta quando selezioni questa specie  
+_**Astuzia gnomesca.**_ Dispone di vantaggio a i tiri
+salvezza su Intelligenza, Saggezza e Carisma.
 
-**Velocità:** 9 m  
 
-In quanto Tiefling, hai i seguenti tratti speciali.  
 
-**Scurovisione.** Hai Scurovisione con un raggio di 18 m.
+_**Lignaggio gnomesco.**_ Come parte di un lignaggio,
+è dotato di abilità soprannaturali. Scegli una delle
+opzioni seguenti. A prescindere da quella selezionata, la caratteristica da incantatore del personaggio può essere Intelligenza, Saggezza o Carisma per
+gli incantesimi lanciati con questo tratto (decidi
+l'abilità quando scegli il lignaggio):
 
-**Retaggio Infernale.** Sei erede di un retaggio che ti concede capacità soprannaturali. Scegli un retaggio dalla tabella Retaggi Infernali. Ottieni il beneficio di livello 1 del retaggio scelto.  
 
-Quando raggiungi i livelli 3 e 5, impari un incantesimo di livello superiore come mostrato nella tabella. Hai sempre quell’incantesimo preparato. Puoi lanciarlo una volta senza slot, recuperando la capacità al termine di un Riposo Lungo. Puoi anche lanciarlo con gli slot che possiedi.  
 
-Intelligenza, Saggezza o Carisma è la tua caratteristica da incantatore per gli incantesimi di questo tratto (scegli al momento).  
+**Gnomo delle foreste.** Il personaggio conosce il
 
-**Presenza Ultramondana.** Conosci il trucchetto *Taumaturgia*. Quando lo lanci grazie a questo tratto, usa la stessa caratteristica da incantatore del tuo Retaggio Infernale.  
 
-Tabella: Retaggi Infernali  
 
-| Retaggio  | Livello 1                                                                       | Livello 3          | Livello 5             |
-|-----------|----------------------------------------------------------------------------------|--------------------|-----------------------|
-| Abissale  | Hai Resistenza ai danni da Veleno. Conosci anche il trucchetto *Spruzzo Velenoso*. | *Raggio di Malattia* | *Blocca Persone*      |
-| Ctonio    | Hai Resistenza ai danni Necrotici. Conosci anche il trucchetto *Tocco Gelido*.    | *Falsa Vita*        | *Raggio d’Indebolimento* |
-| Infernale | Hai Resistenza ai danni da Fuoco. Conosci anche il trucchetto *Dardo di Fuoco*.   | *Rimprovero Infernale* | *Oscurità*          |
+trucchetto _illusione minore_ . Inoltre, l'incantesimo
+_parlare con gli animali_ è sempre considerato come
+preparato. Può lanciarlo senza consumare uno
+slot incantesimo un numero di volte pari al suo
+bonus di competenza e riacquista tutti gli usi
+spesi al termine di un riposo lungo. Può anche
+lanciare l'incantesimo usando uno qualsiasi degli
+slot incantesimo a sua disposizione.
+**Gnomo delle rocce.** Conosce i trucchetti _riparare_
+
+
+
+suo effetto scegliendolo fra quelli di _prestidigita-_
+_zione_ . Il dispositivo lo produrrà ogni volta che il
+personaggio o un'altra creatura utilizza un'azione
+bonus per attivarlo a contatto. Se l'effetto selezionato presenta ulteriori opzioni, puoi sceglierne
+una al momento della creazione del congegno.
+Per esempio, puoi selezionare l'effetto di accensione o spegnimento e decidere quale dei due
+applicare. Il dispositivo creato non può eseguirli
+entrambi. Il personaggio può avere in contemporanea fino a tre oggetti del genere. Ciascuno
+si smantella 8 ore dopo la sua creazione o finché
+non lo fa il personaggio stesso con un'azione di
+Contatto o Utilizzo.
+
+_**Scurovisione.**_ Il personaggio ha scurovisione fino
+a un raggio di 18 metri.
+
+**Goliath**
+**Tipo di creatura:** umanoide
+**Taglia:** Media (altezza di circa 210-240 centimetri)
+**Velocità:** 10,5 metri
+
+
+In quanto goliath, il personaggio ha i seguenti tratti
+speciali.
+
+_**Costituzione robusta.**_ Ha vantaggio a qualsiasi
+prova di caratteristica effettuata per non essere
+afferrato. Inoltre, la capacità di trasporto del personaggio è quella di una taglia superiore.
+
+_**Discendenza gigantica.**_ Il personaggio discende
+dai giganti. Sceglie uno dei seguenti doni soprannaturali derivati dal suo retaggio. Il personaggio
+può utilizzare il beneficio un numero di volte pari al
+valore del suo bonus di competenza e recupera tutti
+gli utilizzi spesi quando completa un riposo lungo:
+
+**Brivido gelante (gigante del gelo).** Quando
+
+colpisce un bersaglio con un tiro per colpire e
+gli infligge dei danni, può anche infliggergli 1d6
+danni da freddo e ridurre la sua velocità di 3 metri
+fino all'inizio del proprio turno successivo.
+**Forza della collina (gigante delle colline).**
+
+Quando colpisce una creatura di taglia Grande
+
+ - inferiore con un tiro per colpire e le infligge dei
+danni, quest'ultima può cadere prona.
+
+
+
+e _prestidigitazione_ . Inoltre, può impiegare
+10 minuti di lancio di _prestidigitazione_ per
+creare un piccolo dispositivo meccanico (CA 5,
+1 PF), come un giocattolo, un accendifuoco o un
+carillon. Una volta creato, puoi determinare il
+
+
+
+**95** System Reference Document 5.2.1
+
+
+
+
+**Fuoco bruciante (gigante del fuoco).** Quando
+
+colpisce un bersaglio con un tiro per colpire e gli
+infligge dei danni, può anche infliggergli 1d10
+danni da fuoco.
+**Resistenza della pietra (gigante delle pietre).**
+
+Quando subisce danni, può usare una reazione
+per tirare 1d12. Aggiungi il suo modificatore di
+Costituzione al numero ottenuto e sottrai il totale
+ai danni subiti.
+**Salta-nuvole (gigante delle nuvole).** Come azione
+
+bonus, può teletrasportarsi magicamente di un
+massimo di 9 metri fino a uno spazio libero che
+è in grado di vedere.
+**Tuono tempestoso (gigante delle tempeste).**
+
+Quando subisce danni da una creatura entro
+18 metri da sé, può usare una reazione per infliggerle 1d8 danni da tuono.
+
+_**Forma Grande.**_ A partire dal 5º livello, come
+azione bonus può diventare di taglia Grande se si
+trova in uno spazio abbastanza ampio. La trasformazione dura per 10 minuti o finché non la interrompe (nessuna azione richiesta). Per tutta la sua
+durata, ottiene vantaggio alle prove di Forza e la sua
+velocità aumenta di 3 metri. Dopo aver usato questo
+tratto, il personaggio non può riutilizzarlo prima di
+aver completato un riposo lungo.
+
+**Halfling**
+**Tipo di creatura:** umanoide
+**Taglia:** Piccola (altezza di circa 60-90 centimetri)
+**Velocità:** 9 metri
+
+
+
+di 18 metri per 10 minuti. Per poterla utilizzare,
+deve trovarsi su una superficie di pietra o toccarla.
+La pietra deve essere naturale o lavorata.
+
+Il personaggio può utilizzare questa azione bonus
+un numero di volte pari al valore del suo bonus di
+competenza, recuperando tutti gli utilizzi spesi
+quando completa un riposo lungo.
+
+_**Resilienza nanica.**_ Ha resistenza ai danni da
+veleno. Dispone di vantaggio sui tiri salvezza
+eseguiti per evitare o terminare la condizione avvelenato su se stesso.
+
+
+
+_**Robustezza nanica.**_ I punti ferita massimi di un
+nano aumentano di 1 e aumentano di nuovo di 1
+ogni volta che acquisisce un livello.
+
+
+
+_**Scurovisione.**_ Ha scurovisione fino a un raggio di
+36 metri.
+
+
+
+In quanto halfling, il personaggio ha i seguenti
+tratti speciali.
+
+
+
+_**Agilità halfling.**_ Può attraversare lo spazio occupato da qualsiasi creatura più grande di lui, ma non
+può soffermarcisi.
+
+
+
+_**Coraggioso.**_ Dispone di vantaggio ai tiri salvezza
+eseguiti per evitare o terminare la condizione spaventato su se stesso.
+
+
+
+_**Fortuna.**_ Quando effettui una prova con d20
+e ottieni 1, puoi ritirare il dado e devi utilizzare
+il nuovo risultato.
+
+
+
+_**Furtività innata.**_ Può effettuare l'azione di
+Nascondersi anche se è oscurato solo da una singola
+creatura, purché questa sia più grande di lui di
+almeno una taglia.
+
+
+
+**Orco**
+**Tipo di creatura:** umanoide
+**Taglia:** Media (altezza di circa 180-210 centimetri)
+**Velocità:** 9 metri
+
+
+In quanto orco, il personaggio ha i seguenti tratti
+speciali.
+
+Il personaggio può usare questo tratto un numero
+di volte pari al valore del suo bonus di competenza
+e recupera tutti gli utilizzi spesi quando completa
+un riposo breve o lungo.
+
+_**Resistenza implacabile.**_ Quando scende a 0 punti
+ferita ma non viene ucciso sul colpo, può decidere
+di rimanere a 1 punto ferita. Dopo averlo usato, non
+può riutilizzare questo tratto prima di aver completato un riposo lungo.
+
+_**Scarica di adrenalina.**_ L'orco può utilizzare
+l'azione di Scatto come azione bonus. Ogni volta che
+lo fa, ottiene un numero di punti ferita temporanei
+pari al suo bonus di competenza.
+
+_**Scurovisione.**_ Ha scurovisione fino a un raggio di
+36 metri.
+
+**Tiefling**
+**Tipo di creatura:** umanoide
+**Taglia:** Media (altezza di circa 120-210 centimetri)
+
+ - Piccola (altezza di circa 90-120 centimetri), a tua
+scelta quando scegli la specie
+**Velocità:** 9 metri
+
+
+In quanto tiefling, il personaggio ha i seguenti tratti
+speciali.
+
+_**Retaggio immondo.**_ Grazie alla sua discendenza
+è dotato di abilità soprannaturali. Scegli un retaggio
+dalla tabella Retaggi immondi. Dopodiché, il personaggio otterrà il beneficio di 1º livello del retaggio
+selezionato.
+
+_**Presenza ultraterrena.**_ Conosce il trucchetto
+_taumaturgia_ . Quando lo lancia sfruttando questo
+tratto, l'incantesimo utilizza la stessa caratteristica
+da incantatore del tratto Retaggio immondo.
+
+
+
+**Nano**
+**Tipo di creatura:** umanoide
+**Taglia:** Media (altezza di circa 120-150centimetri)
+**Velocità:** 9 metri
+
+
+In quanto nano, il personaggio ha i seguenti tratti
+speciali.
+
+_**Esperto minatore.**_ Come azione bonus, il personaggio ottiene percezione tellurica con un raggio
+
+
+**96** System Reference Document 5.2.1
+
+
+
+
+Quando raggiunge i livelli 3 e 5, apprenderà un
+incantesimo di livello superiore, come mostrato
+nella tabella. Tale incantesimo è sempre considerato
+come preparato. Può lanciarlo una volta senza consumare uno slot incantesimo e ne recupera l'utilizzo
+in questo modo dopo aver completato un riposo
+lungo. Può anche lanciarlo usando gli slot incantesimo a sua disposizione del livello appropriato.
+
+La caratteristica da incantatore del personaggio
+può essere Intelligenza, Saggezza o Carisma per
+gli incantesimi lanciati con questo tratto (decidi
+l'abilità quando scegli il retaggio).
+
+_**Scurovisione.**_ Ha scurovisione fino a un raggio di
+18 metri.
+
+
+**Retaggi immondi**
+
+
+
+**Umano**
+**Tipo di creatura:** umanoide
+**Taglia:** Media (altezza di circa 120-210 centimetri)
+
+ - Piccola (altezza di circa 60-120 centimetri), a tua
+scelta quando scegli la specie
+**Velocità:** 9 metri
+
+
+
+In quanto umano, il personaggio ha i seguenti tratti
+speciali.
+
+_**Intraprendente.**_ Ottiene Ispirazione eroica ogni
+volta che completa un riposo lungo.
+
+_**Pluriabilità.**_ Acquisisce competenza in un'abilità
+a sua scelta.
+
+_**Versatile.**_ Ottiene un talento Origini a sua scelta
+(vedi capitolo "Talenti"). È consigliato il talento
+Abile.
+
+
+
+**Retaggio** **Livello 1** **Livello 3** **Livello 5**
+
+
+
+Abissale Possiede resistenza ai danni da veleno.
+Inoltre, conosce il trucchetto _spruzzo velenoso_ .
+
+Ctonio Possiede resistenza ai danni necrotici.
+Inoltre, conosce il trucchetto _tocco gelido_ .
+
+Infernale Possiede resistenza ai danni da fuoco.
+Inoltre, conosce il trucchetto _dardo di fuoco_ .
+
+
+**97** System Reference Document 5.2.1
+
+
+
+_Raggio di infermità_ _Blocca persone_
+
+
+_Vita falsata_ _Raggio di affaticamento_
+
+
+_Intimorire infernale_ _Oscurità_
+
+
+

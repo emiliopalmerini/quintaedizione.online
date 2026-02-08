@@ -1,166 +1,390 @@
-
 # Talenti
 
-## Allerta
+# **Talenti**
+## **Descrizioni dei talenti**
 
-*Talento di Origine*
+I talenti che seguono sono organizzati prima per
+categoria (Origini, Generale, Stile di combattimento
 
-Ottieni i seguenti benefici.
+- Dono epico) e poi in ordine alfabetico.
+#### **Elementi di un talento**
 
-**Competenza all’Iniziativa.** Quando tiri l’Iniziativa, puoi aggiungere il tuo bonus di competenza al tiro.
 
-**Scambio di Iniziativa.** Subito dopo aver tirato l’Iniziativa, puoi scambiarla con quella di un alleato consenziente nello stesso combattimento. Non puoi effettuare questo scambio se tu o l’alleato avete la condizione Incapacitato.
 
-## Iniziato alla Magia
+quello di un alleato consenziente durante il medesimo combattimento. Se il tuo personaggio o il suo
+alleato è incapacitato, non è possibile eseguire
+lo scambio.
 
-*Talento di Origine*
+**Iniziato alla magia**
+_Talento Origini_
 
-Ottieni i seguenti benefici.
 
-**Due Trucchetti.** Impari due trucchetti a tua scelta dalla lista degli incantesimi di Chierico, Druido o Mago. Intelligenza, Saggezza o Carisma è la caratteristica da incantatore per gli incantesimi di questo talento (scegli quando selezioni questo talento).
 
-**Incantesimo di 1° livello.** Scegli un incantesimo di 1° livello dalla stessa lista scelta per i trucchetti di questo talento. Hai sempre quell’incantesimo preparato. Puoi lanciarlo una volta senza usare uno slot incantesimo, e riacquisti questa capacità al termine di un Riposo Lungo. Puoi anche lanciarlo utilizzando i tuoi slot incantesimo disponibili.
+Il personaggio ottiene i seguenti benefici.
 
-**Cambio di Incantesimo.** Ogni volta che sali di livello, puoi sostituire uno degli incantesimi scelti per questo talento con un altro incantesimo dello stesso livello dalla lista scelta.
 
-**Ripetibile.** Puoi acquisire questo talento più di una volta, ma devi scegliere una lista di incantesimi diversa ogni volta.
 
-## Attaccante Selvaggio
+La descrizione di un talento contiene le seguenti
+componenti elencate dopo il suo nome.
 
-*Talento di Origine*
 
-Hai imparato a infliggere colpi particolarmente devastanti. Una volta per turno, quando colpisci un bersaglio con un’arma, puoi tirare due volte i dadi dei danni dell’arma e scegliere uno dei due risultati.
 
-## Abile
+_**Categoria.**_ Ciascun talento appartiene a una
+determinata categoria contrassegnata nella sua
+descrizione. Se devi scegliere un talento da una
+specifica categoria, come Origini, questa deve
+comparire sotto al nome del talento. Se invece devi
+selezionare un talento senza che ne sia specificata
+la categoria, puoi optare per quello che preferisci.
 
-*Talento di Origine*
 
-Ottieni competenza in una combinazione a tua scelta di tre abilità o strumenti.
 
-**Ripetibile.** Puoi acquisire questo talento più di una volta.
+_**Prerequisito.**_ Per ottenere un talento, il personaggio deve soddisfare i prerequisiti indicati nella
+sua descrizione, a meno che un privilegio non ti
+permetta di ottenerlo senza i prerequisiti. Se fra
+i prerequisiti è inclusa una classe, il personaggio
+deve avere almeno il livello 1 in tale classe per poter
+ottenere il talento.
 
-### Talenti Generali
 
-## Incremento dei Punteggi di Caratteristica
 
-*Talento Generale (Prerequisito: Livello 4+)*
+_**Due trucchetti.**_ Il personaggio apprende due
+trucchetti a scelta tratti dalla lista degli incantesimi
+da chierico, druido o mago. La caratteristica da
+incantatore per gli incantesimi di questo talento
+può essere Intelligenza, Saggezza o Carisma (scegli
+la caratteristica quando ottieni questo talento).
 
-Aumenti un punteggio di caratteristica a tua scelta di 2, oppure aumenti due punteggi di caratteristica a tua scelta di 1. Questo talento non può aumentare un punteggio oltre 20.
+_**Incantesimo di 1º livello.**_ Scegli un incantesimo
+di 1º livello dalla stessa lista da cui hai selezionato
+i trucchetti forniti da questo talento. Tale incantesimo è sempre considerato come preparato. Il personaggio può lanciarlo una volta senza consumare
+uno slot incantesimo e ne recupera l'utilizzo in
+questo modo dopo aver completato un riposo lungo.
+Può anche lanciare l'incantesimo usando uno qualsiasi degli slot incantesimo a sua disposizione.
 
-**Ripetibile.** Puoi acquisire questo talento più di una volta.
 
-## Lottatore
 
-*Talento Generale (Prerequisito: Livello 4+, Forza o Destrezza 13+)*
+_**Cambio incantesimo.**_ Quando il personaggio
+ottiene un nuovo livello, puoi sostituire uno degli
+incantesimi scelti per questo talento con un altro
+dello stesso livello dalla lista prescelta.
 
-Ottieni i seguenti benefici.
 
-**Aumento dei Punteggi di Caratteristica.** Aumenti la tua Forza o Destrezza di 1, fino a un massimo di 20.
 
-**Colpisci e Afferra.** Quando colpisci una creatura con un Colpo senz’Armi come parte dell’azione Attacco nel tuo turno, puoi usare sia l’opzione Danno che l’opzione Afferrare. Puoi usare questo beneficio solo una volta per turno.
+_**Beneficio.**_ I benefici di un talento sono indicati
+dopo eventuali prerequisiti. Se il personaggio
+dispone di un talento, ottiene anche i suoi benefici.
 
-**Vantaggio sull’Attacco.** Hai vantaggio ai tiri per colpire contro una creatura che hai afferrato.
+_**Ripetibile.**_ I talenti possono essere ottenuti solo
+una volta, salvo diversamente indicato nella sua
+descrizione tramite la sottosezione "Ripetibile".
+#### **Talenti Origini**
 
-**Lottatore Veloce.** Non devi spendere movimento extra per spostare una creatura che hai afferrato se è della tua taglia o più piccola.
 
-### Talenti di Stile di Combattimento
 
-## Tiro con l’Arco
+**Abile**
+_Talento Origini_
 
-*Talento di Stile di Combattimento (Prerequisito: Caratteristica Stile di Combattimento)*
+Il personaggio ottiene competenza in una combinazione di tre abilità o strumenti a scelta.
 
-Ottieni un bonus di +2 ai tiri per colpire effettuati con armi a distanza.
+_**Ripetibile.**_ Questo talento è ottenibile più di una
+volta.
 
-## Difesa
+**Aggressore selvaggio**
+_Talento Origini_
 
-*Talento di Stile di Combattimento (Prerequisito: Caratteristica Stile di Combattimento)*
+Il personaggio si è allenato per sferrare colpi
+particolarmente letali. Una volta per turno, quando
+colpisce un bersaglio con un'arma, puoi tirare due
+volte per i danni dell'arma e scegliere il risultato
+che preferisci.
 
-Quando indossi armatura Leggera, Media o Pesante, ottieni un bonus di +1 alla Classe Armatura.
+**Allerta**
+_Talento Origini_
 
-## Combattere con Armi Possenti
 
-*Talento di Stile di Combattimento (Prerequisito: Caratteristica Stile di Combattimento)*
 
-Quando tiri i danni per un attacco effettuato con un’arma da mischia che impugni a due mani, puoi considerare ogni 1 o 2 sui dadi dei danni come un 3. L’arma deve avere la proprietà a Due Mani o Versatile per ottenere questo beneficio.
+_**Ripetibile.**_ Questo talento è ottenibile più di una
+volta, ma devi scegliere una lista degli incantesimi
+diversa a ogni selezione.
+#### **Talenti Generali**
 
-## Combattere con Due Armi
+**Aumento dei punteggi di caratteristica**
+_Talento Generale (prerequisito: 4º livello o superiore)_
 
-*Talento di Stile di Combattimento (Prerequisito: Caratteristica Stile di Combattimento)*
 
-Quando effettui un attacco extra come risultato dell’uso di un’arma con la proprietà Leggera, puoi aggiungere il tuo modificatore di caratteristica ai danni di quell’attacco se non lo stai già aggiungendo.
 
-### Talenti di Dono Epico
+Aumenta un punteggio di caratteristica a sua scelta
+di 2, oppure aumenta due punteggi di caratteristica
+di 1. Questo talento non può incrementare un punteggio di caratteristica oltre il 20.
 
-## Dono della Maestria in Combattimento
+_**Ripetibile.**_ Questo talento è ottenibile più di una
+volta.
 
-*Talento di Dono Epico (Prerequisito: Livello 19+)*
+**Lottatore**
+_Talento Generale (prerequisito: 4º livello o superiore,_
+_Forza o Destrezza 13 o superiore)_
 
-Ottieni i seguenti benefici.
 
-**Aumento dei Punteggi di Caratteristica.** Aumenti un punteggio di caratteristica a tua scelta di 1, fino a un massimo di 30.
 
-**Mira Impareggiabile.** Quando manchi un tiro per colpire, puoi decidere che colpisca invece. Una volta usato questo beneficio, non puoi riutilizzarlo fino all’inizio del tuo prossimo turno.
+Il personaggio ottiene i seguenti benefici.
 
-## Dono del Viaggio Dimensionale
 
-*Talento di Dono Epico (Prerequisito: Livello 19+)*
 
-Ottieni i seguenti benefici.
+Il personaggio ottiene i seguenti benefici.
 
-**Aumento dei Punteggi di Caratteristica.** Aumenti un punteggio di caratteristica a tua scelta di 1, fino a un massimo di 30.
+_**Competenza in iniziativa.**_ Quando tiri per l'iniziativa, puoi aggiungere il bonus di competenza del
+personaggio al risultato del tiro.
 
-**Passi Lampeggianti.** Subito dopo aver effettuato l’azione Attacco o l’azione Magia, puoi teletrasportarti fino a 9 metri in uno spazio non occupato che puoi vedere.
+_**Scambio di iniziativa.**_ Subito dopo aver tirato per
+l'iniziativa, puoi scambiare il risultato ottenuto con
 
-## Dono del Fato
 
-*Talento di Dono Epico (Prerequisito: Livello 19+)*
 
-Ottieni i seguenti benefici.
+_**Incremento dei punteggi di caratteristica.**_ Il suo
+punteggio di Forza o Destrezza aumenta di 1, fino
+a un massimo di 20.
 
-**Aumento dei Punteggi di Caratteristica.** Aumenti un punteggio di caratteristica a tua scelta di 1, fino a un massimo di 30.
+_**Colpisci e afferra.**_ Quando il personaggio colpisce
+una creatura con un colpo senz'armi come parte di
+un'azione di Attacco nel proprio turno, può usare
+sia l'opzione Danni che Presa. Questo beneficio
+è utilizzabile una sola volta per turno.
 
-**Fato Migliorato.** Quando tu o un’altra creatura entro 18 metri da te riuscite o fallite una Prova con un d20, puoi tirare 2d4 e applicare il totale tirato come bonus o penalità al tiro del d20. Una volta usato questo beneficio, non puoi riutilizzarlo fino a quando non tiri l’Iniziativa o termini un Riposo Breve o Lungo.
 
-## Dono dell’Offensiva Irresistibile
 
-*Talento di Dono Epico (Prerequisito: Livello 19+)*
+_**Attacco con vantaggio.**_ Dispone di vantaggio ai
+tiri per colpire contro le creature che ha afferrato.
 
-Ottieni i seguenti benefici.
 
-**Aumento dei Punteggi di Caratteristica.** Aumenti la tua Forza o Destrezza di 1, fino a un massimo di 30.
 
-**Superare le Difese.** I danni Contundenti, Perforanti e Taglienti che infliggi ignorano sempre la Resistenza.
+**98** System Reference Document 5.2.1
 
-**Colpo Travolgente.** Quando ottieni un 20 naturale su un tiro per colpire con un d20, puoi infliggere danni extra al bersaglio pari al punteggio di caratteristica aumentato da questo talento. Il tipo di danno extra è lo stesso dell’attacco.
 
-## Dono della Memoria degli Incantesimi
 
-*Talento di Dono Epico (Prerequisito: Livello 19+, Caratteristica Incantesimi)* 
 
-Ottieni i seguenti benefici.
+_**Lottatore rapido.**_ Il personaggio non deve spendere alcun movimento extra se sposta una creatura
+che ha afferrato che sia della sua stessa categoria di
+taglia o inferiore.
+#### **Talenti Stile di combattimento**
 
-**Aumento dei Punteggi di Caratteristica.** Aumenti la tua Intelligenza, Saggezza o Carisma di 1, fino a un massimo di 30.
+**Combattere con armi possenti**
+_Talento Stile di combattimento (prerequisito:_
+_privilegio Stile di combattimento)_
 
-**Lancio Gratuito.** Ogni volta che lanci un incantesimo con uno slot di livello 1–4, tira 1d4. Se il numero tirato è uguale al livello dello slot, lo slot non viene consumato.
+Quando tiri per i danni per un attacco effettuato
+con un'arma da mischia che il personaggio impugna
+a due mani, se il risultato ottenuto è 1 o 2, puoi
+invece considerarlo come un 3. L'arma deve possedere la proprietà a due mani o versatile affinché
+ottenga questo beneficio.
 
-## Dono dello Spirito della Notte
+**Combattere con due armi**
+_Talento Stile di combattimento (prerequisito:_
+_privilegio Stile di combattimento)_
 
-*Talento di Dono Epico (Prerequisito: Livello 19+)*
+Quando il personaggio effettua un attacco extra
+come risultato dell'uso di un'arma leggera, puoi
+aggiungere il suo modificatore di caratteristica al
+danno di ­quell'attacco a patto che non sia già stato
+aggiunto in altro modo.
 
-Ottieni i seguenti benefici.
+**Difesa**
+_Talento Stile di combattimento (prerequisito:_
+_privilegio Stile di combattimento)_
 
-**Aumento dei Punteggi di Caratteristica.** Aumenti un punteggio di caratteristica a tua scelta di 1, fino a un massimo di 30.
+Finché il personaggio indossa un'armatura leggera, media o pesante, ottiene un +1 alla Classe
+Armatura.
 
-**Fondersi con le Ombre.** Quando ti trovi in Luce Fioca o Oscurità, puoi ottenere la condizione Invisibile come Azione Bonus. La condizione termina immediatamente dopo che effettui un’azione, un’Azione Bonus o una Reazione.
+**Tiro**
+_Talento Stile di combattimento (prerequisito:_
+_privilegio Stile di combattimento)_
 
-**Forma Ombrosa.** Quando ti trovi in Luce Fioca o Oscurità, hai Resistenza a tutti i danni tranne Psichici e Radianti.
+Il personaggio ottiene un bonus di +2 ai tiri per
+colpire che effettua con le armi a distanza.
+#### **Talenti Dono epico**
 
-## Dono della Vista Vera
+**Dono del fato**
+_Talento Dono epico (prerequisito: 19º livello_
 
-*Talento di Dono Epico (Prerequisito: Livello 19+)*
+_o superiore)_
 
-Ottieni i seguenti benefici.
 
-**Aumento dei Punteggi di Caratteristica.** Aumenti un punteggio di caratteristica a tua scelta di 1, fino a un massimo di 30.
 
-**Vista Vera.** Ottieni Vista Vera con una portata di 18 metri.
+Il personaggio ottiene i seguenti benefici.
+
+_**Incremento dei punteggi di caratteristica.**_ Il suo
+punteggio di Forza o Destrezza aumenta di 1, fino
+a un massimo di 30.
+
+_**Ignora difese.**_ I danni contundenti, perforanti
+e taglienti inflitti dal personaggio ignorano sempre
+la resistenza.
+
+_**Colpo soverchiante.**_ Quando tira per colpire con
+il d20 e ottiene un 20, il personaggio può infliggere
+una quantità di danni extra al bersaglio pari al
+punteggio di caratteristica incrementato da questo
+talento. Il danno aggiuntivo è dello stesso tipo di
+quello dell'attacco.
+
+**Dono dello spirito notturno**
+_Talento Dono epico (prerequisito: 19º livello_
+
+_o superiore)_
+
+
+
+**Dono della vista pura**
+_Talento Dono epico (prerequisito: 19º livello_
+
+_o superiore)_
+
+
+
+Il personaggio ottiene i seguenti benefici.
+
+
+
+_**Incremento dei punteggi di caratteristica.**_
+Il punteggio di una sua caratteristica a scelta
+aumenta di 1, fino a un massimo di 30.
+
+
+
+_**Vista pura.**_ Il personaggio ottiene vista pura con
+un raggio di 18 metri.
+
+
+
+**Dono delle abilità di combattimento**
+_Talento Dono epico (prerequisito: 19º livello_
+
+_o superiore)_
+
+
+
+Il personaggio ottiene i seguenti benefici.
+
+
+
+_**Incremento dei punteggi di caratteristica.**_
+Il punteggio di una sua caratteristica a scelta
+aumenta di 1, fino a un massimo di 30.
+
+
+
+_**Mira impareggiabile.**_ Quando il tiro per colpire
+del personaggio non va a segno, è possibile colpire
+comunque il bersaglio. Una volta sfruttato questo
+beneficio, non può essere riutilizzato fino all'inizio
+del turno successivo del personaggio.
+
+
+
+**Dono dell'offensiva irresistibile**
+_Talento Dono epico (prerequisito: 19º livello_
+
+_o superiore)_
+
+
+
+Il personaggio ottiene i seguenti benefici.
+
+
+
+_**Incremento dei punteggi di caratteristica.**_
+Il punteggio di una sua caratteristica a scelta
+aumenta di 1, fino a un massimo di 30.
+
+
+
+Il personaggio ottiene i seguenti benefici.
+
+
+
+_**Fato migliorato.**_ Quando il personaggio o un'altra
+creatura entro 18 metri da sé supera o fallisce una
+prova con d20, può tirare 2d4 e applicare il risultato
+ottenuto come bonus o penalità a tale prova con
+d20. Una volta utilizzato questo beneficio, non può
+più utilizzarlo finché non tira per l'iniziativa o non
+completa un riposo breve o lungo.
+
+
+
+_**Incremento dei punteggi di caratteristica.**_
+Il punteggio di una sua caratteristica a scelta
+aumenta di 1, fino a un massimo di 30.
+
+
+
+_**Forma d'ombra.**_ Finché si trova in un'area di
+oscurità o luce fioca, ha resistenza a tutti i tipi
+di danno, tranne quelli psichici e radiosi.
+
+
+
+_**Fusione con le ombre.**_ Finché si trova in un'area
+di oscurità o luce fioca, può diventare invisibile
+come azione bonus. Tale condizione termina
+subito dopo che il personaggio effettua un'azione,
+­un'azione bonus o una reazione.
+
+
+
+**99** System Reference Document 5.2.1
+
+
+
+
+**Dono del richiamo degli incantesimi**
+_Talento Dono epico (prerequisito: 19º livello_
+
+_o superiore, privilegio Incantesimi)_
+
+
+
+**Dono del viaggio dimensionale**
+_Talento Dono epico (prerequisito: 19º livello_
+
+_o superiore)_
+
+
+
+Il personaggio ottiene i seguenti benefici.
+
+
+
+_**Incremento dei punteggi di caratteristica.**_ Il suo
+punteggio di Intelligenza, Saggezza o Carisma
+aumenta di 1, fino a un massimo di 30.
+
+
+
+Il personaggio ottiene i seguenti benefici.
+
+
+
+_**Incremento dei punteggi di caratteristica.**_
+Il punteggio di una sua caratteristica a scelta
+aumenta di 1, fino a un massimo di 30.
+
+
+
+_**Passi fulminei.**_ Subito dopo che il personaggio
+effettua un'azione di Attacco o Magia, può teletrasportarsi di massimo 9 metri in uno spazio libero
+che è in grado di vedere.
+
+
+
+_**Lancio libero.**_ Quando lancia un incantesimo con
+uno slot di livello da 1 a 4, tira 1d4. Se il risultato
+corrisponde al livello dello slot, questo non verrà
+consumato.
+
+
+
+**100** System Reference Document 5.2.1
+
+
+

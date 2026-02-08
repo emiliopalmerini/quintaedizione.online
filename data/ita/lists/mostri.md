@@ -1,8983 +1,12131 @@
-
 # Mostri
 
-## Aboleth
+# **Mostri**
+## **Panoramica della scheda** **delle statistiche**
 
-*Aberrazione Grande, Legale Malvagio*
+Un mostro possiede una scheda delle statistiche
+che contiene le regole necessarie per utilizzarlo
+nel gioco. Tali schede sono suddivise nelle seguenti
+sezioni:
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 150 (20d10 + 40)
-- **Velocità:** 3 m, Nuoto 12 m
-- **Iniziativa**: +3 (13)
+**Nome e dati generali.** Il nome del mostro è seguito
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 21 | +5 | +5 |
-| DES | 9 | -1 | +3 |
-| COS | 15 | +2 | +6 |
-| INT | 18 | +4 | +8 |
-| SAG | 15 | +2 | +6 |
-| CAR | 18 | +4 | +4 |
+dalla sua taglia, dal tipo di creatura (con eventuali
+descrittori) e dall'allineamento.
+**Statistiche di combattimento.** Qui trovi la classe
 
-- **Abilità**: Storia +12, Percezione +10
-- **Sensi**: Scurovisione 36 m; Percezione Passiva 20
-- **Linguaggi**: Linguaggio Profondo; telepatia 36 m
-- **GS** 10 (PE 5,900, o 7,200 nella tana)
+armatura, i punti ferita, la velocità e l'iniziativa.
+**Punteggi di caratteristica.** I punteggi di carat
+teristica, i modificatori di caratteristica e i tiri
+salvezza di un mostro sono elencati qui.
+**Altri dettagli.** Questa sezione contiene le voci
 
-### Tratti
+Sensi, Lingue e GS (grado di sfida). Per alcuni
+mostri sono disponibili ulteriori dettagli, come
+le competenze nelle abilità, le resistenze, le immunità e l'attrezzatura. Se la creatura non possiede
+questi dettagli, le relative voci non sono presenti
+nella scheda.
+**Tratti.** Qui trovi le caratteristiche dei mostri che
 
-***Anfibio.*** L'aboleth può respirare aria e acqua.
+sono attive in qualunque momento o in determinate situazioni.
+**Azioni.** Il mostro può compiere le azioni qui
 
-***Restauro Innaturale.*** Se distrutto, l'aboleth ottiene un nuovo corpo in 5d10 giorni, risorgendo con tutti i suoi Punti Ferita nel Reame Remoto o in un'altra località a scelta del GM.
+riportate in aggiunta a quelle presenti nel capitolo
+"Come si gioca".
+**Azioni bonus.** Questa sezione fornisce le azioni
 
-***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se l'aboleth fallisce un tiro salvezza, può scegliere di riuscire invece.
+bonus di un mostro, se presenti.
+**Reazioni e azioni leggendarie.** Queste sezioni
 
-***Nube di Muco.*** Sott'acqua, l'aboleth è circondato da muco. *Tiro Salvezza su Costituzione*: CD 14, ogni creatura in un'Emanazione di raggio 1,5 m originata dall'aboleth alla fine del turno dell'aboleth. *Fallimento:*  Il bersaglio è maledetto. Finché la maledizione dura, la pelle del bersaglio diventa viscida, il bersaglio può respirare aria e acqua e non può recuperare Punti Ferita a meno che non sia sott'acqua.
-Mentre la creatura maledetta si trova fuori da un corpo d'acqua, subisce 6 (1d12) danni da Acido alla fine di ogni 10 minuti, a meno che non venga applicata umidità alla sua pelle prima che quei minuti siano trascorsi.
+riportano le reazioni e le azioni leggendarie, se
+presenti.
+## **Componenti di una scheda** **delle statistiche**
 
-***Telepatia Esplorativa.*** Se una creatura che l'aboleth può vedere comunica telepaticamente con lui, l'aboleth apprende i desideri più grandi della creatura.
+Le regole di una scheda delle statistiche sono
+descritte nel capitolo "Glossario delle regole" e in
+questa sezione.
+#### **Taglia**
 
-### Azioni
+Un mostro può essere Minuscolo, Piccolo, Medio,
+Grande, Enorme o Mastodontico. Puoi scegliere
+la taglia della creatura da un elenco di opzioni se
+questo è presente. Consulta il capitolo "Come si
+gioca" per avere informazioni sulle taglie.
+#### **Tipo di creatura**
 
-***Attacco Multiplo.*** L'aboleth effettua due attacchi con Tentacolo e usa o Divora Ricordi o Dominare la Mente se disponibili.
+Ogni mostro possiede un descrittore che identifica
+il tipo di creatura. Certi incantesimi, oggetti
+magici, privilegi di classe e altri effetti di gioco
 
-***Tentacolo.*** *Tiro per colpire in mischia:* +9, portata 4,5 m. 12 (2d6 + 5) danni Contundenti. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Afferrato (fuga CD 14) da uno dei quattro tentacoli.
 
-***Divora Ricordi.*** *Tiro Salvezza su Intelligenza*: CD 16, una creatura entro 9 m che sia Affascinata o Afferrata dall'aboleth. *Fallimento:*  10 (3d6) danni Psichici. *Successo:*  Metà danni. *Fallimento o Successo:*  L'aboleth ottiene i ricordi del bersaglio se il bersaglio è un Umanoide ed è ridotto a 0 Punti Ferita da questa azione.
+**289** System Reference Document 5.2.1
 
-***Dominare la Mente (2/Giorno).*** *Tiro Salvezza su Saggezza*: CD 16, una creatura che l'aboleth può vedere entro 9 m. *Fallimento:*  Il bersaglio ha la condizione Affascinato finché l'aboleth non muore o si trova su un piano di esistenza diverso da quello del bersaglio. Mentre è Affascinato, il bersaglio agisce come un alleato dell'aboleth ed è sotto il suo controllo finché si trova entro 18 m da esso. Inoltre, l'aboleth e il bersaglio possono comunicare telepaticamente tra loro a qualsiasi distanza.
-Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e anche dopo ogni 24 ore trascorse ad almeno 1,6 km dall'aboleth, terminando l'effetto su se stesso con un successo.
 
-### Azioni Leggendarie
 
-***Frustata.*** L'aboleth effettua un attacco con Tentacolo.
+interagiscono in modi speciali con le creature di un
+particolare tipo.
 
-***Drenaggio Psichico.*** Se l'aboleth ha almeno una creatura Affascinata o Afferrata, usa Divora Ricordi e recupera 5 (1d10) Punti Ferita.
+Il gioco include le seguenti categorie, a cui non
+è associata alcuna regola intrinseca:
 
-## Drago Nero Adulto
+**Aberrazioni.** Sono esseri completamente alieni,
 
-*Drago (Cromatico) Enorme, Caotico Malvagio*
+come aboleth e manti assassini.
+**Bestie.** Sono creature naturali non umanoidi,
 
-- **Classe Armatura:** 19
-- **Punti Ferita:** 195 (17d12 + 85)
-- **Velocità:** 12 m, Volo 24 m, Nuoto 12 m
-- **Iniziativa**: +6 (16)
+come cavalli e lupi, oltre alla maggior parte degli
+animali giganti.
+**Celestiali.** Sono creature magiche legate ai Piani
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 23 | +6 | +6 |
-| DES | 14 | +2 | +7 |
-| COS | 21 | +5 | +5 |
-| INT | 14 | +2 | +2 |
-| SAG | 13 | +1 | +6 |
-| CAR | 19 | +4 | +4 |
+Superiori, come angeli e pegasi.
+**Costrutti.** Sono esseri creati attraverso la magia,
 
-- **Immunità**: Acido
-- **Abilità**: Percezione +11, Furtività +7
-- **Sensi**: Sensi Ciechi 18 m, Scurovisione 36 m; Percezione Passiva 21
-- **Linguaggi**: Comune, Draconico
-- **GS** 14 (PE 11,500, o 13,000 nella tana)
+come i guardiani protettori e gli omuncoli.
+**Draghi.** Sono creature squamose di origine antica,
 
-### Tratti
+come i draghi rossi e le viverne.
+**Elementali.** Sono esseri provenienti dai Piani Ele
+mentali, come gli efreet e gli elementali dell'acqua.
+**Folletti.** Sono creature legate alla Selva Fatata o alle
 
-***Anfibio.*** Il drago può respirare aria e acqua.
+forze della natura, come le driadi e i goblin.
+**Giganti.** Sono esseri imponenti dalle forme umane,
 
-***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.
+come i giganti del fuoco e i troll.
+**Immondi.** Sono creature legate ai terrificanti Piani
 
-### Azioni
+Inferiori, come i balor e i segugi infernali.
+**Melme.** Sono creature gelatinose, come i cubi gelati
+nosi e i protoplasmi neri.
+**Mostruosità.** Sono creature innaturali dalle strane
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi Lacerare. Può sostituire un attacco con l'uso di Incantesimi per lanciare *Freccia Acida* (versione di livello 3).
+origini, come i mimic e i gli orsigufo.
+**Non morti.** Sono spiriti e morti rianimati, come
 
-***Lacerare.*** *Tiro per colpire in mischia:* +11, portata 3 m. 13 (2d6 + 6) danni Taglienti più 4 (1d8) danni da Acido.
+i fantasmi, i vampiri e gli zombi.
+**Umanoidi.** Sono persone definite dai loro ruoli
 
-***Soffio Acido (Ricarica 5–6).*** *Tiro Salvezza su Destrezza*: CD 18, ogni creatura in una Linea lunga 18 m e larga 1,5 m. *Fallimento:*  54 (12d8) danni da Acido. *Successo:*  Metà danni.
+e professioni, come guerrieri, maghi e pirati.
+­Comprendono membri di diverse specie.
+**Vegetali.** Sono vegetazione senziente e mostri
 
-***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD tiri salvezza 17, +9 ai tiri per colpire con incantesimi):
+­fungini, come i cumuli striscianti e i treant.
 
-- **A Volontà:** *Detect Magic*, *Fear*, *Freccia Acida*
-- **1/giorno ciascuno:** *Speak with Dead*, *Vitriolic Sphere*
+**Descrittori**
+Uno o più descrittori potrebbero comparire tra
+parentesi dopo il tipo di mostro. Tali descrittori
+forniscono ulteriori categorie e non hanno regole
+proprie, ma alcuni effetti di gioco possono fare
+riferimento ad essi.
+#### **Allineamento**
 
-### Azioni Leggendarie
+L'allineamento specificato nella scheda delle statistiche di un mostro è un suggerimento predefinito
+su come interpretare la creatura, ispirato al suo
+ruolo tradizionale nel gioco o al folklore del mondo
+reale. Cambia l'allineamento di un mostro per
+adattarlo alle tue esigenze narrative. L'allineamento
+neutrale, in particolare, è un invito a considerare
+se un individuo propende per uno degli altri
+allineamenti.
 
-***Nube di Insetti.*** *Tiro Salvezza su Destrezza*: CD 17, una creatura che il drago può vedere entro 36 m. *Fallimento:*  22 (4d10) danni da Veleno e il bersaglio ha Svantaggio ai tiri salvezza per mantenere la Concentrazione fino alla fine del suo prossimo turno. *Fallimento o Successo:*  Il drago non può riprendere questa azione fino all'inizio del suo prossimo turno.
+Il capitolo "Creazione del personaggio"
+descrive i nove allineamenti e le creature senza
+allineamento.
 
-***Presenza Spaventosa.*** Il drago usa Incantesimi per lanciare *Fear*. Il drago non può riprendere questa azione fino all'inizio del suo prossimo turno.
 
-***Balzo.*** Il drago può muoversi fino alla metà della sua Velocità e compie un attacco Lacerare.
 
-## Drago Blu Adulto
 
-*Drago (Cromatico) Enorme, Legale Malvagio*
+#### **Classe Armatura**
 
-- **Classe Armatura:** 19
-- **Punti Ferita:** 212 (17d12 + 102)
-- **Velocità:** 12 m, Scavare 9 m, Volo 24 m
-- **Iniziativa**: +4 (14)
+La Classe Armatura (CA) di un mostro include la
+sua armatura naturale, la Destrezza, l'attrezzatura
+e altre difese. Consulta il capitolo "Come si gioca"
+per avere informazioni sulla Classe Armatura.
+#### **Iniziativa**
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 25 | +7 | +7 |
-| DES | 10 | +0 | +5 |
-| COS | 23 | +6 | +6 |
-| INT | 16 | +3 | +3 |
-| SAG | 15 | +2 | +7 |
-| CAR | 20 | +5 | +5 |
+La voce Iniziativa specifica il modificatore di
+iniziativa del mostro seguito dal suo punteggio di
+iniziativa tra parentesi. Usa il modificatore quando
+tiri per determinare l'iniziativa di un mostro.
+Tendenzialmente il modificatore di iniziativa di un
+mostro è pari al suo modificatore di Destrezza, ma
+alcuni mostri hanno modificatori aggiuntivi, come
+il bonus di competenza, applicati a quel numero.
 
-- **Immunità**: Fulmine
-- **Abilità**: Percezione +12, Furtività +5
-- **Sensi**: Sensi Ciechi 18 m, Scurovisione 36 m; Percezione Passiva 22
-- **Linguaggi**: Comune, Draconico
-- **GS** 16 (PE 15,000, o 18,000 nella tana)
+Se non vuoi tirare per l'iniziativa di un mostro,
+usa il punteggio di iniziativa come iniziativa della
+creatura in combattimento. Puoi trovare ulteriori
+dettagli sull'iniziativa nel capitolo "Come si gioca".
+#### **Punti ferita**
 
-### Tratti
+I punti ferita di un mostro sono presentati come
+un numero seguito da parentesi, in cui sono indicati
+i Dadi Vita del mostro e l'eventuale contributo dato
+dalla sua Costituzione. Per determinare i punti
+ferita del mostro in modo casuale, puoi usare il suo
+numero di punti ferita o tirare la formula con i dadi
+tra parentesi. Non è possibile usare entrambi.
 
-***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.
+Di solito la taglia di un mostro determina il dado
+da usare per calcolare i suoi punti ferita, come indicato dalla tabella Dadi Vita in base alla taglia.
 
-### Azioni
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi Lacerare. Può sostituire un attacco con l'uso di Incantesimi per lanciare *Shatter*.
+**Dadi Vita in base alla taglia**
 
-***Lacerare.*** *Tiro per colpire in mischia:* +12, portata 3 m. 16 (2d8 + 7) danni Taglienti più 5 (1d10) danni da Fulmine.
+**Taglia del mostro** **Dado Vita** **Media dei PF per dado**
 
-***Soffio di Fulmine (Ricarica 5–6).*** *Tiro Salvezza su Destrezza*: CD 19, ogni creatura in una Linea lunga 27 m e larga 1,5 m. *Fallimento:*  60 (11d10) danni da Fulmine. *Successo:*  Metà danni.
+Minuscola d4 2½
 
-***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD tiri salvezza 18):
+Piccola d6 3½
 
-- **A Volontà:** *Detect Magic*, *Invisibility*, *Mage Hand*, *Shatter*
-- **1/giorno ciascuno:** *Scrying*, *Sending*
+Media d8 4½
 
-### Azioni Leggendarie
+Grande d10 5½
 
-***Volo Occultato.*** Il drago usa Incantesimi per lanciare *Invisibility* su se stesso e può volare fino a metà della sua Velocità di Volo. Il drago non può riprendere questa azione fino all'inizio del suo prossimo turno.
+Enorme d12 6½
 
-***Boom Sonico.*** Il drago usa Incantesimi per lanciare *Shatter*. Il drago non può riprendere questa azione fino all'inizio del suo prossimo turno.
+Mastodontica d20 10½
 
-***Colpo di Coda.*** Il drago compie un attacco Lacerare.
 
-## Drago di Ottone Adulto
+Il modificatore di Costituzione di un mostro va
+moltiplicato per il numero di Dadi Vita che possiede
+e il risultato si somma ai suoi punti ferita. Per esempio, se un mostro ha un punteggio di Costituzione
+pari a 12 (con un modificatore di +1) e 2d8 Dadi
+Vita, avrà 2d8 + 2 punti ferita (per una media di 11).
 
-*Drago Enorme (Metallico), Caotico Buono*
+Per ulteriori informazioni sui punti ferita, consulta il capitolo "Come si gioca".
+#### **Velocità**
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 172 (15d12 + 75)
-- **Velocità:** 12 m, Scavare 9 m, Volare 24 m
-- **Iniziativa**: +4 (14)
+La voce Velocità specifica la velocità di un mostro.
+Alcune creature hanno una o più delle seguenti
+velocità: nuoto, scalata, scavo, volo. Le regole per
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 23 | +6 | +6 |
-| DES | 10 | +0 | +5 |
-| COS | 21 | +5 | +5 |
-| INT | 14 | +2 | +2 |
-| SAG | 13 | +1 | +6 |
-| CAR | 17 | +3 | +3 |
 
-- **Immunità**: Fuoco  
-- **Abilità**: Storia +7, Percezione +11, Persuasione +8, Furtività +5  
-- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 21  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 13 (PE 10.000, o 11.500 nella tana)
+**290** System Reference Document 5.2.1
 
-### Tratti
 
-***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.
 
-### Azioni
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con (A) Soffio del Sonno o (B) Incantesimi per lanciare *Raggio Rovente*.
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +11, portata 3 m. 17 (2d10 + 6) danni taglienti più 4 (1d8) danni da fuoco.
 
-***Soffio di Fuoco (Ricarica 5-6).*** *TS Des:* CD 18, ogni creatura in una Linea di 18 m per 1,5 m. *Fallimento:* 45 (10d8) danni da fuoco. *Successo:* metà danni.
 
-***Soffio del Sonno.*** *TS Cos:* CD 18, ogni creatura in un Cono di 18 m. *Fallimento:* la creatura ha la condizione Incapacitato fino alla fine del suo prossimo turno, poi ripete il TS. *Secondo Fallimento:* la creatura ha la condizione Incosciente per 10 minuti. L’effetto termina se subisce danni o se una creatura entro 1,5 m usa un’azione per svegliarla.
 
-***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 16):
 
-- **A volontà:** *Individuazione del Magico*, *Illusione Minore*, *Raggio Rovente*, *Mutare Forma*, *Parlare con gli Animali*
-- **1/giorno ciascuno:** *Rilevare i Pensieri*, *Controllare il Meteo*
+Ogni mostro possiede sei punteggi di caratteristica
+con i modificatori dei punteggi di caratteristica
+corrispondenti e dei tiri salvezza. Per ulteriori
+informazioni sui punteggi di caratteristica e sui tiri
+salvezza, consulta il capitolo "Come si gioca".
+#### **Abilità**
 
-### Azioni Leggendarie
+La voce Abilità specifica le eventuali competenze
+del mostro. Per esempio, un mostro molto percettivo e furtivo potrebbe possedere dei bonus alle
+prove di Saggezza (Percezione) e Destrezza (Furtività). Un bonus di abilità è dato dalla somma del
+modificatore di caratteristica di un mostro e del suo
+bonus di competenza. Altri modificatori potrebbero
+essere applicabili.
+#### **Resistenze e vulnerabilità**
 
-***Luce Fiammeggiante.*** Il drago usa Incantesimi per lanciare *Raggio Rovente*.
+Queste voci elencano le resistenze e le vulnerabilità
+di un mostro, se presenti. Consulta il capitolo "Come
+si gioca" per ulteriori informazioni.
+#### **Immunità**
 
-***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.
+Questa voce elenca le eventuali immunità del
+mostro. Se il mostro ha immunità ai danni e alle
+condizioni, i tipi di danno sono elencati prima delle
+condizioni. Consulta il capitolo "Come si gioca" per
+ulteriori informazioni.
+#### **Attrezzatura**
 
-***Sabbie Roventi.*** *TS Des:* CD 16, una creatura visibile entro 36 m. *Fallimento:* 27 (6d8) danni da fuoco e la Velocità è dimezzata fino alla fine del suo prossimo turno. *Fallimento o Successo:* il drago non può riutilizzare questa azione fino all’inizio del suo prossimo turno.
+I mostri hanno competenza nel loro equipaggiamento. Se un mostro possiede equipaggiamento
+che può essere regalato o recuperato, gli oggetti
+sono elencati nella voce Attrezzatura. La scheda
+delle statistiche del mostro potrebbe includere
 
-## Drago di Bronzo Adulto
 
-*Drago Enorme (Metallico), Legale Buono*
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 212 (17d12 + 102)
-- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m
-- **Iniziativa**: +4 (14)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 25 | +7 | +7 |
-| DES | 10 | +0 | +5 |
-| COS | 23 | +6 | +6 |
-| INT | 16 | +3 | +3 |
-| SAG | 15 | +2 | +7 |
-| CAR | 20 | +5 | +5 |
+attività speciali che si verificano quando il mostro
+usa un oggetto, e la scheda potrebbe ignorare le
+regole presenti nel capitolo "Equipaggiamento" per
+quell'oggetto. Quando viene utilizzato da qualcun
+altro, un oggetto recuperabile usa le regole nel
+capitolo "Equipaggiamento", ignorando qualsiasi
+caratteristica speciale presente nella scheda delle
+statistiche.
 
-- **Immunità**: Fulmine  
-- **Abilità**: Intuizione +7, Percezione +12, Furtività +5  
-- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 22  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 15 (PE 13.000, o 15.000 nella tana)
+La voce Attrezzatura non elenca necessariamente
+tutto l'equipaggiamento di un mostro. Ad esempio,
+si presume che un mostro che indossa degli indumenti sia vestito in modo appropriato, e questi abiti
+non sono presenti nella voce.
 
-### Tratti
+L'equipaggiamento menzionato al di fuori della
+voce Attrezzatura è da considerarsi soprannaturale
 
-***Anfibio.*** Il drago può respirare aria e acqua.
+      - altamente specializzato, ed è inutilizzabile quando
+il mostro viene sconfitto.
 
-***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.
+**Munizioni e attacchi a distanza**
+Un mostro che richiede munizioni per effettuare
+attacchi a distanza porta con sé le munizioni
+necessarie.
 
-### Azioni
+**Equipaggiare un mostro con altri oggetti**
+Puoi equipaggiare i mostri con attrezzature aggiuntive a seconda delle tue preferenze, utilizzando
+il capitolo "Equipaggiamento" come ispirazione.
+Puoi decidere quale parte dell'equipaggiamento del
+mostro è recuperabile dopo che la creatura è stata
+uccisa e se una qualsiasi parte di quell'equipaggiamento è ancora utilizzabile.
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con (A) Soffio di Repulsione o (B) Incantesimi per lanciare *Dardo Tracciante* (versione di 2° livello).
+Attenzione a non dare a un mostro oggetti magici
+orientati al combattimento, poiché potrebbero
+alterare il suo grado di sfida. Se fornisci un oggetto
+magico a un mostro, questo può essere in sintonia
+con gli oggetti magici come indicato nel capitolo
+"Equipaggiamento". Un mostro con un descrittore
+dopo il tipo di creatura è considerato un membro di
+quella classe ai fini della sintonizzazione.
+#### **Sensi**
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +12, portata 3 m. 16 (2d8 + 7) danni taglienti più 5 (1d10) danni da fulmine.
+La voce Sensi indica il punteggio di Percezione
+passiva di un mostro, nonché i sensi speciali che
+potrebbe possedere. La Percezione passiva e i sensi
+speciali sono descritti nel "Glossario delle regole".
+#### **Lingue**
 
-***Soffio di Fulmine (Ricarica 5-6).*** *TS Des:* CD 19, ogni creatura in una Linea di 27 m per 1,5 m. *Fallimento:* 55 (10d10) danni da fulmine. *Successo:* metà danni.
+Questa voce elenca le lingue che il mostro può
+utilizzare per comunicare. A volte un mostro è in
+grado di comprendere una lingua ma non riesce
+a usarla per comunicare; in tal caso, ciò viene annotato accanto a questa voce. "Nessuna" indica che
+una creatura non comprende alcuna lingua.
 
-***Soffio di Repulsione.*** *TS For:* CD 19, ogni creatura in un Cono di 9 m. *Fallimento:* la creatura viene spinta fino a 18 m lontano dal drago e cade con la condizione Prono.
+**Telepatia**
+La telepatia è un'abilità magica che consente a una
+creatura di comunicare mentalmente con un'altra
 
-***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 17, +10 a colpire con gli incantesimi):
 
-- **A volontà:** *Individuazione del Magico*, *Dardo Tracciante*, *Mutare Forma*, *Parlare con gli Animali*, *Taumaturgia*  
-- **1/giorno ciascuno:** *Rilevare i Pensieri*, *Respirare Sott’Acqua*
+**291** System Reference Document 5.2.1
 
-### Azioni Leggendarie
 
-***Luce Guida.*** Il drago usa Incantesimi per lanciare *Dardo Tracciante* (livello 2).
 
-***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.
+creatura entro un raggio specificato. Consulta il
+"Glossario delle regole" per ulteriori informazioni.
+#### **Grado di sfida**
 
-***Fragore.*** *TS Cos:* CD 17, ogni creatura in una Sfera di raggio 6 m centrata in un punto visibile entro 27 m. *Fallimento:* 10 (3d6) danni da tuono e condizione Assordato fino alla fine del prossimo turno.
+Il grado di sfida è definito nel "Glossario delle
+regole", mentre le indicazioni sull'uso del GS per
+pianificare i potenziali incontri di combattimento
+sono contenute nel capitolo "Strumenti di gioco".
 
-## Drago di Rame Adulto
+**Punti esperienza**
+Quanti punti esperienza (PE) vale un mostro
+dipende dal suo grado di sfida, come dettagliato
+nella tabella Punti esperienza per grado di sfida.
+I punti PE vengono assegnati per aver sconfitto il
+mostro in combattimento o per averlo neutralizzato
+in altro modo.
 
-*Drago Enorme (Metallico), Caotico Buono*
+Salvo dove specificato diversamente, un mostro
+evocato da un incantesimo o da un'altra abilità
+magica vale i PE indicati nella sua scheda delle
+statistiche.
 
-- **Classe Armatura:** 18  
-- **Punti Ferita:** 184 (16d12 + 80)  
-- **Velocità:** 12 m, Scalare 12 m, Volare 24 m  
-- **Iniziativa**: +5 (15)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 23 | +6 | +6 |
-| DES | 12 | +1 | +6 |
-| COS | 21 | +5 | +5 |
-| INT | 18 | +4 | +4 |
-| SAG | 15 | +2 | +7 |
-| CAR | 18 | +4 | +4 |
+**Punti esperienza per grado di sfida**
 
-- **Immunità**: Acido  
-- **Abilità**: Inganno +9, Percezione +12, Furtività +6  
-- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 22  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 14 (PE 11.500, o 13.000 nella tana)
+**GS** **PE** **GS** **PE**
 
-### Tratti
+0 0 o 10 14 11.500
 
-***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.
+1/8 25 15 13.000
 
-### Azioni
+1/4 50 16 15.000
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con (A) Soffio Rallentante o (B) Incantesimi per lanciare *Puntura Mentale* (versione di 4° livello).
+1/2 100 17 18.000
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +11, portata 3 m. 17 (2d10 + 6) danni taglienti più 4 (1d8) danni da acido.
+1 200 18 20.000
 
-***Soffio Acido (Ricarica 5-6).*** *TS Des:* CD 18, ogni creatura in una Linea di 18 m per 1,5 m. *Fallimento:* 54 (12d8) danni da acido. *Successo:* metà danni.
+2 450 19 22.000
 
-***Soffio Rallentante.*** *TS Cos:* CD 18, ogni creatura in un Cono di 18 m. *Fallimento:* la creatura non può compiere Reazioni; la sua Velocità è dimezzata; e nel suo turno può compiere solo un’Azione o un’Azione Bonus, non entrambe. L’effetto dura fino alla fine del turno successivo.
+3 700 20 25.000
 
-***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 17):
+4 1.100 21 33.000
 
-- **A volontà:** *Individuazione del Magico*, *Puntura Mentale*, *Illusione Minore*, *Mutare Forma*  
-- **1/giorno ciascuno:** *Restaurazione Superiore*, *Immagine Maggiore*
+5 1.800 22 41.000
 
-### Azioni Leggendarie
+6 2.300 23 50.000
 
-***Magia Sghignazzante.*** *TS Car:* CD 17, una creatura visibile entro 27 m. *Fallimento:* 24 (7d6) danni psichici. Fino alla fine del turno successivo, la creatura tira 1d6 ogni volta che effettua una prova di caratteristica o un t
+7 2.900 24 62.000
 
-## Drago d’Oro Adulto
+8 3.900 25 75.000
 
-*Drago Enorme (Metallico), Legale Buono*
+9 5.000 26 90.000
 
-- **Classe Armatura:** 19  
-- **Punti Ferita:** 243 (18d12 + 126)  
-- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m  
-- **Iniziativa**: +6 (16)
+10 5.900 27 105.000
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 27 | +8 | +8 |
-| DES | 14 | +2 | +8 |
-| COS | 25 | +7 | +7 |
-| INT | 16 | +3 | +3 |
-| SAG | 15 | +2 | +8 |
-| CAR | 24 | +7 | +7 |
+11 7.200 28 120.000
 
-- **Immunità**: Fuoco  
-- **Abilità**: Intuizione +8, Percezione +14, Persuasione +13, Furtività +8  
-- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 24  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 17 (PE 18.000, o 20.000 nella tana)
+12 8.400 29 135.000
 
-### Tratti
+13 10.000 30 155.000
 
-***Anfibio.*** Il drago può respirare aria e acqua.  
 
-***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
+**Bonus di competenza**
+Il bonus di competenza (BC) di un mostro è
+determinato dal suo GS, come indicato nella tabella
+Bonus di competenza per grado di sfida, e si riflette
+nei tiri salvezza, nelle abilità e in altre statistiche in
+cui l'attitudine eccezionale del mostro è un fattore.
 
-### Azioni
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con (A) Incantesimi per lanciare *Dardo Tracciante* (versione di 2° livello) o (B) Soffio Indebolente.  
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +14, portata 3 m. 17 (2d8 + 8) danni taglienti più 4 (1d8) danni da fuoco.  
 
-***Soffio di Fuoco (Ricarica 5-6).*** *TS Des:* CD 21, ogni creatura in un Cono di 18 m. *Fallimento:* 66 (12d10) danni da fuoco. *Successo:* metà danni.  
+**Bonus di competenza per grado di sfida**
 
-***Soffio Indebolente.*** *TS For:* CD 21, ogni creatura non già affetta da questo soffio in un Cono di 18 m. *Fallimento:* la creatura ha Svantaggio ai Test su d20 basati sulla Forza e sottrae 3 (1d6) ai suoi tiri danno. Ripete il TS alla fine di ogni turno, terminando l’effetto con un successo. Dopo 1 minuto, riesce automaticamente.  
+**GS** **BC** **GS** **BC**
 
-***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 21, +13 a colpire con gli incantesimi):  
+0–4 +2 17–20 +6
 
-- **A volontà:** *Individuazione del Magico*, *Dardo Tracciante*, *Mutare Forma*  
-- **1/giorno ciascuno:** *Colonna di Fiamme*, *Zona di Verità*  
+5–8 +3 21–24 +7
 
-### Azioni Leggendarie
+9–12 +4 25–28 +8
 
-***Bandire.*** *TS Car:* CD 21, una creatura visibile entro 36 m. *Fallimento:* 10 (3d6) danni da forza e condizione Incapacitato; inoltre viene trasportata in un semipiano innocuo fino all’inizio del prossimo turno del drago, quando riappare in uno spazio non occupato a scelta del drago entro 36 m. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
+13–16 +5 29–30 +9
 
-***Luce Guida.*** Il drago usa Incantesimi per lanciare *Dardo Tracciante* (livello 2).  
+#### **Tratti**
 
-***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
+I tratti di un mostro, se presenti, sono caratteristiche sempre attive o attive solo in certe situazioni.
+#### **Azioni**
 
-## Drago Verde Adulto
+Un mostro può eseguire le azioni di questa sezione
 
-*Drago Enorme (Cromatico), Legale Malvagio*
+- compiere una delle azioni disponibili per tutte le
+creature, come descritto nel capitolo "Come si gioca".
 
-- **Classe Armatura:** 19  
-- **Punti Ferita:** 207 (18d12 + 90)  
-- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m  
-- **Iniziativa**: +5 (15)
+**Informazioni sull'attacco**
+La voce che descrive l'attacco di un mostro fornisce
+varie informazioni, a partire dal tipo di attacco
+(in mischia o a distanza), il bonus al tiro per colpire,
+la sua portata o gittata, e le conseguenze se il colpo
+va a segno. Un attacco è inteso contro un singolo
+bersaglio, a meno che la voce non indichi altrimenti.
+Consulta i capitoli "Come si gioca" e "Incantesimi"
+per scoprire i dettagli sui vari tipi di attacco.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 23 | +6 | +6 |
-| DES | 12 | +1 | +6 |
-| COS | 21 | +5 | +5 |
-| INT | 18 | +4 | +4 |
-| SAG | 15 | +2 | +7 |
-| CAR | 18 | +4 | +4 |
 
-- **Immunità**: Veleno; Avvelenato  
-- **Abilità**: Inganno +9, Percezione +12, Persuasione +9, Furtività +6  
-- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 22  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 15 (PE 13.000, o 15.000 nella tana)
 
-### Tratti
+_**Colpito.**_ Gli eventuali danni inflitti o altri effetti
+che si verificano quando un attacco colpisce un
+bersaglio sono descritti dopo la dicitura _Colpito:_ .
 
-***Anfibio.*** Il drago può respirare aria e acqua.  
 
-***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
-### Azioni
+_**Mancato.**_ Se un attacco prevede un effetto che si
+verifica in caso di colpo mancato, questa informazione è presentata alla voce _Mancato:_ .
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con Incantesimi per lanciare *Puntura Mentale* (versione di 3° livello).  
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +11, portata 3 m. 15 (2d8 + 6) danni taglienti più 7 (2d6) danni da veleno.  
 
-***Soffio Velenoso (Ricarica 5-6).*** *TS Cos:* CD 18, ogni creatura in un Cono di 18 m. *Fallimento:* 56 (16d6) danni da veleno. *Successo:* metà danni.  
+_**Colpito o mancato.**_ Se un attacco ha un effetto che
+si verifica indipendentemente dal fatto che colpisca
 
-***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 17):  
+- meno il bersaglio, questa informazione segue
+la dicitura _Colpito o mancato:_ .
 
-- **A volontà:** *Individuazione del Magico*, *Puntura Mentale*  
-- **1/giorno ciascuno:** *Geas*  
 
-### Azioni Leggendarie
 
-***Invasione Mentale.*** Il drago usa Incantesimi per lanciare *Puntura Mentale* (livello 3).  
+**Multiattacco**
+Alcune creature possono effettuare più di un
+attacco quando effettuano l'azione di Attacco e
+presentano la voce Multiattacco nella sezione
+Azioni della loro scheda delle statistiche. Tale voce
+descrive in dettaglio gli attacchi che una creatura
+può effettuare e le abilità aggiuntive che può utilizzare come parte dell'azione di Attacco.
 
-***Miasma Nocivo.*** *TS Cos:* CD 17, ogni creatura in una Sfera di raggio 6 m centrata in un punto visibile entro 27 m. *Fallimento:* 7 (2d6) danni da veleno e penalità -2 alla CA fino alla fine del suo prossimo turno. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
+**Incantesimi**
+Se un mostro può lanciare incantesimi, la sua scheda
+delle statistiche elenca gli incantesimi e fornisce la
+caratteristica da incantatore della creatura, la CD
+del tiro salvezza sull'incantesimo (se gli incantesimi
+richiedono un tiro salvezza) e il bonus di attacco
+dell'incantesimo (se gli incantesimi richiedono un
+tiro per colpire). Salvo dove specificato diversamente, un incantesimo di livello pari o superiore al
+1º viene sempre lanciato al livello più basso possibile
+e non può essere lanciato a un livello superiore.
 
-***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
+L'incantesimo di un mostro può essere soggetto
+ad alcune regole o restrizioni speciali. Ad esempio,
+una megera verde può lanciare l'incantesimo _invisi-_
+_bilità_, ma possiede una restrizione "solo se stessa",
+il che significa che l'incantesimo ha effetto solo sulla
+megera.
 
-## Drago Rosso Adulto
+_**Componenti dell'incantesimo.**_ Il tratto Incantesimo indica se l'incantesimo del mostro ignora
+la necessità di alcune componenti per lanciarlo.
+Se sono richieste componenti dell'incantesimo,
+descrivi l'uso di componenti verbali, somatiche o
+materiali da parte del mostro per segnalare ai personaggi che sta lanciando un incantesimo. Un mostro
+possiede le componenti materiali se sono richieste.
 
-*Drago Enorme (Cromatico), Caotico Malvagio*
+_**Tempi di lancio di 1 minuto o più.**_ Se un incantesimo ha un tempo di lancio di 1 minuto o più, ma è
+elencato in un'azione da incantatore, il mostro non
+lancia l'incantesimo in una sola azione, a meno che
+la descrizione dell'azione non indichi diversamente;
+il mostro deve effettuare l'azione di Magia in ogni
+suo turno e mantenere la concentrazione per lanciare l'incantesimo, come descritto nel "Glossario
+delle regole".
+#### **Azione bonus**
 
-- **Classe Armatura:** 19  
-- **Punti Ferita:** 256 (19d12 + 133)  
-- **Velocità:** 12 m, Scalare 12 m, Volare 24 m  
-- **Iniziativa**: +4 (14)
+Se un mostro ha delle azioni bonus da effettuare,
+sono indicate in questa sezione. Consulta il capitolo
+"Come si gioca" per ulteriori informazioni sulle
+azioni bonus.
+#### **Reazioni**
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 27 | +8 | +8 |
-| DES | 10 | +0 | +6 |
-| COS | 25 | +7 | +7 |
-| INT | 16 | +3 | +3 |
-| SAG | 13 | +1 | +7 |
-| CAR | 23 | +6 | +6 |
+Se il mostro ha delle reazioni, sono elencate in
+questa sezione insieme ai loro fattori scatenanti.
+Consulta il capitolo "Come si gioca" per ulteriori
+informazioni sulle reazioni.
 
-- **Immunità**: Fuoco  
-- **Abilità**: Percezione +13, Furtività +6  
-- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 23  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 17 (PE 18.000, o 20.000 nella tana)
 
-### Tratti
 
-***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
+**Informazioni sul tiro salvezza**
+Se un effetto costringe a effettuare un tiro salvezza,
+l'effetto indica il tipo di tiro salvezza richiesto
+e fornisce la CD dell'incantesimo, una descrizione
+di quali creature effettuano il tiro, e le conseguenze
+di un tiro salvezza riuscito o fallito.
 
-### Azioni
+La dicitura "danni dimezzati" con un tiro salvezza
+riuscito significa che il bersaglio subisce la metà dei
+danni (arrotondati per difetto) dei bersagli che falliscono il tiro salvezza, ignorando anche tutte le altre
+componenti dell'effetto.
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con Incantesimi per lanciare *Raggio Rovente*.  
+**Informazioni sui danni**
+La scheda delle statistiche, per ogni istanza di
+danno, di solito fornisce sia un numero sia una
+formula che utilizza i dadi. Ad esempio, un attacco
+potrebbe infliggere 4 (1d4 + 2) danni se il colpo va
+a segno. Sta a te decidere se usare il numero o la
+formula di dadi tra parentesi. Non è possibile usare
+entrambi.
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +14, portata 3 m. 13 (1d10 + 8) danni taglienti più 5 (2d4) danni da fuoco.  
 
-***Soffio di Fuoco (Ricarica 5-6).*** *TS Des:* CD 21, ogni creatura in un Cono di 18 m. *Fallimento:* 59 (17d6) danni da fuoco. *Successo:* metà danni.  
+**292** System Reference Document 5.2.1
 
-***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 20, +12 a colpire con incantesimi):  
 
-- **A volontà:** *Comando*, *Individuazione del Magico*, *Raggio Rovente*  
-- **1/giorno ciascuno:** *Palla di Fuoco*  
 
-### Azioni Leggendarie
 
-***Presenza Imponente.*** Il drago usa Incantesimi per lanciare *Comando* (livello 2). Non può riusare questa azione fino all’inizio del suo prossimo turno.  
+#### **Azioni leggendarie**
 
-***Raggi Fiammeggianti.*** Il drago usa Incantesimi per lanciare *Raggio Rovente*. Non può riusare questa azione fino all’inizio del suo prossimo turno.  
+Se il mostro ha delle azioni leggendarie, sono
+elencate in questa sezione. Un'azione leggendaria è
+­un'azione che un mostro può compiere immediatamente dopo il turno di un'altra creatura. Solo una di
+queste azioni può essere intrapresa alla volta e solo
+dopo la fine del turno di un'altra creatura. Il mostro
+non può effettuare un'azione leggendaria se è
+incapacitato o altrimenti impossibilitato a compiere
+azioni.
 
-***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
+Inoltre, possiede un numero limitato di utilizzi
+delle azioni leggendarie che viene specificato nella
+scheda delle statistiche. Il mostro consuma un
+utilizzo ogni volta che compie un'azione leggendaria
+e recupera tutti gli utilizzi consumati all'inizio di
+ogni suo turno.
+#### **Uso limitato**
 
-## Drago d’Argento Adulto
+Alcune parti di una scheda delle statistiche hanno
+restrizioni sul numero di volte in cui possono essere
+utilizzate. Ecco i modi più comuni in cui l'utilizzo
+è limitato:
 
-*Drago Enorme (Metallico), Legale Buono*
+**X/giorno.** La voce della scheda delle statistiche che
 
-- **Classe Armatura:** 19  
-- **Punti Ferita:** 216 (16d12 + 112)  
-- **Velocità:** 12 m, Volare 24 m  
-- **Iniziativa**: +4 (14)
+presenta questa dicitura può essere utilizzata un
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 27 | +8 | +8 |
-| DES | 10 | +0 | +5 |
-| COS | 25 | +7 | +7 |
-| INT | 16 | +3 | +3 |
-| SAG | 13 | +1 | +6 |
-| CAR | 22 | +6 | +6 |
 
-- **Immunità**: Freddo  
-- **Abilità**: Storia +8, Percezione +11, Furtività +5  
-- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 21  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 16 (PE 15.000, o 18.000 nella tana)
+**293** System Reference Document 5.2.1
 
-### Tratti
 
-***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
-### Azioni
+determinato numero di volte (rappresentato da
+X); ciò significa che un mostro deve terminare
+un riposo lungo per recuperare gli utilizzi consumati. Per esempio, una reazione seguita dalla
+scritta "­1/giorno" può essere effettuata una volta
+sola e il mostro deve terminare un riposo lungo
+per poterla compiere di nuovo.
+**Ricarica X–Y.** Questa dicitura indica che un mostro
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con (A) Soffio Paralizzante o (B) Incantesimi per lanciare *Pugnale di Ghiaccio*.  
+può utilizzare quella voce della scheda delle statistiche una sola volta. All'inizio di ogni turno del
+mostro, tira 1d6. Se il tiro rientra nell'intervallo
+di numeri indicato nella dicitura (rappresentato
+da X–Y), il mostro riacquista l'utilizzo di quella
+parte, che si ricarica anche al termine di un riposo
+breve o lungo. Ad esempio, un'azione seguita dalla
+dicitura "ricarica 5–6" può essere effettuata una
+volta; dopodiché, il mostro recupera l'utilizzo di
+quell'azione all'inizio del proprio turno se ottiene
+un risultato di 5 o 6 al tiro di 1d6.
+**Ricarica dopo un riposo breve o lungo.** Questa
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +13, portata 3 m. 17 (2d8 + 8) danni taglienti più 4 (1d8) danni da freddo.  
+dicitura indica che il mostro può usare la voce
+della scheda delle statistiche a cui si riferisce una
+volta e deve poi terminare un riposo breve o lungo
+per usarla di nuovo.
 
-***Soffio Gelido (Ricarica 5-6).*** *TS Cos:* CD 20, ogni creatura in un Cono di 18 m. *Fallimento:* 54 (12d8) danni da freddo. *Successo:* metà danni.  
 
-***Soffio Paralizzante.*** *TS Cos:* CD 20, ogni creatura in un Cono di 18 m. *Primo Fallimento:* condizione Incapacitato fino alla fine del turno successivo, quando ripete il TS. *Secondo Fallimento:* condizione Paralizzato; ripete il TS alla fine di ciascun turno, terminando l’effetto con un successo. Dopo 1 minuto riesce automaticamente.  
 
-***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 19, +11 a colpire con incantesimi):  
 
-- **A volontà:** *Individuazione del Magico*, *Blocca Mostri*, *Pugnale di Ghiaccio*, *Mutare Forma*  
-- **1/giorno ciascuno:** *Tempesta di Ghiaccio*, *Zona di Verità*  
+# **Mostri A–Z**
+## **Aboleth**
+### **Aboleth**
 
-### Azioni Leggendarie
+_Aberrazione Grande, legale malvagio_
 
-***Gelo.*** Il drago usa Incantesimi per lanciare *Blocca Mostri*. Non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Gelo Tagliente.*** *TS Des:* CD 19, ogni creatura in una Linea di 18 m per 3 m. *Fallimento:* 14 (4d6) danni da freddo e spinta fino a 9 m lontano dal drago. *Successo:* metà danni. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
+**CA** 17 **Iniziativa** +7 (17)
+**PF** 150 (20d10 + 40)
+**Velocità** 3 m, nuoto 12 m
 
-***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
 
-## Drago Bianco Adulto
+**Abilità** Percezione +10, Storia +12
+**Sensi** Percezione passiva 20; scurovisione 36 m
+**Lingue** Gergo delle Profondità; telepatia 36 m
+**GS** 10 (PE 5.900, o 7.200 nella tana; BC +4)
 
-*Drago Enorme (Cromatico), Caotico Malvagio*
+Tratti
 
-- **Classe Armatura:** 18  
-- **Punti Ferita:** 200 (16d12 + 96)  
-- **Velocità:** 12 m, Scavare 9 m, Volare 24 m, Nuotare 12 m  
-- **Iniziativa**: +4 (14)
+_**Anfibio.**_ L'aboleth può respirare in aria e in acqua.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 22 | +6 | +6 |
-| DES | 10 | +0 | +5 |
-| COS | 22 | +6 | +6 |
-| INT | 8  | -1 | -1 |
-| SAG | 12 | +1 | +6 |
-| CAR | 12 | +1 | +1 |
+_**Nube di muco.**_ Finché si trova sott'acqua, l'aboleth
+è circondato da uno strato di muco. _Tiro salvezza su_
+_Costituzione:_ CD 14, tutte le creature in un'emanazione
+di 1,5 metri di cui l'aboleth è il punto di origine, alla
+fine del turno dell'aboleth. _Fallimento:_ il bersaglio è
+maledetto. Finché la maledizione perdura, la pelle del
+bersaglio diventa viscida, il bersaglio può respirare in
+aria e in acqua e non può recuperare punti ferita finché
+si trova sott'acqua.
+_**Resistenza leggendaria (3/giorno o 4/giorno nella**_
+_**tana).**_ Se l'aboleth fallisce un tiro salvezza, può
+­scegliere di superarlo comunque.
 
-- **Immunità**: Freddo  
-- **Abilità**: Percezione +11, Furtività +5  
-- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 21  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 13 (PE 10.000, o 11.500 nella tana)
+_**Ristoro occulto.**_ Se viene annientato, l'aboleth ottiene
+un nuovo corpo dopo 5d10 giorni, tornando in vita con
+tutti i suoi punti ferita nel Reame Remoto o in un altro
+luogo a scelta del GM.
 
-### Tratti
+_**Sonda telepatica.**_ Se una creatura che l'aboleth è in
+grado di vedere comunica telepaticamente con l'aboleth, quest'ultimo apprende i più grandi desideri della
+creatura.
 
-***Camminare sul Ghiaccio.*** Il drago può muoversi e arrampicarsi su superfici ghiacciate senza effettuare prove di caratteristica. Inoltre, il Terreno Difficile composto da ghiaccio o neve non gli costa movimento extra.  
+Finché la creatura maledetta si trova fuori da uno
+specchio d'acqua, subisce 6 (1d12) danni da acido a
+intervalli di 10 minuti, a meno che la sua pelle non
+venga inumidita prima che siano trascorsi i 10 minuti.
 
-***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
+Azioni
 
-### Azioni
+_**Multiattacco.**_ L'aboleth effettua due attacchi Tentacolo
+e usa Consuma ricordi o Domina mente, se disponibili.
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare.  
+_**Tentacolo.**_ _Tiro per colpire in mischia:_ +9, portata
+4,5 m. _Colpito:_ 12 (2d6 + 5) danni contundenti. Se il
+bersaglio è una creatura di taglia Grande o inferiore,
+è afferrato (CD 14 per sfuggire) da uno dei quattro
+tentacoli.
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +11, portata 3 m. 13 (2d6 + 6) danni taglienti più 4 (1d8) danni da freddo.  
 
-***Soffio Gelido (Ricarica 5-6).*** *TS Cos:* CD 19, ogni creatura in un Cono di 18 m. *Fallimento:* 54 (12d8) danni da freddo. *Successo:* metà danni.  
+**294** System Reference Document 5.2.1
 
-### Azioni Leggendarie
 
-***Esplosione Gelida.*** *TS Cos:* CD 14, ogni creatura in una Sfera di raggio 9 m centrata in un punto visibile entro 36 m. *Fallimento:* 7 (2d6) danni da freddo e Velocità 0 fino alla fine del turno successivo del bersaglio. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
+_**Consuma ricordi.**_ _Tiro salvezza su Intelligenza:_ CD 16,
+una creatura entro 9 metri affascinata o afferrata
+­dall'aboleth. _Fallimento:_ 10 (3d6) danni psichici. _Suc-_
+_cesso:_ danni dimezzati. _Fallimento o successo:_ l'aboleth
+acquisisce i ricordi del bersaglio se questo è un umanoide e viene ridotto a 0 punti ferita da questa azione.
 
-***Presenza Spaventosa.*** Il drago lancia *Paura*, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 14). Non può riusare questa azione fino all’inizio del suo prossimo turno.  
+_**Domina mente (2/giorno).**_ _Tiro salvezza su Saggezza:_
+CD 16, una creatura che l'aboleth è in grado di vedere
+entro 9 metri. _Fallimento:_ la creatura è affascinata finché l'aboleth muore o si sposta su un piano di esistenza
+diverso da quello del bersaglio. Finché è affascinato,
+il bersaglio agisce come un alleato dell'aboleth ed è
+sotto il suo controllo finché si trova entro 18 metri da
+esso. Inoltre, l'aboleth e il bersaglio possono comunicare telepaticamente tra loro a qualsiasi distanza.
 
-## Elementale dell’Aria
+Il bersaglio ripete il tiro salvezza ogni volta che subisce danni e ogni volta che trascorre 24 ore ad almeno
+1,5 chilometri di distanza dall'aboleth e, se lo supera,
+l'effetto svanisce.
 
-*Elementale Grande, Neutrale*
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, l'aboleth può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. L'aboleth_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
-- **Classe Armatura:** 15  
-- **Punti Ferita:** 90 (12d10 + 24)  
-- **Velocità:** 3 m, Volare 27 m (fluttuare)  
-- **Iniziativa**: +5 (15)
+_**Risucchio psichico.**_ Se l'aboleth ha affascinato o
+afferrato almeno una creatura, utilizza Consuma ricordi
+e recupera 5 (1d10) punti ferita.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 14 | +2 | +2 |
-| DES | 20 | +5 | +5 |
-| COS | 14 | +2 | +2 |
-| INT | 6  | -2 | -2 |
-| SAG | 10 | +0 | +0 |
-| CAR | 6  | -2 | -2 |
+_**Sferzata.**_ L'aboleth effettua un attacco Tentacolo.
+## **Ameba paglierina**
+### **Ameba paglierina**
 
-- **Resistenze**: Contundenti, Fulmine, Perforanti, Taglienti  
-- **Immunità**: Veleno, Tuono; Affaticato, Afferato, Paralizzato, Pietrificato, Avvelenato, Prono, Immobilizzato, Incosciente  
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 10  
-- **Linguaggi**: Primordiale (Auran)  
-- **GS** 5 (PE 1.800; PB +3)
+_Melma Grande, senza allineamento_
 
-### Tratti
 
-***Forma Aerea.*** L’elementale può entrare nello spazio di una creatura e fermarsi lì. Può muoversi attraverso uno spazio largo 2,5 cm senza dover spendere movimento extra.  
+**CA** 8 **Iniziativa** −2 (8)
+**PF** 52 (7d10 + 14)
+**Velocità** 6 m, scalata 6 m
 
-### Azioni
 
-***Attacco Multiplo.*** L’elementale effettua due attacchi di Schianto Tonante.  
+**Resistenze** acido
+**Immunità** fulmine, tagliente; affascinato, afferrato,
 
-***Schianto Tonante.*** *Tiro per colpire in mischia:* +8, portata 3 m. 14 (2d8 + 5) danni da tuono.  
+assordato, indebolimento, prono, spaventato, trattenuto
+**Sensi** Percezione passiva 8; vista cieca 18 m
+**Lingue** nessuna
+**GS** 2 (PE 450; BC +2)
 
-***Turbine (Ricarica 4-6).*** *TS For:* CD 13, una creatura Media o più piccola nello spazio dell’elementale. *Fallimento:* 24 (4d10 + 2) danni da tuono, la creatura viene spinta fino a 6 m lontano dall’elementale e cade con la condizione Prono. *Successo:* metà danni.  
+Tratti
 
-## Drago Nero Antico
+_**Amorfo.**_ L'ameba può muoversi attraverso uno spazio
+stretto fino a 2,5 centimetri senza consumare movimento extra per farlo.
 
-*Drago Mastodontico (Cromatico), Caotico Malvagio*
+_**Movimenti del ragno.**_ L'ameba può scalare le superfici
+difficili, compresi i soffitti, senza effettuare una prova di
+caratteristica.
 
-- **Classe Armatura:** 22  
-- **Punti Ferita:** 367 (21d20 + 147)  
-- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m  
-- **Iniziativa**: +6 (16)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 27 | +8 | +8 |
-| DES | 14 | +2 | +9 |
-| COS | 25 | +7 | +7 |
-| INT | 16 | +3 | +3 |
-| SAG | 15 | +2 | +9 |
-| CAR | 22 | +6 | +6 |
 
-- **Immunità**: Acido  
-- **Abilità**: Percezione +16, Furtività +9  
-- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 26  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 21 (PE 33.000, o 41.000 nella tana)
 
-### Tratti
+Azioni
 
-***Anfibio.*** Il drago può respirare aria e acqua.  
+_**Pseudopode.**_ _Tiro per colpire in mischia:_ +4, portata
+1,5 m _Colpito:_ 12 (3d6 + 2) danni da acido.
 
-***Resistenza Leggendaria (4/Giorno, o 5/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
+Reazioni
 
-### Azioni
+_**Scindersi.**_ _Attivazione:_ l'ameba, finché è di taglia Grande
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con Incantesimi per lanciare *Freccia Acida* (versione di 4° livello).  
+      - Media e ha 10 punti ferita o più, diventa sanguinante o
+è soggetta a danni da fulmine o taglienti. _Esito:_ l'ameba
+paglierina si scinde in due nuove **amebe paglierine** .
+Ogni nuova ameba è inferiore di una taglia rispetto
+all'ameba originale, e agisce di propria iniziativa. I punti
+ferita dell'ameba originale sono divisi equamente tra le
+due nuove amebe (arrotondati per difetto).
+## **Ankheg**
+### **Ankheg**
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +15, portata 4,5 m. 17 (2d8 + 8) danni taglienti più 9 (2d8) danni da acido.  
+_Mostruosità Grande, senza allineamento_
 
-***Soffio Acido (Ricarica 5-6).*** *TS Des:* CD 22, ogni creatura in una Linea di 27 m per 3 m. *Fallimento:* 67 (15d8) danni da acido. *Successo:* metà danni.  
 
-***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 21, +13 a colpire con incantesimi):  
+**CA** 14 **Iniziativa** +0 (10)
+**PF** 45 (6d10 + 12)
+**Velocità** 9 m, scavo 3 m
 
-- **A volontà:** *Individuazione del Magico*, *Paura*, *Freccia Acida*  
-- **1/giorno ciascuno:** *Creare Non Morti*, *Parlare con i Morti*, *Sfera Vitriolica*  
 
-### Azioni Leggendarie
+**Sensi** Percezione passiva 11; percezione tellurica 18 m;
 
-***Nube d’Insetti.*** *TS Des:* CD 21, una creatura visibile entro 36 m. *Fallimento:* 33 (6d10) danni da veleno e Svantaggio ai TS per mantenere la Concentrazione fino alla fine del turno successivo. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
+scurovisione 18 m
+**Lingue** nessuna
+**GS** 2 (PE 450; BC +2)
 
-***Presenza Spaventosa.*** Il drago usa Incantesimi per lanciare *Paura*. Non può riusare questa azione fino all’inizio del suo prossimo turno.  
+Tratti
 
-***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
+_**Scavatore di tunnel.**_ L'ankheg può scavare nella roccia
+a metà della sua velocità di scavo e lascia dietro di sé
+un tunnel del diametro di 3 metri.
 
-## Drago Blu Antico
+Azioni
 
-*Drago Mastodontico (Cromatico), Legale Malvagio*
+_**Morso.**_ _Tiro per colpire in mischia:_ +5 (con vantaggio
+se il bersaglio è afferrato dall'ankheg), portata 1,5 m.
+_Colpito:_ 10 (2d6 + 3) danni taglienti più 3 (1d6) danni
+da acido. Se il bersaglio è una creatura di taglia Grande
 
-- **Classe Armatura:** 22  
-- **Punti Ferita:** 481 (26d20 + 208)  
-- **Velocità:** 12 m, Scavare 12 m, Volare 24 m  
-- **Iniziativa**: +4 (14)
+      - inferiore, è afferrato (CD 13 per sfuggire).
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 29 | +9 | +9 |
-| DES | 10 | +0 | +7 |
-| COS | 27 | +8 | +8 |
-| INT | 18 | +4 | +4 |
-| SAG | 17 | +3 | +10 |
-| CAR | 25 | +7 | +7 |
+_**Spruzzo acido (ricarica 6).**_ _Tiro salvezza su Destrezza:_
+CD 12, tutte le creature in una linea lunga 9 metri
+e larga 1,5 metri. _Fallimento:_ 14 (4d6) danni da acido.
+_Successo:_ danni dimezzati.
+## **Arpia**
+### **Arpia**
 
-- **Immunità**: Fulmine  
-- **Abilità**: Percezione +17, Furtività +7  
-- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 27  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 23 (PE 50.000, o 62.000 nella tana)
+_Mostruosità Media, caotico malvagio_
 
-### Tratti
 
-***Resistenza Leggendaria (4/Giorno, o 5/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 38 (7d8 + 7)
+**Velocità** 6 m, volo 12 m
 
-### Azioni
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con Incantesimi per lanciare *Frantumare* (versione di 3° livello).  
+**295** System Reference Document 5.2.1
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +16, portata 4,5 m. 18 (2d8 + 9) danni taglienti più 11 (2d10) danni da fulmine.  
 
-***Soffio di Fulmine (Ricarica 5-6).*** *TS Des:* CD 23, ogni creatura in una Linea di 36 m per 3 m. *Fallimento:* 88 (16d10) danni da fulmine. *Successo:* metà danni.  
 
-***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 22):  
+**Sensi** Percezione passiva 10
+**Lingue** Comune
+**GS** 1 (PE 200; BC +2)
 
-- **A volontà:** *Individuazione del Magico*, *Invisibilità*, *Mano Magica*, *Frantumare*  
-- **1/giorno ciascuno:** *Chiaroveggenza*, *Inviare*  
+Azioni
 
-### Azioni Leggendarie
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +3, portata 1,5 m.
+_Colpito:_ 6 (2d4 + 1) danni taglienti.
 
-***Volo Occultato.*** Il drago usa Incantesimi per lanciare *Invisibilità* su se stesso e può volare fino a metà della sua Velocità di volo. Non può riusare questa azione fino all’inizio del suo prossimo turno.  
+_**Canto seducente.**_ L'arpia intona un canto melodioso,
+che dura finché non termina la sua concentrazione su
+di esso. _Tiro salvezza su Saggezza:_ CD 11, ogni umanoide e gigante in un'emanazione di 90 metri di cui
+l'arpia è il punto d'origine quando comincia la canzone.
+_Fallimento:_ il bersaglio è affascinato finché la canzone
+non finisce e ripete il tiro salvezza al termine di ogni
+suo turno. Mentre è affascinato, il bersaglio è incapacitato e ignora il Canto seducente delle altre arpie.
+Se si trova a più di 1,5 metri di distanza ­dall'arpia, deve
+muoversi nel proprio turno verso di essa seguendo
+il percorso più diretto e cercando di giungere entro
+1,5 metri. Il bersaglio non evita gli attacchi di opportunità, ma prima di muoversi su un terreno pericoloso
+(come per esempio un lago di lava o una fossa) e
+qualora subisca danni da una fonte diversa dall'arpia,
+ripete il tiro salvezza. _Successo:_ il bersaglio è immune
+al Canto seducente di questa arpia per 24 ore.
+## **Artiglio strisciante**
+### **Orda di artigli striscianti**
 
-***Boom Sonico.*** Il drago usa Incantesimi per lanciare *Frantumare* (livello 3). Non può riusare questa azione fino all’inizio del suo prossimo turno.  
+_Sciame Medio di non morti Minuscoli, neutrale malvagio_
 
-***Colpo di Coda.*** Il drago effettua un attacco di Dilaniare.  
 
-## Drago d’Ottone Antico
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 49 (11d8)
+**Velocità** 9 m, scalata 9 m
 
-*Drago Mastodontico (Metallico), Caotico Buono*
 
-- **Classe Armatura:** 20  
-- **Punti Ferita:** 332 (19d20 + 133)  
-- **Velocità:** 12 m, Scavare 12 m, Volare 24 m  
-- **Iniziativa**: +4 (14)
+**Resistenze** contundente, perforante, tagliente
+**Immunità** necrotico, veleno; affascinato, afferrato,
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 27 | +8 | +8 |
-| DES | 10 | +0 | +6 |
-| COS | 25 | +7 | +7 |
-| INT | 16 | +3 | +3 |
-| SAG | 15 | +2 | +8 |
-| CAR | 22 | +6 | +6 |
+avvelenato, incapacitato, indebolimento, paralizzato,
+pietrificato, prono, spaventato, stordito, trattenuto
+**Sensi** Percezione passiva 10; vista cieca 9 m
+**Lingue** capisce il Comune ma non lo parla
+**GS** 3 (PE 700; BC +2)
 
-- **Immunità**: Fuoco  
-- **Abilità**: Storia +9, Percezione +14, Persuasione +12, Furtività +6  
-- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 24  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 20 (PE 25.000, o 33.000 nella tana)
+Tratti
 
-### Tratti
+_**Sciame.**_ L'orda può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi
+apertura sufficientemente larga da far passare una
+creatura di taglia Minuscola. L'orda non può recuperare
+punti ferita o ottenere punti ferita temporanei.
 
-***Resistenza Leggendaria (4/Giorno, o 5/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
-### Azioni
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con (A) Soffio del Sonno o (B) Incantesimi per lanciare *Raggio Rovente* (livello 3).  
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +14, portata 4,5 m. 19 (2d10 + 8) danni taglienti più 7 (2d6) danni da fuoco.  
+Azioni
 
-***Soffio di Fuoco (Ricarica 5-6).*** *TS Des:* CD 21, ogni creatura in una Linea di 27 m per 1,5 m. *Fallimento:* 58 (13d8) danni da fuoco. *Successo:* metà danni.  
+_**Orda di mani afferranti.**_ _Tiro per colpire in mischia:_
++4, portata 1,5 m. _Colpito:_ 20 (4d8 + 2) danni necrotici,
 
-***Soffio del Sonno.*** *TS Cos:* CD 21, ogni creatura in un Cono di 27 m. *Fallimento:* condizione Incapacitato fino alla fine del turno successivo, poi ripete il TS. *Secondo Fallimento:* condizione Incosciente per 10 minuti. L’effetto termina se la creatura subisce danni o se un’altra entro 1,5 m usa un’azione per svegliarla.  
+      - 11 (2d8 + 2) danni necrotici se l'orda è sanguinante.
+Se il bersaglio è una creatura di taglia Media o inferiore,
+cade a terra prono.
+## **Assassino**
+### **Assassino**
 
-***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 20):  
+_Umanoide Medio o Piccolo, neutrale_
 
-- **A volontà:** *Individuazione del Magico*, *Illusione Minore*, *Raggio Rovente*, *Mutare Forma*, *Parlare con gli Animali*  
-- **1/giorno ciascuno:** *Controllare il Meteo*, *Rilevare i Pensieri*  
 
-### Azioni Leggendarie
+**CA** 16 **Iniziativa** +10 (20)
+**PF** 97 (15d8 + 30)
+**Velocità** 9 m
 
-***Luce Fiammeggiante.*** Il drago usa Incantesimi per lanciare *Raggio Rovente* (livello 3).  
 
-***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
+**Abilità** Acrobazia +7, Furtività +10, Percezione +6
+**Resistenze** veleno
+**Attrezzatura** armatura di cuoio borchiato, balestra
 
-***Sabbie Roventi.*** *TS Des:* CD 20, una creatura visibile entro 36 m. *Fallimento:* 36 (8d8) danni da fuoco e Velocità dimezzata fino alla fine del turno successivo. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
+leggera, spada corta
+**Sensi** Percezione passiva 16
+**Lingue** Comune, Gergo ladresco
+**GS** 8 (PE 3.900; BC +3)
 
-## Drago di Bronzo Antico
+Tratti
 
-*Drago Mastodontico (Metallico), Legale Buono*
+_**Elusione.**_ Se l'assassino è soggetto a un effetto che gli
+consente di effettuare un tiro salvezza su Destrezza
+per subire danni dimezzati, non subisce alcun danno in
+caso di successo, e ne subisce solo metà in caso di fallimento. Non può usare questo tratto se è incapacitato.
 
-- **Classe Armatura:** 22  
-- **Punti Ferita:** 444 (24d20 + 192)  
-- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m  
-- **Iniziativa**: +4 (14)
+Azioni
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 29 | +9 | +9 |
-| DES | 10 | +0 | +7 |
-| COS | 27 | +8 | +8 |
-| INT | 18 | +4 | +4 |
-| SAG | 17 | +3 | +10 |
-| CAR | 25 | +7 | +7 |
+_**Multiattacco.**_ L'assassino effettua tre attacchi,
+usando Spada corta o Balestra leggera in qualsiasi
+combinazione.
 
-- **Immunità**: Fulmine  
-- **Abilità**: Intuizione +10, Percezione +17, Furtività +7  
-- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 27  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 22 (PE 41.000, o 50.000 nella tana)
+_**Balestra leggera.**_ _Tiro per colpire a distanza:_ +7, gittata
+24/96 m. _Colpito:_ 8 (1d8 + 4) danni perforanti più
+21 (6d6) danni da veleno.
 
-### Tratti
+_**Spada corta.**_ _Tiro per colpire in mischia:_ +7, portata
+1,5 m. _Colpito:_ 7 (1d6 + 4) danni perforanti più 17
+(5d6) danni da veleno, e il bersaglio è avvelenato fino
+all'inizio del turno successivo dell'assassino.
 
-***Anfibio.*** Il drago può respirare aria e acqua.  
+Azioni bonus
 
-***Resistenza Leggendaria (4/Giorno, o 5/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
+_**Azione scaltra.**_ L'assassino effettua l'azione di Disimpegno, Nascondersi o Scatto.
 
-### Azioni
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con (A) Soffio di Repulsione o (B) Incantesimi per lanciare *Dardo Tracciante* (livello 2).  
+**296** System Reference Document 5.2.1
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +16, portata 4,5 m. 18 (2d8 + 9) danni taglienti più 9 (2d8) danni da fulmine.  
 
-***Soffio di Fulmine (Ricarica 5-6).*** *TS Des:* CD 23, ogni creatura in una Linea di 36 m per 3 m. *Fallimento:* 82 (15d10) danni da fulmine. *Successo:* metà danni.  
+## **Azer**
+### **Azer sentinella**
 
-***Soffio di Repulsione.*** *TS For:* CD 23, ogni creatura in un Cono di 9 m. *Fallimento:* spinta fino a 18 m lontano dal drago e condizione Prono.  
+_Elementale Medio, legale neutrale_
 
-***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 22, +14 a colpire con incantesimi):  
 
-- **A volontà:** *Individuazione del Magico*, *Dardo Tracciante*, *Mutare Forma*, *Parlare con gli Animali*, *Taumaturgia*  
-- **1/giorno ciascuno:** *Rilevare i Pensieri*, *Controllare l’Acqua*, *Chiaroveggenza*, *Respirare Sott’Acqua*  
+**CA** 17 **Iniziativa** +1 (11)
+**PF** 39 (6d8 + 12)
+**Velocità** 9 m
 
-### Azioni Leggendarie
 
-***Luce Guida.*** Il drago usa Incantesimi per lanciare *Dardo Tracciante* (livello 2).  
+**Immunità** fuoco, veleno; avvelenato
+**Sensi** Percezione passiva 11
+**Lingue** Primordiale (Ignan)
+**GS** 2 (PE 450; BC +2)
 
-***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
+Tratti
 
-***Fragore.*** *TS Cos:* CD 22, ogni creatura in una Sfera di raggio 6 m centrata in un punto visibile entro 36 m. *Fallimento:* 13 (3d8) danni da tuono e condizione Assordato fino alla fine del turno successivo.  
+_**Aura di fuoco.**_ Al termine di ogni turno dell'azer, tutte
+le creature a scelta dell'azer che si trovano in un'emanazione di 1,5 metri di cui l'azer è il punto di origine
+subiscono 5 (1d10) danni da fuoco, a meno che l'azer
+non sia incapacitato.
 
-## Drago di Rame Antico
+_**Illuminazione.**_ L'azer emana luce intensa in un raggio
+di 3 metri e luce fioca per altri 3 metri.
 
-*Drago Mastodontico (Metallico), Caotico Buono*
+Azioni
 
-- **Classe Armatura:** 21  
-- **Punti Ferita:** 367 (21d20 + 147)  
-- **Velocità:** 12 m, Scalare 12 m, Volare 24 m  
-- **Iniziativa**: +5 (15)
+_**Martello ardente.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m _Colpito:_ 8 (1d10 + 3) danni contundenti più
+3 (1d6) danni da fuoco.
+## **Balor**
+### **Balor**
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 27 | +8 | +8 |
-| DES | 12 | +1 | +8 |
-| COS | 25 | +7 | +7 |
-| INT | 20 | +5 | +5 |
-| SAG | 17 | +3 | +10 |
-| CAR | 22 | +6 | +6 |
+_Immondo Enorme (demone), caotico malvagio_
 
-- **Immunità**: Acido  
-- **Abilità**: Inganno +13, Percezione +17, Furtività +8  
-- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 27  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 21 (PE 33.000, o 41.000 nella tana)
 
-### Tratti
+**CA** 19 **Iniziativa** +14 (24)
+**PF** 287 (23d12 + 138)
+**Velocità** 12 m, volo 24 m
 
-***Resistenza Leggendaria (4/Giorno, o 5/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
-### Azioni
+**Abilità** Percezione +9
+**Resistenze** freddo, fulmine
+**Immunità** fuoco, veleno; affascinato, avvelenato,
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con (A) Soffio Rallentante o (B) Incantesimi per lanciare *Puntura Mentale* (livello 5).  
+spaventato
+**Sensi** Percezione passiva 19; vista pura 36 m
+**Lingue** Abissale; telepatia 36 m
+**GS** 19 (PE 22.000; BC +6)
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +15, portata 4,5 m. 19 (2d10 + 8) danni taglienti più 9 (2d8) danni da acido.  
+Tratti
 
-***Soffio Acido (Ricarica 5-6).*** *TS Des:* CD 22, ogni creatura in una Linea di 27 m per 3 m. *Fallimento:* 63 (14d8) danni da acido. *Successo:* metà danni.  
+_**Aura di fuoco.**_ Al termine di ogni turno del balor, tutte
+le creature in un'emanazione di 1,5 metri di cui il balor
+è il punto di origine subiscono 13 (3d8) danni da fuoco.
 
-***Soffio Rallentante.*** *TS Cos:* CD 22, ogni creatura in un Cono di 27 m. *Fallimento:* la creatura non può compiere Reazioni, la sua Velocità è dimezzata e può compiere solo un’Azione o un’Azione Bonus per turno, non entrambe. L’effetto dura fino alla fine del turno successivo.  
+_**Resistenza alla magia.**_ Il balor dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
 
-***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 21):  
 
-- **A volontà:** *Individuazione del Magico*, *Puntura Mentale*, *Illusione Minore*, *Mutare Forma*  
-- **1/giorno ciascuno:** *Restaurazione Superiore*, *Immagine Maggiore*, *Proiezione d’Immagine*  
 
-### Azioni Leggendarie
 
-***Magia Sghignazzante.*** *TS Car:* CD 21, una creatura visibile entro 36 m. *Fallimento:* 31 (9d6) danni psichici. Fino alla fine del turno successivo, la creatura tira 1d8 ogni volta che effettua una prova di caratteristica o un tiro per colpire e sottrae il risultato dal tiro su d20. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
+_**Resistenza leggendaria (3/giorno).**_ Se il balor fallisce
+un tiro salvezza, può scegliere di superarlo comunque.
 
-***Scossa Mentale.*** Il drago usa Incantesimi per lanciare *Puntura Mentale* (livello 5). Non può riusare questa azione fino all’inizio del suo prossimo turno.  
+_**Spasmi di morte.**_ Quando il balor muore, esplode.
+_Tiro salvezza su Destrezza:_ CD 20, tutte le creature
+in ­un'emanazione di 9 metri di cui il balor è il punto
+di origine. _Fallimento:_ 31 (9d6) danni da fuoco più
+31 (9d6) danni da forza. _Successo:_ danni dimezzati.
+_Fallimento o successo:_ se il balor muore al di fuori
+­dell'Abisso, acquisisce un corpo nuovo all'istante,
+tornando in vita con tutti i suoi punti ferita da qualche
+parte nell'Abisso.
 
-***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
+Azioni
 
-## Drago d’Oro Antico
+_**Multiattacco.**_ Il balor effettua un attacco Frusta fiammeggiante e un attacco Lama fulminante.
 
-*Drago Mastodontico (Metallico), Legale Buono*
+_**Frusta fiammeggiante.**_ _Tiro per colpire in mischia:_ +14,
+portata 9 m. _Colpito:_ 18 (3d6 + 8) danni da forza più
+17 (5d6) danni da fuoco. Se il bersaglio è una creatura
+di taglia Enorme o inferiore, il balor trascina il bersaglio
+in linea retta verso di sé fino a 7,5 metri, e il bersaglio
+cade a terra prono.
 
-- **Classe Armatura:** 22  
-- **Punti Ferita:** 546 (28d20 + 252)  
-- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m  
-- **Iniziativa**: +6 (16)
+_**Lama fulminante.**_ _Tiro per colpire in mischia:_ +14,
+portata 3 m. _Colpito:_ 21 (3d8 + 8) danni da forza più
+22 (4d10) danni da fulmine, e il bersaglio non può
+effettuare reazioni fino all'inizio del turno successivo
+del balor.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 30 | +10 | +10 |
-| DES | 14 | +2 | +9 |
-| COS | 29 | +9 | +9 |
-| INT | 18 | +4 | +4 |
-| SAG | 17 | +3 | +10 |
-| CAR | 28 | +9 | +9 |
+Azioni bonus
 
-- **Immunità**: Fuoco  
-- **Abilità**: Intuizione +10, Percezione +17, Persuasione +16, Furtività +9  
-- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 27  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 24 (PE 62.000, o 75.000 nella tana)
+_**Teletrasporto.**_ Il balor teletrasporta se stesso (o un
+demone consenziente entro 3 metri da sé) fino a
+18 metri in uno spazio libero che il balor è in grado di
+vedere.
+## **Banditi**
+### **Bandito**
 
-### Tratti
+_Umanoide Medio o Piccolo, neutrale_
 
-***Anfibio.*** Il drago può respirare aria e acqua.  
 
-***Resistenza Leggendaria (4/Giorno, o 5/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
+**CA** 12 **Iniziativa** +1 (11)
+**PF** 11 (2d8 + 2)
+**Velocità** 9 m
 
-### Azioni
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con (A) Incantesimi per lanciare *Dardo Tracciante* (livello 4) o (B) Soffio Indebolente.  
+**Attrezzatura** armatura di cuoio, balestra leggera,
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +17, portata 4,5 m. 19 (2d8 + 10) danni taglienti più 9 (2d8) danni da fuoco.  
+scimitarra
+**Sensi** Percezione passiva 10
+**Lingue** Comune, Gergo ladresco
+**GS** 1/8 (PE 25; BC +2)
 
-***Soffio di Fuoco (Ricarica 5-6).*** *TS Des:* CD 24, ogni creatura in un Cono di 27 m. *Fallimento:* 71 (13d10) danni da fuoco. *Successo:* metà danni.  
+Azioni
 
-***Soffio Indebolente.*** *TS For:* CD 24, ogni creatura non già affetta da questo soffio in un Cono di 27 m. *Fallimento:* la creatura ha Svantaggio ai Test su d20 basati sulla Forza e sottrae 5 (1d10) ai tiri danno. Ripete il TS alla fine di ogni turno, terminando l’effetto con un successo. Dopo 1 minuto riesce automaticamente.  
+_**Balestra leggera.**_ _Tiro per colpire a distanza:_ +3, gittata
+24/96 m. _Colpito:_ 5 (1d8 + 1) danni perforanti.
 
-***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 24, +16 a colpire con incantesimi):  
+_**Scimitarra.**_ _Tiro per colpire in mischia:_ +3, portata
+1,5 m. _Colpito:_ 4 (1d6 + 1) danni taglienti.
 
-- **A volontà:** *Individuazione del Magico*, *Dardo Tracciante*, *Mutare Forma*  
-- **1/giorno ciascuno:** *Colonna di Fiamme*, *Parola di Ritorno*, *Zona di Verità*  
 
-### Azioni Leggendarie
+**297** System Reference Document 5.2.1
 
-***Bandire.*** *TS Car:* CD 24, una creatura visibile entro 36 m. *Fallimento:* 24 (7d6) danni da forza e condizione Incapacitato; inoltre viene trasportata in un semipiano innocuo fino all’inizio del turno successivo del drago, quando riappare in uno spazio non occupato scelto dal drago entro 36 m. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Luce Guida.*** Il drago usa Incantesimi per lanciare *Dardo Tracciante* (livello 4).  
+### **Capo dei banditi**
 
-***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
+_Umanoide Medio o Piccolo, neutrale_
 
-## Drago Verde Antico
 
-*Drago Mastodontico (Cromatico), Legale Malvagio*
+**CA** 15 **Iniziativa** +3 (13)
+**PF** 52 (8d8 + 16)
+**Velocità** 9 m
 
-- **Classe Armatura:** 21  
-- **Punti Ferita:** 402 (23d20 + 161)  
-- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m  
-- **Iniziativa**: +5 (15)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 27 | +8 | +8 |
-| DES | 12 | +1 | +8 |
-| COS | 25 | +7 | +7 |
-| INT | 20 | +5 | +5 |
-| SAG | 17 | +3 | +10 |
-| CAR | 22 | +6 | +6 |
+**Abilità** Atletica +4, Inganno +4
+**Attrezzatura** armatura di cuoio borchiato, pistola,
 
-- **Immunità**: Veleno; Avvelenato  
-- **Abilità**: Inganno +13, Percezione +17, Persuasione +13, Furtività +8  
-- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 27  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 22 (PE 41.000, o 50.000 nella tana)
+scimitarra
+**Sensi** Percezione passiva 10
+**Lingue** Comune, Gergo ladresco
+**GS** 2 (PE 450; BC +2)
 
-### Tratti
+Azioni
 
-***Anfibio.*** Il drago può respirare aria e acqua.  
+_**Multiattacco.**_ Il bandito effettua due attacchi, usando
+Scimitarra e Pistola in qualsiasi combinazione.
 
-***Resistenza Leggendaria (4/Giorno, o 5/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
+_**Pistola.**_ _Tiro per colpire a distanza:_ +5, gittata 9/27 m.
+_Colpito:_ 8 (1d10 + 3) danni perforanti.
 
-### Azioni
+_**Scimitarra.**_ _Tiro per colpire in mischia:_ +5, portata
+1,5 m. _Colpito:_ 6 (1d6 + 3) danni taglienti.
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con Incantesimi per lanciare *Puntura Mentale* (livello 5).  
+Reazioni
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +15, portata 4,5 m. 17 (2d8 + 8) danni taglienti più 10 (3d6) danni da veleno.  
+_**Parata.**_ _Attivazione:_ il bandito viene colpito da un tiro
+per colpire in mischia mentre tiene in mano un'arma.
+_Esito:_ il bandito aggiunge 2 alla sua CA contro
+­quell'attacco, aumentando le probabilità che il colpo
+non vada a segno.
+## **Basilisco**
+### **Basilisco**
 
-***Soffio Velenoso (Ricarica 5-6).*** *TS Cos:* CD 22, ogni creatura in un Cono di 27 m. *Fallimento:* 77 (22d6) danni da veleno. *Successo:* metà danni.  
+_Mostruosità Media, senza allineamento_
 
-***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 21):  
 
-- **A volontà:** *Individuazione del Magico*, *Puntura Mentale*  
-- **1/giorno ciascuno:** *Geas*, *Alterare Memoria*  
+**CA** 15 **Iniziativa** −1 (9)
+**PF** 52 (8d8 + 16)
+**Velocità** 6 m
 
-### Azioni Leggendarie
 
-***Invasione Mentale.*** Il drago usa Incantesimi per lanciare *Puntura Mentale* (livello 5).  
+**Sensi** Percezione passiva 9; scurovisione 18 m
+**Lingue** nessuna
+**GS** 3 (PE 700; BC +2)
 
-***Miasma Nocivo.*** *TS Cos:* CD 21, ogni creatura in una Sfera di raggio 9 m centrata in un punto visibile entro 27 m. *Fallimento:* 17 (5d6) danni da veleno e penalità -2 alla CA fino alla fine del turno successivo. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
+Azioni
 
-***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
+_**Morso.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 10 (2d6 + 3) danni perforanti più 7 (2d6) danni
+da veleno.
 
-## Drago Rosso Antico
 
-*Drago Mastodontico (Cromatico), Caotico Malvagio*
 
-- **Classe Armatura:** 22  
-- **Punti Ferita:** 507 (26d20 + 234)  
-- **Velocità:** 12 m, Scalare 12 m, Volare 24 m  
-- **Iniziativa**: +4 (14)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 30 | +10 | +10 |
-| DES | 10 | +0 | +7 |
-| COS | 29 | +9 | +9 |
-| INT | 18 | +4 | +4 |
-| SAG | 15 | +2 | +9 |
-| CAR | 27 | +8 | +8 |
+Azioni bonus
 
-- **Immunità**: Fuoco  
-- **Abilità**: Percezione +16, Furtività +7  
-- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 26  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 24 (PE 62.000, o 75.000 nella tana)
+_**Sguardo pietrificante (ricarica 4–6).**_ _Tiro salvezza su_
+_Costituzione:_ CD 12, tutte le creature in un cono di
+9 metri. Se il basilisco vede il suo riflesso nel cono,
+deve effettuare questo tiro salvezza. _Primo fallimento:_
+il bersaglio è trattenuto. Ripete il tiro salvezza al
+termine del proprio turno successivo se è ancora trattenuto e, se lo supera, l'effetto svanisce. _Secondo falli-_
+_mento:_ il bersaglio è pietrificato invece che trattenuto.
+## **Beccoaguzzo**
+### **Beccoaguzzo**
 
-### Tratti
+_Mostruosità Grande, senza allineamento_
 
-***Resistenza Leggendaria (4/Giorno, o 5/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
-### Azioni
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 19 (3d10 + 3)
+**Velocità** 15 m
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con Incantesimi per lanciare *Raggio Rovente* (livello 3).  
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +17, portata 4,5 m. 19 (2d8 + 10) danni taglienti più 10 (3d6) danni da fuoco.  
+**Sensi** Percezione passiva 10
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-***Soffio di Fuoco (Ricarica 5-6).*** *TS Des:* CD 24, ogni creatura in un Cono di 27 m. *Fallimento:* 91 (26d6) danni da fuoco. *Successo:* metà danni.  
+Azioni
 
-***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 23, +15 a colpire con incantesimi):  
+_**Becco.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 6 (1d8 + 2) danni taglienti.
+## **Behir**
+### **Behir**
 
-- **A volontà:** *Comando*, *Individuazione del Magico*, *Raggio Rovente*  
-- **1/giorno ciascuno:** *Palla di Fuoco*, *Chiaroveggenza*  
+_Mostruosità Enorme, neutrale malvagio_
 
-### Azioni Leggendarie
 
-***Presenza Imponente.*** Il drago usa Incantesimi per lanciare *Comando* (livello 2). Non può riusare questa azione fino all’inizio del suo prossimo turno.  
+**CA** 17 **Iniziativa** +3 (13)
+**PF** 168 (16d12 + 64)
+**Velocità** 15 m, scalata 15 m
 
-***Raggi Fiammeggianti.*** Il drago usa Incantesimi per lanciare *Raggio Rovente* (livello 3). Non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
+**Abilità** Furtività +7, Percezione +6
+**Immunità** fulmine
+**Sensi** Percezione passiva 16; scurovisione 27 m
+**Lingue** Draconico
+**GS** 11 (PE 7.200; BC +4)
 
-## Drago d’Argento Antico
+Azioni
 
-*Drago Mastodontico (Metallico), Legale Buono*
+_**Multiattacco.**_ Il behir effettua un attacco Morso e usa
+Stritolare.
 
-- **Classe Armatura:** 22  
-- **Punti Ferita:** 468 (24d20 + 216)  
-- **Velocità:** 12 m, Volare 24 m  
-- **Iniziativa**: +4 (14)
+_**Morso.**_ _Tiro per colpire in mischia:_ +10, portata 3 m.
+_Colpito:_ 19 (2d12 + 6) danni perforanti più 11 (2d10)
+danni da fulmine.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 30 | +10 | +10 |
-| DES | 10 | +0 | +7 |
-| COS | 29 | +9 | +9 |
-| INT | 18 | +4 | +4 |
-| SAG | 15 | +2 | +9 |
-| CAR | 26 | +8 | +8 |
+_**Soffio di fulmini (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 16, tutte le creature in una linea lunga
 
-- **Immunità**: Freddo  
-- **Abilità**: Storia +11, Percezione +16, Furtività +7  
-- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 26  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 23 (PE 50.000, o 62.000 nella tana)
 
-### Tratti
+**298** System Reference Document 5.2.1
 
-***Resistenza Leggendaria (4/Giorno, o 5/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
-### Azioni
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare. Può sostituire un attacco con (A) Soffio Paralizzante o (B) Incantesimi per lanciare *Pugnale di Ghiaccio* (livello 2).  
+27 metri e larga 1,5 metri. _Fallimento:_ 66 (12d10) danni
+da fulmine. _Successo:_ danni dimezzati.
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +17, portata 4,5 m. 19 (2d8 + 10) danni taglienti più 9 (2d8) danni da freddo.  
+_**Stritolare.**_ _Tiro salvezza su Forza:_ CD 18, una creatura
+di taglia Grande o inferiore che il behir è in grado di
+vedere entro 1,5 metri. _Fallimento:_ 28 (5d8 + 6) danni
+contundenti. Il bersaglio è afferrato (CD 16 per sfuggire)
+ed è trattenuto finché la presa perdura.
 
-***Soffio Gelido (Ricarica 5-6).*** *TS Cos:* CD 24, ogni creatura in un Cono di 27 m. *Fallimento:* 67 (15d8) danni da freddo. *Successo:* metà danni.  
+Azioni bonus
 
-***Soffio Paralizzante.*** *TS Cos:* CD 24, ogni creatura in un Cono di 27 m. *Primo Fallimento:* condizione Incapacitato fino alla fine del turno successivo, poi ripete il TS. *Secondo Fallimento:* condizione Paralizzato; ripete il TS alla fine di ogni turno, terminando con un successo. Dopo 1 minuto riesce automaticamente.  
+_**Inghiottire.**_ _Tiro salvezza su Destrezza:_ CD 18, una
+creatura di taglia Grande o inferiore afferrata dal behir
+(il behir può inghiottire solo una creatura alla volta).
+_Fallimento:_ Il behir inghiotte il bersaglio, che non è più
+afferrato. Finché è inghiottita, la creatura è accecata
+e trattenuta, beneficia di copertura totale contro gli
+attacchi e altri effetti al di fuori del behir, e subisce
+21 (6d6) danni da acido all'inizio di ogni turno del
+behir.
 
-***Incantesimi.*** Il drago lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 23, +15 a colpire con incantesimi):  
+Se il behir subisce 30 o più danni in un singolo turno
+dalla creatura inghiottita, deve superare un tiro salvezza
+su Costituzione con CD 14 alla fine di quel turno,
+altrimenti rigurgita la creatura, che cade prona in uno
+spazio entro 3 metri dal behir. Se il behir muore, la
+creatura inghiottita non è più trattenuta e può fuggire
+dal cadavere usando 4,5 metri di movimento, uscendo
+prona.
+## **Berserker**
+### **Berserker**
 
-- **A volontà:** *Individuazione del Magico*, *Blocca Mostri*, *Pugnale di Ghiaccio*, *Mutare Forma*  
-- **1/giorno ciascuno:** *Controllare il Meteo*, *Tempesta di Ghiaccio*, *Teletrasporto*, *Zona di Verità*  
+_Umanoide Medio o Piccolo, neutrale_
 
-### Azioni Leggendarie
 
-***Gelo.*** Il drago usa Incantesimi per lanciare *Blocca Mostri*. Non può riusare questa azione fino all’inizio del suo prossimo turno.  
+**CA** 13 **Iniziativa** +1 (11)
+**PF** 67 (9d8 + 27)
+**Velocità** 9 m
 
-***Gelo Tagliente.*** *TS Des:* CD 23, ogni creatura in una Linea di 18 m per 3 m. *Fallimento:* 14 (4d6) danni da freddo e spinta di 9 m lontano. *Successo:* metà danni. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
 
-***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
+**Attrezzatura** ascia bipenne, armatura di pelle
+**Sensi** Percezione passiva 10
+**Lingue** Comune
+**GS** 2 (PE 450; BC +2)
 
-## Drago Bianco Antico
+Tratti
 
-*Drago Mastodontico (Cromatico), Caotico Malvagio*
+_**Frenesia sanguinante.**_ Finché è sanguinante, il berserker dispone di vantaggio ai tiri per colpire e ai tiri
+salvezza.
 
-- **Classe Armatura:** 20  
-- **Punti Ferita:** 333 (18d20 + 144)  
-- **Velocità:** 12 m, Scavare 12 m, Volare 24 m, Nuotare 12 m  
-- **Iniziativa**: +4 (14)
+Azioni
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 26 | +8 | +8 |
-| DES | 10 | +0 | +6 |
-| COS | 26 | +8 | +8 |
-| INT | 10 | +0 | +0 |
-| SAG | 13 | +1 | +7 |
-| CAR | 18 | +4 | +4 |
+_**Ascia bipenne.**_ _Tiro per colpire in mischia:_ +5, portata
+1,5 m _Colpito:_ 9 (1d12 + 3) danni taglienti.
 
-- **Immunità**: Freddo  
-- **Abilità**: Percezione +13, Furtività +6  
-- **Sensi**: Vista cieca 18 m, Scurovisione 36 m; Percezione Passiva 23  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 20 (PE 25.000, o 33.000 nella tana)
 
-### Tratti
 
-***Camminare sul Ghiaccio.*** Il drago può muoversi e arrampicarsi su superfici ghiacciate senza effettuare prove. Inoltre, il Terreno Difficile di ghiaccio o neve non gli costa movimento extra.  
 
-***Resistenza Leggendaria (4/Giorno, o 5/Giorno nella Tana).*** Se il drago fallisce un tiro salvezza, può scegliere di riuscire invece.  
+## **Bruti**
+### **Bruto**
 
-### Azioni
+_Umanoide Medio o Piccolo, neutrale_
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi di Dilaniare.  
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +14, portata 4,5 m. 17 (2d8 + 8) danni taglienti più 7 (2d6) danni da freddo.  
+**CA** 12 **Iniziativa** +1 (11)
+**PF** 32 (5d8 + 10)
+**Velocità** 9 m
 
-***Soffio Gelido (Ricarica 5-6).*** *TS Cos:* CD 22, ogni creatura in un Cono di 27 m. *Fallimento:* 63 (14d8) danni da freddo. *Successo:* metà danni.  
 
-### Azioni Leggendarie
+**Attrezzatura** armatura di cuoio, balestra pesante, mazza
+**Sensi** Percezione passiva 10
+**Lingue** Comune
+**GS** 1/2 (PE 100; BC +2)
 
-***Esplosione Gelida.*** *TS Cos:* CD 20, ogni creatura in una Sfera di raggio 9 m centrata in un punto visibile entro 36 m. *Fallimento:* 14 (4d6) danni da freddo e Velocità 0 fino alla fine del turno successivo del bersaglio. *Fallimento o Successo:* il drago non può riusare questa azione fino all’inizio del suo prossimo turno.  
+Tratti
 
-***Balzo.*** Il drago si muove fino a metà della sua Velocità ed effettua un attacco di Dilaniare.  
+_**Tattiche del branco.**_ Il bruto dispone di vantaggio a un
+tiro per colpire contro una creatura se almeno uno dei
+suoi alleati si trova entro 1,5 metri dalla creatura e non
+è incapacitato.
 
-***Presenza Spaventosa.*** Il drago lancia *Paura*, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 18). Non può riusare questa azione fino all’inizio del suo prossimo turno.  
+Azioni
 
-## Armatura Animata
+_**Mazza.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 5 (1d6 + 2) danni contundenti.
 
-*Costrutto Medio, Non Allineato*
+_**Balestra pesante.**_ _Tiro per colpire a distanza:_ +3, gittata
+30/120 m. _Colpito:_ 6 (1d10 + 1) danni perforanti.
+### **Capo dei bruti**
 
-- **Classe Armatura:** 18  
-- **Punti Ferita:** 33 (6d8 + 6)  
-- **Velocità:** 7,5 m  
-- **Iniziativa**: +2 (12)
+_Umanoide Medio o Piccolo, neutrale_
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 14 | +2 | +2 |
-| DES | 11 | +0 | +0 |
-| COS | 13 | +1 | +1 |
-| INT | 1  | -5 | -5 |
-| SAG | 3  | -4 | -4 |
-| CAR | 1  | -5 | -5 |
 
-- **Immunità**: Veleno, Psichico; Affascinato, Assordato, Affaticato, Spaventato, Paralizzato, Pietrificato, Avvelenato  
-- **Sensi**: Vista cieca 18 m; Percezione Passiva 6  
-- **GS** 1 (PE 200; MB +2)
+**CA** 16 **Iniziativa** +2 (12)
+**PF** 82 (11d8 + 33)
+**Velocità** 9 m
 
-### Azioni
 
-***Attacco Multiplo.*** L’armatura effettua due attacchi di Pugno.  
+**Attrezzatura** balestra pesante, cotta di maglia, martello da
 
-***Pugno.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni contundenti.  
+guerra
+**Sensi** Percezione passiva 10
+**Lingue** Comune più un'altra lingua
+**GS** 4 (PE 1.100; BC +2)
 
-## Spada Volante Animata
+Tratti
 
-*Costrutto Piccolo, Non Allineato*
+_**Tattiche del branco.**_ Il bruto dispone di vantaggio a un
+tiro per colpire contro una creatura se almeno uno dei
+suoi alleati si trova entro 1,5 metri dalla creatura e non
+è incapacitato.
 
-- **Classe Armatura:** 17  
-- **Punti Ferita:** 14 (4d6)  
-- **Velocità:** 1,5 m, Volare 15 m (fluttuare)  
-- **Iniziativa**: +4 (14)
+Azioni
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 12 | +1 | +1 |
-| DES | 15 | +2 | +4 |
-| COS | 11 | +0 | +0 |
-| INT | 1  | -5 | -5 |
-| SAG | 5  | -3 | -3 |
-| CAR | 1  | -5 | -5 |
+_**Multiattacco.**_ Il bruto effettua due attacchi, usando
+Martello da guerra o Balestra pesante in qualsiasi
+combinazione.
 
-- **Immunità**: Veleno, Psichico; Affascinato, Assordato, Affaticato, Spaventato, Paralizzato, Pietrificato, Avvelenato  
-- **Sensi**: Vista cieca 18 m; Percezione Passiva 7  
-- **GS** 1/4 (PE 50; MB +2)
+_**Martello da guerra.**_ _Tiro per colpire in mischia:_ +5,
+portata 1,5 m. _Colpito:_ 12 (2d8 + 3) danni contundenti.
 
-### Azioni
 
-***Fendente.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 6 (1d8 + 2) danni taglienti.  
+**299** System Reference Document 5.2.1
 
----
 
-## Tappeto Animato Soffocante
 
-*Costrutto Grande, Non Allineato*
+Se il bersaglio è una creatura di taglia Grande o inferiore, il bruto lo spinge fino a 3 metri lontano da sé.
 
-- **Classe Armatura:** 12  
-- **Punti Ferita:** 27 (5d10)  
-- **Velocità:** 3 m  
-- **Iniziativa**: +4 (14)
+_**Balestra pesante.**_ _Tiro per colpire a distanza:_ +4, gittata
+30/120 m. _Colpito:_ 13 (2d10 + 2) danni perforanti.
+## **Bugbear**
+### **Bugbear cacciatore**
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 17 | +3 | +3 |
-| DES | 14 | +2 | +2 |
-| COS | 10 | +0 | +0 |
-| INT | 1  | -5 | -5 |
-| SAG | 3  | -4 | -4 |
-| CAR | 1  | -5 | -5 |
+_Folletto Medio (goblinoide), caotico malvagio_
 
-- **Immunità**: Veleno, Psichico; Affascinato, Assordato, Affaticato, Spaventato, Paralizzato, Pietrificato, Avvelenato  
-- **Sensi**: Vista cieca 18 m; Percezione Passiva 6  
-- **GS** 2 (PE 450; MB +2)
 
-### Azioni
+**CA** 15 **Iniziativa** +2 (12)
+**PF** 65 (10d8 + 20)
+**Velocità** 9 m
 
-***Soffocare.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) danni contundenti. Se il bersaglio è una creatura Media o più piccola, il tappeto può infliggerle la condizione Afferato (CD 13 per liberarsi) invece di infliggere danni. Finché la presa persiste, il bersaglio ha le condizioni Accecato e Immobilizzato, sta soffocando e subisce 10 (2d6 + 3) danni contundenti all’inizio di ciascun suo turno. Il tappeto può soffocare solo una creatura alla volta.  
-Mentre afferra, il tappeto non può riusare questa azione, dimezza i danni che subisce (arrotondati per difetto) e il bersaglio subisce la stessa quantità di danni.  
 
----
+**Abilità** Furtività +6, Sopravvivenza +3
+**Attrezzatura** giaco di maglia, giavellotti (6), mazza
 
-## Ankheg
+chiodata
+**Sensi** Percezione passiva 11; scurovisione 18 m
+**Lingue** Comune, Goblin
+**GS** 3 (PE 700; BC +2)
 
-*Mostruosità Grande, Non Allineato*
+Tratti
 
-- **Classe Armatura:** 14  
-- **Punti Ferita:** 45 (6d10 + 12)  
-- **Velocità:** 9 m, Scavare 3 m  
-- **Iniziativa**: +0 (10)
+_**Rapimento.**_ Il bugbear non ha bisogno di usare
+movimento extra per spostare una creatura che sta
+afferrando.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 17 | +3 | +3 |
-| DES | 11 | +0 | +0 |
-| COS | 14 | +2 | +2 |
-| INT | 1  | -5 | -5 |
-| SAG | 13 | +1 | +1 |
-| CAR | 6  | -2 | -2 |
+Azioni
 
-- **Sensi**: Scurovisione 18 m, Sensi Tellurici 18 m; Percezione Passiva 11  
-- **GS** 2 (PE 450; MB +2)
+_**Multiattacco.**_ Il bugbear effettua due attacchi Giavellotto o Mazza chiodata.
 
-### Tratti
+_**Giavellotto.**_ _Tiro per colpire in mischia o a distanza:_
++5, portata 3 m o gittata 9/36 m. _Colpito:_ 13 (3d6 + 3)
+danni perforanti.
 
-***Scavatore.*** L’ankheg può scavare attraverso la roccia solida a metà della sua Velocità di Scavo e lascia dietro di sé un tunnel largo 3 m.  
+_**Mazza chiodata.**_ _Tiro per colpire in mischia:_ +5 (con
+vantaggio se il bersaglio è afferrato dal bugbear), portata 3 m. _Colpito:_ 12 (2d8 + 3) danni perforanti.
 
-### Azioni
+Azioni bonus
 
-***Morso.*** *Tiro per colpire in mischia:* +5 (con Vantaggio se il bersaglio è Afferato dall’ankheg), portata 1,5 m. 10 (2d6 + 3) danni taglienti più 3 (1d6) danni da acido. Se il bersaglio è una creatura Grande o più piccola, ottiene la condizione Afferato (CD 13 per liberarsi).  
+_**Presa rapida.**_ _Tiro salvezza su Destrezza:_ CD 13, una
+creatura di taglia Media o inferiore che il bugbear è
+in grado di vedere entro 3 metri da sé. _Fallimento:_ il
+bersaglio è afferrato (CD 13 per sfuggire).
+### **Bugbear guerriero**
 
-***Spruzzo Acido (Ricarica 6).*** *TS Des:* CD 12, ogni creatura in una Linea di 9 m per 1,5 m. *Fallimento:* 14 (4d6) danni da acido. *Successo:* metà danni.  
+_Folletto Medio (goblinoide), caotico malvagio_
 
-## Arcimago
 
-*Umanoide Piccolo, Neutrale*
+**CA** 14 **Iniziativa** +2 (12)
+**PF** 33 (6d8 + 6)
+**Velocità** 9 m
 
-- **Classe Armatura:** 17  
-- **Punti Ferita:** 170 (31d8 + 31)  
-- **Velocità:** 9 m  
-- **Iniziativa**: +6 (16)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 10 | +0 | +0 |
-| DES | 14 | +2 | +2 |
-| COS | 12 | +1 | +1 |
-| INT | 20 | +5 | +9 |
-| SAG | 15 | +2 | +6 |
-| CAR | 16 | +3 | +3 |
 
-- **Immunità**: Psichico; Affascinato (con *Mente Inaccessibile*)  
-- **Abilità**: Arcano +13, Storia +9, Percezione +6  
-- **Equipaggiamento**: Bacchetta  
-- **Sensi**: Percezione Passiva 16  
-- **Linguaggi**: Comune più altri cinque  
-- **GS** 12 (PE 8.400; MB +4)
 
-### Tratti
+**Abilità** Furtività +6, Sopravvivenza +2
+**Attrezzatura** armatura di pelle, martelli leggeri (3)
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** Comune, Goblin
+**GS** 1 (PE 200; BC +2)
 
-***Resistenza alla Magia.*** L’arcimago ha vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.  
+Tratti
 
-### Azioni
+_**Rapimento.**_ Il bugbear non ha bisogno di usare
+movimento extra per spostare una creatura che sta
+afferrando.
 
-***Attacco Multiplo.*** L’arcimago effettua quattro attacchi di Scoppio Arcano.  
+Azioni
 
-***Scoppio Arcano.*** *Attacco in mischia o a distanza:* +9, portata 1,5 m o gittata 45 m. 27 (4d10 + 5) danni da forza.  
+_**Martello leggero.**_ _Tiro per colpire in mischia o a_
+_distanza:_ +4 (con vantaggio se il bersaglio è afferrato
+dal bugbear), portata 3 m o gittata 6/18 m. _Colpito:_
+9 (3d4 + 2) danni contundenti.
 
-***Incantesimi.*** L’arcimago lancia uno dei seguenti incantesimi, usando Intelligenza come caratteristica da incantatore (CD 17):  
+_**Presa.**_ _Tiro per colpire in mischia:_ +4, portata 3 m.
+_Colpito:_ 9 (2d6 + 2) danni contundenti. Se il bersaglio
+è una creatura di taglia Media o inferiore, è afferrato
+(CD 12 per sfuggire).
+## **Bulette**
+### **Bulette**
 
-- **A volontà:** *Individuazione del Magico*, *Rilevare i Pensieri*, *Camuffare Sé Stesso*, *Invisibilità*, *Luce*, *Armatura Magica*, *Mano Magica*, *Prestidigitazione*  
-- **2/giorno ciascuno:** *Volare*, *Fulmine*  
-- **1/giorno ciascuno:** *Cono di Freddo*, *Mente Inaccessibile*, *Chiaroveggenza*, *Teletrasporto*  
+_Mostruosità Grande, senza allineamento_
 
-### Azioni Bonus
 
-***Passo Velato (3/giorno).*** L’arcimago lancia *Passo Velato*, usando la stessa caratteristica da incantatore di Incantesimi.  
+**CA** 17 **Iniziativa** +0 (10)
+**PF** 94 (9d10 + 45)
+**Velocità** 12 m, scavo 12 m
 
-### Reazioni
 
-***Magia Protettiva (3/giorno).*** L’arcimago lancia *Controincantesimo* o *Scudo* in risposta al relativo innesco, usando la stessa caratteristica da incantatore di Incantesimi.  
+**Abilità** Percezione +6
+**Sensi** Percezione passiva 16; percezione tellurica 36 m,
 
----
+scurovisione 18 m
+**Lingue** nessuna
+**GS** 5 (PE 1.800; BC +3)
 
-## Assassino
+Azioni
 
-*Umanoide Piccolo, Neutrale*
+_**Multiattacco.**_ Il bulette effettua due attacchi Morso.
 
-- **Classe Armatura:** 16  
-- **Punti Ferita:** 97 (15d8 + 30)  
-- **Velocità:** 9 m  
-- **Iniziativa**: +10 (20)
+_**Morso.**_ _Tiro per colpire in mischia:_ +7, portata 1,5 m.
+_Colpito:_ 17 (2d12 + 4) danni perforanti.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 11 | +0 | +0 |
-| DES | 18 | +4 | +7 |
-| COS | 14 | +2 | +2 |
-| INT | 16 | +3 | +6 |
-| SAG | 11 | +0 | +0 |
-| CAR | 10 | +0 | +0 |
+_**Balzo letale.**_ Il bulette usa 1,5 metri di movimento per
+saltare in uno spazio entro 4,5 metri che contiene una
 
-- **Resistenze**: Veleno  
-- **Abilità**: Acrobazia +7, Percezione +6, Furtività +10  
-- **Equipaggiamento**: Balestra Leggera, Spada Corta, Armatura Borchiata  
-- **Sensi**: Percezione Passiva 16  
-- **Linguaggi**: Comune, Gergo dei Ladri  
-- **GS** 8 (PE 3.900; MB +3)
+      - più creature di taglia Grande o inferiore. _Tiro salvezza_
+_su Destrezza:_ CD 15, tutte le creature nello spazio di
+destinazione del bulette. _Fallimento:_ 19 (3d12) danni
+contundenti, e il bersaglio è prono. _Successo:_ danni
+dimezzati, e il bersaglio viene spinto a 1,5 metri di
+distanza dal bulette.
 
-### Tratti
 
-***Schivata Evasiva.*** Se l’assassino è soggetto a un effetto che gli consente un TS su Des per subire solo metà danni, subisce invece 0 danni se ha successo e solo metà danni se fallisce. Non può usare questo tratto se ha la condizione Incapacitato.  
+**300** System Reference Document 5.2.1
 
-### Azioni
 
-***Attacco Multiplo.*** L’assassino effettua tre attacchi, usando Spada Corta o Balestra Leggera in qualsiasi combinazione.  
 
-***Spada Corta.*** *Attacco in mischia:* +7, portata 1,5 m. 7 (1d6 + 4) danni perforanti più 17 (5d6) danni da veleno, e il bersaglio ha la condizione Avvelenato fino all’inizio del prossimo turno dell’assassino.  
+Azioni bonus
 
-***Balestra Leggera.*** *Attacco a distanza:* +7, gittata 24/96 m. 8 (1d8 + 4) danni perforanti più 21 (6d6) danni da veleno.  
+_**Balzo.**_ Il bulette salta fino a un massimo di 9 metri
+usando 3 metri di movimento.
+## **Cacciatore invisibile**
+### **Cacciatore invisibile**
 
-### Azioni Bonus
+_Elementale Grande, neutrale_
 
-***Azione Scaltra.*** L’assassino compie l’azione Scatto, Disimpegno o Nascondersi.  
 
----
+**CA** 14 **Iniziativa** +7 (22)
+**PF** 97 (13d10 + 26)
+**Velocità** 15 m, volo 15 m (fluttuare)
 
-## Arbusto Risvegliato
 
-*Pianta Piccola, Neutrale*
+**Abilità** Furtività +10, Percezione +8
+**Resistenze** contundente, perforante, tagliente
+**Immunità** veleno; afferrato, avvelenato, indebolimento,
 
-- **Classe Armatura:** 9  
-- **Punti Ferita:** 10 (3d6)  
-- **Velocità:** 6 m  
-- **Iniziativa**: -1 (9)
+paralizzato, pietrificato, privo di sensi, prono, trattenuto
+**Sensi** Percezione passiva 18; scurovisione 18 m
+**Lingue** Comune, Primordiale (Auran)
+**GS** 6 (PE 2.300; BC +3)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 3  | -4 | -4 |
-| DES | 8  | -1 | -1 |
-| COS | 11 | +0 | +0 |
-| INT | 10 | +0 | +0 |
-| SAG | 10 | +0 | +0 |
-| CAR | 6  | -2 | -2 |
+Tratti
 
-- **Vulnerabilità**: Fuoco  
-- **Resistenze**: Perforanti  
-- **Sensi**: Percezione Passiva 10  
-- **Linguaggi**: Comune più un altro linguaggio  
-- **GS** 0 (PE 0 o 10; MB +2)
+_**Forma d'aria.**_ Il cacciatore invisibile può entrare
+nello spazio di un nemico e fermarvisi. Può muoversi
+attraverso uno spazio stretto fino a 2,5 centimetri senza
+consumare movimento extra per farlo.
 
-### Azioni
+_**Invisibilità.**_ Il cacciatore è invisibile.
 
-***Graffio.*** *Attacco in mischia:* +1, portata 1,5 m. 1 danno tagliente.  
+Azioni
 
-## Albero Risvegliato
+_**Multiattacco.**_ Il cacciatore invisibile effettua tre attacchi
+Colpo di vento. Può sostituire un attacco con un utilizzo di Vortice.
 
-*Pianta Enorme, Neutrale*
+_**Colpo di vento.**_ _Tiro per colpire in mischia:_ +7, portata
+1,5 m. _Colpito:_ 11 (2d6 + 4) danni da forza.
 
-- **Classe Armatura:** 13  
-- **Punti Ferita:** 59 (7d12 + 14)  
-- **Velocità:** 6 m  
-- **Iniziativa**: -2 (8)
+_**Vortice.**_ _Tiro salvezza su Costituzione:_ CD 14, una
+creatura di taglia Grande o inferiore nello spazio del
+cacciatore. _Fallimento:_ 7 (1d8 + 3) danni da tuono,
+e il bersaglio è afferrato (CD 13 per sfuggire). Finché
+la presa perdura, il bersaglio non può lanciare incantesimi con una componente verbale, e subisce 7 (2d6)
+danni da tuono all'inizio di ogni turno del cacciatore.
+## **Cane della morte**
+### **Cane della morte**
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 19 | +4 | +4 |
-| DES | 6  | -2 | -2 |
-| COS | 15 | +2 | +2 |
-| INT | 10 | +0 | +0 |
-| SAG | 10 | +0 | +0 |
-| CAR | 7  | -2 | -2 |
+_Mostruosità Media, neutrale malvagio_
 
-- **Vulnerabilità**: Fuoco  
-- **Resistenze**: Contundenti, Perforanti  
-- **Sensi**: Percezione Passiva 10  
-- **Linguaggi**: Comune più un altro linguaggio  
-- **GS** 2 (PE 450; MB +2)
 
-### Azioni
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 39 (6d8 + 12)
+**Velocità** 12 m
 
-***Schianto.*** *Tiro per colpire in mischia:* +6, portata 3 m. 13 (2d8 + 4) danni contundenti.  
 
----
 
-## Becco d’Ascia
 
-*Mostruosità Grande, Non Allineato*
+**Abilità** Furtività +4, Percezione +5
+**Immunità** accecato, affascinato, assordato, privo di sensi,
 
-- **Classe Armatura:** 11  
-- **Punti Ferita:** 19 (3d10 + 3)  
-- **Velocità:** 15 m  
-- **Iniziativa**: +1 (11)
+spaventato, stordito
+**Sensi** Percezione passiva 15; scurovisione 36 m
+**Lingue** nessuna
+**GS** 1 (PE 200; BC +2)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 14 | +2 | +2 |
-| DES | 12 | +1 | +1 |
-| COS | 12 | +1 | +1 |
-| INT | 2  | -4 | -4 |
-| SAG | 10 | +0 | +0 |
-| CAR | 5  | -3 | -3 |
+Azioni
 
-- **Sensi**: Percezione Passiva 10  
-- **GS** 1/4 (PE 50; MB +2)
+_**Multiattacco.**_ Il cane della morte effettua due attacchi
+Morso.
 
-### Azioni
+_**Morso.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m.
+_Colpito:_ 4 (1d4 + 2) danni perforanti. Se il bersaglio è
+una creatura, subisce il seguente effetto. _Tiro salvezza_
+_su Costituzione:_ CD 12. _Primo fallimento:_ il bersaglio
+è avvelenato. Finché lo resta, i punti ferita massimi
+del bersaglio non tornano alla normalità al termine
+di un riposo lungo. La creatura ripete il tiro salvezza
+ogni 24 ore trascorse e, se lo supera, l'effetto svanisce.
+_Fallimenti successivi:_ i punti ferita massimi del bersaglio
+avvelenato sono ridotti di 5 (1d10).
+## **Cane intermittente**
+### **Cane intermittente**
 
-***Becco.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni taglienti.  
+_Folletto Medio, legale buono_
 
----
 
-## Azer Sentinella
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 22 (4d8 + 4)
+**Velocità** 12 m
 
-*Elementale Medio, Legale Neutrale*
 
-- **Classe Armatura:** 17  
-- **Punti Ferita:** 39 (6d8 + 12)  
-- **Velocità:** 9 m  
-- **Iniziativa**: +1 (11)
+**Abilità** Furtività +5, Percezione +5
+**Sensi** Percezione passiva 15; scurovisione 18 m
+**Lingue** Cane intermittente; capisce l'Elfico e il Silvano ma
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 17 | +3 | +3 |
-| DES | 12 | +1 | +1 |
-| COS | 15 | +2 | +4 |
-| INT | 12 | +1 | +1 |
-| SAG | 13 | +1 | +1 |
-| CAR | 10 | +0 | +0 |
+non li parla
+**GS** 1/4 (PE 50; BC +2)
 
-- **Immunità**: Fuoco, Veleno; Avvelenato  
-- **Sensi**: Percezione Passiva 11  
-- **Linguaggi**: Primordiale (Ignan)  
-- **GS** 2 (PE 450; MB +2)
+Azioni
 
-### Tratti
+_**Morso.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 5 (1d4 + 3) danni perforanti.
 
-***Aura di Fuoco.*** Alla fine di ogni turno dell’azer, ogni creatura a sua scelta entro 1,5 m subisce 5 (1d10) danni da fuoco, a meno che l’azer non abbia la condizione Incapacitato.  
+Azioni bonus
 
-***Illuminazione.*** L’azer emette Luce Intensa in un raggio di 3 m e Luce Fioca per ulteriori 3 m.  
+_**Teletrasporto (ricarica 4–6).**_ Il cane si teletrasporta fino
+a un massimo di 12 metri in uno spazio libero che è in
+grado di vedere.
 
-### Azioni
 
-***Martello Ardente.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 8 (1d10 + 3) danni contundenti più 3 (1d6) danni da fuoco.  
+**301** System Reference Document 5.2.1
 
-## Balor
 
-*Immane Immondo (Demone), Caotico Malvagio*
+## **Cavaliere**
+### **Cavaliere**
 
-- **Classe Armatura:** 19  
-- **Punti Ferita:** 287 (23d12 + 138)  
-- **Velocità:** 12 m, Volare 24 m  
-- **Iniziativa**: +14 (24)
+_Umanoide Medio o Piccolo, neutrale_
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 26 | +8 | +8 |
-| DES | 15 | +2 | +2 |
-| COS | 22 | +6 | +12 |
-| INT | 20 | +5 | +5 |
-| SAG | 16 | +3 | +9 |
-| CAR | 22 | +6 | +6 |
 
-- **Resistenze**: Freddo, Fulmine  
-- **Immunità**: Fuoco, Veleno; Affascinato, Spaventato, Avvelenato  
-- **Abilità**: Percezione +9  
-- **Sensi**: Vista Vera 36 m; Percezione Passiva 19  
-- **Linguaggi**: Abissale; Telepatia 36 m  
-- **GS** 19 (PE 22.000; MB +6)
+**CA** 18 **Iniziativa** +0 (10)
+**PF** 52 (8d8 + 16)
+**Velocità** 9 m
 
-### Tratti
 
-***Esplosione Mortale.*** Il balor esplode alla sua morte. *TS Des:* CD 20, ogni creatura in un’emanazione di 9 m dal balor. *Fallimento:* 31 (9d6) danni da fuoco più 31 (9d6) danni da forza. *Successo:* metà danni. *Fallimento o Successo:* se il balor muore fuori dall’Abisso, ottiene subito un nuovo corpo, rianimandosi con tutti i suoi PF da qualche parte nell’Abisso.  
+**Immunità** spaventato
+**Attrezzatura** armatura a piastre, balestra pesante, spadone
+**Sensi** Percezione passiva 10
+**Lingue** Comune più un'altra lingua
+**GS** 3 (PE 700; BC +2)
 
-***Aura di Fuoco.*** Alla fine di ciascun turno del balor, ogni creatura entro 1,5 m subisce 13 (3d8) danni da fuoco.  
+Azioni
 
-***Resistenza Leggendaria (3/Giorno).*** Se il balor fallisce un TS, può scegliere di riuscire invece.  
+_**Multiattacco.**_ Il cavaliere effettua due attacchi, usando
+Spadone o Balestra pesante in qualsiasi combinazione.
 
-***Resistenza alla Magia.*** Il balor ha vantaggio ai TS contro incantesimi e altri effetti magici.  
+_**Spadone.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 10 (2d6 + 3) danni taglienti più 4 (1d8) danni
+radiosi.
 
-### Azioni
+_**Balestra pesante.**_ _Tiro per colpire a distanza:_ +2, gittata
+30/120 m. _Colpito:_ 11 (2d10) danni perforanti più
+4 (1d8) danni radiosi.
 
-***Attacco Multiplo.*** Il balor effettua un attacco di Frusta Infuocata e un attacco di Lama Fulminea.  
+Reazioni
 
-***Frusta Infuocata.*** *Attacco in mischia:* +14, portata 9 m. 18 (3d6 + 8) danni da forza più 17 (5d6) danni da fuoco. Se il bersaglio è una creatura Immane o più piccola, il balor lo trascina fino a 7,5 m verso di sé, e il bersaglio ottiene la condizione Prono.  
+_**Parata.**_ _Attivazione:_ il cavaliere viene colpito da un tiro
+per colpire in mischia mentre tiene in mano un'arma.
+_Esito:_ il cavaliere aggiunge 2 alla sua CA contro
+quell'attacco, aumentando le probabilità che il colpo
+non vada a segno.
+## **Cavallo degli incubi**
+### **Cavallo degli incubi**
 
-***Lama Fulminea.*** *Attacco in mischia:* +14, portata 3 m. 21 (3d8 + 8) danni da forza più 22 (4d10) danni da fulmine, e il bersaglio non può effettuare Reazioni fino all’inizio del prossimo turno del balor.  
+_Immondo Grande, neutrale malvagio_
 
-### Azioni Bonus
 
-***Teletrasporto.*** Il balor si teletrasporta, o teletrasporta un demone consenziente entro 3 m, fino a 18 m in uno spazio non occupato che possa vedere.  
+**CA** 13 **Iniziativa** +2 (12)
+**PF** 68 (8d10 + 24)
+**Velocità** 18 m, volo 27 m (fluttuare)
 
----
 
-## Capitano dei Banditi
+**Immunità** fuoco
+**Sensi** Percezione passiva 11
+**Lingue** capisce l'Abissale, il Comune e l'Infernale ma non
 
-*Umanoide Piccolo, Neutrale*
+li parla
+**GS** 3 (PE 700; BC +2)
 
-- **Classe Armatura:** 15  
-- **Punti Ferita:** 52 (8d8 + 16)  
-- **Velocità:** 9 m  
-- **Iniziativa**: +3 (13)
+Tratti
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 15 | +2 | +4 |
-| DES | 16 | +3 | +5 |
-| COS | 14 | +2 | +2 |
-| INT | 14 | +2 | +2 |
-| SAG | 11 | +0 | +2 |
-| CAR | 14 | +2 | +2 |
+_**Conferire resistenza al fuoco.**_ Il cavallo degli incubi
+può conferire resistenza ai danni da fuoco a un cavaliere finché questi si trova sul cavallo.
 
-- **Abilità**: Atletica +4, Inganno +4  
-- **Equipaggiamento**: Pistola, Scimitarra, Armatura Borchiata  
-- **Sensi**: Percezione Passiva 10  
-- **Linguaggi**: Comune, Gergo dei Ladri  
-- **GS** 2 (PE 450; MB +2)
 
-### Azioni
 
-***Attacco Multiplo.*** Il capitano effettua due attacchi, usando Scimitarra e Pistola in qualsiasi combinazione.  
 
-***Scimitarra.*** *Attacco in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni taglienti.  
+_**Illuminazione.**_ Il cavallo degli incubi emana luce
+intensa in un raggio di 3 metri e luce fioca per altri
+3 metri.
 
-***Pistola.*** *Attacco a distanza:* +5, gittata 9/27 m. 8 (1d10 + 3) danni perforanti.  
+Azioni
 
----
+_**Zoccoli.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 13 (2d8 + 4) danni contundenti più 10 (3d6)
+danni da fuoco.
 
-## Bandito
+_**Passo etereo.**_ Il cavallo degli incubi e un massimo di
+tre creature consenzienti situate entro 1,5 metri da esso
+si teletrasportano dal Piano Materiale al Piano Etereo
 
-*Umanoide Piccolo, Neutrale*
+      - viceversa.
+## **Centauro**
+### **Centauro combattente**
 
-- **Classe Armatura:** 12  
-- **Punti Ferita:** 11 (2d8 + 2)  
-- **Velocità:** 9 m  
-- **Iniziativa**: +1 (11)
+_Folletto Grande, neutrale buono_
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 11 | +0 | +0 |
-| DES | 12 | +1 | +1 |
-| COS | 12 | +1 | +1 |
-| INT | 10 | +0 | +0 |
-| SAG | 10 | +0 | +0 |
-| CAR | 10 | +0 | +0 |
 
-- **Equipaggiamento**: Armatura di Cuoio, Balestra Leggera, Scimitarra  
-- **Sensi**: Percezione Passiva 10  
-- **Linguaggi**: Comune, Gergo dei Ladri  
-- **GS** 1/8 (PE 25; MB +2)
+**CA** 16 **Iniziativa** +2 (12)
+**PF** 45 (6d10 + 12)
+**Velocità** 15 m
 
-### Azioni
 
-***Scimitarra.*** *Attacco in mischia:* +3, portata 1,5 m. 4 (1d6 + 1) danni taglienti.  
+**Abilità** Atletica +6, Percezione +3
+**Attrezzatura** arco lungo, corazza di piastre, picca
+**Sensi** Percezione passiva 13
+**Lingue** Elfico, Silvano
+**GS** 2 (PE 450; BC +2)
 
-***Balestra Leggera.*** *Attacco a distanza:* +3, gittata 24/96 m. 5 (1d8 + 1) danni perforanti.  
+Azioni
 
-## Diavolo Chiodato
+_**Multiattacco.**_ Il centauro effettua due attacchi, utilizzando Picca o Arco lungo in qualsiasi combinazione.
 
-*Immondo Medio (Diavolo), Legale Malvagio*
+_**Picca.**_ _Tiro per colpire in mischia:_ +6, portata 3 m.
+_Colpito:_ ­ 9 (1d10 + 4) danni perforanti.
 
-- **Classe Armatura:** 15  
-- **Punti Ferita:** 110 (13d8 + 52)  
-- **Velocità:** 9 m, Scalare 9 m  
-- **Iniziativa**: +3 (13)
+_**Arco lungo.**_ _Tiro per colpire a distanza:_ +4, gittata
+45/180 m. _Colpito:_ 6 (1d8 + 2) danni perforanti.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +6 |
-| DES | 17 | +3 | +3 |
-| COS | 18 | +4 | +7 |
-| INT | 12 | +1 | +1 |
-| SAG | 14 | +2 | +5 |
-| CAR | 14 | +2 | +5 |
+Azioni bonus
 
-- **Resistenze**: Freddo  
-- **Immunità**: Fuoco, Veleno; Avvelenato  
-- **Abilità**: Inganno +5, Intuizione +5, Percezione +8  
-- **Sensi**: Scurovisione 36 m (non ostacolata da oscurità magica); Percezione Passiva 18  
-- **Linguaggi**: Infernale; Telepatia 36 m  
-- **GS** 5 (PE 1.800; MB +3)
+_**Carica travolgente (Ricarica 5–6).**_ Il centauro si muove
+fino alla sua velocità massima senza provocare attacchi
+di opportunità e può attraversare gli spazi di qualsiasi
+creatura di taglia Media o inferiore. Ogni creatura il
+cui spazio viene invaso dal centauro viene bersagliata
+una volta dal seguente effetto. _Tiro salvezza su Forza:_
+CD 14. _Fallimento:_ 7 (1d6 + 4) danni contundenti,
+e il bersaglio è prono.
+## **Chimera**
+### **Chimera**
 
-### Tratti
+_Mostruosità Grande, caotico malvagio_
 
-***Pelle Chiodata.*** All’inizio di ciascun suo turno, il diavolo infligge 5 (1d10) danni perforanti a ogni creatura che stia afferrando o che lo stia afferrando.  
 
-***Restaurazione Diabolica.*** Se il diavolo muore fuori dai Nove Inferi, il suo corpo svanisce in un fumo sulfureo e ottiene subito un nuovo corpo, rianimandosi con tutti i suoi PF da qualche parte nei Nove Inferi.  
+**CA** 14 **Iniziativa** +0 (10)
+**PF** 114 (12d10 + 48)
+**Velocità** 9 m, volo 18 m
 
-***Resistenza alla Magia.*** Il diavolo ha vantaggio ai TS contro incantesimi e altri effetti magici.  
 
-### Azioni
+**302** System Reference Document 5.2.1
 
-***Attacco Multiplo.*** Il diavolo effettua un attacco di Artigli e uno di Coda, oppure due attacchi di Lanciafiamme.  
 
-***Artigli.*** *Attacco in mischia:* +6, portata 1,5 m. 10 (2d6 + 3) danni perforanti. Se il bersaglio è una creatura Grande o più piccola, ottiene la condizione Afferato (CD 13 per liberarsi) da entrambi gli artigli.  
 
-***Coda.*** *Attacco in mischia:* +6, portata 3 m. 14 (2d10 + 3) danni taglienti.  
+**Abilità** Percezione +8
+**Sensi** Percezione passiva 18; scurovisione 18 m
+**Lingue** capisce il Draconico ma non lo parla
+**GS** 6 (PE 2.300; BC +3)
 
-***Lanciafiamme.*** *Attacco a distanza:* +5, gittata 45 m. 17 (5d6) danni da fuoco. Se il bersaglio è un oggetto infiammabile non indossato o trasportato, prende fuoco.  
+Azioni
 
-## Basilisco
+_**Multiattacco.**_ La chimera effettua un attacco Sfondamento, un attacco Morso e un attacco Artiglio. Può
+sostituire l'attacco Artiglio con un utilizzo di Soffio di
+fuoco, se disponibile.
 
-*Mostruosità Media, Non Allineato*
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +7, portata 1,5 m.
+_Colpito:_ 7 (1d6 + 4) danni taglienti.
 
-- **Classe Armatura:** 15  
-- **Punti Ferita:** 52 (8d8 + 16)  
-- **Velocità:** 6 m  
-- **Iniziativa**: -1 (9)
+_**Morso.**_ _Tiro per colpire in mischia:_ +7, portata 1,5 m.
+_Colpito:_ 11 (2d6 + 4) danni perforanti, o 18 (4d6 + 4)
+danni perforanti se la chimera dispone di vantaggio
+al tiro per colpire.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +3 |
-| DES | 8  | -1 | -1 |
-| COS | 15 | +2 | +2 |
-| INT | 2  | -4 | -4 |
-| SAG | 8  | -1 | -1 |
-| CAR | 7  | -2 | -2 |
+_**Sfondamento.**_ _Tiro per colpire in mischia:_ +7, portata
+1,5 m. _Colpito:_ 10 (1d12 + 4) danni contundenti.
+Se il bersaglio è una creatura di taglia Media o inferiore,
+cade a terra prono.
 
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 9  
-- **GS** 3 (PE 700; MB +2)
+_**Soffio di fuoco (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 15, tutte le creature in un cono di
+4,5 metri. _Fallimento:_ 31 (7d8) danni da fuoco.
+_Successo:_ ­ danni dimezzati.
+## **Chuul**
+### **Chuul**
 
-### Azioni
+_Aberrazione Grande, caotico malvagio_
 
-***Morso.*** *Attacco in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) danni perforanti più 7 (2d6) danni da veleno.  
 
-### Azioni Bonus
+**CA** 16 **Iniziativa** +0 (10)
+**PF** 76 (9d10 + 27)
+**Velocità** 9 m, nuoto 9 m
 
-***Sguardo Pietrificante (Ricarica 4–6).*** *TS Cos:* CD 12, ogni creatura in un cono di 9 m. Se il basilisco vede il proprio riflesso entro il cono, deve effettuare anch’esso il tiro. *Primo Fallimento:* il bersaglio ottiene la condizione Immobilizzato e ripete il TS alla fine del suo turno successivo, se ancora Immobilizzato, terminando l’effetto su di sé in caso di successo. *Secondo Fallimento:* il bersaglio ottiene la condizione Pietrificato invece di Immobilizzato.  
 
-## Diavolo Barbuto
+**Abilità** Percezione +4
+**Immunità** veleno; avvelenato
+**Sensi** Percezione passiva 14; scurovisione 18 m
+**Lingue** capisce il Gergo delle Profondità ma non lo parla
+**GS** 4 (PE 1.100; BC +2)
 
-*Immndo Medio (Diavolo), Legale Malvagio*
+Tratti
 
-- **Classe Armatura:** 13  
-- **Punti Ferita:** 58 (9d8 + 18)  
-- **Velocità:** 9 m  
-- **Iniziativa**: +2 (12)
+_**Anfibio.**_ Il chuul può respirare in aria e in acqua.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +5 |
-| DES | 15 | +2 | +2 |
-| COS | 15 | +2 | +4 |
-| INT | 9  | -1 | -1 |
-| SAG | 11 | +0 | +0 |
-| CAR | 14 | +2 | +4 |
+_**Percezione della magia.**_ Il chuul percepisce la magia
+entro 36 metri da sé. Sotto ogni altro aspetto, questo
+tratto funziona come l'incantesimo _individuazione del_
+_magico_, ma di per sé non è magico.
 
-- **Resistenze**: Freddo  
-- **Immunità**: Fuoco, Veleno; Spaventato, Avvelenato  
-- **Sensi**: Scurovisione 36 m (non ostacolata da oscurità magica); Percezione Passiva 10  
-- **Linguaggi**: Infernale; Telepatia 36 m  
-- **GS** 3 (PE 700; MB +2)
 
-### Tratti
 
-***Resistenza alla Magia.*** Il diavolo ha vantaggio ai TS contro incantesimi e altri effetti magici.  
 
-### Azioni
+Azioni
 
-***Attacco Multiplo.*** Il diavolo effettua un attacco di Barba e uno di Alabarda Infernale.  
+_**Multiattacco.**_ Il chuul effettua due attacchi Tenaglia
+e utilizza Tentacoli paralizzanti.
 
-***Barba.*** *Attacco in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni perforanti, e il bersaglio ottiene la condizione Avvelenato fino all’inizio del prossimo turno del diavolo. Finché è avvelenato in questo modo, il bersaglio non può recuperare PF.  
+_**Tenaglia.**_ _Tiro per colpire in mischia:_ +6, portata 3 m.
+_Colpito:_ 9 (1d10 + 4) danni contundenti. Se il bersaglio
+è una creatura di taglia Grande o inferiore, è afferrato
+(CD 14 per sfuggire) da una delle due tenaglie.
 
-***Alabarda Infernale.*** *Attacco in mischia:* +5, portata 3 m. 8 (1d10 + 3) danni taglienti. Se il bersaglio è una creatura e non ha già una ferita infernale, è soggetto al seguente effetto. *TS Cos:* CD 12. *Fallimento:* il bersaglio subisce una ferita infernale. Finché ferito, perde 5 (1d10) PF all’inizio di ciascun suo turno. La ferita si chiude dopo 1 minuto, dopo che un incantesimo ripristina PF al bersaglio, oppure dopo che il bersaglio o una creatura entro 1,5 m spende un’azione per tamponare la ferita, riuscendo in una prova di Saggezza (Medicina) CD 12.  
+_**Tentacoli paralizzanti.**_ _Tiro salvezza su Costituzione:_
+CD 13, una creatura afferrata dal chuul. _Fallimento:_
+il bersaglio è avvelenato e ripete il tiro salvezza alla fine
+del suo turno successivo e, se lo supera, l'effetto svanisce. Dopo 1 minuto, il tiro viene superato automaticamente. Finché è avvelenato, il bersaglio è paralizzato.
+## **Cinghiale mannaro**
+### **Cinghiale mannaro**
 
-## Behir
+_Mostruosità Media o Piccola (licantropo), neutrale_
+_malvagio_
 
-*Mostruosità Enorme, Neutrale Malvagio*
 
-- **Classe Armatura:** 17  
-- **Punti Ferita:** 168 (16d12 + 64)  
-- **Velocità:** 15 m, Scalare 15 m  
-- **Iniziativa**: +3 (13)
+**CA** 15 **Iniziativa** +2 (12)
+**PF** 97 (15d8 + 30)
+**Velocità** 9 m, 12 m (solo in forma di cinghiale)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 23 | +6 | +6 |
-| DES | 16 | +3 | +3 |
-| COS | 18 | +4 | +4 |
-| INT | 7  | -2 | -2 |
-| SAG | 14 | +2 | +2 |
-| CAR | 12 | +1 | +1 |
 
-- **Immunità**: Fulmine  
-- **Abilità**: Percezione +6, Furtività +7  
-- **Sensi**: Scurovisione 27 m; Percezione Passiva 16  
-- **Linguaggi**: Draconico  
-- **GS** 11 (PE 7.200; MB +4)
+**Abilità** Percezione +2
+**Attrezzatura** giavellotti (6)
+**Sensi** Percezione passiva 12
+**Lingue** Comune (non può parlare in forma di cinghiale)
+**GS** 4 (PE 1.100; BC +2)
 
-### Azioni
+Azioni
 
-***Attacco Multiplo.*** Il behir effettua un attacco di Morso e usa Costrizione.  
+_**Multiattacco.**_ Il cinghiale mannaro effettua due
+attacchi, usando Giavellotto o Zanne in qualsiasi
+combinazione. Può sostituire un attacco con un attacco
+Trafiggere.
 
-***Morso.*** *Attacco in mischia:* +10, portata 3 m. 19 (2d12 + 6) danni perforanti più 11 (2d10) danni da fulmine.  
+_**Giavellotto (solo in forma umanoide o ibrida).**_ _Tiro_
+_per colpire in mischia o a distanza:_ +5, portata 1,5 m
 
-***Costrizione.*** *TS For:* CD 18, una creatura Grande o più piccola che il behir possa vedere entro 1,5 m. *Fallimento:* 28 (5d8 + 6) danni contundenti. Il bersaglio ottiene la condizione Afferato (CD 16 per liberarsi) e la condizione Immobilizzato finché la presa dura.  
+      - gittata 9/36 m. _Colpito:_ 13 (3d6 + 3) danni perforanti.
 
-***Soffio di Fulmine (Ricarica 5–6).*** *TS Des:* CD 16, ogni creatura in una linea di 27 m per 1,5 m. *Fallimento:* 66 (12d10) danni da fulmine. *Successo:* metà danni.  
+_**Trafiggere (solo in forma di cinghiale o ibrida).**_ _Tiro_
+_per colpire in mischia:_ +5, portata 1,5 m _Colpito:_
+12 (2d8 + 3) danni perforanti. Se il bersaglio è un
+umanoide, subisce il seguente effetto. _Tiro salvezza su_
+_Costituzione:_ CD 12. _Fallimento:_ il bersaglio è maledetto. Se il bersaglio scende a 0 punti ferita, diventa
+un **cinghiale mannaro** sotto il controllo del GM e ha
+10 punti ferita. _Successo:_ il bersaglio è immune alla
+maledizione del cinghiale mannaro per 24 ore.
 
-### Azioni Bonus
+_**Zanne (solo in forma di cinghiale o ibrida).**_ _Tiro_
+_per colpire in mischia:_ +5, portata 1,5 m _Colpito:_
+10 (2d6 + 3) danni perforanti. Se il bersaglio è una creatura di taglia Media o inferiore e il cinghiale mannaro
+si è mosso di 6 metri o più in linea retta verso di esso
 
-***Ingoiare.*** *TS Des:* CD 18, una creatura Grande o più piccola afferrata dal behir (può ingoiarne solo una alla volta). *Fallimento:* il behir ingoia il bersaglio, che non è più afferrato. Mentre è inghiottita, la creatura è Accecata e Immobilizzata, ha Copertura Totale contro attacchi ed effetti esterni e subisce 21 (6d6) danni da acido all’inizio di ciascun turno del behir.  
-Se il behir subisce 30 o più danni in un solo turno dalla creatura inghiottita, deve superare un TS Cos CD 14 alla fine di quel turno o rigurgitare la creatura, che cade prono entro 3 m dal behir. Se il behir muore, la creatura non è più Immobilizzata ed esce dal corpo usando 4,5 m di movimento, cadendo prona.  
 
-## Berserker
+**303** System Reference Document 5.2.1
 
-*Umanoide Piccolo, Neutrale*
 
-- **Classe Armatura:** 13  
-- **Punti Ferita:** 67 (9d8 + 27)  
-- **Velocità:** 9 m  
-- **Iniziativa**: +1 (11)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +3 |
-| DES | 12 | +1 | +1 |
-| COS | 17 | +3 | +3 |
-| INT | 9  | -1 | -1 |
-| SAG | 11 | +0 | +0 |
-| CAR | 9  | -1 | -1 |
+subito prima del colpo, il bersaglio subisce 7 (2d6)
+danni perforanti extra e cade a terra prono.
 
-- **Equipaggiamento**: Ascia a Due Mani, Armatura di Pelle  
-- **Sensi**: Percezione Passiva 10  
-- **Linguaggi**: Comune  
-- **GS** 2 (PE 450; MB +2)
+Azioni bonus
 
-### Tratti
+_**Mutaforma.**_ Il cinghiale mannaro si trasforma in un
+ibrido umanoide-cinghiale di taglia Media o in un
+cinghiale di taglia Piccola, altrimenti torna alla sua
+forma originale di umanoide. Le sue statistiche di
+gioco, a eccezione della taglia, restano le stesse in ogni
+forma. Nessun oggetto che indossa o trasporta viene
+trasformato.
+## **Coboldo**
+### **Coboldo guerriero**
 
-***Furia Insanguinata.*** Quando è Sanguinante, il berserker ha vantaggio ai tiri per colpire e ai tiri salvezza.  
+_Drago Piccolo, neutrale_
 
-### Azioni
 
-***Ascia a Due Mani.*** *Attacco in mischia:* +5, portata 1,5 m. 9 (1d12 + 3) danni taglienti.  
+**CA** 14 **Iniziativa** +2 (12)
+**PF** 7 (3d6 − 3)
+**Velocità** 9 m
 
-## Dragonetto Nero
 
-*Drago Medio (Cromatico), Caotico Malvagio*
+**Attrezzatura** pugnali (3)
+**Sensi** Percezione passiva 8; scurovisione 18 m
+**Lingue** Comune, Draconico
+**GS** 1/8 (PE 25; BC +2)
 
-- **Classe Armatura:** 17  
-- **Punti Ferita:** 33 (6d8 + 6)  
-- **Velocità:** 9 m, Volare 18 m, Nuotare 9 m  
-- **Iniziativa**: +4 (14)
+Tratti
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 15 | +2 | +2 |
-| DES | 14 | +2 | +4 |
-| COS | 13 | +1 | +1 |
-| INT | 10 | +0 | +0 |
-| SAG | 11 | +0 | +2 |
-| CAR | 13 | +1 | +1 |
+_**Sensibilità al sole.**_ Finché è esposto alla luce del sole,
+il coboldo subisce svantaggio alle prove di caratteristica
+e ai tiri per colpire.
 
-- **Immunità**: Acido  
-- **Abilità**: Percezione +4, Furtività +4  
-- **Sensi**: Vista Cieca 3 m, Scurovisione 18 m; Percezione Passiva 14  
-- **Linguaggi**: Draconico  
-- **GS** 2 (PE 450; MB +2)
+_**Tattiche del branco.**_ Il coboldo dispone di vantaggio
+a un tiro per colpire contro una creatura se almeno
+uno degli alleati del mostro si trova entro 1,5 metri
+dalla creatura e l'alleato non è incapacitato.
 
-### Tratti
+Azioni
 
-***Anfibio.*** Il drago può respirare aria e acqua.  
+_**Pugnale.**_ _Tiro per colpire in mischia o a distanza:_ +4,
+portata 1,5 m o gittata 6/18 m. _Colpito:_ 4 (1d4 + 2)
+danni perforanti.
+## **Coccatrice**
+### **Coccatrice**
 
-### Azioni
+_Mostruosità Piccola, senza allineamento_
 
-***Attacco Multiplo.*** Il drago effettua due attacchi di Dilaniare.  
 
-***Dilaniare.*** *Attacco in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni taglienti più 2 (1d4) danni da acido.  
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 22 (5d6 + 5)
+**Velocità** 6 m, volo 12 m
 
-***Soffio di Acido (Ricarica 5–6).*** *TS Des:* CD 11, ogni creatura in una linea di 4,5 m per 1,5 m. *Fallimento:* 22 (5d8) danni da acido. *Successo:* metà danni.  
 
-## Gelatina Nera
+**Immunità** pietrificato
+**Sensi** Percezione passiva 11; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1/2 (PE 100; BC +2)
 
-*Melma Grande, Non Allineata*
 
-- **Classe Armatura:** 7  
-- **Punti Ferita:** 68 (8d10 + 24)  
-- **Velocità:** 6 m, Scalare 6 m  
-- **Iniziativa**: -3 (7)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +3 |
-| DES | 5  | -3 | -3 |
-| COS | 16 | +3 | +3 |
-| INT | 1  | -5 | -5 |
-| SAG | 6  | -2 | -2 |
-| CAR | 1  | -5 | -5 |
 
-- **Immunità**: Acido, Freddo, Fulmine, Tagliente; Affascinato, Assordato, Affaticato, Spaventato, Afferrato, Prono, Immobilizzato  
-- **Sensi**: Vista Cieca 18 m; Percezione Passiva 8  
-- **GS** 4 (PE 1.100; MB +2)
+Azioni
 
-### Tratti
+_**Morso pietrificante.**_ _Tiro per colpire in mischia:_ +3,
+portata 1,5 m. _Colpito:_ 3 (1d4 + 1) danni perforanti.
+Se il bersaglio è una creatura, subisce il seguente
+effetto. _Tiro salvezza su Costituzione:_ CD 11. _Primo_
+_fallimento:_ il bersaglio è trattenuto. Ripete il tiro salvezza alla fine del proprio turno successivo se è ancora
+trattenuto e, se lo supera, l'effetto svanisce. _Secondo_
+_fallimento:_ il bersaglio è pietrificato invece che trattenuto per 24 ore.
+## **Couatl**
+### **Couatl**
 
-***Amorfa.*** La gelatina può muoversi attraverso spazi stretti fino a 2,5 cm senza costi extra di movimento.  
+_Celestiale Medio, legale buono_
 
-***Forma Corrosiva.*** Una creatura che colpisce la gelatina con un attacco in mischia subisce 4 (1d8) danni da acido. Munizioni non magiche vengono distrutte subito dopo aver inflitto danno. Ogni arma non magica subisce un malus cumulativo di -1 ai tiri per colpire dopo aver colpito la gelatina. L’arma si distrugge se il malus arriva a -5. Il malus può essere rimosso con l’incantesimo *Riparare*. In 1 minuto la gelatina può corrodere 60 cm di legno o metallo non magico.  
 
-***Camminare sui Muri.*** La gelatina può scalare superfici difficili, anche i soffitti, senza prove di abilità.  
+**CA** 19 **Iniziativa** +5 (15)
+**PF** 60 (8d8 + 24)
+**Velocità** 9 m, volo 27 m
 
-### Azioni
 
-***Pseudopodio Dissolvente.*** *Attacco in mischia:* +5, portata 3 m. 17 (4d6 + 3) danni da acido. Un’armatura non magica indossata dal bersaglio subisce un malus cumulativo di -1 alla CA. L’armatura si distrugge se la sua CA scende a 10. Il malus può essere rimosso con *Riparare*.  
+**Resistenze** contundente, perforante, tagliente
+**Immunità** psichico, radioso
+**Sensi** Percezione passiva 15; vista pura 36 m
+**Lingue** tutte; telepatia 36 m
+**GS** 4 (PE 1.100; BC +2)
 
-## Cane Lampeggiante
+Tratti
 
-*Folletto Medio, Legale Buono*
+_**Mente schermata.**_ I pensieri del couatl non possono
+­essere letti in alcun modo e le altre creature possono
+comunicare telepaticamente con lui solo se lo
+permette.
 
-- **Classe Armatura:** 13  
-- **Punti Ferita:** 22 (4d8 + 4)  
-- **Velocità:** 12 m  
-- **Iniziativa**: +3 (13)
+Azioni
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 12 | +1 | +1 |
-| DES | 17 | +3 | +3 |
-| COS | 12 | +1 | +1 |
-| INT | 10 | +0 | +0 |
-| SAG | 13 | +1 | +1 |
-| CAR | 11 | +0 | +0 |
+_**Morso.**_ _Tiro per colpire in mischia:_ +7, portata 1,5 m.
+_Colpito:_ 11 (1d12 + 5) danni perforanti, e il bersaglio
+è avvelenato fino al termine del turno successivo del
+couatl.
 
-- **Abilità**: Percezione +5, Furtività +5  
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 15  
-- **Linguaggi**: comprende Elfico e Silvano ma non può parlarli  
-- **GS** 1/4 (PE 50; MB +2)
+_**Incantesimi.**_ Il couatl lancia uno dei seguenti incantesimi, senza bisogno di componenti, utilizzando
+Saggezza come caratteristica da incantatore (CD del
+tiro salvezza sull'incantesimo 15):
 
-### Azioni
+**1/giorno ciascuno:** _creare cibo e acqua_, _ristorare supe-_
 
-***Morso.*** *Attacco in mischia:* +5, portata 1,5 m. 5 (1d4 + 3) danni perforanti.  
+_riore_, _scrutare_, _sogno_, _sonno_
+**A volontà:** _individuazione dei pensieri_, _individuazione_
 
-### Azioni Bonus
+_del bene e del male_, _individuazione del magico_,
+_trasformazione_ (solo in forma di bestia o umanoide,
+senza punti ferita temporanei ottenuti dall'incantesimo, e senza concentrazione o punti ferita temporanei per mantenere l'incantesimo)
 
-***Teletrasporto (Ricarica 4–6).*** Il cane si teletrasporta fino a 12 m in uno spazio non occupato che può vedere.  
+_**Stritolare.**_ _Tiro salvezza su Forza:_ CD 15, una creatura
+di taglia Media o inferiore che il couatl è in grado di
+vedere entro 1,5 metri. _Fallimento:_ 8 (1d6 + 5) danni
 
-## Dragonetto Blu
 
-*Drago Medio (Cromatico), Legale Malvagio*
+**304** System Reference Document 5.2.1
 
-- **Classe Armatura:** 17  
-- **Punti Ferita:** 65 (10d8 + 20)  
-- **Velocità:** 9 m, Sotterrare 4,5 m, Volare 18 m  
-- **Iniziativa**: +2 (12)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 17 | +3 | +3 |
-| DES | 10 | +0 | +2 |
-| COS | 15 | +2 | +2 |
-| INT | 12 | +1 | +1 |
-| SAG | 11 | +0 | +2 |
-| CAR | 15 | +2 | +2 |
 
-- **Immunità**: Fulmine  
-- **Abilità**: Percezione +4, Furtività +2  
-- **Sensi**: Vista Cieca 3 m, Scurovisione 18 m; Percezione Passiva 14  
-- **Linguaggi**: Draconico  
-- **GS** 3 (PE 700; MB +2)
+contundenti. Il bersaglio è afferrato (CD 13 per sfuggire)
+ed è trattenuto finché la presa perdura.
 
-### Azioni
+Azioni bonus
 
-***Attacco Multiplo.*** Il drago effettua due attacchi di Dilaniare.  
+_**Aiuto divino (2/giorno).**_ Il couatl lancia _benedizione_,
+_ristorare inferiore_ - _santuario_ senza bisogno di componenti, utilizzando la stessa caratteristica da incantatore
+di Incantesimi.
+## **Cubo gelatinoso**
+### **Cubo gelatinoso**
 
-***Dilaniare.*** *Attacco in mischia:* +5, portata 1,5 m. 8 (1d10 + 3) danni taglienti più 3 (1d6) danni da fulmine.  
+_Melma Grande, senza allineamento_
 
-***Soffio di Fulmine (Ricarica 5–6).*** *TS Des:* CD 12, ogni creatura in una linea di 9 m per 1,5 m. *Fallimento:* 21 (6d6) danni da fulmine. *Successo:* metà danni.  
 
-## Diavolo d’Ossa
+**CA** 6 **Iniziativa** −4 (6)
+**PF** 63 (6d10 + 30)
+**Velocità** 4,5 m
 
-*Immane Immondo (Diavolo), Legale Malvagio*
 
-- **Classe Armatura:** 16  
-- **Punti Ferita:** 161 (17d10 + 68)  
-- **Velocità:** 12 m, Volare 12 m  
-- **Iniziativa**: +7 (17)
+**Immunità** acido; accecato, affascinato, assordato,
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +8 |
-| DES | 16 | +3 | +3 |
-| COS | 18 | +4 | +4 |
-| INT | 13 | +1 | +5 |
-| SAG | 14 | +2 | +6 |
-| CAR | 16 | +3 | +7 |
+indebolimento, prono, spaventato
+**Sensi** Percezione passiva 8; vista cieca 18 m
+**Lingue** nessuna
+**GS** 2 (PE 450; BC +2)
 
-- **Resistenze**: Freddo  
-- **Immunità**: Fuoco, Veleno; Avvelenato  
-- **Abilità**: Inganno +7, Intuizione +6  
-- **Sensi**: Scurovisione 36 m (non ostacolata da oscurità magica); Percezione Passiva 12  
-- **Linguaggi**: Infernale; telepatia 36 m  
-- **GS** 9 (PE 5.000; MB +4)
+Tratti
 
-### Tratti
+_**Cubo di melma.**_ Il cubo occupa il suo intero spazio
+ed è trasparente. Le altre creature possono entrare
+in quello spazio, ma la creatura che lo fa è soggetta
+­all'azione del cubo Avviluppare e subisce svantaggio
+al tiro salvezza.
 
-***Restaurazione Diabolica.*** Se il diavolo muore al di fuori dei Nove Inferi, il suo corpo scompare in un fumo sulfureo e ottiene immediatamente un nuovo corpo, resuscitando con tutti i suoi Punti Ferita da qualche parte nei Nove Inferi.  
+Le creature all'interno del cubo beneficiano di copertura totale, e il cubo può contenere una creatura di
+taglia Grande o fino a quattro creature di taglia Media
 
-***Resistenza Magica.*** Il diavolo ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.  
+- Piccola contemporaneamente.
 
-### Azioni
+Con un'azione, una creatura entro 1,5 metri dal cubo
+può tirare fuori dal cubo una creatura o un oggetto superando una prova di Forza (Atletica) con CD 12, e chi esegue questa azione subisce 10 (3d6) danni da acido.
 
-***Attacco Multiplo.*** Il diavolo effettua due attacchi di Artigli e un attacco di Pungiglione Infernale.  
+_**Trasparente.**_ Anche quando il cubo è in piena vista,
+una creatura deve superare una prova di Saggezza (Percezione) con CD 15 per avvistare il cubo se la creatura
+non ha visto il cubo muoversi o agire in un altro modo.
 
-***Artigli.*** *Attacco in mischia:* +8, portata 3 m. 13 (2d8 + 4) danni taglienti.  
+Azioni
 
-***Pungiglione Infernale.*** *Attacco in mischia:* +8, portata 3 m. 15 (2d10 + 4) danni perforanti più 18 (4d8) danni da veleno, e il bersaglio ha la condizione Avvelenato fino all’inizio del turno successivo del diavolo. Finché è Avvelenato, il bersaglio non può recuperare Punti Ferita.  
+_**Pseudopode.**_ _Tiro per colpire in mischia:_ +4, portata
+1,5 m _Colpito:_ 12 (3d6 + 2) danni da acido.
 
-## Dragonetto di Ottone
+_**Avviluppare.**_ Il cubo si muove fino alla sua velocità
+massima senza provocare attacchi di opportunità.
+Il cubo può muoversi nello spazio di creature di
+taglia Grande o inferiore se, al suo interno, ha spazio
+sufficiente a contenerle (vedi il tratto Cubo di melma).
+_Tiro salvezza su Destrezza:_ CD 12, tutte le creature
+nel cui spazio il cubo entra per la prima volta durante
+questo movimento. _Fallimento:_ 10 (3d6) danni da acido,
 
-*Drago Medio (Metallico), Caotico Buono*
 
-- **Classe Armatura:** 15  
-- **Punti Ferita:** 22 (4d8 + 4)  
-- **Velocità:** 9 m, Sotterrare 4,5 m, Volare 18 m  
-- **Iniziativa**: +2 (12)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 15 | +2 | +2 |
-| DES | 10 | +0 | +2 |
-| COS | 13 | +1 | +1 |
-| INT | 10 | +0 | +0 |
-| SAG | 11 | +0 | +2 |
-| CAR | 13 | +1 | +1 |
 
-- **Immunità**: Fuoco  
-- **Abilità**: Percezione +4, Furtività +2  
-- **Sensi**: Vista Cieca 3 m, Scurovisione 18 m; Percezione Passiva 14  
-- **Linguaggi**: Draconico  
-- **GS** 1 (PE 200; MB +2)
+e il bersaglio è avviluppato. Un bersaglio avviluppato
+soffoca, non può lanciare incantesimi con una componente Verbale, è trattenuto e subisce 10 (3d6) danni da
+acido all'inizio di ogni turno del cubo. Quando il cubo
+si muove, il bersaglio avviluppato si muove insieme
+a esso. Un bersaglio avviluppato può tentare di sfuggire
+usando un'azione per effettuare una prova di Forza
+(Atletica) con CD 12. Se la prova viene superata, il bersaglio sfugge ed entra nello spazio libero più vicino.
+_Successo:_ danni dimezzati, e il bersaglio si sposta in
+uno spazio libero entro 1,5 metri dal cubo. Se non
+c'è alcuno spazio libero, il bersaglio fallisce la prova.
+## **Cultisti**
+### **Cultista**
 
-### Azioni
+_Umanoide Medio o Piccolo, neutrale_
 
-***Dilaniare.*** *Attacco in mischia:* +4, portata 1,5 m. 7 (1d10 + 2) danni taglienti.  
 
-***Soffio di Fuoco (Ricarica 5–6).*** *TS Des:* CD 11, ogni creatura in una linea di 6 m per 1,5 m. *Fallimento:* 14 (4d6) danni da fuoco. *Successo:* metà danni.  
+**CA** 12 **Iniziativa** +1 (11)
+**PF** 9 (2d8)
+**Velocità** 9 m
 
-***Soffio del Sonno.*** *TS Cos:* CD 11, ogni creatura in un cono di 4,5 m. *Fallimento:* il bersaglio ha la condizione Incapacitato fino alla fine del suo prossimo turno, dopodiché ripete il tiro salvezza. *Secondo Fallimento:* il bersaglio ha la condizione Incosciente per 1 minuto. Questo effetto termina se subisce danni o se una creatura entro 1,5 m da lui usa un’azione per svegliarlo.  
 
-## Dragonetto di Bronzo
+**Abilità** Inganno +2, Religione +2
+**Attrezzatura** armatura di cuoio, falcetto
+**Sensi** Percezione passiva 10
+**Lingue** Comune
+**GS** 1/8 (PE 25; BC +2)
 
-*Drago Medio (Metallico), Legale Buono*
+Azioni
 
-- **Classe Armatura:** 15  
-- **Punti Ferita:** 39 (6d8 + 12)  
-- **Velocità:** 9 m, Volare 18 m, Nuotare 9 m  
-- **Iniziativa**: +2 (12)
+_**Falcetto rituale.**_ _Tiro per colpire in mischia:_ +3, portata
+1,5 m _Colpito:_ 3 (1d4 + 1) danni taglienti più 1 danno
+necrotico.
+### **Cultista fanatico**
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 17 | +3 | +3 |
-| DES | 10 | +0 | +2 |
-| COS | 15 | +2 | +2 |
-| INT | 12 | +1 | +1 |
-| SAG | 11 | +0 | +2 |
-| CAR | 15 | +2 | +2 |
+_Umanoide Medio o Piccolo, neutrale_
 
-- **Immunità**: Fulmine  
-- **Abilità**: Percezione +4, Furtività +2  
-- **Sensi**: Vista Cieca 3 m, Scurovisione 18 m; Percezione Passiva 14  
-- **Linguaggi**: Draconico  
-- **GS** 2 (PE 450; MB +2)
 
-### Tratti
+**CA** 13 **Iniziativa** +2 (12)
+**PF** 44 (8d8 + 8)
+**Velocità** 9 m
 
-***Anfibio.*** Il drago può respirare aria e acqua.  
 
-### Azioni
+**Abilità** Inganno +3, Persuasione +3, Religione +2
+**Attrezzatura** armatura di cuoio, simbolo sacro
+**Sensi** Percezione passiva 12
+**Lingue** Comune
+**GS** 2 (PE 450; BC +2)
 
-***Attacco Multiplo.*** Il drago effettua due attacchi di Dilaniare.  
+Azioni
 
-***Dilaniare.*** *Attacco in mischia:* +5, portata 1,5 m. 8 (1d10 + 3) danni taglienti.  
+_**Lama del patto.**_ _Tiro per colpire in mischia:_ +4, portata
+1,5 m _Colpito_ : 6 (1d8 + 2) danni taglienti più 7 (2d6)
+danni necrotici.
 
-***Soffio di Fulmine (Ricarica 5–6).*** *TS Des:* CD 12, ogni creatura in una linea di 12 m per 1,5 m. *Fallimento:* 16 (3d10) danni da fulmine. *Successo:* metà danni.  
+_**Incantesimi.**_ Il cultista lancia uno dei seguenti incantesimi, utilizzando Saggezza come caratteristica da
 
-***Soffio di Repulsione.*** *TS For:* CD 12, ogni creatura in un cono di 9 m. *Fallimento:* il bersaglio è spinto fino a 9 m lontano dal drago e cade Prono.  
 
-## Bugbear Predatore
+**305** System Reference Document 5.2.1
 
-*Folletto Medio (Goblinide), Caotico Malvagio*
 
-- **Classe Armatura:** 15  
-- **Punti Ferita:** 65 (10d8 + 20)  
-- **Velocità:** 9 m  
-- **Iniziativa**: +2 (12)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 17 | +3 | +3 |
-| DES | 14 | +2 | +2 |
-| COS | 14 | +2 | +4 |
-| INT | 11 | +0 | +0 |
-| SAG | 12 | +1 | +3 |
-| CAR | 11 | +0 | +0 |
+incantatore (CD del tiro salvezza sull'incantesimo 12,
++4 al tiro per colpire degli attacchi con incantesimo):
 
-- **Abilità**: Furtività +6, Sopravvivenza +3  
-- **Equipaggiamento**: Cotta di maglia, Giavellotto × 6, Mazza ferrata  
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 11  
-- **Linguaggi**: Comune, Goblin  
-- **GS** 3 (PE 700; MB +2)
+**1/giorno:** _Blocca persone_
+**2/giorno:** _Comando_
+**A volontà:** _Luce_, _taumaturgia_
 
-### Tratti
+Azioni bonus
 
-***Rapimento.*** Il bugbear non deve spendere movimento extra per trascinare una creatura che sta afferrando.  
+_**Arma spirituale (2/giorno).**_ Il cultista lancia l'incantesimo _arma spirituale_, utilizzando la stessa caratteristica
+da incantatore di Incantesimi.
+## **Cumulo strisciante**
+### **Cumulo strisciante**
 
-### Azioni
+_Vegetale Grande, senza allineamento_
 
-***Attacco Multiplo.*** Il bugbear effettua due attacchi con Giavellotto o Mazza ferrata.  
 
-***Giavellotto.*** *Attacco in mischia o a distanza:* +5, portata 3 m o gittata 9/36 m. 13 (3d6 + 3) danni perforanti.  
+**CA** 15 **Iniziativa** −1 (9)
+**PF** 110 (13d10 + 39)
+**Velocità** 9 m, nuoto 6 m
 
-***Mazza ferrata.*** *Attacco in mischia:* +5 (con vantaggio se il bersaglio è afferrato dal bugbear), portata 3 m. 12 (2d8 + 3) danni perforanti.  
 
-### Azioni Bonus
+**Abilità** Furtività +3
+**Resistenze** freddo, fuoco
+**Immunità** fulmine; assordato, indebolimento
+**Sensi** Percezione passiva 10; vista cieca 18 m
+**Lingue** nessuna
+**GS** 5 (PE 1.800; BC +3)
 
-***Afferrata Rapida.*** *TS Des:* CD 13, una creatura Media o più piccola che il bugbear può vedere entro 3 m. *Fallimento:* il bersaglio ha la condizione Afferrato (CD Fuga 13).  
+Tratti
 
-## Bugbear Guerriero
+_**Assorbimento del fulmine**_ . Ogni volta che il cumulo
+strisciante subisce danni da fulmine, recupera un
+numero di punti ferita pari ai danni da fulmine inflitti.
 
-*Folletto Medio (Goblinide), Caotico Malvagio*
+Azioni
 
-- **Classe Armatura:** 14  
-- **Punti Ferita:** 33 (6d8 + 6)  
-- **Velocità:** 9 m  
-- **Iniziativa**: +2 (12)
+_**Multiattacco.**_ Il cumulo strisciante effettua tre attacchi
+Radice elettrificata. Può sostituire un attacco con un
+utilizzo di Avviluppare.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 15 | +2 | +2 |
-| DES | 14 | +2 | +2 |
-| COS | 13 | +1 | +1 |
-| INT | 8  | -1 | -1 |
-| SAG | 11 | +0 | +0 |
-| CAR | 9  | -1 | -1 |
+_**Radice elettrificata.**_ _Tiro per colpire in mischia:_ +7,
+portata 3 m. _Colpito:_ 7 (1d6 + 4) danni contundenti più
+5 (2d4) danni da fulmine. Se il bersaglio è una creatura
+di taglia Media o inferiore, il cumulo strisciante lo tira
+in linea retta verso di sé per 1,5 metri.
 
-- **Abilità**: Furtività +6, Sopravvivenza +2  
-- **Equipaggiamento**: Armatura di cuoio grezzo, Martello leggero ×3  
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 10  
-- **Linguaggi**: Comune, Goblin  
-- **GS** 1 (PE 200; MB +2)
+_**Avviluppare.**_ _Tiro salvezza su Forza:_ CD 15, una
+creatura di taglia Media o inferiore entro 1,5 metri.
+_Fallimento:_ il bersaglio viene attirato nello spazio del
+cumulo strisciante ed è afferrato (CD 14 per sfuggire).
+Finché la presa perdura il bersaglio è accecato e trattenuto, e subisce 10 (3d6) danni da fulmine all'inizio di
+ogni suo turno. Quando il cumulo strisciante si muove,
+il bersaglio afferrato si muove con esso senza fargli
+consumare movimento extra. Il cumulo strisciante può
+afferrare una sola creatura per volta con questa azione.
 
-### Tratti
 
-***Rapimento.*** Il bugbear non deve spendere movimento extra per trascinare una creatura che sta afferrando.  
 
-### Azioni
 
-***Afferrare.*** *Attacco in mischia:* +4, portata 3 m. 9 (2d6 + 2) danni contundenti. Se il bersaglio è una creatura Media o più piccola, ottiene la condizione Afferrato (CD Fuga 12).  
+## **Deva**
+### **Deva**
 
-***Martello Leggero.*** *Attacco in mischia o a distanza:* +4 (con vantaggio se il bersaglio è afferrato dal bugbear), portata 3 m o gittata 6/18 m. 9 (3d4 + 2) danni contundenti.  
+_Celestiale Medio (angelo), legale buono_
 
-## Bulette
 
-*Mostruosità Grande, Non Allineata*
+**CA** 17 **Iniziativa** +4 (14)
+**PF** 229 (27d8 + 108)
+**Velocità** 9 m, volo 27 m (fluttuare)
 
-- **Classe Armatura:** 17  
-- **Punti Ferita:** 94 (9d10 + 45)  
-- **Velocità:** 12 m, Sotterrare 12 m  
-- **Iniziativa**: +0 (10)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 19 | +4 | +4 |
-| DES | 11 | +0 | +0 |
-| COS | 21 | +5 | +5 |
-| INT | 2  | -4 | -4 |
-| SAG | 10 | +0 | +0 |
-| CAR | 5  | -3 | -3 |
+**Abilità** Intuizione +9, Percezione +9
+**Resistenze** radioso
+**Immunità** affascinato, indebolimento, spaventato
+**Sensi** Percezione passiva 19; scurovisione 36 m
+**Lingue** tutte; telepatia 36 m
+**GS** 10 (PE 5.900; BC +4)
 
-- **Abilità**: Percezione +6  
-- **Sensi**: Scurovisione 18 m, Tremorsenso 36 m; Percezione Passiva 16  
-- **GS** 5 (PE 1.800; MB +3)
+Tratti
 
-### Azioni
+_**Resistenza alla magia.**_ Il deva dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
 
-***Attacco Multiplo.*** La bulette effettua due attacchi di Morso.  
+_**Ristoro glorioso.**_ Se il deva muore al di fuori di Monte
+Celestia, il suo corpo scompare ed esso ne acquisisce
+uno nuovo all'istante, tornando in vita con tutti i suoi
+punti ferita da qualche parte a Monte Celestia.
 
-***Morso.*** *Attacco in mischia:* +7, portata 1,5 m. 17 (2d12 + 4) danni perforanti.  
+Azioni
 
-***Salto Mortale.*** La bulette spende 1,5 m di movimento per saltare in uno spazio entro 4,5 m che contiene una o più creature Grandi o più piccole. *TS Des:* CD 15, ogni creatura nello spazio di destinazione della bulette. *Fallimento:* 19 (3d12) danni contundenti, e il bersaglio cade Prono. *Successo:* metà danni, e il bersaglio è spinto di 1,5 m lontano dalla bulette.  
+_**Multiattacco.**_ Il deva effettua due attacchi Mazza
+divina.
 
-### Azioni Bonus
+_**Mazza divina.**_ _Tiro per colpire in mischia:_ +8, portata
+1,5 m. _Colpito:_ 7 (1d6 + 4) danni contundenti più
+18 (4d8) danni radiosi.
 
-***Balzo.*** La bulette salta fino a 9 m spendendo 3 m di movimento.  
+_**Incantesimi.**_ Il deva lancia uno dei seguenti incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 17):
 
-## Centauro Soldato
+**1/giorno ciascuno:** _Comunione_, _rianimare morti_
+**A volontà:** _Individuazione del bene e del male_, _trasfor-_
 
-*Folletto Grande, Neutrale Buono*
+_mazione_ (solo in forma di bestia o umanoide, senza
+punti ferita temporanei ottenuti dall'incantesimo,
+e senza concentrazione o punti ferita temporanei per
+mantenere l'incantesimo)
 
-- **Classe Armatura:** 16  
-- **Punti Ferita:** 45 (6d10 + 12)  
-- **Velocità:** 15 m  
-- **Iniziativa**: +2 (12)
+Azioni bonus
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 14 | +2 | +2 |
-| COS | 14 | +2 | +2 |
-| INT | 9  | -1 | -1 |
-| SAG | 13 | +1 | +1 |
-| CAR | 11 | +0 | +0 |
+_**Aiuto divino (2/giorno).**_ Il deva lancia _cura ferite_,
+_rimuovi maledizione_      - _ristorare inferiore_, utilizzando
+la stessa caratteristica da incantatore di Incantesimi.
+## **Diavolo barbuto**
+### **Diavolo barbuto**
 
-- **Abilità**: Atletica +6, Percezione +3  
-- **Equipaggiamento**: Corazza, Arco lungo, Picca  
-- **Sensi**: Percezione Passiva 13  
-- **Linguaggi**: Elfico, Silvano  
-- **GS** 2 (PE 450; MB +2)
+_Immondo Medio (diavolo), legale malvagio_
 
-### Azioni
 
-***Attacco Multiplo.*** Il centauro effettua due attacchi, usando Picca o Arco lungo in qualsiasi combinazione.  
+**CA** 13 **Iniziativa** +2 (12)
+**PF** 58 (9d8 + 18)
+**Velocità** 9 m
 
-***Picca.*** *Attacco in mischia:* +6, portata 3 m. 9 (1d10 + 4) danni perforanti.  
 
-***Arco Lungo.*** *Attacco a distanza:* +4, gittata 45/180 m. 6 (1d8 + 2) danni perforanti.  
+**306** System Reference Document 5.2.1
 
-### Azioni Bonus
 
-***Carica Travolgente (Ricarica 5–6).*** Il centauro si muove fino alla sua velocità senza provocare Attacchi di Opportunità e può muoversi attraverso spazi occupati da creature Medie o più piccole. Ogni creatura il cui spazio viene attraversato è bersaglio del seguente effetto. *TS For:* CD 14. *Fallimento:* 7 (1d6 + 4) danni contundenti, e il bersaglio cade Prono.  
 
-## Diavolo delle Catene
+**Resistenze** freddo
+**Immunità** fuoco, veleno; avvelenato, spaventato
+**Sensi** Percezione passiva 10; scurovisione 36 m (non
 
-*Immondo Medio (Diavolo), Legale Malvagio*
+ostacolata dall'oscurità magica)
+**Lingue** Infernale; telepatia 36 m
+**GS** 3 (PE 700; BC +2)
 
-- **Classe Armatura:** 15  
-- **Punti Ferita:** 85 (10d8 + 40)  
-- **Velocità:** 9 m  
-- **Iniziativa**: +5 (15)
+Tratti
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 15 | +2 | +2 |
-| COS | 18 | +4 | +7 |
-| INT | 11 | +0 | +0 |
-| SAG | 12 | +1 | +4 |
-| CAR | 14 | +2 | +2 |
+_**Resistenza alla magia.**_ Il diavolo dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
 
-- **Resistenze**: Contundente, Freddo, Perforante, Tagliente  
-- **Immunità**: Fuoco, Veleno; Avvelenato  
-- **Sensi**: Scurovisione 36 m (non ostacolata da oscurità magica); Percezione Passiva 11  
-- **Linguaggi**: Infernale; telepatia 36 m  
-- **GS** 8 (PE 3.900; MB +3)
+Azioni
 
-### Tratti
+_**Multiattacco.**_ Il diavolo effettua un attacco Barba
+e un attacco Falcione infernale.
 
-***Restaurazione Diabolica.*** Se il diavolo muore al di fuori dei Nove Inferi, il suo corpo scompare in un fumo sulfureo e ottiene immediatamente un nuovo corpo, resuscitando con tutti i suoi Punti Ferita da qualche parte nei Nove Inferi.  
+_**Barba.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 7 (1d8 + 3) danni perforanti, e il bersaglio
+è avvelenato fino all'inizio del turno successivo del
+diavolo. Finché è avvelenato, il bersaglio non può
+recuperare punti ferita.
 
-***Resistenza Magica.*** Il diavolo ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.  
+_**Falcione infernale.**_ _Tiro per colpire in mischia:_ +5,
+portata 3 m. _Colpito:_ 8 (1d10 + 3) danni taglienti.
+Se il bersaglio è una creatura e non ha già una ferita
+infernale, subisce il seguente effetto. _Tiro salvezza su_
+_Costituzione:_ CD 12. _Fallimento:_ Il bersaglio subisce
+una ferita infernale. Finché è ferito, il bersaglio perde
+5 (1d10) punti ferita all'inizio di ogni suo turno. La ferita
+si rimargina dopo 1 minuto, dopo che un incantesimo
+ripristina i punti ferita del bersaglio, o dopo che il
+bersaglio o una creatura entro 1,5 metri effettua
+­un'azione per tamponare la ferita superando una prova
+di Saggezza (Medicina) con CD 12.
+## **Diavolo cornuto**
+### **Diavolo cornuto**
 
-### Azioni
+_Immondo Grande (diavolo), legale malvagio_
 
-***Attacco Multiplo.*** Il diavolo effettua due attacchi di Catena e usa Evocare Catena Infernale.  
 
-***Catena.*** *Attacco in mischia:* +7, portata 3 m. 11 (2d6 + 4) danni taglienti. Se il bersaglio è una creatura Grande o più piccola, ottiene la condizione Afferrato (CD Fuga 14) da una delle due catene, e la condizione Immobilizzato finché la presa non termina.  
+**CA** 18 **Iniziativa** +7 (17)
+**PF** 199 (19d10 + 95)
+**Velocità** 9 m, volo 18 m
 
-***Evocare Catena Infernale.*** Il diavolo evoca una catena infuocata per vincolare una creatura. *TS Des:* CD 15, una creatura che il diavolo può vedere entro 18 m. *Fallimento:* 9 (2d4 + 4) danni da fuoco, e il bersaglio ha la condizione Immobilizzato fino alla fine del prossimo turno del diavolo, dopodiché la catena scompare. Se il bersaglio è Grande o più piccolo, il diavolo lo spinge fino a 9 m dritto verso di sé. *Successo:* la catena scompare.  
 
-## Chimera
+**Resistenze** freddo
+**Immunità** fuoco, veleno; avvelenato
+**Sensi** Percezione passiva 13; scurovisione 45 m (non
 
-*Mostruosità Grande, Caotico Malvagio*
+ostacolata dall'oscurità magica)
+**Lingue** Infernale; telepatia 36 m
+**GS** 11 (PE 7.200; BC +4)
 
-- **Classe Armatura:** 14  
-- **Punti Ferita:** 114 (12d10 + 48)  
-- **Velocità:** 9 m, Volare 18 m  
-- **Iniziativa**: +0 (10)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 19 | +4 | +4 |
-| DES | 11 | +0 | +0 |
-| COS | 19 | +4 | +4 |
-| INT | 3  | -4 | -4 |
-| SAG | 14 | +2 | +2 |
-| CAR | 10 | +0 | +0 |
 
-- **Abilità**: Percezione +8  
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 18  
-- **Linguaggi**: comprende il Draconico ma non può parlarlo  
-- **GS** 6 (PE 2.300; MB +3)
 
-### Azioni
+Tratti
 
-***Attacco Multiplo.*** La chimera effettua un attacco di Incornata, uno di Morso e uno di Artiglio. Può sostituire l’Artiglio con un uso di Soffio di Fuoco se disponibile.  
+_**Resistenza alla magia.**_ Il diavolo dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
 
-***Morso.*** *Attacco in mischia:* +7, portata 1,5 m. 11 (2d6 + 4) danni perforanti, oppure 18 (4d6 + 4) danni perforanti se la chimera aveva vantaggio al tiro per colpire.  
+_**Ristoro diabolico.**_ Se il diavolo muore al di fuori dei
+Nove Inferi, il suo corpo si dissolve in fumo sulfureo
+e ne acquisisce uno nuovo all'istante, tornando in vita
+con tutti i suoi punti ferita da qualche parte nei Nove
+Inferi.
 
-***Artiglio.*** *Attacco in mischia:* +7, portata 1,5 m. 7 (1d6 + 4) danni taglienti.  
+Azioni
 
-***Incornata.*** *Attacco in mischia:* +7, portata 1,5 m. 10 (1d12 + 4) danni contundenti. Se il bersaglio è una creatura Media o più piccola, ottiene la condizione Prono.  
+_**Multiattacco.**_ Il diavolo effettua tre attacchi, utilizzando
+Forcone ardente o Scagliare fiamma in qualsiasi combinazione. Può sostituire un attacco con un utilizzo di
+Coda infernale.
 
-***Soffio di Fuoco (Ricarica 5–6).*** *TS Des:* CD 15, ogni creatura in un cono di 4,5 m. *Fallimento:* 31 (7d8) danni da fuoco. *Successo:* metà danni.  
+_**Forcone ardente.**_ _Tiro per colpire in mischia:_ +10,
+portata 3 m. _Colpito:_ 15 (2d8 + 6) danni perforanti più
+9 (2d8) danni da fuoco.
 
-## Chuul
+_**Scagliare fiamma.**_ _Tiro per colpire a distanza:_ +8,
+gittata 45 m. _Colpito:_ 26 (5d8 + 4) danni da fuoco.
+Se il bersaglio è un oggetto infiammabile che non è
+indossato o trasportato, inizia a bruciare.
 
-*Aberrazione Grande, Caotico Malvagio*
+_**Coda infernale.**_ _Tiro salvezza su Destrezza:_ CD 17,
+una creatura che il diavolo è in grado di vedere entro
+3 metri. _Fallimento:_ 10 (1d8 + 6) danni necrotici, e il
+bersaglio subisce una ferita infernale se non ne ha già
+una. Finché è ferito, il bersaglio perde 10 (3d6) punti
+ferita all'inizio di ogni suo turno. La ferita si chiude
+dopo 1 minuto, dopo che un incantesimo ripristina
+i punti ferita del bersaglio, o dopo che il bersaglio o
+una creatura entro 1,5 metri effettua un'azione per
+tamponare la ferita superando una prova di Saggezza
+(Medicina) con CD 17.
+## **Diavolo del ghiaccio**
+### **Diavolo del ghiaccio**
 
-- **Classe Armatura:** 16  
-- **Punti Ferita:** 76 (9d10 + 27)  
-- **Velocità:** 9 m, Nuotare 9 m  
-- **Iniziativa**: +0 (10)
+_Immondo Grande (diavolo), legale malvagio_
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 19 | +4 | +4 |
-| DES | 10 | +0 | +0 |
-| COS | 16 | +3 | +3 |
-| INT | 5  | -3 | -3 |
-| SAG | 11 | +0 | +0 |
-| CAR | 5  | -3 | -3 |
 
-- **Immunità**: Veleno; Avvelenato  
-- **Abilità**: Percezione +4  
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 14  
-- **Linguaggi**: comprende il Linguaggio Profondo ma non può parlarlo  
-- **GS** 4 (PE 1.100; MB +2)
+**CA** 18 **Iniziativa** +7 (17)
+**PF** 228 (24d10 + 96)
+**Velocità** 12 m
 
-### Tratti
 
-***Anfibio.*** Il chuul può respirare aria e acqua.  
+**Abilità** Intuizione +7, Percezione +7, Persuasione +9
+**Immunità** freddo, fuoco, veleno; avvelenato
+**Sensi** Percezione passiva 17; vista cieca 36 m
+**Lingue** Infernale; telepatia 36 m
+**GS** 14 (PE 11.500; BC +5)
 
-***Individuazione della Magia.*** Il chuul percepisce la magia entro 36 m da sé. Questo tratto funziona come *Individuazione del Magico* ma non è di per sé magico.  
+Tratti
 
-### Azioni
+_**Resistenza alla magia.**_ Il diavolo dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
 
-***Attacco Multiplo.*** Il chuul effettua due attacchi di Chela e usa Tentacoli Paralizzanti.  
 
-***Chela.*** *Attacco in mischia:* +6, portata 3 m. 9 (1d10 + 4) danni contundenti. Se il bersaglio è una creatura Grande o più piccola, ottiene la condizione Afferrato (CD Fuga 14) da una delle due chele.  
+**307** System Reference Document 5.2.1
 
-***Tentacoli Paralizzanti.*** *TS Cos:* CD 13, una creatura afferrata dal chuul. *Fallimento:* il bersaglio ha la condizione Avvelenato e ripete il TS alla fine di ciascun suo turno, terminando l’effetto su di sé con un successo. Dopo 1 minuto riesce automaticamente. Finché è Avvelenato in questo modo, il bersaglio ha la condizione Paralizzato.  
 
-## Golem d’Argilla
 
-*Costrutto Grande, Non Allineato*
+_**Ristoro diabolico.**_ Se il diavolo muore al di fuori dei
+Nove Inferi, il suo corpo si dissolve in fumo sulfureo
+e ne acquisisce uno nuovo all'istante, tornando in vita
+con tutti i suoi punti ferita da qualche parte nei Nove
+Inferi.
 
-- **Classe Armatura:** 14  
-- **Punti Ferita:** 123 (13d10 + 52)  
-- **Velocità:** 6 m  
-- **Iniziativa**: +3 (13)
+Azioni
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 20 | +5 | +5 |
-| DES | 9  | -1 | -1 |
-| COS | 18 | +4 | +4 |
-| INT | 3  | -4 | -4 |
-| SAG | 8  | -1 | -1 |
-| CAR | 1  | -5 | -5 |
+_**Multiattacco.**_ Il diavolo effettua tre attacchi Lancia
+di ghiaccio. Può sostituire un attacco con un attacco
+Coda.
 
-- **Resistenze**: Contundenti, Perforanti, Taglienti  
-- **Immunità**: Acido, Veleno, Psichico; Affascinato, Affaticato, Spaventato, Paralizzato, Pietrificato, Avvelenato  
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 9  
-- **Linguaggi**: Comune più un altro linguaggio  
-- **GS** 9 (PE 5.000; MB +4)
+_**Coda.**_ _Tiro per colpire in mischia:_ +10, portata 3 m.
+_Colpito:_ 15 (3d6 + 5) danni contundenti più 18 (4d8)
+danni da freddo.
 
-### Tratti
+_**Lancia di ghiaccio.**_ _Tiro per colpire in mischia o a_
+_distanza:_ +10, portata 1,5 m o gittata 9/36 m. _Colpito:_
+14 (2d8 + 5) danni perforanti più 10 (3d6) danni da
+freddo. Fino al termine del proprio turno successivo,
+il bersaglio non può effettuare un'azione bonus o una
+reazione, la sua velocità è ridotta di 3 metri e durante
+il suo turno può muoversi o effettuare un'azione, ma
+non entrambe le cose. _Colpito o mancato:_ la lancia
+fa magicamente ritorno nella mano del diavolo subito
+dopo un attacco a distanza.
 
-***Assorbimento dell’Acido.*** Quando il golem subisce danni da acido, non subisce danni e invece recupera un numero di PF pari ai danni da acido inflitti.  
+_**Muro di ghiaccio (ricarica 6).**_ Il diavolo lancia _muro di_
+_ghiaccio_ (di 8º livello), senza bisogno di componenti
+e utilizzando Intelligenza come caratteristica da incantatore (CD del tiro salvezza sull'incantesimo 17).
+## **Diavolo della fossa**
+### **Diavolo della fossa**
 
-***Furia.*** Quando inizia il suo turno Sanguinante, tira 1d6. Con un 6, il golem va in furia. In ciascun suo turno in furia, attacca la creatura più vicina che vede; se nessuna è raggiungibile, attacca un oggetto. Rimane in furia finché non viene distrutto o non è più Sanguinante.  
+_Immondo Grande (diavolo), legale malvagio_
 
-***Forma Immutabile.*** Il golem non può cambiare forma.  
 
-***Resistenza alla Magia.*** Il golem ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.  
+**CA** 21 **Iniziativa** +14 (24)
+**PF** 337 (27d10 + 189)
+**Velocità** 9 m, volo 18 m
 
-### Azioni
 
-***Attacco Multiplo.*** Il golem effettua due attacchi di Schianto, o tre se ha usato Accelerare in questo turno.  
+**Abilità** Percezione +10, Persuasione +19
+**Resistenze** freddo
+**Immunità** fuoco, veleno; avvelenato
+**Sensi** Percezione passiva 20; vista pura 36 m
+**Lingue** Infernale; telepatia 36 m
+**GS** 20 (PE 25.000; BC +6)
 
-***Schianto.*** *Attacco in mischia:* +9, portata 1,5 m. 10 (1d10 + 5) danni contundenti più 6 (1d12) danni da acido, e il massimo dei PF del bersaglio si riduce di un ammontare pari ai danni da acido subiti.  
+Tratti
 
-### Azioni Bonus
+_**Aura di paura.**_ Il diavolo della fossa irradia un'aura
+in un'emanazione di 6 metri fintanto che non è incapacitato. _Tiro salvezza su Saggezza:_ CD 21, qualsiasi
+nemico che inizi il suo turno all'interno dell'aura. _Falli-_
+_mento:_ il bersaglio è spaventato fino all'inizio del proprio turno successivo. _Successo:_ il bersaglio è immune
+all'aura di questo diavolo della fossa per 24 ore.
 
-***Accelerare (Ricarica 5–6).*** Il golem compie le azioni Scatto e Disimpegno.  
 
-## Manto
 
-*Aberrazione Grande, Caotico Neutrale*
 
-- **Classe Armatura:** 14  
-- **Punti Ferita:** 91 (14d10 + 14)  
-- **Velocità:** 3 m, Volare 12 m  
-- **Iniziativa**: +5 (15)
+_**Resistenza alla magia.**_ Il diavolo della fossa dispone
+di vantaggio ai tiri salvezza contro incantesimi e altri
+effetti magici.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 17 | +3 | +3 |
-| DES | 15 | +2 | +2 |
-| COS | 12 | +1 | +1 |
-| INT | 13 | +1 | +1 |
-| SAG | 14 | +2 | +2 |
-| CAR | 7  | -2 | -2 |
+_**Resistenza leggendaria (4/giorno).**_ Se il diavolo della
+fossa fallisce un tiro salvezza, può scegliere di superarlo
+comunque.
 
-- **Immunità**: Spaventato  
-- **Abilità**: Furtività +5  
-- **Sensi**: Scurovisione 36 m; Percezione Passiva 12  
-- **Linguaggi**: Linguaggio Profondo, Sottocomune  
-- **GS** 8 (PE 3.900; MB +3)
+_**Ristoro diabolico.**_ Se il diavolo della fossa muore al di
+fuori dei Nove Inferi, il suo corpo si dissolve in fumo
+sulfureo e ne acquisisce uno nuovo all'istante, tornando
+in vita con tutti i suoi punti ferita da qualche parte nei
+Nove Inferi.
 
-### Tratti
+Azioni
 
-***Sensibilità alla Luce.*** In Luce Intensa, il manto ha svantaggio ai tiri per colpire.  
+_**Multiattacco.**_ Il diavolo della fossa effettua un attacco
+Morso, due attacchi Artiglio diabolico e un attacco
+Mazza fiammeggiante.
 
-### Azioni
+_**Artiglio diabolico.**_ _Tiro per colpire in mischia:_ +14,
+portata 3 m. _Colpito:_ 26 (4d8 + 8) danni necrotici.
 
-***Attacco Multiplo.*** Il manto effettua un attacco di Avvolgere e due attacchi di Coda.  
+_**Mazza fiammeggiante.**_ _Tiro per colpire in mischia:_ +14,
+portata 3 m. _Colpito:_ 22 (4d6 + 8) danni da forza più
+21 (6d6) danni da fuoco.
 
-***Avvolgere.*** *Attacco in mischia:* +6, portata 1,5 m. 13 (3d6 + 3) danni perforanti. Se il bersaglio è una creatura Grande o più piccola, il manto si avvolge su di essa. Finché è avvolto, il bersaglio è Accecato e il manto non può usare Avvolgere su altri bersagli. Inoltre, il manto dimezza i danni che subisce (arrotondati per difetto) e il bersaglio subisce la stessa quantità di danni. Il manto può staccarsi spendendo 1,5 m di movimento. Il bersaglio o una creatura entro 1,5 m può usare un’azione per tentare di staccarlo con una prova di Forza (Atletica) CD 14.  
+_**Morso.**_ _Tiro per colpire in mischia:_ +14, portata 3 m.
+_Colpito:_ 18 (3d6 + 8) danni perforanti. Se il bersaglio
+è una creatura, deve effettuare il seguente tiro salvezza.
+_Tiro salvezza su Costituzione:_ CD 21. _Fallimento:_ il
+bersaglio viene avvelenato. Finché è avvelenato, il
+bersaglio non può recuperare punti ferita e subisce
+21 (6d6) danni da veleno all'inizio di ogni suo turno; il
+bersaglio ripete il tiro salvezza al termine di ogni suo
+turno e, se lo supera, l'effetto svanisce. Dopo 1 minuto,
+la prova viene superata automaticamente.
 
-***Coda.*** *Attacco in mischia:* +6, portata 3 m. 8 (1d10 + 3) danni taglienti.  
+_**Incantesimi del fuoco infernale (ricarica 4–6).**_ Il
+diavolo della fossa lancia _palla di fuoco_ (di 5º livello)
+due volte, senza bisogno di componenti materiali e
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 21). Può sostituire
+un incantesimo _palla di fuoco_ con _blocca mostri_ (di
+7º livello) o con _muro di fuoco_ .
+## **Diavolo delle catene**
+### **Diavolo delle catene**
 
-### Azioni Bonus
+_Immondo Medio (diavolo), legale malvagio_
 
-***Gemito.*** *TS Sag:* CD 13, ogni creatura in un’emanazione di 18 m originata dal manto. *Fallimento:* condizione Spaventato fino alla fine del prossimo turno del manto. *Successo:* il bersaglio è immune al Gemito di questo manto per le successive 24 ore.  
 
-***Fantasmi (Ricarica dopo un Riposo breve o lungo).*** Il manto lancia *Doppio Illusorio*, senza componenti e usando Saggezza come caratteristica da incantatore. L’incantesimo termina in anticipo se il manto inizia o termina il suo turno in Luce Intensa.  
+**CA** 15 **Iniziativa** +5 (15)
+**PF** 85 (10d8 + 40)
+**Velocità** 9 m
 
-## Gigante delle Nubi
 
-*Gigante Enorme, Neutrale*
+**308** System Reference Document 5.2.1
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 200 (16d12 + 96)
-- **Velocità:** 12 m, Volare 6 m (fluttuare)
-- **Iniziativa**: +4 (14)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 27 | +8 | +8 |
-| DES | 10 | +0 | +0 |
-| COS | 22 | +6 | +10 |
-| INT | 12 | +1 | +1 |
-| SAG | 16 | +3 | +7 |
-| CAR | 16 | +3 | +3 |
 
-- **Abilità**: Intuizione +7, Percezione +11
-- **Sensi**: Percezione Passiva 21
-- **Linguaggi**: Comune, Gigante
-- **GS** 9 (PE 5.000; PB +4)
+**Resistenze** contundente, freddo, perforante, tagliente
+**Immunità** fuoco, veleno; avvelenato
+**Sensi** Percezione passiva 11; scurovisione 36 m (non
 
-### Azioni
+ostacolata dall'oscurità magica)
+**Lingue** Infernale; telepatia 36 m
+**GS** 8 (PE 3.900; BC +3)
 
-***Attacco Multiplo.*** Il gigante effettua due attacchi, usando Mazzafrusto Tonante o Nuvola Tonante in qualsiasi combinazione. Può sostituire un attacco con l’uso di Incantesimi per lanciare *Nube di Nebbia*.
+Tratti
 
-***Mazzafrusto Tonante.*** *Tiro per Colpire in Mischia:* +12, portata 3 m. 21 (3d8 + 8) danni contundenti più 7 (2d6) danni da tuono.
+_**Resistenza alla magia.**_ Il diavolo dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
 
-***Nuvola Tonante.*** *Tiro per Colpire a Distanza:* +12, gittata 72 m. 18 (3d6 + 8) danni da tuono, e il bersaglio ha la condizione Incapacitato fino alla fine del suo prossimo turno.
+_**Ristoro diabolico.**_ Se il diavolo muore al di fuori dei
+Nove Inferi, il suo corpo si dissolve in fumo sulfureo
+e ne acquisisce uno nuovo all'istante, tornando in vita
+con tutti i suoi punti ferita da qualche parte nei Nove
+Inferi.
 
-***Incantesimi.*** Il gigante lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD tiri salvezza 15):
+Azioni
 
-- **A volontà:** *Individuazione del Magico*, *Nube di Nebbia*, *Luce*
-- **1/giorno ciascuno:** *Controllare il Clima*, *Forma Gassosa*, *Telecinesi*
+_**Multiattacco.**_ Il diavolo effettua due attacchi Catena
+e utilizza Evoca catena infernale.
 
-### Azioni Bonus
+_**Catena.**_ _Tiro per colpire in mischia:_ +7, portata 3 m.
+_Colpito:_ 11 (2d6 + 4) danni taglienti. Se il bersaglio è
+una creatura di taglia Grande o inferiore, è afferrato
+(CD 14 per sfuggire) da una delle due catene, e resta
+trattenuto finché la presa perdura.
 
-***Passo Velato.*** Il gigante lancia l’incantesimo *Passo Velato*, usando la stessa caratteristica da incantatore di Incantesimi.
+_**Evoca catena infernale.**_ Il diavolo evoca una catena
+di fuoco per legare una creatura. _Tiro salvezza su_
+_Destrezza:_ CD 15, una creatura che il diavolo è in
+grado di vedere entro 18 metri. _Fallimento:_ 9 (2d4 + 4)
+danni da fuoco, e il bersaglio è trattenuto fino alla fine
+del turno successivo del diavolo; a quel punto la catena
+scompare. Se il bersaglio è di taglia Grande o inferiore,
+il diavolo lo trascina in linea retta verso di sé fino a un
+massimo di 9 metri. _Successo:_ La catena svanisce.
 
----
+Reazioni
 
-## Cockatrice
+_**Sguardo snervante.**_ _Attivazione:_ una creatura che il
+diavolo è in grado di vedere inizia il suo turno entro
+9 metri da quest'ultimo e può vedere il diavolo.
+_Esito − Tiro salvezza su Saggezza:_ CD 15, la creatura
+che ha provocato la reazione. _Fallimento:_ il bersaglio è
+spaventato fino al termine del proprio turno successivo.
+_Successo:_ il bersaglio è immune allo Sguardo snervante
+di questo diavolo per 24 ore.
+## **Diavolo d'ossa**
+### **Diavolo d'ossa**
 
-*Mostruosità Piccola, Non Allineata*
+_Immondo Grande (diavolo), legale malvagio_
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 22 (5d6 + 5)
-- **Velocità:** 6 m, Volare 12 m
-- **Iniziativa**: +1 (11)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 6 | -2 | -2 |
-| DES | 12 | +1 | +1 |
-| COS | 12 | +1 | +1 |
-| INT | 2 | -4 | -4 |
-| SAG | 13 | +1 | +1 |
-| CAR | 5 | -3 | -3 |
+**CA** 16 **Iniziativa** +7 (17)
+**PF** 161 (17d10 + 68)
+**Velocità** 12 m, volo 12 m
 
-- **Immunità**: Pietrificato
-- **Sensi**: scurovisione 18 m; Percezione Passiva 11
-- **GS** 1/2 (PE 100; PB +2)
 
-### Azioni
 
-***Morso Pietrificante.*** *Tiro per Colpire in Mischia:* +3, portata 1,5 m. 3 (1d4 + 1) danni perforanti. Se il bersaglio è una creatura, subisce il seguente effetto. *Tiro Salvezza su Costituzione*: CD 11. *Primo Fallimento*: il bersaglio ha la condizione Immobilizzato. Ripete il tiro alla fine del suo turno successivo se è ancora Immobilizzato, terminando l’effetto su se stesso con un successo. *Secondo Fallimento*: il bersaglio ottiene la condizione Pietrificato, invece che Immobilizzato, per 24 ore.
 
----
+**Abilità** Inganno +7, Intuizione +6
+**Resistenze** freddo
+**Immunità** fuoco, veleno; avvelenato
+**Sensi** Percezione passiva 12; scurovisione 36 m (non
 
-## Popolano
+ostacolata dall'oscurità magica)
+**Lingue** Infernale; telepatia 36 m
+**GS** 9 (PE 5.000; BC +4)
 
-*Umanoide Piccolo, Neutrale*
+Tratti
 
-- **Classe Armatura:** 10
-- **Punti Ferita:** 4 (1d8)
-- **Velocità:** 9 m
-- **Iniziativa**: +0 (10)
+_**Resistenza alla magia.**_ Il diavolo dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 10 | +0 | +0 |
-| DES | 10 | +0 | +0 |
-| COS | 10 | +0 | +0 |
-| INT | 10 | +0 | +0 |
-| SAG | 10 | +0 | +0 |
-| CAR | 10 | +0 | +0 |
+_**Ristoro diabolico.**_ Se il diavolo muore al di fuori dei
+Nove Inferi, il suo corpo si dissolve in fumo sulfureo
+e ne acquisisce uno nuovo all'istante, tornando in vita
+con tutti i suoi punti ferita da qualche parte nei Nove
+Inferi.
 
-- **Equipaggiamento**: Randello
-- **Sensi**: Percezione Passiva 10
-- **Linguaggi**: Comune
-- **GS** 0 (PE 0 o 10; PB +2)
+Azioni
 
-### Tratti
+_**Multiattacco.**_ Il diavolo effettua due attacchi Artiglio
+e un attacco Pungiglione infernale.
 
-***Addestramento.*** Il popolano ha competenza in un’abilità a scelta del DM e ha Vantaggio ogni volta che effettua una prova di caratteristica usando quell’abilità.
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +8, portata 3 m.
+_Colpito:_ 13 (2d8 + 4) danni taglienti.
 
-### Azioni
+_**Pungiglione infernale.**_ _Tiro per colpire in mischia:_ +8,
+portata 3 m. _Colpito:_ 15 (2d10 + 4) danni perforanti più
+18 (4d8) danni da veleno, e il bersaglio è avvelenato
+fino all'inizio del turno successivo del diavolo. Finché è
+avvelenato, il bersaglio non può recuperare punti ferita.
+## **Diavolo uncinato**
+### **Diavolo uncinato**
 
-***Randello.*** *Tiro per Colpire in Mischia:* +2, portata 1,5 m. 2 (1d4) danni contundenti.
+_Immondo Medio (diavolo), legale malvagio_
 
----
 
-## Draghetto di Rame
+**CA** 15 **Iniziativa** +3 (13)
+**PF** 110 (13d8 + 52)
+**Velocità** 9 m, scalata 9 m
 
-*Drago Medio (Metallico), Caotico Buono*
 
-- **Classe Armatura:** 16
-- **Punti Ferita:** 22 (4d8 + 4)
-- **Velocità:** 9 m, Scalare 9 m, Volare 18 m
-- **Iniziativa**: +3 (13)
+**Abilità** Inganno +5, Intuizione +5, Percezione +8
+**Resistenze** freddo
+**Immunità** fuoco, veleno; avvelenato
+**Sensi** Percezione passiva 18; scurovisione 36 m (non
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 15 | +2 | +2 |
-| DES | 12 | +1 | +3 |
-| COS | 13 | +1 | +1 |
-| INT | 14 | +2 | +2 |
-| SAG | 11 | +0 | +2 |
-| CAR | 13 | +1 | +1 |
+ostacolata dall'oscurità magica)
+**Lingue** Infernale; telepatia 36 m
+**GS** 5 (PE 1.800; BC +3)
 
-- **Immunità**: Acido
-- **Abilità**: Percezione +4, Furtività +3
-- **Sensi**: vista cieca 3 m, scurovisione 18 m; Percezione Passiva 14
-- **Linguaggi**: Draconico
-- **GS** 1 (PE 200; PB +2)
+Tratti
 
-### Azioni
+_**Pelle uncinata.**_ All'inizio di ogni suo turno, il diavolo
+infligge 5 (1d10) danni perforanti a tutte le creature che
+afferra o a qualsiasi creatura lo afferri.
 
-***Lacerare.*** *Tiro per Colpire in Mischia:* +4, portata 1,5 m. 7 (1d10 + 2) danni taglienti.
 
-***Soffio Acido (Ricarica 5-6).*** *Tiro Salvezza su Destrezza*: CD 11, ogni creatura in una Linea di 6 m di lunghezza e 1,5 m di larghezza. *Fallimento:* 18 (4d8) danni da acido. *Successo:* metà danni.
+**309** System Reference Document 5.2.1
 
-***Soffio Rallentante.*** *Tiro Salvezza su Costituzione*: CD 11, ogni creatura in un Cono di 4,5 m. *Fallimento:* il bersaglio non può compiere Reazioni; la sua Velocità è dimezzata; e può compiere solo un’azione o un’azione bonus nel suo turno, non entrambe. Questo effetto dura fino alla fine del suo prossimo turno.
 
-## Couatl
 
-*Celestiale Medio, Legale Buono*
+_**Resistenza alla magia.**_ Il diavolo dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
 
-- **Classe Armatura:** 19
-- **Punti Ferita:** 60 (8d8 + 24)
-- **Velocità:** 9 m, Volare 27 m
-- **Iniziativa**: +5 (15)
+_**Ristoro diabolico.**_ Se il diavolo muore al di fuori dei
+Nove Inferi, il suo corpo si dissolve in fumo sulfureo
+e ne acquisisce uno nuovo all'istante, tornando in vita
+con tutti i suoi punti ferita da qualche parte nei Nove
+Inferi.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +3 |
-| DES | 20 | +5 | +5 |
-| COS | 17 | +3 | +5 |
-| INT | 18 | +4 | +4 |
-| SAG | 20 | +5 | +7 |
-| CAR | 18 | +4 | +4 |
+Azioni
 
-- **Resistenze**: Contundenti, Perforanti, Taglienti
-- **Immunità**: Psichici, Radianti
-- **Sensi**: vista vera 36 m; Percezione Passiva 15
-- **Linguaggi**: Tutti; telepatia 36 m
-- **GS** 4 (PE 1.100; PB +2)
+_**Multiattacco.**_ Il diavolo effettua un attacco Artigli e un
+attacco Coda, o effettua due attacchi Scagliare fiamma.
 
-### Tratti
+_**Artigli.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 10 (2d6 + 3) danni perforanti. Se il bersaglio
+è una creatura di taglia Grande o inferiore, è afferrato
+(CD 13 per sfuggire) da entrambi gli artigli.
 
-***Mente Protetta.*** I pensieri del couatl non possono essere letti in alcun modo e le altre creature possono comunicare con lui telepaticamente solo se lo consente.
+_**Coda.**_ _Tiro per colpire in mischia:_ +6, portata 3 m.
+_Colpito:_ 14 (2d10 + 3) danni taglienti.
 
-### Azioni
+_**Scagliare fiamma.**_ _Tiro per colpire a distanza:_ +5,
+gittata 45 m. _Colpito:_ 17 (5d6) danni da fuoco. Se il bersaglio è un oggetto infiammabile che non è indossato
 
-***Morso.*** *Tiro per Colpire in Mischia:* +7, portata 1,5 m. 11 (1d12 + 5) danni perforanti, e il bersaglio ha la condizione Avvelenato fino alla fine del prossimo turno del couatl.
+- trasportato, inizia a bruciare.
+## **Djinni**
+### **Djinni**
 
-***Stritolare.*** *Tiro Salvezza su Forza*: CD 15, una creatura Media o più piccola che il couatl può vedere entro 1,5 m. *Fallimento:* 8 (1d6 + 5) danni contundenti. Il bersaglio ha la condizione Afferrato (CD 13 per liberarsi) e ha la condizione Immobilizzato finché la presa dura.
+_Elementale Grande (genio), neutrale_
 
-***Incantesimi.*** Il couatl lancia uno dei seguenti incantesimi, senza componenti e usando Saggezza come caratteristica da incantatore (CD tiri salvezza 15):
 
-- **A volontà:** *Individuazione del Bene e del Male*, *Individuazione del Magico*, *Individuazione dei Pensieri*, *Trasformazione*
-- **1/giorno ciascuno:** *Creare Cibo e Acqua*, *Sogno*, *Restaurazione Superiore*, *Chiaroveggenza*, *Sonno*
+**CA** 17 **Iniziativa** +2 (12)
+**PF** 218 (19d10 + 114)
+**Velocità** 9 m, volo 27 m (fluttuare)
 
-### Azioni Bonus
 
-***Aiuto Divino (2/giorno).*** Il couatl lancia *Benedizione*, *Restaurazione Minore* o *Santuario*, senza componenti e usando la stessa caratteristica da incantatore di Incantesimi.
+**Immunità** fulmine, tuono
+**Sensi** Percezione passiva 13; scurovisione 36 m
+**Lingue** Primordiale (Auran)
+**GS** 11 (PE 7.200; BC +4)
 
----
+Tratti
 
-## Fanatico Cultista
+_**Desideri.**_ Il djinni ha una probabilità del 30% di conoscere l'incantesimo _desiderio_ . Se il djinni lo conosce,
+può lanciarlo solo per conto di una creatura diversa da
+un genio che comunica un desiderio in un modo che
+il djinni è in grado di comprendere. Se il djinni lancia
+l'incantesimo per conto della creatura, non subisce
+alcuna conseguenza derivante dal lancio dell'incantesimo. Una volta che il djinni l'ha lanciato tre volte, non
+può farlo di nuovo per 365 giorni.
 
-*Umanoide Piccolo, Neutrale*
+_**Resistenza alla magia.**_ Il djinni dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 44 (8d8 + 8)
-- **Velocità:** 9 m
-- **Iniziativa**: +2 (12)
+_**Ristoro elementale.**_ Se il djinni muore al di fuori del
+Piano Elementale dell'Aria, il suo corpo si dissolve
+nell'aria ed esso ne acquisisce uno nuovo dopo 1d4
+giorni, tornando in vita con tutti i suoi punti ferita da
+qualche parte sul Piano Elementale dell'Aria.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 11 | +0 | +0 |
-| DES | 14 | +2 | +2 |
-| COS | 12 | +1 | +1 |
-| INT | 10 | +0 | +0 |
-| SAG | 14 | +2 | +4 |
-| CAR | 13 | +1 | +1 |
 
-- **Abilità**: Inganno +3, Persuasione +3, Religione +2
-- **Equipaggiamento**: Simbolo Sacro, Armatura di Cuoio
-- **Sensi**: Percezione Passiva 12
-- **Linguaggi**: Comune
-- **GS** 2 (PE 450; PB +2)
 
-### Azioni
 
-***Lama del Patto.*** *Tiro per Colpire in Mischia:* +4, portata 1,5 m. 6 (1d8 + 2) danni taglienti più 7 (2d6) danni necrotici.
+Azioni
 
-***Incantesimi.*** Il cultista lancia uno dei seguenti incantesimi, usando Saggezza come caratteristica da incantatore (CD tiri salvezza 12, +4 a colpire con gli attacchi con incantesimi):
+_**Multiattacco.**_ Il djinni effettua tre attacchi, usando
+Lama burrascosa o Lampo burrascoso in qualsiasi
+combinazione.
 
-- **A volontà:** *Luce*, *Taumaturgia*
-- **1/giorno ciascuno:** *Blocca Persone*
-- **2/giorno ciascuno:** *Comando*
+_**Lama burrascosa.**_ _Tiro per colpire in mischia:_ +9,
+portata 1,5 m. _Colpito:_ 12 (2d6 + 5) danni taglienti più
+7 (2d6) danni da fulmine.
 
-### Azioni Bonus
+_**Lampo burrascoso.**_ _Tiro per colpire a distanza:_ +9,
+gittata 36 m. _Colpito:_ 13 (3d8) danni da tuono. Se il
+bersaglio è una creatura di taglia Grande o inferiore,
+cade a terra prono.
 
-***Arma Spirituale (2/giorno).*** Il cultista lancia *Arma Spirituale*, usando la stessa caratteristica da incantatore di Incantesimi.
+_**Creare vortice.**_ Il djinni evoca un vortice in un punto
+che è in grado di vedere entro 36 metri. Il vortice riempie un cilindro del raggio di 6 metri e alto 18 metri,
+centrato su quel punto, e perdura fino al termine della
+concentrazione del djinni su di esso. Il djinni può spostare il vortice fino a 6 metri all'inizio di ogni suo turno.
 
----
+Ogni volta che il vortice entra nello spazio di una
+creatura o una creatura entro nello spazio del vortice,
+la creatura è soggetta al seguente effetto. _Tiro salvezza_
+_su Forza:_ CD 17 (una creatura effettua questo tiro salvezza solo una volta per turno, e il djinni non subisce
+alcun effetto). _Fallimento:_ Finché si trova nel vortice,
+il bersaglio è trattenuto e si sposta insieme al vortice.
+­All'inizio di ogni suo turno, il bersaglio trattenuto
+subisce 21 (6d6) danni da tuono. Alla fine di ogni suo
+turno, il bersaglio ripete il tiro salvezza e, se lo supera,
+­l'effetto svanisce.
 
-## Cultista
+_**Incantesimi.**_ Il djinni lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 17):
 
-*Umanoide Piccolo, Neutrale*
+**1/giorno ciascuno:** creazione _,_ forma gassosa _,_ imma
+gine maggiore _,_ invisibilità _,_ spostamento planare
+**2/giorno ciascuno:** _Camminare nel vento_, _creare cibo_
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 9 (2d8)
-- **Velocità:** 9 m
-- **Iniziativa**: +1 (11)
+_e acqua_ (è in grado di creare vino invece di acqua),
+_linguaggi_
+**A volontà:** individuazione del bene e del male _,_ indivi
+duazione del magico
+## **Doppelganger**
+### **Doppelganger**
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 11 | +0 | +0 |
-| DES | 12 | +1 | +1 |
-| COS | 10 | +0 | +0 |
-| INT | 10 | +0 | +0 |
-| SAG | 11 | +0 | +2 |
-| CAR | 10 | +0 | +0 |
+_Mostruosità Media, neutrale_
 
-- **Abilità**: Inganno +2, Religione +2
-- **Equipaggiamento**: Armatura di Cuoio, Falce
-- **Sensi**: Percezione Passiva 10
-- **Linguaggi**: Comune
-- **GS** 1/8 (PE 25; PB +2)
 
-### Azioni
+**CA** 14 **Iniziativa** +4 (14)
+**PF** 52 (8d8 + 16)
+**Velocità** 9 m
 
-***Falce Rituale.*** *Tiro per Colpire in Mischia:* +3, portata 1,5 m. 3 (1d4 + 1) danni taglienti più 1 danno necrotico.
 
----
+**310** System Reference Document 5.2.1
 
-## Manto Oscuro
 
-*Aberrazione Piccola, Non Allineata*
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 22 (5d6 + 5)
-- **Velocità:** 3 m, Volare 9 m
-- **Iniziativa**: +3 (13)
+**Abilità** Inganno +6, Intuizione +3
+**Immunità** affascinato
+**Sensi** Percezione passiva 11; scurovisione 18 m
+**Lingue** Comune più altre tre lingue
+**GS** 3 (PE 700; BC +2)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +3 |
-| DES | 12 | +1 | +1 |
-| COS | 13 | +1 | +1 |
-| INT | 2 | -4 | -4 |
-| SAG | 10 | +0 | +0 |
-| CAR | 5 | -3 | -3 |
+Azioni
 
-- **Abilità**: Furtività +3
-- **Sensi**: vista cieca 18 m; Percezione Passiva 10
-- **GS** 1/2 (PE 100; PB +2)
+_**Multiattacco.**_ Il doppelganger effettua due attacchi
+Schianto e usa Sembianze inquietanti.
 
-### Azioni
+_**Schianto.**_ _Tiro per colpire in mischia:_ +6 (con vantaggio
+durante il primo round di ogni combattimento), portata
+1,5 m. _Colpito:_ 11 (2d6 + 4) danni contundenti.
 
-***Stritolare.*** *Tiro per Colpire in Mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni contundenti, e il manto oscuro si attacca al bersaglio. Se il bersaglio è una creatura Media o più piccola e il manto oscuro aveva Vantaggio sul tiro per colpire, lo ricopre: il bersaglio ottiene la condizione Accecato e soffoca finché il manto oscuro rimane attaccato.  
-Mentre è attaccato a un bersaglio, il manto oscuro può attaccare solo quel bersaglio ma ha Vantaggio ai tiri per colpire. La sua Velocità diventa 0, non beneficia di bonus alla Velocità e si muove con il bersaglio.  
-Una creatura può usare un’azione per tentare di staccare il manto oscuro da sé, riuscendoci con una prova di Forza (Atletica) CD 13. Nel suo turno, il manto oscuro può staccarsi usando 1,5 m di movimento.
+_**Lettura del pensiero.**_ Il doppelganger lancia _indivi-_
+_duazione dei pensieri_ senza bisogno di componenti,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 12).
 
-***Aura di Oscurità (1/giorno).*** Oscurità magica riempie un’Emanazione di 4,5 m originata dal manto oscuro. L’effetto dura finché il manto oscuro mantiene Concentrazione, fino a 10 minuti. La scurovisione non può penetrare quest’area e nessuna luce può illuminarla.
+_**Sembianze inquietanti (ricarica 6).**_ _Tiro salvezza su_
+_Saggezza:_ CD 12, tutte le creature in grado di vedere
+il doppelganger e che si trovano in un'emanazione di
+4,5 metri di cui il doppelganger è il punto di origine.
+_Fallimento:_ il bersaglio è spaventato, ripete il tiro
+salvezza alla fine di ogni suo turno e, se lo supera,
+l'effetto svanisce. Dopo 1 minuto, il tiro viene superato
+automaticamente.
 
-## Cane Infernale
+Azioni bonus
 
-*Mostruosità Media, Neutrale Malvagio*
+_**Mutaforma.**_ Il doppelganger si trasforma in un umanoide di taglia Media o Piccola, oppure ritorna alla
+sua vera forma. Le sue statistiche di gioco, a eccezione
+della taglia, restano le stesse in ogni forma. Nessun
+oggetto che indossa o trasporta viene trasformato.
+## **Draghi bianchi**
+### **Drago bianco cucciolo**
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 39 (6d8 + 12)
-- **Velocità:** 12 m
-- **Iniziativa**: +2 (12)
+_Drago Medio (cromatico), caotico malvagio_
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 15 | +2 | +2 |
-| DES | 14 | +2 | +2 |
-| COS | 14 | +2 | +2 |
-| INT | 3 | -4 | -4 |
-| SAG | 13 | +1 | +1 |
-| CAR | 6 | -2 | -2 |
 
-- **Immunità**: Accecato, Affascinato, Assordato, Spaventato, Stordito, Incosciente
-- **Abilità**: Percezione +5, Furtività +4
-- **Sensi**: scurovisione 36 m; Percezione Passiva 15
-- **GS** 1 (PE 200; PB +2)
+**CA** 16 **Iniziativa** +2 (12)
+**PF** 32 (5d8 + 10)
+**Velocità** 9 m, nuoto 9 m, scavo 4,5 m, volo 18 m
 
-### Azioni
 
-***Attacco Multiplo.*** Il cane infernale effettua due attacchi di Morso.
+**Abilità** Furtività +2, Percezione +4
+**Immunità** freddo
+**Sensi** Percezione passiva 14; scurovisione 18 m, vista
 
-***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni perforanti. Se il bersaglio è una creatura, subisce il seguente effetto. *Tiro Salvezza su Costituzione*: CD 12. *Primo Fallimento*: il bersaglio è Avvelenato. Finché è Avvelenato, i suoi Punti Ferita massimi non tornano normali al termine di un Riposo Lungo, e ripete il tiro ogni 24 ore, terminando l’effetto su di sé con un successo. *Fallimenti successivi*: i Punti Ferita massimi del bersaglio Avvelenato si riducono di 5 (1d10).
+cieca 3 m
+**Lingue** Draconico
+**GS** 2 (PE 450; BC +2)
 
----
 
-## Deva
 
-*Celestiale Medio (Angelo), Legale Buono*
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 229 (27d8 + 108)
-- **Velocità:** 9 m, volo 27 m (fluttuare)
-- **Iniziativa**: +4 (14)
+Tratti
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 18 | +4 | +4 |
-| COS | 18 | +4 | +4 |
-| INT | 17 | +3 | +3 |
-| SAG | 20 | +5 | +9 |
-| CAR | 20 | +5 | +9 |
+_**Camminare sul ghiaccio.**_ Il drago può muoversi
+sulle superfici di ghiaccio e scalarle senza bisogno di
+effettuare una prova di caratteristica. Inoltre, un terreno
+difficile costituito da ghiaccio o neve non gli costa
+alcun movimento aggiuntivo.
 
-- **Resistenze**: Radiante
-- **Immunità**: Affascinato, Affaticamento, Spaventato
-- **Abilità**: Intuizione +9, Percezione +9
-- **Sensi**: scurovisione 36 m; Percezione Passiva 19
-- **Linguaggi**: Tutti; telepatia 36 m
-- **GS** 10 (PE 5.900; PB +4)
+Azioni
 
-### Tratti
+_**Multiattacco.**_ Il drago effettua due attacchi Squarcio.
 
-***Restaurazione Esaltata.*** Se il deva muore fuori dal Monte Celestia, il suo corpo scompare e ottiene immediatamente un nuovo corpo, tornando in vita con tutti i suoi Punti Ferita da qualche parte sul Monte Celestia.
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 6 (1d8 + 2) danni taglienti più 2 (1d4) danni da
+freddo.
 
-***Resistenza Magica.*** Il deva ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
+_**Soffio di freddo (ricarica 5–6).**_ _Tiro salvezza su Costitu-_
+_zione:_ CD 12, tutte le creature in un cono di 4,5 metri.
+_Fallimento:_ 22 (5d8) danni da freddo. _Successo:_ danni
+dimezzati.
+### **Drago bianco giovane**
 
-### Azioni
+_Drago Grande (cromatico), caotico malvagio_
 
-***Attacco Multiplo.*** Il deva effettua due attacchi con la Mazza Sacra.
 
-***Mazza Sacra.*** *Tiro per colpire in mischia:* +8, portata 1,5 m. 7 (1d6 + 4) danni contundenti più 18 (4d8) danni radianti.
+**CA** 17 **Iniziativa** +3 (13)
+**PF** 123 (13d10 + 52)
+**Velocità** 12 m, nuoto 12 m, scavo 6 m, volo 24 m
 
-***Lancio di Incantesimi.*** Il deva lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 17):
 
-- **A volontà:** *Individuazione del Bene e del Male*, *Metamorfosi*
-- **1/giorno ciascuno:** *Comunione*, *Resurrezione Minore*
+**Abilità** Furtività +3, Percezione +6
+**Immunità** freddo
+**Sensi** Percezione passiva 16; scurovisione 36 m, vista
 
-### Azioni Bonus
+cieca 9 m
+**Lingue** Comune, Draconico
+**GS** 6 (PE 2.300; BC +3)
 
-***Aiuto Divino (2/giorno).*** Il deva lancia *Cura Ferite*, *Restaurare Inferiore* o *Rimuovi Maledizione*, usando la stessa caratteristica da incantatore di Lancio di Incantesimi.
+Tratti
 
----
+_**Camminare sul ghiaccio.**_ Il drago può muoversi
+sulle superfici di ghiaccio e scalarle senza bisogno di
+effettuare una prova di caratteristica. Inoltre, un terreno
+difficile costituito da ghiaccio o neve non gli costa
+alcun movimento aggiuntivo.
 
-## Genio (Djinni)
+Azioni
 
-*Elementale Grande (Genio), Caotico Buono*
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 218 (19d10 + 114)
-- **Velocità:** 9 m, volo 27 m (fluttuare)
-- **Iniziativa**: +2 (12)
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +7, portata 3 m.
+_Colpito:_ 9 (2d4 + 4) danni taglienti più 2 (1d4) danni da
+freddo.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 21 | +5 | +5 |
-| DES | 15 | +2 | +6 |
-| COS | 22 | +6 | +6 |
-| INT | 15 | +2 | +2 |
-| SAG | 16 | +3 | +7 |
-| CAR | 20 | +5 | +5 |
+_**Soffio di freddo (ricarica 5–6).**_ _Tiro salvezza su Costi-_
+_tuzione:_ CD 15, tutte le creature in un cono di 9 metri.
+_Fallimento:_ 40 (9d8) danni da freddo. _Successo:_ danni
+dimezzati.
 
-- **Immunità**: Fulmine, Tuono
-- **Sensi**: scurovisione 36 m; Percezione Passiva 13
-- **Linguaggi**: Primordiale (Auran)
-- **GS** 11 (PE 7.200; PB +4)
 
-### Tratti
+**311** System Reference Document 5.2.1
 
-***Restaurazione Elementale.*** Se il genio muore fuori dal Piano Elementale dell’Aria, il suo corpo si dissolve in nebbia e ottiene un nuovo corpo in 1d4 giorni, tornando in vita con tutti i suoi Punti Ferita da qualche parte sul Piano dell’Aria.
 
-***Resistenza Magica.*** Il genio ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
+### **Drago bianco adulto**
 
-***Desideri.*** Il genio ha il 30% di probabilità di conoscere l’incantesimo *Desiderio*. Se lo conosce, può lanciarlo solo per conto di una creatura non-genio che comunichi un desiderio in modo comprensibile per lui. Se lancia l’incantesimo, non subisce alcuno stress. Dopo averlo lanciato tre volte, non può farlo di nuovo per 365 giorni.
+_Drago Enorme (cromatico), caotico malvagio_
 
-### Azioni
 
-***Attacco Multiplo.*** Il genio effettua tre attacchi, usando Lama della Tempesta o Dardo della Tempesta in qualsiasi combinazione.
+**CA** 18 **Iniziativa** +10 (20)
+**PF** 200 (16d12 + 96)
+**Velocità** 12 m, nuoto 12 m, scavo 9 m, volo 24 m
 
-***Lama della Tempesta.*** *Tiro per colpire in mischia:* +9, portata 1,5 m. 12 (2d6 + 5) danni taglienti più 7 (2d6) danni da fulmine.
 
-***Dardo della Tempesta.*** *Tiro per colpire a distanza:* +9, gittata 36 m. 13 (3d8) danni da tuono. Se il bersaglio è una creatura Grande o più piccola, cade Prona.
+**Abilità** Furtività +5, Percezione +11
+**Immunità** freddo
+**Sensi** Percezione passiva 21; scurovisione 36 m, vista
 
-***Crea Turbine.*** Il genio evoca un turbine in un punto che può vedere entro 36 m. Il turbine occupa un Cilindro di 6 m di raggio e 18 m di altezza, centrato su quel punto. Il turbine dura finché il genio mantiene Concentrazione. All’inizio di ciascun suo turno, può muovere il turbine di 6 m.  
-Ogni volta che il turbine entra nello spazio di una creatura o una creatura entra nel turbine, quella creatura subisce il seguente effetto. *Tiro Salvezza su Forza*: CD 17 (una creatura effettua questo tiro solo una volta per turno; il genio non è influenzato). *Fallimento:* la creatura è Immobilizzata e si muove col turbine. All’inizio di ciascun suo turno, subisce 21 (6d6) danni da tuono. Alla fine di ciascun suo turno, ripete il tiro, terminando l’effetto con un successo.
+cieca 18 m
+**Lingue** Comune, Draconico
+**GS** 13 (PE 10.000, o 11.500 nella tana; BC +5)
 
-***Lancio di Incantesimi.*** Il genio lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 17):
+Tratti
 
-- **A volontà:** *Individuazione del Bene e del Male*, *Individuazione del Magico*
-- **2/giorno ciascuno:** *Crea Cibo e Acqua*, *Linguaggi*, *Camminare nel Vento*
-- **1/giorno ciascuno:** *Creazione*, *Forma Gassosa*, *Invisibilità*, *Immagine Maggiore*, *Spostamento Planare*
+_**Camminare sul ghiaccio.**_ Il drago può muoversi
+sulle superfici di ghiaccio e scalarle senza bisogno di
+effettuare una prova di caratteristica. Inoltre, un terreno
+difficile costituito da ghiaccio o neve non gli costa
+alcun movimento aggiuntivo.
 
----
+_**Resistenza leggendaria (3/giorno o 4/giorno nella**_
+_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
-## Mutapelle (Doppelganger)
+Azioni
 
-*Mostruosità Media, Neutrale*
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 52 (8d8 + 16)
-- **Velocità:** 9 m
-- **Iniziativa**: +4 (14)
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +11, portata 3 m.
+_Colpito:_ 13 (2d6 + 6) danni taglienti più 4 (1d8) danni
+da freddo.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 11 | +0 | +0 |
-| DES | 18 | +4 | +4 |
-| COS | 14 | +2 | +2 |
-| INT | 11 | +0 | +0 |
-| SAG | 12 | +1 | +1 |
-| CAR | 14 | +2 | +2 |
+_**Soffio di freddo (ricarica 5–6).**_ _Tiro salvezza su Costi-_
+_tuzione:_ CD 19, tutte le creature in un cono di 18 metri.
+_Fallimento:_ 54 (12d8) danni da freddo. _Successo:_ danni
+dimezzati.
 
-- **Immunità**: Affascinato
-- **Abilità**: Inganno +6, Intuizione +3
-- **Sensi**: scurovisione 18 m; Percezione Passiva 11
-- **Linguaggi**: Comune più altre tre lingue
-- **GS** 3 (PE 700; PB +2)
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il drago può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il drago_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
-### Azioni
+_**Esplosione congelante.**_ _Tiro salvezza su Costituzione:_
+CD 14, tutte le creature in una sfera di 9 metri di raggio
+centrata su un punto che il drago è in grado di vedere
+entro 36 metri. _Fallimento:_ 7 (2d6) danni da freddo,
+e la velocità del bersaglio è pari a 0 fino al termine del
+turno successivo del bersaglio. _Fallimento o successo:_
+il drago non può ripetere quest'azione fino all'inizio del
+proprio turno successivo.
 
-***Attacco Multiplo.*** Il mutapelle effettua due attacchi di Colpo e usa Volto Inquietante se disponibile.
+_**Presenza terrificante.**_ Il drago lancia _paura_ senza
+bisogno di componenti materiali, utilizzando Carisma
+come caratteristica da incantatore (CD del tiro salvezza sull'incantesimo 14). il drago non può ripetere
+­quest'azione fino all'inizio del proprio turno successivo.
 
-***Colpo.*** *Tiro per colpire in mischia:* +6 (con vantaggio durante il primo round di ogni combattimento), portata 1,5 m. 11 (2d6 + 4) danni contundenti.
 
-***Volto Inquietante (Ricarica 6).*** *Tiro Salvezza su Saggezza*: CD 12, da parte di ogni creatura entro un’Emanazione di 4,5 m originata dal mutapelle che possa vederlo. *Fallimento:* il bersaglio è Spaventato e ripete il tiro alla fine di ciascun suo turno, terminando l’effetto con un successo. Dopo 1 minuto, riesce automaticamente.
 
-***Leggere i Pensieri.*** Il mutapelle lancia *Individuazione dei Pensieri*, senza componenti e usando Carisma come caratteristica da incantatore (CD 12).
 
-- **A volontà:** *Individuazione dei Pensieri*
+_**Balzo.**_ Il drago si muove fino a metà della sua velocità
+ed effettua un attacco Squarcio.
+### **Drago bianco antico**
 
-### Azioni Bonus
+_Drago Mastodontico (Cromatico), Caotico Malvagio_
 
-***Mutare Forma.*** Il mutapelle si trasforma in un Umanoide Medio o Piccolo, oppure ritorna alla sua vera forma. Le sue statistiche restano le stesse tranne che per la taglia. Qualsiasi equipaggiamento indossato o trasportato non viene trasformato.
 
-## Tartaruga Drago
+**CA** 20 **Iniziativa** +12 (22)
+**PF** 333 (18d20 + 144)
+**Velocità** 12 m, nuoto 12 m, scavo 12 m, volo 24 m
 
-*Drago Mastodontico, Neutrale*
 
-- **Classe Armatura:** 20
-- **Punti Ferita:** 356 (23d20 + 115)
-- **Velocità:** 6 m, nuoto 15 m
-- **Iniziativa**: +6 (16)
+**Abilità** Furtività +6, Percezione +13
+**Immunità** freddo
+**Sensi** Percezione passiva 23; scurovisione 36 m, vista
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 25 | +7 | +7 |
-| DES | 10 | +0 | +0 |
-| COS | 20 | +5 | +11 |
-| INT | 10 | +0 | +0 |
-| SAG | 12 | +1 | +7 |
-| CAR | 12 | +1 | +1 |
+cieca 18 m
+**Lingue** Comune, Draconico
+**GS** 20 (PE 25.000, o 33.000 nella tana; BC +6)
 
-- **Resistenze**: Fuoco
-- **Sensi**: scurovisione 36 m; Percezione Passiva 11
-- **Linguaggi**: Draconico, Primordiale (Aquan)
-- **GS** 17 (PE 18.000; PB +6)
+Tratti
 
-### Tratti
+_**Camminare sul ghiaccio.**_ Il drago può muoversi
+sulle superfici di ghiaccio e scalarle senza bisogno di
+effettuare una prova di caratteristica. Inoltre, un terreno
+difficile costituito da ghiaccio o neve non gli costa
+alcun movimento aggiuntivo.
 
-***Anfibio.*** Il drago può respirare aria e acqua.
+_**Resistenza leggendaria (4/giorno o 5/giorno nella**_
+_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
-### Azioni
+Azioni
 
-***Attacco Multiplo.*** Il drago effettua tre attacchi di Morso. Può sostituirne uno con un attacco di Coda.
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
 
-***Morso.*** *Tiro per colpire in mischia:* +13, portata 4,5 m. 23 (3d10 + 7) danni perforanti più 7 (2d6) danni da fuoco. Essere sott’acqua non garantisce Resistenza a questi danni da fuoco.
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +14, portata
+4,5 m. _Colpito:_ 17 (2d8 + 8) danni taglienti più 7 (2d6)
+danni da freddo.
 
-***Coda.*** *Tiro per colpire in mischia:* +13, portata 4,5 m. 18 (2d10 + 7) danni contundenti. Se il bersaglio è una creatura Enorme o più piccola, cade Prona.
+_**Soffio di freddo (ricarica 5–6).**_ _Tiro salvezza su Costitu-_
+_zione:_ CD 22, tutte le creature in un cono di 27 metri.
+_Fallimento:_ 63 (14d8) danni da freddo. _Successo:_ danni
+dimezzati.
 
-***Soffio di Vapore (Ricarica 5–6).*** *Tiro Salvezza su Costituzione*: CD 19, da parte di ogni creatura in un Cono di 18 m. *Fallimento:* 56 (16d6) danni da fuoco. *Successo:* metà danni. *In ogni caso:* essere sott’acqua non garantisce Resistenza a questi danni da fuoco.
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il drago può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il drago_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
----
+_**Esplosione congelante.**_ _Tiro salvezza su Costituzione:_
+CD 20, tutte le creature in una sfera di 9 metri di raggio
+centrata su un punto che il drago è in grado di vedere
+entro 36 metri. _Fallimento:_ 14 (4d6) danni da freddo,
+e la velocità del bersaglio è pari a 0 fino al termine del
+turno successivo del bersaglio. _Fallimento o successo:_
+il drago non può ripetere quest'azione fino all'inizio del
+proprio turno successivo.
 
-## Dretch
+_**Presenza terrificante.**_ Il drago lancia _paura_ senza
+bisogno di componenti materiali, utilizzando Carisma come caratteristica da incantatore (CD del tiro
 
-*Immonda Piccola (Demone), Caotico Malvagio*
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 18 (4d6 + 4)
-- **Velocità:** 6 m
-- **Iniziativa**: +0 (10)
+**312** System Reference Document 5.2.1
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 12 | +1 | +1 |
-| DES | 11 | +0 | +0 |
-| COS | 12 | +1 | +1 |
-| INT | 5 | -3 | -3 |
-| SAG | 8 | -1 | -1 |
-| CAR | 3 | -4 | -4 |
 
-- **Resistenze**: Freddo, Fuoco, Fulmine
-- **Immunità**: Veleno; Avvelenato
-- **Sensi**: scurovisione 18 m; Percezione Passiva 9
-- **Linguaggi**: Abissale; telepatia 18 m (funziona solo con creature che comprendono l’Abissale)
-- **GS** 1/4 (PE 50; PB +2)
 
-### Azioni
+salvezza sull'incantesimo 18). il drago non può ripetere
+­quest'azione fino all'inizio del proprio turno successivo.
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 4 (1d6 + 1) danni taglienti.
+_**Balzo.**_ Il drago si muove fino a metà della sua velocità
+ed effettua un attacco Squarcio.
+## **Draghi blu**
+### **Drago blu cucciolo**
 
-***Nube Fetida (1/giorno).*** *Tiro Salvezza su Costituzione*: CD 11, da parte di ogni creatura in un’Emanazione di 3 m originata dal dretch. *Fallimento:* il bersaglio è Avvelenato fino alla fine del suo prossimo turno. Finché è Avvelenato, può compiere solo un’Azione o un’Azione Bonus a turno, non entrambe, e non può compiere Reazioni.
+_Drago Medio (cromatico), legale malvagio_
 
----
 
-## Drider
+**CA** 17 **Iniziativa** +2 (12)
+**PF** 65 (10d8 + 20)
+**Velocità** 9 m, scavo 4,5 m, volo 18 m
 
-*Mostruosità Grande, Caotico Malvagio*
 
-- **Classe Armatura:** 19
-- **Punti Ferita:** 123 (13d10 + 52)
-- **Velocità:** 9 m, arrampicata 9 m
-- **Iniziativa**: +4 (14)
+**Abilità** Furtività +2, Percezione +4
+**Immunità** fulmine
+**Sensi** Percezione passiva 14; scurovisione 18 m, vista
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +3 |
-| DES | 19 | +4 | +4 |
-| COS | 18 | +4 | +4 |
-| INT | 13 | +1 | +1 |
-| SAG | 16 | +3 | +3 |
-| CAR | 12 | +1 | +1 |
+cieca 3 m
+**Lingue** Draconico
+**GS** 3 (PE 700; BC +2)
 
-- **Abilità**: Percezione +6, Furtività +10
-- **Sensi**: scurovisione 36 m; Percezione Passiva 16
-- **Linguaggi**: Elfico, Sottocomune
-- **GS** 6 (PE 2.300; PB +3)
+Azioni
 
-### Tratti
+_**Multiattacco.**_ Il drago effettua due attacchi Squarcio.
 
-***Camminare sul Tessuto.*** Il drider può arrampicarsi su superfici difficili, inclusi soffitti, senza prove di abilità.
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 8 (1d10 + 3) danni taglienti più 3 (1d6) danni
+da fulmine.
 
-***Sensibilità alla Luce Solare.*** Mentre è alla luce del sole, il drider ha Svantaggio alle prove di abilità e ai tiri per colpire.
+_**Soffio di fulmini (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 12, tutte le creature in una linea lunga
+9 metri e larga 1,5 metri. _Fallimento:_ 21 (6d6) danni da
+fulmine. _Successo:_ danni dimezzati.
+### **Drago blu giovane**
 
-***Camminatore della Tela.*** Il drider ignora le restrizioni di movimento causate dalle ragnatele e conosce la posizione di ogni altra creatura a contatto con la stessa ragnatela.
+_Drago Grande (cromatico), legale malvagio_
 
-### Azioni
 
-***Attacco Multiplo.*** Il drider effettua tre attacchi, usando Zampa Anteriore o Esplosione Velenosa in qualsiasi combinazione.
+**CA** 18 **Iniziativa** +4 (14)
+**PF** 152 (16d10 + 64)
+**Velocità** 12 m, scavo 6 m, volo 24 m
 
-***Zampa Anteriore.*** *Tiro per colpire in mischia:* +7, portata 3 m. 13 (2d8 + 4) danni perforanti.
 
-***Esplosione Velenosa.*** *Tiro per colpire a distanza:* +6, gittata 36 m. 13 (3d6 + 3) danni da veleno.
+**Abilità** Furtività +4, Percezione +9
+**Immunità** fulmine
+**Sensi** Percezione passiva 19; scurovisione 36 m, vista
 
-### Azioni Bonus
+cieca 9 m
+**Lingue** Comune, Draconico
+**GS** 9 (PE 5.000; BC +4)
 
-***Magia della Regina Ragno (Ricarica 5–6).*** Il drider lancia *Oscurità*, *Fuoco Fatato* o *Ragnatela*, senza componenti materiali e usando Saggezza come caratteristica da incantatore (CD 14).
+Azioni
 
----
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
 
-## Druido
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +9, portata 3 m.
+_Colpito:_ 12 (2d6 + 5) danni taglienti più 5 (1d10) danni
+da fulmine.
 
-*Umanoide Piccolo, Neutrale*
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 44 (8d8 + 8)
-- **Velocità:** 9 m
-- **Iniziativa**: +1 (11)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 10 | +0 | +0 |
-| DES | 12 | +1 | +1 |
-| COS | 13 | +1 | +1 |
-| INT | 12 | +1 | +1 |
-| SAG | 16 | +3 | +3 |
-| CAR | 11 | +0 | +0 |
 
-- **Abilità**: Medicina +5, Natura +3, Percezione +5
-- **Equipaggiamento**: Armatura di cuoio borchiato
-- **Sensi**: Percezione Passiva 15
-- **Linguaggi**: Comune, Druidico, Silvano
-- **GS** 2 (PE 450; PB +2)
+_**Soffio di fulmini (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 16, tutte le creature in una linea lunga
+18 metri e larga 1,5 metri. _Fallimento:_ 55 (10d10) danni
+da fulmine. _Successo:_ danni dimezzati.
+### **Drago blu adulto**
 
-### Azioni
+_Drago Enorme (cromatico), legale malvagio_
 
-***Attacco Multiplo.*** Il druido effettua due attacchi, usando Bastone di Vite o Spirito Verde in qualsiasi combinazione.
 
-***Bastone di Vite.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni contundenti più 2 (1d4) danni da veleno.
+**CA** 19 **Iniziativa** +10 (20)
+**PF** 212 (17d12 + 102)
+**Velocità** 12 m, scavo 9 m, volo 24 m
 
-***Spirito Verde.*** *Tiro per colpire a distanza:* +5, gittata 27 m. 10 (3d6) danni radianti.
 
-***Lancio di Incantesimi.*** Il druido lancia uno dei seguenti incantesimi, usando Saggezza come caratteristica da incantatore (CD 13):
+**Abilità** Furtività +5, Percezione +12
+**Immunità** fulmine
+**Sensi** Percezione passiva 22; scurovisione 36 m, vista
 
-- **A volontà:** *Arte Druidica*, *Parlare con gli Animali*
-- **2/giorno ciascuno:** *Intricare*, *Ondata Tonante*
-- **1/giorno ciascuno:** *Messaggero Animale*, *Passo Lungo*, *Raggio di Luna*
+cieca 18 m
+**Lingue** Comune, Draconico
+**GS** 16 (PE 15.000, o 18.000 nella tana; BC +5)
 
-## Driade
+Tratti
 
-*Fata Media, Neutrale*
+_**Resistenza leggendaria (3/giorno o 4/giorno nella**_
+_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
-- **Classe Armatura:** 16
-- **Punti Ferita:** 22 (5d8)
-- **Velocità:** 9 m
-- **Iniziativa**: +1 (11)
+Azioni
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 10 | +0 | +0 |
-| DES | 12 | +1 | +1 |
-| COS | 11 | +0 | +0 |
-| INT | 14 | +2 | +2 |
-| SAG | 15 | +2 | +2 |
-| CAR | 18 | +4 | +4 |
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di Incantesimi
+per lanciare _frantumare_ .
 
-- **Abilità**: Percezione +4, Furtività +5
-- **Sensi**: scurovisione 18 m; Percezione Passiva 14
-- **Linguaggi**: Elfico, Silvano
-- **GS** 1 (PE 200; PB +2)
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +12, portata 3 m.
+_Colpito:_ 16 (2d8 + 7) danni taglienti più 5 (1d10) danni
+da fulmine.
 
-### Tratti
+_**Incantesimi.**_ Il drago lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 18):
 
-***Resistenza Magica.*** La driade ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
+**1/giorno ciascuno:** _Inviare_, _scrutare_
+**A volontà:** _Frantumare_, _individuazione del magico_, _invi-_
 
-***Parlare con Bestie e Piante.*** La driade può comunicare con Bestie e Piante come se condividesse un linguaggio.
+_sibilità_, _mano magica_
 
-### Azioni
+_**Soffio di fulmini (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 19, tutte le creature in una linea lunga
+27 metri e larga 1,5 metri. _Fallimento:_ 60 (11d10) danni
+da fulmine. _Successo:_ danni dimezzati.
 
-***Attacco Multiplo.*** La driade effettua un attacco con Frustata di Vite o Esplosione di Spine e può usare Lancio di Incantesimi per lanciare *Ammaliare Mostro*.
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il drago può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il drago_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
-***Frustata di Vite.*** *Tiro per colpire in mischia:* +6, portata 3 m. 8 (1d8 + 4) danni taglienti.
+_**Boato sonico.**_ Il drago usa Incantesimi per lanciare
+_frantumare_ . il drago non può ripetere quest'azione fino
+all'inizio del proprio turno successivo.
 
-***Esplosione di Spine.*** *Tiro per colpire a distanza:* +6, gittata 18 m. 7 (1d6 + 4) danni perforanti.
+_**Spazzata di coda.**_ Il drago effettua un attacco Squarcio.
 
-***Lancio di Incantesimi.*** La driade lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 14):
 
-- **A volontà:** *Amicizia con gli Animali*, *Ammaliare Mostro*, *Trucchetti Druidici*
-- **1/giorno ciascuno:** *Intricare*, *Passare Senza Traccia*
+**313** System Reference Document 5.2.1
 
-### Azioni Bonus
 
-***Passo tra gli Alberi.*** Se si trova entro 1,5 m da un albero Grande o più grande, la driade si teletrasporta in uno spazio libero entro 1,5 m da un secondo albero Grande o più grande entro 18 m dal primo.
 
----
+_**Volo celato.**_ Il drago usa Incantesimi per lanciare _invi-_
+_sibilità_ su se stesso, e può volare fino a metà della sua
+velocità di volo. il drago non può ripetere quest'azione
+fino all'inizio del proprio turno successivo.
+### **Drago blu antico**
 
-## Mephit della Polvere
+_Drago Mastodontico (cromatico), legale malvagio_
 
-*Elementale Piccolo, Neutrale Malvagio*
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 17 (5d6)
-- **Velocità:** 9 m, volo 9 m
-- **Iniziativa**: +2 (12)
+**CA** 22 **Iniziativa** +14 (24)
+**PF** 481 (26d20 + 208)
+**Velocità** 12 m, scavo 12 m, volo 24 m
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 5 | -3 | -3 |
-| DES | 14 | +2 | +2 |
-| COS | 10 | +0 | +0 |
-| INT | 9 | -1 | -1 |
-| SAG | 11 | +0 | +0 |
-| CAR | 10 | +0 | +0 |
 
-- **Vulnerabilità**: Fuoco
-- **Immunità**: Veleno; Affaticamento, Avvelenato
-- **Abilità**: Percezione +2, Furtività +4
-- **Sensi**: scurovisione 18 m; Percezione Passiva 12
-- **Linguaggi**: Primordiale (Auran, Terran)
-- **GS** 1/2 (PE 100; PB +2)
+**Abilità** Furtività +7, Percezione +17
+**Immunità** fulmine
+**Sensi** Percezione passiva 27; scurovisione 36 m, vista
 
-### Tratti
+cieca 18 m
+**Lingue** Comune, Draconico
+**GS** 23 (PE 50.000, o 62.000 nella tana; BC +7)
 
-***Esplosione di Morte.*** Il mephit esplode quando muore. *Tiro Salvezza su Destrezza*: CD 10, da parte di ogni creatura in un’Emanazione di 1,5 m originata dal mephit. *Fallimento:* 5 (2d4) danni contundenti. *Successo:* metà danni.
+Tratti
 
-### Azioni
+_**Resistenza leggendaria (4/giorno o 5/giorno nella**_
+_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
-***Artigli.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni taglienti.
+Azioni
 
-***Soffio Accecante (Ricarica 6).*** *Tiro Salvezza su Destrezza*: CD 10, da parte di ogni creatura in un Cono di 4,5 m. *Fallimento:* il bersaglio è Accecato fino alla fine del prossimo turno del mephit.
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di Incantesimi
+per lanciare _frantumare_ (di 3º livello).
 
-***Sonno (1/giorno).*** Il mephit lancia *Sonno*, senza componenti e usando Carisma come caratteristica da incantatore (CD 10).
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +16, portata
+4,5 m. _Colpito:_ 18 (2d8 + 9) danni taglienti più 11
+(2d10) danni da fulmine.
 
-- **A volontà:** 
-- **1/giorno ciascuno:** *Sonno*
+_**Incantesimi.**_ Il drago lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 22):
 
----
+**1/giorno ciascuno:** _Inviare_, _scrutare_
+**A volontà:** _frantumare_ (di 3º livello), _individuazione del_
 
-## Elementale della Terra
+_magico_, _invisibilità_, _mano magica_
 
-*Elementale Grande, Neutrale*
+_**Soffio di fulmini (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 23, tutte le creature in una linea lunga
+36 metri e larga 3 metri. _Fallimento:_ 88 (16d10) danni
+da fulmine. _Successo:_ danni dimezzati.
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 147 (14d10 + 70)
-- **Velocità:** 9 m, scavo 9 m
-- **Iniziativa**: -1 (9)
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il drago può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il drago_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 20 | +5 | +5 |
-| DES | 8 | -1 | -1 |
-| COS | 20 | +5 | +5 |
-| INT | 5 | -3 | -3 |
-| SAG | 10 | +0 | +0 |
-| CAR | 5 | -3 | -3 |
+_**Boato sonico.**_ Il drago usa Incantesimi per lanciare
+_frantumare_ (di 3º livello). il drago non può ripetere
+quest'azione fino all'inizio del proprio turno successivo.
 
-- **Vulnerabilità**: Tuono
-- **Immunità**: Veleno; Affaticamento, Paralizzato, Pietrificato, Avvelenato, Incosciente
-- **Sensi**: scurovisione 18 m, tremorsenso 18 m; Percezione Passiva 10
-- **Linguaggi**: Primordiale (Terran)
-- **GS** 5 (PE 1.800; PB +3)
+_**Spazzata di coda.**_ Il drago effettua un attacco Squarcio.
 
-### Tratti
 
-***Scivolare nella Terra.*** L’elementale può scavare attraverso terra e pietra non magiche e non lavorate. Mentre lo fa, non smuove il materiale attraversato.
 
-***Assaltatore d’Assedio.*** L’elementale infligge danni doppi a oggetti e strutture.
 
-### Azioni
+_**Volo celato.**_ Il drago usa Incantesimi per lanciare _invi-_
+_sibilità_ su se stesso, e può volare fino a metà della sua
+velocità di volo. il drago non può ripetere quest'azione
+fino all'inizio del proprio turno successivo.
+## **Draghi d'argento**
+### **Drago d'argento cucciolo**
 
-***Attacco Multiplo.*** L’elementale effettua due attacchi, usando Colpo o Lancio di Roccia in qualsiasi combinazione.
+_Drago Medio (metallico), legale buono_
 
-***Colpo.*** *Tiro per colpire in mischia:* +8, portata 3 m. 14 (2d8 + 5) danni contundenti.
 
-***Lancio di Roccia.*** *Tiro per colpire a distanza:* +8, gittata 18 m. 8 (1d6 + 5) danni contundenti. Se il bersaglio è una creatura Grande o più piccola, cade Prona.
+**CA** 17 **Iniziativa** +2 (12)
+**PF** 45 (6d8 + 18)
+**Velocità** 9 m, volo 18 m
 
----
 
-## Efreeti
+**Abilità** Furtività +2, Percezione +4
+**Immunità** freddo
+**Sensi** Percezione passiva 14; scurovisione 18 m, vista
 
-*Elementale Grande (Genio), Neutrale*
+cieca 3 m
+**Lingue** Draconico
+**GS** 2 (PE 450; BC +2)
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 212 (17d10 + 119)
-- **Velocità:** 12 m, volo 18 m (fluttuare)
-- **Iniziativa**: +1 (11)
+Azioni
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 22 | +6 | +6 |
-| DES | 12 | +1 | +1 |
-| COS | 24 | +7 | +7 |
-| INT | 16 | +3 | +3 |
-| SAG | 15 | +2 | +6 |
-| CAR | 19 | +4 | +8 |
+_**Multiattacco.**_ Il drago effettua due attacchi Squarcio.
 
-- **Immunità**: Fuoco
-- **Sensi**: scurovisione 36 m; Percezione Passiva 12
-- **Linguaggi**: Primordiale (Ignan)
-- **GS** 11 (PE 7.200; PB +4)
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 9 (1d10 + 4) danni perforanti.
 
-### Tratti
+_**Soffio di freddo (ricarica 5–6)**_ **.** _Tiro salvezza su Costitu-_
+_zione:_ CD 13, tutte le creature in un cono di 4,5 metri.
+_Fallimento:_ 18 (4d8) danni da freddo. _Successo:_ danni
+dimezzati.
 
-***Restaurazione Elementale.*** Se l’efreeti muore fuori dal Piano Elementale del Fuoco, il suo corpo si dissolve in cenere e ottiene un nuovo corpo in 1d4 giorni, tornando in vita con tutti i suoi Punti Ferita da qualche parte sul Piano del Fuoco.
+_**Soffio paralizzante.**_ _Tiro salvezza su Costituzione:_
+CD 13, tutte le creature in un cono di 4,5 metri. _Primo_
+_fallimento:_ il bersaglio è incapacitato fino al termine
+del proprio turno successivo. A quel punto, ripete il tiro
+salvezza. _Secondo fallimento:_ il bersaglio è paralizzato
+e ripete il tiro salvezza alla fine di ogni suo turno e,
+se lo supera, l'effetto svanisce. Dopo 1 minuto, il tiro
+viene superato automaticamente.
+### **Drago d'argento giovane**
 
-***Resistenza Magica.*** L’efreeti ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
+_Drago Grande (metallico), legale buono_
 
-***Desideri.*** L’efreeti ha il 30% di probabilità di conoscere l’incantesimo *Desiderio*. Se lo conosce, può lanciarlo solo per conto di una creatura non-genio che comunichi un desiderio in modo comprensibile per lui. Se lancia l’incantesimo per la creatura, non subisce alcuno stress. Dopo averlo lanciato tre volte, non può farlo di nuovo per 365 giorni.
 
-### Azioni
+**CA** 18 **Iniziativa** +4 (14)
+**PF** 168 (16d10 + 80)
+**Velocità** 12 m, volo 24 m
 
-***Attacco Multiplo.*** L’efreeti effettua tre attacchi, usando Lama Incandescente o Scagliare Fiamma in qualsiasi combinazione.
 
-***Lama Incandescente.*** *Tiro per colpire in mischia:* +10, portata 1,5 m. 13 (2d6 + 6) danni taglienti più 13 (2d12) danni da fuoco.
+**Abilità** Furtività +4, Percezione +8, Storia +6
+**Immunità** freddo
+**Sensi** Percezione passiva 18; scurovisione 36 m, vista
 
-***Scagliare Fiamma.*** *Tiro per colpire a distanza:* +8, gittata 36 m. 24 (7d6) danni da fuoco.
+cieca 9 m
+**Lingue** Comune, Draconico
+**GS** 9 (PE 5.000; BC +4)
 
-***Lancio di Incantesimi.*** L’efreeti lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 16):
 
-- **A volontà:** *Individuazione del Magico*, *Elementalismo*
-- **1/giorno ciascuno:** *Forma Gassosa*, *Invisibilità*, *Immagine Maggiore*, *Spostamento Planare*, *Linguaggi*, *Muro di Fuoco*
+**314** System Reference Document 5.2.1
 
-## Erinyes
 
-*Immonda Media (Diavolo), Legale Malvagio*
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 178 (21d8 + 84)
-- **Velocità:** 9 m, volo 18 m
-- **Iniziativa**: +7 (17)
+Azioni
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 16 | +3 | +7 |
-| COS | 18 | +4 | +8 |
-| INT | 14 | +2 | +2 |
-| SAG | 14 | +2 | +2 |
-| CAR | 18 | +4 | +8 |
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di Soffio
+paralizzante.
 
-- **Resistenze**: Freddo
-- **Immunità**: Fuoco, Veleno; Avvelenato
-- **Abilità**: Percezione +6, Persuasione +8
-- **Sensi**: vera visione 36 m; Percezione Passiva 16
-- **Linguaggi**: Infernale; telepatia 36 m
-- **GS** 12 (PE 8.400; PB +4)
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +10, portata 3 m.
+_Colpito:_ 15 (2d8 + 6) danni taglienti.
 
-### Tratti
+_**Soffio di freddo (ricarica 5–6)**_ **.** _Tiro salvezza su Costi-_
+_tuzione:_ CD 17, tutte le creature in un cono di 9 metri.
+_Fallimento:_ 49 (11d8) danni da freddo. _Successo:_ danni
+dimezzati.
 
-***Restaurazione Diabolica.*** Se l’erinyes muore fuori dai Nove Inferi, il suo corpo scompare in fumo sulfureo e ottiene immediatamente un nuovo corpo, tornando in vita con tutti i suoi Punti Ferita da qualche parte nei Nove Inferi.
+_**Soffio paralizzante.**_ _Tiro salvezza su Costituzione:_
+CD 17, tutte le creature in un cono di 9 metri. _Primo_
+_fallimento:_ il bersaglio è incapacitato fino al termine
+del proprio turno successivo. A quel punto, ripete il tiro
+salvezza. _Secondo fallimento:_ il bersaglio è paralizzato
+e ripete il tiro salvezza alla fine di ogni suo turno e,
+se lo supera, l'effetto svanisce. Dopo 1 minuto, il tiro
+viene superato automaticamente.
+### **Drago d'argento adulto**
 
-***Resistenza Magica.*** L’erinyes ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
+_Drago Enorme (metallico), Legale Buono_
 
-***Corda Magica.*** L’erinyes possiede una corda magica. Finché la tiene, può usare l’azione Corda Intricante. La corda ha CA 20, PF 90 e Immunità a danni da veleno e psichici. La corda si riduce in polvere se portata a 1,5 m o più di distanza dall’erinyes per almeno 1 ora, se ridotta a 0 PF, o se l’erinyes muore. Se la corda è danneggiata o distrutta, l’erinyes può ripristinarla completamente al termine di un Riposo Breve o Lungo.
 
-### Azioni
+**CA** 19 **Iniziativa** +10 (20)
+**PF** 216 (16d12 + 112)
+**Velocità** 12 m, volo 24 m
 
-***Attacco Multiplo.*** L’erinyes effettua tre attacchi con Spada Inaridente e può usare Corda Intricante.
 
-***Spada Inaridente.*** *Tiro per colpire in mischia:* +8, portata 1,5 m. 13 (2d8 + 4) danni taglienti più 11 (2d10) danni necrotici.
+**Abilità** Furtività +5, Percezione +11, Storia +8
+**Immunità** freddo
+**Sensi** Percezione passiva 21; scurovisione 36 m, vista
 
-***Corda Intricante (richiede Corda Magica).*** *Tiro Salvezza su Forza*: CD 16, una creatura che l’erinyes può vedere entro 36 m. *Fallimento:* 14 (4d6) danni da forza e il bersaglio è Immobilizzato finché la corda non viene distrutta, l’erinyes non usa un’Azione Bonus per liberarlo, o non usa di nuovo Corda Intricante.
+cieca 18 m
+**Lingue** Comune, Draconico
+**GS** 16 (PE 15.000, o 18.000 nella tana; BC +5)
 
----
+Tratti
 
-## Ettercapo
+_**Resistenza leggendaria (3/giorno o 4/giorno nella**_
+_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
-*Mostruosità Media, Neutrale Malvagio*
+Azioni
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 44 (8d8 + 8)
-- **Velocità:** 9 m, arrampicata 9 m
-- **Iniziativa**: +2 (12)
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di (A) Soffio
+paralizzante o (B) Incantesimi per lanciare _coltello di_
+_ghiaccio_ .
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 14 | +2 | +2 |
-| DES | 15 | +2 | +2 |
-| COS | 13 | +1 | +1 |
-| INT | 7 | -2 | -2 |
-| SAG | 12 | +1 | +1 |
-| CAR | 8 | -1 | -1 |
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +13, portata 3 m.
+_Colpito:_ 17 (2d8 + 8) danni taglienti più 4 (1d8) danni
+da freddo.
 
-- **Abilità**: Percezione +3, Furtività +4, Sopravvivenza +3
-- **Sensi**: scurovisione 18 m; Percezione Passiva 13
-- **GS** 2 (PE 450; PB +2)
+_**Incantesimi.**_ Il drago lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 19, +11 al tiro per
+colpire degli attacchi con incantesimo):
 
-### Tratti
 
-***Camminare sul Tessuto.*** L’ettercapo può arrampicarsi su superfici difficili, inclusi soffitti, senza prove di abilità.
 
-***Camminatore della Tela.*** L’ettercapo ignora le restrizioni di movimento causate dalle ragnatele e conosce la posizione di ogni altra creatura a contatto con la stessa ragnatela.
 
-### Azioni
+**1/giorno ciascuno:** _Tempesta di ghiaccio_ (di 5º livello),
 
-***Attacco Multiplo.*** L’ettercapo effettua un attacco di Morso e un attacco di Artiglio.
+_zona di verità_
+**A volontà:** _Blocca mostri_, _coltello di ghiaccio_, _indivi-_
 
-***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni perforanti più 2 (1d4) danni da veleno, e il bersaglio è Avvelenato fino all’inizio del prossimo turno dell’ettercapo.
+_duazione del magico_, _trasformazione_ (solo in forma
+di bestia o umanoide, senza punti ferita temporanei
+ottenuti dall'incantesimo, e senza richiedere concentrazione o punti ferita temporanei per mantenere
+l'incantesimo)
 
-***Artiglio.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 7 (2d4 + 2) danni taglienti.
+_**Soffio di freddo (ricarica 5–6)**_ **.** _Tiro salvezza su Costitu-_
+_zione:_ CD 20, tutte le creature in un cono di 18 metri.
+_Fallimento:_ 54 (12d8) danni da freddo. _Successo:_ danni
+dimezzati.
 
-***Filo di Ragnatela (Ricarica 5–6).*** *Tiro Salvezza su Destrezza*: CD 12, una creatura Grande o più piccola che l’ettercapo può vedere entro 9 m. *Fallimento:* il bersaglio è Immobilizzato finché la ragnatela non viene distrutta (CA 10; PF 5; Vulnerabilità ai danni da fuoco; Immunità a danni contundenti, veleno e psichici).
+_**Soffio paralizzante.**_ _Tiro salvezza su Costituzione:_
+CD 20, tutte le creature in un cono di 18 metri. _Primo_
+_fallimento:_ il bersaglio è incapacitato fino al termine
+del proprio turno successivo. A quel punto, ripete il tiro
+salvezza. _Secondo fallimento:_ il bersaglio è paralizzato
+e ripete il tiro salvezza alla fine di ogni suo turno e,
+se lo supera, l'effetto svanisce. Dopo 1 minuto, il tiro
+viene superato automaticamente.
+Azioni leggendarie
 
-### Azioni Bonus
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il drago può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il drago_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
-***Avvolgere.*** L’ettercapo tira verso di sé fino a 7,5 m una creatura entro 9 m che sia Immobilizzata dal suo Filo di Ragnatela.
+_**Assideramento.**_ Il drago usa Incantesimi per lanciare
+_blocca mostri_ . il drago non può ripetere quest'azione
+fino all'inizio del proprio turno successivo.
 
----
+_**Balzo.**_ Il drago si muove fino a metà della sua velocità,
+ed effettua un attacco Squarcio.
 
-## Ettin
+_**Bufera.**_ _Tiro salvezza su Destrezza:_ CD 19, tutte le
+creature in una linea lunga 18 metri e larga 3 metri. _Fal-_
+_limento:_ 14 (4d6) danni da freddo, e il bersaglio viene
+spinto in linea retta fino a un massimo di 9 metri lontano dal drago. _Successo:_ danni dimezzati. _Fallimento_
 
-*Gigante Grande, Caotico Malvagio*
+_o successo:_ il drago non può ripetere quest'azione fino
+all'inizio del proprio turno successivo.
+### **Drago d'argento antico**
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 85 (10d10 + 30)
-- **Velocità:** 12 m
-- **Iniziativa**: -1 (9)
+_Drago Mastodontico (Metallico), Legale Buono_
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 21 | +5 | +5 |
-| DES | 8 | -1 | -1 |
-| COS | 17 | +3 | +3 |
-| INT | 6 | -2 | -2 |
-| SAG | 10 | +0 | +0 |
-| CAR | 8 | -1 | -1 |
 
-- **Immunità**: Accecato, Affascinato, Assordato, Spaventato, Stordito, Incosciente
-- **Abilità**: Percezione +4
-- **Equipaggiamento**: Ascia da Battaglia, Mazza Ferrata
-- **Sensi**: scurovisione 18 m; Percezione Passiva 14
-- **Linguaggi**: Gigante
-- **GS** 4 (PE 1.100; PB +2)
+**CA** 22 **Iniziativa** +14 (24)
+**PF** 468 (24d20 + 216)
+**Velocità** 12 m, volo 24 m
 
-### Azioni
 
-***Attacco Multiplo.*** L’ettin effettua un attacco con Ascia da Battaglia e uno con Mazza Ferrata.
+**Abilità** Furtività +7, Percezione +16, Storia +11
+**Immunità** freddo
+**Sensi** Percezione passiva 26; scurovisione 36 m, vista
 
-***Ascia da Battaglia.*** *Tiro per colpire in mischia:* +7, portata 1,5 m. 14 (2d8 + 5) danni taglienti. Se il bersaglio è una creatura Grande o più piccola, cade Prona.
+cieca 18 m
+**Lingue** Comune, Draconico
+**GS** 23 (PE 50.000, o 62.000 nella tana; BC +7)
 
-***Mazza Ferrata.*** *Tiro per colpire in mischia:* +7, portata 1,5 m. 14 (2d8 + 5) danni perforanti, e il bersaglio ha Svantaggio al prossimo tiro per colpire che effettua prima della fine del suo prossimo turno.
 
----
+**315** System Reference Document 5.2.1
 
-## Elementale del Fuoco
 
-*Elementale Grande, Neutrale*
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 93 (11d10 + 33)
-- **Velocità:** 15 m
-- **Iniziativa**: +3 (13)
+Tratti
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 10 | +0 | +0 |
-| DES | 17 | +3 | +3 |
-| COS | 16 | +3 | +3 |
-| INT | 6 | -2 | -2 |
-| SAG | 10 | +0 | +0 |
-| CAR | 7 | -2 | -2 |
+_**Resistenza leggendaria (4/giorno o 5/giorno nella**_
+_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
-- **Resistenze**: Contundenti, Perforanti, Taglienti
-- **Immunità**: Fuoco, Veleno; Affaticamento, Immobilizzato, Paralizzato, Pietrificato, Avvelenato, Prono, Trattenuto, Incosciente
-- **Sensi**: scurovisione 18 m; Percezione Passiva 10
-- **Linguaggi**: Primordiale (Ignan)
-- **GS** 5 (PE 1.800; PB +3)
+Azioni
 
-### Tratti
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di (A) Soffio
+paralizzante o (B) Incantesimi per lanciare _coltello di_
+_ghiaccio_ (di 2º livello).
 
-***Aura di Fuoco.*** Alla fine di ogni turno dell’elementale, ogni creatura in un’Emanazione di 3 m originata da lui subisce 5 (1d10) danni da fuoco. Creature e oggetti infiammabili nell’area iniziano a bruciare.
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +17, portata
+4,5 m. _Colpito:_ 19 (2d8 + 10) danni taglienti più 9 (2d8)
+danni da freddo.
 
-***Forma di Fuoco.*** L’elementale può muoversi attraverso spazi stretti fino a 2,5 cm senza movimento extra, ed entrare nello spazio di una creatura. La prima volta che entra nello spazio di una creatura in un turno, quella subisce 5 (1d10) danni da fuoco.
+_**Incantesimi.**_ Il drago lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 23, +15 al tiro per
+colpire degli attacchi con incantesimo):
 
-***Illuminazione.*** L’elementale emette luce intensa in un raggio di 9 m e luce fioca per ulteriori 9 m.
+**1/giorno ciascuno:** _Controllare tempo atmosferico_, _tele-_
 
-***Vulnerabilità all’Acqua.*** L’elementale subisce 3 (1d6) danni da freddo per ogni 1,5 m che si muove in acqua o per ogni gallone d’acqua che gli viene gettato addosso.
+_trasporto_, _tempesta di ghiaccio_ (di 7º livello), _zona di_
+_verità_
+**A volontà:** _Blocca mostri_, _coltello di ghiaccio_ (di
 
-### Azioni
+2º livello), _individuazione del magico_, _trasformazione_
+(solo in forma di bestia o umanoide, senza punti ferita
+temporanei ottenuti dall'incantesimo, e senza richiedere concentrazione o punti ferita temporanei per
+mantenere l'incantesimo)
 
-***Attacco Multiplo.*** L’elementale effettua due attacchi di Bruciatura.
+_**Soffio di freddo (ricarica 5–6)**_ **.** _Tiro salvezza su Costitu-_
+_zione:_ CD 24, tutte le creature in un cono di 27 metri.
+_Fallimento:_ 67 (15d8) danni da freddo. _Successo:_ danni
+dimezzati.
 
-***Bruciatura.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 10 (2d6 + 3) danni da fuoco. Se il bersaglio è una creatura o un oggetto infiammabile, inizia a bruciare.
+_**Soffio paralizzante.**_ _Tiro salvezza su Costituzione:_
+CD 24, tutte le creature in un cono di 27 metri. _Primo_
+_fallimento:_ il bersaglio è incapacitato fino al termine
+del proprio turno successivo. A quel punto, ripete il tiro
+salvezza. _Secondo fallimento:_ il bersaglio è paralizzato
+e ripete il tiro salvezza alla fine di ogni suo turno e,
+se lo supera, l'effetto svanisce. Dopo 1 minuto, il tiro
+viene superato automaticamente.
 
-## Gigante del Fuoco
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il drago può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il drago_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
-*Gigante Enorme, Legale Malvagio*
+_**Assideramento.**_ Il drago usa Incantesimi per lanciare
+_blocca mostri_ . il drago non può ripetere quest'azione
+fino all'inizio del proprio turno successivo.
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 162 (13d12 + 78)
-- **Velocità:** 9 m
-- **Iniziativa**: +3 (13)
+_**Balzo.**_ Il drago si muove fino a metà della sua velocità,
+ed effettua un attacco Squarcio.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 25 | +7 | +7 |
-| DES | 9  | -1 | +3 |
-| COS | 23 | +6 | +10 |
-| INT | 10 | +0 | +0 |
-| SAG | 14 | +2 | +2 |
-| CAR | 13 | +1 | +5 |
+_**Bufera.**_ _Tiro salvezza su Destrezza:_ CD 23, tutte le
+creature in una linea lunga 18 metri e larga 3 metri.
+_Fallimento:_ 14 (4d6) danni da freddo, e il bersaglio
+viene spinto in linea retta fino a un massimo di
 
-- **Immunità**: Fuoco
-- **Abilità**: Atletica +11, Percezione +6
-- **Sensi**: Percezione Passiva 16
-- **Linguaggi**: Gigante
-- **GS** 9 (PE 5.000; PB +4)
 
-### Azioni
 
-***Attacco Multiplo.*** Il gigante effettua due attacchi, usando Spada Fiammeggiante o Lancio del Martello in qualsiasi combinazione.
 
-***Spada Fiammeggiante.*** *Tiro per colpire in mischia:* +11, portata 3 m. 21 (4d6 + 7) danni taglienti più 10 (3d6) danni da fuoco.
+9 metri lontano dal drago. _Successo:_ danni dimezzati.
+_Fallimento o successo:_ il drago non può ripetere
+­quest'azione fino all'inizio del proprio turno successivo.
+## **Draghi di bronzo**
+### **Drago di bronzo cucciolo**
 
-***Lancio del Martello.*** *Tiro per colpire a distanza:* +11, gittata 18/72 m. 23 (3d10 + 7) danni contundenti più 4 (1d8) danni da fuoco, e il bersaglio viene spinto fino a 4,5 m lontano dal gigante e ha Svantaggio al prossimo tiro per colpire che effettua prima della fine del suo prossimo turno.
+_Drago Medio (metallico), legale buono_
 
----
 
-## Golem di Carne
+**CA** 15 **Iniziativa** +2 (12)
+**PF** 39 (6d8 + 12)
+**Velocità** 9 m, nuoto 9 m, volo 18 m
 
-*Costrutto Medio, Neutrale*
 
-- **Classe Armatura:** 9
-- **Punti Ferita:** 127 (15d8 + 60)
-- **Velocità:** 9 m
-- **Iniziativa**: -1 (9)
+**Abilità** Furtività +2, Percezione +4
+**Immunità** fulmine
+**Sensi** Percezione passiva 14; scurovisione 18 m, vista
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 19 | +4 | +4 |
-| DES | 9  | -1 | -1 |
-| COS | 18 | +4 | +4 |
-| INT | 6  | -2 | -2 |
-| SAG | 10 | +0 | +0 |
-| CAR | 5  | -3 | -3 |
+cieca 3 m
+**Lingue** Draconico
+**GS** 2 (PE 450; BC +2)
 
-- **Immunità**: Fulmine, Veleno; Affascinato, Affaticamento, Spaventato, Paralizzato, Pietrificato, Avvelenato
-- **Sensi**: scurovisione 18 m; Percezione Passiva 10
-- **Linguaggi**: Comprende il Comune e un’altra lingua ma non può parlare
-- **GS** 5 (PE 1.800; PB +3)
+Tratti
 
-### Tratti
+_**Anfibio.**_ Il drago può respirare in aria e in acqua.
 
-***Avversione al Fuoco.*** Se il golem subisce danni da fuoco, ha Svantaggio ai tiri per colpire e alle prove di abilità fino alla fine del suo prossimo turno.
+Azioni
 
-***Furia Omicida.*** Quando il golem inizia il turno in condizione Sanguinante, tira 1d6. Con un 6 va in furia. Durante la furia attacca la creatura più vicina che può vedere. Se nessuna creatura è a portata, attacca un oggetto. Rimane in furia finché non viene distrutto o non è più Sanguinante.  
-Il creatore del golem, se entro 18 m, può tentare di calmarlo usando un’Azione per effettuare una prova di Carisma (Persuasione) CD 15; il golem deve poterlo sentire. Se riesce, la furia termina fino all’inizio del turno successivo, momento in cui il golem riprende a tirare per Furia Omicida se ancora Sanguinante.
+_**Multiattacco.**_ Il drago effettua due attacchi Squarcio.
 
-***Forma Immutabile.*** Il golem non può mutare forma.
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 8 (1d10 + 3) danni taglienti.
 
-***Assorbimento del Fulmine.*** Quando subisce danni da fulmine, il golem recupera un numero di Punti Ferita pari ai danni da fulmine inflitti.
+_**Soffio di fulmini (ricarica 5–6)**_ **.** _Tiro salvezza su_
+_Destrezza:_ CD 12, tutte le creature in una linea lunga
+12 metri e larga 1,5 metri. _Fallimento:_ 16 (3d10) danni
+da fulmine. _Successo:_ danni dimezzati.
 
-***Resistenza Magica.*** Il golem ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
+_**Soffio repulsivo.**_ _Tiro salvezza su Forza:_ CD 12,
+tutte le creature in un cono di 9 metri. _Fallimento:_ il
+bersaglio viene spinto fino a un massimo di 9 metri di
+distanza dal drago e cade a terra prono.
+### **Drago di bronzo giovane**
 
-### Azioni
+_Drago Grande (metallico), legale buono_
 
-***Attacco Multiplo.*** Il golem effettua due attacchi di Colpo.
 
-***Colpo.*** *Tiro per colpire in mischia:* +7, portata 1,5 m. 13 (2d8 + 4) danni contundenti più 4 (1d8) danni da fulmine.
+**CA** 17 **Iniziativa** +3 (13)
+**PF** 142 (15d10 + 60)
+**Velocità** 12 m, nuoto 12 m, volo 24 m
 
----
 
-## Gigante del Gelo
+**Abilità** Furtività +3, Intuizione +4, Percezione +7
+**Immunità** fulmine
+**Sensi** Percezione passiva 17; scurovisione 36 m, vista
 
-*Gigante Enorme, Neutrale Malvagio*
+cieca 9 m
+**Lingue** Comune, Draconico
+**GS** 8 (PE 3.900; BC +3)
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 149 (13d12 + 65)
-- **Velocità:** 12 m
-- **Iniziativa**: +2 (12)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 23 | +6 | +6 |
-| DES | 9  | -1 | -1 |
-| COS | 21 | +5 | +8 |
-| INT | 9  | -1 | -1 |
-| SAG | 10 | +0 | +3 |
-| CAR | 12 | +1 | +4 |
+**316** System Reference Document 5.2.1
 
-- **Immunità**: Freddo
-- **Abilità**: Atletica +9, Percezione +3
-- **Sensi**: Percezione Passiva 13
-- **Linguaggi**: Gigante
-- **GS** 8 (PE 3.900; PB +3)
 
-### Azioni
 
-***Attacco Multiplo.*** Il gigante effettua due attacchi, usando Ascia Gelida o Grande Arco in qualsiasi combinazione.
+Tratti
 
-***Ascia Gelida.*** *Tiro per colpire in mischia:* +9, portata 3 m. 19 (2d12 + 6) danni taglienti più 9 (2d8) danni da freddo.
+_**Anfibio.**_ Il drago può respirare in aria e in acqua.
 
-***Grande Arco.*** *Tiro per colpire a distanza:* +9, gittata 45/180 m. 17 (2d10 + 6) danni perforanti più 7 (2d6) danni da freddo, e la Velocità del bersaglio si riduce di 3 m fino alla fine del suo prossimo turno.
+Azioni
 
-### Azioni Bonus
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di Soffio
+repulsivo.
 
-***Urlo di Guerra (Ricarica 5–6).*** Il gigante o una creatura a sua scelta che possa vederlo o sentirlo ottiene 16 (2d10 + 5) Punti Ferita Temporanei e vantaggio ai tiri per colpire fino all’inizio del prossimo turno del gigante.
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +8, portata 3 m.
+_Colpito:_ 16 (2d10 + 5) danni taglienti.
 
----
+_**Soffio di fulmini (ricarica 5–6)**_ **.** _Tiro salvezza su_
+_Destrezza:_ CD 15, tutte le creature in una linea lunga
+18 metri e larga 1,5 metri. _Fallimento:_ 49 (9d10) danni
+da fulmine. _Successo:_ danni dimezzati.
 
-## Gargoyle
+_**Soffio repulsivo.**_ _Tiro salvezza su Forza:_ CD 15,
+tutte le creature in un cono di 9 metri. _Fallimento:_ il
+bersaglio viene spinto fino a un massimo di 12 metri di
+distanza dal drago e cade a terra prono.
+### **Drago di bronzo adulto**
 
-*Elementale Medio, Caotico Malvagio*
+_Drago Enorme (metallico), Legale Buono_
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 67 (9d8 + 27)
-- **Velocità:** 9 m, volo 18 m
-- **Iniziativa**: +2 (12)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 15 | +2 | +2 |
-| DES | 11 | +0 | +0 |
-| COS | 16 | +3 | +3 |
-| INT | 6  | -2 | -2 |
-| SAG | 11 | +0 | +0 |
-| CAR | 7  | -2 | -2 |
+**CA** 18 **Iniziativa** +10 (20)
+**PF** 212 (17d12 + 102)
+**Velocità** 12 m, nuoto 12 m, volo 24 m
 
-- **Immunità**: Veleno; Affaticamento, Pietrificato, Avvelenato
-- **Abilità**: Furtività +4
-- **Sensi**: scurovisione 18 m; Percezione Passiva 10
-- **Linguaggi**: Primordiale (Terran)
-- **GS** 2 (PE 450; PB +2)
 
-### Tratti
+**Abilità** Furtività +5, Intuizione +7, Percezione +12
+**Immunità** fulmine
+**Sensi** Percezione passiva 22; scurovisione 36 m, vista
 
-***Attacco in Volo.*** Il gargoyle non provoca Attacchi di Opportunità quando vola fuori dalla portata di un nemico.
+cieca 18 m
+**Lingue** Comune, Draconico
+**GS** 15 (PE 13.000, o 15.000 nella tana; BC +5)
 
-### Azioni
+Tratti
 
-***Attacco Multiplo.*** Il gargoyle effettua due attacchi con Artiglio.
+_**Anfibio.**_ Il drago può respirare in aria e in acqua.
 
-***Artiglio.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 7 (2d4 + 2) danni taglienti.
+_**Resistenza leggendaria (3/giorno o 4/giorno nella**_
+_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
-## Cubo Gelatinoso
+Azioni
 
-*Melma Grande, Non Allineato*
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di (A) Soffio
+repulsivo o (B) Incantesimi per lanciare _dardo tracciante_
+(di 2º livello).
 
-- **Classe Armatura:** 6
-- **Punti Ferita:** 63 (6d10 + 30)
-- **Velocità:** 4,5 m
-- **Iniziativa**: -4 (6)
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +12, portata 3 m.
+_Colpito:_ 16 (2d8 + 7) danni taglienti più 5 (1d10) danni
+da fulmine.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 14 | +2 | +2 |
-| DES | 3  | -4 | -4 |
-| COS | 20 | +5 | +5 |
-| INT | 1  | -5 | -5 |
-| SAG | 6  | -2 | -2 |
-| CAR | 1  | -5 | -5 |
+_**Incantesimi.**_ Il drago lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 17, +10 al tiro per
+colpire degli attacchi con incantesimo):
 
-- **Immunità**: Acido; Accecato, Affascinato, Assordato, Affaticamento, Spaventato, Prono
-- **Sensi**: percezione cieca 18 m; Percezione Passiva 8
-- **GS** 2 (PE 450; PB +2)
 
-### Tratti
 
-***Cubo di Melma.*** Il cubo riempie interamente il suo spazio ed è trasparente. Altre creature possono entrare in quello spazio, ma una creatura che lo fa è soggetta a Inghiottire e ha Svantaggio al tiro salvezza.  
-Le creature all’interno del cubo hanno Copertura Totale, e il cubo può contenere al suo interno una creatura Grande o fino a quattro creature Medie o Piccole alla volta.  
-Come azione, una creatura entro 1,5 m dal cubo può tirare fuori dal cubo una creatura o un oggetto con una prova di Forza (Atletica) CD 12; chi tira subisce 10 (3d6) danni da acido.
 
-***Trasparente.*** Anche se il cubo è allo scoperto, una creatura deve superare una prova di Saggezza (Percezione) CD 15 per notarlo se non lo ha visto muoversi o agire.
+**1/giorno ciascuno:** _Individuazione dei pensieri_, _respi-_
 
-### Azioni
+_rare sott'acqua_
+**A volontà:** _Dardo tracciante_ (di 2º livello), _individua-_
 
-***Pseudopode.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 12 (3d6 + 2) danni da acido.
+_zione del magico_, _parlare con gli animali_, _taumaturgia_,
+_trasformazione (solo in forma di bestia o umanoide,_
+_senza punti ferita temporanei ottenuti dall'incante-_
+_simo, e senza richiedere concentrazione o punti ferita_
+_temporanei per mantenere l'incantesimo)_
 
-***Inghiottire.*** Il cubo si muove fino alla sua Velocità senza provocare Attacchi di Opportunità. Può muoversi attraverso gli spazi di creature Grandi o più piccole se ha spazio interno per contenerle (vedi il tratto Cubo di Melma). *Tiro Salvezza su Destrezza*: CD 12, da parte di ogni creatura il cui spazio il cubo entra per la prima volta durante questo movimento. *Fallimento:* 10 (3d6) danni da acido e il bersaglio viene inghiottito. Un bersaglio inghiottito sta soffocando, non può lanciare incantesimi con componente verbale, è Immobilizzato e subisce 10 (3d6) danni da acido all’inizio di ogni turno del cubo. Quando il cubo si muove, il bersaglio inghiottito si muove con esso. Una creatura inghiottita può tentare di scappare usando un’Azione per effettuare una prova di Forza (Atletica) CD 12. Con successo, esce nello spazio non occupato più vicino. *Successo:* metà danni e la creatura si sposta in uno spazio non occupato entro 1,5 m dal cubo. Se non c’è spazio non occupato, il tiro fallisce invece.
+_**Soffio di fulmini (ricarica 5–6)**_ **.** _Tiro salvezza su_
+_Destrezza:_ CD 19, tutte le creature in una linea lunga
+27 metri e larga 1,5 metri. _Fallimento:_ 55 (10d10) danni
+da fulmine. _Successo:_ danni dimezzati.
 
----
+_**Soffio repulsivo.**_ _Tiro salvezza su Forza:_ CD 19,
+tutte le creature in un cono di 9 metri. _Fallimento:_ il
+bersaglio viene spinto fino a un massimo di 18 metri di
+distanza dal drago e cade a terra prono.
 
-## Ghast
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il drago può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il drago_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
-*Non Morto Medio, Caotico Malvagio*
+_**Balzo.**_ Il drago si muove fino a metà della sua velocità,
+ed effettua un attacco Squarcio.
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 36 (8d8)
-- **Velocità:** 9 m
-- **Iniziativa**: +3 (13)
+_**Luce guida.**_ Il drago usa Incantesimi per lanciare _dardo_
+_tracciante_ (di 2º livello).
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +3 |
-| DES | 17 | +3 | +3 |
-| COS | 10 | +0 | +0 |
-| INT | 11 | +0 | +0 |
-| SAG | 10 | +0 | +2 |
-| CAR | 8  | -1 | -1 |
+_**Rombo di tuono.**_ _Tiro salvezza su Costituzione:_ CD
+17, tutte le creature in una sfera di 6 metri di raggio
+centrata su un punto che il drago è in grado di vedere
+entro 27 metri. _Fallimento:_ 10 (3d6) danni da tuono,
+e il bersaglio è assordato fino al termine del proprio
+turno successivo.
+### **Drago di bronzo antico**
 
-- **Resistenze**: Necrotico
-- **Immunità**: Veleno; Affascinato, Affaticamento, Avvelenato
-- **Sensi**: scurovisione 18 m; Percezione Passiva 10
-- **Linguaggi**: Comune
-- **GS** 2 (PE 450; PB +2)
+_Drago Mastodontico (Metallico), Legale Buono_
 
-### Tratti
 
-***Miasma.*** *Tiro Salvezza su Costituzione*: CD 10, da parte di ogni creatura che inizi il proprio turno in un’Emanazione di 1,5 m originata dal ghast. *Fallimento:* il bersaglio è Avvelenato fino all’inizio del suo prossimo turno. *Successo:* il bersaglio è immune al Miasma di questo ghast per 24 ore.
+**CA** 22 **Iniziativa** +14 (24)
+**PF** 444 (24d20 + 192)
+**Velocità** 12 m, nuoto 12 m, volo 24 m
 
-### Azioni
 
-***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni perforanti più 9 (2d8) danni necrotici.
+**Abilità** Furtività +7, Intuizione +10, Percezione +17
+**Immunità** fulmine
+**Sensi** Percezione passiva 27; scurovisione 36 m, vista
 
-***Artiglio.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) danni taglienti. Se il bersaglio non è un Non Morto, è soggetto al seguente effetto. *Tiro Salvezza su Costituzione*: CD 10. *Fallimento:* il bersaglio è Paralizzato fino alla fine del suo prossimo turno.
+cieca 18 m
+**Lingue** Comune, Draconico
+**GS** 22 (PE 41.000, o 50.000 nella tana; BC +7)
 
----
+Tratti
 
-## Fantasma
+_**Anfibio.**_ Il drago può respirare in aria e in acqua.
 
-*Non Morto Medio, Neutrale*
+_**Resistenza leggendaria (4/giorno o 5/giorno nella**_
+_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 45 (10d8)
-- **Velocità:** 1,5 m, volo 12 m (fluttuare)
-- **Iniziativa**: +1 (11)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 7  | -2 | -2 |
-| DES | 13 | +1 | +1 |
-| COS | 10 | +0 | +0 |
-| INT | 10 | +0 | +0 |
-| SAG | 12 | +1 | +1 |
-| CAR | 17 | +3 | +3 |
+**317** System Reference Document 5.2.1
 
-- **Resistenze**: Acido, Contundenti, Freddo, Fuoco, Fulmine, Perforanti, Taglienti, Tuono
-- **Immunità**: Necrotico, Veleno; Affascinato, Affaticamento, Spaventato, Afferrato, Paralizzato, Pietrificato, Avvelenato, Prono, Immobilizzato
-- **Sensi**: scurovisione 18 m; Percezione Passiva 11
-- **Linguaggi**: Comune più un’altra lingua
-- **GS** 4 (PE 1.100; PB +2)
 
-### Tratti
 
-***Vista Eterea.*** Il fantasma può vedere per 18 m nel Piano Etereo quando si trova sul Piano Materiale.
+Azioni
 
-***Movimento Incorporeo.*** Il fantasma può muoversi attraverso creature e oggetti come se fossero Terreno Difficile. Se termina il turno dentro un oggetto, subisce 5 (1d10) danni da forza.
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di (A) Soffio
+repulsivo o (B) Incantesimi per lanciare _dardo tracciante_
+(di 2º livello).
 
-### Azioni
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +16, portata
+4,5 m. _Colpito:_ 18 (2d8 + 9) danni taglienti più 9 (2d8)
+danni da fulmine.
 
-***Attacco Multiplo.*** Il fantasma effettua due attacchi di Tocco Inaridente.
+_**Incantesimi.**_ Il drago lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 22, +14 al tiro
+per colpire degli attacchi con incantesimo):
 
-***Tocco Inaridente.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 19 (3d10 + 3) danni necrotici.
+**A volontà:** _dardo tracciante_ (di 2º livello), _individua-_
 
-***Aspetto Orrendo.*** *Tiro Salvezza su Saggezza*: CD 13, da parte di ogni creatura in un Cono di 18 m che possa vedere il fantasma e non sia un Non Morto. *Fallimento:* 10 (2d6 + 3) danni psichici e il bersaglio è Spaventato fino all’inizio del prossimo turno del fantasma. *Successo:* il bersaglio è immune all’Aspetto Orrendo di questo fantasma per 24 ore.
+_zione del magico_, _parlare con gli animali_, _taumaturgia_,
+_trasformazione_ (solo in forma di bestia o umanoide,
+senza punti ferita temporanei ottenuti dall'incantesimo, e senza concentrazione o punti ferita temporanei per mantenere l'incantesimo)
+**1/giorno ciascuno:** _controllare acqua_, _individuazione_
 
-***Possessione (Ricarica 6).*** *Tiro Salvezza su Carisma*: CD 13, un Umanoide che il fantasma può vedere entro 1,5 m. *Fallimento:* il bersaglio è posseduto dal fantasma; il fantasma scompare e il bersaglio è Incapacitato e perde il controllo del proprio corpo. Il fantasma ora controlla il corpo, ma il bersaglio mantiene consapevolezza. Il fantasma non può essere bersaglio di attacchi, incantesimi o altri effetti, tranne quelli che colpiscono specificamente i Non Morti. Le statistiche del fantasma restano le stesse, tranne che usa la Velocità e i modificatori di Forza, Destrezza e Costituzione del bersaglio posseduto.  
-La possessione dura finché il corpo non scende a 0 Punti Ferita o il fantasma non lo lascia come Azione Bonus. Quando termina, il fantasma appare in uno spazio non occupato entro 1,5 m dal bersaglio, e il bersaglio è immune alla Possessione di questo fantasma per 24 ore. *Successo:* il bersaglio è immune alla Possessione di questo fantasma per 24 ore.
+_dei pensieri_, _respirare sott'acqua_, _scrutare_
 
-***Etereo.*** Il fantasma lancia *Etereo*, senza componenti e usando Carisma come caratteristica da incantatore. Il fantasma è visibile sul Piano Materiale mentre si trova nell’Etereo di Confine e viceversa, ma non può influenzare o essere influenzato da nulla sull’altro piano.
+_**Soffio di fulmini (ricarica 5–6)**_ **.** _Tiro salvezza su_
+_Destrezza:_ CD 23, tutte le creature in una linea lunga
+36 metri e larga 3 metri. _Fallimento:_ 82 (15d10) danni
+da fulmine. _Successo:_ danni dimezzati.
 
-- **A volontà:** *Etereo*
+_**Soffio repulsivo.**_ _Tiro salvezza su Forza:_ CD 23,
+tutte le creature in un cono di 9 metri. _Fallimento:_ il
+bersaglio viene spinto fino a un massimo di 18 metri di
+distanza dal drago e cade a terra prono.
 
----
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il drago può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il drago_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
-## Ghoul
+_**Balzo.**_ Il drago si muove fino a metà della sua velocità,
+ed effettua un attacco Squarcio.
 
-*Non Morto Medio, Caotico Malvagio*
+_**Luce guida.**_ Il drago usa Incantesimi per lanciare _dardo_
+_tracciante_ (di 2º livello).
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 22 (5d8)
-- **Velocità:** 9 m
-- **Iniziativa**: +2 (12)
+_**Rombo di tuono.**_ _Tiro salvezza su Costituzione:_ CD
+22, tutte le creature in una sfera di 6 metri di raggio
+centrata su un punto che il drago è in grado di vedere
+entro 36 metri. _Fallimento:_ 13 (3d8) danni da tuono,
+e il bersaglio è assordato fino al termine del proprio
+turno successivo.
+## **Draghi di rame**
+### **Drago di rame cucciolo**
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 13 | +1 | +1 |
-| DES | 15 | +2 | +2 |
-| COS | 10 | +0 | +0 |
-| INT | 7  | -2 | -2 |
-| SAG | 10 | +0 | +0 |
-| CAR | 6  | -2 | -2 |
+_Drago Medio (metallico), caotico buono_
 
-- **Immunità**: Veleno; Affascinato, Affaticamento, Avvelenato
-- **Sensi**: scurovisione 18 m; Percezione Passiva 10
-- **Linguaggi**: Comune
-- **GS** 1 (PE 200; PB +2)
 
-### Azioni
+**CA** 16 **Iniziativa** +3 (13)
+**PF** 22 (4d8 + 4)
+**Velocità** 9 m, scalata 9 m, volo 18 m
 
-***Attacco Multiplo.*** Il ghoul effettua due attacchi di Morso.
 
-***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni perforanti più 3 (1d6) danni necrotici.
 
-***Artiglio.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni taglienti. Se il bersaglio è una creatura che non sia un Non Morto né un elfo, è soggetto al seguente effetto. *Tiro Salvezza su Costituzione*: CD 10. *Fallimento:* il bersaglio è Paralizzato fino alla fine del suo prossimo turno.
 
-## Masticatore Blaterante
+**Abilità** Furtività +3, Percezione +4
+**Immunità** acido
+**Sensi** Percezione passiva 14; scurovisione 18 m, vista
 
-*Aberrazione Media, Caotico Neutrale*
+cieca 3 m
+**Lingue** Draconico
+**GS** 1 (PE 200; BC +2)
 
-- **Classe Armatura:** 9
-- **Punti Ferita:** 52 (7d8 + 21)
-- **Velocità:** 6 m, nuoto 6 m
-- **Iniziativa**: -1 (9)
+Azioni
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 10 | +0 | +0 |
-| DES | 8  | -1 | -1 |
-| COS | 16 | +3 | +3 |
-| INT | 3  | -4 | -4 |
-| SAG | 10 | +0 | +0 |
-| CAR | 6  | -2 | -2 |
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 7 (1d10 + 2) danni taglienti.
 
-- **Immunità**: Prono
-- **Sensi**: scurovisione 18 m; Percezione Passiva 10
-- **GS** 2 (PE 450; PB +2)
+_**Soffio di acido (ricarica 5–6)**_ **.** _Tiro salvezza su_
+_Destrezza:_ CD 11, tutte le creature in una linea lunga
+6 metri e larga 1,5 metri. _Fallimento:_ 18 (4d8) danni da
+acido. _Successo:_ danni dimezzati.
 
-### Tratti
+_**Soffio rallentante.**_ _Tiro salvezza su Costituzione:_ CD
+11, tutte le creature in un cono di 4,5 metri. _Fallimento:_
+il bersaglio non può effettuare reazioni, la sua velocità
+è dimezzata e nel suo turno può effettuare un'azione
 
-***Terreno Aberrante.*** Il suolo in un’Emanazione di 3 m originata dal masticatore è Terreno Difficile.
+      - un'azione bonus, non entrambe. L'effetto dura fino
+al termine del proprio turno successivo.
+### **Drago di rame giovane**
 
-***Borbottio.*** Il masticatore farfuglia incoerentemente finché non è Incapacitato. *Tiro Salvezza su Saggezza*: CD 10, da parte di ogni creatura che inizi il suo turno entro 6 m dal masticatore mentre farfuglia. *Fallimento:* il bersaglio tira 1d8 per determinare cosa fa in questo turno:
+_Drago Grande (metallico), caotico buono_
 
-- **1–4**: Il bersaglio non fa nulla.
-- **5–6**: Il bersaglio non compie azioni né Azioni Bonus e usa tutto il suo movimento per muoversi in una direzione casuale.
-- **7–8**: Il bersaglio effettua un attacco in mischia contro una creatura casuale alla sua portata o non fa nulla se non può farlo.
 
-### Azioni
+**CA** 17 **Iniziativa** +4 (14)
+**PF** 119 (14d10 + 42)
+**Velocità** 12 m, scalata 12 m, volo 24 m
 
-***Morso.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 7 (2d6) danni perforanti. Se il bersaglio è una creatura Media o più piccola, cade Prona. Se è ridotto a 0 Punti Ferita da questo attacco, muore. Il corpo viene assorbito dal masticatore, lasciando solo l’equipaggiamento.
 
-***Sputo Accecante (Ricarica 5–6).*** *Tiro Salvezza su Destrezza*: CD 10, da parte di ogni creatura in una Sfera di raggio 3 m centrata su un punto entro 9 m. *Fallimento:* 7 (2d6) danni radianti e il bersaglio è Accecato fino alla fine del prossimo turno del masticatore.
+**Abilità** Furtività +4, Inganno +5, Percezione +7
+**Immunità** acido
+**Sensi** Percezione passiva 17; scurovisione 36 m, vista
 
----
+cieca 9 m
+**Lingue** Comune, Draconico
+**GS** 7 (PE 2.900; BC +3)
 
-## Glabrezu
+Azioni
 
-*Immonda Grande (Demone), Caotico Malvagio*
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di Soffio
+rallentante.
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 189 (18d10 + 90)
-- **Velocità:** 12 m
-- **Iniziativa**: +6 (16)
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +7, portata 3 m.
+_Colpito:_ 15 (2d10 + 4) danni taglienti.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 20 | +5 | +9 |
-| DES | 15 | +2 | +2 |
-| COS | 21 | +5 | +9 |
-| INT | 19 | +4 | +4 |
-| SAG | 17 | +3 | +7 |
-| CAR | 16 | +3 | +7 |
+_**Soffio di acido (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 14, tutte le creature in una linea lunga
+12 metri e larga 1,5 metri. _Fallimento:_ 40 (9d8) danni da
+acido. _Successo:_ danni dimezzati.
 
-- **Resistenze**: Freddo, Fuoco, Fulmine
-- **Immunità**: Veleno; Avvelenato
-- **Abilità**: Inganno +7, Percezione +7
-- **Sensi**: vera visione 36 m; Percezione Passiva 17
-- **Linguaggi**: Abissale; telepatia 36 m
-- **GS** 9 (PE 5.000; PB +4)
+_**Soffio rallentante.**_ _Tiro salvezza su Costituzione:_ CD
+14, tutte le creature in un cono di 9 metri. _Fallimento:_
+il bersaglio non può effettuare reazioni, la sua velocità
+è dimezzata e nel suo turno può effettuare un'azione
 
-### Tratti
 
-***Restaurazione Demoniaca.*** Se il glabrezu muore fuori dall’Abisso, il suo corpo si dissolve in ichor e ottiene immediatamente un nuovo corpo, tornando in vita con tutti i suoi Punti Ferita da qualche parte nell’Abisso.
+**318** System Reference Document 5.2.1
 
-***Resistenza Magica.*** Il glabrezu ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
 
-### Azioni
 
-***Attacco Multiplo.*** Il glabrezu effettua due attacchi di Chela e usa Spremere o Lancio di Incantesimi.
 
-***Chela.*** *Tiro per colpire in mischia:* +9, portata 3 m. 16 (2d10 + 5) danni taglienti. Se il bersaglio è una creatura Media o più piccola, è Afferrato (CD 15 per sfuggire) da una delle due chele.
+- un'azione bonus, non entrambe. L'effetto dura fino
+al termine del proprio turno successivo.
+### **Drago di rame adulto**
 
-***Spremere.*** *Tiro Salvezza su Destrezza*: CD 17, una creatura Afferrata dal glabrezu. *Fallimento:* 15 (3d6 + 5) danni contundenti. *Successo:* metà danni.
+_Drago Enorme (metallico), caotico buono_
 
-***Lancio di Incantesimi.*** Il glabrezu lancia uno dei seguenti incantesimi, senza componenti materiali e usando Intelligenza come caratteristica da incantatore (CD 16):
 
-- **A volontà:** *Oscurità*, *Individuazione del Magico*, *Dissolvi Magie*
-- **1/giorno ciascuno:** *Confusione*, *Volare*, *Parola di Potere: Stordire*
+**CA** 18 **Iniziativa** +11 (21)
+**PF** 184 (16d12 + 80)
+**Velocità** 12 m, scalata 12 m, volo 24 m
 
----
 
-## Gladiatore
+**Abilità** Furtività +6, Inganno +9, Percezione +12
+**Immunità** acido
+**Sensi** Percezione passiva 22; scurovisione 36 m, vista
 
-*Umanoide Piccolo, Neutrale*
+cieca 18 m
+**Lingue** Comune, Draconico
+**GS** 14 (PE 11.500, o 13.000 nella tana; BC +5)
 
-- **Classe Armatura:** 16
-- **Punti Ferita:** 112 (15d8 + 45)
-- **Velocità:** 9 m
-- **Iniziativa**: +5 (15)
+Tratti
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +7 |
-| DES | 15 | +2 | +5 |
-| COS | 16 | +3 | +6 |
-| INT | 10 | +0 | +0 |
-| SAG | 12 | +1 | +4 |
-| CAR | 15 | +2 | +2 |
+_**Resistenza leggendaria (3/giorno o 4/giorno nella**_
+_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
-- **Abilità**: Atletica +10, Intrattenere +5
-- **Equipaggiamento**: Scudo, Lancia × 3, Armatura di cuoio borchiato
-- **Sensi**: Percezione Passiva 11
-- **Linguaggi**: Comune
-- **GS** 5 (PE 1.800; PB +3)
+Azioni
 
-### Azioni
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di (A) Soffio
+rallentante o (B) Incantesimi per lanciare _aculeo men-_
+_tale_ (di 4º livello).
 
-***Attacco Multiplo.*** Il gladiatore effettua tre attacchi con Lancia. Può sostituire un attacco con un uso di Colpo di Scudo.
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +11, portata 3 m.
+_Colpito:_ 17 (2d10 + 6) danni taglienti più 4 (1d8) danni
+da acido.
 
-***Lancia.*** *Tiro per colpire in mischia o a distanza:* +7, portata 1,5 m o gittata 6/18 m. 11 (2d6 + 4) danni perforanti.
+_**Incantesimi.**_ Il drago lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 17):
 
-***Colpo di Scudo.*** *Tiro Salvezza su Forza*: CD 15, una creatura entro 1,5 m che il gladiatore può vedere. *Fallimento:* 9 (2d4 + 4) danni contundenti. Se il bersaglio è una creatura Media o più piccola, cade Prona.
+**1/giorno ciascuno:** _Immagine maggiore_, _ristorare supe-_
 
----
+_riore_
+**A volontà:** _Aculeo mentale_ (di 4º livello), _illusione_
 
-## Guerriero Gnoll
+_minore_, _individuazione del magico_, _trasformazione_
+(solo in forma di bestia o umanoide, senza punti ferita
+temporanei ottenuti dall'incantesimo, e senza richiedere concentrazione o punti ferita temporanei per
+mantenere l'incantesimo)
 
-*Immonda Media, Caotico Malvagio*
+_**Soffio di acido (ricarica 5–6)**_ **.** _Tiro salvezza su_
+_Destrezza:_ CD 18, tutte le creature in una linea lunga
+18 metri e larga 1,5 metri. _Fallimento:_ 54 (12d8) danni
+da acido. _Successo:_ danni dimezzati.
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 27 (6d8)
-- **Velocità:** 9 m
-- **Iniziativa**: +1 (11)
+_**Soffio rallentante.**_ _Tiro salvezza su Costituzione:_
+CD 18, tutte le creature in un cono di 18 metri. _Falli-_
+_mento:_ il bersaglio non può effettuare reazioni, la sua
+velocità è dimezzata e nel suo turno può effettuare
+un'azione o un'azione bonus, non entrambe. L'effetto
+dura fino al termine del proprio turno successivo.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 14 | +2 | +2 |
-| DES | 12 | +1 | +1 |
-| COS | 11 | +0 | +0 |
-| INT | 6  | -2 | -2 |
-| SAG | 10 | +0 | +0 |
-| CAR | 7  | -2 | -2 |
 
-- **Sensi**: scurovisione 18 m; Percezione Passiva 10
-- **Linguaggi**: Gnoll
-- **GS** 1/2 (PE 100; PB +2)
 
-### Azioni
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni perforanti.
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il drago può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il drago_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
-***Arco d’Ossa.*** *Tiro per colpire a distanza:* +3, gittata 45/180 m. 6 (1d10 + 1) danni perforanti.
+_**Balzo.**_ Il drago si muove fino a metà della sua velocità,
+ed effettua un attacco Squarcio.
 
-### Azioni Bonus
+_**Magia ridacchiante.**_ _Tiro salvezza su Carisma:_ CD 17,
+una creatura che il drago è in grado di vedere entro
+27 metri. _Fallimento:_ 24 (7d6) danni psichici. Fino al
+termine del proprio turno successivo, il bersaglio tira
+1d6 ogni volta che effettua una prova di caratteristica
 
-***Furia Omicida (1/giorno).*** Immediatamente dopo aver inflitto danni a una creatura già Sanguinante, lo gnoll si muove fino a metà della sua Velocità e effettua un attacco di Dilaniare.
+      - un tiro per colpire e sottrae il risultato dalla prova con
+d20. _Fallimento o successo:_ il drago non può ripetere
+quest'azione fino all'inizio del proprio turno successivo.
 
-## Capo Goblin
+_**Scossa mentale.**_ Il drago usa Incantesimi per lanciare
+_aculeo mentale_ (di 4º livello). il drago non può ripetere
+quest'azione fino all'inizio del proprio turno successivo.
+### **Drago di rame antico**
 
-*Fata Piccola (Goblinide), Caotico Neutrale*
+_Drago Mastodontico (metallico), caotico buono_
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 21 (6d6)
-- **Velocità:** 9 m
-- **Iniziativa**: +2 (12)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 10 | +0 | +0 |
-| DES | 15 | +2 | +2 |
-| COS | 10 | +0 | +0 |
-| INT | 10 | +0 | +0 |
-| SAG | 8  | -1 | -1 |
-| CAR | 10 | +0 | +0 |
+**CA** 21 **Iniziativa** +15 (25)
+**PF** 367 (21d20 + 147)
+**Velocità** 12 m, scalata 12 m, volo 24 m
 
-- **Abilità**: Furtività +6
-- **Equipaggiamento**: Cotta di maglia, Scimitarra, Scudo, Arco corto
-- **Sensi**: scurovisione 18 m; Percezione Passiva 9
-- **Linguaggi**: Comune, Goblin
-- **GS** 1 (PE 200; PB +2)
 
-### Azioni
+**Abilità** Furtività +8, Inganno +13, Percezione +17
+**Immunità** acido
+**Sensi** Percezione passiva 27; scurovisione 36 m, vista
 
-***Attacco Multiplo.*** Il goblin effettua due attacchi, usando Scimitarra o Arco corto in qualsiasi combinazione.
+cieca 18 m
+**Lingue** Comune, Draconico
+**GS** 21 (PE 33.000, o 41.000 nella tana; BC +7)
 
-***Scimitarra.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni taglienti, più 2 (1d4) danni taglienti se il tiro per colpire era con Vantaggio.
+Tratti
 
-***Arco corto.*** *Tiro per colpire a distanza:* +4, gittata 24/96 m. 5 (1d6 + 2) danni perforanti, più 2 (1d4) danni perforanti se il tiro per colpire era con Vantaggio.
+_**Resistenza leggendaria (4/giorno o 5/giorno nella**_
+_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
-### Azioni Bonus
+Azioni
 
-***Fuga Rapida.*** Il goblin compie l’Azione Disimpegno o Nascondersi.
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di (A) Soffio
+rallentante o (B) Incantesimi per lanciare _aculeo men-_
+_tale_ (di 5º livello).
 
----
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +15, portata
+4,5 m. _Colpito:_ 19 (2d10 + 8) danni taglienti più 9 (2d8)
+danni da acido.
 
-## Sgherro Goblin
+_**Incantesimi.**_ Il drago lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 21):
 
-*Fata Piccola (Goblinide), Caotico Neutrale*
+**1/giorno ciascuno:** _Immagine maggiore_, _immagine_
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 7 (2d6)
-- **Velocità:** 9 m
-- **Iniziativa**: +2 (12)
+_­proiettata_, _ristorare superiore_
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 8  | -1 | -1 |
-| DES | 15 | +2 | +2 |
-| COS | 10 | +0 | +0 |
-| INT | 10 | +0 | +0 |
-| SAG | 8  | -1 | -1 |
-| CAR | 8  | -1 | -1 |
 
-- **Abilità**: Furtività +6
-- **Equipaggiamento**: Pugnale × 3
-- **Sensi**: scurovisione 18 m; Percezione Passiva 9
-- **Linguaggi**: Comune, Goblin
-- **GS** 1/8 (PE 25; PB +2)
+**319** System Reference Document 5.2.1
 
-### Azioni
 
-***Pugnale.*** *Tiro per colpire in mischia o a distanza:* +4, portata 1,5 m o gittata 6/18 m. 4 (1d4 + 2) danni perforanti.
 
-### Azioni Bonus
+**A volontà:** _Aculeo mentale_ (di 5º livello), _illusione_
 
-***Fuga Rapida.*** Il goblin compie l’Azione Disimpegno o Nascondersi.
+_minore_, _individuazione del magico_, _trasformazione_
+(solo in forma di bestia o umanoide, senza punti ferita
+temporanei ottenuti dall'incantesimo, e senza richiedere concentrazione o punti ferita temporanei per
+mantenere l'incantesimo)
 
----
+_**Soffio di acido (ricarica 5–6)**_ **.** _Tiro salvezza su_
+_Destrezza:_ CD 22, tutte le creature in una linea lunga
+27 metri e larga 3 metri. _Fallimento:_ 63 (14d8) danni da
+acido. _Successo:_ danni dimezzati.
 
-## Guerriero Goblin
+_**Soffio rallentante.**_ _Tiro salvezza su Costituzione:_ CD
+22, tutte le creature in un cono di 27 metri. _Fallimento:_
+il bersaglio non può effettuare reazioni, la sua velocità
+è dimezzata e nel suo turno può effettuare un'azione
 
-*Fata Piccola (Goblinide), Caotico Neutrale*
+- un'azione bonus, non entrambe. L'effetto dura fino
+al termine del proprio turno successivo.
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 10 (3d6)
-- **Velocità:** 9 m
-- **Iniziativa**: +2 (12)
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il drago può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il drago_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 8  | -1 | -1 |
-| DES | 15 | +2 | +2 |
-| COS | 10 | +0 | +0 |
-| INT | 10 | +0 | +0 |
-| SAG | 8  | -1 | -1 |
-| CAR | 8  | -1 | -1 |
+_**Balzo.**_ Il drago si muove fino a metà della sua velocità,
+ed effettua un attacco Squarcio.
 
-- **Abilità**: Furtività +6
-- **Equipaggiamento**: Armatura di cuoio, Scimitarra, Scudo, Arco corto
-- **Sensi**: scurovisione 18 m; Percezione Passiva 9
-- **Linguaggi**: Comune, Goblin
-- **GS** 1/4 (PE 50; PB +2)
+_**Magia ridacchiante.**_ _Tiro salvezza su Carisma:_ CD 21,
+una creatura che il drago è in grado di vedere entro
+36 metri. _Fallimento:_ 31 (9d6) danni psichici. Fino al
+termine del proprio turno successivo, il bersaglio tira
+1d8 ogni volta che effettua una prova di caratteristica
 
-### Azioni
+- un tiro per colpire e sottrae il risultato dalla prova con
+d20. _Fallimento o successo:_ il drago non può ripetere
+quest'azione fino all'inizio del proprio turno successivo.
 
-***Scimitarra.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni taglienti, più 2 (1d4) danni taglienti se il tiro per colpire era con Vantaggio.
+_**Scossa mentale.**_ Il drago usa Incantesimi per lanciare
+_aculeo mentale_ (di 5º livello). il drago non può ripetere
+quest'azione fino all'inizio del proprio turno successivo.
+## **Draghi d'oro**
+### **Drago d'oro cucciolo**
 
-***Arco corto.*** *Tiro per colpire a distanza:* +4, gittata 24/96 m. 5 (1d6 + 2) danni perforanti, più 2 (1d4) danni perforanti se il tiro per colpire era con Vantaggio.
+_Drago Medio (metallico), legale buono_
 
-### Azioni Bonus
 
-***Fuga Rapida.*** Il goblin compie l’Azione Disimpegno o Nascondersi.
+**CA** 17 **Iniziativa** +4 (14)
+**PF** 60 (8d8 + 24)
+**Velocità** 9 m, nuoto 9 m, volo 18 m
 
----
 
-## Draghetto d’Oro
+**Abilità** Furtività +4, Percezione +4
+**Immunità** fuoco
+**Sensi** Percezione passiva 14; scurovisione 18 m, vista
 
-*Drago Medio (Metallico), Legale Buono*
+cieca 3 m
+**Lingue** Draconico
+**GS** 3 (PE 700; BC +2)
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 60 (8d8 + 24)
-- **Velocità:** 9 m, volo 18 m, nuoto 9 m
-- **Iniziativa**: +4 (14)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 19 | +4 | +4 |
-| DES | 14 | +2 | +4 |
-| COS | 17 | +3 | +3 |
-| INT | 14 | +2 | +2 |
-| SAG | 11 | +0 | +2 |
-| CAR | 16 | +3 | +3 |
 
-- **Immunità**: Fuoco
-- **Abilità**: Percezione +4, Furtività +4
-- **Sensi**: percezione cieca 3 m, scurovisione 18 m; Percezione Passiva 14
-- **Linguaggi**: Draconico
-- **GS** 3 (PE 700; PB +2)
 
-### Tratti
+Tratti
 
-***Anfibio.*** Il drago può respirare aria e acqua.
+_**Anfibio.**_ Il drago può respirare in aria e in acqua.
 
-### Azioni
+Azioni
 
-***Attacco Multiplo.*** Il drago effettua due attacchi di Dilaniare.
+_**Multiattacco.**_ Il drago effettua due attacchi Squarcio.
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 9 (1d10 + 4) danni taglienti.
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 9 (1d10 + 4) danni taglienti.
 
-***Soffio di Fuoco (Ricarica 5–6).*** *Tiro Salvezza su Destrezza*: CD 13, da parte di ogni creatura in un Cono di 4,5 m. *Fallimento:* 22 (4d10) danni da fuoco. *Successo:* metà danni.
+_**Soffio di fuoco (ricarica 5–6)**_ **.** _Tiro salvezza su_
+_Destrezza:_ CD 13, tutte le creature in un cono di
+4,5 metri. _Fallimento:_ 22 (4d10) danni da fuoco. _Suc-_
+_cesso:_ danni dimezzati.
 
-***Soffio Indebolente.*** *Tiro Salvezza su Forza*: CD 13, da parte di ogni creatura non già colpita da questo soffio in un Cono di 4,5 m. *Fallimento:* il bersaglio ha Svantaggio alle prove basate su Forza e sottrae 2 (1d4) ai suoi tiri danno. Ripete il TS alla fine di ogni suo turno, terminando l’effetto su successo. Dopo 1 minuto l’effetto termina automaticamente.
+_**Soffio indebolente.**_ _Tiro salvezza su Forza:_ CD 13, ogni
+creatura che al momento non è sotto l'effetto di questo
+soffio in un cono di 4,5 metri. _Fallimento:_ il bersaglio
+subisce svantaggio alle prove con d20 basate sulla
+Forza e sottrae 2 (1d4) ai tiri per i danni. La creatura
+ripete il tiro salvezza alla fine di ogni suo turno e, se
+lo supera, l'effetto svanisce. Dopo 1 minuto, il tiro
+viene superato automaticamente.
+### **Drago d'oro giovane**
 
-## Gorgone
+_Drago Grande (metallico), legale buono_
 
-*Costrutto Grande, Non Allineato*
 
-- **Classe Armatura:** 19
-- **Punti Ferita:** 114 (12d10 + 48)
-- **Velocità:** 12 m
-- **Iniziativa**: +0 (10)
+**CA** 18 **Iniziativa** +6 (16)
+**PF** 178 (17d10 + 85)
+**Velocità** 12 m, nuoto 12 m, volo 24 m
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 20 | +5 | +5 |
-| DES | 11 | +0 | +0 |
-| COS | 18 | +4 | +4 |
-| INT | 2  | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 7  | -2 | -2 |
 
-- **Immunità**: Affaticamento, Pietrificato
-- **Abilità**: Percezione +7
-- **Sensi**: scurovisione 18 m; Percezione Passiva 17
-- **GS** 5 (PE 1.800; PB +3)
+**Abilità** Furtività +6, Intuizione +5, Percezione +9,
 
-### Azioni
+Persuasione +9
+**Immunità** fuoco
+**Sensi** Percezione passiva 19; scurovisione 36 m, vista
 
-***Incornata.*** *Tiro per colpire in mischia:* +8, portata 1,5 m. 18 (2d12 + 5) danni perforanti. Se il bersaglio è una creatura Grande o più piccola e la gorgone si è mossa di almeno 6 m in linea retta verso di esso subito prima di colpire, il bersaglio cade Prono.
+cieca 9 m
+**Lingue** Comune, Draconico
+**GS** 10 (PE 5.900; BC +4)
 
-***Soffio Pietrificante (Ricarica 5–6).*** *Tiro Salvezza su Costituzione*: CD 15, da parte di ogni creatura in un Cono di 9 m. *Primo Fallimento:* il bersaglio è Immobilizzato e ripete il TS alla fine del suo prossimo turno se è ancora Immobilizzato, terminando l’effetto su successo. *Secondo Fallimento:* il bersaglio diventa Pietrificato invece che Immobilizzato.
+Tratti
 
-### Azioni Bonus
+_**Anfibio.**_ Il drago può respirare in aria e in acqua.
 
-***Calpestare.*** *Tiro Salvezza su Destrezza*: CD 16, una creatura entro 1,5 m che sia Prona. *Fallimento:* 16 (2d10 + 5) danni contundenti. *Successo:* metà danni.
+Azioni
 
----
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di Soffio
+indebolente.
 
-## Melma Grigia
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +10, portata 3 m.
+_Colpito:_ 17 (2d10 + 6) danni taglienti.
 
-*Melma Media, Non Allineato*
+_**Soffio di fuoco (ricarica 5–6)**_ **.** _Tiro salvezza su_
+_Destrezza:_ CD 17, tutte le creature in un cono di
+9 metri. _Fallimento:_ 55 (10d10) danni da fuoco. _Suc-_
+_cesso:_ danni dimezzati.
 
-- **Classe Armatura:** 9
-- **Punti Ferita:** 22 (3d8 + 9)
-- **Velocità:** 3 m, arrampicata 3 m
-- **Iniziativa**: -2 (8)
+_**Soffio indebolente.**_ _Tiro salvezza su Forza:_ CD 17, ogni
+creatura che al momento non è sotto l'effetto di questo
+soffio in un cono di 9 metri. _Fallimento:_ il bersaglio
+subisce svantaggio alle prove con d20 basate sulla
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 12 | +1 | +1 |
-| DES | 6  | -2 | -2 |
-| COS | 16 | +3 | +3 |
-| INT | 1  | -5 | -5 |
-| SAG | 6  | -2 | -2 |
-| CAR | 2  | -4 | -4 |
 
-- **Resistenze**: Acido, Freddo, Fuoco
-- **Immunità**: Accecato, Affascinato, Assordato, Affaticato, Spaventato, Afferrato, Prono, Immobilizzato
-- **Abilità**: Furtività +2
-- **Sensi**: percezione cieca 18 m; Percezione Passiva 8
-- **GS** 1/2 (PE 100; PB +2)
+**320** System Reference Document 5.2.1
 
-### Tratti
 
-***Amorfa.*** La melma può muoversi attraverso spazi stretti fino a 2,5 cm senza movimento extra.
 
-***Forma Corrosiva.*** Le munizioni non magiche vengono distrutte subito dopo aver colpito la melma e inflitto danni. Ogni arma non magica subisce una penalità cumulativa di –1 ai tiri per colpire subito dopo aver inflitto danni alla melma e venire a contatto con essa. L’arma è distrutta se la penalità raggiunge –5. La penalità può essere rimossa con *Riparare*.  
-La melma può corrodere 5 cm di metallo o legno non magico in 1 round.
+Forza e sottrae 3 (1d6) ai tiri per i danni. La creatura
+ripete il tiro salvezza alla fine di ogni suo turno e, se
+lo supera, l'effetto svanisce. Dopo 1 minuto, il tiro
+viene superato automaticamente.
+### **Drago d'oro adulto**
 
-### Azioni
+_Drago Enorme (metallico), Legale Buono_
 
-***Pseudopode.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 10 (2d8 + 1) danni da acido. L’armatura non magica indossata dal bersaglio subisce una penalità di –1 alla CA che offre. L’armatura è distrutta se la penalità riduce la CA a 10. La penalità può essere rimossa con *Riparare*.
 
----
+**CA** 19 **Iniziativa** +14 (24)
+**PF** 243 (18d12 + 126)
+**Velocità** 12 m, nuoto 12 m, volo 24 m
 
-## Draghetto Verde
 
-*Drago Medio (Cromatico), Legale Malvagio*
+**Abilità** Furtività +8, Intuizione +8, Percezione +14,
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 38 (7d8 + 7)
-- **Velocità:** 9 m, volo 18 m, nuoto 9 m
-- **Iniziativa**: +3 (13)
+Persuasione +13
+**Immunità** fuoco
+**Sensi** Percezione passiva 24; scurovisione 36 m, vista
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 15 | +2 | +2 |
-| DES | 12 | +1 | +3 |
-| COS | 13 | +1 | +1 |
-| INT | 14 | +2 | +2 |
-| SAG | 11 | +0 | +2 |
-| CAR | 13 | +1 | +1 |
+cieca 18 m
+**Lingue** Comune, Draconico
+**GS** 17 (PE 18.000, o 20.000 nella tana; BC +6)
 
-- **Immunità**: Veleno; Avvelenato
-- **Abilità**: Percezione +4, Furtività +3
-- **Sensi**: percezione cieca 3 m, scurovisione 18 m; Percezione Passiva 14
-- **Linguaggi**: Draconico
-- **GS** 2 (PE 450; PB +2)
+Tratti
 
-### Tratti
+_**Anfibio.**_ Il drago può respirare in aria e in acqua.
 
-***Anfibio.*** Il drago può respirare aria e acqua.
+_**Resistenza leggendaria (3/giorno o 4/giorno nella**_
+_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
-### Azioni
+Azioni
 
-***Attacco Multiplo.*** Il drago effettua due attacchi di Dilaniare.
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di (A)
+Incantesimi per lanciare _dardo tracciante_ (di 2º livello)
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 7 (1d10 + 2) danni taglienti più 3 (1d6) danni da veleno.
+- (B) Soffio indebolente.
 
-***Soffio Velenoso (Ricarica 5–6).*** *Tiro Salvezza su Costituzione*: CD 11, da parte di ogni creatura in un Cono di 4,5 m. *Fallimento:* 21 (6d6) danni da veleno. *Successo:* metà danni.
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +14, portata 3 m.
+_Colpito:_ 17 (2d8 + 8) danni taglienti più 4 (1d8) danni
+da fuoco.
 
----
+_**Incantesimi.**_ Il drago lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 21, +13 al tiro per
+colpire degli attacchi con incantesimo):
 
-## Megera Verde
+**1/giorno ciascuno:** _Colpo infuocato_, _zona di verità_
+**A volontà:** _Dardo tracciante_ (di 2º livello), _individua-_
 
-*Fata Media, Neutrale Malvagio*
+_zione del magico_, _trasformazione_ (solo in forma di
+bestia o umanoide, senza punti ferita temporanei
+ottenuti dall'incantesimo, e senza richiedere concentrazione o punti ferita temporanei per mantenere
+l'incantesimo)
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 82 (11d8 + 33)
-- **Velocità:** 9 m, nuoto 9 m
-- **Iniziativa**: +1 (11)
+_**Soffio di fuoco (ricarica 5–6)**_ **.** _Tiro salvezza su_
+_Destrezza:_ CD 21, tutte le creature in un cono di
+18 metri. _Fallimento:_ 66 (12d10) danni da fuoco. _Suc-_
+_cesso:_ danni dimezzati.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 12 | +1 | +1 |
-| COS | 16 | +3 | +3 |
-| INT | 13 | +1 | +1 |
-| SAG | 14 | +2 | +2 |
-| CAR | 14 | +2 | +2 |
+_**Soffio indebolente.**_ _Tiro salvezza su Forza:_ CD 21, ogni
+creatura che al momento non è sotto l'effetto di questo
 
-- **Abilità**: Arcana +5, Inganno +4, Percezione +4, Furtività +3
-- **Sensi**: scurovisione 18 m; Percezione Passiva 14
-- **Linguaggi**: Comune, Elfico, Silvano
-- **GS** 3 (PE 700; PB +2)
 
-### Tratti
 
-***Anfibio.*** La megera può respirare aria e acqua.
 
-***Mimetismo.*** La megera può imitare suoni di animali e voci umanoidi. Una creatura che li sente può riconoscerli come imitazioni solo con una prova di Saggezza (Intuizione) CD 14.
+soffio in un cono di 18 metri. _Fallimento:_ il bersaglio
+subisce svantaggio alle prove con d20 basate sulla
+Forza e sottrae 3 (1d6) ai tiri per i danni. La creatura
+ripete il tiro salvezza alla fine di ogni suo turno e, se
+lo supera, l'effetto svanisce. Dopo 1 minuto, il tiro
+viene superato automaticamente.
 
-### Azioni
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il drago può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il drago_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
-***Attacco Multiplo.*** La megera effettua due attacchi di Artiglio.
+_**Balzo.**_ Il drago si muove fino a metà della sua velocità,
+ed effettua un attacco Squarcio.
 
-***Artiglio.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 8 (1d8 + 4) danni taglienti più 3 (1d6) danni da veleno.
+_**Luce guida.**_ Il drago usa Incantesimi per lanciare _dardo_
+_tracciante_ (di 2º livello).
 
-***Lancio di Incantesimi.*** La megera lancia uno dei seguenti incantesimi, senza componenti materiali e usando Saggezza come caratteristica da incantatore (CD 12, +4 a colpire con gli attacchi con incantesimi):
+_**Ostracismo.**_ _Tiro salvezza su Carisma:_ CD 21, una creatura che il drago è in grado di vedere entro 36 metri.
+_Fallimento:_ 10 (3d6) danni da forza, il bersaglio è
+incapacitato e viene trasportato su un semipiano sicuro
+fino all'inizio del turno successivo del drago, durante
+cui riappare in uno spazio libero a scelta del drago
+entro 36 metri da quest'ultimo. _Fallimento o successo:_
+il drago non può ripetere quest'azione fino all'inizio del
+proprio turno successivo.
+### **Drago d'oro antico**
 
-- **A volontà:** *Luci Danzanti*, *Camuffare Sé Stessa*, *Invisibilità*, *Illusione Minore*, *Raggio di Malattia*
+_Drago Mastodontico (Metallico), Legale Buono_
 
-## Grick
 
-*Aberrazione Media, Non Allineato*
+**CA** 22 **Iniziativa** +16 (26)
+**PF** 546 (28d20 + 252)
+**Velocità** 12 m, nuoto 12 m, volo 24 m
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 54 (12d8)
-- **Velocità:** 9 m, arrampicata 9 m
-- **Iniziativa**: +2 (12)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 14 | +2 | +2 |
-| DES | 14 | +2 | +2 |
-| COS | 11 | +0 | +0 |
-| INT | 3  | -4 | -4 |
-| SAG | 14 | +2 | +2 |
-| CAR | 5  | -3 | -3 |
+**Abilità** Furtività +9, Intuizione +10, Percezione +17,
 
-- **Abilità**: Furtività +4
-- **Sensi**: scurovisione 18 m; Percezione Passiva 12
-- **GS** 2 (PE 450; PB +2)
+Persuasione +16
+**Immunità** fuoco
+**Sensi** Percezione passiva 27; scurovisione 36 m, vista
 
-### Azioni
+cieca 18 m
+**Lingue** Comune, Draconico
+**GS** 24 (PE 62.000, o 75.000 nella tana; BC +7)
 
-***Attacco Multiplo.*** Il grick effettua un attacco di Becco e uno di Tentacoli.
+Tratti
 
-***Becco.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 9 (2d6 + 2) danni perforanti.
+_**Anfibio.**_ Il drago può respirare in aria e in acqua.
 
-***Tentacoli.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 7 (1d10 + 2) danni taglienti. Se il bersaglio è una creatura Media o più piccola, è Afferrato (CD 12 per liberarsi) da tutti e quattro i tentacoli.
+_**Resistenza leggendaria (4/giorno o 5/giorno nella**_
+_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
----
+Azioni
 
-## Grifone
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di (A)
+Incantesimi per lanciare _dardo tracciante_ (di 4º livello)
 
-*Mostruosità Grande, Non Allineato*
+      - (B) Soffio indebolente.
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 59 (7d10 + 21)
-- **Velocità:** 9 m, volo 24 m
-- **Iniziativa**: +2 (12)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 15 | +2 | +2 |
-| COS | 16 | +3 | +3 |
-| INT | 2  | -4 | -4 |
-| SAG | 13 | +1 | +1 |
-| CAR | 8  | -1 | -1 |
+**321** System Reference Document 5.2.1
 
-- **Abilità**: Percezione +5
-- **Sensi**: scurovisione 18 m; Percezione Passiva 15
-- **GS** 2 (PE 450; PB +2)
 
-### Azioni
 
-***Attacco Multiplo.*** Il grifone effettua due attacchi di Dilaniare.
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +17 al tiro per
+colpire, portata 4,5 m. _Colpito:_ 19 (2d8 + 10) danni
+taglienti più 9 (2d8) danni da fuoco.
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 8 (1d8 + 4) danni perforanti. Se il bersaglio è una creatura Media o più piccola, è Afferrato (CD 14 per liberarsi) dagli artigli anteriori del grifone.
+_**Incantesimi.**_ Il drago lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 24, +16 al tiro per
+colpire degli attacchi con incantesimo):
 
----
+**1/giorno ciascuno:** _Colpo infuocato_ (versione di
 
-## Grimlock
+6º livello), _parola del ritiro_, _zona di verità_
+**A volontà:** _Dardo tracciante_ (di 4º livello), _individua-_
 
-*Aberrazione Media, Neutrale Malvagio*
+_zione del magico_, _trasformazione_ (solo in forma di
+bestia o umanoide, senza punti ferita temporanei
+ottenuti dall'incantesimo, e senza richiedere concentrazione o punti ferita temporanei per mantenere
+l'incantesimo)
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 11 (2d8 + 2)
-- **Velocità:** 9 m, arrampicata 9 m
-- **Iniziativa**: +1 (11)
+_**Soffio di fuoco (ricarica 5–6)**_ **.** _Tiro salvezza su_
+_Destrezza:_ CD 24, tutte le creature in un cono di
+27 metri. _Fallimento:_ 71 (13d10) danni da fuoco. _Suc-_
+_cesso:_ danni dimezzati.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +3 |
-| DES | 12 | +1 | +1 |
-| COS | 12 | +1 | +1 |
-| INT | 9  | -1 | -1 |
-| SAG | 8  | -1 | -1 |
-| CAR | 6  | -2 | -2 |
+_**Soffio indebolente.**_ _Tiro salvezza su Forza:_ CD 24, ogni
+creatura che al momento non è sotto l'effetto di questo
+soffio in un cono di 27 metri. _Fallimento:_ il bersaglio
+subisce svantaggio alle prove con d20 basate sulla
+Forza e sottrae 5 (1d10) ai tiri per i danni. La creatura
+ripete il tiro salvezza alla fine di ogni suo turno e, se
+lo supera, l'effetto svanisce. Dopo 1 minuto, il tiro
+viene superato automaticamente.
 
-- **Abilità**: Atletica +5, Percezione +3, Furtività +5
-- **Sensi**: percezione cieca 9 m; Percezione Passiva 13
-- **GS** 1/4 (PE 50; PB +2)
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il drago può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il drago_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
-### Azioni
+_**Balzo.**_ Il drago si muove fino a metà della sua velocità,
+ed effettua un attacco Squarcio.
 
-***Randello d’Ossa.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni contundenti più 2 (1d4) danni psichici.
+_**Luce guida.**_ Il drago usa Incantesimi per lanciare _dardo_
+_tracciante_ (di 4º livello).
 
----
+_**Ostracismo.**_ _Tiro salvezza su Carisma:_ CD 24, una creatura che il drago è in grado di vedere entro 36 metri.
+_Fallimento:_ 24 (7d6) danni da forza, il bersaglio è
+incapacitato e viene trasportato su un semipiano sicuro
+fino all'inizio del turno successivo del drago, durante
+cui riappare in uno spazio libero a scelta del drago
+entro 36 metri da quest'ultimo. _Fallimento o successo:_
+il drago non può ripetere quest'azione fino all'inizio del
+proprio turno successivo.
 
-## Capitano della Guardia
 
-*Umanoide Piccolo, Neutrale*
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 75 (10d8 + 30)
-- **Velocità:** 9 m
-- **Iniziativa**: +4 (14)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 14 | +2 | +2 |
-| COS | 16 | +3 | +3 |
-| INT | 12 | +1 | +1 |
-| SAG | 14 | +2 | +2 |
-| CAR | 13 | +1 | +1 |
+## **Draghi d'ottone**
+### **Drago d'ottone cucciolo**
 
-- **Abilità**: Atletica +6, Percezione +4
-- **Equipaggiamento**: Corazza, Giavellotto × 6, Spada lunga, Scudo
-- **Sensi**: Percezione Passiva 14
-- **Linguaggi**: Comune
-- **GS** 4 (PE 1.100; PB +2)
+_Drago Medio (metallico), caotico buono_
 
-### Azioni
 
-***Attacco Multiplo.*** Il capitano effettua due attacchi, usando Giavellotto o Spada lunga in qualsiasi combinazione.
+**CA** 15 **Iniziativa** +2 (12)
+**PF** 22 (4d8 + 4)
+**Velocità** 9 m, scavo 4,5 m, volo 18 m
 
-***Giavellotto.*** *Tiro per colpire in mischia o a distanza:* +6, portata 1,5 m o gittata 9/36 m. 14 (3d6 + 4) danni perforanti.
 
-***Spada lunga.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 15 (2d10 + 4) danni taglienti.
+**Abilità** Furtività +2, Percezione +4
+**Immunità** fuoco
+**Sensi** Percezione passiva 14; scurovisione 18 m, vista
 
-## Naga Guardiana
+cieca 3 m
+**Lingue** Draconico
+**GS** 1 (PE 200; BC +2)
 
-*Celestiale Grande, Legale Buono*
+Azioni
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 136 (16d10 + 48)
-- **Velocità:** 12 m, arrampicata 12 m, nuoto 12 m
-- **Iniziativa**: +4 (14)
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 7 (1d10 + 2) danni taglienti.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 19 | +4 | +4 |
-| DES | 18 | +4 | +8 |
-| COS | 16 | +3 | +7 |
-| INT | 16 | +3 | +7 |
-| SAG | 19 | +4 | +8 |
-| CAR | 18 | +4 | +8 |
+_**Soffio di fuoco (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 11, tutte le creature in una linea lunga
+6 metri e larga 1,5 metri. _Fallimento:_ 14 (4d6) danni da
+fuoco. _Successo:_ danni dimezzati.
 
-- **Immunità**: Veleno; Affascinato, Paralizzato, Avvelenato, Immobilizzato
-- **Abilità**: Arcana +11, Storia +11, Religione +11
-- **Sensi**: scurovisione 18 m; Percezione Passiva 14
-- **Linguaggi**: Celestiale, Comune
-- **GS** 10 (PE 5.900; PB +4)
+_**Soffio di sonno.**_ _Tiro salvezza su Costituzione:_ CD 11,
+tutte le creature in un cono di 4,5 metri. _Fallimento:_
+il bersaglio è incapacitato fino al termine del proprio
+turno successivo, a quel punto ripete il tiro salvezza.
+_Secondo fallimento:_ il bersaglio cade privo di sensi per
+1 minuto. Questo effetto termina se il bersaglio subisce
+danni o se una creatura entro 1,5 metri da esso esegue
+un'azione per svegliarlo.
+### **Drago d'ottone giovane**
 
-### Tratti
+_Drago Grande (metallico), caotico buono_
 
-***Restaurazione Celestiale.*** Se la naga muore, ritorna in vita in 1d6 giorni e recupera tutti i suoi Punti Ferita, a meno che *Scacciare il Bene e il Male* non sia lanciato sui suoi resti.
 
-### Azioni
+**CA** 17 **Iniziativa** +3 (13)
+**PF** 110 (13d10 + 39)
+**Velocità** 12 m, scavo 6 m, volo 24 m
 
-***Attacco Multiplo.*** La naga effettua due attacchi di Morso. Può sostituire uno degli attacchi con un uso di Sputo Velenoso.
 
-***Morso.*** *Tiro per colpire in mischia:* +8, portata 3 m. 17 (2d12 + 4) danni perforanti più 22 (4d10) danni da veleno.
+**Abilità** Furtività +3, Percezione +6, Persuasione +5
+**Immunità** fuoco
+**Sensi** Percezione passiva 16; scurovisione 36 m, vista
 
-***Sputo Velenoso.*** *Tiro Salvezza su Costituzione*: CD 16, una creatura visibile entro 18 m. *Fallimento:* 31 (7d8) danni da veleno e il bersaglio è Accecato fino all’inizio del prossimo turno della naga. *Successo:* solo metà danni.
+cieca 9 m
+**Lingue** Comune, Draconico
+**GS** 6 (PE 2.300; BC +3)
 
-***Lancio di Incantesimi.*** La naga lancia uno dei seguenti incantesimi, senza componenti somatici o materiali e usando Saggezza come caratteristica da incantatore (CD 16):
+Azioni
 
-- **A volontà:** *Taumaturgia*
-- **1/giorno ciascuno:** *Chiaroveggenza*, *Cura Ferite*, *Colonna di Fiamme*, *Geas*, *Vista Truesight*
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire due attacchi con un utilizzo di Soffio di
+sonno.
 
----
 
-## Guardia
+**322** System Reference Document 5.2.1
 
-*Umanoide Piccolo, Neutrale*
 
-- **Classe Armatura:** 16
-- **Punti Ferita:** 11 (2d8 + 2)
-- **Velocità:** 9 m
-- **Iniziativa**: +1 (11)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 13 | +1 | +1 |
-| DES | 12 | +1 | +1 |
-| COS | 12 | +1 | +1 |
-| INT | 10 | +0 | +0 |
-| SAG | 11 | +0 | +0 |
-| CAR | 10 | +0 | +0 |
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +7, portata 3 m.
+_Colpito:_ 15 (2d10 + 4) danni taglienti.
 
-- **Abilità**: Percezione +2
-- **Equipaggiamento**: Cotta di maglia, Scudo, Lancia
-- **Sensi**: Percezione Passiva 12
-- **Linguaggi**: Comune
-- **GS** 1/8 (PE 25; PB +2)
+_**Soffio di fuoco (ricarica 5–6)**_ **.** _Tiro salvezza su_
+_Destrezza:_ CD 14, tutte le creature in una linea lunga
+12 metri e larga 1,5 metri. _Fallimento:_ 38 (11d6) danni
+da fuoco. _Successo:_ danni dimezzati.
 
-### Azioni
+_**Soffio di sonno.**_ _Tiro salvezza su Costituzione:_ CD
+14, tutte le creature in un cono di 9 metri. _Fallimento:_
+il bersaglio è incapacitato fino al termine del proprio
+turno successivo, a quel punto ripete il tiro salvezza.
+_Secondo fallimento:_ il bersaglio cade privo di sensi per
+1 minuto. Questo effetto termina se il bersaglio subisce
+danni o se una creatura entro 1,5 metri da esso esegue
+un'azione per svegliarlo.
+### **Drago d'ottone adulto**
 
-***Lancia.*** *Tiro per colpire in mischia o a distanza:* +3, portata 1,5 m o gittata 6/18 m. 4 (1d6 + 1) danni perforanti.
+_Drago Enorme (metallico), caotico buono_
 
----
 
-## Mezzodrago
+**CA** 18 **Iniziativa** +10 (20)
+**PF** 172 (15d12 + 75)
+**Velocità** 12 m, scavo 9 m, volo 24 m
 
-*Drago Medio, Neutrale*
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 105 (14d8 + 42)
-- **Velocità:** 12 m
-- **Iniziativa**: +5 (15)
+**Abilità** Furtività +5, Percezione +11, Persuasione +8,
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 19 | +4 | +4 |
-| DES | 14 | +2 | +5 |
-| COS | 16 | +3 | +3 |
-| INT | 10 | +0 | +0 |
-| SAG | 15 | +2 | +5 |
-| CAR | 14 | +2 | +2 |
+Storia +7
+**Immunità** fuoco
+**Sensi** Percezione passiva 21; scurovisione 36 m, vista
 
-- **Resistenze**: tipo di danno scelto per il tratto Origine Draconica
-- **Abilità**: Atletica +7, Percezione +5, Furtività +5
-- **Sensi**: percezione cieca 3 m, scurovisione 18 m; Percezione Passiva 15
-- **Linguaggi**: Comune, Draconico
-- **GS** 5 (PE 1.800; PB +3)
+cieca 18 m
+**Lingue** Comune, Draconico
+**GS** 13 (PE 10.000, o 11.500 nella tana; BC +5)
 
-### Tratti
+Tratti
 
-***Origine Draconica.*** Il mezzodrago è legato a un tipo di drago associato a uno dei seguenti tipi di danno (scelta del DM): acido, freddo, fuoco, fulmine o veleno. Questa scelta influenza altri aspetti del blocco statistiche.
+_**Resistenza leggendaria (3/giorno o 4/giorno nella**_
+_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
-### Azioni
+Azioni
 
-***Attacco Multiplo.*** Il mezzodrago effettua due attacchi di Artiglio.
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di (A) Soffio di
+sonno o (B) Incantesimi per lanciare _raggio rovente_ .
 
-***Artiglio.*** *Tiro per colpire in mischia:* +7, portata 3 m. 6 (1d4 + 4) danni taglienti più 7 (2d6) danni del tipo scelto con Origine Draconica.
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +11, portata 3 m.
+_Colpito:_ 17 (2d10 + 6) danni taglienti più 4 (1d8) danni
+da fuoco.
 
-***Soffio del Drago (Ricarica 5–6).*** *Tiro Salvezza su Destrezza*: CD 14, da parte di ogni creatura in un Cono di 9 m. *Fallimento:* 28 (8d6) danni del tipo scelto con Origine Draconica. *Successo:* metà danni.
+_**Incantesimi.**_ Il drago lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 16):
 
-### Azioni Bonus
+**1/giorno ciascuno:** _Controllare tempo atmosferico_, _indi-_
 
-***Balzo.*** Il mezzodrago salta fino a 9 m spendendo 3 m di movimento.
+_viduazione dei pensieri_
+**A volontà:** _Illusione minore_, _individuazione del magico_,
 
----
+_parlare con gli animali_, _raggio rovente_, _trasformazione_
+_(solo in forma di bestia o umanoide, senza punti ferita_
+_temporanei ottenuti dall'incantesimo, e senza richie-_
 
-## Arpia
 
-*Mostruosità Media, Caotico Malvagio*
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 38 (7d8 + 7)
-- **Velocità:** 6 m, volo 12 m
-- **Iniziativa**: +1 (11)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 12 | +1 | +1 |
-| DES | 13 | +1 | +1 |
-| COS | 12 | +1 | +1 |
-| INT | 7  | -2 | -2 |
-| SAG | 10 | +0 | +0 |
-| CAR | 13 | +1 | +1 |
+_dere concentrazione o punti ferita temporanei per_
+_mantenere l'incantesimo)_
 
-- **Sensi**: Percezione Passiva 10
-- **Linguaggi**: Comune
-- **GS** 1 (PE 200; PB +2)
+_**Soffio di fuoco (ricarica 5–6)**_ **.** _Tiro salvezza su_
+_Destrezza:_ CD 18, tutte le creature in una linea lunga
+18 metri e larga 1,5 metri. _Fallimento:_ 45 (10d8) danni
+da fuoco. _Successo:_ danni dimezzati.
 
-### Azioni
+_**Soffio di sonno.**_ _Tiro salvezza su Costituzione:_ CD 18,
+tutte le creature in un cono di 18 metri. _Fallimento:_
+il bersaglio è incapacitato fino al termine del proprio
+turno successivo, a quel punto ripete il tiro salvezza.
+_Secondo fallimento:_ il bersaglio cade privo di sensi per
+10 minuti. Questo effetto termina se il bersaglio subisce
+danni o se una creatura entro 1,5 metri da esso esegue
+un'azione per svegliarlo.
 
-***Artiglio.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 6 (2d4 + 1) danni taglienti.
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il drago può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il drago_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
-***Canto Ammaliatore.*** L’arpia canta una melodia magica, che dura finché mantiene la Concentrazione. *Tiro Salvezza su Saggezza*: CD 11, da parte di ogni Umanoide e Gigante in un’Emanazione di 90 m originata dall’arpia all’inizio del canto. *Fallimento:* il bersaglio è Affascinato finché il canto dura e ripete il TS alla fine di ogni suo turno. Finché è Affascinato, il bersaglio è Incapacitato e ignora i Canti Ammaliatori di altre arpie. Se il bersaglio è a più di 1,5 m dall’arpia, nel suo turno si muove verso di lei per il percorso più diretto, cercando di arrivare entro 1,5 m. Non evita gli Attacchi di Opportunità; tuttavia, prima di muoversi in un terreno dannoso (come lava o un baratro) e ogni volta che subisce danni da una fonte diversa dall’arpia, ripete il TS. *Successo:* il bersaglio è immune al Canto Ammaliatore di quell’arpia per 24 ore.
+_**Balzo.**_ Il drago si muove fino a metà della sua velocità,
+ed effettua un attacco Squarcio.
 
-## Segugio Infernale
+_**Luce accecante.**_ Il drago usa Incantesimi per lanciare
+_raggio rovente_ .
 
-*Infernale Medio, Legale Malvagio*
+_**Sabbie roventi.**_ _Tiro salvezza su Destrezza:_ CD 16,
+una creatura che il drago è in grado di vedere entro
+36 metri. _Fallimento:_ 27 (6d8) danni da fuoco, e la
+velocità del bersaglio è dimezzata fino al termine del
+proprio turno successivo. _Fallimento o successo:_ il
+drago non può ripetere quest'azione fino all'inizio del
+proprio turno successivo.
+### **Drago d'ottone antico**
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 58 (9d8 + 18)
-- **Velocità:** 15 m
-- **Iniziativa**: +1 (11)
+_Drago Mastodontico (metallico), caotico buono_
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 17 | +3 | +3 |
-| DES | 12 | +1 | +1 |
-| COS | 14 | +2 | +2 |
-| INT | 6  | -2 | -2 |
-| SAG | 13 | +1 | +1 |
-| CAR | 6  | -2 | -2 |
 
-- **Immunità**: Fuoco
-- **Abilità**: Percezione +5
-- **Sensi**: scurovisione 18 m; Percezione Passiva 15
-- **Linguaggi**: comprende l’Infernale ma non può parlare
-- **GS** 3 (PE 700; PB +2)
+**CA** 20 **Iniziativa** +12 (22)
+**PF** 332 (19d20 + 133)
+**Velocità** 12 m, scavo 12 m, volo 24 m
 
-### Tratti
 
-***Tattiche di Branco.*** Il segugio ha Vantaggio ai tiri per colpire contro una creatura se almeno un suo alleato si trova entro 1,5 m da essa e non è Incapacitato.
+**Abilità** Furtività +6, Percezione +14, Persuasione +12,
 
-### Azioni
+Storia +9
+**Immunità** fuoco
+**Sensi** Percezione passiva 24; scurovisione 36 m, vista
 
-***Attacco Multiplo.*** Il segugio effettua due attacchi di Morso.
+cieca 18 m
+**Lingue** Comune, Draconico
+**GS** 20 (PE 25.000, o 33.000 nella tana; BC +6)
 
-***Morso.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni perforanti più 3 (1d6) danni da fuoco.
+Tratti
 
-***Soffio di Fuoco (Ricarica 5–6).*** *Tiro Salvezza su Destrezza*: CD 12, da parte di ogni creatura in un Cono di 4,5 m. *Fallimento:* 17 (5d6) danni da fuoco. *Successo:* metà danni.
+_**Resistenza leggendaria (4/giorno o 5/giorno nella**_
+_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
----
 
-## Hezrou
+**323** System Reference Document 5.2.1
 
-*Infernale Grande (Demone), Caotico Malvagio*
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 157 (15d10 + 75)
-- **Velocità:** 9 m
-- **Iniziativa**: +6 (16)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 19 | +4 | +7 |
-| DES | 17 | +3 | +3 |
-| COS | 20 | +5 | +8 |
-| INT | 5  | -3 | -3 |
-| SAG | 12 | +1 | +4 |
-| CAR | 13 | +1 | +1 |
+Azioni
 
-- **Resistenze**: Freddo, Fuoco, Fulmine
-- **Immunità**: Veleno; Avvelenato
-- **Sensi**: scurovisione 36 m; Percezione Passiva 11
-- **Linguaggi**: Abissale; telepatia 36 m
-- **GS** 8 (PE 3.900; PB +3)
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di (A) Soffio di
+sonno o (B) Incantesimi per lanciare _raggio rovente_ (di
+3º livello).
 
-### Tratti
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +14, portata
+4,5 m. _Colpito:_ 19 (2d10 + 8) danni taglienti più 7 (2d6)
+danni da fuoco.
 
-***Restaurazione Demoniaca.*** Se l’hezrou muore al di fuori dell’Abisso, il suo corpo si dissolve in icore e ottiene immediatamente un nuovo corpo, tornando in vita con tutti i suoi Punti Ferita in un luogo dell’Abisso.
+_**Incantesimi.**_ Il drago lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 20):
 
-***Resistenza Magica.*** L’hezrou ha Vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
+**1/giorno ciascuno:** _Controllare tempo atmosferico_, _indi-_
 
-***Puzza.*** *Tiro Salvezza su Costituzione*: CD 16, da parte di ogni creatura che inizi il suo turno entro un’Emanazione di 3 m dall’hezrou. *Fallimento:* il bersaglio è Avvelenato fino all’inizio del suo prossimo turno.
+_viduazione dei pensieri_
+**A volontà:** _Illusione minore_, _individuazione del magico_,
 
-### Azioni
+_parlare con gli animali_, _raggio rovente_ (di 3º livello),
+_trasformazione (solo in forma di bestia o umanoide,_
+_senza punti ferita temporanei ottenuti dall'incante-_
+_simo, e senza richiedere concentrazione o punti ferita_
+_temporanei per mantenere l'incantesimo)_
 
-***Attacco Multiplo.*** L’hezrou effettua tre attacchi di Dilaniare.
+_**Soffio di fuoco (ricarica 5–6)**_ **.** _Tiro salvezza su_
+_Destrezza:_ CD 21, tutte le creature in una linea lunga
+27 metri e larga 1,5 metri. _Fallimento:_ 58 (13d8) danni
+da fuoco. _Successo:_ danni dimezzati.
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +7, portata 1,5 m. 6 (1d4 + 4) danni taglienti più 9 (2d8) danni da veleno.
+_**Soffio di sonno.**_ _Tiro salvezza su Costituzione:_ CD 21,
+tutte le creature in un cono di 27 metri. _Fallimento:_
+il bersaglio è incapacitato fino al termine del proprio
+turno successivo, a quel punto ripete il tiro salvezza.
+_Secondo fallimento:_ il bersaglio cade privo di sensi per
+10 minuti. Questo effetto termina se il bersaglio subisce
+danni o se una creatura entro 1,5 metri da esso esegue
+un'azione per svegliarlo.
 
-### Azioni Bonus
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il drago può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il drago_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
-***Balzo.*** L’hezrou salta fino a 9 m spendendo 3 m di movimento.
+_**Balzo.**_ Il drago si muove fino a metà della sua velocità,
+ed effettua un attacco Squarcio.
 
----
+_**Luce accecante.**_ Il drago usa Incantesimi per lanciare
+_raggio rovente_ (di 3º livello).
 
-## Gigante delle Colline
+_**Sabbie roventi.**_ _Tiro salvezza su Destrezza:_ CD 20,
+una creatura che il drago è in grado di vedere entro
+36 metri. _Fallimento:_ 36 (8d8) danni da fuoco, e la
+velocità del bersaglio è dimezzata fino al termine del
+proprio turno successivo. _Fallimento o successo:_ il
+drago non può ripetere quest'azione fino all'inizio del
+proprio turno successivo.
 
-*Gigante Enorme, Caotico Malvagio*
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 105 (10d12 + 40)
-- **Velocità:** 12 m
-- **Iniziativa**: +2 (12)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 21 | +5 | +5 |
-| DES | 8  | -1 | -1 |
-| COS | 19 | +4 | +4 |
-| INT | 5  | -3 | -3 |
-| SAG | 9  | -1 | -1 |
-| CAR | 6  | -2 | -2 |
 
-- **Abilità**: Percezione +2
-- **Sensi**: Percezione Passiva 12
-- **Linguaggi**: Gigante
-- **GS** 5 (PE 1.800; PB +3)
+## **Draghi neri**
+### **Drago nero cucciolo**
 
-### Azioni
+_Drago Medio (cromatico), caotico malvagio_
 
-***Attacco Multiplo.*** Il gigante effettua due attacchi, usando Mazza d’Albero o Lancio di Rifiuti in qualsiasi combinazione.
 
-***Mazza d’Albero.*** *Tiro per colpire in mischia:* +8, portata 3 m. 18 (3d8 + 5) danni contundenti. Se il bersaglio è una creatura Grande o più piccola, cade Prono.
+**CA** 17 **Iniziativa** +4 (14)
+**PF** 33 (6d8 + 6)
+**Velocità** 9 m, nuoto 9 m, volo 18 m
 
-***Lancio di Rifiuti.*** *Tiro per colpire a distanza:* +8, gittata 18/72 m. 16 (2d10 + 5) danni contundenti, e il bersaglio è Avvelenato fino alla fine del suo prossimo turno.
 
----
+**Abilità** Furtività +4, Percezione +4
+**Immunità** acido
+**Sensi** Percezione passiva 14; scurovisione 18 m, vista
 
-## Ippogrifo
+cieca 3 m
+**Lingue** Draconico
+**GS** 2 (PE 450; BC +2)
 
-*Mostruosità Grande, Non Allineato*
+Tratti
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 26 (4d10 + 4)
-- **Velocità:** 12 m, volo 18 m
-- **Iniziativa**: +1 (11)
+_**Anfibio.**_ Il drago può respirare in aria e in acqua.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 17 | +3 | +3 |
-| DES | 13 | +1 | +1 |
-| COS | 13 | +1 | +1 |
-| INT | 2  | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 8  | -1 | -1 |
+Azioni
 
-- **Abilità**: Percezione +5
-- **Sensi**: Percezione Passiva 15
-- **GS** 1 (PE 200; PB +2)
+_**Multiattacco.**_ Il drago effettua due attacchi Squarcio.
 
-### Tratti
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 5 (1d6 + 2) danni taglienti più 2 (1d4) danni da
+acido.
 
-***Volata.*** L’ippogrifo non provoca Attacchi di Opportunità quando vola fuori dalla portata di un nemico.
+_**Soffio di acido (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 11, tutte le creature in una linea lunga
+4,5 metri e larga 1,5 metri. _Fallimento:_ 22 (5d8) danni
+da acido. _Successo:_ danni dimezzati.
+### **Drago nero giovane**
 
-### Azioni
+_Drago Grande (cromatico), caotico malvagio_
 
-***Attacco Multiplo.*** L’ippogrifo effettua due attacchi di Dilaniare.
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni taglienti.
+**CA** 18 **Iniziativa** +5 (15)
+**PF** 127 (15d10 + 45)
+**Velocità** 12 m, nuoto 12 m, volo 24 m
 
-## Capitano Hobgoblin
 
-*Fey Medio (Goblinide), Legale Malvagio*
+**Abilità** Furtività +5, Percezione +6
+**Immunità** acido
+**Sensi** Percezione passiva 16; scurovisione 36 m, vista
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 58 (9d8 + 18)
-- **Velocità:** 9 m
-- **Iniziativa**: +4 (14)
+cieca 9 m
+**Lingue** Comune, Draconico
+**GS** 7 (PE 2.900; BC +3)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 15 | +2 | +2 |
-| DES | 14 | +2 | +2 |
-| COS | 14 | +2 | +2 |
-| INT | 12 | +1 | +1 |
-| SAG | 10 | +0 | +0 |
-| CAR | 13 | +1 | +1 |
+Tratti
 
-- **Equipaggiamento**: Spadone, Mezza Armatura, Arco lungo  
-- **Sensi**: scurovisione 18 m; Percezione Passiva 10  
-- **Linguaggi**: Comune, Goblin  
-- **GS** 3 (PE 700; PB +2)
+_**Anfibio.**_ Il drago può respirare in aria e in acqua.
 
-### Tratti
+Azioni
 
-***Aura di Autorità.*** Finché si trova in un’Emanazione di 3 m originata dall’hobgoblin, l’hobgoblin e i suoi alleati hanno Vantaggio ai tiri per colpire e ai tiri salvezza, a condizione che l’hobgoblin non sia Incapacitato.
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
 
-### Azioni
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +7, portata 3 m.
+_Colpito:_ 9 (2d4 + 4) danni taglienti più 3 (1d6) danni da
+acido.
 
-***Attacco Multiplo.*** L’hobgoblin effettua due attacchi, usando Spadone o Arco lungo in qualsiasi combinazione.
 
-***Spadone.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 9 (2d6 + 2) danni taglienti più 3 (1d6) danni da veleno.
+**324** System Reference Document 5.2.1
 
-***Arco lungo.*** *Tiro per colpire a distanza:* +4, gittata 45/180 m. 6 (1d8 + 2) danni perforanti più 5 (2d4) danni da veleno.
 
----
 
-## Guerriero Hobgoblin
+_**Soffio di acido (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 14, tutte le creature in una linea lunga
+9 metri e larga 1,5 metri. _Fallimento:_ 49 (14d6) danni da
+acido. _Successo:_ danni dimezzati.
+### **Drago nero adulto**
 
-*Fey Medio (Goblinide), Legale Malvagio*
+_Drago Enorme (cromatico), caotico malvagio_
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 11 (2d8 + 2)
-- **Velocità:** 9 m
-- **Iniziativa**: +3 (13)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 13 | +1 | +1 |
-| DES | 12 | +1 | +1 |
-| COS | 12 | +1 | +1 |
-| INT | 10 | +0 | +0 |
-| SAG | 10 | +0 | +0 |
-| CAR | 9  | -1 | -1 |
+**CA** 19 **Iniziativa** +12 (22)
+**PF** 195 (17d12 + 85)
+**Velocità** 12 m, nuoto 12 m, volo 24 m
 
-- **Equipaggiamento**: Mezza Armatura, Arco lungo, Spada lunga, Scudo  
-- **Sensi**: scurovisione 18 m; Percezione Passiva 10  
-- **Linguaggi**: Comune, Goblin  
-- **GS** 1/2 (PE 100; PB +2)
 
-### Tratti
+**Abilità** Furtività +7, Percezione +11
+**Immunità** acido
+**Sensi** Percezione passiva 21; scurovisione 36 m, vista
 
-***Tattiche di Branco.*** L’hobgoblin ha Vantaggio ai tiri per colpire contro una creatura se almeno un suo alleato si trova entro 1,5 m da essa e non è Incapacitato.
+cieca 18 m
+**Lingue** Comune, Draconico
+**GS** 14 (PE 11.500, o 13.000 nella tana; BC +5)
 
-### Azioni
+Tratti
 
-***Spada lunga.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 12 (2d10 + 1) danni taglienti.
+_**Anfibio.**_ Il drago può respirare in aria e in acqua.
 
-***Arco lungo.*** *Tiro per colpire a distanza:* +3, gittata 45/180 m. 5 (1d8 + 1) danni perforanti più 7 (3d4) danni da veleno.
+_**Resistenza leggendaria (3/giorno o 4/giorno nella**_
+_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
----
+Azioni
 
-## Homunculus
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di Incantesimi
+per lanciare _freccia acida_ (di 3º livello).
 
-*Costrutto Piccolo, Neutrale*
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +11, portata 3 m.
+_Colpito:_ 13 (2d6 + 6) danni taglienti più 4 (1d8) danni
+da acido.
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 4 (1d4 + 2)
-- **Velocità:** 6 m, volo 12 m
-- **Iniziativa**: +2 (12)
+_**Incantesimi.**_ Il drago lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 17, +9 al tiro per
+colpire degli attacchi con incantesimo):
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 4  | -3 | -3 |
-| DES | 15 | +2 | +2 |
-| COS | 14 | +2 | +2 |
-| INT | 10 | +0 | +0 |
-| SAG | 10 | +0 | +2 |
-| CAR | 7  | -2 | +0 |
+**1/giorno ciascuno:** _Parlare con i morti_, _sfera al vetriolo_
+**A volontà:** _Freccia acida_ (di 3º livello), _individuazione_
 
-- **Immunità**: Veleno; Affascinato, Avvelenato  
-- **Sensi**: scurovisione 18 m; Percezione Passiva 10  
-- **Linguaggi**: comprende il Comune e un altro linguaggio ma non può parlare  
-- **GS** 0 (PE 0 o 10; PB +2)
+_del magico_, _paura_
 
-### Tratti
+_**Soffio di acido (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 18, tutte le creature in una linea lunga
+18 metri e larga 1,5 metri. _Fallimento:_ 54 (12d8) danni
+da acido. _Successo:_ danni dimezzati.
 
-***Legame Telepatico.*** Finché l’homunculus si trova sullo stesso piano d’esistenza del suo padrone, i due possono comunicare telepaticamente.
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il drago può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il drago_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
-### Azioni
+_**Balzo.**_ Il drago si muove fino a metà della sua velocità
+ed effettua un attacco Squarcio.
 
-***Morso.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 1 danno perforante e il bersaglio subisce il seguente effetto. *Tiro Salvezza su Costituzione*: CD 12. *Fallimento:* il bersaglio è Avvelenato fino alla fine del turno successivo dell’homunculus. *Fallimento di 5 o più:* il bersaglio è Avvelenato per 1 minuto. Finché è Avvelenato in questo modo, il bersaglio è anche Incosciente, condizione che termina anticipatamente se subisce danni.
 
----
 
-## Diavolo Cornuto
 
-*Infernale Grande (Diavolo), Legale Malvagio*
+_**Nugolo di insetti.**_ _Tiro salvezza su Destrezza:_ CD 17,
+una creatura che il drago è in grado di vedere entro
+36 metri. _Fallimento:_ 22 (4d10) danni da veleno,
+e il bersaglio subisce svantaggio ai tiri salvezza per
+mantenere la concentrazione fino al termine del proprio turno successivo. _Fallimento o successo:_ il drago
+non può ripetere quest'azione fino all'inizio del proprio
+turno successivo.
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 199 (19d10 + 95)
-- **Velocità:** 9 m, volo 18 m
-- **Iniziativa**: +7 (17)
+_**Presenza terrificante.**_ Il drago usa Incantesimi per
+lanciare _paura_ . il drago non può ripetere quest'azione
+fino all'inizio del proprio turno successivo.
+### **Drago nero antico**
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 22 | +6 | +10 |
-| DES | 17 | +3 | +7 |
-| COS | 21 | +5 | +5 |
-| INT | 12 | +1 | +1 |
-| SAG | 16 | +3 | +7 |
-| CAR | 18 | +4 | +8 |
+_Drago Mastodontico (Cromatico), Caotico Malvagio_
 
-- **Immunità**: Fuoco, Veleno; Avvelenato  
-- **Sensi**: scurovisione 45 m (non ostacolata dall’oscurità magica); Percezione Passiva 13  
-- **Linguaggi**: Infernale; telepatia 36 m  
-- **GS** 11 (PE 7.200; PB +4)
 
-### Tratti
+**CA** 22 **Iniziativa** +16 (26)
+**PF** 367 (21d20 + 147)
+**Velocità** 12 m, nuoto 12 m, volo 24 m
 
-***Restaurazione Diabolica.*** Se il diavolo muore al di fuori dei Nove Inferi, il suo corpo scompare in una nube di fumo sulfureo e ottiene immediatamente un nuovo corpo, tornando in vita con tutti i suoi Punti Ferita in un luogo dei Nove Inferi.
 
-***Resistenza Magica.*** Il diavolo ha Vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
+**Abilità** Furtività +9, Percezione +16
+**Immunità** acido
+**Sensi** Percezione passiva 26; scurovisione 36 m, vista
 
-### Azioni
+cieca 18 m
+**Lingue** Comune, Draconico
+**GS** 21 (PE 33.000, o 41.000 nella tana; BC +7)
 
-***Attacco Multiplo.*** Il diavolo effettua tre attacchi, usando Forcone Rovente o Lanciafiamme Infernale in qualsiasi combinazione. Può sostituire uno degli attacchi con un uso di Coda Infernale.
+Tratti
 
-***Forcone Rovente.*** *Tiro per colpire in mischia:* +10, portata 3 m. 15 (2d8 + 6) danni perforanti più 9 (2d8) danni da fuoco.
+_**Anfibio.**_ Il drago può respirare in aria e in acqua.
 
-***Lanciafiamme Infernale.*** *Tiro per colpire a distanza:* +8, gittata 45 m. 26 (5d8 + 4) danni da fuoco. Se il bersaglio è un oggetto infiammabile non indossato o trasportato, prende fuoco.
+_**Resistenza leggendaria (4/giorno o 5/giorno nella**_
+_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
-***Coda Infernale.*** *Tiro Salvezza su Destrezza*: CD 17, una creatura visibile entro 3 m. *Fallimento:* 10 (1d8 + 6) danni necrotici e il bersaglio riceve una ferita infernale se non ne ha già una. Finché è ferito, il bersaglio perde 10 (3d6) Punti Ferita all’inizio di ciascun suo turno. La ferita si chiude dopo 1 minuto, dopo che un incantesimo ripristina Punti Ferita al bersaglio, oppure se il bersaglio o una creatura entro 1,5 m da lui usa un’azione per tamponare la ferita, riuscendo in una prova di Saggezza (Medicina) CD 17.
+Azioni
 
-## Idra
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di Incantesimi
+per lanciare _freccia acida_ (di 4º livello).
 
-*Mostruosità Enorme, Non Allineato*
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +15, portata
+4,5 m. _Colpito:_ 17 (2d8 + 8) danni taglienti più 9 (2d8)
+danni da acido.
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 184 (16d12 + 80)
-- **Velocità:** 12 m, nuoto 12 m
-- **Iniziativa**: +4 (14)
+_**Incantesimi.**_ Il drago lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 21, +13 al tiro per
+colpire degli attacchi con incantesimo):
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 20 | +5 | +5 |
-| DES | 12 | +1 | +1 |
-| COS | 20 | +5 | +5 |
-| INT | 2  | -4 | -4 |
-| SAG | 10 | +0 | +0 |
-| CAR | 7  | -2 | -2 |
+**1/giorno ciascuno:** _Creare non morti_, _parlare con_
 
-- **Immunità**: Accecato, Affascinato, Assordato, Spaventato, Stordito, Incosciente
-- **Abilità**: Percezione +6
-- **Sensi**: scurovisione 18 m; Percezione Passiva 16
-- **GS** 8 (PE 3.900; PB +3)
+_i morti_, _sfera al vetriolo_ (di 5º livello)
+**A volontà:** _Freccia acida_ (di 4º livello), _individuazione_
 
-### Tratti
+_del magico_, _paura_
 
-***Trattenere il Respiro.*** L’idra può trattenere il respiro per 1 ora.
+_**Soffio di acido (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 22, tutte le creature in una linea lunga
+27 metri e larga 3 metri. _Fallimento:_ 67 (15d8) danni da
+acido. _Successo:_ danni dimezzati.
 
-***Teste Multiple.*** L’idra ha cinque teste. Ogni volta che subisce 25 o più danni in un singolo turno, una delle sue teste muore. L’idra muore se tutte le sue teste sono morte. Alla fine di ciascun suo turno in cui ha almeno una testa viva, l’idra fa ricrescere due teste per ognuna delle teste morte dal suo ultimo turno, a meno che non abbia subito danni da fuoco dal suo ultimo turno. L’idra recupera 20 Punti Ferita quando fa ricrescere nuove teste.
 
-***Teste Reattive.*** Per ogni testa oltre la prima, l’idra ottiene una Reazione extra che può usare solo per Attacchi di Opportunità.
+**325** System Reference Document 5.2.1
 
-### Azioni
 
-***Attacco Multiplo.*** L’idra effettua tanti attacchi di Morso quante sono le sue teste.
 
-***Morso.*** *Tiro per colpire in mischia:* +8, portata 3 m. 10 (1d10 + 5) danni perforanti.
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il drago può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il drago_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
----
+_**Balzo.**_ Il drago si muove fino a metà della sua velocità
+ed effettua un attacco Squarcio.
 
-## Diavolo del Ghiaccio
+_**Nugolo di insetti.**_ _Tiro salvezza su Destrezza:_ CD
+21, una creatura che il drago è in grado di vedere
+entro 36 metri. _Fallimento:_ 33 (6d10) danni da veleno,
+e il bersaglio subisce svantaggio ai tiri salvezza per
+mantenere la concentrazione fino al termine del proprio turno successivo. _Fallimento o successo:_ il drago
+non può ripetere quest'azione fino all'inizio del proprio
+turno successivo.
 
-*Infernale Grande (Diavolo), Legale Malvagio*
+_**Presenza terrificante.**_ Il drago usa Incantesimi per
+lanciare _paura_ . il drago non può ripetere quest'azione
+fino all'inizio del proprio turno successivo.
+## **Draghi rossi**
+### **Drago rosso cucciolo**
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 228 (24d10 + 96)
-- **Velocità:** 12 m
-- **Iniziativa**: +7 (17)
+_Drago Medio (cromatico), caotico malvagio_
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 21 | +5 | +5 |
-| DES | 14 | +2 | +7 |
-| COS | 18 | +4 | +9 |
-| INT | 18 | +4 | +4 |
-| SAG | 15 | +2 | +7 |
-| CAR | 18 | +4 | +9 |
 
-- **Immunità**: Freddo, Fuoco, Veleno; Avvelenato
-- **Abilità**: Intuizione +7, Percezione +7, Persuasione +9
-- **Sensi**: percezione cieca 36 m; Percezione Passiva 17
-- **Linguaggi**: Infernale; telepatia 36 m
-- **GS** 14 (PE 11.500; PB +5)
+**CA** 17 **Iniziativa** +2 (12)
+**PF** 75 (10d8 + 30)
+**Velocità** 9 m, scalata 9 m, volo 18 m
 
-### Tratti
 
-***Restaurazione Diabolica.*** Se il diavolo muore al di fuori dei Nove Inferi, il suo corpo scompare in fumo sulfureo e ottiene immediatamente un nuovo corpo, tornando in vita con tutti i suoi Punti Ferita in un luogo dei Nove Inferi.
+**Abilità** Furtività +2, Percezione +4
+**Immunità** fuoco
+**Sensi** Percezione passiva 14; scurovisione 18 m, vista
 
-***Resistenza Magica.*** Il diavolo ha Vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
+cieca 3 m
+**Lingue** Draconico
+**GS** 4 (PE 1.100; BC +2)
 
-### Azioni
+Azioni
 
-***Attacco Multiplo.*** Il diavolo effettua tre attacchi con Lancia di Ghiaccio. Può sostituire uno degli attacchi con un attacco di Coda.
+_**Multiattacco.**_ Il drago effettua due attacchi Squarcio.
 
-***Lancia di Ghiaccio.*** *Tiro per colpire in mischia o a distanza:* +10, portata 1,5 m o gittata 9/36 m. 14 (2d8 + 5) danni perforanti più 10 (3d6) danni da freddo. Fino alla fine del suo prossimo turno, il bersaglio non può compiere Azioni Bonus o Reazioni, la sua Velocità si riduce di 3 m e nel suo turno può muoversi o compiere un’azione, non entrambi. La lancia torna magicamente nella mano del diavolo immediatamente dopo un attacco a distanza.
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 9 (1d10 + 4) danni taglienti più 3 (1d6) danni
+da fuoco.
 
-***Coda.*** *Tiro per colpire in mischia:* +10, portata 3 m. 15 (3d6 + 5) danni contundenti più 18 (4d8) danni da freddo.
+_**Soffio di fuoco (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 13, tutte le creature in un cono di
+4,5 metri. _Fallimento:_ 24 (7d6) danni da fuoco. _Suc-_
+_cesso:_ danni dimezzati.
+### **Drago rosso giovane**
 
-***Muro di Ghiaccio (Ricarica 6).*** Il diavolo lancia *Muro di Ghiaccio* (versione di 8° livello), senza componenti e usando Intelligenza come caratteristica da incantatore (CD 17).
+_Drago Grande (cromatico), caotico malvagio_
 
-- **A volontà:** 
 
----
+**CA** 18 **Iniziativa** +4 (14)
+**PF** 178 (17d10 + 85)
+**Velocità** 12 m, scalata 12 m, volo 24 m
 
-## Mephit del Ghiaccio
 
-*Elementale Piccolo, Neutrale Malvagio*
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 21 (6d6)
-- **Velocità:** 9 m, volo 9 m
-- **Iniziativa**: +1 (11)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 7  | -2 | -2 |
-| DES | 13 | +1 | +1 |
-| COS | 10 | +0 | +0 |
-| INT | 9  | -1 | -1 |
-| SAG | 11 | +0 | +0 |
-| CAR | 12 | +1 | +1 |
+**Abilità** Furtività +4, Percezione +8
+**Immunità** fuoco
+**Sensi** Percezione passiva 18; scurovisione 36 m, vista
 
-- **Vulnerabilità**: Fuoco
-- **Immunità**: Freddo, Veleno; Affaticamento, Avvelenato
-- **Abilità**: Percezione +2, Furtività +3
-- **Sensi**: scurovisione 18 m; Percezione Passiva 12
-- **Linguaggi**: Primordiale (Aquan, Auran)
-- **GS** 1/2 (PE 100; PB +2)
+cieca 9 m
+**Lingue** Comune, Draconico
+**GS** 10 (PE 5.900; BC +4)
 
-### Tratti
+Azioni
 
-***Esplosione di Morte.*** Il mephit esplode quando muore. *Tiro Salvezza su Costituzione*: CD 10, da parte di ogni creatura in un’Emanazione di 1,5 m originata dal mephit. *Fallimento:* 5 (2d4) danni da freddo. *Successo:* metà danni.
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
 
-### Azioni
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +10, portata 3 m.
+_Colpito:_ 13 (2d6 + 6) danni taglienti più 3 (1d6) danni
+da fuoco.
 
-***Artigli.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 3 (1d4 + 1) danni taglienti più 2 (1d4) danni da freddo.
+_**Soffio di fuoco (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 17, tutte le creature in un cono di
+9 metri. _Fallimento:_ 56 (16d6) danni da fuoco. _Suc-_
+_cesso:_ danni dimezzati.
+### **Drago rosso adulto**
 
-***Soffio Gelido (Ricarica 6).*** *Tiro Salvezza su Costituzione*: CD 10, da parte di ogni creatura in un Cono di 4,5 m. *Fallimento:* 7 (3d4) danni da freddo. *Successo:* metà danni.
+_Drago Enorme (cromatico), caotico malvagio_
 
-***Nube di Nebbia (1/giorno).*** Il mephit lancia *Nube di Nebbia*, senza componenti e usando Carisma come caratteristica da incantatore.
 
-- **A volontà:** 
-- **1/giorno ciascuno:** *Nube di Nebbia*
+**CA** 19 **Iniziativa** +12 (22)
+**PF** 256 (19d12 + 133)
+**Velocità** 12 m, scalata 12 m, volo 24 m
 
----
 
-## Diavoletto
+**Abilità** Furtività +6, Percezione +13
+**Immunità** fuoco
+**Sensi** Percezione passiva 23; scurovisione 36 m, vista
 
-*Infernale Piccolo (Diavolo), Legale Malvagio*
+cieca 18 m
+**Lingue** Comune, Draconico
+**GS** 17 (PE 18.000, o 20.000 nella tana; BC +6)
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 21 (6d4 + 6)
-- **Velocità:** 6 m, volo 12 m
-- **Iniziativa**: +3 (13)
+Tratti
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 6  | -2 | -2 |
-| DES | 17 | +3 | +3 |
-| COS | 13 | +1 | +1 |
-| INT | 11 | +0 | +0 |
-| SAG | 12 | +1 | +1 |
-| CAR | 14 | +2 | +2 |
+_**Resistenza leggendaria (3/giorno o 4/giorno nella**_
+_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
-- **Resistenze**: Freddo
-- **Immunità**: Fuoco, Veleno; Avvelenato
-- **Abilità**: Inganno +4, Intuizione +3, Furtività +5
-- **Sensi**: scurovisione 36 m (non ostacolata dall’oscurità magica); Percezione Passiva 11
-- **Linguaggi**: Comune, Infernale
-- **GS** 1 (PE 200; PB +2)
+Azioni
 
-### Tratti
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di Incantesimi
+per lanciare _raggio rovente_ .
 
-***Resistenza Magica.*** Il diavoletto ha Vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +14, portata 3 m.
+_Colpito:_ 13 (1d10 + 8) danni taglienti più 5 (2d4) danni
+da fuoco.
 
-### Azioni
+_**Incantesimi.**_ Il drago lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 20, +12 al tiro
+per colpire degli attacchi con incantesimo):
 
-***Pungiglione.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni perforanti più 7 (2d6) danni da veleno.
+**1/giorno:** _palla di fuoco_
 
-***Mutare Forma.*** Il diavoletto muta forma assumendo l’aspetto di un ratto (Velocità 6 m), di un corvo (6 m, volo 12 m) o di un ragno (6 m, arrampicata 6 m), oppure ritorna alla sua vera forma. Le sue statistiche restano le stesse in ogni forma, tranne la Velocità. Qualsiasi equipaggiamento indossato o portato non si trasforma.
 
-***Invisibilità.*** Il diavoletto lancia *Invisibilità* su se stesso, senza componenti e usando Carisma come caratteristica da incantatore.
+**326** System Reference Document 5.2.1
 
-- **A volontà:** *Invisibilità*
 
-## Incubo
 
-*Infernale Medio, Neutrale Malvagio*
+**A volontà:** _Comando_ (di 2º livello), _individuazione del_
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 66 (12d8 + 12)
-- **Velocità:** 9 m, volo 18 m
-- **Iniziativa**: +3 (13)
+_magico_, _raggio rovente_
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 8  | -1 | -1 |
-| DES | 17 | +3 | +3 |
-| COS | 13 | +1 | +1 |
-| INT | 15 | +2 | +2 |
-| SAG | 12 | +1 | +1 |
-| CAR | 20 | +5 | +5 |
+_**Soffio di fuoco (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 21, tutte le creature in un cono di 18
+metri. _Fallimento:_ 59 (17d6) danni da fuoco. _Successo:_
+danni dimezzati.
 
-- **Resistenze**: Freddo, Fuoco, Veleno, Psichico
-- **Abilità**: Inganno +9, Intuizione +5, Percezione +5, Persuasione +9, Furtività +7
-- **Sensi**: scurovisione 18 m; Percezione Passiva 15
-- **Linguaggi**: Abissale, Comune, Infernale; telepatia 18 m
-- **GS** 4 (PE 1.100; PB +2)
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il drago può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il drago_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
-### Tratti
+_**Balzo.**_ Il drago si muove fino a metà della sua velocità
+ed effettua un attacco Squarcio.
 
-***Forma da Succube.*** Quando l’incubo termina un Riposo Lungo, può mutare forma in una Succube, usando quel blocco statistiche al posto di questo. Qualsiasi equipaggiamento indossato o trasportato non si trasforma.
+_**Presenza imponente.**_ Il drago usa Incantesimi per lanciare _comando_ (di 2º livello). il drago non può ripetere
+quest'azione fino all'inizio del proprio turno successivo.
 
-### Azioni
+_**Raggi fiammeggianti.**_ Il drago usa Incantesimi per
+lanciare _raggio rovente_ . il drago non può ripetere
+­quest'azione fino all'inizio del proprio turno successivo.
+### **Drago rosso antico**
 
-***Attacco Multiplo.*** L’incubo effettua due attacchi di Tocco Inquieto.
+_Drago Mastodontico (Cromatico), Caotico Malvagio_
 
-***Tocco Inquieto.*** *Tiro per colpire in mischia:* +7, portata 1,5 m. 15 (3d6 + 5) danni psichici, e il bersaglio è maledetto per 24 ore o finché l’incubo non muore. Finché la maledizione dura, il bersaglio non trae alcun beneficio dai Riposi Brevi.
 
-***Incantesimi.*** L’incubo lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 15 ai tiri salvezza):
+**CA** 22 **Iniziativa** +14 (24)
+**PF** 507 (26d20 + 234)
+**Velocità** 12 m, scalata 12 m, volo 24 m
 
-- **A volontà:** *Camuffare Sé Stesso*, *Etereo*
-- **1/giorno ciascuno:** *Sogno*, *Motivo Ipnotico*
 
-### Azioni Bonus
+**Abilità** Furtività +7, Percezione +16
+**Immunità** fuoco
+**Sensi** Percezione passiva 26; scurovisione 36 m, vista
 
-***Incubo (Ricarica 6).*** *Tiro Salvezza su Saggezza*: CD 15, una creatura che l’incubo può vedere entro 18 m. *Fallimento:* se il bersaglio ha 20 Punti Ferita o meno, ottiene la condizione Incosciente per 1 ora, finché non subisce danni, o finché una creatura entro 1,5 m da esso non usa un’azione per svegliarlo. Altrimenti, il bersaglio subisce 18 (4d8) danni psichici.
+cieca 18 m
+**Lingue** Comune, Draconico
+**GS** 24 (PE 62.000, o 75.000 nella tana; BC +7)
 
----
+Tratti
 
-## Predatore Invisibile
+_**Resistenza leggendaria (4/giorno o 5/giorno nella**_
+_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
-*Elementale Grande, Neutrale*
+Azioni
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 97 (13d10 + 26)
-- **Velocità:** 15 m, volo 15 m (fluttuare)
-- **Iniziativa**: +7 (17)
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di Incantesimi
+per lanciare _raggio rovente_ (di 3º livello).
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +3 |
-| DES | 19 | +4 | +4 |
-| COS | 14 | +2 | +2 |
-| INT | 10 | +0 | +0 |
-| SAG | 15 | +2 | +2 |
-| CAR | 11 | +0 | +0 |
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +17, portata
+4,5 m. _Colpito:_ 19 (2d8 + 10) danni taglienti più
+10 (3d6) danni da fuoco.
 
-- **Resistenze**: Contundenti, Perforanti, Taglienti
-- **Immunità**: Veleno; Affaticamento, Afferrato, Paralizzato, Pietrificato, Avvelenato, Prono, Trattenuto, Incosciente
-- **Abilità**: Percezione +8, Furtività +10
-- **Sensi**: scurovisione 18 m; Percezione Passiva 18
-- **Linguaggi**: Comune, Primordiale (Auran)
-- **GS** 6 (PE 2.300; PB +3)
+_**Incantesimi.**_ Il drago lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 23, +15 al tiro per
+colpire degli attacchi con incantesimo):
 
-### Tratti
 
-***Forma d’Aria.*** Il predatore può entrare nello spazio di un nemico e fermarsi lì. Può muoversi attraverso spazi stretti fino a 2,5 cm senza spendere movimento extra.
 
-***Invisibilità.*** Il predatore ha la condizione Invisibile.
 
-### Azioni
+**1/giorno ciascuno:** _Palla di fuoco_ (di 6º livello), _scrutare_
+**A volontà:** _Comando_ (di 2º livello), _individuazione del_
 
-***Attacco Multiplo.*** Il predatore effettua tre attacchi di Soffio di Vento. Può sostituire un attacco con l’uso di Vortice.
+_magico_, _raggio rovente_ (di 3º livello)
 
-***Soffio di Vento.*** *Tiro per colpire in mischia:* +7, portata 1,5 m. 11 (2d6 + 4) danni da forza.
+_**Soffio di fuoco (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 24, tutte le creature in un cono di
+27 metri. _Fallimento:_ 91 (26d6) danni da fuoco. _Suc-_
+_cesso:_ danni dimezzati.
 
-***Vortice.*** *Tiro Salvezza su Costituzione*: CD 14, una creatura Grande o più piccola nello spazio del predatore. *Fallimento:* 7 (1d8 + 3) danni da tuono, e il bersaglio ha la condizione Afferrato (CD 13 per liberarsi). Finché la presa dura, il bersaglio non può lanciare incantesimi con componenti verbali e subisce 7 (2d6) danni da tuono all’inizio di ciascun turno del predatore.
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il drago può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il drago_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
----
+_**Presenza imponente.**_ Il drago usa Incantesimi per lanciare _comando_ (di 2º livello). il drago non può ripetere
+quest'azione fino all'inizio del proprio turno successivo.
 
-## Golem di Ferro
+_**Balzo.**_ Il drago si muove fino a metà della sua velocità
+ed effettua un attacco Squarcio.
 
-*Costrutto Grande, Non Allineato*
+_**Raggi fiammeggianti.**_ Il drago usa Incantesimi per
+lanciare _raggio rovente_ (di 3º livello). il drago non può
+ripetere quest'azione fino all'inizio del proprio turno
+successivo.
+## **Draghi verdi**
+### **Drago verde cucciolo**
 
-- **Classe Armatura:** 20
-- **Punti Ferita:** 252 (24d10 + 120)
-- **Velocità:** 9 m
-- **Iniziativa**: +9 (19)
+_Drago Medio (cromatico), legale malvagio_
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 24 | +7 | +7 |
-| DES | 9  | -1 | -1 |
-| COS | 20 | +5 | +5 |
-| INT | 3  | -4 | -4 |
-| SAG | 11 | +0 | +0 |
-| CAR | 1  | -5 | -5 |
 
-- **Immunità**: Fuoco, Veleno, Psichico; Affascinato, Affaticato, Spaventato, Paralizzato, Pietrificato, Avvelenato
-- **Sensi**: scurovisione 36 m; Percezione Passiva 10
-- **Linguaggi**: comprende il Comune più due altre lingue ma non può parlare
-- **GS** 16 (PE 15.000; PB +5)
+**CA** 17 **Iniziativa** +3 (13)
+**PF** 38 (7d8 + 7)
+**Velocità** 9 m, nuoto 9 m, volo 18 m
 
-### Tratti
 
-***Assorbimento del Fuoco.*** Ogni volta che il golem subisce danni da fuoco, recupera un numero di Punti Ferita pari ai danni da fuoco subiti.
+**Abilità** Furtività +3, Percezione +4
+**Immunità** veleno; avvelenato
+**Sensi** Percezione passiva 14; scurovisione 18 m, vista
 
-***Forma Immutabile.*** Il golem non può mutare forma.
+cieca 3 m
+**Lingue** Draconico
+**GS** 2 (PE 450; BC +2)
 
-***Resistenza Magica.*** Il golem ha Vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
+Tratti
 
-### Azioni
+_**Anfibio.**_ Il drago può respirare in aria e in acqua.
 
-***Attacco Multiplo.*** Il golem effettua due attacchi, usando Braccio Lame o Dardo Infuocato in qualsiasi combinazione.
+Azioni
 
-***Braccio Lame.*** *Tiro per colpire in mischia:* +12, portata 3 m. 20 (3d8 + 7) danni taglienti più 10 (3d6) danni da fuoco.
+_**Multiattacco.**_ Il drago effettua due attacchi Squarcio.
 
-***Dardo Infuocato.*** *Tiro per colpire a distanza:* +10, gittata 36 m. 36 (8d8) danni da fuoco.
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 7 (1d10 + 2) danni taglienti più 3 (1d6) danni
+da veleno.
 
-***Soffio Velenoso (Ricarica 6).*** *Tiro Salvezza su Costituzione*: CD 18, ogni creatura in un cono di 18 m. *Fallimento:* 55 (10d10) danni da veleno. *Successo:* metà danni.
+_**Soffio di veleno (ricarica 5–6).**_ _Tiro salvezza su Costitu-_
+_zione:_ CD 11, tutte le creature in un cono di 4,5 metri.
+_Fallimento:_ 21 (6d6) danni da veleno. _Successo:_ danni
+dimezzati.
 
----
 
-## Cavaliere
+**327** System Reference Document 5.2.1
 
-*Umanoide Piccolo, Neutrale*
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 52 (8d8 + 16)
-- **Velocità:** 9 m
-- **Iniziativa**: +0 (10)
+### **Drago verde giovane**
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +3 |
-| DES | 11 | +0 | +0 |
-| COS | 14 | +2 | +4 |
-| INT | 11 | +0 | +0 |
-| SAG | 11 | +0 | +2 |
-| CAR | 15 | +2 | +2 |
+_Drago Grande (cromatico), legale malvagio_
 
-- **Immunità**: Spaventato
-- **Equipaggiamento**: Spadone, Balestra Pesante, Armatura a Piastre
-- **Sensi**: Percezione Passiva 10
-- **Linguaggi**: Comune più un’altra lingua
-- **GS** 3 (PE 700; PB +2)
 
-### Azioni
+**CA** 18 **Iniziativa** +4 (14)
+**PF** 136 (16d10 + 48)
+**Velocità** 12 m, nuoto 12 m, volo 24 m
 
-***Attacco Multiplo.*** Il cavaliere effettua due attacchi, usando Spadone o Balestra Pesante in qualsiasi combinazione.
 
-***Spadone.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) danni taglienti più 4 (1d8) danni radianti.
+**Abilità** Furtività +4, Inganno +5, Percezione +7
+**Immunità** veleno; avvelenato
+**Sensi** Percezione passiva 17; scurovisione 36 m, vista
 
-***Balestra Pesante.*** *Tiro per colpire a distanza:* +2, gittata 30/120 m. 11 (2d10) danni perforanti più 4 (1d8) danni radianti.
+cieca 9 m
+**Lingue** Comune, Draconico
+**GS** 8 (PE 3.900; BC +3)
 
-## Guerriero Coboldo
+Tratti
 
-*Drago Piccolo, Neutrale*
+_**Anfibio.**_ Il drago può respirare in aria e in acqua.
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 7 (3d6 - 3)
-- **Velocità:** 9 m
-- **Iniziativa**: +2 (12)
+Azioni
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 7  | -2 | -2 |
-| DES | 15 | +2 | +2 |
-| COS | 9  | -1 | -1 |
-| INT | 8  | -1 | -1 |
-| SAG | 7  | -2 | -2 |
-| CAR | 8  | -1 | -1 |
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
 
-- **Equipaggiamento**: 3 pugnali  
-- **Sensi**: scurovisione 18 m; Percezione Passiva 8  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 1/8 (PE 25; PB +2)
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +7, portata 3 m.
+_Colpito:_ 11 (2d6 + 4) danni taglienti più 7 (2d6) danni
+da veleno.
 
-### Tratti
+_**Soffio di veleno (ricarica 5–6).**_ _Tiro salvezza su Costi-_
+_tuzione:_ CD 14, tutte le creature in un cono di 9 metri.
+_Fallimento:_ 42 (12d6) danni da veleno. _Successo:_ danni
+dimezzati.
+### **Drago verde adulto**
 
-***Tattiche di Branco.*** Il coboldo ha vantaggio ai tiri per colpire contro una creatura se almeno un alleato del coboldo si trova entro 1,5 m dalla creatura e non ha la condizione Incapacitato.
+_Drago Enorme (cromatico), legale malvagio_
 
-***Sensibilità alla Luce Solare.*** Mentre si trova alla luce solare, il coboldo ha svantaggio alle prove di caratteristica e ai tiri per colpire.
 
-### Azioni
+**CA** 19 **Iniziativa** +11 (21)
+**PF** 207 (18d12 + 90)
+**Velocità** 12 m, nuoto 12 m, volo 24 m
 
-***Pugnale.*** *Tiro per colpire in mischia o a distanza:* +4, portata 1,5 m o gittata 6/18 m. 4 (1d4 + 2) danni perforanti.
 
----
+**Abilità** Furtività +6, Inganno +9, Percezione +12,
 
-## Kraken
+Persuasione +9
+**Immunità** veleno; avvelenato
+**Sensi** Percezione passiva 22; scurovisione 36 m, vista
 
-*Mostruosità Mastodontica (Titano), Caotico Malvagio*
+cieca 18 m
+**Lingue** Comune, Draconico
+**GS** 15 (PE 13.000, o 15.000 nella tana; BC +5)
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 481 (26d20 + 208)
-- **Velocità:** 9 m, nuoto 36 m
-- **Iniziativa**: +4 (14)
+Tratti
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 30 | +10 | +17 |
-| DES | 11 | +0  | +7 |
-| COS | 26 | +8  | +15 |
-| INT | 22 | +6  | +6 |
-| SAG | 18 | +4  | +11 |
-| CAR | 20 | +5  | +5 |
+_**Anfibio.**_ Il drago può respirare in aria e in acqua.
 
-- **Immunità**: Freddo, Fulmine; Spaventato, Afferrato, Paralizzato, Trattenuto  
-- **Abilità**: Storia +13, Percezione +11  
-- **Sensi**: vista cieca 36 m; Percezione Passiva 21  
-- **Linguaggi**: comprende Abissale, Celestiale, Infernale e Primordiale ma non può parlare; telepatia 36 m  
-- **GS** 23 (PE 50.000; o 62.000 nella tana)
+_**Resistenza leggendaria (3/giorno o 4/giorno nella**_
+_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
-### Tratti
 
-***Anfibio.*** Il kraken può respirare aria e acqua.
 
-***Resistenza Leggendaria (4/giorno, o 5/giorno nella tana).*** Se il kraken fallisce un tiro salvezza, può scegliere di avere successo al suo posto.
 
-***Mostro d’Assedio.*** Il kraken infligge il doppio dei danni a oggetti e strutture.
+Azioni
 
-### Azioni
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di Incantesimi
+per lanciare _aculeo mentale_ (di 3º livello).
 
-***Attacco Multiplo.*** Il kraken effettua due attacchi di Tentacolo e usa Scagliare, Fulmine o Inghiottire.
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +11, portata 3 m.
+_Colpito:_ 15 (2d8 + 6) danni taglienti più 7 (2d6) danni
+da veleno.
 
-***Tentacolo.*** *Tiro per colpire in mischia:* +17, portata 9 m. 24 (4d6 + 10) danni contundenti. Il bersaglio ha la condizione Afferrato (CD 20 per liberarsi) da uno dei dieci tentacoli, e la condizione Restrittto finché la presa dura.
+_**Incantesimi.**_ Il drago lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 17):
 
-***Scagliare.*** Il kraken lancia una creatura Grande o più piccola che ha afferrato in uno spazio che può vedere entro 18 m e che non sia in aria. *Tiro Salvezza su Destrezza*: CD 25, per la creatura lanciata e ciascuna creatura nello spazio di destinazione. *Fallimento:* 18 (4d8) danni contundenti, e il bersaglio ha la condizione Prono. *Successo:* metà danni.
+**1/giorno:** _Costrizione_
+**A volontà:** _Aculeo mentale_ (di 3º livello), _individuazione_
 
-***Fulmine.*** *Tiro Salvezza su Destrezza*: CD 23, una creatura che il kraken può vedere entro 36 m. *Fallimento:* 33 (6d10) danni da fulmine. *Successo:* metà danni.
+_del magico_
 
-***Inghiottire.*** *Tiro Salvezza su Destrezza*: CD 25, una creatura afferrata dal kraken (può averne fino a quattro inghiottite alla volta). *Fallimento:* 23 (3d8 + 10) danni perforanti. Se il bersaglio è Grande o più piccolo, viene inghiottito e non è più afferrato. Una creatura inghiottita ha la condizione Restrittto, ha Copertura Totale contro attacchi ed effetti dall’esterno del kraken, e subisce 24 (7d6) danni da acido all’inizio di ciascun turno del kraken.  
-Se il kraken subisce 50 o più danni in un solo turno da una creatura al suo interno, deve superare un TS su Costituzione CD 25 alla fine di quel turno o rigettare tutte le creature inghiottite, che cadono prone entro 3 m da esso. Se il kraken muore, le creature inghiottite non sono più Restrittte e possono fuggire usando 4,5 m di movimento, uscendo prone.
+_**Soffio di veleno (ricarica 5–6).**_ _Tiro salvezza su Costitu-_
+_zione:_ CD 18, tutte le creature in un cono di 18 metri.
+_Fallimento:_ 56 (16d6) danni da veleno. _Successo:_ danni
+dimezzati.
 
-### Azioni Leggendarie
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il drago può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il drago_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
-***Saetta della Tempesta.*** Il kraken usa Fulmine.
+_**Balzo.**_ Il drago si muove fino a metà della sua velocità,
+ed effettua un attacco Squarcio.
 
-***Inchiostro Tossico.*** *Tiro Salvezza su Costituzione*: CD 23, ogni creatura in un raggio di 4,5 m dal kraken mentre è sott’acqua. *Fallimento:* il bersaglio ha le condizioni Accecato e Avvelenato fino alla fine del turno successivo del kraken. Poi il kraken si muove fino alla sua velocità. *Fallimento o Successo:* il kraken non può riutilizzare questa azione fino all’inizio del suo turno successivo.
+_**Invasione mentale.**_ Il drago usa Incantesimi per lanciare _aculeo mentale_ (di 3º livello).
 
----
+_**Miasma nocivo.**_ _Tiro salvezza su Costituzione:_ CD
+17, tutte le creature in una sfera di 6 metri di raggio
+centrata su un punto che il drago è in grado di vedere
+entro 27 metri. _Fallimento:_ 7 (2d6) danni da veleno,
+e il bersaglio subisce una penalità di −2 alla CA fino
+al termine del proprio turno successivo. _Fallimento o_
+_successo:_ il drago non può ripetere quest'azione fino
+all'inizio del proprio turno successivo.
+### **Drago verde antico**
 
-## Lamia
+_Drago Mastodontico (cromatico), legale malvagio_
 
-*Infernale Grande, Caotico Malvagio*
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 97 (13d10 + 26)
-- **Velocità:** 12 m
-- **Iniziativa**: +1 (11)
+**CA** 21 **Iniziativa** +15 (25)
+**PF** 402 (23d20 + 161)
+**Velocità** 12 m, nuoto 12 m, volo 24 m
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +3 |
-| DES | 13 | +1 | +1 |
-| COS | 15 | +2 | +2 |
-| INT | 14 | +2 | +2 |
-| SAG | 15 | +2 | +2 |
-| CAR | 16 | +3 | +3 |
 
-- **Abilità**: Inganno +7, Intuizione +4, Furtività +5  
-- **Sensi**: scurovisione 18 m; Percezione Passiva 12  
-- **Linguaggi**: Abissale, Comune  
-- **GS** 4 (PE 1.100; PB +2)
+**Abilità** Furtività +8, Inganno +13, Percezione +17,
 
-### Azioni
+Persuasione +13
+**Immunità** veleno; avvelenato
+**Sensi** Percezione passiva 27; scurovisione 36 m, vista
 
-***Attacco Multiplo.*** La lamia effettua due attacchi di Artiglio. Può sostituire un attacco con un uso di Tocco Corruttivo.
+cieca 18 m
+**Lingue** Comune, Draconico
+**GS** 22 (PE 41.000, o 50.000 nella tana; BC +7)
 
-***Artiglio.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni taglienti più 7 (2d6) danni psichici.
 
-***Tocco Corruttivo.*** *Tiro Salvezza su Saggezza*: CD 13, una creatura che la lamia può vedere entro 1,5 m. *Fallimento:* 13 (3d8) danni psichici, e il bersaglio è maledetto per 1 ora. Finché la maledizione dura, il bersaglio ha le condizioni Affascinato e Avvelenato.
+**328** System Reference Document 5.2.1
 
-***Incantesimi.*** La lamia lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 13 ai TS):
 
-- **A volontà:** *Camuffare Sé Stesso*, *Illusione Minore*
-- **1/giorno ciascuno:** *Geas*, *Immagine Maggiore*, *Chiaroveggenza*
 
-### Azioni Bonus
+Tratti
 
-***Balzo.*** La lamia salta fino a 9 m spendendo 3 m di movimento.
+_**Anfibio.**_ Il drago può respirare in aria e in acqua.
 
----
+_**Resistenza leggendaria (4/giorno o 5/giorno nella**_
+_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
-## Lemure
+Azioni
 
-*Infernale Medio (Diavolo), Legale Malvagio*
+_**Multiattacco.**_ Il drago effettua tre attacchi Squarcio.
+Può sostituire un attacco con un utilizzo di Incantesimi
+per lanciare _aculeo mentale_ (di 5º livello).
 
-- **Classe Armatura:** 9
-- **Punti Ferita:** 9 (2d8)
-- **Velocità:** 6 m
-- **Iniziativa**: -3 (7)
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +15, portata
+4,5 m. _Colpito:_ 17 (2d6 + 8) danni taglienti più 10 (3d6)
+danni da veleno.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 10 | +0 | +0 |
-| DES | 5  | -3 | -3 |
-| COS | 11 | +0 | +0 |
-| INT | 1  | -5 | -5 |
-| SAG | 11 | +0 | +0 |
-| CAR | 3  | -4 | -4 |
+_**Incantesimi.**_ Il drago lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 21):
 
-- **Resistenze**: Freddo  
-- **Immunità**: Fuoco, Veleno; Affascinato, Spaventato, Avvelenato  
-- **Sensi**: scurovisione 36 m (non ostacolata dall’oscurità magica); Percezione Passiva 10  
-- **Linguaggi**: comprende l’Infernale ma non può parlare  
-- **GS** 0 (PE 0 o 10; PB +2)
+**1/giorno ciascuno:** _Costrizione_, _modificare memoria_
+**A volontà:** _Aculeo mentale_ (di 5º livello), _individuazione_
 
-### Tratti
+_del magico_
 
-***Restaurazione Infernale.*** Se il lemure muore nei Nove Inferi, ritorna in vita con tutti i suoi PF in 1d10 giorni a meno che non venga ucciso da una creatura sotto gli effetti di *Benedizione* o le sue spoglie non vengano cosparse di Acqua Benedetta.
+_**Soffio di veleno (ricarica 5–6).**_ _Tiro salvezza su Costitu-_
+_zione:_ CD 22, tutte le creature in un cono di 27 metri.
+_Fallimento:_ 77 (22d6) danni da veleno. _Successo:_ danni
+dimezzati.
+Azioni leggendarie
 
-### Azioni
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il drago può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il drago_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
-***Melma Vile.*** *Tiro per colpire in mischia:* +2, portata 1,5 m. 2 (1d4) danni da veleno.
+_**Balzo.**_ Il drago si muove fino a metà della sua velocità,
+ed effettua un attacco Squarcio.
 
-## Lich
+_**Invasione mentale.**_ Il drago usa Incantesimi per lanciare _aculeo mentale_ (di 5º livello).
 
-*Non Morto Medio (Mago), Neutrale Malvagio*
+_**Miasma nocivo.**_ _Tiro salvezza su Costituzione:_ CD
+21, tutte le creature in una sfera di 9 metri di raggio
+centrata su un punto che il drago è in grado di vedere
+entro 27 metri. _Fallimento:_ 17 (5d6) danni da veleno,
+e il bersaglio subisce una penalità di −2 alla CA fino
+al termine del proprio turno successivo. _Fallimento_
 
-- **Classe Armatura:** 20
-- **Punti Ferita:** 315 (42d8 + 126)
-- **Velocità:** 9 m
-- **Iniziativa**: +7 (17)
+_o successo:_ il drago non può ripetere quest'azione fino
+all'inizio del proprio turno successivo.
+## **Dretch**
+### **Dretch**
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 11 | +0 | +0 |
-| DES | 16 | +3 | +10 |
-| COS | 16 | +3 | +10 |
-| INT | 21 | +5 | +12 |
-| SAG | 14 | +2 | +9 |
-| CAR | 16 | +3 | +3 |
+_Immondo Piccolo (demone), caotico malvagio_
 
-- **Resistenze**: Freddo, Fulmine
-- **Immunità**: Necrotico, Veleno; Affascinato, Affaticato, Spaventato, Paralizzato, Avvelenato
-- **Abilità**: Arcana +19, Storia +12, Intuizione +9, Percezione +9
-- **Equipaggiamento**: Borsa dei Componenti
-- **Sensi**: vista vera 36 m; Percezione Passiva 19
-- **Linguaggi**: Tutti
-- **GS** 21 (PE 33.000; o 41.000 nella tana)
 
-### Tratti
+**CA** 11 **Iniziativa** +0 (10)
+**PF** 18 (4d6 + 4)
+**Velocità** 6 m
 
-***Resistenza Leggendaria (4/giorno, o 5/giorno nella tana).*** Se il lich fallisce un tiro salvezza, può scegliere di riuscire al suo posto.
 
-***Vaso Spirituale.*** Se distrutto, il lich si riforma in 1d10 giorni se possiede un vaso spiritale, tornando con tutti i suoi Punti Ferita. Il nuovo corpo appare in uno spazio non occupato all’interno della tana del lich.
 
-### Azioni
 
-***Attacco Multiplo.*** Il lich effettua tre attacchi, usando Esplosione Eldritch o Tocco Paralizzante in qualsiasi combinazione.
+**Resistenze** freddo, fulmine, fuoco
+**Immunità** veleno; avvelenato
+**Sensi** Percezione passiva 9; scurovisione 18 m
+**Lingue** Abissale; telepatia 18 m (funziona solo con
 
-***Esplosione Eldritch.*** *Tiro per colpire in mischia o a distanza:* +12, portata 1,5 m o gittata 36 m. 31 (4d12 + 5) danni da forza.
+le creature che capiscono l'Abissale)
+**GS** 1/4 (PE 50; BC +2)
 
-***Tocco Paralizzante.*** *Tiro per colpire in mischia:* +12, portata 1,5 m. 15 (3d6 + 5) danni da freddo, e il bersaglio ha la condizione Paralizzato fino all’inizio del prossimo turno del lich.
+Azioni
 
-***Incantesimi.*** Il lich lancia uno dei seguenti incantesimi, usando Intelligenza come caratteristica da incantatore (CD 20):
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +3, portata 1,5 m.
+_Colpito:_ 4 (1d6 + 1) danni taglienti.
 
-- **A volontà:** *Rilevare Magia*, *Rilevare Pensieri*, *Dissolvi Magie*, *Palla di Fuoco*, *Invisibilità*, *Dardo Incantato*, *Mano Magica*, *Prestidigitazione*
-- **2/giorno ciascuno:** *Animare Morti*, *Porta Dimensionale*, *Spostamento Planare*
-- **1/giorno ciascuno:** *Catena di Fulmini*, *Dito della Morte*, *Parola del Potere: Uccidere*, *Chiaroveggenza a Distanza*
+_**Nube fetida (1/giorno)**_ _Tiro salvezza su Costituzione:_
+CD 11, tutte le creature in un'emanazione di 3 metri di
+cui il dretch è il punto di origine. _Fallimento:_ il bersaglio
+è avvelenato fino al termine del proprio turno successivo. Finché è avvelenata, la creatura può effettuare
+nel suo turno un'azione o un'azione bonus, ma non
+entrambe, e non può effettuare reazioni.
+## **Driade**
+### **Driade**
 
-### Reazioni
+_Folletto Medio, neutrale_
 
-***Magia Protettiva.*** Il lich lancia *Controincantesimo* o *Scudo* in risposta al relativo innesco, usando la stessa caratteristica da incantatore di Incantesimi.
 
-### Azioni Leggendarie
+**CA** 16 **Iniziativa** +1 (11)
+**PF** 22 (5d8)
+**Velocità** 9 m
 
-***Teletrasporto Mortifero.*** Il lich si teletrasporta fino a 18 m in uno spazio non occupato che vede, e ogni creatura entro 3 m dallo spazio che ha lasciato subisce 11 (2d10) danni necrotici.
 
-***Disturbo della Vita.*** *Tiro Salvezza su Costituzione*: CD 20, da parte di ogni creatura non Non Morta in un’Emanazione di 6 m originata dal lich. *Fallimento:* 31 (9d6) danni necrotici. *Successo:* metà danni. *Fallimento o Successo:* il lich non può riutilizzare questa azione fino all’inizio del suo prossimo turno.
+**Abilità** Furtività +5, Percezione +4
+**Sensi** Percezione passiva 14; scurovisione 18 m
+**Lingue** Elfico, Silvano
+**GS** 1 (PE 200; BC +2)
 
-***Sguardo Terrificante.*** Il lich lancia *Paura*, usando la stessa caratteristica da incantatore di Incantesimi. Il lich non può riutilizzare questa azione fino all’inizio del suo prossimo turno.
+Tratti
 
----
+_**Parlare con bestie e vegetali.**_ La driade può comunicare con le bestie e i vegetali come se condividesse
+con loro una lingua.
 
-## Mago
+_**Resistenza alla magia.**_ La driade dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
 
-*Umanoide Piccolo, Neutrale*
+Azioni
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 81 (18d8)
-- **Velocità:** 9 m
-- **Iniziativa**: +2 (12)
+_**Multiattacco.**_ La driade effettua un attacco Sferzata di
+rampicante o Esplosione di spine, e può usare Incantesimi per lanciare _charme sui mostri_ .
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 9  | -1 | -1 |
-| DES | 14 | +2 | +2 |
-| COS | 11 | +0 | +0 |
-| INT | 17 | +3 | +6 |
-| SAG | 12 | +1 | +4 |
-| CAR | 11 | +0 | +0 |
+_**Sferzata di rampicante.**_ _Tiro per colpire in mischia:_ +6,
+portata 3 m. _Colpito:_ 8 (1d8 + 4) danni taglienti.
 
-- **Abilità**: Arcana +6, Storia +6, Percezione +4
-- **Equipaggiamento**: Bacchetta
-- **Sensi**: Percezione Passiva 14
-- **Linguaggi**: Comune e altre tre lingue
-- **GS** 6 (PE 2.300; PB +3)
+_**Esplosione di spine.**_ _Tiro per colpire a distanza:_ +6,
+gittata 18 m. _Colpito:_ 7 (1d6 + 4) danni perforanti.
 
-### Azioni
+_**Incantesimi.**_ La driade lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
 
-***Attacco Multiplo.*** Il mago effettua tre attacchi di Esplosione Arcana.
 
-***Esplosione Arcana.*** *Tiro per colpire in mischia o a distanza:* +6, portata 1,5 m o gittata 36 m. 16 (3d8 + 3) danni da forza.
+**329** System Reference Document 5.2.1
 
-***Incantesimi.*** Il mago lancia uno dei seguenti incantesimi, usando Intelligenza come caratteristica da incantatore (CD 14):
 
-- **A volontà:** *Rilevare Magia*, *Luce*, *Armatura Magica*, *Mano Magica*, *Prestidigitazione*
-- **2/giorno ciascuno:** *Palla di Fuoco*, *Invisibilità*
-- **1/giorno ciascuno:** *Cono di Freddo*, *Volare*
 
-### Azioni Bonus
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 14):
 
-***Passo Velato (3/giorno).*** Il mago lancia *Passo Velato*, usando la stessa caratteristica da incantatore di Incantesimi.
+**1/giorno ciascuno:** _Intralciare_, _passare senza tracce_
+**A volontà:** _Amicizia con gli animali_, _artificio druidico_,
 
-### Reazioni
+_charme sui mostri (dura 24 ore; termina in anticipo se_
+_la driade lancia nuovamente l'incantesimo)_
 
-***Magia Protettiva (3/giorno).*** Il mago lancia *Controincantesimo* o *Scudo* in risposta al relativo innesco, usando la stessa caratteristica da incantatore di Incantesimi.
+Azioni bonus
 
----
+_**Passo arboreo.**_ Se si trova entro 1,5 metri da un albero
+di taglia Grande o superiore, la driade si teletrasporta in
+uno spazio libero entro 1,5 metri da un secondo albero
+di taglia Grande o superiore che si trova entro 18 metri
+dall'altro albero.
+## **Drider**
+### **Drider**
 
-## Mephit di Magma
+_Mostruosità Grande, caotico malvagio_
 
-*Elementale Piccolo, Neutrale Malvagio*
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 18 (4d6 + 4)
-- **Velocità:** 9 m, volo 9 m
-- **Iniziativa**: +1 (11)
+**CA** 19 **Iniziativa** +4 (14)
+**PF** 123 (13d10 + 52)
+**Velocità** 9 m, scalata 9 m
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 8  | -1 | -1 |
-| DES | 12 | +1 | +1 |
-| COS | 12 | +1 | +1 |
-| INT | 7  | -2 | -2 |
-| SAG | 10 | +0 | +0 |
-| CAR | 10 | +0 | +0 |
 
-- **Vulnerabilità**: Freddo
-- **Immunità**: Fuoco, Veleno; Affaticamento, Avvelenato
-- **Abilità**: Furtività +3
-- **Sensi**: scurovisione 18 m; Percezione Passiva 10
-- **Linguaggi**: Primordiale (Ignan, Terran)
-- **GS** 1/2 (PE 100; PB +2)
+**Abilità** Furtività +10, Percezione +6
+**Sensi** Percezione passiva 16; scurovisione 36 m
+**Lingue** Elfico, Sottocomune
+**GS** 6 (PE 2.300; BC +3)
 
-### Tratti
+Tratti
 
-***Esplosione di Morte.*** Il mephit esplode quando muore. *Tiro Salvezza su Destrezza*: CD 11, da parte di ogni creatura in un’Emanazione di 1,5 m originata dal mephit. *Fallimento:* 7 (2d6) danni da fuoco. *Successo:* metà danni.
+_**Andatura sulla ragnatela.**_ Il drider ignora le restrizioni
+di movimento causate dalle ragnatele e conosce l'ubicazione esatta di ogni altra creatura a contatto con la
+stessa ragnatela.
 
-### Azioni
+_**Movimenti del ragno.**_ Il drider può scalare le superfici
+difficili, compresi i soffitti, senza effettuare una prova di
+caratteristica.
 
-***Artigli.*** *Tiro per colpire in mischia:* +3, portata 1,5 m. 3 (1d4 + 1) danni taglienti più 3 (1d6) danni da fuoco.
+_**Sensibilità al sole.**_ Finché è esposto alla luce del sole,
+il drider subisce svantaggio alle prove di caratteristica
+e ai tiri per colpire.
 
-***Soffio di Fuoco (Ricarica 6).*** *Tiro Salvezza su Destrezza*: CD 11, da parte di ogni creatura in un Cono di 4,5 m. *Fallimento:* 7 (2d6) danni da fuoco. *Successo:* metà danni.
+Azioni
 
----
+_**Multiattacco.**_ Il drider effettua tre attacchi, usando
+Zampa anteriore o Esplosione di veleno in qualsiasi
+combinazione.
 
-## Magmin
+_**Zampa anteriore.**_ _Tiro per colpire in mischia:_ +7, portata 3 m. _Colpito:_ 13 (2d8 + 4) danni perforanti.
 
-*Elementale Piccolo, Caotico Neutrale*
+_**Esplosione di veleno.**_ _Tiro per colpire a distanza:_ +6,
+gittata 36 m. _Colpito:_ 13 (3d6 + 3) danni da veleno.
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 13 (3d6 + 3)
-- **Velocità:** 9 m
-- **Iniziativa**: +2 (12)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 7  | -2 | -2 |
-| DES | 15 | +2 | +2 |
-| COS | 12 | +1 | +1 |
-| INT | 8  | -1 | -1 |
-| SAG | 11 | +0 | +0 |
-| CAR | 10 | +0 | +0 |
 
-- **Immunità**: Fuoco
-- **Sensi**: scurovisione 18 m; Percezione Passiva 10
-- **Linguaggi**: Primordiale (Ignan)
-- **GS** 1/2 (PE 100; PB +2)
 
-### Tratti
+Azioni bonus
 
-***Esplosione di Morte.*** Il magmin esplode quando muore. *Tiro Salvezza su Destrezza*: CD 11, da parte di ogni creatura in un’Emanazione di 3 m originata dal magmin. *Fallimento:* 7 (2d6) danni da fuoco. *Successo:* metà danni.
+_**Magia della Regina Ragno (ricarica 5–6).**_ Il drider lancia _luminescenza_, _oscurità_       - _ragnatela_, senza bisogno
+di componenti materiali e utilizzando Saggezza come
+caratteristica da incantatore (CD del tiro salvezza
+­sull'incantesimo 14).
+## **Druido**
+### **Druido**
 
-### Azioni
+_Umanoide Medio o Piccolo (druido), neutrale_
 
-***Tocco.*** *Tiro per colpire in mischia:* +4, portata 1,5 m. 7 (2d4 + 2) danni da fuoco. Se il bersaglio è una creatura o un oggetto infiammabile non indossato o trasportato, prende fuoco.
 
-### Azioni Bonus
+**CA** 13 **Iniziativa** +1 (11)
+**PF** 44 (8d8 + 8)
+**Velocità** 9 m
 
-***Illuminazione Ardente.*** Il magmin si dà fuoco o estingue le proprie fiamme. Mentre è in fiamme, emette Luce Intensa in un raggio di 3 m e Luce Fioca per ulteriori 3 m.
 
-## Manticora
+**Abilità** Medicina +5, Natura +3, Percezione +5
+**Attrezzatura** armatura di cuoio borchiato
+**Sensi** Percezione passiva 15
+**Lingue** Comune, Druidico, Silvano
+**GS** 2 (PE 450; BC +2)
 
-*Mostruosità Grande, Legale Malvagia*
+Azioni
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 68 (8d10 + 24)
-- **Velocità:** 9 m, volo 15 m
-- **Iniziativa**: +3 (13)
+_**Multiattacco.**_ Il druido effettua due attacchi, usando
+Bastone di rampicanti o Bagliore verdeggiante in qualsiasi combinazione.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 17 | +3 | +3 |
-| DES | 16 | +3 | +3 |
-| COS | 17 | +3 | +3 |
-| INT | 7  | -2 | -2 |
-| SAG | 12 | +1 | +1 |
-| CAR | 8  | -1 | -1 |
+_**Bastone di rampicanti.**_ _Tiro per colpire in mischia:_ +5,
+portata 1,5 m _Colpito:_ 7 (1d8 + 3) danni contundenti
+più 2 (1d4) danni da veleno.
 
-- **Sensi**: scurovisione 18 m; Percezione Passiva 11
-- **Linguaggi**: Comune
-- **GS** 3 (PE 700; PB +2)
+_**Bagliore verdeggiante.**_ _Tiro per colpire a distanza:_ +5,
+gittata 27 m. _Colpito:_ 10 (3d6) danni radiosi.
 
-### Azioni
+_**Incantesimi.**_ Il druido lancia uno dei seguenti incantesimi, utilizzando Saggezza come caratteristica da
+incantatore (CD del tiro salvezza sull'incantesimo 13):
 
-***Attacco Multiplo.*** La manticora effettua tre attacchi, usando Artigliata o Dardo di Coda in qualsiasi combinazione.
+**1/giorno ciascuno:** animale messaggero _,_ bagliore
 
-***Artigliata.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni taglienti.
+lunare _,_ passo veloce
+**2/giorno ciascuno:** intralciare _,_ onda tonante
+**A volontà:** artificio druidico _,_ parlare con gli animali
+## **Efreeti**
+### **Efreeti**
 
-***Dardo di Coda.*** *Tiro per colpire a distanza:* +5, gittata 30/60 m. 7 (1d8 + 3) danni perforanti.
+_Elementale Grande (genio), neutrale_
 
----
 
-## Marilith
+**CA** 17 **Iniziativa** +1 (11)
+**PF** 212 (17d10 + 119)
+**Velocità** 12 m, volo 18 m (fluttuare)
 
-*Immonda Grande (Demone), Caotica Malvagia*
 
-- **Classe Armatura:** 16
-- **Punti Ferita:** 220 (21d10 + 105)
-- **Velocità:** 12 m, scalare 12 m
-- **Iniziativa**: +10 (20)
+**330** System Reference Document 5.2.1
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +9 |
-| DES | 20 | +5 | +5 |
-| COS | 20 | +5 | +10 |
-| INT | 18 | +4 | +4 |
-| SAG | 16 | +3 | +8 |
-| CAR | 20 | +5 | +10 |
 
-- **Resistenze**: Freddo, Fuoco, Fulmine
-- **Immunità**: Veleno; Avvelenato
-- **Abilità**: Percezione +8
-- **Sensi**: vista vera 36 m; Percezione Passiva 18
-- **Linguaggi**: Abissale; telepatia 36 m
-- **GS** 16 (PE 15.000; PB +5)
 
-### Tratti
+**Immunità** fuoco
+**Sensi** Percezione passiva 12; scurovisione 36 m
+**Lingue** Primordiale (Ignan)
+**GS** 11 (PE 7.200; BC +4)
 
-***Restaurazione Demoniaca.*** Se la marilith muore al di fuori dell'Abisso, il suo corpo si dissolve in icore e ottiene subito un nuovo corpo, rianimandosi con tutti i suoi Punti Ferita da qualche parte nell'Abisso.
+Tratti
 
-***Resistenza alla Magia.*** La marilith ha vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
+_**Desideri.**_ L'efreeti ha una probabilità del 30% di conoscere l'incantesimo _desiderio_ . Se l'efreeti lo conosce,
+può lanciarlo solo per conto di una creatura diversa da
+un genio che comunica un desiderio in un modo che
+l'efreeti è in grado di comprendere. Se l'efreeti lancia
+l'incantesimo per conto della creatura, non subisce
+alcuna conseguenza derivante dal lancio dell'incantesimo. Una volta che l'efreeti l'ha lanciato tre volte, non
+può farlo di nuovo per 365 giorni.
 
-***Reattiva.*** La marilith può compiere una Reazione in ogni turno del combattimento.
+_**Resistenza alla magia.**_ L'efreeti dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
 
-### Azioni
+_**Ristoro elementale.**_ Se l'efreeti muore al di fuori del
+Piano Elementale del Fuoco, il suo corpo si dissolve
+in cenere ed esso ne acquisisce uno nuovo dopo 1d4
+giorni, tornando in vita con tutti i suoi punti ferita da
+qualche parte sul Piano Elementale del Fuoco.
 
-***Attacco Multiplo.*** La marilith effettua sei attacchi con la Lama del Patto e usa Stritolare.
+Azioni
 
-***Lama del Patto.*** *Tiro per colpire in mischia:* +10, portata 1,5 m. 10 (1d10 + 5) danni taglienti più 7 (2d6) danni necrotici.
+_**Multiattacco.**_ L'efreeti effettua tre attacchi, usando
+Lama cocente o Scagliare fiamma in qualsiasi
+combinazione.
 
-***Stritolare.*** *Tiro Salvezza su Forza*: CD 17, una creatura Media o più piccola che la marilith può vedere entro 1,5 m. *Fallimento:* 15 (2d10 + 4) danni contundenti. Il bersaglio ha la condizione Afferrato (CD 14 per liberarsi) e la condizione Immobilizzato finché la presa dura.
+_**Lama cocente.**_ _Tiro per colpire in mischia:_ +10,
+portata 1,5 m. _Colpito:_ 13 (2d6 + 6) danni taglienti più
+13 (2d12) danni da fuoco.
 
-### Azioni Bonus
+_**Scagliare fiamma.**_ _Tiro per colpire a distanza:_ +8,
+gittata 36 m. _Colpito:_ 24 (7d6) danni da fuoco.
 
-***Teletrasporto (Ricarica 5–6).*** La marilith si teletrasporta fino a 36 m in uno spazio non occupato che può vedere.
+_**Incantesimi.**_ L'efreeti lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 16):
 
----
+**1/giorno ciascuno:** _forma gassosa_, _immagine maggiore_,
 
-## Medusa
+_invisibilità_, _linguaggi_, _muro di fuoco_ (di 7º livello), _spo-_
+_stamento planare_
+**A volontà:** _elementalismo_, _individuazione del magico_
+## **Elementale del fuoco**
+### **Elementale del fuoco**
 
-*Mostruosità Media, Legale Malvagia*
+_Elementale Grande, neutrale_
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 127 (17d8 + 51)
-- **Velocità:** 9 m
-- **Iniziativa**: +6 (16)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 10 | +0 | +0 |
-| DES | 17 | +3 | +3 |
-| COS | 16 | +3 | +3 |
-| INT | 12 | +1 | +1 |
-| SAG | 13 | +1 | +4 |
-| CAR | 15 | +2 | +2 |
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 93 (11d10 + 33)
+**Velocità** 15 m
 
-- **Abilità**: Inganno +5, Percezione +4, Furtività +6
-- **Sensi**: scurovisione 45 m; Percezione Passiva 14
-- **Linguaggi**: Comune più un'altra lingua
-- **GS** 6 (PE 2.300; PB +3)
 
-### Azioni
 
-***Attacco Multiplo.*** La medusa effettua due attacchi di Artigliata e uno di Capelli di Serpente, oppure tre attacchi con Raggio Velenoso.
 
-***Artigliata.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 10 (2d6 + 3) danni taglienti.
+**Resistenze** contundente, perforante, tagliente
+**Immunità** fuoco, veleno; afferrato, avvelenato,
 
-***Capelli di Serpente.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 5 (1d4 + 3) danni perforanti più 14 (4d6) danni da veleno.
+indebolimento, paralizzato, pietrificato, privo di sensi,
+prono, trattenuto
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** Primordiale (Ignan)
+**GS** 5 (PE 1.800; BC +3)
 
-***Raggio Velenoso.*** *Tiro per colpire a distanza:* +5, gittata 45 m. 11 (2d8 + 2) danni da veleno.
+Tratti
 
-### Azioni Bonus
+_**Aura di fuoco.**_ Alla fine di ogni turno dell'elementale,
+tutte le creature in un'emanazione di 3 metri di cui
+­l'elementale è il punto di origine subiscono 5 (1d10)
+danni da fuoco. Le creature e gli oggetti infiammabili
+che si trovano nell'emanazione iniziano a bruciare.
 
-***Sguardo Pietrificante (Ricarica 5–6).*** *Tiro Salvezza su Costituzione*: CD 13, ogni creatura in un cono di 9 m. Se la medusa vede il proprio riflesso nel cono, deve effettuare anch’essa il TS. *Primo Fallimento:* il bersaglio ha la condizione Immobilizzato e ripete il TS alla fine del suo turno se è ancora Immobilizzato, terminando l’effetto su se stesso in caso di successo. *Secondo Fallimento:* il bersaglio ottiene la condizione Pietrificato al posto di Immobilizzato.
+_**Forma di fuoco.**_ L'elementale può muoversi attraverso
+uno spazio stretto fino a 2,5 centimetri senza consumare movimento extra per farlo, e può entrare nello
+spazio di una creatura e fermarvisi. La prima volta che
+entra nello spazio di una creatura in un turno, quella
+creatura subisce 5 (1d10) danni da fuoco.
 
----
+_**Illuminazione.**_ L'elementale emana luce intensa in
+un raggio di 9 metri e luce fioca per altri 9 metri.
 
-## Guerrigliero Tritone
+_**Suscettibilità all'acqua.**_ Per ogni 1,5 metri di cui l'elementale si muove nell'acqua o per ogni 4 litri d'acqua
+versatigli addosso, l'elementale subisce 3 (1d6) danni da
+freddo.
 
-*Elementale Medio, Neutrale*
+Azioni
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 11 (2d8 + 2)
-- **Velocità:** 3 m, nuoto 12 m
-- **Iniziativa**: +1 (11)
+_**Multiattacco.**_ L'elementale effettua due attacchi
+Bruciatura.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 10 | +0 | +0 |
-| DES | 13 | +1 | +1 |
-| COS | 12 | +1 | +1 |
-| INT | 11 | +0 | +0 |
-| SAG | 14 | +2 | +2 |
-| CAR | 12 | +1 | +1 |
+_**Bruciatura.**_ _Tiro per colpire in mischia:_ +6, portata
+1,5 m _Colpito:_ 10 (2d6 + 3) danni da fuoco. Se il bersaglio è una creatura o un oggetto infiammabile, inizia
+a bruciare.
+## **Elementale dell'acqua**
+### **Elementale dell'acqua**
 
-- **Sensi**: Percezione Passiva 12
-- **Linguaggi**: Comune, Primordiale (Aquan)
-- **GS** 1/8 (PE 25; PB +2)
+_Elementale Grande, neutrale_
 
-### Tratti
 
-***Anfibio.*** Il tritone può respirare aria e acqua.
+**CA** 14 **Iniziativa** +2 (12)
+**PF** 114 (12d10 + 48)
+**Velocità** 9 m, nuoto 27 m
 
-### Azioni
 
-***Lancia Oceanica.*** *Tiro per colpire in mischia o a distanza:* +2, portata 1,5 m o gittata 6/18 m. 3 (1d6) danni perforanti più 2 (1d4) danni da freddo. Se il bersaglio è una creatura, la sua velocità si riduce di 3 m fino alla fine del suo prossimo turno. La lancia ritorna magicamente alla mano del tritone subito dopo un attacco a distanza.
+**Resistenze** acido, fuoco
+**Immunità** veleno; afferrato, avvelenato, indebolimento,
 
-## Merrow
+paralizzato, pietrificato, privo di sensi, prono, trattenuto
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** Primordiale (Aquan)
+**GS** 5 (PE 1.800; BC +3)
 
-*Mostruosità Grande, Caotica Malvagia*
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 45 (6d10 + 12)
-- **Velocità:** 3 m, nuoto 12 m
-- **Iniziativa**: +2 (12)
+**331** System Reference Document 5.2.1
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 15 | +2 | +2 |
-| COS | 15 | +2 | +2 |
-| INT | 8  | -1 | -1 |
-| SAG | 10 | +0 | +0 |
-| CAR | 9  | -1 | -1 |
 
-- **Sensi**: scurovisione 18 m; Percezione Passiva 10
-- **Linguaggi**: Abissale, Primordiale (Aquan)
-- **GS** 2 (PE 450; PB +2)
 
-### Tratti
+Tratti
 
-***Anfibio.*** Il merrow può respirare aria e acqua.
+_**Congelamento.**_ Se l'elementale subisce danni da
+freddo, la sua velocità è ridotta di 6 metri fino al termine del suo turno successivo.
 
-### Azioni
+_**Forma d'acqua.**_ L'elementale può entrare nello spazio
+di un nemico e fermarvisi. Può muoversi attraverso uno
+spazio stretto fino a 2,5 centimetri senza consumare
+movimento extra per farlo.
 
-***Attacco Multiplo.*** Il merrow effettua due attacchi, usando Morso, Artiglio o Arpione in qualsiasi combinazione.
+Azioni
 
-***Morso.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 6 (1d4 + 4) danni perforanti, e il bersaglio ha la condizione Avvelenato fino alla fine del prossimo turno del merrow.
+_**Multiattacco.**_ L'elementale effettua due attacchi
+Schianto.
 
-***Artiglio.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 9 (2d4 + 4) danni taglienti.
+_**Schianto.**_ _Tiro per colpire_ _in mischia:_ +7, portata 1,5 m.
+_Colpito:_ 13 (2d8 + 4) danni contundenti. Se il bersaglio
+è una creatura di taglia Media o inferiore, cade a terra
+prono.
 
-***Arpione.*** *Tiro per colpire in mischia o a distanza:* +6, portata 1,5 m o gittata 6/18 m. 11 (2d6 + 4) danni perforanti. Se il bersaglio è una creatura Grande o più piccola, il merrow lo tira fino a 4,5 m verso di sé.
+_**Sommergere (ricarica 4–6).**_ _Tiro salvezza su Forza:_
+CD 15, ogni creatura nello spazio dell'elementale.
+_Fallimento:_ 22 (4d8 + 4) danni contundenti. Se il
+bersaglio è una creatura di taglia Grande o inferiore, è
+afferrato (CD 14 per sfuggire). Finché la presa perdura,
+il bersaglio è trattenuto e soffoca (a meno che non sia
+in grado di respirare sott'acqua) e subisce 9 (2d8) danni
+contundenti all'inizio di ogni turno dell'elementale.
+Tramite Sommergere, l'elementale può afferrare una
+creatura di taglia Grande o un massimo di due creature
+di taglia Media o inferiore contemporaneamente. Con
+un'azione, una creatura entro 1,5 metri dall'elementale
+può tirare una creatura fuori da esso superando una
+prova di Forza (Atletica) con CD 14. _Successo:_ danni
+dimezzati.
+## **Elementale dell'aria**
+### **Elementale dell'aria**
 
----
+_Elementale Grande, neutrale_
 
-## Mimic
 
-*Mostruosità Media, Neutrale*
+**CA** 15 **Iniziativa** +5 (15)
+**PF** 90 (12d10 + 24)
+**Velocità** 3 m, volo 27 m (fluttuare)
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 58 (9d8 + 18)
-- **Velocità:** 6 m
-- **Iniziativa**: +3 (13)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 17 | +3 | +3 |
-| DES | 12 | +1 | +1 |
-| COS | 15 | +2 | +2 |
-| INT | 5  | -3 | -3 |
-| SAG | 13 | +1 | +1 |
-| CAR | 8  | -1 | -1 |
+**Resistenze** contundente, fulmine, perforante, tagliente
+**Immunità** tuono, veleno; afferrato, avvelenato,
 
-- **Immunità**: Acido; Prono
-- **Abilità**: Furtività +5
-- **Sensi**: scurovisione 18 m; Percezione Passiva 11
-- **GS** 2 (PE 450; PB +2)
+indebolimento, paralizzato, pietrificato, privo di sensi,
+prono, trattenuto
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** Primordiale (Auran)
+**GS** 5 (PE 1.800; BC +3)
 
-### Tratti
 
-***Adesivo (solo in forma di oggetto).*** Il mimic aderisce a tutto ciò che lo tocca. Una creatura Enorme o più piccola aderente al mimic ha la condizione Afferrato (CD 13 per liberarsi). Le prove di caratteristica per liberarsi da questa presa hanno svantaggio.
 
-### Azioni
 
-***Morso.*** *Tiro per colpire in mischia:* +5 (con vantaggio se il bersaglio è afferrato dal mimic), portata 1,5 m. 7 (1d8 + 3) danni perforanti—oppure 12 (2d8 + 3) danni perforanti se il bersaglio è afferrato dal mimic—più 4 (1d8) danni da acido.
+Tratti
 
-***Pseudopodio.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) danni contundenti più 4 (1d8) danni da acido. Se il bersaglio è una creatura Grande o più piccola, ha la condizione Afferrato (CD 13 per liberarsi). Le prove di caratteristica per liberarsi da questa presa hanno svantaggio.
+_**Forma d'aria.**_ L'elementale può entrare nello spazio di
+una creatura e fermarvisi. Può muoversi attraverso uno
+spazio stretto fino a 2,5 centimetri senza consumare
+movimento extra per farlo.
 
-### Azioni Bonus
+Azioni
 
-***Mutare Forma.*** Il mimic muta forma per assomigliare a un oggetto Medio o Piccolo mantenendo le proprie statistiche, oppure ritorna alla sua forma reale di blob. Qualsiasi equipaggiamento che indossa o trasporta non viene trasformato.
+_**Multiattacco.**_ L'elementale effettua due attacchi
+Schianto tonante.
 
----
+_**Schianto tonante.**_ _Tiro per colpire in mischia:_ +8, portata 3 m. _Colpito:_ 14 (2d8 + 5) danni da tuono.
 
-## Minotauro di Baphomet
+_**Vortice (ricarica 4–6).**_ _Tiro salvezza su Forza:_ CD 13,
+una creatura di taglia Media o inferiore nello spazio
+dell'elementale. _Fallimento:_ 24 (4d10 + 2) danni da
+tuono, il bersaglio viene spinto fino a un massimo
+di 6 metri di distanza dall'elementale e cade a terra
+prono. _Successo:_ danni dimezzati.
+## **Elementale della terra**
+### **Elementale della terra**
 
-*Mostruosità Grande, Caotica Malvagia*
+_Elementale Grande, neutrale_
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 85 (10d10 + 30)
-- **Velocità:** 12 m
-- **Iniziativa**: +0 (10)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 11 | +0 | +0 |
-| COS | 16 | +3 | +3 |
-| INT | 6  | -2 | -2 |
-| SAG | 16 | +3 | +3 |
-| CAR | 9  | -1 | -1 |
+**CA** 17 **Iniziativa** −1 (9)
+**PF** 147 (14d10 + 70)
+**Velocità** 9 m, scavo 9 m
 
-- **Abilità**: Percezione +7, Sopravvivenza +7
-- **Sensi**: scurovisione 18 m; Percezione Passiva 17
-- **Linguaggi**: Abissale
-- **GS** 3 (PE 700; PB +2)
 
-### Azioni
+**Vulnerabilità** tuono
+**Immunità** veleno; avvelenato, indebolimento, paralizzato,
 
-***Alabarda Abissale.*** *Tiro per colpire in mischia:* +6, portata 3 m. 10 (1d12 + 4) danni taglienti più 10 (3d6) danni necrotici.
+pietrificato, privo di sensi
+**Sensi** Percezione passiva 10; percezione tellurica 18 m,
 
-***Incornata (Ricarica 5–6).*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 18 (4d6 + 4) danni perforanti. Se il bersaglio è una creatura Grande o più piccola e il minotauro si è mosso di almeno 3 m dritto verso di esso immediatamente prima di colpirlo, il bersaglio subisce 10 (3d6) danni perforanti extra e ottiene la condizione Prono.
+scurovisione 18 m
+**Lingue** Primordiale (Terran)
+**GS** 5 (PE 1.800; BC +3)
 
----
+Tratti
 
-## Scheletro di Minotauro
+_**Mostro da assedio.**_ L'elementale infligge danni doppi
+a oggetti e strutture.
 
-*Non Morto Grande, Legale Malvagio*
+_**Scivolare nella terra.**_ L'elementale può scavare attraverso la terra e la pietra non magiche e non lavorate,
+senza disturbare il materiale attraverso cui si muove.
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 45 (6d10 + 12)
-- **Velocità:** 12 m
-- **Iniziativa**: +0 (10)
+Azioni
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 11 | +0 | +0 |
-| COS | 15 | +2 | +2 |
-| INT | 6  | -2 | -2 |
-| SAG | 8  | -1 | -1 |
-| CAR | 5  | -3 | -3 |
+_**Multiattacco.**_ L'elementale effettua due attacchi,
+usando Schianto o Lancio di roccia in qualsiasi
+combinazione.
 
-- **Vulnerabilità**: Contundente
-- **Immunità**: Veleno; Affaticato, Avvelenato
-- **Sensi**: scurovisione 18 m; Percezione Passiva 9
-- **Linguaggi**: Comprende l'Abissale ma non può parlare
-- **GS** 2 (PE 450; PB +2)
+_**Schianto.**_ _Tiro per colpire in mischia:_ +8, portata 3 m.
+_Colpito:_ 14 (2d8 + 5) danni contundenti.
 
-### Azioni
+_**Lancio di roccia.**_ _Tiro per colpire a distanza:_ +8, gittata
+18 m. _Colpito:_ 8 (1d6 + 5) danni contundenti. Se il
+bersaglio è una creatura di taglia Grande o inferiore,
+cade a terra prono.
 
-***Incornata.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 11 (2d6 + 4) danni perforanti. Se il bersaglio è una creatura Grande o più piccola e lo scheletro si è mosso di almeno 6 m dritto verso di esso immediatamente prima di colpirlo, il bersaglio subisce 9 (2d8) danni perforanti extra e ottiene la condizione Prono.
 
-***Schianto.*** *Tiro per colpire in mischia:* +6, portata 1,5 m. 15 (2d10 + 4) danni contundenti.
+**332** System Reference Document 5.2.1
 
-## Signore delle Mummie
 
-*Non Morto Piccolo, Legale Malvagio*
+## **Erinni**
+### **Erinni**
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 187 (25d8 + 75)
-- **Velocità:** 9 m
-- **Iniziativa**: +4 (14)
+_Immondo Medio (diavolo), legale malvagio_
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 10 | +0 | +0 |
-| COS | 17 | +3 | +3 |
-| INT | 11 | +0 | +5 |
-| SAG | 19 | +4 | +9 |
-| CAR | 16 | +3 | +3 |
 
-- **Vulnerabilità**: Fuoco
-- **Immunità**: Necrotico, Veleno; Affascinato, Affaticato, Spaventato, Paralizzato, Avvelenato
-- **Abilità**: Storia +5, Percezione +9, Religione +5
-- **Sensi**: vista vera 18 m; Percezione Passiva 19
-- **Linguaggi**: Comune più altre tre lingue
-- **GS** 15 (PE 13.000; o 15.000 nella tana)
+**CA** 18 **Iniziativa** +7 (17)
+**PF** 178 (21d8 + 84)
+**Velocità** 9 m, volo 18 m
 
-### Tratti
 
-***Resistenza Leggendaria (3/giorno, o 4/giorno nella tana).*** Se la mummia fallisce un tiro salvezza, può scegliere di riuscire al suo posto.
+**Abilità** Percezione +6, Persuasione +8
+**Resistenze** freddo
+**Immunità** fuoco, veleno; avvelenato
+**Sensi** Percezione passiva 16; vista pura 36 m
+**Lingue** Infernale; telepatia 36 m
+**GS** 12 (PE 8.400; BC +4)
 
-***Resistenza alla Magia.*** La mummia ha vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
+Tratti
 
-***Restaurazione Non Morta.*** Se distrutta, la mummia ottiene un nuovo corpo dopo 24 ore se il suo cuore è intatto, rianimandosi con tutti i suoi Punti Ferita. Il nuovo corpo appare in uno spazio non occupato all’interno della tana della mummia. Il cuore è un oggetto Minuscolo con CA 17, PF 10 e Immunità a tutti i danni tranne il Fuoco.
+_**Corda magica.**_ L'erinni possiede una corda magica.
+Finché la porta con sé, può usare l'azione Corda avvinghiante. La corda ha CA 20, 90 PF, e immunità ai danni
+psichici e da veleno. La corda si trasforma in polvere
+se viene ridotta a 0 punti ferita, se si trova a 1,5 metri
 
-### Azioni
+- più dall'erinni per 1 ora o più, o se l'erinni muore. Se la
+corda è danneggiata o distrutta, l'erinni può ripristinarla
+interamente al termine di un riposo breve o lungo.
 
-***Attacco Multiplo.*** La mummia effettua un attacco Pugno Putrescente o Canalizzare Energia Negativa, e usa Sguardo Terrificante.
+_**Resistenza alla magia.**_ L'erinni dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
 
-***Pugno Putrescente.*** *Tiro per colpire in mischia:* +9, portata 1,5 m. 15 (2d10 + 4) danni contundenti più 10 (3d6) danni necrotici. Se il bersaglio è una creatura, è maledetto. Finché è maledetto, il bersaglio non può recuperare Punti Ferita, non ottiene benefici dal terminare un Riposo Lungo e il suo massimo di Punti Ferita diminuisce di 10 (3d6) ogni 24 ore che passano. Una creatura muore e si riduce in polvere se viene portata a 0 PF da questo attacco.
+_**Ristoro diabolico.**_ Se l'erinni muore al di fuori dei Nove
+Inferi, il suo corpo si dissolve in fumo sulfureo ed essa
+ne acquisisce uno nuovo all'istante, tornando in vita
+con tutti i suoi punti ferita da qualche parte nei Nove
+Inferi.
 
-***Canalizzare Energia Negativa.*** *Tiro per colpire a distanza:* +9, gittata 18 m. 25 (6d6 + 4) danni necrotici.
+Azioni
 
-***Sguardo Terrificante.*** *Tiro Salvezza su Saggezza*: CD 17, una creatura che la mummia può vedere entro 18 m. *Fallimento:* 25 (6d6 + 4) danni psichici, e il bersaglio ha la condizione Paralizzato fino alla fine del prossimo turno della mummia.
+_**Multiattacco.**_ L'erinni effettua tre attacchi Spada inaridente e può usare Corda avvinghiante.
 
-***Incantesimi.*** La mummia lancia uno dei seguenti incantesimi, senza componenti materiali e usando Saggezza come caratteristica da incantatore (CD 17 ai TS, +9 ai tiri per colpire con gli attacchi con incantesimi):
+_**Spada inaridente.**_ _Tiro per colpire in mischia:_ +8,
+portata 1,5 m. _Colpito:_ 13 (2d8 + 4) danni taglienti più
+11 (2d10) danni necrotici.
 
-- **A volontà:** *Dissolvi Magie*, *Taumaturgia*
-- **1/giorno ciascuno:** *Animare Morti*, *Danno*, *Sciame di Insetti*
+_**Corda avvinghiante (richiede Corda magica).**_ _Tiro_
+_salvezza su Forza:_ CD 16, una creatura che l'erinni è
+in grado di vedere entro 36 metri. _Fallimento:_ 14 (4d6)
+danni da forza, e il bersaglio è trattenuto finché
+la corda non viene distrutta, finché l'erinni non usa
+­un'azione bonus per liberare il bersaglio, o finché
+­l'erinni non usa nuovamente Corda avvinghiante.
 
-### Azioni Leggendarie
+Reazioni
 
-***Sguardo.*** La mummia usa Sguardo Terrificante. La mummia non può riutilizzare questa azione fino all’inizio del suo prossimo turno.
+_**Parata.**_ _Attivazione:_ l'erinni viene colpita da un tiro per
+colpire in mischia mentre tiene in mano un'arma. _Esito:_
+l'erinni aggiunge 4 alla sua CA contro quell'attacco,
+aumentando le probabilità che il colpo non vada a
+segno.
 
-***Colpo Necrotico.*** La mummia effettua un attacco Pugno Putrescente o Canalizzare Energia Negativa.
 
-***Comando Terribile.*** La mummia lancia *Comando* (versione di 2° livello), usando la stessa caratteristica da incantatore di Incantesimi. La mummia non può riutilizzare questa azione fino all’inizio del suo prossimo turno.
 
----
 
-## Mummia
+## **Esploratore**
+### **Esploratore**
 
-*Non Morto Piccolo, Legale Malvagio*
+_Umanoide Medio o Piccolo, neutrale_
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 58 (9d8 + 18)
-- **Velocità:** 6 m
-- **Iniziativa**: -1 (9)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +3 |
-| DES | 8  | -1 | -1 |
-| COS | 15 | +2 | +2 |
-| INT | 6  | -2 | -2 |
-| SAG | 12 | +1 | +3 |
-| CAR | 12 | +1 | +1 |
+**CA** 13 **Iniziativa** +2 (12)
+**PF** 16 (3d8 + 3)
+**Velocità** 9 m
 
-- **Vulnerabilità**: Fuoco
-- **Immunità**: Necrotico, Veleno; Affascinato, Affaticato, Spaventato, Paralizzato, Avvelenato
-- **Sensi**: scurovisione 18 m; Percezione Passiva 11
-- **Linguaggi**: Comune più altre due lingue
-- **GS** 3 (PE 700; PB +2)
 
-### Azioni
+**Abilità** Furtività +6, Natura +4, Percezione +5,
 
-***Attacco Multiplo.*** La mummia effettua due attacchi Pugno Putrescente e usa Sguardo Terrificante.
+Sopravvivenza +5
+**Attrezzatura** arco lungo, armatura di cuoio, spada corta
+**Sensi** Percezione passiva 15
+**Lingue** Comune più un'altra lingua
+**GS** 1/2 (PE 100; BC +2)
 
-***Pugno Putrescente.*** *Tiro per colpire in mischia:* +5, portata 1,5 m. 8 (1d10 + 3) danni contundenti più 10 (3d6) danni necrotici. Se il bersaglio è una creatura, è maledetto. Finché è maledetto, il bersaglio non può recuperare Punti Ferita, il suo massimo di Punti Ferita non torna normale al termine di un Riposo Lungo, e il suo massimo di PF diminuisce di 10 (3d6) ogni 24 ore che passano. Una creatura muore e si riduce in polvere se viene portata a 0 PF da questo attacco.
+Azioni
 
-***Sguardo Terrificante.*** *Tiro Salvezza su Saggezza*: CD 11, una creatura che la mummia può vedere entro 18 m. *Fallimento:* il bersaglio ha la condizione Spaventato fino alla fine del prossimo turno della mummia. *Successo:* il bersaglio è immune allo Sguardo Terrificante di questa mummia per 24 ore.
+_**Multiattacco.**_ L'esploratore effettua due attacchi,
+usando Spada corta e Arco lungo in qualsiasi
+combinazione.
 
----
+_**Spada corta.**_ _Tiro per colpire in mischia:_ +4, portata
+1,5 m _Colpito:_ 5 (1d6 + 2) danni perforanti.
 
-## Nalfeshnee
+_**Arco lungo.**_ _Tiro per colpire a distanza:_ +4, gittata
+45/180 m. _Colpito:_ 6 (1d8 + 2) danni perforanti.
+## **Ettercap**
+### **Ettercap**
 
-*Immonda Grande (Demone), Caotica Malvagia*
+_Mostruosità Media, neutrale malvagio_
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 184 (16d10 + 96)
-- **Velocità:** 6 m, volo 9 m
-- **Iniziativa**: +5 (15)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 21 | +5 | +5 |
-| DES | 10 | +0 | +0 |
-| COS | 22 | +6 | +11 |
-| INT | 19 | +4 | +9 |
-| SAG | 12 | +1 | +6 |
-| CAR | 15 | +2 | +7 |
+**CA** 13 **Iniziativa** +2 (12)
+**PF** 44 (8d8 + 8)
+**Velocità** 9 m, scalata 9 m
 
-- **Resistenze**: Freddo, Fuoco, Fulmine
-- **Immunità**: Veleno; Spaventato, Avvelenato
-- **Sensi**: vista vera 36 m; Percezione Passiva 11
-- **Linguaggi**: Abissale; telepatia 36 m
-- **GS** 13 (PE 10.000; PB +5)
 
-### Tratti
+**Abilità** Furtività +4, Percezione +3, Sopravvivenza +3
+**Sensi** Percezione passiva 13; scurovisione 18 m
+**Lingue** nessuna
+**GS** 2 (PE 450; BC +2)
 
-***Restaurazione Demoniaca.*** Se il nalfeshnee muore al di fuori dell'Abisso, il suo corpo si dissolve in icore e ottiene subito un nuovo corpo, rianimandosi con tutti i suoi Punti Ferita da qualche parte nell'Abisso.
+Tratti
 
-***Resistenza alla Magia.*** Il nalfeshnee ha vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
+_**Andatura sulla ragnatela.**_ L'ettercap ignora le restrizioni
+di movimento causate dalle ragnatele e conosce
+l'ubicazione esatta di ogni altra creatura a contatto con
+la stessa ragnatela.
 
-### Azioni
+_**Movimenti del ragno.**_ L'ettercap può scalare le superfici difficili, compresi i soffitti, senza effettuare una
+prova di caratteristica.
 
-***Attacco Multiplo.*** Il nalfeshnee effettua tre attacchi di Dilaniare.
+Azioni
 
-***Dilaniare.*** *Tiro per colpire in mischia:* +10, portata 3 m. 16 (2d10 + 5) danni taglienti più 11 (2d10) danni da forza.
+_**Multiattacco.**_ L'ettercap effettua un attacco Morso e un
+attacco Artiglio.
 
-***Teletrasporto.*** Il nalfeshnee si teletrasporta fino a 36 m in uno spazio non occupato che può vedere.
 
-### Azioni Bonus
+**333** System Reference Document 5.2.1
 
-***Nimbo del Terrore (Ricarica 5–6).*** *Tiro Salvezza su Saggezza*: CD 15, ogni creatura in un’Emanazione di 4,5 m originata dal nalfeshnee. *Fallimento:* 28 (8d6) danni psichici, e il bersaglio ha la condizione Spaventato per 1 minuto, finché subisce danni, o finché termina il suo turno senza linea di vista con il nalfeshnee. *Successo:* il bersaglio è immune al Nimbo del Terrore di questo nalfeshnee per 24 ore.
 
----
 
-## Megera Notturna
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 7 (2d4 + 2) danni taglienti.
 
-*Infernale Media, Neutrale Malvagia*
+_**Morso.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 5 (1d6 + 2) danni perforanti più 2 (1d4) danni
+da veleno, e il bersaglio è avvelenato fino all'inizio del
+turno successivo dell'ettercap.
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 112 (15d8 + 45)
-- **Velocità:** 9 m
-- **Iniziativa**: +5 (15)
+_**Filo di ragnatela (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 12, una creatura di taglia Grande o inferiore che l'ettercap è in grado di vedere entro 9 metri.
+_Fallimento:_ il bersaglio è trattenuto finché la ragnatela
+non viene distrutta (CA 10; PF 5; vulnerabilità ai danni
+da fuoco; immunità ai danni contundenti, psichici e da
+veleno).
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 15 | +2 | +2 |
-| COS | 16 | +3 | +3 |
-| INT | 16 | +3 | +3 |
-| SAG | 14 | +2 | +2 |
-| CAR | 16 | +3 | +3 |
+Azioni bonus
 
-- **Resistenze**: Freddo, Fuoco
-- **Immunità**: Affascinato
-- **Abilità**: Inganno +6, Intuizione +5, Percezione +5, Furtività +5
-- **Sensi**: scurovisione 36 m; Percezione Passiva 15
-- **Linguaggi**: Abissale, Comune, Infernale, Primordiale
-- **GS** 5 (PE 1.800; PB +3)
+_**Riavvolgere.**_ L'ettercap attira in linea retta verso di sé
+una creatura entro 9 metri trattenuta dal suo Filo di
+ragnatela per un massimo di 7,5 metri.
+## **Ettin**
+### **Ettin**
 
-### Tratti
+_Gigante Grande, caotico malvagio_
 
-***Resistenza alla Magia.*** La megera ha vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
 
-***Sacca dell’Anima.*** La megera possiede una sacca dell’anima. Mentre la regge o la porta, può usare l’azione Incubo Tormentante. La sacca ha CA 15, PF 20 e Resistenza a tutti i danni. La sacca si riduce in polvere se portata a 0 PF. Se la sacca è distrutta, qualunque anima al suo interno viene liberata. La megera può crearne una nuova dopo 7 giorni.
+**CA** 12 **Iniziativa** −1 (9)
+**PF** 85 (10d10 + 30)
+**Velocità** 12 m
 
-### Azioni
 
-***Attacco Multiplo.*** La megera effettua due attacchi di Artiglio.
+**Abilità** Percezione +4
+**Immunità** accecato, affascinato, assordato, privo di sensi,
 
-***Artiglio.*** *Tiro per colpire in mischia:* +7, portata 1,5 m. 13 (2d8 + 4) danni taglienti.
+spaventato, stordito
+**Attrezzatura** ascia da battaglia, mazza chiodata
+**Sensi** Percezione passiva 14; scurovisione 18 m
+**Lingue** Gigante
+**GS** 4 (PE 1.100; BC +2)
 
-***Incantesimi.*** La megera lancia uno dei seguenti incantesimi, senza componenti materiali e usando Intelligenza come caratteristica da incantatore (CD 14 ai TS):
+Azioni
 
-- **A volontà:** *Rilevare Magia*, *Etereo*, *Dardo Incantato*
-- **2/giorno ciascuno:** *Uccisore Fasmatico*, *Spostamento Planare*
+_**Ascia da battaglia.**_ _Tiro per colpire in mischia:_ +7,
+portata 1,5 m. _Colpito:_ 14 (2d8 + 5) danni taglienti.
+Se il bersaglio è una creatura di taglia Grande o inferiore, cade a terra prono.
 
-***Incubo Tormentante (1/giorno; richiede Sacca dell’Anima).*** Mentre si trova sul Piano Etereo, la megera lancia *Sogno*, usando la stessa caratteristica da incantatore di Incantesimi. Solo la megera può fungere da messaggero dell’incantesimo e il bersaglio deve essere una creatura che la megera può vedere sul Piano Materiale. L’incantesimo fallisce e viene sprecato se il bersaglio è sotto gli effetti di *Protezione dal Bene e dal Male* o all’interno di un *Cerchio Magico*.  
-Se il bersaglio subisce danni da *Sogno*, il suo massimo di Punti Ferita si riduce di un ammontare pari a quei danni. Se l’incantesimo uccide il bersaglio, la sua anima viene intrappolata nella sacca dell’anima della megera, e il bersaglio non può essere resuscitato finché la sua anima non viene liberata.
+_**Mazza chiodata.**_ _Tiro per colpire in mischia:_ +7, portata
+1,5 m. _Colpito:_ 14 (2d8 + 5) danni perforanti, e il
+bersaglio subisce svantaggio al tiro per colpire successivo che effettua prima del termine del proprio turno
+successivo.
 
-- **A volontà:** 
-- **1/giorno ciascuno:** *Sogno*, *Protezione dal Bene e dal Male*, *Cerchio Magico*
+_**Multiattacco.**_ L'ettin effettua un attacco Ascia da battaglia e un attacco Mazza chiodata.
 
-### Azioni Bonus
 
-***Mutare Forma.*** La megera muta forma in un Umanoide Piccolo o Medio, oppure ritorna alla sua forma reale. A parte la taglia, le sue statistiche di gioco sono le stesse in ogni forma. Qualsiasi equipaggiamento indossato o trasportato non viene trasformato.
 
-## Incubo
 
-*Mostro Grande, Neutrale Malvagio*
+## **Fantasma**
+### **Fantasma**
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 68 (8d10 + 24)
-- **Velocità:** 18 m, Volare 27 m (fluttuare)
-- **Iniziativa**: +2 (12)
+_Non morto Medio, neutrale_
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 15 | +2 | +2 |
-| COS | 16 | +3 | +3 |
-| INT | 10 | +0 | +0 |
-| SAG | 13 | +1 | +1 |
-| CAR | 15 | +2 | +2 |
 
-- **Immunità**: Fuoco  
-- **Sensi**: Percezione Passiva 11  
-- **Linguaggi**: Capisce Abissale, Comune e Infernale ma non può parlare  
-- **GS** 3 (PE 700; BB +2)
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 45 (10d8)
+**Velocità** 1,5 m, volo 12 m (fluttuare)
 
-### Tratti
 
-***Concedere Resistenza al Fuoco.*** L’incubo può garantire Resistenza al danno da fuoco a un cavaliere mentre lo cavalca.  
+**Resistenze** acido, contundente, freddo, fulmine, fuoco,
 
-***Illuminazione.*** L’incubo emette luce intensa in un raggio di 3 m e luce fioca per altri 3 m.  
+perforante, tagliente, tuono
+**Immunità** necrotico, veleno; affascinato, afferrato,
 
-### Azioni
+avvelenato, indebolimento, paralizzato, pietrificato,
+prono, spaventato, trattenuto
+**Sensi** Percezione passiva 11; scurovisione 18 m
+**Lingue** Comune più un'altra lingua
+**GS** 4 (PE 1.100; BC +2)
 
-***Zoccoli.*** *Tiro per Colpire in mischia:* +6, portata 1,5 m. 13 (2d8 + 4) danni contundenti più 10 (3d6) danni da fuoco.  
+Tratti
 
-***Passo Etereo.*** L’incubo e fino a tre creature consenzienti entro 1,5 m si teletrasportano sul Piano Etereo dal Piano Materiale o viceversa.  
+_**Movimento incorporeo.**_ Il fantasma può muoversi
+attraverso altri oggetti o creature come se fossero
+terreno difficile. Se termina il suo turno all'interno di
+un oggetto, subisce 5 (1d10) danni da forza.
 
----
+_**Vista eterea.**_ Quando si trova sul Piano Materiale,
+il fantasma è in grado di vedere per 18 metri sul Piano
+Etereo.
 
-## Nobile
+Azioni
 
-*Umanoide Piccolo, Neutrale*
+_**Multiattacco.**_ Il fantasma effettua due attacchi Tocco
+inaridente.
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 9 (2d8)
-- **Velocità:** 9 m
-- **Iniziativa**: +1 (11)
+_**Tocco inaridente.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m _Colpito:_ 19 (3d10 + 3) danni necrotici.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 11 | +0 | +0 |
-| DES | 12 | +1 | +1 |
-| COS | 11 | +0 | +0 |
-| INT | 12 | +1 | +1 |
-| SAG | 14 | +2 | +2 |
-| CAR | 16 | +3 | +3 |
+_**Forma eterea.**_ Il fantasma lancia l'incantesimo _forma_
+_eterea_, senza bisogno di componenti, utilizzando
+Carisma come caratteristica da incantatore. Finché si
+trova sul Confine Etereo, il fantasma è visibile sul Piano
+Materiale e viceversa, ma non può influenzare o essere
+influenzato da nulla di quanto accade sull'altro piano.
 
-- **Abilità**: Inganno +5, Intuizione +4, Persuasione +5  
-- **Equipaggiamento**: Corazza di Piastre, Stocco  
-- **Sensi**: Percezione Passiva 12  
-- **Linguaggi**: Comune più altre due lingue  
-- **GS** 1/8 (PE 25; BB +2)
+_**Possessione (ricarica 6).**_ _Tiro salvezza su Carisma:_ CD
+13, un umanoide che il fantasma è in grado di vedere
+entro 1,5 metri. _Fallimento:_ il bersaglio è posseduto dal
+fantasma; il fantasma scompare e il bersaglio è incapacitato e perde il controllo del suo corpo. Ora il fantasma controlla il corpo del bersaglio, ma senza privarlo
+della sua consapevolezza. Il fantasma non può essere
+il bersaglio di alcun attacco, incantesimo o altro effetto,
+ad eccezione di quelli che bersagliano specificatamente
+i non morti. Le statistiche di gioco del fantasma sono
+le stesse, ma il fantasma usa la velocità e i modificatori
+di Forza, Destrezza e Costituzione del bersaglio.
 
-### Azioni
+La possessione dura finché il corpo non scende
+a 0 punti ferita o il fantasma non lo abbandona con
+­un'azione bonus. Quando la possessione termina,
 
-***Stocco.*** *Tiro per Colpire in mischia:* +3, portata 1,5 m. 5 (1d8 + 1) danni perforanti.  
 
----
+**334** System Reference Document 5.2.1
 
-## Gelatina Ocra
 
-*Melma Grande, Non Allineata*
 
-- **Classe Armatura:** 8
-- **Punti Ferita:** 52 (7d10 + 14)
-- **Velocità:** 6 m, Scalare 6 m
-- **Iniziativa**: -2 (8)
+il fantasma riappare in uno spazio libero entro 1,5 metri
+dal bersaglio, e il bersaglio è immune alla Possessione
+di questo fantasma per 24 ore.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 15 | +2 | +2 |
-| DES | 6 | -2 | -2 |
-| COS | 14 | +2 | +2 |
-| INT | 2 | -4 | -4 |
-| SAG | 6 | -2 | -2 |
-| CAR | 1 | -5 | -5 |
+_Successo:_ Il bersaglio è immune alla Possessione di
+questo fantasma per 24 ore.
 
-- **Resistenze**: Acido  
-- **Immunità**: Fulmine, Taglio; Ammaliato, Assordato, Affaticato, Spaventato, Afferrato, Prono, Immobilizzato  
-- **Sensi**: Vista Cieca 18 m; Percezione Passiva 8  
-- **GS** 2 (PE 450; BB +2)
+_**Volto terrificante.**_ _Tiro salvezza su Saggezza:_ CD 13,
+tutte le creature in un cono di 18 metri in grado di
+vedere il fantasma e diverse da un non morto. _Falli-_
+_mento:_ 10 (2d6 + 3) danni psichici, e il bersaglio è spaventato fino all'inizio del turno successivo del fantasma.
+_Successo:_ Il bersaglio è immune al Volto terrificante di
+questo fantasma per 24 ore.
+## **Fauce gorgogliante**
+### **Fauce gorgogliante**
 
-### Tratti
+_Aberrazione Media, caotico neutrale_
 
-***Amorfa.*** La gelatina può muoversi attraverso spazi larghi almeno 2,5 cm senza spendere movimento extra.  
 
-***Camminare sui Muri.*** La gelatina può arrampicarsi su superfici difficili, compresi i soffitti, senza dover effettuare prove.  
+**CA** 9 **Iniziativa** −1 (9)
+**PF** 52 (7d8 + 21)
+**Velocità** 6 m, nuoto 6 m
 
-### Azioni
 
-***Pseudopodio.*** *Tiro per Colpire in mischia:* +4, portata 1,5 m. 12 (3d6 + 2) danni da acido.  
+**Immunità** prono
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** nessuna
+**GS** 2 (PE 450; BC +2)
 
----
+Tratti
 
-## Ogre
+_**Gorgogliare.**_ La fauce gorgoglia in modo incoerente
+fintanto che non è incapacitata. _Tiro salvezza su Sag-_
+_gezza:_ CD 10, ogni creatura che inizi il suo turno entro
+6 metri dalla fauce finché questa gorgoglia. _Fallimento:_
+il bersaglio tira 1d8 per determinare cosa fare nel turno
+corrente:
 
-*Gigante Grande, Caotico Malvagio*
+**1–4.** Il bersaglio non fa nulla.
+**5–6.** Il bersaglio non effettua alcuna azione, né azione
 
-- **Classe Armatura:** 11
-- **Punti Ferita:** 68 (8d10 + 24)
-- **Velocità:** 12 m
-- **Iniziativa**: -1 (9)
+bonus, e usa tutto il suo movimento per muoversi in
+una direzione casuale.
+**7–8.** Il bersaglio effettua un attacco in mischia contro
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 19 | +4 | +4 |
-| DES | 8 | -1 | -1 |
-| COS | 16 | +3 | +3 |
-| INT | 5 | -3 | -3 |
-| SAG | 7 | -2 | -2 |
-| CAR | 7 | -2 | -2 |
+una creatura determinata casualmente entro la sua
+portata, oppure non fa nulla se non riesce a eseguire
+tale attacco.
 
-- **Equipaggiamento**: Grande Mazza, Giavellotto x3  
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 8  
-- **Linguaggi**: Comune, Gigante  
-- **GS** 2 (PE 450; BB +2)
+_**Terreno aberrante.**_ Il terreno in un'emanazione di
+3 metri di cui la fauce gorgogliante è il punto di origine
+è considerato terreno difficile.
 
-### Azioni
+Azioni
 
-***Grande Mazza.*** *Tiro per Colpire in mischia:* +6, portata 1,5 m. 13 (2d8 + 4) danni contundenti.  
+_**Morso.**_ _Tiro per colpire in mischia:_ +2, portata 1,5 m.
+_Colpito:_ 7 (2d6) danni perforanti. Se il bersaglio è una
+creatura di taglia Media o inferiore, cade a terra prono.
+Il bersaglio muore se viene ridotto a 0 punti ferita da
+questo attacco. Del suo corpo, che viene assorbito
+dalla fauce gorgogliante, resta solo l'equipaggiamento.
 
-***Giavellotto.*** *Tiro per Colpire in mischia o a distanza:* +6, portata 1,5 m o gittata 9/36 m. 11 (2d6 + 4) danni perforanti.  
 
-## Ogre Zombie
 
-*Non Morto Grande, Neutrale Malvagio*
 
-- **Classe Armatura:** 8
-- **Punti Ferita:** 85 (9d10 + 36)
-- **Velocità:** 9 m
-- **Iniziativa**: -2 (8)
+_**Sputo accecante (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 10, tutte le creature in una sfera di 3 metri
+di raggio centrata su un punto entro 9 metri. _Fallimento:_
+7 (2d6) danni radiosi, e il bersaglio è accecato fino al
+termine del turno successivo della fauce gorgogliante.
+## **Funghi**
+### **Boleto stridente**
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 19 | +4 | +4 |
-| DES | 6 | -2 | -2 |
-| COS | 18 | +4 | +4 |
-| INT | 3 | -4 | -4 |
-| SAG | 6 | -2 | +0 |
-| CAR | 5 | -3 | -3 |
+_Vegetale Medio, senza allineamento_
 
-- **Immunità**: Veleno; Affaticato, Avvelenato  
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 8  
-- **Linguaggi**: Capisce Comune e Gigante ma non può parlare  
-- **GS** 2 (PE 450; BB +2)
 
-### Tratti
+**CA** 5 **Iniziativa** −5 (5)
+**PF** 13 (3d8)
+**Velocità** 1,5 m
 
-***Tenacia dei Non Morti.*** Se i danni riducono lo zombie a 0 Punti Ferita, effettua un tiro salvezza su Costituzione (CD 5 + danno subito), a meno che il danno non sia Radiante o da Colpo Critico. Con un tiro riuscito, lo zombie rimane a 1 Punto Ferita invece.  
 
-### Azioni
+**Immunità** accecato, affascinato, assordato, spaventato
+**Sensi** Percezione passiva 6; vista cieca 9 m
+**Lingue** nessuna
+**GS** 0 (PE 0; BC +2)
 
-***Slam.*** *Tiro per Colpire in mischia:* +6, portata 1,5 m. 13 (2d8 + 4) danni contundenti.  
+Reazioni
 
----
+_**Stridio.**_ _Attivazione:_ una creatura o una fonte di luce
+intensa si muove entro 9 metri dal boleto stridente.
+_Esito:_ il boleto stridente emette uno stridio udibile fino
+a 90 metri da sé per 1 minuto o finché il boleto non
+muore.
+### **Fungo viola**
 
-## Oni
+_Vegetale Medio, senza allineamento_
 
-*Mostro Grande, Legale Malvagio*
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 119 (14d10 + 42)
-- **Velocità:** 9 m, Volare 9 m (fluttuare)
-- **Iniziativa**: +0 (10)
+**CA** 5 **Iniziativa** −5 (5)
+**PF** 18 (4d8)
+**Velocità** 1,5 m
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 19 | +4 | +4 |
-| DES | 11 | +0 | +3 |
-| COS | 16 | +3 | +6 |
-| INT | 14 | +2 | +2 |
-| SAG | 12 | +1 | +4 |
-| CAR | 15 | +2 | +5 |
 
-- **Resistenze**: Freddo  
-- **Abilità**: Arcano +5, Inganno +8, Percezione +4  
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 14  
-- **Linguaggi**: Comune, Gigante  
-- **GS** 7 (PE 2.900; BB +3)
+**Immunità** accecato, affascinato, assordato, spaventato
+**Sensi** Percezione passiva 6; vista cieca 9 m
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-### Tratti
+Azioni
 
-***Rigenerazione.*** L’oni recupera 10 Punti Ferita all’inizio di ogni suo turno se ha almeno 1 Punto Ferita.  
+_**Multiattacco.**_ Il fungo effettua due attacchi Tocco
+marcescente.
 
-### Azioni
+_**Tocco marcescente.**_ _Tiro per colpire in mischia:_ +2,
+portata 3 m. _Colpito:_ 4 (1d8) danni necrotici.
+## **Fuoco fatuo**
+### **Fuoco fatuo**
 
-***Multiattacco.*** L’oni effettua due attacchi di Artiglio o Raggio Incubo. Può sostituire un attacco con l’uso di Incantesimi.  
+_Non morto Minuscolo, caotico malvagio_
 
-***Artiglio.*** *Tiro per Colpire in mischia:* +7, portata 3 m. 10 (1d12 + 4) danni da taglio più 9 (2d8) danni necrotici.  
 
-***Raggio Incubo.*** *Tiro per Colpire a distanza:* +5, gittata 18 m. 9 (2d6 + 2) danni psichici, e il bersaglio è Spaventato fino all’inizio del turno successivo dell’oni.  
+**CA** 19 **Iniziativa** +9 (19)
+**PF** 27 (11d4)
+**Velocità** 1,5 m, volo 15 m (fluttuare)
 
-***Mutare Forma.*** L’oni muta forma in un Umanoide Piccolo o Medio, o in un Gigante Grande, oppure ritorna alla sua vera forma. A parte la taglia, le sue statistiche restano le stesse. L’equipaggiamento indossato o portato non cambia.  
 
-***Incantesimi.*** L’oni lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 13):  
+**335** System Reference Document 5.2.1
 
-- **A volontà:** —  
-- **1/giorno ciascuno:** *Ammaliare Persona*, *Oscurità*, *Forma Gassosa*, *Sonno*  
 
-### Azioni Bonus
 
-***Invisibilità.*** L’oni lancia *Invisibilità* su se stesso, senza componenti e usando la stessa caratteristica da incantatore di Incantesimi.  
+**Resistenze** acido, contundente, freddo, fuoco, necrotico,
 
----
+perforante, tagliente
+**Immunità** fulmine, veleno; afferrato, avvelenato,
 
-## Otyugh
+indebolimento, paralizzato, pietrificato, privo di sensi,
+prono, trattenuto
+**Sensi** Percezione passiva 12; scurovisione 36 m
+**Lingue** Comune più un'altra lingua
+**GS** 2 (PE 450; BC +2)
 
-*Aberrazione Grande, Neutrale*
+Tratti
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 104 (11d10 + 44)
-- **Velocità:** 9 m
-- **Iniziativa**: +0 (10)
+_**Effimero.**_ Il fuoco fatuo non può indossare o trasportare niente.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +3 |
-| DES | 11 | +0 | +0 |
-| COS | 19 | +4 | +7 |
-| INT | 6 | -2 | -2 |
-| SAG | 13 | +1 | +1 |
-| CAR | 6 | -2 | -2 |
+_**Illuminazione.**_ Il fuoco fatuo emana luce intensa in
+un raggio di 6 metri e luce fioca per altri 6 metri.
 
-- **Sensi**: Scurovisione 36 m; Percezione Passiva 11  
-- **Linguaggi**: Otyugh; telepatia 36 m (non permette risposta telepatica)  
-- **GS** 5 (PE 1.800; BB +3)
+_**Movimento incorporeo.**_ Il fuoco fatuo può muoversi
+attraverso altre creature e oggetti come se fossero
+terreno difficile. Se termina il suo turno all'interno di
+un oggetto, subisce 5 (1d10) danni da forza.
 
-### Azioni
+Azioni
 
-***Multiattacco.*** L’otyugh effettua un attacco di Morso e due di Tentacolo.  
+_**Folgore.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 11 (2d8 + 2) danni da fulmine.
 
-***Morso.*** *Tiro per Colpire in mischia:* +6, portata 1,5 m. 12 (2d8 + 3) danni perforanti, e il bersaglio è Avvelenato. Ogni volta che il bersaglio Avvelenato termina un Riposo Lungo, subisce l’effetto seguente: *TS Costituzione* CD 15. *Fallimento:* il massimo dei suoi Punti Ferita si riduce di 5 (1d10) e non torna normale finché la condizione Avvelenato non termina. *Successo:* la condizione Avvelenato termina.  
+Azioni bonus
 
-***Tentacolo.*** *Tiro per Colpire in mischia:* +6, portata 3 m. 12 (2d8 + 3) danni perforanti. Se il bersaglio è una creatura Media o più piccola, è Afferrato (CD 13 per liberarsi) da uno dei due tentacoli.  
+_**Assorbire vita.**_ _Tiro salvezza su Costituzione:_ CD 10,
+una creatura vivente che il fuoco fatuo è in grado di
+vedere entro 1,5 metri con 0 punti ferita. _Fallimento:_
+il bersaglio muore, e il fuoco fatuo recupera 10 (3d6)
+punti ferita.
 
-***Schianto con Tentacoli.*** *TS Costituzione:* CD 14, ogni creatura afferrata dall’otyugh. *Fallimento:* 16 (3d8 + 3) danni contundenti e il bersaglio è Stordito fino all’inizio del turno successivo dell’otyugh. *Successo:* solo metà danno.  
+_**Svanire.**_ Il fuoco fatuo e la luce che emana sono
+invisibili finché la sua concentrazione non termina su
+tale effetto; l'effetto cessa immediatamente dopo che il
+fuoco fatuo effettua un tiro per colpire o usa Assorbire
+vita.
+## **Fustigatore**
+### **Fustigatore**
 
----
+_Aberrazione Grande, neutrale malvagio_
 
-## Orsogufo
 
-*Mostruosità Grande, Non Allineata*
+**CA** 20 **Iniziativa** +5 (15)
+**PF** 93 (11d10 + 33)
+**Velocità** 3 m, scalata 6 m
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 59 (7d10 + 21)
-- **Velocità:** 12 m, Scalare 12 m
-- **Iniziativa**: +1 (11)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 20 | +5 | +5 |
-| DES | 12 | +1 | +1 |
-| COS | 17 | +3 | +3 |
-| INT | 3 | -4 | -4 |
-| SAG | 12 | +1 | +1 |
-| CAR | 7 | -2 | -2 |
+**Abilità** Furtività +5, Percezione +6
+**Sensi** Percezione passiva 16; scurovisione 18 m
+**Lingue** nessuna
+**GS** 5 (PE 1.800; BC +3)
 
-- **Abilità**: Percezione +5  
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 15  
-- **GS** 3 (PE 700; BB +2)
 
-### Azioni
 
-***Multiattacco.*** L’orsogufo effettua due attacchi di Dilaniamento.  
 
-***Dilaniamento.*** *Tiro per Colpire in mischia:* +7, portata 1,5 m. 14 (2d8 + 5) danni da taglio.  
+Tratti
 
-## Pegaso
+_**Movimenti del ragno.**_ Il fustigatore può scalare le
+superfici difficili, compresi i soffitti, senza effettuare
+una prova di caratteristica.
 
-*Celestiale Grande, Caotico Buono*
+Azioni
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 59 (7d10 + 21)
-- **Velocità:** 18 m, Volare 27 m
-- **Iniziativa**: +2 (12)
+_**Multiattacco.**_ Il fustigatore effettua due attacchi Tentacolo, usa Riavvolgere ed effettua due attacchi Morso.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 15 | +2 | +4 |
-| COS | 16 | +3 | +5 |
-| INT | 10 | +0 | +0 |
-| SAG | 15 | +2 | +4 |
-| CAR | 13 | +1 | +3 |
+_**Morso.**_ _Tiro per colpire in mischia:_ +7, portata 1,5 m.
+_Colpito:_ 17 (3d8 + 4) danni perforanti.
 
-- **Abilità**: Percezione +6  
-- **Sensi**: Percezione Passiva 16  
-- **Linguaggi**: Capisce Celestiale, Comune, Elfico e Silvano ma non può parlare  
-- **GS** 2 (PE 450; BB +2)
+_**Tentacolo.**_ _Tiro per colpire in mischia:_ +7, portata 18 m.
+_Colpito:_ il bersaglio è afferrato (CD 14 per sfuggire) da
+uno dei sei tentacoli, ed è avvelenato finché la presa
+perdura.
 
-### Azioni
+Il tentacolo può essere danneggiato e, quando viene
+distrutto, libera la creatura che aveva afferrato (CA 20,
+PF 10, immunità ai danni psichici e da veleno). I danni
+inflitti al tentacolo non danneggiano in alcun modo
+il fustigatore, e il tentacolo distrutto ricresce all'inizio
+del turno successivo del fustigatore.
 
-***Zoccoli.*** *Tiro per Colpire in mischia:* +6, portata 1,5 m. 7 (1d6 + 4) danni contundenti più 5 (2d4) danni radianti.  
+_**Riavvolgere.**_ Il fustigatore tira in linea retta verso di
+sé ogni creatura che ha afferrato per un massimo di
+9 metri.
+## **Gargoyle**
+### **Gargoyle**
 
----
+_Elementale Medio, caotico malvagio_
 
-## Ragno Fase
 
-*Mostruosità Grande, Non Allineata*
+**CA** 15 **Iniziativa** +2 (12)
+**PF** 67 (9d8 + 27)
+**Velocità** 9 m, volo 18 m
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 45 (7d10 + 7)
-- **Velocità:** 9 m, Scalare 9 m
-- **Iniziativa**: +3 (13)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 15 | +2 | +2 |
-| DES | 16 | +3 | +3 |
-| COS | 12 | +1 | +1 |
-| INT | 6 | -2 | -2 |
-| SAG | 10 | +0 | +0 |
-| CAR | 6 | -2 | -2 |
+**Abilità** Furtività +4
+**Immunità** veleno; avvelenato, indebolimento, pietrificato
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** Primordiale (Terran)
+**GS** 2 (PE 450; BC +2)
 
-- **Abilità**: Furtività +7  
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 10  
-- **GS** 3 (PE 700; BB +2)
+Tratti
 
-### Tratti
+_**Volo sfuggente.**_ Il gargoyle non provoca attacchi di
+opportunità quando vola oltre la portata di un nemico.
 
-***Vista Eterea.*** Il ragno può vedere fino a 18 m nel Piano Etereo mentre si trova sul Piano Materiale e viceversa.  
+Azioni
 
-***Camminare sui Muri.*** Il ragno può arrampicarsi su superfici difficili, compresi i soffitti, senza dover effettuare prove.  
+_**Multiattacco.**_ Il gargoyle effettua due attacchi Artiglio.
 
-***Camminatore di Ragnatele.*** Il ragno ignora le restrizioni di movimento causate dalle ragnatele e conosce la posizione di qualsiasi altra creatura in contatto con la stessa ragnatela.  
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 7 (2d4 + 2) danni taglienti.
 
-### Azioni
 
-***Multiattacco.*** Il ragno effettua due attacchi di Morso.  
+**336** System Reference Document 5.2.1
 
-***Morso.*** *Tiro per Colpire in mischia:* +5, portata 1,5 m. 8 (1d10 + 3) danni perforanti più 9 (2d8) danni da veleno. Se questo danno riduce il bersaglio a 0 Punti Ferita, esso diventa Stabile e ottiene la condizione Avvelenato per 1 ora. Finché è Avvelenato, ha anche la condizione Paralizzato.  
 
-### Azioni Bonus
+## **Ghast**
+### **Ghast**
 
-***Balzo Etereo.*** Il ragno si teletrasporta dal Piano Materiale al Piano Etereo o viceversa.  
+_Non morto Medio, caotico malvagio_
 
----
 
-## Capitano Pirata
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 36 (8d8)
+**Velocità** 9 m
 
-*Umanoide Piccolo, Neutrale*
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 84 (13d8 + 26)
-- **Velocità:** 9 m
-- **Iniziativa**: +7 (17)
+**Resistenze** necrotico
+**Immunità** veleno; affascinato, avvelenato, indebolimento
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** Comune
+**GS** 2 (PE 450; BC +2)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 10 | +0 | +3 |
-| DES | 18 | +4 | +7 |
-| COS | 14 | +2 | +2 |
-| INT | 10 | +0 | +0 |
-| SAG | 14 | +2 | +5 |
-| CAR | 17 | +3 | +6 |
+Tratti
 
-- **Abilità**: Acrobazia +7, Percezione +5  
-- **Equipaggiamento** Pistola, Stocco  
-- **Sensi**: Percezione Passiva 15  
-- **Linguaggi**: Comune più un’altra lingua  
-- **GS** 6 (PE 2.300; BB +3)
+_**Fetore.**_ _Tiro salvezza su Costituzione:_ CD 10, ogni
+creatura che inizi il suo turno in un'emanazione di
+1,5 metri di cui il ghast è il punto di origine. _Fallimento:_
+il bersaglio è avvelenato fino all'inizio del proprio turno
+successivo. _Successo:_ il bersaglio è immune a Fetore di
+questo ghast per 24 ore.
 
-### Azioni
+Azioni
 
-***Multiattacco.*** Il pirata effettua tre attacchi, usando Stocco o Pistola in qualsiasi combinazione.  
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 10 (2d6 + 3) danni taglienti. Se il bersaglio
+è una creatura diversa da un non morto, subisce il
+seguente effetto. _Tiro salvezza su Costituzione:_ CD 10.
+_Fallimento:_ il bersaglio è paralizzato fino al termine del
+proprio turno successivo.
 
-***Stocco.*** *Tiro per Colpire in mischia:* +7, portata 1,5 m. 13 (2d8 + 4) danni perforanti, e il pirata ha vantaggio al prossimo tiro per colpire che effettua prima della fine del turno.  
+_**Morso.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 7 (1d8 + 3) danni perforanti più 9 (2d8) danni
+necrotici.
+## **Ghoul**
+### **Ghoul**
 
-***Pistola.*** *Tiro per Colpire a distanza:* +7, gittata 9/27 m. 15 (2d10 + 4) danni perforanti.  
+_Non morto Medio, caotico malvagio_
 
-### Azioni Bonus
 
-***Fascino del Capitano.*** *TS Saggezza:* CD 14, una creatura che il pirata può vedere entro 9 m. *Fallimento:* il bersaglio ha la condizione Ammaliato fino all’inizio del turno successivo del pirata.  
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 22 (5d8)
+**Velocità** 9 m
 
----
 
-## Pirata
+**Immunità** veleno; affascinato, avvelenato, indebolimento
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** Comune
+**GS** 1 (PE 200; BC +2)
 
-*Umanoide Piccolo, Neutrale*
+Azioni
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 33 (6d8 + 6)
-- **Velocità:** 9 m
-- **Iniziativa**: +5 (15)
+_**Multiattacco.**_ Il ghoul effettua due attacchi Morso.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 10 | +0 | +0 |
-| DES | 16 | +3 | +5 |
-| COS | 12 | +1 | +1 |
-| INT | 8 | -1 | -1 |
-| SAG | 12 | +1 | +1 |
-| CAR | 14 | +2 | +4 |
 
-- **Equipaggiamento** 6 Pugnali, Armatura di Cuoio  
-- **Sensi**: Percezione Passiva 11  
-- **Linguaggi**: Comune più un’altra lingua  
-- **GS** 1 (PE 200; BB +2)
 
-### Azioni
 
-***Multiattacco.*** Il pirata effettua due attacchi con Pugnale. Può sostituire un attacco con l’uso di Panache Ipnotico.  
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 4 (1d4 + 2) danni taglienti. Se il bersaglio è una
+creatura diversa da un non morto o da un elfo, subisce
+il seguente effetto. _Tiro salvezza su Costituzione:_
+CD 10. _Fallimento:_ il bersaglio è paralizzato fino al
+termine del proprio turno successivo.
 
-***Pugnale.*** *Tiro per Colpire in mischia o a distanza:* +5, portata 1,5 m o gittata 6/18 m. 5 (1d4 + 3) danni perforanti.  
+_**Morso.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 5 (1d6 + 2) danni perforanti più 3 (1d6) danni
+necrotici.
+## **Gigante del fuoco**
+### **Gigante del fuoco**
 
-***Panache Ipnotico.*** *TS Saggezza:* CD 12, una creatura che il pirata può vedere entro 9 m. *Fallimento:* il bersaglio ha la condizione Ammaliato fino all’inizio del turno successivo del pirata.  
+_Gigante Enorme, legale malvagio_
 
-## Diavolo Abissale (Pit Fiend)
 
-*Mostro Grande (Diavolo), Legale Malvagio*
+**CA** 18 **Iniziativa** +3 (13)
+**PF** 162 (13d12 + 78)
+**Velocità** 9 m
 
-- **Classe Armatura:** 21
-- **Punti Ferita:** 337 (27d10 + 189)
-- **Velocità:** 9 m, Volare 18 m
-- **Iniziativa**: +14 (24)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 26 | +8 | +8 |
-| DES | 14 | +2 | +8 |
-| COS | 24 | +7 | +7 |
-| INT | 22 | +6 | +6 |
-| SAG | 18 | +4 | +10 |
-| CAR | 24 | +7 | +7 |
+**Abilità** Atletica +11, Percezione +6
+**Immunità** fuoco
+**Sensi** Percezione passiva 16
+**Lingue** Gigante
+**GS** 9 (PE 5.000; BC +4)
 
-- **Resistenze**: Freddo  
-- **Immunità**: Fuoco, Veleno; Avvelenato  
-- **Abilità**: Percezione +10, Persuasione +19  
-- **Sensi**: vista vera 36 m; Percezione Passiva 20  
-- **Linguaggi**: Infernale; telepatia 36 m  
-- **GS** 20 (PE 25.000; BB +6)
+Azioni
 
-### Tratti
+_**Multiattacco.**_ Il gigante effettua due attacchi, usando
+Spada di fiamme o Lancio di martello in qualsiasi
+combinazione.
 
-***Restaurazione Diabolica.*** Se il diavolo abissale muore al di fuori dei Nove Inferi, il suo corpo svanisce in un fumo sulfureo e ottiene istantaneamente un nuovo corpo, rianimandosi con tutti i suoi Punti Ferita in qualche luogo dei Nove Inferi.  
+_**Spada di fiamme.**_ _Tiro per colpire in mischia:_ +11,
+portata 3 m. _Colpito:_ 21 (4d6 + 7) danni taglienti più
+10 (3d6) danni da fuoco.
 
-***Aura di Paura.*** Il diavolo abissale emana un’aura in un’emanazione di 6 m finché non è Incapacitato. *TS Saggezza:* CD 21, ogni nemico che inizia il proprio turno nell’aura. *Fallimento:* il bersaglio è Spaventato fino all’inizio del suo prossimo turno. *Successo:* il bersaglio è immune all’aura di questo diavolo abissale per 24 ore.  
+_**Lancio di martello.**_ _Tiro per colpire a distanza:_ +11,
+portata 18/72 m. _Colpito:_ 23 (3d10 + 7) danni contundenti più 4 (1d8) danni da fuoco, il bersaglio viene
+spinto in linea retta fino a un massimo di 4,5 metri di
+distanza dal gigante, e subisce svantaggio al tiro per
+colpire successivo che effettua prima del termine del
+proprio turno successivo.
+## **Gigante del gelo**
+### **Gigante del gelo**
 
-***Resistenza Leggendaria (4/giorno).*** Se fallisce un tiro salvezza, può scegliere di riuscire invece.  
+_Gigante Enorme, neutrale malvagio_
 
-***Resistenza alla Magia.*** Vantaggio ai tiri salvezza contro incantesimi ed effetti magici.  
 
-### Azioni
+**CA** 15 **Iniziativa** +2 (12)
+**PF** 149 (13d12 + 65)
+**Velocità** 12 m
 
-***Multiattacco.*** Effettua un attacco di Morso, due di Artiglio Diabolico e uno di Mazza Infuocata.  
 
-***Morso.*** *Tiro per Colpire in mischia:* +14, portata 3 m. 18 (3d6 + 8) danni perforanti. Se il bersaglio è una creatura, deve effettuare il seguente tiro salvezza: *TS Costituzione* CD 21. *Fallimento:* il bersaglio è Avvelenato. Finché è Avvelenato, non può recuperare Punti Ferita e subisce 21 (6d6) danni da veleno all’inizio di ciascun suo turno, poi ripete il TS alla fine di ciascun suo turno, terminando l’effetto su di sé con un successo. Dopo 1 minuto, riesce automaticamente.  
+**337** System Reference Document 5.2.1
 
-***Artiglio Diabolico.*** *Tiro per Colpire in mischia:* +14, portata 3 m. 26 (4d8 + 8) danni necrotici.  
 
-***Mazza Infuocata.*** *Tiro per Colpire in mischia:* +14, portata 3 m. 22 (4d6 + 8) danni da forza più 21 (6d6) danni da fuoco.  
 
-***Incantesimi Infernali (Ricarica 4–6).*** Lancia *Palla di Fuoco* (versione di 5° livello) due volte, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 21). Può sostituire una *Palla di Fuoco* con *Blocca Mostri* (versione di 7° livello) o *Muro di Fuoco*.  
-- **A volontà:** —  
+**Abilità** Atletica +9, Percezione +3
+**Immunità** freddo
+**Sensi** Percezione passiva 13
+**Lingue** Gigante
+**GS** 8 (PE 3.900; BC +3)
 
----
+Azioni
 
-## Planetar
+_**Multiattacco.**_ Il gigante effettua due attacchi,
+usando Ascia del gelo o Grande arco in qualsiasi
+combinazione.
 
-*Celestiale Grande (Angelo), Legale Buono*
+_**Ascia del gelo.**_ _Tiro per colpire in mischia:_ +9, portata
+3 m. _Colpito:_ 19 (2d12 + 6) danni taglienti più 9 (2d8)
+danni da freddo.
 
-- **Classe Armatura:** 19
-- **Punti Ferita:** 262 (21d10 + 147)
-- **Velocità:** 12 m, Volare 36 m (fluttuare)
-- **Iniziativa**: +10 (20)
+_**Grande arco.**_ _Tiro per colpire a distanza:_ +9, gittata
+45/180 m. _Colpito:_ 17 (2d10 + 6) danni perforanti più
+7 (2d6) danni da freddo, e la velocità del bersaglio
+è ridotta di 3 metri fino al termine del proprio turno
+successivo.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 24 | +7 | +12 |
-| DES | 20 | +5 | +5 |
-| COS | 24 | +7 | +12 |
-| INT | 19 | +4 | +4 |
-| SAG | 22 | +6 | +11 |
-| CAR | 25 | +7 | +12 |
+Azioni bonus
 
-- **Resistenze**: Radiante  
-- **Immunità**: Ammaliato, Affaticato, Spaventato  
-- **Abilità**: Percezione +11  
-- **Sensi**: vista vera 36 m; Percezione Passiva 21  
-- **Linguaggi**: Tutte; telepatia 36 m  
-- **GS** 16 (PE 15.000; BB +5)
+_**Grido di battaglia (ricarica 5–6).**_ Il gigante o una creatura a sua scelta che il gigante è in grado di vedere o di
+sentire ottiene 16 (2d10 + 5) punti ferita temporanei
+e dispone di vantaggio ai tiri per colpire fino all'inizio
+del turno successivo del gigante.
+## **Gigante delle colline**
+### **Gigante delle colline**
 
-### Tratti
+_Gigante Enorme, caotico malvagio_
 
-***Consapevolezza Divina.*** Sa se sente una menzogna.  
 
-***Restaurazione Esaltata.*** Se muore al di fuori del Monte Celestia, il suo corpo scompare e ottiene istantaneamente un nuovo corpo, rianimandosi con tutti i suoi Punti Ferita in qualche luogo del Monte Celestia.  
+**CA** 13 **Iniziativa** +2 (12)
+**PF** 105 (10d12 + 40)
+**Velocità** 12 m
 
-***Resistenza alla Magia.*** Vantaggio ai tiri salvezza contro incantesimi ed effetti magici.  
 
-### Azioni
+**Abilità** Percezione +2
+**Sensi** Percezione passiva 12
+**Lingue** Gigante
+**GS** 5 (PE 1.800; BC +3)
 
-***Multiattacco.*** Effettua tre attacchi di Spada Radiosa oppure usa Esplosione Sacra due volte.  
+Azioni
 
-***Spada Radiosa.*** *Tiro per Colpire in mischia:* +12, portata 3 m. 14 (2d6 + 7) danni da taglio più 18 (4d8) danni radianti.  
+_**Multiattacco.**_ Il gigante effettua due attacchi, utilizzando Tronco d'albero o Lancio di rifiuti in qualsiasi
+combinazione.
 
-***Esplosione Sacra.*** *TS Destrezza:* CD 20, ogni nemico in una Sfera di raggio 6 m centrata su un punto che il planetar può vedere entro 36 m. *Fallimento:* 24 (7d6) danni radianti. *Successo:* metà danno.  
+_**Tronco d'albero.**_ _Tiro per colpire in mischia:_ +8, portata
+3 m. _Colpito:_ 18 (3d8 + 5) danni contundenti. Se il bersaglio è una creatura di taglia Grande o inferiore, cade
+a terra prono.
 
-***Incantesimi.*** Lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 20):  
-- **A volontà:** *Individuazione del Bene e del Male*  
-- **1/giorno ciascuno:** *Comunione*, *Controllare il Meteo*, *Scacciare il Bene e il Male*, *Rianimare i Morti*  
+_**Lancio di rifiuti.**_ _Tiro per colpire a distanza:_ +8, gittata
+18/72 m. _Colpito:_ 16 (2d10 + 5) danni contundenti,
 
-### Azioni Bonus
 
-***Aiuto Divino (2/giorno).*** Lancia *Cura Ferite*, *Invisibilità*, *Restaurazione Minore* o *Rimuovi Maledizione* usando la stessa caratteristica da incantatore di Incantesimi.  
 
----
 
-## Accolito Sacerdote
+e il bersaglio è avvelenato fino al termine del proprio
+turno successivo.
+## **Gigante delle nuvole**
+### **Gigante delle nuvole**
 
-*Umanoide Piccolo, Neutrale*
+_Gigante Enorme, neutrale_
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 11 (2d8 + 2)
-- **Velocità:** 9 m
-- **Iniziativa**: +0 (10)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 14 | +2 | +2 |
-| DES | 10 | +0 | +0 |
-| COS | 12 | +1 | +1 |
-| INT | 10 | +0 | +0 |
-| SAG | 14 | +2 | +2 |
-| CAR | 11 | +0 | +0 |
+**CA** 14 **Iniziativa** +4 (14)
+**PF** 200 (16d12 + 96)
+**Velocità** 12 m, volo 6 m (fluttuare)
 
-- **Abilità**: Medicina +4, Religione +2  
-- **Equipaggiamento** Cotta di Maglia, Simbolo Sacro, Mazza  
-- **Sensi**: Percezione Passiva 12  
-- **Linguaggi**: Comune  
-- **GS** 1/4 (PE 50; BB +2)
 
-### Azioni
+**Abilità** Intuizione +7, Percezione +11
+**Sensi** percezione passiva 21
+**Lingue** Comune, Gigante
+**GS** 9 (PE 5.000; BC +4)
 
-***Mazza.*** *Tiro per Colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni contundenti più 2 (1d4) danni radianti.  
+Azioni
 
-***Fiamma Radiosa.*** *Tiro per Colpire a distanza:* +4, gittata 18 m. 7 (2d6) danni radianti.  
+_**Multiattacco.**_ Il gigante effettua due attacchi, utilizzando Mazza tonante o Nuvola di tuoni in qualsiasi
+combinazione. Può sostituire un attacco con un utilizzo
+di Incantesimi per lanciare _nube di nebbia_ .
 
-***Incantesimi.*** Lancia uno dei seguenti incantesimi usando Saggezza come caratteristica da incantatore:  
-- **A volontà:** *Luce*, *Taumaturgia*  
+_**Mazza tonante.**_ _Tiro per colpire in mischia:_ +12, portata
+3 m. _Colpito:_ 21 (3d8 + 8) danni contundenti più
+7 (2d6) danni da tuono.
 
-### Azioni Bonus
+_**Nuvola di tuoni.**_ _Tiro per colpire a distanza:_ +12, gittata
+72 m. _Colpito:_ 18 (3d6 + 8) danni da tuono, e il bersaglio è incapacitato fino al termine del proprio turno
+successivo.
 
-***Aiuto Divino (1/giorno).*** Lancia *Benedizione*, *Parola Guaritrice* o *Santuario* usando la stessa caratteristica da incantatore di Incantesimi.  
+_**Incantesimi.**_ Il gigante lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 15):
 
----
+**1/giorno ciascuno:** _Controllare tempo atmosferico_,
 
-## Sacerdote
+_forma gassosa_, _telecinesi_
+**A volontà:** _Individuazione del magico_, _luce_, _nube di_
 
-*Umanoide Piccolo, Neutrale*
+_nebbia_
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 38 (7d8 + 7)
-- **Velocità:** 9 m
-- **Iniziativa**: +0 (10)
+Azioni bonus
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +3 |
-| DES | 10 | +0 | +0 |
-| COS | 12 | +1 | +1 |
-| INT | 13 | +1 | +1 |
-| SAG | 16 | +3 | +3 |
-| CAR | 13 | +1 | +1 |
+_**Passo velato.**_ Il gigante lancia l'incantesimo _passo_
+_velato_, utilizzando la stessa caratteristica da incantatore
+di Incantesimi.
+## **Gigante delle pietre**
+### **Gigante delle pietre**
 
-- **Abilità**: Medicina +7, Percezione +5, Religione +5  
-- **Equipaggiamento** Cotta di Maglia, Simbolo Sacro, Mazza  
-- **Sensi**: Percezione Passiva 15  
-- **Linguaggi**: Comune più un’altra lingua  
-- **GS** 2 (PE 450; BB +2)
+_Gigante Enorme, neutrale_
 
-### Azioni
 
-***Multiattacco.*** Effettua due attacchi, usando Mazza o Fiamma Radiosa in qualsiasi combinazione.  
+**CA** 17 **Iniziativa** +5 (15)
+**PF** 126 (11d12 + 55)
+**Velocità** 12 m
 
-***Mazza.*** *Tiro per Colpire in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni contundenti più 5 (2d4) danni radianti.  
 
-***Fiamma Radiosa.*** *Tiro per Colpire a distanza:* +5, gittata 18 m. 11 (2d10) danni radianti.  
+**338** System Reference Document 5.2.1
 
-***Incantesimi.*** Lancia uno dei seguenti incantesimi usando Saggezza come caratteristica da incantatore:  
-- **A volontà:** *Luce*, *Taumaturgia*  
-- **1/giorno ciascuno:** *Guardiani Spirituali*  
 
-### Azioni Bonus
 
-***Aiuto Divino (3/giorno).*** Lancia *Benedizione*, *Dissolvi Magie*, *Parola Guaritrice* o *Restaurazione Minore* usando la stessa caratteristica da incantatore di Incantesimi.  
+**Abilità** Atletica +12, Furtività +5, Percezione +4
+**Sensi** Percezione passiva 14; scurovisione 18 m
+**Lingue** Gigante
+**GS** 7 (PE 2.900; BC +3)
 
-## Pseudodrago
+Azioni
 
-*Drago Piccolo, Neutrale Buono*
+_**Multiattacco.**_ Il gigante effettua due attacchi,
+usando Randello di pietra o Macigno in qualsiasi
+combinazione.
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 10 (3d4 + 3)
-- **Velocità:** 4,5 m, Volare 18 m
-- **Iniziativa**: +2 (12)
+_**Randello di pietra.**_ _Tiro per colpire in mischia:_ +9, portata 4,5 m. _Colpito:_ 22 (3d10 + 6) danni contundenti.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 6 | -2 | -2 |
-| DES | 15 | +2 | +2 |
-| COS | 13 | +1 | +1 |
-| INT | 10 | +0 | +0 |
-| SAG | 12 | +1 | +1 |
-| CAR | 10 | +0 | +0 |
+_**Macigno.**_ _Tiro per colpire a distanza:_ +9, gittata
+18/72 m. _Colpito:_ 15 (2d8 + 6) danni contundenti.
+Se il bersaglio è una creatura di taglia Grande o inferiore, cade a terra prono.
 
-- **Abilità**: Percezione +5, Furtività +4  
-- **Sensi**: Vista Cieca 3 m, Scurovisione 18 m; Percezione Passiva 15  
-- **Linguaggi**: Capisce Comune e Draconico ma non può parlare  
-- **GS** 1/4 (PE 50; BB +2)
+Reazioni
 
-### Tratti
+_**Deviare proiettili (ricarica 5–6).**_ _Attivazione:_ il gigante
+viene colpito da un tiro per colpire a distanza che
+gli infligge danni contundenti, perforanti o taglienti.
+_Esito:_ il gigante riduce i danni subiti dall'attacco di
+11 (1d10 + 6) e, se li riduce a 0, può deflettere una
+parte della forza di quell'attacco. _Tiro salvezza su_
+_Destrezza:_ CD 17, una creatura che il gigante è in grado
+di vedere entro 18 metri. _Fallimento:_ 11 (1d10 + 6)
+danni da forza.
+## **Gigante delle tempeste**
+### **Gigante delle tempeste**
 
-***Resistenza alla Magia.*** Vantaggio ai tiri salvezza contro incantesimi ed effetti magici.  
+_Gigante Enorme, caotico buono_
 
-### Azioni
 
-***Multiattacco.*** Effettua due attacchi di Morso.  
+**CA** 16 **Iniziativa** +7 (17)
+**PF** 230 (20d12 + 100)
+**Velocità** 15 m, nuoto 15 m, volo 7,5 m (fluttuare)
 
-***Morso.*** *Tiro per Colpire in mischia:* +4, portata 1,5 m. 4 (1d4 + 2) danni perforanti.  
 
-***Pungiglione.*** *TS Costituzione:* CD 12, una creatura che il pseudodrago può vedere entro 1,5 m. *Fallimento:* 5 (2d4) danni da veleno e il bersaglio è Avvelenato per 1 ora. *Fallimento di 5 o più:* finché è Avvelenato, il bersaglio è anche Incosciente; questa condizione termina in anticipo se subisce danni o se una creatura entro 1,5 m usa un’azione per svegliarlo.  
+**Abilità** Arcano +8, Atletica +14, Percezione +10, Storia +8
+**Resistenze** freddo
+**Immunità** fulmine, tuono
+**Sensi** Percezione passiva 20; scurovisione 36 m, vista pura
 
----
+9 m
+**Lingue** Comune, Gigante
+**GS** 13 (PE 10.000; BC +5)
 
-## Verme Viola
+Tratti
 
-*Mostruosità Enorme, Non Allineata*
+_**Anfibio.**_ Il gigante può respirare in aria e in acqua.
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 247 (15d20 + 90)
-- **Velocità:** 15 m, Scavare 15 m
-- **Iniziativa**: +3 (13)
+Azioni
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 28 | +9 | +9 |
-| DES | 7 | -2 | -2 |
-| COS | 22 | +6 | +11 |
-| INT | 1 | -5 | -5 |
-| SAG | 8 | -1 | +4 |
-| CAR | 4 | -3 | -3 |
+_**Multiattacco.**_ Il gigante effettua due attacchi, usando
+Spada tempestosa o Saetta in qualsiasi combinazione.
 
-- **Sensi**: Vista Cieca 9 m, Tremorsenso 18 m; Percezione Passiva 9  
-- **GS** 15 (PE 13.000; BB +5)
 
-### Tratti
 
-***Scavatore.*** Può scavare nella roccia solida a metà della sua Velocità di Scavo e lascia un tunnel di 3 m di diametro dietro di sé.  
 
-### Azioni
+_**Spada tempestosa.**_ _Tiro per colpire in mischia:_ +14,
+portata 3 m. _Colpito:_ 23 (4d6 + 9) danni taglienti più
+13 (3d8) danni da fulmine.
 
-***Multiattacco.*** Effettua un attacco di Morso e uno di Pungiglione Caudale.  
+_**Saetta.**_ _Tiro per colpire a distanza:_ +14, gittata 150 m.
+_Colpito:_ 22 (2d12 + 9) danni da fulmine, e il bersaglio è
+accecato e assordato fino all'inizio del turno successivo
+del gigante.
 
-***Morso.*** *Tiro per Colpire in mischia:* +14, portata 3 m. 22 (3d8 + 9) danni perforanti. Se il bersaglio è una creatura Grande o più piccola, è Afferrato (CD 19 per sfuggire) e ha la condizione Immobilizzato finché la presa dura.  
+_**Incantesimi.**_ Il gigante lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Saggezza come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 18):
 
-***Pungiglione Caudale.*** *Tiro per Colpire in mischia:* +14, portata 3 m. 16 (2d6 + 9) danni perforanti più 35 (10d6) danni da veleno.  
+**1/giorno:** _Controllare tempo atmosferico_
+**A volontà:** _Individuazione del magico_, _luce_
 
-### Azioni Bonus
+_**Tempesta di fulmini (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 18, ogni creatura in un cilindro di
+3 metri di raggio e 12 metri d'altezza in un punto che
+il gigante è in grado di vedere entro 150 metri. _Falli-_
+_mento:_ 55 (10d10) danni da fulmine. _Successo:_ danni
+dimezzati.
+## **Glabrezu**
+### **Glabrezu**
 
-***Inghiottire.*** *TS Forza:* CD 19, una creatura Grande o più piccola afferrata dal verme (può avere fino a tre creature inghiottite alla volta). *Fallimento:* il bersaglio è inghiottito e la condizione Afferrato termina. Una creatura inghiottita è Accecata e Immobilizzata, ha Copertura Totale contro attacchi ed effetti dall’esterno e subisce 17 (5d6) danni da acido all’inizio di ogni turno del verme.  
-Se il verme subisce 30 o più danni in un singolo turno da una creatura al suo interno, deve riuscire a un TS Costituzione CD 21 alla fine di quel turno o rigurgitare tutte le creature inghiottite, che cadono in uno spazio entro 1,5 m dal verme e sono Prone. Se il verme muore, le creature inghiottite non sono più Immobilizzate e possono uscire dal cadavere usando 6 m di movimento, uscendo Prone.  
+_Immondo Grande (demone), caotico malvagio_
 
----
 
-## Quasit
+**CA** 17 **Iniziativa** +6 (16)
+**PF** 189 (18d10 + 90)
+**Velocità** 12 m
 
-*Mostro Piccolo (Demone), Caotico Malvagio*
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 25 (10d4)
-- **Velocità:** 12 m
-- **Iniziativa**: +3 (13)
+**Abilità** Inganno +7, Percezione +7
+**Resistenze** freddo, fulmine, fuoco
+**Immunità** veleno; avvelenato
+**Sensi** Percezione passiva 17; vista pura 36 m
+**Lingue** Abissale; telepatia 36 m
+**GS** 9 (PE 5.000; BC +4)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 5 | -3 | -3 |
-| DES | 17 | +3 | +3 |
-| COS | 10 | +0 | +0 |
-| INT | 7 | -2 | -2 |
-| SAG | 10 | +0 | +0 |
-| CAR | 10 | +0 | +0 |
+Tratti
 
-- **Resistenze**: Freddo, Fuoco, Fulmine  
-- **Immunità**: Veleno; Avvelenato  
-- **Abilità**: Furtività +5  
-- **Sensi**: Scurovisione 36 m; Percezione Passiva 10  
-- **Linguaggi**: Abissale, Comune  
-- **GS** 1 (PE 200; BB +2)
+_**Resistenza alla magia.**_ Il glabrezu dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
 
-### Tratti
+_**Ristoro demoniaco.**_ Se il glabrezu muore al di fuori
+dell'Abisso, il suo corpo si dissolve diventando icore
+e ne acquisisce uno nuovo all'istante, tornando in vita
+con tutti i suoi punti ferita da qualche parte nell'Abisso.
 
-***Resistenza alla Magia.*** Vantaggio ai tiri salvezza contro incantesimi ed effetti magici.  
+Azioni
 
-### Azioni
+_**Multiattacco.**_ Il glabrezu effettua due attacchi Tenaglia,
+e utilizza Pugno o Incantesimi.
 
-***Dilaniamento.*** *Tiro per Colpire in mischia:* +5, portata 1,5 m. 5 (1d4 + 3) danni da taglio, e il bersaglio ha la condizione Avvelenato fino all’inizio del prossimo turno del quasit.  
+_**Tenaglia.**_ _Tiro per colpire in mischia:_ +9, portata 3 m.
+_Colpito:_ 16 (2d10 + 5) danni taglienti. Se il bersaglio è
+una creatura di taglia Media o inferiore viene afferrato
+(CD 15 per sfuggire) da una delle due tenaglie.
 
-***Spaventare (1/giorno).*** *TS Saggezza:* CD 10, una creatura entro 6 m. *Fallimento:* il bersaglio ha la condizione Spaventato. Alla fine di ciascun suo turno ripete il TS, terminando l’effetto su di sé con un successo. Dopo 1 minuto riesce automaticamente.  
 
-***Mutare Forma.*** Assume l’aspetto di un pipistrello (Velocità 3 m, Volare 12 m), di un centopiedi (12 m, Scalare 12 m) o di un rospo (12 m, Nuotare 12 m), oppure ritorna alla vera forma. Le sue statistiche restano le stesse in ogni forma, tranne la Velocità. L’equipaggiamento indossato o portato non cambia.  
+**339** System Reference Document 5.2.1
 
-***Invisibilità.*** Lancia *Invisibilità* su se stesso, senza componenti e usando Carisma come caratteristica da incantatore.  
-- **A volontà:** *Invisibilità*  
 
----
 
-## Rakshasa
+_**Incantesimi.**_ Il glabrezu lancia uno dei seguenti
+incantesimi senza bisogno di componenti materiali, utilizzando Intelligenza come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 16):
 
-*Mostro Medio, Legale Malvagio*
+**1/giorno ciascuno:** _confusione_, _parola del potere stor-_
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 221 (26d8 + 104)
-- **Velocità:** 12 m
-- **Iniziativa**: +8 (18)
+_dire_, _volare_
+**A volontà:** _dissolvi magie_, _individuazione del magico_,
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 14 | +2 | +2 |
-| DES | 17 | +3 | +3 |
-| COS | 18 | +4 | +4 |
-| INT | 13 | +1 | +1 |
-| SAG | 16 | +3 | +3 |
-| CAR | 20 | +5 | +5 |
+_oscurità_
 
-- **Vulnerabilità**: Perforante  
-- **Immunità**: Ammaliato, Spaventato  
-- **Abilità**: Inganno +10, Intuizione +8, Percezione +8  
-- **Sensi**: vista vera 18 m; Percezione Passiva 18  
-- **Linguaggi**: Comune, Infernale  
-- **GS** 13 (PE 10.000; BB +5)
+_**Pugno.**_ _Tiro salvezza su Destrezza:_ CD 17, una creatura
+afferrata dal glabrezu. _Fallimento:_ 15 (3d6 + 5) danni
+contundenti. _Successo:_ danni dimezzati.
+## **Gladiatore**
+### **Gladiatore**
 
-### Tratti
+_Umanoide Medio o Piccolo, neutrale_
 
-***Grande Resistenza alla Magia.*** Riesce automaticamente ai tiri salvezza contro incantesimi ed effetti magici e i tiri per colpire degli incantesimi lo mancano automaticamente. Senza il suo permesso, nessun incantesimo può osservarlo a distanza né rilevarne pensieri, tipo di creatura o allineamento.  
 
-***Restaurazione Infernale.*** Se muore al di fuori dei Nove Inferi, il corpo si tramuta in ichor e ottiene istantaneamente un nuovo corpo, rianimandosi con tutti i suoi Punti Ferita in qualche luogo dei Nove Inferi.  
+**CA** 16 **Iniziativa** +5 (15)
+**PF** 112 (15d8 + 45)
+**Velocità** 9 m
 
-### Azioni
 
-***Multiattacco.*** Effettua tre attacchi di Tocco Maledetto.  
+**Abilità** Atletica +10, Intrattenere +5
+**Attrezzatura** armatura di cuoio borchiato, lance (3), scudo
+**Sensi** Percezione passiva 11
+**Lingue** Comune
+**GS** 5 (PE 1.800; BC +3)
 
-***Tocco Maledetto.*** *Tiro per Colpire in mischia:* +10, portata 1,5 m. 12 (2d6 + 5) danni da taglio più 19 (3d12) danni necrotici. Se il bersaglio è una creatura, è maledetto. Finché è maledetto, non ottiene benefici dal terminare un Riposo Breve o Lungo.  
+Azioni
 
-***Comando Infausto (Ricarica 5–6).*** *TS Saggezza:* CD 18, ogni nemico in un’Emanazione di 9 m con origine dal rakshasa. *Fallimento:* 28 (8d6) danni psichici e il bersaglio è Spaventato e Incapacitato fino all’inizio del prossimo turno del rakshasa.  
+_**Multiattacco.**_ Il gladiatore effettua tre attacchi Lancia.
+Può sostituire un attacco con un utilizzo di Scudo da
+sfondamento.
 
-***Incantesimi.*** Lancia uno dei seguenti incantesimi, senza componenti materiali e usando Carisma come caratteristica da incantatore (CD 18):  
-- **A volontà:** *Individuazione della Magia*, *Individuazione dei Pensieri*, *Travestimento*, *Mano Magica*, *Illusione Minore*  
-- **1/giorno ciascuno:** *Volo*, *Invisibilità*, *Immagine Maggiore*, *Spostamento Planare*  
+_**Lancia.**_ _Tiro per colpire in mischia o a distanza:_ +7,
+portata 1,5 m o gittata 6/18 m. _Colpito:_ 11 (2d6 + 4)
+danni perforanti.
 
-## Draghetto Rosso
+_**Scudo da sfondamento.**_ _Tiro salvezza su Forza:_ CD 15,
+una creatura entro 1,5 metri che il gladiatore è in grado
+di vedere. _Fallimento:_ 9 (2d4 + 4) danni contundenti.
+Se il bersaglio è una creatura di taglia Media o inferiore,
+cade a terra prono.
 
-*Drago Medio (Cromatico), Caotico Malvagio*
+Reazioni
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 75 (10d8 + 30)
-- **Velocità:** 9 m, Scalare 9 m, Volare 18 m
-- **Iniziativa**: +2 (12)
+_**Parata.**_ _Attivazione:_ il gladiatore viene colpito da
+un tiro per colpire in mischia mentre tiene in mano
+un'arma. _Esito:_ il gladiatore aggiunge 3 alla sua CA
+contro quell'attacco, aumentando le probabilità che
+il colpo non vada a segno.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 19 | +4 | +4 |
-| DES | 10 | +0 | +2 |
-| COS | 17 | +3 | +3 |
-| INT | 12 | +1 | +1 |
-| SAG | 11 | +0 | +2 |
-| CAR | 15 | +2 | +2 |
 
-- **Immunità**: Fuoco  
-- **Abilità**: Percezione +4, Furtività +2  
-- **Sensi**: Vista Cieca 3 m, Scurovisione 18 m; Percezione Passiva 14  
-- **Linguaggi**: Draconico  
-- **GS** 4 (PE 1.100; BB +2)
 
-### Azioni
 
-***Multiattacco.*** Effettua due attacchi di Dilaniamento.  
+## **Gnoll**
+### **Gnoll guerriero**
 
-***Dilaniamento.*** *Tiro per Colpire in mischia:* +6, portata 1,5 m. 9 (1d10 + 4) danni da taglio più 3 (1d6) danni da fuoco.  
+_Immondo Medio, caotico malvagio_
 
-***Soffio di Fuoco (Ricarica 5–6).*** *TS Destrezza:* CD 13, ogni creatura in un Cono di 4,5 m. *Fallimento:* 24 (7d6) danni da fuoco. *Successo:* metà danno.  
 
----
+**CA** 15 **Iniziativa** +1 (11)
+**PF** 27 (6d8)
+**Velocità** 9 m
 
-## Remorhaz
 
-*Mostruosità Enorme, Non Allineata*
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** Gnoll
+**GS** 1/2 (PE 100; BC +2)
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 195 (17d12 + 85)
-- **Velocità:** 12 m, Scavare 9 m
-- **Iniziativa**: +5 (15)
+Azioni
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 24 | +7 | +7 |
-| DES | 13 | +1 | +1 |
-| COS | 21 | +5 | +5 |
-| INT | 4 | -3 | -3 |
-| SAG | 10 | +0 | +0 |
-| CAR | 5 | -3 | -3 |
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 5 (1d6 + 2) danni perforanti.
 
-- **Immunità**: Freddo, Fuoco  
-- **Sensi**: Scurovisione 18 m, Tremorsenso 18 m; Percezione Passiva 10  
-- **GS** 11 (PE 7.200; BB +4)
+_**Arco d'ossa.**_ _Tiro per colpire a distanza:_ +3, gittata
+45/180 m. _Colpito:_ 6 (1d10 + 1) danni perforanti.
 
-### Tratti
+Azioni bonus
 
-***Aura di Calore.*** Alla fine di ciascun suo turno, ogni creatura entro un’emanazione di 1,5 m subisce 16 (3d10) danni da fuoco.  
+_**Furia (1/giorno).**_ Subito dopo aver inflitto danni a una
+creatura già sanguinante, lo gnoll si muove fino a metà
+della sua velocità ed effettua un attacco Squarcio.
+## **Goblin**
+### **Goblin tirapiedi**
 
-### Azioni
+_Folletto Piccolo (goblinoide), caotico neutrale_
 
-***Morso.*** *Tiro per Colpire in mischia:* +11, portata 3 m. 18 (2d10 + 7) danni perforanti più 14 (4d6) danni da fuoco. Se il bersaglio è una creatura Grande o più piccola, è Afferrato (CD 17 per sfuggire) e ha la condizione Immobilizzato finché la presa dura.  
 
-### Azioni Bonus
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 7 (2d6)
+**Velocità** 9 m
 
-***Inghiottire.*** *TS Forza:* CD 19, una creatura Grande o più piccola afferrata (può inghiottirne fino a due). *Fallimento:* il bersaglio è inghiottito e la condizione Afferrato termina. Una creatura inghiottita è Accecata e Immobilizzata, ha Copertura Totale contro attacchi ed effetti esterni e subisce 10 (3d6) danni da acido più 10 (3d6) danni da fuoco all’inizio di ogni turno del remorhaz.  
-Se il remorhaz subisce 30 o più danni in un singolo turno da una creatura al suo interno, deve riuscire a un TS Costituzione CD 15 alla fine del turno o rigurgitare tutte le creature inghiottite, che cadono in spazi entro 1,5 m e sono Prone. Se il remorhaz muore, le creature inghiottite non sono più Immobilizzate e possono uscire dal cadavere spendendo 4,5 m di movimento, uscendo Prone.  
 
----
+**Abilità** Furtività +6
+**Attrezzatura** pugnali (3)
+**Sensi** Percezione passiva 9; scurovisione 18 m
+**Lingue** Comune, Goblin
+**GS** 1/8 (PE 25; BC +2)
 
-## Roc
+Azioni
 
-*Mostruosità Gargantuesca, Non Allineata*
+_**Pugnale.**_ _Tiro per colpire in mischia o a distanza:_ +4,
+portata 1,5 m o gittata 6/18 m. _Colpito:_ 4 (1d4 + 2)
+danni perforanti.
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 248 (16d20 + 80)
-- **Velocità:** 6 m, Volare 36 m
-- **Iniziativa**: +8 (18)
+Azioni bonus
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 28 | +9 | +9 |
-| DES | 10 | +0 | +4 |
-| COS | 20 | +5 | +5 |
-| INT | 3 | -4 | -4 |
-| SAG | 10 | +0 | +4 |
-| CAR | 9 | -1 | -1 |
+_**Fuga agile.**_ Il goblin effettua l'azione di Disimpegno
 
-- **Abilità**: Percezione +8  
-- **Sensi**: Percezione Passiva 18  
-- **GS** 11 (PE 7.200; BB +4)
+     - Nascondersi.
 
-### Azioni
 
-***Multiattacco.*** Effettua due attacchi di Becco. Può sostituirne uno con un attacco di Artigli.  
+**340** System Reference Document 5.2.1
 
-***Becco.*** *Tiro per Colpire in mischia:* +13, portata 3 m. 28 (3d12 + 9) danni perforanti.  
 
-***Artigli.*** *Tiro per Colpire in mischia:* +13, portata 1,5 m. 23 (4d6 + 9) danni da taglio. Se il bersaglio è una creatura Enorme o più piccola, è Afferrato (CD 19 per sfuggire) da entrambi gli artigli ed è Immobilizzato finché la presa dura.  
+### **Goblin guerriero**
 
-### Azioni Bonus
+_Folletto Piccolo (goblinoide), caotico neutrale_
 
-***Piombata (Ricarica 5–6).*** Se ha una creatura afferrata, il roc vola fino a metà della sua Velocità di Volo senza provocare attacchi di opportunità e lascia cadere la creatura.  
 
----
+**CA** 15 **Iniziativa** +2 (12)
+**PF** 10 (3d6)
+**Velocità** 9 m
 
-## Roper
 
-*Aberrazione Grande, Neutrale Malvagio*
+**Abilità** Furtività +6
+**Attrezzatura** arco corto, armatura di cuoio, scimitarra,
 
-- **Classe Armatura:** 20
-- **Punti Ferita:** 93 (11d10 + 33)
-- **Velocità:** 3 m, Scalare 6 m
-- **Iniziativa**: +5 (15)
+scudo
+**Sensi** Percezione passiva 9; scurovisione 18 m
+**Lingue** Comune, Goblin
+**GS** 1/4 (PE 50; BC +2)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 8 | -1 | -1 |
-| COS | 17 | +3 | +3 |
-| INT | 7 | -2 | -2 |
-| SAG | 16 | +3 | +3 |
-| CAR | 6 | -2 | -2 |
+Azioni
 
-- **Abilità**: Percezione +6, Furtività +5  
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 16  
-- **GS** 5 (PE 1.800; BB +3)
+_**Scimitarra.**_ _Tiro per colpire in mischia:_ +4, portata
+1,5 m _Colpito:_ 5 (1d6 + 2) danni taglienti, più 2 (1d4)
+danni taglienti se il tiro per colpire è stato effettuato
+con vantaggio.
 
-### Tratti
+_**Arco corto.**_ _Tiro per colpire a distanza:_ +4, gittata
+24/96 m. _Colpito:_ 5 (1d6 + 2) danni perforanti, più
+2 (1d4) danni perforanti se il tiro per colpire è stato
+effettuato con vantaggio.
 
-***Camminare sui Muri.*** Può arrampicarsi su superfici difficili, compresi i soffitti, senza effettuare prove.  
+Azioni bonus
 
-### Azioni
+_**Fuga agile.**_ Il goblin effettua l'azione di Disimpegno
 
-***Multiattacco.*** Effettua due attacchi di Tentacolo, usa Trascinare e compie due attacchi di Morso.  
+- Nascondersi.
+### **Goblin capo**
 
-***Morso.*** *Tiro per Colpire in mischia:* +7, portata 1,5 m. 17 (3d8 + 4) danni perforanti.  
+_Folletto Piccolo (goblinoide), caotico neutrale_
 
-***Tentacolo.*** *Tiro per Colpire in mischia:* +7, portata 18 m. Il bersaglio è Afferrato (CD 14 per liberarsi) da uno dei sei tentacoli ed è Avvelenato finché la presa dura.  
-Il tentacolo può essere danneggiato, liberando una creatura afferrata se distrutto (CA 20, PF 10, Immunità a veleno e psichico). Danneggiare il tentacolo non infligge danni al roper, e un tentacolo distrutto ricresce all’inizio del turno successivo del roper.  
 
-***Trascinare.*** Il roper tira verso di sé ciascuna creatura afferrata fino a 9 m in linea retta.  
+**CA** 17 **Iniziativa** +2 (12)
+**PF** 21 (6d6)
+**Velocità** 9 m
 
-## Mostro della Ruggine
 
-*Mostruosità Media, Non Allineata*
+**Abilità** Furtività +6
+**Attrezzatura** arco corto, giaco di maglia, scimitarra, scudo
+**Sensi** Percezione passiva 9; scurovisione 18 m
+**Lingue** Comune, Goblin
+**GS** 1 (PE 200; BC +2)
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 33 (6d8 + 6)
-- **Velocità:** 12 m
-- **Iniziativa**: +1 (11)
+Azioni
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 13 | +1 | +1 |
-| DES | 12 | +1 | +1 |
-| COS | 13 | +1 | +1 |
-| INT | 2 | -4 | -4 |
-| SAG | 13 | +1 | +1 |
-| CAR | 6 | -2 | -2 |
+_**Multiattacco.**_ Il goblin effettua due attacchi, utilizzando
+Scimitarra o Arco corto in qualsiasi combinazione.
 
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 11  
-- **GS** 1/2 (PE 100; BB +2)
+_**Scimitarra.**_ _Tiro per colpire in mischia:_ +4, portata
+1,5 m _Colpito:_ 5 (1d6 + 2) danni taglienti, più 2 (1d4)
+danni taglienti se il tiro per colpire è stato effettuato
+con vantaggio.
 
-### Tratti
+_**Arco corto.**_ _Tiro per colpire a distanza:_ +4, gittata
+24/96 m. _Colpito:_ 5 (1d6 + 2) danni perforanti, più
 
-***Fiuto del Ferro.*** Può individuare metallo ferroso entro 9 m.  
 
-### Azioni
 
-***Multiattacco.*** Effettua un attacco di Morso e usa due volte Antenne.  
 
-***Morso.*** *Tiro per Colpire in mischia:* +3, portata 1,5 m. 5 (1d8 + 1) danni perforanti.  
+2 (1d4) danni perforanti se il tiro per colpire è stato
+effettuato con vantaggio.
 
-***Antenne.*** Bersaglia un oggetto metallico non magico — armatura o arma — indossato o impugnato da una creatura entro 1,5 m. *TS Destrezza:* CD 11. *Fallimento:* l’oggetto subisce una penalità di -1 alla CA (armatura) o ai tiri per colpire (arma). Un’armatura è distrutta se la penalità riduce la sua CA a 10, e un’arma è distrutta se la penalità raggiunge -5. La penalità può essere rimossa con l’incantesimo *Riparare*.  
+Azioni bonus
 
-***Distruggere Metallo.*** Tocca un oggetto metallico non magico entro 1,5 m non indossato o trasportato, distruggendo un Cubo di 30 cm dell’oggetto.  
+_**Fuga agile.**_ Il goblin effettua l'azione di Disimpegno
 
----
+     - Nascondersi.
 
-## Guerriero Sahuagin
+Reazioni
 
-*Mostro Medio, Legale Malvagio*
+_**Sviare attacco.**_ _Attivazione:_ Una creatura che il goblin
+è in grado di vedere effettua un tiro per colpire contro
+di lui. _Esito:_ Il goblin sceglie un alleato di taglia Piccola
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 22 (4d8 + 4)
-- **Velocità:** 9 m, Nuotare 12 m
-- **Iniziativa**: +0 (10)
+      - Media entro 1,5 metri da sé. Il goblin e l'alleato si
+scambiano di posto, facendo sì che quest'ultimo diventi
+il bersaglio dell'attacco al suo posto.
+## **Golem di argilla**
+### **Golem di argilla**
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 13 | +1 | +1 |
-| DES | 11 | +0 | +0 |
-| COS | 12 | +1 | +1 |
-| INT | 12 | +1 | +1 |
-| SAG | 13 | +1 | +1 |
-| CAR | 9 | -1 | -1 |
+_Costrutto Grande, senza allineamento_
 
-- **Resistenze**: Acido, Freddo  
-- **Abilità**: Percezione +5  
-- **Sensi**: Scurovisione 36 m; Percezione Passiva 15  
-- **Linguaggi**: Sahuagin  
-- **GS** 1/2 (PE 100; BB +2)
 
-### Tratti
+**CA** 14 **Iniziativa** +3 (13)
+**PF** 123 (13d10 + 52)
+**Velocità** 9 m
 
-***Frenesia di Sangue.*** Vantaggio ai tiri per colpire contro creature che non hanno tutti i Punti Ferita.  
 
-***Amfibia Limitata.*** Può respirare aria e acqua, ma deve immergersi almeno una volta ogni 4 ore o soffoca fuori dall’acqua.  
+**Resistenze** contundente, perforante, tagliente
+**Immunità** acido, psichico, veleno; affascinato, avvelenato,
 
-***Telepatia con gli Squali.*** Può controllare magicamente gli squali entro 36 m tramite telepatia speciale.  
+indebolimento, paralizzato, pietrificato, spaventato
+**Sensi** Percezione passiva 9; scurovisione 18 m
+**Lingue** Comune più un'altra lingua
+**GS** 9 (PE 5.000; BC +4)
 
-### Azioni
+Tratti
 
-***Multiattacco.*** Effettua due attacchi di Artiglio.  
+_**Assorbimento dell'acido.**_ Ogni volta che il golem
+riceve danni da acido, non subisce danni, recuperando
+un numero di punti ferita pari ai danni da acido a lui
+inflitti.
 
-***Artiglio.*** *Tiro per Colpire in mischia:* +3, portata 1,5 m. 4 (1d6 + 1) danni da taglio.  
+_**Berserk.**_ Ogni volta che il golem inizia il suo turno
+sanguinante, tira 1d6. Se esce 6, il golem entra in uno
+stato di berserk. A ogni suo turno, finché è in stato di
+berserk, il golem attacca la creatura più vicina che è
+in grado di vedere. Se nessuna creatura è abbastanza
+vicina per essere attaccata, il golem si scaglia contro
+un oggetto. Una volta che il golem entra in stato di berserk, rimane in questo stato finché non viene distrutto
 
-### Azioni Bonus
+      - non è più sanguinante.
 
-***Carica Acquatica.*** Nuota fino alla sua Velocità di Nuoto in linea retta verso un nemico visibile.  
+_**Forma immutabile.**_ Il golem non può mutare forma.
 
----
+_**Resistenza alla magia.**_ Il golem dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
 
-## Salamandra
+Azioni
 
-*Elementale Grande, Neutrale Malvagio*
+_**Multiattacco.**_ Il golem effettua due attacchi Schianto,
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 90 (12d10 + 24)
-- **Velocità:** 9 m, Scalare 9 m
-- **Iniziativa**: +2 (12)
+      - effettua tre attacchi Schianto se ha usato Fretta nello
+stesso turno.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 14 | +2 | +2 |
-| COS | 15 | +2 | +2 |
-| INT | 11 | +0 | +0 |
-| SAG | 10 | +0 | +0 |
-| CAR | 12 | +1 | +1 |
 
-- **Vulnerabilità**: Freddo  
-- **Immunità**: Fuoco  
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 10  
-- **Linguaggi**: Primordiale (Ignan)  
-- **GS** 5 (PE 1.800; BB +3)
+**341** System Reference Document 5.2.1
 
-### Tratti
 
-***Aura di Fuoco.*** Alla fine di ciascun suo turno, ogni creatura a sua scelta entro un’emanazione di 1,5 m subisce 7 (2d6) danni da fuoco.  
 
-### Azioni
+_**Schianto.**_ _Tiro per colpire in mischia:_ +9, portata 1,5 m
+_Colpito:_ 10 (1d10 + 5) danni contundenti più 6 (1d12)
+danni da acido, e i punti ferita massimi del bersaglio
+sono ridotti di un ammontare pari ai danni da acido
+subiti.
 
-***Multiattacco.*** Effettua due attacchi di Lancia Fiammeggiante. Può sostituirne uno con un uso di Stritolare.  
+Azioni bonus
 
-***Lancia Fiammeggiante.*** *Tiro per Colpire in mischia o a distanza:* +7, portata 1,5 m o gittata 6/18 m. 13 (2d8 + 4) danni perforanti più 7 (2d6) danni da fuoco. La lancia ritorna magicamente nella sua mano subito dopo un attacco a distanza.  
+_**Fretta (ricarica 5–6).**_ Il golem effettua le azioni di
+Disimpegno e Scatto.
+## **Golem di carne**
+### **Golem di carne**
 
-***Stritolare.*** *TS Forza:* CD 15, una creatura Grande o più piccola entro 3 m. *Fallimento:* 11 (2d6 + 4) danni contundenti più 7 (2d6) danni da fuoco. Il bersaglio è Afferrato (CD 14 per sfuggire) e Immobilizzato finché la presa dura.  
+_Costrutto Medio, neutrale_
 
----
 
-## Satiro
+**CA** 9 **Iniziativa** −1 (9)
+**PF** 127 (15d8 + 60)
+**Velocità** 9 m
 
-*Creatura Fatata Media, Caotico Neutrale*
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 31 (7d8)
-- **Velocità:** 12 m
-- **Iniziativa**: +3 (13)
+**Immunità** fulmine, veleno; affascinato, avvelenato,
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 12 | +1 | +1 |
-| DES | 16 | +3 | +3 |
-| COS | 11 | +0 | +0 |
-| INT | 12 | +1 | +1 |
-| SAG | 10 | +0 | +0 |
-| CAR | 14 | +2 | +2 |
+indebolimento, paralizzato, pietrificato, spaventato
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** capisce il Comune più un'altra lingua ma non
 
-- **Abilità**: Percezione +2, Intrattenere +6, Furtività +5  
-- **Sensi**: Percezione Passiva 12  
-- **Linguaggi**: Comune, Elfico, Silvano  
-- **GS** 1/2 (PE 100; BB +2)
+le parla
+**GS** 5 (PE 1.800; BC +3)
 
-### Tratti
+Tratti
 
-***Resistenza alla Magia.*** Vantaggio ai tiri salvezza contro incantesimi ed effetti magici.  
+_**Assorbimento del fulmine**_ . Ogni volta che il golem
+subisce danni da fulmine, recupera un numero di punti
+ferita pari ai danni da fulmine inflitti.
 
-### Azioni
+_**Avversione al fuoco.**_ Se il golem subisce danni da
+fuoco, subisce svantaggio ai tiri per colpire e alle
+prove di caratteristica fino al termine del proprio turno
+successivo.
 
-***Zoccoli.*** *Tiro per Colpire in mischia:* +5, portata 1,5 m. 5 (1d4 + 3) danni contundenti. Se il bersaglio è una creatura Media o più piccola, il satiro lo spinge di 3 m lontano da sé.  
+_**Berserk.**_ Ogni volta che il golem inizia il suo turno
+sanguinante, tira 1d6. Se esce 6, il golem entra in uno
+stato di berserk. A ogni suo turno, finché è in stato di
+berserk, il golem attacca la creatura più vicina che è
+in grado di vedere. Se nessuna creatura è abbastanza
+vicina per essere attaccata, il golem si scaglia contro
+un oggetto. Una volta che il golem entra in stato di berserk, rimane in questo stato finché non viene distrutto
 
-***Scherno.*** *TS Saggezza:* CD 12, una creatura che il satiro può vedere entro 27 m. *Fallimento:* 5 (1d6 + 2) danni psichici.  
+- non è più sanguinante.
 
-## Esploratore
+Il creatore del golem, se si trova entro 18 metri dal
+golem in stato di berserk, può cercare di calmarlo eseguendo un'azione per effettuare una prova di Carisma
+(Persuasione) con CD 15. Il golem deve essere in grado
+di udire il suo creatore. Se la prova ha successo, il
+golem esce dallo stato di berserk fino all'inizio del proprio turno successivo; a quel punto, se è ancora sanguinante, riprende a effettuare il tiro del tratto Berserk.
 
-*Umanoide Piccolo, Neutrale*
+_**Forma immutabile.**_ Il golem non può mutare forma.
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 16 (3d8 + 3)
-- **Velocità:** 9 m
-- **Iniziativa**: +2 (12)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 11 | +0 | +0 |
-| DES | 14 | +2 | +2 |
-| COS | 12 | +1 | +1 |
-| INT | 11 | +0 | +0 |
-| SAG | 13 | +1 | +1 |
-| CAR | 11 | +0 | +0 |
 
-- **Abilità**: Natura +4, Percezione +5, Furtività +6, Sopravvivenza +5  
-- **Equipaggiamento**: Armatura di Cuoio, Arco Lungo, Spada Corta  
-- **Sensi**: Percezione Passiva 15  
-- **Linguaggi**: Comune più un’altra lingua  
-- **GS** 1/2 (PE 100; BB +2)
 
-### Azioni
+_**Resistenza alla magia.**_ Il golem dispone di vantaggio ai
+tiri salvezza contro incantesimi e altri effetti magici.
 
-***Multiattacco.*** Effettua due attacchi, usando Spada Corta e Arco Lungo in qualsiasi combinazione.  
+Azioni
 
-***Spada Corta.*** *Tiro per Colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni perforanti.  
+_**Multiattacco.**_ Il golem effettua due attacchi Schianto.
 
-***Arco Lungo.*** *Tiro per Colpire a distanza:* +4, gittata 45/180 m. 6 (1d8 + 2) danni perforanti.  
+_**Schianto.**_ _Tiro per colpire in mischia:_ +7, portata 1,5 m.
+_Colpito:_ 13 (2d8 + 4) danni contundenti più 4 (1d8)
+danni da fulmine.
+## **Golem di ferro**
+### **Golem di ferro**
 
----
+_Costrutto Grande, senza allineamento_
 
-## Megera del Mare
 
-*Creatura Fatata Media, Caotico Malvagio*
+**CA** 20 **Iniziativa** +9 (19)
+**PF** 252 (24d10 + 120)
+**Velocità** 9 m
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 52 (7d8 + 21)
-- **Velocità:** 9 m, Nuotare 12 m
-- **Iniziativa**: +1 (11)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +3 |
-| DES | 13 | +1 | +1 |
-| COS | 16 | +3 | +3 |
-| INT | 12 | +1 | +1 |
-| SAG | 12 | +1 | +1 |
-| CAR | 13 | +1 | +1 |
+**Immunità** fuoco, psichico, veleno; affascinato, avvelenato,
 
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 11  
-- **Linguaggi**: Comune, Gigante, Primordiale (Aquan)  
-- **GS** 2 (PE 450; BB +2)
+indebolimento, paralizzato, pietrificato, spaventato
+**Sensi** Percezione passiva 10; scurovisione 36 m
+**Lingue** capisce il Comune più altre due lingue ma non
 
-### Tratti
+le parla
+**GS** 16 (PE 15.000; BC +5)
 
-***Amfibia.*** Può respirare aria e acqua.  
+Tratti
 
-***Aspetto Ripugnante.*** *TS Saggezza:* CD 11, ogni Bestia o Umanoide che inizia il turno entro 9 m e può vedere la sua vera forma. *Fallimento:* ottiene la condizione Spaventato fino all’inizio del turno successivo. *Successo:* è immune a questo tratto per 24 ore.  
+_**Assorbimento del fuoco.**_ Ogni volta che il golem subisce danni da fuoco, recupera un numero di punti ferita
+pari ai danni da fuoco inflitti.
 
-### Azioni
+_**Forma immutabile.**_ Il golem non può mutare forma.
 
-***Artiglio.*** *Tiro per Colpire in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) danni da taglio.  
+_**Resistenza alla magia.**_ Il golem dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
 
-***Sguardo Mortale (Ricarica 5–6).*** *TS Saggezza:* CD 11, una creatura Spaventata che può vedere entro 9 m. *Fallimento:* se ha 20 PF o meno, scende a 0 PF. Altrimenti subisce 13 (3d8) danni psichici.  
+Azioni
 
-***Aspetto Illusorio.*** Lancia *Camuffare Se Stesso*, usando Costituzione come caratteristica da incantatore (CD 13). La durata è 24 ore.  
-- **A volontà:** *Camuffare Se Stesso*  
+_**Multiattacco.**_ Il golem effettua due attacchi, usando
+Braccio affilato o Dardo di fuoco in qualsiasi
+combinazione.
 
----
+_**Braccio affilato.**_ _Tiro per colpire in mischia:_ +12,
+portata 3 m. _Colpito:_ 20 (3d8 + 7) danni taglienti più
+10 (3d6) danni da fuoco.
 
-## Ombra
+_**Dardo di fuoco.**_ _Tiro per colpire a distanza:_ +10, gittata
+36 m. _Colpito:_ 36 (8d8) danni da fuoco.
 
-*Non Morto Medio, Caotico Malvagio*
+_**Soffio di veleno (ricarica 6).**_ _Tiro salvezza su Costitu-_
+_zione:_ CD 18, tutte le creature in un cono di 18 metri.
+_Fallimento:_ 55 (10d10) danni da veleno. _Successo:_
+danni dimezzati.
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 27 (5d8 + 5)
-- **Velocità:** 12 m
-- **Iniziativa**: +2 (12)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 6 | -2 | -2 |
-| DES | 14 | +2 | +2 |
-| COS | 13 | +1 | +1 |
-| INT | 6 | -2 | -2 |
-| SAG | 10 | +0 | +0 |
-| CAR | 8 | -1 | -1 |
+**342** System Reference Document 5.2.1
 
-- **Vulnerabilità**: Radiante  
-- **Resistenze**: Acido, Freddo, Fuoco, Fulmine, Tuono  
-- **Immunità**: Necrotico, Veleno; Affaticato, Spaventato, Afferrato, Paralizzato, Pietrificato, Avvelenato, Prono, Immobilizzato, Incosciente  
-- **Abilità**: Furtività +6  
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 10  
-- **GS** 1/2 (PE 100; BB +2)
 
-### Tratti
+## **Golem di pietra**
+### **Golem di pietra**
 
-***Amorfa.*** Può muoversi attraverso spazi larghi almeno 2,5 cm senza movimento extra.  
+_Costrutto Grande, senza allineamento_
 
-***Debolezza alla Luce Solare.*** In piena luce solare ha Svantaggio ai tiri di dado.  
 
-### Azioni
+**CA** 18 **Iniziativa** +3 (13)
+**PF** 220 (21d10 + 105)
+**Velocità** 9 m
 
-***Colpo Drainante.*** *Tiro per Colpire in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) danni necrotici e il punteggio di Forza del bersaglio si riduce di 1d4. Muore se il punteggio scende a 0. Se un Umanoide muore per questo attacco, un’Ombra si leva dal cadavere dopo 1d4 ore.  
 
-### Azioni Bonus
+**Immunità** psichico, veleno; affascinato, avvelenato,
 
-***Furtività delle Ombre.*** In luce fioca o oscurità usa l’azione Nascondersi.  
+indebolimento, paralizzato, pietrificato, spaventato
+**Sensi** Percezione passiva 10; scurovisione 36 m
+**Lingue** capisce il Comune più altre due lingue ma non
 
----
+le parla
+**GS** 10 (PE 5.900; BC +4)
 
-## Mucchio deambulante
+Tratti
 
-*Pianta Grande, Non Allineata*
+_**Forma immutabile.**_ Il golem non può mutare forma.
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 110 (13d10 + 39)
-- **Velocità:** 9 m, Nuotare 6 m
-- **Iniziativa**: -1 (9)
+_**Resistenza alla magia.**_ Il golem dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 8 | -1 | -1 |
-| COS | 16 | +3 | +3 |
-| INT | 5 | -3 | -3 |
-| SAG | 10 | +0 | +0 |
-| CAR | 5 | -3 | -3 |
+Azioni
 
-- **Resistenze**: Freddo, Fuoco  
-- **Immunità**: Fulmine; Assordato, Affaticato  
-- **Abilità**: Furtività +3  
-- **Sensi**: Vista Cieca 18 m; Percezione Passiva 10  
-- **GS** 5 (PE 1.800; BB +3)
+_**Multiattacco.**_ Il golem effettua due attacchi, usando
+Schianto o Dardo vigoroso in qualsiasi combinazione.
 
-### Tratti
+_**Schianto.**_ _Tiro per colpire in mischia:_ +10, portata
+1,5 m. _Colpito:_ 15 (2d8 + 6) danni contundenti più
+9 (2d8) danni da forza.
 
-***Assorbimento del Fulmine.*** Quando subisce danni da fulmine, recupera PF pari al danno subito.  
+_**Dardo vigoroso.**_ _Tiro per colpire a distanza:_ +9, gittata
+36 m. _Colpito:_ 22 (4d10) danni da forza.
 
-### Azioni
+Azioni bonus
 
-***Multiattacco.*** Effettua tre attacchi di Vite Cariche. Può sostituirne uno con Inghiottire.  
+_**Lentezza (ricarica 5–6).**_ Il golem lancia l'incantesimo
+_lentezza_, senza bisogno di componenti e utilizzando
+Costituzione come caratteristica da incantatore (CD del
+tiro salvezza sull'incantesimo 17).
+## **Gorgone**
+### **Gorgone**
 
-***Vite Cariche.*** *Tiro per Colpire in mischia:* +7, portata 3 m. 7 (1d6 + 4) danni contundenti più 5 (2d4) danni da fulmine. Se il bersaglio è una creatura Media o più piccola, la tira di 1,5 m verso di sé.  
+_Costrutto Grande, senza allineamento_
 
-***Inghiottire.*** *TS Forza:* CD 15, una creatura Media o più piccola entro 1,5 m. *Fallimento:* il bersaglio viene trascinato nello spazio del mucchio e ha la condizione Afferrato (CD 14 per sfuggire). Finché la presa dura, ha le condizioni Accecato e Immobilizzato e subisce 10 (3d6) danni da fulmine all’inizio di ciascun suo turno. Quando il mucchio si muove, il bersaglio mosso con esso non spende movimento. Può avere solo una creatura afferrata in questo modo alla volta.  
 
-## Guardiano dello Scudo
+**CA** 19 **Iniziativa** +0 (10)
+**PF** 114 (12d10 + 48)
+**Velocità** 12 m
 
-*Costrutto Grande, Non Allineato*
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 142 (15d10 + 60)
-- **Velocità:** 9 m
-- **Iniziativa**: -1 (9)
+**Abilità** Percezione +7
+**Immunità** indebolimento, pietrificato
+**Sensi** Percezione passiva 17; scurovisione 18 m
+**Lingue** nessuna
+**GS** 5 (PE 1.800; BC +3)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 8 | -1 | -1 |
-| COS | 18 | +4 | +4 |
-| INT | 7 | -2 | -2 |
-| SAG | 10 | +0 | +0 |
-| CAR | 3 | -4 | -4 |
 
-- **Immunità**: Veleno; Ammaliato, Affaticato, Spaventato, Paralizzato, Pietrificato, Avvelenato  
-- **Sensi**: Vista Cieca 3 m, Scurovisione 18 m; Percezione Passiva 10  
-- **Linguaggi**: Capisce comandi in qualsiasi lingua ma non può parlare  
-- **GS** 7 (PE 2.900; BB +3)
 
-### Tratti
 
-***Vincolo.*** È magicamente vincolato a un amuleto. Finché guardiano e amuleto si trovano nello stesso piano, chi indossa l’amuleto può richiamarlo telepaticamente, e il guardiano conosce distanza e direzione dell’amuleto. Se è entro 18 m dal portatore, metà dei danni subiti dal portatore (arrotondati per eccesso) viene trasferita al guardiano.  
+Azioni
 
-***Rigenerazione.*** Recupera 10 PF all’inizio di ciascun suo turno se ha almeno 1 PF.  
+_**Trafiggere.**_ _Tiro per colpire in mischia:_ +8, portata
+1,5 m _Colpito:_ 18 (2d12 + 5) danni perforanti. Se il
+bersaglio è una creatura di taglia Grande o inferiore e la
+gorgone si è mossa di 6 metri o più in linea retta verso
+di esso subito prima del colpo, il bersaglio cade a terra
+prono.
 
-***Immagazzinare Incantesimi.*** Un incantatore che indossa l’amuleto può fargli immagazzinare un incantesimo di 4° livello o inferiore lanciandolo sul guardiano entro 1,5 m. L’incantesimo non ha effetto ma viene immagazzinato. Un nuovo incantesimo sostituisce il precedente. Il guardiano può lanciare l’incantesimo immagazzinato con i parametri stabiliti dall’incantatore originale, senza componenti e usando la sua caratteristica da incantatore.  
+_**Soffio pietrificante (ricarica 5–6).**_ _Tiro salvezza su_
+_Costituzione:_ CD 15, tutte le creature in un cono di
+9 metri. _Primo_ _fallimento:_ il bersaglio è trattenuto.
+Ripete il tiro salvezza al termine del proprio turno successivo se è ancora trattenuto e, se lo supera, l'effetto
+svanisce. _Secondo_ _fallimento:_ il bersaglio è pietrificato
+invece che trattenuto.
 
-### Azioni
+Azioni bonus
 
-***Multiattacco.*** Effettua due attacchi di Pugno.  
+_**Calpestare.**_ _Tiro salvezza su Destrezza:_ CD 16, una creatura prona entro 1,5 metri. _Fallimento:_ 16 (2d10 + 5)
+danni contundenti. _Successo:_ danni dimezzati.
+## **Grick**
+### **Grick**
 
-***Pugno.*** *Tiro per Colpire in mischia:* +7, portata 3 m. 11 (2d6 + 4) danni contundenti più 7 (2d6) danni da forza.  
+_Aberrazione Media, senza allineamento_
 
----
 
-## Fungo Urlatore
+**CA** 14 **Iniziativa** +2 (12)
+**PF** 54 (12d8)
+**Velocità** 9 m, scalata 9 m
 
-*Pianta Media, Non Allineata*
 
-- **Classe Armatura:** 5
-- **Punti Ferita:** 13 (3d8)
-- **Velocità:** 1,5 m
-- **Iniziativa**: -5 (5)
+**Abilità** Furtività +4
+**Sensi** Percezione passiva 12; scurovisione 18 m
+**Lingue** nessuna
+**GS** 2 (PE 450; BC +2)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 1 | -5 | -5 |
-| DES | 1 | -5 | -5 |
-| COS | 10 | +0 | +0 |
-| INT | 1 | -5 | -5 |
-| SAG | 3 | -4 | -4 |
-| CAR | 1 | -5 | -5 |
+Azioni
 
-- **Immunità**: Accecato, Ammaliato, Assordato, Spaventato  
-- **Sensi**: Vista Cieca 9 m; Percezione Passiva 6  
-- **GS** 0 (PE 0)  
+_**Multiattacco.**_ Il grick effettua un attacco Becco e un
+attacco Tentacoli.
 
----
+_**Becco.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 9 (2d6 + 2) danni perforanti.
 
-## Draghetto d’Argento
+_**Tentacoli.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 7 (1d10 + 2) danni taglienti. Se il bersaglio
+è una creatura di taglia Media o inferiore, è afferrato
+(CD 12 per sfuggire) da tutti e quattro i tentacoli.
+## **Grifone**
+### **Grifone**
 
-*Drago Medio (Metallico), Legale Buono*
+_Mostruosità Grande, senza allineamento_
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 45 (6d8 + 18)
-- **Velocità:** 9 m, Volare 18 m
-- **Iniziativa**: +2 (12)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 19 | +4 | +4 |
-| DES | 10 | +0 | +2 |
-| COS | 17 | +3 | +3 |
-| INT | 12 | +1 | +1 |
-| SAG | 11 | +0 | +2 |
-| CAR | 15 | +2 | +2 |
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 59 (7d10 + 21)
+**Velocità** 9 m, volo 24 m
 
-- **Immunità**: Freddo  
-- **Abilità**: Percezione +4, Furtività +2  
-- **Sensi**: Vista Cieca 3 m, Scurovisione 18 m; Percezione Passiva 14  
-- **Linguaggi**: Draconico  
-- **GS** 2 (PE 450; BB +2)
 
-### Azioni
+**343** System Reference Document 5.2.1
 
-***Multiattacco.*** Effettua due attacchi di Dilaniamento.  
 
-***Dilaniamento.*** *Tiro per Colpire in mischia:* +6, portata 1,5 m. 9 (1d10 + 4) danni perforanti.  
 
-***Soffio Gelido (Ricarica 5–6).*** *TS Costituzione:* CD 13, ogni creatura in un Cono di 4,5 m. *Fallimento:* 18 (4d8) danni da freddo. *Successo:* metà danno.  
+**Abilità** Percezione +5
+**Sensi** Percezione passiva 15; scurovisione 18 m
+**Lingue** nessuna
+**GS** 2 (PE 450; BC +2)
 
-***Soffio Paralizzante.*** *TS Costituzione:* CD 13, ogni creatura in un Cono di 4,5 m. *Primo Fallimento:* ottiene la condizione Incapacitato fino alla fine del suo prossimo turno, quando ripete il TS. *Secondo Fallimento:* ottiene la condizione Paralizzato, e ripete il TS alla fine di ciascun suo turno, terminando l’effetto su di sé con un successo. Dopo 1 minuto riesce automaticamente.  
+Azioni
 
----
+_**Multiattacco.**_ Il grifone effettua due attacchi Squarcio.
 
-## Scheletro
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 8 (1d8 + 4) danni perforanti. Se il bersaglio
+è una creatura di taglia Media o inferiore, è afferrato
+(CD 14 per sfuggire) da entrambi gli artigli frontali del
+grifone.
+## **Grimlock**
+### **Grimlock**
 
-*Non Morto Medio, Legale Malvagio*
+_Aberrazione Media, neutrale malvagio_
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 13 (2d8 + 4)
-- **Velocità:** 9 m
-- **Iniziativa**: +3 (13)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 10 | +0 | +0 |
-| DES | 16 | +3 | +3 |
-| COS | 15 | +2 | +2 |
-| INT | 6 | -2 | -2 |
-| SAG | 8 | -1 | -1 |
-| CAR | 5 | -3 | -3 |
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 11 (2d8 + 2)
+**Velocità** 9 m, scalata 9 m
 
-- **Vulnerabilità**: Contundente  
-- **Immunità**: Veleno; Affaticato, Avvelenato  
-- **Equipaggiamento**: Arco Corto, Spada Corta  
-- **Sensi**: Scurovisione 18 m; Percezione Passiva 9  
-- **Linguaggi**: Capisce Comune più un’altra lingua ma non può parlare  
-- **GS** 1/4 (PE 50; BB +2)
 
-### Azioni
+**Abilità** Atletica +5, Furtività +5, Percezione +3
+**Sensi** Percezione passiva 13; vista cieca 9 m
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
 
-***Spada Corta.*** *Tiro per Colpire in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) danni perforanti.  
+Azioni
 
-***Arco Corto.*** *Tiro per Colpire a distanza:* +5, gittata 24/96 m. 6 (1d6 + 3) danni perforanti.  
+_**Randello d'ossa.**_ _Tiro per colpire in mischia:_ +5, portata
+1,5 m _Colpito:_ 6 (1d6 + 3) danni contundenti più
+2 (1d4) danni psichici.
+## **Guardiano protettore**
+### **Guardiano protettore**
 
-## Solar
+_Costrutto Grande, senza allineamento_
 
-*Celestiale Grande (Angelo), Legale Buono*
 
-- **Classe Armatura:** 21
-- **Punti Ferita:** 297 (22d10 + 176)
-- **Velocità:** 15 m, Volare 45 m (fluttuare)
-- **Iniziativa**: +20 (30)
+**CA** 17 **Iniziativa** –1 (9)
+**PF** 142 (15d10 + 60)
+**Velocità** 9 m
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 26 | +8 | +8 |
-| DES | 22 | +6 | +6 |
-| COS | 26 | +8 | +8 |
-| INT | 25 | +7 | +7 |
-| SAG | 25 | +7 | +7 |
-| CAR | 30 | +10 | +10 |
 
-- **Immunità**: Veleno, Radiante; Affascinato, Affaticato, Spaventato, Avvelenato
-- **Abilità**: Percezione +14
-- **Sensi**: vista cieca 36 m; Percezione Passiva 24
-- **Linguaggi**: Tutti; telepatia 36 m
-- **GS** 21 (PE 33.000; MB +7)
+**Immunità** veleno; affascinato, avvelenato, indebolimento,
 
-### Tratti
+paralizzato, pietrificato, spaventato
+**Sensi** Percezione passiva 10; scurovisione 18 m, vista
 
-***Consapevolezza Divina.*** Il solar sa se sente una menzogna.  
+cieca 3 m
+**Lingue** capisce i comandi impartiti in qualsiasi lingua, ma
 
-***Restauro Esaltato.*** Se il solar muore fuori dal Monte Celestia, il suo corpo scompare e ne ottiene subito uno nuovo, rianimandosi con tutti i suoi Punti Ferita da qualche parte sul Monte Celestia.  
+non è in grado di parlare
+**GS** 7 (PE 2.900; BC +3)
 
-***Resistenza Leggendaria (4/Giorno).*** Se il solar fallisce un tiro salvezza, può scegliere di riuscire invece.  
 
-***Resistenza alla Magia.*** Il solar ha vantaggio nei tiri salvezza contro incantesimi ed effetti magici.  
 
-### Azioni
 
-***Attacco Multiplo.*** Il solar effettua due attacchi con la Spada Volante. Può sostituire un attacco con l’uso dell’Arco della Morte.  
+Tratti
 
-***Spada Volante.*** *Tiro per Colpire in mischia o a distanza:* +15, portata 3 m o gittata 36 m. Danni: 22 (4d6 + 8) taglienti più 36 (8d8) radianti. Dopo un attacco a distanza la spada ritorna magicamente nella mano del solar o fluttua entro 1,5 m da lui.  
+_**Incantesimo custodito.**_ Un incantatore che indossa
+l'amuleto del guardiano protettore può fare in modo
+che il guardiano custodisca un incantesimo di 4º livello
 
-***Arco della Morte.*** *Tiro Salvezza su Destrezza*: CD 21, una creatura visibile entro 180 m. *Fallimento:* se ha 100 PF o meno, muore. Altrimenti subisce 24 (4d8 + 6) danni perforanti più 36 (8d8) radianti.  
+      - inferiore. Per farlo, il portatore deve lanciare l'incantesimo sul guardiano finché si trova entro 1,5 metri
+da esso. L'incantesimo non ha effetto, ma è custodito
+all'interno del guardiano. Quando gli viene affidato
+un nuovo incantesimo, quello custodito in precedenza
+viene sovrascritto. Il guardiano protettore può lanciare
+l'incantesimo custodito con qualsiasi parametro deciso
+dall'incantatore originale, senza bisogno di componenti e utilizzando la caratteristica da incantatore di
+­quest'ultimo. Così facendo, l'incantesimo custodito va
+perduto.
 
-***Incantesimi.*** Il solar lancia i seguenti incantesimi senza componenti materiali, Carisma come caratteristica da incantatore (CD 25):  
-- **A volontà:** *Individuazione del Bene e del Male*  
-- **1/Giorno ciascuno:** *Comunione*, *Controllare il Clima*, *Dissolvi Bene e Male*, *Resurrezione*  
+_**Rigenerazione.**_ Il guardiano protettore recupera
+10 punti ferita all'inizio di ogni suo turno, se ha almeno
+1 punto ferita.
 
-### Azioni Bonus
+_**Vincolato.**_ Il guardiano protettore è vincolato magicamente a un amuleto. Finché il guardiano e il suo
+amuleto si trovano sullo stesso piano di esistenza,
+il portatore dell'amuleto può chiamare telepaticamente
+ilguardiano affinché viaggi fino a lui. Il guardiano
+conosce la distanza e la direzione in cui si trova
+l'oggetto. Se il guardiano si trova entro 18 metri dal
+portatore dell'amuleto, la metà dei danni (arrotondati
+per eccesso) che il portatore subisce viene trasferita al
+guardiano.
 
-***Aiuto Divino (3/Giorno).*** Il solar lancia *Cura Ferite* (2° livello), *Restaurare Inferiore* o *Rimuovi Maledizione*, usando Carisma come caratteristica da incantatore.  
+Azioni
 
-### Azioni Leggendarie
+_**Multiattacco.**_ Il guardiano effettua due attacchi Pugno.
 
-***Sguardo Accecante.*** *Tiro Salvezza su Costituzione*: CD 25, una creatura visibile entro 36 m. *Fallimento:* Accecato per 1 minuto. Il solar non può usare questa azione fino all’inizio del suo prossimo turno.  
+_**Pugno.**_ _Tiro per colpire in mischia:_ +7, portata 3 m.
+_Colpito:_ 11 (2d6 + 4) danni contundenti più 7 (2d6)
+danni da forza.
 
-***Teletrasporto Radiante.*** Il solar si teletrasporta fino a 18 m in uno spazio libero visibile. *Tiro Salvezza su Destrezza*: CD 25, ogni creatura in un’emissione di 3 m dal punto di arrivo. *Fallimento:* 11 (2d10) radianti. *Successo:* metà.  
+Reazioni
 
----
+_**Protezione.**_ _Attivazione:_ un tiro per colpire va a segno
+sul portatore dell'amuleto del guardiano protettore
+finché egli si trova entro 1,5 metri dal costrutto. _Esito:_
+il portatore dell'amuleto ottiene un bonus di +5 alla
+CA anche contro il tiro che ha provocato la reazione,
+aumentando le probabilità che il colpo non vada a
+segno, fino all'inizio del turno successivo del guardiano
+protettore.
+## **Guardie**
+### **Guardia**
 
-## Spettro
+_Umanoide Medio o Piccolo, neutrale_
 
-*Non Morto Medio, Caotico Malvagio*
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 22 (5d8)
-- **Velocità:** 9 m, Volare 15 m (fluttuare)
-- **Iniziativa**: +2 (12)
+**CA** 16 **Iniziativa** +1 (11)
+**PF** 11 (2d8 + 2)
+**Velocità** 9 m
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 1 | -5 | -5 |
-| DES | 14 | +2 | +2 |
-| COS | 11 | +0 | +0 |
-| INT | 10 | +0 | +0 |
-| SAG | 10 | +0 | +0 |
-| CAR | 11 | +0 | +0 |
 
-- **Resistenze**: Acido, Contundente, Freddo, Fuoco, Fulmine, Perforante, Tagliente, Tuono
-- **Immunità**: Necrotico, Veleno; Affascinato, Affaticato, Immobilizzato, Paralizzato, Pietrificato, Avvelenato, Prono, Intrappolato, Incosciente
-- **Sensi**: scurovisione 18 m; Percezione Passiva 10
-- **Linguaggi**: Comprende Comune più un altro ma non può parlare
-- **GS** 1 (PE 200; MB +2)
+**344** System Reference Document 5.2.1
 
-### Tratti
 
-***Movimento Incorporeo.*** Può muoversi attraverso creature e oggetti come se fossero terreno difficile. Subisce 5 (1d10) danni da forza se termina il turno dentro un oggetto.  
 
-***Sensibilità alla Luce Solare.*** In piena luce solare ha svantaggio a prove di caratteristica e tiri per colpire.  
+**Abilità** Percezione +2
+**Attrezzatura** giaco di maglia, lancia, scudo
+**Sensi** Percezione passiva 12
+**Lingue** Comune
+**GS** 1/8 (PE 25; BC +2)
 
-### Azioni
+Azioni
 
-***Ruba-Vita.*** *Attacco in mischia:* +4, portata 1,5 m. 7 (2d6) necrotici. Se il bersaglio è una creatura, il suo massimo di PF diminuisce di un valore pari al danno subito.  
+_**Lancia.**_ _Tiro per colpire in mischia o a distanza:_ +3,
+portata 1,5 m o gittata 6/18 m. _Colpito:_ 4 (1d6 + 1)
+danni perforanti.
+### **Capitano delle guardie**
 
----
+_Umanoide Medio o Piccolo, neutrale_
 
-## Sfinge della Conoscenza
 
-*Celestiale Grande, Legale Neutrale*
+**CA** 18 **Iniziativa** +4 (14)
+**PF** 75 (10d8 + 30)
+**Velocità** 9 m
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 170 (20d10 + 60)
-- **Velocità:** 12 m, Volare 18 m
-- **Iniziativa**: +6 (16)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 15 | +2 | +2 |
-| COS | 16 | +3 | +3 |
-| INT | 18 | +4 | +4 |
-| SAG | 18 | +4 | +4 |
-| CAR | 18 | +4 | +4 |
+**Abilità** Atletica +6, Percezione +4
+**Attrezzatura** corazza di piastre, giavellotti (6), scudo,
 
-- **Resistenze**: Necrotico, Radiante
-- **Immunità**: Psichico; Affascinato, Spaventato
-- **Abilità**: Arcano +12, Storia +12, Percezione +8, Religione +12
-- **Sensi**: vista cieca 36 m; Percezione Passiva 18
-- **Linguaggi**: Celestiale, Comune
-- **GS** 11 (PE 7.200, o 8.400 nella tana)
+spada lunga
+**Sensi** Percezione passiva 14
+**Lingue** comune
+**GS** 4 (PE 1.100; BC +2)
 
-### Tratti
+Azioni
 
-***Insondabile.*** Nessuna magia può osservarla a distanza o leggere i suoi pensieri senza permesso. Prove di Saggezza (Intuizione) per capirne intenzioni o sincerità hanno svantaggio.  
+_**Multiattacco.**_ La guardia effettua due attacchi,
+utilizzando Giavellotto o Spada lunga in qualsiasi
+combinazione.
 
-***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella tana).*** Se fallisce un TS, può scegliere di riuscire invece.  
+_**Giavellotto.**_ _Tiro per colpire in mischia o a distanza:_ +6,
+portata 1,5 m o gittata 9/36 m. _Colpito:_ 14 (3d6 + 4)
+danni perforanti.
 
-### Azioni
+_**Spada lunga.**_ _Tiro per colpire in mischia:_ +6, portata
+1,5 m. _Colpito:_ 15 (2d10 + 4) danni taglienti.
+## **Guerrieri**
+### **Guerriero di fanteria**
 
-***Attacco Multiplo.*** Tre attacchi con gli artigli.  
+_Umanoide Medio o Piccolo, neutrale_
 
-***Artigli.*** *Attacco in mischia:* +8, portata 1,5 m. 14 (3d6 + 4) taglienti.  
 
-***Ruggito Straziante (Ricarica 5–6).*** *TS Saggezza*: CD 16, ogni nemico in un’emissione di 90 m. *Fallimento:* 35 (10d6) psichici e Incapacitato fino all’inizio del turno successivo della sfinge.  
+**CA** 13 **Iniziativa** +0 (10)
+**PF** 9 (2d8)
+**Velocità** 9 m
 
-***Incantesimi.*** Lancia i seguenti incantesimi senza componenti materiali, Intelligenza come caratteristica da incantatore (CD 16):  
-- **A volontà:** *Individuazione della Magia*, *Identificare*, *Mano Magica*, *Illusione Minore*, *Prestidigitazione*  
-- **1/Giorno ciascuno:** *Dissolvi Magie*, *Leggenda*, *Individuazione Oggetto*, *Spostamento Planare*, *Rimuovi Maledizione*, *Linguaggi*  
 
-### Azioni Leggendarie
+**Attrezzatura** giaco di maglia, lancia
+**Sensi** Percezione passiva 10
+**Lingue** Comune
+**GS** 1/8 (PE 25; BC +2)
 
-***Agguato Arcano.*** Si teletrasporta fino a 9 m in uno spazio libero visibile e fa un attacco con gli artigli.  
 
-***Peso degli Anni.*** *TS Costituzione*: CD 16, una creatura visibile entro 36 m. *Fallimento:* ottiene 1 livello di Affaticamento e appare più vecchia di 3d10 anni. La sfinge non può ripetere questa azione fino al turno successivo.  
 
----
 
-## Sfinge del Valore
+Tratti
 
-*Celestiale Grande, Legale Neutrale*
+_**Tattiche del branco.**_ Il guerriero dispone di vantaggio
+a un tiro per colpire contro una creatura se almeno
+uno dei suoi alleati si trova entro 1,5 metri dalla creatura e non è incapacitato.
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 199 (19d10 + 95)
-- **Velocità:** 12 m, Volare 18 m
-- **Iniziativa**: +4 (14)
+Azioni
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 22 | +6 | +6 |
-| DES | 10 | +0 | +6 |
-| COS | 20 | +5 | +11 |
-| INT | 16 | +3 | +9 |
-| SAG | 23 | +6 | +12 |
-| CAR | 18 | +4 | +4 |
+_**Lancia.**_ _Tiro per colpire in mischia o a distanza:_ +3,
+portata 1,5 m o gittata 6/18 m. _Colpito:_ 4 (1d6 + 1)
+danni perforanti.
+### **Guerriero veterano**
 
-- **Resistenze**: Necrotico, Radiante
-- **Immunità**: Psichico; Affascinato, Spaventato
-- **Abilità**: Arcano +9, Percezione +12, Religione +15
-- **Sensi**: vista cieca 36 m; Percezione Passiva 22
-- **Linguaggi**: Celestiale, Comune
-- **GS** 17 (PE 18.000, o 20.000 nella tana)
+_Umanoide Medio o Piccolo, neutrale_
 
-### Tratti
 
-***Insondabile.*** Nessuna magia può osservarla a distanza o leggere i suoi pensieri senza permesso. Prove di Intuizione hanno svantaggio.  
+**CA** 17 **Iniziativa** +3 (13)
+**PF** 65 (10d8 + 20)
+**Velocità** 9 m
 
-***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella tana).*** Se fallisce un TS, può scegliere di riuscire invece.  
 
-### Azioni
+**Abilità** Atletica +5, Percezione +2
+**Attrezzatura** balestra pesante, corazza a strisce, spadone
+**Sensi** Percezione passiva 12
+**Lingue** Comune più un'altra lingua
+**GS** 3 (PE 700; BC +2)
 
-***Attacco Multiplo.*** Due attacchi con gli artigli e usa Ruggito.  
+Azioni
 
-***Artigli.*** *Attacco in mischia:* +12, portata 1,5 m. 20 (4d6 + 6) taglienti.  
+_**Multiattacco.**_ Il guerriero effettua due attacchi Spadone
 
-***Ruggito (3/Giorno).*** Ruggito magico che cambia effetto ogni volta (si resetta dopo un Riposo Lungo):  
-- **Primo Ruggito**: *TS Saggezza* CD 20, nemici in 150 m. *Fallimento:* Spaventato 1 minuto.  
-- **Secondo Ruggito**: *TS Saggezza* CD 20, nemici in 150 m. *Fallimento:* Paralizzato, può ripetere TS a fine turno. Dopo 1 minuto si libera automaticamente.  
-- **Terzo Ruggito**: *TS Costituzione* CD 20, nemici in 150 m. *Fallimento:* 44 (8d10) da tuono e Prono. *Successo:* metà danni.  
+      - Balestra pesante.
 
-***Incantesimi.*** Lancia i seguenti incantesimi senza componenti materiali, Saggezza come caratteristica da incantatore (CD 20):  
-- **A volontà:** *Individuazione del Bene e del Male*, *Taumaturgia*  
-- **1/Giorno ciascuno:** *Individuazione della Magia*, *Dissolvi Magie*, *Restaurare Superiore*, *Banchetto degli Eroi*, *Zona di Verità*  
+_**Spadone.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 10 (2d6 + 3) danni taglienti.
 
-### Azioni Leggendarie
+_**Balestra pesante.**_ _Tiro per colpire a distanza:_ +3, gittata
+30/120 m. _Colpito:_ 12 (2d10 + 1) danni perforanti.
 
-***Agguato Arcano.*** Si teletrasporta fino a 9 m in uno spazio libero visibile e fa un attacco con gli artigli.  
+Reazioni
 
-***Peso degli Anni.*** *TS Costituzione*: CD 16, una creatura visibile entro 36 m. *Fallimento:* ottiene 1 livello di Affaticamento e appare più vecchia di 3d10 anni. La sfinge non può ripetere questa azione fino al turno successivo.  
+_**Parata.**_ _Attivazione:_ il guerriero viene colpito da un tiro
+per colpire in mischia mentre tiene in mano un'arma.
+_Esito:_ il guerriero aggiunge 2 alla sua CA contro
+quell'attacco, aumentando le probabilità che il colpo
+non vada a segno.
+## **Hezrou**
+### **Hezrou**
 
-## Mefit del Vapore
+_Immondo Grande (demone), caotico malvagio_
 
-*Elementale Piccolo, Neutrale Malvagio*
 
-- **Classe Armatura:** 10
-- **Punti Ferita:** 17 (5d6)
-- **Velocità:** 9 m, Volare 9 m
-- **Iniziativa**: +0 (10)
+**CA** 18 **Iniziativa** +6 (16)
+**PF** 157 (15d10 + 75)
+**Velocità** 9 m
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 5 | -3 | -3 |
-| DES | 11 | +0 | +0 |
-| COS | 10 | +0 | +0 |
-| INT | 11 | +0 | +0 |
-| SAG | 10 | +0 | +0 |
-| CAR | 12 | +1 | +1 |
 
-- **Immunità**: Fuoco, Veleno; Affaticato, Avvelenato
-- **Abilità**: Furtività +2
-- **Sensi**: scurovisione 18 m; Percezione Passiva 10
-- **Linguaggi**: Primordiale (Aquan, Ignan)
-- **GS** 1/4 (PE 50; MB +2)
+**345** System Reference Document 5.2.1
 
-### Tratti
 
-***Forma Sfocata.*** I tiri per colpire contro il mefit hanno svantaggio a meno che il mefit non sia Incapacitato.
 
-***Esplosione di Morte.*** Quando muore esplode. *TS Destrezza*: CD 10, ogni creatura in un’emissione di 1,5 m originata dal mefit. *Fallimento:* 5 (2d4) fuoco. *Successo:* metà danno.
+**Resistenze** freddo, fulmine, fuoco
+**Immunità** veleno; avvelenato
+**Sensi** Percezione passiva 11; scurovisione 36 m
+**Lingue** Abissale; telepatia 36 m
+**GS** 8 (PE 3.900; BC +3)
 
-### Azioni
+Tratti
 
-***Artiglio.*** *Attacco in mischia:* +2, portata 1,5 m. 2 (1d4) taglienti più 2 (1d4) fuoco.
+_**Fetore.**_ _Tiro salvezza su Costituzione:_ CD 16, ogni
+creatura che inizi il suo turno in un'emanazione di
+3 metri di cui l'hezrou è il punto di origine. _Fallimento:_
+il bersaglio è avvelenato fino all'inizio del proprio turno
+successivo.
 
-***Soffio di Vapore (Ricarica 6).*** *TS Costituzione*: CD 10, ogni creatura in un cono di 4,5 m. *Fallimento:* 5 (2d4) fuoco e la Velocità del bersaglio si riduce di 3 m fino alla fine del prossimo turno del mefit. *Successo:* solo metà danno. *Fallimento o Successo:* stare sott’acqua non fornisce Resistenza a questi danni da fuoco.
+_**Resistenza alla magia.**_ L'hezrou dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
 
----
+_**Ristoro demoniaco.**_ Se l'hezrou muore al di fuori
+dell'Abisso, il suo corpo si dissolve diventando icore
+ed esso ne acquisisce uno nuovo all'istante, tornando
+in vita con tutti i suoi punti ferita da qualche parte
+­nell'Abisso.
 
-## Stirge
+Azioni
 
-*Mostruosità Piccola, Non allineato*
+_**Multiattacco.**_ L'hezrou effettua tre attacchi Squarcio.
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 5 (2d4)
-- **Velocità:** 3 m, Volare 12 m
-- **Iniziativa**: +3 (13)
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +7, portata 1,5 m.
+_Colpito:_ 6 (1d4 + 4) danni taglienti più 9 (2d8) danni da
+veleno.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 4 | -3 | -3 |
-| DES | 16 | +3 | +3 |
-| COS | 11 | +0 | +0 |
-| INT | 2 | -4 | -4 |
-| SAG | 8 | -1 | -1 |
-| CAR | 6 | -2 | -2 |
+Azioni bonus
 
-- **Sensi**: scurovisione 18 m; Percezione Passiva 9
-- **GS** 1/8 (PE 25; MB +2)
+_**Balzo.**_ L'hezrou salta fino a 9 metri usando 3 metri di
+movimento.
+## **Hobgoblin**
+### **Hobgoblin guerriero**
 
-### Azioni
+_Folletto Medio (goblinoide), legale malvagio_
 
-***Proboscide.*** *Attacco in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) perforanti e la stirge si attacca al bersaglio. Finché è attaccata non può usare Proboscide, e il bersaglio subisce 5 (2d4) necrotici all’inizio di ogni turno della stirge.  
-La stirge può staccarsi spendendo 1,5 m di movimento. Il bersaglio o una creatura entro 1,5 m può staccarla con un’azione.
 
----
+**CA** 18 **Iniziativa** +3 (13)
+**PF** 11 (2d8 + 2)
+**Velocità** 9 m
 
-## Gigante di Pietra
 
-*Gigante Enorme, Neutrale*
+**Attrezzatura** arco lungo, mezza armatura, scudo, spada
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 126 (11d12 + 55)
-- **Velocità:** 12 m
-- **Iniziativa**: +5 (15)
+lunga
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** Comune, Goblin
+**GS** 1/2 (PE 100; BC +2)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 23 | +6 | +6 |
-| DES | 15 | +2 | +5 |
-| COS | 20 | +5 | +8 |
-| INT | 10 | +0 | +0 |
-| SAG | 12 | +1 | +4 |
-| CAR | 9 | -1 | -1 |
+Tratti
 
-- **Abilità**: Atletica +12, Percezione +4, Furtività +5
-- **Sensi**: scurovisione 18 m; Percezione Passiva 14
-- **Linguaggi**: Gigante
-- **GS** 7 (PE 2.900; MB +3)
+_**Tattiche del branco.**_ L'hobgoblin dispone di vantaggio
+a un tiro per colpire contro una creatura se almeno uno
+dei suoi alleati si trova entro 1,5 metri dalla creatura
+e l'alleato non è incapacitato.
 
-### Azioni
 
-***Attacco Multiplo.*** Due attacchi, mazza di pietra o masso in qualsiasi combinazione.
 
-***Mazza di Pietra.*** *Attacco in mischia:* +9, portata 4,5 m. 22 (3d10 + 6) contundenti.
 
-***Masso.*** *Attacco a distanza:* +9, gittata 18/72 m. 15 (2d8 + 6) contundenti. Se il bersaglio è una creatura Grande o più piccola, è Prono.
+Azioni
 
----
+_**Spada lunga.**_ _Tiro per colpire in mischia:_ +3, portata
+1,5 m _Colpito:_ 12 (2d10 + 1) danni taglienti.
 
-## Golem di Pietra
+_**Arco lungo.**_ _Tiro per colpire a distanza:_ +3, gittata
+45/180 m. _Colpito:_ 5 (1d8 + 1) danni perforanti più
+7 (3d4) danni da veleno.
+### **Hobgoblin capitano**
 
-*Costrutto Grande, Non allineato*
+_Folletto Medio (goblinoide), legale malvagio_
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 220 (21d10 + 105)
-- **Velocità:** 9 m
-- **Iniziativa**: +3 (13)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 22 | +6 | +6 |
-| DES | 9 | -1 | -1 |
-| COS | 20 | +5 | +5 |
-| INT | 3 | -4 | -4 |
-| SAG | 11 | +0 | +0 |
-| CAR | 1 | -5 | -5 |
+**CA** 17 **Iniziativa** +4 (14)
+**PF** 58 (9d8 + 18)
+**Velocità** 9 m
 
-- **Immunità**: Veleno, Psichico; Affascinato, Affaticato, Spaventato, Paralizzato, Pietrificato, Avvelenato
-- **Sensi**: scurovisione 36 m; Percezione Passiva 10
-- **Linguaggi**: Comprende Comune più altri due ma non può parlare
-- **GS** 10 (PE 5.900; MB +4)
 
-### Tratti
+**Attrezzatura** arco lungo, mezza armatura, spadone
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** Comune, Goblin
+**GS** 3 (PE 700; BC +2)
 
-***Forma Immutabile.*** Il golem non può cambiare forma.
+Tratti
 
-***Resistenza alla Magia.*** Ha vantaggio ai tiri salvezza contro incantesimi ed effetti magici.
+_**Presenza autoritaria.**_ Finché si trovano in un'emanazione di 3 metri di cui l'hobgoblin è il punto di origine,
+l'hobgoblin e i suoi alleati dispongono di vantaggio ai
+tiri per colpire e ai tiri salvezza, ammesso che l'hobgoblin non sia incapacitato.
 
-### Azioni
+Azioni
 
-***Attacco Multiplo.*** Due attacchi, Colpo o Dardo di Forza in qualsiasi combinazione.
+_**Multiattacco.**_ L'hobgoblin effettua due attacchi,
+utilizzando Spadone o Arco lungo in qualsiasi
+combinazione.
 
-***Colpo.*** *Attacco in mischia:* +10, portata 1,5 m. 15 (2d8 + 6) contundenti più 9 (2d8) forza.
+_**Spadone.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 9 (2d6 + 2) danni taglienti più 3 (1d6) danni da
+veleno.
 
-***Dardo di Forza.*** *Attacco a distanza:* +9, gittata 36 m. 22 (4d10) forza.
+_**Arco lungo.**_ _Tiro per colpire a distanza:_ +4, gittata
+45/180 m. _Colpito:_ 6 (1d8 + 2) danni perforanti più
+5 (2d4) danni da veleno.
+## **Idra**
+### **Idra**
 
-### Azioni Bonus
+_Mostruosità Enorme, senza allineamento_
 
-***Rallentare (Ricarica 5–6).*** Il golem lancia *Rallentare* senza componenti, Costituzione come caratteristica da incantatore (CD 17).
 
-## Gigante delle Tempeste
+**CA** 15 **Iniziativa** +4 (14)
+**PF** 184 (16d12 + 80)
+**Velocità** 12 m, nuoto 12 m
 
-*Gigante Enorme, Caotico Buono*
 
-- **Classe Armatura:** 16
-- **Punti Ferita:** 230 (20d12 + 100)
-- **Velocità:** 15 m, Volare 7,5 m (fluttuare), Nuotare 15 m
-- **Iniziativa**: +7 (17)
+**Abilità** Percezione +6
+**Immunità** accecato, affascinato, assordato, privo di sensi,
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 29 | +9 | +14 |
-| DES | 14 | +2 | +2 |
-| COS | 20 | +5 | +10 |
-| INT | 16 | +3 | +3 |
-| SAG | 20 | +5 | +10 |
-| CAR | 18 | +4 | +9 |
+spaventato, stordito
+**Sensi** Percezione passiva 16; scurovisione 18 m
+**Lingue** nessuna
+**GS** 8 (PE 3.900; BC +3)
 
-- **Resistenze**: Freddo
-- **Immunità**: Fulmine, Tuono
-- **Abilità**: Arcano +8, Atletica +14, Storia +8, Percezione +10
-- **Sensi**: scurovisione 36 m, vista cieca 9 m; Percezione Passiva 20
-- **Linguaggi**: Comune, Gigante
-- **GS** 13 (PE 10.000; MB +5)
 
-### Tratti
+**346** System Reference Document 5.2.1
 
-***Anfibio.*** Può respirare aria e acqua.  
 
-### Azioni
 
-***Attacco Multiplo.*** Due attacchi: Spada della Tempesta o Fulmine in qualsiasi combinazione.  
+Tratti
 
-***Spada della Tempesta.*** *Attacco in mischia:* +14, portata 3 m. 23 (4d6 + 9) taglienti più 13 (3d8) fulmine.  
+_**Apnea.**_ L'idra può trattenere il respiro per 1 ora.
 
-***Fulmine.*** *Attacco a distanza:* +14, gittata 150 m. 22 (2d12 + 9) fulmine e il bersaglio è Accecato e Assordato fino all’inizio del prossimo turno del gigante.  
+_**Teste multiple.**_ L'idra possiede cinque teste. Ogni
+volta che subisce 25 o più danni in un singolo turno,
+una delle teste muore. Se tutte le teste muoiono, l'idra
+muore. Alla fine del suo turno e finché ha almeno una
+testa vivente, l'idra fa ricrescere due teste per ogni testa
+morta dal suo ultimo turno, a meno che nel corso di
+tale periodo non abbia subito danni da fuoco. L'idra
+recupera 20 punti ferita quando fa ricrescere delle
+nuove teste.
 
-***Tempesta di Fulmini (Ricarica 5–6).*** *TS Destrezza*: CD 18, ogni creatura in un cilindro di raggio 3 m e altezza 12 m originato da un punto visibile entro 150 m. *Fallimento:* 55 (10d10) fulmine. *Successo:* metà danno.  
+_**Teste reattive.**_ Per ogni testa che l'idra possiede oltre
+la prima, riceve una reazione extra che può essere
+usata soltanto per gli attacchi di opportunità.
 
-***Incantesimi.*** Lancia senza componenti materiali, Saggezza come caratteristica da incantatore (CD 18):  
-- **A volontà:** *Individuazione della Magia*, *Luce*  
-- **1/Giorno:** *Controllare il Clima*  
+Azioni
 
----
+_**Multiattacco.**_ L'idra effettua un numero di attacchi
+Morso pari al numero di teste che possiede.
 
-## Succube
+_**Morso.**_ _Tiro per colpire in mischia:_ +8, portata 3 m.
+_Colpito:_ 10 (1d10 + 5) danni perforanti.
+## **Imp**
+### **Imp**
 
-*Immonda Media, Neutrale Malvagio*
+_Immondo Minuscolo (diavolo), legale malvagio_
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 71 (13d8 + 13)
-- **Velocità:** 9 m, Volare 18 m
-- **Iniziativa**: +3 (13)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 8 | -1 | -1 |
-| DES | 17 | +3 | +3 |
-| COS | 13 | +1 | +1 |
-| INT | 15 | +2 | +2 |
-| SAG | 12 | +1 | +1 |
-| CAR | 20 | +5 | +5 |
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 21 (6d4 + 6)
+**Velocità** 6 m, volo 12 m
 
-- **Resistenze**: Freddo, Fuoco, Veleno, Psichico
-- **Abilità**: Inganno +9, Intuizione +5, Percezione +5, Persuasione +9, Furtività +7
-- **Sensi**: scurovisione 18 m; Percezione Passiva 15
-- **Linguaggi**: Abissale, Comune, Infernale; telepatia 18 m
-- **GS** 4 (PE 1.100; MB +2)
 
-### Tratti
+**Abilità** Inganno +4, Intuizione +3, Furtività +5
+**Resistenze** freddo
+**Immunità** fuoco, veleno; avvelenato
+**Sensi** Percezione passiva 11; scurovisione 36 m (non
 
-***Forma da Incubo.*** Dopo un Riposo Lungo può mutare in Incubo, usando quella scheda al posto di questa.  
+ostacolata dall'oscurità magica)
+**Lingue** Comune, Infernale
+**GS** 1 (PE 200; BC +2)
 
-### Azioni
+Tratti
 
-***Attacco Multiplo.*** Un attacco con Tocco Infernale e usa Fascino o Bacio Drenero.  
+_**Resistenza alla magia.**_ L'imp dispone di vantaggio ai tiri
+salvezza contro incantesimi e altri effetti magici.
 
-***Tocco Infernale.*** *Attacco in mischia:* +7, portata 1,5 m. 16 (2d10 + 5) psichici.  
+Azioni
 
-***Fascino.*** Lancia *Dominare Persone* (8° livello) senza componenti, Carisma come caratteristica da incantatore (CD 15).  
+_**Pungiglione.**_ _Tiro per colpire in mischia:_ +5, portata
+1,5 m _Colpito:_ 6 (1d6 + 3) danni perforanti più 7 (2d6)
+danni da veleno.
 
-***Bacio Drenero.*** *TS Costituzione*: CD 15, una creatura Affascinata entro 1,5 m. *Fallimento:* 13 (3d8) psichici. *Successo:* metà. In entrambi i casi, il massimo di PF del bersaglio si riduce di un valore pari ai danni subiti.  
+_**Invisibilità.**_ L'imp può lanciare _invisibilità_ su di sé senza
+bisogno di componenti per incantesimi e utilizzando
+il Carisma come caratteristica da incantatore.
 
-### Azioni Bonus
+_**Mutaforma.**_ L'imp può assumere la forma bestiale di
+un topo (velocità 6 m), un corvo (6 m, volo 18 m) o un
+ragno (6 m, scalata 6 m), o tornare alla sua vera forma.
+Le sue statistiche di gioco restano le stesse in ogni
 
-***Mutare Forma.*** Assume l’aspetto di un Umanoide Piccolo o Medio o ritorna alla forma vera. Le statistiche restano le stesse, ma la Velocità di volo è disponibile solo nella forma vera. L’equipaggiamento non cambia.  
 
----
 
-## Tarrasque
 
-*Mostruosità Colossale (Titano), Non allineato*
+forma, a eccezione della velocità. Nessun oggetto che
+indossa o trasporta viene trasformato.
+## **Incubo**
+### **Incubo**
 
-- **Classe Armatura:** 25
-- **Punti Ferita:** 697 (34d20 + 340)
-- **Velocità:** 18 m, Sotterrare 12 m, Scalare 18 m
-- **Iniziativa**: +18 (28)
+_Immondo Medio, neutrale malvagio_
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 30 | +10 | +10 |
-| DES | 11 | +0 | +9 |
-| COS | 30 | +10 | +10 |
-| INT | 3 | -4 | +5 |
-| SAG | 11 | +0 | +9 |
-| CAR | 11 | +0 | +9 |
 
-- **Resistenze**: Contundenti, Perforanti, Taglienti
-- **Immunità**: Fuoco, Veleno; Affascinato, Assordato, Spaventato, Paralizzato, Avvelenato
-- **Abilità**: Percezione +9
-- **Sensi**: vista cieca 36 m; Percezione Passiva 19
-- **GS** 30 (PE 155.000; MB +9)
+**CA** 15 **Iniziativa** +3 (13)
+**PF** 66 (12d8 + 12)
+**Velocità** 9 m, volo 18 m
 
-### Tratti
 
-***Resistenza Leggendaria (6/Giorno).*** Se fallisce un TS, può scegliere di riuscire invece.  
+**Abilità** Furtività +7, Inganno +9, Intuizione +5, Percezione
 
-***Resistenza alla Magia.*** Vantaggio ai TS contro incantesimi ed effetti magici.  
++5, Persuasione +9
+**Resistenze** freddo, fuoco, psichico, veleno
+**Sensi** Percezione passiva 15; scurovisione 18 m
+**Lingue** Abissale, Comune, Infernale; telepatia 18 m
+**GS** 4 (PE 1.100; BC +2)
 
-***Carapace Riflettente.*** Se bersagliato da *Dardo Incantato* o un incantesimo con attacco a distanza, tira 1d6. Con 1–5 non subisce effetti, con 6 riflette l’incantesimo sul lanciatore.  
+Tratti
 
-***Mostro d’Assedio.*** Infligge danni doppi a oggetti e strutture.  
+_**Forma succube.**_ Quando l'incubo termina un riposo
+lungo, può trasformarsi in una **succube**, utilizzando
+la relativa scheda delle statistiche al posto di questa. Nessun oggetto che indossa o trasporta viene
+trasformato.
 
-### Azioni
+Azioni
 
-***Attacco Multiplo.*** Un morso e tre attacchi con Artiglio o Coda.  
+_**Multiattacco.**_ L'incubo effettua due attacchi Tocco
+irrequieto.
 
-***Morso.*** *Attacco in mischia:* +19, portata 4,5 m. 36 (4d12 + 10) perforanti e il bersaglio è Afferrato (CD 20). Finché è afferrato è Intrappolato e non può teletrasportarsi.  
+_**Tocco irrequieto.**_ _Tiro per colpire in mischia:_ +7,
+portata 1,5 m. _Colpito:_ 15 (3d6 + 5) danni psichici, e il
+bersaglio è maledetto per 24 ore o finché l'incubo non
+muore. Finché la maledizione perdura, il bersaglio non
+ottiene alcun beneficio dai riposi brevi.
 
-***Artiglio.*** *Attacco in mischia:* +19, portata 4,5 m. 28 (4d8 + 10) taglienti.  
+_**Incantesimi.**_ L'incubo lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 15):
 
-***Coda.*** *Attacco in mischia:* +19, portata 9 m. 23 (3d8 + 10) contundenti. Se il bersaglio è Enorme o più piccolo, è Prono.  
+**1/giorno ciascuno:** _Sogno_, _trama ipnotica_
+**A volontà:** _Camuffare se stesso_, _forma eterea_
 
-***Ruggito Tonante (Ricarica 5–6).*** *TS Costituzione*: CD 27, ogni creatura e oggetto non indossato/trasportato in un cono di 45 m. *Fallimento:* 78 (12d12) tuono e Assordato e Spaventato fino alla fine del prossimo turno. *Successo:* metà danno.  
+Azioni bonus
 
-### Azioni Bonus
+_**Sogno spaventoso (ricarica 6).**_ _Tiro salvezza su Sag-_
+_gezza:_ CD 15, una creatura che l'incubo è in grado di
+vedere entro 18 metri. _Fallimento:_ Se il bersaglio ha
+20 punti ferita o meno, è privo di sensi per 1 ora, finché
+non subisce danni o un'altra creatura entro 1,5 metri
+da lui non usa un'azione per svegliarlo. Altrimenti, il
+bersaglio subisce 18 (4d8) danni psichici.
 
-***Inghiottire.*** *TS Forza*: CD 27, una creatura Grande o più piccola già afferrata (può inghiottirne fino a sei). *Fallimento:* la creatura viene inghiottita, l’Afferrato termina. È Accecata, Intrappolata, non può teletrasportarsi, ha Copertura Totale e subisce 56 (16d6) acido a inizio turno del tarrasque.  
-Se subisce 60 o più danni in un turno da creature al suo interno, deve superare un TS Costituzione CD 20 o rigurgitare tutte le creature, che cadono entro 3 m e sono Prone. Se muore, le creature inghiottite non sono più Intrappolate e possono uscire usando 6 m di movimento, Prone.  
 
-### Azioni Leggendarie
+**347** System Reference Document 5.2.1
 
-***Assalto.*** Si muove fino a metà Velocità e fa un attacco con Artiglio o Coda.  
 
-***Movimento Tellurico.*** Si muove fino alla Velocità. Alla fine crea un’onda d’urto istantanea in un’emissione di 18 m. Le creature nell’area perdono Concentrazione e, se Medie o più piccole, sono Prone. Non può ripetere questa azione fino al turno successivo.  
+## **Ippogrifo**
+### **Ippogrifo**
 
----
+_Mostruosità Grande, senza allineamento_
 
-## Boss Duro
 
-*Umanoide Piccolo, Neutrale*
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 26 (4d10 + 4)
+**Velocità** 12 m, volo 18 m
 
-- **Classe Armatura:** 16
-- **Punti Ferita:** 82 (11d8 + 33)
-- **Velocità:** 9 m
-- **Iniziativa**: +2 (12)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 17 | +3 | +5 |
-| DES | 14 | +2 | +2 |
-| COS | 16 | +3 | +5 |
-| INT | 11 | +0 | +0 |
-| SAG | 10 | +0 | +0 |
-| CAR | 11 | +0 | +2 |
+**Abilità** Percezione +5
+**Sensi** Percezione passiva 15
+**Lingue** nessuna
+**GS** 1 (PE 200; BC +2)
 
-- **Equipaggiamento**: Cotta di maglia, Balestra Pesante, Martello da Guerra
-- **Sensi**: Percezione Passiva 10
-- **Linguaggi**: Comune più un altro
-- **GS** 4 (PE 1.100; MB +2)
+Tratti
 
-### Tratti
+_**Volo sfuggente.**_ L'ippogrifo non provoca attacchi
+­d'opportunità quando vola oltre la portata di un
+nemico.
 
-***Tattiche di Branco.*** Ha vantaggio ai tiri per colpire se almeno un alleato è entro 1,5 m dal bersaglio e non è Incapacitato.  
+Azioni
 
-### Azioni
+_**Multiattacco.**_ L'ippogrifo effettua due attacchi Squarcio.
 
-***Attacco Multiplo.*** Due attacchi: Martello da Guerra o Balestra Pesante.  
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 7 (1d8 + 3) danni taglienti.
+## **Kraken**
+### **Kraken**
 
-***Martello da Guerra.*** *Attacco in mischia:* +5, portata 1,5 m. 12 (2d8 + 3) contundenti. Se il bersaglio è Grande o più piccolo, lo spinge di 3 m lontano da sé.  
+_Mostruosità Mastodontica (titano), caotico malvagio_
 
-***Balestra Pesante.*** *Attacco a distanza:* +4, gittata 30/120 m. 13 (2d10 + 2) perforanti.  
 
-## Picchiatore
+**CA** 18 **Iniziativa** +14 (24)
+**PF** 481 (26d20 + 208)
+**Velocità** 9 m, nuoto 36 m
 
-*Umanoide Piccolo, Neutrale*
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 32 (5d8 + 10)
-- **Velocità:** 9 m
-- **Iniziativa**: +1 (11)
+**Abilità** Percezione +11, Storia +13
+**Immunità** freddo, fulmine; afferrato, paralizzato,
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 15 | +2 | +2 |
-| DES | 12 | +1 | +1 |
-| COS | 14 | +2 | +2 |
-| INT | 10 | +0 | +0 |
-| SAG | 10 | +0 | +0 |
-| CAR | 11 | +0 | +0 |
+spaventato, trattenuto
+**Sensi** Percezione passiva 21; vista pura 36 m
+**Lingue** capisce l'Abissale, il Celestiale, l'Infernale
 
-- **Equipaggiamento**: Balestra Pesante, Armatura di Cuoio, Mazza
-- **Sensi**: Percezione Passiva 10
-- **Linguaggi**: Comune
-- **GS** 1/2 (PE 100; MB +2)
+e il Primordiale ma non li parla; telepatia 36 m
+**GS** 23 (PE 50.000, o 62.000 nella tana; BC +7)
 
-### Tratti
+Tratti
 
-***Tattiche di Branco.*** Ha vantaggio ai tiri per colpire contro una creatura se almeno un alleato è entro 1,5 m da essa e non è Incapacitato.
+_**Anfibio.**_ Il kraken può respirare in aria e in acqua.
 
-### Azioni
+_**Mostro da assedio.**_ Il kraken infligge danni doppi
+a oggetti e strutture.
 
-***Mazza.*** *Attacco in mischia:* +4, portata 1,5 m. 5 (1d6 + 2) contundenti.  
+_**Resistenza leggendaria (4/giorno o 5/giorno nella**_
+_**tana).**_ Se il kraken fallisce un tiro salvezza, può scegliere di superarlo comunque.
 
-***Balestra Pesante.*** *Attacco a distanza:* +3, gittata 30/120 m. 6 (1d10 + 1) perforanti.  
+Azioni
 
----
+_**Multiattacco.**_ Il kraken effettua due attacchi Tentacolo
+e usa Scagliare, Colpo del fulmine o Inghiottire.
 
-## Treant
 
-*Pianta Enorme, Caotico Buono*
 
-- **Classe Armatura:** 16
-- **Punti Ferita:** 138 (12d12 + 60)
-- **Velocità:** 9 m
-- **Iniziativa**: +3 (13)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 23 | +6 | +6 |
-| DES | 8 | -1 | -1 |
-| COS | 21 | +5 | +5 |
-| INT | 12 | +1 | +1 |
-| SAG | 16 | +3 | +3 |
-| CAR | 12 | +1 | +1 |
+_**Tentacolo.**_ _Tiro per colpire in mischia:_ +17, portata 9 m.
+_Colpito:_ 24 (4d6 + 10) danni contundenti. Il bersaglio è
+afferrato (CD 20 per sfuggire) da uno dei dieci tentacoli,
+ed è trattenuto finché la presa perdura.
 
-- **Vulnerabilità**: Fuoco
-- **Resistenze**: Contundenti, Perforanti
-- **Sensi**: Percezione Passiva 13
-- **Linguaggi**: Comune, Druidico, Elfico, Silvano
-- **GS** 9 (PE 5.000; MB +4)
+_**Colpo del fulmine.**_ _Tiro salvezza su Destrezza:_ CD
+23, una creatura che il kraken è in grado di vedere
+entro 36 metri. _Fallimento:_ 33 (6d10) danni da fulmine.
+_Successo:_ danni dimezzati.
 
-### Tratti
+_**Inghiottire.**_ _Tiro salvezza su Destrezza:_ CD 25, una creatura afferrata dal kraken (può inghiottire fino a quattro
+creature in una volta). _Fallimento:_ 23 (3d8 + 10) danni
+perforanti. Se il bersaglio è di taglia Grande o inferiore,
+viene inghiottito e non è più afferrato. Una creatura
+inghiottita viene trattenuta, beneficia di copertura totale
+contro attacchi e altri effetti al di fuori del kraken, e
+subisce 24 (7d6) danni da acido all'inizio di ogni suo
+turno.
 
-***Mostro d’Assedio.*** Infligge danni doppi a oggetti e strutture.  
+Se il kraken subisce 50 danni o più in un singolo
+turno da una creatura al suo interno, deve superare un
+tiro salvezza su Costituzione con CD 25 alla fine di
+quel turno, altrimenti rigurgita tutte le creature inghiottite, che cadono prone in uno spazio entro 3 metri da
+lui. Se il kraken muore, qualsiasi creatura inghiottita
+non è più trattenuta e può fuggire dal cadavere usando
+4,5 metri di movimento, uscendo prona.
 
-### Azioni
+_**Scagliare.**_ Il kraken scaglia una creatura di taglia
+Grande che ha afferrato in uno spazio che è in grado
+di vedere entro 18 metri da sé e che non sia in aria.
+_Tiro salvezza su Destrezza:_ CD 25, la creatura scagliata
+e tutte le creature nello spazio di destinazione. _Falli-_
+_mento:_ 18 (4d8) danni contundenti, e il bersaglio cade
+a terra prono. _Successo:_ danni dimezzati.
 
-***Attacco Multiplo.*** Due attacchi con Colpo.  
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il kraken può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il kraken_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
-***Colpo.*** *Attacco in mischia:* +10, portata 1,5 m. 16 (3d6 + 6) contundenti.  
+_**Inchiostro nocivo.**_ _Tiro salvezza su Costituzione:_ CD
+23, tutte le creature in un'emanazione di 4,5 metri
+di cui il kraken è il punto di origine finché si trova
+­sott'acqua. _Fallimento:_ il bersaglio è accecato e avvelenato fino al termine del turno successivo del kraken.
+Dopodiché il kraken si muove fino alla sua velocità
+massima. _Fallimento o successo:_ il kraken non può
+ripetere quest'azione fino all'inizio del proprio turno
+successivo.
 
-***Pioggia di Cortecce.*** *Attacco a distanza:* +10, gittata 55 m. 28 (4d10 + 6) perforanti.  
+_**Lampo burrascoso.**_ Il kraken usa Colpo del fulmine.
+## **Lamia**
+### **Lamia**
 
-***Animare Alberi (1/Giorno).*** Anima fino a due alberi entro 18 m. Ogni albero usa la scheda del Treant ma con Intelligenza e Carisma pari a 1, non può parlare e non ha questa azione. Agiscono subito dopo il Treant e lo obbediscono. Restano animati 1 giorno o fino a che muoiono, il Treant muore, o sono oltre 36 m dal Treant. Poi mettono radici se possibile.  
+_Immondo Grande, caotico malvagio_
 
----
 
-## Arto di Troll
+**CA** 13 **Iniziativa** +1 (11)
+**PF** 97 (13d10 + 26)
+**Velocità** 12 m
 
-*Gigante Piccolo, Caotico Malvagio*
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 14 (4d6)
-- **Velocità:** 6 m
-- **Iniziativa**: +1 (11)
+**348** System Reference Document 5.2.1
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 12 | +1 | +1 |
-| COS | 10 | +0 | +0 |
-| INT | 1 | -5 | -5 |
-| SAG | 9 | -1 | -1 |
-| CAR | 1 | -5 | -5 |
 
-- **Sensi**: scurovisione 18 m; Percezione Passiva 9
-- **GS** 1/2 (PE 100; MB +2)
 
-### Tratti
+**Abilità** Inganno +7, Intuizione +4, Furtività +5
+**Sensi** Percezione passiva 12; scurovisione 18 m
+**Lingue** Abissale, Comune
+**GS** 4 (PE 1.100; BC +2)
 
-***Rigenerazione.*** Recupera 5 PF all’inizio di ogni turno. Se subisce danni da acido o fuoco, questo tratto non funziona al turno successivo. Muore solo se inizia un turno a 0 PF e non si rigenera.  
+Azioni
 
-***Generazione di Troll.*** Ha gli stessi sensi di un troll intero. Se non è distrutto entro 24 ore, tira 1d12: con 12 diventa un Troll, altrimenti si secca.  
+_**Multiattacco.**_ Il lamia effettua due attacchi Artiglio.
+Può sostituire un attacco con un utilizzo di Tocco
+corruttore.
 
-### Azioni
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 7 (1d8 + 3) danni taglienti più 7 (2d6) danni
+psichici.
 
-***Lacerare.*** *Attacco in mischia:* +6, portata 1,5 m. 9 (2d4 + 4) taglienti.  
+_**Incantesimi.**_ Il lamia lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 13):
 
----
+**1/giorno ciascuno:** _Costrizione_, _immagine maggiore_,
 
-## Troll
+_scrutare_
+**A volontà:** _Camuffare se stesso_ (può apparire come
 
-*Gigante Grande, Caotico Malvagio*
+un bipede di taglia Grande o Media), _illusione minore_
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 94 (9d10 + 45)
-- **Velocità:** 9 m
-- **Iniziativa**: +1 (11)
+_**Tocco corruttore.**_ _Tiro salvezza su Saggezza:_ CD 13,
+una creatura che il lamia è in grado di vedere entro
+1,5 metri. _Fallimento:_ 13 (3d8) danni psichici, e il
+bersaglio è maledetto per 1 ora. Finché la maledizione
+perdura, il bersaglio è affascinato e avvelenato.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 13 | +1 | +1 |
-| COS | 20 | +5 | +5 |
-| INT | 7 | -2 | -2 |
-| SAG | 9 | -1 | -1 |
-| CAR | 7 | -2 | -2 |
+Azioni bonus
 
-- **Abilità**: Percezione +5
-- **Sensi**: scurovisione 18 m; Percezione Passiva 15
-- **Linguaggi**: Gigante
-- **GS** 5 (PE 1.800; MB +3)
+_**Balzo.**_ Il lamia salta fino a 9 metri usando 3 metri di
+movimento.
+## **Lemure**
+### **Lemure**
 
-### Tratti
+_Immondo Medio (diavolo), legale malvagio_
 
-***Arti Ripugnanti (4/Giorno).*** Se termina un turno Sanguinante e ha subito 15+ danni taglienti in quel turno, un arto viene reciso, cade nello spazio del troll e diventa un Arto di Troll. L’arto agisce subito dopo il troll. Il troll ottiene 1 livello di Affaticamento per ogni arto mancante e li ricresce alla prossima volta che recupera PF.  
 
-***Rigenerazione.*** Recupera 15 PF all’inizio di ogni turno. Se subisce acido o fuoco, il tratto non funziona al turno successivo. Muore solo se inizia un turno a 0 PF e non si rigenera.  
+**CA** 9 **Iniziativa** −3 (7)
+**PF** 9 (2d8)
+**Velocità** 6 m
 
-### Azioni
 
-***Attacco Multiplo.*** Tre attacchi con Lacerare.  
+**Resistenze** freddo
+**Immunità** fuoco, veleno; affascinato, avvelenato,
 
-***Lacerare.*** *Attacco in mischia:* +7, portata 3 m. 11 (2d6 + 4) taglienti.  
+spaventato
+**Sensi** Percezione passiva 10; scurovisione 36 m (non
 
-### Azioni Bonus
+ostacolata dall'oscurità magica)
+**Lingue** capisce l'Infernale ma non lo parla
+**GS** 0 (PE 10; BC +2)
 
-***Carica.*** Si muove fino a metà Velocità dritto verso un nemico visibile.  
 
-## Unicorno
 
-*Celestiale Grande, Legale Buono*
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 97 (13d10 + 26)
-- **Velocità:** 15 m
-- **Iniziativa**: +8 (18)
+Tratti
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 14 | +2 | +2 |
-| COS | 15 | +2 | +2 |
-| INT | 11 | +0 | +0 |
-| SAG | 17 | +3 | +3 |
-| CAR | 16 | +3 | +3 |
+_**Ristoro immondo.**_ Se il lemure muore nei Nove Inferi,
+torna in vita con tutti i suoi punti ferita dopo 1d10
+giorni, a meno che non venga ucciso da una creatura
+sotto gli effetti di un incantesimo _benedizione_       - i suoi
+resti vengano spruzzati di acqua santa.
 
-- **Immunità**: Veleno; Affascinato, Paralizzato, Avvelenato
-- **Sensi**: scurovisione 18 m; Percezione Passiva 13
-- **Linguaggi**: Celestiale, Elfico, Silvano; telepatia 36 m
-- **GS** 5 (PE 1.800; MB +3)
+Azioni
 
-### Tratti
+_**Melma vile.**_ _Tiro per colpire in mischia:_ +2, portata
+1,5 m. _Colpito:_ 2 (1d4) danni da veleno.
+## **Lich**
+### **Lich**
 
-***Resistenza Leggendaria (3/Giorno).*** Se fallisce un TS, può scegliere di riuscire invece.
+_Non morto Medio (mago), neutrale malvagio_
 
-***Resistenza alla Magia.*** Vantaggio ai TS contro incantesimi ed effetti magici.
 
-### Azioni
+**CA** 20 **Iniziativa** +17 (27)
+**PF** 315 (42d8 + 126)
+**Velocità** 9 m
 
-***Attacco Multiplo.*** Un attacco con Zoccoli e uno con Corno Radiante.
 
-***Zoccoli.*** *Attacco in mischia:* +7, portata 1,5 m. 11 (2d6 + 4) contundenti.
+**Abilità** Arcano +19, Intuizione +9, Percezione +9, Storia
 
-***Corno Radiante.*** *Attacco in mischia:* +7, portata 1,5 m. 9 (1d10 + 4) radianti.
++12
+**Resistenze** freddo, fulmine
+**Immunità** necrotico, veleno; affascinato, avvelenato,
 
-***Incantesimi.*** Lancia senza componenti, Carisma come caratteristica da incantatore (CD 14):
-- **A volontà:** *Individuazione del Bene e del Male*, *Artigianato Druidico (Druidcraft)*
-- **1/Giorno ciascuno:** *Calmare Emozioni*, *Dissolvi Bene e Male*, *Intricare (Entangle)*, *Passare Senza Traccia*, *Parola del Richiamo (Word of Recall)*
+indebolimento, paralizzato, spaventato
+**Attrezzatura** borsa per componenti
+**Sensi** Percezione passiva 19; vista pura 36 m
+**Lingue** tutte
+**GS** 21 (PE 33.000, o 41.000 nella tana; BC +7)
 
-### Azioni Bonus
+Tratti
 
-***Benedizione dell’Unicorno (3/Giorno).*** Tocca una creatura col corno e lancia *Cura Ferite* o *Restaurare Inferiore* su di essa, usando Carisma come caratteristica da incantatore.
+_**Filatterio.**_ Se annientato, il lich si riforma dopo 1d10
+giorni se possiede un filatterio, tornando in vita con
+tutti i suoi punti ferita. Il nuovo corpo appare in uno
+spazio libero all'interno della tana della lich.
 
-### Azioni Leggendarie
+_**Resistenza leggendaria (4/giorno o 5/giorno nella**_
+_**tana).**_ Se il lich fallisce un tiro salvezza, può scegliere
+di superarlo comunque.
 
-***Carica del Corno.*** Si muove fino a metà Velocità senza provocare attacchi di opportunità e fa un attacco con Corno Radiante.
+Azioni
 
-***Scudo Sfavillante.*** Se stesso o una creatura visibile entro 18 m ottiene 10 (3d6) Punti Ferita Temporanei e la sua CA aumenta di 2 fino alla fine del prossimo turno dell’unicorno. Non può ripetere questa azione fino all’inizio del suo prossimo turno.
+_**Multiattacco.**_ Il lich effettua tre attacchi, usando
+Esplosione occulta o Tocco paralizzante in qualsiasi
+combinazione.
 
----
+_**Esplosione occulta.**_ _Tiro per colpire in mischia o a_
+_distanza:_ +12, portata 1,5 m o gittata 36 m. _Colpito:_
+31 (4d12 + 5) danni da forza.
 
-## Famiglio Vampirico
+_**Tocco paralizzante.**_ _Tiro per colpire in mischia:_ +12,
+portata 1,5 m. _Colpito:_ 15 (3d6 + 5) danni da freddo,
+e il bersaglio è paralizzato fino all'inizio del turno
+successivo del lich.
 
-*Umanoide Piccolo, Neutrale Malvagio*
+_**Incantesimi.**_ Il lich lancia uno dei seguenti incantesimi,
+utilizzando Intelligenza come caratteristica da incantatore (CD del tiro salvezza sull'incantesimo 20):
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 65 (10d8 + 20)
-- **Velocità:** 9 m, Scalare 9 m
-- **Iniziativa**: +5 (15)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 17 | +3 | +3 |
-| DES | 16 | +3 | +5 |
-| COS | 15 | +2 | +2 |
-| INT | 10 | +0 | +0 |
-| SAG | 10 | +0 | +2 |
-| CAR | 14 | +2 | +2 |
+**349** System Reference Document 5.2.1
 
-- **Resistenze**: Necrotico
-- **Immunità**: Affascinato (tranne dal suo padrone vampiro)
-- **Abilità**: Percezione +4, Persuasione +4, Furtività +7
-- **Equipaggiamento**: Pugnale ×10
-- **Sensi**: scurovisione 18 m; Percezione Passiva 14
-- **Linguaggi**: Comune più un altro
-- **GS** 3 (PE 700; MB +2)
 
-### Tratti
 
-***Connessione Vampirica.*** Finché si trovano sullo stesso piano, il vampiro comunica telepaticamente col famiglio e può percepire attraverso i suoi sensi.
+**1/giorno ciascuno:** _catena di fulmini_, _dito della morte_,
 
-### Azioni
+_parola del potere uccidere_, _scrutare_
+**2/giorno ciascuno:** _animare morti_, _porta dimensionale_,
 
-***Attacco Multiplo.*** Due attacchi con Pugnale Ombroso.
+_spostamento planare_
+**A volontà:** _Dissolvi magie_, _fulmine_ (di 5º livello), _indi-_
 
-***Pugnale Ombroso.*** *Attacco in mischia o a distanza:* +5, portata 1,5 m o gittata 6/18 m. 5 (1d4 + 3) perforanti più 7 (3d4) necrotici. Se il bersaglio è ridotto a 0 PF da questo attacco, diventa Stabile ma ha la condizione Avvelenato per 1 ora. Finché è Avvelenato, è anche Paralizzato.
+_viduazione dei pensieri_, _individuazione del magico_,
+_invisibilità_, _mano magica_, _palla di fuoco_ (di 5º livello),
+_prestidigitazione_
 
-### Azioni Bonus
+Reazioni
 
-***Agilità Immortale.*** Compie Scatto o Disimpegno.
+_**Magia di protezione.**_ Il lich lancia _controincantesimo_
 
----
+- _scudo_ come risposta all'innesco dell'incantesimo,
+utilizzando la stessa caratteristica da incantatore di
+Incantesimi.
 
-## Vampiro
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito_
+_dopo il turno di un'altra creatura, il lich può consumare_
+_un utilizzo per effettuare una delle seguenti azioni. Il lich_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
 
-*Non Morto Piccolo, Legale Malvagio*
+_**Distruggere vita.**_ _Tiro salvezza su Costituzione:_
+CD 20, tutte le creature diverse da un non morto in
+un'emanazione di 6 metri di cui il lich è il punto di
+origine. _Fallimento:_ 31 (9d6) danni necrotici. _Successo:_
+danni dimezzati. _Fallimento o successo:_ il lich non può
+ripetere quest'azione fino all'inizio del proprio turno
+successivo.
 
-- **Classe Armatura:** 16
-- **Punti Ferita:** 195 (23d8 + 92)
-- **Velocità:** 12 m, Scalare 12 m
-- **Iniziativa**: +8 (18)
+_**Sguardo spaventoso.**_ Il lich lancia _paura_, utilizzando la
+stessa caratteristica da incantatore di Incantesimi. il lich
+non può ripetere quest'azione fino all'inizio del proprio
+turno successivo.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 18 | +4 | +9 |
-| COS | 18 | +4 | +9 |
-| INT | 17 | +3 | +3 |
-| SAG | 15 | +2 | +7 |
-| CAR | 18 | +4 | +9 |
+_**Teletrasporto mortale.**_ Il lich si teletrasporta fino a
+18 metri in uno spazio libero che è in grado di vedere,
+e ogni creatura entro 3 metri dallo spazio che ha
+lasciato subisce 11 (2d10) danni necrotici.
+## **Lupo invernale**
+### **Lupo invernale**
 
-- **Resistenze**: Necrotico
-- **Abilità**: Percezione +7, Furtività +9
-- **Sensi**: scurovisione 36 m; Percezione Passiva 17
-- **Linguaggi**: Comune più altri due
-- **GS** 13 (PE 10.000, o 11.500 nella tana)
+_Mostruosità Grande, neutrale malvagio_
 
-### Tratti
 
-***Resistenza Leggendaria (3/Giorno, o 4/Giorno nella tana).*** Se fallisce un TS, può scegliere di riuscire invece.
+**CA** 13 **Iniziativa** +1 (11)
+**PF** 75 (10d10 + 20)
+**Velocità** 15 m
 
-***Fuga Nebbiosa.*** Se scende a 0 PF fuori dal suo luogo di riposo, usa Mutare Forma per diventare nebbia (nessuna azione richiesta). Se non può usare Mutare Forma, viene distrutto. A 0 PF in forma di nebbia non può tornare forma vampiro e deve raggiungere il luogo di riposo entro 2 ore o viene distrutto. Una volta lì, torna forma vampiro, è Paralizzato finché non recupera PF e recupera 1 PF dopo 1 ora.
 
-***Camminare sui Muri.*** Può arrampicarsi su superfici difficili, inclusi i soffitti, senza prove.
+**Abilità** Furtività +5, Percezione +5
+**Immunità** freddo
+**Sensi** Percezione passiva 15
+**Lingue** Comune, Gigante
+**GS** 3 (PE 700; BC +2)
 
-***Debolezze del Vampiro.*** Ha le seguenti debolezze:
-- **Divieto d’Ingresso**: non può entrare in una dimora senza invito di un occupante.
-- **Acqua Corrente**: subisce 20 danni da acido se termina il turno in acqua corrente.
-- **Paletto nel Cuore**: se un’arma perforante viene conficcata nel cuore mentre è Incapacitato nel suo luogo di riposo, è Paralizzato finché il paletto non viene rimosso.
-- **Luce Solare**: subisce 20 danni radianti se inizia il turno alla luce del sole; finché è alla luce del sole ha svantaggio ai tiri per colpire e alle prove di caratteristica.
 
-### Azioni
 
-***Attacco Multiplo (solo forma vampiro).*** Due Colpi Sepolcrali e usa Morso.
 
-***Colpo Sepolcrale (solo forma vampiro).*** *Attacco in mischia:* +9, portata 1,5 m. 8 (1d8 + 4) contundenti più 7 (2d6) necrotici. Se il bersaglio è Grande o più piccolo, è Afferrato (CD 14) da una delle due mani.
+Tratti
 
-***Morso (solo forma pipistrello o vampiro).*** *TS Costituzione*: CD 17, una creatura entro 1,5 m consenziente o che ha le condizioni Afferrato, Incapacitato o Intrappolato. *Fallimento:* 6 (1d4 + 4) perforanti più 13 (3d8) necrotici. Il massimo di PF del bersaglio si riduce di un valore pari ai danni necrotici subiti e il vampiro recupera PF pari a quel valore. Un Umanoide ridotto a 0 PF da questo danno e poi sepolto si rialza al tramonto successivo come Progenie Vampirica sotto il controllo del vampiro.
+_**Tattiche del branco.**_ Il lupo dispone di vantaggio al
+tiro per colpire contro una creatura se almeno uno
+degli alleati dell'animale si trova entro 1,5 metri dalla
+creatura e non è incapacitato.
 
-### Azioni Bonus
+Azioni
 
-***Mutare Forma.*** Se non è alla luce del sole o in acqua corrente, si trasforma in un Pipistrello Minuscolo (Velocità 1,5 m, Volare 9 m) o in una nube di Nebbia Media (Velocità 1,5 m, Volare 6 m [fluttuare]), o ritorna forma vampiro. Oggetti indossati si trasformano con lui. In forma di pipistrello non può parlare. Le statistiche restano invariate tranne taglia e Velocità. In forma di nebbia non può compiere azioni, parlare o manipolare oggetti, è senza peso e può entrare nello spazio dei nemici. Se l’aria può passare, anche la nebbia può, ma non può attraversare liquidi. Ha Resistenza a tutti i danni, tranne quelli subiti dalla luce solare.
+_**Morso.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 11 (2d6 + 4) danni perforanti. Se il bersaglio è
+una creatura di taglia Grande o inferiore, cade a terra
+prono.
 
-***Incantare (Ricarica 5–6).*** Lancia *Ammaliare Persona* senza componenti, Carisma come caratteristica da incantatore (CD 17), durata 24 ore. Il bersaglio Affascinato è consenziente al Morso del vampiro e i danni non terminano l’incantesimo. Alla fine, il bersaglio non è consapevole di essere stato affascinato dal vampiro.
+_**Soffio di freddo (ricarica 5–6).**_ _Tiro salvezza su Costitu-_
+_zione:_ CD 12, tutte le creature in un cono di 4,5 metri.
+_Fallimento:_ 18 (4d8) danni da freddo. _Successo:_ danni
+dimezzati.
+## **Lupo mannaro**
+### **Lupo mannaro**
 
-### Azioni Leggendarie
+_Mostruosità Media o Piccola (licantropo), caotico malvagio_
 
-***Colpo Immortale.*** Si muove fino a metà Velocità e fa un attacco con Colpo Sepolcrale.
 
-***Irretire.*** Lancia *Comando* senza componenti, Carisma come caratteristica da incantatore (CD 17). Non può ripeterla fino all’inizio del suo prossimo turno.
+**CA** 15 **Iniziativa** +4 (14)
+**PF** 71 (11d8 + 22)
+**Velocità** 9 m, 12 m (solo in forma di lupo)
 
----
 
-## Progenie Vampirica
+**Abilità** Furtività +4, Percezione +4
+**Attrezzatura** arco lungo
+**Sensi** Percezione passiva 14; scurovisione 18 m
+**Lingue** Comune (non può parlare quando ha le sembianze
 
-*Non Morto Piccolo, Neutrale Malvagio*
+di un lupo)
+**GS** 3 (PE 700; BC +2)
 
-- **Classe Armatura:** 16
-- **Punti Ferita:** 90 (12d8 + 36)
-- **Velocità:** 9 m
-- **Iniziativa**: +3 (13)
+Tratti
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +3 |
-| DES | 16 | +3 | +6 |
-| COS | 16 | +3 | +3 |
-| INT | 11 | +0 | +0 |
-| SAG | 10 | +0 | +3 |
-| CAR | 12 | +1 | +1 |
+_**Tattiche del branco.**_ Il lupo mannaro dispone di
+vantaggio a un tiro per colpire contro una creatura se
+almeno uno dei suoi alleati si trova entro 1,5 metri dalla
+creatura e non è incapacitato.
 
-- **Resistenze**: Necrotico
-- **Abilità**: Percezione +3, Furtività +6
-- **Sensi**: scurovisione 18 m; Percezione Passiva 13
-- **Linguaggi**: Comune più un altro
-- **GS** 5 (PE 1.800; MB +3)
+Azioni
 
-### Tratti
+_**Multiattacco.**_ Il lupo mannaro effettua due attacchi,
+usando Graffio o Arco lungo in qualsiasi combinazione.
+Può sostituire un attacco con un attacco Morso.
 
-***Camminare sui Muri.*** Può arrampicarsi su superfici difficili, inclusi i soffitti, senza prove.
+_**Graffio.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 10 (2d6 + 3) danni taglienti.
 
-***Debolezze del Vampiro.*** Ha le seguenti debolezze:
-- **Divieto d’Ingresso**: non può entrare in una dimora senza invito di un occupante.
-- **Acqua Corrente**: subisce 20 danni da acido se termina il turno in acqua corrente.
-- **Paletto nel Cuore**: viene distrutta se un’arma perforante le viene conficcata nel cuore mentre è Incapacitata.
-- **Luce Solare**: subisce 20 danni radianti se inizia il turno alla luce del sole; finché è alla luce del sole ha svantaggio ai tiri per colpire e alle prove di caratteristica.
+_**Morso (solo in forma di lupo o ibrida).**_ _Tiro per colpire_
+_in mischia:_ +5, portata 1,5 m _Colpito:_ 12 (2d8 + 3)
+danni perforanti. Se il bersaglio è un umanoide, subisce
+il seguente effetto. _Tiro salvezza su Costituzione:_
+CD 12. _Fallimento:_ il bersaglio è maledetto. Se il bersaglio scende a 0 punti ferita, diventa un **lupo mannaro**
+sotto il controllo del GM e ha 10 punti ferita. _Successo:_
+il bersaglio è immune alla maledizione del lupo mannaro per 24 ore.
 
-### Azioni
 
-***Attacco Multiplo.*** Due attacchi con Artigli e usa Morso.
+**350** System Reference Document 5.2.1
 
-***Artigli.*** *Attacco in mischia:* +6, portata 1,5 m. 8 (2d4 + 3) taglienti. Se il bersaglio è Medio o più piccolo, è Afferrato (CD 13) da uno dei due artigli.
 
-***Morso.*** *TS Costituzione*: CD 14, una creatura entro 1,5 m consenziente o che ha le condizioni Afferrato, Incapacitato o Intrappolato. *Fallimento:* 5 (1d4 + 3) perforanti più 10 (3d6) necrotici. Il massimo di PF del bersaglio si riduce di un valore pari ai danni necrotici subiti e la progenie recupera PF pari a quel valore.
 
-### Azioni Bonus
+_**Arco lungo (solo in forma umanoide o ibrida).**_ _Tiro_
+_per colpire a distanza:_ +4, gittata 45/180 m. _Colpito:_
+11 (2d8 + 2) danni perforanti.
 
-***Agilità Immortale.*** Compie Scatto o Disimpegno.
+Azioni bonus
 
-## Fungo Viola
+_**Mutaforma.**_ Il lupo mannaro si trasforma in un ibrido
+umanoide-lupo di taglia Grande o in un lupo di taglia
+Media, altrimenti torna alla sua forma originale di
+umanoide. Le sue statistiche di gioco, a eccezione della
+taglia, restano le stesse in ogni forma. Nessun oggetto
+che indossa o trasporta viene trasformato.
+## **Maghi**
+### **Mago**
 
-*Pianta Media, Non allineato*
+_Umanoide Medio o Piccolo (mago), neutrale_
 
-- **Classe Armatura:** 5
-- **Punti Ferita:** 18 (4d8)
-- **Velocità:** 1,5 m
-- **Iniziativa**: -5 (5)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 3 | -4 | -4 |
-| DES | 1 | -5 | -5 |
-| COS | 10 | +0 | +0 |
-| INT | 1 | -5 | -5 |
-| SAG | 3 | -4 | -4 |
-| CAR | 1 | -5 | -5 |
+**CA** 15 **Iniziativa** +2 (12)
+**PF** 81 (18d8)
+**Velocità** 9 m
 
-- **Immunità**: Accecato, Affascinato, Assordato, Spaventato
-- **Sensi**: vista cieca 9 m; Percezione Passiva 6
-- **GS** 1/4 (PE 50; MB +2)
 
-### Azioni
+**Abilità** Arcano +6, Percezione +4, Storia +6
+**Attrezzatura** bacchetta
+**Sensi** Percezione passiva 14
+**Lingue** Comune più altre tre lingue
+**GS** 6 (PE 2.300; BC +3)
 
-***Attacco Multiplo.*** Effettua due attacchi con Tocco Putrescente.
+Azioni
 
-***Tocco Putrescente.*** *Attacco in mischia:* +2, portata 3 m. 4 (1d8) necrotici.
+_**Multiattacco.**_ Il mago effettua tre attacchi Esplosione
+arcana.
 
----
+_**Esplosione arcana.**_ _Tiro per colpire in mischia o_
+_a distanza:_ +6, portata 1,5 m o gittata 36 m. _Colpito:_
+16 (3d8 + 3) danni da forza.
 
-## Vrock
+_**Incantesimi.**_ Il mago lancia uno dei seguenti incantesimi, utilizzando Intelligenza come caratteristica da
+incantatore (CD del tiro salvezza sull'incantesimo 14):
 
-*Immonda Grande (Demone), Caotico Malvagio*
+**1/giorno ciascuno:** _Cono di freddo_, _volare_
+**2/giorno ciascuno:** _Invisibilità_, _palla di fuoco (di_
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 152 (16d10 + 64)
-- **Velocità:** 12 m, Volare 18 m
-- **Iniziativa**: +2 (12)
+_4º livello)_
+**A volontà:** _Armatura magica_ (inclusa nella CA), _indivi-_
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 17 | +3 | +3 |
-| DES | 15 | +2 | +5 |
-| COS | 18 | +4 | +4 |
-| INT | 8 | -1 | -1 |
-| SAG | 13 | +1 | +4 |
-| CAR | 8 | -1 | +2 |
+_duazione del magico_, _luce_, _mano magica_, _prestidigi-_
+_tazione_
 
-- **Resistenze**: Freddo, Fuoco, Fulmine
-- **Immunità**: Veleno; Avvelenato
-- **Sensi**: scurovisione 36 m; Percezione Passiva 11
-- **Linguaggi**: Abissale; telepatia 36 m
-- **GS** 6 (PE 2.300; MB +3)
+Azioni bonus
 
-### Tratti
+_**Passo velato (3/giorno).**_ Il mago lancia _passo velato_,
+utilizzando la stessa caratteristica da incantatore di
+Incantesimi.
 
-***Restauro Demoniaco.*** Se muore fuori dall’Abisso, il corpo si dissolve in ichor e ne ottiene subito uno nuovo, rianimandosi con tutti i PF da qualche parte nell’Abisso.
+Reazioni
 
-***Resistenza alla Magia.*** Vantaggio ai TS contro incantesimi ed effetti magici.
+_**Magia di protezione (3/giorno).**_ Il mago lancia
+_controincantesimo_ - _scudo_ come risposta all'innesco
+dell'incantesimo, utilizzando la stessa caratteristica da
+incantatore di Incantesimi.
 
-### Azioni
 
-***Attacco Multiplo.*** Due attacchi con Dilaniare.
 
-***Dilaniare.*** *Attacco in mischia:* +6, portata 1,5 m. 10 (2d6 + 3) perforanti più 10 (3d6) veleno.
 
-***Spore (Ricarica 6).*** *TS Costituzione*: CD 15, ogni creatura in un’emissione di 6 m originata dal vrock. *Fallimento:* il bersaglio è Avvelenato e ripete il TS alla fine di ciascun suo turno, terminando l’effetto su successo. Finché è Avvelenato, subisce 5 (1d10) veleno all’inizio di ciascun suo turno. Versare una fiaschetta di Acqua Santa sul bersaglio termina prima l’effetto.
+### **Arcimago**
 
-***Urlo Stordente (1/Giorno).*** *TS Costituzione*: CD 15, ogni creatura in un’emissione di 6 m (i demoni riescono automaticamente). *Fallimento:* 10 (3d6) da tuono e condizione Stordito fino alla fine del prossimo turno del vrock.
+_Umanoide Medio o Piccolo (mago), neutrale_
 
----
 
-## Scheletro di Cavallo da Guerra
+**CA** 17 **Iniziativa** +7 (17)
+**PF** 170 (31d8 + 31)
+**Velocità** 9 m
 
-*Non Morto Grande, Legale Malvagio*
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 22 (3d10 + 6)
-- **Velocità:** 18 m
-- **Iniziativa**: +1 (11)
+**Abilità** Arcano +13, Percezione +6, Storia +9
+**Immunità** psichico; affascinato (con _vuoto mentale_ )
+**Attrezzatura** bacchetta
+**Sensi** Percezione passiva 16
+**Lingue** Comune più altre cinque lingue
+**GS** 12 (PE 8.000; BC +4)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 12 | +1 | +1 |
-| COS | 15 | +2 | +2 |
-| INT | 2 | -4 | -4 |
-| SAG | 8 | -1 | -1 |
-| CAR | 5 | -3 | -3 |
+Tratti
 
-- **Vulnerabilità**: Contundenti
-- **Immunità**: Veleno; Affaticato, Avvelenato
-- **Sensi**: scurovisione 18 m; Percezione Passiva 9
-- **GS** 1/2 (PE 100; MB +2)
+_**Resistenza alla magia.**_ L'arcimago dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
 
-### Azioni
+Azioni
 
-***Zoccoli.*** *Attacco in mischia:* +6, portata 1,5 m. 7 (1d6 + 4) contundenti. Se il bersaglio è una creatura Grande o più piccola e lo scheletro si è mosso di almeno 6 m dritto verso di essa immediatamente prima di colpire, il bersaglio è Prono.
+_**Multiattacco.**_ L'arcimago effettua quattro attacchi
+Esplosione arcana.
 
----
+_**Esplosione arcana.**_ _Tiro per colpire in mischia o a_
+_distanza:_ +9, portata 1,5 m o gittata 45 m. _Colpito:_
+27 (4d10 + 5) danni da forza.
 
-## Fante
+_**Incantesimi.**_ L'arcimago lancia uno dei seguenti incantesimi, utilizzando Intelligenza come caratteristica da
+incantatore (CD del tiro salvezza sull'incantesimo 17):
 
-*Umanoide Piccolo, Neutrale*
+**1/giorno ciascuno:** _Cono di freddo_ (di 9º livello), _scru-_
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 9 (2d8)
-- **Velocità:** 9 m
-- **Iniziativa**: +0 (10)
+_tare_, _teletrasporto_, _vuoto mentale_ (lanciato prima del
+combattimento)
+**2/giorno ciascuno:** _Fulmine_ (di 7º livello), _volare_
+**A volontà:** _Armatura magica_ (inclusa nella CA), _camuf-_
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 13 | +1 | +1 |
-| DES | 11 | +0 | +0 |
-| COS | 11 | +0 | +0 |
-| INT | 8 | -1 | -1 |
-| SAG | 11 | +0 | +0 |
-| CAR | 8 | -1 | -1 |
+_fare se stesso_, _individuazione dei pensieri_, _individua-_
+_zione del magico_, _invisibilità_, _luce_, _mano magica_,
+_prestidigitazione_
 
-- **Equipaggiamento**: Camicia di Maglia, Lancia
-- **Sensi**: Percezione Passiva 10
-- **Linguaggi**: Comune
-- **GS** 1/8 (PE 25; MB +2)
+Azioni bonus
 
-### Tratti
+_**Passo velato (3/giorno).**_ Il mago lancia _passo velato_,
+utilizzando la stessa caratteristica da incantatore di
+Incantesimi.
 
-***Tattiche di Branco.*** Ha vantaggio ai tiri per colpire contro una creatura se almeno un alleato è entro 1,5 m da essa e non è Incapacitato.
+Reazioni
 
-### Azioni
+_**Magia di protezione (3/giorno).**_ L'arcimago lancia
+_controincantesimo_      - _scudo_ come risposta all'innesco
+dell'incantesimo, utilizzando la stessa caratteristica da
+incantatore di Incantesimi.
 
-***Lancia.*** *Attacco in mischia o a distanza:* +3, portata 1,5 m o gittata 6/18 m. 4 (1d6 + 1) perforanti.
 
-## Guerriero Veterano
+**351** System Reference Document 5.2.1
 
-*Umanoide Piccolo, Neutrale*
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 65 (10d8 + 20)
-- **Velocità:** 9 m
-- **Iniziativa**: +3 (13)
+## **Magmin**
+### **Magmin**
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +3 |
-| DES | 13 | +1 | +1 |
-| COS | 14 | +2 | +2 |
-| INT | 10 | +0 | +0 |
-| SAG | 11 | +0 | +0 |
-| CAR | 10 | +0 | +0 |
+_Elementale Piccolo, caotico neutrale_
 
-- **Abilità**: Atletica +5, Percezione +2  
-- **Equipaggiamento**: Spadone, Balestra Pesante, Armatura a Piastre Segmentate  
-- **Sensi**: Percezione Passiva 12  
-- **Linguaggi**: Comune più un altro  
-- **GS** 3 (PE 700; MB +2)
 
-### Azioni
+**CA** 14 **Iniziativa** +2 (12)
+**PF** 13 (3d6 + 3)
+**Velocità** 9 m
 
-***Attacco Multiplo.*** Due attacchi con Spadone o Balestra Pesante.  
 
-***Spadone.*** *Attacco in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) taglienti.  
+**Immunità** fuoco
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** Primordiale (Ignan)
+**GS** 1/2 (PE 100; BC +2)
 
-***Balestra Pesante.*** *Attacco a distanza:* +3, gittata 30/120 m. 12 (2d10 + 1) perforanti.  
+Tratti
 
----
+_**Esplosione mortale.**_ Il magmin esplode quando muore.
+_Tiro salvezza su Destrezza:_ CD 11, tutte le creature in
+un'emanazione di 3 metri di cui il magmin è il punto di
+origine. _Fallimento_ : 7 (2d6) danni da fuoco. _Successo:_
+danni dimezzati.
 
-## Elementale dell’Acqua
+Azioni
 
-*Elementale Grande, Neutrale*
+_**Tocco.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 7 (2d4 + 2) danni da fuoco. Se il bersaglio
+è una creatura o un oggetto infiammabile che non è
+indossato o trasportato, prende fuoco.
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 114 (12d10 + 48)
-- **Velocità:** 9 m, Nuotare 27 m
-- **Iniziativa**: +2 (12)
+Azioni bonus
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 14 | +2 | +2 |
-| COS | 18 | +4 | +4 |
-| INT | 5 | -3 | -3 |
-| SAG | 10 | +0 | +0 |
-| CAR | 8 | -1 | -1 |
+_**Illuminazione fiammeggiante.**_ Il magmin si incendia
 
-- **Resistenze**: Acido, Fuoco  
-- **Immunità**: Veleno; Affaticato, Afferrato, Paralizzato, Pietrificato, Avvelenato, Prono, Intrappolato, Incosciente  
-- **Sensi**: scurovisione 18 m; Percezione Passiva 10  
-- **Linguaggi**: Primordiale (Aquan)  
-- **GS** 5 (PE 1.800; MB +3)
+- estingue le sue fiamme. Finché è in fiamme, proietta
+luce intensa in un raggio di 3 metri e luce fioca per altri
+3 metri.
+## **Manticora**
+### **Manticora**
 
-### Tratti
+_Mostruosità Grande, legale malvagio_
 
-***Congelamento.*** Se subisce danni da freddo, la sua Velocità si riduce di 6 m fino alla fine del suo prossimo turno.  
 
-***Forma d’Acqua.*** Può entrare nello spazio di un nemico e fermarsi lì. Può passare attraverso fessure strette fino a 2,5 cm senza penalità di movimento.  
+**CA** 14 **Iniziativa** +3 (13)
+**PF** 68 (8d10 + 24)
+**Velocità** 9 m, volo 15 m
 
-### Azioni
 
-***Attacco Multiplo.*** Due attacchi con Colpo.  
+**Sensi** Percezione passiva 11; scurovisione 18 m
+**Lingue** Comune
+**GS** 3 (PE 700; BC +2)
 
-***Colpo.*** *Attacco in mischia:* +7, portata 1,5 m. 13 (2d8 + 4) contundenti. Se il bersaglio è una creatura Media o più piccola, è Prono.  
+Azioni
 
-***Travolgere (Ricarica 4–6).*** *TS Forza*: CD 15, ogni creatura nello spazio dell’elementale. *Fallimento:* 22 (4d8 + 4) contundenti. Se il bersaglio è Grande o più piccolo, è Afferrato (CD 14). Finché è afferrato, è Intrappolato, soffoca a meno che non possa respirare acqua, e subisce 9 (2d8) contundenti a inizio turno dell’elementale. Può trattenere una creatura Grande o fino a due Medie/Piccole. Un alleato entro 1,5 m può estrarre una creatura superando una prova di Atletica su Forza CD 14. *Successo:* metà danno.  
+_**Multiattacco.**_ La manticora effettua tre attacchi, usando
+Squarcio o Aculeo caudale in qualsiasi combinazione.
 
----
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 7 (1d8 + 3) danni taglienti.
 
-## Uomo-Orso
 
-*Mostruosità Piccola, Neutrale Buono*
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 135 (18d8 + 54)
-- **Velocità:** 9 m, Alternativa ? m, Scalare 9 m (solo forma orso)
-- **Iniziativa**: +3 (13)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 19 | +4 | +4 |
-| DES | 10 | +0 | +0 |
-| COS | 17 | +3 | +3 |
-| INT | 11 | +0 | +0 |
-| SAG | 12 | +1 | +1 |
-| CAR | 12 | +1 | +1 |
+_**Aculeo caudale.**_ _Tiro per colpire a distanza:_ +5, gittata
+30/60 m. _Colpito:_ 7 (1d8 + 3) danni perforanti.
+## **Manto assassino**
+### **Manto assassino**
 
-- **Abilità**: Percezione +7  
-- **Equipaggiamento**: Ascia a Mano ×4  
-- **Sensi**: scurovisione 18 m; Percezione Passiva 17  
-- **Linguaggi**: Comune (non parla in forma d’orso)  
-- **GS** 5 (PE 1.800; MB +3)
+_Aberrazione Grande, caotico neutrale_
 
-### Azioni
 
-***Attacco Multiplo.*** Due attacchi: Ascia a Mano o Lacerare in qualsiasi combinazione. Può sostituire uno con Morso.  
+**CA** 14 **Iniziativa** +5 (15)
+**PF** 91 (14d10 + 14)
+**Velocità** 3 m, volo 12 m
 
-***Morso (solo forma orso o ibrida).*** *Attacco in mischia:* +7, portata 1,5 m. 17 (2d12 + 4) perforanti. Se il bersaglio è un Umanoide, *TS Costituzione* CD 14. *Fallimento:* il bersaglio è maledetto. Se scende a 0 PF, diventa un Uomo-Orso sotto il controllo del DM con 10 PF. *Successo:* è immune alla maledizione di questo Uomo-Orso per 24 ore.  
 
-***Ascia a Mano (solo forma umanoide o ibrida).*** *Attacco in mischia o a distanza:* +7, portata 1,5 m o gittata 6/18 m. 14 (3d6 + 4) taglienti.  
+**Abilità** Furtività +5
+**Immunità** spaventato
+**Sensi** Percezione passiva 12; scurovisione 36 m
+**Lingue** Gergo delle profondità, Sottocomune
+**GS** 8 (PE 3.900; BC +3)
 
-***Lacerare (solo forma orso o ibrida).*** *Attacco in mischia:* +7, portata 1,5 m. 13 (2d8 + 4) taglienti.  
+Tratti
 
-### Azioni Bonus
+_**Sensibilità alla luce.**_ Finché è esposto alla luce intensa,
+il manto assassino subisce svantaggio ai tiri per colpire.
 
-***Mutare Forma.*** Si trasforma in un ibrido orso-umanoide Grande o in un orso Grande, o ritorna umanoide. Le statistiche restano uguali tranne la taglia. L’equipaggiamento non cambia.  
+Azioni
 
----
+_**Multiattacco.**_ Il manto assassino effettua un attacco
+Avvinghiare e due attacchi Coda.
 
-## Uomo-Cinghiale
+_**Avvinghiare.**_ _Tiro per colpire in mischia:_ +6, portata
+1,5 m. _Colpito:_ 13 (3d6 + 3) danni perforanti. Se il bersaglio è una creatura di taglia Grande o inferiore,
+il manto si avvinghia ad essa. Finché resta avvinghiato
+al bersaglio, quest'ultimo è accecato, e il manto non
+può effettuare attacchi Avvinghiare contro altri bersagli. Inoltre, il manto assassino dimezza i danni subiti
+(arrotondati per difetto) e il bersaglio subisce lo stesso
+ammontare di danni.
 
-*Mostruosità Piccola, Neutrale Malvagio*
+Il manto assassino può staccarsi da solo usando
+1,5 metri di movimento. Il bersaglio o una creatura
+entro 1,5 metri da esso può effettuare un'azione per
+staccarsi il manto di dosso, superando una prova di
+Forza (Atletica) con CD 14.
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 97 (15d8 + 30)
-- **Velocità:** 9 m, Alternativa ? m
-- **Iniziativa**: +2 (12)
+_**Coda.**_ _Tiro per colpire in mischia:_ +6, portata 3 m.
+_Colpito:_ 8 (1d10 + 3) danni taglienti.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 17 | +3 | +3 |
-| DES | 10 | +0 | +0 |
-| COS | 15 | +2 | +2 |
-| INT | 10 | +0 | +0 |
-| SAG | 11 | +0 | +0 |
-| CAR | 8 | -1 | -1 |
+Azioni bonus
 
-- **Abilità**: Percezione +2  
-- **Equipaggiamento**: Giavellotto ×6  
-- **Sensi**: Percezione Passiva 12  
-- **Linguaggi**: Comune (non parla in forma di cinghiale)  
-- **GS** 4 (PE 1.100; MB +2)
+_**Allucinazioni (ricarica dopo un riposo breve o lungo).**_
+Il manto assassino lancia l'incantesimo _immagine_
+_speculare_ senza bisogno di componenti, utilizzando
+Saggezza come caratteristica da incantatore. L'incantesimo termina in anticipo se il manto assassino inizia
 
-### Azioni
+      - termina il proprio turno mentre è esposto alla luce
+intensa.
 
-***Attacco Multiplo.*** Due attacchi: Giavellotto o Zanna in qualsiasi combinazione. Può sostituire uno con Carica.  
+_**Gemito.**_ _Tiro salvezza su Saggezza:_ CD 13, tutte
+le creature in un'emanazione di 18 metri di cui il manto
+assassino è il punto di origine. _Fallimento:_ il bersaglio
+è spaventato fino al termine del turno successivo del
 
-***Carica (solo forma cinghiale o ibrida).*** *Attacco in mischia:* +5, portata 1,5 m. 12 (2d8 + 3) perforanti. Se il bersaglio è un Umanoide, *TS Costituzione* CD 12. *Fallimento:* il bersaglio è maledetto. Se scende a 0 PF, diventa un Uomo-Cinghiale sotto il controllo del DM con 10 PF. *Successo:* è immune alla maledizione di questo Uomo-Cinghiale per 24 ore.  
 
-***Giavellotto (solo forma umanoide o ibrida).*** *Attacco in mischia o a distanza:* +5, portata 1,5 m o gittata 9/36 m. 13 (3d6 + 3) perforanti.  
+**352** System Reference Document 5.2.1
 
-***Zanna (solo forma cinghiale o ibrida).*** *Attacco in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) perforanti. Se il bersaglio è una creatura Media o più piccola e l’uomo-cinghiale si è mosso di almeno 6 m dritto verso di essa immediatamente prima di colpire, infligge 7 (2d6) perforanti extra e il bersaglio è Prono.  
 
-### Azioni Bonus
 
-***Mutare Forma.*** Si trasforma in un ibrido cinghiale-umanoide Medio o in un cinghiale Piccolo, o ritorna umanoide. Le statistiche restano uguali tranne la taglia. L’equipaggiamento non cambia.  
+manto assassino. _Successo:_ il bersaglio è immune
+al Gemito di questo manto assassino per le 24 ore
+successive.
+## **Mantoscuro**
+### **Mantoscuro**
 
-## Uomo-Ratto
+_Aberrazione Piccola, senza allineamento_
 
-*Mostruosità Piccola, Legale Malvagio*
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 60 (11d8 + 11)
-- **Velocità:** 9 m, Scalare 9 m
-- **Iniziativa**: +3 (13)
+**CA** 11 **Iniziativa** +3 (13)
+**PF** 22 (5d6 + 5)
+**Velocità** 3 m, volo 9 m
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 10 | +0 | +0 |
-| DES | 16 | +3 | +3 |
-| COS | 12 | +1 | +1 |
-| INT | 11 | +0 | +0 |
-| SAG | 10 | +0 | +0 |
-| CAR | 8 | -1 | -1 |
 
-- **Abilità**: Percezione +4, Furtività +5  
-- **Equipaggiamento**: Balestra a Mano  
-- **Sensi**: scurovisione 18 m; Percezione Passiva 14  
-- **Linguaggi**: Comune (non parla in forma di ratto)  
-- **GS** 2 (PE 450; MB +2)
+**Abilità** Furtività +3
+**Sensi** Percezione passiva 10; vista cieca 18 m
+**Lingue** nessuna
+**GS** 1/2 (PE 100; BC +2)
 
-### Azioni
+Azioni
 
-***Attacco Multiplo.*** Due attacchi: Graffio o Balestra a Mano in qualsiasi combinazione. Può sostituire uno con Morso.  
+_**Schiacciare.**_ _Tiro per colpire in mischia:_ +5, portata
+1,5 m _Colpito:_ 6 (1d6 + 3) danni contundenti, e il mantoscuro si avvinghia al bersaglio. Se il bersaglio è una
+creatura di taglia Media o inferiore e il mantoscuro
+dispone di vantaggio al tiro per colpire, copre il bersaglio, il quale è accecato e soffoca mentre il mostro è
+avvinghiato a lui in questo modo.
 
-***Morso (solo forma ratto o ibrida).*** *Attacco in mischia:* +5, portata 1,5 m. 8 (2d4 + 3) perforanti. Se il bersaglio è un Umanoide, *TS Costituzione* CD 11. *Fallimento:* maledetto. Se scende a 0 PF, diventa Uomo-Ratto sotto il controllo del DM con 10 PF. *Successo:* immune alla maledizione di questo Uomo-Ratto per 24 ore.  
+Finché è avvinghiato a un bersaglio, il mantoscuro
+può attaccare solamente il bersaglio, ma dispone di
+vantaggio ai suoi tiri per colpire. Inoltre, il mantoscuro
+si muove insieme al bersaglio, la sua velocità diventa 0
+e non può beneficiare di alcun bonus alla velocità.
 
-***Graffio.*** *Attacco in mischia:* +5, portata 1,5 m. 6 (1d6 + 3) taglienti.  
+Una creatura può effettuare un'azione per staccarsi
+il mantoscuro di dosso, riuscendoci con una prova di
+Forza (Atletica) con CD 13 superata. Nel suo turno,
+il mantoscuro può staccarsi spontaneamente dal bersaglio usando 1,5 metri di movimento.
 
-***Balestra a Mano (solo forma umanoide o ibrida).*** *Attacco a distanza:* +5, gittata 9/36 m. 6 (1d6 + 3) perforanti.  
+_**Aura di oscurità (1/giorno).**_ L'oscurità magica riempie
+un'emanazione di 4,5 metri di cui il mantoscuro
+è il punto di origine. Questo effetto dura finché il
+mantoscuro mantiene la concentrazione su di esso,
+fino a 10 minuti. La scurovisione non può penetrare in
+quest'area e nessuna luce può illuminarla.
+## **Marilith**
+### **Marilith**
 
-### Azioni Bonus
+_Immondo Grande (demone), caotico malvagio_
 
-***Mutare Forma.*** Si trasforma in un ibrido ratto-umanoide Medio o in un ratto Piccolo, o ritorna umanoide. Le statistiche restano uguali tranne la taglia. L’equipaggiamento non cambia.  
 
----
+**CA** 16 **Iniziativa** +10 (20)
+**PF** 220 (21d10 + 105)
+**Velocità** 12 m, scalata 12 m
 
-## Uomo-Tigre
 
-*Mostruosità Piccola, Neutrale*
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 120 (16d8 + 48)
-- **Velocità:** 9 m, Alternativa ? m
-- **Iniziativa**: +2 (12)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 17 | +3 | +3 |
-| DES | 15 | +2 | +2 |
-| COS | 16 | +3 | +3 |
-| INT | 10 | +0 | +0 |
-| SAG | 13 | +1 | +1 |
-| CAR | 11 | +0 | +0 |
+**Abilità** Percezione +8
+**Resistenze** freddo, fulmine, fuoco
+**Immunità** veleno; avvelenato
+**Sensi** Percezione passiva 18; vista pura 36 m
+**Lingue** Abissale; telepatia 36 m
+**GS** 16 (PE 15.000; BC +5)
 
-- **Abilità**: Percezione +5, Furtività +4  
-- **Equipaggiamento**: Arco Lungo  
-- **Sensi**: scurovisione 18 m; Percezione Passiva 15  
-- **Linguaggi**: Comune (non parla in forma di tigre)  
-- **GS** 4 (PE 1.100; MB +2)
+Tratti
 
-### Azioni
+_**Reattiva.**_ Il marilith può effettuare una reazione a ogni
+turno in combattimento.
 
-***Attacco Multiplo.*** Due attacchi: Graffio o Arco Lungo in qualsiasi combinazione. Può sostituire uno con Morso.  
+_**Resistenza alla magia.**_ Il marilith dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
 
-***Morso (solo forma tigre o ibrida).*** *Attacco in mischia:* +5, portata 1,5 m. 12 (2d8 + 3) perforanti. Se il bersaglio è un Umanoide, *TS Costituzione* CD 13. *Fallimento:* maledetto. Se scende a 0 PF, diventa Uomo-Tigre sotto il controllo del DM con 10 PF. *Successo:* immune alla maledizione di questo Uomo-Tigre per 24 ore.  
+_**Ristoro demoniaco.**_ Se il marilith muore al di fuori
+dell'Abisso, il suo corpo si dissolve diventando icore
+e ne acquisisce uno nuovo all'istante, tornando in vita
+con tutti i suoi punti ferita da qualche parte nell'Abisso.
 
-***Graffio.*** *Attacco in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) taglienti.  
+Azioni
 
-***Arco Lungo (solo forma umanoide o ibrida).*** *Attacco a distanza:* +4, gittata 45/180 m. 11 (2d8 + 2) perforanti.  
+_**Multiattacco.**_ Il marilith effettua sei attacchi Lama del
+patto e usa Stritolare.
 
-### Azioni Bonus
+_**Lama del patto.**_ _Tiro per colpire in mischia:_ +10, portata
+1,5 m. _Colpito:_ 10 (1d8 + 5) danni taglienti più 7 (2d6)
+danni necrotici.
 
-***Appostamento (solo forma tigre o ibrida).*** Si muove fino alla sua Velocità senza provocare attacchi di opportunità. Alla fine di questo movimento può effettuare l’azione Nascondersi.  
+_**Stritolare.**_ _Tiro salvezza su Forza:_ CD 17, una creatura
+di taglia Media o inferiore che il marilith è in grado di
+vedere entro 1,5 metri. _Fallimento:_ 15 (2d10 + 4) danni
+contundenti. Il bersaglio è afferrato (CD 14 per sfuggire)
+ed è trattenuto finché la presa perdura.
 
-***Mutare Forma.*** Si trasforma in un ibrido tigre-umanoide Grande o in una tigre Grande, o ritorna umanoide. Le statistiche restano uguali tranne la taglia. L’equipaggiamento non cambia.  
+Azioni bonus
 
----
+_**Teletrasporto (ricarica 5–6).**_ Il marilith si teletrasporta
+fino a massimo di 36 metri in uno spazio libero che è
+in grado di vedere.
 
-## Uomo-Lupo
+Reazioni
 
-*Mostruosità Piccola, Caotico Malvagio*
+_**Parata.**_ _Attivazione:_ il marilith viene colpito da un
+tiro per colpire in mischia mentre tiene in mano
+un'arma. _Esito:_ il marilith aggiunge 5 alla sua CA contro
+­quell'attacco, aumentando le probabilità che il colpo
+non vada a segno.
+## **Marinide**
+### **Marinide schermagliatore**
 
-- **Classe Armatura:** 15
-- **Punti Ferita:** 71 (11d8 + 22)
-- **Velocità:** 9 m, Alternativa ? m
-- **Iniziativa**: +4 (14)
+_Elementale Medio, neutrale_
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +3 |
-| DES | 14 | +2 | +2 |
-| COS | 14 | +2 | +2 |
-| INT | 10 | +0 | +0 |
-| SAG | 11 | +0 | +0 |
-| CAR | 10 | +0 | +0 |
 
-- **Abilità**: Percezione +4, Furtività +4  
-- **Equipaggiamento**: Arco Lungo  
-- **Sensi**: scurovisione 18 m; Percezione Passiva 14  
-- **Linguaggi**: Comune (non parla in forma di lupo)  
-- **GS** 3 (PE 700; MB +2)
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 11 (2d8 + 2)
+**Velocità** 3 m, nuoto 12 m
 
-### Tratti
 
-***Tattiche di Branco.*** Ha vantaggio ai tiri per colpire contro una creatura se almeno un alleato è entro 1,5 m da essa e non è Incapacitato.  
+**353** System Reference Document 5.2.1
 
-### Azioni
 
-***Attacco Multiplo.*** Due attacchi: Graffio o Arco Lungo in qualsiasi combinazione. Può sostituire uno con Morso.  
 
-***Morso (solo forma lupo o ibrida).*** *Attacco in mischia:* +5, portata 1,5 m. 12 (2d8 + 3) perforanti. Se il bersaglio è un Umanoide, *TS Costituzione* CD 12. *Fallimento:* maledetto. Se scende a 0 PF, diventa Uomo-Lupo sotto il controllo del DM con 10 PF. *Successo:* immune alla maledizione di questo Uomo-Lupo per 24 ore.  
+**Sensi** Percezione passiva 12
+**Lingue** Comune, Primordiale (Aquan)
+**GS** 1/8 (PE 25; BC +2)
 
-***Graffio.*** *Attacco in mischia:* +5, portata 1,5 m. 10 (2d6 + 3) taglienti.  
+Tratti
 
-***Arco Lungo (solo forma umanoide o ibrida).*** *Attacco a distanza:* +4, gittata 45/180 m. 11 (2d8 + 2) perforanti.  
+_**Anfibio.**_ Il marinide può respirare in aria e in acqua.
 
-### Azioni Bonus
+Azioni
 
-***Mutare Forma.*** Si trasforma in un ibrido lupo-umanoide Grande o in un lupo Medio, o ritorna umanoide. Le statistiche restano uguali tranne la taglia. L’equipaggiamento non cambia.  
+_**Lancia oceanica.**_ _Tiro per colpire in mischia o a_
+_distanza:_ +2, portata 1,5 m o gittata 6/18 m. _Colpito:_
+3 (1d6) danni perforanti più 2 (1d4) danni da freddo.
+Se il bersaglio è una creatura, la sua velocità è ridotta
+di 3 metri fino al termine del proprio turno successivo.
+_Colpito o mancato:_ la lancia fa magicamente ritorno
+nella mano del marinide subito dopo un attacco a
+distanza.
+## **Medusa**
+### **Medusa**
 
----
+_Mostruosità Media, legale malvagio_
 
-## Draghetto Bianco
 
-*Drago Medio (Cromatico), Caotico Malvagio*
+**CA** 15 **Iniziativa** +6 (16)
+**PF** 127 (17d8 + 51)
+**Velocità** 9 m
 
-- **Classe Armatura:** 16
-- **Punti Ferita:** 32 (5d8 + 10)
-- **Velocità:** 9 m, Scavare 4,5 m, Volare 18 m, Nuotare 9 m
-- **Iniziativa**: +2 (12)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 14 | +2 | +2 |
-| DES | 10 | +0 | +2 |
-| COS | 14 | +2 | +2 |
-| INT | 5 | -3 | -3 |
-| SAG | 10 | +0 | +2 |
-| CAR | 11 | +0 | +0 |
+**Abilità** Furtività +6, Inganno +5, Percezione +4
+**Sensi** Percezione passiva 14; scurovisione 45 m
+**Lingue** Comune più un'altra lingua
+**GS** 6 (PE 2.300; BC +3)
 
-- **Immunità**: Freddo  
-- **Abilità**: Percezione +4, Furtività +2  
-- **Sensi**: vista cieca 3 m, scurovisione 18 m; Percezione Passiva 14  
-- **Linguaggi**: Draconico  
-- **GS** 2 (PE 450; MB +2)
+Azioni
 
-### Tratti
+_**Multiattacco.**_ La medusa effettua due attacchi Artiglio
+e un attacco Chioma di serpenti, o tre attacchi Raggio
+velenoso.
 
-***Camminare sul Ghiaccio.*** Può muoversi e arrampicarsi su superfici ghiacciate senza prove. Il terreno difficile composto da ghiaccio o neve non costa movimento extra.  
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m
+_Colpito:_ 10 (2d6 + 3) danni taglienti.
 
-### Azioni
+_**Chioma di serpenti.**_ _Tiro per colpire in mischia:_ +6,
+portata 1,5 m _Colpito:_ 5 (1d4 + 3) danni perforanti più
+14 (4d6) danni da veleno.
 
-***Attacco Multiplo.*** Due attacchi con Lacerare.  
+_**Raggio velenoso.**_ _Tiro per colpire a distanza:_ +5, gittata
+45 m. _Colpito:_ 11 (2d8 + 2) danni da veleno.
 
-***Lacerare.*** *Attacco in mischia:* +4, portata 1,5 m. 6 (1d8 + 2) taglienti più 2 (1d4) freddo.  
+Azioni bonus
 
-***Soffio Gelido (Ricarica 5–6).*** *TS Costituzione*: CD 12, ogni creatura in un cono di 4,5 m. *Fallimento:* 22 (5d8) freddo. *Successo:* metà danno.  
+_**Sguardo pietrificante (ricarica**_ _**5–6).**_ _Tiro salvezza su_
+_Costituzione:_ CD 13, tutte le creature in un cono di
+9 metri. Se la medusa vede il suo riflesso nel cono,
+deve effettuare questo tiro salvezza. _Primo fallimento:_
+il bersaglio è trattenuto. Ripete il tiro salvezza al
+termine del proprio turno successivo se è ancora
 
-## Spettro (Wight)
 
-*Non Morto Medio, Neutrale Malvagio*
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 82 (11d8 + 33)
-- **Velocità:** 9 m
-- **Iniziativa**: +4 (14)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 15 | +2 | +2 |
-| DES | 14 | +2 | +2 |
-| COS | 16 | +3 | +3 |
-| INT | 10 | +0 | +0 |
-| SAG | 13 | +1 | +1 |
-| CAR | 15 | +2 | +2 |
+trattenuto e, se lo supera, l'effetto svanisce. _Secondo_
+_fallimento:_ il bersaglio è pietrificato invece che
+trattenuto.
+## **Megera marina**
+### **Megera marina**
 
-- **Resistenze**: Necrotico
-- **Immunità**: Veleno; Affaticato, Avvelenato
-- **Abilità**: Percezione +3, Furtività +4
-- **Equipaggiamento**: Armatura Borchiata
-- **Sensi**: scurovisione 18 m; Percezione Passiva 13
-- **Linguaggi**: Comune più un altro
-- **GS** 3 (PE 700; MB +2)
+_Folletto Medio, caotico malvagio_
 
-### Tratti
 
-***Sensibilità alla Luce Solare.*** In piena luce solare ha svantaggio alle prove di caratteristica e ai tiri per colpire.
+**CA** 14 **Iniziativa** +1 (11)
+**PF** 52 (7d8 + 21)
+**Velocità** 9 m, nuoto 12 m
 
-### Azioni
 
-***Attacco Multiplo.*** Due attacchi: Spada Necrotica o Arco Necrotico in qualsiasi combinazione. Può sostituire uno con Rubavita.
+**Sensi** Percezione passiva 11; scurovisione 18 m
+**Lingue** Comune, Gigante, Primordiale (Aquan)
+**GS** 2 (PE 450; BC +2)
 
-***Spada Necrotica.*** *Attacco in mischia:* +4, portata 1,5 m. 6 (1d8 + 2) taglienti più 4 (1d8) necrotici.
+Tratti
 
-***Arco Necrotico.*** *Attacco a distanza:* +4, gittata 45/180 m. 6 (1d8 + 2) perforanti più 4 (1d8) necrotici.
+_**Anfibio.**_ La megera può respirare in aria e in acqua.
 
-***Rubavita.*** *TS Costituzione*: CD 13, una creatura entro 1,5 m. *Fallimento:* 6 (1d8 + 2) necrotici e il massimo di PF del bersaglio si riduce di un valore pari ai danni subiti.  
-Un Umanoide ucciso da questo attacco si rialza 24 ore dopo come Zombie sotto il controllo dello spettro, a meno che non venga riportato in vita o il corpo distrutto. Lo spettro può controllare al massimo dodici zombie alla volta.
+_**Magia della congrega.**_ Finché si trova entro 9 metri da
+almeno due megere alleate, la megera può lanciare uno
+dei seguenti incantesimi senza bisogno di componenti
+materiali, utilizzando il normale tempo di lancio
+dell'incantesimo e Intelligenza come caratteristica
+da incantatore (CD del tiro salvezza sull'incantesimo
+11): _identificare_, _localizza oggetto_, _presagio_, _scrutare_,
+_servitore inosservato_      - _trova famiglio_ . La megera deve
+terminare un riposo lungo prima di utilizzare questo
+tratto per lanciare di nuovo l'incantesimo.
 
----
+_**Aspetto orripilante.**_ _Tiro salvezza su Saggezza:_ CD 11,
+qualsiasi bestia o umanoide inizi il proprio turno
+nel campo visivo della megera, entro un raggio di 9
+metri da lei e può vederne la vera forma. _Fallimento:_
+il bersaglio è spaventato fino all'inizio del proprio turno
+successivo. _Successo:_ il bersaglio è immune all'Aspetto
+orripilante di questa megera per 24 ore.
 
-## Fuoco Fatuo (Will-o'-Wisp)
+Azioni
 
-*Non Morto Piccolo, Caotico Malvagio*
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 10 (2d6 + 3) danni taglienti.
 
-- **Classe Armatura:** 19
-- **Punti Ferita:** 27 (11d4)
-- **Velocità:** 1,5 m, Volare 15 m (fluttuare)
-- **Iniziativa**: +9 (19)
+_**Aspetto illusorio.**_ La megera lancia _camuffare se_
+_stesso_, utilizzando Costituzione come caratteristica da
+incantatore (CD del tiro salvezza sull'incantesimo 13).
+L'incantesimo dura 24 ore.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 1 | -5 | -5 |
-| DES | 28 | +9 | +9 |
-| COS | 10 | +0 | +0 |
-| INT | 13 | +1 | +1 |
-| SAG | 14 | +2 | +2 |
-| CAR | 11 | +0 | +0 |
+_**Sguardo mortale (ricarica 5–6).**_ _Tiro salvezza su Sag-_
+_gezza:_ CD 11, una creatura spaventata che la megera è
+in grado di vedere entro 9 metri. _Fallimento:_ se il bersaglio ha 20 punti ferita o meno, scende a 0 punti ferita.
+Altrimenti, il bersaglio subisce 13 (3d8) danni psichici.
 
-- **Resistenze**: Acido, Contundenti, Freddo, Fuoco, Necrotico, Perforanti, Taglienti
-- **Immunità**: Fulmine, Veleno; Affaticato, Afferrato, Paralizzato, Pietrificato, Avvelenato, Prono, Intrappolato, Incosciente
-- **Sensi**: scurovisione 36 m; Percezione Passiva 12
-- **Linguaggi**: Comune più un altro
-- **GS** 2 (PE 450; MB +2)
 
-### Tratti
+**354** System Reference Document 5.2.1
 
-***Efemero.*** Non può indossare o trasportare oggetti.
 
-***Illuminazione.*** Emette luce intensa in un raggio di 6 m e luce fioca per altri 6 m.
+## **Megera notturna**
+### **Megera notturna**
 
-***Movimento Incorporeo.*** Può muoversi attraverso creature e oggetti come terreno difficile. Subisce 5 (1d10) danni da forza se termina il turno dentro un oggetto.
+_Immondo Medio, neutrale malvagio_
 
-### Azioni
 
-***Scossa.*** *Attacco in mischia:* +4, portata 1,5 m. 11 (2d8 + 2) fulmine.
+**CA** 17 **Iniziativa** +5 (15)
+**PF** 112 (15d8 + 45)
+**Velocità** 9 m
 
-### Azioni Bonus
 
-***Consumare Vita.*** *TS Costituzione*: CD 10, una creatura vivente entro 1,5 m a 0 PF. *Fallimento:* la creatura muore e il fuoco fatuo recupera 10 (3d6) PF.
+**Abilità** Furtività +5, Inganno +6, Intuizione +5, Percezione
 
-***Svanire.*** Il fuoco fatuo e la sua luce ottengono la condizione Invisibile finché mantiene Concentrazione su questo effetto, che termina subito dopo che effettua un tiro per colpire o usa Consumare Vita.
++5
+**Resistenze** freddo, fuoco
+**Immunità** affascinato
+**Sensi** Percezione passiva 15; scurovisione 36 m
+**Lingue** Abissale, Comune, Infernale, Primordiale
+**GS** 5 (PE 1.800; BC +3)
 
----
+Tratti
 
-## Lupo Invernale
+_**Borsa dell'anima.**_ La megera ha una borsa dell'anima.
+Finché impugna o trasporta la borsa, può usarne
+­l'azione Infestare incubi.
 
-*Mostruosità Grande, Neutrale Malvagio*
+La borsa ha CA 15, 20 PF e resistenza a tutti i danni,
+e si trasforma in polvere se ridotta a 0 punti ferita.
+Se la borsa viene distrutta, qualsiasi anima al suo
+interno viene liberata. La megera può creare una nuova
+borsa dopo 7 giorni.
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 75 (10d10 + 20)
-- **Velocità:** 15 m
-- **Iniziativa**: +1 (11)
+_**Magia della congrega.**_ Finché si trova entro 9 metri da
+almeno due megere alleate, la megera può lanciare uno
+dei seguenti incantesimi senza bisogno di componenti
+materiali, utilizzando il normale tempo di lancio
+dell'incantesimo e Intelligenza come caratteristica
+da incantatore (CD del tiro salvezza sull'incantesimo
+14): _identificare_, _localizza oggetto_, _presagio_, _scrutare_,
+_servitore inosservato_ - _trova famiglio_ . La megera deve
+terminare un riposo lungo prima di utilizzare questo
+tratto per lanciare di nuovo l'incantesimo.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 18 | +4 | +4 |
-| DES | 13 | +1 | +1 |
-| COS | 14 | +2 | +2 |
-| INT | 7 | -2 | -2 |
-| SAG | 12 | +1 | +1 |
-| CAR | 8 | -1 | -1 |
+_**Resistenza alla magia.**_ La megera dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
 
-- **Immunità**: Freddo
-- **Abilità**: Percezione +5, Furtività +5
-- **Sensi**: Percezione Passiva 15
-- **Linguaggi**: Comune, Gigante
-- **GS** 3 (PE 700; MB +2)
+Azioni
 
-### Tratti
+_**Multiattacco.**_ La megera effettua due attacchi Artiglio.
 
-***Tattiche di Branco.*** Ha vantaggio ai tiri per colpire contro una creatura se almeno un alleato è entro 1,5 m da essa e non è Incapacitato.
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +7, portata 1,5 m.
+_Colpito:_ 13 (2d8 + 4) danni taglienti.
 
-### Azioni
+_**Incantesimi.**_ La megera lancia uno dei seguenti
+incantesimi senza bisogno di componenti materiali, utilizzando Intelligenza come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 14):
 
-***Morso.*** *Attacco in mischia:* +6, portata 1,5 m. 11 (2d6 + 4) perforanti. Se il bersaglio è una creatura Grande o più piccola, è Prono.
+**2/giorno ciascuno:** _Allucinazione mortale_, _spostamento_
 
-***Soffio Gelido (Ricarica 5–6).*** *TS Costituzione*: CD 12, ogni creatura in un cono di 4,5 m. *Fallimento:* 18 (4d8) freddo. *Successo:* metà danno.
+_planare_ (solo se stessa)
+**A volontà:** _Dardo incantato_ (di 4º livello), _forma eterea_,
 
----
+_individuazione del magico_
 
-## Worg
 
-*Fata Grande, Neutrale Malvagio*
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 26 (4d10 + 4)
-- **Velocità:** 15 m
-- **Iniziativa**: +1 (11)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 16 | +3 | +3 |
-| DES | 13 | +1 | +1 |
-| COS | 13 | +1 | +1 |
-| INT | 7 | -2 | -2 |
-| SAG | 11 | +0 | +0 |
-| CAR | 8 | -1 | -1 |
+_**Infestare incubi (1/giorno; richiede Borsa dell'anima).**_
+Finché si trova sul Piano Etereo, la megera lancia
+_sogno_, utilizzando la stessa caratteristica da incantatore di Incantesimi. Soltanto la megera può agire da
+messaggera dell'incantesimo, e il bersaglio deve essere
+una creatura che la megera è in grado di vedere sul
+Piano Materiale. L'incantesimo fallisce ed è sprecato se
+il bersaglio è sotto l'effetto dell'incantesimo _protezione_
+_dal bene e dal male_      - se si trova nel raggio dell'incantesimo _cerchio magico_ .
 
-- **Abilità**: Percezione +4
-- **Sensi**: scurovisione 18 m; Percezione Passiva 14
-- **Linguaggi**: Goblin, Worg
-- **GS** 1/2 (PE 100; MB +2)
+Se il bersaglio subisce danni dall'incantesimo _sogno_,
+i punti ferita massimi del bersaglio sono ridotti di un
+ammontare pari ai danni subiti. Se l'incantesimo uccide
+il bersaglio, la sua anima resta intrappolata nella borsa
+dell'anima della megera, e il bersaglio non può essere
+resuscitato finché la sua anima non viene liberata.
 
-### Azioni
+Azioni bonus
 
-***Morso.*** *Attacco in mischia:* +5, portata 1,5 m. 7 (1d8 + 3) perforanti, e il prossimo tiro per colpire contro il bersaglio effettuato prima dell’inizio del prossimo turno del worg ha vantaggio.
+_**Mutaforma.**_ La megera si trasforma in un umanoide
+di taglia Piccola o Media, oppure torna alla sua vera
+forma. A eccezione della taglia, le sue statistiche di
+gioco restano le stesse in ogni forma. Nessun oggetto
+che indossa o trasporta viene trasformato.
+## **Megera verde**
+### **Megera verde**
 
-## Spettro (Wraith)
+_Folletto Medio, neutrale malvagio_
 
-*Non Morto Piccolo, Neutrale Malvagio*
 
-- **Classe Armatura:** 13
-- **Punti Ferita:** 67 (9d8 + 27)
-- **Velocità:** 1,5 m, Volare 18 m (fluttuare)
-- **Iniziativa**: +3 (13)
+**CA** 17 **Iniziativa** +1 (11)
+**PF** 82 (11d8 + 33)
+**Velocità** 9 m, nuoto 9 m
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 6 | -2 | -2 |
-| DES | 16 | +3 | +3 |
-| COS | 16 | +3 | +3 |
-| INT | 12 | +1 | +1 |
-| SAG | 14 | +2 | +2 |
-| CAR | 15 | +2 | +2 |
 
-- **Resistenze**: Acido, Contundenti, Freddo, Fuoco, Perforanti, Taglienti  
-- **Immunità**: Necrotico, Veleno; Affascinato, Affaticato, Afferrato, Paralizzato, Pietrificato, Avvelenato, Prono, Intrappolato, Incosciente  
-- **Sensi**: scurovisione 18 m; Percezione Passiva 12  
-- **Linguaggi**: Comune più altri due  
-- **GS** 5 (PE 1.800; MB +3)
+**Abilità** Arcano +5, Furtività +3, Inganno +4,
 
-### Tratti
+Percezione +4
+**Sensi** Percezione passiva 14; scurovisione 18 m
+**Lingue** Comune, Elfico, Silvano
+**GS** 3 (PE 700; BC +2)
 
-***Movimento Incorporeo.*** Può muoversi attraverso creature e oggetti come terreno difficile. Subisce 5 (1d10) danni da forza se termina il turno dentro un oggetto.  
+Tratti
 
-***Sensibilità alla Luce Solare.*** In piena luce solare ha svantaggio alle prove di caratteristica e ai tiri per colpire.  
+_**Anfibio.**_ La megera può respirare in aria e in acqua.
 
-### Azioni
+_**Imitare.**_ La megera può imitare i versi degli animali
+e le voci degli umanoidi. Una creatura che sente tali
+suoni riesce a capire che si tratta di imitazioni solo
+superando una prova di Saggezza (Intuizione) con
+CD 14.
 
-***Rubavita.*** *Attacco in mischia:* +6, portata 1,5 m. 21 (4d8 + 3) necrotici. Il massimo di PF del bersaglio si riduce di un valore pari ai danni subiti.  
+_**Magia della congrega.**_ Finché si trova entro 9 metri da
+almeno due megere alleate, la megera può lanciare uno
+dei seguenti incantesimi senza bisogno di componenti
+materiali, utilizzando il normale tempo di lancio
+dell'incantesimo e Intelligenza come caratteristica
+da incantatore (CD del tiro salvezza sull'incantesimo
+11): _identificare_, _localizza oggetto_, _presagio_, _scrutare_,
+_servitore inosservato_      - _trova famiglio_ . La megera deve
 
-***Creare Spettro.*** Bersaglia un cadavere umanoide entro 3 m morto da non più di 1 minuto. Lo spirito si rialza come Spettro sotto il controllo dello spetro. Può controllare fino a sette spettri alla volta.  
 
----
+**355** System Reference Document 5.2.1
 
-## Viverna (Wyvern)
 
-*Drago Grande, Non Allineato*
 
-- **Classe Armatura:** 14
-- **Punti Ferita:** 127 (15d10 + 45)
-- **Velocità:** 9 m, Volare 24 m
-- **Iniziativa**: +0 (10)
+terminare un riposo lungo prima di utilizzare questo
+tratto per lanciare di nuovo l'incantesimo.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 19 | +4 | +4 |
-| DES | 10 | +0 | +0 |
-| COS | 16 | +3 | +3 |
-| INT | 5 | -3 | -3 |
-| SAG | 12 | +1 | +1 |
-| CAR | 6 | -2 | -2 |
+Azioni
 
-- **Abilità**: Percezione +4  
-- **Sensi**: scurovisione 36 m; Percezione Passiva 14  
-- **GS** 6 (PE 2.300; MB +3)
+_**Multiattacco.**_ La megera effettua due attacchi Artiglio.
 
-### Azioni
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 8 (1d8 + 4) danni taglienti più 3 (1d6) danni da
+veleno.
 
-***Attacco Multiplo.*** Un attacco di Morso e uno di Pungiglione.  
+_**Incantesimi.**_ La megera lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Saggezza come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 12, +4 al tiro per
+colpire degli attacchi con incantesimo):
 
-***Morso.*** *Attacco in mischia:* +7, portata 1,5 m. 13 (2d8 + 4) perforanti.  
+**A volontà:** _Camuffare se stesso_ (durata di 24 ore), _illu-_
 
-***Pungiglione.*** *Attacco in mischia:* +7, portata 3 m. 11 (2d6 + 4) perforanti più 24 (7d6) veleno, e il bersaglio è Avvelenato fino all’inizio del turno successivo della viverna.  
+_sione minore_, _invisibilità_ (solo se stessa, la megera non
+lascia tracce mentre è invisibile), _luci danzanti_, _raggio_
+_di infermità_ (di 3º livello)
+## **Melma grigia**
+### **Melma grigia**
 
----
+_Melma Media, senza allineamento_
 
-## Xorn
 
-*Elementale Medio, Neutrale*
+**CA** 9 **Iniziativa** −2 (13)
+**PF** 22 (3d8 + 9)
+**Velocità** 3 m, scalata 3 m
 
-- **Classe Armatura:** 19
-- **Punti Ferita:** 84 (8d8 + 48)
-- **Velocità:** 6 m, Scavare 6 m
-- **Iniziativa**: +0 (10)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 17 | +3 | +3 |
-| DES | 10 | +0 | +0 |
-| COS | 22 | +6 | +6 |
-| INT | 11 | +0 | +0 |
-| SAG | 10 | +0 | +0 |
-| CAR | 11 | +0 | +0 |
+**Abilità** Furtività +2
+**Resistenze** acido, freddo, fuoco
+**Immunità** accecato, affascinato, afferrato, assordato,
 
-- **Immunità**: Veleno; Paralizzato, Pietrificato, Avvelenato  
-- **Abilità**: Percezione +6, Furtività +6  
-- **Sensi**: scurovisione 18 m, senso del terreno 18 m; Percezione Passiva 16  
-- **Linguaggi**: Primordiale (Terran)  
-- **GS** 5 (PE 1.800; MB +3)
+indebolimento, prono, spaventato, trattenuto
+**Sensi** Percezione passiva 8; vista cieca 18 m
+**Lingue** nessuna
+**GS** 1/2 (PE 100; BC +2)
 
-### Tratti
+Tratti
 
-***Scivolare nella Terra.*** Può scavare attraverso terra e pietra non magiche senza lasciare tracce.  
+_**Amorfo.**_ La melma può muoversi attraverso uno spazio
+stretto fino a 2,5 centimetri senza consumare movimento extra per farlo.
 
-***Senso del Tesoro.*** Può individuare metalli e gemme preziose entro 18 m.  
+_**Forma corrosiva.**_ Le munizioni non magiche che colpiscono la melma e infliggono danni sono distrutte.
+­Qualsiasi arma non magica subisce una penalità cumulativa di −1 ai tiri per colpire subito dopo aver inflitto
+danni alla melma ed essere entrata in contatto con
+essa. Se la penalità arriva a −5, l'arma è distrutta. La
+penalità può essere rimossa lanciando l'incantesimo
+_riparare_ sull'arma.
 
-### Azioni
+La melma può corrodere fino a 5 centimetri di
+metallo o legno non magico in 1 round.
 
-***Attacco Multiplo.*** Un attacco di Morso e tre di Artiglio.  
 
-***Morso.*** *Attacco in mischia:* +6, portata 1,5 m. 17 (4d6 + 3) perforanti.  
 
-***Artiglio.*** *Attacco in mischia:* +6, portata 1,5 m. 8 (1d10 + 3) taglienti.  
 
-### Azioni Bonus
+Azioni
 
-***Carica.*** Si muove fino alla sua Velocità o Velocità di Scavo dritto verso un nemico che può percepire.  
+_**Pseudopode.**_ _Tiro per colpire in mischia:_ +3, portata
+1,5 m. _Colpito:_ 10 (2d8 + 1) danni da acido. L'armatura
+non magica indossata dal bersaglio subisce una penalità di −1 alla CA che fornisce. Se la penalità riduce
+la sua CA a 10, l'armatura si distrugge. La penalità
+può essere rimossa lanciando l'incantesimo _riparare_
+sull'armatura.
+## **Mephit**
+### **Mephit del ghiaccio**
 
----
+_Elementale Piccolo, neutrale malvagio_
 
-## Drago Nero Giovane
 
-*Drago Grande (Cromatico), Caotico Malvagio*
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 21 (6d6)
+**Velocità** 9 m, volo 9 m
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 127 (15d10 + 45)
-- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m
-- **Iniziativa**: +5 (15)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 19 | +4 | +4 |
-| DES | 14 | +2 | +5 |
-| COS | 17 | +3 | +3 |
-| INT | 12 | +1 | +1 |
-| SAG | 11 | +0 | +3 |
-| CAR | 15 | +2 | +2 |
+**Abilità** Furtività +3, Percezione +2
+**Vulnerabilità** fuoco
+**Immunità** freddo, veleno; avvelenato, indebolimento
+**Sensi** Percezione passiva 12; scurovisione 18 m
+**Lingue** Primordiale (Aquan, Auran)
+**GS** 1/2 (PE 100; BC +2)
 
-- **Immunità**: Acido  
-- **Abilità**: Percezione +6, Furtività +5  
-- **Sensi**: vista cieca 9 m, scurovisione 36 m; Percezione Passiva 16  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 7 (PE 2.900; MB +3)
+Tratti
 
-### Tratti
+_**Esplosione mortale.**_ Il mephit esplode quando muore.
+_Tiro salvezza su Costituzione:_ CD 10, tutte le creature
+in un'emanazione di 1,5 metri di cui il mephit è
+il punto di origine. _Fallimento:_ 5 (2d4) danni da freddo.
+_Successo:_ danni dimezzati.
 
-***Anfibio.*** Può respirare aria e acqua.  
+Azioni
 
-### Azioni
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +3, portata 1,5 m.
+_Colpito:_ 3 (1d4 + 1) danni taglienti più 2 (1d4) danni da
+freddo.
 
-***Attacco Multiplo.*** Tre attacchi con Lacerare.  
+_**Nube di nebbia (1/giorno).**_ Il mephit lancia _nube di_
+_nebbia_ senza bisogno di componenti, utilizzando
+Carisma come caratteristica da incantatore.
 
-***Lacerare.*** *Attacco in mischia:* +7, portata 3 m. 9 (2d4 + 4) taglienti più 3 (1d6) acido.  
+_**Soffio di gelo (ricarica 6).**_ _Tiro salvezza su Costitu-_
+_zione:_ CD 10, tutte le creature in un cono di 4,5 metri.
+_Fallimento:_ 7 (3d4) danni da freddo. _Successo:_ danni
+dimezzati.
+### **Mephit del magma**
 
-***Soffio Acido (Ricarica 5–6).*** *TS Destrezza*: CD 14, ogni creatura in una linea di 9 m per 1,5 m. *Fallimento:* 49 (14d6) acido. *Successo:* metà danno.  
+_Elementale Piccolo, neutrale malvagio_
 
-## Drago Blu Giovane
 
-*Drago Grande (Cromatico), Legale Malvagio*
+**CA** 11 **Iniziativa** +1 (11)
+**PF** 18 (4d6 + 4)
+**Velocità** 9 m, volo 9 m
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 152 (16d10 + 64)
-- **Velocità:** 12 m, Scavare 6 m, Volare 24 m
-- **Iniziativa**: +4 (14)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 21 | +5 | +5 |
-| DES | 10 | +0 | +4 |
-| COS | 19 | +4 | +4 |
-| INT | 14 | +2 | +2 |
-| SAG | 13 | +1 | +5 |
-| CAR | 17 | +3 | +3 |
+**356** System Reference Document 5.2.1
 
-- **Immunità**: Fulmine  
-- **Abilità**: Percezione +9, Furtività +4  
-- **Sensi**: vista cieca 9 m, scurovisione 36 m; Percezione Passiva 19  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 9 (PE 5.000; MB +4)
 
-### Azioni
 
-***Attacco Multiplo.*** Tre attacchi con Lacerare.  
+**Abilità** Furtività +3
+**Vulnerabilità** freddo
+**Immunità** fuoco, veleno; avvelenato, indebolimento
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** Primordiale (Ignan, Terran)
+**GS** 1/2 (PE 100; BC +2)
 
-***Lacerare.*** *Attacco in mischia:* +9, portata 3 m. 12 (2d6 + 5) taglienti più 5 (1d10) fulmine.  
+Tratti
 
-***Soffio di Fulmine (Ricarica 5–6).*** *TS Destrezza*: CD 16, ogni creatura in una linea di 18 m per 1,5 m. *Fallimento:* 55 (10d10) fulmine. *Successo:* metà danno.  
+_**Esplosione mortale.**_ Il mephit esplode quando muore.
+_Tiro salvezza su Destrezza:_ CD 11, tutte le creature in
+un'emanazione di 1,5 metri di cui il mephit è il punto
+di origine. _Fallimento:_ 7 (2d6) danni da fuoco. _Successo:_
+danni dimezzati.
 
----
+Azioni
 
-## Drago di Ottone Giovane
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +3, portata 1,5 m.
+_Colpito:_ 3 (1d4 + 1) danni taglienti più 3 (1d6) danni da
+fuoco.
 
-*Drago Grande (Metallico), Caotico Buono*
+_**Soffio di fuoco (ricarica 6).**_ _Tiro salvezza su Destrezza:_
+CD 11, tutte le creature in un cono di 4,5 metri.
+_Fallimento:_ 7 (2d6) danni da fuoco. _Successo:_ danni
+dimezzati.
+### **Mephit del vapore**
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 110 (13d10 + 39)
-- **Velocità:** 12 m, Scavare 6 m, Volare 24 m
-- **Iniziativa**: +3 (13)
+_Elementale Piccolo, neutrale malvagio_
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 19 | +4 | +4 |
-| DES | 10 | +0 | +3 |
-| COS | 17 | +3 | +3 |
-| INT | 12 | +1 | +1 |
-| SAG | 11 | +0 | +3 |
-| CAR | 15 | +2 | +2 |
 
-- **Immunità**: Fuoco  
-- **Abilità**: Percezione +6, Persuasione +5, Furtività +3  
-- **Sensi**: vista cieca 9 m, scurovisione 36 m; Percezione Passiva 16  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 6 (PE 2.300; MB +3)
+**CA** 10 **Iniziativa** +0 (10)
+**PF** 17 (5d6)
+**Velocità** 9 m, volo 9 m
 
-### Azioni
 
-***Attacco Multiplo.*** Tre attacchi con Lacerare. Può sostituire due attacchi con un Soffio del Sonno.  
+**Abilità** Furtività +2
+**Immunità** fuoco, veleno; avvelenato, indebolimento
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** Primordiale (Aquan, Ignan)
+**GS** 1/4 (PE 50; BC +2)
 
-***Lacerare.*** *Attacco in mischia:* +7, portata 3 m. 15 (2d10 + 4) taglienti.  
+Tratti
 
-***Soffio di Fuoco (Ricarica 5–6).*** *TS Destrezza*: CD 14, ogni creatura in una linea di 12 m per 1,5 m. *Fallimento:* 38 (11d6) fuoco. *Successo:* metà danno.  
+_**Esplosione mortale.**_ Il mephit esplode quando muore.
+_Tiro salvezza su Destrezza:_ CD 10, tutte le creature in
+un'emanazione di 1,5 metri di cui il mephit è il punto
+di origine. _Fallimento:_ 5 (2d4) danni da fuoco. _Successo:_
+danni dimezzati.
 
-***Soffio del Sonno.*** *TS Costituzione*: CD 14, ogni creatura in un cono di 9 m. *Fallimento:* condizione Incapacitato fino alla fine del prossimo turno del drago, dopo di che ripete il TS. *Secondo Fallimento:* condizione Incosciente per 1 minuto. L’effetto termina se il bersaglio subisce danni o viene svegliato da un’azione di una creatura entro 1,5 m.  
+_**Forma sfocata.**_ I tiri per colpire contro il mephit sono
+effettuati con svantaggio, a meno che il mephit non sia
+incapacitato.
 
----
+Azioni
 
-## Drago di Bronzo Giovane
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +2, portata 1,5 m.
+_Colpito:_ 2 (1d4) danni taglienti più 2 (1d4) danni da
+fuoco.
 
-*Drago Grande (Metallico), Legale Buono*
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 142 (15d10 + 60)
-- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m
-- **Iniziativa**: +3 (13)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 21 | +5 | +5 |
-| DES | 10 | +0 | +3 |
-| COS | 19 | +4 | +4 |
-| INT | 14 | +2 | +2 |
-| SAG | 13 | +1 | +4 |
-| CAR | 17 | +3 | +3 |
 
-- **Immunità**: Fulmine  
-- **Abilità**: Intuizione +4, Percezione +7, Furtività +3  
-- **Sensi**: vista cieca 9 m, scurovisione 36 m; Percezione Passiva 17  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 8 (PE 3.900; MB +3)
+_**Soffio di vapore (ricarica 6).**_ _Tiro salvezza su Costitu-_
+_zione:_ CD 10, tutte le creature in un cono di 4,5 metri.
+_Fallimento:_ 5 (2d4) danni da fuoco, e la velocità del
+bersaglio è ridotta di 3 metri fino al termine del turno
+successivo del mephit. _Successo:_ danni dimezzati. _Fal-_
+_limento o successo:_ trovarsi sott'acqua non conferisce
+alcuna resistenza contro questi danni da fuoco.
+### **Mephit della polvere**
 
-### Tratti
+_Elementale Piccolo, neutrale malvagio_
 
-***Anfibio.*** Può respirare aria e acqua.  
 
-### Azioni
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 17 (5d6)
+**Velocità** 9 m, volo 9 m
 
-***Attacco Multiplo.*** Tre attacchi con Lacerare. Può sostituirne uno con un Soffio Repulsivo.  
 
-***Lacerare.*** *Attacco in mischia:* +8, portata 3 m. 16 (2d10 + 5) taglienti.  
+**Abilità** Furtività +4, Percezione +2
+**Vulnerabilità** fuoco
+**Immunità** veleno; avvelenato, indebolimento
+**Sensi** Percezione passiva 12; scurovisione 18 m
+**Lingue** Primordiale (Auran, Terran)
+**GS** 1/2 (PE 100; BC +2)
 
-***Soffio di Fulmine (Ricarica 5–6).*** *TS Destrezza*: CD 15, ogni creatura in una linea di 18 m per 1,5 m. *Fallimento:* 49 (9d10) fulmine. *Successo:* metà danno.  
+Tratti
 
-***Soffio Repulsivo.*** *TS Forza*: CD 15, ogni creatura in un cono di 9 m. *Fallimento:* il bersaglio è spinto di 12 m lontano dal drago ed è Prono.  
+_**Esplosione mortale.**_ Il mephit esplode quando muore.
+_Tiro salvezza su Destrezza:_ CD 10, tutte le creature in
+un'emanazione di 1,5 metri di cui il mephit è il punto
+di origine. _Fallimento:_ 5 (2d4) danni contundenti. _Suc-_
+_cesso:_ danni dimezzati.
 
----
+Azioni
 
-## Drago di Rame Giovane
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m.
+_Colpito:_ 4 (1d4 + 2) danni taglienti.
 
-*Drago Grande (Metallico), Caotico Buono*
+_**Soffio accecante (ricarica 6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 10, tutte le creature in un cono di
+4,5 metri. _Fallimento:_ il bersaglio è accecato fino al
+termine del turno successivo del mephit.
 
-- **Classe Armatura:** 17
-- **Punti Ferita:** 119 (14d10 + 42)
-- **Velocità:** 12 m, Scalare 12 m, Volare 24 m
-- **Iniziativa**: +4 (14)
+_**Sonno (1/giorno).**_ Il mephit lancia _sonno_ senza bisogno
+di componenti, utilizzando Carisma come caratteristica
+da incantatore (CD del tiro salvezza sull'incantesimo 10).
+## **Merrow**
+### **Merrow**
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 19 | +4 | +4 |
-| DES | 12 | +1 | +4 |
-| COS | 17 | +3 | +3 |
-| INT | 16 | +3 | +3 |
-| SAG | 13 | +1 | +4 |
-| CAR | 15 | +2 | +2 |
+_Mostruosità Grande, caotico malvagio_
 
-- **Immunità**: Acido  
-- **Abilità**: Inganno +5, Percezione +7, Furtività +4  
-- **Sensi**: vista cieca 9 m, scurovisione 36 m; Percezione Passiva 17  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 7 (PE 2.900; MB +3)
 
-### Azioni
+**CA** 13 **Iniziativa** +2 (12)
+**PF** 45 (6d10 + 12)
+**Velocità** 3 m, nuoto 12 m
 
-***Attacco Multiplo.*** Tre attacchi con Lacerare. Può sostituirne uno con un Soffio Rallentante.  
+MOD SALV MOD SALV MOD SALV
 
-***Lacerare.*** *Attacco in mischia:* +7, portata 3 m. 15 (2d10 + 4) taglienti.  
 
-***Soffio Acido (Ricarica 5–6).*** *TS Destrezza*: CD 14, ogni creatura in una linea di 12 m per 1,5 m. *Fallimento:* 40 (9d8) acido. *Successo:* metà danno.  
+**357** System Reference Document 5.2.1
 
-***Soffio Rallentante.*** *TS Costituzione*: CD 14, ogni creatura in un cono di 9 m. *Fallimento:* non può compiere Reazioni, la sua Velocità è dimezzata e può compiere solo un’azione o un’Azione Bonus per turno, non entrambe. Dura fino alla fine del turno successivo del drago.  
 
-## Drago d’Oro Giovane
 
-*Drago Grande (Metallico), Legale Buono*
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** Abissale, Primordiale (Aquan)
+**GS** 2 (PE 450; BC +2)
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 178 (17d10 + 85)
-- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m
-- **Iniziativa**: +6 (16)
+Tratti
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 23 | +6 | +6 |
-| DES | 14 | +2 | +6 |
-| COS | 21 | +5 | +5 |
-| INT | 16 | +3 | +3 |
-| SAG | 13 | +1 | +5 |
-| CAR | 20 | +5 | +5 |
+_**Anfibio.**_ Il merrow può respirare in aria e in acqua.
 
-- **Immunità**: Fuoco  
-- **Abilità**: Intuizione +5, Percezione +9, Persuasione +9, Furtività +6  
-- **Sensi**: vista cieca 9 m, scurovisione 36 m; Percezione Passiva 19  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 10 (PE 5.900; MB +4)
+Azioni
 
-### Tratti
+_**Multiattacco.**_ Il merrow effettua due attacchi, usando
+Morso, Artiglio o Arpione in qualsiasi combinazione.
 
-***Anfibio.*** Può respirare aria e acqua.  
+_**Arpione.**_ _Tiro per colpire in mischia o a distanza:_ +6,
+portata 1,5 m o gittata 6/18 m. _Colpito:_ 11 (2d6 + 4)
+danni perforanti. Se il bersaglio è una creatura di taglia
+Grande o inferiore, il merrow trascina il bersaglio in
+linea retta verso di sé fino a 4,5 metri.
 
-### Azioni
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 9 (2d4 + 4) danni taglienti.
 
-***Attacco Multiplo.*** Tre attacchi con Lacerare. Può sostituirne uno con un Soffio Indebolente.  
+_**Morso.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 6 (1d4 + 4) danni perforanti, e il bersaglio è
+avvelenato fino al termine del turno successivo del
+merrow.
+## **Mezzodrago**
+### **Mezzodrago**
 
-***Lacerare.*** *Attacco in mischia:* +10, portata 3 m. 17 (2d10 + 6) taglienti.  
+_Drago Medio, neutrale_
 
-***Soffio di Fuoco (Ricarica 5–6).*** *TS Destrezza*: CD 17, ogni creatura in un cono di 9 m. *Fallimento:* 55 (10d10) fuoco. *Successo:* metà danno.  
 
-***Soffio Indebolente.*** *TS Forza*: CD 17, ogni creatura non già affetta in un cono di 9 m. *Fallimento:* svantaggio ai test basati su Forza e –3 (1d6) ai tiri danno. Ripete il TS a fine turno per terminare l’effetto. Dopo 1 minuto ha successo automaticamente.  
+**CA** 18 **Iniziativa** +5 (15)
+**PF** 105 (14d8 + 42)
+**Velocità** 12 m
 
----
 
-## Drago Verde Giovane
+**Abilità** Atletica +7, Furtività +5, Percezione +5
+**Resistenze** il tipo di danno scelto per il tratto Origine
 
-*Drago Grande (Cromatico), Legale Malvagio*
+draconica descritto sotto
+**Sensi** Percezione passiva 15; scurovisione 18 m, vista
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 136 (16d10 + 48)
-- **Velocità:** 12 m, Volare 24 m, Nuotare 12 m
-- **Iniziativa**: +4 (14)
+cieca 3 m
+**Lingue** Comune, Draconico
+**GS** 5 (PE 1.800; BC +3)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 19 | +4 | +4 |
-| DES | 12 | +1 | +4 |
-| COS | 17 | +3 | +3 |
-| INT | 16 | +3 | +3 |
-| SAG | 13 | +1 | +4 |
-| CAR | 15 | +2 | +2 |
+Tratti
 
-- **Immunità**: Veleno; Avvelenato  
-- **Abilità**: Inganno +5, Percezione +7, Furtività +4  
-- **Sensi**: vista cieca 9 m, scurovisione 36 m; Percezione Passiva 17  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 8 (PE 3.900; MB +3)
+_**Origine draconica.**_ Il mezzodrago è legato al tipo di
+drago associato con uno dei seguenti tipi di danno
+(a scelta del GM): acido, freddo, fulmine, fuoco
 
-### Tratti
+- veleno. Questa scelta influenza gli altri aspetti della
+scheda delle statistiche.
 
-***Anfibio.*** Può respirare aria e acqua.  
+Azioni
 
-### Azioni
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +7, portata 3 m.
+_Colpito:_ 6 (1d4 + 4) danni taglienti più 7 (2d6) danni del
+tipo scelto per il tratto Origine draconica.
 
-***Attacco Multiplo.*** Tre attacchi con Lacerare.  
 
-***Lacerare.*** *Attacco in mischia:* +7, portata 3 m. 11 (2d6 + 4) taglienti più 7 (2d6) veleno.  
 
-***Soffio Velenoso (Ricarica 5–6).*** *TS Costituzione*: CD 14, ogni creatura in un cono di 9 m. *Fallimento:* 42 (12d6) veleno. *Successo:* metà danno.  
 
----
+_**Multiattacco.**_ Il mezzodrago effettua due attacchi
+Artiglio.
 
-## Drago Rosso Giovane
+_**Soffio del drago (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 14, tutte le creature in un cono di
+9 metri. _Fallimento:_ 28 (8d6) danni del tipo scelto per
+il tratto Origine draconica. _Successo:_ danni dimezzati.
 
-*Drago Grande (Cromatico), Caotico Malvagio*
+Azioni bonus
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 178 (17d10 + 85)
-- **Velocità:** 12 m, Scalare 12 m, Volare 24 m
-- **Iniziativa**: +4 (14)
+_**Balzo.**_ Il mezzodrago salta fino a 9 metri usando
+3 metri di movimento.
+## **Mimic**
+### **Mimic**
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 23 | +6 | +6 |
-| DES | 10 | +0 | +4 |
-| COS | 21 | +5 | +5 |
-| INT | 14 | +2 | +2 |
-| SAG | 11 | +0 | +4 |
-| CAR | 19 | +4 | +4 |
+_Mostruosità Media, neutrale_
 
-- **Immunità**: Fuoco  
-- **Abilità**: Percezione +8, Furtività +4  
-- **Sensi**: vista cieca 9 m, scurovisione 36 m; Percezione Passiva 18  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 10 (PE 5.900; MB +4)
 
-### Azioni
+**CA** 12 **Iniziativa** +3 (13)
+**PF** 58 (9d8 + 18)
+**Velocità** 6 m
 
-***Attacco Multiplo.*** Tre attacchi con Lacerare.  
 
-***Lacerare.*** *Attacco in mischia:* +10, portata 3 m. 13 (2d6 + 6) taglienti più 3 (1d6) fuoco.  
+**Abilità** Furtività +5
+**Immunità** acido; prono
+**Sensi** Percezione passiva 11; scurovisione 18 m
+**Lingue** nessuna
+**GS** 2 (PE 450; BC +2)
 
-***Soffio di Fuoco (Ricarica 5–6).*** *TS Destrezza*: CD 17, ogni creatura in un cono di 9 m. *Fallimento:* 56 (16d6) fuoco. *Successo:* metà danno.  
+Tratti
 
----
+_**Adesivo (solo in forma di oggetto).**_ Il mimic aderisce
+a qualsiasi cosa tocchi. Una creatura di taglia Enorme
+oinferiore attaccata al mimic è afferrata (CD 13 per
+sfuggire). Le prove di caratteristica effettuate per sfuggire a questa presa subiscono svantaggio.
 
-## Drago d’Argento Giovane
+Azioni
 
-*Drago Grande (Metallico), Legale Buono*
+_**Morso.**_ _Tiro per colpire in mischia:_ +5 (con vantaggio
+se il bersaglio è afferrato dal mimic), portata 1,5 m.
+_Colpito:_ 7 (1d8 + 3) danni perforanti, o 12 (2d8 + 3)
+danni perforanti se il bersaglio è afferrato dal mimic,
+più 4 (1d8) danni da acido.
 
-- **Classe Armatura:** 18
-- **Punti Ferita:** 168 (16d10 + 80)
-- **Velocità:** 12 m, Volare 24 m
-- **Iniziativa**: +4 (14)
+_**Pseudopode.**_ _Tiro per colpire in mischia:_ +5, portata
+1,5 m _Colpito:_ 7 (1d8 + 3) danni contundenti più
+4 (1d8) danni da acido. Se il bersaglio è una creatura di
+taglia Grande o inferiore, è afferrato (CD 13 per sfuggire). Le prove di caratteristica effettuate per sfuggire
+a questa presa subiscono svantaggio.
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 23 | +6 | +6 |
-| DES | 10 | +0 | +4 |
-| COS | 21 | +5 | +5 |
-| INT | 14 | +2 | +2 |
-| SAG | 11 | +0 | +4 |
-| CAR | 19 | +4 | +4 |
+Azioni bonus
 
-- **Immunità**: Freddo  
-- **Abilità**: Storia +6, Percezione +8, Furtività +4  
-- **Sensi**: vista cieca 9 m, scurovisione 36 m; Percezione Passiva 18  
-- **Linguaggi**: Comune, Draconico  
-- **GS** 9 (PE 5.000; MB +4)
+_**Mutaforma.**_ Il mimic assume la forma di un oggetto
+Medio o Piccolo, mantenendo le proprie statistiche
+di gioco, o ritorna alla sua forma autentica. Nessun
+oggetto che indossa o trasporta viene trasformato.
 
-### Azioni
 
-***Attacco Multiplo.*** Tre attacchi con Lacerare. Può sostituirne uno con un Soffio Paralizzante.  
+**358** System Reference Document 5.2.1
 
-***Lacerare.*** *Attacco in mischia:* +10, portata 3 m. 15 (2d8 + 6) taglienti.  
 
-***Soffio di Ghiaccio (Ricarica 5–6).*** *TS Costituzione*: CD 17, ogni creatura in un cono di 9 m. *Fallimento:* 49 (11d8) freddo. *Successo:* metà danno.  
+## **Minotauro di Baphomet**
+### **Minotauro di Baphomet**
 
-***Soffio Paralizzante.*** *TS Costituzione*: CD 17, ogni creatura in un cono di 9 m. *Primo Fallimento:* condizione Incapacitato fino alla fine del prossimo turno del drago, poi ripete il TS. *Secondo Fallimento:* condizione Paralizzato, ripete il TS a fine turno per terminare l’effetto. Dopo 1 minuto ha successo automaticamente.  
+_Mostruosità Grande, caotico malvagio_
 
-## Zombie
 
-*Non Morto Medio, Neutrale Malvagio*
+**CA** 14 **Iniziativa** +0 (10)
+**PF** 85 (10d10 + 30)
+**Velocità** 12 m
 
-- **Classe Armatura:** 8
-- **Punti Ferita:** 15 (2d8 + 6)
-- **Velocità:** 6 m
-- **Iniziativa**: –2 (8)
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 13 | +1 | +1 |
-| DES | 6 | –2 | –2 |
-| COS | 16 | +3 | +3 |
-| INT | 3 | –4 | –4 |
-| SAG | 6 | –2 | +0 |
-| CAR | 5 | –3 | –3 |
+**Abilità** Percezione +7, Sopravvivenza +7
+**Sensi** Percezione passiva 17; scurovisione 18 m
+**Lingue** Abissale
+**GS** 3 (PE 700; BC +2)
 
-- **Immunità**: Veleno; Affaticato, Avvelenato  
-- **Sensi**: scurovisione 18 m; Percezione Passiva 8  
-- **Linguaggi**: comprende il Comune e un altro linguaggio ma non può parlare  
-- **GS** 1/4 (PE 50; MB +2)
+Azioni
 
-### Tratti
+_**Falcione abissale.**_ _Tiro per colpire in mischia:_ +6,
+portata 3 m. _Colpito:_ 10 (1d12 + 4) danni taglienti più
+10 (3d6) danni necrotici.
 
-***Tenacia dei Non Morti.*** Se i danni riducono lo zombie a 0 Punti Ferita, effettua un TS di Costituzione (CD 5 + danni subiti) a meno che i danni non siano Radianti o da Colpo Critico. Con un successo rimane a 1 Punto Ferita invece che a 0.  
+_**Trafiggere (ricarica 5–6).**_ _Tiro per colpire in mischia:_
++6, portata 1,5 m. _Colpito:_ 18 (4d6 + 4) danni perforanti. Se il bersaglio è una creatura di taglia Grande
 
-### Azioni
+- inferiore e il minotauro si è mosso di 3 metri o più
+in linea retta verso di esso subito prima del colpo,
+il bersaglio subisce 10 (3d6) danni perforanti extra e
+cade a terra prono.
+## **Mummie**
+### **Mummia**
 
-***Schianto.*** *Tiro per Colpire in mischia:* +3, portata 1,5 m. 5 (1d8 + 1) contundenti.  
+_Non morto Medio o Piccolo, legale malvagio_
 
----
 
-## Sciame di Mani Striscianti
+**CA** 11 **Iniziativa** −1 (9)
+**PF** 58 (9d8 + 18)
+**Velocità** 6 m
 
-*Non Morto Medio, Neutrale Malvagio*
 
-- **Classe Armatura:** 12
-- **Punti Ferita:** 49 (11d8)
-- **Velocità:** 9 m, Scalare 9 m
-- **Iniziativa**: +2 (12)
+**Vulnerabilità** fuoco
+**Immunità** necrotico, veleno; affascinato, avvelenato,
 
-|STAT|VAL|MOD|TS|
-| --- | --- | --- | ---- |
-| FOR | 14 | +2 | +2 |
-| DES | 14 | +2 | +2 |
-| COS | 11 | +0 | +0 |
-| INT | 5 | –3 | –3 |
-| SAG | 10 | +0 | +0 |
-| CAR | 4 | –3 | –3 |
+indebolimento, paralizzato, spaventato
+**Sensi** Percezione passiva 11; scurovisione 18 m
+**Lingue** Comune più altre due lingue
+**GS** 3 (PE 700; BC +2)
 
-- **Resistenze**: Contundenti, Perforanti, Taglienti  
-- **Immunità**: Necrotici, Veleno; Affascinato, Affaticato, Spaventato, Afferrato, Incapacitato, Paralizzato, Pietrificato, Avvelenato, Prono, Immobilizzato, Stordito  
-- **Sensi**: vista cieca 9 m; Percezione Passiva 10  
-- **Linguaggi**: comprende il Comune ma non può parlare  
-- **GS** 3 (PE 700; MB +2)
+Azioni
 
-### Tratti
+_**Multiattacco.**_ La mummia effettua due attacchi Pugno
+di putrefazione e usa Sguardo funesto.
 
-***Sciame.*** Lo sciame può occupare lo stesso spazio di un’altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura abbastanza grande per una creatura Minuscola. Non può recuperare Punti Ferita né guadagnare Punti Ferita Temporanei.  
+_**Pugno di putrefazione.**_ _Tiro per colpire in mischia:_ +5,
+portata 1,5 m _Colpito:_ 8 (1d10 + 3) danni contundenti
+più 10 (3d6) danni necrotici. Se il bersaglio è una creatura, viene maledetto. Finché è maledetto, il bersaglio
+non può recuperare punti ferita, i suoi punti ferita massimi non tornano alla normalità al termine di un riposo
 
-### Azioni
 
-***Sciame di Mani Affer­ranti.*** *Tiro per Colpire in mischia:* +4, portata 1,5 m. 20 (4d8 + 2) necrotici, o 11 (2d8 + 2) necrotici se lo sciame è Sanguinante. Se il bersaglio è una creatura Media o più piccola, ottiene la condizione Prono.  
+
+
+lungo e sono ridotti di 10 (3d6) ogni 24 ore trascorse.
+Una creatura muore e si disintegra in polvere se viene
+ridotta a 0 punti ferita da questo attacco.
+
+_**Sguardo funesto.**_ _Tiro salvezza su Saggezza:_ CD 11,
+una creatura che la mummia è in grado di vedere entro
+18 metri. _Fallimento:_ il bersaglio è spaventato fino al
+termine del turno successivo della mummia. _Successo:_
+il bersaglio è immune allo Sguardo funesto di questa
+mummia per 24 ore.
+### **Signore delle mummie**
+
+_Non morto Medio o Piccolo (chierico), legale malvagio_
+
+
+**CA** 17 **Iniziativa** +10 (20)
+**PF** 187 (25d8 + 75)
+**Velocità** 9 m
+
+
+**Abilità** Percezione +9, Religione +5, Storia +5
+**Vulnerabilità** fuoco
+**Immunità** necrotico, veleno; affascinato, avvelenato,
+
+indebolimento, paralizzato, spaventato
+**Sensi** Percezione passiva 19; vista pura 18 m
+**Lingue** Comune più altre tre lingue
+**GS** 15 (PE 13.000, o 15.000 nella tana; BC +5)
+
+Tratti
+
+_**Resistenza alla magia.**_ Il signore delle mummie dispone
+di vantaggio ai tiri salvezza contro incantesimi e altri
+effetti magici.
+
+_**Resistenza leggendaria (3/giorno o 4/giorno nella**_
+_**tana).**_ Se il signore delle mummie fallisce un tiro salvezza, può scegliere di superarlo comunque.
+
+_**Ristoro non morto.**_ Se annientata, la mummia acquisisce un nuovo corpo dopo 24 ore se il suo cuore è
+intatto, tornando in vita con tutti i suoi punti ferita.
+Il nuovo corpo appare in uno spazio libero all'interno
+della tana della mummia. Il cuore è un oggetto di taglia
+Minuscola con CA 17, PF 10 e immunità a tutti i danni,
+eccetto ai danni da fuoco.
+
+Azioni
+
+_**Multiattacco.**_ Il signore delle mummie effettua un
+attacco Pugno di putrefazione o Incanalare energia
+negativa, e usa Sguardo funesto.
+
+_**Pugno di putrefazione.**_ _Tiro per colpire in mischia:_ +9,
+portata 1,5 m _Colpito:_ 15 (2d10 + 4) danni contundenti
+più 10 (3d6) danni necrotici. Se il bersaglio è una creatura, viene maledetto. Finché è maledetto, il bersaglio
+non può recuperare punti ferita, non ottiene alcun
+beneficio dai riposi lunghi, e i suoi punti ferita massimi
+sono ridotti di 10 (3d6) ogni 24 ore trascorse. Una creatura muore e si disintegra in polvere se viene ridotta a
+0 punti ferita da questo attacco.
+
+
+**359** System Reference Document 5.2.1
+
+
+
+_**Incanalare energia negativa.**_ _Tiro per colpire a_
+_distanza:_ +9, gittata 18 m. _Colpito:_ 25 (6d6 + 4) danni
+necrotici.
+
+_**Incantesimi.**_ Il signore delle mummie lancia uno dei
+seguenti incantesimi, senza bisogno di componenti
+materiali, utilizzando Saggezza come caratteristica da
+incantatore (CD del tiro salvezza sull'incantesimo 17,
++9 al tiro per colpire degli attacchi con incantesimo):
+
+**1/giorno ciascuno:** _Animare morti_, _ferire_, _piaga degli_
+
+_insetti_ (di 7º livello)
+**A volontà:** _Dissolvi magie_, _taumaturgia_
+
+_**Sguardo funesto.**_ _Tiro salvezza su Saggezza:_ CD 17,
+una creatura che la mummia è in grado di vedere
+entro 18 metri. _Fallimento:_ 25 (6d6 + 4) danni psichici,
+e il bersaglio è paralizzato fino al termine del turno
+successivo della mummia.
+
+Reazioni
+
+_**Vortice di sabbia.**_ _Attivazione:_ la mummia viene colpita con un tiro per colpire. _Esito:_ la mummia aggiunge
+2 alla sua CA contro quell'attacco, aumentando le probabilità che il colpo non vada a segno, e si teletrasporta
+fino a 18 metri in uno spazio libero che è in grado di
+vedere. Ogni creatura a sua scelta che è in grado di
+vedere entro 1,5 metri dallo spazio di destinazione
+è accecata fino al termine del turno successivo della
+mummia.
+
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, la mummia può consumare_
+_un utilizzo per effettuare una delle seguenti azioni. La_
+_mummia recupera tutti gli utilizzi consumati all'inizio di_
+_ogni suo turno._
+
+_**Colpo necrotico.**_ La mummia effettua un attacco
+Pugno di putrefazione o Incanalare energia negativa.
+
+_**Comando intimidatorio.**_ La mummia lancia _comando_
+(di 2º livello), utilizzando la stessa caratteristica
+da incantatore di Incantesimi. Non può ripetere
+­quest'azione fino all'inizio del proprio turno successivo.
+
+_**Sguardo.**_ La mummia usa Sguardo funesto. Non può
+ripetere quest'azione fino all'inizio del proprio turno
+successivo.
+## **Naga guardiana**
+### **Naga guardiana**
+
+_Celestiale Grande, legale buono_
+
+
+**CA** 18 **Iniziativa** +4 (14)
+**PF** 136 (16d10 + 48)
+**Velocità** 12 m, nuoto 12 m, scalata 12 m
+
+
+
+
+**Abilità** Arcano +11, Religione +11, Storia +11
+**Immunità** veleno; affascinato, avvelenato, paralizzato,
+
+trattenuto
+**Sensi** Percezione passiva 14; scurovisione 18 m
+**Lingue** Celestiale, Comune
+**GS** 10 (PE 5.900; BC +4)
+
+Tratti
+
+_**Ristoro celestiale.**_ Se la naga muore, torna in vita 1d6
+giorni dopo e recupera tutti i suoi punti ferita, a meno
+che non venga lanciato _dissolvi il bene e il male_ sui suoi
+resti.
+
+Azioni
+
+_**Multiattacco.**_ La naga effettua due attacchi Morso.
+Può sostituire qualsiasi attacco con un utilizzo di Sputo
+velenoso.
+
+_**Morso.**_ _Tiro per colpire in mischia:_ +8, portata 3 m.
+_Colpito:_ 17 (2d12 + 4) danni perforanti più 22 (4d10)
+danni da veleno.
+
+_**Incantesimi.**_ La naga lancia uno dei seguenti incantesimi, senza bisogno di componenti somatiche o
+materiali, utilizzando Saggezza come caratteristica da
+incantatore (CD del tiro salvezza sull'incantesimo 16):
+
+**1/giorno ciascuno:** _Chiaroveggenza_, _colpo infuocato_ (di
+
+6º livello), _costrizione_, _cura ferite_ (di 6º livello), _visione_
+_del vero_
+**A volontà:** _taumaturgia_
+
+_**Sputo velenoso.**_ _Tiro salvezza su Costituzione:_ CD 16,
+una creatura che la naga è in grado di vedere entro
+18 metri. _Fallimento:_ 31 (7d8) danni da veleno, e il bersaglio è accecato fino all'inizio del turno successivo
+della naga. _Successo:_ danni dimezzati.
+## **Naga spirituale**
+### **Naga spirituale**
+
+_Immondo Grande, caotico malvagio_
+
+
+**CA** 17 **Iniziativa** +3 (13)
+**PF** 135 (18d10 + 36)
+**Velocità** 12 m
+
+
+**Immunità** veleno; affascinato, avvelenato
+**Sensi** Percezione passiva 12; scurovisione 18 m
+**Lingue** Abissale, Comune
+**GS** 8 (PE 3.900; BC +3)
+
+
+**360** System Reference Document 5.2.1
+
+
+
+Tratti
+
+_**Ristoro immondo.**_ Se la naga muore, torna in vita dopo
+1d6 giorni e recupera tutti i suoi punti ferita. Solo un
+incantesimo _desiderio_ può impedire a questo tratto di
+funzionare.
+
+Azioni
+
+_**Multiattacco.**_ La naga effettua tre attacchi, usando
+Morso o Raggio necrotico in qualsiasi combinazione.
+
+_**Morso.**_ _Tiro per colpire in mischia:_ +7, portata 3 m.
+_Colpito:_ 7 (1d6 + 4) danni perforanti più 14 (4d6) danni
+da veleno.
+
+_**Raggio necrotico.**_ _Tiro per colpire a distanza:_ +6,
+gittata 18 m. _Colpito:_ 21 (6d6) danni necrotici.
+
+_**Incantesimi.**_ La naga lancia uno dei seguenti incantesimi, senza bisogno di componenti somatiche o
+materiali, utilizzando Intelligenza come caratteristica da
+incantatore (CD del tiro salvezza sull'incantesimo 14):
+
+**2/giorno ciascuno:** _blocca persone_ (di 3º livello), _indi-_
+
+_viduazione dei pensieri_, _fulmine_ (di 4º livello), _porta_
+_dimensionale_
+**A volontà:** _illusione minore_, _individuazione del magico_,
+
+_mano magica_, _respirare sott'acqua_
+## **Nalfeshnee**
+### **Nalfeshnee**
+
+_Immondo Grande (demone), caotico malvagio_
+
+
+**CA** 18 **Iniziativa** +5 (15)
+**PF** 184 (16d10 + 96)
+**Velocità** 6 m, volo 9 m
+
+
+**Resistenze** freddo, fulmine, fuoco
+**Immunità** veleno; avvelenato, spaventato
+**Sensi** Percezione passiva 11; vista pura 36 m
+**Lingue** Abissale; telepatia 36 m
+**GS** 13 (PE 10.000; BC +5)
+
+Tratti
+
+_**Resistenza alla magia.**_ Il nalfeshnee dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti
+magici.
+
+_**Ristoro demoniaco.**_ Se il nalfeshnee muore al di fuori
+dell'Abisso, il suo corpo si dissolve diventando icore
+e ne acquisisce uno nuovo all'istante, tornando in vita
+con tutti i suoi punti ferita da qualche parte nell'Abisso.
+
+Azioni
+
+_**Multiattacco.**_ Il nalfeshnee effettua tre attacchi
+Squarcio.
+
+
+
+
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +10, portata 3 m.
+_Colpito:_ 16 (2d10 + 5) danni taglienti più 11 (2d10)
+danni da forza.
+
+_**Teletrasporto.**_ Il nalfeshnee si teletrasporta fino a massimo di 36 metri in uno spazio libero che è in grado di
+vedere.
+
+Azioni bonus
+
+_**Nube di orrore (ricarica 5–6).**_ _Tiro salvezza su_
+_Saggezza:_ CD 15, tutte le creature in un'emanazione
+di 4,5 metri di cui il nalfeshnee è il punto di origine.
+_Fallimento:_ 28 (8d6) danni psichici, e il bersaglio è
+spaventato per 1 minuto, finché non subisce danni, o
+finché non termina il proprio turno con il nalfeshnee
+fuori dal proprio campo visivo. _Successo:_ il bersaglio
+è immune a Nube di orrore di questo nalfeshnee per
+24 ore.
+
+Reazioni
+
+_**Inseguimento.**_ _Attivazione:_ un'altra creatura che
+il nalfeshnee è in grado di vedere termina il proprio
+movimento entro 36 metri dal nalfeshnee. _Esito:_ il
+nalfeshnee usa Teletrasporto, ma lo spazio di destinazione deve trovarsi entro 3 metri dalla creatura che ha
+provocato la reazione.
+## **Nobile**
+### **Nobile**
+
+_Umanoide Medio o Piccolo, neutrale_
+
+
+**CA** 15 **Iniziativa** +1 (11)
+**PF** 9 (2d8)
+**Velocità** 9 m
+
+
+**Abilità** Inganno +5, Intuizione +4, Persuasione +5
+**Attrezzatura** corazza di piastre, stocco
+**Sensi** Percezione passiva 12
+**Lingue** Comune più altre due lingue
+**GS** 1/8 (PE 25; BC +2)
+
+Azioni
+
+_**Stocco.**_ _Tiro per colpire in mischia:_ +3, portata 1,5 m.
+_Colpito:_ 5 (1d8 + 1) danni perforanti.
+
+Reazioni
+
+_**Parata.**_ _Attivazione:_ il nobile viene colpito da un
+tiro per colpire in mischia mentre tiene in mano
+un'arma. _Esito:_ il nobile aggiunge 2 alla sua CA contro
+­quell'attacco, aumentando le probabilità che il colpo
+non vada a segno.
+
+
+**361** System Reference Document 5.2.1
+
+
+## **Oggetti animati**
+### **Armatura animata**
+
+_Costrutto Medio, senza allineamento_
+
+
+**CA** 18 **Iniziativa** +2 (12)
+**PF** 33 (6d8 + 6)
+**Velocità** 7,5 m
+
+
+**Immunità** psichico, veleno; affascinato, assordato,
+
+avvelenato, indebolimento, paralizzato, pietrificato,
+spaventato
+**Sensi** Percezione passiva 6; vista cieca 18 m
+**Lingue** nessuna
+**GS** 1 (PE 200; BC +2)
+
+Azioni
+
+_**Multiattacco.**_ L'armatura effettua due attacchi Schianto.
+
+_**Schianto.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 5 (1d6 + 2) danni contundenti.
+### **Spada volante animata**
+
+_Costrutto Piccolo, senza allineamento_
+
+
+**CA** 17 **Iniziativa** +4 (14)
+**PF** 14 (4d6)
+**Velocità** 1,5 m, volo 15 m (fluttuare)
+
+
+**Immunità** psichico, veleno; affascinato, assordato,
+
+avvelenato, indebolimento, paralizzato, pietrificato,
+spaventato
+**Sensi** Percezione passiva 7; vista cieca 18 m
+**Lingue** nessuna
+**GS** 1/4 (PE 50; BC +2)
+
+Azioni
+
+_**Fendente.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 6 (1d8 + 2) danni taglienti.
+### **Tappeto soffocante animato**
+
+_Costrutto Grande, senza allineamento_
+
+
+**CA** 12 **Iniziativa** +4 (14)
+**PF** 27 (5d10)
+**Velocità** 3 m
+
+
+
+
+**Immunità** psichico, veleno; affascinato, assordato,
+
+avvelenato, indebolimento, paralizzato, pietrificato,
+spaventato
+**Sensi** Percezione passiva 6; vista cieca 18 m
+**Lingue** nessuna
+**GS** 2 (PE 450; BC +2)
+
+Azioni
+
+_**Soffocare.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 10 (2d6 + 3) danni contundenti. Se il bersaglio
+è una creatura di taglia Media o inferiore, il tappeto lo
+afferra (CD 13 per sfuggire) invece di infliggere danni.
+Finché la presa perdura, il bersaglio è accecato e trattenuto, soffoca, e subisce 10 (2d6 + 3) danni contundenti
+all'inizio di ogni suo turno. Il tappeto può soffocare
+solo una creatura alla volta.
+
+Finché afferra il bersaglio, il tappeto non può effettuare questa azione e dimezza i danni subiti (arrotondati per difetto); il bersaglio subisce la stessa quantità di
+danni.
+## **Ogre**
+### **Ogre**
+
+_Gigante Grande, caotico malvagio_
+
+
+**CA** 11 **Iniziativa** −1 (9)
+**PF** 68 (8d10 + 24)
+**Velocità** 12 m
+
+
+**Attrezzatura** giavellotti (3), randello pesante
+**Sensi** Percezione passiva 8; scurovisione 18 m
+**Lingue** Comune, Gigante
+**GS** 2 (PE 450; BC +2)
+
+Azioni
+
+_**Giavellotto.**_ _Tiro per colpire in mischia o a distanza:_ +6,
+portata 1,5 m o gittata 9/36 m. _Colpito:_ 11 (2d6 + 4)
+danni perforanti.
+
+_**Randello pesante.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m. _Colpito:_ 13 (2d8 + 4) danni contundenti.
+## **Ombra**
+### **Ombra**
+
+_Non morto Medio, caotico malvagio_
+
+
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 27 (5d8 + 5)
+**Velocità** 12 m
+
+
+**362** System Reference Document 5.2.1
+
+
+
+**Abilità** Furtività +6
+**Vulnerabilità** radioso
+**Resistenze** acido, freddo, fulmine, fuoco, tuono
+**Immunità** necrotico, veleno; afferrato, avvelenato,
+
+indebolimento, paralizzato, pietrificato, privo di sensi,
+prono, spaventato, trattenuto
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1/2 (PE 100; BC +2)
+
+Tratti
+
+_**Amorfo.**_ L'ombra può muoversi attraverso uno spazio
+stretto fino a 2,5 centimetri senza consumare movimento extra per farlo.
+
+_**Debolezza al sole.**_ Finché è esposta alla luce del sole,
+l'ombra subisce svantaggio alle prove con d20.
+
+Azioni
+
+_**Colpo prosciugante.**_ _Tiro per colpire in mischia:_ +4,
+portata 1,5 m _Colpito:_ 5 (1d6 + 2) danni necrotici,
+e il punteggio di Forza del bersaglio diminuisce di 1d4.
+Se tale punteggio arriva a 0, il bersaglio muore. Se un
+umanoide viene ucciso da questo attacco, sorgerà
+un' **ombra** dal suo cadavere dopo 1d4 ore.
+
+Azioni bonus
+
+_**Furtività d'ombra.**_ Finché si trova in condizioni di
+luce fioca o oscurità, l'ombra effettua l'azione di
+Nascondersi.
+## **Omuncolo**
+### **Omuncolo**
+
+_Costrutto Minuscolo, neutrale_
+
+
+**CA** 13 **Iniziativa** +2 (12)
+**PF** 4 (1d4 + 2)
+**Velocità** 6 m, volo 12 m
+
+
+**Immunità** veleno; affascinato, avvelenato
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** capisce il Comune più un'altra lingua ma non
+
+le parla
+**GS** 0 (PE 10; BC +2)
+
+Tratti
+
+_**Legame telepatico.**_ Finché l'omuncolo si trova sullo
+stesso piano di esistenza del suo padrone, i due possono comunicare telepaticamente tra loro.
+
+
+
+
+Azioni
+
+_**Morso.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 1 danno perforante, e il bersaglio subisce il
+seguente effetto. _Tiro salvezza su Costituzione:_ CD 12.
+_Fallimento:_ il bersaglio è avvelenato fino al termine del
+turno successivo dell'omuncolo. _Fallimento di 5 o più:_
+il bersaglio è avvelenato per 1 minuto. Finché è avvelenato, è privo di sensi, ma la condizione termina prima
+se subisce dei danni.
+## **Oni**
+### **Oni**
+
+_Immondo Grande, legale malvagio_
+
+
+**CA** 17 **Iniziativa** +0 (10)
+**PF** 119 (14d10 + 42)
+**Velocità** 9 m, volo 9 m (fluttuare)
+
+
+**Abilità** Arcano +5, Inganno +8, Percezione +4
+**Resistenze** freddo
+**Sensi** Percezione passiva 14; scurovisione 18 m
+**Lingue** Comune, Gigante
+**GS** 7 (PE 2.900; BC +3)
+
+Tratti
+
+_**Rigenerazione.**_ L'oni recupera 10 punti ferita all'inizio
+di ogni suo turno, se ha almeno 1 punto ferita.
+
+Azioni
+
+_**Multiattacco.**_ L'oni effettua due attacchi Artiglio
+
+      - Raggio dell'incubo. Può sostituire un attacco con un
+utilizzo di Incantesimi.
+
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +7, portata 3 m.
+_Colpito:_ 10 (1d12 + 4) danni taglienti più 9 (2d8) danni
+necrotici.
+
+_**Raggio dell'incubo.**_ _Tiro per colpire a distanza:_ +5,
+gittata 18 m. _Colpito:_ 9 (2d6 + 2) danni psichici, e il
+bersaglio è spaventato fino all'inizio del turno successivo dell'oni.
+
+_**Incantesimi.**_ L'oni lancia uno dei seguenti incantesimi,
+senza bisogno di componenti materiali, utilizzando
+Carisma come caratteristica da incantatore (CD del tiro
+salvezza sull'incantesimo 13):
+
+**1/giorno ciascuno:** _Charme su persone_ (di 2º livello),
+
+_forma gassosa_, _oscurità_, _sonno_
+
+_**Mutaforma.**_ L'oni si trasforma in un umanoide di taglia
+Piccola o Media, o in un gigante di taglia Grande,
+oppure torna alla sua vera forma. A eccezione della
+taglia, le sue statistiche di gioco restano le stesse in
+ogni forma. Nessun oggetto che indossa o trasporta
+viene trasformato.
+
+
+**363** System Reference Document 5.2.1
+
+
+
+Azioni bonus
+
+_**Invisibilità.**_ L'oni lancia _invisibilità_ su se stesso, senza
+bisogno di componenti e utilizzando la stessa caratteristica da incantatore di Incantesimi.
+## **Orsogufo**
+### **Orsogufo**
+
+_Mostruosità Grande, senza allineamento_
+
+
+**CA** 13 **Iniziativa** +1 (11)
+**PF** 59 (7d10 + 21)
+**Velocità** 12 m, scalata 12 m
+
+
+**Abilità** Percezione +5
+**Sensi** Percezione passiva 15; scurovisione 18 m
+**Lingue** nessuna
+**GS** 3 (PE 700; BC +2)
+
+Azioni
+
+_**Multiattacco.**_ L'orsogufo effettua due attacchi Squarcio.
+
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +7, portata 1,5 m.
+_Colpito:_ 14 (2d8 + 5) danni taglienti.
+## **Orso mannaro**
+### **Orso mannaro**
+
+_Mostruosità Media o Piccola (licantropo), neutrale buono_
+
+
+**CA** 15 **Iniziativa** +3 (13)
+**PF** 135 (18d8 + 54)
+**Velocità** 9 m, 12 m (solo in forma di orso), scalata 9 m
+
+(solo in forma di orso)
+
+
+**Abilità** Percezione +7
+**Attrezzatura** asce (4)
+**Sensi** Percezione passiva 17; scurovisione 18 m
+**Lingue** Comune (non può parlare in forma di orso)
+**GS** 5 (PE 1.800; BC +3)
+
+Azioni
+
+_**Multiattacco.**_ L'orso mannaro effettua due attacchi,
+usando Ascia o Squarcio in qualsiasi combinazione.
+Può sostituire un attacco con un attacco Morso.
+
+_**Ascia (solo in forma umanoide o ibrida).**_ _Tiro per col-_
+_pire in mischia o a distanza:_ +7, portata 1,5 m o gittata
+6/18 m. _Colpito:_ 14 (3d6 + 4) danni taglienti.
+
+_**Morso (solo in forma di orso o ibrida).**_ _Tiro per colpire_
+_in mischia:_ +7, portata 1,5 m. _Colpito:_ 17 (2d12 + 4)
+danni perforanti. Se il bersaglio è un umanoide, subisce
+il seguente effetto. _Tiro salvezza su Costituzione:_
+
+
+
+
+CD 14. _Fallimento:_ il bersaglio è maledetto. Se il bersaglio scende a 0 punti ferita, diventa un **orso mannaro**
+sotto il controllo del GM e ha 10 punti ferita. _Successo:_
+il bersaglio è immune alla maledizione dell'orso mannaro per 24 ore.
+
+_**Squarcio (solo in forma di orso o ibrida).**_ _Tiro per_
+_colpire in mischia:_ +7, portata 1,5 m. _Colpito:_ 13 (2d8
++ 4) danni taglienti.
+
+Azioni bonus
+
+_**Mutaforma.**_ L'orso mannaro si trasforma in un ibrido
+umanoide-orso di taglia Grande o in un orso di taglia
+Grande, altrimenti torna alla sua forma originale di
+umanoide. Le sue statistiche di gioco, a eccezione della
+taglia, restano le stesse in ogni forma. Nessun oggetto
+che indossa o trasporta viene trasformato.
+## **Otyugh**
+### **Otyugh**
+
+_Aberrazione Grande, neutrale_
+
+
+**CA** 14 **Iniziativa** +0 (10)
+**PF** 104 (11d10 + 44)
+**Velocità** 9 m
+
+
+**Sensi** Percezione passiva 11; scurovisione 36 m
+**Lingue** Otyugh; telepatia 36 m (non consente alla creatura
+
+interlocutrice di rispondere telepaticamente)
+**GS** 5 (PE 1.800; BC +3)
+
+Azioni
+
+_**Multiattacco.**_ L'otyugh effettua un attacco Morso e due
+attacchi Tentacolo.
+
+_**Morso.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 12 (2d8 + 3) danni perforanti, e il bersaglio
+è avvelenato. Ogni volta che il bersaglio avvelenato
+termina un riposo lungo, subisce il seguente effetto.
+_Tiro salvezza su Costituzione:_ CD 15. _Fallimento:_ i punti
+ferita massimi del bersaglio sono ridotti di 5 (1d10),
+e la riduzione permane finché la condizione avvelenato
+del bersaglio non termina. _Successo:_ la condizione
+avvelenato termina.
+
+_**Tentacolo.**_ _Tiro per colpire in mischia:_ +6, portata 3 m.
+_Colpito:_ 12 (2d8 + 3) danni perforanti. Se il bersaglio
+è una creatura di taglia Media o inferiore, è afferrato
+(CD 13 per sfuggire) da uno dei due tentacoli.
+
+_**Schianto con tentacolo.**_ _Tiro salvezza su Costituzione:_
+CD 14, tutte le creature afferrate dall'otyugh. _Falli-_
+_mento:_ 16 (3d8 + 3) danni contundenti, e il bersaglio è
+stordito fino all'inizio del turno successivo dell'otyugh.
+_Successo:_ danni dimezzati.
+
+
+**364** System Reference Document 5.2.1
+
+
+## **Pegaso**
+### **Pegaso**
+
+_Celestiale Grande, caotico buono_
+
+
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 59 (7d10 + 21)
+**Velocità** 18 m, volo 27 m
+
+
+**Abilità** Percezione +6
+**Sensi** Percezione passiva 16
+**Lingue** capisce il Celestiale, il Comune, l'Elfico e il Silvano
+
+ma non li parla
+**GS** 2 (PE 450; BC +2)
+
+Azioni
+
+_**Zoccoli.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 7 (1d6 + 4) danni contundenti più 5 (2d4)
+danni radiosi.
+## **Pirati**
+### **Pirata**
+
+_Umanoide Medio o Piccolo, neutrale_
+
+
+**CA** 14 **Iniziativa** +5 (15)
+**PF** 33 (6d8 + 6)
+**Velocità** 9 m
+
+
+**Attrezzatura** armatura di cuoio, pugnali (6)
+**Sensi** Percezione passiva 11
+**Lingue** Comune più un'altra lingua
+**GS** 1 (PE 200; BC +2)
+
+Azioni
+
+_**Multiattacco.**_ Il pirata effettua due attacchi Pugnale.
+Può sostituire un attacco con un utilizzo di Baldanza
+irresistibile.
+
+_**Pugnale.**_ _Tiro per colpire in mischia o a distanza:_ +5,
+portata 1,5 m o gittata 6/18 m _Colpito:_ 5 (1d4 + 3)
+danni perforanti.
+
+_**Baldanza irresistibile.**_ _Tiro salvezza su Saggezza:_
+CD 12, una creatura che il pirata è in grado di vedere
+entro 9 metri. _Fallimento:_ il bersaglio è affascinato fino
+all'inizio del turno successivo del pirata.
+### **Capitano dei pirati**
+
+_Umanoide Medio o Piccolo, neutrale_
+
+
+**CA** 17 **Iniziativa** +7 (17)
+**PF** 84 (13d8 + 26)
+**Velocità** 9 m
+
+
+
+
+**Abilità** Acrobazia +7, Percezione +5
+**Attrezzatura** pistola, stocco
+**Sensi** Percezione passiva 15
+**Lingue** Comune più un'altra lingua
+**GS** 6 (PE 2.300; BC +3)
+
+Azioni
+
+_**Multiattacco.**_ Il pirata effettua tre attacchi, usando
+Stocco o Pistola in qualsiasi combinazione.
+
+_**Stocco.**_ _Tiro per colpire in mischia:_ +7, portata 1,5 m.
+_Colpito:_ 13 (2d8 + 4) danni perforanti, e il pirata
+dispone di vantaggio al tiro per colpire successivo che
+effettua prima del termine del proprio turno corrente.
+
+_**Pistola.**_ _Tiro per colpire a distanza:_ +7, gittata 9/27 m.
+_Colpito:_ 15 (2d10 + 4) danni perforanti.
+
+Azioni bonus
+
+_**Fascino del capitano.**_ _Tiro salvezza su Saggezza:_
+CD 14, una creatura che il pirata è in grado di vedere
+entro 9 metri. _Fallimento:_ il bersaglio è affascinato fino
+all'inizio del turno successivo del pirata.
+
+Reazioni
+
+_**Replica.**_ _Attivazione:_ il pirata viene colpito da un
+tiro per colpire in mischia mentre tiene in mano
+un'arma. _Esito:_ il pirata aggiunge 3 alla sua CA contro
+­quell'attacco, aumentando le probabilità che il colpo
+non vada a segno. Se il colpo non va a segno, il pirata
+effettua un attacco Stocco contro la creatura che ha
+provocato la reazione se si trova entro gittata.
+## **Planetar**
+### **Planetar**
+
+_Celestiale Grande (angelo), legale buono_
+
+
+**CA** 19 **Iniziativa** +10 (20)
+**PF** 262 (21d10 + 147)
+**Velocità** 12 m, volo 36 m (fluttuare)
+
+
+**Abilità** Percezione +11
+**Resistenze** radioso
+**Immunità** affascinato, indebolimento, spaventato
+**Sensi** Percezione passiva 21; vista pura 36 m
+**Lingue** tutte; telepatia 36 m
+**GS** 16 (PE 15.000; BC +5)
+
+Tratti
+
+_**Consapevolezza divina.**_ Il planetar sa riconoscere
+le menzogne.
+
+
+**365** System Reference Document 5.2.1
+
+
+
+_**Resistenza alla magia.**_ Il planetar dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
+
+_**Ristoro glorioso.**_ Se il planetar muore al di fuori di
+Monte Celestia, il suo corpo scompare e ne acquisisce
+uno nuovo all'istante, tornando in vita con tutti i suoi
+punti ferita da qualche parte a Monte Celestia.
+
+Azioni
+
+_**Multiattacco.**_ Il planetar effettua tre attacchi Spada
+radiosa oppure usa Conflagrazione divina due volte.
+
+_**Spada radiosa.**_ _Tiro per colpire in mischia:_ +12, portata
+3 m. _Colpito:_ 14 (2d6 + 7) danni taglienti più 18 (4d8)
+danni radiosi.
+
+_**Conflagrazione divina.**_ _Tiro salvezza su Destrezza:_
+CD 20, tutti i nemici in una sfera di 6 metri di raggio
+centrata su un punto che il planetar è in grado di
+vedere entro 36 metri. _Fallimento:_ 24 (7d6) danni
+radiosi. _Successo:_ danni dimezzati.
+
+_**Incantesimi.**_ Il planetar lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 20):
+
+**A volontà:** _Individuazione del bene e del male_
+**1/giorno ciascuno:** _Comunione_, _controllare tempo_
+
+_atmosferico_, _dissolvi il bene e il male_, _rianimare morti_
+
+Azioni bonus
+
+_**Aiuto divino (2/giorno).**_ Il planetar lancia _cura ferite_,
+_invisibilità_, _rimuovi maledizione_ - _ristorare inferiore_,
+utilizzando la stessa caratteristica da incantatore di
+Incantesimi.
+## **Popolano**
+### **Popolano**
+
+_Umanoide Medio o Piccolo, neutrale_
+
+
+**CA** 10 **Iniziativa** +0 (10)
+**PF** 4 (1d8)
+**Velocità** 9 m
+
+
+**Attrezzatura** randello
+**Sensi** Percezione passiva 10
+**Lingue** Comune
+**GS** 0 (PE 10; BC +2)
+
+Tratti
+
+_**Addestramento.**_ Il popolano ha competenza in
+un'abilità a scelta del GM e dispone di vantaggio ogni
+volta che effettua una prova di caratteristica utilizzando
+quell'abilità.
+
+
+
+
+Azioni
+
+_**Randello.**_ _Tiro per colpire in mischia:_ +2, portata 1,5 m.
+_Colpito:_ 2 (1d4) danni contundenti.
+## **Protoplasma nero**
+### **Protoplasma nero**
+
+_Melma Grande, senza allineamento_
+
+
+**CA** 7 **Iniziativa** −3 (7)
+**PF** 68 (8d10 + 24)
+**Velocità** 6 m, scalata 6 m
+
+
+**Immunità** acido, freddo, fulmine, tagliente; affascinato,
+
+afferrato, assordato, indebolimento, prono, spaventato,
+trattenuto
+**Sensi** Percezione passiva 8; vista cieca 18 m
+**Lingue** nessuna
+**GS** 4 (PE 1.100; BC +2)
+
+Tratti
+
+_**Amorfo.**_ Il protoplasma può muoversi attraverso uno
+spazio stretto fino a 2,5 centimetri senza consumare
+movimento extra per farlo.
+
+_**Forma corrosiva.**_ Una creatura che colpisce un protoplasma con un tiro per colpire in mischia subisce
+4 (1d8) danni da acido. Le munizioni non magiche
+che colpiscono il protoplasma e infliggono danni sono
+distrutte. Qualsiasi arma non magica subisce una penalità cumulativa di −1 ai tiri per colpire subito dopo
+aver inflitto danni al protoplasma ed esservi entrata in
+contatto. Se la penalità arriva a −5, l'arma è distrutta.
+La penalità può essere rimossa lanciando l'incantesimo
+_riparare_ sull'arma.
+
+In 1 minuto, il protoplasma può corrodere 60 centimetri di legno o metallo non magico.
+
+_**Movimenti del ragno.**_ Il protoplasma può scalare le
+superfici difficili, compresi i soffitti, senza effettuare
+una prova di caratteristica.
+
+Azioni
+
+_**Pseudopode dissolvente.**_ _Tiro per colpire in mischia:_
++5, portata 3 m. _Colpito:_ 17 (4d6 + 3) danni da acido.
+L'armatura non magica indossata dal bersaglio subisce
+una penalità di −1 alla CA che fornisce. Se la penalità
+riduce la sua CA a 10, l'armatura si distrugge. La penalità può essere rimossa lanciando l'incantesimo _riparare_
+sull'armatura.
+
+
+**366** System Reference Document 5.2.1
+
+
+
+Reazioni
+
+_**Scindersi.**_ _Attivazione:_ finché il protoplasma è di taglia
+Grande o Media e ha 10 punti ferita o più, diventa
+sanguinante o è soggetto a danni da fulmine o taglienti.
+_Esito:_ il protoplasma si scinde in due nuovi **protoplasmi**
+**neri** . Ogni nuovo protoplasma è inferiore di una taglia
+rispetto al protoplasma originale, e agisce di propria
+iniziativa. I punti ferita del protoplasma originale sono
+divisi equamente tra i due nuovi protoplasmi (arrotondati per difetto).
+## **Pseudodrago**
+### **Pseudodrago**
+
+_Drago Minuscolo, neutrale buono_
+
+
+**CA** 14 **Iniziativa** +2 (12)
+**PF** 10 (3d4 + 3)
+**Velocità** 4,5 m, volo 18 m
+
+
+**Abilità** Furtività +4, Percezione +5
+**Sensi** Percezione passiva 15; scurovisione 18 m, vista
+
+cieca 3 m
+**Lingue** capisce Comune e Draconico, ma non li parla
+**GS** 1/4 (PE 50; BC +2)
+
+Tratti
+
+_**Resistenza alla magia.**_ Lo pseudodrago dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti
+magici.
+
+Azioni
+
+_**Multiattacco.**_ Lo pseudodrago effettua due attacchi
+Morso.
+
+_**Morso.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 4 (1d4 + 2) danni perforanti.
+
+_**Pungiglione.**_ _Tiro salvezza su Costituzione:_ CD 12,
+una creatura che lo pseudodrago è in grado di vedere
+entro 1,5 metri. _Fallimento:_ 5 (2d4) danni da veleno,
+e il bersaglio è avvelenato per 1 ora. _Fallimento di 5_
+
+_o più:_ finché rimane avvelenato, il bersaglio è privo di
+sensi. Il bersaglio si sveglia se subisce danni o se una
+creatura entro 1,5 metri da esso effettua un'azione per
+svegliarlo.
+## **Quasit**
+### **Quasit**
+
+_Immondo Minuscolo (demone), caotico malvagio_
+
+
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 25 (10d4)
+**Velocità** 12 m
+
+
+
+
+**Abilità** Furtività +5
+**Resistenze** freddo, fulmine, fuoco
+**Immunità** veleno; avvelenato
+**Sensi** Percezione passiva 10; scurovisione 36 m
+**Lingue** Abissale, Comune
+**GS** 1 (PE 200; BC +2)
+
+Tratti
+
+_**Resistenza alla magia.**_ Il quasit dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
+
+Azioni
+
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +5, portata
+1,5 m _Colpito:_ 5 (1d4 + 3) danni taglienti, e il bersaglio
+è avvelenato fino all'inizio del turno successivo del
+quasit.
+
+_**Invisibilità.**_ Il quasit può lanciare _invisibilità_ su di sé
+senza bisogno di componenti per incantesimi e utilizzando il Carisma come caratteristica da incantatore.
+
+_**Mutaforma.**_ Il quasit può assumere la forma bestiale di
+un pipistrello (velocità 3 m, volo 12 m), un millepiedi
+(12 m, scalata 12 m) o un rospo (12 m, scalata 12 m),
+
+      - tornare alla sua vera forma. Le sue statistiche di
+gioco restano le stesse in ogni forma, a eccezione della
+velocità. Nessun oggetto che indossa o trasporta viene
+trasformato.
+
+_**Spaventare (1/giorno).**_ _Tiro salvezza su Saggezza:_
+CD 10, una creatura entro 6 metri. _Fallimento:_ il
+bersaglio è spaventato. Alla fine di ogni suo turno,
+il bersaglio ripete il tiro salvezza e, se lo supera,
+l'effetto svanisce. Dopo 1 minuto, il tiro viene superato
+automaticamente.
+## **Ragno-fase**
+### **Ragno-fase**
+
+_Mostruosità Grande, senza allineamento_
+
+
+**CA** 14 **Iniziativa** +3 (13)
+**PF** 45 (7d10 + 7)
+**Velocità** 9 m, scalata 9 m
+
+
+**Abilità** Furtività +7
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** nessuna
+**GS** 3 (PE 700; BC +2)
+
+
+**367** System Reference Document 5.2.1
+
+
+
+Tratti
+
+_**Andatura sulla ragnatela.**_ Il ragno ignora le restrizioni
+di movimento causate dalle ragnatele e conosce
+­l'ubicazione di qualsiasi altra creatura a contatto con
+la medesima ragnatela.
+
+_**Movimenti del ragno.**_ Il ragno può scalare le superfici
+difficili, compresi i soffitti, senza effettuare una prova di
+caratteristica.
+
+_**Vista eterea.**_ Il ragno è in grado di vedere per 18 metri
+sul Piano Etereo finché si trova sul Piano Materiale
+e viceversa.
+
+Azioni
+
+_**Multiattacco.**_ Il ragno effettua due attacchi Morso.
+
+_**Morso.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 8 (1d10 + 3) danni perforanti più 9 (2d8) danni
+da veleno. Se i danni riducono il bersaglio a 0 punti
+ferita, esso diventa stabile, ed è avvelenato per 1 ora.
+Finché è avvelenato, il bersaglio è anche paralizzato.
+
+Azioni bonus
+
+_**Transizione eterea.**_ Il ragno si teletrasporta dal Piano
+Materiale al Piano Etereo o viceversa.
+## **Rakshasa**
+### **Rakshasa**
+
+_Immondo Medio, legale malvagio_
+
+
+**CA** 17 **Iniziativa** +8 (18)
+**PF** 221 (26d8 + 104)
+**Velocità** 12 m
+
+
+**Abilità** Inganno +10, Intuizione +8, Percezione +8
+**Vulnerabilità** danni perforanti inflitti da armi brandite da
+
+creature sotto l'effetto dell'incantesimo _benedizione_
+**Immunità** affascinato, spaventato
+**Sensi** Percezione passiva 18; vista pura 36 m
+**Lingue** Comune, Infernale
+**GS** 13 (PE 10.000; BC +5)
+
+Tratti
+
+_**Resistenza maggiore alla magia.**_ Il rakshasa supera
+automaticamente i tiri salvezza contro incantesimi
+e altri effetti magici, e i tiri per colpire degli incantesimi
+lo mancano automaticamente. Senza il consenso del
+rakshasa, nessun incantesimo può osservare il rakshasa
+a distanza o individuarne i pensieri, il tipo di creatura
+
+- l'allineamento.
+
+_**Ristoro immondo.**_ Se il rakshasa muore al di fuori dei
+Nove Inferi, il suo corpo si dissolve diventando icore
+e ne acquisisce uno nuovo all'istante, tornando in vita
+
+
+
+
+con tutti i suoi punti ferita da qualche parte nei Nove
+Inferi.
+
+Azioni
+
+_**Multiattacco.**_ Il rakshasa effettua tre attacchi Tocco
+maledetto.
+
+_**Tocco maledetto.**_ _Tiro per colpire in mischia:_ +10,
+portata 1,5 m. _Colpito:_ 12 (2d6 + 5) danni taglienti più
+19 (3d12) danni necrotici. Se il bersaglio è una creatura,
+viene maledetto. Finché è maledetto, il bersaglio non
+ottiene alcun beneficio dal riposo breve o lungo.
+
+_**Incantesimi.**_ Il rakshasa lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali
+e ­utilizzando Carisma come caratteristica da incantatore (CD del tiro salvezza sull'incantesimo 18):
+
+**1/giorno ciascuno:** _Immagine maggiore_, _invisibilità_,
+
+_spostamento planare_ ­, _volare_
+**A volontà:** _Camuffare se stesso_, _illusione minore_, _indi-_
+
+_viduazione dei pensieri_, _individuazione del magico_,
+_mano magica_
+
+_**Ordine funesto (ricarica 5–6).**_ _Tiro salvezza su_
+_Saggezza:_ CD 18, tutti i nemici in un'emanazione di
+9 metri di cui il rakshasa è il punto di origine. _Falli-_
+_mento:_ 28 (8d6) danni psichici, e il bersaglio è spaventato e incapacitato fino all'inizio del turno successivo
+del rakshasa.
+## **Remorhaz**
+### **Remorhaz**
+
+_Mostruosità Enorme, senza allineamento_
+
+
+**CA** 17 **Iniziativa** +5 (15)
+**PF** 195 (17d12 + 85)
+**Velocità** 12 m, scavo 9 m
+
+
+**Immunità** freddo, fuoco
+**Sensi** Percezione passiva 10; percezione tellurica 18 m,
+
+scurovisione 18 m
+**Lingue** nessuna
+**GS** 11 (PE 7.200; BC +4)
+
+Tratti
+
+_**Aura di calore.**_ Al termine di ogni turno del remorhaz,
+tutte le creature in un'emanazione di 1,5 metri di cui
+il remorhaz è il punto di origine subiscono 16 (3d10)
+danni da fuoco.
+
+
+**368** System Reference Document 5.2.1
+
+
+
+Azioni
+
+_**Morso.**_ _Tiro per colpire in mischia:_ +11, portata 3 m.
+_Colpito:_ 18 (2d10 + 7) danni perforanti più 14 (4d6)
+danni da fuoco. Se il bersaglio è una creatura di taglia
+Grande o inferiore, è afferrato (CD 17 per sfuggire), ed
+è trattenuto finché la presa perdura.
+
+Azioni bonus
+
+_**Inghiottire.**_ _Tiro salvezza su Forza:_ CD 19, una creatura
+di taglia Grande o inferiore afferrata dal remorhaz (può
+inghiottire fino a due creature per volta). _Fallimento:_
+il bersaglio viene inghiottito dal remorhaz, e non è più
+afferrato. Una creatura inghiottita è accecata e trattenuta, beneficia di copertura totale contro attacchi
+e altri effetti al di fuori del remorhaz, e subisce 10 (3d6)
+danni da acido più 10 (3d6) danni da fuoco all'inizio di
+ogni turno del remorhaz.
+
+Se il remorhaz subisce 30 o più danni in un singolo
+turno da una creatura al suo interno, deve superare
+un tiro salvezza su Costituzione con CD 15 alla fine
+di quel turno, altrimenti rigurgita tutte le creature
+inghiottite, ognuna delle quali cade a terra prona in uno
+spazio entro 1,5 metri dal remorhaz. Se il remorhaz
+muore, qualsiasi creatura inghiottita non è più trattenuta e può fuggire dal cadavere usando 4,5 metri di
+movimento, uscendo prona.
+## **Roc**
+### **Roc**
+
+_Mostruosità Mastodontica, senza allineamento_
+
+
+**CA** 15 **Iniziativa** +8 (18)
+**PF** 248 (16d20 + 80)
+**Velocità** 6 m, volo 36 m
+
+
+**Abilità** Percezione +8
+**Sensi** Percezione passiva 18
+**Lingue** nessuna
+**GS** 11 (PE 7.200; BC +4)
+
+Azioni
+
+_**Multiattacco.**_ Il roc effettua due attacchi Becco. Può
+sostituire un attacco con un attacco Speroni.
+
+_**Becco.**_ _Tiro per colpire in mischia:_ +13, portata 3 m.
+_Colpito:_ 28 (3d12 + 9) danni perforanti.
+
+_**Speroni.**_ _Tiro per colpire in mischia:_ +13, portata 1,5
+m. _Colpito_ : 23 (4d6 + 9) danni taglienti. Se il bersaglio
+è una creatura di taglia Enorme o inferiore, è afferrato
+(CD 19 per sfuggire) da entrambi gli speroni, ed è trattenuto finché la presa perdura.
+
+
+
+
+Azioni bonus
+
+_**In picchiata (ricarica 5–6).**_ Se il roc ha afferrato una
+creatura, vola fino a metà della sua velocità di volo
+senza provocare attacchi di opportunità e lascia cadere
+la creatura.
+## **Rugginofago**
+### **Rugginofago**
+
+_Mostruosità Media, senza allineamento_
+
+
+**CA** 14 **Iniziativa** +1 (11)
+**PF** 33 (6d8 + 6)
+**Velocità** 12 m
+
+
+**Sensi** Percezione passiva 11; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1/2 (PE 100; BC +2)
+
+Tratti
+
+_**Fiutare il ferro.**_ Il rugginofago può individuare la
+precisa ubicazione di qualsiasi metallo ferroso situato
+entro 9 metri da esso.
+
+Azioni
+
+_**Multiattacco.**_ Il rugginofago effettua un attacco Morso
+e usa Antenne due volte.
+
+_**Morso.**_ _Tiro per colpire in mischia:_ +3, portata 1,5 m
+_Colpito:_ 5 (1d8 + 1) danni perforanti.
+
+_**Antenne.**_ Il rugginofago prende di mira un oggetto
+in metallo non magico (armatura o arma) indossato
+
+      - trasportato da una creatura entro 1,5 metri da sé. _Tiro_
+_salvezza su Destrezza:_ CD 11, la creatura che possiede
+l'oggetto. _Fallimento:_ l'oggetto subisce una penalità
+di −1 alla CA che fornisce (armatura) o ai suoi tiri per
+colpire (arma). L'armatura viene distrutta se la penalità
+riduce la sua CA a 10; l'arma viene distrutta se la sua
+penalità arriva a −5. La penalità può essere rimossa lanciando l'incantesimo _riparare_ sull'armatura o sull'arma.
+
+_**Distruggere metallo.**_ Il rugginofago tocca un oggetto
+in metallo non magico entro 1,5 metri da sé che non è
+indossato o trasportato. Il tocco distrugge una porzione
+di oggetto pari a un cubo con spigolo di 30 centimetri.
+
+Reazioni
+
+_**Antenne riflesse.**_ _Attivazione:_ Un tiro per colpire colpisce il rugginofago. _Esito:_ il rugginofago usa Antenne.
+
+
+**369** System Reference Document 5.2.1
+
+
+## **Sacerdoti**
+### **Sacerdote accolito**
+
+_Umanoide Medio o Piccolo (chierico), neutrale_
+
+
+**CA** 13 **Iniziativa** +0 (10)
+**PF** 11 (2d8 + 2)
+**Velocità** 9 m
+
+
+**Abilità** Medicina +4, Religione +2
+**Attrezzatura** mazza, giaco di maglia, simbolo sacro
+**Sensi** Percezione passiva 12
+**Lingue** Comune
+**GS** 1/4 (PE 50; BC +2)
+
+Azioni
+
+_**Mazza.**_ _Tiro per colpire in mischia:_ +4, portata 1,5 m
+_Colpito:_ 5 (1d6 + 2) danni contundenti più 2 (1d4)
+danni radiosi.
+
+_**Fiamma radiosa.**_ _Tiro per colpire a distanza:_ +4, gittata
+18 m. _Colpito:_ 7 (2d6) danni radiosi.
+
+_**Incantesimi.**_ Il sacerdote lancia uno dei seguenti
+incantesimi, utilizzando Saggezza come caratteristica
+da incantatore:
+
+**A volontà:** _Luce_, _taumaturgia_
+
+Azioni bonus
+
+_**Aiuto divino (1/giorno).**_ Il sacerdote lancia _benedi-_
+_zione_, _parola guaritrice_ - _santuario_, utilizzando la stessa
+caratteristica da incantatore di Incantesimi.
+### **Sacerdote**
+
+_Umanoide Medio o Piccolo (chierico), neutrale_
+
+
+**CA** 13 **Iniziativa** +0 (10)
+**PF** 38 (7d8 + 7)
+**Velocità** 9 m
+
+
+**Abilità** Medicina +7, Percezione +5, Religione +5
+**Attrezzatura** mazza, giaco di maglia, simbolo sacro
+**Sensi** Percezione passiva 15
+**Lingue** Comune più un'altra lingua
+**GS** 2 (PE 450; BC +2)
+
+Azioni
+
+_**Multiattacco.**_ Il sacerdote effettua due attacchi, usando
+Mazza o Fiamma radiosa in qualsiasi combinazione.
+
+_**Mazza.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 6 (1d6 + 3) danni contundenti più 5 (2d4)
+danni radiosi.
+
+
+
+
+_**Fiamma radiosa.**_ _Tiro per colpire a distanza:_ +5, gittata
+18 m. _Colpito:_ 11 (2d10) danni radiosi.
+
+_**Incantesimi.**_ Il sacerdote lancia uno dei seguenti incantesimi, utilizzando Saggezza come caratteristica da
+incantatore (CD del tiro salvezza sull'incantesimo 13):
+
+**A volontà:** _Luce_, _taumaturgia_
+**1/giorno:** _Guardiani spirituali_
+
+Azioni bonus
+
+_**Aiuto divino (3/giorno).**_ Il sacerdote lancia _bene-_
+_dizione_, _dissolvi magie_, _parola guaritrice_      - _ristorare_
+_­inferiore_, utilizzando la stessa caratteristica da incantatore di Incantesimi.
+## **Sahuagin**
+### **Sahuagin guerriero**
+
+_Immondo Medio, legale malvagio_
+
+
+**CA** 12 **Iniziativa** +0 (10)
+**PF** 22 (4d8 + 4)
+**Velocità** 9 m, nuoto 12 m
+
+
+**Abilità** Percezione +5
+**Resistenze** acido, freddo
+**Sensi** Percezione passiva 15; scurovisione 36 m
+**Lingue** Sahuagin
+**GS** 1/2 (PE 100; BC +2)
+
+Tratti
+
+_**Anfibio limitato.**_ Il sahuagin può respirare in aria e in
+acqua, ma deve immergersi in acqua almeno una volta
+ogni 4 ore per evitare di soffocare.
+
+_**Frenesia di sangue.**_ Il sahuagin dispone di vantaggio
+ai tiri per colpire contro ogni creatura che non possieda
+tutti i propri punti ferita.
+
+_**Telepatia con gli squali.**_ Il sahuagin può comandare
+magicamente ogni squalo entro 36 metri da sé, usando
+una forma di telepatia speciale.
+
+Azioni
+
+_**Multiattacco.**_ Il sahuagin effettua due attacchi Artiglio.
+
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +3, portata 1,5 m
+_Colpito:_ 4 (1d6 + 1) danni taglienti.
+
+Azioni bonus
+
+_**Carica acquatica.**_ Il sahuagin nuota fino al massimo
+della sua velocità di nuoto in linea retta verso un
+nemico che è in grado di vedere.
+
+
+**370** System Reference Document 5.2.1
+
+
+## **Salamandra**
+### **Salamandra**
+
+_Elementale Grande, neutrale malvagio_
+
+
+**CA** 15 **Iniziativa** +2 (12)
+**PF** 90 (12d10 + 24)
+**Velocità** 9 m, scalata 9 m
+
+
+**Vulnerabilità** freddo
+**Immunità** fuoco
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** Primordiale (Ignan)
+**GS** 5 (PE 1.800; BC +3)
+
+Tratti
+
+_**Aura di fuoco.**_ Alla fine di ogni turno della salamandra,
+ciascuna creatura a sua scelta in un'emanazione di
+1,5 metri di cui la salamandra è il punto di origine
+subisce 7 (2d6) danni da fuoco.
+
+Azioni
+
+_**Multiattacco.**_ La salamandra effettua due attacchi Lancia di fuoco. Può sostituire un attacco con un utilizzo
+di Stritolare.
+
+_**Lancia di fuoco.**_ _Tiro per colpire in mischia o a_
+_distanza:_ +7, portata 1,5 m o gittata 6/18 m. _Colpito:_
+13 (2d8 + 4) danni perforanti più 7 (2d6) danni da
+fuoco. _Colpito o mancato:_ la lancia torna magicamente
+tra le mani della salamandra subito dopo un attacco
+a distanza.
+
+_**Stritolare.**_ _Tiro salvezza su Forza:_ CD 15, una creatura
+di taglia Grande o inferiore che la salamandra è in
+grado di vedere entro 3 metri. _Fallimento:_ 11 (2d6 + 4)
+danni contundenti più 7 (2d6) danni da fuoco. Il
+bersaglio è afferrato (CD 14 per sfuggire) ed è trattenuto
+finché la presa perdura.
+## **Satiro**
+### **Satiro**
+
+_Folletto Medio, caotico neutrale_
+
+
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 31 (7d8)
+**Velocità** 12 m
+
+
+**Abilità** Furtività +5, Intrattenere +6, Percezione +2
+**Sensi** Percezione passiva 12
+**Lingue** Comune, Elfico, Silvano
+**GS** 1/2 (PE 100; BC +2)
+
+
+
+
+Tratti
+
+_**Resistenza alla magia.**_ Il satiro dispone di vantaggio ai
+tiri salvezza contro incantesimi e altri effetti magici.
+
+Azioni
+
+_**Zoccoli.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m.
+_Colpito:_ 5 (1d4 + 3) danni contundenti. Se il bersaglio
+è una creatura di taglia Media o inferiore, il satiro lo
+spinge fino a 3 metri lontano da sé.
+
+_**Derisione.**_ _Tiro salvezza su Saggezza:_ CD 12, una creatura che il satiro è in grado di vedere entro 27 metri.
+_Fallimento:_ 5 (1d6 + 2) danni psichici.
+## **Scheletri**
+### **Scheletro**
+
+_Non morto Medio, legale malvagio_
+
+
+**CA** 14 **Iniziativa** +3 (13)
+**PF** 13 (2d8 + 4)
+**Velocità** 9 m
+
+
+**Vulnerabilità** contundente
+**Immunità** veleno; avvelenato, indebolimento
+**Attrezzatura** arco corto, spada corta
+**Sensi** Percezione passiva 9; scurovisione 18 m
+**Lingue** capisce il Comune più un'altra lingua ma non
+
+le parla
+**GS** 1/4 (PE 50; BC +2)
+
+Azioni
+
+_**Spada corta.**_ _Tiro per colpire in mischia:_ +5, portata
+1,5 m _Colpito:_ 6 (1d6 + 3) danni perforanti.
+
+_**Arco corto.**_ _Tiro per colpire a distanza:_ +5, portata
+24/96 m _Colpito:_ 6 (1d6 + 3) danni perforanti.
+### **Scheletro di cavallo da guerra**
+
+_Non morto Grande, legale malvagio_
+
+
+**CA** 13 **Iniziativa** +1 (11)
+**PF** 22 (3d10 + 6)
+**Velocità** 18 m
+
+
+**Vulnerabilità** contundente
+**Immunità** veleno; avvelenato, indebolimento
+**Sensi** Percezione passiva 9; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1/2 (PE 100; BC +2)
+
+
+**371** System Reference Document 5.2.1
+
+
+
+Azioni
+
+_**Zoccoli.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 7 (1d6 + 4) danni contundenti. Se il bersaglio è
+una creatura di taglia Grande o inferiore e lo scheletro
+si è mosso di 6 metri o più in linea retta verso di esso
+subito prima del colpo, il bersaglio cade a terra prono.
+### **Scheletro di minotauro**
+
+_Non morto Grande, legale malvagio_
+
+
+**CA** 12 **Iniziativa** +0 (10)
+**PF** 45 (6d10 + 12)
+**Velocità** 12 m
+
+
+**Vulnerabilità** contundente
+**Immunità** veleno; avvelenato, indebolimento
+**Sensi** Percezione passiva 9; scurovisione 18 m
+**Lingue** capisce l'Abissale ma non lo parla
+**GS** 2 (PE 450; BC +2)
+
+Azioni
+
+_**Schianto.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 15 (2d10 + 4) danni contundenti.
+
+_**Trafiggere.**_ _Tiro per colpire in mischia:_ +6, portata
+1,5 m. _Colpito:_ 11 (2d6 + 4) danni perforanti. Se il bersaglio è una creatura di taglia Grande o inferiore e lo
+scheletro si è mosso di 6 metri o più in linea retta verso
+di esso subito prima del colpo, il bersaglio subisce
+9 (2d8) danni perforanti extra e cade a terra prono.
+## **Segugio infernale**
+### **Segugio infernale**
+
+_Immondo Medio, legale malvagio_
+
+
+**CA** 15 **Iniziativa** +1 (11)
+**PF** 58 (9d8 + 18)
+**Velocità** 15 m
+
+
+**Abilità** Percezione +5
+**Immunità** fuoco
+**Sensi** Percezione passiva 15; scurovisione 18 m
+**Lingue** capisce l'Infernale ma non lo parla
+**GS** 3 (PE 700; BC +2)
+
+Tratti
+
+_**Tattiche del branco.**_ Il segugio dispone di vantaggio
+nel tiro per colpire contro una creatura se almeno uno
+degli alleati del segugio si trova entro 1,5 metri dalla
+creatura e non è incapacitato.
+
+
+
+
+Azioni
+
+_**Multiattacco.**_ Il segugio effettua due attacchi Morso.
+
+_**Morso.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 7 (1d8 + 3) danni perforanti più 3 (1d6) danni
+da fuoco.
+
+_**Soffio di fuoco (ricarica 5–6).**_ _Tiro salvezza su_
+_Destrezza:_ CD 12, tutte le creature in un cono di
+4,5 metri. _Fallimento:_ 17 (5d6) danni da fuoco. _Suc-_
+_cesso:_ danni dimezzati.
+## **Sfingi**
+### **Sfnge della meraviglia**
+
+_Celestiale Minuscolo, legale buono_
+
+
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 24 (7d4 + 7)
+**Velocità** 6 m, volo 12 m
+
+
+**Abilità** Arcano +4, Religione +4, Furtività +5
+**Resistenze** necrotico, psichico, radioso
+**Sensi** Percezione passiva 11; scurovisione 18 m
+**Lingue** Celestiale, Comune
+**GS** 1 (PE 200; BC +2)
+
+Tratti
+
+_**Resistenza alla magia.**_ La sfinge dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
+
+Azioni
+
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 5 (1d4 + 3) danni taglienti più 7 (2d6) danni
+radiosi.
+
+Reazioni
+
+_**Impeto di ingegno (2 al giorno).**_ _Attivazione:_ la sfinge
+
+      - un'altra creatura entro 9 metri effettua una prova
+di caratteristica o un tiro salvezza. _Esito:_ la sfinge
+aggiunge 2 al risultato del tiro.
+### **Sfnge della conoscenza**
+
+_Celestiale Grande, legale neutrale_
+
+
+**CA** 17 **Iniziativa** +10 (20)
+**PF** 170 (20d10 + 60)
+**Velocità** 12 m, volo 18 m
+
+
+**372** System Reference Document 5.2.1
+
+
+
+**Abilità** Arcano +12, Percezione +8, Religione +12,
+
+Storia +12
+**Resistenze** necrotico, radioso
+**Immunità** psichico; affascinato, spaventato
+**Sensi** Percezione passiva 18; vista pura 36 m
+**Lingue** Celestiale, Comune
+**GS** 11 (PE 7.200, o 8.400 nella tana; BC +4)
+
+Tratti
+
+_**Imperscrutabile.**_ Nessuna magia può consentire di
+osservare la sfinge da lontano o individuarne i pensieri
+senza il suo permesso. Le prove di Saggezza (Intuizione) effettuate per accertare le sue intenzioni o la sua
+sincerità subiscono svantaggio.
+
+_**Resistenza leggendaria (3/giorno o 4/giorno nella**_
+_**tana).**_ Se la sfinge fallisce un tiro salvezza, può scegliere di superarlo comunque.
+
+Azioni
+
+_**Multiattacco.**_ La sfinge effettua tre attacchi Artiglio.
+
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +8, portata 1,5 m.
+_Colpito:_ 14 (3d6 + 4) danni taglienti.
+
+_**Incantesimi.**_ La sfinge lancia uno dei seguenti incantesimi senza bisogno di componenti materiali, utilizzando
+Intelligenza come caratteristica da incantatore (CD del
+tiro salvezza sull'incantesimo 16):
+
+**1/giorno ciascuno:** _conoscenza delle leggende_, _dissolvi_
+
+_magie_, _linguaggi_, _localizza oggetto_, _rimuovi maledi-_
+_zione_, _spostamento planare_
+**A volontà:** _identificare_, _illusione minore_, _individuazione_
+
+_del magico_, _mano magica_, _prestidigitazione_
+
+_**Ruggito spezza-mente (ricarica 5–6).**_ _Tiro salvezza_
+_su Saggezza:_ CD 16, tutti i nemici in un'emanazione
+di 90 metri di cui la sfinge è il punto di origine. _Falli-_
+_mento:_ 35 (10d6) danni psichici, e il bersaglio è incapacitato fino all'inizio del turno successivo della sfinge.
+
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, la sfinge può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. La sfinge_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
+
+_**Agguato arcano.**_ La sfinge può teletrasportarsi fino
+a 9 metri in uno spazio libero che è in grado di vedere,
+effettuando un attacco Artiglio.
+
+_**Peso degli anni.**_ _Tiro salvezza su Costituzione:_ CD 16,
+una creatura che la sfinge è in grado di vedere entro
+36 metri. _Fallimento:_ il bersaglio ottiene 1 livello di
+indebolimento. Finché il bersaglio ha uno o più livelli
+di indebolimento, apparirà più vecchio di 3d10 anni.
+
+
+
+
+_Fallimento o successo:_ la sfinge non può ripetere
+­quest'azione fino all'inizio del proprio turno successivo.
+### **Sfnge del valore**
+
+_Celestiale Grande, legale neutrale_
+
+
+**CA** 17 **Iniziativa** +12 (22)
+**PF** 199 (19d10 + 95)
+**Velocità** 12 m, volo 18 m
+
+
+**Abilità** Arcano +9, Percezione +12, Religione +15
+**Resistenze** necrotico, radioso
+**Immunità** psichico; affascinato, spaventato
+**Sensi** Percezione passiva 22; vista pura 36 m
+**Lingue** Celestiale, Comune
+**GS** 17 (PE 18.000, o 20.000 nella tana; BC +6)
+
+Tratti
+
+_**Imperscrutabile.**_ Nessuna magia può consentire di
+osservare la sfinge da lontano o individuarne i pensieri
+senza il suo permesso. Le prove di Saggezza (Intuizione) effettuate per accertare le sue intenzioni o la sua
+sincerità subiscono svantaggio.
+
+_**Resistenza leggendaria (3/giorno o 4/giorno nella**_
+_**tana).**_ Se la sfinge fallisce un tiro salvezza, può scegliere di superarlo comunque.
+
+Azioni
+
+_**Multiattacco.**_ La sfinge effettua due attacchi Artiglio
+e utilizza Ruggito.
+
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +12, portata 1,5 m.
+_Colpito:_ 20 (4d6 + 6) danni taglienti.
+
+_**Incantesimi.**_ La sfinge lancia uno dei seguenti
+incantesimi, senza bisogno di componenti materiali,
+utilizzando Saggezza come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 20):
+
+**1/giorno ciascuno:** _banchetto degli eroi_, _dissolvi magie_,
+
+_individuazione del magico_, _ristorare superiore_, _zona_
+_di verità_
+**A volontà:** _Individuazione del bene e del male_, _tauma-_
+
+_turgia_
+**Primo ruggito.** _Tiro salvezza su Saggezza:_ CD 20,
+
+tutti i nemici in un'emanazione di 150 metri di cui
+la sfinge è il punto di origine. _Fallimento:_ il bersaglio
+è spaventato per 1 minuto.
+
+_**Ruggito (3/giorno).**_ La sfinge emette un ruggito magico.
+Ogni suo ruggito sortisce un effetto diverso come
+descritto sotto (la sequenza si ripristina dopo aver
+completato un riposo lungo):
+
+**Secondo ruggito.** _Tiro salvezza su Saggezza:_ CD 20,
+
+tutti i nemici in un'emanazione di 150 metri di cui
+la sfinge è il punto di origine. _Fallimento:_ il bersaglio
+
+
+**373** System Reference Document 5.2.1
+
+
+
+è paralizzato e ripete il tiro salvezza alla fine di ogni
+suo turno e, se lo supera, l'effetto svanisce. Dopo
+1 minuto, il tiro viene superato automaticamente.
+**Terzo ruggito.** _Tiro salvezza su Costituzione:_ CD 20,
+
+tutti i nemici in un'emanazione di 150 metri di cui
+la sfinge è il punto di origine. _Fallimento:_ 44 (8d10)
+danni da tuono, e il bersaglio cade a terra prono.
+_Successo:_ ­ danni dimezzati.
+
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, la sfinge può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. La sfinge_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
+
+_**Agguato arcano.**_ La sfinge può teletrasportarsi fino a
+9 metri in uno spazio libero che è in grado di vedere,
+effettuando un attacco Artiglio.
+
+_**Peso degli anni.**_ _Tiro salvezza su Costituzione:_ CD 16,
+una creatura che la sfinge è in grado di vedere entro
+36 metri. _Fallimento:_ il bersaglio ottiene 1 livello di
+indebolimento. Finché il bersaglio ha uno o più livelli
+di indebolimento, apparirà più vecchio di 3d10 anni.
+_Fallimento o successo:_ la sfinge non può ripetere
+­quest'azione fino all'inizio del proprio turno successivo.
+## **Solar**
+### **Solar**
+
+_Celestiale Grande (angelo), legale buono_
+
+
+**CA** 21 **Iniziativa** +20 (30)
+**PF** 297 (22d10 + 176)
+**Velocità** 15 m, volo 45 m (fluttuare)
+
+
+**Abilità** Percezione +14
+**Immunità** radioso, veleno; affascinato, avvelenato,
+
+indebolimento, spaventato
+**Sensi** Percezione passiva 24; vista pura 36 m
+**Lingue** tutte; telepatia 36 m
+**GS** 21 (PE 33.000; BC +7)
+
+Tratti
+
+_**Consapevolezza divina.**_ Il solar sa riconoscere le
+menzogne.
+
+_**Resistenza alla magia.**_ Il solar dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
+
+_**Resistenza leggendaria (4/giorno).**_ Se il solar fallisce
+un tiro salvezza, può scegliere di superarlo comunque.
+
+_**Ristoro glorioso.**_ Se il solar muore al di fuori di Monte
+Celestia, il suo corpo scompare e ne acquisisce uno
+nuovo all'istante, tornando in vita con tutti i suoi punti
+ferita da qualche parte a Monte Celestia.
+
+
+
+
+Azioni
+
+_**Multiattacco.**_ Il solar effettua due attacchi Spada
+volante. Può sostituire un attacco con un utilizzo di
+Arco assassino.
+
+_**Spada volante.**_ _Tiro per colpire in mischia o a distanza:_
++15, portata 3 m o gittata 36 m. _Colpito:_ 22 (4d6 + 8)
+danni taglienti più 36 (8d8) danni radiosi. _Colpito o_
+_mancato:_ la spada torna magicamente nella mano del
+solar o fluttua entro 1,5 metri dal solar subito dopo un
+attacco a distanza.
+
+_**Arco assassino.**_ _Tiro salvezza su Destrezza:_ CD 21,
+una creatura che il solar è in grado di vedere entro
+180 metri. _Fallimento:_ se la creatura possiede 100 punti
+ferita o meno, muore. Altrimenti, subisce 24 (4d8 + 6)
+danni perforanti più 36 (8d8) danni radiosi.
+
+_**Incantesimi.**_ Il solar lancia uno dei seguenti incantesimi, senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 25):
+
+**1/giorno ciascuno:** _comunione_, _controllare tempo_
+
+_atmosferico_, _dissolvi il bene e il male_, _resurrezione_
+**A volontà:** _individuazione del bene e del male_
+
+Azioni bonus
+
+_**Aiuto divino (3/giorno).**_ Il solar lancia _cura ferite_ (di
+2º livello), _rimuovi maledizione_       - _ristorare inferiore_,
+utilizzando la stessa caratteristica da incantatore di
+Incantesimi.
+
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3. Subito dopo il turno di_
+_un'altra creatura, il solar può consumare un utilizzo per_
+_effettuare una delle seguenti azioni. Il solar recupera tutti_
+_gli utilizzi consumati all'inizio di ogni suo turno._
+
+_**Sguardo accecante.**_ _Tiro salvezza su Costituzione:_
+CD 25, una creatura che il solar è in grado di vedere
+entro 36 metri. _Fallimento:_ il bersaglio è accecato
+per 1 minuto. _Fallimento o successo:_ il solar non può
+ripetere quest'azione fino all'inizio del proprio turno
+successivo.
+
+_**Teletrasporto radioso.**_ Il solar si teletrasporta fino a un
+massimo di 18 metri in uno spazio libero che è in grado
+di vedere. _Tiro salvezza su Destrezza:_ CD 25, tutte
+le creature in un'emanazione di 3 metri di cui il solar
+è il punto di origine nel suo spazio di destinazione.
+_Fallimento:_ 11 (2d10) danni radiosi. _Successo:_ danni
+dimezzati.
+## **Spettro**
+### **Spettro**
+
+_Non morto Medio, caotico malvagio_
+
+
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 22 (5d8)
+**Velocità** 9 m, volo 15 m (fluttuare)
+
+
+**374** System Reference Document 5.2.1
+
+
+
+**Resistenze** acido, contundente, freddo, fulmine, fuoco,
+
+perforante, tagliente, tuono
+**Immunità** necrotico, veleno; affascinato, afferrato,
+
+avvelenato, indebolimento, paralizzato, pietrificato,
+privo di sensi, prono, trattenuto
+**Sensi** Percezione passiva 10; scurovisione 18 m
+**Lingue** capisce il Comune più un'altra lingua ma non
+
+le parla
+**GS** 1 (PE 200; BC +2)
+
+Tratti
+
+_**Movimento incorporeo.**_ Lo spettro può muoversi
+attraverso altre creature e oggetti come se fossero
+terreno difficile. Se termina il suo turno all'interno di
+un oggetto, subisce 5 (1d10) danni da forza.
+
+_**Sensibilità al sole.**_ Finché è esposto alla luce del sole,
+lo spettro subisce svantaggio alle prove di caratteristica
+e ai tiri per colpire.
+
+Azioni
+
+_**Risucchio di vita.**_ _Tiro per colpire in mischia:_ +4,
+portata 1,5 m _Colpito:_ 7 (2d6) danni necrotici. Se il bersaglio è una creatura, i suoi punti ferita massimi sono
+ridotti di una quantità pari ai danni subiti.
+## **Spia**
+### **Spia**
+
+_Umanoide Medio o Piccolo, neutrale_
+
+
+**CA** 12 **Iniziativa** +4 (14)
+**PF** 27 (6d8)
+**Velocità** 9 m, scalata 9 m
+
+
+**Abilità** Furtività +6, Indagare +5, Inganno +5, Intuizione
+
++4, Percezione +6, Rapidità di Mano +4
+**Attrezzatura** arnesi da scasso, balestra a mano, spada
+
+corta
+**Sensi** Percezione passiva 16
+**Lingue** Comune più un'altra lingua
+**GS** 1 (PE 200; BC +2)
+
+Azioni
+
+_**Spada corta.**_ _Tiro per colpire in mischia:_ +4, portata
+1,5 m _Colpito:_ 5 (1d6 + 2) danni perforanti più 7 (2d6)
+danni da veleno.
+
+_**Balestra a mano.**_ _Tiro per colpire a distanza:_ +4,
+gittata 9/36 m. _Colpito:_ 5 (1d6 + 2) danni perforanti più
+7 (2d6) danni da veleno.
+
+
+
+
+Azioni bonus
+
+_**Azione scaltra.**_ La spia effettua l'azione di Disimpegno,
+Nascondersi o Scatto.
+## **Spiritello**
+### **Spiritello**
+
+_Folletto Minuscolo, neutrale buono_
+
+
+**CA** 15 **Iniziativa** +4 (14)
+**PF** 10 (4d4)
+**Velocità** 3 m, volo 12 m
+
+
+**Abilità** Furtività +8, Percezione +3
+**Sensi** Percezione passiva 13
+**Lingue** Comune, Elfico, Silvano
+**GS** 1/4 (PE 50; BC +2)
+
+Azioni
+
+_**Ago da battaglia.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m _Colpito:_ 6 (1d4 + 4) danni perforanti.
+
+_**Arco ammaliante.**_ _Tiro per colpire a distanza:_ +6, portata 12/48 m _Colpito:_ 1 danno perforante e il bersaglio
+è affascinato fino all'inizio del turno successivo dello
+spiritello.
+
+_**Invisibilità.**_ Lo spiritello può lanciare _invisibilità_ su di sé
+senza bisogno di componenti per incantesimi e utilizzando il Carisma come caratteristica da incantatore.
+
+_**Vista del cuore.**_ _Tiro salvezza su Carisma:_ CD 10, una
+creatura entro 1,5 metri che lo spiritello è in grado di
+vedere (celestiali, immondi e non morti falliscono in
+automatico la prova). _Fallimento:_ lo spiritello conosce
+le emozioni e l'allineamento del bersaglio.
+## **Succube**
+### **Succube**
+
+_Immondo Medio, neutrale malvagio_
+
+
+**CA** 15 **Iniziativa** +3 (13)
+**PF** 71 (13d8 + 13)
+**Velocità** 9 m, volo 18 m
+
+
+**Abilità** Furtività +7, Inganno +9, Intuizione +5, Percezione
+
++5, Persuasione +9
+**Resistenze** freddo, fuoco, psichico, veleno
+**Sensi** Percezione passiva 15; scurovisione 18 m
+**Lingue** Abissale, Comune, Infernale; telepatia 18 m
+**GS** 4 (PE 1.100; BC +2)
+
+
+**375** System Reference Document 5.2.1
+
+
+
+Tratti
+
+_**Forma incubo.**_ Quando la succube termina un riposo
+lungo, può trasformarsi in un **incubo**, utilizzando la
+relativa scheda delle statistiche al posto di questa.
+
+Azioni
+
+_**Multiattacco.**_ La succube effettua un attacco Tocco
+immondo e utilizza Fascino o Bacio prosciugante.
+
+_**Tocco immondo.**_ _Tiro per colpire in mischia:_ +7, portata
+1,5 m. _Colpito:_ 16 (2d10 + 5) danni psichici.
+
+_**Bacio prosciugante.**_ _Tiro salvezza su Costituzione:_
+CD 15, una creatura affascinata dalla succube entro
+1,5 metri. _Fallimento:_ 13 (3d8) danni psichici. _Successo:_
+danni dimezzati. _Fallimento o successo:_ i punti ferita
+massimi del bersaglio sono ridotti di un ammontare
+pari ai danni subiti.
+
+_**Fascino.**_ La succube lancia _dominare persone_ (di
+8º livello), senza bisogno di componenti e utilizzando
+Carisma come caratteristica da incantatore (CD del tiro
+salvezza sull'incantesimo 15).
+
+Azioni bonus
+
+_**Mutaforma.**_ La succube si trasforma in un umanoide
+di taglia Media o Piccola, oppure ritorna alla sua vera
+forma. Le sue statistiche di gioco sono le stesse in ogni
+forma, a eccezione della velocità di volo disponibile
+solo nella sua vera forma. Nessun oggetto che indossa
+
+- trasporta viene trasformato.
+## **Tarrasque**
+### **Tarrasque**
+
+_Mostruosità Mastodontica (titano), senza allineamento_
+
+
+**CA** 25 **Iniziativa** +18 (28)
+**PF** 697 (34d20 + 340)
+**Velocità** 18 m, scalata 18 m, scavo 12 m
+
+
+**Abilità** Percezione +9
+**Resistenze** contundente, perforante, tagliente
+**Immunità** fuoco, veleno; affascinato, assordato,
+
+avvelenato, paralizzato, spaventato
+**Sensi** Percezione passiva 19; vista cieca 36 m
+**Lingue** nessuna
+**GS** 30 (PE 155.000; BC +9)
+
+Tratti
+
+_**Carapace riflettente.**_ Se il tarrasque è bersagliato da
+un incantesimo _dardo incantato_ - un incantesimo
+che richiede un tiro per colpire a distanza, tira 1d6.
+Con un risultato di **1–5**, il tarrasque non subisce alcun
+effetto. Con un risultato di **6**, il tarrasque non subisce
+
+
+
+
+alcun effetto e riflette l'incantesimo contro l'incantatore, rendendolo il suo bersaglio.
+
+_**Mostro da assedio.**_ Il tarrasque infligge danni doppi
+a oggetti e strutture.
+
+_**Resistenza alla magia.**_ Il tarrasque dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
+
+_**Resistenza leggendaria (6/giorno).**_ Se il tarrasque
+fallisce un tiro salvezza, può scegliere di superarlo
+comunque.
+
+Azioni
+
+_**Multiattacco.**_ Il tarrasque effettua un attacco Morso
+e altri tre attacchi, usando Artiglio o Coda in qualsiasi
+combinazione.
+
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +19, portata 4,5 m.
+_Colpito:_ 28 (4d8 + 10) danni taglienti.
+
+_**Coda.**_ _Tiro per colpire in mischia:_ +19, portata 9 m. _Col-_
+_pito:_ 23 (3d8 + 10) danni contundenti. Se il bersaglio è
+una creatura di taglia Enorme o inferiore, cade a terra
+prono.
+
+_**Morso.**_ _Tiro per colpire in mischia:_ +19, portata 4,5 m.
+_Colpito:_ 36 (4d12 + 10) danni perforanti, e il bersaglio è
+afferrato (CD 20 per sfuggire). Finché la presa perdura,
+il bersaglio è trattenuto e non può teletrasportarsi.
+
+_**Ruggito tonante (ricarica 5–6).**_ _Tiro salvezza su_
+_Costituzione:_ CD 27, ogni creatura e oggetto che non
+sia indossato o trasportato in un cono di 45 metri.
+_Fallimento:_ 78 (12d12) danni da tuono, e il bersaglio è
+assordato e spaventato fino al termine del proprio turno
+successivo. _Successo:_ danni dimezzati.
+
+Azioni bonus
+
+_**Inghiottire.**_ _Tiro salvezza su Forza:_ CD 27, una creatura
+di taglia Grande o inferiore afferrata dal tarrasque (può
+inghiottire fino a sei creature per volta). _Fallimento:_
+il bersaglio viene inghiottito e non è più afferrato. Una
+creatura inghiottita è accecata e trattenuta e non può
+teletrasportarsi, ha copertura totale contro attacchi
+e altri effetti al di fuori del tarrasque e subisce 56 (16d6)
+danni da acido all'inizio di ogni turno del tarrasque.
+
+Se il tarrasque subisce 60 o più danni in un singolo
+turno da una creatura al suo interno, deve superare
+un tiro salvezza su Costituzione con CD 20 alla fine di
+quel turno, altrimenti rigurgita tutte le creature inghiottite, ognuna delle quali cade a terra prona in uno spazio entro 3 metri dal tarrasque. Se il tarrasque muore,
+qualsiasi creatura inghiottita non è più trattenuta e può
+fuggire dal cadavere usando 6 metri di movimento,
+uscendo prona.
+
+
+**376** System Reference Document 5.2.1
+
+
+
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3. Subito dopo il turno di_
+_un'altra creatura, il tarrasque può consumare un utilizzo_
+_per effettuare una delle seguenti azioni. Il tarrasque_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
+
+_**Assalto brutale.**_ Il tarrasque si muove fino a metà della
+sua velocità ed effettua un attacco Artiglio e un attacco
+Coda.
+
+_**Movimento sismico.**_ Il tarrasque si muove fino alla
+sua velocità massima. Alla fine di questo movimento,
+crea un'onda d'urto istantanea in un'emanazione di
+18 metri di cui il tarrasque è il punto di origine. Le
+creature in quell'area perdono la concentrazione e, se
+sono di taglia Media o inferiore, cadono a terra prone.
+Il tarrasque non può ripetere quest'azione fino all'inizio
+del proprio turno successivo.
+## **Testuggine dragona**
+### **Testuggine dragona**
+
+_Drago Mastodontico, neutrale_
+
+
+**CA** 20 **Iniziativa** +6 (16)
+**PF** 356 (23d20 + 115)
+**Velocità** 6 m, nuoto 15 m
+
+
+**Resistenze** fuoco
+**Sensi** Percezione passiva 11; scurovisione 36 m
+**Lingue** Draconico, Primordiale (Aquan)
+**GS** 17 (PE 18.000; BC +6)
+
+Tratti
+
+_**Anfibio.**_ Il drago può respirare in aria e in acqua.
+
+Azioni
+
+_**Multiattacco.**_ La testuggine dragona effettua tre attacchi Morso. Può sostituire un attacco con un attacco
+Coda.
+
+_**Coda.**_ _Tiro per colpire in mischia:_ +13, portata 4,5 m.
+_Colpito:_ 18 (2d10 + 7) danni contundenti. Se il bersaglio è una creatura di taglia Enorme o inferiore, cade
+a terra prono.
+
+_**Morso.**_ _Tiro per colpire in mischia:_ +13, portata 4,5 m.
+_Colpito:_ 23 (3d10 + 7) danni perforanti più 7 (2d6)
+danni da fuoco. Trovarsi sott'acqua non conferisce
+alcuna resistenza contro questi danni da fuoco.
+
+_**Soffio di vapore (ricarica 5–6).**_ _Tiro salvezza su Costi-_
+_tuzione:_ CD 19, tutte le creature in un cono di 18 metri.
+_Fallimento:_ 56 (16d6) danni da fuoco. _Successo:_ danni
+dimezzati. _Fallimento o successo:_ trovarsi sott'acqua
+non conferisce alcuna resistenza contro questi danni
+da fuoco.
+
+
+
+
+## **Tigre mannara**
+### **Tigre mannara**
+
+_Mostruosità Media o Piccola (licantropo), neutrale_
+
+
+**CA** 12 **Iniziativa** +2 (12)
+**PF** 120 (16d8 + 48)
+**Velocità** 9 m, 12 m (solo in forma di tigre)
+
+
+**Abilità** Furtività +4, Percezione +5
+**Attrezzatura** arco lungo
+**Sensi** Percezione passiva 15; scurovisione 18 m
+**Lingue** Comune (non può parlare in forma di tigre)
+**GS** 4 (PE 1.100; BC +2)
+
+Azioni
+
+_**Multiattacco.**_ La tigre mannara effettua due attacchi,
+usando Graffio o Arco lungo in qualsiasi combinazione.
+Può sostituire un attacco con un attacco Morso.
+
+_**Graffio.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 10 (2d6 + 3) danni taglienti.
+
+_**Morso (solo in forma di tigre o ibrida).**_ _Tiro per colpire_
+_in mischia:_ +5, portata 1,5 m _Colpito:_ 12 (2d8 + 3)
+danni perforanti. Se il bersaglio è un umanoide, subisce
+il seguente effetto. _Tiro salvezza su Costituzione:_
+CD 13. _Fallimento:_ il bersaglio è maledetto. Se il bersaglio scende a 0 punti ferita, diventa una **tigre mannara**
+sotto il controllo del GM e ha 10 punti ferita. _Successo:_
+il bersaglio è immune alla maledizione della tigre mannara per 24 ore.
+
+_**Arco lungo (solo in forma umanoide o ibrida).**_ _Tiro_
+_per colpire a distanza:_ +4, gittata 45/180 m. _Colpito:_
+11 (2d8 + 2) danni perforanti.
+
+Azioni bonus
+
+_**Movimento predatorio (solo in forma di tigre o**_
+_**ibrida).**_ La tigre mannara si muove fino alla sua velocità
+massima senza provocare attacchi di opportunità. Alla
+fine di questo movimento, può effettuare l'azione di
+Nascondersi.
+
+_**Mutaforma.**_ La tigre mannara si trasforma in un ibrido
+umanoide-tigre di taglia Grande o in una tigre di taglia
+Grande, altrimenti torna alla sua forma originale di
+umanoide. Le sue statistiche di gioco, a eccezione della
+taglia, restano le stesse in ogni forma. Nessun oggetto
+che indossa o trasporta viene trasformato.
+
+
+**377** System Reference Document 5.2.1
+
+
+## **Topo mannaro**
+### **Topo mannaro**
+
+_Mostruosità Media o Piccola (licantropo), legale malvagio_
+
+
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 60 (11d8 + 11)
+**Velocità** 9 m, scalata 9 m
+
+
+**Abilità** Furtività +5, Percezione +4
+**Attrezzatura** balestra a mano
+**Sensi** Percezione passiva 14; scurovisione 18 m
+**Lingue** Comune (non può parlare in forma di topo)
+**GS** 2 (PE 450; BC +2)
+
+Azioni
+
+_**Multiattacco.**_ Il topo mannaro effettua due attacchi,
+usando Graffio o Balestra a mano in qualsiasi combinazione. Può sostituire un attacco con un attacco Morso.
+
+_**Graffio.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 6 (1d6 + 3) danni taglienti.
+
+_**Morso (solo in forma di topo o ibrida).**_ _Tiro per colpire_
+_in mischia:_ +5, portata 1,5 m _Colpito:_ 8 (2d4 + 3) danni
+perforanti. Se il bersaglio è un umanoide, subisce il
+seguente effetto. _Tiro salvezza su Costituzione:_ CD 11.
+_Fallimento:_ il bersaglio è maledetto. Se il bersaglio
+scende a 0 punti ferita, diventa un **topo mannaro** sotto
+il controllo del GM e ha 10 punti ferita. _Successo:_ il
+bersaglio è immune alla maledizione del topo mannaro
+per 24 ore.
+
+_**Balestra a mano (solo in forma umanoide o ibrida).**_
+_Tiro per colpire a distanza:_ +5, portata 9/36 m. _Colpito:_
+6 (1d6 + 3) danni perforanti.
+
+Azioni bonus
+
+_**Mutaforma.**_ Il topo mannaro si trasforma in un ibrido
+umanoide-topo di taglia Media o in un topo di taglia
+Piccola, altrimenti torna alla sua forma originale di
+umanoide. Le sue statistiche di gioco, a eccezione della
+taglia, restano le stesse in ogni forma. Nessun oggetto
+che indossa o trasporta viene trasformato.
+## **Treant**
+### **Treant**
+
+_Vegetale Enorme, caotico buono_
+
+
+**CA** 16 **Iniziativa** +3 (13)
+**PF** 138 (12d12 + 60)
+**Velocità** 9 m
+
+
+
+
+**Vulnerabilità** fuoco
+**Resistenze** contundente, perforante
+**Sensi** Percezione passiva 13
+**Lingue** Comune, Druidico, Elfico, Silvano
+**GS** 9 (PE 5.000; BC +4)
+
+Tratti
+
+_**Mostro da assedio.**_ Il treant infligge danni doppi a
+oggetti e strutture.
+
+Azioni
+
+_**Multiattacco.**_ Il treant effettua due attacchi Schianto.
+
+_**Schianto.**_ _Tiro per colpire in mischia:_ +10, portata
+1,5 m. _Colpito:_ 16 (3d6 + 6) danni contundenti.
+
+_**Proiettili di corteccia.**_ _Tiro per colpire a distanza:_ +10,
+gittata 54 m. _Colpito:_ 28 (4d10 + 6) danni perforanti.
+
+_**Animare alberi (1/giorno).**_ Il treant anima magicamente
+fino a due alberi nel suo campo visivo in un raggio di
+18 metri. Gli alberi usano la scheda delle statistiche del
+**treant**, fatta eccezione per i punteggi di Intelligenza e
+Carisma pari a 1; inoltre, non possono parlare e non
+possiedono quest'azione. L'albero svolge il suo turno
+subito dopo il treant, condivide lo stesso punteggio di
+iniziativa e gli obbedisce. Un albero resta animato per
+1 giorno o fino alla morte, finché non muore il treant
+
+      - finché non si trova a più di 36 metri da esso. Dopodiché, qualora possibile, l'albero mette radici.
+## **Troll**
+### **Troll**
+
+_Gigante Grande, caotico malvagio_
+
+
+**CA** 15 **Iniziativa** +1 (11)
+**PF** 94 (9d10 + 45)
+**Velocità** 9 m
+
+
+**Abilità** Percezione +5
+**Sensi** Percezione passiva 15; scurovisione 18 m
+**Lingue** Gigante
+**GS** 5 (PE 1.800; BC +3)
+
+Tratti
+
+_**Arti abominevoli (4/giorno).**_ Se il troll termina qualsiasi
+turno sanguinante e subisce più di 15 danni taglienti
+durante tale turno, uno dei suoi arti viene reciso, cade
+nello spazio del troll e diventa un **arto di troll** . L'arto
+svolge il suo turno subito dopo quello del troll. Il troll
+ha 1 livello di indebolimento per ogni arto mancante
+
+
+**378** System Reference Document 5.2.1
+
+
+
+e fa ricrescere gli arti la prossima volta che recupera
+punti ferita.
+
+_**Rigenerazione.**_ Il troll recupera 15 punti ferita all'inizio
+di ogni suo turno. Se il troll subisce danni da acido
+
+- fuoco, questo tratto non funziona all'inizio del suo
+turno successivo. Il troll muore solo se inizia il turno
+con 0 punti ferita e non si rigenera.
+
+Azioni
+
+_**Multiattacco.**_ Il troll effettua tre attacchi Squarcio.
+
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +7, portata 3 m.
+_Colpito:_ 11 (2d6 + 4) danni taglienti.
+
+Azioni bonus
+
+_**Carica.**_ Il troll si muove fino a metà della sua velocità in
+linea retta verso un nemico che è in grado di vedere.
+### **Arto di troll**
+
+_Gigante Piccolo, caotico malvagio_
+
+
+**CA** 13 **Iniziativa** +1 (11)
+**PF** 14 (4d6)
+**Velocità** 6 m
+
+
+**Sensi** Percezione passiva 9; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1/2 (PE 100; BC +2)
+
+Tratti
+
+_**Generare troll.**_ Stranamente, l'arto possiede gli stessi
+sensi di un troll integro. Se non viene distrutto entro
+24 ore, tira 1d12. Con un risultato di 12, l'arto diventa
+un **troll**, altrimenti avvizzisce e si decompone.
+
+_**Rigenerazione.**_ L'arto recupera 5 punti ferita all'inizio
+di ogni suo turno. Se l'arto subisce danni da acido
+
+- fuoco, questo tratto non funziona all'inizio del suo
+turno successivo. L'arto muore solo se inizia il suo turno
+con 0 punti ferita e non si rigenera.
+
+Azioni
+
+_**Squarcio.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 9 (2d4 + 4) danni taglienti.
+## **Uccello stigeo**
+### **Uccello stigeo**
+
+_Mostruosità Minuscola, senza allineamento_
+
+
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 5 (2d4)
+**Velocità** 3 m, volo 12 m
+
+
+
+
+**Sensi** Percezione passiva 9; scurovisione 18 m
+**Lingue** nessuna
+**GS** 1/8 (PE 25; BC +2)
+
+Azioni
+
+_**Proboscide.**_ _Tiro per colpire in mischia:_ +5, portata
+1,5 m _Colpito:_ 6 (1d6 + 3) danni perforanti, e l'uccello
+stigeo si avvinghia al bersaglio. Finché l'uccello stigeo
+è attaccato in questo modo non può effettuare attacchi
+Proboscide, e il bersaglio subisce 5 (2d4) danni necrotici all'inizio di ogni turno dell'uccello stigeo.
+
+L'uccello stigeo può staccarsi da solo utilizzando
+1,5 metri del suo movimento. Il bersaglio o una creatura entro 1,5 metri da esso può staccare l'uccello
+­stigeo con un'azione.
+## **Unicorno**
+### **Unicorno**
+
+_Celestiale Grande, legale buono_
+
+
+**CA** 12 **Iniziativa** +8 (18)
+**PF** 97 (13d10 + 26)
+**Velocità** 15 m
+
+
+**Immunità** veleno; affascinato, avvelenato, paralizzato
+**Sensi** Percezione passiva 13; scurovisione 18 m
+**Lingue** Celestiale, Elfico, Silvano; telepatia 36 m
+**GS** 5 (PE 1.800; BC +3)
+
+Tratti
+
+_**Resistenza alla magia**_ **.** L'unicorno dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
+
+_**Resistenza leggendaria (3/giorno).**_ Se l'unicorno fallisce
+un tiro salvezza, può scegliere di superarlo comunque.
+
+Azioni
+
+_**Multiattacco.**_ L'unicorno effettua un attacco Zoccoli
+e un attacco Corno radioso.
+
+_**Corno radioso.**_ _Tiro per colpire in mischia:_ +7, portata
+1,5 m. _Colpito:_ 9 (1d10 + 4) danni radiosi.
+
+_**Zoccoli.**_ _Tiro per colpire in mischia:_ +7, portata 1,5 m.
+_Colpito:_ 11 (2d6 + 4) danni contundenti.
+
+_**Incantesimi.**_ L'unicorno lancia uno dei seguenti
+incantesimi senza bisogno di componenti materiali,
+utilizzando Carisma come caratteristica da incantatore
+(CD del tiro salvezza sull'incantesimo 14):
+
+
+**379** System Reference Document 5.2.1
+
+
+
+**1/giorno ciascuno:** _Calmare emozioni_, _dissolvi il bene_
+
+_e il male_, _intralciare_, _parola del ritiro_, _passare senza_
+_tracce_
+**A volontà:** _Artificio druidico_, _individuazione del bene_
+
+_e del male_
+
+Azioni bonus
+
+_**Benedizione dell'unicorno (3/giorno).**_ L'unicorno tocca
+un'altra creatura col suo corno e lancia _cura ferite_
+
+- _ristorare inferiore_ su di essa, utilizzando la stessa
+caratteristica da incantatore di Incantesimi.
+
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3. Subito dopo il turno di_
+_un'altra creatura, l'unicorno può consumare un utilizzo per_
+_effettuare una delle seguenti azioni. L'unicorno recupera_
+_tutti gli utilizzi consumati all'inizio di ogni suo turno._
+
+_**Incornata in carica.**_ L'unicorno si muove fino a metà
+della sua velocità senza provocare attacchi di opportunità, ed effettua un attacco Corno radioso.
+
+_**Scudo luccicante.**_ L'unicorno prende di mira se stesso o
+una creatura che è in grado di vedere entro 18 metri da
+sé. Il bersaglio ottiene 10 (3d6) punti ferita temporanei,
+e la sua CA aumenta di 2 fino al termine del turno
+successivo dell'unicorno. L'unicorno non può ripetere
+quest'azione fino all'inizio del proprio turno successivo.
+## **Vampiri**
+### **Famiglio del vampiro**
+
+_Umanoide Medio o Piccolo, neutrale malvagio_
+
+
+**CA** 15 **Iniziativa** +5 (15)
+**PF** 65 (10d8 + 20)
+**Velocità** 9 m, scalata 9 m
+
+
+**Abilità** Furtività +7, Percezione +4, Persuasione +4
+**Resistenze** necrotico
+**Immunità** affascinato (tranne che dal suo padrone
+
+vampiro)
+**Attrezzatura** pugnali (10)
+**Sensi** Percezione passiva 14; scurovisione 18 m
+**Lingue** Comune più un'altra lingua
+**GS** 3 (PE 700; BC +2)
+
+Tratti
+
+_**Connessione vampirica.**_ Finché il famiglio e il suo
+padrone vampiro si trovano sullo stesso piano di
+esistenza, il vampiro può comunicare con il famiglio
+telepaticamente ed è in grado di percepire attraverso
+i sensi del famiglio.
+
+Azioni
+
+_**Multiattacco.**_ Il famiglio effettua due attacchi Pugnale
+ombroso.
+
+
+
+
+_**Pugnale ombroso.**_ _Tiro per colpire in mischia o a_
+_distanza:_ +5, portata 1,5 m o gittata 6/18 m _Colpito:_
+5 (1d4 + 3) danni perforanti più 7 (3d4) danni necrotici.
+Se il bersaglio viene ridotto a 0 punti ferita da questo
+attacco, diventa stabile ma è avvelenato per 1 ora.
+Finché è avvelenato, il bersaglio è anche paralizzato.
+
+Azioni bonus
+
+_**Agilità immortale.**_ Il famiglio effettua l'azione di Disimpegno o Scatto.
+### **Progenie vampirica**
+
+_Non morto Medio o Piccolo, neutrale malvagio_
+
+
+**CA** 16 **Iniziativa** +3 (13)
+**PF** 90 (12d8 + 36)
+**Velocità** 9 m
+
+
+**Abilità** Furtività +6, Percezione +3
+**Resistenze** necrotico
+**Sensi** Percezione passiva 13; scurovisione 18 m
+**Lingue** Comune più un'altra lingua
+**GS** 5 (PE 1.800; BC +3)
+
+Tratti
+
+**Acqua corrente.** Il vampiro subisce 20 danni da acido
+
+se termina il suo turno nell'acqua corrente.
+
+_**Debolezze dei vampiri.**_ Il vampiro ha le seguenti
+debolezze:
+
+**Luce del sole.** Il vampiro subisce 20 danni radiosi
+
+quando inizia il suo turno alla luce del sole. Finché è
+esposto alla luce del sole, subisce svantaggio a tiri per
+colpire e prove di caratteristica.
+
+_**Movimenti del ragno.**_ Il vampiro può scalare le
+superfici difficili, compresi i soffitti, senza effettuare
+una prova di caratteristica.
+
+**Paletto nel cuore.** Il vampiro viene distrutto se un'arma
+
+che infligge danni perforanti gli viene conficcata nel
+cuore mentre è incapacitato.
+**Proibizione.** Il vampiro non può entrare in casa di qual
+cuno se non viene invitato da chi vi risiede.
+
+Azioni
+
+_**Multiattacco.**_ Il vampiro effettua due attacchi Artiglio
+e usa Morso.
+
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 8 (2d4 + 3) danni taglienti. Se il bersaglio è una
+creatura di taglia Media o inferiore, è afferrato (CD 13
+per sfuggire) da uno dei due artigli.
+
+_**Morso.**_ _Tiro salvezza su Costituzione:_ CD 14, una
+creatura entro 1,5 metri che sia consenziente, afferrata,
+incapacitata o trattenuta. _Fallimento:_ 5 (1d4 + 3) danni
+perforanti più 10 (3d6) danni necrotici. I punti ferita
+
+
+**380** System Reference Document 5.2.1
+
+
+
+massimi del bersaglio sono ridotti di un ammontare
+pari ai danni necrotici subiti, e il vampiro recupera
+punti ferita pari a quell'ammontare.
+
+Azioni bonus
+
+_**Agilità immortale.**_ Il vampiro effettua l'azione di Disimpegno o Scatto.
+### **Vampiro**
+
+_Non morto Medio o Piccolo, legale malvagio_
+
+
+**CA** 16 **Iniziativa** +14 (24)
+**PF** 195 (23d8 + 92)
+**Velocità** 12 m, scalata 12 m
+
+
+**Abilità** Furtività +9, Percezione +7
+**Resistenze** necrotico
+**Sensi** Percezione passiva 17; scurovisione 36 m
+**Lingue** Comune più altre due lingue
+**GS** 13 (PE 10.000, o 11.500 nella tana; BC +5)
+
+Tratti
+
+**Acqua corrente.** Il vampiro subisce 20 danni da acido
+
+se termina il suo turno nell'acqua corrente.
+
+_**Debolezze dei vampiri.**_ Il vampiro ha le seguenti
+debolezze:
+
+_**Fuga nebbiosa.**_ Se il vampiro scende a 0 punti ferita
+al di fuori del suo luogo di riposo, usa Mutaforma
+per trasformarsi in nebbia (nessuna azione richiesta).
+Se non può usare Mutaforma, viene distrutto.
+
+Finché ha 0 punti ferita in forma nebbiosa, non può
+tornare alla forma di vampiro e deve raggiungere il suo
+luogo di riposo entro 2 ore, altrimenti viene distrutto.
+Una volta raggiunto il luogo di riposo, torna alla forma
+di vampiro ed è paralizzato finché non recupera un
+qualsiasi numero di punti ferita; recupera 1 punto ferita
+una volta trascorsa 1 ora in questo stato.
+
+**Luce del sole.** Il vampiro subisce 20 danni radiosi
+
+quando inizia il suo turno alla luce del sole. Finché è
+esposto alla luce del sole, subisce svantaggio a tiri per
+colpire e prove di caratteristica.
+
+_**Movimenti del ragno.**_ Il vampiro può scalare le superfici difficili, compresi i soffitti, senza effettuare una
+prova di caratteristica.
+
+**Paletto nel cuore.** Se un'arma che infligge danni perfo
+ranti gli viene conficcata nel cuore mentre è incapacitato nel suo luogo di riposo, il vampiro è paralizzato
+finché non viene rimossa l'arma.
+**Proibizione.** Il vampiro non può entrare in casa di qual
+cuno se non viene invitato da chi vi risiede.
+
+
+
+
+_**Resistenza leggendaria (3/giorno o 4/giorno nella**_
+_**tana).**_ Se il vampiro fallisce un tiro salvezza, può scegliere di superarlo comunque.
+
+Azioni
+
+_**Multiattacco (solo in forma di vampiro).**_ Il vampiro
+effettua due attacchi Colpo tombale e usa Morso.
+
+_**Colpo tombale (solo in forma di vampiro).**_ _Tiro per col-_
+_pire in mischia:_ +9, portata 1,5 m. _Colpito:_ 8 (1d8 + 4)
+danni contundenti più 7 (2d6) danni necrotici. Se il bersaglio è una creatura di taglia Grande o inferiore, è
+afferrato (CD 14 per sfuggire) da una delle due mani.
+
+_**Morso (solo in forma di pipistrello o vampiro).**_ _Tiro_
+_salvezza su Costituzione:_ CD 17, una creatura entro
+1,5 metri che sia consenziente, afferrata, incapacitata
+
+      - trattenuta. _Fallimento:_ 6 (1d4 + 4) danni perforanti
+più 13 (3d8) danni necrotici. I punti ferita massimi del
+bersaglio sono ridotti di un ammontare pari ai danni
+necrotici subiti, e il vampiro recupera punti ferita pari
+a quell'ammontare. Un umanoide ridotto a 0 punti
+ferita da questi danni e poi sepolto, risorge al tramonto
+seguente in forma di **progenie vampirica** controllata
+dal vampiro.
+
+Azioni bonus
+
+_**Fascino (ricarica 5–6).**_ Il vampiro lancia _charme su_
+_persone_, senza bisogno di componenti e utilizzando
+Carisma come caratteristica da incantatore (CD del
+tiro salvezza sull'incantesimo 17), con una durata di
+24 ore. Il bersaglio affascinato si presta di suo spontanea volontà a Morso del vampiro; i danni subiti non
+pongono fine all'incantesimo. Al termine dell'incantesimo, il bersaglio non sa di essere stato affascinato dal
+vampiro.
+
+_**Mutaforma.**_ Se il vampiro non è alla luce del sole o in
+acqua corrente, si trasforma in un pipistrello di taglia
+Minuscola (velocità 1,5 metri, volo 9 metri) o una
+nube di nebbia di taglia Media (velocità 1,5 metri, volo
+6 metri [fluttuare]), oppure torna alla forma di vampiro.
+Qualsiasi cosa indossi, si trasforma insieme a lui.
+
+Finché è in forma di pipistrello, il vampiro non può
+parlare. Le sue statistiche di gioco, a eccezione della
+taglia e della velocità, non cambiano.
+
+Finché è in forma di nebbia, il vampiro non può effettuare alcuna azione, né parlare o manipolare oggetti.
+Non ha peso e può entrare nello spazio di un nemico
+e fermarvisi. Inoltre, se l'aria può passare attraverso uno
+spazio, anche la nebbia può farlo, ma non può attraversare l'acqua. È resistente a tutti i danni, eccetto quelli
+subiti dalla luce del sole.
+
+
+**381** System Reference Document 5.2.1
+
+
+
+Azioni leggendarie
+_Utilizzi di azioni leggendarie: 3 (4 nella tana). Subito dopo_
+_il turno di un'altra creatura, il vampiro può consumare un_
+_utilizzo per effettuare una delle seguenti azioni. Il vampiro_
+_recupera tutti gli utilizzi consumati all'inizio di ogni suo_
+_turno._
+
+_**Colpo immortale.**_ Il vampiro si muove fino a metà della
+sua velocità, ed effettua un attacco Colpo tombale.
+
+_**Incantare.**_ Il vampiro lancia _comando_ senza bisogno di
+componenti, utilizzando Carisma come caratteristica da
+incantatore (CD del tiro salvezza sull'incantesimo 17).
+Il vampiro non può ripetere quest'azione fino all'inizio
+del proprio turno successivo.
+## **Vegetali risvegliati**
+### **Albero risvegliato**
+
+_Vegetale Enorme, neutrale_
+
+
+**CA** 13 **Iniziativa** −2 (8)
+**PF** 59 (7d12 + 14)
+**Velocità** 6 m
+
+
+**Vulnerabilità** fuoco
+**Resistenze** contundente, perforante
+**Sensi** Percezione passiva 10
+**Lingue** Comune più un'altra lingua
+**GS** 2 (PE 450; BC +2)
+
+Azioni
+
+_**Schianto.**_ _Tiro per colpire in mischia:_ +6, portata 3 m.
+_Colpito:_ 14 (3d6 + 4) danni contundenti.
+### **Cespuglio risvegliato**
+
+_Vegetale Piccolo, neutrale_
+
+
+**CA** 9 **Iniziativa** −1 (9)
+**PF** 10 (3d6)
+**Velocità** 6 m
+
+
+**Vulnerabilità** fuoco
+**Resistenze** perforante
+**Sensi** Percezione passiva 10
+**Lingue** Comune più un'altra lingua
+**GS** 0 (PE 10; BC +2)
+
+Azioni
+
+_**Graffiare.**_ _Tiro per colpire in mischia:_ +1, portata 1,5 m
+_Colpito:_ 1 danno tagliente.
+
+
+
+
+## **Verme purpureo**
+### **Verme purpureo**
+
+_Mostruosità Mastodontica, senza allineamento_
+
+
+**CA** 18 **Iniziativa** +3 (13)
+**PF** 247 (15d20 + 90)
+**Velocità** 15 m, scavo 15 m
+
+
+**Sensi** Percezione passiva 9; percezione tellurica 18 m,
+
+vista cieca 9 m
+**Lingue** nessuna
+**GS** 15 (PE 13.000; BC +5)
+
+Tratti
+
+_**Scavatore di tunnel.**_ Il verme può scavare attraverso
+la roccia solida a metà della sua velocità di scavo,
+formando un tunnel del diametro di 3 metri.
+
+Azioni
+
+_**Multiattacco.**_ Il verme effettua un attacco Morso
+e un attacco Pungiglione caudale.
+
+_**Morso.**_ _Tiro per colpire in mischia:_ +14, portata 3 m.
+_Colpito:_ 22 (3d8 + 9) danni perforanti. Se il bersaglio
+è una creatura di taglia Grande o inferiore, è afferrato
+(CD 19 per sfuggire), ed è trattenuto finché la presa
+perdura.
+
+_**Pungiglione caudale.**_ _Tiro per colpire in mischia:_ +14,
+portata 3 m. _Colpito:_ 16 (2d6 + 9) danni perforanti più
+35 (10d6) danni da veleno.
+
+Azioni bonus
+
+_**Inghiottire.**_ _Tiro salvezza su Forza:_ CD 19, una creatura
+di taglia Grande o inferiore afferrata dal verme (può
+inghiottire fino a tre creature alla volta). _Fallimento:_
+il bersaglio viene inghiottito dal verme, e non è più
+afferrato. Una creatura inghiottita è accecata e trattenuta, beneficia di copertura totale contro gli attacchi
+e altri effetti al di fuori del verme, e subisce 17 (5d6)
+danni da acido all'inizio di ogni turno del verme.
+
+Se il verme subisce 30 o più danni in un singolo turno
+da una creatura al suo interno, deve superare un tiro
+salvezza su Costituzione con CD 21 alla fine di quel
+turno, altrimenti rigurgita tutte le creature inghiottite,
+ognuna delle quali cade a terra prona in uno spazio
+entro 1,5 metri dal verme. Se il verme muore, qualsiasi
+creatura inghiottita non è più trattenuta e può fuggire
+dal cadavere usando 6 metri di movimento, uscendo
+prona.
+
+
+**382** System Reference Document 5.2.1
+
+
+## **Viverna**
+### **Viverna**
+
+_Drago Grande, senza allineamento_
+
+
+**CA** 14 **Iniziativa** +0 (10)
+**PF** 127 (15d10 + 45)
+**Velocità** 9 m, volo 24 m
+
+
+**Abilità** Percezione +4
+**Sensi** Percezione passiva 14; scurovisione 36 m
+**Lingue** nessuna
+**GS** 6 (PE 2.300; BC +3)
+
+Azioni
+
+_**Multiattacco.**_ La viverna effettua un attacco Morso
+e un attacco Pungiglione.
+
+_**Morso.**_ _Tiro per colpire in mischia:_ +7, portata 1,5 m.
+_Colpito:_ 13 (2d8 + 4) danni perforanti.
+
+_**Pungiglione.**_ _Tiro per colpire in mischia:_ +7, portata
+3 m. _Colpito:_ 11 (2d6 + 4) danni perforanti più 24 (7d6)
+danni da veleno, e il bersaglio è avvelenato fino all'inizio del turno successivo della viverna.
+## **Vrock**
+### **Vrock**
+
+_Immondo Grande (demone), caotico malvagio_
+
+
+**CA** 15 **Iniziativa** +2 (12)
+**PF** 152 (16d10 + 64)
+**Velocità** 12 m, volo 18 m
+
+
+**Resistenze** freddo, fulmine, fuoco
+**Immunità** veleno; avvelenato
+**Sensi** Percezione passiva 11; scurovisione 36 m
+**Lingue** Abissale; telepatia 36 m
+**GS** 6 (PE 2.300; BC +3)
+
+Tratti
+
+_**Resistenza alla magia.**_ Il vrock dispone di vantaggio
+ai tiri salvezza contro incantesimi e altri effetti magici.
+
+_**Ristoro demoniaco.**_ Se il vrock muore al di fuori
+­dell'Abisso, il suo corpo si dissolve diventando icore
+ed esso ne acquisisce uno nuovo all'istante, tornando
+in vita con tutti i suoi punti ferita da qualche parte
+­nell'Abisso.
+
+Azioni
+
+_**Multiattacco.**_ Il vrock effettua due attacchi
+Sbrandellare.
+
+
+
+
+_**Sbrandellare.**_ _Tiro per colpire in mischia:_ +6, portata
+1,5 m _Colpito:_ 10 (2d6 + 3) danni perforanti più
+10 (3d6) danni da veleno.
+
+_**Spore (ricarica 6).**_ _Tiro salvezza su Costituzione:_
+CD 15, tutte le creature in un'emanazione di 6 metri di
+cui il vrock è il punto di origine. _Fallimento:_ il bersaglio
+è avvelenato e ripete il tiro salvezza alla fine del suo
+turno successivo e, se lo supera, l'effetto svanisce.
+Finché è avvelenato, il bersaglio subisce 5 (1d10) danni
+da veleno all'inizio di ogni suo turno. L'effetto termina
+anticipatamente svuotandogli addosso un'ampolla di
+acqua santa.
+
+_**Stridio stordente (1/giorno).**_ _Tiro salvezza su Costitu-_
+_zione:_ CD 15, tutte le creature in un'emanazione di
+6 metri di cui il vrock è il punto di origine (i demoni
+superano automaticamente il tiro). _Fallimento:_ 10 (3d6)
+danni da tuono, e il bersaglio è stordito fino al termine
+del turno successivo del vrock.
+## **Wight**
+### **Wight**
+
+_Non morto Medio, neutrale malvagio_
+
+
+**CA** 14 **Iniziativa** +4 (14)
+**PF** 82 (11d8 + 33)
+**Velocità** 9 m
+
+
+**Abilità** Furtività +4, Percezione +3
+**Resistenze** necrotico
+**Immunità** veleno; avvelenato, indebolimento
+**Attrezzatura** armatura di cuoio borchiato
+**Sensi** Percezione passiva 13; scurovisione 18 m
+**Lingue** Comune più un'altra lingua
+**GS** 3 (PE 700; BC +2)
+
+Tratti
+
+_**Sensibilità al sole.**_ Finché è esposto alla luce del sole,
+il wight subisce svantaggio alle prove di caratteristica
+e ai tiri per colpire.
+
+Azioni
+
+_**Multiattacco.**_ Il wight effettua due attacchi, usando
+Spada necrotica o Arco necrotico in qualsiasi combinazione. Può sostituire un attacco con un utilizzo di
+Risucchio di vita.
+
+_**Spada necrotica.**_ _Tiro per colpire in mischia:_ +4,
+portata 1,5 m _Colpito:_ 6 (1d8 + 2) danni taglienti più
+4 (1d8) danni necrotici.
+
+_**Arco necrotico.**_ _Tiro per colpire a distanza:_ +4, gittata
+45/180 m. _Colpito:_ 6 (1d8 + 2) danni perforanti più
+4 (1d8) danni necrotici.
+
+
+**383** System Reference Document 5.2.1
+
+
+
+_**Risucchio di vita.**_ _Tiro salvezza su Costituzione:_ CD 13,
+una creatura entro 1,5 metri. _Fallimento:_ 6 (1d8 + 2)
+danni necrotici, e i punti ferita massimi del bersaglio
+sono ridotti di un ammontare pari ai danni subiti.
+
+Un umanoide ucciso da questo attacco si anima
+24 ore dopo come **zombi** sotto il controllo del wight,
+a meno che l'umanoide non sia riportato in vita o il suo
+corpo non venga distrutto. Il wight non può controllare
+più di dodici zombi simultaneamente.
+## **Worg**
+### **Worg**
+
+_Folletto Grande, neutrale malvagio_
+
+
+**CA** 13 **Iniziativa** +1 (11)
+**PF** 26 (4d10 + 4)
+**Velocità** 15 m
+
+
+**Abilità** Percezione +4
+**Sensi** Percezione passiva 14; scurovisione 18 m
+**Lingue** Goblin, Worg
+**GS** 1/2 (PE 100; BC +2)
+
+Azioni
+
+_**Morso.**_ _Tiro per colpire in mischia:_ +5, portata 1,5 m
+_Colpito:_ 7 (1d8 + 3) danni perforanti, e il tiro per colpire
+successivo effettuato contro il bersaglio prima dell'inizio del turno successivo del worg dispone di vantaggio.
+## **Wraith**
+### **Wraith**
+
+_Non morto Medio o Piccolo, neutrale malvagio_
+
+
+**CA** 13 **Iniziativa** +3 (13)
+**PF** 67 (9d8 + 27)
+**Velocità** 1,5 m, volo 18 m (fluttuare)
+
+
+**Resistenze** acido, contundente, freddo, fuoco, perforante,
+
+tagliente
+**Immunità** necrotico, veleno; affascinato, afferrato,
+
+avvelenato, indebolimento, paralizzato, pietrificato,
+privo di sensi, prono, trattenuto
+**Sensi** Percezione passiva 12; scurovisione 18 m
+**Lingue** Comune più altre due lingue
+**GS** 5 (PE 1.800; BC +3)
+
+Tratti
+
+_**Movimento incorporeo.**_ Il wraith può muoversi
+attraverso altre creature e oggetti come se fossero
+terreno difficile. Se termina il suo turno all'interno di
+un oggetto, subisce 5 (1d10) danni da forza.
+
+
+
+
+_**Sensibilità al sole.**_ Finché è esposto alla luce del sole,
+il wraith subisce svantaggio alle prove di caratteristica
+e ai tiri per colpire.
+
+Azioni
+
+_**Risucchio di vita.**_ _Tiro per colpire in mischia:_ +6,
+portata 1,5 m. _Colpito:_ 21 (4d8 + 3) danni necrotici.
+Se il bersaglio è una creatura, i suoi punti ferita massimi
+sono ridotti di una quantità pari ai danni subiti.
+
+_**Creare spettro.**_ Il wraith bersaglia il cadavere di un
+umanoide situato entro 3 metri da sé che non abbia
+perso la vita da più di 1 minuto. Lo spirito del bersaglio
+si anima come **spettro** nello spazio del suo cadavere
+
+      - nello spazio libero più vicino. Lo spettro è sotto
+il controllo del wraith. Il wraith non può controllare più
+di sette spettri simultaneamente.
+## **Xorn**
+### **Xorn**
+
+_Elementale Medio, neutrale_
+
+
+**CA** 19 **Iniziativa** +0 (10)
+**PF** 84 (8d8 + 48)
+**Velocità** 6 m, scavo 6 m
+
+
+**Abilità** Furtività +6, Percezione +6
+**Immunità** veleno; avvelenato, paralizzato, pietrificato
+**Sensi** Percezione passiva 16; percezione tellurica 18 m,
+
+scurovisione 18 m
+**Lingue** Primordiale (Terran)
+**GS** 5 (PE 1.800; BC +3)
+
+Tratti
+
+_**Percezione dei tesori.**_ Lo xorn può individuare la posizione di pietre e metalli preziosi entro 18 metri da sé.
+
+_**Scivolare nella terra.**_ Lo xorn può scavare attraverso
+la terra e la pietra non magiche e non lavorate, senza
+disturbare il materiale attraverso cui si muove.
+
+Azioni
+
+_**Multiattacco.**_ Lo xorn effettua un attacco Morso e tre
+attacchi Artiglio.
+
+_**Artiglio.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 8 (1d10 + 3) danni taglienti.
+
+_**Morso.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 17 (4d6 + 3) danni perforanti.
+
+Azioni bonus
+
+_**Carica.**_ Lo xorn si muove fino al massimo della sua
+velocità o velocità di scavo in linea retta verso un
+nemico che è in grado di percepire.
+
+
+**384** System Reference Document 5.2.1
+
+
+## **Zombi**
+### **Zombi**
+
+_Non morto Medio, neutrale malvagio_
+
+
+**CA** 8 **Iniziativa** –2 (8)
+**PF** 15 (2d8 + 6)
+**Velocità** 6 m
+
+
+**Immunità** veleno; avvelenato, indebolimento
+**Sensi** Percezione passiva 8; scurovisione 18 m
+**Lingue** capisce il Comune più un'altra lingua ma non
+
+le parla
+**GS** 1/4 (PE 50; BC +2)
+
+Tratti
+
+_**Tempra dei non morti.**_ Se i danni riducono lo zombi
+a 0 punti ferita, esso effettua un tiro salvezza su
+Costituzione (CD pari a 5 più i danni subiti), a meno
+che non si tratti di danni radiosi o di un colpo critico.
+In caso di successo, scende invece a 1 punto ferita.
+
+Azioni
+
+_**Schianto.**_ _Tiro per colpire in mischia:_ +3, portata 1,5 m
+_Colpito:_ 5 (1d8 + 1) danni contundenti.
+### **Zombi ogre**
+
+_Non morto Grande, neutrale malvagio_
+
+
+**CA** 8 **Iniziativa** −2 (8)
+**PF** 85 (9d10 + 36)
+**Velocità** 9 m
+
+
+**Immunità** veleno; avvelenato, indebolimento
+**Sensi** Percezione passiva 8; scurovisione 18 m
+**Lingue** capisce il Comune e il Gigante ma non li parla
+**GS** 2 (PE 450; BC +2)
+
+Tratti
+
+_**Tempra dei non morti.**_ Se i danni riducono lo zombi
+a 0 punti ferita, esso effettua un tiro salvezza su
+Costituzione (CD pari a 5 più i danni subiti), a meno
+che non si tratti di danni radiosi o di un colpo critico.
+In caso di successo, scende invece a 1 punto ferita.
+
+Azioni
+
+_**Schianto.**_ _Tiro per colpire in mischia:_ +6, portata 1,5 m.
+_Colpito:_ 13 (2d8 + 4) danni contundenti.
+
+
+

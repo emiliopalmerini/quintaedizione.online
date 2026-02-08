@@ -1,537 +1,756 @@
+# Equipaggiamenti
 
-# Equipaggiamento
+**Equipaggiamento d'avventura**
 
-## Frecce (20) (1 mo)
+**Oggetto** **Peso** **Costo**
 
-Munizioni per armi che usano frecce. Confezione da 20. Conservate in una faretra.
+Abiti da viaggiatore 2 kg 2 mo
 
-**Peso:** 0,5 kg
+Abiti eleganti 3 kg 15 mo
 
-## Dardi (20) (1 mo)
+Acciarino e pietra focaia 0,5 kg 5 ma
 
-Munizioni per armi che usano quadrelli. Confezione da 20. Conservati in un astuccio.
+Acido 0,5 kg 25 mo
 
-**Peso:** 0,7 kg
+Acqua santa 0,5 kg 25 mo
 
-## Proiettili da fuoco (10) (3 mo)
+Ampolla 0,5 kg 2 mr
 
-Munizioni per armi da fuoco. Confezione da 10. Conservati in una sacca.
+Antitossina - 50 mo
 
-**Peso:** 0,9 kg
+Ariete portatile 17,5 kg 4 mo
 
-## Proiettili da fionda (20) (4 mr)
+Asta 3,5 kg 5 mr
 
-Munizioni per fionda. Confezione da 20. Conservati in una sacca.
+Attrezzi da scalatore 6 kg 25 mo
 
-**Peso:** 0,7 kg
+Barile 35 kg 2 mo
 
-## Aghi (50) (1 mo)
+Borsa 0,5 kg 5 ma
 
-Munizioni per armi che usano aghi. Confezione da 50. Conservati in una sacca.
+Borsa del guaritore 1,5 kg 5 mo
 
-**Peso:** 0,5 kg
+Borsa per componenti 1 kg 25 mo
 
-## Acido (25 mo)
+Bottiglia di vetro 1 kg 2 mo
 
-Azione Attacco → sostituisci un attacco lanciando una fiala entro 6 m. TS Des (CD 8 + mod Des + bonus competenza) fallito → 2d6 danni da acido.
+Brocca 2 kg 2 mr
 
-**Peso:** 0,5 kg
+Campanella - 1 mo
 
-## Fuoco dell’Alchimista (50 mo)
+Candela - 1 mr
 
-Azione Attacco → sostituisci un attacco lanciando una fiasca entro 6 m. TS Des fallito → 1d4 danni da fuoco e condizione Ardente (vedi Glossario).
+Cannocchiale 0,5 kg 1.000 mo
 
-**Peso:** 0,5 kg
+Carrucola e paranco 2,5 kg 1 mo
 
-## Antitossina (50 mo)
+Carta - 2 ma
 
-Azione Bonus → bevi una fiala. Per 1 ora hai vantaggio ai TS per evitare o terminare la condizione Avvelenato.
+Catena 5 kg 5 mo
 
----
+Cesto 1 kg 4 ma
 
-## Zaino (2 mo)
+Coperta 1,5 kg 5 ma
 
-Contiene fino a 15 kg in 0,03 m³. Può servire come bisaccia.
+Corda 2,5 kg 1 mo
 
-**Peso:** 2,3 kg
+Costume 2 kg 5 mo
 
-## Sfere di Metallo (1 mo)
 
-Azione Utilizzare: spargi sfere in 3 m² entro 3 m. TS Des CD 10 fallito → Prono. Recuperarle: 10 min.
 
-**Peso:** 0,9 kg
+**Oggetto** **Peso** **Costo**
 
-## Barile (2 mo)
+Fuoco dell'alchimista 0,5 kg 50 mo
 
-Contiene fino a 150 l liquidi o 0,1 m³ solidi.
+Giaciglio 3,5 kg 1 mo
 
-**Peso:** 32 kg
+Inchiostro - 10 mo
 
-## Cesto (4 ma)
+Lampada 0,5 kg 5 ma
 
-Contiene fino a 18 kg in 0,06 m³.
+Lanterna a lente sporgente 1 kg 10 mo
 
-**Peso:** 0,9 kg
+Lanterna schermabile 1 kg 5 mo
 
-## Sacco a pelo (1 mo)
+Lente d'ingrandimento - 100 mo
 
-Per dormire una creatura Piccola o Media. Protegge da freddo estremo.
+Libro 2,5 kg 25 mo
 
-**Peso:** 3,2 kg
+Manette 3 kg 2 mo
 
-## Campanella (1 mo)
+Mappa - 1 mo
 
-Azione Utilizzare: suonata → udibile fino a 18 m.
+Munizioni Variabile Variabile
 
----
+Olio 0,5 kg 1 ma
 
-## Coperta (5 ma)
 
-Avvolti in essa, vantaggio ai TS contro freddo estremo.
 
-**Peso:** 1,4 kg
+Otre 2,5 kg
+(pieno)
 
-## Carrucola (1 mo)
 
-Permette di sollevare fino a 4× il peso normale.
 
-**Peso:** 2,3 kg
+2 ma
 
-## Libro (25 mo)
 
-Contiene narrativa o saggistica. Consultarlo fornisce +5 a prove Int (Arcano, Storia, Natura, Religione) sul tema.
 
-**Peso:** 2,3 kg
+Custodia per mappe o
+pergamene
 
-## Bottiglia di vetro (2 mo)
+Custodia per quadrelli da
+balestra
 
-Contiene fino a 0,25 l.
 
-**Peso:** 0,9 kg
 
-## Secchio (5 mr)
+0,5 kg 1 mo
 
-Contiene fino a 0,015 m³.
 
-**Peso:** 0,9 kg
+0,5 kg 1 mo
 
-## Kit del Ladro (16 mo)
 
-Contiene: Zaino, Sfere, Campanella, 10 Candele, Piede di porco, Lanterna schermata, 7 fiasche d’Olio, 5 giorni Razioni, Corda, Acciarino, Otre.
 
-**Peso:** 19 kg
+Pala 2,5 kg 2 mo
 
-## Triboli (1 mo)
+Pennino - 2 mr
 
-Azione Utilizzare: spargi in 0,9 m² entro 1,5 m. TS Des CD 15 fallito → 1 danno perforante e velocità 0. Recupero: 10 min.
+Pentola di ferro 5 kg 2 mo
 
-**Peso:** 0,9 kg
+Pergamena - 1 ma
 
-## Candela (1 mr)
+Pergamena magica (livello 1) - 50 mo
 
-Brucia 1 h, luce intensa 1,5 m, fioca altri 1,5 m.
+Pergamena magica (trucchetto) - 30 mo
 
----
+_Piede di porco_ 2,5 kg 2 mo
 
-## Astuccio per dardi balestra (1 mo)
+Pozione di guarigione 0,25 kg 50 mo
 
-Contiene fino a 20 quadrelli.
+Profumo - 5 mo
 
-**Peso:** 0,5 kg
+Rampino 2 kg 2 mo
 
-## Astuccio per mappe o pergamene (1 mo)
+Razioni 1 kg 5 ma
 
-Contiene fino a 10 fogli di carta o 5 di pergamena.
+Rete 1,5 kg 1 mo
 
-**Peso:** 0,5 kg
+Sacco 0,25 kg 1 mr
 
-## Catena (5 mo)
+Scala a pioli 12,5 kg 1 ma
 
-Azione Utilizzare: legare creatura entro 1,5 m già Afferrata/Incapacitate/Immobilizzata. TS For/Athletics CD 20 per spezzarla, Des/Acrobazia CD 18 per liberarsi.  
+Secchio 1 kg 5 mr
 
-**Peso:** 4,5 kg
+Serratura 0,5 kg 10 mo
 
-## Scrigno (5 mo)
+Sfere metalliche 1 kg 1 mo
 
-Contiene fino a 0,34 m³.
+Simbolo sacro Variabile Variabile
 
-**Peso:** 11 kg
+Spago - 1 ma
 
-## Kit da scalata (25 mo)
+Specchio 0,25 kg 5 mo
 
-Include punte, guanti, chiodi, imbrago. Azione Utilizzare: ancorarsi → non si cade oltre 7,5 m dall’ancora.
+Spuntoni di ferro 2,5 kg 1 mo
 
-**Peso:** 5,4 kg
+Tagliola 12,5 kg 5 mo
 
-## Abiti eleganti (15 mo)
+Tenda 10 kg 2 mo
 
-Fatti di tessuti pregiati. Accesso richiesto in certi eventi.
+Torcia 0,5 kg 1 mr
 
-**Peso:** 2,7 kg
+Triboli 1 kg 1 mo
 
-## Abiti da viaggio (2 mo)
+Tunica 2 kg 1 mo
 
-Resistenti, adatti a viaggiare in ambienti vari.
+Veleno, base - 100 mo
 
-**Peso:** 1,8 kg
+Zaino 2,5 kg 2 mo
 
-## Sacchetto componenti (25 mo)
 
-Stagno, compartimenti con componenti materiali non costosi per incantesimi.
 
-**Peso:** 0,9 kg
+Dotazione da avventuriero 27,5 kg 12 mo
 
-## Costume (5 mo)
+Dotazione da diplomatico 19,5 kg 39 mo
 
-Indossandolo → vantaggio a prove di Inganno/Interpretare per impersonare.
+Dotazione da esploratore 27,5 kg 10 mo
 
-**Peso:** 1,8 kg
+Dotazione da intrattenitore 29 kg 40 mo
 
-## Piede di porco (2 mo)
+Dotazione da sacerdote 14 kg 33 mo
 
-Fornisce vantaggio a prove di Forza con leva.
+Dotazione da scassinatore 19 kg 16 mo
 
-**Peso:** 2,3 kg
+Dotazione da studioso 11 kg 40 mo
 
-## Kit del Diplomatico (39 mo)
+Faretra 0,5 kg 1 mo
 
-Contiene: Scrigno, Abiti eleganti, Inchiostro, 5 Penne, Lampada, 2 astucci mappe, 4 fiasche Olio, 5 fogli Carta, 5 Pergamene, Profumo, Acciarino.
+Fiala        - 1 mo
 
-**Peso:** 18 kg
+Fischietto da richiamo       - 5 mr
 
----
+Focus arcano Variabile Variabile
 
-## Focalizzatore druidico – Rametto di vischio (1 mo)
+Focus druidico Variabile Variabile
 
-Intagliato o decorato per incanalare magia primordiale. DruidI/Ranger lo usano come focalizzatore.
+Forziere 12,5 kg 5 mo
 
-**Peso:** —  
 
-## Focalizzatore druidico – Bastone di legno (5 mo)
+**108** System Reference Document 5.2.1
 
-Come sopra, può fungere da Bastone ferrato.
 
-**Peso:** 1,8 kg
 
-## Focalizzatore druidico – Bacchetta di tasso (10 mo)
 
-Come sopra.
+**Bottiglia di vetro (2 mo)**
+Una bottiglia di vetro ha una capacità di 0,75 litri.
 
-**Peso:** 0,5 kg
+**Brocca (2 mr)**
+Una brocca ha una capacità di 4 litri.
 
----
+**Campana (1 mo)**
+Come azione di Utilizzo, la campana può essere
+suonata affinché produca un suono udibile fino
+a 18 metri di distanza.
 
-## Kit da Esploratore di Dungeon (12 mo)
+**Candela (1 mr)**
+Per 1 ora, una candela accesa proietta luce intensa
+entro un raggio di 1,5 metri e luce fioca per altri
+1,5 metri.
 
-Contiene: Zaino, Triboli, Piede di porco, 2 fiasche Olio, 10 giorni Razioni, Corda, Acciarino, 10 Torce, Otre.
+**Cannocchiale (1.000 mo)**
+Gli oggetti osservati attraverso un cannocchiale
+appaiono grandi il doppio della loro taglia.
 
-**Peso:** 25 kg
+**Carrucola e paranco (1 mo)**
+Carrucola e paranco consentono al personaggio di
+sollevare fino a quattro volte il peso massimo che
+solleverebbe normalmente.
 
-## Kit dell’Intrattenitore (40 mo)
+**Carta (2 ma)**
+Un foglio di carta può contenere circa 250 parole
+scritte a mano.
 
-Contiene: Zaino, Sacco a pelo, Campanella, Lanterna a cono, 3 Costumi, Specchio, 8 fiasche Olio, 9 giorni Razioni, Acciarino, Otre.
+**Catena (5 mo)**
+Come azione di Utilizzo, se supera una prova di
+Forza (Atletica) con CD 13, il personaggio può
+avvolgere la catena attorno a una creatura non
+consenziente entro 1,5 metri da sé che sia afferrata,
+incapacitata o trattenuta. Se le vengono legate
+le gambe, sarà trattenuta finché non riuscirà
+a scappare. Per liberarsi dalla catena è necessario
+superare una prova di Destrezza (Acrobazia) con
+CD 18 con un'azione. Rompere la catena richiede
+il superamento di una prova di Forza (Atletica) con
+CD 20 con un'azione.
 
-**Peso:** 26,5 kg
+**Cesto (4 ma)**
+Un cesto può contenere fino a 20 chilogrammi entro
+2 cubi con spigolo di 30 centimetri.
 
-## Kit dell’Esploratore (10 mo)
+**Coperta (5 ma)**
+Finché il personaggio è avvolto dalla coperta,
+dispone di vantaggio ai tiri salvezza contro il freddo
+estremo (vedi "Strumenti per le modalità di gioco").
 
-Contiene: Zaino, Sacco a pelo, 2 fiasche Olio, 10 giorni Razioni, Corda, Acciarino, 10 Torce, Otre.
+**Corda (1 mo)**
+Come azione di Utilizzo, il personaggio può stringere un nodo con la corda se supera una prova di
+Destrezza (Rapidità di mano) con CD 10. La corda
+può essere spezzata superando una prova di Forza
+(Atletica) con CD 20.
 
-**Peso:** 25 kg
+Il personaggio può legare una creatura non
+consenziente con la corda solo se questa è afferrata,
+incapacitata o trattenuta. Se le vengono legate
 
----
 
-## Borraccia (2 mr)
+**109** System Reference Document 5.2.1
 
-Contiene fino a 0,5 l.
 
-**Peso:** 0,5 kg
 
-## Rampino (2 mo)
+le gambe, sarà trattenuta finché non riuscirà a scappare. Per liberarsi dalla corda è necessario superare
+una prova di Destrezza (Acrobazia) con CD 15 con
+un'azione.
 
-Azione Utilizzare: lancio entro 15 m, prova Des/Acrobazia CD 13 per agganciarlo. Con corda legata, si può arrampicare.
+**Costume (5 mo)**
+Quando il personaggio indossa un costume, dispone
+di vantaggio a qualsiasi prova di caratteristica
+effettuata per impersonare qualcuno o una specifica tipologia di persona.
 
-**Peso:** 1,8 kg
+**Custodia per mappe o pergamene (1 mo)**
+Una custodia per mappe o pergamene può contenere fino a 10 fogli di carta o 5 di pergamena.
 
-## Kit del Guaritore (5 mo)
+**Custodia per quadrelli da balestra (1 mo)**
+Una custodia per quadrelli da balestra può contenerne fino a 20 unità.
 
-10 usi. Azione Utilizzare: stabilizza creatura Incosciente a 0 PF senza prova.
+**Dotazione da avventuriero (12 mo)**
+Una dotazione da avventuriero contiene i seguenti
+oggetti: zaino, triboli, piede di porco, 2 ampolle di
+olio, 10 razioni giornaliere, corda, acciarino con
+pietra focaia, 10 torce e un otre.
 
-**Peso:** 1,4 kg
+**Dotazione da diplomatico (39 mo)**
+Una dotazione da diplomatico contiene i seguenti
+oggetti: forziere, abiti eleganti, inchiostro, 5 pennini, lampada, 2 custodie per mappe o pergamene,
+4 ampolle di olio, 5 fogli di carta, 5 fogli di pergamena, profumo e acciarino con pietra focaia.
 
----
+**Dotazione da esploratore (10 mo)**
+Una dotazione da esploratore contiene i seguenti
+oggetti: zaino, giaciglio, 2 ampolle di olio, 10 razioni
+giornaliere, corda, acciarino con pietra focaia,
+10 torce e un otre.
 
-## Simbolo Sacro – Amuleto (5 mo)
+**Dotazione da intrattenitore (40 mo)**
+Una dotazione da intrattenitore contiene i seguenti
+i oggetti: zaino, giaciglio, campana, lanterna a lente
+sporgente, 3 costumi, specchio, 8 ampolle di olio,
+9 razioni giornaliere e un otre.
 
-Decorato per incanalare magia divina. Usato come focalizzatore da Chierici/Paladini. Indossato al collo o in mano.
+**Dotazione da sacerdote (33 mo)**
+Una dotazione da sacerdote contiene i seguenti
+oggetti: zaino, coperta, acqua santa, lampada,
+7 razioni giornaliere, tunica e acciarino con pietra
+focaia.
 
-**Peso:** 0,5 kg
+**Dotazione da scassinatore (16 mo)**
+Una dotazione da scassinatore comprende
+i seguenti oggetti: zaino, sfere metalliche, campana,
+10 candele, piede di porco, lanterna schermabile,
+7 ampolle di olio, 5 razioni giornaliere, corda, acciarino con pietra focaia e un otre.
 
-## Simbolo Sacro – Emblema (5 mo)
+**Dotazione da studioso (40 mo)**
+Una dotazione da studioso contiene i seguenti
+oggetti: zaino, libro, inchiostro, pennino, lampada,
 
-Come sopra. Deve essere su stoffa o scudo.
 
-**Peso:** —  
 
-## Simbolo Sacro – Reliquiario (5 mo)
 
-Come sopra. Va tenuto in mano.
+10 ampolle di olio, 10 fogli di pergamena e acciarino
+con pietra focaia.
 
-**Peso:** 0,9 kg
+**Faretra (1 mo)**
+Una faretra può contenere fino a 20 frecce.
 
----
+**Fiala (1 mo)**
+Una fiala ha una capacità di 120 millilitri.
 
-## Acqua Santa (25 mo)
+**Fischietto da richiamo (5 mr)**
+Se il personaggio soffia al suo interno con un'azione
+di Utilizzo, il fischietto da richiamo produce un
+suono udibile fino a 180 metri di distanza.
 
-Azione Attacco: lancia una fiasca entro 6 m. TS Des fallito → 2d8 danni radianti (solo a Demoni o Non Morti).
+**Focus arcano (variabile)**
+Un focus arcano assume una delle forme elencate
+nella tabella Focus arcani, ed è adornato con gioielli
 
-**Peso:** 0,5 kg
+- intagliato affinché possa incanalare l'energia
+arcana. Un mago, uno stregone o un warlock può
+usare questo oggetto come focus da incantatore.
 
-## Trappola da caccia (5 mo)
 
-Azione Utilizzare: posiziona trappola a scatto. TS Des CD 13 fallito → 1d4 danni perforanti + velocità 0. Legata a catena (1 m). Si libera con prova Forza CD 13.
+**Focus arcani**
 
-**Peso:** 11 kg
+**Focus** **Peso** **Costo**
 
----
+Bacchetta 0,5 kg 10 mo
 
-## Inchiostro (10 mo)
 
-Boccetta da 30 ml. Scrive circa 500 pagine.
 
-## Penna (2 mr)
+personaggio), altrimenti subirà 1d4 danni da fuoco
+e sarà in fiamme (vedi "Glossario delle regole").
 
-Serve con inchiostro per scrivere o disegnare.
+**Giaciglio (1 mo)**
+Su un giaciglio può dormire una creatura di taglia
+Piccola o Media. Finché il personaggio si trova in
+un giaciglio, supera automaticamente i tiri salvezza
+contro il freddo estremo (vedi "Strumenti per le
+modalità di gioco").
 
-## Brocca (2 mr)
+**Inchiostro (10 mo)**
+L'inchiostro è reperibile in boccette da 30 grammi
+ciascuna, con abbastanza materiale per scrivere
+circa 500 pagine.
 
-Contiene fino a 4 l.
+**Lampada (5 ma)**
+Una lampada brucia olio per proiettare luce intensa
+in un raggio di 4,5 metri e luce fioca per ulteriori
+9 metri.
 
-**Peso:** 1,8 kg
+**Lanterna a lente sporgente (10 mo)**
+Una lanterna a lente sporgente sfrutta l'olio come
+combustibile per proiettare luce intensa in un cono
+di 18 metri e luce fioca per ulteriori 18 metri.
 
-## Scala (1 ma)
+**Lanterna schermabile (5 mo)**
+Una lanterna schermabile brucia olio per proiettare
+luce intensa in un raggio di 9 metri e luce fioca
+per ulteriori 9 metri. Come azione bonus, un personaggio può schermare la lanterna, riducendo la
+luce proiettata a luce fioca in un raggio di 1,5 metri
 
-Alta 3 m.
+- riaprirla.
 
-**Peso:** 11 kg
+**Lente d'ingrandimento (100 mo)**
+Una lente d'ingrandimento conferisce vantaggio
+a ogni prova di caratteristica effettuata per
+valutare o ispezionare un oggetto estremamente
+dettagliato. Per accendere un fuoco con la lente
+­d'ingrandimento è necessaria una luce da concentrare intensa quanto quella del sole, dei rametti
+da accendere e circa 5 minuti affinché il fuoco
+attecchisca.
 
-## Lampada (5 ma)
+**Libro (25 mo)**
+I libri possono contenere sia opere di finzione che
+di carattere divulgativo. Se il personaggio ne consulta uno che tratta di un determinato argomento,
+ottiene un bonus di +5 alle prove di Intelligenza
+(Arcano, Storia, Natura o Religione) eseguite su tale
+argomento.
 
-Brucia olio. Luce intensa 4,5 m, fioca 9 m.
+**Manette (2 mo)**
+Come azione di Utilizzo, se supera una prova di
+Destrezza (Rapidità di mano) con CD 13, il personaggio può usare le manette per bloccare una
+creatura non consenziente di taglia Piccola o Media
+entro 1,5 metri da sé che sia afferrata, incapacitata
 
-**Peso:** 0,5 kg
+- trattenuta. Mentre è ammanettata, la creatura
+ha svantaggio ai tiri per colpire ed è trattenuta se
+le manette sono attaccate a una catena o un gancio
 
-## Lanterna a cono (10 mo)
 
-Brucia olio. Luce intensa cono 18 m, fioca altri 18 m.
 
-**Peso:** 0,9 kg
+Bastone (anche bastone
+ferrato)
 
-## Lanterna schermata (5 mo)
 
-Brucia olio. Luce intensa 9 m, fioca 9 m. Azione Bonus: abbassare cappuccio → luce fioca 1,5 m.
 
-**Peso:** 0,9 kg
+2 kg 5 mo
 
-## Serratura (10 mo)
 
-Con chiave. Senza chiave → prova Des/Mani Veloci CD 15 con Strumenti da scasso.
 
-**Peso:** 0,5 kg
+Cristallo 0,5 kg 10 mo
 
----
+Globo 1,5 kg 20 mo
 
-## Lente d’ingrandimento (100 mo)
+Verga 1 kg 10 mo
 
-Vantaggio a prove per valutare/ispezionare. Per accendere fuoco serve sole diretto e 5 min.
 
-## Manette (2 mo)
+**Focus druidico (variabile)**
+Un focus druidico assume una delle forme indicate
+nella tabella Focus druidici ed è intagliato, legato
+con del nastro o dipinto per incanalare la magia primordiale. Un oggetto del genere è utilizzabile come
+focus da incantatore da un druido o un ranger.
 
-Azione Utilizzare: vincolare creatura Piccola/Media entro 1,5 m già Afferrata/Incapacitata. CD 20 Des/Mani Veloci per liberarsi. CD 25 Forza/Athletics per spezzarle.  
 
-**Peso:** 2,7 kg
+**Focus druidici**
 
-## Mappa (1 mo)
+**Focus** **Peso** **Costo**
 
-Consultarla → +5 a prove di Sag/Survival per orientarsi.
+Bacchetta in legno di tasso 0,5 kg 10 mo
 
-## Specchio (5 mo)
 
-In acciaio, portatile. Per cosmetici, sbirciare, riflettere luce.
 
-**Peso:** 0,2 kg
+Bastone di legno (anche bastone
+ferrato)
 
----
 
-## Rete (1 mo)
 
-Azione Attacco: lancia entro 4,5 m. TS Des fallito → Immobilizzato. Esca con Forza CD 10 o distruggendo la rete (CA 10, PF 5, immunità Contundenti/Veleno/Psichici).
+2 kg 5 mo
 
-**Peso:** 1,4 kg
 
-## Olio (1 ma)
 
-Può essere versato o usato come combustibile.  
-- **Creatura/Oggetto:** TS Des fallito → coperto d’olio, subisce +5 danni da fuoco se incendiato entro 1 min.  
-- **A terra:** copre 0,9 m², resta 12 s se incendiato.  
-- **Combustibile:** 1 fiasca brucia 6 h in lampada/lanterna.
+Rametto di vischio       - 1 mo
 
-**Peso:** 0,5 kg
 
-## Carta (2 ma)
+**Forziere (5 mo)**
+Un forziere ha una capacità di 12 cubi con spigolo di
+30 centimetri.
 
-Un foglio contiene circa 250 parole.
+**Fuoco dell'alchimista (50 mo)**
+Quando il personaggio effettua un'azione di Attacco,
+puoi sostituire uno dei suoi attacchi con il lancio di
+una ampolla di fuoco dell'alchimista. Può prendere
+di mira una creatura o un oggetto che egli è in grado
+di vedere entro 6 metri da sé. Il bersaglio deve superare un tiro salvezza su Destrezza (CD 8 più il modificatore di Destrezza e il bonus di competenza del
 
-## Pergamena (1 ma)
 
-Come la carta, 250 parole.
+**110** System Reference Document 5.2.1
 
-## Profumo (5 mo)
 
-Fiala 120 ml. Per 1 h dal suo uso → vantaggio a prove Car/Persuasione per influenzare umanoidi Indifferenti entro 1,5 m.
 
----
 
-## Veleno Base (100 mo)
+fissi in posizione. Per liberarsi è necessario superare una prova di Destrezza (Rapidità di mano) con
+CD 20 con un'azione. Per romperle bisogna invece
+superare una prova di Forza (Atletica) con CD 25
+con un'azione.
 
-Azione Bonus: unga un’arma o 3 munizioni. Entro 1 min, al primo colpo infliggono +1d4 danni da veleno.
+Ogni coppia di manette ha la sua chiave. Senza di
+essa, una creatura può scassinarne la serratura utilizzando gli arnesi da scasso e superando una prova
+di Destrezza (Rapidità di mano) con CD 15.
 
-## Palo (5 mr)
+**Mappa (1 mo)**
+Se il personaggio consulta una mappa accurata,
+ottiene un bonus di +5 alle prove di Saggezza
+(Sopravvivenza) effettuate per tracciare un percorso nel luogo che raffigura.
 
-Lungo 3 m. Usato per toccare a distanza o saltare (vantaggio a prove di Atletica per salti).
+**Munizioni (variabili)**
+Se un'arma possiede la proprietà munizioni, richiederà l'uso di munizioni. La tipologia è specificata
+nella descrizione dell'arma. La tabella Munizioni
+elenca i diversi tipi di munizioni e la quantità ottenuta con ogni acquisto, oltre all'oggetto utilizzato
+per conservarle (da acquistare separatamente).
 
-**Peso:** 3,2 kg
 
-## Pentola di ferro (2 mo)
+**Munizioni**
 
-Contiene fino a 4 l.
+**Tipo** **Quantità Conservazione** **Peso** **Costo**
 
-**Peso:** 4,5 kg
+Aghi 50 Borsa 0,5 kg 1 mo
 
----
+Frecce 20 Faretra 0,5 kg 1 mo
 
-## Pozione di guarigione (50 mo)
 
-Oggetto magico. Azione Bonus: bevi o somministri entro 1,5 m. Chi la beve recupera 2d4 + 2 PF.
 
-**Peso:** 0,2 kg
+Proiettili,
+arma da
+fuoco
 
-## Sacca (5 ma)
+Proiettili,
+fionda
 
-Contiene fino a 2,7 kg in 0,006 m³.
 
-**Peso:** 0,5 kg
 
-## Kit del Sacerdote (33 mo)
+10 Borsa 1 kg 3 mo
 
-Contiene: Zaino, Coperta, Acqua Santa, Lampada, 7 giorni Razioni, Veste, Acciarino.
 
-**Peso:** 13 kg
+20 Borsa 0,75 kg 4 mr
 
----
 
-## Faretra (1 mo)
 
-Contiene fino a 20 frecce.
+Quadrelli 20 Custodia 0,75 kg 1 mo
 
-**Peso:** 0,5 kg
 
-## Ariete portatile (4 mo)
+**Olio (1 ma)**
+Il personaggio può gettare olio su una creatura, un
+oggetto o un'area. In alternativa, può usarlo come
+combustibile, come descritto sotto.
 
-Usato per sfondare porte. +4 alle prove di Forza. Con aiuto → vantaggio.
+_**Gettare olio su una creatura o un oggetto.**_
+Quando il personaggio effettua un'azione di Attacco,
+puoi sostituire uno dei suoi attacchi con il lancio di
+un'ampolla di olio verso una creatura o un oggetto
+entro 6 metri da sé. Il bersaglio deve superare un
+tiro salvezza su Destrezza (CD 8 più il modificatore
+di Destrezza e il bonus di competenza del personaggio), altrimenti sarà coperto di olio. Se il bersaglio
+subisce danni da fuoco prima che l'olio si asciughi
+(dopo 1 minuto), subisce 5 danni da fuoco extra
+a causa dell'olio incendiato.
 
-**Peso:** 16 kg
+_**Gettare olio su una superficie.**_ Come azione di
+Utilizzo, il personaggio può versare un'ampolla di
+olio su una superficie piana per coprire una zona
+di 1,5 metri quadrati entro 1,5 metri da sé. Se incendiato, l'olio brucia per 2 round fino al termine del
+turno (o 12 secondi) e infligge 5 danni da fuoco
+a qualsiasi creatura entri in quell'area o finisca
 
-## Razioni (5 ma)
 
-Cibo da viaggio: carne secca, frutta secca, gallette, noci. (vedi Malnutrizione nel Glossario).
 
-**Peso:** 0,9 kg
+lì il suo turno. Una creatura può subire questi danni
+solo una volta per turno.
 
-## Veste (1 mo)
+_**Combustibile.**_ L'olio è utilizzabile come combustibile per lampade e lanterne. Una volta versata
+un'ampolla di olio in una lampada o una lanterna,
+questo brucerà per 6 ore. Tale durata non deve
+necessariamente essere consecutiva: è possibile
+spegnere il fuoco (come azione di Utilizzo) e riaccenderlo finché la durata totale della combustione
+non raggiunge le 6 ore.
 
-Abito con significato cerimoniale o professionale. Richiesto in alcuni eventi.
+**Otre (2 ma)**
+Un otre ha una capacità di 2 litri. Se il personaggio
+non beve abbastanza acqua, corre il rischio di disidratazione (vedi "Glossario delle regole").
 
-**Peso:** 1,8 kg
+**Pala (2 mo)**
+Se il personaggio impiega 1 ora di lavoro, può usare
+la pala per scavare una buca nel terreno di 1,5 metri
+per lato.
 
-## Corda (1 mo)
+**Pennino (2 mr)**
+Usando pennino e inchiostro è possibile scrivere
 
-Azione Utilizzare: annodare, prova Des CD 10. Può legare creature Afferrate/Incapaci. Liberarsi: Des CD 15. Spezzarla: Forza CD 20.
+- disegnare.
 
-**Peso:** 2,3 kg
+**Pentola di ferro (2 mo)**
+Una pentola di ferro ha una capacità di 4 litri.
 
-## Sacco (1 mr)
+**Pergamena (1 ma)**
+Un foglio di pergamena può contenere circa
+250 parole scritte a mano.
 
-Contiene fino a 15 kg in 0,03 m³.
+**Pergamena magica (trucchetto, 30 mo;**
+**livello 1, 50 mo)**
+Una _pergamena magica_ (trucchetto) o una _perga-_
+_mena magica_ (livello 1) sono oggetti magici contenenti rispettivamente le parole di un trucchetto
 
-**Peso:** 0,2 kg
+- un incantesimo di livello 1, che variano in base
+al volere del loro creatore. Se l'incantesimo è nella
+lista degli incantesimi della classe del personaggio,
+quest'ultimo può leggere la pergamena e lanciare
+l'incantesimo con il suo normale tempo di lancio
+e senza fornire componenti materiali.
 
----
+Se l'incantesimo richiede di effettuare un tiro
+salvezza o un tiro per colpire, la CD del tiro salvezza
+sull'incantesimo è 13, mentre il bonus di attacco
+è +5. Una volta terminato il lancio, la pergamena si
+disintegra.
 
-## Kit dello Studioso (40 mo)
+**Piede di porco (2 mo)**
+Utilizzando un piede di porco, il personaggio ottiene
+vantaggio alle prove di Forza in cui è possibile
+applicare la sua leva.
 
-Contiene: Zaino, Libro, Inchiostro, Penna, Lampada, 10 fiasche Olio, 10 pergamene, Acciarino.
+**Pozione di guarigione (50 mo)**
+Questa pozione è un oggetto magico. Come azione
+bonus, il personaggio può berne una o somministrarla a un'altra creatura entro 1,5 metri da sé.
+Chi beve il fluido magico rosso contenuto in questa
+fiala recupera 2d4 + 2 punti ferita.
 
-**Peso:** 10 kg
 
-## Pala (2 mo)
 
-Usata per scavare. In 1 h → buca 1,5 × 1,5 × 1,5 m.
+**111** System Reference Document 5.2.1
 
-**Peso:** 2,3 kg
 
-## Fischietto (5 mr)
 
-Azione Utilizzare: udibile fino a 180 m.
 
----
+**Profumo (5 mo)**
+I profumi sono disponibili in ampolle con capacità
+di 120 millilitri. Dopo che il personaggio ha applicato su di sé il profumo, per 1 ora avrà vantaggio
+alle prove di Carisma (Persuasione) effettuate
+per influenzare un umanoide indifferente entro
+1,5 metri da sé.
 
-## Pergamena d’Incantesimo (Trucchetto 30 mo; 1° livello 50 mo)
+**Rampino (2 mo)**
+Come azione di Utilizzo, il personaggio può lanciare
+il rampino verso una ringhiera, una sporgenza o un
+altro appiglio entro 15 metri da sé. Per far sì che
+il gancio faccia presa è necessario superare una
+prova di Destrezza (Acrobazia) con CD 13. Se al gancio viene legata una corda, è possibile arrampicarsi.
 
-Oggetto magico. Se l’incantesimo è nella tua lista, puoi lanciarlo leggendo la pergamena. CD TS 13, bonus attacco +5. Una volta usata, si disintegra.
+**Razioni (5 ma)**
+Le razioni sono composte da cibo da viaggio,
+come carne secca, frutta secca, gallette e noci.
+Per scoprire i rischi del digiuno, consulta la sezione
+"Malnutrizione" nel "Glossario delle regole".
 
----
+**Rete (1 mo)**
+Quando il personaggio effettua un'azione di Attacco,
+puoi sostituire uno dei suoi attacchi con il lancio
+di una rete verso una creatura che egli è in grado
+di vedere entro un raggio di 4,5 metri da sé. Il bersaglio deve superare un tiro salvezza su Destrezza
+(CD 8 più il modificatore di Destrezza e il bonus di
+competenza del personaggio), altrimenti sarà trattenuto finché non riuscirà a liberarsi. Se il bersaglio
+è di taglia Enorme o superiore, supera automaticamente la prova.
 
-## Picchetti di ferro (1 mo)
+Per fuggire, il bersaglio o una creatura entro
+1,5 metri da lui deve effettuare un'azione per
+eseguire una prova di Forza (Atletica) con CD
+10, liberando la creatura trattenuta in caso di
+successo. È possibile ottenere il medesimo risultato
+distruggendo la rete (CA 10; 5 PF; immunità a danni
+contundenti, da veleno e psichici).
 
-Confezione da 10. Azione Utilizzare: piantare in legno/terra per bloccare o legare.  
+**Sacco (1 mr)**
+Un sacco può contenere fino a 15 chilogrammi
+­all'interno di 1 cubo con spigolo di 30 centimetri.
 
-**Peso:** 2,3 kg
+**Scala a pioli (1 ma)**
+Una scala a pioli è alta 3 metri. Per scendere dalla
+scala o salirci è necessario arrampicarsi.
 
-## Cannocchiale (1.000 mo)
+**Secchio (5 mr)**
+Un secchio ha una capacità di 14 litri.
 
-Ingrandisce ×2.
+**Serratura (10 mo)**
+Ogni serratura è dotata della sua chiave. Senza tale
+chiave, una creatura può scassinarla utilizzando
+gli arnesi da scasso e superando una prova di
+Destrezza (Rapidità di mano) con CD 15.
 
-**Peso:** 0,5 kg
 
-## Spago (1 ma)
+**112** System Reference Document 5.2.1
 
-Lungo 3 m. Puoi annodarlo con Azione Utilizzare.
 
-## Tenda (2 mo)
 
-Per 2 creature Piccole o Medie.
+**Sfere metalliche (1 mo)**
+Con un'azione di Utilizzo, il personaggio può far
+cadere delle sfere metalliche dalla sua borsa. Queste
+si diffonderanno per coprire una superficie piana di
+3 metri quadrati entro 3 metri da sé. Chiunque entri
+in quest'area per la prima volta in un turno deve
+superare un tiro salvezza su Destrezza con CD 10,
+altrimenti cadrà prono. Per recuperare le sfere
+metalliche sono necessari 10 minuti.
 
-**Peso:** 9 kg
+**Simbolo sacro (variabile)**
+Un simbolo sacro può assumere una delle forme
+elencate nella tabella Simbolo sacro ed è adornato
 
-## Acciarino (5 ma)
+- dipinto in modo che incanali l'energia divina.
+Un chierico o un paladino possono usare un simbolo
+sacro come focus da incantatore.
 
-Contenitore con pietra focaia, acciaio, esca. Accende candele/lanterne/torce con Azione Bonus. Altri fuochi: 1 min.
+La tabella indica se il simbolo sacro deve essere
+tenuto in mano, indossato o portato su un tessuto
+(tabarro o striscione) o su uno scudo.
 
-**Peso:** 0,5 kg
 
-## Torcia (1 mr)
+**Simboli sacri**
 
-Brucia 1 h. Luce intensa 6 m, fioca altri 6 m. Può essere usata come arma (1 danno da fuoco).
+**Simbolo** **Peso** **Costo**
 
-**Peso:** 0,5 kg
 
-## Fiala (1 mo)
 
-Contiene fino a 120 ml.
+Amuleto (indossato o tenuto in
+mano)
 
-## Otre (2 ma)
+Emblema (portato su un tessuto
 
-Contiene fino a 2 l. (vedi Disidratazione nel Glossario).
+- uno scudo)
 
-**Peso:** 2,3 kg
+
+
+0,5 kg 5 mo
+
+
+ - 5 mo
+
+
+
+Reliquiario (tenuto in mano) 1 kg 5 mo
+
+
+**Spago (1 ma)**
+Una matassa di spago è lunga 3 metri. Come azione
+di Utilizzo, il personaggio può utilizzarlo per stringere un nodo.
+
+**Specchio (5 mo)**
+Uno specchio d'acciaio portatile è utile sia per
+la cura della persona che per sbirciare dietro gli
+angoli o riflettere la luce per mandare un segnale
+a qualcuno.
+
+**Spuntoni di ferro (1 mo)**
+Gli spuntoni di ferro sono ottenibili in gruppi di
+dieci. Come azione di Utilizzo, il personaggio può
+usare un oggetto contundente come un martello
+leggero per conficcare gli spuntoni nel legno, nel
+terreno o in altri materiali simili. Tale azione è utile
+per bloccare una porta o per avere un supporto
+a cui legare una corda o una catena.
+
+**Tagliola (5 mo)**
+Come azione di Utilizzo, il personaggio può piazzare
+una tagliola, ovvero un anello metallico dentellato
+che si chiude di scatto qualora una creatura calpesti
+la piastra a pressione collocata al centro. La trappola viene fissata a una pesante catena o a un
+oggetto immobile come un albero o un palo piantato
+a terra. Quando una creatura mette un piede sulla
+piastra, deve superare un tiro salvezza su Destrezza
+
+
+

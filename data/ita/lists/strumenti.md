@@ -1,318 +1,271 @@
-
 # Strumenti
 
-## Strumenti da alchimista (50 MO)
-
-**Costo:** 50 MO.
-**Peso:** 3,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Intelligenza.
-**Utilizzo:** Identificare una sostanza (CD 15) o accendere un fuoco (CD 15).
-**Creazioni:** Acido, Fuoco dell’alchimista, Borsa dei componenti, Olio, Carta, Profumo.
-
-## Strumenti da birraio (20 MO)
-
-**Costo:** 20 MO.
-**Peso:** 4 kg.
-**Categoria:** strumenti.
-**Abilità:** Intelligenza.
-**Utilizzo:** Rilevare bevanda avvelenata (CD 15) o identificare un alcolico (CD 10).
-**Creazioni:** Antitossina.
-
-## Strumenti da calligrafo (10 MO)
-
-**Costo:** 10 MO.
-**Peso:** 2,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Destrezza.
-**Utilizzo:** Scrivere testo con ornamenti che proteggono dalla falsificazione (CD 15).
-**Creazioni:** Inchiostro, *Pergamena d’incantesimo*.
-
-## Strumenti da carpentiere (8 MO)
-
-**Costo:** 8 MO.
-**Peso:** 2,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Forza.
-**Utilizzo:** Sigillare o forzare una porta o un contenitore (CD 20).
-**Creazioni:** Randello, Maglio, Bastone ferrato, Barile, Scrigno, Scala, Palo, Ariete portatile, Torcia.
-
-## Strumenti da cartografo (15 MO)
-
-**Costo:** 15 MO.
-**Peso:** 2,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Saggezza.
-**Utilizzo:** Disegnare una mappa di una piccola area (CD 15).
-**Creazioni:** Mappa.
-
-## Strumenti da ciabattino (5 MO)
-
-**Costo:** 5 MO.
-**Peso:** 2,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Destrezza.
-**Utilizzo:** Modificare calzature per dare vantaggio alla prossima prova di Destrezza (Acrobazia) del portatore (CD 10).
-**Creazioni:** Kit da arrampicata.
-
-## Utensili da cucina (1 MO)
-
-**Costo:** 1 MO.
-**Peso:** 3,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Saggezza.
-**Utilizzo:** Migliorare il sapore del cibo (CD 10) o rilevare cibo avariato o avvelenato (CD 15).
-**Creazioni:** Razioni.
-
-## Strumenti da vetraio (30 MO)
-
-**Costo:** 30 MO.
-**Peso:** 2,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Intelligenza.
-**Utilizzo:** Scoprire cosa ha contenuto un oggetto di vetro nelle ultime 24 ore (CD 15).
-**Creazioni:** Bottiglia di vetro, Lente d’ingrandimento, Cannocchiale, Fiala.
-
-## Strumenti da gioielliere (25 MO)
-
-**Costo:** 25 MO.
-**Peso:** 1 kg.
-**Categoria:** strumenti.
-**Abilità:** Intelligenza.
-**Utilizzo:** Stimare il valore di una gemma (CD 15).
-**Creazioni:** Focus arcano, Simbolo sacro.
-
-## Strumenti da conciatore (5 MO)
-
-**Costo:** 5 MO.
-**Peso:** 2,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Destrezza.
-**Utilizzo:** Aggiungere un disegno a un oggetto di cuoio (CD 10).
-**Creazioni:** Fionda, Frusta, Armatura di pelle, Armatura di cuoio, Armatura di cuoio borchiato, Zaino, Astuccio per quadrello, Astuccio per mappe o pergamene, Pergamena, Borsa, Faretra, Otre.
-
-## Strumenti da muratore (10 MO)
-
-**Costo:** 10 MO.
-**Peso:** 3,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Forza.
-**Utilizzo:** Scolpire un simbolo o un foro nella pietra (CD 10).
-**Creazioni:** Carrucola.
-
-## Strumenti da pittore (10 MO)
-
-**Costo:** 10 MO.
-**Peso:** 2,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Saggezza.
-**Utilizzo:** Dipingere un’immagine riconoscibile di qualcosa visto (CD 10).
-**Creazioni:** Focus druidico, Simbolo sacro.
-
-## Strumenti da vasaio (10 MO)
-
-**Costo:** 10 MO.
-**Peso:** 1,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Intelligenza.
-**Utilizzo:** Scoprire cosa ha contenuto un oggetto di ceramica nelle ultime 24 ore (CD 15).
-**Creazioni:** Brocca, Lampada.
-
-## Strumenti da fabbro (20 MO)
-
-**Costo:** 20 MO.
-**Peso:** 3,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Forza.
-**Utilizzo:** Forzare una porta o un contenitore (CD 20).
-**Creazioni:** Qualsiasi arma da mischia (tranne randello, maglio, bastone ferrato e frusta), Armatura media (tranne pelle), Armatura pesante, Biglie d’acciaio, Secchio, Triboli, Catena, Piede di porco, Proiettili da fuoco, Rampino, Pentola di ferro, Punte di ferro, Proiettili da fionda.
-
-## Strumenti da inventore (50 MO)
-
-**Costo:** 50 MO.
-**Peso:** 4,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Destrezza.
-**Utilizzo:** Assemblare un oggetto minuto con rottami, che si disfa in 1 minuto (CD 20).
-**Creazioni:** Moschetto, Pistola, Campanella, Lanterna a bulbo, Fiasca, Lanterna schermata, Trappola da caccia, Serratura, Manette, Specchio, Pala, Fischietto da segnalazione, Acciarino.
-
-## Strumenti da tessitore (1 MO)
-
-**Costo:** 1 MO.
-**Peso:** 2,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Destrezza.
-**Utilizzo:** Rammendare uno strappo in un indumento (CD 10) o cucire un piccolo disegno (CD 10).
-**Creazioni:** Armatura imbottita, Cestino, Sacco a pelo, Coperta, Abiti eleganti, Rete, Veste, Corda, Sacco, Spago, Tenda, Abiti da viaggio.
-
-## Strumenti da intagliatore (1 MO)
-
-**Costo:** 1 MO.
-**Peso:** 2,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Destrezza.
-**Utilizzo:** Intagliare un motivo nel legno (CD 10).
-**Creazioni:** Randello, Maglio, Bastone ferrato, Armi a distanza (tranne pistola, moschetto e fionda), Focus arcano, Frecce, Quadrelli, Focus druidico, Penna d’inchiostro, Aghi.
-
-## Kit da travestimento
-
-**Costo:** 25 MO.
-**Peso:** 1,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Carisma.
-**Utilizzo:** Applicare trucco (CD 10).
-**Creazioni:** Costume.
-
-## Kit da falsario
-
-**Costo:** 15 MO.
-**Peso:** 2,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Destrezza.
-**Utilizzo:** Imitare fino a 10 parole della calligrafia altrui (CD 15) o duplicare un sigillo in cera (CD 20).
-
-## Set da gioco, Dadi
-
-**Costo:** 1 AP.
-**Peso:** —.
-**Categoria:** strumenti.
-**Abilità:** Saggezza.
-**Utilizzo:** Capire se qualcuno bara (CD 10) o vincere la partita (CD 20).
-
-## Set da gioco, Scacchi draconici
-
-**Costo:** 1 MO.
-**Peso:** 250 g.
-**Categoria:** strumenti.
-**Abilità:** Intelligenza.
-**Utilizzo:** Intuire l’umore e le intenzioni dell’avversario (CD 15) o vincere la partita (CD 20).
-
-## Set da gioco, Carte da gioco
-
-**Costo:** 5 AP.
-**Peso:** —.
-**Categoria:** strumenti.
-**Abilità:** Carisma.
-**Utilizzo:** Intuire l’umore e le intenzioni dell’avversario (CD 15) o vincere la partita (CD 20).
-
-## Set da gioco, Three-Dragon Ante
-
-**Costo:** 1 MO.
-**Peso:** —.
-**Categoria:** strumenti.
-**Abilità:** Carisma.
-**Utilizzo:** Intuire l’umore e le intenzioni dell’avversario (CD 15) o vincere la partita (CD 20).
-
-## Kit di erboristeria
-
-**Costo:** 5 MO.
-**Peso:** 1,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Intelligenza.
-**Utilizzo:** Identificare una pianta (CD 15).
-**Creazioni:** Antitossina, Pozione di guarigione.
-
-## Strumento musicale, Cornamuse
-
-**Costo:** 30 MO.
-**Peso:** 2,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Carisma.
-**Utilizzo:** Identificare un brano musicale (CD 15).
-
-## Strumento musicale, Tamburo
-
-**Costo:** 6 MO.
-**Peso:** 1,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Carisma.
-**Utilizzo:** Identificare un brano musicale (CD 15).
-
-## Strumento musicale, Salterio
-
-**Costo:** 25 MO.
-**Peso:** 4,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Carisma.
-**Utilizzo:** Identificare un brano musicale (CD 15).
-
-## Strumento musicale, Flauto
-
-**Costo:** 2 MO.
-**Peso:** 0,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Carisma.
-**Utilizzo:** Identificare un brano musicale (CD 15).
-
-## Strumento musicale, Liuto
-
-**Costo:** 35 MO.
-**Peso:** 1 kg.
-**Categoria:** strumenti.
-**Abilità:** Carisma.
-**Utilizzo:** Identificare un brano musicale (CD 15).
-
-## Strumento musicale, Lira
-
-**Costo:** 30 MO.
-**Peso:** 1 kg.
-**Categoria:** strumenti.
-**Abilità:** Carisma.
-**Utilizzo:** Identificare un brano musicale (CD 15).
-
-## Strumento musicale, Corno
-
-**Costo:** 3 MO.
-**Peso:** 1 kg.
-**Categoria:** strumenti.
-**Abilità:** Carisma.
-**Utilizzo:** Identificare un brano musicale (CD 15).
-
-## Strumento musicale, Flauto di Pan
-
-**Costo:** 12 MO.
-**Peso:** 1 kg.
-**Categoria:** strumenti.
-**Abilità:** Carisma.
-**Utilizzo:** Identificare un brano musicale (CD 15).
-
-## Strumento musicale, Ciaramella
-
-**Costo:** 2 MO.
-**Peso:** 0,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Carisma.
-**Utilizzo:** Identificare un brano musicale (CD 15).
-
-## Strumento musicale, Viola
-
-**Costo:** 30 MO.
-**Peso:** 0,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Carisma.
-**Utilizzo:** Identificare un brano musicale (CD 15).
-
-## Strumenti da navigatore
-
-**Costo:** 25 MO.
-**Peso:** 1 kg.
-**Categoria:** strumenti.
-**Abilità:** Saggezza.
-**Utilizzo:** Tracciare una rotta (CD 15) o determinare la posizione (CD 15).
-
-## Kit da avvelenatore
-
-**Costo:** 50 MO.
-**Peso:** 1 kg.
-**Categoria:** strumenti.
-**Abilità:** Intelligenza.
-**Utilizzo:** Rilevare un oggetto avvelenato (CD 10).
-**Creazioni:** Veleno base.
-
-## Strumenti da ladro
-
-**Costo:** 25 MO.
-**Peso:** 0,5 kg.
-**Categoria:** strumenti.
-**Abilità:** Destrezza.
-**Utilizzo:** Scassinare una serratura (CD 15) o disattivare una trappola (CD 15).
+quadrelli da balestra, custodia per mappe o pergamene,
+pergamena, borsa, faretra, otre
+
+**Strumenti da fabbro (20 mo)**
+**Caratteristica:** Forza **Peso:** 4 kg
+**Utilizzo:** forzare l'apertura di una porta o un conteni
+tore (CD 20)
+**Creazione:** Arma da mischia (eccetto randello, randello
+
+pesante, bastone ferrato e frusta), armatura media
+(eccetto di pelle), armatura pesante, sfere metalliche,
+secchio, triboli, catena, piede di porco, proiettili per
+armi da fuoco, rampino, pentola di ferro, spuntoni di
+ferro, proiettili da fionda
+
+**Strumenti da falegname (8 mo)**
+**Caratteristica:** Forza **Peso:** 3 kg
+**Utilizzo:** sigillare o forzare l'apertura di una porta o un
+
+contenitore (CD 20)
+**Creazione:** randello, randello pesante, bastone ferrato,
+
+barile, forziere, scala a pioli, asta, ariete portatile,
+­torcia
+
+**Strumenti da gioielliere (25 mo)**
+**Caratteristica:** Intelligenza **Peso:** 1 kg
+**Utilizzo:** determinare il valore di una gemma (CD 15)
+**Creazione:** focus arcano, simbolo sacro
+
+**Strumenti da intagliatore (1 mo)**
+**Caratteristica:** Destrezza **Peso:** 2,5 kg
+**Utilizzo:** intagliare un motivo nel legno (CD 10)
+**Creazione:** randello, randello pesante, bastone ferrato,
+
+armi a distanza (eccetto pistola, moschetto e fionda),
+focus arcano, frecce, quadrelli, focus druidico, pennino,
+aghi
+
+**Strumenti da inventore (50 mo)**
+**Caratteristica:** Destrezza **Peso:** 5 kg
+**Utilizzo:** realizzare un oggetto minuscolo sfruttando
+
+materiali di scarto che cadrà a pezzi dopo 1 minuto
+(CD 20)
+**Creazione:** moschetto, pistola, campanella, lanterna
+
+a lente sporgente, ampolla, lanterna schermabile,
+tagliola, serratura, manette, specchio, pala, fischietto
+da richiamo, acciarino con pietra focaia
+
+**Strumenti da muratore (10 mo)**
+**Caratteristica:** Forza **Peso:** 4 kg
+**Utilizzo:** intagliare un simbolo o scavare un buco nella
+
+pietra (CD 10)
+**Creazione:** carrucola e paranco
+
+**Strumenti da pittore (10 mo)**
+**Caratteristica:** Saggezza **Peso:** 2,5 kg
+**Utilizzo:** dipingere un'immagine riconoscibile di qualcosa
+
+che il personaggio ha visto (CD 10)
+**Creazione:** focus druidico, simbolo sacro
+
+**Strumenti da soffiatore (30 mo)**
+**Caratteristica:** Intelligenza **Peso:** 2,5 kg
+**Utilizzo:** capire il contenuto di un oggetto di vetro delle
+
+ultime 24 ore (CD 15)
+
+
+**106** System Reference Document 5.2.1
+
+
+
+**Creazione:** bottiglia di vetro, lente d'ingrandimento, can
+nocchiale, fiala
+
+**Strumenti da tessitore (1 mo)**
+**Caratteristica:** Destrezza **Peso:** 2,5 kg
+**Utilizzo:** rammendare tessuti lacerati (CD 10) o cucire
+
+un motivo minuscolo (CD 10)
+**Creazione:** armatura imbottita, cesto, giaciglio, coperta,
+
+abiti eleganti, rete, veste, corda, sacco, spago, tenda,
+abiti da viaggiatore
+
+**Strumenti da vasaio (10 mo)**
+**Caratteristica:** Intelligenza **Peso:** 1,5 kg
+**Utilizzo:** capire il contenuto di un oggetto di ceramica
+
+delle ultime 24 ore (CD 15)
+**Creazione:** brocca, lampada
+
+**Utensili da cuoco (1 mo)**
+**Caratteristica:** Saggezza **Peso:** 4 kg
+**Utilizzo:** migliorare il sapore del cibo (CD 10) o indivi
+duare cibo avariato o avvelenato (CD 15)
+**Creazione:** razioni
+#### **Altri strumenti**
+
+**Arnesi da falsario (15 mo)**
+**Caratteristica:** Destrezza **Peso:** 2,5 kg
+**Utilizzo:** scrivere 10 parole o meno copiando la scrittura
+
+di qualcun altro (CD 15) o duplicare un sigillo di cera
+(CD 20)
+
+**Arnesi da scasso (25 mo)**
+**Caratteristica:** Destrezza **Peso:** 0,5 kg
+**Utilizzo:** scassinare una serratura (CD 15) o disattivare
+
+una trappola (CD 15)
+
+**Borsa da erborista (5 mo)**
+**Caratteristica:** Intelligenza **Peso:** 1,5 kg
+**Utilizzo:** identificare una pianta (CD 10)
+**Creazione:** antitossina, candela, borsa del guaritore,
+
+_pozione di guarigione_
+
+**Gioco (variabile)**
+**Caratteristica:** Saggezza **Peso:** **Utilizzo:** capire se qualcuno sta barando (CD 10) o vin
+cere una partita (CD 20)
+**Varianti:** Dadi (1 ma), scacchi dei draghi (1 mo), carte da
+
+gioco (5 ma), Tre draghi al buio (1 mo)
+
+**Sostanze da avvelenatore (50 mo)**
+**Caratteristica:** Intelligenza **Peso:** 1 kg
+**Utilizzo:** individuare un oggetto avvelenato (CD 10)
+**Creazione:** veleno base
+
+**Strumenti da navigatore (25 mo)**
+**Caratteristica:** Saggezza **Peso:** 1 kg
+**Utilizzo:** pianificare una rotta (CD 10) o determinare
+
+la propria posizione scrutando le stelle (CD 15)
+
+
+
+
+**Strumento musicale (variabile)**
+**Caratteristica:** Carisma **Peso:** variabile
+**Utilizzo:** suonare una canzone conosciuta (CD 10) o
+
+improvvisarne una (CD 15)
+**Varianti:** Cornamusa (30 mo, 3 kg), tamburo (6 mo,
+
+1,5 kg), dulcimer (25 mo, 5 kg), flauto (2 mo, 0,5 kg),
+corno (3 mo, 1 kg), liuto (35 mo, 1 kg), lira (30 mo,
+1 kg), flauto di pan (12 mo, 1 kg), ciaramella (2 mo,
+0,5 kg), viola (30 mo, 0,5 kg)
+
+**Trucchi per il camuffamento (25 mo)**
+**Caratteristica:** Carisma **Peso:** 1,5 kg
+**Utilizzo:** truccarsi (CD 10)
+**Creazione:** costume
+## **Equipaggiamento** **d'avventura**
+
+La tabella Equipaggiamento d'avventura in questa
+sezione include attrezzatura che spesso può tornare
+utile agli avventurieri. Tali oggetti sono presentati
+in ordine alfabetico, con il relativo prezzo indicato
+dopo il loro nome.
+
+**Abiti da viaggiatore (2 mo)**
+Gli abiti da viaggiatore sono resistenti e progettati
+per sopportare svariati ambienti.
+
+**Abiti eleganti (15 mo)**
+Gli abiti eleganti sono realizzati con stoffe pregiate
+e decorati con dettagli raffinati. Alcuni eventi e luoghi consentono l'accesso solo a chi li indossa.
+
+**Acciarino con pietra focaia (5 ma)**
+Si tratta di un piccolo contenitore usato per
+accendere il fuoco, che contiene acciarino, pietra
+focaia e materiale combustibile (solitamente stracci
+essiccati e bagnati d'olio). Utilizzarlo per accendere
+una candela, una lampada, una lanterna, una torcia
+
+     - qualunque altra cosa con sopra materiale infiammabile richiede un'azione bonus. Per accendere un
+fuoco di qualsiasi altro tipo è richiesto 1 minuto.
+
+**Acido (25 mo)**
+Quando il personaggio effettua un'azione di Attacco,
+puoi sostituire uno dei suoi attacchi con il lancio
+di una fiala di acido. Può prendere di mira una
+creatura o un oggetto che egli è in grado di vedere
+entro 6 metri da sé. Il bersaglio deve superare un
+tiro salvezza su Destrezza (CD 8 più il modificatore
+di Destrezza e il bonus di competenza del personaggio), altrimenti subirà 2d6 danni da acido.
+
+**Acqua santa (25 mo)**
+Quando il personaggio effettua un'azione di Attacco,
+puoi sostituire uno dei suoi attacchi con il lancio di
+una ampolla di acqua santa verso una creatura che
+egli è in grado di vedere entro un raggio di 6 metri
+da sé. Il bersaglio deve superare un tiro salvezza
+
+
+**107** System Reference Document 5.2.1
+
+
+
+su Destrezza (CD 8 più il modificatore di Destrezza
+e il bonus di competenza del personaggio), altrimenti subirà 2d8 danni radiosi se è un immondo
+
+- un non morto.
+
+**Ampolla (2 mr)**
+Un'ampolla ha una capacità di 0,5 litri.
+
+**Antitossina (50 mo)**
+Come azione bonus, per evitare di essere avvelenato
+
+- interrompere tale condizione, il personaggio può
+bere una fiala di antitossina per ottenere vantaggio
+ai relativi tiri salvezza.
+
+**Ariete portatile (4 mo)**
+Un ariete portatile può essere usato per sfondare
+le porte e conferisce un bonus di +4 alla prova
+di Forza del personaggio. Un altro personaggio
+può aiutare il primo a usare l'ariete, nel qual caso
+quest'ultimo dispone di vantaggio alla prova.
+
+**Asta (5 mr)**
+Un'asta è lunga 3 metri. Il personaggio può usarla
+per toccare qualcosa a massimo 3 metri di distanza
+da sé. Se deve effettuare una prova di Forza (Atletica) come parte di un salto in alto o in lungo, può
+effettuarla con vantaggio sfruttando l'asta.
+
+**Attrezzi da scalatore (25 mo)**
+Un kit da scalatore è composto da punte per stivali,
+guanti, chiodi da rocciatore e un'imbragatura.
+Come azione di Utilizzo, il personaggio può usare
+gli attrezzi da scalatore per ancorarsi; quando lo fa,
+non può cadere per più di 7,5 metri dal punto in
+cui si è ancorato e non può arrampicarsi per più di
+7,5 metri dal quel punto senza disfare l'ancoraggio
+come azione bonus.
+
+**Barile (2 mo)**
+Un barile può contenere fino a 16 litri di liquido
+
+- 4 cubi con spigolo di 30 centimetri di merci
+essiccate.
+
+**Borsa (5 ma)**
+Una borsa può contenere fino a 3 chilogrammi
+e 5 litri.
+
+**Borsa del guaritore (5 mo)**
+La borsa del guaritore è utilizzabile dieci volte.
+Come azione di Utilizzo, il personaggio può consumarne un uso per stabilizzare una creatura priva di
+sensi con 0 punti ferita senza dover effettuare una
+prova di Saggezza (Medicina).
+
+**Borsa per componenti (25 mo)**
+Una borsa per componenti è impermeabile e piena
+di scompartimenti in cui sono conservate tutte le
+componenti materiali sfuse degli incantesimi del
+personaggio.
+
+
+
