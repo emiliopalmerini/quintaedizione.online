@@ -4,7 +4,8 @@ version = "0.1.0"
 description = "PDF-to-Markdown pipeline for D&D 5e SRD content"
 requires-python = ">=3.11"
 dependencies = [
-    "marker-pdf",
+    "pdftext",
+    "numpy",
     "click",
 ]
 
