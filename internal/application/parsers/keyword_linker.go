@@ -192,7 +192,7 @@ func (kl *KeywordLinker) replaceTextNodeWithLinks(n *html.Node, filteredKeywords
 
 		// Find ALL occurrences of this keyword
 		allMatches := re.FindAllStringIndex(text, -1)
-		if allMatches == nil || len(allMatches) == 0 {
+		if len(allMatches) == 0 {
 			continue
 		}
 

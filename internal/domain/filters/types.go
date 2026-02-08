@@ -50,14 +50,17 @@ type FilterRepository interface {
 	GetAllFilters() ([]FilterDefinition, error)
 }
 
+// DocumentPredicate tests whether a document matches a filter condition.
+type DocumentPredicate = func(map[string]any) bool
+
 type FilterService interface {
 	ParseFilters(collection collections.CollectionName, queryParams map[string]string) (*FilterSet, error)
 	ValidateFilterSet(filterSet *FilterSet) error
-	BuildMongoFilter(filterSet *FilterSet) (map[string]any, error)
+	BuildFilter(filterSet *FilterSet) (DocumentPredicate, error)
 	GetAvailableFilters(collection collections.CollectionName) ([]FilterDefinition, error)
 
-	BuildSearchFilter(collection collections.CollectionName, searchTerm string) map[string]any
-	CombineFilters(fieldFilter, searchFilter map[string]any) map[string]any
+	BuildSearchPredicate(collection collections.CollectionName, searchTerm string) DocumentPredicate
+	CombinePredicates(predicates ...DocumentPredicate) DocumentPredicate
 }
 
 func NewFilterSet(collection collections.CollectionName) *FilterSet {

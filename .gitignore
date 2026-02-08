@@ -28,5 +28,8 @@ bin/
 
 .env
 
+# PDF source files
+*.pdf
+
 # Claude Code settings
 .claude/

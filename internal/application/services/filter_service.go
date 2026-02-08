@@ -3,20 +3,20 @@ package services
 import (
 	"fmt"
 
-	"github.com/emiliopalmerini/quintaedizione.online/internal/application/filters"
+	appFilters "github.com/emiliopalmerini/quintaedizione.online/internal/application/filters"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
 	domainFilters "github.com/emiliopalmerini/quintaedizione.online/internal/domain/filters"
 )
 
 type FilterService struct {
-	registry     domainFilters.FilterRepository
-	mongoBuilder *filters.MongoFilterBuilder
+	registry         domainFilters.FilterRepository
+	predicateBuilder *appFilters.PredicateBuilder
 }
 
 func NewFilterService(registry domainFilters.FilterRepository) *FilterService {
 	return &FilterService{
-		registry:     registry,
-		mongoBuilder: filters.NewMongoFilterBuilder(),
+		registry:         registry,
+		predicateBuilder: appFilters.NewPredicateBuilder(),
 	}
 }
 
@@ -44,7 +44,6 @@ func (s *FilterService) ParseFilters(collection collections.CollectionName, quer
 
 		filterDef, exists := filterMap[paramName]
 		if !exists {
-
 			filterDef, exists = s.registry.GetFilterByName(paramName)
 			if !exists {
 				continue
@@ -98,16 +97,16 @@ func (s *FilterService) ValidateFilterSet(filterSet *domainFilters.FilterSet) er
 	return nil
 }
 
-func (s *FilterService) BuildMongoFilter(filterSet *domainFilters.FilterSet) (map[string]any, error) {
+func (s *FilterService) BuildFilter(filterSet *domainFilters.FilterSet) (domainFilters.DocumentPredicate, error) {
 	if filterSet == nil {
-		return map[string]any{}, nil
+		return nil, nil
 	}
 
 	if err := s.ValidateFilterSet(filterSet); err != nil {
 		return nil, fmt.Errorf("invalid filter set: %w", err)
 	}
 
-	return s.mongoBuilder.BuildFilter(filterSet)
+	return s.predicateBuilder.BuildPredicate(filterSet)
 }
 
 func (s *FilterService) GetAvailableFilters(collection collections.CollectionName) ([]domainFilters.FilterDefinition, error) {
@@ -118,27 +117,33 @@ func (s *FilterService) GetAvailableFilters(collection collections.CollectionNam
 	return s.registry.GetFiltersForCollection(collection)
 }
 
-func (s *FilterService) BuildSearchFilter(collection collections.CollectionName, searchTerm string) map[string]any {
-	return s.mongoBuilder.BuildSearchFilter(collection, searchTerm)
+func (s *FilterService) BuildSearchPredicate(_ collections.CollectionName, searchTerm string) domainFilters.DocumentPredicate {
+	return s.predicateBuilder.BuildSearchPredicate(searchTerm)
 }
 
-func (s *FilterService) CombineFilters(fieldFilter, searchFilter map[string]any) map[string]any {
-	var conditions []map[string]any
-
-	if len(fieldFilter) > 0 {
-		conditions = append(conditions, fieldFilter)
+func (s *FilterService) CombinePredicates(predicates ...domainFilters.DocumentPredicate) domainFilters.DocumentPredicate {
+	// Filter out nil predicates
+	var active []domainFilters.DocumentPredicate
+	for _, p := range predicates {
+		if p != nil {
+			active = append(active, p)
+		}
 	}
 
-	if len(searchFilter) > 0 {
-		conditions = append(conditions, searchFilter)
+	if len(active) == 0 {
+		return nil
+	}
+	if len(active) == 1 {
+		return active[0]
 	}
 
-	if len(conditions) == 0 {
-		return map[string]any{}
-	} else if len(conditions) == 1 {
-		return conditions[0]
-	} else {
-		return map[string]any{"$and": conditions}
+	return func(doc map[string]any) bool {
+		for _, p := range active {
+			if !p(doc) {
+				return false
+			}
+		}
+		return true
 	}
 }
 

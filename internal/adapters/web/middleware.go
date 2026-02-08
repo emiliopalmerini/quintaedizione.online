@@ -31,7 +31,7 @@ func (h *Handlers) ErrorRecoveryMiddleware() gin.HandlerFunc {
 					log.Printf("PANIC recovered: %v\n%s", err, stack)
 				}
 
-				errMsg := fmt.Sprintf("Si è verificato un errore interno del server")
+				errMsg := "Si è verificato un errore interno del server"
 				base.ErrorResponse(c, fmt.Errorf("internal server error"), errMsg)
 
 				c.Abort()
@@ -59,9 +59,7 @@ func RequestLoggingMiddleware() gin.HandlerFunc {
 			log.Printf("Request errors for %s %s: %v", c.Request.Method, path, c.Errors)
 		}
 
-		if start != nil {
-
-		}
+		_ = start
 	}
 }
 
