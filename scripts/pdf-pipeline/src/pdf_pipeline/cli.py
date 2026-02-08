@@ -21,13 +21,19 @@ def cli() -> None:
     default=None,
     help="Output directory for the converted markdown. Defaults to same directory as the PDF.",
 )
-def convert(pdf_path: Path, output_dir: Path | None) -> None:
+@click.option(
+    "--use-ocr",
+    is_flag=True,
+    default=False,
+    help="Enable OCR and layout detection (slower, may crash on large PDFs).",
+)
+def convert(pdf_path: Path, output_dir: Path | None, use_ocr: bool) -> None:
     """Convert a PDF to a single markdown file using marker-pdf."""
     if output_dir is None:
         output_dir = pdf_path.parent / "converted"
 
     click.echo(f"Converting {pdf_path} ...")
-    result = convert_pdf(pdf_path, output_dir)
+    result = convert_pdf(pdf_path, output_dir, use_ocr=use_ocr)
     click.echo(f"Done: {result}")
 
 
@@ -57,12 +63,18 @@ def split(md_path: Path, output_dir: Path | None) -> None:
     default=None,
     help="Final output directory for per-collection files. Defaults to data/ita/lists/.",
 )
-def run(pdf_path: Path, output_dir: Path | None) -> None:
+@click.option(
+    "--use-ocr",
+    is_flag=True,
+    default=False,
+    help="Enable OCR and layout detection (slower, may crash on large PDFs).",
+)
+def run(pdf_path: Path, output_dir: Path | None, use_ocr: bool) -> None:
     """Run the full pipeline: convert PDF then split into collection files."""
     converted_dir = pdf_path.parent / "converted"
 
     click.echo(f"Step 1: Converting {pdf_path} ...")
-    md_path = convert_pdf(pdf_path, converted_dir)
+    md_path = convert_pdf(pdf_path, converted_dir, use_ocr=use_ocr)
     click.echo(f"  Converted to: {md_path}")
 
     if output_dir is None:

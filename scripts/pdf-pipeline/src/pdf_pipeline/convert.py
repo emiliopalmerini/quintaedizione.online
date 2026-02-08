@@ -4,8 +4,12 @@ import subprocess
 from pathlib import Path
 
 
-def convert_pdf(pdf_path: Path, output_dir: Path) -> Path:
+def convert_pdf(pdf_path: Path, output_dir: Path, use_ocr: bool = False) -> Path:
     """Convert a PDF to markdown using marker-pdf.
+
+    By default OCR and layout detection are disabled, relying on the PDF's
+    embedded text.  Set use_ocr=True to enable the full vision pipeline
+    (requires GPU, may crash on large documents).
 
     Returns the path to the generated markdown file.
     """
@@ -17,6 +21,9 @@ def convert_pdf(pdf_path: Path, output_dir: Path) -> Path:
         "--output_dir", str(output_dir),
         "--output_format", "markdown",
     ]
+
+    if not use_ocr:
+        cmd += ["--disable_ocr", "--force_layout_block", "Text"]
 
     subprocess.run(cmd, check=True)
 
