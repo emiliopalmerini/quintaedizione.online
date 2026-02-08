@@ -17,12 +17,6 @@ templ HomePage(data models.HomePageData) {
 			</p>
             <p> In futuro saranno implementati filtri specifici</p>
 
-			<div class="bg-primary-light border border-primary rounded-md p-3 my-4 text-sm">
-				<strong>⚠️ Nota sulle traduzioni:</strong> Le traduzioni in italiano sono state realizzate con strumenti automatici e verranno progressivamente migliorate durante la fase beta.
-				Segnala eventuali errori o suggerimenti per aiutarci a migliorare la qualità dei contenuti.
-			draghi.microfono@gmail.com
-			</div>
-
 			<div class="search-container-wrapper">
 				<form id="search-form" hx-get="/search/dropdown" hx-trigger="keyup changed delay:100ms from:#global-search, keydown[key=='Enter'] from:#global-search consume" hx-target="#search-results" hx-indicator="#search-spinner">
 					<div class="search-input-group">
