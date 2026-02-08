@@ -24,42 +24,38 @@ make clean
 ## Prerequisites
 
 - Go 1.25.2
-- MongoDB running locally or via `docker-compose up -d`
 - templ CLI: `go install github.com/a-h/templ/cmd/templ@latest`
 
 ## Environment
 
 Copy `.env.example` to `.env` and configure:
-- `MONGO_URI` - MongoDB connection string
-- `DB_NAME` - Database name (default: dnd)
 - `PORT` - Server port (default: 8000)
 
 ## Architecture
 
-Hexagonal architecture with clear separation:
+Hexagonal architecture with embedded JSON data and in-memory store (no external database):
 
 ```
 cmd/viewer/          Entry point
+data/ita/json/       Embedded JSON data files (source of truth)
 internal/
   adapters/          External interfaces
-    repositories/    Repository implementations
+    repositories/
+      inmemory/      In-memory repository implementations
     web/             HTTP handlers, middleware
   application/       Business logic
-    events/          Event handling
-    filters/         Content filtering
-    parsers/         Markdown parsing
+    filters/         Predicate-based content filtering
+    parsers/         Markdown rendering, keyword linking
     services/        Application services
   domain/            Core domain models
     collections/     Collection definitions
     filters/         Domain filter types
-    repositories/    Repository interfaces
+    repositories/    Repository interfaces (read-only)
   infrastructure/    Technical concerns
     config/          Configuration
-    database/        Database setup, indexes
-    mongodb/         MongoDB client
+    datastore/       JSON loader + in-memory store
 pkg/                 Shared packages
   mappers/           Data mappers
-  mongodb/           MongoDB utilities
   templates/         Template engine
 web/
   static/            Static assets
@@ -70,23 +66,19 @@ web/
 
 - **Framework**: gin-gonic/gin
 - **Templates**: a-h/templ
-- **Database**: MongoDB (mongo-driver)
+- **Data**: Embedded JSON via `embed.FS` + in-memory store
 - **Markdown**: gomarkdown/markdown
 - **UI**: due-draghi-design-system (embedded CSS)
 
 ## Content Pipeline
 
-Markdown files in `data/ita/lists/` are parsed at startup and stored in MongoDB collections:
-- incantesimi (spells)
-- mostri (monsters)
-- classi (classes)
-- backgrounds
-- equipaggiamenti (equipment)
-- oggetti_magici (magic items)
-- armi (weapons)
-- armature (armor)
-- talenti (feats)
-- and more...
+```
+PDF → Python parser (scripts/parse_srd/) → JSON → Embedded in Go binary → In-memory store
+```
+
+JSON files in `data/ita/json/` are embedded at compile time and loaded into an in-memory store at startup. The Python PDF parser extracts structured data from the SRD PDF into JSON. The Go loader maps JSON fields (English) to Italian collection field names and renders markdown descriptions to HTML.
+
+Collections: incantesimi, mostri, animali, classi, backgrounds, equipaggiamenti, oggetti_magici, armi, armature, strumenti, cavalcature_veicoli, servizi, talenti, regole
 
 ## Testing
 

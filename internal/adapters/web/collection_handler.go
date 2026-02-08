@@ -3,8 +3,6 @@ package web
 import (
 	"fmt"
 	"net/http"
-	"regexp"
-	"strings"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
 	"github.com/emiliopalmerini/quintaedizione.online/pkg/mappers"
@@ -177,21 +175,4 @@ func (h *CollectionHandler) extractFilters(c *gin.Context) map[string]string {
 	}
 
 	return filters
-}
-
-// formatTraitContent formats trait content by removing headers and adjusting spacing.
-func formatTraitContent(content string) string {
-	formatted := content
-
-	formatted = strings.ReplaceAll(formatted, "### Talenti Generali", "")
-	formatted = strings.ReplaceAll(formatted, "### Talenti Razziali", "")
-	formatted = strings.ReplaceAll(formatted, "### Categoria Background", "")
-
-	formatted = regexp.MustCompile(`(\s)(\*\*\*[^*]+\.\*\*\*)`).ReplaceAllString(formatted, "\n\n$2")
-	formatted = regexp.MustCompile(`(\s)(\*\*[^*]+\.\*\*)`).ReplaceAllString(formatted, "\n\n$2")
-
-	formatted = regexp.MustCompile(`\n{3,}`).ReplaceAllString(formatted, "\n\n")
-	formatted = strings.TrimSpace(formatted)
-
-	return formatted
 }
