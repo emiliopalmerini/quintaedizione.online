@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -10,65 +9,56 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/repositories"
+	jsondata "github.com/emiliopalmerini/quintaedizione.online/data/ita/json"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/repositories/inmemory"
 	web "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/filters"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/parsers"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/search"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/services"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/infrastructure"
-	"github.com/emiliopalmerini/quintaedizione.online/internal/infrastructure/database"
-	pkgMongodb "github.com/emiliopalmerini/quintaedizione.online/pkg/mongodb"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/infrastructure/datastore"
 	"github.com/emiliopalmerini/quintaedizione.online/pkg/templates"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
-
 	config := infrastructure.LoadConfig()
 
 	if config.IsProduction() {
 		gin.SetMode(gin.ReleaseMode)
 	}
 
-	mongoConfig := pkgMongodb.Config{
-		URI:         config.MongoURI,
-		Database:    config.DatabaseName,
-		Timeout:     10 * time.Second,
-		MaxPoolSize: 100,
-	}
-
-	mongoClient, err := pkgMongodb.NewClient(mongoConfig)
-	if err != nil {
-		log.Fatalf("Failed to initialize MongoDB: %v", err)
-	}
-	defer mongoClient.Close()
-
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-	defer cancel()
-
-	if err := mongoClient.Ping(ctx); err != nil {
-		log.Fatalf("MongoDB health check failed: %v", err)
-	}
-	log.Println("MongoDB connection established")
-
-	indexManager := database.NewIndexManager(mongoClient)
-
-	repositoryFactory := repositories.NewRepositoryFactory(mongoClient)
-
-	log.Println("Generating keywords.json from markdown files...")
-	keywordGenerator := parsers.NewKeywordGenerator("data", "configs/keywords.json")
+	// Generate keywords.json from embedded JSON data
+	log.Println("Generating keywords.json from JSON data...")
+	keywordGenerator := parsers.NewKeywordGenerator(jsondata.Files, "configs/keywords.json")
 	if err := keywordGenerator.Generate(); err != nil {
 		log.Printf("Warning: Failed to generate keywords file: %v", err)
 	} else {
 		log.Println("Keywords file generated successfully")
 	}
 
-	log.Println("Parsing markdown files...")
-	if err := parseMarkdownFiles(repositoryFactory, indexManager); err != nil {
-		log.Fatalf("Failed to parse markdown files: %v", err)
+	// Load JSON data into in-memory store
+	log.Println("Loading JSON data...")
+	renderer := parsers.NewMarkdownRenderer("configs/keywords.json")
+	loader := datastore.NewLoader(jsondata.Files, renderer)
+	data, err := loader.LoadAll()
+	if err != nil {
+		log.Fatalf("Failed to load JSON data: %v", err)
+	}
+	store := datastore.NewStore(data)
+	log.Println("Data loaded into in-memory store")
+
+	// Log collection counts
+	for _, name := range store.Collections() {
+		log.Printf("  %s: %d documents", name, store.Count(name))
 	}
 
+	// Create repositories
+	repo := inmemory.NewDocumentRepository(store)
+	searchRepo := inmemory.NewSearchRepository(store)
+
+	// Initialize template engine
 	var templateEngine *templates.TemplEngine
 	if config.IsProduction() {
 		templateEngine = templates.NewTemplEngine()
@@ -77,6 +67,7 @@ func main() {
 	}
 	log.Println("Templates loaded")
 
+	// Initialize filter registry and services
 	filterRegistry := filters.NewInMemoryFilterRegistry()
 	log.Println("Filter registry loaded")
 
@@ -84,16 +75,16 @@ func main() {
 
 	cache := infrastructure.NewSimpleCache()
 
-	contentService := services.NewContentService(repositoryFactory.DocumentRepository(), filterService, cache)
+	contentService := services.NewContentService(repo, filterService, cache)
 
-	searchService := search.NewFuzzySearchService(repositoryFactory.SearchRepository())
+	searchService := search.NewFuzzySearchService(searchRepo)
 	log.Println("Fuzzy search service initialized")
 
+	// Set up web layer
 	webHandlers := web.NewHandlers(contentService, searchService, templateEngine)
 
 	router := gin.Default()
 
-	// Initialize rate limiter
 	rateLimiter := web.NewRateLimiter()
 
 	router.Use(web.RequestLoggingMiddleware())
@@ -112,9 +103,8 @@ func main() {
 
 		c.JSON(http.StatusOK, gin.H{
 			"status":         "healthy",
-			"version":        "3.0.0-go",
-			"architecture":   "hexagonal",
-			"database":       mongoClient.DatabaseName(),
+			"version":        "4.0.0",
+			"architecture":   "hexagonal-inmemory",
 			"cache_items":    cacheStats["item_count"],
 			"uptime_seconds": time.Since(metrics.StartTime).Seconds(),
 			"request_count":  metrics.RequestCount,
@@ -152,69 +142,16 @@ func main() {
 	log.Println("Server shutdown completed")
 }
 
-func parseMarkdownFiles(repositoryFactory *repositories.RepositoryFactory, indexManager *database.IndexManager) error {
-	ctx := context.Background()
-
-	log.Println("Dropping existing collections for clean parse...")
-	collections := []string{
-		"incantesimi", "mostri", "classi", "backgrounds", "equipaggiamenti",
-		"oggetti_magici", "armi", "armature", "talenti", "servizi",
-		"strumenti", "animali", "regole", "cavalcature_veicoli",
-	}
-
-	repo := repositoryFactory.DocumentRepository()
-	for _, collection := range collections {
-		if err := repo.DropCollection(ctx, collection); err != nil {
-			log.Printf("Warning: Failed to drop collection %s: %v", collection, err)
-		}
-	}
-	log.Println("Collections dropped")
-
-	indexCtx, indexCancel := context.WithTimeout(context.Background(), 30*time.Second)
-	defer indexCancel()
-	if err := indexManager.EnsureIndexes(indexCtx); err != nil {
-		log.Printf("Warning: Failed to recreate indexes: %v", err)
-
-	} else {
-		log.Println("✅ Indexes recreated")
-	}
-
-	documentRegistry, err := parsers.CreateDocumentRegistry()
-	if err != nil {
-		return fmt.Errorf("failed to create document registry: %w", err)
-	}
-
-	parserService := services.NewParserService(services.ParserServiceConfig{
-		DocumentRegistry: documentRegistry,
-		DocumentRepo:     repositoryFactory.DocumentRepository(),
-		WorkItems:        nil,
-		Logger:           parsers.NewConsoleLogger("parser"),
-		DryRun:           false,
-	})
-
-	result, err := parserService.ParseAllFiles(ctx, "data/ita/lists")
-	if err != nil {
-		return err
-	}
-
-	log.Printf("Parsing completed: %d files, %d documents in %.2fs\n",
-		result.SuccessCount, result.TotalDocuments, result.Duration.Seconds())
-
-	return nil
-}
-
 func corsMiddleware() gin.HandlerFunc {
 	return gin.HandlerFunc(func(c *gin.Context) {
 		origin := c.Request.Header.Get("Origin")
 
-		// Whitelist allowed origins
 		allowedOrigins := map[string]bool{
 			"https://quintaedizione.online":     true,
 			"https://www.quintaedizione.online": true,
 		}
 
-		// Add localhost origins for development
-		if !isProduction(c) {
+		if !isProduction() {
 			allowedOrigins["http://localhost:3000"] = true
 			allowedOrigins["http://localhost:8000"] = true
 			allowedOrigins["http://127.0.0.1:3000"] = true
@@ -239,7 +176,7 @@ func corsMiddleware() gin.HandlerFunc {
 	})
 }
 
-func isProduction(c *gin.Context) bool {
+func isProduction() bool {
 	env := os.Getenv("ENVIRONMENT")
 	return env == "production"
 }

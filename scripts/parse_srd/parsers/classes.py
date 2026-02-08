@@ -23,7 +23,6 @@ from __future__ import annotations
 
 import re
 
-from ..classify import SpanRole
 from ..heading_tree import HeadingNode
 from ..markdown_gen import paragraphs_to_markdown
 from ..merge import Paragraph
@@ -89,17 +88,12 @@ def _extract_class(class_node: HeadingNode) -> PlayerClass:
     # Content under H2 = intro text + level table + trait summary
     description = paragraphs_to_markdown(class_node.content)
 
-    # Extract hit die from TABLE_HEADER_SMALL "Dado Vita" + next SIDEBAR
+    # Extract hit die from the markdown table in description
+    # Table contains "Dado Vita | D12 per ogni livello da barbaro" etc.
     hit_die = ""
-    paras = class_node.content
-    for i, para in enumerate(paras):
-        if para.role == SpanRole.TABLE_HEADER_SMALL and "Dado Vita" in para.text:
-            # Value is in the next SIDEBAR paragraph (e.g. "D12 per ogni ...")
-            if i + 1 < len(paras):
-                m = re.search(r"[Dd](\d+)", paras[i + 1].text)
-                if m:
-                    hit_die = f"d{m.group(1)}"
-            break
+    m = re.search(r"Dado Vita\s*\|\s*[Dd](\d+)", description)
+    if m:
+        hit_die = f"d{m.group(1)}"
 
     # Process H4 children
     features: list[ClassFeature] = []

@@ -24,11 +24,13 @@ from .heading_tree import build_heading_tree, walk_tree
 from .merge import blocks_to_paragraphs
 from .markdown_gen import paragraphs_to_markdown
 from .section_split import SECTIONS, SectionDef
+from .tables import process_tables
 
 
 def debug_page(doc: fitz.Document, page_num: int) -> None:
     """Dump classified spans for a single page for calibration."""
     blocks = extract_page(doc[page_num - 1], page_num)
+    blocks = process_tables(blocks)
     paragraphs = blocks_to_paragraphs(blocks)
 
     print(f"\n{'=' * 80}")
@@ -83,6 +85,7 @@ def debug_section(doc: fitz.Document, section_name: str) -> None:
         sys.exit(1)
 
     blocks = extract_pages(doc, section.pages[0], section.pages[1])
+    blocks = process_tables(blocks)
     paragraphs = blocks_to_paragraphs(blocks)
 
     print(f"\n{'=' * 80}")
@@ -112,6 +115,7 @@ def run_parsers(doc: fitz.Document, output_dir: Path) -> None:
         print(f"  Parsing {section.name} (pages {section.pages[0]}-{section.pages[1]})...")
 
         blocks = extract_pages(doc, section.pages[0], section.pages[1])
+        blocks = process_tables(blocks)
         paragraphs = blocks_to_paragraphs(blocks)
         tree = build_heading_tree(paragraphs)
 

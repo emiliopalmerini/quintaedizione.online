@@ -19,27 +19,25 @@ type ContentService struct {
 	cache          *infrastructure.SimpleCache
 }
 
-func NewContentService(documentRepo repositories.DocumentRepository, filterService filters.FilterService, cache *infrastructure.SimpleCache) *ContentService {
+func NewContentService(repo repositories.DocumentRepository, filterService filters.FilterService, cache *infrastructure.SimpleCache) *ContentService {
 	return &ContentService{
-		documentReader: documentRepo,
-		documentStats:  documentRepo,
-		documentNav:    documentRepo,
+		documentReader: repo,
+		documentStats:  repo,
+		documentNav:    repo,
 		filterService:  filterService,
 		cache:          cache,
 	}
 }
 
 func (s *ContentService) GetCollectionItems(ctx context.Context, collection, search string, filterParams map[string]string, page, limit int) ([]map[string]any, int64, error) {
-
 	skip := int64((page - 1) * limit)
 
-	// Convert string to CollectionName (we assume collection is already validated by middleware)
 	collectionType, _ := collections.FromString(collection)
 
-	searchFilter := s.filterService.BuildSearchFilter(collectionType, search)
+	searchPred := s.filterService.BuildSearchPredicate(collectionType, search)
 
 	if len(filterParams) == 0 {
-		items, totalCount, err := s.documentReader.FindMaps(ctx, collection, searchFilter, skip, int64(limit))
+		items, totalCount, err := s.documentReader.FindMaps(ctx, collection, searchPred, skip, int64(limit))
 		if err != nil {
 			return nil, 0, fmt.Errorf("failed to get collection items: %w", err)
 		}
@@ -51,14 +49,14 @@ func (s *ContentService) GetCollectionItems(ctx context.Context, collection, sea
 		return nil, 0, fmt.Errorf("failed to parse filters: %w", err)
 	}
 
-	fieldFilter, err := s.filterService.BuildMongoFilter(filterSet)
+	fieldPred, err := s.filterService.BuildFilter(filterSet)
 	if err != nil {
 		return nil, 0, fmt.Errorf("failed to build field filter: %w", err)
 	}
 
-	combinedFilter := s.filterService.CombineFilters(fieldFilter, searchFilter)
+	combined := s.filterService.CombinePredicates(fieldPred, searchPred)
 
-	items, totalCount, err := s.documentReader.FindMaps(ctx, collection, combinedFilter, skip, int64(limit))
+	items, totalCount, err := s.documentReader.FindMaps(ctx, collection, combined, skip, int64(limit))
 	if err != nil {
 		return nil, 0, fmt.Errorf("failed to get collection items with filters: %w", err)
 	}
@@ -67,7 +65,6 @@ func (s *ContentService) GetCollectionItems(ctx context.Context, collection, sea
 }
 
 func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (map[string]any, error) {
-
 	cacheKey := fmt.Sprintf("item:%s:%s", collection, slug)
 	if cached, found := s.cache.Get(cacheKey); found {
 		if item, ok := cached.(map[string]any); ok {
@@ -86,7 +83,7 @@ func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (
 }
 
 func (s *ContentService) GetStats(ctx context.Context) (map[string]any, error) {
-	collections, err := s.documentStats.GetAllCollectionStats(ctx)
+	allStats, err := s.documentStats.GetAllCollectionStats(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("failed to get collection stats: %w", err)
 	}
@@ -96,7 +93,7 @@ func (s *ContentService) GetStats(ctx context.Context) (map[string]any, error) {
 		"total_items": int64(0),
 	}
 
-	for _, collection := range collections {
+	for _, collection := range allStats {
 		if name, ok := collection["collection"].(string); ok {
 			if count, ok := collection["count"].(int64); ok {
 				stats["collections"].(map[string]int64)[name] = count
@@ -140,13 +137,11 @@ func (s *ContentService) GlobalSearch(ctx context.Context, query string, limitPe
 			continue
 		}
 
-		// Convert string to CollectionName (we assume collection names from DB are valid)
 		collectionType, _ := collections.FromString(collectionName)
-		searchFilter := s.filterService.BuildSearchFilter(collectionType, query)
+		searchPred := s.filterService.BuildSearchPredicate(collectionType, query)
 
-		items, total, err := s.documentReader.FindMaps(ctx, collectionName, searchFilter, 0, int64(limitPerCollection))
+		items, total, err := s.documentReader.FindMaps(ctx, collectionName, searchPred, 0, int64(limitPerCollection))
 		if err != nil {
-
 			fmt.Printf("Warning: Failed to search in collection %s: %v\n", collectionName, err)
 			continue
 		}
