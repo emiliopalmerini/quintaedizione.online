@@ -122,38 +122,28 @@ func getDocSlug(doc models.Document) string {
 	return doc.ID
 }
 
-templ prevButton(data models.CollectionPageData) {
+func paginationURL(data models.CollectionPageData, page int) string {
+	base := "/" + data.PageData.Collection + "/rows?page=" + strconv.Itoa(page)
 	if data.PageData.QueryString != "" {
-		<button hx-get={ "/" + data.PageData.Collection + "/rows?page=" + strconv.Itoa(data.Page-1) + "&" + data.PageData.QueryString }
-				hx-target="#rows"
-				class="px-2 sm:px-3 py-2 bg-white border rounded hover:bg-neutral-50 text-xs sm:text-sm min-h-[44px] min-w-[44px] sm:min-w-auto transition-colors focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-			<span class="sm:hidden">←</span>
-			<span class="hidden sm:inline">← Precedente</span>
-		</button>
-	} else {
-		<button hx-get={ "/" + data.PageData.Collection + "/rows?page=" + strconv.Itoa(data.Page-1) }
-				hx-target="#rows"
-				class="px-2 sm:px-3 py-2 bg-white border rounded hover:bg-neutral-50 text-xs sm:text-sm min-h-[44px] min-w-[44px] sm:min-w-auto transition-colors focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-			<span class="sm:hidden">←</span>
-			<span class="hidden sm:inline">← Precedente</span>
-		</button>
+		return base + "&" + data.PageData.QueryString
 	}
+	return base
+}
+
+templ prevButton(data models.CollectionPageData) {
+	<button hx-get={ paginationURL(data, data.Page-1) }
+			hx-target="#rows"
+			class="btn btn-sm">
+		<span class="sm:hidden">&larr;</span>
+		<span class="hidden sm:inline">&larr; Precedente</span>
+	</button>
 }
 
 templ nextButton(data models.CollectionPageData) {
-	if data.PageData.QueryString != "" {
-		<button hx-get={ "/" + data.PageData.Collection + "/rows?page=" + strconv.Itoa(data.Page+1) + "&" + data.PageData.QueryString }
-				hx-target="#rows"
-				class="px-2 sm:px-3 py-2 bg-white border rounded hover:bg-neutral-50 text-xs sm:text-sm min-h-[44px] min-w-[44px] sm:min-w-auto transition-colors focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-			<span class="sm:hidden">→</span>
-			<span class="hidden sm:inline">Successiva →</span>
-		</button>
-	} else {
-		<button hx-get={ "/" + data.PageData.Collection + "/rows?page=" + strconv.Itoa(data.Page+1) }
-				hx-target="#rows"
-				class="px-2 sm:px-3 py-2 bg-white border rounded hover:bg-neutral-50 text-xs sm:text-sm min-h-[44px] min-w-[44px] sm:min-w-auto transition-colors focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-			<span class="sm:hidden">→</span>
-			<span class="hidden sm:inline">Successiva →</span>
-		</button>
-	}
+	<button hx-get={ paginationURL(data, data.Page+1) }
+			hx-target="#rows"
+			class="btn btn-sm">
+		<span class="sm:hidden">&rarr;</span>
+		<span class="hidden sm:inline">Successiva &rarr;</span>
+	</button>
 }
