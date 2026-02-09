@@ -2,6 +2,7 @@ package services
 
 import (
 	"fmt"
+	"strings"
 
 	appFilters "github.com/emiliopalmerini/quintaedizione.online/internal/application/filters"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
@@ -52,6 +53,17 @@ func (s *FilterService) ParseFilters(collection collections.CollectionName, quer
 			if !filterDef.IsApplicableToCollection(collection) {
 				return nil, domainFilters.NewUnsupportedFilterError(paramName, collection)
 			}
+		}
+
+		// Multi-value support: comma-separated values use InMatch or multi-regex
+		if strings.Contains(paramValue, ",") {
+			filterValue := domainFilters.FilterValue{
+				Definition: s.multiValueDefinition(filterDef),
+				Value:      paramValue,
+				RawValue:   paramValue,
+			}
+			filterSet.AddFilter(filterValue)
+			continue
 		}
 
 		if err := filterDef.ValidateValue(paramValue); err != nil {
@@ -145,6 +157,19 @@ func (s *FilterService) CombinePredicates(predicates ...domainFilters.DocumentPr
 		}
 		return true
 	}
+}
+
+// multiValueDefinition returns a copy of the filter definition adapted for multi-value matching.
+// For regex-based filters, it keeps RegexMatch (predicate builder handles OR logic).
+// For other filters, it switches to InMatch which naturally handles comma-separated values.
+func (s *FilterService) multiValueDefinition(def domainFilters.FilterDefinition) domainFilters.FilterDefinition {
+	if def.Operator == domainFilters.RegexMatch {
+		return def
+	}
+	copied := def
+	copied.Operator = domainFilters.InMatch
+	copied.DataType = domainFilters.StringFilter
+	return copied
 }
 
 func (s *FilterService) convertValue(value string, dataType domainFilters.FilterDataType) (any, error) {

@@ -1,8 +1,11 @@
 package templates
 
 import (
-	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
+	"slices"
 	"strconv"
+	"strings"
+
+	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
 )
 
 templ CollectionPage(data models.CollectionPageData) {
@@ -14,7 +17,7 @@ templ CollectionPage(data models.CollectionPageData) {
 			<form id="search-form"
 				hx-get={ "/" + data.PageData.Collection + "/rows" }
 				hx-target="#rows"
-				hx-trigger="submit, keyup delay:100ms from:#q, change from:select, change from:input[type=checkbox], change from:input[type=number]"
+				hx-trigger="submit, keyup delay:100ms from:#q, change from:select, change from:input[type=hidden], change from:input[type=checkbox], change from:input[type=number]"
 				hx-push-url="true"
 				hx-indicator=".loading-bar"
 				class="flex flex-col gap-2">
@@ -57,27 +60,46 @@ func hasActiveFilters(filters []models.FilterOption) bool {
 	return false
 }
 
-func formatFilterLabel(v models.FilterValueOption) string {
-	if v.Count > 0 {
-		return v.Value + " (" + strconv.FormatInt(v.Count, 10) + ")"
+func filterButtonText(f models.FilterOption) string {
+	if len(f.CurrentValues) == 0 {
+		return f.Label
 	}
-	return v.Value
+	if len(f.CurrentValues) == 1 {
+		return f.CurrentValues[0]
+	}
+	return strconv.Itoa(len(f.CurrentValues)) + " selezionati"
+}
+
+func isValueSelected(f models.FilterOption, value string) bool {
+	return slices.Contains(f.CurrentValues, value)
 }
 
 templ collectionFilters(filters []models.FilterOption, pageSize int) {
 	for _, f := range filters {
-		<select name={ f.Name } class="field w-auto" aria-label={ f.Label }>
-			<option value="">{ f.Label }</option>
-			for _, v := range f.Values {
-				if v.Value == f.CurrentValue {
-					<option value={ v.Value } selected>{ formatFilterLabel(v) }</option>
-				} else if v.Count > 0 {
-					<option value={ v.Value }>{ formatFilterLabel(v) }</option>
-				} else {
-					<option value={ v.Value } disabled>{ v.Value } (0)</option>
+		<div class="filter-multiselect" data-filter-name={ f.Name }>
+			<input type="hidden" name={ f.Name } value={ strings.Join(f.CurrentValues, ",") }/>
+			<button type="button" class={ "field w-auto filter-multiselect-btn", templ.KV("filter-multiselect-active", len(f.CurrentValues) > 0) }>
+				{ filterButtonText(f) }
+				<span class="filter-multiselect-arrow">▾</span>
+			</button>
+			<div class="filter-multiselect-dropdown">
+				for _, v := range f.Values {
+					<label class={ "filter-option-checkbox", templ.KV("filter-option-disabled", v.Count == 0 && !isValueSelected(f, v.Value)) }>
+						if isValueSelected(f, v.Value) {
+							<input type="checkbox" value={ v.Value } checked/>
+						} else {
+							<input type="checkbox" value={ v.Value } disabled?={ v.Count == 0 }/>
+						}
+						<span class="filter-option-label">{ v.Value }</span>
+						if v.Count > 0 || isValueSelected(f, v.Value) {
+							<span class="filter-option-count">{ strconv.FormatInt(v.Count, 10) }</span>
+						} else {
+							<span class="filter-option-count">0</span>
+						}
+					</label>
 				}
-			}
-		</select>
+			</div>
+		</div>
 	}
 	// Page size selector (always shown)
 	<select name="page_size" class="field w-28">
