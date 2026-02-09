@@ -22,6 +22,7 @@ type DocumentReader interface {
 type DocumentStatistics interface {
 	Count(ctx context.Context, collection string) (int64, error)
 	GetAllCollectionStats(ctx context.Context) ([]map[string]any, error)
+	AggregateField(ctx context.Context, collection, fieldPath string, match DocumentPredicate) (map[string]int64, error)
 }
 
 // DocumentNavigation provides navigation between adjacent documents.

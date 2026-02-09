@@ -1,6 +1,9 @@
 package templates
 
-import "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
+import (
+	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
+	"strconv"
+)
 
 templ CollectionPage(data models.CollectionPageData) {
 	@BaseLayout(data.PageData) {
@@ -54,15 +57,24 @@ func hasActiveFilters(filters []models.FilterOption) bool {
 	return false
 }
 
+func formatFilterLabel(v models.FilterValueOption) string {
+	if v.Count > 0 {
+		return v.Value + " (" + strconv.FormatInt(v.Count, 10) + ")"
+	}
+	return v.Value
+}
+
 templ collectionFilters(filters []models.FilterOption, pageSize int) {
 	for _, f := range filters {
 		<select name={ f.Name } class="field w-auto" aria-label={ f.Label }>
 			<option value="">{ f.Label }</option>
 			for _, v := range f.Values {
-				if v == f.CurrentValue {
-					<option value={ v } selected>{ v }</option>
+				if v.Value == f.CurrentValue {
+					<option value={ v.Value } selected>{ formatFilterLabel(v) }</option>
+				} else if v.Count > 0 {
+					<option value={ v.Value }>{ formatFilterLabel(v) }</option>
 				} else {
-					<option value={ v }>{ v }</option>
+					<option value={ v.Value } disabled>{ v.Value } (0)</option>
 				}
 			}
 		</select>

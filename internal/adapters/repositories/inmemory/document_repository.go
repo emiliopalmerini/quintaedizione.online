@@ -107,6 +107,10 @@ func (r *documentRepository) GetAllCollectionStats(_ context.Context) ([]map[str
 	return stats, nil
 }
 
+func (r *documentRepository) AggregateField(_ context.Context, collection, fieldPath string, match repositories.DocumentPredicate) (map[string]int64, error) {
+	return r.store.Aggregate(collection, fieldPath, match), nil
+}
+
 func (r *documentRepository) GetAdjacentMaps(_ context.Context, collection string, currentID string) (prevID *string, nextID *string, err error) {
 	prev, next := r.store.Adjacent(collection, currentID)
 	return prev, next, nil

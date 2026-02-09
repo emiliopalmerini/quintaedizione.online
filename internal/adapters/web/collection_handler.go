@@ -31,7 +31,8 @@ func (h *CollectionHandler) handleCollectionList(c *gin.Context) {
 
 	pagination := CalculatePaginationData(params.PageNum, params.PageSize, totalCount)
 
-	filterOptions := h.buildFilterOptions(collection, filters)
+	facetCounts, _ := h.contentService.GetFacetCounts(c.Request.Context(), collection, params.Query, filters)
+	filterOptions := h.buildFilterOptionsWithCounts(collection, filters, facetCounts)
 
 	data := models.CollectionPageData{
 		PageData: models.PageData{
@@ -79,7 +80,8 @@ func (h *CollectionHandler) handleCollectionRows(c *gin.Context) {
 
 	pagination := CalculatePaginationData(params.PageNum, params.PageSize, totalCount)
 
-	filterOptions := h.buildFilterOptions(collection, filters)
+	facetCounts, _ := h.contentService.GetFacetCounts(c.Request.Context(), collection, params.Query, filters)
+	filterOptions := h.buildFilterOptionsWithCounts(collection, filters, facetCounts)
 
 	data := models.CollectionPageData{
 		PageData: models.PageData{
@@ -164,8 +166,8 @@ func (h *CollectionHandler) handleItemDetail(c *gin.Context) {
 	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
 }
 
-// buildFilterOptions returns filter options for the collection template.
-func (h *CollectionHandler) buildFilterOptions(collection string, activeFilters map[string]string) []models.FilterOption {
+// buildFilterOptionsWithCounts returns filter options with optional facet counts.
+func (h *CollectionHandler) buildFilterOptionsWithCounts(collection string, activeFilters map[string]string, facetCounts map[string]map[string]int64) []models.FilterOption {
 	defs, err := h.contentService.GetAvailableFilters(collection)
 	if err != nil || len(defs) == 0 {
 		return nil
@@ -176,10 +178,22 @@ func (h *CollectionHandler) buildFilterOptions(collection string, activeFilters 
 		if len(def.EnumValues) == 0 {
 			continue
 		}
+		counts := facetCounts[def.Name]
+		values := make([]models.FilterValueOption, 0, len(def.EnumValues))
+		for _, v := range def.EnumValues {
+			var count int64
+			if counts != nil {
+				count = counts[v]
+			}
+			values = append(values, models.FilterValueOption{
+				Value: v,
+				Count: count,
+			})
+		}
 		options = append(options, models.FilterOption{
 			Name:         def.Name,
 			Label:        def.Description,
-			Values:       def.EnumValues,
+			Values:       values,
 			CurrentValue: activeFilters[def.Name],
 		})
 	}
