@@ -4,11 +4,26 @@ import "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/m
 import "strconv"
 
 templ RowsPartial(data models.CollectionPageData) {
+	if hasActiveFilters(data.Filters) {
+		<div class="filter-chips-bar">
+			for _, f := range data.Filters {
+				if f.CurrentValue != "" {
+					<button type="button" class="filter-chip" data-filter-name={ f.Name }>
+						<span class="filter-chip-label">{ f.Label }:</span>
+						<span class="filter-chip-value">{ f.CurrentValue }</span>
+						<span class="filter-chip-remove" aria-label="Rimuovi filtro">&times;</span>
+					</button>
+				}
+			}
+			<button type="button" class="clear-all-btn" id="clear-all-filters">Azzera filtri</button>
+		</div>
+	}
+
 	<div class="divide-y">
 		for _, doc := range data.Documents {
 			@documentRow(doc, data.PageData.Collection)
 		}
-		
+
 		if len(data.Documents) == 0 {
 			<div class="px-4 py-8 text-center text-neutral-500">
 				<p>Nessun documento trovato.</p>

@@ -45,6 +45,15 @@ templ CollectionPage(data models.CollectionPageData) {
 	}
 }
 
+func hasActiveFilters(filters []models.FilterOption) bool {
+	for _, f := range filters {
+		if f.CurrentValue != "" {
+			return true
+		}
+	}
+	return false
+}
+
 templ collectionFilters(filters []models.FilterOption, pageSize int) {
 	for _, f := range filters {
 		<select name={ f.Name } class="field w-auto" aria-label={ f.Label }>

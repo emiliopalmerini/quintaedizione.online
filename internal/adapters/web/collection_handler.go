@@ -79,12 +79,15 @@ func (h *CollectionHandler) handleCollectionRows(c *gin.Context) {
 
 	pagination := CalculatePaginationData(params.PageNum, params.PageSize, totalCount)
 
+	filterOptions := h.buildFilterOptions(collection, filters)
+
 	data := models.CollectionPageData{
 		PageData: models.PageData{
 			Collection:  collection,
 			QueryString: c.Request.URL.RawQuery,
 		},
 		Documents:  documents,
+		Filters:    filterOptions,
 		Query:      params.Query,
 		Page:       params.PageNum,
 		PageSize:   params.PageSize,

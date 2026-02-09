@@ -429,15 +429,49 @@ function initGlossaryTooltips() {
 	});
 }
 
+// Filter chips: remove individual filter or clear all
+function initFilterChips() {
+	document.querySelectorAll('.filter-chip').forEach(function(chip) {
+		chip.addEventListener('click', function() {
+			var filterName = this.getAttribute('data-filter-name');
+			var select = document.querySelector('select[name="' + filterName + '"]');
+			if (select) {
+				select.value = '';
+				select.dispatchEvent(new Event('change', { bubbles: true }));
+			}
+		});
+	});
+
+	var clearAllBtn = document.getElementById('clear-all-filters');
+	if (clearAllBtn) {
+		clearAllBtn.addEventListener('click', function() {
+			var form = document.getElementById('search-form');
+			if (!form) return;
+			form.querySelectorAll('select').forEach(function(select) {
+				if (select.name !== 'page_size') {
+					select.value = '';
+				}
+			});
+			// Trigger a change to fire HTMX
+			var firstSelect = form.querySelector('select');
+			if (firstSelect) {
+				firstSelect.dispatchEvent(new Event('change', { bubbles: true }));
+			}
+		});
+	}
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 	initBackButton();
 	initCopyMarkdownButton();
 	initSearchFormHandler();
 	initGlossaryTooltips();
+	initFilterChips();
 });
 
 document.body.addEventListener('htmx:afterSwap', () => {
 	initBackButton();
 	initCopyMarkdownButton();
 	initSearchFormHandler();
+	initFilterChips();
 });
