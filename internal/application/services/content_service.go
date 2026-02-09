@@ -113,6 +113,61 @@ func (s *ContentService) GetAdjacentItems(ctx context.Context, collection, curre
 	return s.documentNav.GetAdjacentMaps(ctx, collection, currentSlug)
 }
 
+// GetFacetCounts returns, for each filter definition, a map of value → count.
+// For each filter, counts are computed with all OTHER active filters + search applied,
+// so counts reflect what would happen if you selected that value.
+func (s *ContentService) GetFacetCounts(ctx context.Context, collection, search string, filterParams map[string]string) (map[string]map[string]int64, error) {
+	collectionType, ok := collections.FromString(collection)
+	if !ok {
+		return nil, nil
+	}
+
+	defs, err := s.filterService.GetAvailableFilters(collectionType)
+	if err != nil {
+		return nil, err
+	}
+
+	searchPred := s.filterService.BuildSearchPredicate(collectionType, search)
+	result := make(map[string]map[string]int64, len(defs))
+
+	for _, def := range defs {
+		if len(def.EnumValues) == 0 {
+			continue
+		}
+
+		// Build predicate from all OTHER active filters (exclude current filter)
+		otherParams := make(map[string]string)
+		for k, v := range filterParams {
+			if k != def.Name {
+				otherParams[k] = v
+			}
+		}
+
+		var combinedPred filters.DocumentPredicate
+		if len(otherParams) > 0 {
+			filterSet, err := s.filterService.ParseFilters(collectionType, otherParams)
+			if err != nil {
+				continue
+			}
+			fieldPred, err := s.filterService.BuildFilter(filterSet)
+			if err != nil {
+				continue
+			}
+			combinedPred = s.filterService.CombinePredicates(fieldPred, searchPred)
+		} else {
+			combinedPred = searchPred
+		}
+
+		counts, err := s.documentStats.AggregateField(ctx, collection, def.FieldPath, combinedPred)
+		if err != nil {
+			continue
+		}
+		result[def.Name] = counts
+	}
+
+	return result, nil
+}
+
 func (s *ContentService) GetAvailableFilters(collection string) ([]filters.FilterDefinition, error) {
 	collectionType, ok := collections.FromString(collection)
 	if !ok {

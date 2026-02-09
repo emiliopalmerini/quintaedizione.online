@@ -137,6 +137,44 @@ func (s *Store) Adjacent(collection, currentID string) (prevID, nextID *string) 
 	return prevID, nextID
 }
 
+// Aggregate iterates over a collection, applies an optional predicate, reads the
+// field at fieldPath from each matching document, and returns a map of value → count.
+func (s *Store) Aggregate(collection, fieldPath string, match func(map[string]any) bool) map[string]int64 {
+	ids, ok := s.sorted[collection]
+	if !ok {
+		return nil
+	}
+	coll := s.collections[collection]
+	counts := make(map[string]int64)
+
+	for _, id := range ids {
+		doc := coll[id]
+		if match != nil && !match(doc) {
+			continue
+		}
+		val := getNestedField(doc, fieldPath)
+		if val == nil {
+			continue
+		}
+		counts[fmt.Sprintf("%v", val)]++
+	}
+	return counts
+}
+
+// getNestedField retrieves a potentially nested field from a document.
+func getNestedField(doc map[string]any, path string) any {
+	parts := strings.Split(path, ".")
+	var current any = doc
+	for _, part := range parts {
+		m, ok := current.(map[string]any)
+		if !ok {
+			return nil
+		}
+		current = m[part]
+	}
+	return current
+}
+
 // Count returns the number of documents in a collection.
 func (s *Store) Count(collection string) int64 {
 	return int64(len(s.collections[collection]))

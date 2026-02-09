@@ -32,10 +32,15 @@ type DocumentDisplayField struct {
 	Value string `json:"value"`
 }
 
+type FilterValueOption struct {
+	Value string
+	Count int64
+}
+
 type FilterOption struct {
 	Name         string
 	Label        string
-	Values       []string
+	Values       []FilterValueOption
 	CurrentValue string
 }
 
