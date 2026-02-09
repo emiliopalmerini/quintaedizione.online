@@ -328,10 +328,112 @@ function initSearchFormHandler() {
 	}
 }
 
+// Glossary tooltip functionality
+function initGlossaryTooltips() {
+	let activeTooltip = null;
+	let hideTimeout = null;
+
+	function removeTooltip() {
+		if (activeTooltip) {
+			activeTooltip.remove();
+			activeTooltip = null;
+		}
+	}
+
+	function showTooltip(term) {
+		removeTooltip();
+		clearTimeout(hideTimeout);
+
+		const def = term.getAttribute('data-term-def');
+		const id = term.getAttribute('data-term-id');
+		const cat = term.getAttribute('data-term-cat');
+
+		const tooltip = document.createElement('div');
+		tooltip.className = 'glossary-tooltip';
+
+		let html = '';
+		if (cat) {
+			html += '<div class="glossary-tooltip-cat">' + cat + '</div>';
+		}
+		html += '<div class="glossary-tooltip-def">' + def + '</div>';
+		html += '<a href="/glossario/' + id + '" class="glossary-tooltip-link">Vedi nel glossario →</a>';
+		tooltip.innerHTML = html;
+
+		document.body.appendChild(tooltip);
+		activeTooltip = tooltip;
+
+		// Position tooltip
+		const rect = term.getBoundingClientRect();
+		const tooltipRect = tooltip.getBoundingClientRect();
+
+		let top = rect.bottom + window.scrollY + 8;
+		let left = rect.left + window.scrollX;
+
+		// Adjust if overflowing right edge
+		if (left + tooltipRect.width > window.innerWidth - 16) {
+			left = window.innerWidth - tooltipRect.width - 16;
+		}
+		// Adjust if overflowing left edge
+		if (left < 16) {
+			left = 16;
+		}
+		// Show above if overflowing bottom
+		if (rect.bottom + tooltipRect.height + 8 > window.innerHeight) {
+			top = rect.top + window.scrollY - tooltipRect.height - 8;
+		}
+
+		tooltip.style.top = top + 'px';
+		tooltip.style.left = left + 'px';
+
+		// Allow moving cursor to tooltip
+		tooltip.addEventListener('mouseenter', function() {
+			clearTimeout(hideTimeout);
+		});
+		tooltip.addEventListener('mouseleave', function() {
+			hideTimeout = setTimeout(removeTooltip, 150);
+		});
+	}
+
+	// Event delegation on document body
+	document.body.addEventListener('mouseenter', function(e) {
+		if (e.target.classList && e.target.classList.contains('glossary-term')) {
+			showTooltip(e.target);
+		}
+	}, true);
+
+	document.body.addEventListener('mouseleave', function(e) {
+		if (e.target.classList && e.target.classList.contains('glossary-term')) {
+			hideTimeout = setTimeout(removeTooltip, 150);
+		}
+	}, true);
+
+	// Touch support: tap to toggle
+	document.body.addEventListener('click', function(e) {
+		if (e.target.classList && e.target.classList.contains('glossary-term')) {
+			e.preventDefault();
+			if (activeTooltip) {
+				removeTooltip();
+			} else {
+				showTooltip(e.target);
+			}
+		} else if (activeTooltip && !activeTooltip.contains(e.target)) {
+			removeTooltip();
+		}
+	});
+
+	// Escape key dismisses tooltip
+	document.addEventListener('keydown', function(e) {
+		if (e.key === 'Escape' && activeTooltip) {
+			removeTooltip();
+		}
+	});
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 	initBackButton();
 	initCopyMarkdownButton();
 	initSearchFormHandler();
+	initGlossaryTooltips();
 });
 
 document.body.addEventListener('htmx:afterSwap', () => {
