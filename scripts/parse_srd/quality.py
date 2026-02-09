@@ -49,10 +49,11 @@ def validate_output(output_dir: Path) -> None:
                 warnings += 1
                 print(f"    WARN: {entry_id} has empty name/title")
 
-            # Check for empty description (skip if entry has children)
+            # Check for empty description (skip if entry has children or structured content)
             desc = entry.get("description", entry.get("content", entry.get("definition", entry.get("benefit", ""))))
             has_children = bool(entry.get("children"))
-            if isinstance(desc, str) and not desc.strip() and not has_children:
+            has_features = bool(entry.get("traits") or entry.get("actions"))
+            if isinstance(desc, str) and not desc.strip() and not has_children and not has_features:
                 warnings += 1
                 if count < 50:  # Only show for small collections
                     print(f"    WARN: {name or entry_id} has empty description")
