@@ -24,16 +24,29 @@ templ CollectionPage(data models.CollectionPageData) {
 				<div class="flex items-center gap-2 flex-wrap">
 					<input id="q" name="q" placeholder="Cerca…" value={ data.Query } class="field flex-1" minlength="2"/>
 
-					<!-- Collection-specific filters -->
-					@collectionFilters(data.Filters, data.PageSize)
-
 					<button class="btn" type="submit">
 						<span class="htmx-indicator">
 							<span class="spinner"></span>
 						</span>
 						<span>Cerca</span>
 					</button>
+
+					if len(data.Filters) > 0 {
+						<button type="button" id="filter-toggle-btn" class="btn filter-toggle-btn">
+							Filtri
+							if activeFilterCount(data.Filters) > 0 {
+								<span class="filter-toggle-badge">{ strconv.Itoa(activeFilterCount(data.Filters)) }</span>
+							}
+						</button>
+					}
 				</div>
+
+				<!-- Collapsible filter panel -->
+				if len(data.Filters) > 0 {
+					<div id="filter-panel" class="filter-panel">
+						@collectionFilters(data.Filters, data.PageSize)
+					</div>
+				}
 
 				<!-- Loading indicator with enhanced animation -->
 				<div class="htmx-indicator flex items-center gap-2 text-sm text-secondary hidden">
@@ -60,6 +73,14 @@ func hasActiveFilters(filters []models.FilterOption) bool {
 	return false
 }
 
+func activeFilterCount(filters []models.FilterOption) int {
+	count := 0
+	for _, f := range filters {
+		count += len(f.CurrentValues)
+	}
+	return count
+}
+
 func filterButtonText(f models.FilterOption) string {
 	if len(f.CurrentValues) == 0 {
 		return f.Label
@@ -75,6 +96,7 @@ func isValueSelected(f models.FilterOption, value string) bool {
 }
 
 templ collectionFilters(filters []models.FilterOption, pageSize int) {
+	<div class="filter-panel-content">
 	for _, f := range filters {
 		<div class="filter-multiselect" data-filter-name={ f.Name }>
 			<input type="hidden" name={ f.Name } value={ strings.Join(f.CurrentValues, ",") }/>
@@ -108,4 +130,5 @@ templ collectionFilters(filters []models.FilterOption, pageSize int) {
 		<option value="50" if pageSize == 50 { selected }>50/pagina</option>
 		<option value="100" if pageSize == 100 { selected }>100/pagina</option>
 	</select>
+	</div>
 }

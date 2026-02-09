@@ -429,6 +429,17 @@ function initGlossaryTooltips() {
 	});
 }
 
+// Mobile filter panel toggle
+function initFilterPanel() {
+	var toggleBtn = document.getElementById('filter-toggle-btn');
+	var panel = document.getElementById('filter-panel');
+	if (!toggleBtn || !panel) return;
+
+	toggleBtn.addEventListener('click', function() {
+		panel.classList.toggle('open');
+	});
+}
+
 // Multi-select filter dropdowns
 function initFilterMultiselect() {
 	document.querySelectorAll('.filter-multiselect').forEach(function(container) {
@@ -522,6 +533,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	initCopyMarkdownButton();
 	initSearchFormHandler();
 	initGlossaryTooltips();
+	initFilterPanel();
 	initFilterMultiselect();
 	initFilterChips();
 });
@@ -530,6 +542,7 @@ document.body.addEventListener('htmx:afterSwap', () => {
 	initBackButton();
 	initCopyMarkdownButton();
 	initSearchFormHandler();
+	initFilterPanel();
 	initFilterMultiselect();
 	initFilterChips();
 });
