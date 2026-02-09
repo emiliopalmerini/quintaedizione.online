@@ -1,7 +1,6 @@
 package parsers
 
 import (
-	"log"
 	"strings"
 
 	"github.com/gomarkdown/markdown"
@@ -10,34 +9,22 @@ import (
 )
 
 type MarkdownRenderer struct {
-	extensions    parser.Extensions
-	opts          html.RendererOptions
-	keywordLinker *KeywordLinker
+	extensions     parser.Extensions
+	opts           html.RendererOptions
+	glossaryLinker *GlossaryLinker
 }
 
-func NewMarkdownRenderer(keywordConfigPath string) *MarkdownRenderer {
-
+func NewMarkdownRenderer(glossaryLinker *GlossaryLinker) *MarkdownRenderer {
 	extensions := parser.CommonExtensions | parser.AutoHeadingIDs | parser.NoEmptyLineBeforeBlock
 
 	opts := html.RendererOptions{
 		Flags: html.CommonFlags | html.HrefTargetBlank,
 	}
 
-	// Initialize keyword linker if config path is provided
-	var keywordLinker *KeywordLinker
-	if keywordConfigPath != "" {
-		var err error
-		keywordLinker, err = NewKeywordLinker(keywordConfigPath)
-		if err != nil {
-			log.Printf("Warning: failed to initialize keyword linker: %v", err)
-			keywordLinker = nil
-		}
-	}
-
 	return &MarkdownRenderer{
-		extensions:    extensions,
-		opts:          opts,
-		keywordLinker: keywordLinker,
+		extensions:     extensions,
+		opts:           opts,
+		glossaryLinker: glossaryLinker,
 	}
 }
 
@@ -55,9 +42,8 @@ func (r *MarkdownRenderer) Render(markdownContent string) string {
 
 	htmlContent := string(htmlBytes)
 
-	// Apply keyword linking if available
-	if r.keywordLinker != nil {
-		htmlContent = r.keywordLinker.LinkKeywords(htmlContent)
+	if r.glossaryLinker != nil {
+		htmlContent = r.glossaryLinker.LinkGlossaryTerms(htmlContent)
 	}
 
 	return strings.TrimSpace(htmlContent)
