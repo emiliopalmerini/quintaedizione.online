@@ -39,6 +39,21 @@ _SECTION_LABELS = {
     "tratti", "azioni", "azioni bonus", "reazioni", "azioni leggendarie",
 }
 
+# Known D&D 5e damage types (Italian)
+_DAMAGE_TYPES = {
+    "acido", "contundente", "freddo", "fulmine", "fuoco", "forza",
+    "necrotico", "perforante", "psichico", "radioso", "tagliente",
+    "tuono", "veleno",
+}
+
+
+def _is_condition_immunity(text: str) -> bool:
+    """Return True if the immunity text contains only condition names, not damage types."""
+    # Split on comma and check if any token is a known damage type
+    tokens = [t.strip().lower() for t in text.split(",")]
+    return not any(t in _DAMAGE_TYPES for t in tokens)
+
+
 # Ability score abbreviation map (Italian)
 _ABILITY_NAMES = {
     "for": "strength",
@@ -359,8 +374,12 @@ def _extract_monster(
         parts = raw_immunities.split(";", 1)
         damage_immunities = parts[0].strip()
         condition_immunities = parts[1].strip()
-    else:
-        damage_immunities = raw_immunities
+    elif raw_immunities:
+        # No semicolon — classify based on known condition names
+        if _is_condition_immunity(raw_immunities):
+            condition_immunities = raw_immunities
+        else:
+            damage_immunities = raw_immunities
 
     return Monster(
         id=slugify(name),
