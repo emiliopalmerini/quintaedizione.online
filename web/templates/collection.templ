@@ -19,7 +19,7 @@ templ CollectionPage(data models.CollectionPageData) {
 					<input id="q" name="q" placeholder="Cerca…" value={ data.Query } class="field flex-1" minlength="2"/>
 
 					<!-- Collection-specific filters -->
-					@collectionFilters(data.PageData.Collection, data.PageSize)
+					@collectionFilters(data.Filters, data.PageSize)
 
 					<button class="btn" type="submit">
 						<span class="htmx-indicator">
@@ -45,7 +45,19 @@ templ CollectionPage(data models.CollectionPageData) {
 	}
 }
 
-templ collectionFilters(collection string, pageSize int) {
+templ collectionFilters(filters []models.FilterOption, pageSize int) {
+	for _, f := range filters {
+		<select name={ f.Name } class="field w-auto" aria-label={ f.Label }>
+			<option value="">{ f.Label }</option>
+			for _, v := range f.Values {
+				if v == f.CurrentValue {
+					<option value={ v } selected>{ v }</option>
+				} else {
+					<option value={ v }>{ v }</option>
+				}
+			}
+		</select>
+	}
 	// Page size selector (always shown)
 	<select name="page_size" class="field w-28">
 		<option value="10" if pageSize == 10 { selected }>10/pagina</option>

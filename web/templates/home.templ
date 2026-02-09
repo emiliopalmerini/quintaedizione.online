@@ -13,9 +13,9 @@ templ HomePage(data models.HomePageData) {
 
 			<p>
 				Questa applicazione aiuta a sfogliare, cercare e <strong>copiare rapidamente</strong> i contenuti della SRD della 5e 2024.
-				La ricerca testuale è <strong>abbastanza smart</strong> da cercare per tipo: per esempio, cercare 'livello 2' ritorna tutti gli incantesimi di secondo livello;
+				La ricerca testuale è <strong>abbastanza smart</strong> da cercare per tipo: per esempio, cercare 'livello 2' ritorna tutti gli incantesimi di secondo livello.
+				Usa i filtri nelle pagine collezione per raffinare i risultati.
 			</p>
-            <p> In futuro saranno implementati filtri specifici</p>
 
 			<div class="search-container-wrapper">
 				<form id="search-form" hx-get="/search/dropdown" hx-trigger="keyup changed delay:100ms from:#global-search, keydown[key=='Enter'] from:#global-search consume" hx-target="#search-results" hx-indicator="#search-spinner">
