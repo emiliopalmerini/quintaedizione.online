@@ -385,11 +385,31 @@ def _make_synthetic_blocks(
 # ── Table region detection ───────────────────────────────────────────────────
 
 
+def _count_header_small_cells(blocks: list[RawBlock], start: int) -> int:
+    """Count TABLE_HEADER_SMALL cells in consecutive blocks from start."""
+    count = 0
+    for i in range(start, len(blocks)):
+        role = _block_role(blocks[i])
+        if role != SpanRole.TABLE_HEADER_SMALL:
+            break
+        # Count individual spans (each span is a column header)
+        for line in blocks[i].lines:
+            for span in line.spans:
+                if classify_span(span) == SpanRole.TABLE_HEADER_SMALL:
+                    count += 1
+    return count
+
+
 def _find_table_regions(blocks: list[RawBlock]) -> list[tuple[int, int, str]]:
     """Find (start, end, title) of table regions in the block list.
 
     A table region starts with a TABLE_HEADER block and extends through
     consecutive TABLE_HEADER_SMALL and SIDEBAR/TABLE_BODY blocks.
+
+    Also detects orphaned tables: TABLE_HEADER_SMALL blocks with 3+ column
+    headers followed by SIDEBAR data, without a preceding TABLE_HEADER.
+    This handles tables that span page boundaries (e.g. weapon table
+    continuation).
     """
     regions: list[tuple[int, int, str]] = []
     i = 0
@@ -422,6 +442,36 @@ def _find_table_regions(blocks: list[RawBlock]) -> list[tuple[int, int, str]]:
             if j > start + 1:  # At least one content block after title
                 regions.append((start, j, title))
                 i = j
+            else:
+                i += 1
+
+        elif role == SpanRole.TABLE_HEADER_SMALL:
+            # Orphan table: 3+ column headers without a TABLE_HEADER title.
+            # This handles tables that continue across page boundaries.
+            header_cells = _count_header_small_cells(blocks, i)
+            if header_cells >= 3:
+                start = i
+                j = i + 1
+                # Skip past all TABLE_HEADER_SMALL blocks
+                while j < n and _block_role(blocks[j]) == SpanRole.TABLE_HEADER_SMALL:
+                    j += 1
+                # Consume SIDEBAR/table content blocks
+                while j < n:
+                    r = _block_role(blocks[j])
+                    if r in _TABLE_CONTENT_ROLES:
+                        j += 1
+                    elif r in _TABLE_STOP_ROLES or r == SpanRole.TABLE_HEADER:
+                        break
+                    else:
+                        if j + 1 < n and _block_role(blocks[j + 1]) in _TABLE_CONTENT_ROLES:
+                            j += 1
+                        else:
+                            break
+                if j > start + 1:
+                    regions.append((start, j, ""))
+                    i = j
+                else:
+                    i += 1
             else:
                 i += 1
         else:
@@ -462,9 +512,12 @@ def process_tables(blocks: list[RawBlock]) -> list[RawBlock]:
         # Copy blocks before this table
         result.extend(blocks[prev_end:start])
 
-        # Extract cells from content blocks (skip the title block)
+        # Extract cells from content blocks.
+        # For titled tables, skip the title block (start + 1).
+        # For orphan tables (no title), include all blocks from start.
+        content_start = start + 1 if title else start
         content_blocks = [
-            b for b in blocks[start + 1:end]
+            b for b in blocks[content_start:end]
             if _block_role(b) in _TABLE_CONTENT_ROLES
         ]
 
