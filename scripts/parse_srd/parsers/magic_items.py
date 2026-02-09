@@ -11,6 +11,7 @@ Structure in PDF:
 from __future__ import annotations
 
 import re
+import warnings
 
 from ..classify import SpanRole
 from ..heading_tree import HeadingNode
@@ -34,6 +35,15 @@ _SUBTITLE_RE = re.compile(
 )
 
 
+# Manual overrides for items where automatic subtitle parsing fails.
+# Key: lowercase item name. Value: (type, rarity, attunement, attunement_details).
+_OVERRIDES: dict[str, tuple[str, str, bool, str]] = {
+    "cintura della forza dei giganti": (
+        "Oggetto meraviglioso", "varia", True, "richiede sintonia",
+    ),
+}
+
+
 def _parse_subtitle(text: str) -> tuple[str, str, bool, str]:
     """Parse magic item subtitle.
 
@@ -48,6 +58,26 @@ def _parse_subtitle(text: str) -> tuple[str, str, bool, str]:
         attunement_details = m.group(3).strip() if m.group(3) else ""
         return item_type, rarity, attunement, attunement_details
     return "", "", False, ""
+
+
+def _fallback_rarity(description: str) -> tuple[str, str]:
+    """Try to extract type and rarity from description text.
+
+    Scans the first few lines for a known rarity word preceded by a type.
+    Returns (type, rarity) or ("", "").
+    """
+    first_lines = description[:500].lower()
+    for rarity_word in ("molto raro", "molto rara", "non comune",
+                        "comune", "raro", "rara",
+                        "leggendario", "leggendaria", "manufatto"):
+        idx = first_lines.find(rarity_word)
+        if idx > 0:
+            before = first_lines[:idx].strip().rstrip(",").strip()
+            # Take the last line fragment as the type
+            last_line = before.rsplit("\n", 1)[-1].strip()
+            if last_line:
+                return last_line.title(), rarity_word
+    return "", ""
 
 
 @register("magic_items")
@@ -118,6 +148,24 @@ def parse_magic_items(
             body_paras.append(para)
 
         description = paragraphs_to_markdown(body_paras)
+
+        # Apply overrides for known edge cases
+        override = _OVERRIDES.get(name.lower())
+        if override:
+            item_type, rarity, attunement, attunement_details = override
+
+        # Fallback: if type/rarity still empty, try to extract from description
+        if not item_type or not rarity:
+            fb_type, fb_rarity = _fallback_rarity(description)
+            if not item_type and fb_type:
+                item_type = fb_type
+            if not rarity and fb_rarity:
+                rarity = fb_rarity
+
+        if not item_type:
+            warnings.warn(f"Magic item '{name}': empty type")
+        if not rarity:
+            warnings.warn(f"Magic item '{name}': empty rarity")
 
         items.append(MagicItem(
             id=slugify(name),

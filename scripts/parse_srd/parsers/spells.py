@@ -15,6 +15,7 @@ Structure in PDF:
 from __future__ import annotations
 
 import re
+import warnings
 
 from ..classify import SpanRole
 from ..heading_tree import HeadingNode
@@ -67,7 +68,7 @@ def _extract_field(paragraphs: list[Paragraph], label: str) -> str:
         if idx >= 0:
             rest = text[idx + len(label_lower):].strip()
             # Value ends at the next known label
-            next_labels = ["Tempo di lancio:", "Gittata:", "Componenti:", "Durata:"]
+            next_labels = ["Tempo di lancio:", "Gittata:", "Componenti:", "Componente:", "Durata:"]
             end = len(rest)
             for nl in next_labels:
                 ni = rest.find(nl)
@@ -83,6 +84,32 @@ def _extract_field(paragraphs: list[Paragraph], label: str) -> str:
                         value = value[:ci].strip()
                         break
             return value
+
+    # Third pass: scan individual spans for the label text regardless of role.
+    # Some spells have metadata in BODY_ITALIC or other non-TABLE_HEADER spans.
+    label_lower = label.lower()
+    next_labels_lower = ["tempo di lancio", "gittata", "componenti", "componente", "durata"]
+    for para in paragraphs:
+        for i, span in enumerate(para.spans):
+            span_text = span.text.strip()
+            if span_text.lower().startswith(label_lower):
+                rest = span_text[len(label):].strip()
+                if rest.startswith(":"):
+                    rest = rest[1:].strip()
+                # Collect text from subsequent spans until a next label
+                for j in range(i + 1, len(para.spans)):
+                    next_span_text = para.spans[j].text.strip()
+                    if any(next_span_text.lower().startswith(nl) for nl in next_labels_lower):
+                        break
+                    rest += " " + next_span_text if next_span_text else ""
+                rest = rest.strip()
+                # Truncate at next label if found within rest
+                for nl in next_labels_lower:
+                    ni = rest.lower().find(nl)
+                    if ni > 0:
+                        rest = rest[:ni].strip()
+                if rest:
+                    return rest
     return ""
 
 
@@ -228,6 +255,27 @@ def _extract_spell_body(content: list[Paragraph]) -> tuple[str, str]:
             else:
                 desc_parts.append(md)
 
+    # Post-processing fallback: if the marker text ended up in description
+    # (e.g. because bold-italic spans were split by a non-bold-italic span),
+    # search the rendered description for the marker and split there.
+    if not higher_parts and desc_parts:
+        full_desc = "\n\n".join(desc_parts)
+        # Search for the marker in various rendered forms
+        marker_variants = [
+            "_**Utilizzo di uno slot incantesimo di livello superiore.**_",
+            "***Utilizzo di uno slot incantesimo di livello superiore.***",
+            "Utilizzo di uno slot incantesimo di livello superiore.",
+        ]
+        for marker in marker_variants:
+            idx = full_desc.find(marker)
+            if idx >= 0:
+                before = full_desc[:idx].strip()
+                after = full_desc[idx + len(marker):].strip()
+                if after:
+                    desc_parts = [before] if before else []
+                    higher_parts = [after]
+                break
+
     return "\n\n".join(desc_parts), "\n\n".join(higher_parts)
 
 
@@ -299,13 +347,22 @@ def parse_spells(
                 break
 
         if level < 0:
+            warnings.warn(f"Spell '{name}': failed to parse subtitle (level=-1)")
             continue  # Not a valid spell entry
 
         # Extract metadata
         casting_time = _extract_field(content, "Tempo di lancio")
         range_ = _extract_field(content, "Gittata")
-        components = _extract_field(content, "Componenti")
+        components = _extract_field(content, "Componenti") or _extract_field(content, "Componente")
         duration = _extract_field(content, "Durata")
+
+        # Warn on empty required fields
+        for _label, _val in [
+            ("casting_time", casting_time), ("range", range_),
+            ("components", components), ("duration", duration),
+        ]:
+            if not _val:
+                warnings.warn(f"Spell '{name}': empty {_label}")
 
         # Extract body
         description, at_higher_levels = _extract_spell_body(content)
