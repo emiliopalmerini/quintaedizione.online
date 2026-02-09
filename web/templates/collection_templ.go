@@ -99,6 +99,15 @@ func CollectionPage(data models.CollectionPageData) templ.Component {
 	})
 }
 
+func hasActiveFilters(filters []models.FilterOption) bool {
+	for _, f := range filters {
+		if f.CurrentValue != "" {
+			return true
+		}
+	}
+	return false
+}
+
 func collectionFilters(filters []models.FilterOption, pageSize int) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
@@ -128,7 +137,7 @@ func collectionFilters(filters []models.FilterOption, pageSize int) templ.Compon
 			var templ_7745c5c3_Var6 string
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(f.Name)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `collection.templ`, Line: 50, Col: 23}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `collection.templ`, Line: 59, Col: 23}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -141,7 +150,7 @@ func collectionFilters(filters []models.FilterOption, pageSize int) templ.Compon
 			var templ_7745c5c3_Var7 string
 			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(f.Label)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `collection.templ`, Line: 50, Col: 67}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `collection.templ`, Line: 59, Col: 67}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
@@ -154,7 +163,7 @@ func collectionFilters(filters []models.FilterOption, pageSize int) templ.Compon
 			var templ_7745c5c3_Var8 string
 			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(f.Label)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `collection.templ`, Line: 51, Col: 29}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `collection.templ`, Line: 60, Col: 29}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
@@ -173,7 +182,7 @@ func collectionFilters(filters []models.FilterOption, pageSize int) templ.Compon
 					var templ_7745c5c3_Var9 string
 					templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(v)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `collection.templ`, Line: 54, Col: 22}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `collection.templ`, Line: 63, Col: 22}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 					if templ_7745c5c3_Err != nil {
@@ -186,7 +195,7 @@ func collectionFilters(filters []models.FilterOption, pageSize int) templ.Compon
 					var templ_7745c5c3_Var10 string
 					templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(v)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `collection.templ`, Line: 54, Col: 37}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `collection.templ`, Line: 63, Col: 37}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 					if templ_7745c5c3_Err != nil {
@@ -204,7 +213,7 @@ func collectionFilters(filters []models.FilterOption, pageSize int) templ.Compon
 					var templ_7745c5c3_Var11 string
 					templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(v)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `collection.templ`, Line: 56, Col: 22}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `collection.templ`, Line: 65, Col: 22}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 					if templ_7745c5c3_Err != nil {
@@ -217,7 +226,7 @@ func collectionFilters(filters []models.FilterOption, pageSize int) templ.Compon
 					var templ_7745c5c3_Var12 string
 					templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(v)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `collection.templ`, Line: 56, Col: 28}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `collection.templ`, Line: 65, Col: 28}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 					if templ_7745c5c3_Err != nil {
