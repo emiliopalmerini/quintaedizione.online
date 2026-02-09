@@ -24,7 +24,7 @@ import re
 
 from ..classify import SpanRole
 from ..heading_tree import HeadingNode
-from ..markdown_gen import paragraph_to_markdown, paragraphs_to_markdown
+from ..markdown_gen import paragraph_to_markdown
 from ..merge import Paragraph
 from ..schemas import AbilityMods, AbilityScores, Feature, Monster
 from ..section_split import SectionDef
@@ -148,59 +148,110 @@ def _parse_ability_scores(content: list[Paragraph]) -> tuple[AbilityScores, Abil
     return scores, mods, saves
 
 
+def _find_feature_boundaries(spans: list) -> list[int]:
+    """Find span indices where a new feature name starts.
+
+    A feature boundary is a STAT_BOLD_ITALIC span that begins a name
+    (consecutive STAT_BOLD_ITALIC spans ending with a period form the name).
+    We detect boundaries by finding STAT_BOLD_ITALIC spans that follow
+    a non-STAT_BOLD_ITALIC span (or are the first span).
+    """
+    boundaries: list[int] = []
+    for i, span in enumerate(spans):
+        if span.role != SpanRole.STAT_BOLD_ITALIC or not span.text.strip():
+            continue
+        # This is a bold-italic span. It starts a new feature if:
+        # - it's the first span, or
+        # - the previous non-empty span is not STAT_BOLD_ITALIC
+        is_boundary = True
+        for j in range(i - 1, -1, -1):
+            if not spans[j].text.strip():
+                continue
+            if spans[j].role == SpanRole.STAT_BOLD_ITALIC:
+                is_boundary = False
+            break
+        if is_boundary:
+            boundaries.append(i)
+    return boundaries
+
+
+def _extract_feature_at(spans: list, start: int, end: int, page_num: int) -> tuple[str, str]:
+    """Extract feature name and description markdown from a span slice.
+
+    Args:
+        spans: Full span list of the paragraph.
+        start: Index of the first STAT_BOLD_ITALIC span of the feature name.
+        end: Index one past the last span belonging to this feature.
+        page_num: Page number for constructing temporary Paragraphs.
+
+    Returns:
+        (name, description_markdown) tuple.
+    """
+    name_parts: list[str] = []
+    desc_start = start
+    for i in range(start, end):
+        span = spans[i]
+        if span.role == SpanRole.STAT_BOLD_ITALIC and span.text.strip():
+            name_parts.append(span.text.strip().rstrip("."))
+            desc_start = i + 1
+        elif not span.text.strip() and not name_parts:
+            desc_start = i + 1
+            continue
+        else:
+            desc_start = i
+            break
+
+    name = " ".join(name_parts).strip()
+    remaining = spans[desc_start:end]
+    desc_md = ""
+    if remaining:
+        desc_para = Paragraph(spans=remaining, role=SpanRole.STAT_BODY, page_num=page_num)
+        desc_md = paragraph_to_markdown(desc_para).strip()
+    return name, desc_md
+
+
 def _parse_features(content: list[Paragraph]) -> list[Feature]:
     """Parse features from action section paragraphs.
 
     Features follow the pattern: _**Feature Name.**_ Description text
-    Detected via STAT_BOLD_ITALIC spans.
+    Detected via STAT_BOLD_ITALIC spans. A single paragraph may contain
+    multiple features when the merger groups consecutive stat lines together.
     """
     features: list[Feature] = []
     current_name = ""
     current_parts: list[str] = []
 
     for para in content:
-        md = paragraph_to_markdown(para)
+        boundaries = _find_feature_boundaries(para.spans)
 
-        # Check for feature name markers (bold-italic at start of paragraph)
-        feature_starts: list[int] = []
-        for i, span in enumerate(para.spans):
-            if span.role == SpanRole.STAT_BOLD_ITALIC and span.text.strip():
-                feature_starts.append(i)
-                break  # Only first bold-italic per paragraph starts a new feature
+        if not boundaries:
+            # No feature start — continuation of current feature
+            if current_name:
+                md = paragraph_to_markdown(para)
+                if md.strip():
+                    current_parts.append(md)
+            continue
 
-        if feature_starts:
-            # Save previous feature
+        # Process each feature found in this paragraph
+        for idx, boundary in enumerate(boundaries):
+            # Determine the end of this feature's spans
+            if idx + 1 < len(boundaries):
+                span_end = boundaries[idx + 1]
+            else:
+                span_end = len(para.spans)
+
+            # Save previous feature before starting a new one
             if current_name:
                 features.append(Feature(
                     name=current_name,
                     description="\n\n".join(current_parts),
                 ))
 
-            # Extract feature name from bold-italic spans
-            name_parts: list[str] = []
-            desc_start = 0
-            for i, span in enumerate(para.spans):
-                if span.role == SpanRole.STAT_BOLD_ITALIC and span.text.strip():
-                    name_parts.append(span.text.strip().rstrip("."))
-                elif span.text.strip() == "" and not name_parts:
-                    continue
-                else:
-                    desc_start = i
-                    break
-
-            current_name = " ".join(name_parts).strip()
-            # Description starts from remaining spans
-            remaining = para.spans[desc_start:]
-            if remaining:
-                desc_para = Paragraph(spans=remaining, role=SpanRole.STAT_BODY, page_num=para.page_num)
-                desc_md = paragraph_to_markdown(desc_para)
-                current_parts = [desc_md] if desc_md.strip() else []
-            else:
-                current_parts = []
-        elif current_name:
-            # Continuation of current feature
-            if md.strip():
-                current_parts.append(md)
+            name, desc_md = _extract_feature_at(
+                para.spans, boundary, span_end, para.page_num,
+            )
+            current_name = name
+            current_parts = [desc_md] if desc_md else []
 
     # Don't forget last feature
     if current_name:
@@ -300,11 +351,16 @@ def _extract_monster(
         if trait_content:
             traits = _parse_features(trait_content)
 
-    # Full markdown description
-    all_paras = list(content)
-    for child in node.children:
-        all_paras.extend(child.content)
-    description = paragraphs_to_markdown(all_paras)
+    # Split immunities into damage and condition immunities (separated by ";")
+    raw_immunities = fields.get("immunità", "")
+    damage_immunities = ""
+    condition_immunities = ""
+    if ";" in raw_immunities:
+        parts = raw_immunities.split(";", 1)
+        damage_immunities = parts[0].strip()
+        condition_immunities = parts[1].strip()
+    else:
+        damage_immunities = raw_immunities
 
     return Monster(
         id=slugify(name),
@@ -322,7 +378,8 @@ def _extract_monster(
         saving_throws=saving_throws,
         skills=fields.get("abilità", ""),
         resistances=fields.get("resistenze", ""),
-        immunities=fields.get("immunità", ""),
+        damage_immunities=damage_immunities,
+        condition_immunities=condition_immunities,
         senses=fields.get("sensi", ""),
         languages=fields.get("lingue", ""),
         cr=fields.get("gs", ""),
@@ -332,7 +389,6 @@ def _extract_monster(
         bonus_actions=bonus_actions,
         reactions=reactions,
         legendary_actions=legendary_actions,
-        description=description,
         source=source,
     )
 

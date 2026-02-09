@@ -143,33 +143,33 @@ type jsonFeature struct {
 }
 
 type jsonMonster struct {
-	ID               string            `json:"id"`
-	Name             string            `json:"name"`
-	Type             string            `json:"type"`
-	Size             string            `json:"size"`
-	Alignment        string            `json:"alignment"`
-	CR               string            `json:"cr"`
-	Description      string            `json:"description"`
-	Source           string            `json:"source"`
-	AC               string            `json:"ac"`
-	Initiative       string            `json:"initiative"`
-	HP               string            `json:"hp"`
-	Speed            string            `json:"speed"`
-	Skills           string            `json:"skills"`
-	Resistances      string            `json:"resistances"`
-	Immunities       string            `json:"immunities"`
-	Senses           string            `json:"senses"`
-	Languages        string            `json:"languages"`
-	Equipment        string            `json:"equipment"`
-	Traits           []jsonFeature     `json:"traits"`
-	Actions          []jsonFeature     `json:"actions"`
-	BonusActions     []jsonFeature     `json:"bonus_actions"`
-	Reactions        []jsonFeature     `json:"reactions"`
-	LegendaryActions []jsonFeature     `json:"legendary_actions"`
-	Group            string            `json:"group"`
-	AbilityScores    map[string]int    `json:"ability_scores"`
-	AbilityMods      map[string]int    `json:"ability_mods"`
-	SavingThrows     map[string]string `json:"saving_throws"`
+	ID                  string            `json:"id"`
+	Name                string            `json:"name"`
+	Type                string            `json:"type"`
+	Size                string            `json:"size"`
+	Alignment           string            `json:"alignment"`
+	CR                  string            `json:"cr"`
+	Source              string            `json:"source"`
+	AC                  string            `json:"ac"`
+	Initiative          string            `json:"initiative"`
+	HP                  string            `json:"hp"`
+	Speed               string            `json:"speed"`
+	Skills              string            `json:"skills"`
+	Resistances         string            `json:"resistances"`
+	DamageImmunities    string            `json:"damage_immunities"`
+	ConditionImmunities string            `json:"condition_immunities"`
+	Senses              string            `json:"senses"`
+	Languages           string            `json:"languages"`
+	Equipment           string            `json:"equipment"`
+	Traits              []jsonFeature     `json:"traits"`
+	Actions             []jsonFeature     `json:"actions"`
+	BonusActions        []jsonFeature     `json:"bonus_actions"`
+	Reactions           []jsonFeature     `json:"reactions"`
+	LegendaryActions    []jsonFeature     `json:"legendary_actions"`
+	Group               string            `json:"group"`
+	AbilityScores       map[string]int    `json:"ability_scores"`
+	AbilityMods         map[string]int    `json:"ability_mods"`
+	SavingThrows        map[string]string `json:"saving_throws"`
 }
 
 func (l *Loader) loadMonsters(result map[string][]map[string]any) error {
@@ -257,8 +257,11 @@ func (l *Loader) buildMonsterMarkdown(m jsonMonster) string {
 	if m.Resistances != "" {
 		fmt.Fprintf(&b, "**Resistenze** %s\n\n", m.Resistances)
 	}
-	if m.Immunities != "" {
-		fmt.Fprintf(&b, "**Immunità** %s\n\n", m.Immunities)
+	if m.DamageImmunities != "" {
+		fmt.Fprintf(&b, "**Immunità ai Danni** %s\n\n", m.DamageImmunities)
+	}
+	if m.ConditionImmunities != "" {
+		fmt.Fprintf(&b, "**Immunità alle Condizioni** %s\n\n", m.ConditionImmunities)
 	}
 	if m.Senses != "" {
 		fmt.Fprintf(&b, "**Sensi** %s\n\n", m.Senses)

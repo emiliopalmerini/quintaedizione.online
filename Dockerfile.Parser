@@ -1,0 +1,9 @@
+FROM python:3.13-slim
+
+RUN pip install --no-cache-dir pymupdf>=1.24.0
+
+WORKDIR /app
+COPY scripts/parse_srd/ scripts/parse_srd/
+COPY data/ita/IT_SRD_CC_v5.2.1.pdf data/input.pdf
+
+ENTRYPOINT ["python", "-m", "scripts.parse_srd", "data/input.pdf"]
