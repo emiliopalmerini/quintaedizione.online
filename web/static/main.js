@@ -429,16 +429,69 @@ function initGlossaryTooltips() {
 	});
 }
 
-// Filter chips: remove individual filter or clear all
+// Multi-select filter dropdowns
+function initFilterMultiselect() {
+	document.querySelectorAll('.filter-multiselect').forEach(function(container) {
+		var btn = container.querySelector('.filter-multiselect-btn');
+		var dropdown = container.querySelector('.filter-multiselect-dropdown');
+		var hiddenInput = container.querySelector('input[type="hidden"]');
+		if (!btn || !dropdown || !hiddenInput) return;
+
+		btn.addEventListener('click', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			// Close other open dropdowns
+			document.querySelectorAll('.filter-multiselect.open').forEach(function(other) {
+				if (other !== container) other.classList.remove('open');
+			});
+			container.classList.toggle('open');
+		});
+
+		dropdown.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+			cb.addEventListener('change', function() {
+				var checked = [];
+				dropdown.querySelectorAll('input[type="checkbox"]:checked').forEach(function(c) {
+					checked.push(c.value);
+				});
+				hiddenInput.value = checked.join(',');
+				hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
+			});
+		});
+	});
+
+	// Close dropdowns when clicking outside
+	document.addEventListener('click', function(e) {
+		if (!e.target.closest('.filter-multiselect')) {
+			document.querySelectorAll('.filter-multiselect.open').forEach(function(el) {
+				el.classList.remove('open');
+			});
+		}
+	});
+}
+
+// Filter chips: remove individual filter value or clear all
 function initFilterChips() {
 	document.querySelectorAll('.filter-chip').forEach(function(chip) {
 		chip.addEventListener('click', function() {
 			var filterName = this.getAttribute('data-filter-name');
-			var select = document.querySelector('select[name="' + filterName + '"]');
-			if (select) {
-				select.value = '';
-				select.dispatchEvent(new Event('change', { bubbles: true }));
-			}
+			var filterValue = this.getAttribute('data-filter-value');
+			var container = document.querySelector('.filter-multiselect[data-filter-name="' + filterName + '"]');
+			if (!container) return;
+
+			var hiddenInput = container.querySelector('input[type="hidden"]');
+			if (!hiddenInput) return;
+
+			// Remove this specific value from the hidden input
+			var currentValues = hiddenInput.value.split(',').filter(function(v) {
+				return v !== '' && v !== filterValue;
+			});
+			hiddenInput.value = currentValues.join(',');
+
+			// Uncheck the corresponding checkbox
+			var cb = container.querySelector('input[type="checkbox"][value="' + filterValue + '"]');
+			if (cb) cb.checked = false;
+
+			hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
 		});
 	});
 
@@ -447,15 +500,18 @@ function initFilterChips() {
 		clearAllBtn.addEventListener('click', function() {
 			var form = document.getElementById('search-form');
 			if (!form) return;
-			form.querySelectorAll('select').forEach(function(select) {
-				if (select.name !== 'page_size') {
-					select.value = '';
-				}
+
+			form.querySelectorAll('.filter-multiselect input[type="hidden"]').forEach(function(input) {
+				input.value = '';
 			});
+			form.querySelectorAll('.filter-multiselect input[type="checkbox"]').forEach(function(cb) {
+				cb.checked = false;
+			});
+
 			// Trigger a change to fire HTMX
-			var firstSelect = form.querySelector('select');
-			if (firstSelect) {
-				firstSelect.dispatchEvent(new Event('change', { bubbles: true }));
+			var firstInput = form.querySelector('.filter-multiselect input[type="hidden"]');
+			if (firstInput) {
+				firstInput.dispatchEvent(new Event('change', { bubbles: true }));
 			}
 		});
 	}
@@ -466,6 +522,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	initCopyMarkdownButton();
 	initSearchFormHandler();
 	initGlossaryTooltips();
+	initFilterMultiselect();
 	initFilterChips();
 });
 
@@ -473,5 +530,6 @@ document.body.addEventListener('htmx:afterSwap', () => {
 	initBackButton();
 	initCopyMarkdownButton();
 	initSearchFormHandler();
+	initFilterMultiselect();
 	initFilterChips();
 });

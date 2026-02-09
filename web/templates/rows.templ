@@ -7,10 +7,10 @@ templ RowsPartial(data models.CollectionPageData) {
 	if hasActiveFilters(data.Filters) {
 		<div class="filter-chips-bar">
 			for _, f := range data.Filters {
-				if f.CurrentValue != "" {
-					<button type="button" class="filter-chip" data-filter-name={ f.Name }>
+				for _, val := range f.CurrentValues {
+					<button type="button" class="filter-chip" data-filter-name={ f.Name } data-filter-value={ val }>
 						<span class="filter-chip-label">{ f.Label }:</span>
-						<span class="filter-chip-value">{ f.CurrentValue }</span>
+						<span class="filter-chip-value">{ val }</span>
 						<span class="filter-chip-remove" aria-label="Rimuovi filtro">&times;</span>
 					</button>
 				}

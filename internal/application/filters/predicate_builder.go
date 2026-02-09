@@ -85,16 +85,35 @@ func (b *PredicateBuilder) buildExactMatch(fieldPath, value string, dataType fil
 }
 
 func (b *PredicateBuilder) buildRegexMatch(fieldPath, value string) (filters.DocumentPredicate, error) {
-	pattern, err := regexp.Compile("(?i)" + regexp.QuoteMeta(value))
-	if err != nil {
-		return nil, fmt.Errorf("invalid regex pattern: %w", err)
+	// Multi-value: comma-separated values become OR patterns
+	parts := strings.Split(value, ",")
+	var patterns []*regexp.Regexp
+	for _, p := range parts {
+		p = strings.TrimSpace(p)
+		if p == "" {
+			continue
+		}
+		compiled, err := regexp.Compile("(?i)" + regexp.QuoteMeta(p))
+		if err != nil {
+			return nil, fmt.Errorf("invalid regex pattern: %w", err)
+		}
+		patterns = append(patterns, compiled)
+	}
+	if len(patterns) == 0 {
+		return nil, nil
 	}
 	return func(doc map[string]any) bool {
 		field := getField(doc, fieldPath)
 		if field == nil {
 			return false
 		}
-		return pattern.MatchString(fmt.Sprintf("%v", field))
+		fieldStr := fmt.Sprintf("%v", field)
+		for _, pattern := range patterns {
+			if pattern.MatchString(fieldStr) {
+				return true
+			}
+		}
+		return false
 	}, nil
 }
 

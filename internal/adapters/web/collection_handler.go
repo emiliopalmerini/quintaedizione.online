@@ -3,6 +3,7 @@ package web
 import (
 	"fmt"
 	"net/http"
+	"strings"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
 	"github.com/emiliopalmerini/quintaedizione.online/pkg/mappers"
@@ -190,11 +191,17 @@ func (h *CollectionHandler) buildFilterOptionsWithCounts(collection string, acti
 				Count: count,
 			})
 		}
+		currentValue := activeFilters[def.Name]
+		var currentValues []string
+		if currentValue != "" {
+			currentValues = strings.Split(currentValue, ",")
+		}
 		options = append(options, models.FilterOption{
-			Name:         def.Name,
-			Label:        def.Description,
-			Values:       values,
-			CurrentValue: activeFilters[def.Name],
+			Name:          def.Name,
+			Label:         def.Description,
+			Values:        values,
+			CurrentValue:  currentValue,
+			CurrentValues: currentValues,
 		})
 	}
 	return options

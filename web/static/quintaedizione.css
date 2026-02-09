@@ -340,6 +340,101 @@
 }
 
 /* ========================================================================
+   MULTI-SELECT FILTER DROPDOWNS
+   ======================================================================== */
+
+.filter-multiselect {
+  position: relative;
+  display: inline-block;
+}
+
+.filter-multiselect-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.filter-multiselect-btn.filter-multiselect-active {
+  background: var(--border-color);
+  color: var(--text-inverse);
+}
+
+.filter-multiselect-arrow {
+  font-size: var(--font-size-xs);
+  opacity: 0.5;
+}
+
+.filter-multiselect-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 50;
+  background: var(--white);
+  border: 2px solid var(--border-color);
+  min-width: 220px;
+  max-height: 280px;
+  overflow-y: auto;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.filter-multiselect.open .filter-multiselect-dropdown {
+  display: block;
+  animation: slideDown 0.1s ease-out;
+}
+
+.filter-option-checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  transition: background var(--transition-speed-fast);
+  user-select: none;
+}
+
+.filter-option-checkbox:hover {
+  background: #fafafa;
+}
+
+.filter-option-checkbox input[type="checkbox"] {
+  cursor: pointer;
+  accent-color: var(--border-color);
+}
+
+.filter-option-label {
+  flex: 1;
+}
+
+.filter-option-count {
+  font-size: var(--font-size-2xs);
+  color: var(--text-muted);
+  font-weight: var(--font-weight-bold);
+}
+
+.filter-option-disabled {
+  opacity: 0.4;
+}
+
+@media (max-width: 640px) {
+  .filter-multiselect-dropdown {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 50vh;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+  }
+}
+
+/* ========================================================================
    RESULT ITEM CARDS
    ======================================================================== */
 

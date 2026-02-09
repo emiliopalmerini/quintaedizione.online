@@ -38,10 +38,11 @@ type FilterValueOption struct {
 }
 
 type FilterOption struct {
-	Name         string
-	Label        string
-	Values       []FilterValueOption
-	CurrentValue string
+	Name          string
+	Label         string
+	Values        []FilterValueOption
+	CurrentValue  string
+	CurrentValues []string
 }
 
 type CollectionPageData struct {
