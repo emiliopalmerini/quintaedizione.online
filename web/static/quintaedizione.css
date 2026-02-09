@@ -340,6 +340,74 @@
 }
 
 /* ========================================================================
+   MOBILE FILTER PANEL
+   ======================================================================== */
+
+.filter-toggle-btn {
+  display: none;
+}
+
+.filter-toggle-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 0.25rem;
+  background: var(--text-inverse);
+  color: var(--border-color);
+  font-size: var(--font-size-2xs);
+  font-weight: var(--font-weight-black);
+  line-height: 1;
+}
+
+.filter-panel {
+  display: block;
+}
+
+.filter-panel-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+@media (max-width: 640px) {
+  .filter-toggle-btn {
+    display: inline-flex;
+  }
+
+  .filter-panel {
+    display: none;
+    padding-top: var(--space-2);
+    overflow: hidden;
+  }
+
+  .filter-panel.open {
+    display: block;
+    animation: slideDown 0.15s ease-out;
+  }
+
+  .filter-panel-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-panel-content .filter-multiselect {
+    width: 100%;
+  }
+
+  .filter-panel-content .filter-multiselect-btn {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .filter-panel-content select.field {
+    width: 100%;
+  }
+}
+
+/* ========================================================================
    MULTI-SELECT FILTER DROPDOWNS
    ======================================================================== */
 
