@@ -21,6 +21,7 @@ Pages 289-384: Mostri, Pages 385-405: Animali.
 from __future__ import annotations
 
 import re
+import warnings
 
 from ..classify import SpanRole
 from ..heading_tree import HeadingNode
@@ -47,11 +48,40 @@ _DAMAGE_TYPES = {
 }
 
 
-def _is_condition_immunity(text: str) -> bool:
-    """Return True if the immunity text contains only condition names, not damage types."""
-    # Split on comma and check if any token is a known damage type
-    tokens = [t.strip().lower() for t in text.split(",")]
-    return not any(t in _DAMAGE_TYPES for t in tokens)
+# Known D&D 5e conditions (Italian)
+_CONDITION_TYPES = {
+    "accecato", "affascinato", "assordato", "avvelenato", "esausto",
+    "incapacitato", "indebolimento", "invisibile", "paralizzato",
+    "pietrificato", "privo di sensi", "prono", "spaventato", "stordito",
+    "trattenuto", "afferrato",
+}
+
+
+def _classify_immunity_tokens(text: str) -> tuple[str, str]:
+    """Classify comma-separated immunity tokens into damage and condition groups.
+
+    Returns (damage_immunities, condition_immunities).
+    """
+    tokens = [t.strip() for t in text.split(",")]
+    damage_parts: list[str] = []
+    condition_parts: list[str] = []
+
+    for token in tokens:
+        if not token:
+            continue
+        # Strip parenthetical details for matching (e.g. "avvelenato (solo veleno)")
+        clean = re.sub(r"\s*\(.*?\)", "", token).strip().lower()
+        if clean in _DAMAGE_TYPES:
+            damage_parts.append(token)
+        elif clean in _CONDITION_TYPES:
+            condition_parts.append(token)
+        else:
+            # Unknown token — warn and guess based on context
+            warnings.warn(f"Monster immunity: unrecognized token '{token}'")
+            # Default to condition if it doesn't look like a damage type
+            condition_parts.append(token)
+
+    return ", ".join(damage_parts), ", ".join(condition_parts)
 
 
 # Ability score abbreviation map (Italian)
@@ -146,6 +176,7 @@ def _parse_ability_scores(content: list[Paragraph]) -> tuple[AbilityScores, Abil
     pattern = re.compile(
         r"([A-Z][a-z]{2})\s*(\d+)\s*([\+\−\-]?\d+)\s*([\+\−\-]?\d+)?",
     )
+    parsed_count = 0
     for m in pattern.finditer(score_text):
         abbr = m.group(1).lower()
         score_val = int(m.group(2))
@@ -156,9 +187,13 @@ def _parse_ability_scores(content: list[Paragraph]) -> tuple[AbilityScores, Abil
         if ability:
             scores[ability] = score_val  # type: ignore[literal-required]
             mods[ability] = mod_val  # type: ignore[literal-required]
+            parsed_count += 1
             if save_val:
                 save_int = save_val.replace("−", "-").replace("\u2212", "-")
                 saves[ability] = save_int
+
+    if parsed_count < 6:
+        warnings.warn(f"Monster: only {parsed_count}/6 ability scores parsed")
 
     return scores, mods, saves
 
@@ -372,14 +407,14 @@ def _extract_monster(
     condition_immunities = ""
     if ";" in raw_immunities:
         parts = raw_immunities.split(";", 1)
-        damage_immunities = parts[0].strip()
-        condition_immunities = parts[1].strip()
+        # Each part may still contain mixed tokens, so classify each
+        dmg1, cond1 = _classify_immunity_tokens(parts[0].strip())
+        dmg2, cond2 = _classify_immunity_tokens(parts[1].strip())
+        damage_immunities = ", ".join(filter(None, [dmg1, dmg2]))
+        condition_immunities = ", ".join(filter(None, [cond1, cond2]))
     elif raw_immunities:
-        # No semicolon — classify based on known condition names
-        if _is_condition_immunity(raw_immunities):
-            condition_immunities = raw_immunities
-        else:
-            damage_immunities = raw_immunities
+        # No semicolon — classify each token individually
+        damage_immunities, condition_immunities = _classify_immunity_tokens(raw_immunities)
 
     return Monster(
         id=slugify(name),
