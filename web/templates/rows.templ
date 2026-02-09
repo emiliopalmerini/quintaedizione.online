@@ -38,37 +38,26 @@ templ RowsPartial(data models.CollectionPageData) {
 
 templ documentRow(doc models.Document, collection string) {
 	<a href={ templ.URL("/" + collection + "/" + getDocSlug(doc)) }
-		class="block px-2 sm:px-4 py-3 hover:bg-neutral-50 text-inherit no-underline min-h-[44px] transition-colors"
+		class="result-item"
 		hx-get={ "/" + collection + "/" + getDocSlug(doc) }
 		hx-target="#page-root"
 		hx-select="#page-root"
 		hx-swap="outerHTML"
 		hx-push-url="true"
 		hx-indicator="#page-loading">
-		<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4">
-			<div class="flex-1 min-w-0">
-				<h3 class="font-medium text-gray-900 truncate sm:whitespace-normal">
-					{ getDocName(doc) }
-					if len(doc.DisplayElements) > 0 {
-						<span class="text-sm font-normal text-neutral-500 ml-2">
-							—
-							for i, element := range doc.DisplayElements {
-								if i > 0 {
-									<span class="mx-1">·</span>
-								}
-								{ element.Value }
-							}
-						</span>
-					}
-				</h3>
-			</div>
-
+		<div class="result-item-header">
+			<h3 class="result-item-title">{ getDocName(doc) }</h3>
 			if doc.Translated {
-				<div class="text-xs text-green-600 shrink-0 self-start sm:self-auto">
-					✓ Tradotto
-				</div>
+				<span class="result-badge result-badge-translated">Tradotto</span>
 			}
 		</div>
+		if len(doc.DisplayElements) > 0 {
+			<div class="result-item-meta">
+				for _, element := range doc.DisplayElements {
+					<span class="result-badge">{ element.Value }</span>
+				}
+			</div>
+		}
 	</a>
 }
 
