@@ -303,6 +303,56 @@ func (s *ClassiDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayEle
 	return elements
 }
 
+type GlossarioDisplayStrategy struct{}
+
+func (s *GlossarioDisplayStrategy) GetCollectionType() string {
+	return "glossario"
+}
+
+func (s *GlossarioDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
+	var elements []dto.DisplayElementDTO
+
+	if category := getFieldValue(doc, "categoria"); category != "" {
+		elements = append(elements, dto.DisplayElementDTO{
+			Value: category,
+			Type:  "category",
+		})
+	}
+
+	return elements
+}
+
+type SpecieDisplayStrategy struct{}
+
+func (s *SpecieDisplayStrategy) GetCollectionType() string {
+	return "specie"
+}
+
+func (s *SpecieDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
+	var elements []dto.DisplayElementDTO
+
+	if creatureType := getFieldValue(doc, "tipo_creatura"); creatureType != "" {
+		elements = append(elements, dto.DisplayElementDTO{
+			Value: creatureType,
+			Type:  "creature_type",
+		})
+	}
+	if size := getFieldValue(doc, "taglia"); size != "" {
+		elements = append(elements, dto.DisplayElementDTO{
+			Value: size,
+			Type:  "size",
+		})
+	}
+	if speed := getFieldValue(doc, "velocita"); speed != "" {
+		elements = append(elements, dto.DisplayElementDTO{
+			Value: speed,
+			Type:  "speed",
+		})
+	}
+
+	return elements
+}
+
 type DefaultDisplayStrategy struct{}
 
 func (s *DefaultDisplayStrategy) GetCollectionType() string {

@@ -21,6 +21,8 @@ func NewDisplayElementFactory() *DisplayElementFactory {
 		&BackgroundsDisplayStrategy{},
 		&TalentiDisplayStrategy{},
 		&ClassiDisplayStrategy{},
+		&GlossarioDisplayStrategy{},
+		&SpecieDisplayStrategy{},
 	}
 
 	for _, strategy := range strategies {

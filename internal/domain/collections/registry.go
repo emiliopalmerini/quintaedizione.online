@@ -19,6 +19,8 @@ const (
 	CavalcatureVeicoli CollectionName = "cavalcature_veicoli"
 	OggettiMagici      CollectionName = "oggetti_magici"
 	Mostri             CollectionName = "mostri"
+	Glossario          CollectionName = "glossario"
+	Specie             CollectionName = "specie"
 )
 
 type CollectionInfo struct {
@@ -42,6 +44,8 @@ var Registry = map[CollectionName]CollectionInfo{
 	CavalcatureVeicoli: {Name: CavalcatureVeicoli, Title: "Cavalcature e Veicoli", HasNestedValue: false},
 	OggettiMagici:      {Name: OggettiMagici, Title: "Oggetti Magici", HasNestedValue: true},
 	Mostri:             {Name: Mostri, Title: "Mostri", HasNestedValue: false},
+	Glossario:          {Name: Glossario, Title: "Glossario", HasNestedValue: false},
+	Specie:             {Name: Specie, Title: "Specie", HasNestedValue: true},
 }
 
 func (c CollectionName) String() string {

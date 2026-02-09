@@ -113,6 +113,14 @@ func (s *ContentService) GetAdjacentItems(ctx context.Context, collection, curre
 	return s.documentNav.GetAdjacentMaps(ctx, collection, currentSlug)
 }
 
+func (s *ContentService) GetAvailableFilters(collection string) ([]filters.FilterDefinition, error) {
+	collectionType, ok := collections.FromString(collection)
+	if !ok {
+		return nil, nil
+	}
+	return s.filterService.GetAvailableFilters(collectionType)
+}
+
 type SearchResult struct {
 	Collection string           `json:"collection"`
 	Items      []map[string]any `json:"items"`

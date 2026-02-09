@@ -29,18 +29,13 @@ func main() {
 		gin.SetMode(gin.ReleaseMode)
 	}
 
-	// Generate keywords.json from embedded JSON data
-	log.Println("Generating keywords.json from JSON data...")
-	keywordGenerator := parsers.NewKeywordGenerator(jsondata.Files, "configs/keywords.json")
-	if err := keywordGenerator.Generate(); err != nil {
-		log.Printf("Warning: Failed to generate keywords file: %v", err)
-	} else {
-		log.Println("Keywords file generated successfully")
-	}
-
 	// Load JSON data into in-memory store
 	log.Println("Loading JSON data...")
-	renderer := parsers.NewMarkdownRenderer("configs/keywords.json")
+	glossaryLinker, err := parsers.NewGlossaryLinker(jsondata.Files)
+	if err != nil {
+		log.Printf("Warning: Failed to initialize glossary linker: %v", err)
+	}
+	renderer := parsers.NewMarkdownRenderer(glossaryLinker)
 	loader := datastore.NewLoader(jsondata.Files, renderer)
 	data, err := loader.LoadAll()
 	if err != nil {
@@ -69,6 +64,7 @@ func main() {
 
 	// Initialize filter registry and services
 	filterRegistry := filters.NewInMemoryFilterRegistry()
+	filters.RegisterDefaultFilters(filterRegistry)
 	log.Println("Filter registry loaded")
 
 	filterService := services.NewFilterService(filterRegistry)
