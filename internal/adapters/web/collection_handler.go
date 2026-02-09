@@ -31,6 +31,8 @@ func (h *CollectionHandler) handleCollectionList(c *gin.Context) {
 
 	pagination := CalculatePaginationData(params.PageNum, params.PageSize, totalCount)
 
+	filterOptions := h.buildFilterOptions(collection, filters)
+
 	data := models.CollectionPageData{
 		PageData: models.PageData{
 			Title:       h.getCollectionTitle(collection),
@@ -38,6 +40,7 @@ func (h *CollectionHandler) handleCollectionList(c *gin.Context) {
 			QueryString: c.Request.URL.RawQuery,
 		},
 		Documents:  documents,
+		Filters:    filterOptions,
 		Query:      params.Query,
 		Page:       params.PageNum,
 		PageSize:   params.PageSize,
@@ -156,6 +159,28 @@ func (h *CollectionHandler) handleItemDetail(c *gin.Context) {
 
 	h.setCacheHeaders(c, "item")
 	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
+}
+
+// buildFilterOptions returns filter options for the collection template.
+func (h *CollectionHandler) buildFilterOptions(collection string, activeFilters map[string]string) []models.FilterOption {
+	defs, err := h.contentService.GetAvailableFilters(collection)
+	if err != nil || len(defs) == 0 {
+		return nil
+	}
+
+	options := make([]models.FilterOption, 0, len(defs))
+	for _, def := range defs {
+		if len(def.EnumValues) == 0 {
+			continue
+		}
+		options = append(options, models.FilterOption{
+			Name:         def.Name,
+			Label:        def.Description,
+			Values:       def.EnumValues,
+			CurrentValue: activeFilters[def.Name],
+		})
+	}
+	return options
 }
 
 // extractFilters extracts filter parameters from the query string.

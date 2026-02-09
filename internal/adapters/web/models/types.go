@@ -32,9 +32,17 @@ type DocumentDisplayField struct {
 	Value string `json:"value"`
 }
 
+type FilterOption struct {
+	Name         string
+	Label        string
+	Values       []string
+	CurrentValue string
+}
+
 type CollectionPageData struct {
 	PageData
 	Documents  []Document
+	Filters    []FilterOption
 	Query      string
 	Page       int
 	PageSize   int

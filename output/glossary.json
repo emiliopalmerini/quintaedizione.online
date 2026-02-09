@@ -4,9 +4,7 @@
     "term": "Abilità",
     "category": "",
     "definition": "Un'abilità è un'area di specializzazione associata  a una prova di caratteristica. Se il tuo personaggio  ha competenza in un'abilità, può aggiungere il suo  bonus di competenza al risultato di una prova di  caratteristica associata a quella abilità. *Vedi anche* \"Come si gioca\" (\"Competenza\").",
-    "see_also": [
-      "\"Come si gioca\" (\"Competenza\")"
-    ]
+    "see_also": ["\"Come si gioca\" (\"Competenza\")"]
   },
   {
     "id": "accecato",
@@ -73,18 +71,14 @@
     "term": "Allineamento",
     "category": "",
     "definition": "L'allineamento di una creatura descrive a grandi  linee i suoi ideali e atteggiamenti etici, ed è una  combinazione di due fattori: il primo identifica  la moralità (buona, malvagia o neutrale), mentre  il secondo descrive l'atteggiamento nei confronti  dell'ordine (legale, caotico o neutrale). Questi  fattori danno vita a nove possibili combinazioni  come, ad esempio, legale buono e neutrale malvagio.  *Vedi anche* \"Creazione del personaggio\" (\"Creare  il personaggio\").",
-    "see_also": [
-      "\"Creazione del personaggio\" (\"Creare  il personaggio\")"
-    ]
+    "see_also": ["\"Creazione del personaggio\" (\"Creare  il personaggio\")"]
   },
   {
     "id": "amichevole",
     "term": "Amichevole",
     "category": "atteggiamento",
     "definition": "Una creatura amichevole ha un'opinione positiva  del personaggio, il quale dispone di vantaggio a una  prova di caratteristica per influenzare una creatura  amichevole. *Vedi anche* \"Influenza\".",
-    "see_also": [
-      "\"Influenza\""
-    ]
+    "see_also": ["\"Influenza\""]
   },
   {
     "id": "area-di-effetto",
@@ -102,9 +96,7 @@
     "term": "Arma",
     "category": "",
     "definition": "Un'arma è un oggetto che rientra nella categoria  delle armi semplici o da guerra. *Vedi anche* \"Equipaggiamento\" (\"Armi\").",
-    "see_also": [
-      "\"Equipaggiamento\" (\"Armi\")"
-    ]
+    "see_also": ["\"Equipaggiamento\" (\"Armi\")"]
   },
   {
     "id": "armi-improvvisate",
@@ -146,18 +138,14 @@
     "term": "Attacco con arma",
     "category": "",
     "definition": "Un attacco con arma è un tiro per colpire effettuato  con un'arma. *Vedi anche* \"Arma\".",
-    "see_also": [
-      "\"Arma\""
-    ]
+    "see_also": ["\"Arma\""]
   },
   {
     "id": "attacco-con-incantesimo",
     "term": "Attacco con incantesimo",
     "category": "",
     "definition": "Un attacco con incantesimo è un tiro per colpire  effettuato come parte di un incantesimo o di un  altro effetto magico. *Vedi anche* \"Incantesimi\"  (\"Lanciare gli incantesimi\").",
-    "see_also": [
-      "\"Incantesimi\"  (\"Lanciare gli incantesimi\")"
-    ]
+    "see_also": ["\"Incantesimi\"  (\"Lanciare gli incantesimi\")"]
   },
   {
     "id": "atteggiamento",
@@ -183,9 +171,7 @@
     "term": "Avventura",
     "category": "",
     "definition": "Un'avventura consiste in una serie di incontri:  giocandoci, prende vita una storia. *Vedi anche* \"Incontro\".",
-    "see_also": [
-      "\"Incontro\""
-    ]
+    "see_also": ["\"Incontro\""]
   },
   {
     "id": "azione",
@@ -201,9 +187,7 @@
     "term": "Azione bonus",
     "category": "",
     "definition": "Un'azione bonus è un'azione speciale che il personaggio può effettuare nello stesso turno in cui effettua un'azione. Il personaggio non può effettuare più  di un'azione bonus per turno, e ne ha una a disposizione solo se una regola lo indica esplicitamente.  *Vedi anche* \"Come si gioca\" (\"Azioni\").",
-    "see_also": [
-      "\"Come si gioca\" (\"Azioni\")"
-    ]
+    "see_also": ["\"Come si gioca\" (\"Azioni\")"]
   },
   {
     "id": "bersaglio",
@@ -224,9 +208,7 @@
     "term": "Campagna",
     "category": "",
     "definition": "Una campagna consiste in una serie di avventure.  *Vedi anche* \"Avventura\".",
-    "see_also": [
-      "\"Avventura\""
-    ]
+    "see_also": ["\"Avventura\""]
   },
   {
     "id": "capacita-di-trasporto",
@@ -247,28 +229,21 @@
     "term": "Classe Armatura",
     "category": "",
     "definition": "La Classe Armatura (CA) è il numero bersaglio per  un tiro per colpire: rappresenta il grado di difficoltà  per colpire un bersaglio. La CA base del tuo personaggio si calcola sommando 10 al modificatore di Destrezza. Se una  regola prevede che tu debba calcolare la CA base  diversamente, scegli quale metodo adottare per  definirla: non puoi usarne più di uno. *Vedi anche* \"Tiro per colpire\".",
-    "see_also": [
-      "\"Tiro per colpire\""
-    ]
+    "see_also": ["\"Tiro per colpire\""]
   },
   {
     "id": "classe-difficolta",
     "term": "Classe Difficoltà",
     "category": "",
     "definition": "La Classe Difficoltà (CD) è il numero bersaglio per  una prova di caratteristica o per un tiro salvezza.  *Vedi anche* \"Come si gioca\" (\"Prove con d20\").",
-    "see_also": [
-      "\"Come si gioca\" (\"Prove con d20\")"
-    ]
+    "see_also": ["\"Come si gioca\" (\"Prove con d20\")"]
   },
   {
     "id": "colpo-critico",
     "term": "Colpo critico",
     "category": "",
     "definition": "Se un tiro per colpire ottiene un 20 sul d20, metti  a segno un colpo critico, e l'attacco va a segno  a prescindere da qualsiasi modificatore o dalla CA  del bersaglio. Un colpo critico ti consente di tirare  dadi extra per i danni dell'attacco contro il bersaglio. Tira tutti i dadi di danno dell'attacco due volte  e sommali, poi aggiungi gli eventuali modificatori  rilevanti. *Vedi anche* \"Come si gioca\" (\"Danni  e guarigione\").",
-    "see_also": [
-      "\"Come si gioca\" (\"Danni",
-      "guarigione\")"
-    ]
+    "see_also": ["\"Come si gioca\" (\"Danni", "guarigione\")"]
   },
   {
     "id": "colpo-senzarmi",
@@ -287,19 +262,14 @@
     "term": "Competenza",
     "category": "",
     "definition": "Se il tuo personaggio ha una competenza in  qualcosa, può aggiungere il bonus di competenza  a qualsiasi prova con d20 effettuata per utilizzare  ciò in cui è competente. Una creatura può avere  competenza nell'uso di un'abilità, in un tiro salvezza  o nell'uso di un'arma o strumento. *Vedi anche* \"Come  si gioca\" (\"Competenza\").",
-    "see_also": [
-      "\"Come  si gioca\" (\"Competenza\")"
-    ]
+    "see_also": ["\"Come  si gioca\" (\"Competenza\")"]
   },
   {
     "id": "competenza-nelle-armature",
     "term": "Competenza nelle armature",
     "category": "",
     "definition": "La competenza nelle armature consente al tuo  personaggio di utilizzare un'armatura di una certa  categoria senza gli svantaggi illustrati di seguito.  Se il personaggio indossa un'armatura leggera,  media o pesante senza avere la competenza per  farlo, subisce svantaggio a tutte le prove con d20  relative a Forza o Destrezza, e non può lanciare  incantesimi. Se il personaggio usa uno scudo senza  avere la competenza per farlo, non riceve il bonus  alla CA. *Vedi anche* \"Svantaggio\" e \"Equipaggiamento\" (\"Armatura\").",
-    "see_also": [
-      "\"Svantaggio\"",
-      "\"Equipaggiamento\" (\"Armatura\")"
-    ]
+    "see_also": ["\"Svantaggio\"", "\"Equipaggiamento\" (\"Armatura\")"]
   },
   {
     "id": "concentrazione",
@@ -327,18 +297,14 @@
     "term": "Copertura",
     "category": "",
     "definition": "La copertura fornisce un certo grado di protezione  a un bersaglio che si trova dietro di essa. Esistono  tre gradi di copertura, ognuno dei quali offre un  beneficio diverso a un bersaglio: mezza copertura  (bonus di +2 alla CA e ai tiri salvezza su Destrezza),  tre quarti di copertura (bonus di +5 alla CA e ai tiri  salvezza su Destrezza) e copertura totale (il bersaglio non può essere bersagliato direttamente).  Se il bersaglio si trova dietro a più di un grado di  copertura, beneficia solo del grado più protettivo.  *Vedi anche* \"Come si gioca\" (\"Combattimento\").",
-    "see_also": [
-      "\"Come si gioca\" (\"Combattimento\")"
-    ]
+    "see_also": ["\"Come si gioca\" (\"Combattimento\")"]
   },
   {
     "id": "creatura",
     "term": "Creatura",
     "category": "",
     "definition": "Qualsiasi essere all'interno del gioco, incluso il personaggio di un giocatore, è una creatura. *Vedi anche* \"Tipo di creatura\".",
-    "see_also": [
-      "\"Tipo di creatura\""
-    ]
+    "see_also": ["\"Tipo di creatura\""]
   },
   {
     "id": "cubo",
@@ -352,9 +318,7 @@
     "term": "Dadi Vita",
     "category": "",
     "definition": "I Dadi Vita aiutano a determinare i punti ferita  massimi di un personaggio giocante, come spiegato  in \"Creazione del personaggio\". Anche la maggior  parte dei mostri ha i Dadi Vita. Durante un riposo  breve, una creatura può spendere Dadi Vita per  recuperare punti ferita. *Vedi anche* \"Riposo breve\".",
-    "see_also": [
-      "\"Riposo breve\""
-    ]
+    "see_also": ["\"Riposo breve\""]
   },
   {
     "id": "danni",
@@ -368,9 +332,7 @@
     "term": "Disidratazione",
     "category": "pericolo",
     "definition": "In base alla propria taglia, una creatura necessita di  una certa quantità di acqua al giorno, come indicato  nella tabella \"Fabbisogno d'acqua giornaliero\".  Una creatura che beve meno della metà dell'acqua  necessaria in un giorno ottiene 1 livello di indebolimento alla fine della giornata. L'indebolimento causato dalla disidratazione può essere rimosso solo  quando la creatura beve l'intera quantità d'acqua  richiesta in un giorno. *Vedi anche* \"Indebolimento\".\n\nFabbisogno d'acqua giornaliero\n\nTaglia\n\nAcqua\n\nTaglia\n\nAcqua\n\nMinuscola 1 litro Grande 16 litri Piccola 4 litri Enorme 64 litri Media 4 litri Mastodontica 256 litri",
-    "see_also": [
-      "\"Indebolimento\""
-    ]
+    "see_also": ["\"Indebolimento\""]
   },
   {
     "id": "disimpegno",
@@ -405,37 +367,28 @@
     "term": "Fluttuare",
     "category": "",
     "definition": "Alcune creature sono in grado di fluttuare, come  specificato nella loro scheda delle statistiche.  Inoltre, alcuni incantesimi e altri effetti concedono  l'abilità di fluttuare. Fluttuando mentre è in volo,  il personaggio evita di cadere in determinate circostanze. *Vedi anche* \"Volare\".",
-    "see_also": [
-      "\"Volare\""
-    ]
+    "see_also": ["\"Volare\""]
   },
   {
     "id": "focus-da-incantatore",
     "term": "Focus da incantatore",
     "category": "",
     "definition": "Un focus da incantatore è un oggetto che alcune creature possono utilizzare al posto delle componenti  materiali di un incantesimo solo se tali materiali  non vengono consumati dall'incantesimo e non  hanno un costo specificato. Alcune classi consentono ai propri membri di utilizzare tipi specifici  di focus da incantatore. *Vedi anche* \"Incantesimi\"  (\"Lanciare gli incantesimi\").",
-    "see_also": [
-      "\"Incantesimi\"  (\"Lanciare gli incantesimi\")"
-    ]
+    "see_also": ["\"Incantesimi\"  (\"Lanciare gli incantesimi\")"]
   },
   {
     "id": "grado-di-sfida",
     "term": "Grado di sfida",
     "category": "",
     "definition": "Il grado di sfida (GS) indica quanto è grave la  minaccia costituita da un mostro per un gruppo  di quattro personaggi giocanti. Confronta il GS di  un mostro con il livello dei personaggi. Se il GS è  superiore, è probabile che il mostro costituisca  un pericolo. Se il GS è inferiore, è probabile che il  mostro non costituisca una seria minaccia. Tuttavia,  le circostanze e il numero di personaggi giocanti  possono alterare significativamente l'effettivo  grado di minaccia di un mostro nel gioco. \"Strumenti di gioco\" (\"Incontri di combattimento\") fornisce una guida per il GM su come utilizzare i GS nel  pianificare potenziali incontri di combattimento.  *Vedi anche* \"Scheda delle statistiche\".",
-    "see_also": [
-      "\"Scheda delle statistiche\""
-    ]
+    "see_also": ["\"Scheda delle statistiche\""]
   },
   {
     "id": "guarigione",
     "term": "Guarigione",
     "category": "",
     "definition": "La guarigione è il modo in cui il tuo personaggio  recupera punti ferita. *Vedi anche* \"Come si gioca\"  (\"Danni e guarigione\").",
-    "see_also": [
-      "\"Come si gioca\"  (\"Danni",
-      "guarigione\")"
-    ]
+    "see_also": ["\"Come si gioca\"  (\"Danni", "guarigione\")"]
   },
   {
     "id": "illusioni",
@@ -488,9 +441,7 @@
     "term": "Indifferente",
     "category": "atteggiamento",
     "definition": "Una creatura indifferente non ha alcun desiderio di  aiutare o ostacolare il personaggio. L'indifferenza è  l'atteggiamento predefinito dei mostri. *Vedi anche* \"Influenza\".",
-    "see_also": [
-      "\"Influenza\""
-    ]
+    "see_also": ["\"Influenza\""]
   },
   {
     "id": "in-fiamme",
@@ -511,9 +462,7 @@
     "term": "Iniziativa",
     "category": "",
     "definition": "L'iniziativa determina l'ordine dei turni durante  il combattimento. Le regole di combattimento in  \"Come si gioca\" spiegano in che modo tirare per  l'iniziativa. Talvolta, il GM potrebbe chiedere ai combattenti  di utilizzare i loro punteggi di iniziativa piuttosto  che tirare per l'iniziativa. Il punteggio di iniziativa è  pari a 10 più il modificatore di Destrezza. Se il personaggio dispone di vantaggio ai tiri per l'iniziativa,  il suo punteggio di iniziativa aumenta di 5; se invece  subisce svantaggio ai tiri, il suo punteggio di iniziativa diminuisce di 5. *Vedi anche* \"Come si gioca\"  (\"Combattimento\").",
-    "see_also": [
-      "\"Come si gioca\"  (\"Combattimento\")"
-    ]
+    "see_also": ["\"Come si gioca\"  (\"Combattimento\")"]
   },
   {
     "id": "invisibile",
@@ -555,27 +504,21 @@
     "term": "Luce intensa",
     "category": "",
     "definition": "La luce intensa rappresenta la normale illuminazione. *Vedi anche* \"Come si gioca\" (\"Esplorazione\").",
-    "see_also": [
-      "\"Come si gioca\" (\"Esplorazione\")"
-    ]
+    "see_also": ["\"Come si gioca\" (\"Esplorazione\")"]
   },
   {
     "id": "maestria",
     "term": "Maestria",
     "category": "",
     "definition": "La maestria è un privilegio che migliora l'uso di una  competenza in un'abilità. Quando il tuo personaggio  effettua una prova di caratteristica con una competenza in un'abilità in cui ha maestria, il suo bonus  di competenza è raddoppiato per quella prova,  a meno che il bonus non sia raddoppiato da un altro  privilegio. Se il personaggio ottiene maestria, la ottiene in  un'abilità in cui è competente. Non è possibile avere  più di una maestria nella stessa competenza in  un'abilità. *Vedi anche* \"Come si gioca\" (\"Competenza\").",
-    "see_also": [
-      "\"Come si gioca\" (\"Competenza\")"
-    ]
+    "see_also": ["\"Come si gioca\" (\"Competenza\")"]
   },
   {
     "id": "magia",
     "term": "Magia",
     "category": "azione",
     "definition": "Quando il personaggio esegue l'azione di Magia,  lancia un incantesimo che ha il tempo di lancio di  un'azione, oppure usa un privilegio o un oggetto  magico che richiede un'azione di Magia per essere  attivato. Se il personaggio lancia un incantesimo che ha  un tempo di lancio di 1 minuto o più, deve effettuare  un'azione di Magia in ogni turno del lancio e, allo  stesso tempo, deve mantenere la concentrazione.  Se la sua concentrazione viene interrotta, l'incantesimo fallisce, ma il personaggio non consuma uno  slot incantesimo. *Vedi anche* \"Concentrazione\".",
-    "see_also": [
-      "\"Concentrazione\""
-    ]
+    "see_also": ["\"Concentrazione\""]
   },
   {
     "id": "maledizioni",
@@ -638,9 +581,7 @@
     "term": "Oggetto",
     "category": "",
     "definition": "Un oggetto è una cosa ben distinta e non vivente.  Cose dal carattere composito, come gli edifici, comprendono più di un oggetto. *Vedi anche* \"Rompere gli  oggetti\".",
-    "see_also": [
-      "\"Rompere gli  oggetti\""
-    ]
+    "see_also": ["\"Rompere gli  oggetti\""]
   },
   {
     "id": "oscurita",
@@ -657,9 +598,7 @@
     "term": "Ostile",
     "category": "atteggiamento",
     "definition": "Una creatura ostile ha un'opinione negativa del personaggio, il quale subisce svantaggio a una prova di  caratteristica per influenzare una creatura ostile.  *Vedi anche* \"Influenza\".",
-    "see_also": [
-      "\"Influenza\""
-    ]
+    "see_also": ["\"Influenza\""]
   },
   {
     "id": "paralizzato",
@@ -700,9 +639,7 @@
     "term": "Personaggio giocante",
     "category": "",
     "definition": "Un personaggio giocante è un personaggio controllato da un giocatore. *Vedi anche* \"Creazione del  personaggio\".",
-    "see_also": [
-      "\"Creazione del  personaggio\""
-    ]
+    "see_also": ["\"Creazione del  personaggio\""]
   },
   {
     "id": "personaggio-non-giocante",
@@ -769,37 +706,28 @@
     "term": "Prova con D20",
     "category": "",
     "definition": "Le prove con d20 includono i tre principali tiri con  d20 presenti nel gioco: la prova di caratteristica,  il tiro per colpire e il tiro salvezza. Se qualche  elemento di gioco influisce sulle prove con d20,  influisce su tutti e tre i tiri descritti. È il GM a  determinare se una prova con d20 è giustificata in  una certa circostanza. *Vedi anche* \"Come si gioca\"  (\"Prove con d20\").",
-    "see_also": [
-      "\"Come si gioca\"  (\"Prove con d20\")"
-    ]
+    "see_also": ["\"Come si gioca\"  (\"Prove con d20\")"]
   },
   {
     "id": "prova-di-caratteristica",
     "term": "Prova di caratteristica",
     "category": "",
     "definition": "Una prova di caratteristica è una prova effettuata  con un d20: rappresenta l'uso di una delle sei  caratteristiche (o di un'abilità speciale associata  a una caratteristica) al fine di superare una sfida.  *Vedi anche* \"Come si gioca\" (\"Prove con d20\"  e \"Competenza\").",
-    "see_also": [
-      "\"Come si gioca\" (\"Prove con d20\"",
-      "\"Competenza\")"
-    ]
+    "see_also": ["\"Come si gioca\" (\"Prove con d20\"", "\"Competenza\")"]
   },
   {
     "id": "punteggio-di-caratteristica-e-modificatore",
     "term": "Punteggio di caratteristica e modificatore",
     "category": "",
     "definition": "Una creatura ha sei punteggi di caratteristica  (Forza, Destrezza, Costituzione, Intelligenza,  Saggezza e Carisma), ognuno dei quali ha un modificatore corrispondente. Quando effettui una prova  con d20 relativa a una caratteristica, o quando  una regola lo richiede, aggiungi il modificatore  corrispondente. *Vedi anche* \"Come si gioca\" (\"Le sei  caratteristiche\").",
-    "see_also": [
-      "\"Come si gioca\" (\"Le sei  caratteristiche\")"
-    ]
+    "see_also": ["\"Come si gioca\" (\"Le sei  caratteristiche\")"]
   },
   {
     "id": "punti-esperienza",
     "term": "Punti esperienza",
     "category": "",
     "definition": "Superando sfide e completando avventure, i personaggi ottengono punti esperienza (PE), che vengono  assegnati dal Game Master. Quando il totale dei PE  di un personaggio supera una certa soglia, il livello  del personaggio aumenta. *Vedi anche* \"Avanzamento  di livello\".",
-    "see_also": [
-      "\"Avanzamento  di livello\""
-    ]
+    "see_also": ["\"Avanzamento  di livello\""]
   },
   {
     "id": "punti-ferita",
@@ -817,10 +745,7 @@
     "term": "Punti ferita temporanei",
     "category": "",
     "definition": "I punti ferita temporanei sono concessi da alcuni  effetti e servono ad ammortizzare la perdita dei  punti ferita veri e propri. *Vedi anche* \"Come si gioca\"  (\"Danni e guarigione\").",
-    "see_also": [
-      "\"Come si gioca\"  (\"Danni",
-      "guarigione\")"
-    ]
+    "see_also": ["\"Come si gioca\"  (\"Danni", "guarigione\")"]
   },
   {
     "id": "reazione",
@@ -837,10 +762,7 @@
     "term": "Resistenza",
     "category": "",
     "definition": "Se un personaggio è dotato di resistenza a un tipo  di danno, i danni di quel tipo che subisce sono  dimezzati (arrotondando per difetto). La resistenza  si applica una sola volta per ogni istanza di danno  ricevuta. *Vedi anche* \"Come si gioca\" (\"Danni e  guarigione\").",
-    "see_also": [
-      "\"Come si gioca\" (\"Danni",
-      "guarigione\")"
-    ]
+    "see_also": ["\"Come si gioca\" (\"Danni", "guarigione\")"]
   },
   {
     "id": "ricerca",
@@ -872,9 +794,7 @@
     "term": "Rituale",
     "category": "",
     "definition": "Se il tuo personaggio ha un incantesimo con  il descrittore \"rituale\" preparato, può lanciarlo  come rituale. La versione rituale di un incantesimo  richiede 10 minuti in più rispetto alla norma per  essere lanciata. Inoltre non consuma uno slot incantesimo, il che significa che la versione rituale di un  incantesimo non può essere lanciata a un livello  superiore. *Vedi anche* \"Incantesimi\".",
-    "see_also": [
-      "\"Incantesimi\""
-    ]
+    "see_also": ["\"Incantesimi\""]
   },
   {
     "id": "rompere-gli-oggetti",
@@ -888,10 +808,7 @@
     "term": "Saltare",
     "category": "",
     "definition": "Quando il tuo personaggio salta, può compiere un  salto in lungo (in orizzontale) o un salto in alto  (in verticale). *Vedi anche* \"Salto in lungo\" e \"Salto in  alto\".",
-    "see_also": [
-      "\"Salto in lungo\"",
-      "\"Salto in  alto\""
-    ]
+    "see_also": ["\"Salto in lungo\"", "\"Salto in  alto\""]
   },
   {
     "id": "salto-in-alto",
@@ -926,9 +843,7 @@
     "term": "Scatto",
     "category": "azione",
     "definition": "Quando il personaggio effettua l'azione di Scatto,  ottiene del movimento extra per il turno in corso.  Questo incremento è pari alla sua velocità, dopo  avere applicato eventuali modificatori. Per esempio,  se il personaggio ha una velocità di 9 metri, nel  suo turno può muoversi fino a 18 metri se scatta.  Se il personaggio ha una velocità di 9 metri che  viene ridotta a 4,5 metri, nel suo turno può muoversi fino a 9 metri se scatta. Se il personaggio possiede una velocità speciale,  come una velocità di volo o di nuoto, può usarla  in sostituzione alla sua velocità quando effettua  questa azione. Ogni volta che effettua l'azione,  può scegliere quale velocità utilizzare. *Vedi anche* \"Velocità\".",
-    "see_also": [
-      "\"Velocità\""
-    ]
+    "see_also": ["\"Velocità\""]
   },
   {
     "id": "scheda-delle-statistiche",
@@ -992,9 +907,7 @@
     "term": "Scheda del personaggio",
     "category": "",
     "definition": "La scheda del personaggio è una nota digitale o cartacea che usi per tenere traccia delle informazioni  sul tuo personaggio. *Vedi anche* \"Creazione del  personaggio\".",
-    "see_also": [
-      "\"Creazione del  personaggio\""
-    ]
+    "see_also": ["\"Creazione del  personaggio\""]
   },
   {
     "id": "schivata",
@@ -1008,9 +921,7 @@
     "term": "Scurovisione",
     "category": "",
     "definition": "Se il personaggio ha scurovisione, è in grado di  vedere in condizioni di luce fioca, entro un raggio  specificato, come se si trovasse in condizioni di luce  intensa; è in grado di vedere in condizioni di oscurità, entro un raggio specificato, come se si trovasse  in condizioni di luce fioca. Nell'oscurità, il personaggio riconosce i colori solamente come sfumature di  grigio. *Vedi anche* \"Come si gioca\" (\"Esplorazione\").",
-    "see_also": [
-      "\"Come si gioca\" (\"Esplorazione\")"
-    ]
+    "see_also": ["\"Come si gioca\" (\"Esplorazione\")"]
   },
   {
     "id": "sfera",
@@ -1024,9 +935,7 @@
     "term": "Sintonia",
     "category": "",
     "definition": "Alcuni oggetti magici richiedono che la creatura  entri in sintonia con loro prima che possa utilizzarne le proprietà magiche. Una creatura può avere  sintonia con non più di tre oggetti magici alla volta.  *Vedi anche* \"Equipaggiamento\" (\"Oggetti magici\").",
-    "see_also": [
-      "\"Equipaggiamento\" (\"Oggetti magici\")"
-    ]
+    "see_also": ["\"Equipaggiamento\" (\"Oggetti magici\")"]
   },
   {
     "id": "soffocamento",
@@ -1047,9 +956,7 @@
     "term": "Sorpresa",
     "category": "",
     "definition": "Se una creatura viene colta alla sprovvista all'inizio  del combattimento, è sorpresa: subisce quindi  svantaggio al tiro per l'iniziativa. *Vedi anche* \"Come  si gioca\" (\"Combattimento\").",
-    "see_also": [
-      "\"Come  si gioca\" (\"Combattimento\")"
-    ]
+    "see_also": ["\"Come  si gioca\" (\"Combattimento\")"]
   },
   {
     "id": "spaventato",
@@ -1091,9 +998,7 @@
     "term": "Strisciare",
     "category": "",
     "definition": "Quando il personaggio striscia, ogni 30 centimetri  di movimento costano 30 centimetri extra (60 centimetri extra in caso di terreno difficile). *Vedi anche* \"Velocità\".",
-    "see_also": [
-      "\"Velocità\""
-    ]
+    "see_also": ["\"Velocità\""]
   },
   {
     "id": "studio",
@@ -1107,9 +1012,7 @@
     "term": "Svantaggio",
     "category": "",
     "definition": "Se il personaggio subisce svantaggio a una prova  con d20, tira due d20 e scegli il risultato più basso.  Un tiro non può essere influenzato da più di uno  svantaggio; inoltre, vantaggio e svantaggio sullo  stesso tiro si annullano a vicenda. *Vedi anche* \"Come  si gioca\" (\"Prove con d20\").",
-    "see_also": [
-      "\"Come  si gioca\" (\"Prove con d20\")"
-    ]
+    "see_also": ["\"Come  si gioca\" (\"Prove con d20\")"]
   },
   {
     "id": "taglia",
@@ -1161,38 +1064,28 @@
     "term": "Tiro per colpire",
     "category": "",
     "definition": "Un tiro per colpire è una prova con d20 che  rappresenta un attacco con un'arma, con un colpo  senz'armi o con un incantesimo. *Vedi anche* \"Come si  gioca\" (\"Prove con d20\").",
-    "see_also": [
-      "\"Come si  gioca\" (\"Prove con d20\")"
-    ]
+    "see_also": ["\"Come si  gioca\" (\"Prove con d20\")"]
   },
   {
     "id": "tiro-per-i-danni",
     "term": "Tiro per i danni",
     "category": "",
     "definition": "Un tiro per i danni è un tiro di dado (regolato  dall'aggiunta dei modificatori applicabili) che  infligge danni a un bersaglio. *Vedi anche* \"Come si  gioca\" (\"Danni e guarigione\").",
-    "see_also": [
-      "\"Come si  gioca\" (\"Danni",
-      "guarigione\")"
-    ]
+    "see_also": ["\"Come si  gioca\" (\"Danni", "guarigione\")"]
   },
   {
     "id": "tiro-salvezza",
     "term": "Tiro salvezza",
     "category": "",
     "definition": "Un tiro salvezza rappresenta il tentativo di evitare  o di resistere a una minaccia. Solitamente, effettui  un tiro salvezza solo quando una regola lo richiede,  ma puoi anche decidere di fallire il tiro senza tirare  il dado. Il risultato di un tiro salvezza è descritto  nell'effetto che l'ha reso necessario. Se un bersaglio  è costretto a effettuare un tiro salvezza e non  possiede il punteggio di caratteristica utilizzato dal  tiro, fallisce automaticamente. *Vedi anche* \"Come si  gioca\" (\"Prove con d20\").",
-    "see_also": [
-      "\"Come si  gioca\" (\"Prove con d20\")"
-    ]
+    "see_also": ["\"Come si  gioca\" (\"Prove con d20\")"]
   },
   {
     "id": "tiro-salvezza-contro-morte",
     "term": "Tiro salvezza contro morte",
     "category": "",
     "definition": "Un personaggio giocante deve effettuare un tiro  salvezza contro morte se inizia il proprio turno con  0 punti ferita. *Vedi anche* \"Come si gioca\" (\"Danni  e guarigione\").",
-    "see_also": [
-      "\"Come si gioca\" (\"Danni",
-      "guarigione\")"
-    ]
+    "see_also": ["\"Come si gioca\" (\"Danni", "guarigione\")"]
   },
   {
     "id": "tramortire-una-creatura",
@@ -1213,9 +1106,7 @@
     "term": "Trucchetto",
     "category": "",
     "definition": "Un trucchetto è un incantesimo di livello 0 che  si lancia senza slot incantesimo. *Vedi anche* \"Incantesimi\".",
-    "see_also": [
-      "\"Incantesimi\""
-    ]
+    "see_also": ["\"Incantesimi\""]
   },
   {
     "id": "utilizzo",
@@ -1229,9 +1120,7 @@
     "term": "Vantaggio",
     "category": "",
     "definition": "Se il tuo personaggio dispone di vantaggio a una  prova con d20, tira due d20 e scegli il risultato più  alto. Un tiro non può essere influenzato da più di  un vantaggio; inoltre, vantaggio e svantaggio sullo  stesso tiro si annullano a vicenda. *Vedi anche* \"Come  si gioca\" (\"Prove con d20\").",
-    "see_also": [
-      "\"Come  si gioca\" (\"Prove con d20\")"
-    ]
+    "see_also": ["\"Come  si gioca\" (\"Prove con d20\")"]
   },
   {
     "id": "velocita",
@@ -1273,39 +1162,28 @@
     "term": "Velocità di nuoto",
     "category": "",
     "definition": "La velocità di nuoto può essere usata per nuotare  senza spendere movimento extra normalmente  associato al nuoto. *Vedi anche* \"Nuotare\" e \"Velocità\".",
-    "see_also": [
-      "\"Nuotare\"",
-      "\"Velocità\""
-    ]
+    "see_also": ["\"Nuotare\"", "\"Velocità\""]
   },
   {
     "id": "velocita-di-scalata",
     "term": "Velocità di scalata",
     "category": "",
     "definition": "La velocità di scalata può essere usata al posto  della velocità per arrampicarsi su una superficie  verticale, senza spendere movimento extra normalmente associato alla scalata. *Vedi anche* \"Scalare\"  e \"Velocità\".",
-    "see_also": [
-      "\"Scalare\"",
-      "\"Velocità\""
-    ]
+    "see_also": ["\"Scalare\"", "\"Velocità\""]
   },
   {
     "id": "velocita-di-scavo",
     "term": "Velocità di scavo",
     "category": "",
     "definition": "Una creatura dotata di velocità di scavo può usare  tale velocità per muoversi attraverso la sabbia,  la terra, il fango o il ghiaccio. Non può scavare nella  roccia solida, a meno che non abbia un tratto che  le consenta di farlo. *Vedi anche* \"Velocità\".",
-    "see_also": [
-      "\"Velocità\""
-    ]
+    "see_also": ["\"Velocità\""]
   },
   {
     "id": "velocita-di-volo",
     "term": "Velocità di volo",
     "category": "",
     "definition": "La velocità di volo può essere usata per spostarsi in  aria. Fin quando il personaggio ha la velocità di volo,  può rimanere sospeso in aria fino a che non atterra,  cade o muore. *Vedi anche* \"Volare\" e \"Velocità\".",
-    "see_also": [
-      "\"Volare\"",
-      "\"Velocità\""
-    ]
+    "see_also": ["\"Volare\"", "\"Velocità\""]
   },
   {
     "id": "vista-cieca",
@@ -1326,19 +1204,13 @@
     "term": "Volare",
     "category": "",
     "definition": "Esistono vari effetti che consentono a una creatura  di volare. Mentre il tuo personaggio vola, cade al  suolo se è incapacitato o prono, o se la sua velocità  di volo scende a 0. In queste circostanze, il personaggio può rimanere sospeso in aria se è in grado di  fluttuare. *Vedi anche* \"Caduta\" e \"Velocità di volo\".",
-    "see_also": [
-      "\"Caduta\"",
-      "\"Velocità di volo\""
-    ]
+    "see_also": ["\"Caduta\"", "\"Velocità di volo\""]
   },
   {
     "id": "vulnerabilita",
     "term": "Vulnerabilità",
     "category": "",
     "definition": "Se un personaggio è vulnerabile a un tipo di danno,  i danni di quel tipo che subisce sono raddoppiati.  La vulnerabilità si applica una sola volta per ogni  istanza di danno ricevuta. *Vedi anche* \"Come si  gioca\" (\"Danni e guarigione\").",
-    "see_also": [
-      "\"Come si  gioca\" (\"Danni",
-      "guarigione\")"
-    ]
+    "see_also": ["\"Come si  gioca\" (\"Danni", "guarigione\")"]
   }
 ]

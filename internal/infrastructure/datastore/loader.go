@@ -50,6 +50,12 @@ func (l *Loader) LoadAll() (map[string][]map[string]any, error) {
 	if err := l.loadRules(result); err != nil {
 		return nil, fmt.Errorf("rules: %w", err)
 	}
+	if err := l.loadGlossary(result); err != nil {
+		return nil, fmt.Errorf("glossary: %w", err)
+	}
+	if err := l.loadSpecies(result); err != nil {
+		return nil, fmt.Errorf("species: %w", err)
+	}
 
 	return result, nil
 }
@@ -625,4 +631,92 @@ func (l *Loader) ruleToDoc(r jsonRule) map[string]any {
 		"content":     l.renderer.Render(raw),
 		"raw_content": raw,
 	}
+}
+
+// --- Glossary ---
+
+type jsonGlossaryEntry struct {
+	ID         string   `json:"id"`
+	Term       string   `json:"term"`
+	Category   string   `json:"category"`
+	Definition string   `json:"definition"`
+	SeeAlso    []string `json:"see_also"`
+}
+
+func (l *Loader) loadGlossary(result map[string][]map[string]any) error {
+	var entries []jsonGlossaryEntry
+	if err := l.readJSON("glossary.json", &entries); err != nil {
+		return err
+	}
+
+	docs := make([]map[string]any, 0, len(entries))
+	for _, e := range entries {
+		raw := e.Definition
+		if len(e.SeeAlso) > 0 {
+			raw += "\n\n*Vedi anche: " + strings.Join(e.SeeAlso, ", ") + "*"
+		}
+		doc := map[string]any{
+			"_id":         e.ID,
+			"title":       e.Term,
+			"content":     l.renderer.Render(raw),
+			"raw_content": raw,
+			"categoria":   e.Category,
+		}
+		docs = append(docs, doc)
+	}
+
+	result["glossario"] = docs
+	return nil
+}
+
+// --- Species ---
+
+type jsonSpeciesTrait struct {
+	Name        string `json:"name"`
+	Description string `json:"description"`
+}
+
+type jsonSpecies struct {
+	ID           string             `json:"id"`
+	Name         string             `json:"name"`
+	CreatureType string             `json:"creature_type"`
+	Size         string             `json:"size"`
+	Speed        string             `json:"speed"`
+	Traits       []jsonSpeciesTrait `json:"traits"`
+	Description  string             `json:"description"`
+}
+
+func (l *Loader) loadSpecies(result map[string][]map[string]any) error {
+	var species []jsonSpecies
+	if err := l.readJSON("species.json", &species); err != nil {
+		return err
+	}
+
+	docs := make([]map[string]any, 0, len(species))
+	for _, s := range species {
+		raw := l.buildSpeciesMarkdown(s)
+		doc := map[string]any{
+			"_id":           s.ID,
+			"title":         s.Name,
+			"content":       l.renderer.Render(raw),
+			"raw_content":   raw,
+			"tipo_creatura": s.CreatureType,
+			"taglia":        s.Size,
+			"velocita":      s.Speed,
+		}
+		docs = append(docs, doc)
+	}
+
+	result["specie"] = docs
+	return nil
+}
+
+func (l *Loader) buildSpeciesMarkdown(s jsonSpecies) string {
+	var b strings.Builder
+
+	fmt.Fprintf(&b, "*%s %s, %s*\n\n", s.CreatureType, s.Size, s.Speed)
+
+	b.WriteString(s.Description)
+
+	return b.String()
 }

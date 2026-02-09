@@ -7,9 +7,9 @@ import (
 func TestGetAllCollectionNames(t *testing.T) {
 	names := GetAllCollectionNames()
 
-	// Should return all 14 collections
-	if len(names) != 14 {
-		t.Errorf("Expected 14 collections, got %d", len(names))
+	// Should return all 16 collections
+	if len(names) != 16 {
+		t.Errorf("Expected 16 collections, got %d", len(names))
 	}
 
 	// All names should be strings
@@ -35,6 +35,8 @@ func TestGetAllCollectionNames(t *testing.T) {
 		"cavalcature_veicoli": false,
 		"oggetti_magici":      false,
 		"mostri":              false,
+		"glossario":           false,
+		"specie":              false,
 	}
 
 	for _, name := range names {
@@ -71,6 +73,8 @@ func TestFromString_ValidCollection(t *testing.T) {
 		{"regole", Regole},
 		{"cavalcature_veicoli", CavalcatureVeicoli},
 		{"oggetti_magici", OggettiMagici},
+		{"glossario", Glossario},
+		{"specie", Specie},
 	}
 
 	for _, tt := range tests {
