@@ -997,6 +997,81 @@ img {
 }
 
 /* ========================================================================
+   GLOSSARY TOOLTIPS
+   ======================================================================== */
+
+.glossary-term {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: var(--gray-400, #9ca3af);
+  text-underline-offset: 3px;
+  cursor: help;
+  position: relative;
+}
+
+.glossary-term:hover,
+.glossary-term:focus {
+  text-decoration-color: var(--border-color);
+}
+
+.glossary-tooltip {
+  position: absolute;
+  z-index: 100;
+  background: var(--white, #fff);
+  border: 2px solid var(--border-color);
+  padding: var(--space-4);
+  max-width: 320px;
+  min-width: 200px;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  animation: tooltipFadeIn 0.15s ease-out;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.glossary-tooltip-cat {
+  display: inline-block;
+  font-size: var(--font-size-2xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  background: var(--border-color);
+  color: var(--text-inverse);
+  padding: 0.125rem 0.5rem;
+  margin-bottom: var(--space-2);
+}
+
+.glossary-tooltip-def {
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.glossary-tooltip-link {
+  display: block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--text-primary);
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+.glossary-tooltip-link:hover {
+  opacity: 1;
+}
+
+/* ========================================================================
    REDUCED MOTION
    ======================================================================== */
 
