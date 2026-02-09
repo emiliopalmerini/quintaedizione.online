@@ -66,7 +66,8 @@ class Monster(TypedDict):
     saving_throws: dict[str, str]
     skills: str
     resistances: str
-    immunities: str
+    damage_immunities: str
+    condition_immunities: str
     senses: str
     languages: str
     cr: str
@@ -76,7 +77,6 @@ class Monster(TypedDict):
     bonus_actions: list[Feature]
     reactions: list[Feature]
     legendary_actions: list[Feature]
-    description: str  # markdown for full content
     source: str  # "monsters" or "animals"
 
 

@@ -8,7 +8,7 @@ YELLOW := \033[0;33m
 BLUE := \033[0;34m
 NC := \033[0m # No Color
 
-.PHONY: help setup build run templ-generate test clean pdf-convert
+.PHONY: help setup build run templ-generate test clean pdf-convert parse-srd
 
 .DEFAULT_GOAL := help
 
@@ -47,6 +47,15 @@ clean:
 	go clean
 	@echo -e "$(GREEN)Cleanup completed!$(NC)"
 
+parse-srd:
+	@echo -e "$(BLUE)Building parser image...$(NC)"
+	docker build -f Dockerfile.Parser -t srd-parser .
+	@echo -e "$(BLUE)Running SRD parser...$(NC)"
+	docker run --rm \
+		-v $(CURDIR)/data/ita/json:/app/output \
+		srd-parser --output-dir /app/output
+	@echo -e "$(GREEN)SRD parsing completed!$(NC)"
+
 pdf-convert:
 	@if [ -z "$(PDF)" ]; then \
 		echo -e "$(RED)Error: PDF argument required. Usage: make pdf-convert PDF=path/to/file.pdf$(NC)"; \
@@ -72,4 +81,5 @@ help:
 	@echo "  make test                  # Run Go unit tests"
 	@echo ""
 	@echo -e "$(YELLOW)PDF Pipeline:$(NC)"
+	@echo "  make parse-srd              # Parse SRD PDF into JSON (via Docker)"
 	@echo "  make pdf-convert PDF=<path> # Convert PDF to per-collection markdown files"
