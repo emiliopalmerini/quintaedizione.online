@@ -1170,6 +1170,99 @@
 }
 
 /* ========================================================================
+   EMPTY STATE
+   ======================================================================== */
+
+.empty-state-container {
+  padding: var(--space-10) var(--space-6);
+  text-align: center;
+}
+
+.empty-state-icon {
+  color: var(--gray-300, #d1d5db);
+  margin-bottom: var(--space-4);
+}
+
+.empty-state-icon svg {
+  margin: 0 auto;
+}
+
+.empty-state-title {
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+  font-weight: var(--font-weight-medium);
+}
+
+.empty-state-title strong {
+  color: var(--primary, var(--text-primary));
+  font-weight: var(--font-weight-bold);
+}
+
+.empty-state-suggestions {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+}
+
+.empty-state-suggestions p {
+  margin-bottom: var(--space-4);
+}
+
+.empty-state-reset {
+  margin-top: var(--space-2);
+}
+
+/* ========================================================================
+   SKELETON LOADING
+   ======================================================================== */
+
+.skeleton-row {
+  padding: var(--space-3) var(--space-4);
+}
+
+.skeleton-line {
+  height: 1rem;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+  border-radius: 2px;
+}
+
+.skeleton-line-short {
+  width: 40%;
+  height: 0.75rem;
+  margin-top: var(--space-2);
+}
+
+@keyframes skeleton-pulse {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Loading bar improvements */
+.loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.loading-bar.htmx-request {
+  background: var(--border-color);
+  animation: loading-progress 2s ease-in-out infinite;
+}
+
+@keyframes loading-progress {
+  0% { transform: scaleX(0); transform-origin: left; }
+  50% { transform: scaleX(0.7); transform-origin: left; }
+  100% { transform: scaleX(1); transform-origin: left; }
+}
+
+/* ========================================================================
    MOBILE RESPONSIVENESS FIXES
    ======================================================================== */
 
