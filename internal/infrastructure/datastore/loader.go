@@ -155,6 +155,7 @@ type jsonMonster struct {
 	Size                string            `json:"size"`
 	Alignment           string            `json:"alignment"`
 	CR                  string            `json:"cr"`
+	CRDetail            string            `json:"cr_detail"`
 	Source              string            `json:"source"`
 	AC                  string            `json:"ac"`
 	Initiative          string            `json:"initiative"`
@@ -184,7 +185,7 @@ func (l *Loader) loadMonsters(result map[string][]map[string]any) error {
 		return err
 	}
 
-	var mostri, animali []map[string]any
+	docs := make([]map[string]any, 0, len(monsters))
 	for _, m := range monsters {
 		raw := l.buildMonsterMarkdown(m)
 		doc := map[string]any{
@@ -197,16 +198,10 @@ func (l *Loader) loadMonsters(result map[string][]map[string]any) error {
 			"allineamento": m.Alignment,
 			"grado_sfida":  m.CR,
 		}
-
-		if m.Source == "animals" {
-			animali = append(animali, doc)
-		} else {
-			mostri = append(mostri, doc)
-		}
+		docs = append(docs, doc)
 	}
 
-	result["mostri"] = mostri
-	result["animali"] = animali
+	result["mostri"] = docs
 	return nil
 }
 
@@ -275,7 +270,11 @@ func (l *Loader) buildMonsterMarkdown(m jsonMonster) string {
 	if m.Languages != "" {
 		fmt.Fprintf(&b, "**Lingue** %s\n\n", m.Languages)
 	}
-	fmt.Fprintf(&b, "**GS** %s\n\n", m.CR)
+	if m.CRDetail != "" {
+		fmt.Fprintf(&b, "**GS** %s\n\n", m.CRDetail)
+	} else {
+		fmt.Fprintf(&b, "**GS** %s\n\n", m.CR)
+	}
 	if m.Equipment != "" {
 		fmt.Fprintf(&b, "**Equipaggiamento** %s\n\n", m.Equipment)
 	}
@@ -462,26 +461,11 @@ type jsonEquipment struct {
 }
 
 // equipmentCollectionName maps a JSON equipment item to its Go collection.
-func equipmentCollectionName(category, subcategory string) string {
-	switch category {
-	case "weapons":
-		return "armi"
-	case "armor":
-		return "armature"
-	case "tools":
-		if subcategory == "Equipaggiamento d'avventura" {
-			return "equipaggiamenti"
-		}
-		return "strumenti"
-	case "gear":
-		return "equipaggiamenti"
-	case "mounts":
-		return "cavalcature_veicoli"
-	case "services":
+func equipmentCollectionName(category string) string {
+	if category == "services" {
 		return "servizi"
-	default:
-		return "equipaggiamenti"
 	}
+	return "equipaggiamenti"
 }
 
 func (l *Loader) loadEquipment(result map[string][]map[string]any) error {
@@ -491,7 +475,7 @@ func (l *Loader) loadEquipment(result map[string][]map[string]any) error {
 	}
 
 	for _, item := range items {
-		collection := equipmentCollectionName(item.Category, item.Subcategory)
+		collection := equipmentCollectionName(item.Category)
 
 		doc := map[string]any{
 			"_id":         item.ID,

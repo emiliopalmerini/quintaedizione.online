@@ -57,6 +57,14 @@ _CONDITION_TYPES = {
 }
 
 
+def _extract_cr_number(gs_text: str) -> str:
+    """Extract just the CR number from a GS field like '13 (PE 10.000; BC +5)'."""
+    if not gs_text:
+        return ""
+    match = re.match(r"^(\d+(?:/\d+)?)", gs_text.strip())
+    return match.group(1) if match else gs_text
+
+
 def _classify_immunity_tokens(text: str) -> tuple[str, str]:
     """Classify comma-separated immunity tokens into damage and condition groups.
 
@@ -336,23 +344,31 @@ def _extract_monster(
     # e.g., "Umanoide Medio o Piccolo, neutrale"
     # e.g., "Mostruosità Media, senza allineamento"
     creature_type = ""
+    subtype = ""
     size = ""
     alignment = ""
     if "," in subtitle:
         type_size, alignment = subtitle.rsplit(",", 1)
         alignment = alignment.strip()
-        # Split type and size — size is the last word(s) before comma
-        parts = type_size.strip().split()
+        # Extract and strip parenthetical suffixes like "(mago)"
+        subtype_match = re.search(r"\(([^)]+)\)", type_size)
+        subtype = subtype_match.group(1) if subtype_match else ""
+        type_size_clean = re.sub(r"\s*\(.*?\)", "", type_size).strip()
+        parts = type_size_clean.split()
         if len(parts) >= 2:
             # Size indicators: Minuscola, Piccola, Media, Grande, Enorme, Mastodontica
             size_words = {"minuscola", "piccola", "media", "medio", "grande",
-                          "enorme", "mastodontica", "piccolo"}
-            # Find where size starts
-            for i, word in enumerate(parts):
-                if word.lower().rstrip(",") in size_words or word.lower() == "o":
-                    creature_type = " ".join(parts[:i])
-                    size = " ".join(parts[i:])
+                          "enorme", "mastodontica", "piccolo", "minuscolo"}
+            # Find where size starts (scan from end to handle multi-word types like "Non morto")
+            size_start = len(parts)
+            for i in range(len(parts) - 1, -1, -1):
+                if parts[i].lower().rstrip(",") in size_words or parts[i].lower() == "o":
+                    size_start = i
+                else:
                     break
+            if size_start < len(parts):
+                creature_type = " ".join(parts[:size_start])
+                size = " ".join(parts[size_start:])
             else:
                 creature_type = parts[0]
                 size = " ".join(parts[1:])
@@ -421,6 +437,7 @@ def _extract_monster(
         name=name,
         group=group if group != name else "",
         type=creature_type,
+        subtype=subtype,
         size=size,
         alignment=alignment,
         ac=fields.get("ca", ""),
@@ -436,7 +453,8 @@ def _extract_monster(
         condition_immunities=condition_immunities,
         senses=fields.get("sensi", ""),
         languages=fields.get("lingue", ""),
-        cr=fields.get("gs", ""),
+        cr=_extract_cr_number(fields.get("gs", "")),
+        cr_detail=fields.get("gs", ""),
         equipment=fields.get("attrezzatura", ""),
         traits=traits,
         actions=actions,

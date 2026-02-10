@@ -37,14 +37,14 @@ func RegisterDefaultFilters(registry *InMemoryFilterRegistry) {
 		Description: "Classe che può lanciare l'incantesimo",
 	})
 
-	// Mostri & Animali
+	// Mostri
 	registry.AddFilter(filters.FilterDefinition{
 		Name:        "tipo",
 		FieldPath:   "tipo",
 		DataType:    filters.EnumFilter,
 		Operator:    filters.ExactMatch,
-		Collections: []collections.CollectionName{collections.Mostri, collections.Animali},
-		EnumValues:  []string{"Aberrazione", "Bestia", "Celestiale", "Costrutto", "Drago", "Elementale", "Fatato", "Immondo", "Melma", "Mostruosità", "Non Morto", "Pianta", "Umanoide"},
+		Collections: []collections.CollectionName{collections.Mostri},
+		EnumValues:  []string{"Aberrazione", "Bestia", "Celestiale", "Costrutto", "Drago", "Elementale", "Folletto", "Gigante", "Immondo", "Melma", "Mostruosità", "Non morto", "Sciame", "Umanoide", "Vegetale"},
 		Description: "Tipo di creatura",
 	})
 	registry.AddFilter(filters.FilterDefinition{
@@ -52,7 +52,7 @@ func RegisterDefaultFilters(registry *InMemoryFilterRegistry) {
 		FieldPath:   "taglia",
 		DataType:    filters.EnumFilter,
 		Operator:    filters.ExactMatch,
-		Collections: []collections.CollectionName{collections.Mostri, collections.Animali},
+		Collections: []collections.CollectionName{collections.Mostri},
 		EnumValues:  []string{"Minuscola", "Piccola", "Media", "Grande", "Enorme", "Mastodontica"},
 		Description: "Taglia della creatura",
 	})
@@ -61,8 +61,8 @@ func RegisterDefaultFilters(registry *InMemoryFilterRegistry) {
 		FieldPath:   "grado_sfida",
 		DataType:    filters.StringFilter,
 		Operator:    filters.ExactMatch,
-		Collections: []collections.CollectionName{collections.Mostri, collections.Animali},
-		EnumValues:  []string{"0", "1/8", "1/4", "1/2", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"},
+		Collections: []collections.CollectionName{collections.Mostri},
+		EnumValues:  []string{"0", "1/8", "1/4", "1/2", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "19", "20", "21", "22", "23", "24", "30"},
 		Description: "Grado di sfida",
 	})
 
@@ -86,26 +86,21 @@ func RegisterDefaultFilters(registry *InMemoryFilterRegistry) {
 		Description: "Tipo di oggetto magico",
 	})
 
-	// Armi
+	// Equipaggiamenti
 	registry.AddFilter(filters.FilterDefinition{
-		Name:        "categoria_arma",
+		Name:        "categoria",
 		FieldPath:   "categoria",
 		DataType:    filters.EnumFilter,
 		Operator:    filters.ExactMatch,
-		Collections: []collections.CollectionName{collections.Armi},
-		EnumValues:  []string{"Armi Semplici da Mischia", "Armi Semplici a Distanza", "Armi da Guerra da Mischia", "Armi da Guerra a Distanza"},
-		Description: "Categoria dell'arma",
-	})
-
-	// Armature
-	registry.AddFilter(filters.FilterDefinition{
-		Name:        "categoria_armatura",
-		FieldPath:   "categoria",
-		DataType:    filters.EnumFilter,
-		Operator:    filters.ExactMatch,
-		Collections: []collections.CollectionName{collections.Armature},
-		EnumValues:  []string{"Armature Leggere", "Armature Medie", "Armature Pesanti", "Scudi"},
-		Description: "Categoria dell'armatura",
+		Collections: []collections.CollectionName{collections.Equipaggiamenti},
+		EnumValues: []string{
+			"Armi da mischia semplici", "Armi a distanza semplici", "Armi da mischia da guerra", "Armi a distanza da guerra",
+			"Armatura leggera", "Armatura media", "Armatura pesante", "Scudo",
+			"Equipaggiamento d'avventura",
+			"Strumenti da artigiano", "Altri strumenti",
+			"Cavalcature e altri animali", "Finimenti e veicoli da tiro", "Veicoli aerei e imbarcazioni",
+		},
+		Description: "Categoria dell'equipaggiamento",
 	})
 
 	// Glossario
