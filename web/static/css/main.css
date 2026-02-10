@@ -438,6 +438,16 @@ img {
   margin-bottom: var(--space-2);
 }
 
+.collection-card-icon {
+  color: var(--text-primary);
+  opacity: 0.6;
+  margin-bottom: var(--space-2);
+}
+
+.collection-card:hover .collection-card-icon {
+  opacity: 1;
+}
+
 .collection-card-title {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-extrabold);
@@ -446,22 +456,6 @@ img {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.collection-card-subtitle {
-  font-size: var(--font-size-xs);
-  color: var(--text-primary);
-  opacity: 0.5;
-  text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-wide);
-  margin-bottom: var(--space-1);
-}
-
-.collection-card-key {
-  font-size: var(--font-size-xs);
-  color: var(--text-muted);
-  opacity: 0.4;
-  font-family: var(--font-mono);
 }
 
 .collection-badge {
