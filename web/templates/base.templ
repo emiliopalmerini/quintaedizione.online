@@ -16,6 +16,15 @@ templ BaseLayout(data models.PageData) {
 			}
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		if data.Description != "" {
+			<meta name="description" content={ data.Description }/>
+			<meta property="og:description" content={ data.Description }/>
+		}
+		if data.Title != "" {
+			<meta property="og:title" content={ data.Title }/>
+		}
+		<meta property="og:type" content="website"/>
+		<meta property="og:site_name" content="quintaedizione.online"/>
 		<script>
 			(function(){var d=document.documentElement,t=localStorage.getItem('theme');if(t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme:dark)').matches))d.classList.add('dark')})()
 		</script>
