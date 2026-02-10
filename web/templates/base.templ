@@ -51,6 +51,8 @@ templ BaseLayout(data models.PageData) {
 			</div>
 		</header>
 
+		@patreonBanner()
+
 		<!-- Notion-style content area -->
 		<main class="flex-1">
 			<div id="page-root" hx-history-elt class="container mx-auto max-w-4xl py-8">
@@ -68,10 +70,22 @@ templ BaseLayout(data models.PageData) {
 	</html>
 }
 
+templ patreonBanner() {
+	<div id="patreon-banner" class="patreon-banner">
+		Questo progetto è gratuito grazie ai nostri supporter.
+		<a href="https://patreon.com/DueDraghiPlus" target="_blank" rel="noopener noreferrer">Unisciti a loro su Patreon!</a>
+		<button class="patreon-banner-dismiss" aria-label="Chiudi">&times;</button>
+	</div>
+}
+
 templ legalFooter() {
 	<footer class="mt-auto border-t py-6">
 		<div class="container mx-auto max-w-4xl text-center">
 			<p class="text-xs text-secondary leading-relaxed m-0">
+				<span class="patreon-footer">
+					<a href="https://patreon.com/DueDraghiPlus" target="_blank" rel="noopener noreferrer">Supporta il progetto su Patreon</a>
+				</span>
+				 |
 				This work includes material from the System Reference Document 5.2.1 ("SRD 5.2.1") by Wizards of the Coast LLC, available at
 				<a href="https://www.dndbeyond.com/srd" target="_blank" rel="noopener noreferrer" class="text-primary">https://www.dndbeyond.com/srd</a>.
 				The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at

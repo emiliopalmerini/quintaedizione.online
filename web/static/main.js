@@ -702,7 +702,25 @@ function initFilterChips() {
 	}
 }
 
+// Patreon banner dismiss
+function initPatreonBanner() {
+	var banner = document.getElementById('patreon-banner');
+	if (!banner) return;
+	if (localStorage.getItem('patreon-banner-dismissed')) {
+		banner.classList.add('patreon-banner--hidden');
+		return;
+	}
+	var dismissBtn = banner.querySelector('.patreon-banner-dismiss');
+	if (dismissBtn) {
+		dismissBtn.addEventListener('click', function() {
+			banner.classList.add('patreon-banner--hidden');
+			localStorage.setItem('patreon-banner-dismissed', '1');
+		});
+	}
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+	initPatreonBanner();
 	initBackButton();
 	initCopyMarkdownButton();
 	initSearchFormHandler();
