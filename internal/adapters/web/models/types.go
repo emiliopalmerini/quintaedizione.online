@@ -7,6 +7,7 @@ type PageData struct {
 	DocTitle    string
 	DocID       string
 	QueryString string
+	TotalItems  int64
 }
 
 type Collection struct {
@@ -66,6 +67,8 @@ type ItemPageData struct {
 	BodyHTML        string
 	PrevID          string
 	NextID          string
+	Position        int
+	Total           int
 	CollectionLabel string
 }
 

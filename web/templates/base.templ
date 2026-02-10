@@ -1,6 +1,7 @@
 package templates
 
 import "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
+import "strconv"
 
 templ BaseLayout(data models.PageData) {
 	<!DOCTYPE html>
@@ -41,6 +42,12 @@ templ BaseLayout(data models.PageData) {
 						<span class="mono tag" title={ data.DocID }>{ data.DocID }</span>
 					}
 				</nav>
+				if data.TotalItems > 0 {
+					<div class="hero-stats">
+						<span>Totale elementi indicizzati:</span>
+						<span class="hero-stats-badge">{ strconv.FormatInt(data.TotalItems, 10) }</span>
+					</div>
+				}
 			</div>
 		</header>
 

@@ -12,7 +12,7 @@ templ HomePage(data models.HomePageData) {
 			</a>
 
 			<p>
-				SRD 5e 2024 in italiano. Cerca, filtra e copia i contenuti.
+				Regole base del gioco di ruolo fantasy più famoso al mondo, in italiano. Cerca, filtra e copia i contenuti.
 			</p>
 
 			<div class="search-container-wrapper">
@@ -30,7 +30,6 @@ templ HomePage(data models.HomePageData) {
 							class="field flex-1"
 							autocomplete="off"
 							aria-label="Cerca contenuti"
-							aria-describedby="search-description"
 							aria-controls="search-results"
 							aria-autocomplete="list"
 							minlength="2"
@@ -48,18 +47,8 @@ templ HomePage(data models.HomePageData) {
 						</button>
 					</div>
 				</form>
-				<p id="search-description" class="text-xs text-gray-500 mt-2">
-					Cerca incantesimi, mostri, classi, oggetti magici e molto altro
-				</p>
 				<div id="search-results" class="search-dropdown" role="listbox" aria-live="polite"></div>
 			</div>
-
-			if data.Total > 0 {
-				<div class="hero-stats">
-					<span class="text-secondary">Totale elementi indicizzati:</span>
-					<span class="hero-stats-badge">{ strconv.FormatInt(data.Total, 10) }</span>
-				</div>
-			}
 		</section>
 
 		<div class="collection-grid">

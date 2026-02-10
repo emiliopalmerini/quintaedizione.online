@@ -126,7 +126,7 @@ func (h *CollectionHandler) handleItemDetail(c *gin.Context) {
 	bodyHTML := mappers.GetString(item, "content", "")
 	bodyRaw := mappers.GetString(item, "raw_content", "")
 
-	prevSlug, nextSlug, err := h.contentService.GetAdjacentItems(c.Request.Context(), collection, slug)
+	prevSlug, nextSlug, position, total, err := h.contentService.GetAdjacentItems(c.Request.Context(), collection, slug)
 	if err != nil {
 		fmt.Printf("Warning: Could not get adjacent items for %s/%s: %v\n", collection, slug, err)
 	}
@@ -154,6 +154,8 @@ func (h *CollectionHandler) handleItemDetail(c *gin.Context) {
 		BodyHTML:        bodyHTML,
 		PrevID:          prevID,
 		NextID:          nextID,
+		Position:        position,
+		Total:           total,
 		CollectionLabel: h.getCollectionTitle(collection),
 	}
 

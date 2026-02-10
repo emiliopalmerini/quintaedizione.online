@@ -103,11 +103,12 @@ func (s *Store) Query(collection string, match func(map[string]any) bool, skip, 
 }
 
 // Adjacent returns the previous and next document IDs relative to currentID
-// in the title-sorted order of the collection.
-func (s *Store) Adjacent(collection, currentID string) (prevID, nextID *string) {
+// in the title-sorted order of the collection, along with the 1-based position
+// and total count of documents in the collection.
+func (s *Store) Adjacent(collection, currentID string) (prevID, nextID *string, position, total int) {
 	ids, ok := s.sorted[collection]
 	if !ok {
-		return nil, nil
+		return nil, nil, 0, 0
 	}
 
 	idx := sort.SearchStrings(ids, currentID)
@@ -123,9 +124,12 @@ func (s *Store) Adjacent(collection, currentID string) (prevID, nextID *string) 
 			}
 		}
 		if idx == -1 {
-			return nil, nil
+			return nil, nil, 0, 0
 		}
 	}
+
+	total = len(ids)
+	position = idx + 1 // 1-based
 
 	if idx > 0 {
 		prevID = &ids[idx-1]
@@ -134,7 +138,7 @@ func (s *Store) Adjacent(collection, currentID string) (prevID, nextID *string) 
 		nextID = &ids[idx+1]
 	}
 
-	return prevID, nextID
+	return prevID, nextID, position, total
 }
 
 // Aggregate iterates over a collection, applies an optional predicate, reads the

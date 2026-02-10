@@ -429,14 +429,176 @@ function initGlossaryTooltips() {
 	});
 }
 
-// Mobile filter panel toggle
-function initFilterPanel() {
+// Mobile filter overlay (full-screen, D&D Beyond style)
+function initFilterOverlay() {
+	var overlay = document.getElementById('filter-overlay');
 	var toggleBtn = document.getElementById('filter-toggle-btn');
-	var panel = document.getElementById('filter-panel');
-	if (!toggleBtn || !panel) return;
+	if (!overlay || !toggleBtn) return;
 
+	var filtersChanged = false;
+
+	function openOverlay() {
+		filtersChanged = false;
+		overlay.classList.add('open');
+		overlay.classList.remove('detail');
+		overlay.querySelectorAll('.filter-overlay-detail').forEach(function(d) {
+			d.classList.remove('active');
+		});
+		document.body.style.overflow = 'hidden';
+	}
+
+	function closeOverlay() {
+		overlay.classList.remove('open', 'detail');
+		overlay.querySelectorAll('.filter-overlay-detail').forEach(function(d) {
+			d.classList.remove('active');
+		});
+		document.body.style.overflow = '';
+		if (filtersChanged) {
+			var firstInput = document.querySelector('#search-form .filter-multiselect input[type="hidden"]');
+			if (firstInput) {
+				firstInput.dispatchEvent(new Event('change', { bubbles: true }));
+			}
+		}
+	}
+
+	function showDetail(filterName) {
+		overlay.classList.add('detail');
+		overlay.querySelectorAll('.filter-overlay-detail').forEach(function(d) {
+			d.classList.toggle('active', d.getAttribute('data-filter-detail') === filterName);
+		});
+	}
+
+	function showCategories() {
+		overlay.classList.remove('detail');
+		overlay.querySelectorAll('.filter-overlay-detail').forEach(function(d) {
+			d.classList.remove('active');
+		});
+	}
+
+	function syncOverlayFromForm() {
+		document.querySelectorAll('#search-form .filter-multiselect').forEach(function(container) {
+			var filterName = container.getAttribute('data-filter-name');
+			var hiddenInput = container.querySelector('input[type="hidden"]');
+			if (!hiddenInput) return;
+			var currentValues = hiddenInput.value ? hiddenInput.value.split(',') : [];
+			// Sync overlay checkboxes
+			overlay.querySelectorAll('input[type="checkbox"][data-filter-name="' + filterName + '"]').forEach(function(cb) {
+				cb.checked = currentValues.indexOf(cb.value) !== -1;
+			});
+			// Update category count badge
+			var categoryEl = overlay.querySelector('.filter-overlay-category[data-filter-name="' + filterName + '"]');
+			if (categoryEl) {
+				var countEl = categoryEl.querySelector('.filter-overlay-category-count');
+				if (currentValues.length > 0 && currentValues[0] !== '') {
+					if (!countEl) {
+						countEl = document.createElement('span');
+						countEl.className = 'filter-overlay-category-count';
+						categoryEl.querySelector('.filter-overlay-category-name').insertAdjacentElement('afterend', countEl);
+					}
+					countEl.textContent = currentValues.length;
+				} else if (countEl) {
+					countEl.remove();
+				}
+			}
+		});
+	}
+
+	function syncFormFromOverlay(filterName) {
+		var container = document.querySelector('#search-form .filter-multiselect[data-filter-name="' + filterName + '"]');
+		if (!container) return;
+		var hiddenInput = container.querySelector('input[type="hidden"]');
+		if (!hiddenInput) return;
+		var checked = [];
+		overlay.querySelectorAll('input[type="checkbox"][data-filter-name="' + filterName + '"]:checked').forEach(function(cb) {
+			checked.push(cb.value);
+		});
+		hiddenInput.value = checked.join(',');
+		// Also sync the desktop dropdown checkboxes
+		var dropdown = container.querySelector('.filter-multiselect-dropdown');
+		if (dropdown) {
+			dropdown.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+				cb.checked = checked.indexOf(cb.value) !== -1;
+			});
+		}
+	}
+
+	// Open overlay on mobile, toggle filter panel on desktop
 	toggleBtn.addEventListener('click', function() {
-		panel.classList.toggle('open');
+		if (window.innerWidth <= 640) {
+			syncOverlayFromForm();
+			openOverlay();
+		} else {
+			var panel = document.getElementById('filter-panel');
+			if (panel) {
+				panel.classList.toggle('open');
+			}
+		}
+	});
+
+	// Close button
+	overlay.querySelectorAll('.filter-overlay-close').forEach(function(btn) {
+		btn.addEventListener('click', closeOverlay);
+	});
+
+	// Clear all
+	overlay.querySelectorAll('.filter-overlay-clear').forEach(function(btn) {
+		btn.addEventListener('click', function() {
+			overlay.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+				cb.checked = false;
+			});
+			// Sync all filters to form
+			document.querySelectorAll('#search-form .filter-multiselect').forEach(function(container) {
+				var filterName = container.getAttribute('data-filter-name');
+				var hiddenInput = container.querySelector('input[type="hidden"]');
+				if (hiddenInput) hiddenInput.value = '';
+			});
+			filtersChanged = true;
+			closeOverlay();
+		});
+	});
+
+	// Category click → show detail
+	overlay.querySelectorAll('.filter-overlay-category').forEach(function(cat) {
+		cat.addEventListener('click', function() {
+			showDetail(this.getAttribute('data-filter-name'));
+		});
+	});
+
+	// Back button → show categories
+	overlay.querySelectorAll('.filter-overlay-back').forEach(function(btn) {
+		btn.addEventListener('click', showCategories);
+	});
+
+	// Checkbox changes in overlay → sync to form
+	overlay.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+		cb.addEventListener('change', function() {
+			var filterName = this.getAttribute('data-filter-name');
+			syncFormFromOverlay(filterName);
+			filtersChanged = true;
+			// Update category count badge
+			var categoryEl = overlay.querySelector('.filter-overlay-category[data-filter-name="' + filterName + '"]');
+			if (categoryEl) {
+				var checked = overlay.querySelectorAll('input[type="checkbox"][data-filter-name="' + filterName + '"]:checked');
+				var countEl = categoryEl.querySelector('.filter-overlay-category-count');
+				if (checked.length > 0) {
+					if (!countEl) {
+						countEl = document.createElement('span');
+						countEl.className = 'filter-overlay-category-count';
+						categoryEl.querySelector('.filter-overlay-category-name').insertAdjacentElement('afterend', countEl);
+					}
+					countEl.textContent = checked.length;
+				} else if (countEl) {
+					countEl.remove();
+				}
+			}
+		});
+	});
+
+	// Escape key closes overlay
+	document.addEventListener('keydown', function(e) {
+		if (e.key === 'Escape' && overlay.classList.contains('open')) {
+			closeOverlay();
+		}
 	});
 }
 
@@ -498,9 +660,13 @@ function initFilterChips() {
 			});
 			hiddenInput.value = currentValues.join(',');
 
-			// Uncheck the corresponding checkbox
+			// Uncheck the corresponding checkbox in desktop dropdown
 			var cb = container.querySelector('input[type="checkbox"][value="' + filterValue + '"]');
 			if (cb) cb.checked = false;
+
+			// Also uncheck in overlay
+			var overlayCb = document.querySelector('#filter-overlay input[type="checkbox"][data-filter-name="' + filterName + '"][value="' + filterValue + '"]');
+			if (overlayCb) overlayCb.checked = false;
 
 			hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
 		});
@@ -519,6 +685,14 @@ function initFilterChips() {
 				cb.checked = false;
 			});
 
+			// Also clear overlay checkboxes
+			var overlay = document.getElementById('filter-overlay');
+			if (overlay) {
+				overlay.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+					cb.checked = false;
+				});
+			}
+
 			// Trigger a change to fire HTMX
 			var firstInput = form.querySelector('.filter-multiselect input[type="hidden"]');
 			if (firstInput) {
@@ -533,7 +707,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	initCopyMarkdownButton();
 	initSearchFormHandler();
 	initGlossaryTooltips();
-	initFilterPanel();
+	initFilterOverlay();
 	initFilterMultiselect();
 	initFilterChips();
 });
@@ -542,7 +716,7 @@ document.body.addEventListener('htmx:afterSwap', () => {
 	initBackButton();
 	initCopyMarkdownButton();
 	initSearchFormHandler();
-	initFilterPanel();
+	initFilterOverlay();
 	initFilterMultiselect();
 	initFilterChips();
 });

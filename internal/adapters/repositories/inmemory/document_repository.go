@@ -111,7 +111,7 @@ func (r *documentRepository) AggregateField(_ context.Context, collection, field
 	return r.store.Aggregate(collection, fieldPath, match), nil
 }
 
-func (r *documentRepository) GetAdjacentMaps(_ context.Context, collection string, currentID string) (prevID *string, nextID *string, err error) {
-	prev, next := r.store.Adjacent(collection, currentID)
-	return prev, next, nil
+func (r *documentRepository) GetAdjacentMaps(_ context.Context, collection string, currentID string) (prevID *string, nextID *string, position int, total int, err error) {
+	prev, next, pos, tot := r.store.Adjacent(collection, currentID)
+	return prev, next, pos, tot, nil
 }
