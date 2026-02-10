@@ -35,9 +35,11 @@ func (h *CollectionHandler) handleCollectionList(c *gin.Context) {
 	facetCounts, _ := h.contentService.GetFacetCounts(c.Request.Context(), collection, params.Query, filters)
 	filterOptions := h.buildFilterOptionsWithCounts(collection, filters, facetCounts)
 
+	collectionTitle := h.getCollectionTitle(collection)
 	data := models.CollectionPageData{
 		PageData: models.PageData{
-			Title:       h.getCollectionTitle(collection),
+			Title:       collectionTitle,
+			Description: fmt.Sprintf("Elenco completo di %s — SRD 5e in italiano.", collectionTitle),
 			Collection:  collection,
 			QueryString: c.Request.URL.RawQuery,
 		},
@@ -145,6 +147,7 @@ func (h *CollectionHandler) handleItemDetail(c *gin.Context) {
 	data := models.ItemPageData{
 		PageData: models.PageData{
 			Title:       docTitle,
+			Description: truncateDescription(bodyRaw, 160),
 			DocTitle:    docTitle,
 			DocID:       slug,
 			Collection:  collection,
