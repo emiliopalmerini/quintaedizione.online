@@ -72,7 +72,10 @@ func SecurityMiddleware() gin.HandlerFunc {
 		c.Header("Referrer-Policy", "strict-origin-when-cross-origin")
 
 		// Content-Security-Policy prevents inline scripts and restricts resource loading
-		c.Header("Content-Security-Policy", "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'")
+		// - unsafe-eval: required by HTMX for event filter expressions (e.g. keydown[key=='Enter'])
+		// - sha256 hash: allows the inline theme-detection script in base.templ
+		// - fonts.googleapis.com / fonts.gstatic.com: Google Fonts (Inter)
+		c.Header("Content-Security-Policy", "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-eval' 'sha256-o4K/zLfEcURa/FY6Of6008nCCMKcSpj1j3zhbOMtl8Q='; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'")
 
 		// Strict-Transport-Security enforces HTTPS connections
 		c.Header("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
