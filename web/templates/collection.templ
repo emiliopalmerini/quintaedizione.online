@@ -40,7 +40,7 @@ templ CollectionPage(data models.CollectionPageData) {
 					<!-- Collapsible filter panel -->
 				if len(data.Filters) > 0 {
 					<div id="filter-panel" class="filter-panel">
-						@collectionFilters(data.Filters, data.PageSize)
+						@collectionFilters(data.Filters)
 					</div>
 				}
 
@@ -139,7 +139,7 @@ func isValueSelected(f models.FilterOption, value string) bool {
 	return slices.Contains(f.CurrentValues, value)
 }
 
-templ collectionFilters(filters []models.FilterOption, pageSize int) {
+templ collectionFilters(filters []models.FilterOption) {
 	<div class="filter-panel-content">
 	for _, f := range filters {
 		<div class="filter-multiselect" data-filter-name={ f.Name }>
@@ -167,12 +167,5 @@ templ collectionFilters(filters []models.FilterOption, pageSize int) {
 			</div>
 		</div>
 	}
-	// Page size selector (always shown)
-	<select name="page_size" class="field w-28">
-		<option value="10" if pageSize == 10 { selected }>10/pagina</option>
-		<option value="20" if pageSize == 20 { selected }>20/pagina</option>
-		<option value="50" if pageSize == 50 { selected }>50/pagina</option>
-		<option value="100" if pageSize == 100 { selected }>100/pagina</option>
-	</select>
 	</div>
 }
