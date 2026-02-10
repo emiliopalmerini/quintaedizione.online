@@ -1,6 +1,7 @@
 package web
 
 import (
+	"context"
 	"fmt"
 	"net/http"
 
@@ -30,7 +31,7 @@ func (h *SearchHandler) handleGlobalSearch(c *gin.Context) {
 		return
 	}
 
-	results, totalResults := h.transformSearchResults(fuzzyResults)
+	results, totalResults := h.transformSearchResults(c.Request.Context(), fuzzyResults)
 
 	data := models.SearchPageData{
 		PageData: models.PageData{
@@ -70,7 +71,7 @@ func (h *SearchHandler) handleSearchDropdown(c *gin.Context) {
 		return
 	}
 
-	results, _ := h.transformSearchResults(fuzzyResults)
+	results, _ := h.transformSearchResults(c.Request.Context(), fuzzyResults)
 
 	content, err := h.templateEngine.RenderSearchDropdown(results, query)
 	if err != nil {
@@ -86,17 +87,22 @@ func (h *SearchHandler) handleSearchDropdown(c *gin.Context) {
 // transformSearchResults converts fuzzy search results to CollectionSearchResult models.
 // Applies collection title resolution and calculates hasMore flag.
 // Returns the transformed results and total result count across all collections.
-func (h *SearchHandler) transformSearchResults(fuzzyResults []search.SearchResultSet) ([]models.CollectionSearchResult, int64) {
+func (h *SearchHandler) transformSearchResults(ctx context.Context, fuzzyResults []search.SearchResultSet) ([]models.CollectionSearchResult, int64) {
 	results := make([]models.CollectionSearchResult, 0, len(fuzzyResults))
 	totalResults := int64(0)
 
 	for _, sr := range fuzzyResults {
 		documents := make([]models.Document, 0, len(sr.Results))
 		for _, r := range sr.Results {
-			documents = append(documents, models.Document{
-				ID:    r.ID,
-				Title: r.Title,
-			})
+			item, err := h.contentService.GetItem(ctx, sr.Collection, r.ID)
+			if err == nil {
+				documents = append(documents, h.documentMapper.ToModel(sr.Collection, item))
+			} else {
+				documents = append(documents, models.Document{
+					ID:    r.ID,
+					Title: r.Title,
+				})
+			}
 		}
 
 		results = append(results, models.CollectionSearchResult{

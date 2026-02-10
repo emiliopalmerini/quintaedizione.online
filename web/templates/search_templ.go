@@ -45,7 +45,7 @@ func SearchPage(data models.SearchPageData) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"bg-white border p-4 mb-4\"><div class=\"mb-4\"><a href=\"/\" class=\"text-sm text-gray-600 hover:text-gray-900\">← Torna alla home</a></div><h1 class=\"text-2xl font-bold mb-2\">Risultati della ricerca</h1><p class=\"text-gray-600 mb-4\">Hai cercato: <strong>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"bg-white border p-4 mb-4\"><div class=\"mb-4\"><a href=\"/\" class=\"text-sm text-gray-600 hover:text-gray-900\">&larr; Torna alla home</a></div><h1 class=\"text-2xl font-bold mb-2\">Risultati della ricerca</h1><p class=\"text-gray-600 mb-4\">Hai cercato: <strong>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -136,7 +136,7 @@ func SearchPage(data models.SearchPageData) templ.Component {
 						if templ_7745c5c3_Err != nil {
 							return templ_7745c5c3_Err
 						}
-						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "\" class=\"text-sm text-blue-600 hover:text-blue-800\">Vedi tutti →</a>")
+						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "\" class=\"text-sm text-blue-600 hover:text-blue-800\">Vedi tutti &rarr;</a>")
 						if templ_7745c5c3_Err != nil {
 							return templ_7745c5c3_Err
 						}
@@ -163,12 +163,7 @@ func SearchPage(data models.SearchPageData) templ.Component {
 						if templ_7745c5c3_Err != nil {
 							return templ_7745c5c3_Err
 						}
-						var templ_7745c5c3_Var9 string
-						templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(doc.Title)
-						if templ_7745c5c3_Err != nil {
-							return templ.Error{Err: templ_7745c5c3_Err, FileName: `search.templ`, Line: 63, Col: 64}
-						}
-						_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
+						templ_7745c5c3_Err = templ.Raw(HighlightQuery(doc.Title, data.Query)).Render(ctx, templ_7745c5c3_Buffer)
 						if templ_7745c5c3_Err != nil {
 							return templ_7745c5c3_Err
 						}
@@ -187,12 +182,12 @@ func SearchPage(data models.SearchPageData) templ.Component {
 									if templ_7745c5c3_Err != nil {
 										return templ_7745c5c3_Err
 									}
-									var templ_7745c5c3_Var10 string
-									templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(elem.Value)
+									var templ_7745c5c3_Var9 string
+									templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(elem.Value)
 									if templ_7745c5c3_Err != nil {
-										return templ.Error{Err: templ_7745c5c3_Err, FileName: `search.templ`, Line: 68, Col: 70}
+										return templ.Error{Err: templ_7745c5c3_Err, FileName: `search.templ`, Line: 70, Col: 70}
 									}
-									_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
+									_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 									if templ_7745c5c3_Err != nil {
 										return templ_7745c5c3_Err
 									}
@@ -207,7 +202,7 @@ func SearchPage(data models.SearchPageData) templ.Component {
 								return templ_7745c5c3_Err
 							}
 						}
-						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</div><div class=\"text-gray-400\">→</div></div></a>")
+						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</div><div class=\"text-gray-400\">&rarr;</div></div></a>")
 						if templ_7745c5c3_Err != nil {
 							return templ_7745c5c3_Err
 						}
