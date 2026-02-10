@@ -1548,27 +1548,6 @@ h3:hover .heading-anchor,
 }
 
 /* ========================================================================
-   KEYBOARD HINTS
-   ======================================================================== */
-
-.kbd-hint {
-  display: none;
-  padding: 2px 6px;
-  background: var(--gray-100);
-  border: 1px solid var(--notion-border);
-  font-size: var(--font-size-2xs);
-  font-family: ui-monospace, monospace;
-  color: var(--text-muted);
-  line-height: 1;
-}
-
-@media (min-width: 768px) {
-  .kbd-hint {
-    display: inline-block;
-  }
-}
-
-/* ========================================================================
    PAGE OVERLAY
    ======================================================================== */
 
