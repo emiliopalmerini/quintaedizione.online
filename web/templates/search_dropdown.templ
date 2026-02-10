@@ -44,7 +44,9 @@ templ SearchDropdown(results []models.CollectionSearchResult, query string) {
 							role="option"
 							tabindex="0"
 						>
-							<div class="search-dropdown-item-title">{ doc.Title }</div>
+							<div class="search-dropdown-item-title">
+								@templ.Raw(HighlightQuery(doc.Title, query))
+							</div>
 							if len(doc.DisplayElements) > 0 {
 								<div class="search-dropdown-item-meta">
 									for _, elem := range doc.DisplayElements {
