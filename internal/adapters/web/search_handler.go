@@ -57,6 +57,7 @@ func (h *SearchHandler) handleGlobalSearch(c *gin.Context) {
 // handleSearchDropdown renders the search dropdown for autocomplete.
 func (h *SearchHandler) handleSearchDropdown(c *gin.Context) {
 	query := c.Query("q")
+	collection := c.Query("collection")
 
 	if query == "" {
 		h.setCacheHeaders(c, "search")
@@ -64,11 +65,30 @@ func (h *SearchHandler) handleSearchDropdown(c *gin.Context) {
 		return
 	}
 
-	fuzzyResults, err := h.searchService.Search(c.Request.Context(), query, 3)
-	if err != nil {
-		h.setCacheHeaders(c, "search")
-		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(""))
-		return
+	var fuzzyResults []search.SearchResultSet
+
+	if collection != "" {
+		collResults, err := h.searchService.SearchCollection(c.Request.Context(), collection, query, 3)
+		if err != nil {
+			h.setCacheHeaders(c, "search")
+			c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(""))
+			return
+		}
+		if len(collResults) > 0 {
+			fuzzyResults = []search.SearchResultSet{{
+				Collection: collection,
+				Results:    collResults,
+				Total:      int64(len(collResults)),
+			}}
+		}
+	} else {
+		var err error
+		fuzzyResults, err = h.searchService.Search(c.Request.Context(), query, 3)
+		if err != nil {
+			h.setCacheHeaders(c, "search")
+			c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(""))
+			return
+		}
 	}
 
 	results, _ := h.transformSearchResults(c.Request.Context(), fuzzyResults)
