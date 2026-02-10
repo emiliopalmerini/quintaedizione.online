@@ -57,9 +57,10 @@ templ HomePage(data models.HomePageData) {
 					<div class="collection-card-content">
 						<div class="collection-card-header">
 							<div>
-								<div class="collection-card-subtitle">Collezione</div>
+								<div class="collection-card-icon">
+									@CollectionIcon(collection.Name)
+								</div>
 								<div class="collection-card-title">{ collection.Label }</div>
-								<div class="collection-card-key">chiave: <span class="mono">{ collection.Name }</span></div>
 							</div>
 							if collection.Count > 0 {
 								<div class="collection-badge" title="Numero di elementi">{ strconv.FormatInt(collection.Count, 10) }</div>
