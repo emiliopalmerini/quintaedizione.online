@@ -21,21 +21,22 @@ const (
 type CollectionInfo struct {
 	Name           CollectionName
 	Title          string
+	Description    string
 	HasNestedValue bool
 }
 
 var Registry = map[CollectionName]CollectionInfo{
-	Classi:          {Name: Classi, Title: "Classi", HasNestedValue: true},
-	Backgrounds:     {Name: Backgrounds, Title: "Background", HasNestedValue: true},
-	Incantesimi:     {Name: Incantesimi, Title: "Incantesimi", HasNestedValue: false},
-	Talenti:         {Name: Talenti, Title: "Talenti", HasNestedValue: true},
-	Equipaggiamenti: {Name: Equipaggiamenti, Title: "Equipaggiamento", HasNestedValue: true},
-	Servizi:         {Name: Servizi, Title: "Servizi", HasNestedValue: true},
-	Regole:          {Name: Regole, Title: "Regole", HasNestedValue: false},
-	OggettiMagici:   {Name: OggettiMagici, Title: "Oggetti Magici", HasNestedValue: true},
-	Mostri:          {Name: Mostri, Title: "Mostri", HasNestedValue: false},
-	Glossario:       {Name: Glossario, Title: "Glossario", HasNestedValue: false},
-	Specie:          {Name: Specie, Title: "Specie", HasNestedValue: true},
+	Classi:          {Name: Classi, Title: "Classi", Description: "Le classi dei personaggi giocanti con caratteristiche, privilegi e sottoclassi.", HasNestedValue: true},
+	Backgrounds:     {Name: Backgrounds, Title: "Background", Description: "I background dei personaggi con abilità, talenti e tratti caratteristici.", HasNestedValue: true},
+	Incantesimi:     {Name: Incantesimi, Title: "Incantesimi", Description: "Tutti gli incantesimi dal trucchetto al 9° livello con descrizione e componenti.", HasNestedValue: false},
+	Talenti:         {Name: Talenti, Title: "Talenti", Description: "I talenti disponibili per personalizzare e potenziare il tuo personaggio.", HasNestedValue: true},
+	Equipaggiamenti: {Name: Equipaggiamenti, Title: "Equipaggiamento", Description: "Armi, armature, strumenti e altro equipaggiamento per gli avventurieri.", HasNestedValue: true},
+	Servizi:         {Name: Servizi, Title: "Servizi", Description: "Servizi, cavalcature, veicoli e spese di sostentamento.", HasNestedValue: true},
+	Regole:          {Name: Regole, Title: "Regole", Description: "Le regole base del gioco: combattimento, esplorazione e interazione.", HasNestedValue: false},
+	OggettiMagici:   {Name: OggettiMagici, Title: "Oggetti Magici", Description: "Oggetti magici di ogni rarità: armi, armature, pozioni e oggetti meravigliosi.", HasNestedValue: true},
+	Mostri:          {Name: Mostri, Title: "Mostri", Description: "Il bestiario completo con statistiche, abilità e gradi sfida.", HasNestedValue: false},
+	Glossario:       {Name: Glossario, Title: "Glossario", Description: "Definizioni dei termini chiave e delle regole di gioco.", HasNestedValue: false},
+	Specie:          {Name: Specie, Title: "Specie", Description: "Le specie giocabili con tratti, abilità speciali e caratteristiche.", HasNestedValue: true},
 }
 
 func (c CollectionName) String() string {
