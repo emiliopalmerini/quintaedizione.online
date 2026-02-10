@@ -354,6 +354,7 @@ def _parse_armor_tables(node: HeadingNode) -> list[EquipmentItem]:
 
         name_col = 1  # Name is always in column 1
         subcategory = ""
+        don_doff = ""
 
         for row in table[header_idx + 1:]:
             n = len(row)
@@ -365,7 +366,10 @@ def _parse_armor_tables(node: HeadingNode) -> list[EquipmentItem]:
             # piastre" as name — still belongs to previous subcategory).
             new_subcat = ""
             if col0 and _ARMOR_SUBCAT_RE.search(col0):
-                new_subcat = _clean_name(col0)
+                cleaned = _clean_name(col0)
+                paren_match = re.search(r"\((.+)\)", cleaned)
+                new_subcat = re.sub(r"\s*\(.+\)", "", cleaned)
+                don_doff = paren_match.group(1) if paren_match else ""
                 if not name:
                     subcategory = new_subcat
                     continue
@@ -430,6 +434,7 @@ def _parse_armor_tables(node: HeadingNode) -> list[EquipmentItem]:
                         ("classe_armatura", ac),
                         ("forza", strength),
                         ("furtività", stealth),
+                        ("vestizione", don_doff),
                         ("peso", weight),
                         ("costo", cost),
                     ] if v and v != "—"

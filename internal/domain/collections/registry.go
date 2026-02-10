@@ -5,22 +5,17 @@ import "sort"
 type CollectionName string
 
 const (
-	Armature           CollectionName = "armature"
-	Classi             CollectionName = "classi"
-	Armi               CollectionName = "armi"
-	Animali            CollectionName = "animali"
-	Backgrounds        CollectionName = "backgrounds"
-	Incantesimi        CollectionName = "incantesimi"
-	Talenti            CollectionName = "talenti"
-	Equipaggiamenti    CollectionName = "equipaggiamenti"
-	Servizi            CollectionName = "servizi"
-	Strumenti          CollectionName = "strumenti"
-	Regole             CollectionName = "regole"
-	CavalcatureVeicoli CollectionName = "cavalcature_veicoli"
-	OggettiMagici      CollectionName = "oggetti_magici"
-	Mostri             CollectionName = "mostri"
-	Glossario          CollectionName = "glossario"
-	Specie             CollectionName = "specie"
+	Classi          CollectionName = "classi"
+	Backgrounds     CollectionName = "backgrounds"
+	Incantesimi     CollectionName = "incantesimi"
+	Talenti         CollectionName = "talenti"
+	Equipaggiamenti CollectionName = "equipaggiamenti"
+	Servizi         CollectionName = "servizi"
+	Regole          CollectionName = "regole"
+	OggettiMagici   CollectionName = "oggetti_magici"
+	Mostri          CollectionName = "mostri"
+	Glossario       CollectionName = "glossario"
+	Specie          CollectionName = "specie"
 )
 
 type CollectionInfo struct {
@@ -30,22 +25,17 @@ type CollectionInfo struct {
 }
 
 var Registry = map[CollectionName]CollectionInfo{
-	Armature:           {Name: Armature, Title: "Armature", HasNestedValue: true},
-	Classi:             {Name: Classi, Title: "Classi", HasNestedValue: true},
-	Armi:               {Name: Armi, Title: "Armi", HasNestedValue: true},
-	Animali:            {Name: Animali, Title: "Animali", HasNestedValue: false},
-	Backgrounds:        {Name: Backgrounds, Title: "Background", HasNestedValue: true},
-	Incantesimi:        {Name: Incantesimi, Title: "Incantesimi", HasNestedValue: false},
-	Talenti:            {Name: Talenti, Title: "Talenti", HasNestedValue: true},
-	Equipaggiamenti:    {Name: Equipaggiamenti, Title: "Equipaggiamento", HasNestedValue: false},
-	Servizi:            {Name: Servizi, Title: "Servizi", HasNestedValue: true},
-	Strumenti:          {Name: Strumenti, Title: "Strumenti", HasNestedValue: true},
-	Regole:             {Name: Regole, Title: "Regole", HasNestedValue: false},
-	CavalcatureVeicoli: {Name: CavalcatureVeicoli, Title: "Cavalcature e Veicoli", HasNestedValue: false},
-	OggettiMagici:      {Name: OggettiMagici, Title: "Oggetti Magici", HasNestedValue: true},
-	Mostri:             {Name: Mostri, Title: "Mostri", HasNestedValue: false},
-	Glossario:          {Name: Glossario, Title: "Glossario", HasNestedValue: false},
-	Specie:             {Name: Specie, Title: "Specie", HasNestedValue: true},
+	Classi:          {Name: Classi, Title: "Classi", HasNestedValue: true},
+	Backgrounds:     {Name: Backgrounds, Title: "Background", HasNestedValue: true},
+	Incantesimi:     {Name: Incantesimi, Title: "Incantesimi", HasNestedValue: false},
+	Talenti:         {Name: Talenti, Title: "Talenti", HasNestedValue: true},
+	Equipaggiamenti: {Name: Equipaggiamenti, Title: "Equipaggiamento", HasNestedValue: true},
+	Servizi:         {Name: Servizi, Title: "Servizi", HasNestedValue: true},
+	Regole:          {Name: Regole, Title: "Regole", HasNestedValue: false},
+	OggettiMagici:   {Name: OggettiMagici, Title: "Oggetti Magici", HasNestedValue: true},
+	Mostri:          {Name: Mostri, Title: "Mostri", HasNestedValue: false},
+	Glossario:       {Name: Glossario, Title: "Glossario", HasNestedValue: false},
+	Specie:          {Name: Specie, Title: "Specie", HasNestedValue: true},
 }
 
 func (c CollectionName) String() string {

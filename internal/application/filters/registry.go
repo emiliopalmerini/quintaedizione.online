@@ -6,17 +6,15 @@ import (
 )
 
 type InMemoryFilterRegistry struct {
-	filters map[string]filters.FilterDefinition
+	filters []filters.FilterDefinition
 }
 
 func NewInMemoryFilterRegistry() *InMemoryFilterRegistry {
-	return &InMemoryFilterRegistry{
-		filters: make(map[string]filters.FilterDefinition),
-	}
+	return &InMemoryFilterRegistry{}
 }
 
 func (r *InMemoryFilterRegistry) AddFilter(filter filters.FilterDefinition) {
-	r.filters[filter.Name] = filter
+	r.filters = append(r.filters, filter)
 }
 
 func (r *InMemoryFilterRegistry) GetFiltersForCollection(collection collections.CollectionName) ([]filters.FilterDefinition, error) {
@@ -32,14 +30,16 @@ func (r *InMemoryFilterRegistry) GetFiltersForCollection(collection collections.
 }
 
 func (r *InMemoryFilterRegistry) GetFilterByName(name string) (filters.FilterDefinition, bool) {
-	filter, exists := r.filters[name]
-	return filter, exists
+	for _, filter := range r.filters {
+		if filter.Name == name {
+			return filter, true
+		}
+	}
+	return filters.FilterDefinition{}, false
 }
 
 func (r *InMemoryFilterRegistry) GetAllFilters() ([]filters.FilterDefinition, error) {
 	result := make([]filters.FilterDefinition, 0, len(r.filters))
-	for _, filter := range r.filters {
-		result = append(result, filter)
-	}
+	result = append(result, r.filters...)
 	return result, nil
 }

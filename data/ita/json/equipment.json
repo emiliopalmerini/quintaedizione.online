@@ -533,10 +533,11 @@
     "id": "armatura-imbottita",
     "name": "Armatura imbottita",
     "category": "armor",
-    "subcategory": "Armatura leggera (1 minuto per indossare o togliere)",
+    "subcategory": "Armatura leggera",
     "properties": {
       "classe_armatura": "11 + modificatore di Des",
       "furtività": "Svantaggio",
+      "vestizione": "1 minuto per indossare o togliere",
       "peso": "4 kg",
       "costo": "5 mo"
     },
@@ -546,9 +547,10 @@
     "id": "armatura-di-cuoio",
     "name": "Armatura di cuoio",
     "category": "armor",
-    "subcategory": "Armatura leggera (1 minuto per indossare o togliere)",
+    "subcategory": "Armatura leggera",
     "properties": {
       "classe_armatura": "11 + modificatore di Des",
+      "vestizione": "1 minuto per indossare o togliere",
       "peso": "5 kg",
       "costo": "10 mo"
     },
@@ -558,9 +560,10 @@
     "id": "armatura-di-cuoio-borchiato",
     "name": "Armatura di cuoio borchiato",
     "category": "armor",
-    "subcategory": "Armatura leggera (1 minuto per indossare o togliere)",
+    "subcategory": "Armatura leggera",
     "properties": {
       "classe_armatura": "12 + modificatore di Des",
+      "vestizione": "5 minuti per indossare e 1 minuto per togliere",
       "peso": "6,5 kg",
       "costo": "45 mo"
     },
@@ -570,9 +573,10 @@
     "id": "armatura-di-pelle",
     "name": "Armatura di pelle",
     "category": "armor",
-    "subcategory": "Armatura media (5 minuti per indossare e 1 minuto per togliere)",
+    "subcategory": "Armatura media",
     "properties": {
       "classe_armatura": "12 + modificatore di Des (max 2)",
+      "vestizione": "5 minuti per indossare e 1 minuto per togliere",
       "peso": "6 kg",
       "costo": "10 mo"
     },
@@ -582,9 +586,10 @@
     "id": "giaco-di-maglia",
     "name": "Giaco di maglia",
     "category": "armor",
-    "subcategory": "Armatura media (5 minuti per indossare e 1 minuto per togliere)",
+    "subcategory": "Armatura media",
     "properties": {
       "classe_armatura": "13 + modificatore di Des (max 2)",
+      "vestizione": "5 minuti per indossare e 1 minuto per togliere",
       "peso": "10 kg",
       "costo": "50 mo"
     },
@@ -594,10 +599,11 @@
     "id": "corazza-a-scaglie",
     "name": "Corazza a scaglie",
     "category": "armor",
-    "subcategory": "Armatura media (5 minuti per indossare e 1 minuto per togliere)",
+    "subcategory": "Armatura media",
     "properties": {
       "classe_armatura": "14 + modificatore di Des (max 2)",
       "furtività": "Svantaggio",
+      "vestizione": "5 minuti per indossare e 1 minuto per togliere",
       "peso": "22,5 kg",
       "costo": "50 mo"
     },
@@ -607,9 +613,10 @@
     "id": "corazza-di-piastre",
     "name": "Corazza di piastre",
     "category": "armor",
-    "subcategory": "Armatura media (5 minuti per indossare e 1 minuto per togliere)",
+    "subcategory": "Armatura media",
     "properties": {
       "classe_armatura": "14 + modificatore di Des (max 2)",
+      "vestizione": "5 minuti per indossare e 1 minuto per togliere",
       "peso": "10 kg",
       "costo": "400 mo"
     },
@@ -619,10 +626,11 @@
     "id": "mezza-armatura",
     "name": "Mezza armatura",
     "category": "armor",
-    "subcategory": "Armatura media (5 minuti per indossare e 1 minuto per togliere)",
+    "subcategory": "Armatura media",
     "properties": {
       "classe_armatura": "15 + modificatore di Des (max 2)",
       "furtività": "Svantaggio",
+      "vestizione": "10 minuti per indossare e 5 minuti per togliere",
       "peso": "20 kg",
       "costo": "750 mo"
     },
@@ -632,10 +640,11 @@
     "id": "corazza-ad-anelli",
     "name": "Corazza ad anelli",
     "category": "armor",
-    "subcategory": "Armatura pesante (10 minuti per indossare e 5 minuti per togliere)",
+    "subcategory": "Armatura pesante",
     "properties": {
       "classe_armatura": "14",
       "furtività": "Svantaggio",
+      "vestizione": "10 minuti per indossare e 5 minuti per togliere",
       "peso": "20 kg",
       "costo": "30 mo"
     },
@@ -645,11 +654,12 @@
     "id": "cotta-di-maglia",
     "name": "Cotta di maglia",
     "category": "armor",
-    "subcategory": "Armatura pesante (10 minuti per indossare e 5 minuti per togliere)",
+    "subcategory": "Armatura pesante",
     "properties": {
       "classe_armatura": "16",
       "forza": "For 13",
       "furtività": "Svantaggio",
+      "vestizione": "10 minuti per indossare e 5 minuti per togliere",
       "peso": "27,5 kg",
       "costo": "75 mo"
     },
@@ -659,11 +669,12 @@
     "id": "corazza-a-strisce",
     "name": "Corazza a strisce",
     "category": "armor",
-    "subcategory": "Armatura pesante (10 minuti per indossare e 5 minuti per togliere)",
+    "subcategory": "Armatura pesante",
     "properties": {
       "classe_armatura": "17",
       "forza": "For 15",
       "furtività": "Svantaggio",
+      "vestizione": "10 minuti per indossare e 5 minuti per togliere",
       "peso": "30 kg",
       "costo": "200 mo"
     },
@@ -673,11 +684,12 @@
     "id": "armatura-a-piastre",
     "name": "Armatura a piastre",
     "category": "armor",
-    "subcategory": "Armatura pesante (10 minuti per indossare e 5 minuti per togliere)",
+    "subcategory": "Armatura pesante",
     "properties": {
       "classe_armatura": "18",
       "forza": "For 15",
       "furtività": "Svantaggio",
+      "vestizione": "azione di Utilizzo per indossare o togliere",
       "peso": "32,5 kg",
       "costo": "1.500 mo"
     },
@@ -687,9 +699,10 @@
     "id": "scudo",
     "name": "Scudo",
     "category": "armor",
-    "subcategory": "Scudo (azione di Utilizzo per indossare o togliere)",
+    "subcategory": "Scudo",
     "properties": {
       "classe_armatura": "+2",
+      "vestizione": "azione di Utilizzo per indossare o togliere",
       "peso": "3 kg",
       "costo": "10 mo"
     },

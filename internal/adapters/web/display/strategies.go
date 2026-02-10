@@ -125,46 +125,13 @@ func (s *MostriDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayEle
 	return elements
 }
 
-type AnimaliDisplayStrategy struct{}
+type EquipaggiamentiDisplayStrategy struct{}
 
-func (s *AnimaliDisplayStrategy) GetCollectionType() string {
-	return "animali"
+func (s *EquipaggiamentiDisplayStrategy) GetCollectionType() string {
+	return "equipaggiamenti"
 }
 
-func (s *AnimaliDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
-	var elements []dto.DisplayElementDTO
-
-	rawContent := getRawContent(doc)
-
-	if ca := extractMonsterCA(rawContent); ca != "" {
-		elements = append(elements, dto.DisplayElementDTO{
-			Value: fmt.Sprintf("CA %s", ca),
-			Type:  "ac",
-		})
-	}
-	if pf := extractMonsterPF(rawContent); pf != "" {
-		elements = append(elements, dto.DisplayElementDTO{
-			Value: fmt.Sprintf("PF %s", pf),
-			Type:  "hp",
-		})
-	}
-	if gs := extractMonsterGS(rawContent); gs != "" {
-		elements = append(elements, dto.DisplayElementDTO{
-			Value: fmt.Sprintf("GS %s", gs),
-			Type:  "challenge_rating",
-		})
-	}
-
-	return elements
-}
-
-type ArmiDisplayStrategy struct{}
-
-func (s *ArmiDisplayStrategy) GetCollectionType() string {
-	return "armi"
-}
-
-func (s *ArmiDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
+func (s *EquipaggiamentiDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
 	if category := getFieldValue(doc, "categoria"); category != "" {
@@ -173,6 +140,8 @@ func (s *ArmiDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayEleme
 			Type:  "category",
 		})
 	}
+
+	// Weapon-specific: damage
 	if damage := getFieldValue(doc, "danno"); damage != "" {
 		elements = append(elements, dto.DisplayElementDTO{
 			Value: damage,
@@ -180,37 +149,7 @@ func (s *ArmiDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayEleme
 		})
 	}
 
-	if cost := getStructuredFieldValue(doc, "costo"); cost != "" {
-		elements = append(elements, dto.DisplayElementDTO{
-			Value: cost,
-			Type:  "cost",
-		})
-	}
-	if weight := getStructuredFieldValue(doc, "peso"); weight != "" {
-		elements = append(elements, dto.DisplayElementDTO{
-			Value: weight,
-			Type:  "weight",
-		})
-	}
-
-	return elements
-}
-
-type ArmatureDisplayStrategy struct{}
-
-func (s *ArmatureDisplayStrategy) GetCollectionType() string {
-	return "armature"
-}
-
-func (s *ArmatureDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
-	var elements []dto.DisplayElementDTO
-
-	if category := getFieldValue(doc, "categoria"); category != "" {
-		elements = append(elements, dto.DisplayElementDTO{
-			Value: category,
-			Type:  "category",
-		})
-	}
+	// Armor-specific: AC
 	if ac := getFieldValue(doc, "ca_base"); ac != "" {
 		elements = append(elements, dto.DisplayElementDTO{
 			Value: fmt.Sprintf("CA %s", ac),

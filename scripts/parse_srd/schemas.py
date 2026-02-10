@@ -55,6 +55,7 @@ class Monster(TypedDict):
     name: str
     group: str  # parent group heading if any (e.g., "Banditi")
     type: str
+    subtype: str
     size: str
     alignment: str
     ac: str
@@ -71,6 +72,7 @@ class Monster(TypedDict):
     senses: str
     languages: str
     cr: str
+    cr_detail: str
     equipment: str
     traits: list[Feature]
     actions: list[Feature]

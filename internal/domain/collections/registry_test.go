@@ -7,9 +7,9 @@ import (
 func TestGetAllCollectionNames(t *testing.T) {
 	names := GetAllCollectionNames()
 
-	// Should return all 16 collections
-	if len(names) != 16 {
-		t.Errorf("Expected 16 collections, got %d", len(names))
+	// Should return all 11 collections
+	if len(names) != 11 {
+		t.Errorf("Expected 11 collections, got %d", len(names))
 	}
 
 	// All names should be strings
@@ -21,22 +21,17 @@ func TestGetAllCollectionNames(t *testing.T) {
 
 	// Verify all expected collections are present
 	expectedCollections := map[string]bool{
-		"armature":            false,
-		"classi":              false,
-		"armi":                false,
-		"animali":             false,
-		"backgrounds":         false,
-		"incantesimi":         false,
-		"talenti":             false,
-		"equipaggiamenti":     false,
-		"servizi":             false,
-		"strumenti":           false,
-		"regole":              false,
-		"cavalcature_veicoli": false,
-		"oggetti_magici":      false,
-		"mostri":              false,
-		"glossario":           false,
-		"specie":              false,
+		"classi":          false,
+		"backgrounds":     false,
+		"incantesimi":     false,
+		"talenti":         false,
+		"equipaggiamenti": false,
+		"servizi":         false,
+		"regole":          false,
+		"oggetti_magici":  false,
+		"mostri":          false,
+		"glossario":       false,
+		"specie":          false,
 	}
 
 	for _, name := range names {
@@ -62,16 +57,11 @@ func TestFromString_ValidCollection(t *testing.T) {
 		{"incantesimi", Incantesimi},
 		{"mostri", Mostri},
 		{"classi", Classi},
-		{"armi", Armi},
-		{"armature", Armature},
 		{"talenti", Talenti},
 		{"backgrounds", Backgrounds},
 		{"equipaggiamenti", Equipaggiamenti},
 		{"servizi", Servizi},
-		{"strumenti", Strumenti},
-		{"animali", Animali},
 		{"regole", Regole},
-		{"cavalcature_veicoli", CavalcatureVeicoli},
 		{"oggetti_magici", OggettiMagici},
 		{"glossario", Glossario},
 		{"specie", Specie},
@@ -98,6 +88,11 @@ func TestFromString_InvalidCollection(t *testing.T) {
 		"incantesimi ", // Trailing space
 		" incantesimi", // Leading space
 		"non_existent",
+		"armi",                // Removed collection
+		"armature",            // Removed collection
+		"animali",             // Removed collection
+		"strumenti",           // Removed collection
+		"cavalcature_veicoli", // Removed collection
 	}
 
 	for _, input := range tests {
