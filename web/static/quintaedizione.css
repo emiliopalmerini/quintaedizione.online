@@ -1131,6 +1131,173 @@
 }
 
 /* ========================================================================
+   STAT BLOCK (Direct HTML for monsters, spells, classes, species)
+   ======================================================================== */
+
+.stat-block {
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* Subtitle: italic type/school line */
+.stat-block-subtitle {
+  color: var(--gray-700);
+  font-size: 1.1em;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  background: var(--notion-bg-secondary);
+  border-left: 4px solid var(--primary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-style: italic;
+}
+
+/* Horizontal divider */
+.stat-block-divider {
+  border: 0;
+  border-top: 1px solid var(--notion-border);
+  margin: 16px 0;
+}
+
+/* Key-value properties (CA, PF, spell metadata, etc.) */
+.stat-block-properties {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.stat-block-property {
+  line-height: var(--line-height-loose);
+}
+
+.stat-block-property strong {
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+/* Ability score grid — 6 columns on desktop */
+.stat-block-abilities {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-3);
+}
+
+.stat-block-ability {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-3);
+  border: 2px solid var(--border-color);
+  gap: var(--space-1);
+}
+
+.stat-block-ability-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-black);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--text-primary);
+}
+
+.stat-block-ability-score {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-extrabold);
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.stat-block-ability-mod {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-dark);
+}
+
+.stat-block-ability-save {
+  font-size: var(--font-size-2xs);
+  color: var(--text-muted);
+  font-weight: var(--font-weight-bold);
+}
+
+/* 3 columns at 640px */
+@media (max-width: 640px) {
+  .stat-block-abilities {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 2 columns at 400px */
+@media (max-width: 400px) {
+  .stat-block-abilities {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Section headings (Azioni, Reazioni, etc.) */
+.stat-block-section-heading {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-snug);
+  margin: var(--space-6) 0 var(--space-3);
+  padding-top: var(--space-3);
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* Trait/action items with bold name */
+.stat-block-feature {
+  margin: var(--space-3) 0;
+  line-height: var(--line-height-loose);
+}
+
+.stat-block-feature-name {
+  color: var(--primary-dark);
+  font-weight: 700;
+  font-style: normal;
+  display: inline;
+  margin-right: 0.5rem;
+  font-size: 1.05em;
+}
+
+/* Rendered markdown prose sections */
+.stat-block-description {
+  margin: var(--space-3) 0;
+}
+
+.stat-block-description > :first-child {
+  margin-top: 0;
+}
+
+.stat-block-description > :last-child {
+  margin-bottom: 0;
+}
+
+/* Higher levels / classes footer for spells */
+.stat-block-higher-levels {
+  margin: var(--space-4) 0 var(--space-3);
+  line-height: var(--line-height-loose);
+}
+
+.stat-block-higher-levels strong {
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.stat-block-classes {
+  color: var(--gray-700);
+  font-style: italic;
+  margin-top: var(--space-3);
+}
+
+.stat-block-ritual {
+  font-style: italic;
+  color: var(--gray-700);
+  margin: var(--space-2) 0;
+}
+
+/* ========================================================================
    PAGE OVERLAY
    ======================================================================== */
 

@@ -93,12 +93,11 @@ func (l *Loader) loadSpells(result map[string][]map[string]any) error {
 
 	docs := make([]map[string]any, 0, len(spells))
 	for _, s := range spells {
-		raw := l.buildSpellMarkdown(s)
 		doc := map[string]any{
 			"_id":         s.ID,
 			"title":       s.Name,
-			"content":     l.renderer.Render(raw),
-			"raw_content": raw,
+			"content":     l.buildSpellHTML(s),
+			"raw_content": l.buildSpellMarkdown(s),
 			"scuola":      s.School,
 			"livello":     s.Level,
 			"classe":      strings.Join(s.Classes, ", "),
@@ -108,37 +107,6 @@ func (l *Loader) loadSpells(result map[string][]map[string]any) error {
 
 	result["incantesimi"] = docs
 	return nil
-}
-
-func (l *Loader) buildSpellMarkdown(s jsonSpell) string {
-	var b strings.Builder
-
-	// Subtitle line
-	if s.Level == 0 {
-		fmt.Fprintf(&b, "*Trucchetto %s*\n\n", s.School)
-	} else {
-		fmt.Fprintf(&b, "*Livello %d %s*\n\n", s.Level, s.School)
-	}
-
-	fmt.Fprintf(&b, "**Tempo di Lancio:** %s\n\n", s.CastingTime)
-	fmt.Fprintf(&b, "**Gittata:** %s\n\n", s.Range)
-	fmt.Fprintf(&b, "**Componenti:** %s\n\n", s.Components)
-	fmt.Fprintf(&b, "**Durata:** %s\n\n", s.Duration)
-
-	if s.Ritual {
-		b.WriteString("*Rituale*\n\n")
-	}
-
-	b.WriteString(s.Description)
-
-	if s.AtHigherLevels != "" {
-		b.WriteString("\n\n**Ai Livelli Superiori.** ")
-		b.WriteString(s.AtHigherLevels)
-	}
-
-	fmt.Fprintf(&b, "\n\n*Classi: %s*", strings.Join(s.Classes, ", "))
-
-	return b.String()
 }
 
 // --- Monsters ---
@@ -187,12 +155,11 @@ func (l *Loader) loadMonsters(result map[string][]map[string]any) error {
 
 	docs := make([]map[string]any, 0, len(monsters))
 	for _, m := range monsters {
-		raw := l.buildMonsterMarkdown(m)
 		doc := map[string]any{
 			"_id":          m.ID,
 			"title":        m.Name,
-			"content":      l.renderer.Render(raw),
-			"raw_content":  raw,
+			"content":      l.buildMonsterHTML(m),
+			"raw_content":  l.buildMonsterMarkdown(m),
 			"tipo":         m.Type,
 			"taglia":       m.Size,
 			"allineamento": m.Alignment,
@@ -203,123 +170,6 @@ func (l *Loader) loadMonsters(result map[string][]map[string]any) error {
 
 	result["mostri"] = docs
 	return nil
-}
-
-func (l *Loader) buildMonsterMarkdown(m jsonMonster) string {
-	var b strings.Builder
-
-	// Type line
-	fmt.Fprintf(&b, "*%s %s, %s*\n\n", m.Type, m.Size, m.Alignment)
-
-	// Core stats
-	b.WriteString("---\n\n")
-	fmt.Fprintf(&b, "**CA** %s", m.AC)
-	if m.Initiative != "" {
-		fmt.Fprintf(&b, " · **Iniziativa** %s", m.Initiative)
-	}
-	b.WriteString("\n\n")
-	fmt.Fprintf(&b, "**PF** %s\n\n", m.HP)
-	fmt.Fprintf(&b, "**Velocità** %s\n\n", m.Speed)
-
-	// Ability scores table
-	if len(m.AbilityScores) > 0 {
-		b.WriteString("---\n\n")
-		abilityOrder := []struct{ key, label string }{
-			{"strength", "FOR"},
-			{"dexterity", "DES"},
-			{"constitution", "COS"},
-			{"intelligence", "INT"},
-			{"wisdom", "SAG"},
-			{"charisma", "CAR"},
-		}
-		b.WriteString("| ")
-		for _, a := range abilityOrder {
-			b.WriteString(a.label + " | ")
-		}
-		b.WriteString("\n|")
-		for range abilityOrder {
-			b.WriteString(":---:|")
-		}
-		b.WriteString("\n| ")
-		for _, a := range abilityOrder {
-			score := m.AbilityScores[a.key]
-			mod := m.AbilityMods[a.key]
-			save := m.SavingThrows[a.key]
-			fmt.Fprintf(&b, "%d (%+d) TS %s | ", score, mod, save)
-		}
-		b.WriteString("\n\n")
-	}
-
-	// Secondary stats
-	b.WriteString("---\n\n")
-	if m.Skills != "" {
-		fmt.Fprintf(&b, "**Abilità** %s\n\n", m.Skills)
-	}
-	if m.Resistances != "" {
-		fmt.Fprintf(&b, "**Resistenze** %s\n\n", m.Resistances)
-	}
-	if m.DamageImmunities != "" {
-		fmt.Fprintf(&b, "**Immunità ai Danni** %s\n\n", m.DamageImmunities)
-	}
-	if m.ConditionImmunities != "" {
-		fmt.Fprintf(&b, "**Immunità alle Condizioni** %s\n\n", m.ConditionImmunities)
-	}
-	if m.Senses != "" {
-		fmt.Fprintf(&b, "**Sensi** %s\n\n", m.Senses)
-	}
-	if m.Languages != "" {
-		fmt.Fprintf(&b, "**Lingue** %s\n\n", m.Languages)
-	}
-	if m.CRDetail != "" {
-		fmt.Fprintf(&b, "**GS** %s\n\n", m.CRDetail)
-	} else {
-		fmt.Fprintf(&b, "**GS** %s\n\n", m.CR)
-	}
-	if m.Equipment != "" {
-		fmt.Fprintf(&b, "**Equipaggiamento** %s\n\n", m.Equipment)
-	}
-
-	// Traits
-	if len(m.Traits) > 0 {
-		b.WriteString("---\n\n")
-		for _, t := range m.Traits {
-			fmt.Fprintf(&b, "***%s.*** %s\n\n", t.Name, t.Description)
-		}
-	}
-
-	// Actions
-	if len(m.Actions) > 0 {
-		b.WriteString("### Azioni\n\n")
-		for _, a := range m.Actions {
-			fmt.Fprintf(&b, "***%s.*** %s\n\n", a.Name, a.Description)
-		}
-	}
-
-	// Bonus Actions
-	if len(m.BonusActions) > 0 {
-		b.WriteString("### Azioni Bonus\n\n")
-		for _, a := range m.BonusActions {
-			fmt.Fprintf(&b, "***%s.*** %s\n\n", a.Name, a.Description)
-		}
-	}
-
-	// Reactions
-	if len(m.Reactions) > 0 {
-		b.WriteString("### Reazioni\n\n")
-		for _, r := range m.Reactions {
-			fmt.Fprintf(&b, "***%s.*** %s\n\n", r.Name, r.Description)
-		}
-	}
-
-	// Legendary Actions
-	if len(m.LegendaryActions) > 0 {
-		b.WriteString("### Azioni Leggendarie\n\n")
-		for _, la := range m.LegendaryActions {
-			fmt.Fprintf(&b, "***%s.*** %s\n\n", la.Name, la.Description)
-		}
-	}
-
-	return b.String()
 }
 
 // --- Classes ---
@@ -355,64 +205,17 @@ func (l *Loader) loadClasses(result map[string][]map[string]any) error {
 
 	docs := make([]map[string]any, 0, len(classes))
 	for _, c := range classes {
-		raw := l.buildClassMarkdown(c)
 		doc := map[string]any{
 			"_id":         c.ID,
 			"title":       c.Name,
-			"content":     l.renderer.Render(raw),
-			"raw_content": raw,
+			"content":     l.buildClassHTML(c),
+			"raw_content": l.buildClassMarkdown(c),
 		}
 		docs = append(docs, doc)
 	}
 
 	result["classi"] = docs
 	return nil
-}
-
-func (l *Loader) buildClassMarkdown(c jsonClass) string {
-	var b strings.Builder
-
-	// Description (contains traits box + level progression table)
-	if c.Description != "" {
-		b.WriteString(c.Description)
-		b.WriteString("\n\n")
-	}
-
-	// Hit die and proficiencies
-	if c.HitDie != "" {
-		fmt.Fprintf(&b, "**Dado Vita:** %s\n\n", c.HitDie)
-	}
-	if c.Proficiencies != "" {
-		fmt.Fprintf(&b, "**Competenze:** %s\n\n", c.Proficiencies)
-	}
-
-	// Features grouped by level
-	if len(c.Features) > 0 {
-		b.WriteString("---\n\n")
-		b.WriteString("## Privilegi di classe\n\n")
-		for _, f := range c.Features {
-			fmt.Fprintf(&b, "### %s (Livello %d)\n\n", f.Name, f.Level)
-			b.WriteString(f.Description)
-			b.WriteString("\n\n")
-		}
-	}
-
-	// Subclasses
-	for _, sc := range c.Subclasses {
-		b.WriteString("---\n\n")
-		fmt.Fprintf(&b, "## %s\n\n", sc.Name)
-		if sc.Description != "" {
-			b.WriteString(sc.Description)
-			b.WriteString("\n\n")
-		}
-		for _, f := range sc.Features {
-			fmt.Fprintf(&b, "### %s (Livello %d)\n\n", f.Name, f.Level)
-			b.WriteString(f.Description)
-			b.WriteString("\n\n")
-		}
-	}
-
-	return b.String()
 }
 
 // --- Backgrounds ---
@@ -678,12 +481,11 @@ func (l *Loader) loadSpecies(result map[string][]map[string]any) error {
 
 	docs := make([]map[string]any, 0, len(species))
 	for _, s := range species {
-		raw := l.buildSpeciesMarkdown(s)
 		doc := map[string]any{
 			"_id":           s.ID,
 			"title":         s.Name,
-			"content":       l.renderer.Render(raw),
-			"raw_content":   raw,
+			"content":       l.buildSpeciesHTML(s),
+			"raw_content":   l.buildSpeciesMarkdown(s),
 			"tipo_creatura": s.CreatureType,
 			"taglia":        s.Size,
 			"velocita":      s.Speed,
@@ -693,14 +495,4 @@ func (l *Loader) loadSpecies(result map[string][]map[string]any) error {
 
 	result["specie"] = docs
 	return nil
-}
-
-func (l *Loader) buildSpeciesMarkdown(s jsonSpecies) string {
-	var b strings.Builder
-
-	fmt.Fprintf(&b, "*%s %s, %s*\n\n", s.CreatureType, s.Size, s.Speed)
-
-	b.WriteString(s.Description)
-
-	return b.String()
 }
