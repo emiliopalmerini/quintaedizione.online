@@ -1,50 +1,67 @@
 package templates
 
 import "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
+import "strconv"
 
 templ ItemPage(data models.ItemPageData) {
 	@BaseLayout(data.PageData) {
 		<!-- Header Navigation -->
-		<div class="item-header">
-			<a href={ templ.URL("/" + data.PageData.Collection) } class="btn">← Lista { data.CollectionLabel }</a>
-			
+		<div class="item-header sticky top-under-header">
+			<a href={ templ.URL("/" + data.PageData.Collection) } class="btn item-back-btn">
+				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="19" y1="12" x2="5" y2="12"></line>
+					<polyline points="12 19 5 12 12 5"></polyline>
+				</svg>
+				<span class="item-back-label">{ data.CollectionLabel }</span>
+			</a>
+
 			<div class="item-nav">
 				if data.PrevID != "" {
-					<a class="btn" 
+					<a class="btn btn-icon"
 						href={ templ.URL("/" + data.PageData.Collection + "/" + data.PrevID) }
 						hx-get={ "/" + data.PageData.Collection + "/" + data.PrevID }
 						hx-target="#page-root"
 						hx-select="#page-root"
 						hx-swap="outerHTML"
 						hx-push-url="true"
-						hx-indicator="#page-loading">
-						<span class="htmx-indicator">⟳</span>
-						← Precedente
+						hx-indicator="#page-loading"
+						aria-label="Precedente">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+							<polyline points="15 18 9 12 15 6"></polyline>
+						</svg>
 					</a>
 				} else {
-					<a class="btn btn-disabled">
-						<span class="htmx-indicator">⟳</span>
-						← Precedente
-					</a>
+					<span class="btn btn-icon btn-disabled" aria-disabled="true">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+							<polyline points="15 18 9 12 15 6"></polyline>
+						</svg>
+					</span>
 				}
-				
+
+				if data.Total > 0 {
+					<span class="item-nav-position">{ strconv.Itoa(data.Position) } di { strconv.Itoa(data.Total) }</span>
+				}
+
 				if data.NextID != "" {
-					<a class="btn"
+					<a class="btn btn-icon"
 						href={ templ.URL("/" + data.PageData.Collection + "/" + data.NextID) }
 						hx-get={ "/" + data.PageData.Collection + "/" + data.NextID }
 						hx-target="#page-root"
 						hx-select="#page-root"
 						hx-swap="outerHTML"
 						hx-push-url="true"
-						hx-indicator="#page-loading">
-						<span class="htmx-indicator">⟳</span>
-						Successivo →
+						hx-indicator="#page-loading"
+						aria-label="Successivo">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+							<polyline points="9 6 15 12 9 18"></polyline>
+						</svg>
 					</a>
 				} else {
-					<a class="btn btn-disabled">
-						<span class="htmx-indicator">⟳</span>
-						Successivo →
-					</a>
+					<span class="btn btn-icon btn-disabled" aria-disabled="true">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+							<polyline points="9 6 15 12 9 18"></polyline>
+						</svg>
+					</span>
 				}
 			</div>
 		</div>

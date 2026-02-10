@@ -27,7 +27,7 @@ type DocumentStatistics interface {
 
 // DocumentNavigation provides navigation between adjacent documents.
 type DocumentNavigation interface {
-	GetAdjacentMaps(ctx context.Context, collection string, currentID string) (prevID *string, nextID *string, err error)
+	GetAdjacentMaps(ctx context.Context, collection string, currentID string) (prevID *string, nextID *string, position int, total int, err error)
 }
 
 // DocumentRepository composes all document-related read operations.

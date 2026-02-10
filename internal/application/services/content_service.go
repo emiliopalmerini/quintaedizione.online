@@ -109,7 +109,7 @@ func (s *ContentService) GetCollectionStats(ctx context.Context) ([]map[string]a
 	return s.documentStats.GetAllCollectionStats(ctx)
 }
 
-func (s *ContentService) GetAdjacentItems(ctx context.Context, collection, currentSlug string) (prevSlug, nextSlug *string, err error) {
+func (s *ContentService) GetAdjacentItems(ctx context.Context, collection, currentSlug string) (prevSlug, nextSlug *string, position, total int, err error) {
 	return s.documentNav.GetAdjacentMaps(ctx, collection, currentSlug)
 }
 

@@ -17,23 +17,19 @@ templ CollectionPage(data models.CollectionPageData) {
 			<form id="search-form"
 				hx-get={ "/" + data.PageData.Collection + "/rows" }
 				hx-target="#rows"
-				hx-trigger="submit, keyup delay:100ms from:#q, change from:select, change from:input[type=hidden], change from:input[type=checkbox], change from:input[type=number]"
+				hx-trigger="keyup delay:100ms from:#q, change from:select, change from:input[type=hidden], change from:input[type=checkbox], change from:input[type=number]"
 				hx-push-url="true"
 				hx-indicator=".loading-bar"
 				class="flex flex-col gap-2">
-				<div class="flex items-center gap-2 flex-wrap">
+				<div class="flex items-center gap-2">
 					<input id="q" name="q" placeholder="Cerca…" value={ data.Query } class="field flex-1" minlength="2"/>
 
-					<button class="btn" type="submit">
-						<span class="htmx-indicator">
-							<span class="spinner"></span>
-						</span>
-						<span>Cerca</span>
-					</button>
-
 					if len(data.Filters) > 0 {
-						<button type="button" id="filter-toggle-btn" class="btn filter-toggle-btn">
-							Filtri
+						<button type="button" id="filter-toggle-btn" class="btn filter-toggle-btn" aria-label="Filtri">
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+							</svg>
+							<span class="filter-toggle-label">Filtri</span>
 							if activeFilterCount(data.Filters) > 0 {
 								<span class="filter-toggle-badge">{ strconv.Itoa(activeFilterCount(data.Filters)) }</span>
 							}
@@ -41,7 +37,7 @@ templ CollectionPage(data models.CollectionPageData) {
 					}
 				</div>
 
-				<!-- Collapsible filter panel -->
+					<!-- Collapsible filter panel -->
 				if len(data.Filters) > 0 {
 					<div id="filter-panel" class="filter-panel">
 						@collectionFilters(data.Filters, data.PageSize)
@@ -55,6 +51,54 @@ templ CollectionPage(data models.CollectionPageData) {
 				</div>
 			</form>
 		</section>
+
+		<!-- Mobile filter overlay -->
+		if len(data.Filters) > 0 {
+			<div id="filter-overlay" class="filter-overlay">
+				<!-- Screen 1: Filter categories -->
+				<div class="filter-overlay-categories">
+					<div class="filter-overlay-header">
+						<button type="button" class="filter-overlay-close" aria-label="Chiudi">&times;</button>
+						<span class="filter-overlay-title">Filtri</span>
+						<button type="button" class="filter-overlay-clear">Cancella tutto</button>
+					</div>
+					<ul class="filter-overlay-list">
+						for _, f := range data.Filters {
+							<li class="filter-overlay-category" data-filter-name={ f.Name }>
+								<span class="filter-overlay-category-name">{ f.Label }</span>
+								if len(f.CurrentValues) > 0 {
+									<span class="filter-overlay-category-count">{ strconv.Itoa(len(f.CurrentValues)) }</span>
+								}
+								<span class="filter-overlay-category-arrow">&rsaquo;</span>
+							</li>
+						}
+					</ul>
+				</div>
+				<!-- Screen 2: Filter options (one per filter, toggled by data-filter-name) -->
+				for _, f := range data.Filters {
+					<div class="filter-overlay-detail" data-filter-detail={ f.Name }>
+						<div class="filter-overlay-header">
+							<button type="button" class="filter-overlay-back" aria-label="Indietro">&lsaquo;</button>
+							<span class="filter-overlay-title">{ f.Label }</span>
+							<span class="filter-overlay-header-spacer"></span>
+						</div>
+						<div class="filter-overlay-options">
+							for _, v := range f.Values {
+								<label class={ "filter-option-checkbox", templ.KV("filter-option-disabled", v.Count == 0 && !isValueSelected(f, v.Value)) }>
+									if isValueSelected(f, v.Value) {
+										<input type="checkbox" data-filter-name={ f.Name } value={ v.Value } checked/>
+									} else {
+										<input type="checkbox" data-filter-name={ f.Name } value={ v.Value } disabled?={ v.Count == 0 }/>
+									}
+									<span class="filter-option-label">{ v.Value }</span>
+									<span class="filter-option-count">{ strconv.FormatInt(v.Count, 10) }</span>
+								</label>
+							}
+						</div>
+					</div>
+				}
+			</div>
+		}
 
 		<section class="bg-white border">
 			<div id="rows">
