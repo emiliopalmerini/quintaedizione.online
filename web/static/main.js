@@ -730,6 +730,55 @@ function initPatreonBanner() {
 	}
 }
 
+// Keyboard navigation: arrow keys for prev/next item
+function initItemKeyboardNav() {
+	var prevBtn = document.querySelector('.item-nav a[aria-label="Precedente"]');
+	var nextBtn = document.querySelector('.item-nav a[aria-label="Successivo"]');
+	if (!prevBtn && !nextBtn) return;
+
+	document.addEventListener('keydown', function handleItemNav(e) {
+		// Skip when user is typing
+		var tag = document.activeElement.tagName;
+		if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || document.activeElement.isContentEditable) return;
+
+		if (e.key === 'ArrowLeft' && prevBtn) {
+			e.preventDefault();
+			prevBtn.click();
+		} else if (e.key === 'ArrowRight' && nextBtn) {
+			e.preventDefault();
+			nextBtn.click();
+		}
+	});
+}
+
+// Auto-generate anchor links on headings inside .item-content
+function initHeadingAnchors() {
+	var container = document.querySelector('.item-content');
+	if (!container) return;
+
+	container.querySelectorAll('h2, h3').forEach(function(heading) {
+		if (heading.id) return; // already has an anchor
+
+		// Generate id from text content
+		var text = heading.textContent.trim();
+		var id = text.toLowerCase()
+			.replace(/[^\w\s-]/g, '')
+			.replace(/\s+/g, '-')
+			.replace(/-+/g, '-');
+		if (!id) return;
+
+		heading.id = id;
+		heading.style.position = 'relative';
+
+		var anchor = document.createElement('a');
+		anchor.href = '#' + id;
+		anchor.className = 'heading-anchor';
+		anchor.setAttribute('aria-label', 'Link a questa sezione');
+		anchor.textContent = '#';
+		heading.appendChild(anchor);
+	});
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 	initThemeToggle();
 	initPatreonBanner();
@@ -740,6 +789,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	initFilterOverlay();
 	initFilterMultiselect();
 	initFilterChips();
+	initItemKeyboardNav();
+	initHeadingAnchors();
 });
 
 document.body.addEventListener('htmx:afterSwap', () => {
@@ -749,4 +800,6 @@ document.body.addEventListener('htmx:afterSwap', () => {
 	initFilterOverlay();
 	initFilterMultiselect();
 	initFilterChips();
+	initItemKeyboardNav();
+	initHeadingAnchors();
 });
