@@ -1351,6 +1351,50 @@
 }
 
 /* ========================================================================
+   HEADING ANCHORS
+   ======================================================================== */
+
+.heading-anchor {
+  opacity: 0;
+  margin-left: var(--space-2);
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: var(--font-weight-normal);
+  transition: opacity 0.15s ease;
+}
+
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+.heading-anchor:focus {
+  opacity: 1;
+}
+
+.heading-anchor:hover {
+  color: var(--primary);
+}
+
+/* ========================================================================
+   KEYBOARD HINTS
+   ======================================================================== */
+
+.kbd-hint {
+  display: none;
+  padding: 2px 6px;
+  background: var(--gray-100);
+  border: 1px solid var(--notion-border);
+  font-size: var(--font-size-2xs);
+  font-family: ui-monospace, monospace;
+  color: var(--text-muted);
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .kbd-hint {
+    display: inline-block;
+  }
+}
+
+/* ========================================================================
    PAGE OVERLAY
    ======================================================================== */
 
