@@ -66,7 +66,10 @@ templ HomePage(data models.HomePageData) {
 								<div class="collection-badge" title="Numero di elementi">{ strconv.FormatInt(collection.Count, 10) }</div>
 							}
 						</div>
-						<div class="collection-card-footer">Apri →</div>
+						if collection.Description != "" {
+						<div class="collection-card-description">{ collection.Description }</div>
+					}
+					<div class="collection-card-footer">Apri &rarr;</div>
 					</div>
 				</a>
 			}

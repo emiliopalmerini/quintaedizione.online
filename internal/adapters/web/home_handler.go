@@ -39,6 +39,9 @@ func (h *HomeHandler) handleHome(c *gin.Context) {
 		}
 
 		collection.Label = h.getCollectionTitle(name)
+		if info, ok := collections.GetInfo(name); ok {
+			collection.Description = info.Description
+		}
 
 		typedCollections = append(typedCollections, collection)
 	}

@@ -105,6 +105,16 @@ func TestFromString_InvalidCollection(t *testing.T) {
 	}
 }
 
+func TestAllCollectionsHaveDescription(t *testing.T) {
+	for name, info := range Registry {
+		t.Run(string(name), func(t *testing.T) {
+			if info.Description == "" {
+				t.Errorf("Collection %s has empty Description", name)
+			}
+		})
+	}
+}
+
 func TestFromString_RoundTrip(t *testing.T) {
 	// Test that converting to string and back gives the same value
 	for _, collName := range GetAllCollections() {

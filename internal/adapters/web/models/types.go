@@ -11,9 +11,10 @@ type PageData struct {
 }
 
 type Collection struct {
-	Name  string `json:"name"`
-	Label string `json:"label"`
-	Count int64  `json:"count"`
+	Name        string `json:"name"`
+	Label       string `json:"label"`
+	Description string `json:"description"`
+	Count       int64  `json:"count"`
 }
 
 type HomePageData struct {
