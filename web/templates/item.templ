@@ -8,10 +8,9 @@ templ ItemPage(data models.ItemPageData) {
 		<!-- Header Navigation -->
 		<div class="item-header sticky top-under-header">
 			<a href={ templ.URL("/" + data.PageData.Collection) } class="btn item-back-btn">
-				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-					<line x1="19" y1="12" x2="5" y2="12"></line>
-					<polyline points="12 19 5 12 12 5"></polyline>
-				</svg>
+				<span class="item-back-icon">
+					@CollectionIcon(data.PageData.Collection)
+				</span>
 				<span class="item-back-label">{ data.CollectionLabel }</span>
 			</a>
 
