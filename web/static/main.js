@@ -245,12 +245,12 @@ function initStickySearchShadow() {
 document.addEventListener('DOMContentLoaded', initStickySearchShadow);
 document.body.addEventListener('htmx:afterSwap', initStickySearchShadow);
 
-// Global search ESC handling
+// Global search (desktop inline dropdown)
 function initGlobalSearch() {
-	const searchInput = document.getElementById('global-search');
-	const searchResults = document.getElementById('search-results');
-	const searchForm = document.getElementById('search-form');
-	const searchCloseBtn = document.getElementById('search-close-btn');
+	var searchInput = document.getElementById('global-search');
+	var searchResults = document.getElementById('search-results');
+	var searchForm = document.getElementById('search-form');
+	var searchCloseBtn = document.getElementById('search-close-btn');
 
 	if (!searchInput) return;
 
@@ -296,8 +296,101 @@ function initGlobalSearch() {
 	}
 }
 
-document.addEventListener('DOMContentLoaded', initGlobalSearch);
-document.body.addEventListener('htmx:afterSwap', initGlobalSearch);
+// Mobile search overlay (full-screen)
+function initSearchOverlay() {
+	var overlay = document.getElementById('search-overlay');
+	var heroInput = document.getElementById('global-search');
+	if (!overlay || !heroInput) return;
+
+	var overlayInput = document.getElementById('overlay-search-input');
+	var overlayResults = document.getElementById('overlay-results');
+	var overlayCollection = document.getElementById('overlay-collection');
+	var overlayForm = document.getElementById('overlay-search-form');
+	var closeBtn = overlay.querySelector('.search-overlay-close');
+	var chips = overlay.querySelectorAll('.search-overlay-chip');
+	var isMobile = window.matchMedia('(max-width: 640px)');
+
+	function openOverlay() {
+		if (!isMobile.matches) return;
+		overlay.classList.add('open');
+		document.body.style.overflow = 'hidden';
+		// Sync text from hero input
+		if (heroInput.value) {
+			overlayInput.value = heroInput.value;
+		}
+		setTimeout(function() {
+			overlayInput.focus();
+			// Trigger search if text was synced
+			if (overlayInput.value.trim().length >= 2) {
+				htmx.trigger(overlayInput, 'keyup');
+			}
+		}, 50);
+	}
+
+	function closeOverlay() {
+		overlay.classList.remove('open');
+		document.body.style.overflow = '';
+		overlayResults.innerHTML = '';
+		overlayInput.value = '';
+		overlayCollection.value = '';
+		// Reset chips
+		chips.forEach(function(c) {
+			c.classList.toggle('active', c.getAttribute('data-collection') === '');
+		});
+	}
+
+	// Open overlay when hero input is focused on mobile
+	heroInput.addEventListener('focus', function() {
+		if (isMobile.matches) {
+			heroInput.blur();
+			openOverlay();
+		}
+	});
+
+	// Close button
+	if (closeBtn) {
+		closeBtn.addEventListener('click', closeOverlay);
+	}
+
+	// ESC closes overlay
+	document.addEventListener('keydown', function(e) {
+		if (e.key === 'Escape' && overlay.classList.contains('open')) {
+			closeOverlay();
+		}
+	});
+
+	// Prevent HTMX request with less than 2 characters
+	if (overlayForm) {
+		overlayForm.addEventListener('htmx:beforeRequest', function(evt) {
+			if (overlayInput.value.trim().length < 2) {
+				evt.detail.cancel = true;
+				overlayResults.innerHTML = '';
+			}
+		});
+	}
+
+	// Collection chip selection
+	chips.forEach(function(chip) {
+		chip.addEventListener('click', function() {
+			chips.forEach(function(c) { c.classList.remove('active'); });
+			chip.classList.add('active');
+			overlayCollection.value = chip.getAttribute('data-collection');
+			// Re-trigger search with new collection filter via custom event
+			if (overlayInput.value.trim().length >= 2) {
+				htmx.trigger(overlayInput, 'search');
+			}
+		});
+	});
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+	initGlobalSearch();
+	initSearchOverlay();
+});
+document.body.addEventListener('htmx:afterSwap', function() {
+	initGlobalSearch();
+	initSearchOverlay();
+});
 
 // Back button handler
 function initBackButton() {
@@ -740,6 +833,8 @@ function initItemKeyboardNav() {
 		// Skip when user is typing
 		var tag = document.activeElement.tagName;
 		if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || document.activeElement.isContentEditable) return;
+
+		if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
 
 		if (e.key === 'ArrowLeft' && prevBtn) {
 			e.preventDefault();

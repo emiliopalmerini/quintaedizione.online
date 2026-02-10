@@ -44,25 +44,61 @@ func HomePage(data models.HomePageData) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"hero\"><h1>quintaedizione.online</h1><a href=\"https://duedraghialmicrofono.com\" class=\"hero-link\">sostenuto da Due Draghi al Microfono</a><p>Regole base del gioco di ruolo fantasy più famoso al mondo, in italiano. Cerca, filtra e copia i contenuti.</p><div class=\"search-container-wrapper\"><form id=\"search-form\" hx-get=\"/search/dropdown\" hx-trigger=\"keyup changed delay:100ms from:#global-search, keydown[key=='Enter'] from:#global-search consume\" hx-target=\"#search-results\" hx-indicator=\"#search-spinner\"><div class=\"search-input-group\"><svg class=\"search-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><path d=\"M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path> <path d=\"M19 19L14.65 14.65\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg> <input type=\"text\" name=\"q\" id=\"global-search\" placeholder=\"Cerca in tutte le collezioni...\" class=\"field flex-1\" autocomplete=\"off\" aria-label=\"Cerca contenuti\" aria-controls=\"search-results\" aria-autocomplete=\"list\" minlength=\"2\"><div id=\"search-spinner\" class=\"htmx-indicator flex items-center\"><span class=\"spinner\"></span></div><button type=\"reset\" id=\"search-close-btn\" class=\"search-close-btn\" aria-label=\"Cancella ricerca\">✕</button></div></form><div id=\"search-results\" class=\"search-dropdown\" role=\"listbox\" aria-live=\"polite\"></div></div></section><div class=\"collection-grid\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"hero\"><h1>quintaedizione.online</h1><a href=\"https://duedraghialmicrofono.com\" class=\"hero-link\">sostenuto da Due Draghi al Microfono</a><p>Regole base del gioco di ruolo fantasy più famoso al mondo, in italiano. Cerca, filtra e copia i contenuti.</p><div class=\"search-container-wrapper\"><form id=\"search-form\" hx-get=\"/search/dropdown\" hx-trigger=\"keyup changed delay:100ms from:#global-search, keydown[key=='Enter'] from:#global-search consume\" hx-target=\"#search-results\" hx-indicator=\"#search-spinner\"><div class=\"search-input-group\"><svg class=\"search-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><path d=\"M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path> <path d=\"M19 19L14.65 14.65\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg> <input type=\"text\" name=\"q\" id=\"global-search\" placeholder=\"Cerca in tutte le collezioni...\" class=\"field flex-1\" autocomplete=\"off\" aria-label=\"Cerca contenuti\" aria-controls=\"search-results\" aria-autocomplete=\"list\" minlength=\"2\"><div id=\"search-spinner\" class=\"htmx-indicator flex items-center\"><span class=\"spinner\"></span></div><button type=\"reset\" id=\"search-close-btn\" class=\"search-close-btn\" aria-label=\"Cancella ricerca\">✕</button></div></form><div id=\"search-results\" class=\"search-dropdown\" role=\"listbox\" aria-live=\"polite\"></div></div><div id=\"search-overlay\" class=\"search-overlay\" aria-modal=\"true\" role=\"dialog\" aria-label=\"Cerca\"><div class=\"search-overlay-header\"><button type=\"button\" class=\"search-overlay-close\" aria-label=\"Chiudi ricerca\">✕</button><form id=\"overlay-search-form\" hx-get=\"/search/dropdown\" hx-trigger=\"keyup changed delay:100ms from:#overlay-search-input, search from:#overlay-search-input\" hx-target=\"#overlay-results\" hx-include=\"#overlay-collection\"><input type=\"hidden\" name=\"collection\" id=\"overlay-collection\" value=\"\"> <input type=\"text\" name=\"q\" id=\"overlay-search-input\" placeholder=\"Cerca...\" class=\"field flex-1\" autocomplete=\"off\" aria-label=\"Cerca contenuti\" minlength=\"2\"></form></div><div class=\"search-overlay-chips\" role=\"radiogroup\" aria-label=\"Filtra per collezione\"><button type=\"button\" class=\"search-overlay-chip active\" data-collection=\"\">Tutte</button> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			for _, collection := range data.Collections {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<a href=\"")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<button type=\"button\" class=\"search-overlay-chip\" data-collection=\"")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				var templ_7745c5c3_Var3 templ.SafeURL
-				templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/" + collection.Name))
+				var templ_7745c5c3_Var3 string
+				templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(collection.Name)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 56, Col: 46}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 73, Col: 89}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\" class=\"collection-card\"><div class=\"collection-card-content\"><div class=\"collection-card-header\"><div><div class=\"collection-card-icon\">")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\">")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				var templ_7745c5c3_Var4 string
+				templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(collection.Label)
+				if templ_7745c5c3_Err != nil {
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 73, Col: 110}
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</button>")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</div><div id=\"overlay-results\" class=\"search-overlay-results\" role=\"listbox\" aria-live=\"polite\"></div></div></section><div class=\"collection-grid\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			for _, collection := range data.Collections {
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<a href=\"")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				var templ_7745c5c3_Var5 templ.SafeURL
+				templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/" + collection.Name))
+				if templ_7745c5c3_Err != nil {
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 82, Col: 46}
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "\" class=\"collection-card\"><div class=\"collection-card-content\"><div class=\"collection-card-header\"><div><div class=\"collection-card-icon\">")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -70,71 +106,71 @@ func HomePage(data models.HomePageData) templ.Component {
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div><div class=\"collection-card-title\">")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</div><div class=\"collection-card-title\">")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				var templ_7745c5c3_Var4 string
-				templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(collection.Label)
+				var templ_7745c5c3_Var6 string
+				templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(collection.Label)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 63, Col: 61}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 89, Col: 61}
 				}
-				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</div></div>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</div></div>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 				if collection.Count > 0 {
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div class=\"collection-badge\" title=\"Numero di elementi\">")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<div class=\"collection-badge\" title=\"Numero di elementi\">")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
-					var templ_7745c5c3_Var5 string
-					templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.FormatInt(collection.Count, 10))
+					var templ_7745c5c3_Var7 string
+					templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.FormatInt(collection.Count, 10))
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 66, Col: 106}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 92, Col: 106}
 					}
-					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
+					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</div>")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</div>")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
 				}
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</div>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</div>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 				if collection.Description != "" {
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "<div class=\"collection-card-description\">")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "<div class=\"collection-card-description\">")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
-					var templ_7745c5c3_Var6 string
-					templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(collection.Description)
+					var templ_7745c5c3_Var8 string
+					templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(collection.Description)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 70, Col: 71}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 96, Col: 71}
 					}
-					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
+					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</div>")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</div>")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
 				}
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "<div class=\"collection-card-footer\">Apri &rarr;</div></div></a>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "<div class=\"collection-card-footer\">Apri &rarr;</div></div></a>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

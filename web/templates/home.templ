@@ -49,6 +49,32 @@ templ HomePage(data models.HomePageData) {
 				</form>
 				<div id="search-results" class="search-dropdown" role="listbox" aria-live="polite"></div>
 			</div>
+
+			<div id="search-overlay" class="search-overlay" aria-modal="true" role="dialog" aria-label="Cerca">
+				<div class="search-overlay-header">
+					<button type="button" class="search-overlay-close" aria-label="Chiudi ricerca">✕</button>
+					<form id="overlay-search-form" hx-get="/search/dropdown" hx-trigger="keyup changed delay:100ms from:#overlay-search-input, search from:#overlay-search-input" hx-target="#overlay-results" hx-include="#overlay-collection">
+						<input type="hidden" name="collection" id="overlay-collection" value=""/>
+						<input
+							type="text"
+							name="q"
+							id="overlay-search-input"
+							placeholder="Cerca..."
+							class="field flex-1"
+							autocomplete="off"
+							aria-label="Cerca contenuti"
+							minlength="2"
+						/>
+					</form>
+				</div>
+				<div class="search-overlay-chips" role="radiogroup" aria-label="Filtra per collezione">
+					<button type="button" class="search-overlay-chip active" data-collection="">Tutte</button>
+					for _, collection := range data.Collections {
+						<button type="button" class="search-overlay-chip" data-collection={ collection.Name }>{ collection.Label }</button>
+					}
+				</div>
+				<div id="overlay-results" class="search-overlay-results" role="listbox" aria-live="polite"></div>
+			</div>
 		</section>
 
 		<div class="collection-grid">
