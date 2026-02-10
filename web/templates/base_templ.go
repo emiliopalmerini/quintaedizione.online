@@ -107,7 +107,7 @@ func BaseLayout(data models.PageData) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "<meta property=\"og:type\" content=\"website\"><meta property=\"og:site_name\" content=\"quintaedizione.online\"><script>\n\t\t\t(function(){var d=document.documentElement,t=localStorage.getItem('theme');if(t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme:dark)').matches))d.classList.add('dark')})()\n\t\t</script><script src=\"/static/htmx.min.js\" defer></script><link rel=\"stylesheet\" href=\"/static/css/tokens.css\"><link rel=\"stylesheet\" href=\"/static/css/main.css\"><link rel=\"stylesheet\" href=\"/static/css/utilities.css\"><link rel=\"stylesheet\" href=\"/static/quintaedizione.css\"><link rel=\"icon\" href=\"/static/favicon.svg\" type=\"image/svg+xml\"><script src=\"/static/main.js\" defer></script></head><body class=\"flex flex-col min-h-screen text-primary\"><!-- Notion-style top bar --><header class=\"notion-nav\"><div class=\"notion-nav-container\"><nav class=\"breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"/\">Home</a> ")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "<meta property=\"og:type\" content=\"website\"><meta property=\"og:site_name\" content=\"quintaedizione.online\"><script>\n\t\t\t(function(){var d=document.documentElement,t=localStorage.getItem('theme');if(t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme:dark)').matches))d.classList.add('dark')})()\n\t\t</script><script src=\"/static/htmx.min.js\" defer></script><link rel=\"stylesheet\" href=\"/static/css/tokens.css\"><link rel=\"stylesheet\" href=\"/static/css/main.css\"><link rel=\"stylesheet\" href=\"/static/css/utilities.css\"><link rel=\"stylesheet\" href=\"/static/quintaedizione.css\"><link rel=\"icon\" href=\"/static/favicon.svg\" type=\"image/svg+xml\"><script src=\"/static/main.js\" defer></script></head><body class=\"flex flex-col min-h-screen text-primary\"><a href=\"#page-root\" class=\"skip-to-content\">Vai al contenuto principale</a><!-- Notion-style top bar --><header class=\"notion-nav\"><div class=\"notion-nav-container\"><nav class=\"breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"/\">Home</a> ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -119,7 +119,7 @@ func BaseLayout(data models.PageData) templ.Component {
 			var templ_7745c5c3_Var6 templ.SafeURL
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/" + data.Collection))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 47, Col: 48}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 48, Col: 48}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -132,7 +132,7 @@ func BaseLayout(data models.PageData) templ.Component {
 			var templ_7745c5c3_Var7 string
 			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(data.Collection)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 47, Col: 68}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 48, Col: 68}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
@@ -151,7 +151,7 @@ func BaseLayout(data models.PageData) templ.Component {
 			var templ_7745c5c3_Var8 string
 			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(data.DocTitle)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 51, Col: 60}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 52, Col: 60}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
@@ -164,7 +164,7 @@ func BaseLayout(data models.PageData) templ.Component {
 			var templ_7745c5c3_Var9 string
 			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(data.DocTitle)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 51, Col: 78}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 52, Col: 78}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
@@ -182,7 +182,7 @@ func BaseLayout(data models.PageData) templ.Component {
 			var templ_7745c5c3_Var10 string
 			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(data.DocID)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 54, Col: 47}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 55, Col: 47}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
@@ -195,7 +195,7 @@ func BaseLayout(data models.PageData) templ.Component {
 			var templ_7745c5c3_Var11 string
 			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(data.DocID)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 54, Col: 62}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 55, Col: 62}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
@@ -218,7 +218,7 @@ func BaseLayout(data models.PageData) templ.Component {
 			var templ_7745c5c3_Var12 string
 			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.FormatInt(data.TotalItems, 10))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 60, Col: 77}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `base.templ`, Line: 61, Col: 77}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {

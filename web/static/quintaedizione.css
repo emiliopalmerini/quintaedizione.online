@@ -1,6 +1,37 @@
 /* Quinta Edizione - Project-specific Styles */
 
 /* ========================================================================
+   SKIP TO CONTENT (Accessibility)
+   ======================================================================== */
+
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 9999;
+  padding: var(--space-3) var(--space-4);
+  background: var(--border-color);
+  color: var(--text-inverse);
+  font-weight: var(--font-weight-black);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+}
+
+.skip-to-content:focus {
+  position: fixed;
+  left: var(--space-4);
+  top: var(--space-4);
+  width: auto;
+  height: auto;
+  overflow: visible;
+}
+
+/* ========================================================================
    SEARCH DROPDOWN (Extended from design system)
    ======================================================================== */
 
@@ -1838,5 +1869,57 @@
 
   footer {
     padding-bottom: calc(var(--space-6) + env(safe-area-inset-bottom));
+  }
+}
+
+/* ========================================================================
+   PRINT STYLESHEET
+   ======================================================================== */
+
+@media print {
+  .notion-nav,
+  .patreon-banner,
+  .theme-toggle,
+  .item-header,
+  .item-footer,
+  .search-container-wrapper,
+  .skip-to-content,
+  .page-overlay,
+  .loading-bar,
+  footer {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    color: #000;
+    background: #fff;
+  }
+
+  .item-content {
+    border: none;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .item-title {
+    font-size: 18pt;
+    margin-bottom: 12pt;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  a[href^="/"]::after,
+  a[href^="#"]::after {
+    content: "";
   }
 }
