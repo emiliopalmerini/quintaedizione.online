@@ -60,27 +60,26 @@ templ documentRow(doc models.Document, collection string) {
 }
 
 templ pagination(data models.CollectionPageData) {
-	<div class="px-2 sm:px-4 py-3 border-t bg-neutral-50">
-		<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-sm text-neutral-600">
-			<div class="text-center sm:text-left">
-				<span class="hidden sm:inline">Documenti { strconv.Itoa(data.StartItem) }-{ strconv.Itoa(data.EndItem) } di { strconv.FormatInt(data.Total, 10) }</span>
-				<span class="sm:hidden">{ strconv.Itoa(data.StartItem) }-{ strconv.Itoa(data.EndItem) } / { strconv.FormatInt(data.Total, 10) }</span>
-			</div>
-
-			<div class="flex items-center justify-center gap-2 sm:gap-3">
-				if data.HasPrev {
-					@prevButton(data)
-				}
-
-				<span class="px-1 sm:px-2 text-xs sm:text-sm whitespace-nowrap">
-					<span class="hidden sm:inline">Pagina </span>{ strconv.Itoa(data.Page) }<span class="hidden sm:inline"> di { strconv.Itoa(data.TotalPages) }</span><span class="sm:hidden">/{ strconv.Itoa(data.TotalPages) }</span>
-				</span>
-
-				if data.HasNext {
-					@nextButton(data)
-				}
-			</div>
-		</div>
+	<div class="item-nav border-t bg-neutral-50 px-2 sm:px-4 py-3">
+		if data.HasPrev {
+			@prevButton(data)
+		} else {
+			<span class="btn btn-icon btn-disabled" aria-disabled="true">
+				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+					<polyline points="15 18 9 12 15 6"></polyline>
+				</svg>
+			</span>
+		}
+		<span class="item-nav-position">{ strconv.Itoa(data.Page) } di { strconv.Itoa(data.TotalPages) }</span>
+		if data.HasNext {
+			@nextButton(data)
+		} else {
+			<span class="btn btn-icon btn-disabled" aria-disabled="true">
+				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+					<polyline points="9 6 15 12 9 18"></polyline>
+				</svg>
+			</span>
+		}
 	</div>
 }
 
@@ -133,31 +132,21 @@ func paginationURL(data models.CollectionPageData, page int) string {
 templ prevButton(data models.CollectionPageData) {
 	<button hx-get={ paginationURL(data, data.Page-1) }
 			hx-target="#rows"
-			class="btn btn-sm">
-		<svg class="sm:hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+			class="btn btn-icon"
+			aria-label="Precedente">
+		<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 			<polyline points="15 18 9 12 15 6"></polyline>
 		</svg>
-		<span class="hidden sm:inline-flex sm:items-center sm:gap-1">
-			<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-				<polyline points="15 18 9 12 15 6"></polyline>
-			</svg>
-			Precedente
-		</span>
 	</button>
 }
 
 templ nextButton(data models.CollectionPageData) {
 	<button hx-get={ paginationURL(data, data.Page+1) }
 			hx-target="#rows"
-			class="btn btn-sm">
-		<svg class="sm:hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+			class="btn btn-icon"
+			aria-label="Successiva">
+		<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 			<polyline points="9 6 15 12 9 18"></polyline>
 		</svg>
-		<span class="hidden sm:inline-flex sm:items-center sm:gap-1">
-			Successiva
-			<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-				<polyline points="9 6 15 12 9 18"></polyline>
-			</svg>
-		</span>
 	</button>
 }
