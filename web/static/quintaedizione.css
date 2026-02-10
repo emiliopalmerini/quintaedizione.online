@@ -1168,6 +1168,26 @@
 .stat-block {
   line-height: 1.7;
   font-size: 16px;
+  position: relative;
+  background: color-mix(in srgb, var(--primary) 3%, transparent);
+}
+
+.dark .stat-block {
+  background: transparent;
+}
+
+.stat-block::before,
+.stat-block::after {
+  content: "";
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 50%, var(--primary) 100%);
+  margin-bottom: var(--space-4);
+}
+
+.stat-block::after {
+  margin-bottom: 0;
+  margin-top: var(--space-4);
 }
 
 /* Subtitle: italic type/school line */
@@ -1187,7 +1207,8 @@
 /* Horizontal divider */
 .stat-block-divider {
   border: 0;
-  border-top: 1px solid var(--notion-border);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
   margin: 16px 0;
 }
 
@@ -1271,10 +1292,11 @@
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-snug);
   margin: var(--space-6) 0 var(--space-3);
-  padding-top: var(--space-3);
+  padding: var(--space-3) 0 var(--space-3) var(--space-3);
   color: var(--text-primary);
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-wide);
+  border-left: 4px solid var(--primary);
 }
 
 /* Trait/action items with bold name */
