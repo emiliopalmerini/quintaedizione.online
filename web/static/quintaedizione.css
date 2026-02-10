@@ -1168,26 +1168,6 @@
 .stat-block {
   line-height: 1.7;
   font-size: 16px;
-  position: relative;
-  background: color-mix(in srgb, var(--primary) 3%, transparent);
-}
-
-.dark .stat-block {
-  background: transparent;
-}
-
-.stat-block::before,
-.stat-block::after {
-  content: "";
-  display: block;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 50%, var(--primary) 100%);
-  margin-bottom: var(--space-4);
-}
-
-.stat-block::after {
-  margin-bottom: 0;
-  margin-top: var(--space-4);
 }
 
 /* Subtitle: italic type/school line */
@@ -1207,8 +1187,7 @@
 /* Horizontal divider */
 .stat-block-divider {
   border: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  border-top: 1px solid var(--notion-border);
   margin: 16px 0;
 }
 
