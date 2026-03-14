@@ -59,4 +59,5 @@ scripts/parse_srd/   Parser Python per estrarre dati dal PDF SRD
 
 ## Licenza
 
-Il contenuto SRD è rilasciato sotto la [Open Gaming License](https://www.opengamingfoundation.org/ogl.html) di Wizards of the Coast.
+- **Codice**: [BSD 3-Clause](LICENSE)
+- **Contenuto SRD**: [Creative Commons Attribution 4.0 (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/) di Wizards of the Coast
