@@ -8,6 +8,7 @@ import (
 type EditionOption struct {
 	SourceID  string // e.g. "srd-5.5e"
 	Name      string // e.g. "SRD 5.2.1 (2024)"
+	ShortName string // e.g. "5.5e"
 	Ruleset   string // e.g. "2024"
 	IsDefault bool
 }
@@ -32,7 +33,7 @@ templ Home(editions []EditionOption) {
 								} else {
 									<input type="radio" name="ruleset" value={ ed.Ruleset } data-source={ ed.SourceID }/>
 								}
-								<span>{ ed.Name }</span>
+								<span>{ ed.ShortName }</span>
 							</label>
 						}
 					</div>

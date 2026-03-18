@@ -27,10 +27,10 @@ func NewStore(data map[string][]map[string]any) *Store {
 			if id == "" {
 				continue
 			}
-			// Use source/id as composite key to support multiple editions
-			source, _ := doc["_source"].(string)
-			if source != "" {
-				idMap[source+"/"+id] = doc
+			// Use short_name/id as composite key for clean URLs
+			short, _ := doc["_source_short"].(string)
+			if short != "" {
+				idMap[short+"/"+id] = doc
 			} else {
 				idMap[id] = doc
 			}

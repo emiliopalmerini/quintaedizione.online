@@ -79,25 +79,25 @@ func main() {
 	contentService := services.NewContentService(repo, filterService, cache)
 	searchService := search.NewFuzzySearchService(searchRepo)
 
-	// Find the default source for legacy URL redirects
-	defaultSourceID := ""
+	// Find the default source short name for legacy URL redirects
+	defaultSourceShort := ""
 	for _, src := range sources {
 		if src.Default {
-			defaultSourceID = src.ID
+			defaultSourceShort = src.ShortName
 			break
 		}
 	}
-	if defaultSourceID == "" && len(sources) > 0 {
-		defaultSourceID = sources[0].ID
+	if defaultSourceShort == "" && len(sources) > 0 {
+		defaultSourceShort = sources[0].ShortName
 	}
 
-	srdHandlers := web.NewHandlers(contentService, searchService, templateEngine, defaultSourceID)
+	srdHandlers := web.NewHandlers(contentService, searchService, templateEngine, defaultSourceShort)
 
 	// ── Combattimenti setup ────────────────────────────────────
 
 	log.Println("Loading Combattimenti data...")
 	encounterRepo := combatMemory.NewEncounterRepository()
-	monsterRepo := combatMemory.NewMonsterRepository(jsondata.Files, "srd-5.5e/monsters.json")
+	monsterRepo := combatMemory.NewMonsterRepository(jsondata.Files, "srd-5.5e/monsters.json", defaultSourceShort)
 
 	encounterService := combatEncounter.NewService(logger, encounterRepo)
 	queryHandler := combatEncounter.NewQueryHandler(logger, encounterRepo)
@@ -170,6 +170,7 @@ func main() {
 		editions = append(editions, combatTemplates.EditionOption{
 			SourceID:  src.ID,
 			Name:      src.Name,
+			ShortName: src.ShortName,
 			Ruleset:   src.Ruleset,
 			IsDefault: src.Default,
 		})

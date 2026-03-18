@@ -8,7 +8,7 @@ import (
 )
 
 func newTestRepo() *MonsterRepository {
-	return NewMonsterRepository(jsondata.Files, "srd-5.5e/monsters.json")
+	return NewMonsterRepository(jsondata.Files, "srd-5.5e/monsters.json", "5.5e")
 }
 
 func TestNewMonsterRepository_LoadsMonsters(t *testing.T) {
