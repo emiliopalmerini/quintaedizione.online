@@ -18,16 +18,16 @@ func newTestFS() fstest.MapFS {
 		"srd-5.5e/monsters.json": &fstest.MapFile{
 			Data: []byte(`[{"id":"goblin","name":"Goblin","type":"Umanoide","size":"Piccola","cr":"1/4","cr_detail":"1/4 (PE 50; BC +2)","alignment":"neutrale malvagio"}]`),
 		},
-		"srd-5.5e/classes.json":      &fstest.MapFile{Data: []byte(`[]`)},
-		"srd-5.5e/backgrounds.json":  &fstest.MapFile{Data: []byte(`[]`)},
-		"srd-5.5e/equipment.json":    &fstest.MapFile{Data: []byte(`[]`)},
-		"srd-5.5e/magic_items.json":  &fstest.MapFile{Data: []byte(`[]`)},
-		"srd-5.5e/feats.json":        &fstest.MapFile{Data: []byte(`[]`)},
+		"srd-5.5e/classes.json":        &fstest.MapFile{Data: []byte(`[]`)},
+		"srd-5.5e/backgrounds.json":    &fstest.MapFile{Data: []byte(`[]`)},
+		"srd-5.5e/equipment.json":      &fstest.MapFile{Data: []byte(`[]`)},
+		"srd-5.5e/magic_items.json":    &fstest.MapFile{Data: []byte(`[]`)},
+		"srd-5.5e/feats.json":          &fstest.MapFile{Data: []byte(`[]`)},
 		"srd-5.5e/rules_gameplay.json": &fstest.MapFile{Data: []byte(`[]`)},
 		"srd-5.5e/rules_creation.json": &fstest.MapFile{Data: []byte(`[]`)},
 		"srd-5.5e/rules_tools.json":    &fstest.MapFile{Data: []byte(`[]`)},
-		"srd-5.5e/glossary.json":     &fstest.MapFile{Data: []byte(`[]`)},
-		"srd-5.5e/species.json":      &fstest.MapFile{Data: []byte(`[]`)},
+		"srd-5.5e/glossary.json":       &fstest.MapFile{Data: []byte(`[]`)},
+		"srd-5.5e/species.json":        &fstest.MapFile{Data: []byte(`[]`)},
 	}
 }
 
@@ -94,16 +94,10 @@ func TestLoadAll_TagsDocumentsWithSource(t *testing.T) {
 		t.Errorf("expected _source_short=5.5e, got %v", spells[0]["_source_short"])
 	}
 
-	// _id should be prefixed with source
+	// _id should stay clean (no prefix)
 	id, ok := spells[0]["_id"].(string)
-	if !ok || id != "srd-5.5e--palla-di-fuoco" {
-		t.Errorf("expected _id=srd-5.5e--palla-di-fuoco, got %v", spells[0]["_id"])
-	}
-
-	// _original_id should be preserved
-	origID, ok := spells[0]["_original_id"].(string)
-	if !ok || origID != "palla-di-fuoco" {
-		t.Errorf("expected _original_id=palla-di-fuoco, got %v", spells[0]["_original_id"])
+	if !ok || id != "palla-di-fuoco" {
+		t.Errorf("expected _id=palla-di-fuoco, got %v", spells[0]["_id"])
 	}
 }
 

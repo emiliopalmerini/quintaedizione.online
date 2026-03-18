@@ -68,7 +68,7 @@ func (h *Handlers) RegisterRoutes(mux *http.ServeMux) {
 	// Collection routes with validation middleware
 	mux.Handle("GET /{collection}", CollectionValidationMiddleware(http.HandlerFunc(h.collection.handleCollectionList)))
 	mux.Handle("GET /{collection}/rows", CollectionValidationMiddleware(http.HandlerFunc(h.collection.handleCollectionRows)))
-	mux.Handle("GET /{collection}/{slug}", CollectionValidationMiddleware(http.HandlerFunc(h.collection.handleItemDetail)))
+	mux.Handle("GET /{collection}/{source}/{slug}", CollectionValidationMiddleware(http.HandlerFunc(h.collection.handleItemDetail)))
 }
 
 // BaseHandler returns the base handler for middleware use.

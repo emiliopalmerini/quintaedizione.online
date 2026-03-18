@@ -24,10 +24,17 @@ func (r *searchRepository) GetSearchableItems(_ context.Context, collection stri
 	for _, doc := range docs {
 		id, _ := doc["_id"].(string)
 		title, _ := doc["title"].(string)
+		source, _ := doc["_source"].(string)
+
+		// Use composite key so search results can be looked up in the store
+		compositeID := id
+		if source != "" {
+			compositeID = source + "/" + id
+		}
 
 		keywords := extractKeywords(doc)
 		items = append(items, domainsearch.SearchableItem{
-			ID:         id,
+			ID:         compositeID,
 			Collection: collection,
 			Title:      title,
 			Keywords:   keywords,
