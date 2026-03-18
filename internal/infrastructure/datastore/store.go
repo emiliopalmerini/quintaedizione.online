@@ -27,7 +27,13 @@ func NewStore(data map[string][]map[string]any) *Store {
 			if id == "" {
 				continue
 			}
-			idMap[id] = doc
+			// Use source/id as composite key to support multiple editions
+			source, _ := doc["_source"].(string)
+			if source != "" {
+				idMap[source+"/"+id] = doc
+			} else {
+				idMap[id] = doc
+			}
 		}
 		s.collections[collection] = idMap
 

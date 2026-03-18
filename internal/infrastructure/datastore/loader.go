@@ -125,17 +125,12 @@ func (l *Loader) readJSON(filename string, v any) error {
 	return json.Unmarshal(data, v)
 }
 
-// tagDoc injects source metadata into a document and prefixes the _id
-// with the source ID to ensure uniqueness across sources.
+// tagDoc injects source metadata into a document.
+// The _id stays clean (no prefix). The store uses (source, id) as a composite key.
 func (l *Loader) tagDoc(doc map[string]any) {
 	if l.source != nil {
 		doc["_source"] = l.source.ID
 		doc["_source_short"] = l.source.ShortName
-		// Prefix _id with source to avoid collisions between editions
-		if id, ok := doc["_id"].(string); ok {
-			doc["_original_id"] = id
-			doc["_id"] = l.source.ID + "--" + id
-		}
 	}
 }
 
