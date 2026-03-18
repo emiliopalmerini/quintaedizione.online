@@ -46,12 +46,15 @@ func main() {
 	}
 	renderer := parsers.NewMarkdownRenderer(glossaryLinker)
 	loader := datastore.NewLoader(jsondata.Files, renderer)
-	data, err := loader.LoadAll()
+	data, sources, err := loader.LoadAll()
 	if err != nil {
 		log.Fatalf("Failed to load JSON data: %v", err)
 	}
 	store := datastore.NewStore(data)
-	log.Println("SRD data loaded into in-memory store")
+	log.Printf("SRD data loaded from %d source(s)", len(sources))
+	for _, src := range sources {
+		log.Printf("  source: %s (%s)", src.Name, src.ID)
+	}
 
 	for _, name := range store.Collections() {
 		log.Printf("  %s: %d documents", name, store.Count(name))
@@ -69,6 +72,7 @@ func main() {
 
 	filterRegistry := filters.NewInMemoryFilterRegistry()
 	filters.RegisterDefaultFilters(filterRegistry)
+	filters.RegisterEditionFilter(filterRegistry, sources)
 
 	filterService := services.NewFilterService(filterRegistry)
 	cache := infrastructure.NewSimpleCache()
@@ -81,7 +85,7 @@ func main() {
 
 	log.Println("Loading Combattimenti data...")
 	encounterRepo := combatMemory.NewEncounterRepository()
-	monsterRepo := combatMemory.NewMonsterRepository(jsondata.Files, "monsters.json")
+	monsterRepo := combatMemory.NewMonsterRepository(jsondata.Files, "srd-5.5e/monsters.json")
 
 	encounterService := combatEncounter.NewService(logger, encounterRepo)
 	queryHandler := combatEncounter.NewQueryHandler(logger, encounterRepo)
