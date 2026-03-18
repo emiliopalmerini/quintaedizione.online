@@ -1444,6 +1444,37 @@ html.dark select.field, html.dark .form-select {
 }
 .stat-block-divider { border: 0; border-top: 1px solid var(--color-border); margin: var(--space-4) 0; }
 
+.stat-block-properties { margin-bottom: var(--space-2); }
+.stat-block-property { margin: var(--space-1) 0; }
+.stat-block-property strong { font-weight: var(--weight-semibold); }
+
+.stat-block-abilities {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-2);
+  text-align: center; margin: var(--space-4) 0;
+}
+.stat-block-ability {
+  padding: var(--space-2); background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border); border-radius: var(--radius-sm);
+}
+.stat-block-ability-label { display: block; font-size: var(--text-xs); font-weight: var(--weight-bold); text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 2px; }
+.stat-block-ability-score { display: block; font-weight: var(--weight-bold); font-size: var(--text-lg); }
+.stat-block-ability-mod { display: block; font-size: var(--text-sm); color: var(--color-text-secondary); }
+.stat-block-ability-save { display: block; font-size: var(--text-xs); color: var(--color-text-secondary); }
+
+@media (max-width: 480px) {
+  .stat-block-abilities { grid-template-columns: repeat(3, 1fr); }
+}
+
+.stat-block-section { margin-top: var(--space-4); }
+.stat-block-section-heading {
+  font-size: var(--text-base); font-weight: var(--weight-bold);
+  margin: 0 0 var(--space-3) 0; padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border); color: var(--primary);
+}
+
+.stat-block-feature { margin: var(--space-3) 0; }
+.stat-block-feature-name { font-weight: var(--weight-bold); font-style: italic; }
+
 /* ========================================================================
    COPY TEXT MODAL
    ======================================================================== */
