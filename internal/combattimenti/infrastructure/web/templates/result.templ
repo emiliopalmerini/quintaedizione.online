@@ -1,0 +1,52 @@
+package templates
+
+import (
+	"strconv"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/application/encounter"
+)
+
+// MonsterFacets holds the available filter options for the monster browser.
+type MonsterFacets struct {
+	Types []string
+	Sizes []string
+	CRs   []string
+}
+
+templ Result(result *encounter.CalculateXPResponse, facets MonsterFacets) {
+	<div class="result-card">
+		<!-- Header with XP -->
+		<div class="result-header">
+			<h2>Budget XP: <span class="xp-value">{ strconv.Itoa(result.TotalXP) }</span></h2>
+		</div>
+
+		<!-- Ruleset and Party Info -->
+		<div class="result-info-grid">
+			<div class="result-info-item">
+				<span class="result-info-label">Regole</span>
+				<span class="result-info-value">D&D { result.Ruleset }</span>
+			</div>
+			<div class="result-info-item">
+				<span class="result-info-label">Personaggi</span>
+				<span class="result-info-value">{ strconv.Itoa(result.PartySize) } membri</span>
+			</div>
+			<div class="result-info-item">
+				<span class="result-info-label">Livelli</span>
+				<span class="result-info-value">
+					for i, level := range result.CharacterLevels {
+						if i > 0 {
+							<span>, </span>
+						}
+						{ strconv.Itoa(level) }
+					}
+				</span>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Monster Browser -->
+	if result.Ruleset == "2024" {
+		@MonsterBrowser(result.TotalXP, facets.Types, facets.Sizes, facets.CRs)
+	}
+
+}

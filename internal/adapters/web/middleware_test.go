@@ -1,25 +1,21 @@
 package web
 
 import (
+	"net/http"
 	"net/http/httptest"
 	"strings"
 	"testing"
-
-	"github.com/gin-gonic/gin"
 )
 
 func TestSecurityMiddleware_CSP(t *testing.T) {
-	gin.SetMode(gin.TestMode)
+	handler := SecurityMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("ok"))
+	}))
+
 	w := httptest.NewRecorder()
-	c, r := gin.CreateTestContext(w)
-
-	r.Use(SecurityMiddleware())
-	r.GET("/test", func(c *gin.Context) {
-		c.String(200, "ok")
-	})
-
-	c.Request = httptest.NewRequest("GET", "/test", nil)
-	r.ServeHTTP(w, c.Request)
+	r := httptest.NewRequest("GET", "/test", nil)
+	handler.ServeHTTP(w, r)
 
 	csp := w.Header().Get("Content-Security-Policy")
 	if csp == "" {
@@ -63,17 +59,14 @@ func TestSecurityMiddleware_CSP(t *testing.T) {
 }
 
 func TestSecurityMiddleware_Headers(t *testing.T) {
-	gin.SetMode(gin.TestMode)
+	handler := SecurityMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("ok"))
+	}))
+
 	w := httptest.NewRecorder()
-	c, r := gin.CreateTestContext(w)
-
-	r.Use(SecurityMiddleware())
-	r.GET("/test", func(c *gin.Context) {
-		c.String(200, "ok")
-	})
-
-	c.Request = httptest.NewRequest("GET", "/test", nil)
-	r.ServeHTTP(w, c.Request)
+	r := httptest.NewRequest("GET", "/test", nil)
+	handler.ServeHTTP(w, r)
 
 	headers := map[string]string{
 		"X-Content-Type-Options": "nosniff",

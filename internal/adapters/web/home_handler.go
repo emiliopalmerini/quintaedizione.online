@@ -7,7 +7,6 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
 	"github.com/emiliopalmerini/quintaedizione.online/pkg/mappers"
-	"github.com/gin-gonic/gin"
 )
 
 // HomeHandler handles home page requests.
@@ -16,8 +15,8 @@ type HomeHandler struct {
 }
 
 // handleHome renders the home page with collection statistics.
-func (h *HomeHandler) handleHome(c *gin.Context) {
-	collectionStats, err := h.contentService.GetCollectionStats(c.Request.Context())
+func (h *HomeHandler) handleHome(w http.ResponseWriter, r *http.Request) {
+	collectionStats, err := h.contentService.GetCollectionStats(r.Context())
 	if err != nil {
 		collectionStats = h.getDefaultCollections()
 	}
@@ -58,12 +57,13 @@ func (h *HomeHandler) handleHome(c *gin.Context) {
 
 	content, err := h.templateEngine.RenderHome(data)
 	if err != nil {
-		h.ErrorResponse(c, err, "Errore nel rendering della pagina home")
+		h.ErrorResponse(w, r, err, "Errore nel rendering della pagina home")
 		return
 	}
 
-	h.setCacheHeaders(c, "home")
-	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
+	h.setCacheHeaders(w, "home")
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	w.Write([]byte(content))
 }
 
 // getDefaultCollections returns default collection data when stats are unavailable.

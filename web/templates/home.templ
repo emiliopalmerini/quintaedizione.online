@@ -6,17 +6,11 @@ import "strconv"
 templ HomePage(data models.HomePageData) {
 	@BaseLayout(data.PageData) {
 		<section class="hero">
-			<h1>quintaedizione.online</h1>
-			<a href="https://duedraghialmicrofono.com" class="hero-link">
-				sostenuto da Due Draghi al Microfono
-			</a>
-
-			<p>
-				Regole base del gioco di ruolo fantasy più famoso al mondo, in italiano. Cerca, filtra e copia i contenuti.
-			</p>
+			<h1>SRD 5e</h1>
+			<p>Regole, incantesimi, mostri e altro — cerca e consulta liberamente.</p>
 
 			<div class="search-container-wrapper">
-				<form id="search-form" hx-get="/search/dropdown" hx-trigger="keyup changed delay:100ms from:#global-search, keydown[key=='Enter'] from:#global-search consume" hx-target="#search-results" hx-indicator="#search-spinner">
+				<form id="search-form" hx-get="/srd/search/dropdown" hx-trigger="keyup changed delay:100ms from:#global-search, keydown[key=='Enter'] from:#global-search consume" hx-target="#search-results" hx-indicator="#search-spinner">
 					<div class="search-input-group">
 						<svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 							<path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -53,7 +47,7 @@ templ HomePage(data models.HomePageData) {
 			<div id="search-overlay" class="search-overlay" aria-modal="true" role="dialog" aria-label="Cerca">
 				<div class="search-overlay-header">
 					<button type="button" class="search-overlay-close" aria-label="Chiudi ricerca">✕</button>
-					<form id="overlay-search-form" hx-get="/search/dropdown" hx-trigger="keyup changed delay:100ms from:#overlay-search-input, search from:#overlay-search-input" hx-target="#overlay-results" hx-include="#overlay-collection">
+					<form id="overlay-search-form" hx-get="/srd/search/dropdown" hx-trigger="keyup changed delay:100ms from:#overlay-search-input, search from:#overlay-search-input" hx-target="#overlay-results" hx-include="#overlay-collection">
 						<input type="hidden" name="collection" id="overlay-collection" value=""/>
 						<input
 							type="text"
@@ -79,7 +73,7 @@ templ HomePage(data models.HomePageData) {
 
 		<div class="collection-grid">
 			for _, collection := range data.Collections {
-				<a href={ templ.URL("/" + collection.Name) } class="collection-card">
+				<a href={ templ.URL("/srd/" + collection.Name) } class="collection-card">
 					<div class="collection-card-content">
 						<div class="collection-card-header">
 							<div>
@@ -95,7 +89,7 @@ templ HomePage(data models.HomePageData) {
 						if collection.Description != "" {
 						<div class="collection-card-description">{ collection.Description }</div>
 					}
-					<div class="collection-card-footer">Apri &rarr;</div>
+					<div class="collection-card-footer">Esplora &rarr;</div>
 					</div>
 				</a>
 			}

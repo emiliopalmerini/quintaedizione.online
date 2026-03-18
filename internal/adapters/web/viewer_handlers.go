@@ -2,6 +2,7 @@ package web
 
 import (
 	"fmt"
+	"net/http"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/display"
 	webmappers "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/mappers"
@@ -9,7 +10,6 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/search"
 	infraconfig "github.com/emiliopalmerini/quintaedizione.online/internal/infrastructure/config"
 	"github.com/emiliopalmerini/quintaedizione.online/pkg/templates"
-	"github.com/gin-gonic/gin"
 )
 
 // Handlers coordinates all specialized handlers.
@@ -54,23 +54,24 @@ func NewHandlers(contentService *services.ContentService, searchService search.S
 	}
 }
 
-// RegisterRoutes registers all HTTP routes with their respective handlers.
-func (h *Handlers) RegisterRoutes(router *gin.Engine) {
-	router.GET("/", h.home.handleHome)
+// RegisterRoutes registers all SRD HTTP routes on a chi-compatible http.ServeMux or router.
+// The caller is expected to mount these under the appropriate prefix (e.g., /srd).
+func (h *Handlers) RegisterRoutes(mux *http.ServeMux) {
+	mux.HandleFunc("GET /", h.home.handleHome)
 
 	// Specific routes must be registered before wildcard routes
-	router.GET("/search", h.search.handleGlobalSearch)
-	router.GET("/search/dropdown", h.search.handleSearchDropdown)
-	router.GET("/robots.txt", h.seo.handleRobotsTxt)
-	router.GET("/sitemap.xml", h.seo.handleSitemap)
+	mux.HandleFunc("GET /search", h.search.handleGlobalSearch)
+	mux.HandleFunc("GET /search/dropdown", h.search.handleSearchDropdown)
+	mux.HandleFunc("GET /robots.txt", h.seo.handleRobotsTxt)
+	mux.HandleFunc("GET /sitemap.xml", h.seo.handleSitemap)
 
-	// Wildcard routes (must come last)
-	router.GET("/:collection", h.collection.handleCollectionList)
-	router.GET("/:collection/rows", h.collection.handleCollectionRows)
-	router.GET("/:collection/:slug", h.collection.handleItemDetail)
+	// Collection routes with validation middleware
+	mux.Handle("GET /{collection}", CollectionValidationMiddleware(http.HandlerFunc(h.collection.handleCollectionList)))
+	mux.Handle("GET /{collection}/rows", CollectionValidationMiddleware(http.HandlerFunc(h.collection.handleCollectionRows)))
+	mux.Handle("GET /{collection}/{slug}", CollectionValidationMiddleware(http.HandlerFunc(h.collection.handleItemDetail)))
 }
 
-// baseHandlerForMiddleware returns a baseHandler for middleware use.
-func (h *Handlers) baseHandlerForMiddleware() *baseHandler {
+// BaseHandler returns the base handler for middleware use.
+func (h *Handlers) BaseHandler() *baseHandler {
 	return h.home.baseHandler
 }

@@ -1,6 +1,7 @@
 package web
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -10,96 +11,65 @@ import (
 	"time"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
-	"github.com/gin-gonic/gin"
 	"golang.org/x/time/rate"
 )
 
-func (h *Handlers) ErrorRecoveryMiddleware() gin.HandlerFunc {
-	base := h.baseHandlerForMiddleware()
-	return func(c *gin.Context) {
-		defer func() {
-			if err := recover(); err != nil {
+func ErrorRecoveryMiddleware(base *baseHandler) func(http.Handler) http.Handler {
+	return func(next http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			defer func() {
+				if err := recover(); err != nil {
+					isProduction := os.Getenv("ENVIRONMENT") == "production"
+					if isProduction {
+						log.Printf("PANIC recovered: %v", err)
+					} else {
+						stack := debug.Stack()
+						log.Printf("PANIC recovered: %v\n%s", err, stack)
+					}
 
-				// Only log detailed stack trace in development mode
-				isProduction := os.Getenv("ENVIRONMENT") == "production"
-				if isProduction {
-					// In production, log minimal information for security
-					log.Printf("PANIC recovered: %v", err)
-				} else {
-					// In development, log full stack trace for debugging
-					stack := debug.Stack()
-					log.Printf("PANIC recovered: %v\n%s", err, stack)
+					errMsg := "Si è verificato un errore interno del server"
+					base.ErrorResponse(w, r, fmt.Errorf("internal server error"), errMsg)
 				}
+			}()
 
-				errMsg := "Si è verificato un errore interno del server"
-				base.ErrorResponse(c, fmt.Errorf("internal server error"), errMsg)
-
-				c.Abort()
-			}
-		}()
-
-		c.Next()
+			next.ServeHTTP(w, r)
+		})
 	}
 }
 
-func RequestLoggingMiddleware() gin.HandlerFunc {
-	return func(c *gin.Context) {
+func RequestLoggingMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		path := r.URL.Path
+		raw := r.URL.RawQuery
 
-		start := c.Request.Context()
-		path := c.Request.URL.Path
-		raw := c.Request.URL.RawQuery
-
-		c.Next()
+		next.ServeHTTP(w, r)
 
 		if raw != "" {
 			path = path + "?" + raw
 		}
 
-		if len(c.Errors) > 0 {
-			log.Printf("Request errors for %s %s: %v", c.Request.Method, path, c.Errors)
-		}
-
-		_ = start
-	}
+		_ = path
+	})
 }
 
-func SecurityMiddleware() gin.HandlerFunc {
-	return func(c *gin.Context) {
+func SecurityMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("X-Content-Type-Options", "nosniff")
+		w.Header().Set("X-Frame-Options", "DENY")
+		w.Header().Set("X-XSS-Protection", "1; mode=block")
+		w.Header().Set("Referrer-Policy", "strict-origin-when-cross-origin")
+		w.Header().Set("Content-Security-Policy", "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-eval' 'sha256-o4K/zLfEcURa/FY6Of6008nCCMKcSpj1j3zhbOMtl8Q='; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'")
+		w.Header().Set("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
 
-		c.Header("X-Content-Type-Options", "nosniff")
-		c.Header("X-Frame-Options", "DENY")
-		c.Header("X-XSS-Protection", "1; mode=block")
-		c.Header("Referrer-Policy", "strict-origin-when-cross-origin")
-
-		// Content-Security-Policy prevents inline scripts and restricts resource loading
-		// - unsafe-eval: required by HTMX for event filter expressions (e.g. keydown[key=='Enter'])
-		// - sha256 hash: allows the inline theme-detection script in base.templ
-		// - fonts.googleapis.com / fonts.gstatic.com: Google Fonts (Inter)
-		c.Header("Content-Security-Policy", "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-eval' 'sha256-o4K/zLfEcURa/FY6Of6008nCCMKcSpj1j3zhbOMtl8Q='; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'")
-
-		// Strict-Transport-Security enforces HTTPS connections
-		c.Header("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
-
-		c.Next()
-	}
+		next.ServeHTTP(w, r)
+	})
 }
 
-func ValidationMiddleware() gin.HandlerFunc {
-	return func(c *gin.Context) {
-
-		if collection := c.Param("collection"); collection != "" {
-			if !isValidCollection(collection) {
-				c.JSON(http.StatusBadRequest, gin.H{
-					"error":             "Collezione non valida",
-					"valid_collections": getValidCollections(),
-				})
-				c.Abort()
-				return
-			}
-		}
-
-		c.Next()
-	}
+func ValidationMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		// Validation is now handled per-route in chi via route-specific middleware
+		next.ServeHTTP(w, r)
+	})
 }
 
 func isValidCollection(collection string) bool {
@@ -161,24 +131,76 @@ func (rl *RateLimiter) GetLimiter(ip string) *rate.Limiter {
 }
 
 // RateLimitMiddleware enforces per-IP rate limiting
-func RateLimitMiddleware(rl *RateLimiter) gin.HandlerFunc {
-	return func(c *gin.Context) {
-		// Get client IP
-		clientIP := c.ClientIP()
+func RateLimitMiddleware(rl *RateLimiter) func(http.Handler) http.Handler {
+	return func(next http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			clientIP := r.RemoteAddr
 
-		// Get the rate limiter for this IP
-		limiter := rl.GetLimiter(clientIP)
+			limiter := rl.GetLimiter(clientIP)
 
-		// Check if request is allowed
-		if !limiter.Allow() {
-			c.Header("Retry-After", "1")
-			c.JSON(http.StatusTooManyRequests, gin.H{
-				"error": "Troppe richieste. Per favore riprova tra un secondo.",
+			if !limiter.Allow() {
+				w.Header().Set("Retry-After", "1")
+				w.Header().Set("Content-Type", "application/json")
+				w.WriteHeader(http.StatusTooManyRequests)
+				json.NewEncoder(w).Encode(map[string]string{
+					"error": "Troppe richieste. Per favore riprova tra un secondo.",
+				})
+				return
+			}
+
+			next.ServeHTTP(w, r)
+		})
+	}
+}
+
+// CollectionValidationMiddleware validates the {collection} URL parameter.
+func CollectionValidationMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		collection := r.PathValue("collection")
+		if collection != "" && !isValidCollection(collection) {
+			w.Header().Set("Content-Type", "application/json")
+			w.WriteHeader(http.StatusBadRequest)
+			json.NewEncoder(w).Encode(map[string]any{
+				"error":             "Collezione non valida",
+				"valid_collections": getValidCollections(),
 			})
-			c.Abort()
+			return
+		}
+		next.ServeHTTP(w, r)
+	})
+}
+
+// CORSMiddleware handles CORS headers.
+func CORSMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		origin := r.Header.Get("Origin")
+
+		allowedOrigins := map[string]bool{
+			"https://quintaedizione.online":     true,
+			"https://www.quintaedizione.online": true,
+		}
+
+		if os.Getenv("ENVIRONMENT") != "production" {
+			allowedOrigins["http://localhost:3000"] = true
+			allowedOrigins["http://localhost:8000"] = true
+			allowedOrigins["http://127.0.0.1:3000"] = true
+			allowedOrigins["http://127.0.0.1:8000"] = true
+		}
+
+		if allowedOrigins[origin] {
+			w.Header().Set("Access-Control-Allow-Origin", origin)
+			w.Header().Set("Access-Control-Allow-Credentials", "true")
+		}
+
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+		w.Header().Set("Access-Control-Allow-Methods", "GET, OPTIONS")
+		w.Header().Set("Access-Control-Max-Age", "3600")
+
+		if r.Method == "OPTIONS" {
+			w.WriteHeader(http.StatusNoContent)
 			return
 		}
 
-		c.Next()
-	}
+		next.ServeHTTP(w, r)
+	})
 }

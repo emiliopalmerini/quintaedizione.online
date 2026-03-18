@@ -2,8 +2,6 @@ package web
 
 import (
 	"net/http"
-
-	"github.com/gin-gonic/gin"
 )
 
 // SEOHandler handles SEO-related requests (robots.txt, sitemap).
@@ -12,16 +10,17 @@ type SEOHandler struct {
 }
 
 // handleRobotsTxt serves the robots.txt file.
-func (h *SEOHandler) handleRobotsTxt(c *gin.Context) {
-	c.Header("Cache-Control", "max-age=86400, public")
-	c.File("./web/static/robots.txt")
+func (h *SEOHandler) handleRobotsTxt(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Cache-Control", "max-age=86400, public")
+	http.ServeFile(w, r, "./web/static/robots.txt")
 }
 
 // handleSitemap generates and serves the XML sitemap.
-func (h *SEOHandler) handleSitemap(c *gin.Context) {
+func (h *SEOHandler) handleSitemap(w http.ResponseWriter, r *http.Request) {
 	sitemap := h.generateSitemap()
-	c.Header("Cache-Control", "max-age=86400, public")
-	c.Data(http.StatusOK, "application/xml; charset=utf-8", []byte(sitemap))
+	w.Header().Set("Cache-Control", "max-age=86400, public")
+	w.Header().Set("Content-Type", "application/xml; charset=utf-8")
+	w.Write([]byte(sitemap))
 }
 
 // generateSitemap creates the XML sitemap with all collections.
@@ -39,7 +38,7 @@ func (h *SEOHandler) generateSitemap() string {
 	for _, collection := range collectionNames {
 		sitemap += `
   <url>
-    <loc>` + baseURL + `/` + collection + `</loc>
+    <loc>` + baseURL + `/srd/` + collection + `</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`

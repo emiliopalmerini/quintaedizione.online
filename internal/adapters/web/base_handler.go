@@ -2,6 +2,7 @@ package web
 
 import (
 	"fmt"
+	"net/http"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/config"
 	webmappers "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/mappers"
@@ -9,7 +10,6 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
 	infraconfig "github.com/emiliopalmerini/quintaedizione.online/internal/infrastructure/config"
 	"github.com/emiliopalmerini/quintaedizione.online/pkg/templates"
-	"github.com/gin-gonic/gin"
 )
 
 // baseHandler contains shared dependencies for all handlers.
@@ -37,7 +37,7 @@ var cacheTypeMap = map[string]config.CacheType{
 }
 
 // setCacheHeaders sets appropriate cache control headers based on the cache type.
-func (h *baseHandler) setCacheHeaders(c *gin.Context, cacheTypeStr string) {
+func (h *baseHandler) setCacheHeaders(w http.ResponseWriter, cacheTypeStr string) {
 	cacheType, exists := cacheTypeMap[cacheTypeStr]
 	if !exists {
 		cacheType = config.CacheTypeCollection
@@ -46,10 +46,10 @@ func (h *baseHandler) setCacheHeaders(c *gin.Context, cacheTypeStr string) {
 	maxAge := config.GetCacheDuration(cacheType)
 
 	if maxAge > 0 {
-		c.Header("Cache-Control", fmt.Sprintf("max-age=%d, public", maxAge))
+		w.Header().Set("Cache-Control", fmt.Sprintf("max-age=%d, public", maxAge))
 	} else {
-		c.Header("Cache-Control", "no-cache, no-store, must-revalidate")
-		c.Header("Pragma", "no-cache")
-		c.Header("Expires", "0")
+		w.Header().Set("Cache-Control", "no-cache, no-store, must-revalidate")
+		w.Header().Set("Pragma", "no-cache")
+		w.Header().Set("Expires", "0")
 	}
 }
