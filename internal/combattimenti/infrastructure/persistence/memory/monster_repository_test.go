@@ -3,11 +3,16 @@ package memory
 import (
 	"testing"
 
+	jsondata "github.com/emiliopalmerini/quintaedizione.online/data/ita/json"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/domain/monster"
 )
 
+func newTestRepo() *MonsterRepository {
+	return NewMonsterRepository(jsondata.Files, "monsters.json")
+}
+
 func TestNewMonsterRepository_LoadsMonsters(t *testing.T) {
-	repo := NewMonsterRepository()
+	repo := newTestRepo()
 	monsters := repo.FindByMaxXP(1_000_000)
 	if len(monsters) == 0 {
 		t.Fatal("expected monsters to be loaded, got 0")
@@ -19,7 +24,7 @@ func TestNewMonsterRepository_LoadsMonsters(t *testing.T) {
 }
 
 func TestNewMonsterRepository_ParsesXP(t *testing.T) {
-	repo := NewMonsterRepository()
+	repo := newTestRepo()
 	// Aboleth has CR 10, XP 5900
 	monsters := repo.Search("aboleth", 1_000_000)
 	if len(monsters) != 1 {
@@ -34,7 +39,7 @@ func TestNewMonsterRepository_ParsesXP(t *testing.T) {
 }
 
 func TestFindByMaxXP_FiltersCorrectly(t *testing.T) {
-	repo := NewMonsterRepository()
+	repo := newTestRepo()
 
 	// Only CR 0 monsters have XP 0
 	zeroXP := repo.FindByMaxXP(0)
@@ -59,7 +64,7 @@ func TestFindByMaxXP_FiltersCorrectly(t *testing.T) {
 }
 
 func TestSearch_FiltersByNameAndXP(t *testing.T) {
-	repo := NewMonsterRepository()
+	repo := newTestRepo()
 
 	// Search by name
 	dragons := repo.Search("drago", 1_000_000)
@@ -82,7 +87,7 @@ func TestSearch_FiltersByNameAndXP(t *testing.T) {
 }
 
 func TestNewMonsterRepository_ParsesDetailFields(t *testing.T) {
-	repo := NewMonsterRepository()
+	repo := newTestRepo()
 	monsters := repo.Search("aboleth", 1_000_000)
 	if len(monsters) != 1 {
 		t.Fatalf("expected 1 aboleth, got %d", len(monsters))
@@ -168,7 +173,7 @@ func TestNewMonsterRepository_ParsesDetailFields(t *testing.T) {
 }
 
 func TestSearch_EmptyQuery_ReturnsAllUpToMaxXP(t *testing.T) {
-	repo := NewMonsterRepository()
+	repo := newTestRepo()
 	all := repo.Search("", 1_000_000)
 	if len(all) != 330 {
 		t.Errorf("expected 330 monsters with empty query, got %d", len(all))
@@ -226,7 +231,7 @@ func TestCRValue(t *testing.T) {
 }
 
 func TestSearchWithFilters_ByType(t *testing.T) {
-	repo := NewMonsterRepository()
+	repo := newTestRepo()
 	filters := monster.SearchFilters{MaxXP: 1_000_000, Type: "Drago"}
 	results := repo.SearchWithFilters(filters)
 	if len(results) == 0 {
@@ -240,7 +245,7 @@ func TestSearchWithFilters_ByType(t *testing.T) {
 }
 
 func TestSearchWithFilters_BySize(t *testing.T) {
-	repo := NewMonsterRepository()
+	repo := newTestRepo()
 	filters := monster.SearchFilters{MaxXP: 1_000_000, Size: "Grande"}
 	results := repo.SearchWithFilters(filters)
 	if len(results) == 0 {
@@ -254,7 +259,7 @@ func TestSearchWithFilters_BySize(t *testing.T) {
 }
 
 func TestSearchWithFilters_ByCRRange(t *testing.T) {
-	repo := NewMonsterRepository()
+	repo := newTestRepo()
 	filters := monster.SearchFilters{MaxXP: 1_000_000, CRMin: "5", CRMax: "10"}
 	results := repo.SearchWithFilters(filters)
 	if len(results) == 0 {
@@ -269,7 +274,7 @@ func TestSearchWithFilters_ByCRRange(t *testing.T) {
 }
 
 func TestSearchWithFilters_Combined(t *testing.T) {
-	repo := NewMonsterRepository()
+	repo := newTestRepo()
 	filters := monster.SearchFilters{
 		MaxXP: 1_000_000,
 		Query: "drago",
@@ -291,7 +296,7 @@ func TestSearchWithFilters_Combined(t *testing.T) {
 }
 
 func TestAvailableTypes(t *testing.T) {
-	repo := NewMonsterRepository()
+	repo := newTestRepo()
 	types := repo.AvailableTypes()
 	if len(types) == 0 {
 		t.Fatal("expected some types")
@@ -305,7 +310,7 @@ func TestAvailableTypes(t *testing.T) {
 }
 
 func TestAvailableSizes(t *testing.T) {
-	repo := NewMonsterRepository()
+	repo := newTestRepo()
 	sizes := repo.AvailableSizes()
 	if len(sizes) == 0 {
 		t.Fatal("expected some sizes")
@@ -319,7 +324,7 @@ func TestAvailableSizes(t *testing.T) {
 }
 
 func TestAvailableCRs(t *testing.T) {
-	repo := NewMonsterRepository()
+	repo := newTestRepo()
 	crs := repo.AvailableCRs()
 	if len(crs) == 0 {
 		t.Fatal("expected some CRs")

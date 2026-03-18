@@ -81,7 +81,7 @@ func main() {
 
 	log.Println("Loading Combattimenti data...")
 	encounterRepo := combatMemory.NewEncounterRepository()
-	monsterRepo := combatMemory.NewMonsterRepository()
+	monsterRepo := combatMemory.NewMonsterRepository(jsondata.Files, "monsters.json")
 
 	encounterService := combatEncounter.NewService(logger, encounterRepo)
 	queryHandler := combatEncounter.NewQueryHandler(logger, encounterRepo)
