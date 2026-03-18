@@ -6,14 +6,8 @@ import "strconv"
 templ HomePage(data models.HomePageData) {
 	@BaseLayout(data.PageData) {
 		<section class="hero">
-			<h1>quintaedizione.online</h1>
-			<a href="https://duedraghialmicrofono.com" class="hero-link">
-				sostenuto da Due Draghi al Microfono
-			</a>
-
-			<p>
-				Regole base del gioco di ruolo fantasy più famoso al mondo, in italiano. Cerca, filtra e copia i contenuti.
-			</p>
+			<h1>SRD 5e</h1>
+			<p>Regole, incantesimi, mostri e altro — cerca e consulta liberamente.</p>
 
 			<div class="search-container-wrapper">
 				<form id="search-form" hx-get="/srd/search/dropdown" hx-trigger="keyup changed delay:100ms from:#global-search, keydown[key=='Enter'] from:#global-search consume" hx-target="#search-results" hx-indicator="#search-spinner">
@@ -95,7 +89,7 @@ templ HomePage(data models.HomePageData) {
 						if collection.Description != "" {
 						<div class="collection-card-description">{ collection.Description }</div>
 					}
-					<div class="collection-card-footer">Apri &rarr;</div>
+					<div class="collection-card-footer">Esplora &rarr;</div>
 					</div>
 				</a>
 			}
