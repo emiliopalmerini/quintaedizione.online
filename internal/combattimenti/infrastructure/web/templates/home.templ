@@ -1,7 +1,9 @@
 package templates
 
+import shared "github.com/emiliopalmerini/quintaedizione.online/web/templates"
+
 templ Home() {
-	@Base("Combattimenti Online - Calcolatore di Incontri D&D") {
+	@shared.SiteLayout("Calcolatore Incontri", "Calcolatore di incontri D&D 5e per Dungeon Master — supporta regole 2014 e 2024.", "combattimenti", shared.EncountersScript()) {
 		<div class="page-header">
 			<h1>Combattimenti Online</h1>
 			<p class="text-secondary" style="max-width: 600px; margin: 0 auto;">Calcolatore di incontri per Dungeon Master - Supporta D&D 2014 e 2024</p>

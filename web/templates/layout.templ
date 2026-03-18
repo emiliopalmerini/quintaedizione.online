@@ -1,38 +1,52 @@
 package templates
 
-templ Base(title string, children ...templ.Component) {
+// SiteLayout is the unified shell for all pages.
+// activeNav: "srd", "combattimenti", or "" (landing).
+// extraHeadHTML: additional <head> content (e.g. extra scripts).
+templ SiteLayout(title, description, activeNav string, extraHeadHTML templ.Component) {
 	<!DOCTYPE html>
 	<html lang="it">
 	<head>
 		<meta charset="utf-8"/>
 		<title>
 			if title != "" {
-				{ title }
+				{ title } — quintaedizione.online
 			} else {
-				Combattimenti Online - Calcolatore di Incontri D&D
+				quintaedizione.online
 			}
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		if description != "" {
+			<meta name="description" content={ description }/>
+			<meta property="og:description" content={ description }/>
+		}
+		if title != "" {
+			<meta property="og:title" content={ title }/>
+		}
+		<meta property="og:type" content="website"/>
+		<meta property="og:site_name" content="quintaedizione.online"/>
 		<script>
 			(function(){var d=document.documentElement,t=localStorage.getItem('theme');if(t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme:dark)').matches))d.classList.add('dark')})()
 		</script>
-		<script src="/static/htmx.min.js"></script>
+		<script src="/static/htmx.min.js" defer></script>
 		<link rel="stylesheet" href="/static/css/tokens.css"/>
 		<link rel="stylesheet" href="/static/css/main.css"/>
 		<link rel="stylesheet" href="/static/css/utilities.css"/>
 		<link rel="icon" href="/static/favicon.svg" type="image/svg+xml"/>
 		<script src="/static/main.js" defer></script>
-		<script src="/static/js/encounters.js" defer></script>
+		if extraHeadHTML != nil {
+			@extraHeadHTML
+		}
 	</head>
 	<body class="flex flex-col min-h-screen">
+		<a href="#page-root" class="skip-to-content">Vai al contenuto principale</a>
+
 		<header class="site-nav">
 			<div class="site-nav-container">
-				<nav class="breadcrumb" aria-label="Breadcrumb">
-					<a href="/">Home</a>
-					<span class="breadcrumb-separator">/</span>
-					<a href="/combattimenti">Combattimenti</a>
-					<span class="breadcrumb-separator">/</span>
-					<span class="breadcrumb-current">Calcolatore</span>
+				<a href="/" class="site-nav-brand">quintaedizione.online</a>
+				<nav class="site-nav-links" aria-label="Navigazione principale">
+					<a href="/srd" class={ "site-nav-link", templ.KV("active", activeNav == "srd") }>SRD</a>
+					<a href="/combattimenti" class={ "site-nav-link", templ.KV("active", activeNav == "combattimenti") }>Combattimenti</a>
 				</nav>
 				<button class="theme-toggle" id="theme-toggle" aria-label="Cambia tema">
 					<svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
@@ -41,7 +55,7 @@ templ Base(title string, children ...templ.Component) {
 			</div>
 		</header>
 
-		@patreonBanner()
+		@sitePatreonBanner()
 
 		<main class="flex-1">
 			<div id="page-root" hx-history-elt class="container mx-auto max-w-4xl py-8">
@@ -54,12 +68,12 @@ templ Base(title string, children ...templ.Component) {
 			</div>
 		</main>
 
-		@footer()
+		@siteFooter()
 	</body>
 	</html>
 }
 
-templ patreonBanner() {
+templ sitePatreonBanner() {
 	<div id="patreon-banner" class="patreon-banner">
 		Questo progetto è gratuito grazie ai nostri supporter.
 		<a href="https://patreon.com/DueDraghiPlus" target="_blank" rel="noopener noreferrer">Unisciti a loro su Patreon!</a>
@@ -67,14 +81,23 @@ templ patreonBanner() {
 	</div>
 }
 
-templ footer() {
+templ siteFooter() {
 	<footer class="mt-auto border-t py-6">
 		<div class="container mx-auto max-w-4xl text-center">
-			<p class="text-xs text-secondary m-0" style="line-height: 1.4;">
-				<span class="patreon-footer"><a href="https://patreon.com/DueDraghiPlus" target="_blank" rel="noopener noreferrer">Supporta il progetto su Patreon</a></span> |
-				Creato da <a href="https://duedraghialmicrofono.com" target="_blank" rel="noopener noreferrer">Due Draghi al Microfono</a> |
-				<a href="https://www.dndbeyond.com/srd" target="_blank" rel="noopener noreferrer">D&D 5 SRD</a>
+			<p class="text-xs text-secondary m-0" style="line-height: 1.6;">
+				<span class="patreon-footer">
+					<a href="https://patreon.com/DueDraghiPlus" target="_blank" rel="noopener noreferrer">Supporta il progetto su Patreon</a>
+				</span>
+				 |
+				Creato da <a href="https://duedraghialmicrofono.com" target="_blank" rel="noopener noreferrer">Due Draghi al Microfono</a>
+				 |
+				This work includes material from the <a href="https://www.dndbeyond.com/srd" target="_blank" rel="noopener noreferrer">SRD 5.2.1</a> licensed under <a href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
 			</p>
 		</div>
 	</footer>
+}
+
+// EncountersScript is a helper component to load encounters.js.
+templ EncountersScript() {
+	<script src="/static/js/encounters.js" defer></script>
 }

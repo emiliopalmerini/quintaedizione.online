@@ -33,3 +33,4 @@ bin/
 
 # Claude Code settings
 .claude/
+app
