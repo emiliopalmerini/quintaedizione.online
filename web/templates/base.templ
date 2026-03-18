@@ -32,20 +32,18 @@ templ BaseLayout(data models.PageData) {
 		<link rel="stylesheet" href="/static/css/tokens.css"/>
 		<link rel="stylesheet" href="/static/css/main.css"/>
 		<link rel="stylesheet" href="/static/css/utilities.css"/>
-		<link rel="stylesheet" href="/static/quintaedizione.css"/>
 		<link rel="icon" href="/static/favicon.svg" type="image/svg+xml"/>
 		<script src="/static/main.js" defer></script>
 	</head>
 	<body class="flex flex-col min-h-screen text-primary">
 		<a href="#page-root" class="skip-to-content">Vai al contenuto principale</a>
-		<!-- Notion-style top bar -->
-		<header class="notion-nav">
-			<div class="notion-nav-container">
+		<header class="site-nav">
+			<div class="site-nav-container">
 				<nav class="breadcrumb" aria-label="Breadcrumb">
 					<a href="/">Home</a>
 					if data.Collection != "" {
 						<span class="breadcrumb-separator">/</span>
-						<a href={ templ.URL("/" + data.Collection) }>{ data.Collection }</a>
+						<a href={ templ.URL("/srd/" + data.Collection) }>{ data.Collection }</a>
 					}
 					if data.DocTitle != "" {
 						<span class="breadcrumb-separator">/</span>
@@ -70,7 +68,6 @@ templ BaseLayout(data models.PageData) {
 
 		@patreonBanner()
 
-		<!-- Notion-style content area -->
 		<main class="flex-1">
 			<div id="page-root" hx-history-elt class="container mx-auto max-w-4xl py-8">
 				{ children... }

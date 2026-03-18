@@ -7,7 +7,6 @@ import (
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
 	"github.com/emiliopalmerini/quintaedizione.online/pkg/mappers"
-	"github.com/gin-gonic/gin"
 )
 
 // CollectionHandler handles collection-related requests.
@@ -16,15 +15,15 @@ type CollectionHandler struct {
 }
 
 // handleCollectionList renders the full collection page with filters and pagination.
-func (h *CollectionHandler) handleCollectionList(c *gin.Context) {
-	collection := c.Param("collection")
-	params := ExtractPaginationParams(c)
+func (h *CollectionHandler) handleCollectionList(w http.ResponseWriter, r *http.Request) {
+	collection := r.PathValue("collection")
+	params := ExtractPaginationParams(r)
 
-	filters := h.extractFilters(c)
+	filters := h.extractFilters(r)
 
-	rawItems, totalCount, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, params.Query, filters, params.PageNum, params.PageSize)
+	rawItems, totalCount, err := h.contentService.GetCollectionItems(r.Context(), collection, params.Query, filters, params.PageNum, params.PageSize)
 	if err != nil {
-		h.ErrorResponse(c, err, fmt.Sprintf("Errore nel caricamento della collezione %s", collection))
+		h.ErrorResponse(w, r, err, fmt.Sprintf("Errore nel caricamento della collezione %s", collection))
 		return
 	}
 
@@ -32,7 +31,7 @@ func (h *CollectionHandler) handleCollectionList(c *gin.Context) {
 
 	pagination := CalculatePaginationData(params.PageNum, params.PageSize, totalCount)
 
-	facetCounts, _ := h.contentService.GetFacetCounts(c.Request.Context(), collection, params.Query, filters)
+	facetCounts, _ := h.contentService.GetFacetCounts(r.Context(), collection, params.Query, filters)
 	filterOptions := h.buildFilterOptionsWithCounts(collection, filters, facetCounts)
 
 	collectionTitle := h.getCollectionTitle(collection)
@@ -41,7 +40,7 @@ func (h *CollectionHandler) handleCollectionList(c *gin.Context) {
 			Title:       collectionTitle,
 			Description: fmt.Sprintf("Elenco completo di %s — SRD 5e in italiano.", collectionTitle),
 			Collection:  collection,
-			QueryString: c.Request.URL.RawQuery,
+			QueryString: r.URL.RawQuery,
 		},
 		Documents:  documents,
 		Filters:    filterOptions,
@@ -58,24 +57,25 @@ func (h *CollectionHandler) handleCollectionList(c *gin.Context) {
 
 	content, err := h.templateEngine.RenderCollection(data)
 	if err != nil {
-		h.ErrorResponse(c, err, "Errore nel rendering della pagina collezione")
+		h.ErrorResponse(w, r, err, "Errore nel rendering della pagina collezione")
 		return
 	}
 
-	h.setCacheHeaders(c, "collection")
-	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
+	h.setCacheHeaders(w, "collection")
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	w.Write([]byte(content))
 }
 
 // handleCollectionRows renders only the table rows for HTMX partial updates.
-func (h *CollectionHandler) handleCollectionRows(c *gin.Context) {
-	collection := c.Param("collection")
-	params := ExtractPaginationParams(c)
+func (h *CollectionHandler) handleCollectionRows(w http.ResponseWriter, r *http.Request) {
+	collection := r.PathValue("collection")
+	params := ExtractPaginationParams(r)
 
-	filters := h.extractFilters(c)
+	filters := h.extractFilters(r)
 
-	rawItems, totalCount, err := h.contentService.GetCollectionItems(c.Request.Context(), collection, params.Query, filters, params.PageNum, params.PageSize)
+	rawItems, totalCount, err := h.contentService.GetCollectionItems(r.Context(), collection, params.Query, filters, params.PageNum, params.PageSize)
 	if err != nil {
-		h.ErrorResponse(c, err, fmt.Sprintf("Errore nel caricamento righe per %s", collection))
+		h.ErrorResponse(w, r, err, fmt.Sprintf("Errore nel caricamento righe per %s", collection))
 		return
 	}
 
@@ -83,13 +83,13 @@ func (h *CollectionHandler) handleCollectionRows(c *gin.Context) {
 
 	pagination := CalculatePaginationData(params.PageNum, params.PageSize, totalCount)
 
-	facetCounts, _ := h.contentService.GetFacetCounts(c.Request.Context(), collection, params.Query, filters)
+	facetCounts, _ := h.contentService.GetFacetCounts(r.Context(), collection, params.Query, filters)
 	filterOptions := h.buildFilterOptionsWithCounts(collection, filters, facetCounts)
 
 	data := models.CollectionPageData{
 		PageData: models.PageData{
 			Collection:  collection,
-			QueryString: c.Request.URL.RawQuery,
+			QueryString: r.URL.RawQuery,
 		},
 		Documents:  documents,
 		Filters:    filterOptions,
@@ -106,29 +106,30 @@ func (h *CollectionHandler) handleCollectionRows(c *gin.Context) {
 
 	content, err := h.templateEngine.RenderRows(data)
 	if err != nil {
-		h.ErrorResponse(c, err, "Errore nel rendering delle righe")
+		h.ErrorResponse(w, r, err, "Errore nel rendering delle righe")
 		return
 	}
 
-	h.setCacheHeaders(c, "collection")
-	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
+	h.setCacheHeaders(w, "collection")
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	w.Write([]byte(content))
 }
 
 // handleItemDetail renders the detail page for a single item.
-func (h *CollectionHandler) handleItemDetail(c *gin.Context) {
-	collection := c.Param("collection")
-	slug := c.Param("slug")
+func (h *CollectionHandler) handleItemDetail(w http.ResponseWriter, r *http.Request) {
+	collection := r.PathValue("collection")
+	slug := r.PathValue("slug")
 
-	item, err := h.contentService.GetItem(c.Request.Context(), collection, slug)
+	item, err := h.contentService.GetItem(r.Context(), collection, slug)
 	if err != nil {
-		h.ErrorResponse(c, err, "Elemento non trovato")
+		h.ErrorResponse(w, r, err, "Elemento non trovato")
 		return
 	}
 
 	bodyHTML := mappers.GetString(item, "content", "")
 	bodyRaw := mappers.GetString(item, "raw_content", "")
 
-	prevSlug, nextSlug, position, total, err := h.contentService.GetAdjacentItems(c.Request.Context(), collection, slug)
+	prevSlug, nextSlug, position, total, err := h.contentService.GetAdjacentItems(r.Context(), collection, slug)
 	if err != nil {
 		fmt.Printf("Warning: Could not get adjacent items for %s/%s: %v\n", collection, slug, err)
 	}
@@ -151,7 +152,7 @@ func (h *CollectionHandler) handleItemDetail(c *gin.Context) {
 			DocTitle:    docTitle,
 			DocID:       slug,
 			Collection:  collection,
-			QueryString: c.Request.URL.RawQuery,
+			QueryString: r.URL.RawQuery,
 		},
 		BodyRaw:         bodyRaw,
 		BodyHTML:        bodyHTML,
@@ -164,12 +165,13 @@ func (h *CollectionHandler) handleItemDetail(c *gin.Context) {
 
 	content, err := h.templateEngine.RenderItem(data)
 	if err != nil {
-		h.ErrorResponse(c, err, "Errore nel rendering della pagina elemento")
+		h.ErrorResponse(w, r, err, "Errore nel rendering della pagina elemento")
 		return
 	}
 
-	h.setCacheHeaders(c, "item")
-	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(content))
+	h.setCacheHeaders(w, "item")
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	w.Write([]byte(content))
 }
 
 // buildFilterOptionsWithCounts returns filter options with optional facet counts.
@@ -213,7 +215,7 @@ func (h *CollectionHandler) buildFilterOptionsWithCounts(collection string, acti
 }
 
 // extractFilters extracts filter parameters from the query string.
-func (h *CollectionHandler) extractFilters(c *gin.Context) map[string]string {
+func (h *CollectionHandler) extractFilters(r *http.Request) map[string]string {
 	filters := make(map[string]string)
 
 	skipParams := map[string]bool{
@@ -222,7 +224,7 @@ func (h *CollectionHandler) extractFilters(c *gin.Context) map[string]string {
 		"q":         true,
 	}
 
-	for param, values := range c.Request.URL.Query() {
+	for param, values := range r.URL.Query() {
 		if !skipParams[param] && len(values) > 0 && values[0] != "" {
 			filters[param] = values[0]
 		}

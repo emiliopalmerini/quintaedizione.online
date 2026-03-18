@@ -7,8 +7,6 @@ import (
 	"log"
 	"net/http"
 	"strings"
-
-	"github.com/gin-gonic/gin"
 )
 
 type HTTPError struct {
@@ -21,20 +19,20 @@ func (e HTTPError) Error() string {
 	return fmt.Sprintf("HTTP %d: %s", e.Code, e.Message)
 }
 
-func (h *baseHandler) ErrorResponse(c *gin.Context, err error, fallbackMessage string) {
+func (h *baseHandler) ErrorResponse(w http.ResponseWriter, r *http.Request, err error, fallbackMessage string) {
 	var httpErr *HTTPError
 
 	if errors.As(err, &httpErr) {
-		h.renderErrorPage(c, httpErr.Message, httpErr.Code)
+		h.renderErrorPage(w, r, httpErr.Message, httpErr.Code)
 		return
 	}
 
 	statusCode := h.getErrorStatusCode(err)
 	message := h.getErrorMessage(err, fallbackMessage)
 
-	log.Printf("Request error [%s %s]: %v", c.Request.Method, c.Request.URL.Path, err)
+	log.Printf("Request error [%s %s]: %v", r.Method, r.URL.Path, err)
 
-	h.renderErrorPage(c, message, statusCode)
+	h.renderErrorPage(w, r, message, statusCode)
 }
 
 // errorMapping defines error patterns and their corresponding status codes and messages.
@@ -97,31 +95,32 @@ func (h *baseHandler) getErrorMessage(err error, fallback string) string {
 	return "Si è verificato un errore inaspettato. Riprova più tardi."
 }
 
-func (h *baseHandler) renderErrorPage(c *gin.Context, message string, statusCode int) {
+func (h *baseHandler) renderErrorPage(w http.ResponseWriter, r *http.Request, message string, statusCode int) {
 
-	if c.GetHeader("HX-Request") == "true" {
-		h.renderHTMXError(c, message, statusCode)
+	if r.Header.Get("HX-Request") == "true" {
+		h.renderHTMXError(w, message, statusCode)
 		return
 	}
 
-	data := gin.H{
+	content, err := h.templateEngine.Render("error.html", map[string]any{
 		"title":       "Errore",
 		"error":       message,
 		"status_code": statusCode,
 		"show_home":   true,
-	}
-
-	content, err := h.templateEngine.Render("error.html", data)
+	})
 	if err != nil {
-
-		c.String(statusCode, "Errore: %s", message)
+		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+		w.WriteHeader(statusCode)
+		fmt.Fprintf(w, "Errore: %s", message)
 		return
 	}
 
-	c.Data(statusCode, "text/html; charset=utf-8", []byte(content))
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	w.WriteHeader(statusCode)
+	w.Write([]byte(content))
 }
 
-func (h *baseHandler) renderHTMXError(c *gin.Context, message string, statusCode int) {
+func (h *baseHandler) renderHTMXError(w http.ResponseWriter, message string, statusCode int) {
 
 	// Escape HTML special characters to prevent XSS in error messages
 	escapedMessage := html.EscapeString(message)
@@ -133,8 +132,10 @@ func (h *baseHandler) renderHTMXError(c *gin.Context, message string, statusCode
 		</div>
 	`, escapedMessage)
 
-	c.Header("HX-Reswap", "innerHTML")
-	c.Data(statusCode, "text/html; charset=utf-8", []byte(errorHTML))
+	w.Header().Set("HX-Reswap", "innerHTML")
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	w.WriteHeader(statusCode)
+	w.Write([]byte(errorHTML))
 }
 
 func NewHTTPError(code int, message string) *HTTPError {

@@ -1,10 +1,9 @@
 package web
 
 import (
+	"net/http"
 	"sync"
 	"time"
-
-	"github.com/gin-gonic/gin"
 )
 
 type Metrics struct {
@@ -49,27 +48,33 @@ func GetGlobalMetrics() *Metrics {
 	return globalMetrics
 }
 
-func MetricsMiddleware() gin.HandlerFunc {
-	return func(c *gin.Context) {
-		start := time.Now()
-		path := c.Request.URL.Path
-		method := c.Request.Method
+// metricsResponseWriter wraps http.ResponseWriter to capture the status code.
+type metricsResponseWriter struct {
+	http.ResponseWriter
+	statusCode int
+}
 
-		c.Next()
+func (w *metricsResponseWriter) WriteHeader(code int) {
+	w.statusCode = code
+	w.ResponseWriter.WriteHeader(code)
+}
+
+func MetricsMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		start := time.Now()
+		path := r.URL.Path
+		method := r.Method
+
+		mw := &metricsResponseWriter{ResponseWriter: w, statusCode: http.StatusOK}
+		next.ServeHTTP(mw, r)
 
 		duration := time.Since(start)
-		statusCode := c.Writer.Status()
+		globalMetrics.recordRequest(method, path, duration, mw.statusCode)
 
-		globalMetrics.recordRequest(method, path, duration, statusCode)
-
-		if collection := c.Param("collection"); collection != "" {
-			globalMetrics.recordCollectionAccess(collection)
-		}
-
-		if q := c.Query("q"); q != "" {
+		if q := r.URL.Query().Get("q"); q != "" {
 			globalMetrics.recordSearch(q, duration)
 		}
-	}
+	})
 }
 
 func (m *Metrics) recordRequest(method, path string, duration time.Duration, statusCode int) {

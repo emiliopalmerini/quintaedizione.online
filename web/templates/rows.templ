@@ -35,9 +35,9 @@ templ RowsPartial(data models.CollectionPageData) {
 }
 
 templ documentRow(doc models.Document, collection string) {
-	<a href={ templ.URL("/" + collection + "/" + getDocSlug(doc)) }
+	<a href={ templ.URL("/srd/" + collection + "/" + getDocSlug(doc)) }
 		class="result-item"
-		hx-get={ "/" + collection + "/" + getDocSlug(doc) }
+		hx-get={ "/srd/" + collection + "/" + getDocSlug(doc) }
 		hx-target="#page-root"
 		hx-select="#page-root"
 		hx-swap="outerHTML"
@@ -122,7 +122,7 @@ func getDocSlug(doc models.Document) string {
 }
 
 func paginationURL(data models.CollectionPageData, page int) string {
-	base := "/" + data.PageData.Collection + "/rows?page=" + strconv.Itoa(page)
+	base := "/srd/" + data.PageData.Collection + "/rows?page=" + strconv.Itoa(page)
 	if data.PageData.QueryString != "" {
 		return base + "&" + data.PageData.QueryString
 	}

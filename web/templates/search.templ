@@ -35,7 +35,7 @@ templ SearchPage(data models.SearchPageData) {
 							</span>
 							if result.HasMore {
 								<a
-									href={ templ.URL(fmt.Sprintf("/%s?q=%s", result.CollectionName, data.Query)) }
+									href={ templ.URL(fmt.Sprintf("/srd/%s?q=%s", result.CollectionName, data.Query)) }
 									class="search-page-section-link"
 								>
 									Vedi tutti &rarr;
@@ -47,7 +47,7 @@ templ SearchPage(data models.SearchPageData) {
 					<div class="search-page-results">
 						for _, doc := range result.Documents {
 							<a
-								href={ templ.URL(fmt.Sprintf("/%s/%s", result.CollectionName, doc.ID)) }
+								href={ templ.URL(fmt.Sprintf("/srd/%s/%s", result.CollectionName, doc.ID)) }
 								class="search-page-result"
 							>
 								<div class="search-page-result-content">
