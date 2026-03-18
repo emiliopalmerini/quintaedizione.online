@@ -33,10 +33,28 @@ type termRegex struct {
 }
 
 // NewGlossaryLinker creates a GlossaryLinker from the embedded glossary.json.
+// It searches for glossary.json in the root or in source subdirectories.
 func NewGlossaryLinker(fsys fs.FS) (*GlossaryLinker, error) {
 	data, err := fs.ReadFile(fsys, "glossary.json")
 	if err != nil {
-		return nil, fmt.Errorf("read glossary.json: %w", err)
+		// Try to find glossary.json in source subdirectories
+		entries, dirErr := fs.ReadDir(fsys, ".")
+		if dirErr != nil {
+			return nil, fmt.Errorf("read glossary.json: %w", err)
+		}
+		for _, entry := range entries {
+			if !entry.IsDir() {
+				continue
+			}
+			if d, e := fs.ReadFile(fsys, entry.Name()+"/glossary.json"); e == nil {
+				data = d
+				err = nil
+				break
+			}
+		}
+		if err != nil {
+			return nil, fmt.Errorf("read glossary.json: %w", err)
+		}
 	}
 
 	var terms []glossaryTerm

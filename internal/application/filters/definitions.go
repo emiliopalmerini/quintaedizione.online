@@ -3,6 +3,7 @@ package filters
 import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/filters"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/infrastructure/datastore"
 )
 
 // RegisterDefaultFilters populates the filter registry with predefined filter
@@ -123,5 +124,28 @@ func RegisterDefaultFilters(registry *InMemoryFilterRegistry) {
 		Collections: []collections.CollectionName{collections.Specie},
 		EnumValues:  []string{"umanoide", "fatato", "costrutto"},
 		Description: "Tipo di creatura",
+	})
+}
+
+// RegisterEditionFilter adds the edition filter to the registry when multiple
+// sources are loaded. With a single source, no filter is added.
+func RegisterEditionFilter(registry *InMemoryFilterRegistry, sources []datastore.Source) {
+	if len(sources) <= 1 {
+		return
+	}
+
+	enumValues := make([]string, 0, len(sources))
+	for _, src := range sources {
+		enumValues = append(enumValues, src.ShortName)
+	}
+
+	registry.AddFilter(filters.FilterDefinition{
+		Name:        "_source_short",
+		FieldPath:   "_source_short",
+		DataType:    filters.EnumFilter,
+		Operator:    filters.ExactMatch,
+		Collections: nil, // applies to all collections
+		EnumValues:  enumValues,
+		Description: "Edizione",
 	})
 }
