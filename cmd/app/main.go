@@ -152,11 +152,22 @@ func main() {
 	srdHandlers.RegisterRoutes(srdMux)
 	mux.Handle("/srd/", http.StripPrefix("/srd", srdMux))
 
+	// Build edition options for the encounter calculator
+	editions := make([]combatTemplates.EditionOption, 0, len(sources))
+	for _, src := range sources {
+		editions = append(editions, combatTemplates.EditionOption{
+			SourceID:  src.ID,
+			Name:      src.Name,
+			Ruleset:   src.Ruleset,
+			IsDefault: src.Default,
+		})
+	}
+
 	// Combattimenti routes under /combattimenti
 	combatMux := http.NewServeMux()
 	combatMux.HandleFunc("GET /{$}", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
-		if err := combatTemplates.Home().Render(r.Context(), w); err != nil {
+		if err := combatTemplates.Home(editions).Render(r.Context(), w); err != nil {
 			logger.Error("Failed to render combattimenti home", "error", err)
 			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		}

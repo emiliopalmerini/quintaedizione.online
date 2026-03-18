@@ -1,8 +1,18 @@
 package templates
 
-import shared "github.com/emiliopalmerini/quintaedizione.online/web/templates"
+import (
+	shared "github.com/emiliopalmerini/quintaedizione.online/web/templates"
+)
 
-templ Home() {
+// EditionOption represents a source available for the encounter calculator.
+type EditionOption struct {
+	SourceID  string // e.g. "srd-5.5e"
+	Name      string // e.g. "SRD 5.2.1 (2024)"
+	Ruleset   string // e.g. "2024"
+	IsDefault bool
+}
+
+templ Home(editions []EditionOption) {
 	@shared.SiteLayout("Calcolatore Incontri", "Calcolatore di incontri D&D 5e per Dungeon Master — supporta regole 2014 e 2024.", "combattimenti", shared.EncountersScript()) {
 		<div class="page-header">
 			<h1>Calcolatore Incontri</h1>
@@ -11,18 +21,20 @@ templ Home() {
 
 		<div class="form-container">
 			<form id="encounter-form" hx-post="/combattimenti/calculate" hx-target="#result-container" hx-swap="innerHTML">
-				<!-- Ruleset Selection -->
+				<!-- Edition Selection -->
 				<div class="form-section">
-					<h2 class="form-section-title">Regole</h2>
+					<h2 class="form-section-title">Edizione</h2>
 					<div class="radio-group">
-						<label class="radio-button">
-							<input type="radio" name="ruleset" value="2024" checked/>
-							<span>D&D 2024 (One D&D)</span>
-						</label>
-						<label class="radio-button">
-							<input type="radio" name="ruleset" value="2014"/>
-							<span>D&D 2014 (5ª Edizione)</span>
-						</label>
+						for _, ed := range editions {
+							<label class="radio-button">
+								if ed.IsDefault {
+									<input type="radio" name="ruleset" value={ ed.Ruleset } data-source={ ed.SourceID } checked/>
+								} else {
+									<input type="radio" name="ruleset" value={ ed.Ruleset } data-source={ ed.SourceID }/>
+								}
+								<span>{ ed.Name }</span>
+							</label>
+						}
 					</div>
 					<p class="form-hint">Scegli quale edizione delle regole utilizzare</p>
 				</div>
