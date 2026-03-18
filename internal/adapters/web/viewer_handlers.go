@@ -14,14 +14,16 @@ import (
 
 // Handlers coordinates all specialized handlers.
 type Handlers struct {
-	home       *HomeHandler
-	collection *CollectionHandler
-	search     *SearchHandler
-	seo        *SEOHandler
+	home          *HomeHandler
+	collection    *CollectionHandler
+	search        *SearchHandler
+	seo           *SEOHandler
+	defaultSource string // default source ID for legacy URL redirects
 }
 
 // NewHandlers creates all specialized handlers with shared dependencies.
-func NewHandlers(contentService *services.ContentService, searchService search.SearchService, templateEngine *templates.TemplEngine) *Handlers {
+// defaultSource is the source ID used for legacy URL redirects (e.g. "srd-5.5e").
+func NewHandlers(contentService *services.ContentService, searchService search.SearchService, templateEngine *templates.TemplEngine, defaultSource string) *Handlers {
 	displayFactory := display.NewDisplayElementFactory()
 	documentMapper := webmappers.NewDocumentMapper(displayFactory)
 
@@ -51,6 +53,7 @@ func NewHandlers(contentService *services.ContentService, searchService search.S
 		seo: &SEOHandler{
 			baseHandler: base,
 		},
+		defaultSource: defaultSource,
 	}
 }
 
@@ -69,6 +72,15 @@ func (h *Handlers) RegisterRoutes(mux *http.ServeMux) {
 	mux.Handle("GET /{collection}", CollectionValidationMiddleware(http.HandlerFunc(h.collection.handleCollectionList)))
 	mux.Handle("GET /{collection}/rows", CollectionValidationMiddleware(http.HandlerFunc(h.collection.handleCollectionRows)))
 	mux.Handle("GET /{collection}/{source}/{slug}", CollectionValidationMiddleware(http.HandlerFunc(h.collection.handleItemDetail)))
+
+	// Legacy redirect: /{collection}/{slug} → /{collection}/{defaultSource}/{slug}
+	if h.defaultSource != "" {
+		mux.Handle("GET /{collection}/{slug}", CollectionValidationMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			collection := r.PathValue("collection")
+			slug := r.PathValue("slug")
+			http.Redirect(w, r, "/srd/"+collection+"/"+h.defaultSource+"/"+slug, http.StatusMovedPermanently)
+		})))
+	}
 }
 
 // BaseHandler returns the base handler for middleware use.

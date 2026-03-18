@@ -79,7 +79,19 @@ func main() {
 	contentService := services.NewContentService(repo, filterService, cache)
 	searchService := search.NewFuzzySearchService(searchRepo)
 
-	srdHandlers := web.NewHandlers(contentService, searchService, templateEngine)
+	// Find the default source for legacy URL redirects
+	defaultSourceID := ""
+	for _, src := range sources {
+		if src.Default {
+			defaultSourceID = src.ID
+			break
+		}
+	}
+	if defaultSourceID == "" && len(sources) > 0 {
+		defaultSourceID = sources[0].ID
+	}
+
+	srdHandlers := web.NewHandlers(contentService, searchService, templateEngine, defaultSourceID)
 
 	// ── Combattimenti setup ────────────────────────────────────
 
