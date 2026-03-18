@@ -20,16 +20,12 @@ build: format
 
 run: setup build
 	@echo -e "$(BLUE)Running application...$(NC)"
-	go run ./cmd/viewer/main.go
+	go run ./cmd/app/main.go
 
 templ-generate:
 	@echo -e "$(BLUE)Generating Templ templates...$(NC)"
 	@command -v templ >/dev/null 2>&1 || (echo -e "$(RED)Error: templ is not installed. Run 'go install github.com/a-h/templ/cmd/templ@latest'$(NC)" && exit 1)
-	@if [ ! -d "web/templates" ]; then \
-		echo -e "$(RED)Error: web/templates directory not found$(NC)"; \
-		exit 1; \
-	fi
-	cd web/templates && templ generate
+	templ generate
 	@echo -e "$(GREEN)Templ templates generated successfully!$(NC)"
 
 format:

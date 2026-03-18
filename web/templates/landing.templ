@@ -1,0 +1,43 @@
+package templates
+
+templ LandingPage() {
+	@SiteLayout("Strumenti per D&D 5e in italiano", "Strumenti gratuiti per Dungeons & Dragons 5a Edizione in italiano: SRD completo e calcolatore di incontri.", "", nil) {
+		<section class="hero">
+			<h1>quintaedizione.online</h1>
+			<p>Tutto il materiale base di D&amp;D 5e, in italiano e gratuito.</p>
+		</section>
+
+		<div class="collection-grid" style="max-width: 720px; margin: 0 auto; padding: 0 var(--space-6) var(--space-16); grid-template-columns: 1fr 1fr;">
+			<a href="/srd" class="collection-card">
+				<div class="collection-card-content">
+					<div class="collection-card-header">
+						<div>
+							<div class="collection-card-icon" style="font-size: 2rem;">📖</div>
+							<div class="collection-card-title">SRD 5e</div>
+						</div>
+					</div>
+					<div class="collection-card-description">
+						Il System Reference Document completo in italiano.
+						Incantesimi, mostri, classi, equipaggiamento e tutte le regole base.
+					</div>
+					<div class="collection-card-footer">Esplora →</div>
+				</div>
+			</a>
+			<a href="/combattimenti" class="collection-card">
+				<div class="collection-card-content">
+					<div class="collection-card-header">
+						<div>
+							<div class="collection-card-icon" style="font-size: 2rem;">⚔️</div>
+							<div class="collection-card-title">Calcolatore Incontri</div>
+						</div>
+					</div>
+					<div class="collection-card-description">
+						Calcola il budget di PE per i tuoi incontri.
+						Supporta le regole D&D 2014 e 2024, con browser dei mostri integrato.
+					</div>
+					<div class="collection-card-footer">Calcola →</div>
+				</div>
+			</a>
+		</div>
+	}
+}

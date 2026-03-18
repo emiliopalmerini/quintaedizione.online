@@ -7,7 +7,7 @@ templ ItemPage(data models.ItemPageData) {
 	@BaseLayout(data.PageData) {
 		<!-- Header Navigation -->
 		<div class="item-header sticky top-under-header">
-			<a href={ templ.URL("/" + data.PageData.Collection) } class="btn item-back-btn">
+			<a href={ templ.URL("/srd/" + data.PageData.Collection) } class="btn item-back-btn">
 				<span class="item-back-icon">
 					@CollectionIcon(data.PageData.Collection)
 				</span>
@@ -17,8 +17,8 @@ templ ItemPage(data models.ItemPageData) {
 			<div class="item-nav">
 				if data.PrevID != "" {
 					<a class="btn btn-icon"
-						href={ templ.URL("/" + data.PageData.Collection + "/" + data.PrevID) }
-						hx-get={ "/" + data.PageData.Collection + "/" + data.PrevID }
+						href={ templ.URL("/srd/" + data.PageData.Collection + "/" + data.PrevID) }
+						hx-get={ "/srd/" + data.PageData.Collection + "/" + data.PrevID }
 						hx-target="#page-root"
 						hx-select="#page-root"
 						hx-swap="outerHTML"
@@ -43,8 +43,8 @@ templ ItemPage(data models.ItemPageData) {
 
 				if data.NextID != "" {
 					<a class="btn btn-icon"
-						href={ templ.URL("/" + data.PageData.Collection + "/" + data.NextID) }
-						hx-get={ "/" + data.PageData.Collection + "/" + data.NextID }
+						href={ templ.URL("/srd/" + data.PageData.Collection + "/" + data.NextID) }
+						hx-get={ "/srd/" + data.PageData.Collection + "/" + data.NextID }
 						hx-target="#page-root"
 						hx-select="#page-root"
 						hx-swap="outerHTML"

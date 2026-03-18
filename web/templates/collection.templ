@@ -13,9 +13,17 @@ templ CollectionPage(data models.CollectionPageData) {
 		<!-- Top loading bar -->
 		<div class="loading-bar"></div>
 
+		<div class="flex items-center gap-3 mb-4">
+			<a href="/srd" class="btn btn-ghost" aria-label="Torna all'SRD">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
+				SRD
+			</a>
+			<h2 class="m-0" style="font-size: var(--text-xl);">{ data.PageData.Title }</h2>
+		</div>
+
 		<section class="search-sticky bg-white border p-2 mb-3">
 			<form id="search-form"
-				hx-get={ "/" + data.PageData.Collection + "/rows" }
+				hx-get={ "/srd/" + data.PageData.Collection + "/rows" }
 				hx-target="#rows"
 				hx-trigger="keyup delay:100ms from:#q, change from:select, change from:input[type=hidden], change from:input[type=checkbox], change from:input[type=number]"
 				hx-push-url="true"
