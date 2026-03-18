@@ -1,8 +1,8 @@
 package memory
 
 import (
-	"embed"
 	"encoding/json"
+	"io/fs"
 	"log"
 	"regexp"
 	"sort"
@@ -11,9 +11,6 @@ import (
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/domain/monster"
 )
-
-//go:embed data/monsters.json
-var monstersFS embed.FS
 
 var xpRegex = regexp.MustCompile(`PE\s+([\d.]+)`)
 
@@ -79,16 +76,17 @@ type MonsterRepository struct {
 	availableCRs   []string
 }
 
-// NewMonsterRepository loads monsters from embedded JSON.
-func NewMonsterRepository() *MonsterRepository {
-	data, err := monstersFS.ReadFile("data/monsters.json")
+// NewMonsterRepository loads monsters from the provided filesystem (typically the shared SRD embed.FS).
+// filename is the path within the FS (e.g. "monsters.json").
+func NewMonsterRepository(dataFS fs.FS, filename string) *MonsterRepository {
+	data, err := fs.ReadFile(dataFS, filename)
 	if err != nil {
-		log.Fatalf("failed to read embedded monsters.json: %v", err)
+		log.Fatalf("failed to read %s: %v", filename, err)
 	}
 
 	var raw []jsonMonster
 	if err := json.Unmarshal(data, &raw); err != nil {
-		log.Fatalf("failed to parse monsters.json: %v", err)
+		log.Fatalf("failed to parse %s: %v", filename, err)
 	}
 
 	monsters := make([]monster.Monster, len(raw))
@@ -97,7 +95,7 @@ func NewMonsterRepository() *MonsterRepository {
 			ID:   m.ID,
 			Name: m.Name,
 			Type: m.Type,
-			Size: m.Size,
+			Size: normalizeSize(m.Size),
 			CR:   m.CR,
 			XP:   parseXP(m.CRDetail),
 			AC:   m.AC,
@@ -127,11 +125,6 @@ func NewMonsterRepository() *MonsterRepository {
 		}
 	}
 
-	// Normalize sizes
-	for i := range monsters {
-		monsters[i].Size = normalizeSize(monsters[i].Size)
-	}
-
 	sort.Slice(monsters, func(i, j int) bool {
 		return monsters[i].XP < monsters[j].XP
 	})
@@ -159,7 +152,6 @@ func parseXP(crDetail string) int {
 	if len(matches) < 2 {
 		return 0
 	}
-	// Remove dots (Italian thousands separator)
 	numStr := strings.ReplaceAll(matches[1], ".", "")
 	xp, err := strconv.Atoi(numStr)
 	if err != nil {
@@ -194,11 +186,9 @@ func (r *MonsterRepository) Search(query string, maxXP int) []monster.Monster {
 
 // normalizeSize maps Italian masculine/compound size variants to canonical feminine forms.
 func normalizeSize(s string) string {
-	// Handle compound sizes: take the first word as the base size
 	if idx := strings.IndexAny(s, " "); idx != -1 {
 		s = s[:idx]
 	}
-
 	switch s {
 	case "Minuscolo":
 		return "Minuscola"
@@ -213,7 +203,6 @@ func normalizeSize(s string) string {
 	}
 }
 
-// crValue converts a CR string to a numeric value for comparison.
 func crValue(cr string) float64 {
 	switch cr {
 	case "1/8":
@@ -244,7 +233,6 @@ func (r *MonsterRepository) buildFacets() {
 	r.availableTypes = sortedKeys(typeSet)
 	r.availableSizes = sortedKeys(sizeSet)
 
-	// Sort CRs numerically
 	crs := make([]string, 0, len(crSet))
 	for cr := range crSet {
 		crs = append(crs, cr)
@@ -299,14 +287,6 @@ func (r *MonsterRepository) SearchWithFilters(filters monster.SearchFilters) []m
 	return result
 }
 
-func (r *MonsterRepository) AvailableTypes() []string {
-	return r.availableTypes
-}
-
-func (r *MonsterRepository) AvailableSizes() []string {
-	return r.availableSizes
-}
-
-func (r *MonsterRepository) AvailableCRs() []string {
-	return r.availableCRs
-}
+func (r *MonsterRepository) AvailableTypes() []string { return r.availableTypes }
+func (r *MonsterRepository) AvailableSizes() []string { return r.availableSizes }
+func (r *MonsterRepository) AvailableCRs() []string   { return r.availableCRs }
