@@ -78,14 +78,8 @@ type MonsterRepository struct {
 
 // NewMonsterRepository loads monsters from the provided filesystem (typically the shared SRD embed.FS).
 // filename is the path within the FS (e.g. "srd-5.5e/monsters.json").
-// sourceID is extracted from the directory name (e.g. "srd-5.5e").
-func NewMonsterRepository(dataFS fs.FS, filename string) *MonsterRepository {
-	// Extract source ID from directory prefix (e.g. "srd-5.5e/monsters.json" → "srd-5.5e")
-	sourceID := ""
-	if idx := strings.Index(filename, "/"); idx != -1 {
-		sourceID = filename[:idx]
-	}
-
+// sourceShort is the short name used in URLs (e.g. "5.5e").
+func NewMonsterRepository(dataFS fs.FS, filename, sourceShort string) *MonsterRepository {
 	data, err := fs.ReadFile(dataFS, filename)
 	if err != nil {
 		log.Fatalf("failed to read %s: %v", filename, err)
@@ -100,7 +94,7 @@ func NewMonsterRepository(dataFS fs.FS, filename string) *MonsterRepository {
 	for i, m := range raw {
 		monsters[i] = monster.Monster{
 			ID:     m.ID,
-			Source: sourceID,
+			Source: sourceShort,
 			Name:   m.Name,
 			Type:   m.Type,
 			Size:   normalizeSize(m.Size),

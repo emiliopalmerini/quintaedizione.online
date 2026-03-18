@@ -58,9 +58,9 @@ func (m *documentMapper) ToModel(collection string, item map[string]any) models.
 	model := models.Document{}
 
 	if id, ok := item["_id"].(string); ok {
-		// Build composite ID (source/slug) for URL routing
-		if source, ok := item["_source"].(string); ok && source != "" {
-			model.ID = source + "/" + id
+		// Build composite ID (short_name/slug) for URL routing
+		if short, ok := item["_source_short"].(string); ok && short != "" {
+			model.ID = short + "/" + id
 		} else {
 			model.ID = id
 		}

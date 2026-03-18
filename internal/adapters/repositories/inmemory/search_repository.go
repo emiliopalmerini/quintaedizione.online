@@ -24,12 +24,12 @@ func (r *searchRepository) GetSearchableItems(_ context.Context, collection stri
 	for _, doc := range docs {
 		id, _ := doc["_id"].(string)
 		title, _ := doc["title"].(string)
-		source, _ := doc["_source"].(string)
+		short, _ := doc["_source_short"].(string)
 
 		// Use composite key so search results can be looked up in the store
 		compositeID := id
-		if source != "" {
-			compositeID = source + "/" + id
+		if short != "" {
+			compositeID = short + "/" + id
 		}
 
 		keywords := extractKeywords(doc)
