@@ -1,9 +1,8 @@
 package web
 
 import (
+	"net/http"
 	"strconv"
-
-	"github.com/gin-gonic/gin"
 )
 
 type PaginationData struct {
@@ -39,12 +38,20 @@ type PaginationParams struct {
 	Query    string
 }
 
-// ExtractPaginationParams extracts and validates pagination parameters from gin context.
+// ExtractPaginationParams extracts and validates pagination parameters from the request.
 // Returns default values: page=1, pageSize=20 if invalid or missing.
-func ExtractPaginationParams(c *gin.Context) PaginationParams {
-	page := c.DefaultQuery("page", "1")
-	pageSize := c.DefaultQuery("page_size", "20")
-	q := c.Query("q")
+func ExtractPaginationParams(r *http.Request) PaginationParams {
+	q := r.URL.Query()
+
+	page := q.Get("page")
+	if page == "" {
+		page = "1"
+	}
+	pageSize := q.Get("page_size")
+	if pageSize == "" {
+		pageSize = "20"
+	}
+	query := q.Get("q")
 
 	pageNum, err := strconv.Atoi(page)
 	if err != nil || pageNum < 1 {
@@ -59,6 +66,6 @@ func ExtractPaginationParams(c *gin.Context) PaginationParams {
 	return PaginationParams{
 		PageNum:  pageNum,
 		PageSize: pageSizeNum,
-		Query:    q,
+		Query:    query,
 	}
 }

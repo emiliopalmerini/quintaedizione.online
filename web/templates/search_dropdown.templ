@@ -39,7 +39,7 @@ templ SearchDropdown(results []models.CollectionSearchResult, query string) {
 				<div>
 					for _, doc := range result.Documents {
 						<a
-							href={ templ.URL(fmt.Sprintf("/%s/%s", result.CollectionName, doc.ID)) }
+							href={ templ.URL(fmt.Sprintf("/srd/%s/%s", result.CollectionName, doc.ID)) }
 							class="search-dropdown-item"
 							role="option"
 							tabindex="0"
@@ -60,7 +60,7 @@ templ SearchDropdown(results []models.CollectionSearchResult, query string) {
 					}
 					if result.HasMore {
 						<a
-							href={ templ.URL(fmt.Sprintf("/%s?q=%s", result.CollectionName, query)) }
+							href={ templ.URL(fmt.Sprintf("/srd/%s?q=%s", result.CollectionName, query)) }
 							class="search-dropdown-item bg-gray-100 font-bold text-primary"
 						>
 							Vedi tutti i { strconv.FormatInt(result.Total, 10) } risultati in { result.CollectionLabel } →

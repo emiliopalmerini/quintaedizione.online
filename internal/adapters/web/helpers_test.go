@@ -4,17 +4,12 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
-	"github.com/gin-gonic/gin"
 )
 
 func TestExtractPaginationParams_DefaultValues(t *testing.T) {
-	gin.SetMode(gin.TestMode)
-	w := httptest.NewRecorder()
-	c, _ := gin.CreateTestContext(w)
-	c.Request = httptest.NewRequest("GET", "/test", nil)
+	r := httptest.NewRequest("GET", "/test", nil)
 
-	params := ExtractPaginationParams(c)
+	params := ExtractPaginationParams(r)
 
 	if params.PageNum != 1 {
 		t.Errorf("Expected default PageNum=1, got %d", params.PageNum)
@@ -28,12 +23,9 @@ func TestExtractPaginationParams_DefaultValues(t *testing.T) {
 }
 
 func TestExtractPaginationParams_ValidValues(t *testing.T) {
-	gin.SetMode(gin.TestMode)
-	w := httptest.NewRecorder()
-	c, _ := gin.CreateTestContext(w)
-	c.Request = httptest.NewRequest("GET", "/test?page=3&page_size=50&q=dragon", nil)
+	r := httptest.NewRequest("GET", "/test?page=3&page_size=50&q=dragon", nil)
 
-	params := ExtractPaginationParams(c)
+	params := ExtractPaginationParams(r)
 
 	if params.PageNum != 3 {
 		t.Errorf("Expected PageNum=3, got %d", params.PageNum)
@@ -58,14 +50,11 @@ func TestExtractPaginationParams_InvalidPage(t *testing.T) {
 		{"empty page", "/test?page=", 1},
 	}
 
-	gin.SetMode(gin.TestMode)
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			w := httptest.NewRecorder()
-			c, _ := gin.CreateTestContext(w)
-			c.Request = httptest.NewRequest("GET", tt.url, nil)
+			r := httptest.NewRequest("GET", tt.url, nil)
 
-			params := ExtractPaginationParams(c)
+			params := ExtractPaginationParams(r)
 
 			if params.PageNum != tt.wantPage {
 				t.Errorf("Expected PageNum=%d, got %d", tt.wantPage, params.PageNum)
@@ -87,14 +76,11 @@ func TestExtractPaginationParams_InvalidPageSize(t *testing.T) {
 		{"empty page_size", "/test?page_size=", 20},
 	}
 
-	gin.SetMode(gin.TestMode)
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			w := httptest.NewRecorder()
-			c, _ := gin.CreateTestContext(w)
-			c.Request = httptest.NewRequest("GET", tt.url, nil)
+			r := httptest.NewRequest("GET", tt.url, nil)
 
-			params := ExtractPaginationParams(c)
+			params := ExtractPaginationParams(r)
 
 			if params.PageSize != tt.wantSize {
 				t.Errorf("Expected PageSize=%d, got %d", tt.wantSize, params.PageSize)
@@ -104,12 +90,9 @@ func TestExtractPaginationParams_InvalidPageSize(t *testing.T) {
 }
 
 func TestExtractPaginationParams_MaxPageSize(t *testing.T) {
-	gin.SetMode(gin.TestMode)
-	w := httptest.NewRecorder()
-	c, _ := gin.CreateTestContext(w)
-	c.Request = httptest.NewRequest("GET", "/test?page_size=100", nil)
+	r := httptest.NewRequest("GET", "/test?page_size=100", nil)
 
-	params := ExtractPaginationParams(c)
+	params := ExtractPaginationParams(r)
 
 	if params.PageSize != 100 {
 		t.Errorf("Expected PageSize=100 (max allowed), got %d", params.PageSize)
@@ -117,12 +100,9 @@ func TestExtractPaginationParams_MaxPageSize(t *testing.T) {
 }
 
 func TestExtractPaginationParams_QueryWithSpaces(t *testing.T) {
-	gin.SetMode(gin.TestMode)
-	w := httptest.NewRecorder()
-	c, _ := gin.CreateTestContext(w)
-	c.Request, _ = http.NewRequest("GET", "/test?q=fire+spell", nil)
+	r, _ := http.NewRequest("GET", "/test?q=fire+spell", nil)
 
-	params := ExtractPaginationParams(c)
+	params := ExtractPaginationParams(r)
 
 	if params.Query != "fire spell" {
 		t.Errorf("Expected Query='fire spell', got '%s'", params.Query)

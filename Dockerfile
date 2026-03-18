@@ -20,10 +20,10 @@ RUN go install github.com/a-h/templ/cmd/templ@latest
 COPY . .
 
 # Generate Templ templates
-RUN cd web/templates && templ generate
+RUN templ generate
 
 # Build the application
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o viewer ./cmd/viewer
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app ./cmd/app
 
 # Ensure required directories exist
 RUN mkdir -p configs data
@@ -37,7 +37,7 @@ RUN apk --no-cache add ca-certificates
 WORKDIR /root/
 
 # Copy the binary from builder stage
-COPY --from=builder /app/viewer .
+COPY --from=builder /app/app .
 
 # Copy web assets
 COPY --from=builder /app/web ./web
@@ -50,4 +50,4 @@ COPY --from=builder /app/data ./data
 EXPOSE 8000
 
 # Run the binary
-CMD ["./viewer"]
+CMD ["./app"]

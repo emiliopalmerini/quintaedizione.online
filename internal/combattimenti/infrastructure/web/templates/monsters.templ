@@ -1,0 +1,334 @@
+package templates
+
+import (
+	"fmt"
+	"strconv"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/domain/monster"
+)
+
+func formatMod(mod int) string {
+	if mod >= 0 {
+		return fmt.Sprintf("+%d", mod)
+	}
+	return strconv.Itoa(mod)
+}
+
+func formatSavingThrows(st monster.SavingThrows) string {
+	parts := []struct {
+		label string
+		val   string
+	}{
+		{"FOR", st.Strength},
+		{"DES", st.Dexterity},
+		{"COS", st.Constitution},
+		{"INT", st.Intelligence},
+		{"SAG", st.Wisdom},
+		{"CAR", st.Charisma},
+	}
+	result := ""
+	for _, p := range parts {
+		if p.val != "" {
+			if result != "" {
+				result += ", "
+			}
+			result += p.label + " " + p.val
+		}
+	}
+	return result
+}
+
+templ MonsterList(monsters []monster.Monster, maxXP int) {
+	<div class="monster-list">
+		if len(monsters) == 0 {
+			<p class="monster-empty">Nessun mostro trovato per questo budget XP.</p>
+		} else {
+			<p class="monster-count">{ strconv.Itoa(len(monsters)) } mostri disponibili</p>
+			<div class="monster-table-wrapper">
+				<table class="monster-table">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>Tipo</th>
+							<th>GS</th>
+							<th>PE</th>
+							<th>CA</th>
+							<th>PF</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						for _, m := range monsters {
+							<tr class="monster-row" data-xp={ strconv.Itoa(m.XP) } data-name={ m.Name } data-id={ m.ID }>
+								<td class="monster-name">{ m.Name }</td>
+								<td>{ m.Type }</td>
+								<td>{ m.CR }</td>
+								<td>{ strconv.Itoa(m.XP) }</td>
+								<td>{ m.AC }</td>
+								<td>{ m.HP }</td>
+								<td>
+									<button
+										type="button"
+										class="btn btn-secondary btn-small monster-add-btn"
+										onclick="addMonster(this)"
+									>
+										+
+									</button>
+								</td>
+							</tr>
+							<tr class="monster-detail-row">
+								<td colspan="7">
+									<div class="monster-detail-panel">
+										<div class="monster-detail-header">
+											<strong>{ m.Name }</strong>
+											<span>
+												{ m.Size }
+												if m.Subtype != "" {
+													{ m.Type } ({ m.Subtype })
+												} else {
+													{ m.Type }
+												}
+												if m.Alignment != "" {
+													, { m.Alignment }
+												}
+											</span>
+										</div>
+										<div class="monster-detail-stats">
+											<div class="monster-detail-stat">
+												<span class="monster-detail-stat-label">CA</span>
+												<span>{ m.AC }</span>
+											</div>
+											<div class="monster-detail-stat">
+												<span class="monster-detail-stat-label">PF</span>
+												<span>{ m.HP }</span>
+											</div>
+											<div class="monster-detail-stat">
+												<span class="monster-detail-stat-label">Velocità</span>
+												<span>{ m.Speed }</span>
+											</div>
+											if m.Initiative != "" {
+												<div class="monster-detail-stat">
+													<span class="monster-detail-stat-label">Iniziativa</span>
+													<span>{ m.Initiative }</span>
+												</div>
+											}
+											<div class="monster-detail-stat">
+												<span class="monster-detail-stat-label">GS</span>
+												<span>{ m.CRDetail }</span>
+											</div>
+										</div>
+										<div class="monster-ability-grid">
+											<div class="monster-ability">
+												<span class="monster-ability-label">FOR</span>
+												<span class="monster-ability-score">{ strconv.Itoa(m.AbilityScores.Strength) }</span>
+												<span class="monster-ability-mod">{ formatMod(m.AbilityMods.Strength) }</span>
+											</div>
+											<div class="monster-ability">
+												<span class="monster-ability-label">DES</span>
+												<span class="monster-ability-score">{ strconv.Itoa(m.AbilityScores.Dexterity) }</span>
+												<span class="monster-ability-mod">{ formatMod(m.AbilityMods.Dexterity) }</span>
+											</div>
+											<div class="monster-ability">
+												<span class="monster-ability-label">COS</span>
+												<span class="monster-ability-score">{ strconv.Itoa(m.AbilityScores.Constitution) }</span>
+												<span class="monster-ability-mod">{ formatMod(m.AbilityMods.Constitution) }</span>
+											</div>
+											<div class="monster-ability">
+												<span class="monster-ability-label">INT</span>
+												<span class="monster-ability-score">{ strconv.Itoa(m.AbilityScores.Intelligence) }</span>
+												<span class="monster-ability-mod">{ formatMod(m.AbilityMods.Intelligence) }</span>
+											</div>
+											<div class="monster-ability">
+												<span class="monster-ability-label">SAG</span>
+												<span class="monster-ability-score">{ strconv.Itoa(m.AbilityScores.Wisdom) }</span>
+												<span class="monster-ability-mod">{ formatMod(m.AbilityMods.Wisdom) }</span>
+											</div>
+											<div class="monster-ability">
+												<span class="monster-ability-label">CAR</span>
+												<span class="monster-ability-score">{ strconv.Itoa(m.AbilityScores.Charisma) }</span>
+												<span class="monster-ability-mod">{ formatMod(m.AbilityMods.Charisma) }</span>
+											</div>
+										</div>
+										<div class="monster-detail-properties">
+											if formatSavingThrows(m.SavingThrows) != "" {
+												<p><strong>Tiri Salvezza:</strong> { formatSavingThrows(m.SavingThrows) }</p>
+											}
+											if m.Skills != "" {
+												<p><strong>Abilità:</strong> { m.Skills }</p>
+											}
+											if m.Resistances != "" {
+												<p><strong>Resistenze:</strong> { m.Resistances }</p>
+											}
+											if m.DamageImmunities != "" {
+												<p><strong>Immunità ai Danni:</strong> { m.DamageImmunities }</p>
+											}
+											if m.ConditionImmunities != "" {
+												<p><strong>Immunità alle Condizioni:</strong> { m.ConditionImmunities }</p>
+											}
+											if m.Senses != "" {
+												<p><strong>Sensi:</strong> { m.Senses }</p>
+											}
+											if m.Languages != "" {
+												<p><strong>Linguaggi:</strong> { m.Languages }</p>
+											}
+											if m.Equipment != "" {
+												<p><strong>Equipaggiamento:</strong> { m.Equipment }</p>
+											}
+										</div>
+										if len(m.Traits) > 0 {
+											<div class="monster-detail-section">
+												<h5>Tratti</h5>
+												for _, t := range m.Traits {
+													<p><strong>{ t.Name }.</strong> { t.Description }</p>
+												}
+											</div>
+										}
+										if len(m.Actions) > 0 {
+											<div class="monster-detail-section">
+												<h5>Azioni</h5>
+												for _, a := range m.Actions {
+													<p><strong>{ a.Name }.</strong> { a.Description }</p>
+												}
+											</div>
+										}
+										if len(m.BonusActions) > 0 {
+											<div class="monster-detail-section">
+												<h5>Azioni Bonus</h5>
+												for _, a := range m.BonusActions {
+													<p><strong>{ a.Name }.</strong> { a.Description }</p>
+												}
+											</div>
+										}
+										if len(m.Reactions) > 0 {
+											<div class="monster-detail-section">
+												<h5>Reazioni</h5>
+												for _, r := range m.Reactions {
+													<p><strong>{ r.Name }.</strong> { r.Description }</p>
+												}
+											</div>
+										}
+										if len(m.LegendaryActions) > 0 {
+											<div class="monster-detail-section">
+												<h5>Azioni Leggendarie</h5>
+												for _, la := range m.LegendaryActions {
+													<p><strong>{ la.Name }.</strong> { la.Description }</p>
+												}
+											</div>
+										}
+									</div>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		}
+	</div>
+}
+
+templ MonsterBrowser(maxXP int, types []string, sizes []string, crs []string) {
+	<div class="monster-browser">
+		<h3>Seleziona Mostri</h3>
+		<div class="monster-search-bar">
+			<input
+				type="text"
+				name="q"
+				placeholder="Cerca un mostro..."
+				class="field monster-search-input monster-filter"
+				hx-get="/combattimenti/api/monsters"
+				hx-trigger="input changed delay:300ms, search"
+				hx-target="#monster-results"
+				hx-include=".monster-filter"
+			/>
+			<input type="hidden" name="max_xp" class="monster-filter" value={ strconv.Itoa(maxXP) }/>
+		</div>
+		<div class="monster-content">
+			<div class="monster-filters">
+				<div class="monster-filter-group">
+					<label class="monster-filter-label" for="filter-type">Tipo</label>
+					<select
+						id="filter-type"
+						name="type"
+						class="field monster-filter"
+						hx-get="/combattimenti/api/monsters"
+						hx-trigger="change"
+						hx-target="#monster-results"
+						hx-include=".monster-filter"
+					>
+						<option value="">Tutti</option>
+						for _, t := range types {
+							<option value={ t }>{ t }</option>
+						}
+					</select>
+				</div>
+				<div class="monster-filter-group">
+					<label class="monster-filter-label" for="filter-size">Taglia</label>
+					<select
+						id="filter-size"
+						name="size"
+						class="field monster-filter"
+						hx-get="/combattimenti/api/monsters"
+						hx-trigger="change"
+						hx-target="#monster-results"
+						hx-include=".monster-filter"
+					>
+						<option value="">Tutte</option>
+						for _, s := range sizes {
+							<option value={ s }>{ s }</option>
+						}
+					</select>
+				</div>
+				<div class="monster-filter-group">
+					<label class="monster-filter-label" for="filter-cr-min">GS Min</label>
+					<select
+						id="filter-cr-min"
+						name="cr_min"
+						class="field monster-filter"
+						hx-get="/combattimenti/api/monsters"
+						hx-trigger="change"
+						hx-target="#monster-results"
+						hx-include=".monster-filter"
+					>
+						<option value="">--</option>
+						for _, cr := range crs {
+							<option value={ cr }>{ cr }</option>
+						}
+					</select>
+				</div>
+				<div class="monster-filter-group">
+					<label class="monster-filter-label" for="filter-cr-max">GS Max</label>
+					<select
+						id="filter-cr-max"
+						name="cr_max"
+						class="field monster-filter"
+						hx-get="/combattimenti/api/monsters"
+						hx-trigger="change"
+						hx-target="#monster-results"
+						hx-include=".monster-filter"
+					>
+						<option value="">--</option>
+						for _, cr := range crs {
+							<option value={ cr }>{ cr }</option>
+						}
+					</select>
+				</div>
+			</div>
+			<div class="monster-results-column">
+				<div class="monster-selected">
+					<h4>Mostri Selezionati: <span id="selected-count">0</span></h4>
+					<div id="selected-monsters-list"></div>
+					<div class="monster-xp-tracker">
+						<span>PE Usati: <strong id="xp-used">0</strong> / <strong>{ strconv.Itoa(maxXP) }</strong></span>
+						<span id="xp-remaining" class="xp-remaining">Rimanenti: <strong>{ strconv.Itoa(maxXP) }</strong></span>
+					</div>
+				</div>
+				<div id="monster-results"
+					hx-get={ "/combattimenti/api/monsters?max_xp=" + strconv.Itoa(maxXP) }
+					hx-trigger="load"
+					hx-swap="innerHTML"
+				>
+					<p>Caricamento mostri...</p>
+				</div>
+			</div>
+		</div>
+	</div>
+}

@@ -8,7 +8,6 @@ import (
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/search"
 	"github.com/emiliopalmerini/quintaedizione.online/pkg/templates"
-	"github.com/gin-gonic/gin"
 )
 
 type mockSearchService struct {
@@ -42,16 +41,12 @@ func newTestSearchHandler(svc search.SearchService) *SearchHandler {
 }
 
 func TestSearchDropdown_AllCollections(t *testing.T) {
-	gin.SetMode(gin.TestMode)
 	mock := &mockSearchService{}
 	handler := newTestSearchHandler(mock)
 
 	w := httptest.NewRecorder()
-	_, r := gin.CreateTestContext(w)
-	r.GET("/search/dropdown", handler.handleSearchDropdown)
-
 	req := httptest.NewRequest(http.MethodGet, "/search/dropdown?q=fireball", nil)
-	r.ServeHTTP(w, req)
+	handler.handleSearchDropdown(w, req)
 
 	if w.Code != http.StatusOK {
 		t.Fatalf("expected 200, got %d", w.Code)
@@ -65,16 +60,12 @@ func TestSearchDropdown_AllCollections(t *testing.T) {
 }
 
 func TestSearchDropdown_SingleCollection(t *testing.T) {
-	gin.SetMode(gin.TestMode)
 	mock := &mockSearchService{}
 	handler := newTestSearchHandler(mock)
 
 	w := httptest.NewRecorder()
-	_, r := gin.CreateTestContext(w)
-	r.GET("/search/dropdown", handler.handleSearchDropdown)
-
 	req := httptest.NewRequest(http.MethodGet, "/search/dropdown?q=fireball&collection=incantesimi", nil)
-	r.ServeHTTP(w, req)
+	handler.handleSearchDropdown(w, req)
 
 	if w.Code != http.StatusOK {
 		t.Fatalf("expected 200, got %d", w.Code)
@@ -91,16 +82,12 @@ func TestSearchDropdown_SingleCollection(t *testing.T) {
 }
 
 func TestSearchDropdown_EmptyQuery(t *testing.T) {
-	gin.SetMode(gin.TestMode)
 	mock := &mockSearchService{}
 	handler := newTestSearchHandler(mock)
 
 	w := httptest.NewRecorder()
-	_, r := gin.CreateTestContext(w)
-	r.GET("/search/dropdown", handler.handleSearchDropdown)
-
 	req := httptest.NewRequest(http.MethodGet, "/search/dropdown?q=", nil)
-	r.ServeHTTP(w, req)
+	handler.handleSearchDropdown(w, req)
 
 	if w.Code != http.StatusOK {
 		t.Fatalf("expected 200, got %d", w.Code)
