@@ -58,16 +58,19 @@ templ documentRow(doc models.Document, collection string) {
 		hx-indicator="#page-loading">
 		<div class="result-item-header">
 			<h3 class="result-item-title">{ getDocName(doc) }</h3>
-			if doc.Translated {
-				<span class="result-badge result-badge-translated">Tradotto</span>
-			}
+			<div class="result-item-header-badges">
+				if doc.Translated {
+					<span class="result-badge result-badge-translated">Tradotto</span>
+				}
+				if editionBadge(doc) != "" {
+					<span class="result-badge result-badge-edition">{ editionBadge(doc) }</span>
+				}
+			</div>
 		</div>
-		if len(doc.DisplayElements) > 0 {
+		if hasNonEditionElements(doc.DisplayElements) {
 			<div class="result-item-meta">
 				for _, element := range doc.DisplayElements {
-					if element.Type == "edition" {
-						<span class="result-badge result-badge-edition">{ element.Value }</span>
-					} else {
+					if element.Type != "edition" {
 						<span class="result-badge">{ element.Value }</span>
 					}
 				}
@@ -136,6 +139,24 @@ func getDocName(doc models.Document) string {
 
 func getDocSlug(doc models.Document) string {
 	return doc.ID
+}
+
+func editionBadge(doc models.Document) string {
+	for _, e := range doc.DisplayElements {
+		if e.Type == "edition" {
+			return e.Value
+		}
+	}
+	return ""
+}
+
+func hasNonEditionElements(elements []models.DocumentDisplayField) bool {
+	for _, e := range elements {
+		if e.Type != "edition" {
+			return true
+		}
+	}
+	return false
 }
 
 func paginationURL(data models.CollectionPageData, page int) string {
