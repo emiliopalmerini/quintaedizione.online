@@ -981,7 +981,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	initHeadingAnchors();
 });
 
-document.body.addEventListener('htmx:afterSwap', () => {
+document.body.addEventListener('htmx:afterSwap', function(evt) {
 	initBackButton();
 	initCopyMarkdownButton();
 	initSearchFormHandler();
@@ -991,4 +991,13 @@ document.body.addEventListener('htmx:afterSwap', () => {
 	initQuickFilterChips();
 	initItemKeyboardNav();
 	initHeadingAnchors();
+
+	// Scroll to top of results when rows are updated (filter/pagination change)
+	// Skip on history restore (browser back button)
+	if (evt.detail && evt.detail.target && evt.detail.target.id === 'rows' && !evt.detail.isHistoryRestoreRequest) {
+		var rows = document.getElementById('rows');
+		if (rows) {
+			rows.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		}
+	}
 });
