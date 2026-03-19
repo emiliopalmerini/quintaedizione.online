@@ -22,9 +22,10 @@ type DifficultyTier struct {
 
 // ResultData holds all data needed to render the result panel.
 type ResultData struct {
-	Result *encounter.CalculateXPResponse
-	Tiers  []DifficultyTier
-	Facets MonsterFacets
+	Result            *encounter.CalculateXPResponse
+	Tiers             []DifficultyTier
+	Facets            MonsterFacets
+	IncludeMonsterBrowser bool
 }
 
 func xpPerCharacter(totalXP, partySize int) string {
@@ -95,10 +96,15 @@ templ Result(data ResultData) {
 		}
 	</div>
 
-	<!-- Monster Browser (full-width, out-of-band swap) -->
-	<div id="monster-browser-container" hx-swap-oob="innerHTML">
-		if data.Result.Ruleset == "2024" {
-			@MonsterBrowser(data.Result.TotalXP, data.Facets.Types, data.Facets.Sizes, data.Facets.CRs)
-		}
-	</div>
+	if data.IncludeMonsterBrowser {
+		<!-- Monster Browser (full-width, out-of-band swap) — only on first render -->
+		<div id="monster-browser-container" hx-swap-oob="innerHTML">
+			if data.Result.Ruleset == "2024" {
+				@MonsterBrowser(data.Result.TotalXP, data.Facets.Types, data.Facets.Sizes, data.Facets.CRs)
+			}
+		</div>
+	} else {
+		<!-- Update budget values out-of-band without re-rendering browser -->
+		<input type="hidden" id="monster-max-xp-update" hx-swap-oob="true" name="max_xp_update" value={ strconv.Itoa(data.Result.TotalXP) }/>
+	}
 }

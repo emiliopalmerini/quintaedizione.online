@@ -261,33 +261,26 @@ document.addEventListener('click', function(evt) {
     }
 });
 
-// Prevent monster browser from being re-rendered when it already exists.
-// On first calculate: let the OOB swap render it. On subsequent calculates:
-// intercept the swap and only update the max_xp budget value.
-document.addEventListener('htmx:beforeSwap', function(evt) {
-    if (!evt.detail.target || evt.detail.target.id !== 'result-container') return;
-
-    var existing = document.querySelector('.monster-browser');
-    if (!existing) return; // First render — let OOB swap proceed normally
-
-    // Parse the response to extract the new max_xp from the OOB monster browser
-    var tmp = document.createElement('div');
-    tmp.innerHTML = evt.detail.serverResponse;
-    var oobEl = tmp.querySelector('#monster-browser-container[hx-swap-oob]');
-    if (oobEl) {
-        var newMaxXPInput = oobEl.querySelector('input[name="max_xp"]');
-        if (newMaxXPInput) {
-            var newBudget = newMaxXPInput.value;
-            // Update existing monster browser's budget
-            var oldMaxXP = document.querySelector('.monster-browser input[name="max_xp"]');
-            if (oldMaxXP) oldMaxXP.value = newBudget;
-            // Update budget display text
-            var budgetEl = document.getElementById('xp-budget');
-            if (budgetEl) budgetEl.textContent = formatXP(parseInt(newBudget, 10));
-            updateSelectedMonstersUI();
-        }
-        // Remove the OOB element from the response so HTMX doesn't re-render the browser
-        oobEl.remove();
-        evt.detail.serverResponse = tmp.innerHTML;
+// After first monster browser render, tell the server not to send it again.
+// The server checks X-Monster-Browser-Loaded header to skip the OOB monster browser.
+document.addEventListener('htmx:configRequest', function(evt) {
+    if (document.querySelector('.monster-browser')) {
+        evt.detail.headers['X-Monster-Browser-Loaded'] = 'true';
     }
+});
+
+// When server sends a budget update (hidden input via OOB), update the monster browser's max_xp
+document.addEventListener('htmx:afterSwap', function(evt) {
+    var updateEl = document.getElementById('monster-max-xp-update');
+    if (!updateEl) return;
+
+    var newBudget = parseInt(updateEl.value, 10);
+    var maxXPInput = document.querySelector('.monster-browser input[name="max_xp"]');
+    if (maxXPInput) maxXPInput.value = newBudget;
+
+    var budgetEl = document.getElementById('xp-budget');
+    if (budgetEl) budgetEl.textContent = formatXP(newBudget);
+
+    updateSelectedMonstersUI();
+    updateEl.remove();
 });
