@@ -12,41 +12,91 @@ type MonsterFacets struct {
 	CRs   []string
 }
 
-templ Result(result *encounter.CalculateXPResponse, facets MonsterFacets) {
-	<div class="result-card">
-		<!-- Header with XP -->
-		<div class="result-header">
-			<h2>Budget XP: <span class="xp-value">{ strconv.Itoa(result.TotalXP) }</span></h2>
+// DifficultyTier represents one difficulty level with its XP budget.
+type DifficultyTier struct {
+	Label    string // Display label (e.g. "Bassa", "Moderata")
+	Value    string // Form value (e.g. "Low", "Moderate")
+	XP       int
+	Selected bool
+}
+
+// ResultData holds all data needed to render the result panel.
+type ResultData struct {
+	Result *encounter.CalculateXPResponse
+	Tiers  []DifficultyTier
+	Facets MonsterFacets
+}
+
+func xpPerCharacter(totalXP, partySize int) string {
+	if partySize == 0 {
+		return "0"
+	}
+	return strconv.Itoa(totalXP / partySize)
+}
+
+func tierPercentage(tierXP, maxXP int) string {
+	if maxXP == 0 {
+		return "0"
+	}
+	pct := (tierXP * 100) / maxXP
+	if pct > 100 {
+		pct = 100
+	}
+	return strconv.Itoa(pct)
+}
+
+templ Result(data ResultData) {
+	<div class="result-card success">
+		<!-- XP Budget -->
+		<div class="result-budget">
+			<span class="result-budget-label">Budget XP</span>
+			<span class="result-budget-value">{ strconv.Itoa(data.Result.TotalXP) }</span>
+			<span class="result-budget-per">{ xpPerCharacter(data.Result.TotalXP, data.Result.PartySize) } XP per personaggio</span>
 		</div>
 
-		<!-- Ruleset and Party Info -->
-		<div class="result-info-grid">
-			<div class="result-info-item">
-				<span class="result-info-label">Regole</span>
-				<span class="result-info-value">D&D { result.Ruleset }</span>
-			</div>
-			<div class="result-info-item">
-				<span class="result-info-label">Personaggi</span>
-				<span class="result-info-value">{ strconv.Itoa(result.PartySize) } membri</span>
-			</div>
-			<div class="result-info-item">
-				<span class="result-info-label">Livelli</span>
-				<span class="result-info-value">
-					for i, level := range result.CharacterLevels {
-						if i > 0 {
-							<span>, </span>
-						}
-						{ strconv.Itoa(level) }
+		<!-- Party Summary -->
+		<div class="result-party-summary">
+			<span class="result-party-tag">D&D { data.Result.Ruleset.String() }</span>
+			<span class="result-party-tag">
+				{ strconv.Itoa(data.Result.PartySize) }
+				if data.Result.PartySize == 1 {
+					personaggio
+				} else {
+					personaggi
+				}
+			</span>
+			<span class="result-party-tag">
+				Lv.
+				for i, level := range data.Result.CharacterLevels {
+					if i > 0 {
+						<span>, </span>
 					}
-				</span>
-			</div>
+					{ strconv.Itoa(level) }
+				}
+			</span>
 		</div>
 
+		<!-- Difficulty Tiers -->
+		if len(data.Tiers) > 0 {
+			<div class="result-tiers">
+				<h3 class="result-tiers-title">Soglie di Difficoltà</h3>
+				for _, tier := range data.Tiers {
+					<div class={ "result-tier", templ.KV("result-tier-active", tier.Selected) }>
+						<div class="result-tier-header">
+							<span class="result-tier-label">{ tier.Label }</span>
+							<span class="result-tier-xp">{ strconv.Itoa(tier.XP) } XP</span>
+						</div>
+						<div class="result-tier-bar">
+							<div class="result-tier-fill" style={ "width:" + tierPercentage(tier.XP, data.Tiers[len(data.Tiers)-1].XP) + "%" }></div>
+						</div>
+					</div>
+				}
+			</div>
+		}
 	</div>
 
 	<!-- Monster Browser -->
-	if result.Ruleset == "2024" {
-		@MonsterBrowser(result.TotalXP, facets.Types, facets.Sizes, facets.CRs)
+	if data.Result.Ruleset == "2024" {
+		@MonsterBrowser(data.Result.TotalXP, data.Facets.Types, data.Facets.Sizes, data.Facets.CRs)
 	}
-
 }

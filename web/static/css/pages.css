@@ -194,6 +194,114 @@
 }
 .result-info-value { font-weight: var(--weight-bold); }
 
+/* ========================================================================
+   RESULT BUDGET DISPLAY
+   ======================================================================== */
+
+.result-budget {
+  text-align: center;
+  padding-bottom: var(--space-5);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+.result-budget-label {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-1);
+}
+.result-budget-value {
+  display: block;
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.result-budget-per {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-1);
+}
+
+/* Party summary tags */
+.result-party-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+.result-party-tag {
+  display: inline-flex;
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+}
+
+/* Difficulty tiers */
+.result-tiers { }
+.result-tiers-title {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-3) 0;
+}
+.result-tier {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-2);
+  transition: background var(--transition-fast);
+}
+.result-tier-active {
+  background: var(--primary-light);
+}
+.result-tier-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-1);
+}
+.result-tier-label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+.result-tier-active .result-tier-label {
+  font-weight: var(--weight-bold);
+  color: var(--primary-dark);
+}
+.result-tier-xp {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-secondary);
+}
+.result-tier-active .result-tier-xp {
+  color: var(--primary-dark);
+}
+.result-tier-bar {
+  height: 4px;
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.result-tier-fill {
+  height: 100%;
+  background: var(--gray-300);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-slow);
+}
+.result-tier-active .result-tier-fill {
+  background: var(--primary);
+}
+
 .tile {
   background: var(--color-bg);
   border-radius: var(--radius-md);
