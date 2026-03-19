@@ -287,9 +287,103 @@
    SEARCH PAGE
    ======================================================================== */
 
+.search-page-header {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4) var(--space-4);
+}
+.search-page-back {
+  display: inline-block;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  margin-bottom: var(--space-4);
+  transition: color var(--transition-fast);
+}
+.search-page-back:hover { color: var(--primary); }
+
 .search-page-form {
   margin-bottom: var(--space-4);
   max-width: 600px;
+  position: relative;
+}
+
+.search-page-count {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.search-page-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--space-4) var(--space-6);
+}
+.search-page-section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-3);
+}
+.search-page-section-title {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  margin: 0;
+}
+.search-page-section-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  flex-shrink: 0;
+}
+.search-page-section-count { color: var(--color-text-secondary); }
+.search-page-section-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: var(--weight-medium);
+  white-space: nowrap;
+}
+.search-page-section-link:hover { text-decoration: underline; }
+
+.search-page-results {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.search-page-result {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: background var(--transition-fast);
+}
+.search-page-result:first-child { border-top: none; }
+.search-page-result:last-child { border-bottom: none; }
+.search-page-result:hover { background: var(--color-hover); }
+
+.search-page-result-content { flex: 1; min-width: 0; }
+.search-page-result-title {
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  margin: 0 0 var(--space-1);
+}
+.search-page-result-title mark {
+  background: var(--primary-light);
+  color: inherit;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+.search-page-result-arrow {
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+  margin-top: var(--space-1);
 }
 
 .search-page-result-badges { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-top: var(--space-1); }
@@ -313,6 +407,8 @@
 }
 
 .search-page-empty {
+  max-width: 800px;
+  margin: 0 auto;
   text-align: center;
   padding: var(--space-8) var(--space-4);
 }
