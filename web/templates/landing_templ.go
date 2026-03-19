@@ -57,7 +57,15 @@ func LandingPage() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div><div class=\"landing-card-body\"><div class=\"landing-card-title\">Calcolatore Incontri</div><div class=\"landing-card-description\">Calcola il budget di PE per i tuoi incontri. Supporta le regole 2014 e 2024, con browser dei mostri integrato.</div></div><span class=\"landing-card-action\">Calcola &rarr;</span></a></div></section>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div><div class=\"landing-card-body\"><div class=\"landing-card-title\">Calcolatore Incontri</div><div class=\"landing-card-description\">Calcola il budget di PE per i tuoi incontri. Supporta le regole 2014 e 2024, con browser dei mostri integrato.</div></div><span class=\"landing-card-action\">Calcola &rarr;</span></a> <a href=\"/mappe\" class=\"landing-card\"><div class=\"landing-card-icon\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = MapIcon().Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div><div class=\"landing-card-body\"><div class=\"landing-card-title\">Mappe</div><div class=\"landing-card-description\">Esplora la galleria di mappe per le tue avventure. Mappe di dungeon, città e terre selvagge pronte da usare al tavolo.</div></div><span class=\"landing-card-action\">Esplora &rarr;</span></a></div></section>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
