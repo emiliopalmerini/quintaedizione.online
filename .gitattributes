@@ -1,3 +1,4 @@
+web/static/img/mappe/*.webp filter=lfs diff=lfs merge=lfs -text
 web/static/img/mappe/*.webp !text !filter !merge !diff
 web/static/img/mappe/thumbs/*.webp filter=lfs diff=lfs merge=lfs -text
 web/static/img/mappe/preview/*.webp filter=lfs diff=lfs merge=lfs -text
