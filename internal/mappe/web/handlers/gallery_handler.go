@@ -3,10 +3,13 @@ package handlers
 import (
 	"log/slog"
 	"net/http"
+	"strconv"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/maps"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/mappe/web/templates"
 )
+
+const defaultPageSize = 40
 
 // GalleryHandler handles HTTP requests for the map gallery.
 type GalleryHandler struct {
@@ -42,13 +45,20 @@ func (h *GalleryHandler) HandleDetail(w http.ResponseWriter, r *http.Request) {
 // HandleGallery renders the full gallery page.
 // GET /
 func (h *GalleryHandler) HandleGallery(w http.ResponseWriter, r *http.Request) {
+	offset, _ := strconv.Atoi(r.URL.Query().Get("offset"))
+	if offset < 0 {
+		offset = 0
+	}
+
 	filters := maps.SearchFilters{
 		Query:     r.URL.Query().Get("q"),
 		Categoria: r.URL.Query().Get("categoria"),
 		Tag:       r.URL.Query().Get("tag"),
+		Offset:    offset,
+		Limit:     defaultPageSize,
 	}
 
-	results := h.repo.Search(filters)
+	results, total := h.repo.Search(filters)
 
 	data := maps.GalleryData{
 		Mappe:     results,
@@ -57,19 +67,28 @@ func (h *GalleryHandler) HandleGallery(w http.ResponseWriter, r *http.Request) {
 		Query:     filters.Query,
 		Categoria: filters.Categoria,
 		Tag:       filters.Tag,
-		Total:     len(results),
+		Total:     total,
+		Offset:    offset,
+		Limit:     defaultPageSize,
+		HasMore:   offset+len(results) < total,
 	}
 
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+
 	if r.Header.Get("HX-Request") == "true" {
-		w.Header().Set("Content-Type", "text/html; charset=utf-8")
-		if err := templates.GalleryGrid(data).Render(r.Context(), w); err != nil {
-			h.logger.Error("Failed to render gallery grid", "error", err)
+		var tmpl func() error
+		if offset > 0 {
+			tmpl = func() error { return templates.GalleryCards(data).Render(r.Context(), w) }
+		} else {
+			tmpl = func() error { return templates.GalleryGrid(data).Render(r.Context(), w) }
+		}
+		if err := tmpl(); err != nil {
+			h.logger.Error("Failed to render gallery", "error", err)
 			http.Error(w, "Internal server error", http.StatusInternalServerError)
 		}
 		return
 	}
 
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	if err := templates.GalleryPage(data).Render(r.Context(), w); err != nil {
 		h.logger.Error("Failed to render gallery page", "error", err)
 		http.Error(w, "Internal server error", http.StatusInternalServerError)
