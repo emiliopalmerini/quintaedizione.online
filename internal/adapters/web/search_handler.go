@@ -6,7 +6,10 @@ import (
 	"net/http"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/search"
+	"github.com/emiliopalmerini/quintaedizione.online/pkg/mappers"
+	"github.com/emiliopalmerini/quintaedizione.online/web/templates"
 )
 
 // SearchHandler handles search-related requests.
@@ -20,7 +23,7 @@ func (h *SearchHandler) handleGlobalSearch(w http.ResponseWriter, r *http.Reques
 	query := r.URL.Query().Get("q")
 
 	if query == "" {
-		http.Redirect(w, r, "/", http.StatusFound)
+		http.Redirect(w, r, "/srd", http.StatusFound)
 		return
 	}
 
@@ -30,7 +33,7 @@ func (h *SearchHandler) handleGlobalSearch(w http.ResponseWriter, r *http.Reques
 		return
 	}
 
-	results, totalResults := h.transformSearchResults(r.Context(), fuzzyResults)
+	results, totalResults := h.transformSearchResults(r.Context(), fuzzyResults, query)
 
 	data := models.SearchPageData{
 		PageData: models.PageData{
@@ -38,9 +41,10 @@ func (h *SearchHandler) handleGlobalSearch(w http.ResponseWriter, r *http.Reques
 			Description: "Risultati della ricerca globale",
 			QueryString: r.URL.RawQuery,
 		},
-		Query:   query,
-		Results: results,
-		Total:   totalResults,
+		Query:       query,
+		Results:     results,
+		Total:       totalResults,
+		Collections: h.getPopularCollections(),
 	}
 
 	content, err := h.templateEngine.RenderSearch(data)
@@ -94,7 +98,7 @@ func (h *SearchHandler) handleSearchDropdown(w http.ResponseWriter, r *http.Requ
 		}
 	}
 
-	results, _ := h.transformSearchResults(r.Context(), fuzzyResults)
+	results, _ := h.transformSearchResults(r.Context(), fuzzyResults, query)
 
 	content, err := h.templateEngine.RenderSearchDropdown(results, query)
 	if err != nil {
@@ -110,7 +114,7 @@ func (h *SearchHandler) handleSearchDropdown(w http.ResponseWriter, r *http.Requ
 }
 
 // transformSearchResults converts fuzzy search results to CollectionSearchResult models.
-func (h *SearchHandler) transformSearchResults(ctx context.Context, fuzzyResults []search.SearchResultSet) ([]models.CollectionSearchResult, int64) {
+func (h *SearchHandler) transformSearchResults(ctx context.Context, fuzzyResults []search.SearchResultSet, query string) ([]models.CollectionSearchResult, int64) {
 	results := make([]models.CollectionSearchResult, 0, len(fuzzyResults))
 	totalResults := int64(0)
 
@@ -119,7 +123,11 @@ func (h *SearchHandler) transformSearchResults(ctx context.Context, fuzzyResults
 		for _, r := range sr.Results {
 			item, err := h.contentService.GetItem(ctx, sr.Collection, r.ID)
 			if err == nil {
-				documents = append(documents, h.documentMapper.ToModel(sr.Collection, item))
+				doc := h.documentMapper.ToModel(sr.Collection, item)
+				if rawContent := mappers.GetString(item, "raw_content", ""); rawContent != "" {
+					doc.Snippet = templates.ExtractSnippet(rawContent, query, 120)
+				}
+				documents = append(documents, doc)
 			} else {
 				documents = append(documents, models.Document{
 					ID:    r.ID,
@@ -140,4 +148,19 @@ func (h *SearchHandler) transformSearchResults(ctx context.Context, fuzzyResults
 	}
 
 	return results, totalResults
+}
+
+// getPopularCollections returns a list of popular collections for the empty state.
+func (h *SearchHandler) getPopularCollections() []models.Collection {
+	popular := []string{"incantesimi", "mostri", "classi", "oggetti_magici", "equipaggiamenti"}
+	result := make([]models.Collection, 0, len(popular))
+	for _, name := range popular {
+		if _, ok := collections.FromString(name); ok {
+			result = append(result, models.Collection{
+				Name:  name,
+				Label: h.getCollectionTitle(name),
+			})
+		}
+	}
+	return result
 }

@@ -35,6 +35,7 @@ type Document struct {
 	Title           string                 `json:"title"`
 	DisplayElements []DocumentDisplayField `json:"display_elements"`
 	Translated      bool                   `json:"translated"`
+	Snippet         string                 `json:"snippet,omitempty"`
 }
 
 type DocumentDisplayField struct {
@@ -99,7 +100,8 @@ type CollectionSearchResult struct {
 
 type SearchPageData struct {
 	PageData
-	Query   string
-	Results []CollectionSearchResult
-	Total   int64
+	Query       string
+	Results     []CollectionSearchResult
+	Total       int64
+	Collections []Collection
 }

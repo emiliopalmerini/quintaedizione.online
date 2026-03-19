@@ -11,7 +11,8 @@ templ HomePage(data models.HomePageData) {
 			<p>Regole, incantesimi, mostri e altro — cerca e consulta liberamente.</p>
 
 			<div class="search-container-wrapper">
-				<form id="search-form" hx-get="/srd/search/dropdown" hx-trigger="keyup changed delay:100ms from:#global-search, keydown[key=='Enter'] from:#global-search consume" hx-target="#search-results" hx-indicator="#search-spinner">
+				<form id="search-form" hx-get="/srd/search/dropdown" hx-trigger="keyup changed delay:100ms from:#global-search, search from:#global-search" hx-target="#search-results" hx-indicator="#search-spinner" hx-include="#desktop-collection">
+					<input type="hidden" name="collection" id="desktop-collection" value=""/>
 					<div class="search-input-group">
 						<svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 							<path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -42,6 +43,12 @@ templ HomePage(data models.HomePageData) {
 						</button>
 					</div>
 				</form>
+				<div id="desktop-filter-chips" class="desktop-filter-chips" role="radiogroup" aria-label="Filtra per collezione">
+					<button type="button" class="desktop-chip active" data-collection="">Tutte</button>
+					for _, collection := range data.Collections {
+						<button type="button" class="desktop-chip" data-collection={ collection.Name }>{ collection.Label }</button>
+					}
+				</div>
 				<div id="search-results" class="search-dropdown" role="listbox" aria-live="polite"></div>
 			</div>
 

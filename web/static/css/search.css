@@ -136,10 +136,82 @@
   background: var(--color-bg-secondary);
 }
 
+.search-dropdown-snippet {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-1);
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.search-dropdown-snippet mark {
+  background: var(--primary-light);
+  color: inherit;
+  padding: 0 1px;
+  border-radius: 2px;
+}
+
+.search-dropdown-view-all {
+  display: block;
+  padding: var(--space-3) var(--space-4);
+  text-align: center;
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-sm);
+  color: var(--primary);
+  text-decoration: none;
+  border-top: 1px solid var(--color-border);
+  transition: background var(--transition-fast);
+}
+.search-dropdown-view-all:hover { background: var(--color-hover); }
+
 .search-dropdown-empty { padding: var(--space-8) var(--space-4); text-align: center; color: var(--color-text-secondary); }
 .search-empty-icon { margin: 0 auto var(--space-4); color: var(--gray-300); }
 .search-empty-title { font-size: var(--text-base); color: var(--color-text); margin-bottom: var(--space-3); }
 .search-empty-title strong { color: var(--primary); }
+
+.search-empty-suggestions { margin-bottom: var(--space-4); }
+.search-empty-suggestions-label {
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-2);
+}
+.search-empty-tips {
+  list-style: disc;
+  text-align: left;
+  display: inline-block;
+  font-size: var(--text-sm);
+  padding-left: var(--space-4);
+}
+.search-empty-tips li { margin-bottom: var(--space-1); }
+
+.search-empty-collections { margin-top: var(--space-4); }
+.search-empty-collections-label {
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-2);
+}
+.search-empty-collection-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+}
+.search-empty-chip {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+.search-empty-chip:hover {
+  background: var(--primary);
+  color: var(--color-text-inverse);
+  border-color: var(--primary);
+}
 
 .search-shortcut-hint {
   display: none;
@@ -154,6 +226,38 @@
 @media (min-width: 768px) { .search-shortcut-hint { display: inline-flex; } }
 #global-search:focus ~ .search-shortcut-hint,
 #global-search:not(:placeholder-shown) ~ .search-shortcut-hint { display: none; }
+
+/* ========================================================================
+   DESKTOP FILTER CHIPS
+   ======================================================================== */
+
+.desktop-filter-chips {
+  display: none;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+@media (min-width: 641px) {
+  .desktop-filter-chips { display: flex; }
+}
+.desktop-chip {
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  background: var(--color-bg);
+  color: var(--color-text);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+.desktop-chip:hover { border-color: var(--primary); color: var(--primary); }
+.desktop-chip.active {
+  background: var(--primary);
+  color: var(--color-text-inverse);
+  border-color: var(--primary);
+}
 
 /* ========================================================================
    SEARCH OVERLAY (Mobile full-screen)
@@ -180,8 +284,13 @@
 .search-overlay-results { flex: 1; overflow-y: auto; }
 
 /* ========================================================================
-   SEARCH PAGE RESULT BADGES
+   SEARCH PAGE
    ======================================================================== */
+
+.search-page-form {
+  margin-bottom: var(--space-4);
+  max-width: 600px;
+}
 
 .search-page-result-badges { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-top: var(--space-1); }
 .search-page-result-badge {
@@ -189,3 +298,26 @@
   font-size: var(--text-xs); color: var(--color-text-secondary);
   border: 1px solid var(--color-border); border-radius: var(--radius-sm);
 }
+
+.search-page-result-snippet {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-2);
+  line-height: 1.5;
+}
+.search-page-result-snippet mark {
+  background: var(--primary-light);
+  color: inherit;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+.search-page-empty {
+  text-align: center;
+  padding: var(--space-8) var(--space-4);
+}
+.search-page-empty-title {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-4);
+}
+.search-page-empty-title strong { color: var(--primary); }

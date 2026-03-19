@@ -251,6 +251,7 @@ function initGlobalSearch() {
 	var searchResults = document.getElementById('search-results');
 	var searchForm = document.getElementById('search-form');
 	var searchCloseBtn = document.getElementById('search-close-btn');
+	var desktopCollection = document.getElementById('desktop-collection');
 
 	if (!searchInput) return;
 
@@ -264,8 +265,16 @@ function initGlobalSearch() {
 		}
 	});
 
-	// ESC key closes dropdown and clears search
+	// Enter key navigates to full search page
 	searchInput.addEventListener('keydown', function(e) {
+		if (e.key === 'Enter') {
+			e.preventDefault();
+			var q = searchInput.value.trim();
+			if (q.length >= 2) {
+				window.location.href = '/srd/search?q=' + encodeURIComponent(q);
+			}
+		}
+		// ESC key closes dropdown and clears search
 		if (e.key === 'Escape') {
 			e.preventDefault();
 			if (searchResults) {
@@ -291,9 +300,37 @@ function initGlobalSearch() {
 			if (searchResults) {
 				searchResults.innerHTML = '';
 			}
+			if (desktopCollection) {
+				desktopCollection.value = '';
+			}
+			// Reset desktop chips
+			var chips = document.querySelectorAll('.desktop-chip');
+			chips.forEach(function(c) {
+				c.classList.toggle('active', c.getAttribute('data-collection') === '');
+			});
 			searchInput.focus();
 		});
 	}
+
+	// Desktop filter chip selection
+	initDesktopChips(searchInput, desktopCollection);
+}
+
+function initDesktopChips(searchInput, desktopCollection) {
+	var chips = document.querySelectorAll('.desktop-chip');
+	if (!chips.length || !desktopCollection) return;
+
+	chips.forEach(function(chip) {
+		chip.addEventListener('click', function() {
+			chips.forEach(function(c) { c.classList.remove('active'); });
+			chip.classList.add('active');
+			desktopCollection.value = chip.getAttribute('data-collection');
+			// Re-trigger search with new collection filter
+			if (searchInput && searchInput.value.trim().length >= 2) {
+				htmx.trigger(searchInput, 'search');
+			}
+		});
+	});
 }
 
 // Mobile search overlay (full-screen)
