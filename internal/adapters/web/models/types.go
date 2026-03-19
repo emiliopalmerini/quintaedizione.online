@@ -72,6 +72,7 @@ type ItemPageData struct {
 	Position        int
 	Total           int
 	CollectionLabel string
+	SourceShort     string // edition badge (e.g. "5e", "5.5e"); empty if single source
 }
 
 type ErrorPageData struct {

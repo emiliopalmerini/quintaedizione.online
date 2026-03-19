@@ -27,7 +27,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "constitution": "+6",
+      "intelligence": "+8",
+      "wisdom": "+6"
+    },
     "skills": "Percezione +10, Storia +12",
     "resistances": "",
     "damage_immunities": "",
@@ -107,7 +111,10 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+9",
+      "wisdom": "+9"
+    },
     "skills": "Intuizione +9, Percezione +9",
     "resistances": "",
     "damage_immunities": "",
@@ -174,7 +181,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+12",
+      "constitution": "+12",
+      "wisdom": "+11"
+    },
     "skills": "Percezione +11",
     "resistances": "",
     "damage_immunities": "",
@@ -241,7 +252,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+14",
+      "intelligence": "+17",
+      "wisdom": "+14"
+    },
     "skills": "Percezione +14",
     "resistances": "",
     "damage_immunities": "",
@@ -445,7 +460,9 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "constitution": "+4"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -1141,7 +1158,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+6",
+      "constitution": "+5",
+      "wisdom": "+7"
+    },
     "skills": "",
     "resistances": "ai Danni radiosi",
     "damage_immunities": "",
@@ -1266,7 +1287,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+12",
+      "constitution": "+12",
+      "strength": "+14",
+      "wisdom": "+9"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -1403,7 +1429,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+7",
+      "constitution": "+9",
+      "strength": "+9",
+      "wisdom": "+7"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -1461,7 +1492,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "constitution": "+8",
+      "strength": "+7",
+      "wisdom": "+4"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -1524,7 +1559,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+10",
+      "constitution": "+10",
+      "strength": "+9",
+      "wisdom": "+8"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -1600,7 +1640,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+7",
+      "constitution": "+11",
+      "intelligence": "+9",
+      "wisdom": "+6"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -1729,7 +1774,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+2",
+      "dexterity": "+5",
+      "wisdom": "+4"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -1795,7 +1844,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "constitution": "+4",
+      "strength": "+5",
+      "wisdom": "+2"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -1862,7 +1915,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+7",
+      "dexterity": "+7",
+      "strength": "+10",
+      "wisdom": "+7"
+    },
     "skills": "",
     "resistances": "ai Danni freddo; contundenti, perforanti",
     "damage_immunities": "",
@@ -1929,7 +1987,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+9",
+      "constitution": "+9",
+      "dexterity": "+7",
+      "wisdom": "+7"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -2000,7 +2063,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "constitution": "+13",
+      "dexterity": "+8",
+      "wisdom": "+10"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -2079,7 +2146,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+5",
+      "constitution": "+7",
+      "wisdom": "+4"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -2147,7 +2218,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+7",
+      "intelligence": "+5",
+      "wisdom": "+6"
+    },
     "skills": "Inganno +7, Intuizione +6",
     "resistances": "",
     "damage_immunities": "",
@@ -2210,7 +2285,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+5",
+      "constitution": "+7",
+      "strength": "+6",
+      "wisdom": "+5"
+    },
     "skills": "Inganno +5, Intuizione +5, Percezione +8",
     "resistances": "",
     "damage_immunities": "",
@@ -2281,7 +2361,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+8",
+      "constitution": "+8",
+      "dexterity": "+7",
+      "wisdom": "+6"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -2696,7 +2781,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+13",
+      "constitution": "+16",
+      "dexterity": "+7",
+      "wisdom": "+9"
+    },
     "skills": "Arcano +11, Furtività +7, Percezione +16,",
     "resistances": "",
     "damage_immunities": "",
@@ -2787,7 +2877,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+10",
+      "constitution": "+12",
+      "dexterity": "+5",
+      "wisdom": "+6"
+    },
     "skills": "Arcano +8, Furtività +5, Percezione +11,",
     "resistances": "",
     "damage_immunities": "",
@@ -2878,7 +2973,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+8",
+      "constitution": "+9",
+      "dexterity": "+4",
+      "wisdom": "+4"
+    },
     "skills": "Arcano +6, Furtività +4, Percezione +8, Storia +6",
     "resistances": "",
     "damage_immunities": "",
@@ -2944,7 +3044,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+4",
+      "constitution": "+5",
+      "dexterity": "+2",
+      "wisdom": "+2"
+    },
     "skills": "Furtività +2, Percezione +4",
     "resistances": "",
     "damage_immunities": "",
@@ -3002,7 +3107,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+12",
+      "constitution": "+15",
+      "dexterity": "+7",
+      "wisdom": "+10"
+    },
     "skills": "Furtività +7, Intuizione +10, Percezione +17",
     "resistances": "",
     "damage_immunities": "",
@@ -3093,7 +3203,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+9",
+      "constitution": "+11",
+      "dexterity": "+5",
+      "wisdom": "+7"
+    },
     "skills": "Furtività +5, Intuizione +7, Percezione +12",
     "resistances": "",
     "damage_immunities": "",
@@ -3184,7 +3299,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+6",
+      "constitution": "+7",
+      "dexterity": "+3",
+      "wisdom": "+4"
+    },
     "skills": "Furtività +3, Intuizione +4, Percezione +7",
     "resistances": "",
     "damage_immunities": "",
@@ -3254,7 +3374,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+4",
+      "constitution": "+4",
+      "dexterity": "+2",
+      "wisdom": "+2"
+    },
     "skills": "Furtività +2, Percezione +4",
     "resistances": "",
     "damage_immunities": "",
@@ -3312,7 +3437,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+11",
+      "constitution": "+14",
+      "dexterity": "+8",
+      "wisdom": "+10"
+    },
     "skills": "Furtività +8, Inganno +11, Percezione +17",
     "resistances": "",
     "damage_immunities": "",
@@ -3403,7 +3533,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+8",
+      "constitution": "+10",
+      "dexterity": "+6",
+      "wisdom": "+7"
+    },
     "skills": "Furtività +6, Inganno +8, Percezione +12",
     "resistances": "",
     "damage_immunities": "",
@@ -3494,7 +3629,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+5",
+      "constitution": "+6",
+      "dexterity": "+4",
+      "wisdom": "+4"
+    },
     "skills": "Furtività +4, Inganno +5, Percezione +7",
     "resistances": "",
     "damage_immunities": "",
@@ -3560,7 +3700,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+3",
+      "constitution": "+3",
+      "dexterity": "+3",
+      "wisdom": "+2"
+    },
     "skills": "Furtività +3, Percezione +4",
     "resistances": "",
     "damage_immunities": "",
@@ -3618,7 +3763,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+16",
+      "constitution": "+16",
+      "dexterity": "+9",
+      "wisdom": "+10"
+    },
     "skills": "Furtività +9, Intuizione +10, Percezione +17,",
     "resistances": "",
     "damage_immunities": "",
@@ -3709,7 +3859,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+13",
+      "constitution": "+13",
+      "dexterity": "+8",
+      "wisdom": "+8"
+    },
     "skills": "Furtività +8, Intuizione +8, Percezione +14,",
     "resistances": "",
     "damage_immunities": "",
@@ -3800,7 +3955,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+9",
+      "constitution": "+9",
+      "dexterity": "+6",
+      "wisdom": "+5"
+    },
     "skills": "Furtività +6, Intuizione +5, Percezione +9,",
     "resistances": "",
     "damage_immunities": "",
@@ -3866,7 +4026,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+5",
+      "constitution": "+5",
+      "dexterity": "+4",
+      "wisdom": "+2"
+    },
     "skills": "Furtività +4, Percezione +4",
     "resistances": "",
     "damage_immunities": "",
@@ -3924,7 +4089,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+10",
+      "constitution": "+13",
+      "dexterity": "+6",
+      "wisdom": "+8"
+    },
     "skills": "Furtività +6, Percezione +14, Persuasione +10,",
     "resistances": "",
     "damage_immunities": "",
@@ -4015,7 +4185,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+8",
+      "constitution": "+10",
+      "dexterity": "+5",
+      "wisdom": "+6"
+    },
     "skills": "Furtività +5, Percezione +11, Persuasione +8,",
     "resistances": "",
     "damage_immunities": "",
@@ -4102,7 +4277,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+5",
+      "constitution": "+6",
+      "dexterity": "+3",
+      "wisdom": "+3"
+    },
     "skills": "Furtività +3, Percezione +6, Persuasione +5",
     "resistances": "",
     "damage_immunities": "",
@@ -4168,7 +4348,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+3",
+      "constitution": "+3",
+      "dexterity": "+2",
+      "wisdom": "+2"
+    },
     "skills": "Furtività +2, Percezione +4",
     "resistances": "",
     "damage_immunities": "",
@@ -4226,7 +4411,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+8",
+      "constitution": "+14",
+      "dexterity": "+6",
+      "wisdom": "+7"
+    },
     "skills": "Furtività +6, Percezione +13",
     "resistances": "",
     "damage_immunities": "",
@@ -4314,7 +4504,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+6",
+      "constitution": "+11",
+      "dexterity": "+5",
+      "wisdom": "+6"
+    },
     "skills": "Furtività +5, Percezione +11",
     "resistances": "",
     "damage_immunities": "",
@@ -4402,7 +4597,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+4",
+      "constitution": "+7",
+      "dexterity": "+3",
+      "wisdom": "+3"
+    },
     "skills": "Furtività +3, Percezione +6",
     "resistances": "",
     "damage_immunities": "",
@@ -4464,7 +4664,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+2",
+      "constitution": "+4",
+      "dexterity": "+2",
+      "wisdom": "+2"
+    },
     "skills": "Furtività +2, Percezione +4",
     "resistances": "",
     "damage_immunities": "",
@@ -4518,7 +4723,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+12",
+      "constitution": "+15",
+      "dexterity": "+7",
+      "wisdom": "+10"
+    },
     "skills": "Furtività +17, Percezione +7",
     "resistances": "",
     "damage_immunities": "",
@@ -4601,7 +4811,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+9",
+      "constitution": "+11",
+      "dexterity": "+5",
+      "wisdom": "+7"
+    },
     "skills": "Furtività +5, Percezione +12",
     "resistances": "",
     "damage_immunities": "",
@@ -4684,7 +4899,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+7",
+      "constitution": "+8",
+      "dexterity": "+4",
+      "wisdom": "+5"
+    },
     "skills": "Furtività +4, Percezione +9",
     "resistances": "",
     "damage_immunities": "",
@@ -4746,7 +4966,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+4",
+      "constitution": "+4",
+      "dexterity": "+2",
+      "wisdom": "+2"
+    },
     "skills": "Furtività +2, Percezione +4",
     "resistances": "",
     "damage_immunities": "",
@@ -4800,7 +5025,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+11",
+      "constitution": "+14",
+      "dexterity": "+9",
+      "wisdom": "+9"
+    },
     "skills": "Furtività +9, Percezione +16",
     "resistances": "",
     "damage_immunities": "",
@@ -4883,7 +5113,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+8",
+      "constitution": "+10",
+      "dexterity": "+7",
+      "wisdom": "+6"
+    },
     "skills": "Furtività +7, Percezione +11",
     "resistances": "",
     "damage_immunities": "",
@@ -4966,7 +5201,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+5",
+      "constitution": "+6",
+      "dexterity": "+5",
+      "wisdom": "+3"
+    },
     "skills": "Furtività +5, Percezione +6",
     "resistances": "",
     "damage_immunities": "",
@@ -5028,7 +5268,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+3",
+      "constitution": "+3",
+      "dexterity": "+4",
+      "wisdom": "+2"
+    },
     "skills": "Furtività +4, Percezione +4",
     "resistances": "",
     "damage_immunities": "",
@@ -5082,7 +5327,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+13",
+      "constitution": "+16",
+      "dexterity": "+7",
+      "wisdom": "+9"
+    },
     "skills": "Furtività +7, Percezione +16",
     "resistances": "",
     "damage_immunities": "",
@@ -5165,7 +5415,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+11",
+      "constitution": "+13",
+      "dexterity": "+6",
+      "wisdom": "+7"
+    },
     "skills": "Furtività +6, Percezione +13",
     "resistances": "",
     "damage_immunities": "",
@@ -5248,7 +5503,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+8",
+      "constitution": "+9",
+      "dexterity": "+4",
+      "wisdom": "+4"
+    },
     "skills": "Furtività +4, Percezione +8",
     "resistances": "",
     "damage_immunities": "",
@@ -5310,7 +5570,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+4",
+      "constitution": "+5",
+      "dexterity": "+2",
+      "wisdom": "+2"
+    },
     "skills": "Furtività +2, Percezione +4",
     "resistances": "",
     "damage_immunities": "",
@@ -5364,7 +5629,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+11",
+      "constitution": "+14",
+      "dexterity": "+8",
+      "wisdom": "+10"
+    },
     "skills": "Furtività +8, Inganno +11, Intuizione +10,",
     "resistances": "",
     "damage_immunities": "",
@@ -5447,7 +5717,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+8",
+      "constitution": "+10",
+      "dexterity": "+6",
+      "wisdom": "+7"
+    },
     "skills": "Furtività +6, Inganno +8, Intuizione +7,",
     "resistances": "",
     "damage_immunities": "",
@@ -5530,7 +5805,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+5",
+      "constitution": "+6",
+      "dexterity": "+4",
+      "wisdom": "+4"
+    },
     "skills": "Furtività +4, Inganno +5, Percezione +7",
     "resistances": "",
     "damage_immunities": "",
@@ -5592,7 +5872,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+3",
+      "constitution": "+3",
+      "dexterity": "+3",
+      "wisdom": "+2"
+    },
     "skills": "Furtività +3, Percezione +4",
     "resistances": "",
     "damage_immunities": "",
@@ -6738,7 +7023,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+9",
+      "dexterity": "+6",
+      "wisdom": "+7"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -6801,7 +7090,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+7",
+      "intelligence": "+7",
+      "wisdom": "+6"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -6977,7 +7270,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+5",
+      "constitution": "+10",
+      "dexterity": "+3"
+    },
     "skills": "Atletica +11, Percezione +6",
     "resistances": "",
     "damage_immunities": "",
@@ -7035,7 +7332,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+4",
+      "constitution": "+8",
+      "wisdom": "+3"
+    },
     "skills": "Atletica +9, Percezione +3",
     "resistances": "",
     "damage_immunities": "",
@@ -7151,7 +7452,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+7",
+      "constitution": "+10",
+      "wisdom": "+7"
+    },
     "skills": "Intuizione +7, Percezione +7",
     "resistances": "",
     "damage_immunities": "",
@@ -7209,7 +7514,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "constitution": "+8",
+      "dexterity": "+5",
+      "wisdom": "+4"
+    },
     "skills": "Atletica +12, Percezione +4",
     "resistances": "",
     "damage_immunities": "",
@@ -7272,7 +7581,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+9",
+      "constitution": "+10",
+      "strength": "+14",
+      "wisdom": "+9"
+    },
     "skills": "Arcano +8, Atletica +14, Percezione +9,",
     "resistances": "ai Danni freddo",
     "damage_immunities": "",
@@ -8278,7 +8592,13 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "strength": "+17",
+      "dexterity": "+7",
+      "constitution": "+14",
+      "intelligence": "+13",
+      "wisdom": "+11"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -8767,7 +9087,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "constitution": "+10",
+      "intelligence": "+12",
+      "wisdom": "+9"
+    },
     "skills": "Arcano +18, Intuizione +9, Percezione +9,",
     "resistances": "ai Danni freddo, fulmine, necrotici",
     "damage_immunities": "",
@@ -10138,7 +10462,9 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "wisdom": "+2"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -10196,7 +10522,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+8",
+      "constitution": "+8",
+      "intelligence": "+5",
+      "wisdom": "+9"
+    },
     "skills": "Religione +5, Storia +5",
     "resistances": "",
     "damage_immunities": "",
@@ -10284,7 +10615,13 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "dexterity": "+8",
+      "constitution": "+7",
+      "intelligence": "+7",
+      "wisdom": "+8",
+      "charisma": "+8"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -10343,7 +10680,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+6",
+      "constitution": "+5",
+      "dexterity": "+6",
+      "wisdom": "+5"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -10457,7 +10799,9 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "dexterity": "+4"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -10734,7 +11078,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+5",
+      "constitution": "+6",
+      "dexterity": "+3",
+      "wisdom": "+4"
+    },
     "skills": "Arcano +5, Inganno +8, Percezione +4",
     "resistances": "",
     "damage_immunities": "",
@@ -10913,7 +11262,9 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "constitution": "+7"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -10975,7 +11326,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+3",
+      "dexterity": "+4",
+      "wisdom": "+4"
+    },
     "skills": "Percezione +6",
     "resistances": "",
     "damage_immunities": "",
@@ -11201,7 +11556,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+3",
+      "constitution": "+9",
+      "dexterity": "+4",
+      "wisdom": "+4"
+    },
     "skills": "Percezione +4",
     "resistances": "",
     "damage_immunities": "",
@@ -11727,7 +12087,12 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "constitution": "+11",
+      "dexterity": "+6",
+      "intelligence": "+9",
+      "wisdom": "+10"
+    },
     "skills": "Arcano +9, Percezione +10, Religione +15",
     "resistances": "",
     "damage_immunities": "",
@@ -12083,7 +12448,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+9",
+      "intelligence": "+5",
+      "wisdom": "+9"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -12183,7 +12552,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "constitution": "+11",
+      "dexterity": "+6",
+      "wisdom": "+7"
+    },
     "skills": "",
     "resistances": "ai Danni fuoco",
     "damage_immunities": "",
@@ -12517,7 +12890,10 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "dexterity": "+6",
+      "wisdom": "+3"
+    },
     "skills": "Furtività +6, Percezione +3",
     "resistances": "",
     "damage_immunities": "",
@@ -12584,7 +12960,11 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "charisma": "+9",
+      "dexterity": "+9",
+      "wisdom": "+7"
+    },
     "skills": "Furtività +9, Percezione +7",
     "resistances": "",
     "damage_immunities": "",
@@ -12680,7 +13060,10 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "constitution": "+11",
+      "wisdom": "+4"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -12997,7 +13380,9 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "wisdom": "+0"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",
@@ -13047,7 +13432,9 @@
       "wisdom": 0,
       "charisma": 0
     },
-    "saving_throws": {},
+    "saving_throws": {
+      "wisdom": "+0"
+    },
     "skills": "",
     "resistances": "",
     "damage_immunities": "",

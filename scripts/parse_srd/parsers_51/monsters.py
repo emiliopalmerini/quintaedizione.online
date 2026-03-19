@@ -206,12 +206,25 @@ def _extract_monster(
     ac = _extract_stat_field(content, "Classe Armatura")
     hp = _extract_stat_field(content, "Punti Ferita")
     speed = _extract_stat_field(content, "Velocità")
+    saves_text = _extract_stat_field(content, "Tiri Salvezza")
     skills = _extract_stat_field(content, "Abilità")
     senses = _extract_stat_field(content, "Sensi")
     languages = _extract_stat_field(content, "Linguaggi")
     cr_text = _extract_stat_field(content, "Sfida")
     resistances = _extract_stat_field(content, "Resistenze")
     immunities = _extract_stat_field(content, "Immunità")
+
+    # Parse saving throws: "Cos +6, Int +8, Sag +6" → {"constitution": "+6", ...}
+    saving_throws: dict[str, str] = {}
+    if saves_text:
+        for part in saves_text.split(","):
+            part = part.strip()
+            tokens = part.split()
+            if len(tokens) >= 2:
+                abbr = tokens[0].lower().rstrip(".")
+                ability = _ABILITY_NAMES.get(abbr, "")
+                if ability:
+                    saving_throws[ability] = tokens[1]
 
     ability_scores, ability_mods = _parse_ability_scores(content)
 
@@ -264,7 +277,7 @@ def _extract_monster(
         speed=speed,
         ability_scores=ability_scores,
         ability_mods=ability_mods,
-        saving_throws={},
+        saving_throws=saving_throws,
         skills=skills,
         resistances=resistances,
         damage_immunities=damage_immunities,
