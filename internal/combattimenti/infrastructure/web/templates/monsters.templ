@@ -320,7 +320,7 @@ templ MonsterBrowser(maxXP int, types []string, sizes []string, crs []string) {
 					<h4>Mostri Selezionati: <span id="selected-count">0</span></h4>
 					<div id="selected-monsters-list"></div>
 					<div class="monster-xp-tracker">
-						<span>PE Usati: <strong id="xp-used">0</strong> / <strong>{ strconv.Itoa(maxXP) }</strong></span>
+						<span>PE Usati: <strong id="xp-used">0</strong> / <strong id="xp-budget">{ strconv.Itoa(maxXP) }</strong></span>
 						<span id="xp-remaining" class="xp-remaining">Rimanenti: <strong>{ strconv.Itoa(maxXP) }</strong></span>
 					</div>
 				</div>

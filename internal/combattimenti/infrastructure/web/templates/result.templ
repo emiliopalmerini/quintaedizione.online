@@ -95,7 +95,7 @@ templ Result(data ResultData) {
 		}
 	</div>
 
-	<!-- Monster Browser (out-of-band swap into full-width container) -->
+	<!-- Monster Browser (full-width, out-of-band swap) -->
 	<div id="monster-browser-container" hx-swap-oob="innerHTML">
 		if data.Result.Ruleset == "2024" {
 			@MonsterBrowser(data.Result.TotalXP, data.Facets.Types, data.Facets.Sizes, data.Facets.CRs)
