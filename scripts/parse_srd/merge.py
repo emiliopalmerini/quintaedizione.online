@@ -10,6 +10,7 @@ from dataclasses import dataclass, field
 
 from .classify import SpanRole, classify_span
 from .extract import RawBlock, RawLine, RawSpan
+from .profiles import FontProfile
 
 
 @dataclass(slots=True)
@@ -58,11 +59,15 @@ def _dominant_role(spans: list[ClassifiedSpan]) -> SpanRole:
     return SpanRole.UNKNOWN
 
 
-def _classify_line(line: RawLine, page_num: int) -> list[ClassifiedSpan]:
+def _classify_line(
+    line: RawLine,
+    page_num: int,
+    profile: FontProfile | None = None,
+) -> list[ClassifiedSpan]:
     """Classify all spans in a line."""
     result: list[ClassifiedSpan] = []
     for span in line.spans:
-        role = classify_span(span)
+        role = classify_span(span, profile)
         result.append(ClassifiedSpan(text=span.text, role=role))
     return result
 
@@ -162,7 +167,10 @@ def _same_paragraph_group(role_a: SpanRole, role_b: SpanRole) -> bool:
     return False
 
 
-def blocks_to_paragraphs(blocks: list[RawBlock]) -> list[Paragraph]:
+def blocks_to_paragraphs(
+    blocks: list[RawBlock],
+    profile: FontProfile | None = None,
+) -> list[Paragraph]:
     """Convert sorted raw blocks into a list of paragraphs.
 
     Handles:
@@ -181,7 +189,7 @@ def blocks_to_paragraphs(blocks: list[RawBlock]) -> list[Paragraph]:
                 continue
 
             page_num = line.spans[0].page_num
-            classified = _classify_line(line, page_num)
+            classified = _classify_line(line, page_num, profile)
 
             # Skip footers and TOC
             if _is_footer(classified) or _is_toc(classified):

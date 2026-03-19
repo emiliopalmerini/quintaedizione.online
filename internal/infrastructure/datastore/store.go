@@ -27,7 +27,13 @@ func NewStore(data map[string][]map[string]any) *Store {
 			if id == "" {
 				continue
 			}
-			idMap[id] = doc
+			// Use short_name/id as composite key for clean URLs
+			short, _ := doc["_source_short"].(string)
+			if short != "" {
+				idMap[short+"/"+id] = doc
+			} else {
+				idMap[id] = doc
+			}
 		}
 		s.collections[collection] = idMap
 
