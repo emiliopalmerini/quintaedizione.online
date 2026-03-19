@@ -343,11 +343,14 @@
 .pagination {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  position: relative;
   padding: var(--space-3) var(--space-4);
   background: var(--color-bg-secondary);
 }
 .pagination-range {
+  position: absolute;
+  left: var(--space-4);
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
   white-space: nowrap;
