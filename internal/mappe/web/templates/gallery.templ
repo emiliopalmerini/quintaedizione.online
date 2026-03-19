@@ -19,9 +19,10 @@ templ GalleryPage(data maps.GalleryData) {
 		<form id="mappe-filter-form"
 			hx-get="/mappe/gallery"
 			hx-target="#mappe-grid"
-			hx-trigger="keyup delay:200ms from:#mappe-search, change from:select, click from:.quick-filter-chip"
+			hx-trigger="keyup delay:200ms from:#mappe-search, change from:#mappe-categoria, change from:#mappe-tag"
 			hx-push-url="true"
 			hx-swap="outerHTML"
+			hx-include="#mappe-search, #mappe-categoria, #mappe-tag"
 		>
 			<div class="mb-4">
 				<input
@@ -35,21 +36,22 @@ templ GalleryPage(data maps.GalleryData) {
 				/>
 			</div>
 
+			<input type="hidden" name="categoria" id="mappe-categoria" value={ data.Categoria }/>
+			<input type="hidden" name="tag" id="mappe-tag" value={ data.Tag }/>
+
 			<div class="quick-filter-bar mb-2">
 				<button
-					type="submit"
-					name="categoria"
-					value=""
+					type="button"
 					class={ "quick-filter-chip", templ.KV("active", data.Categoria == "") }
+					onclick="document.getElementById('mappe-categoria').value='';htmx.trigger('#mappe-filter-form','change')"
 				>
 					Tutte
 				</button>
 				for _, cat := range data.Categorie {
 					<button
-						type="submit"
-						name="categoria"
-						value={ cat }
+						type="button"
 						class={ "quick-filter-chip", templ.KV("active", data.Categoria == cat) }
+						onclick={ setFilter("mappe-categoria", cat) }
 					>
 						{ cat }
 					</button>
@@ -60,10 +62,9 @@ templ GalleryPage(data maps.GalleryData) {
 				<div class="quick-filter-bar mb-4">
 					for _, tag := range data.Tags {
 						<button
-							type="submit"
-							name="tag"
-							value={ tagValue(data.Tag, tag) }
+							type="button"
 							class={ "quick-filter-chip", templ.KV("active", data.Tag == tag) }
+							onclick={ toggleFilter("mappe-tag", tag) }
 						>
 							{ tag }
 						</button>
@@ -116,10 +117,13 @@ templ GalleryGrid(data maps.GalleryData) {
 	</div>
 }
 
-// tagValue returns empty string if the tag is already active (toggle off), otherwise the tag value.
-func tagValue(current, tag string) string {
-	if current == tag {
-		return ""
-	}
-	return tag
+script setFilter(inputID, value string) {
+	document.getElementById(inputID).value = value;
+	htmx.trigger(document.getElementById('mappe-filter-form'), 'change');
+}
+
+script toggleFilter(inputID, value string) {
+	var el = document.getElementById(inputID);
+	el.value = el.value === value ? '' : value;
+	htmx.trigger(document.getElementById('mappe-filter-form'), 'change');
 }
