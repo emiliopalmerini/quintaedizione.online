@@ -54,7 +54,7 @@ func Home(editions []EditionOption) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"page-header\"><h1>Calcolatore Incontri</h1><p class=\"page-header-subtitle\">Calcola il budget XP per i tuoi incontri. Supporta le regole 2014 e 2024.</p></div><div class=\"encounter-layout\"><div class=\"encounter-config\"><div class=\"form-container\"><form id=\"encounter-form\" hx-post=\"/combattimenti/calculate\" hx-target=\"#result-container\" hx-swap=\"innerHTML transition:false\" hx-trigger=\"calculate, submit\" hx-indicator=\"false\"><!-- Edition Selection --><div class=\"form-section\"><h2 class=\"form-section-title\">Edizione</h2><div class=\"segmented-control\" role=\"radiogroup\" aria-label=\"Edizione delle regole\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"page-header page-header-map\" style=\"--map-bg: url('/static/img/dyson-map-1.webp')\"><h1>Calcolatore Incontri</h1><p class=\"page-header-subtitle\">Calcola il budget XP per i tuoi incontri. Supporta le regole 2014 e 2024.</p></div><div class=\"encounter-layout\"><div class=\"encounter-config\"><div class=\"form-container\"><form id=\"encounter-form\" hx-post=\"/combattimenti/calculate\" hx-target=\"#result-container\" hx-swap=\"innerHTML transition:false\" hx-trigger=\"calculate, submit\" hx-indicator=\"false\"><!-- Edition Selection --><div class=\"form-section\"><h2 class=\"form-section-title\">Edizione</h2><div class=\"segmented-control\" role=\"radiogroup\" aria-label=\"Edizione delle regole\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

@@ -74,10 +74,30 @@
   text-align: center;
   margin-bottom: var(--space-8);
   padding: var(--space-8) 0;
+  position: relative;
 }
-.page-header h1 { margin-bottom: var(--space-3); }
-.page-header p { margin: 0; color: var(--color-text-secondary); }
+.page-header h1 { margin-bottom: var(--space-3); position: relative; }
+.page-header p { margin: 0; color: var(--color-text-secondary); position: relative; }
 .page-header-subtitle { max-width: 600px; margin: 0 auto; color: var(--color-text-secondary); }
+
+/* Dyson Logos map background decoration */
+.page-header-map {
+  position: relative;
+  overflow: hidden;
+}
+.page-header-map::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background-image: var(--map-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+html.dark .page-header-map::before { opacity: 0.04; mix-blend-mode: screen; filter: invert(1); }
 
 /* ========================================================================
    ENCOUNTER LAYOUT
