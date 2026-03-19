@@ -1,0 +1,35 @@
+[
+  {
+    "slug": "il-tempio-sommerso",
+    "nome": "Il Tempio Sommerso",
+    "nome_originale": "The Sunken Temple",
+    "immagine": "il-tempio-sommerso.png",
+    "categoria": "dungeon",
+    "tag": ["acqua", "trappola"],
+    "autore": "Dyson Logos",
+    "licenza": "Commercial Use Allowed",
+    "url_originale": "https://dysonlogos.blog/example/the-sunken-temple"
+  },
+  {
+    "slug": "la-caverna-dei-funghi",
+    "nome": "La Caverna dei Funghi",
+    "nome_originale": "The Mushroom Cavern",
+    "immagine": "la-caverna-dei-funghi.png",
+    "categoria": "caverna",
+    "tag": ["funghi", "sotterraneo"],
+    "autore": "Dyson Logos",
+    "licenza": "Commercial Use Allowed",
+    "url_originale": "https://dysonlogos.blog/example/the-mushroom-cavern"
+  },
+  {
+    "slug": "la-piazza-del-mercato",
+    "nome": "La Piazza del Mercato",
+    "nome_originale": "The Market Square",
+    "immagine": "la-piazza-del-mercato.png",
+    "categoria": "citta",
+    "tag": ["mercato", "urbano"],
+    "autore": "Dyson Logos",
+    "licenza": "Commercial Use Allowed",
+    "url_originale": "https://dysonlogos.blog/example/the-market-square"
+  }
+]

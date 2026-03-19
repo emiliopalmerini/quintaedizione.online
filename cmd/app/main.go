@@ -12,7 +12,9 @@ import (
 	"time"
 
 	jsondata "github.com/emiliopalmerini/quintaedizione.online/data/ita/json"
+	mappeData "github.com/emiliopalmerini/quintaedizione.online/data/mappe"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/repositories/inmemory"
+	inmemoryMaps "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/repositories/inmemory/maps"
 	web "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/filters"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/parsers"
@@ -25,6 +27,7 @@ import (
 	combatTemplates "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/infrastructure/web/templates"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/infrastructure"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/infrastructure/datastore"
+	mappeHandlers "github.com/emiliopalmerini/quintaedizione.online/internal/mappe/web/handlers"
 	"github.com/emiliopalmerini/quintaedizione.online/pkg/templates"
 	landingTemplates "github.com/emiliopalmerini/quintaedizione.online/web/templates"
 )
@@ -107,6 +110,13 @@ func main() {
 	encounterHandler := combatHandlers.NewEncounterHandler(encounterService, queryHandler, monsterService, logger)
 	monsterHandler := combatHandlers.NewMonsterHandler(monsterService, logger)
 	log.Println("Combattimenti ready")
+
+	// ── Mappe setup ───────────────────────────────────────────
+
+	log.Println("Loading Mappe data...")
+	mappaRepo := inmemoryMaps.NewMappaRepository(mappeData.Files, "mappe.json")
+	galleryHandler := mappeHandlers.NewGalleryHandler(mappaRepo, logger)
+	log.Printf("Mappe ready: %d maps loaded", len(mappaRepo.FindAll()))
 
 	// ── Router setup ───────────────────────────────────────────
 
@@ -191,6 +201,12 @@ func main() {
 	combatMux.HandleFunc("GET /api/difficulties", encounterHandler.GetDifficultiesHandler)
 	combatMux.HandleFunc("GET /api/monsters", monsterHandler.SearchHandler)
 	mux.Handle("/combattimenti/", http.StripPrefix("/combattimenti", combatMux))
+
+	// Mappe routes under /mappe
+	mappeMux := http.NewServeMux()
+	mappeMux.HandleFunc("GET /{$}", galleryHandler.HandleGallery)
+	mappeMux.HandleFunc("GET /gallery", galleryHandler.HandleGallery)
+	mux.Handle("/mappe/", http.StripPrefix("/mappe", mappeMux))
 
 	// ── Middleware chain ────────────────────────────────────────
 

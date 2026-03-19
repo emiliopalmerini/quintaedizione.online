@@ -37,6 +37,7 @@ templ SiteLayout(title, description, activeNav string, extraHeadHTML templ.Compo
 		<link rel="stylesheet" href="/static/css/collections.css"/>
 		<link rel="stylesheet" href="/static/css/pages.css"/>
 		<link rel="stylesheet" href="/static/css/monsters.css"/>
+		<link rel="stylesheet" href="/static/css/mappe.css"/>
 		<link rel="stylesheet" href="/static/css/a11y.css"/>
 		<link rel="stylesheet" href="/static/css/utilities.css"/>
 		<link rel="icon" href="/static/favicon.svg" type="image/svg+xml"/>
@@ -54,6 +55,7 @@ templ SiteLayout(title, description, activeNav string, extraHeadHTML templ.Compo
 				<nav class="site-nav-links" aria-label="Navigazione principale">
 					<a href="/srd" class={ "site-nav-link", templ.KV("active", activeNav == "srd") }>SRD</a>
 					<a href="/combattimenti" class={ "site-nav-link", templ.KV("active", activeNav == "combattimenti") }>Combattimenti</a>
+					<a href="/mappe" class={ "site-nav-link", templ.KV("active", activeNav == "mappe") }>Mappe</a>
 				</nav>
 				<button class="theme-toggle" id="theme-toggle" aria-label="Cambia tema">
 					<svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>

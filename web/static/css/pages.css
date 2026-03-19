@@ -561,7 +561,7 @@ html.dark .page-header-map::before { opacity: 0.04; mix-blend-mode: screen; filt
 [data-markdown] a:hover { opacity: 0.7; }
 [data-markdown] strong { font-weight: var(--weight-semibold); }
 
-[data-markdown] table { width: 100%; border-collapse: collapse; margin: var(--space-6) 0; border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; }
+[data-markdown] table { width: 100%; border-collapse: collapse; margin: var(--space-6) 0; border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; display: block; overflow-x: auto; }
 [data-markdown] th, [data-markdown] td { border: 1px solid var(--color-border); padding: var(--space-3) var(--space-4); text-align: left; }
 [data-markdown] th { background: var(--color-bg-secondary); font-weight: var(--weight-semibold); font-size: var(--text-sm); }
 [data-markdown] tr:hover { background: var(--color-hover); }
