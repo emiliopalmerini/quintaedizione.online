@@ -23,6 +23,10 @@ templ DetailPage(m maps.Mappa) {
 				}
 			</div>
 
+			if m.Descrizione != "" {
+				<p class="mappe-detail-description mb-4">{ m.Descrizione }</p>
+			}
+
 			<div class="mappe-detail-img mb-6">
 				<img
 					src={ "/static/img/mappe/" + m.Immagine }

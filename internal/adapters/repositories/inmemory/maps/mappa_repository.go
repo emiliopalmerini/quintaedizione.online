@@ -18,6 +18,7 @@ type jsonMappa struct {
 	Immagine      string   `json:"immagine"`
 	Categoria     string   `json:"categoria"`
 	Tag           []string `json:"tag"`
+	Descrizione   string   `json:"descrizione"`
 	Autore        string   `json:"autore"`
 	Licenza       string   `json:"licenza"`
 	URLOriginale  string   `json:"url_originale"`
@@ -68,6 +69,7 @@ func NewMappaRepository(dataFS fs.FS, filename string) *MappaRepository {
 			Immagine:      m.Immagine,
 			Categoria:     m.Categoria,
 			Tag:           m.Tag,
+			Descrizione:   m.Descrizione,
 			Autore:        m.Autore,
 			Licenza:       m.Licenza,
 			URLOriginale:  m.URLOriginale,

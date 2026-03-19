@@ -39,11 +39,11 @@ templ GalleryPage(data maps.GalleryData) {
 			<input type="hidden" name="categoria" id="mappe-categoria" value={ data.Categoria }/>
 			<input type="hidden" name="tag" id="mappe-tag" value={ data.Tag }/>
 
-			<div class="quick-filter-bar mb-2">
+			<div class="quick-filter-bar mb-2" data-mappe-filter="mappe-categoria" data-mode="select">
 				<button
 					type="button"
 					class={ "quick-filter-chip", templ.KV("active", data.Categoria == "") }
-					onclick="document.getElementById('mappe-categoria').value='';document.querySelectorAll('.quick-filter-bar.mb-2 .quick-filter-chip').forEach(c => c.classList.remove('active'));this.classList.add('active');htmx.trigger('#mappe-filter-form','filter-changed')"
+					data-value=""
 				>
 					Tutte
 				</button>
@@ -51,7 +51,7 @@ templ GalleryPage(data maps.GalleryData) {
 					<button
 						type="button"
 						class={ "quick-filter-chip", templ.KV("active", data.Categoria == cat) }
-						onclick={ setFilter("mappe-categoria", cat) }
+						data-value={ cat }
 					>
 						{ cat }
 					</button>
@@ -59,12 +59,12 @@ templ GalleryPage(data maps.GalleryData) {
 			</div>
 
 			if len(data.Tags) > 0 {
-				<div class="quick-filter-bar mb-4">
+				<div class="quick-filter-bar mb-4" data-mappe-filter="mappe-tag" data-mode="toggle">
 					for _, tag := range data.Tags {
 						<button
 							type="button"
 							class={ "quick-filter-chip", templ.KV("active", data.Tag == tag) }
-							onclick={ toggleFilter("mappe-tag", tag) }
+							data-value={ tag }
 						>
 							{ tag }
 						</button>
@@ -115,20 +115,4 @@ templ GalleryGrid(data maps.GalleryData) {
 			}
 		}
 	</div>
-}
-
-script setFilter(inputID, value string) {
-	document.getElementById(inputID).value = value;
-	var bar = document.getElementById(inputID).closest('form').querySelector('.quick-filter-bar.mb-2');
-	bar.querySelectorAll('.quick-filter-chip').forEach(function(c) { c.classList.remove('active'); });
-	event.currentTarget.classList.add('active');
-	htmx.trigger(document.getElementById('mappe-filter-form'), 'filter-changed');
-}
-
-script toggleFilter(inputID, value string) {
-	var el = document.getElementById(inputID);
-	var isActive = el.value === value;
-	el.value = isActive ? '' : value;
-	event.currentTarget.classList.toggle('active', !isActive);
-	htmx.trigger(document.getElementById('mappe-filter-form'), 'filter-changed');
 }

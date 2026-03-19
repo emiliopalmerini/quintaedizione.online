@@ -8,6 +8,7 @@ type Mappa struct {
 	Immagine      string
 	Categoria     string
 	Tag           []string
+	Descrizione   string
 	Autore        string
 	Licenza       string
 	URLOriginale  string

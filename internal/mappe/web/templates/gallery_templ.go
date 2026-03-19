@@ -87,7 +87,7 @@ func GalleryPage(data maps.GalleryData) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\"><div class=\"quick-filter-bar mb-2\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\"><div class=\"quick-filter-bar mb-2\" data-mappe-filter=\"mappe-categoria\" data-mode=\"select\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -109,17 +109,13 @@ func GalleryPage(data maps.GalleryData) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "\" onclick=\"document.getElementById('mappe-categoria').value='';document.querySelectorAll('.quick-filter-bar.mb-2 .quick-filter-chip').forEach(c => c.classList.remove('active'));this.classList.add('active');htmx.trigger('#mappe-filter-form','filter-changed')\">Tutte</button> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "\" data-value=\"\">Tutte</button> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			for _, cat := range data.Categorie {
 				var templ_7745c5c3_Var8 = []any{"quick-filter-chip", templ.KV("active", data.Categoria == cat)}
 				templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var8...)
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				templ_7745c5c3_Err = templ.RenderScriptItems(ctx, templ_7745c5c3_Buffer, setFilter("mappe-categoria", cat))
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -136,12 +132,16 @@ func GalleryPage(data maps.GalleryData) templ.Component {
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "\" onclick=\"")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "\" data-value=\"")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				var templ_7745c5c3_Var10 templ.ComponentScript = setFilter("mappe-categoria", cat)
-				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var10.Call)
+				var templ_7745c5c3_Var10 string
+				templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(cat)
+				if templ_7745c5c3_Err != nil {
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 54, Col: 22}
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -168,17 +168,13 @@ func GalleryPage(data maps.GalleryData) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			if len(data.Tags) > 0 {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "<div class=\"quick-filter-bar mb-4\">")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "<div class=\"quick-filter-bar mb-4\" data-mappe-filter=\"mappe-tag\" data-mode=\"toggle\">")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 				for _, tag := range data.Tags {
 					var templ_7745c5c3_Var12 = []any{"quick-filter-chip", templ.KV("active", data.Tag == tag)}
 					templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var12...)
-					if templ_7745c5c3_Err != nil {
-						return templ_7745c5c3_Err
-					}
-					templ_7745c5c3_Err = templ.RenderScriptItems(ctx, templ_7745c5c3_Buffer, toggleFilter("mappe-tag", tag))
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
@@ -195,12 +191,16 @@ func GalleryPage(data maps.GalleryData) templ.Component {
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "\" onclick=\"")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "\" data-value=\"")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
-					var templ_7745c5c3_Var14 templ.ComponentScript = toggleFilter("mappe-tag", tag)
-					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var14.Call)
+					var templ_7745c5c3_Var14 string
+					templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(tag)
+					if templ_7745c5c3_Err != nil {
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 67, Col: 23}
+					}
+					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
@@ -400,34 +400,6 @@ func GalleryGrid(data maps.GalleryData) templ.Component {
 		}
 		return nil
 	})
-}
-
-func setFilter(inputID, value string) templ.ComponentScript {
-	return templ.ComponentScript{
-		Name: `__templ_setFilter_4979`,
-		Function: `function __templ_setFilter_4979(inputID, value){document.getElementById(inputID).value = value;
-	var bar = document.getElementById(inputID).closest('form').querySelector('.quick-filter-bar.mb-2');
-	bar.querySelectorAll('.quick-filter-chip').forEach(function(c) { c.classList.remove('active'); });
-	event.currentTarget.classList.add('active');
-	htmx.trigger(document.getElementById('mappe-filter-form'), 'filter-changed');
-}`,
-		Call:       templ.SafeScript(`__templ_setFilter_4979`, inputID, value),
-		CallInline: templ.SafeScriptInline(`__templ_setFilter_4979`, inputID, value),
-	}
-}
-
-func toggleFilter(inputID, value string) templ.ComponentScript {
-	return templ.ComponentScript{
-		Name: `__templ_toggleFilter_7620`,
-		Function: `function __templ_toggleFilter_7620(inputID, value){var el = document.getElementById(inputID);
-	var isActive = el.value === value;
-	el.value = isActive ? '' : value;
-	event.currentTarget.classList.toggle('active', !isActive);
-	htmx.trigger(document.getElementById('mappe-filter-form'), 'filter-changed');
-}`,
-		Call:       templ.SafeScript(`__templ_toggleFilter_7620`, inputID, value),
-		CallInline: templ.SafeScriptInline(`__templ_toggleFilter_7620`, inputID, value),
-	}
 }
 
 var _ = templruntime.GeneratedTemplate
