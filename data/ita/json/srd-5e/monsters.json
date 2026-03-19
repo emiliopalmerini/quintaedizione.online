@@ -63,7 +63,20 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Individuazione",
+        "description": "L'aboleth effettua una prova di\n\nSaggezza (Percezione)."
+      },
+      {
+        "name": "Spazzata di coda",
+        "description": "L'aboleth effettua un attacco con\n\nla coda."
+      },
+      {
+        "name": "Risucchio psichico (costa 2 azioni)",
+        "description": "Una creatura\n\naffascinata dall'aboleth subisce 10 (3d6) danni  psichici e l'aboleth recupera un numero di punti  ferita pari ai danni subiti dalla creatura."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -272,7 +285,20 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Teletrasporto",
+        "description": "Il solar si teletrasporta magicamente,\n\ninsieme a ogni oggetto che indossa o trasporta,  fino a uno spazio libero visibile entro 36 metri."
+      },
+      {
+        "name": "Esplosione incandescente (costa 2 azioni)",
+        "description": "Il solar\n\nemette un'onda di energia magica divina. Ogni  creatura a sua scelta entro un raggio di 3 metri deve  effettuare un tiro salvezza su Destrezza con CD 23,  subendo 14 (4d6) danni da fuoco più 14 (4d6) danni  radiosi in caso di fallimento, o la metà dei danni in  caso di successo."
+      },
+      {
+        "name": "Sguardo accecante (costa 3 azioni)",
+        "description": "Il solar prende di\n\nmira una creatura nel suo campo visivo in un raggio  di 9 metri. Se il bersaglio è in grado di vedere il solar,  deve superare un tiro salvezza su Costituzione con  CD 15, altrimenti è accecato finché una magia come\n\nristorare inferiore non rimuove la cecità."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -2708,12 +2734,29 @@
       },
       {
         "name": "Soffi (ricarica 5–6)",
-        "description": "Il drago usa uno dei seguenti soffi.    Soffio di freddo.  Il drago esala una folata gelida in un\n\ncono di 27 metri. Ogni creatura in quell'area deve  effettuare un tiro salvezza su Costituzione con CD 24,  subendo 67 (15d8) danni da freddo in caso di  fallimento, o la metà dei danni in caso di successo.\n\nSoffio paralizzante. Il drago esala gas paralizzante in\n\nun cono di 27 metri. Ogni creatura in quell'area deve  superare un tiro salvezza su Costituzione con CD 24,  altrimenti è paralizzata per 1 minuto. La creatura  può ripetere il tiro salvezza alla fine di ogni suo turno  e, se lo supera, l'effetto svanisce."
+        "description": "Il drago usa uno dei seguenti soffi.    Soffio di freddo.  Il drago esala una folata gelida in un\n\ncono di 27 metri. Ogni creatura in quell'area deve  effettuare un tiro salvezza su Costituzione con CD 24,  subendo 67 (15d8) danni da freddo in caso di  fallimento, o la metà dei danni in caso di successo."
+      },
+      {
+        "name": "Soffio paralizzante",
+        "description": "Il drago esala gas paralizzante in\n\nun cono di 27 metri. Ogni creatura in quell'area deve  superare un tiro salvezza su Costituzione con CD 24,  altrimenti è paralizzata per 1 minuto. La creatura  può ripetere il tiro salvezza alla fine di ogni suo turno  e, se lo supera, l'effetto svanisce."
       }
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco di coda",
+        "description": "Il drago effettua un attacco con la\n\ncoda."
+      },
+      {
+        "name": "Individuazione",
+        "description": "Il drago effettua una prova di Saggezza\n\n(Percezione).  Systems Reference Document 5.1 322"
+      },
+      {
+        "name": "Attacco d'ala (costa 2 azioni)",
+        "description": "Il drago sbatte le ali.\n\nOgni creatura entro 4,5 metri dal drago deve  superare un tiro salvezza su Destrezza con CD 25,  altrimenti subisce 17 (2d6 + 10) danni contundenti  e cade a terra prona. Il drago può poi volare fino  a metà della sua velocità di volare."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -2782,12 +2825,29 @@
       },
       {
         "name": "Soffi (ricarica 5–6)",
-        "description": "Il drago usa uno dei seguenti soffi.    Soffio di freddo.  Il drago esala una folata gelida in un\n\ncono di 18 metri. Ogni creatura in quell'area deve  effettuare un tiro salvezza su Costituzione con CD 20,  subendo 58 (13d8) danni da freddo in caso di  fallimento, o la metà dei danni in caso di successo.\n\nSoffio paralizzante. Il drago esala gas paralizzante in un\n\ncono di 18 metri. Ogni creatura in quell'area deve  superare un tiro salvezza su Costituzione con CD 20,  altrimenti è paralizzata per 1 minuto. La creatura  può ripetere il tiro salvezza alla fine di ogni suo turno  e, se lo supera, l'effetto svanisce."
+        "description": "Il drago usa uno dei seguenti soffi.    Soffio di freddo.  Il drago esala una folata gelida in un\n\ncono di 18 metri. Ogni creatura in quell'area deve  effettuare un tiro salvezza su Costituzione con CD 20,  subendo 58 (13d8) danni da freddo in caso di  fallimento, o la metà dei danni in caso di successo."
+      },
+      {
+        "name": "Soffio paralizzante",
+        "description": "Il drago esala gas paralizzante in un\n\ncono di 18 metri. Ogni creatura in quell'area deve  superare un tiro salvezza su Costituzione con CD 20,  altrimenti è paralizzata per 1 minuto. La creatura  può ripetere il tiro salvezza alla fine di ogni suo turno  e, se lo supera, l'effetto svanisce."
       }
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco di coda",
+        "description": "Il drago effettua un attacco con la\n\ncoda."
+      },
+      {
+        "name": "Individuazione",
+        "description": "Il drago effettua una prova di Saggezza\n\n(Percezione)."
+      },
+      {
+        "name": "Attacco d'ala (costa 2 azioni)",
+        "description": "Il drago sbatte le ali.\n\nOgni creatura entro 3 metri dal drago deve superare  un tiro salvezza su Destrezza con CD 21, altrimenti  subisce 15 (2d6 + 8) danni contundenti e cade a terra  prona. Il drago può poi volare fino a metà della sua  velocità di volare.  Systems Reference Document 5.1 323"
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -2844,7 +2904,11 @@
       },
       {
         "name": "Soffi (ricarica 5–6)",
-        "description": "Il drago usa uno dei seguenti soffi.    Soffio di freddo.  Il drago esala una folata gelida in un\n\ncono di 9 metri. Ogni creatura in quell'area deve  effettuare un tiro salvezza su Costituzione con CD 17,  subendo 54 (12d8) danni da freddo in caso di  fallimento, o la metà dei danni in caso di successo.\n\nSoffio paralizzante. Il drago esala gas paralizzante in un\n\ncono di 9 metri. Ogni creatura in quell'area deve  superare un tiro salvezza su Costituzione con CD 17,  altrimenti è paralizzata per 1 minuto. La creatura  può ripetere il tiro salvezza alla fine di ogni suo turno  e, se lo supera, l'effetto svanisce."
+        "description": "Il drago usa uno dei seguenti soffi.    Soffio di freddo.  Il drago esala una folata gelida in un\n\ncono di 9 metri. Ogni creatura in quell'area deve  effettuare un tiro salvezza su Costituzione con CD 17,  subendo 54 (12d8) danni da freddo in caso di  fallimento, o la metà dei danni in caso di successo."
+      },
+      {
+        "name": "Soffio paralizzante",
+        "description": "Il drago esala gas paralizzante in un\n\ncono di 9 metri. Ogni creatura in quell'area deve  superare un tiro salvezza su Costituzione con CD 17,  altrimenti è paralizzata per 1 minuto. La creatura  può ripetere il tiro salvezza alla fine di ogni suo turno  e, se lo supera, l'effetto svanisce."
       }
     ],
     "bonus_actions": [],
@@ -2898,7 +2962,11 @@
       },
       {
         "name": "Soffi (ricarica 5–6)",
-        "description": "Il drago usa uno dei seguenti soffi.    Soffio di freddo.  Il drago esala una folata gelida in un\n\ncono di 4,5 metri. Ogni creatura in quell'area deve  effettuare un tiro salvezza su Costituzione con CD 13,  subendo 18 (4d8) danni da freddo in caso di  fallimento, o la metà dei danni in caso di successo.\n\nSoffio paralizzante. Il drago esala gas paralizzante in un\n\ncono di 4,5 metri. Ogni creatura in quell'area deve  superare un tiro salvezza su Costituzione con CD 13,  altrimenti è paralizzata per 1 minuto. La creatura può  ripetere il tiro salvezza alla fine di ogni suo turno e, se  lo supera, l'effetto svanisce."
+        "description": "Il drago usa uno dei seguenti soffi.    Soffio di freddo.  Il drago esala una folata gelida in un\n\ncono di 4,5 metri. Ogni creatura in quell'area deve  effettuare un tiro salvezza su Costituzione con CD 13,  subendo 18 (4d8) danni da freddo in caso di  fallimento, o la metà dei danni in caso di successo."
+      },
+      {
+        "name": "Soffio paralizzante",
+        "description": "Il drago esala gas paralizzante in un\n\ncono di 4,5 metri. Ogni creatura in quell'area deve  superare un tiro salvezza su Costituzione con CD 13,  altrimenti è paralizzata per 1 minuto. La creatura può  ripetere il tiro salvezza alla fine di ogni suo turno e, se  lo supera, l'effetto svanisce."
       }
     ],
     "bonus_actions": [],
@@ -2972,12 +3040,29 @@
       },
       {
         "name": "Soffi (ricarica 5–6)",
-        "description": "Il drago usa uno dei seguenti soffi.    Soffio di fulmini.  Il drago esala una scarica di fulmini\n\nlunga 36 metri e larga 3 metri. Ogni creatura su  quella linea deve effettuare un tiro salvezza su  Destrezza con CD 23, subendo 88 (16d10) danni  da fulmine in caso di fallimento, o la metà dei danni  in caso di successo.\n\nSoffio repulsivo. Il drago esala energia repulsiva in un\n\ncono di 9 metri. Ogni creatura in quell'area deve  superare un tiro salvezza su Forza con CD 23;  se lo fallisce, viene scagliata a 18 metri dal drago."
+        "description": "Il drago usa uno dei seguenti soffi.    Soffio di fulmini.  Il drago esala una scarica di fulmini\n\nlunga 36 metri e larga 3 metri. Ogni creatura su  quella linea deve effettuare un tiro salvezza su  Destrezza con CD 23, subendo 88 (16d10) danni  da fulmine in caso di fallimento, o la metà dei danni  in caso di successo."
+      },
+      {
+        "name": "Soffio repulsivo",
+        "description": "Il drago esala energia repulsiva in un\n\ncono di 9 metri. Ogni creatura in quell'area deve  superare un tiro salvezza su Forza con CD 23;  se lo fallisce, viene scagliata a 18 metri dal drago."
       }
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco di coda",
+        "description": "Il drago effettua un attacco con la\n\ncoda."
+      },
+      {
+        "name": "Individuazione",
+        "description": "Il drago effettua una prova di Saggezza\n\n(Percezione)."
+      },
+      {
+        "name": "Attacco d'ala (costa 2 azioni)",
+        "description": "Il drago sbatte le ali.\n\nOgni creatura entro 4,5 metri dal drago deve  superare un tiro salvezza su Destrezza con CD 24,  altrimenti subisce 16 (2d6 + 9) danni contundenti  e cade a terra prona. Il drago può poi volare fino  a metà della sua velocità di volare."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -3046,12 +3131,29 @@
       },
       {
         "name": "Soffi (ricarica 5–6)",
-        "description": "Il drago usa uno dei seguenti soffi.    Soffio di fulmini.  Il drago esala una scarica di fulmini\n\nlunga 27 metri e larga 1,5 metri. Ogni creatura su  quella linea deve effettuare un tiro salvezza su  Destrezza con CD 19, subendo 66 (12d10) danni  da fulmine in caso di fallimento, o la metà dei danni  in caso di successo.\n\nSoffio repulsivo. Il drago esala energia repulsiva in un\n\ncono di 9 metri. Ogni creatura in quell'area deve  superare un tiro salvezza su Forza con CD 19;  se lo fallisce, viene scagliata a 18 metri dal drago."
+        "description": "Il drago usa uno dei seguenti soffi.    Soffio di fulmini.  Il drago esala una scarica di fulmini\n\nlunga 27 metri e larga 1,5 metri. Ogni creatura su  quella linea deve effettuare un tiro salvezza su  Destrezza con CD 19, subendo 66 (12d10) danni  da fulmine in caso di fallimento, o la metà dei danni  in caso di successo."
+      },
+      {
+        "name": "Soffio repulsivo",
+        "description": "Il drago esala energia repulsiva in un\n\ncono di 9 metri. Ogni creatura in quell'area deve  superare un tiro salvezza su Forza con CD 19;  se lo fallisce, viene scagliata a 18 metri dal drago."
       }
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco di coda",
+        "description": "Il drago effettua un attacco con la\n\ncoda."
+      },
+      {
+        "name": "Individuazione",
+        "description": "Il drago effettua una prova di Saggezza\n\n(Percezione)."
+      },
+      {
+        "name": "Attacco d'ala (costa 2 azioni)",
+        "description": "Il drago sbatte le ali.\n\nOgni creatura entro 3 metri dal drago deve superare  un tiro salvezza su Destrezza con CD 20, altrimenti  subisce 14 (2d6 + 7) danni contundenti e cade a terra  prona. Il drago può poi volare fino a metà della sua  velocità di volare."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -3108,7 +3210,15 @@
       },
       {
         "name": "Soffi (ricarica 5–6)",
-        "description": "Il drago usa uno dei seguenti soffi.\n\nSystems Reference Document 5.1 326\n\nSoffio di fulmini. Il drago esala una scarica di fulmini\n\nlunga 18 metri e larga 1,5 metri. Ogni creatura su  quella linea deve effettuare un tiro salvezza su  Destrezza con CD 15, subendo 55 (10d10) danni  da fulmine in caso di fallimento, o la metà dei danni  in caso di successo.\n\nSoffio repulsivo. Il drago esala energia repulsiva in un\n\ncono di 9 metri. Ogni creatura in quell'area deve  superare un tiro salvezza su Forza con CD 15.  Se lo fallisce, viene scagliata a 12 metri dal drago."
+        "description": "Il drago usa uno dei seguenti soffi.\n\nSystems Reference Document 5.1 326"
+      },
+      {
+        "name": "Soffio di fulmini",
+        "description": "Il drago esala una scarica di fulmini\n\nlunga 18 metri e larga 1,5 metri. Ogni creatura su  quella linea deve effettuare un tiro salvezza su  Destrezza con CD 15, subendo 55 (10d10) danni  da fulmine in caso di fallimento, o la metà dei danni  in caso di successo."
+      },
+      {
+        "name": "Soffio repulsivo",
+        "description": "Il drago esala energia repulsiva in un\n\ncono di 9 metri. Ogni creatura in quell'area deve  superare un tiro salvezza su Forza con CD 15.  Se lo fallisce, viene scagliata a 12 metri dal drago."
       }
     ],
     "bonus_actions": [],
@@ -3162,7 +3272,11 @@
       },
       {
         "name": "Soffi (ricarica 5–6)",
-        "description": "Il drago usa uno dei seguenti soffi.    Soffio di fulmini.  Il drago esala una scarica di fulmini\n\nlunga 12 metri e larga 1,5 metri. Ogni creatura su  quella linea deve effettuare un tiro salvezza su  Destrezza con CD 12, subendo 16 (3d10) danni da  fulmine in caso di fallimento, o la metà dei danni  in caso di successo.\n\nSoffio repulsivo. Il drago esala energia repulsiva in un\n\ncono di 9 metri. Ogni creatura in quell'area deve  superare un tiro salvezza su Forza con CD 12.  Se lo fallisce, viene scagliata a 9 metri dal drago."
+        "description": "Il drago usa uno dei seguenti soffi.    Soffio di fulmini.  Il drago esala una scarica di fulmini\n\nlunga 12 metri e larga 1,5 metri. Ogni creatura su  quella linea deve effettuare un tiro salvezza su  Destrezza con CD 12, subendo 16 (3d10) danni da  fulmine in caso di fallimento, o la metà dei danni  in caso di successo."
+      },
+      {
+        "name": "Soffio repulsivo",
+        "description": "Il drago esala energia repulsiva in un\n\ncono di 9 metri. Ogni creatura in quell'area deve  superare un tiro salvezza su Forza con CD 12.  Se lo fallisce, viene scagliata a 9 metri dal drago."
       }
     ],
     "bonus_actions": [],
@@ -3236,12 +3350,29 @@
       },
       {
         "name": "Soffi (ricarica 5–6)",
-        "description": "Il drago usa uno dei seguenti soffi.    Soffio di acido.  Il drago esala una scia di acido lunga\n\n27 metri e larga 3 metri. Ogni creatura su quella scia  deve effettuare un tiro salvezza su Destrezza con  CD 22, subendo 63 (14d8) danni da acido in caso di  fallimento, o la metà dei danni in caso di successo.\n\nSoffio rallentante. Il drago esala gas in un cono di\n\n27 metri. Ogni creatura in quell'area deve superare  un tiro salvezza su Costituzione con CD 22; se lo  fallisce, non può usare reazioni, la sua velocità  è dimezzata e non può effettuare più di un attacco  nel suo turno. Inoltre, nel suo turno la creatura  può usare un'azione o un'azione bonus, ma non  entrambe. Questi effetti durano 1 minuto.  La creatura può ripetere il tiro salvezza alla fine  di ogni suo turno e, se lo supera, l'effetto per lei  termina."
+        "description": "Il drago usa uno dei seguenti soffi.    Soffio di acido.  Il drago esala una scia di acido lunga\n\n27 metri e larga 3 metri. Ogni creatura su quella scia  deve effettuare un tiro salvezza su Destrezza con  CD 22, subendo 63 (14d8) danni da acido in caso di  fallimento, o la metà dei danni in caso di successo."
+      },
+      {
+        "name": "Soffio rallentante",
+        "description": "Il drago esala gas in un cono di\n\n27 metri. Ogni creatura in quell'area deve superare  un tiro salvezza su Costituzione con CD 22; se lo  fallisce, non può usare reazioni, la sua velocità  è dimezzata e non può effettuare più di un attacco  nel suo turno. Inoltre, nel suo turno la creatura  può usare un'azione o un'azione bonus, ma non  entrambe. Questi effetti durano 1 minuto.  La creatura può ripetere il tiro salvezza alla fine  di ogni suo turno e, se lo supera, l'effetto per lei  termina."
       }
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco di coda",
+        "description": "Il drago effettua un attacco con la\n\ncoda."
+      },
+      {
+        "name": "Individuazione",
+        "description": "Il drago effettua una prova di Saggezza\n\n(Percezione)."
+      },
+      {
+        "name": "Attacco d'ala (costa 2 azioni)",
+        "description": "Il drago sbatte le ali.\n\nOgni creatura entro 4,5 metri dal drago deve  superare un tiro salvezza su Destrezza con CD 23,  altrimenti subisce 15 (2d6 + 8) danni contundenti  e cade a terra prona. Il drago può poi volare fino  a metà della sua velocità di volare."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -3306,12 +3437,33 @@
       },
       {
         "name": "Soffi (ricarica 5–6)",
-        "description": "Il drago usa uno dei seguenti soffi.\n\nSystems Reference Document 5.1 328\n\nSoffio di acido. Il drago esala una scia di fuoco lunga\n\n18 metri e larga 1,5 metri. Ogni creatura su quella  scia deve effettuare un tiro salvezza su Destrezza con  CD 18, subendo 54 (12d8) danni da acido in caso di  fallimento, o la metà dei danni in caso di successo.\n\nSoffio rallentante. Il drago esala gas in un cono di\n\n18 metri. Ogni creatura in quell'area deve superare  un tiro salvezza su Costituzione con CD 18; se lo  fallisce, non può usare reazioni, la sua velocità  è dimezzata e non può effettuare più di un attacco  nel suo turno. Inoltre, nel suo turno la creatura  può usare un'azione o un'azione bonus, ma non  entrambe. Questi effetti durano 1 minuto.  La creatura può ripetere il tiro salvezza alla fine  di ogni suo turno e, se lo supera, l'effetto per lei  termina."
+        "description": "Il drago usa uno dei seguenti soffi.\n\nSystems Reference Document 5.1 328"
+      },
+      {
+        "name": "Soffio di acido",
+        "description": "Il drago esala una scia di fuoco lunga\n\n18 metri e larga 1,5 metri. Ogni creatura su quella  scia deve effettuare un tiro salvezza su Destrezza con  CD 18, subendo 54 (12d8) danni da acido in caso di  fallimento, o la metà dei danni in caso di successo."
+      },
+      {
+        "name": "Soffio rallentante",
+        "description": "Il drago esala gas in un cono di\n\n18 metri. Ogni creatura in quell'area deve superare  un tiro salvezza su Costituzione con CD 18; se lo  fallisce, non può usare reazioni, la sua velocità  è dimezzata e non può effettuare più di un attacco  nel suo turno. Inoltre, nel suo turno la creatura  può usare un'azione o un'azione bonus, ma non  entrambe. Questi effetti durano 1 minuto.  La creatura può ripetere il tiro salvezza alla fine  di ogni suo turno e, se lo supera, l'effetto per lei  termina."
       }
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco di coda",
+        "description": "Il drago effettua un attacco con la\n\ncoda."
+      },
+      {
+        "name": "Individuazione",
+        "description": "Il drago effettua una prova di Saggezza\n\n(Percezione)."
+      },
+      {
+        "name": "Attacco d'ala (costa 2 azioni)",
+        "description": "Il drago sbatte le ali.\n\nOgni creatura entro 3 metri dal drago deve superare  un tiro salvezza su Destrezza con CD 19, altrimenti  subisce 13 (2d6 + 6) danni contundenti e cade a terra  prona. Il drago può poi volare fino a metà della sua  velocità di volare."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -3368,7 +3520,11 @@
       },
       {
         "name": "Soffi (ricarica 5–6)",
-        "description": "Il drago usa uno dei seguenti soffi.    Soffio di acido.  Il drago esala una scia di fuoco lunga\n\n12 metri e larga 1,5 metri. Ogni creatura su quella  scia deve effettuare un tiro salvezza su Destrezza con  CD 14, subendo 40 (9d8) danni da acido in caso di  fallimento, o la metà dei danni in caso di successo.\n\nSoffio rallentante. Il drago esala gas in un cono di\n\n9 metri. Ogni creatura in quell'area deve superare un  tiro salvezza su Costituzione con CD 14; se lo fallisce,  non può usare reazioni, la sua velocità è dimezzata  e non può effettuare più di un attacco nel suo turno.  Inoltre, nel suo turno la creatura può usare un'azione  o un'azione bonus, ma non entrambe. Questi effetti  durano 1 minuto. La creatura può ripetere il tiro  salvezza alla fine di ogni suo turno e, se lo supera,  l'effetto per lei termina."
+        "description": "Il drago usa uno dei seguenti soffi.    Soffio di acido.  Il drago esala una scia di fuoco lunga\n\n12 metri e larga 1,5 metri. Ogni creatura su quella  scia deve effettuare un tiro salvezza su Destrezza con  CD 14, subendo 40 (9d8) danni da acido in caso di  fallimento, o la metà dei danni in caso di successo."
+      },
+      {
+        "name": "Soffio rallentante",
+        "description": "Il drago esala gas in un cono di\n\n9 metri. Ogni creatura in quell'area deve superare un  tiro salvezza su Costituzione con CD 14; se lo fallisce,  non può usare reazioni, la sua velocità è dimezzata  e non può effettuare più di un attacco nel suo turno.  Inoltre, nel suo turno la creatura può usare un'azione  o un'azione bonus, ma non entrambe. Questi effetti  durano 1 minuto. La creatura può ripetere il tiro  salvezza alla fine di ogni suo turno e, se lo supera,  l'effetto per lei termina."
       }
     ],
     "bonus_actions": [],
@@ -3422,7 +3578,11 @@
       },
       {
         "name": "Soffi (ricarica 5–6)",
-        "description": "Il drago usa uno dei seguenti soffi.    Soffio di acido.  Il drago esala una scia di fuoco lunga\n\n6 metri e larga 1,5 metri. Ogni creatura su quella  linea deve effettuare un tiro salvezza su Destrezza  con CD 11, subendo 18 (4d8) danni da acido in caso  di fallimento, o la metà dei danni in caso di successo.\n\nSoffio rallentante. Il drago esala gas in un cono di\n\n4,5 metri. Ogni creatura in quell'area deve superare  un tiro salvezza su Costituzione con CD 11; se lo  fallisce, non può usare reazioni, la sua velocità  è dimezzata e non può effettuare più di un attacco  nel suo turno. Inoltre, nel suo turno la creatura  può usare un'azione o un'azione bonus, ma non  entrambe. Questi effetti durano 1 minuto.  La creatura può ripetere il tiro salvezza alla fine  di ogni suo turno e, se lo supera, l'effetto per lei  termina."
+        "description": "Il drago usa uno dei seguenti soffi.    Soffio di acido.  Il drago esala una scia di fuoco lunga\n\n6 metri e larga 1,5 metri. Ogni creatura su quella  linea deve effettuare un tiro salvezza su Destrezza  con CD 11, subendo 18 (4d8) danni da acido in caso  di fallimento, o la metà dei danni in caso di successo."
+      },
+      {
+        "name": "Soffio rallentante",
+        "description": "Il drago esala gas in un cono di\n\n4,5 metri. Ogni creatura in quell'area deve superare  un tiro salvezza su Costituzione con CD 11; se lo  fallisce, non può usare reazioni, la sua velocità  è dimezzata e non può effettuare più di un attacco  nel suo turno. Inoltre, nel suo turno la creatura  può usare un'azione o un'azione bonus, ma non  entrambe. Questi effetti durano 1 minuto.  La creatura può ripetere il tiro salvezza alla fine  di ogni suo turno e, se lo supera, l'effetto per lei  termina."
       }
     ],
     "bonus_actions": [],
@@ -3496,12 +3656,29 @@
       },
       {
         "name": "Soffi (ricarica 5–6)",
-        "description": "Il drago usa uno dei seguenti soffi.    Soffio di fuoco.  Il drago esala fuoco in un cono di\n\n27 metri. Ogni creatura in quell'area deve effettuare  un tiro salvezza su Destrezza con CD 24, subendo 71  (13d10) danni da fuoco in caso di fallimento,  o la metà dei danni in caso di successo.\n\nSoffio indebolente. Il drago esala gas in un cono di\n\n27 metri. Ogni creatura in quell'area deve superare  un tiro salvezza su Forza con CD 24, altrimenti  subisce svantaggio ai tiri per colpire basati sulla  Forza, alle prove di Forza e ai tiri salvezza su Forza  per 1 minuto. La creatura può ripetere il tiro salvezza  Systems Reference Document 5.1 330 alla fine di ogni suo turno e, se lo supera, l'effetto  svanisce."
+        "description": "Il drago usa uno dei seguenti soffi.    Soffio di fuoco.  Il drago esala fuoco in un cono di\n\n27 metri. Ogni creatura in quell'area deve effettuare  un tiro salvezza su Destrezza con CD 24, subendo 71  (13d10) danni da fuoco in caso di fallimento,  o la metà dei danni in caso di successo."
+      },
+      {
+        "name": "Soffio indebolente",
+        "description": "Il drago esala gas in un cono di\n\n27 metri. Ogni creatura in quell'area deve superare  un tiro salvezza su Forza con CD 24, altrimenti  subisce svantaggio ai tiri per colpire basati sulla  Forza, alle prove di Forza e ai tiri salvezza su Forza  per 1 minuto. La creatura può ripetere il tiro salvezza  Systems Reference Document 5.1 330 alla fine di ogni suo turno e, se lo supera, l'effetto  svanisce."
       }
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco di coda",
+        "description": "Il drago effettua un attacco con la\n\ncoda."
+      },
+      {
+        "name": "Individuazione",
+        "description": "Il drago effettua una prova di Saggezza\n\n(Percezione)."
+      },
+      {
+        "name": "Attacco d'ala (costa 2 azioni)",
+        "description": "Il drago sbatte le ali.\n\nOgni creatura entro 4,5 metri dal drago deve  superare un tiro salvezza su Destrezza con CD 25,  altrimenti subisce 17 (2d6 + 10) danni contundenti  e cade a terra prona. Il drago può poi volare fino  a metà della sua velocità di volare."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -3570,12 +3747,29 @@
       },
       {
         "name": "Soffi (ricarica 5–6)",
-        "description": "Il drago usa uno dei seguenti soffi.    Soffio di fuoco.  Il drago esala fuoco in un cono di\n\n18 metri. Ogni creatura in quell'area deve effettuare  un tiro salvezza su Destrezza con CD 21, subendo 66  (12d10) danni da fuoco in caso di fallimento,  o la metà dei danni in caso di successo.\n\nSoffio indebolente. Il drago esala gas in un cono di\n\n18 metri. Ogni creatura in quell'area deve superare  un tiro salvezza su Forza con CD 21, altrimenti  subisce svantaggio ai tiri per colpire basati sulla  Forza, alle prove di Forza e ai tiri salvezza su Forza  per 1 minuto. La creatura può ripetere il tiro salvezza  alla fine di ogni suo turno e, se lo supera, l'effetto  svanisce.  Systems Reference Document 5.1 331"
+        "description": "Il drago usa uno dei seguenti soffi.    Soffio di fuoco.  Il drago esala fuoco in un cono di\n\n18 metri. Ogni creatura in quell'area deve effettuare  un tiro salvezza su Destrezza con CD 21, subendo 66  (12d10) danni da fuoco in caso di fallimento,  o la metà dei danni in caso di successo."
+      },
+      {
+        "name": "Soffio indebolente",
+        "description": "Il drago esala gas in un cono di\n\n18 metri. Ogni creatura in quell'area deve superare  un tiro salvezza su Forza con CD 21, altrimenti  subisce svantaggio ai tiri per colpire basati sulla  Forza, alle prove di Forza e ai tiri salvezza su Forza  per 1 minuto. La creatura può ripetere il tiro salvezza  alla fine di ogni suo turno e, se lo supera, l'effetto  svanisce.  Systems Reference Document 5.1 331"
       }
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco di coda",
+        "description": "Il drago effettua un attacco con la\n\ncoda."
+      },
+      {
+        "name": "Individuazione",
+        "description": "Il drago effettua una prova di Saggezza\n\n(Percezione)."
+      },
+      {
+        "name": "Attacco d'ala (costa 2 azioni)",
+        "description": "Il drago sbatte le ali.\n\nOgni creatura entro 3 metri dal drago deve superare  un tiro salvezza su Destrezza con CD 22, altrimenti  subisce 15 (2d6 + 8) danni contundenti e cade a terra  prona. Il drago può poi volare fino a metà della sua  velocità di volare."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -3632,7 +3826,11 @@
       },
       {
         "name": "Soffi (ricarica 5–6)",
-        "description": "Il drago usa uno dei seguenti soffi.    Soffio di fuoco.  Il drago esala fuoco in un cono di\n\n9 metri. Ogni creatura in quell'area deve effettuare  un tiro salvezza su Destrezza con CD 17, subendo  55 (10d10) danni da fuoco in caso di fallimento,  o la metà dei danni in caso di successo.\n\nSoffio indebolente. Il drago esala gas in un cono di\n\n9 metri. Ogni creatura in quell'area deve superare un  tiro salvezza su Forza con CD 17, altrimenti subisce  svantaggio ai tiri per colpire basati sulla Forza, alle  prove di Forza e ai tiri salvezza su Forza per 1 minuto.  La creatura può ripetere il tiro salvezza alla fine di  ogni suo turno e, se lo supera, l'effetto svanisce."
+        "description": "Il drago usa uno dei seguenti soffi.    Soffio di fuoco.  Il drago esala fuoco in un cono di\n\n9 metri. Ogni creatura in quell'area deve effettuare  un tiro salvezza su Destrezza con CD 17, subendo  55 (10d10) danni da fuoco in caso di fallimento,  o la metà dei danni in caso di successo."
+      },
+      {
+        "name": "Soffio indebolente",
+        "description": "Il drago esala gas in un cono di\n\n9 metri. Ogni creatura in quell'area deve superare un  tiro salvezza su Forza con CD 17, altrimenti subisce  svantaggio ai tiri per colpire basati sulla Forza, alle  prove di Forza e ai tiri salvezza su Forza per 1 minuto.  La creatura può ripetere il tiro salvezza alla fine di  ogni suo turno e, se lo supera, l'effetto svanisce."
       }
     ],
     "bonus_actions": [],
@@ -3686,7 +3884,11 @@
       },
       {
         "name": "Soffi (ricarica 5–6)",
-        "description": "Il drago usa uno dei seguenti soffi.    Soffio di fuoco.  Il drago esala fuoco in un cono di\n\n4,5 metri. Ogni creatura in quell'area deve effettuare  un tiro salvezza su Destrezza con CD 13, subendo 22  (4d10) danni da fuoco in caso di fallimento, o la metà  dei danni in caso di successo.  Systems Reference Document 5.1 332\n\nSoffio indebolente. Il drago esala gas in un cono di\n\n4,5 metri. Ogni creatura in quell'area deve superare  un tiro salvezza su Forza con CD 13, altrimenti  subisce svantaggio ai tiri per colpire basati sulla  Forza, alle prove di Forza e ai tiri salvezza su Forza  per 1 minuto. La creatura può ripetere il tiro salvezza  alla fine di ogni suo turno e, se lo supera, l'effetto  svanisce."
+        "description": "Il drago usa uno dei seguenti soffi.    Soffio di fuoco.  Il drago esala fuoco in un cono di\n\n4,5 metri. Ogni creatura in quell'area deve effettuare  un tiro salvezza su Destrezza con CD 13, subendo 22  (4d10) danni da fuoco in caso di fallimento, o la metà  dei danni in caso di successo.  Systems Reference Document 5.1 332"
+      },
+      {
+        "name": "Soffio indebolente",
+        "description": "Il drago esala gas in un cono di\n\n4,5 metri. Ogni creatura in quell'area deve superare  un tiro salvezza su Forza con CD 13, altrimenti  subisce svantaggio ai tiri per colpire basati sulla  Forza, alle prove di Forza e ai tiri salvezza su Forza  per 1 minuto. La creatura può ripetere il tiro salvezza  alla fine di ogni suo turno e, se lo supera, l'effetto  svanisce."
       }
     ],
     "bonus_actions": [],
@@ -3760,12 +3962,29 @@
       },
       {
         "name": "Soffi (ricarica 5–6)",
-        "description": "Il drago usa uno tra i seguenti soffi:    Soffio di fuoco.  Il drago esala una scia di fuoco lunga\n\n27 metri e larga 3 metri. Ogni creatura su quella scia  deve effettuare un tiro salvezza su Destrezza con  CD 21, subendo 56 (16d6) danni da fuoco in caso di  fallimento, o la metà dei danni in caso di successo.\n\nSoffio di sonno. Il drago esala gas soporifero in un cono\n\ndi 27 metri. Ogni creatura nell'area deve superare un  tiro salvezza su Costituzione con CD 21, altrimenti  diventa priva di sensi per 10 minuti. Questo effetto  termina se la creatura subisce danni o se qualcuno  usa un'azione per svegliarla."
+        "description": "Il drago usa uno tra i seguenti soffi:    Soffio di fuoco.  Il drago esala una scia di fuoco lunga\n\n27 metri e larga 3 metri. Ogni creatura su quella scia  deve effettuare un tiro salvezza su Destrezza con  CD 21, subendo 56 (16d6) danni da fuoco in caso di  fallimento, o la metà dei danni in caso di successo."
+      },
+      {
+        "name": "Soffio di sonno",
+        "description": "Il drago esala gas soporifero in un cono\n\ndi 27 metri. Ogni creatura nell'area deve superare un  tiro salvezza su Costituzione con CD 21, altrimenti  diventa priva di sensi per 10 minuti. Questo effetto  termina se la creatura subisce danni o se qualcuno  usa un'azione per svegliarla."
       }
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco di coda",
+        "description": "Il drago effettua un attacco con la\n\ncoda."
+      },
+      {
+        "name": "Individuazione",
+        "description": "Il drago effettua una prova di Saggezza\n\n(Percezione).  Systems Reference Document 5.1 333"
+      },
+      {
+        "name": "Attacco d'ala (costa 2 azioni)",
+        "description": "Il drago sbatte le ali.\n\nOgni creatura entro 4,5 metri dal drago deve  superare un tiro salvezza su Destrezza con CD 22,  altrimenti subisce 15 (2d6 + 8) danni contundenti  e cade a terra prona. Il drago può poi volare fino  a metà della sua velocità di volare."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -3830,12 +4049,29 @@
       },
       {
         "name": "Soffi (ricarica 5–6)",
-        "description": "Il drago usa uno dei seguenti soffi.    Soffio di fuoco.  Il drago esala una scia di fuoco lunga\n\n18 metri e larga 1,5 metri. Ogni creatura su quella  scia deve effettuare un tiro salvezza su Destrezza con  CD 18, subendo 45 (13d6) danni da fuoco in caso di  fallimento, o la metà dei danni in caso di successo.\n\nSoffio di sonno. Il drago esala gas soporifero in un cono\n\ndi 18 metri. Ogni creatura nell'area deve superare un  tiro salvezza su Costituzione con CD 18, altrimenti  diventa priva di sensi per 10 minuti. Questo effetto  termina se la creatura subisce danni o se qualcuno  usa un'azione per svegliarla."
+        "description": "Il drago usa uno dei seguenti soffi.    Soffio di fuoco.  Il drago esala una scia di fuoco lunga\n\n18 metri e larga 1,5 metri. Ogni creatura su quella  scia deve effettuare un tiro salvezza su Destrezza con  CD 18, subendo 45 (13d6) danni da fuoco in caso di  fallimento, o la metà dei danni in caso di successo."
+      },
+      {
+        "name": "Soffio di sonno",
+        "description": "Il drago esala gas soporifero in un cono\n\ndi 18 metri. Ogni creatura nell'area deve superare un  tiro salvezza su Costituzione con CD 18, altrimenti  diventa priva di sensi per 10 minuti. Questo effetto  termina se la creatura subisce danni o se qualcuno  usa un'azione per svegliarla."
       }
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco di coda",
+        "description": "Il drago effettua un attacco con la\n\ncoda."
+      },
+      {
+        "name": "Individuazione",
+        "description": "Il drago effettua una prova di Saggezza\n\n(Percezione)."
+      },
+      {
+        "name": "Attacco d'ala (costa 2 azioni)",
+        "description": "Il drago sbatte le ali.\n\nOgni creatura entro 3 metri dal drago deve superare  un tiro salvezza su Destrezza con CD 19, altrimenti  subisce 13 (2d6 + 6) danni contundenti e cade a terra  prona. Il drago può poi volare fino a metà della sua  velocità di volare."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -3892,7 +4128,11 @@
       },
       {
         "name": "Soffi (ricarica 5–6)",
-        "description": "Il drago usa uno dei seguenti soffi.    Soffio di fuoco.  Il drago esala una scia di fuoco lunga\n\n12 metri e larga 1,5 metri. Ogni creatura su quella  scia deve effettuare un tiro salvezza su Destrezza con  CD 14, subendo 42 (12d6) danni da fuoco in caso di  fallimento, o la metà dei danni in caso di successo.\n\nSoffio di sonno. Il drago esala gas soporifero in un cono\n\ndi 9 metri. Ogni creatura nell'area deve superare un  tiro salvezza su Costituzione con CD 14, altrimenti  diventa priva di sensi per 5 minuti. Questo effetto  termina se la creatura subisce danni o se qualcuno  usa un'azione per svegliarla."
+        "description": "Il drago usa uno dei seguenti soffi.    Soffio di fuoco.  Il drago esala una scia di fuoco lunga\n\n12 metri e larga 1,5 metri. Ogni creatura su quella  scia deve effettuare un tiro salvezza su Destrezza con  CD 14, subendo 42 (12d6) danni da fuoco in caso di  fallimento, o la metà dei danni in caso di successo."
+      },
+      {
+        "name": "Soffio di sonno",
+        "description": "Il drago esala gas soporifero in un cono\n\ndi 9 metri. Ogni creatura nell'area deve superare un  tiro salvezza su Costituzione con CD 14, altrimenti  diventa priva di sensi per 5 minuti. Questo effetto  termina se la creatura subisce danni o se qualcuno  usa un'azione per svegliarla."
       }
     ],
     "bonus_actions": [],
@@ -3946,7 +4186,11 @@
       },
       {
         "name": "Soffi (ricarica 5–6)",
-        "description": "Il drago usa uno dei seguenti soffi.    Soffio di fuoco.  Il drago esala una scia di fuoco lunga\n\n6 metri e larga 1,5 metri. Ogni creatura su quella scia  deve effettuare un tiro salvezza su Destrezza con  CD 11, subendo 14 (4d6) danni da fuoco in caso di  fallimento, o la metà dei danni in caso di successo.\n\nSoffio di sonno. Il drago esala gas soporifero in un\n\ncono di 4,5 metri. Ogni creatura in quell'area deve  superare un tiro salvezza su Costituzione con CD 11,  altrimenti è priva di sensi per 1 minuto. Questo  effetto termina se la creatura subisce danni o se  qualcuno usa un'azione per svegliarla."
+        "description": "Il drago usa uno dei seguenti soffi.    Soffio di fuoco.  Il drago esala una scia di fuoco lunga\n\n6 metri e larga 1,5 metri. Ogni creatura su quella scia  deve effettuare un tiro salvezza su Destrezza con  CD 11, subendo 14 (4d6) danni da fuoco in caso di  fallimento, o la metà dei danni in caso di successo."
+      },
+      {
+        "name": "Soffio di sonno",
+        "description": "Il drago esala gas soporifero in un\n\ncono di 4,5 metri. Ogni creatura in quell'area deve  superare un tiro salvezza su Costituzione con CD 11,  altrimenti è priva di sensi per 1 minuto. Questo  effetto termina se la creatura subisce danni o se  qualcuno usa un'azione per svegliarla."
       }
     ],
     "bonus_actions": [],
@@ -4026,7 +4270,20 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco di coda",
+        "description": "Il drago effettua un attacco con\n\nla coda."
+      },
+      {
+        "name": "Individuazione",
+        "description": "Il drago effettua una prova di Saggezza\n\n(Percezione)."
+      },
+      {
+        "name": "Attacco d'ala (costa 2 azioni)",
+        "description": "Il drago sbatte le ali.\n\nOgni creatura entro 4,5 metri dal drago deve  superare un tiro salvezza su Destrezza con CD 22,  altrimenti subisce 15 (2d6 + 8) danni contundenti  e cade a terra prona. Il drago può poi volare fino  a metà della sua velocità di volare."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -4101,7 +4358,20 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco di coda",
+        "description": "Il drago effettua un attacco con la\n\ncoda."
+      },
+      {
+        "name": "Individuazione",
+        "description": "Il drago effettua una prova di Saggezza\n\n(Percezione)."
+      },
+      {
+        "name": "Attacco d'ala (costa 2 azioni)",
+        "description": "Il drago sbatte le ali.\n\nOgni creatura entro 3 metri dal drago deve superare  un tiro salvezza su Destrezza con CD 19, altrimenti  subisce 13 (2d6 + 6) danni contundenti e cade a terra  prona. Il drago può poi volare fino a metà della sua  velocità di volare."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -4287,7 +4557,20 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco di coda",
+        "description": "Il drago effettua un attacco con la\n\ncoda."
+      },
+      {
+        "name": "Individuazione",
+        "description": "Il drago effettua una prova di Saggezza\n\n(Percezione)."
+      },
+      {
+        "name": "Attacco d'ala (costa 2 azioni)",
+        "description": "Il drago sbatte le ali.\n\nOgni creatura entro 4,5 metri dal drago deve  superare un tiro salvezza su Destrezza con CD 24,  altrimenti subisce 16 (2d6 + 9) danni contundenti  e cade a terra prona. Il drago può poi volare fino  a metà della sua velocità di volare."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -4357,7 +4640,20 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco di coda",
+        "description": "Il drago effettua un attacco con la\n\ncoda."
+      },
+      {
+        "name": "Individuazione",
+        "description": "Il drago effettua una prova di Saggezza\n\n(Percezione)."
+      },
+      {
+        "name": "Attacco d'ala (costa 2 azioni)",
+        "description": "Il drago sbatte le ali.\n\nOgni creatura entro 3 metri dal drago deve superare  un tiro salvezza su Destrezza con CD 20, altrimenti  subisce 14 (2d6 + 7) danni contundenti e cade a terra  prona. Il drago può poi volare fino a metà della sua  velocità di volare."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -4543,7 +4839,20 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco di coda",
+        "description": "Il drago effettua un attacco con la\n\ncoda."
+      },
+      {
+        "name": "Individuazione",
+        "description": "Il drago effettua una prova di Saggezza\n\n(Percezione)."
+      },
+      {
+        "name": "Attacco d'ala (costa 2 azioni)",
+        "description": "Il drago sbatte le ali.\n\nOgni creatura entro 4,5 metri dal drago deve  superare un tiro salvezza su Destrezza con CD 23,  altrimenti subisce 15 (2d6 + 8) danni contundenti  e cade a terra prona. Il drago può poi volare fino  a metà della sua velocità di volare."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -4613,7 +4922,20 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco di coda",
+        "description": "Il drago effettua un attacco con la\n\ncoda."
+      },
+      {
+        "name": "Individuazione",
+        "description": "Il drago effettua una prova di Saggezza\n\n(Percezione)."
+      },
+      {
+        "name": "Attacco d'ala (costa 2 azioni)",
+        "description": "Il drago sbatte le ali.\n\nOgni creatura entro 3 metri dal drago deve superare  un tiro salvezza su Destrezza con CD 19, altrimenti  subisce 13 (2d6 + 6) danni contundenti e cade a terra  prona. Il drago può poi volare fino a metà della sua  velocità di volare."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -4799,7 +5121,20 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco di coda",
+        "description": "Il drago effettua un attacco con\n\nla coda."
+      },
+      {
+        "name": "Individuazione",
+        "description": "Il drago effettua una prova di Saggezza\n\n(Percezione)."
+      },
+      {
+        "name": "Attacco d'ala (costa 2 azioni)",
+        "description": "Il drago sbatte le ali.\n\nOgni creatura entro 4,5 metri dal drago deve  superare un tiro salvezza su Destrezza con CD 25,  altrimenti subisce 17 (2d6 + 10) danni contundenti  e cade a terra prona. Il drago può poi volare fino  a metà della sua velocità di volare."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -4869,7 +5204,20 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco di coda",
+        "description": "Il drago effettua un attacco con la\n\ncoda."
+      },
+      {
+        "name": "Individuazione",
+        "description": "Il drago effettua una prova di Saggezza\n\n(Percezione)."
+      },
+      {
+        "name": "Attacco d'ala (costa 2 azioni)",
+        "description": "Il drago sbatte le ali.\n\nOgni creatura entro 3 metri dal drago deve superare  un tiro salvezza su Destrezza con CD 22, altrimenti  subisce 15 (2d6 + 8) danni contundenti e cade a terra  prona. Il drago può poi volare fino a metà della sua  velocità di volare."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -5055,7 +5403,20 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco di coda",
+        "description": "Il drago effettua un attacco con la\n\ncoda."
+      },
+      {
+        "name": "Individuazione",
+        "description": "Il drago effettua una prova di Saggezza\n\n(Percezione)."
+      },
+      {
+        "name": "Attacco d'ala (costa 2 azioni)",
+        "description": "Il drago sbatte le ali.\n\nOgni creatura entro 4,5 metri dal drago deve  superare un tiro salvezza su Destrezza con CD 23,  altrimenti subisce 15 (2d6 + 8) danni contundenti  e cade a terra prona. Il drago può poi volare fino  a metà della sua velocità di volare."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -5125,7 +5486,20 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco di coda",
+        "description": "Il drago effettua un attacco con la\n\ncoda."
+      },
+      {
+        "name": "Individuazione",
+        "description": "Il drago effettua una prova di Saggezza\n\n(Percezione).  Systems Reference Document 5.1 345"
+      },
+      {
+        "name": "Attacco d'ala (costa 2 azioni)",
+        "description": "Il drago sbatte le ali.\n\nOgni creatura entro 3 metri dal drago deve superare  un tiro salvezza su Destrezza con CD 19, altrimenti  subisce 13 (2d6 + 6) danni contundenti e cade a terra  prona. Il drago può poi volare fino a metà della sua  velocità di volare."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -7944,7 +8318,20 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco Tentacolo o Scagliare",
+        "description": "Il kraken effettua un\n\nattacco con i tentacoli o usa Scagliare."
+      },
+      {
+        "name": "Tempesta di fulmini (costa 2 azioni)",
+        "description": "Il kraken usa\n\ntempesta di fulmini."
+      },
+      {
+        "name": "Nebbia di inchiostro (costa 3 azioni)",
+        "description": "Mentre\n\nè sott'acqua, il kraken espelle una nube  d'inchiostro nel raggio di 18 metri. La nube si  diffonde nell'ambiente e quell'area è pesantemente  oscurata per tutte le creature tranne il kraken. Ogni  creatura diversa dal kraken che termina il proprio  turno in quell'area deve effettuare un tiro salvezza  su Costituzione con CD 23, subendo 16 (3d10) danni  da veleno in caso di fallimento, o la metà in caso di  successo. Una corrente forte disperde la nube, che  altrimenti si dissipa alla fine del turno successivo del  kraken."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -8412,7 +8799,20 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Trucchetto",
+        "description": "Il lich lancia un trucchetto.    Sguardo terrificante (costa 2 azioni).  Il lich fissa lo\n\nsguardo su una creatura nel suo campo visivo entro  un raggio di 3 metri. Il bersaglio deve superare un  tiro salvezza su Saggezza con CD 18 contro questa  magia, altrimenti rimane spaventato per 1 minuto.  Il bersaglio spaventato può ripetere il tiro salvezza  alla fine di ogni suo turno e, se lo supera, l'effetto  svanisce. Se il bersaglio supera il tiro salvezza o se  l'effetto termina, è immune allo sguardo del lich per  le 24 ore successive."
+      },
+      {
+        "name": "Tocco paralizzante (costa 2 azioni)",
+        "description": "Il lich usa il tocco\n\nparalizzante."
+      },
+      {
+        "name": "Distruggere vita (costa 3 azioni)",
+        "description": "Ogni creatura che non\n\nsia un non morto e situata entro 6 metri dal lich deve  effettuare un tiro salvezza su Costituzione con CD 18  contro questa magia, subendo 21 (6d6) danni  necrotici in caso di fallimento, o la metà in caso di  successo."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -9832,7 +10232,28 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco",
+        "description": "Il signore delle mummie effettua un attacco\n\ncon il pugno di putrefazione o usa lo sguardo funesto."
+      },
+      {
+        "name": "Polvere accecante",
+        "description": "Una nube di polvere e sabbia\n\naccecante si solleva magicamente attorno al signore  delle mummie. Ogni creatura entro 1,5 metri da lui  deve superare un tiro salvezza su Costituzione con  CD 16, altrimenti è accecata fino alla fine del proprio  turno successivo."
+      },
+      {
+        "name": "Incanalare energia negativa (costa 2 azioni)",
+        "description": "Il signore\n\ndelle mummie scatena magicamente un'ondata di  energia negativa. Le creature entro 18 metri dal  signore delle mummie, incluse quelle dietro una  barriera o oltre un angolo, non possono recuperare  punti ferita fino alla fine del turno successivo del  signore delle mummie."
+      },
+      {
+        "name": "Parola blasfema (costa 2 azioni)",
+        "description": "Il signore delle\n\nmummie pronuncia una parola blasfema. Ogni  creatura che non sia un non morto, situata entro  3 metri dal signore delle mummie e che possa  sentire l'enunciazione magica, deve superare un  tiro salvezza su Costituzione con CD 16, altrimenti  è stordita fino alla fine del turno successivo del  mostro."
+      },
+      {
+        "name": "Turbine di sabbia (costa 2 azioni)",
+        "description": "Il signore delle\n\nmummie si trasforma magicamente in un turbine di  sabbia, si sposta al massimo di 18 metri e torna alla  sua forma normale. Finché è in forma di turbine,  è immune a tutti i danni e non può essere afferrato,  pietrificato, buttato a terra prono, trattenuto  o stordito. Ogni oggetto indossato o trasportato  dal signore delle mummie resta in suo possesso."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -11341,12 +11762,37 @@
       },
       {
         "name": "Ruggito (3/giorno)",
-        "description": "La sfinge emette un ruggito magico.\n\nOgni volta che ruggisce prima di completare un riposo  lungo, il verso è più forte e l'effetto è diverso, come  descritto di seguito. Ogni creatura entro 150 metri  dalla sfinge e in grado di udire il ruggito deve effettuare  un tiro salvezza.\n\nPrimo ruggito. Ogni creatura che fallisce un tiro\n\nsalvezza su Saggezza con CD 18 è spaventata per  1 minuto. La creatura spaventata può ripetere il tiro  salvezza alla fine di ogni suo turno e, se lo supera,  l'effetto svanisce.\n\nSecondo ruggito. Ogni creatura che fallisce un tiro\n\nsalvezza su Saggezza con CD 18 è assordata  e spaventata per 1 minuto. La creatura spaventata  è paralizzata e può ripetere il tiro salvezza alla fine  di ogni suo turno: se lo supera, l'effetto svanisce.\n\nTerzo ruggito. Ogni creatura effettua un tiro salvezza\n\nsu Costituzione con CD 18: chi lo fallisce subisce 44  (8d10) danni da tuono e cade a terra prona; chi lo  supera, invece, subisce soltanto la metà di quei  danni e non viene buttata a terra prona."
+        "description": "La sfinge emette un ruggito magico.\n\nOgni volta che ruggisce prima di completare un riposo  lungo, il verso è più forte e l'effetto è diverso, come  descritto di seguito. Ogni creatura entro 150 metri  dalla sfinge e in grado di udire il ruggito deve effettuare  un tiro salvezza."
+      },
+      {
+        "name": "Primo ruggito",
+        "description": "Ogni creatura che fallisce un tiro\n\nsalvezza su Saggezza con CD 18 è spaventata per  1 minuto. La creatura spaventata può ripetere il tiro  salvezza alla fine di ogni suo turno e, se lo supera,  l'effetto svanisce."
+      },
+      {
+        "name": "Secondo ruggito",
+        "description": "Ogni creatura che fallisce un tiro\n\nsalvezza su Saggezza con CD 18 è assordata  e spaventata per 1 minuto. La creatura spaventata  è paralizzata e può ripetere il tiro salvezza alla fine  di ogni suo turno: se lo supera, l'effetto svanisce."
+      },
+      {
+        "name": "Terzo ruggito",
+        "description": "Ogni creatura effettua un tiro salvezza\n\nsu Costituzione con CD 18: chi lo fallisce subisce 44  (8d10) danni da tuono e cade a terra prona; chi lo  supera, invece, subisce soltanto la metà di quei  danni e non viene buttata a terra prona."
       }
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco con artiglio",
+        "description": "La sfinge effettua un attacco\n\ncon artiglio."
+      },
+      {
+        "name": "Teletrasporto (costa 2 azioni)",
+        "description": "La sfinge si teletrasporta\n\nmagicamente, insieme a ogni oggetto che indossa  o trasporta, fino a uno spazio libero visibile entro  36 metri."
+      },
+      {
+        "name": "Lanciare un incantesimo (costa 3 azioni)",
+        "description": "La sfinge\n\nlancia un incantesimo dalla sua lista degli incantesimi  preparati, usando uno slot incantesimo come di  consueto."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -11409,7 +11855,20 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco con artiglio",
+        "description": "La sfinge effettua un attacco con\n\nartiglio."
+      },
+      {
+        "name": "Teletrasporto (costa 2 azioni)",
+        "description": "La sfinge si teletrasporta\n\nmagicamente, insieme a ogni oggetto che indossa  o trasporta, fino a uno spazio libero visibile entro  36 metri."
+      },
+      {
+        "name": "Lanciare un incantesimo (costa 3 azioni)",
+        "description": "La sfinge\n\nlancia un incantesimo dalla sua lista degli incantesimi  preparati, usando uno slot incantesimo come di  consueto."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -11680,7 +12139,20 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Attacco",
+        "description": "Il tarrasque effettua un attacco con l'artiglio\n\no con la coda."
+      },
+      {
+        "name": "Movimento",
+        "description": "Il tarrasque si muove fino a metà della sua\n\nvelocità."
+      },
+      {
+        "name": "Masticare (costa 2 azioni)",
+        "description": "Il tarrasque effettua un\n\nattacco con il morso o usa Inghiottire."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -12005,7 +12477,16 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Zoccoli",
+        "description": "L'unicorno effettua un attacco con gli zoccoli.    Scudo scintillante (costa 2 azioni).  L'unicorno crea un\n\ncampo magico scintillante attorno a sé o a un'altra  creatura situata nel suo campo visivo in un raggio  di 18 metri. Il bersaglio ottiene un bonus di +2 alla  CA fino alla fine del turno successivo dell'unicorno."
+      },
+      {
+        "name": "Guarire se stesso (costa 3 azioni)",
+        "description": "L'unicorno recupera\n\nmagicamente 11 (2d8 + 2) punti ferita."
+      }
+    ],
     "source": "monsters"
   },
   {
@@ -12159,7 +12640,16 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
+    "legendary_actions": [
+      {
+        "name": "Colpo senz'armi",
+        "description": "Il vampiro effettua un colpo senz'armi.    Movimento.  Il vampiro si muove fino alla sua velocità\n\nmassima senza provocare attacchi di opportunità."
+      },
+      {
+        "name": "Morso (costa 2 azioni)",
+        "description": "Il vampiro effettua un attacco\n\ncon il morso."
+      }
+    ],
     "source": "monsters"
   },
   {
