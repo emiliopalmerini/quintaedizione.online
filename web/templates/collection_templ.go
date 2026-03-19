@@ -62,7 +62,7 @@ func CollectionPage(data models.CollectionPageData) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</h2></div><section class=\"search-sticky bg-white border p-2 mb-3\"><form id=\"search-form\" hx-get=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</h2></div><section class=\"search-sticky bg-white border p-2\"><form id=\"search-form\" hx-get=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
