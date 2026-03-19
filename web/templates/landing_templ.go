@@ -41,7 +41,23 @@ func LandingPage() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"hero\"><h1>quintaedizione.online</h1><p>Tutto il materiale base di D&amp;D 5e, in italiano e gratuito.</p></section><div class=\"collection-grid\" style=\"max-width: 720px; margin: 0 auto; padding: 0 var(--space-6) var(--space-16); grid-template-columns: 1fr 1fr;\"><a href=\"/srd\" class=\"collection-card\"><div class=\"collection-card-content\"><div class=\"collection-card-header\"><div><div class=\"collection-card-icon\" style=\"font-size: 2rem;\">📖</div><div class=\"collection-card-title\">SRD 5e</div></div></div><div class=\"collection-card-description\">Il System Reference Document completo in italiano. Incantesimi, mostri, classi, equipaggiamento e tutte le regole base.</div><div class=\"collection-card-footer\">Esplora →</div></div></a> <a href=\"/combattimenti\" class=\"collection-card\"><div class=\"collection-card-content\"><div class=\"collection-card-header\"><div><div class=\"collection-card-icon\" style=\"font-size: 2rem;\">⚔️</div><div class=\"collection-card-title\">Calcolatore Incontri</div></div></div><div class=\"collection-card-description\">Calcola il budget di PE per i tuoi incontri. Supporta le regole D&D 2014 e 2024, con browser dei mostri integrato.</div><div class=\"collection-card-footer\">Calcola →</div></div></a></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"landing-hero hero-map\" style=\"--map-bg: url('/static/img/dyson-map-2.webp')\"><span class=\"landing-hero-badge\">Open Source &middot; SRD 5.2.1 &middot; CC BY 4.0</span><h1 class=\"landing-hero-title\">quintaedizione.online</h1><p class=\"landing-hero-subtitle\">Tutto il materiale base di D&amp;D 5e, in italiano e gratuito.</p><div class=\"landing-cards\"><a href=\"/srd\" class=\"landing-card\"><div class=\"landing-card-icon\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = CompassIcon().Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div><div class=\"landing-card-body\"><div class=\"landing-card-title\">SRD 5e</div><div class=\"landing-card-description\">Il System Reference Document completo in italiano. Incantesimi, mostri, classi, equipaggiamento e tutte le regole base.</div></div><span class=\"landing-card-action\">Esplora &rarr;</span></a> <a href=\"/combattimenti\" class=\"landing-card\"><div class=\"landing-card-icon\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = D20Icon().Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div><div class=\"landing-card-body\"><div class=\"landing-card-title\">Calcolatore Incontri</div><div class=\"landing-card-description\">Calcola il budget di PE per i tuoi incontri. Supporta le regole 2014 e 2024, con browser dei mostri integrato.</div></div><span class=\"landing-card-action\">Calcola &rarr;</span></a></div></section>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
