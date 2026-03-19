@@ -3,6 +3,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     initEncounterForm();
+    initSteppers();
 
     // Configure HTMX for encounters
     if (typeof htmx !== 'undefined') {
@@ -45,7 +46,47 @@ function showToast(message, type) {
     }, 3000);
 }
 
-// Encounter form logic (extracted from base.templ inline script)
+// Generic stepper component
+function initSteppers() {
+    document.querySelectorAll('.stepper').forEach(function(stepper) {
+        var input = stepper.querySelector('.stepper-input');
+        var decBtn = stepper.querySelector('.stepper-decrement');
+        var incBtn = stepper.querySelector('.stepper-increment');
+        if (!input || !decBtn || !incBtn) return;
+
+        var min = parseInt(stepper.dataset.min || input.min || '0', 10);
+        var max = parseInt(stepper.dataset.max || input.max || '999', 10);
+
+        function update(delta) {
+            var val = parseInt(input.value, 10) || min;
+            val = Math.max(min, Math.min(max, val + delta));
+            input.value = val;
+            decBtn.disabled = val <= min;
+            incBtn.disabled = val >= max;
+            input.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+
+        decBtn.addEventListener('click', function() { update(-1); });
+        incBtn.addEventListener('click', function() { update(1); });
+
+        // Validate on direct input
+        input.addEventListener('change', function() {
+            var val = parseInt(input.value, 10);
+            if (isNaN(val)) val = min;
+            val = Math.max(min, Math.min(max, val));
+            input.value = val;
+            decBtn.disabled = val <= min;
+            incBtn.disabled = val >= max;
+        });
+
+        // Initialize button states
+        var initVal = parseInt(input.value, 10) || min;
+        decBtn.disabled = initVal <= min;
+        incBtn.disabled = initVal >= max;
+    });
+}
+
+// Encounter form logic
 function initEncounterForm() {
     var form = document.getElementById('encounter-form');
     if (!form) return;
@@ -59,8 +100,8 @@ function initEncounterForm() {
         var checked = document.querySelector('input[name="ruleset"]:checked');
         if (!checked) return;
         var is2024 = checked.value === '2024';
-        if (difficulty2024Panel) difficulty2024Panel.style.display = is2024 ? 'block' : 'none';
-        if (difficulty2014Panel) difficulty2014Panel.style.display = is2024 ? 'none' : 'block';
+        if (difficulty2024Panel) difficulty2024Panel.classList.toggle('hidden', !is2024);
+        if (difficulty2014Panel) difficulty2014Panel.classList.toggle('hidden', is2024);
     }
 
     rulesetRadios.forEach(function(radio) {
@@ -76,8 +117,8 @@ function initEncounterForm() {
         var checked = document.querySelector('input[name="party_mode"]:checked');
         if (!checked) return;
         var isSame = checked.value === 'same';
-        if (partySamePanel) partySamePanel.style.display = isSame ? 'block' : 'none';
-        if (partyDifferentPanel) partyDifferentPanel.style.display = isSame ? 'none' : 'block';
+        if (partySamePanel) partySamePanel.classList.toggle('hidden', !isSame);
+        if (partyDifferentPanel) partyDifferentPanel.classList.toggle('hidden', isSame);
     }
 
     partyModeRadios.forEach(function(radio) {

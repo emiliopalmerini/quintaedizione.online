@@ -288,6 +288,108 @@ html.dark select.field, html.dark .form-select {
 }
 .radio-button input[type="radio"], .radio-option input[type="radio"] { cursor: pointer; }
 
+/* ========================================================================
+   SEGMENTED CONTROL
+   ======================================================================== */
+
+.segmented-control {
+  display: inline-flex;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 3px;
+  gap: 2px;
+}
+.segmented-control-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  padding: var(--space-2) var(--space-5);
+  border-radius: calc(var(--radius-md) - 2px);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  background: transparent;
+  transition: all var(--transition-fast);
+}
+.segmented-control-option:hover {
+  color: var(--color-text);
+  background: var(--color-hover);
+}
+.segmented-control-option:has(input:checked) {
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+  font-weight: var(--weight-semibold);
+}
+.segmented-control-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* ========================================================================
+   STEPPER
+   ======================================================================== */
+
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-bg);
+  align-self: start;
+  width: fit-content;
+}
+.stepper-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  user-select: none;
+  flex-shrink: 0;
+}
+.stepper-btn:hover:not(:disabled) { background: var(--color-bg-tertiary); }
+.stepper-btn:active:not(:disabled) { background: var(--color-border); }
+.stepper-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.stepper-input {
+  width: 3.5rem;
+  border: none;
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  text-align: center;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  font-family: inherit;
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding: var(--space-2) 0;
+  -moz-appearance: textfield;
+}
+.stepper-input::-webkit-outer-spin-button,
+.stepper-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.stepper-input:focus {
+  outline: none;
+  background: var(--primary-light);
+}
+
 .form-container, .form-panel {
   background: var(--color-bg);
   border-radius: var(--radius-lg);

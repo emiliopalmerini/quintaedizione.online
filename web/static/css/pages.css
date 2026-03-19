@@ -77,6 +77,52 @@
 }
 .page-header h1 { margin-bottom: var(--space-3); }
 .page-header p { margin: 0; color: var(--color-text-secondary); }
+.page-header-subtitle { max-width: 600px; margin: 0 auto; color: var(--color-text-secondary); }
+
+/* ========================================================================
+   ENCOUNTER LAYOUT
+   ======================================================================== */
+
+.encounter-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+@media (min-width: 768px) {
+  .encounter-layout {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.encounter-config { min-width: 0; }
+.encounter-results {
+  min-width: 0;
+  position: sticky;
+  top: calc(var(--nav-height) + var(--space-4));
+}
+
+/* Form grid helpers */
+.form-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+.form-actions-inline {
+  display: flex;
+  gap: var(--space-2);
+}
+.form-submit {
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+.character-levels-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
 
 /* ========================================================================
    RESULTS & TILES
