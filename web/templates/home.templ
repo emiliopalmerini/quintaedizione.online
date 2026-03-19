@@ -2,10 +2,11 @@ package templates
 
 import "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
 import "strconv"
+import "fmt"
 
 templ HomePage(data models.HomePageData) {
 	@BaseLayout(data.PageData) {
-		<section class="hero">
+		<section class="hero hero-map" style="--map-bg: url('/static/img/dyson-map-2.webp')">
 			<h1>SRD 5e</h1>
 			<p>Regole, incantesimi, mostri e altro — cerca e consulta liberamente.</p>
 
@@ -71,28 +72,58 @@ templ HomePage(data models.HomePageData) {
 			</div>
 		</section>
 
-		<div class="collection-grid">
-			for _, collection := range data.Collections {
-				<a href={ templ.URL("/srd/" + collection.Name) } class="collection-card">
-					<div class="collection-card-content">
-						<div class="collection-card-header">
-							<div>
-								<div class="collection-card-icon">
-									@CollectionIcon(collection.Name)
+		if data.Total > 0 {
+			<div class="stats-banner">
+				<span class="stats-banner-item">
+					<strong>{ formatCount(data.Total) }</strong> voci
+				</span>
+				<span class="stats-banner-sep" aria-hidden="true">·</span>
+				<span class="stats-banner-item">
+					<strong>{ strconv.Itoa(len(data.Collections)) }</strong> collezioni
+				</span>
+				if data.Editions > 0 {
+					<span class="stats-banner-sep" aria-hidden="true">·</span>
+					<span class="stats-banner-item">
+						<strong>{ strconv.Itoa(data.Editions) }</strong> edizioni
+					</span>
+				}
+			</div>
+		}
+
+		for _, group := range data.Groups {
+			<section class="collection-group">
+				<div class="collection-group-header">
+					<span class="collection-group-label">{ group.Label }</span>
+				</div>
+				<div class="collection-grid">
+					for _, collection := range group.Collections {
+						<a href={ templ.URL("/srd/" + collection.Name) } class="collection-card">
+							<div class="collection-card-content">
+								<div class="collection-card-header">
+									<div class="collection-card-icon">
+										@CollectionIcon(collection.Name)
+									</div>
+									if collection.Count > 0 {
+										<div class="collection-badge" title="Numero di elementi">{ strconv.FormatInt(collection.Count, 10) }</div>
+									}
 								</div>
 								<div class="collection-card-title">{ collection.Label }</div>
+								if collection.Description != "" {
+									<div class="collection-card-description">{ collection.Description }</div>
+								}
+								<div class="collection-card-footer">Esplora &rarr;</div>
 							</div>
-							if collection.Count > 0 {
-								<div class="collection-badge" title="Numero di elementi">{ strconv.FormatInt(collection.Count, 10) }</div>
-							}
-						</div>
-						if collection.Description != "" {
-						<div class="collection-card-description">{ collection.Description }</div>
+						</a>
 					}
-					<div class="collection-card-footer">Esplora &rarr;</div>
-					</div>
-				</a>
-			}
-		</div>
+				</div>
+			</section>
+		}
 	}
+}
+
+func formatCount(n int64) string {
+	if n >= 1000 {
+		return fmt.Sprintf("%d.%03d+", n/1000, n%1000)
+	}
+	return strconv.FormatInt(n, 10)
 }

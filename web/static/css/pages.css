@@ -42,19 +42,38 @@
 .hero {
   text-align: center;
   padding: var(--space-12) var(--space-4) var(--space-8);
+  position: relative;
 }
 .hero h1 {
   font-size: clamp(1.75rem, 5vw, var(--text-3xl));
   margin-bottom: var(--space-2);
   letter-spacing: -0.02em;
+  position: relative;
 }
-.hero p { color: var(--color-text-secondary); max-width: 600px; margin: 0 auto var(--space-6); }
+.hero p { color: var(--color-text-secondary); max-width: 600px; margin: 0 auto var(--space-6); position: relative; }
 .hero-link {
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
   display: block;
   margin-bottom: var(--space-4);
 }
+
+/* Dyson Logos map background for hero */
+.hero-map { overflow: hidden; }
+.hero-map::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background-image: var(--map-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+html.dark .hero-map::before { opacity: 0.04; mix-blend-mode: screen; filter: invert(1); }
+.hero-map .search-container-wrapper { position: relative; }
 
 .hero-stats {
   font-size: var(--text-sm);
