@@ -6,6 +6,7 @@
 
 Usage:
     uv run scripts/parse_srd <pdf> --output-dir ./output
+    uv run scripts/parse_srd <pdf> --profile 5.1 --output-dir ./output
     uv run scripts/parse_srd <pdf> --debug-page 297
 """
 
@@ -18,20 +19,22 @@ from pathlib import Path
 
 import fitz
 
+from ._cli import resolve_profile
 from .classify import SpanRole, classify_span
 from .extract import extract_page, extract_pages
 from .heading_tree import build_heading_tree, walk_tree
 from .merge import blocks_to_paragraphs
 from .markdown_gen import paragraphs_to_markdown
-from .section_split import SECTIONS, SectionDef
+from .profiles import FontProfile
+from .section_split import SectionDef
 from .tables import process_tables
 
 
-def debug_page(doc: fitz.Document, page_num: int) -> None:
+def debug_page(doc: fitz.Document, page_num: int, profile: FontProfile) -> None:
     """Dump classified spans for a single page for calibration."""
     blocks = extract_page(doc[page_num - 1], page_num)
-    blocks = process_tables(blocks)
-    paragraphs = blocks_to_paragraphs(blocks)
+    blocks = process_tables(blocks, profile)
+    paragraphs = blocks_to_paragraphs(blocks, profile=profile)
 
     print(f"\n{'=' * 80}")
     print(f"Page {page_num} — {len(blocks)} blocks, {len(paragraphs)} paragraphs")
@@ -41,7 +44,7 @@ def debug_page(doc: fitz.Document, page_num: int) -> None:
     for block in blocks:
         for line in block.lines:
             for span in line.spans:
-                role = classify_span(span)
+                role = classify_span(span, profile)
                 text = span.text.strip()[:70]
                 print(
                     f"  {span.font_size:5.1f}  {span.font_name:<40s}  "
@@ -72,21 +75,26 @@ def debug_page(doc: fitz.Document, page_num: int) -> None:
     print(md[:3000])
 
 
-def debug_section(doc: fitz.Document, section_name: str) -> None:
+def debug_section(
+    doc: fitz.Document,
+    section_name: str,
+    sections: list[SectionDef],
+    profile: FontProfile,
+) -> None:
     """Dump heading tree for a section."""
     section = None
-    for s in SECTIONS:
+    for s in sections:
         if s.name.lower() == section_name.lower() or s.output_file == section_name:
             section = s
             break
     if not section:
         print(f"Unknown section: {section_name}")
-        print(f"Available: {', '.join(s.name for s in SECTIONS)}")
+        print(f"Available: {', '.join(s.name for s in sections)}")
         sys.exit(1)
 
     blocks = extract_pages(doc, section.pages[0], section.pages[1])
-    blocks = process_tables(blocks)
-    paragraphs = blocks_to_paragraphs(blocks)
+    blocks = process_tables(blocks, profile)
+    paragraphs = blocks_to_paragraphs(blocks, profile=profile)
 
     print(f"\n{'=' * 80}")
     print(f"Section: {section.name} (pages {section.pages[0]}-{section.pages[1]})")
@@ -97,16 +105,25 @@ def debug_section(doc: fitz.Document, section_name: str) -> None:
     walk_tree(tree)
 
 
-def run_parsers(doc: fitz.Document, output_dir: Path) -> None:
+def run_parsers(
+    doc: fitz.Document,
+    output_dir: Path,
+    sections: list[SectionDef],
+    profile: FontProfile,
+) -> None:
     """Run all section parsers and write JSON output."""
-    from .parsers import get_parser
+    from .profiles import PROFILE_51
+    if profile is PROFILE_51:
+        from .parsers_51 import get_parser
+    else:
+        from .parsers import get_parser
 
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Group sections by output file to merge results
     outputs: dict[str, list] = {}
 
-    for section in SECTIONS:
+    for section in sections:
         parser = get_parser(section.parser_name)
         if parser is None:
             print(f"  SKIP {section.name} — no parser '{section.parser_name}'")
@@ -115,8 +132,8 @@ def run_parsers(doc: fitz.Document, output_dir: Path) -> None:
         print(f"  Parsing {section.name} (pages {section.pages[0]}-{section.pages[1]})...")
 
         blocks = extract_pages(doc, section.pages[0], section.pages[1])
-        blocks = process_tables(blocks)
-        paragraphs = blocks_to_paragraphs(blocks)
+        blocks = process_tables(blocks, profile)
+        paragraphs = blocks_to_paragraphs(blocks, profile=profile)
         tree = build_heading_tree(paragraphs)
 
         result = parser(section, paragraphs, tree)
@@ -140,7 +157,7 @@ def run_parsers(doc: fitz.Document, output_dir: Path) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Parse Italian SRD 5.2.1 PDF into structured JSON"
+        description="Parse Italian SRD PDF into structured JSON"
     )
     parser.add_argument("pdf", type=Path, help="Path to the SRD PDF file")
     parser.add_argument(
@@ -148,6 +165,13 @@ def main() -> None:
         type=Path,
         default=Path("output"),
         help="Output directory for JSON files (default: output)",
+    )
+    parser.add_argument(
+        "--profile",
+        type=str,
+        choices=["5.1", "5.2.1"],
+        default=None,
+        help="SRD version profile (default: 5.2.1)",
     )
     parser.add_argument(
         "--debug-page",
@@ -168,19 +192,22 @@ def main() -> None:
         print(f"Error: PDF not found: {args.pdf}", file=sys.stderr)
         sys.exit(1)
 
+    font_profile, sections = resolve_profile(args.profile)
+    print(f"Using profile: {font_profile.name}")
+
     doc = fitz.open(str(args.pdf))
     print(f"Opened {args.pdf} ({len(doc)} pages)")
 
     if args.debug_page:
-        debug_page(doc, args.debug_page)
+        debug_page(doc, args.debug_page, font_profile)
         return
 
     if args.debug_section:
-        debug_section(doc, args.debug_section)
+        debug_section(doc, args.debug_section, sections, font_profile)
         return
 
     print("Running parsers...")
-    run_parsers(doc, args.output_dir)
+    run_parsers(doc, args.output_dir, sections, font_profile)
 
     from .quality import validate_output
     validate_output(args.output_dir)

@@ -18,6 +18,7 @@ from __future__ import annotations
 
 from .classify import SpanRole, classify_span
 from .extract import RawBlock, RawLine, RawSpan
+from .profiles import FontProfile
 
 
 # Roles that form table content (headers + data cells)
@@ -39,11 +40,11 @@ _TABLE_STOP_ROLES = {
 }
 
 
-def _block_role(block: RawBlock) -> SpanRole:
+def _block_role(block: RawBlock, profile: FontProfile | None = None) -> SpanRole:
     """Dominant role of the first span in a block."""
     for line in block.lines:
         for span in line.spans:
-            return classify_span(span)
+            return classify_span(span, profile)
     return SpanRole.UNKNOWN
 
 
@@ -108,7 +109,10 @@ class _Cell:
         self.page_num = page_num
 
 
-def _extract_cells(blocks: list[RawBlock]) -> list[_Cell]:
+def _extract_cells(
+    blocks: list[RawBlock],
+    profile: FontProfile | None = None,
+) -> list[_Cell]:
     """Extract individual cells from table content blocks.
 
     Each span is classified individually (not at block level) because
@@ -121,7 +125,7 @@ def _extract_cells(blocks: list[RawBlock]) -> list[_Cell]:
             for span in line.spans:
                 text = span.text.strip()
                 if text:
-                    role = classify_span(span)
+                    role = classify_span(span, profile)
                     cells.append(_Cell(
                         x0=span.bbox[0], y0=span.bbox[1],
                         x1=span.bbox[2], y1=span.bbox[3],
@@ -385,22 +389,28 @@ def _make_synthetic_blocks(
 # ── Table region detection ───────────────────────────────────────────────────
 
 
-def _count_header_small_cells(blocks: list[RawBlock], start: int) -> int:
+def _count_header_small_cells(
+    blocks: list[RawBlock],
+    start: int,
+    profile: FontProfile | None = None,
+) -> int:
     """Count TABLE_HEADER_SMALL cells in consecutive blocks from start."""
     count = 0
     for i in range(start, len(blocks)):
-        role = _block_role(blocks[i])
+        role = _block_role(blocks[i], profile)
         if role != SpanRole.TABLE_HEADER_SMALL:
             break
-        # Count individual spans (each span is a column header)
         for line in blocks[i].lines:
             for span in line.spans:
-                if classify_span(span) == SpanRole.TABLE_HEADER_SMALL:
+                if classify_span(span, profile) == SpanRole.TABLE_HEADER_SMALL:
                     count += 1
     return count
 
 
-def _find_table_regions(blocks: list[RawBlock]) -> list[tuple[int, int, str]]:
+def _find_table_regions(
+    blocks: list[RawBlock],
+    profile: FontProfile | None = None,
+) -> list[tuple[int, int, str]]:
     """Find (start, end, title) of table regions in the block list.
 
     A table region starts with a TABLE_HEADER block and extends through
@@ -416,7 +426,7 @@ def _find_table_regions(blocks: list[RawBlock]) -> list[tuple[int, int, str]]:
     n = len(blocks)
 
     while i < n:
-        role = _block_role(blocks[i])
+        role = _block_role(blocks[i], profile)
 
         if role == SpanRole.TABLE_HEADER:
             title = _block_text(blocks[i])
@@ -424,46 +434,40 @@ def _find_table_regions(blocks: list[RawBlock]) -> list[tuple[int, int, str]]:
             j = i + 1
 
             while j < n:
-                r = _block_role(blocks[j])
+                r = _block_role(blocks[j], profile)
                 if r in _TABLE_CONTENT_ROLES:
                     j += 1
                 elif r == SpanRole.TABLE_HEADER:
-                    # New table starts — stop current
                     break
                 elif r in _TABLE_STOP_ROLES:
                     break
                 else:
-                    # Unknown/footer/etc — skip if next block is table content
-                    if j + 1 < n and _block_role(blocks[j + 1]) in _TABLE_CONTENT_ROLES:
+                    if j + 1 < n and _block_role(blocks[j + 1], profile) in _TABLE_CONTENT_ROLES:
                         j += 1
                     else:
                         break
 
-            if j > start + 1:  # At least one content block after title
+            if j > start + 1:
                 regions.append((start, j, title))
                 i = j
             else:
                 i += 1
 
         elif role == SpanRole.TABLE_HEADER_SMALL:
-            # Orphan table: 3+ column headers without a TABLE_HEADER title.
-            # This handles tables that continue across page boundaries.
-            header_cells = _count_header_small_cells(blocks, i)
+            header_cells = _count_header_small_cells(blocks, i, profile)
             if header_cells >= 3:
                 start = i
                 j = i + 1
-                # Skip past all TABLE_HEADER_SMALL blocks
-                while j < n and _block_role(blocks[j]) == SpanRole.TABLE_HEADER_SMALL:
+                while j < n and _block_role(blocks[j], profile) == SpanRole.TABLE_HEADER_SMALL:
                     j += 1
-                # Consume SIDEBAR/table content blocks
                 while j < n:
-                    r = _block_role(blocks[j])
+                    r = _block_role(blocks[j], profile)
                     if r in _TABLE_CONTENT_ROLES:
                         j += 1
                     elif r in _TABLE_STOP_ROLES or r == SpanRole.TABLE_HEADER:
                         break
                     else:
-                        if j + 1 < n and _block_role(blocks[j + 1]) in _TABLE_CONTENT_ROLES:
+                        if j + 1 < n and _block_role(blocks[j + 1], profile) in _TABLE_CONTENT_ROLES:
                             j += 1
                         else:
                             break
@@ -483,7 +487,10 @@ def _find_table_regions(blocks: list[RawBlock]) -> list[tuple[int, int, str]]:
 # ── Main entry point ─────────────────────────────────────────────────────────
 
 
-def process_tables(blocks: list[RawBlock]) -> list[RawBlock]:
+def process_tables(
+    blocks: list[RawBlock],
+    profile: FontProfile | None = None,
+) -> list[RawBlock]:
     """Replace table regions with pre-formatted markdown table blocks.
 
     Scans for TABLE_HEADER → TABLE_HEADER_SMALL/SIDEBAR sequences,
@@ -495,7 +502,7 @@ def process_tables(blocks: list[RawBlock]) -> list[RawBlock]:
     reading-order sort, the level table is placed right after its
     matching traits table (same page/column, y offset).
     """
-    regions = _find_table_regions(blocks)
+    regions = _find_table_regions(blocks, profile)
     if not regions:
         return blocks
 
@@ -518,10 +525,10 @@ def process_tables(blocks: list[RawBlock]) -> list[RawBlock]:
         content_start = start + 1 if title else start
         content_blocks = [
             b for b in blocks[content_start:end]
-            if _block_role(b) in _TABLE_CONTENT_ROLES
+            if _block_role(b, profile) in _TABLE_CONTENT_ROLES
         ]
 
-        cells = _extract_cells(content_blocks)
+        cells = _extract_cells(content_blocks, profile)
         if not cells:
             result.extend(blocks[start:end])
             prev_end = end

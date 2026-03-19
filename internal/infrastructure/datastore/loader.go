@@ -2,6 +2,7 @@ package datastore
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/fs"
 	"strings"
@@ -107,6 +108,10 @@ func (l *Loader) loadSourceData(result map[string][]map[string]any) error {
 
 	for _, loader := range loaders {
 		if err := loader.fn(result); err != nil {
+			// Skip collections whose JSON files don't exist in this source
+			if errors.Is(err, fs.ErrNotExist) {
+				continue
+			}
 			return fmt.Errorf("%s: %w", loader.name, err)
 		}
 	}
@@ -120,6 +125,7 @@ func (l *Loader) readJSON(filename string, v any) error {
 	}
 	data, err := fs.ReadFile(l.fsys, path)
 	if err != nil {
+		// Wrap with %w to preserve fs.ErrNotExist for callers
 		return fmt.Errorf("read %s: %w", path, err)
 	}
 	return json.Unmarshal(data, v)
@@ -476,12 +482,33 @@ type jsonRule struct {
 }
 
 func (l *Loader) loadRules(result map[string][]map[string]any) error {
-	ruleFiles := []string{"rules_gameplay.json", "rules_creation.json", "rules_tools.json"}
+	// Discover all rules_*.json files in the source directory
+	dir := l.prefix
+	if dir == "" {
+		dir = "."
+	}
+	entries, err := fs.ReadDir(l.fsys, dir)
+	if err != nil {
+		return fmt.Errorf("read rules dir: %w", err)
+	}
+	var ruleFiles []string
+	for _, e := range entries {
+		name := e.Name()
+		if strings.HasPrefix(name, "rules_") && strings.HasSuffix(name, ".json") {
+			ruleFiles = append(ruleFiles, name)
+		}
+	}
+	if len(ruleFiles) == 0 {
+		return nil
+	}
 
 	var docs []map[string]any
 	for _, filename := range ruleFiles {
 		var rules []jsonRule
 		if err := l.readJSON(filename, &rules); err != nil {
+			if errors.Is(err, fs.ErrNotExist) {
+				continue
+			}
 			return fmt.Errorf("%s: %w", filename, err)
 		}
 

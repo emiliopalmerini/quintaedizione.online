@@ -14,7 +14,7 @@ _SPELL_SCHOOLS = {
 
 _MAGIC_ITEM_RARITIES = {
     "comune", "non comune", "raro", "rara", "molto raro", "molto rara",
-    "leggendario", "leggendaria", "manufatto", "varia",
+    "leggendario", "leggendaria", "manufatto", "varia", "rarità variabile",
 }
 
 _EQUIPMENT_CATEGORIES = {
@@ -28,7 +28,7 @@ def _validate_spells(data: list[dict], verbose: bool = True) -> tuple[int, int]:
     """Validate spell entries. Returns (warnings, errors)."""
     warnings = 0
     errors = 0
-    required = ("school", "classes", "casting_time", "range", "components", "duration", "description")
+    required = ("school", "casting_time", "range", "components", "duration", "description")
     for entry in data:
         name = entry.get("name", "?")
         for field in required:
@@ -115,7 +115,7 @@ def _validate_feats(data: list[dict], verbose: bool = True) -> tuple[int, int]:
     """Validate feat entries. Returns (warnings, errors)."""
     warnings = 0
     errors = 0
-    required = ("category", "benefit")
+    required = ("benefit",)
     for entry in data:
         name = entry.get("name", "?")
         for field in required:
