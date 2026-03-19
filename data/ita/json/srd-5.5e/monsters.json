@@ -54,8 +54,8 @@
         "description": "Finché si trova sott'acqua, l'aboleth  è circondato da uno strato di muco. *Tiro salvezza su* *Costituzione:* CD 14, tutte le creature in un'emanazione  di 1,5 metri di cui l'aboleth è il punto di origine, alla  fine del turno dell'aboleth. *Fallimento:* il bersaglio è  maledetto. Finché la maledizione perdura, la pelle del  bersaglio diventa viscida, il bersaglio può respirare in  aria e in acqua e non può recuperare punti ferita finché  si trova sott'acqua."
       },
       {
-        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella",
-        "description": "_**tana).**_ Se l'aboleth fallisce un tiro salvezza, può  ­scegliere di superarlo comunque."
+        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella tana).",
+        "description": "Se l'aboleth fallisce un tiro salvezza, può  ­scegliere di superarlo comunque."
       },
       {
         "name": "Ristoro occulto",
@@ -3388,8 +3388,8 @@
         "description": "Il drago può muoversi  sulle superfici di ghiaccio e scalarle senza bisogno di  effettuare una prova di caratteristica. Inoltre, un terreno  difficile costituito da ghiaccio o neve non gli costa  alcun movimento aggiuntivo."
       },
       {
-        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella",
-        "description": "_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella tana).",
+        "description": "Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -3475,8 +3475,8 @@
         "description": "Il drago può muoversi  sulle superfici di ghiaccio e scalarle senza bisogno di  effettuare una prova di caratteristica. Inoltre, un terreno  difficile costituito da ghiaccio o neve non gli costa  alcun movimento aggiuntivo."
       },
       {
-        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella",
-        "description": "_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella tana).",
+        "description": "Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -3688,8 +3688,8 @@
     "equipment": "",
     "traits": [
       {
-        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella",
-        "description": "_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella tana).",
+        "description": "Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -3775,8 +3775,8 @@
     "equipment": "",
     "traits": [
       {
-        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella",
-        "description": "_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella tana).",
+        "description": "Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -4000,8 +4000,8 @@
     "equipment": "",
     "traits": [
       {
-        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella",
-        "description": "_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella tana).",
+        "description": "Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -4091,8 +4091,8 @@
     "equipment": "",
     "traits": [
       {
-        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella",
-        "description": "_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella tana).",
+        "description": "Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -4334,8 +4334,8 @@
         "description": "Il drago può respirare in aria e in acqua."
       },
       {
-        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella",
-        "description": "_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella tana).",
+        "description": "Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -4429,8 +4429,8 @@
         "description": "Il drago può respirare in aria e in acqua."
       },
       {
-        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella",
-        "description": "_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella tana).",
+        "description": "Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -4654,8 +4654,8 @@
     "equipment": "",
     "traits": [
       {
-        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella",
-        "description": "_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella tana).",
+        "description": "Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -4745,8 +4745,8 @@
     "equipment": "",
     "traits": [
       {
-        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella",
-        "description": "_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella tana).",
+        "description": "Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -4988,8 +4988,8 @@
         "description": "Il drago può respirare in aria e in acqua."
       },
       {
-        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella",
-        "description": "_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella tana).",
+        "description": "Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -5083,8 +5083,8 @@
         "description": "Il drago può respirare in aria e in acqua."
       },
       {
-        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella",
-        "description": "_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella tana).",
+        "description": "Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -5308,8 +5308,8 @@
     "equipment": "",
     "traits": [
       {
-        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella",
-        "description": "_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella tana).",
+        "description": "Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -5399,8 +5399,8 @@
     "equipment": "",
     "traits": [
       {
-        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella",
-        "description": "_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella tana).",
+        "description": "Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -5634,8 +5634,8 @@
         "description": "Il drago può respirare in aria e in acqua."
       },
       {
-        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella",
-        "description": "_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella tana).",
+        "description": "Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -5725,8 +5725,8 @@
         "description": "Il drago può respirare in aria e in acqua."
       },
       {
-        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella",
-        "description": "_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella tana).",
+        "description": "Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -5942,8 +5942,8 @@
     "equipment": "",
     "traits": [
       {
-        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella",
-        "description": "_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella tana).",
+        "description": "Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -6029,8 +6029,8 @@
     "equipment": "",
     "traits": [
       {
-        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella",
-        "description": "_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella tana).",
+        "description": "Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -6260,8 +6260,8 @@
         "description": "Il drago può respirare in aria e in acqua."
       },
       {
-        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella",
-        "description": "_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella tana).",
+        "description": "Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -6351,8 +6351,8 @@
         "description": "Il drago può respirare in aria e in acqua."
       },
       {
-        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella",
-        "description": "_**tana).**_ Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella tana).",
+        "description": "Se il drago fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -10283,8 +10283,8 @@
         "description": "Il kraken infligge danni doppi  a oggetti e strutture."
       },
       {
-        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella",
-        "description": "_**tana).**_ Se il kraken fallisce un tiro salvezza, può scegliere di superarlo comunque."
+        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella tana).",
+        "description": "Se il kraken fallisce un tiro salvezza, può scegliere di superarlo comunque."
       }
     ],
     "actions": [
@@ -10510,8 +10510,8 @@
         "description": "Se annientato, il lich si riforma dopo 1d10  giorni se possiede un filatterio, tornando in vita con  tutti i suoi punti ferita. Il nuovo corpo appare in uno  spazio libero all'interno della tana della lich."
       },
       {
-        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella",
-        "description": "_**tana).**_ Se il lich fallisce un tiro salvezza, può scegliere  di superarlo comunque."
+        "name": "Resistenza leggendaria (4/giorno o 5/giorno nella tana).",
+        "description": "Se il lich fallisce un tiro salvezza, può scegliere  di superarlo comunque."
       }
     ],
     "actions": [
@@ -12333,8 +12333,8 @@
         "description": "Il signore delle mummie dispone  di vantaggio ai tiri salvezza contro incantesimi e altri  effetti magici."
       },
       {
-        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella",
-        "description": "_**tana).**_ Se il signore delle mummie fallisce un tiro salvezza, può scegliere di superarlo comunque."
+        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella tana).",
+        "description": "Se il signore delle mummie fallisce un tiro salvezza, può scegliere di superarlo comunque."
       },
       {
         "name": "Ristoro non morto",
@@ -15000,8 +15000,8 @@
         "description": "Nessuna magia può consentire di  osservare la sfinge da lontano o individuarne i pensieri  senza il suo permesso. Le prove di Saggezza (Intuizione) effettuate per accertare le sue intenzioni o la sua  sincerità subiscono svantaggio."
       },
       {
-        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella",
-        "description": "_**tana).**_ Se la sfinge fallisce un tiro salvezza, può scegliere di superarlo comunque."
+        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella tana).",
+        "description": "Se la sfinge fallisce un tiro salvezza, può scegliere di superarlo comunque."
       }
     ],
     "actions": [
@@ -15087,8 +15087,8 @@
         "description": "Nessuna magia può consentire di  osservare la sfinge da lontano o individuarne i pensieri  senza il suo permesso. Le prove di Saggezza (Intuizione) effettuate per accertare le sue intenzioni o la sua  sincerità subiscono svantaggio."
       },
       {
-        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella",
-        "description": "_**tana).**_Se la sfinge fallisce un tiro salvezza, può scegliere di superarlo comunque."
+        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella tana).",
+        "description": "Se la sfinge fallisce un tiro salvezza, può scegliere di superarlo comunque."
       }
     ],
     "actions": [
@@ -15747,8 +15747,8 @@
     ],
     "bonus_actions": [
       {
-        "name": "Movimento predatorio (solo in forma di tigre o",
-        "description": "_**ibrida).**_ La tigre mannara si muove fino alla sua velocità  massima senza provocare attacchi di opportunità. Alla  fine di questo movimento, può effettuare l'azione di  Nascondersi."
+        "name": "Movimento predatorio (solo in forma di tigre o ibrida).",
+        "description": "La tigre mannara si muove fino alla sua velocità  massima senza provocare attacchi di opportunità. Alla  fine di questo movimento, può effettuare l'azione di  Nascondersi."
       },
       {
         "name": "Mutaforma",
@@ -16406,8 +16406,8 @@
         "description": "Il vampiro può scalare le superfici difficili, compresi i soffitti, senza effettuare una  prova di caratteristica. Paletto nel cuore.Se un'arma che infligge danni perforanti gli viene conficcata nel cuore mentre è incapacitato nel suo luogo di riposo, il vampiro è paralizzato  finché non viene rimossa l'arma. Proibizione.Il vampiro non può entrare in casa di qualcuno se non viene invitato da chi vi risiede."
       },
       {
-        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella",
-        "description": "_**tana).**_Se il vampiro fallisce un tiro salvezza, può scegliere di superarlo comunque."
+        "name": "Resistenza leggendaria (3/giorno o 4/giorno nella tana).",
+        "description": "Se il vampiro fallisce un tiro salvezza, può scegliere di superarlo comunque."
       }
     ],
     "actions": [
@@ -23009,8 +23009,12 @@
     "traits": [],
     "actions": [
       {
-        "name": "Multiattacco. Il triceratopo effettua due attacchi",
-        "description": "_**Trafiggere.**_ _**Trafiggere.**_*Tiro per colpire in mischia:* +9, portata  1,5 m. *Colpito:* 19 (2d12 + 6) danni perforanti. Se  il bersaglio è una creatura di taglia Enorme o inferiore  e il triceratopo si è mosso di 6 metri o più in linea retta  verso di esso subito prima del colpo, il bersaglio subisce 9 (2d8) danni perforanti extra e cade a terra prono."
+        "name": "Multiattacco.",
+        "description": "Il triceratopo effettua due attacchi Trafiggere."
+      },
+      {
+        "name": "Trafiggere.",
+        "description": "*Tiro per colpire in mischia:* +9, portata  1,5 m. *Colpito:* 19 (2d12 + 6) danni perforanti. Se  il bersaglio è una creatura di taglia Enorme o inferiore  e il triceratopo si è mosso di 6 metri o più in linea retta  verso di esso subito prima del colpo, il bersaglio subisce 9 (2d8) danni perforanti extra e cade a terra prono."
       }
     ],
     "bonus_actions": [],
