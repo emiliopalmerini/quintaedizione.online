@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
 	"github.com/emiliopalmerini/quintaedizione.online/pkg/mappers"
 )
 
@@ -42,17 +43,18 @@ func (h *CollectionHandler) handleCollectionList(w http.ResponseWriter, r *http.
 			Collection:  collection,
 			QueryString: r.URL.RawQuery,
 		},
-		Documents:  documents,
-		Filters:    filterOptions,
-		Query:      params.Query,
-		Page:       params.PageNum,
-		PageSize:   params.PageSize,
-		Total:      totalCount,
-		TotalPages: pagination.TotalPages,
-		HasNext:    pagination.HasNext,
-		HasPrev:    pagination.HasPrev,
-		StartItem:  pagination.StartItem,
-		EndItem:    pagination.EndItem,
+		Documents:   documents,
+		Filters:     filterOptions,
+		QuickFilter: buildQuickFilterData(collection, filters),
+		Query:       params.Query,
+		Page:        params.PageNum,
+		PageSize:    params.PageSize,
+		Total:       totalCount,
+		TotalPages:  pagination.TotalPages,
+		HasNext:     pagination.HasNext,
+		HasPrev:     pagination.HasPrev,
+		StartItem:   pagination.StartItem,
+		EndItem:     pagination.EndItem,
 	}
 
 	content, err := h.templateEngine.RenderCollection(data)
@@ -91,17 +93,18 @@ func (h *CollectionHandler) handleCollectionRows(w http.ResponseWriter, r *http.
 			Collection:  collection,
 			QueryString: r.URL.RawQuery,
 		},
-		Documents:  documents,
-		Filters:    filterOptions,
-		Query:      params.Query,
-		Page:       params.PageNum,
-		PageSize:   params.PageSize,
-		Total:      totalCount,
-		TotalPages: pagination.TotalPages,
-		HasNext:    pagination.HasNext,
-		HasPrev:    pagination.HasPrev,
-		StartItem:  pagination.StartItem,
-		EndItem:    pagination.EndItem,
+		Documents:   documents,
+		Filters:     filterOptions,
+		QuickFilter: buildQuickFilterData(collection, filters),
+		Query:       params.Query,
+		Page:        params.PageNum,
+		PageSize:    params.PageSize,
+		Total:       totalCount,
+		TotalPages:  pagination.TotalPages,
+		HasNext:     pagination.HasNext,
+		HasPrev:     pagination.HasPrev,
+		StartItem:   pagination.StartItem,
+		EndItem:     pagination.EndItem,
 	}
 
 	content, err := h.templateEngine.RenderRows(data)
@@ -218,6 +221,53 @@ func (h *CollectionHandler) buildFilterOptionsWithCounts(collection string, acti
 		})
 	}
 	return options
+}
+
+// buildQuickFilterData returns the quick filter chip data for a collection,
+// with active state computed from the current filter values.
+func buildQuickFilterData(collection string, activeFilters map[string]string) *models.QuickFilterData {
+	cn, ok := collections.FromString(collection)
+	if !ok {
+		return nil
+	}
+	qf, ok := collections.GetQuickFilter(cn)
+	if !ok {
+		return nil
+	}
+
+	currentValue := activeFilters[qf.FilterName]
+	var activeValues map[string]bool
+	if currentValue != "" {
+		activeValues = make(map[string]bool)
+		for _, v := range strings.Split(currentValue, ",") {
+			activeValues[v] = true
+		}
+	}
+
+	chips := make([]models.QuickFilterChip, len(qf.Chips))
+	for i, chip := range qf.Chips {
+		active := activeValues != nil && chipMatchesFilter(chip.Values, activeValues)
+		chips[i] = models.QuickFilterChip{
+			Label:  chip.Label,
+			Values: chip.Values,
+			Active: active,
+		}
+	}
+
+	return &models.QuickFilterData{
+		FilterName: qf.FilterName,
+		Chips:      chips,
+	}
+}
+
+// chipMatchesFilter returns true if all chip values are in the active filter set.
+func chipMatchesFilter(chipValues []string, activeValues map[string]bool) bool {
+	for _, v := range chipValues {
+		if !activeValues[v] {
+			return false
+		}
+	}
+	return true
 }
 
 // extractFilters extracts filter parameters from the query string.

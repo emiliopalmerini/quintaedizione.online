@@ -2,8 +2,21 @@ package templates
 
 import "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
 import "strconv"
+import "strings"
 
 templ RowsPartial(data models.CollectionPageData) {
+	if data.QuickFilter != nil {
+		<div class="quick-filter-bar" data-filter-name={ data.QuickFilter.FilterName }>
+			for _, chip := range data.QuickFilter.Chips {
+				<button type="button"
+					class={ "quick-filter-chip", templ.KV("active", chip.Active) }
+					data-values={ strings.Join(chip.Values, ",") }>
+					{ chip.Label }
+				</button>
+			}
+		</div>
+	}
+
 	if hasActiveFilters(data.Filters) {
 		<div class="filter-chips-bar">
 			for _, f := range data.Filters {
