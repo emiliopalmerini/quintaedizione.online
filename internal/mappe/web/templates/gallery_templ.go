@@ -48,24 +48,24 @@ func GalleryPage(data maps.GalleryData) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<h1>Mappe</h1><p class=\"text-secondary mb-6\">Mappe a uso commerciale di <a href=\"https://dysonlogos.blog\" target=\"_blank\" rel=\"noopener noreferrer\">Dyson Logos</a>. Cerca per nome, filtra per categoria o tag.</p><form id=\"mappe-filter-form\" hx-get=\"/mappe/gallery\" hx-target=\"#mappe-grid\" hx-trigger=\"keyup delay:200ms from:#mappe-search, change from:select, click from:.mappe-chip\" hx-push-url=\"true\" hx-swap=\"outerHTML\"><div class=\"mappe-search-bar mb-4\"><input type=\"text\" name=\"q\" id=\"mappe-search\" placeholder=\"Cerca mappa...\" class=\"field flex-1\" autocomplete=\"off\" value=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"page-header\"><h1>Mappe</h1><p class=\"page-header-subtitle\">Mappe a uso commerciale di <a href=\"https://dysonlogos.blog\" target=\"_blank\" rel=\"noopener noreferrer\">Dyson Logos</a>.</p></div><form id=\"mappe-filter-form\" hx-get=\"/mappe/gallery\" hx-target=\"#mappe-grid\" hx-trigger=\"keyup delay:200ms from:#mappe-search, change from:select, click from:.quick-filter-chip\" hx-push-url=\"true\" hx-swap=\"outerHTML\"><div class=\"mb-4\"><input type=\"text\" name=\"q\" id=\"mappe-search\" placeholder=\"Cerca mappa...\" class=\"field\" autocomplete=\"off\" value=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(data.Query)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 30, Col: 23}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 34, Col: 23}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "\"></div><div class=\"mappe-filters mb-4\"><div class=\"mappe-chip-group\" role=\"radiogroup\" aria-label=\"Filtra per categoria\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "\"></div><div class=\"quick-filter-bar mb-2\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var4 = []any{"mappe-chip", templ.KV("active", data.Categoria == "")}
+			var templ_7745c5c3_Var4 = []any{"quick-filter-chip", templ.KV("active", data.Categoria == "")}
 			templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var4...)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
@@ -88,7 +88,7 @@ func GalleryPage(data maps.GalleryData) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			for _, cat := range data.Categorie {
-				var templ_7745c5c3_Var6 = []any{"mappe-chip", templ.KV("active", data.Categoria == cat)}
+				var templ_7745c5c3_Var6 = []any{"quick-filter-chip", templ.KV("active", data.Categoria == cat)}
 				templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var6...)
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
@@ -100,7 +100,7 @@ func GalleryPage(data maps.GalleryData) templ.Component {
 				var templ_7745c5c3_Var7 string
 				templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(cat)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 48, Col: 18}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 51, Col: 17}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 				if templ_7745c5c3_Err != nil {
@@ -126,7 +126,7 @@ func GalleryPage(data maps.GalleryData) templ.Component {
 				var templ_7745c5c3_Var9 string
 				templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(cat)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 51, Col: 12}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 54, Col: 11}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 				if templ_7745c5c3_Err != nil {
@@ -142,12 +142,12 @@ func GalleryPage(data maps.GalleryData) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			if len(data.Tags) > 0 {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<div class=\"mappe-chip-group mt-2\" role=\"group\" aria-label=\"Filtra per tag\">")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<div class=\"quick-filter-bar mb-4\">")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 				for _, tag := range data.Tags {
-					var templ_7745c5c3_Var10 = []any{"mappe-chip mappe-chip-sm", templ.KV("active", data.Tag == tag)}
+					var templ_7745c5c3_Var10 = []any{"quick-filter-chip", templ.KV("active", data.Tag == tag)}
 					templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var10...)
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
@@ -159,7 +159,7 @@ func GalleryPage(data maps.GalleryData) templ.Component {
 					var templ_7745c5c3_Var11 string
 					templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(tagValue(data.Tag, tag))
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 62, Col: 39}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 65, Col: 38}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 					if templ_7745c5c3_Err != nil {
@@ -185,7 +185,7 @@ func GalleryPage(data maps.GalleryData) templ.Component {
 					var templ_7745c5c3_Var13 string
 					templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(tag)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 65, Col: 13}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 68, Col: 12}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 					if templ_7745c5c3_Err != nil {
@@ -201,20 +201,20 @@ func GalleryPage(data maps.GalleryData) templ.Component {
 					return templ_7745c5c3_Err
 				}
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</div></form><div class=\"mappe-results-count mb-4 text-secondary text-sm\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</form><div class=\"stats-banner\"><span class=\"stats-banner-item\"><strong>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var14 string
 			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(data.Total))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 74, Col: 29}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 77, Col: 38}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, " mappe trovate</div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</strong> mappe trovate</span></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -258,7 +258,7 @@ func GalleryGrid(data maps.GalleryData) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		if len(data.Mappe) == 0 {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "<div class=\"mappe-empty\"><p>Nessuna mappa trovata.</p><a href=\"/mappe\" class=\"btn btn-primary\">Cancella filtri</a></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "<div class=\"mappe-empty\"><p>Nessuna mappa trovata.</p><a href=\"/mappe\" class=\"btn btn-secondary\">Cancella filtri</a></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -271,7 +271,7 @@ func GalleryGrid(data maps.GalleryData) templ.Component {
 				var templ_7745c5c3_Var16 templ.SafeURL
 				templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/mappe/" + m.Slug))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 90, Col: 43}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 94, Col: 43}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 				if templ_7745c5c3_Err != nil {
@@ -284,7 +284,7 @@ func GalleryGrid(data maps.GalleryData) templ.Component {
 				var templ_7745c5c3_Var17 string
 				templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs("/static/img/mappe/" + m.Immagine)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 93, Col: 46}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 97, Col: 46}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 				if templ_7745c5c3_Err != nil {
@@ -297,7 +297,7 @@ func GalleryGrid(data maps.GalleryData) templ.Component {
 				var templ_7745c5c3_Var18 string
 				templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(m.Nome)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 94, Col: 19}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 98, Col: 19}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 				if templ_7745c5c3_Err != nil {
@@ -310,7 +310,7 @@ func GalleryGrid(data maps.GalleryData) templ.Component {
 				var templ_7745c5c3_Var19 string
 				templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(m.Nome)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 99, Col: 44}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 103, Col: 44}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 				if templ_7745c5c3_Err != nil {
@@ -323,7 +323,7 @@ func GalleryGrid(data maps.GalleryData) templ.Component {
 				var templ_7745c5c3_Var20 string
 				templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(m.Categoria)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 100, Col: 48}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 104, Col: 48}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
 				if templ_7745c5c3_Err != nil {
@@ -339,14 +339,14 @@ func GalleryGrid(data maps.GalleryData) templ.Component {
 						return templ_7745c5c3_Err
 					}
 					for _, t := range m.Tag {
-						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "<span class=\"mappe-tag\">")
+						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "<span class=\"result-badge\">")
 						if templ_7745c5c3_Err != nil {
 							return templ_7745c5c3_Err
 						}
 						var templ_7745c5c3_Var21 string
 						templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(t)
 						if templ_7745c5c3_Err != nil {
-							return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 104, Col: 36}
+							return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/gallery.templ`, Line: 108, Col: 39}
 						}
 						_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 						if templ_7745c5c3_Err != nil {

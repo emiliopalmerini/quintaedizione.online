@@ -9,69 +9,73 @@ import (
 
 templ GalleryPage(data maps.GalleryData) {
 	@siteTemplates.SiteLayout("Mappe", "Galleria di mappe per D&D 5e — cerca per nome, categoria o tag.", "mappe", nil) {
-		<h1>Mappe</h1>
-		<p class="text-secondary mb-6">Mappe a uso commerciale di <a href="https://dysonlogos.blog" target="_blank" rel="noopener noreferrer">Dyson Logos</a>. Cerca per nome, filtra per categoria o tag.</p>
+		<div class="page-header">
+			<h1>Mappe</h1>
+			<p class="page-header-subtitle">
+				Mappe a uso commerciale di <a href="https://dysonlogos.blog" target="_blank" rel="noopener noreferrer">Dyson Logos</a>.
+			</p>
+		</div>
 
 		<form id="mappe-filter-form"
 			hx-get="/mappe/gallery"
 			hx-target="#mappe-grid"
-			hx-trigger="keyup delay:200ms from:#mappe-search, change from:select, click from:.mappe-chip"
+			hx-trigger="keyup delay:200ms from:#mappe-search, change from:select, click from:.quick-filter-chip"
 			hx-push-url="true"
 			hx-swap="outerHTML"
 		>
-			<div class="mappe-search-bar mb-4">
+			<div class="mb-4">
 				<input
 					type="text"
 					name="q"
 					id="mappe-search"
 					placeholder="Cerca mappa..."
-					class="field flex-1"
+					class="field"
 					autocomplete="off"
 					value={ data.Query }
 				/>
 			</div>
 
-			<div class="mappe-filters mb-4">
-				<div class="mappe-chip-group" role="radiogroup" aria-label="Filtra per categoria">
+			<div class="quick-filter-bar mb-2">
+				<button
+					type="submit"
+					name="categoria"
+					value=""
+					class={ "quick-filter-chip", templ.KV("active", data.Categoria == "") }
+				>
+					Tutte
+				</button>
+				for _, cat := range data.Categorie {
 					<button
 						type="submit"
 						name="categoria"
-						value=""
-						class={ "mappe-chip", templ.KV("active", data.Categoria == "") }
+						value={ cat }
+						class={ "quick-filter-chip", templ.KV("active", data.Categoria == cat) }
 					>
-						Tutte
+						{ cat }
 					</button>
-					for _, cat := range data.Categorie {
+				}
+			</div>
+
+			if len(data.Tags) > 0 {
+				<div class="quick-filter-bar mb-4">
+					for _, tag := range data.Tags {
 						<button
 							type="submit"
-							name="categoria"
-							value={ cat }
-							class={ "mappe-chip", templ.KV("active", data.Categoria == cat) }
+							name="tag"
+							value={ tagValue(data.Tag, tag) }
+							class={ "quick-filter-chip", templ.KV("active", data.Tag == tag) }
 						>
-							{ cat }
+							{ tag }
 						</button>
 					}
 				</div>
-
-				if len(data.Tags) > 0 {
-					<div class="mappe-chip-group mt-2" role="group" aria-label="Filtra per tag">
-						for _, tag := range data.Tags {
-							<button
-								type="submit"
-								name="tag"
-								value={ tagValue(data.Tag, tag) }
-								class={ "mappe-chip mappe-chip-sm", templ.KV("active", data.Tag == tag) }
-							>
-								{ tag }
-							</button>
-						}
-					</div>
-				}
-			</div>
+			}
 		</form>
 
-		<div class="mappe-results-count mb-4 text-secondary text-sm">
-			{ strconv.Itoa(data.Total) } mappe trovate
+		<div class="stats-banner">
+			<span class="stats-banner-item">
+				<strong>{ strconv.Itoa(data.Total) }</strong> mappe trovate
+			</span>
 		</div>
 
 		@GalleryGrid(data)
@@ -83,7 +87,7 @@ templ GalleryGrid(data maps.GalleryData) {
 		if len(data.Mappe) == 0 {
 			<div class="mappe-empty">
 				<p>Nessuna mappa trovata.</p>
-				<a href="/mappe" class="btn btn-primary">Cancella filtri</a>
+				<a href="/mappe" class="btn btn-secondary">Cancella filtri</a>
 			</div>
 		} else {
 			for _, m := range data.Mappe {
@@ -101,7 +105,7 @@ templ GalleryGrid(data maps.GalleryData) {
 						if len(m.Tag) > 0 {
 							<div class="mappe-card-tags">
 								for _, t := range m.Tag {
-									<span class="mappe-tag">{ t }</span>
+									<span class="result-badge">{ t }</span>
 								}
 							</div>
 						}

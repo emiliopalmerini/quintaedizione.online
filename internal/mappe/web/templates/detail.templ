@@ -1,8 +1,6 @@
 package templates
 
 import (
-	"strings"
-
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/maps"
 	siteTemplates "github.com/emiliopalmerini/quintaedizione.online/web/templates"
 )
@@ -19,10 +17,9 @@ templ DetailPage(m maps.Mappa) {
 			<h1>{ m.Nome }</h1>
 
 			<div class="mappe-detail-meta mb-4">
-				<span class="mappe-detail-categoria">{ m.Categoria }</span>
-				if len(m.Tag) > 0 {
-					<span class="mappe-detail-sep" aria-hidden="true">&middot;</span>
-					<span>{ strings.Join(m.Tag, " · ") }</span>
+				<span class="result-badge">{ m.Categoria }</span>
+				for _, t := range m.Tag {
+					<span class="result-badge">{ t }</span>
 				}
 			</div>
 

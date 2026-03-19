@@ -8,7 +8,7 @@
     "tag": ["acqua", "trappola"],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
-    "url_originale": "https://dysonlogos.blog/example/the-sunken-temple"
+    "url_originale": ""
   },
   {
     "slug": "la-caverna-dei-funghi",
@@ -19,7 +19,7 @@
     "tag": ["funghi", "sotterraneo"],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
-    "url_originale": "https://dysonlogos.blog/example/the-mushroom-cavern"
+    "url_originale": ""
   },
   {
     "slug": "la-piazza-del-mercato",
@@ -30,6 +30,6 @@
     "tag": ["mercato", "urbano"],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
-    "url_originale": "https://dysonlogos.blog/example/the-market-square"
+    "url_originale": ""
   }
 ]
