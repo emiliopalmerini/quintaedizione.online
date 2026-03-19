@@ -774,9 +774,9 @@ function initFilterMultiselect() {
 
 // Quick filter chips: toggle chip → sync with dropdown filter → trigger HTMX
 function initQuickFilterChips() {
-	document.querySelectorAll('.quick-filter-bar').forEach(function(bar) {
+	document.querySelectorAll('.quick-filter-bar[data-filter-name]').forEach(function(bar) {
 		var filterName = bar.getAttribute('data-filter-name');
-		bar.querySelectorAll('.quick-filter-chip').forEach(function(chip) {
+		bar.querySelectorAll('.quick-filter-chip[data-values]').forEach(function(chip) {
 			chip.addEventListener('click', function() {
 				var wasActive = chip.classList.contains('active');
 				var chipValues = chip.getAttribute('data-values').split(',');
@@ -822,6 +822,47 @@ function initQuickFilterChips() {
 				}
 
 				hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
+			});
+		});
+	});
+}
+
+// Mappe filter chips: data-attribute driven, works after HTMX swaps
+function initMappeFilterChips() {
+	document.querySelectorAll('.quick-filter-bar[data-mappe-filter]').forEach(function(bar) {
+		var inputId = bar.getAttribute('data-mappe-filter');
+		var mode = bar.getAttribute('data-mode'); // "select" or "toggle"
+
+		bar.querySelectorAll('.quick-filter-chip[data-value]').forEach(function(chip) {
+			chip.addEventListener('click', function() {
+				var hiddenInput = document.getElementById(inputId);
+				if (!hiddenInput) return;
+				var value = chip.getAttribute('data-value');
+
+				if (mode === 'select') {
+					// Single-select: set value, activate only this chip
+					hiddenInput.value = value;
+					bar.querySelectorAll('.quick-filter-chip').forEach(function(c) {
+						c.classList.remove('active');
+					});
+					chip.classList.add('active');
+				} else {
+					// Toggle: activate/deactivate this chip
+					var wasActive = chip.classList.contains('active');
+					if (wasActive) {
+						hiddenInput.value = '';
+						chip.classList.remove('active');
+					} else {
+						// Deactivate other chips in same bar (single toggle)
+						bar.querySelectorAll('.quick-filter-chip').forEach(function(c) {
+							c.classList.remove('active');
+						});
+						hiddenInput.value = value;
+						chip.classList.add('active');
+					}
+				}
+
+				htmx.trigger(document.getElementById('mappe-filter-form'), 'filter-changed');
 			});
 		});
 	});
@@ -977,6 +1018,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	initFilterMultiselect();
 	initFilterChips();
 	initQuickFilterChips();
+	initMappeFilterChips();
 	initItemKeyboardNav();
 	initHeadingAnchors();
 });
@@ -989,6 +1031,7 @@ document.body.addEventListener('htmx:afterSwap', function(evt) {
 	initFilterMultiselect();
 	initFilterChips();
 	initQuickFilterChips();
+	initMappeFilterChips();
 	initItemKeyboardNav();
 	initHeadingAnchors();
 

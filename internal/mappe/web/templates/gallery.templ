@@ -1,0 +1,118 @@
+package templates
+
+import (
+	"strconv"
+
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/maps"
+	siteTemplates "github.com/emiliopalmerini/quintaedizione.online/web/templates"
+)
+
+templ GalleryPage(data maps.GalleryData) {
+	@siteTemplates.SiteLayout("Mappe", "Galleria di mappe per D&D 5e — cerca per nome, categoria o tag.", "mappe", nil) {
+		<div class="page-header">
+			<h1>Mappe</h1>
+			<p class="page-header-subtitle">
+				Mappe a uso commerciale di <a href="https://dysonlogos.blog" target="_blank" rel="noopener noreferrer">Dyson Logos</a>.
+			</p>
+		</div>
+
+		<form id="mappe-filter-form"
+			hx-get="/mappe/gallery"
+			hx-target="#mappe-grid"
+			hx-trigger="keyup delay:200ms from:#mappe-search, filter-changed"
+			hx-push-url="true"
+			hx-swap="outerHTML"
+			hx-include="#mappe-search, #mappe-categoria, #mappe-tag"
+		>
+			<div class="mb-4">
+				<input
+					type="text"
+					name="q"
+					id="mappe-search"
+					placeholder="Cerca mappa..."
+					class="field"
+					autocomplete="off"
+					value={ data.Query }
+				/>
+			</div>
+
+			<input type="hidden" name="categoria" id="mappe-categoria" value={ data.Categoria }/>
+			<input type="hidden" name="tag" id="mappe-tag" value={ data.Tag }/>
+
+			<div class="quick-filter-bar mb-2" data-mappe-filter="mappe-categoria" data-mode="select">
+				<button
+					type="button"
+					class={ "quick-filter-chip", templ.KV("active", data.Categoria == "") }
+					data-value=""
+				>
+					Tutte
+				</button>
+				for _, cat := range data.Categorie {
+					<button
+						type="button"
+						class={ "quick-filter-chip", templ.KV("active", data.Categoria == cat) }
+						data-value={ cat }
+					>
+						{ cat }
+					</button>
+				}
+			</div>
+
+			if len(data.Tags) > 0 {
+				<div class="quick-filter-bar mb-4" data-mappe-filter="mappe-tag" data-mode="toggle">
+					for _, tag := range data.Tags {
+						<button
+							type="button"
+							class={ "quick-filter-chip", templ.KV("active", data.Tag == tag) }
+							data-value={ tag }
+						>
+							{ tag }
+						</button>
+					}
+				</div>
+			}
+		</form>
+
+		<div class="stats-banner">
+			<span class="stats-banner-item">
+				<strong>{ strconv.Itoa(data.Total) }</strong> mappe trovate
+			</span>
+		</div>
+
+		@GalleryGrid(data)
+	}
+}
+
+templ GalleryGrid(data maps.GalleryData) {
+	<div id="mappe-grid" class="mappe-grid">
+		if len(data.Mappe) == 0 {
+			<div class="mappe-empty">
+				<p>Nessuna mappa trovata.</p>
+				<a href="/mappe" class="btn btn-secondary">Cancella filtri</a>
+			</div>
+		} else {
+			for _, m := range data.Mappe {
+				<a href={ templ.URL("/mappe/" + m.Slug) } class="mappe-card">
+					<div class="mappe-card-img">
+						<img
+							src={ "/static/img/mappe/" + m.Immagine }
+							alt={ m.Nome }
+							loading="lazy"
+						/>
+					</div>
+					<div class="mappe-card-body">
+						<div class="mappe-card-title">{ m.Nome }</div>
+						<div class="mappe-card-meta">{ m.Categoria }</div>
+						if len(m.Tag) > 0 {
+							<div class="mappe-card-tags">
+								for _, t := range m.Tag {
+									<span class="result-badge">{ t }</span>
+								}
+							</div>
+						}
+					</div>
+				</a>
+			}
+		}
+	</div>
+}
