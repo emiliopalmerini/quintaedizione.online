@@ -2,6 +2,7 @@ package datastore
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/fs"
 	"strings"
@@ -9,11 +10,24 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/application/parsers"
 )
 
+// Source represents a loaded edition/dataset with its metadata.
+type Source struct {
+	ID        string `json:"id"`
+	Name      string `json:"name"`
+	ShortName string `json:"short_name"`
+	Year      int    `json:"year"`
+	Ruleset   string `json:"ruleset"`
+	XPSystem  string `json:"xp_system"`
+	Default   bool   `json:"default"`
+}
+
 // Loader reads embedded JSON files and converts them into the document format
 // expected by the in-memory store (map[string]any with _id, title, content, raw_content, filters).
 type Loader struct {
 	fsys     fs.FS
 	renderer *parsers.MarkdownRenderer
+	prefix   string // source directory prefix (e.g. "srd-5.5e")
+	source   *Source
 }
 
 // NewLoader creates a Loader that reads from the given filesystem and renders
@@ -22,50 +36,108 @@ func NewLoader(fsys fs.FS, renderer *parsers.MarkdownRenderer) *Loader {
 	return &Loader{fsys: fsys, renderer: renderer}
 }
 
-// LoadAll loads all JSON files and returns documents grouped by collection name.
-func (l *Loader) LoadAll() (map[string][]map[string]any, error) {
+// LoadAll discovers all source directories, loads their data, and returns
+// documents grouped by collection name. Also returns the list of loaded sources.
+func (l *Loader) LoadAll() (map[string][]map[string]any, []Source, error) {
 	result := make(map[string][]map[string]any)
+	var sources []Source
 
-	if err := l.loadSpells(result); err != nil {
-		return nil, fmt.Errorf("spells: %w", err)
-	}
-	if err := l.loadMonsters(result); err != nil {
-		return nil, fmt.Errorf("monsters: %w", err)
-	}
-	if err := l.loadClasses(result); err != nil {
-		return nil, fmt.Errorf("classes: %w", err)
-	}
-	if err := l.loadBackgrounds(result); err != nil {
-		return nil, fmt.Errorf("backgrounds: %w", err)
-	}
-	if err := l.loadEquipment(result); err != nil {
-		return nil, fmt.Errorf("equipment: %w", err)
-	}
-	if err := l.loadMagicItems(result); err != nil {
-		return nil, fmt.Errorf("magic_items: %w", err)
-	}
-	if err := l.loadFeats(result); err != nil {
-		return nil, fmt.Errorf("feats: %w", err)
-	}
-	if err := l.loadRules(result); err != nil {
-		return nil, fmt.Errorf("rules: %w", err)
-	}
-	if err := l.loadGlossary(result); err != nil {
-		return nil, fmt.Errorf("glossary: %w", err)
-	}
-	if err := l.loadSpecies(result); err != nil {
-		return nil, fmt.Errorf("species: %w", err)
+	entries, err := fs.ReadDir(l.fsys, ".")
+	if err != nil {
+		return nil, nil, fmt.Errorf("read data directory: %w", err)
 	}
 
-	return result, nil
+	for _, entry := range entries {
+		if !entry.IsDir() {
+			continue
+		}
+
+		src, err := l.loadSource(entry.Name())
+		if err != nil {
+			fmt.Printf("Warning: skipping %s: %v\n", entry.Name(), err)
+			continue
+		}
+
+		l.prefix = entry.Name()
+		l.source = &src
+		sources = append(sources, src)
+
+		if err := l.loadSourceData(result); err != nil {
+			return nil, nil, fmt.Errorf("source %s: %w", src.ID, err)
+		}
+	}
+
+	if len(sources) == 0 {
+		return nil, nil, fmt.Errorf("no sources found")
+	}
+
+	return result, sources, nil
+}
+
+func (l *Loader) loadSource(dir string) (Source, error) {
+	data, err := fs.ReadFile(l.fsys, dir+"/source.json")
+	if err != nil {
+		return Source{}, fmt.Errorf("read source.json: %w", err)
+	}
+	var src Source
+	if err := json.Unmarshal(data, &src); err != nil {
+		return Source{}, fmt.Errorf("parse source.json: %w", err)
+	}
+	if src.ID == "" {
+		return Source{}, fmt.Errorf("source.json missing id")
+	}
+	return src, nil
+}
+
+func (l *Loader) loadSourceData(result map[string][]map[string]any) error {
+	loaders := []struct {
+		name string
+		fn   func(map[string][]map[string]any) error
+	}{
+		{"spells", l.loadSpells},
+		{"monsters", l.loadMonsters},
+		{"classes", l.loadClasses},
+		{"backgrounds", l.loadBackgrounds},
+		{"equipment", l.loadEquipment},
+		{"magic_items", l.loadMagicItems},
+		{"feats", l.loadFeats},
+		{"rules", l.loadRules},
+		{"glossary", l.loadGlossary},
+		{"species", l.loadSpecies},
+	}
+
+	for _, loader := range loaders {
+		if err := loader.fn(result); err != nil {
+			// Skip collections whose JSON files don't exist in this source
+			if errors.Is(err, fs.ErrNotExist) {
+				continue
+			}
+			return fmt.Errorf("%s: %w", loader.name, err)
+		}
+	}
+	return nil
 }
 
 func (l *Loader) readJSON(filename string, v any) error {
-	data, err := fs.ReadFile(l.fsys, filename)
+	path := filename
+	if l.prefix != "" {
+		path = l.prefix + "/" + filename
+	}
+	data, err := fs.ReadFile(l.fsys, path)
 	if err != nil {
-		return fmt.Errorf("read %s: %w", filename, err)
+		// Wrap with %w to preserve fs.ErrNotExist for callers
+		return fmt.Errorf("read %s: %w", path, err)
 	}
 	return json.Unmarshal(data, v)
+}
+
+// tagDoc injects source metadata into a document.
+// The _id stays clean (no prefix). The store uses (source, id) as a composite key.
+func (l *Loader) tagDoc(doc map[string]any) {
+	if l.source != nil {
+		doc["_source"] = l.source.ID
+		doc["_source_short"] = l.source.ShortName
+	}
 }
 
 // --- Spells ---
@@ -102,10 +174,11 @@ func (l *Loader) loadSpells(result map[string][]map[string]any) error {
 			"livello":     s.Level,
 			"classe":      strings.Join(s.Classes, ", "),
 		}
+		l.tagDoc(doc)
 		docs = append(docs, doc)
 	}
 
-	result["incantesimi"] = docs
+	result["incantesimi"] = append(result["incantesimi"], docs...)
 	return nil
 }
 
@@ -165,10 +238,11 @@ func (l *Loader) loadMonsters(result map[string][]map[string]any) error {
 			"allineamento": m.Alignment,
 			"grado_sfida":  m.CR,
 		}
+		l.tagDoc(doc)
 		docs = append(docs, doc)
 	}
 
-	result["mostri"] = docs
+	result["mostri"] = append(result["mostri"], docs...)
 	return nil
 }
 
@@ -211,10 +285,11 @@ func (l *Loader) loadClasses(result map[string][]map[string]any) error {
 			"content":     l.buildClassHTML(c),
 			"raw_content": l.buildClassMarkdown(c),
 		}
+		l.tagDoc(doc)
 		docs = append(docs, doc)
 	}
 
-	result["classi"] = docs
+	result["classi"] = append(result["classi"], docs...)
 	return nil
 }
 
@@ -239,17 +314,44 @@ func (l *Loader) loadBackgrounds(result map[string][]map[string]any) error {
 
 	docs := make([]map[string]any, 0, len(backgrounds))
 	for _, bg := range backgrounds {
+		raw := l.buildBackgroundMarkdown(bg)
 		doc := map[string]any{
 			"_id":         bg.ID,
 			"title":       bg.Name,
-			"content":     l.renderer.Render(bg.Description),
-			"raw_content": bg.Description,
+			"content":     l.renderer.Render(raw),
+			"raw_content": raw,
 		}
+		l.tagDoc(doc)
 		docs = append(docs, doc)
 	}
 
-	result["backgrounds"] = docs
+	result["backgrounds"] = append(result["backgrounds"], docs...)
 	return nil
+}
+
+func (l *Loader) buildBackgroundMarkdown(bg jsonBackground) string {
+	var b strings.Builder
+
+	if bg.AbilityScores != "" {
+		fmt.Fprintf(&b, "**Punteggi di Caratteristica:** %s\n\n", bg.AbilityScores)
+	}
+	if bg.Feat != "" {
+		fmt.Fprintf(&b, "**Talento:** %s\n\n", bg.Feat)
+	}
+	if bg.SkillProficiencies != "" {
+		fmt.Fprintf(&b, "**Competenze nelle Abilità:** %s\n\n", bg.SkillProficiencies)
+	}
+	if bg.ToolProficiency != "" {
+		fmt.Fprintf(&b, "**Competenza negli Strumenti:** %s\n\n", bg.ToolProficiency)
+	}
+	if bg.Equipment != "" {
+		fmt.Fprintf(&b, "**Equipaggiamento:** %s\n\n", bg.Equipment)
+	}
+	if bg.Description != "" {
+		b.WriteString(bg.Description)
+	}
+
+	return strings.TrimSpace(b.String())
 }
 
 // --- Equipment ---
@@ -293,6 +395,7 @@ func (l *Loader) loadEquipment(result map[string][]map[string]any) error {
 			doc[k] = v
 		}
 
+		l.tagDoc(doc)
 		result[collection] = append(result[collection], doc)
 	}
 
@@ -327,10 +430,11 @@ func (l *Loader) loadMagicItems(result map[string][]map[string]any) error {
 			"rarita":      item.Rarity,
 			"tipo":        item.Type,
 		}
+		l.tagDoc(doc)
 		docs = append(docs, doc)
 	}
 
-	result["oggetti_magici"] = docs
+	result["oggetti_magici"] = append(result["oggetti_magici"], docs...)
 	return nil
 }
 
@@ -360,10 +464,11 @@ func (l *Loader) loadFeats(result map[string][]map[string]any) error {
 			"raw_content": f.Benefit,
 			"categoria":   f.Category,
 		}
+		l.tagDoc(doc)
 		docs = append(docs, doc)
 	}
 
-	result["talenti"] = docs
+	result["talenti"] = append(result["talenti"], docs...)
 	return nil
 }
 
@@ -377,12 +482,33 @@ type jsonRule struct {
 }
 
 func (l *Loader) loadRules(result map[string][]map[string]any) error {
-	ruleFiles := []string{"rules_gameplay.json", "rules_creation.json", "rules_tools.json"}
+	// Discover all rules_*.json files in the source directory
+	dir := l.prefix
+	if dir == "" {
+		dir = "."
+	}
+	entries, err := fs.ReadDir(l.fsys, dir)
+	if err != nil {
+		return fmt.Errorf("read rules dir: %w", err)
+	}
+	var ruleFiles []string
+	for _, e := range entries {
+		name := e.Name()
+		if strings.HasPrefix(name, "rules_") && strings.HasSuffix(name, ".json") {
+			ruleFiles = append(ruleFiles, name)
+		}
+	}
+	if len(ruleFiles) == 0 {
+		return nil
+	}
 
 	var docs []map[string]any
 	for _, filename := range ruleFiles {
 		var rules []jsonRule
 		if err := l.readJSON(filename, &rules); err != nil {
+			if errors.Is(err, fs.ErrNotExist) {
+				continue
+			}
 			return fmt.Errorf("%s: %w", filename, err)
 		}
 
@@ -392,16 +518,18 @@ func (l *Loader) loadRules(result map[string][]map[string]any) error {
 			if len(r.Children) > 0 {
 				for _, child := range r.Children {
 					doc := l.ruleToDoc(child)
+					l.tagDoc(doc)
 					docs = append(docs, doc)
 				}
 			} else {
 				doc := l.ruleToDoc(r)
+				l.tagDoc(doc)
 				docs = append(docs, doc)
 			}
 		}
 	}
 
-	result["regole"] = docs
+	result["regole"] = append(result["regole"], docs...)
 	return nil
 }
 
@@ -449,10 +577,11 @@ func (l *Loader) loadGlossary(result map[string][]map[string]any) error {
 			"raw_content": raw,
 			"categoria":   e.Category,
 		}
+		l.tagDoc(doc)
 		docs = append(docs, doc)
 	}
 
-	result["glossario"] = docs
+	result["glossario"] = append(result["glossario"], docs...)
 	return nil
 }
 
@@ -490,9 +619,10 @@ func (l *Loader) loadSpecies(result map[string][]map[string]any) error {
 			"taglia":        s.Size,
 			"velocita":      s.Speed,
 		}
+		l.tagDoc(doc)
 		docs = append(docs, doc)
 	}
 
-	result["specie"] = docs
+	result["specie"] = append(result["specie"], docs...)
 	return nil
 }

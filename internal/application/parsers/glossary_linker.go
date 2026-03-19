@@ -33,10 +33,28 @@ type termRegex struct {
 }
 
 // NewGlossaryLinker creates a GlossaryLinker from the embedded glossary.json.
+// It searches for glossary.json in the root or in source subdirectories.
 func NewGlossaryLinker(fsys fs.FS) (*GlossaryLinker, error) {
 	data, err := fs.ReadFile(fsys, "glossary.json")
 	if err != nil {
-		return nil, fmt.Errorf("read glossary.json: %w", err)
+		// Try to find glossary.json in source subdirectories
+		entries, dirErr := fs.ReadDir(fsys, ".")
+		if dirErr != nil {
+			return nil, fmt.Errorf("read glossary.json: %w", err)
+		}
+		for _, entry := range entries {
+			if !entry.IsDir() {
+				continue
+			}
+			if d, e := fs.ReadFile(fsys, entry.Name()+"/glossary.json"); e == nil {
+				data = d
+				err = nil
+				break
+			}
+		}
+		if err != nil {
+			return nil, fmt.Errorf("read glossary.json: %w", err)
+		}
 	}
 
 	var terms []glossaryTerm
@@ -92,7 +110,7 @@ func (gl *GlossaryLinker) LinkGlossaryTerms(htmlContent string) string {
 	linked := make(map[string]bool)
 	gl.processNode(doc, active, linked)
 
-	return renderGlossaryHTML(doc, htmlContent)
+	return renderGlossaryBody(doc, htmlContent)
 }
 
 func (gl *GlossaryLinker) processNode(n *nethtml.Node, active []*termRegex, linked map[string]bool) {
@@ -217,10 +235,36 @@ func truncateDefinition(def string, maxLen int) string {
 	return truncated + "…"
 }
 
-func renderGlossaryHTML(doc *nethtml.Node, fallback string) string {
+// renderGlossaryBody renders only the children of the <body> tag,
+// stripping the <html><head><body> wrapper that html.Parse adds.
+func renderGlossaryBody(doc *nethtml.Node, fallback string) string {
+	body := findNode(doc, "body")
+	if body == nil {
+		// Fallback: render everything
+		var buf bytes.Buffer
+		if err := nethtml.Render(&buf, doc); err != nil {
+			return fallback
+		}
+		return buf.String()
+	}
+
 	var buf bytes.Buffer
-	if err := nethtml.Render(&buf, doc); err != nil {
-		return fallback
+	for c := body.FirstChild; c != nil; c = c.NextSibling {
+		if err := nethtml.Render(&buf, c); err != nil {
+			return fallback
+		}
 	}
 	return buf.String()
+}
+
+func findNode(n *nethtml.Node, name string) *nethtml.Node {
+	if n.Type == nethtml.ElementNode && n.Data == name {
+		return n
+	}
+	for c := n.FirstChild; c != nil; c = c.NextSibling {
+		if found := findNode(c, name); found != nil {
+			return found
+		}
+	}
+	return nil
 }

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "malattie",
+    "title": "Malattie",
+    "content": "Un'epidemia devasta il regno e gli avventurieri  devono partire alla ricerca di una cura.  Un'avventuriera emerge da un'antica tomba,  rimasta sigillata per secoli, e presto si ritrova  afflitta da un male che la consuma lentamente.  Un warlock offende una potenza oscura e contrae  una strana malattia che si diffonde ogni volta che  lancia un incantesimo.   Un contagio limitato potrebbe incidere in minima  parte sulle risorse del gruppo ed essere curato con  un incantesimo *ristorare inferiore*. Un contagio su  larga scala potrebbe porre le basi per una o più  avventure in cui i personaggi vanno alla ricerca  di una cura, arginano la diffusione della malattie  e ne affrontano le conseguenze.   Se una malattia non si limita a infettare alcuni  membri del gruppo, è principalmente uno strumento  narrativo. Le regole contribuiscono a descriverne  gli effetti e il metodo con cui può essere curata,  ma i dettagli del funzionamento di una malattia non  sono vincolati da un insieme comune di regole.  Le malattie possono colpire ogni creatura, oppure  un determinato ceppo potrebbe o non potrebbe  trasmettersi solo da una razza o da una specie di  creatura all'altra. Un'epidemia potrebbe influenzare  solo costrutti o non morti, oppure decimare un  quartiere di halfling senza toccare nessun'altra razza.  Ciò che conta è la storia che il GM desidera  raccontare.",
+    "children": [
+      {
+        "id": "esempi-di-malattie",
+        "title": "Esempi di malattie",
+        "content": "Le malattie descritte in seguito illustrano i vari  modi in cui possono funzionare nel gioco. Il GM può  liberamente alterare le CD dei tiri salvezza, i tempi  di incubazione, i sintomi e le altre caratteristiche di  queste malattie per adattarle alla sua campagna.",
+        "children": [
+          {
+            "id": "epidemia-fognaria",
+            "title": "Epidemia fognaria",
+            "content": "Il termine epidemia fognaria comprende una vasta  categoria di malattie che vengono incubate nelle  fognature, nei mucchi di rifiuti e nelle paludi, e che  vengono a volte trasmesse dalle creature che vivono  in quelle aree, come topi e otyugh.   Quando una creatura umanoide viene morsa da  una creatura portatrice di una di queste malattie  o entra in contatto con liquami o escrementi  contaminati da una di queste, deve superare un tiro  salvezza su Costituzione con CD 11, altrimenti viene  infettata.\n\nSystems Reference Document 5.1 228\n\nI sintomi dell'epidemia fognaria si manifestano  in una creatura infetta nel giro di 1d4 giorni  e includono affaticamento e crampi. La creatura  infetta subisce un livello di indebolimento, recupera  solo la metà del normale numero di punti ferita  quando spende Dadi Vita e non recupera punti  ferita terminando un riposo lungo.   Al termine di ogni riposo lungo, una creatura  infetta deve effettuare un tiro salvezza su  Costituzione con CD 11. Se lo fallisce, il personaggio  subisce un livello di indebolimento, mentre se lo  supera, il suo livello di indebolimento si riduce di  uno. Se un tiro salvezza superato riduce il livello di  indebolimento della creatura a meno di 1, la creatura  guarisce dalla malattia.",
+            "children": []
+          },
+          {
+            "id": "febbre-giuliva",
+            "title": "Febbre giuliva",
+            "content": "Questa malattia bersaglia gli umanoidi, nonostante  gli gnomi ne siano stranamente immuni. Finché  le vittime ne sono afflitte, sono spesso scosse da  attacchi di risate deliranti e, per questo, la malattia  è comunemente e morbosamente soprannominata:  \"gli strilli\".   I sintomi si manifestano 1d4 ore dopo l'infezione  e includono febbre e disorientamento. La creatura  infetta subisce un livello di indebolimento che non  può essere rimosso finché la malattia non viene  curata.   Qualsiasi evento che genera tensione  nella creatura infetta, come partecipare a un  combattimento, subire danni, provare paura o avere  un incubo, obbliga la creatura a effettuare un tiro  salvezza su Costituzione con CD 13. Se lo fallisce,  la creatura subisce 5 (1d10) danni psichici e viene  incapacitata da risate spasmodiche per 1 minuto.  La creatura può ripetere il tiro salvezza alla fine  di ogni suo turno e, se lo supera, le risate  spasmodiche terminano e non è più incapacitata.   Qualsiasi creatura umanoide che inizi il proprio  turno entro 3 metri da una creatura infetta in preda  a un attacco di risate deve superare un tiro salvezza  su Costituzione con CD 10, altrimenti viene a sua  volta infettata. Una volta che una creatura supera  questo tiro salvezza, diventa immune agli attacchi  di risate di quella particolare creatura infetta per  24 ore.   Al termine di ogni riposo lungo, una creatura  infetta può effettuare un tiro salvezza su  Costituzione con CD 13. In caso di successo,  la CD di questo tiro salvezza e quello effettuato  per evitare un attacco di risate scende di 1d6.  Quando la CD del tiro salvezza scende a 0, la creatura  guarisce dalla malattia. Una creatura che fallisce tre  di questi tiri salvezza riceve una forma di follia  illimitata casuale, come descritto in seguito.",
+            "children": []
+          },
+          {
+            "id": "vista-putrefatta",
+            "title": "Vista putrefatta",
+            "content": "Questa infezione dolorosa causa sanguinamento  dagli occhi e con il tempo finisce per accecare  la vittima.   Una bestia o un umanoide che beve acqua  contaminata da vista putrefatta deve superare un  tiro salvezza su Costituzione con CD 15, altrimenti  viene infettato. Un giorno dopo l'infezione, la vista  della creatura inizia a farsi sfocata ed essa subisce  una penalità di -1 ai tiri per colpire e alle prove  di caratteristica basate sulla vista. Al termine di  ogni riposo lungo dopo la comparsa dei sintomi,  la penalità peggiora di 1. Quando raggiunge -5,  la vittima è accecata finché la sua vista non viene  ripristinata da magie come *ristorare inferiore* o *guarigione*.   Vista putrefatta può essere curata usando una  raro fiore chiamato Occhiovispo, che cresce in  alcune paludi. In un'ora, un personaggio dotato  di competenza con una borsa da erborista può  trasformare il fiore in una dose di unguento che,  applicata sugli occhi prima di un riposo lungo,  impedisce alla malattia di peggiorare una volta  completato il riposo. Dopo l'applicazione di tre dosi,  l'unguento cura la malattia in modo definitivo.\n\nSystems Reference Document 5.1 229",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

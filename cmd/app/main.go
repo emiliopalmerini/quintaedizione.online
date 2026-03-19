@@ -46,12 +46,15 @@ func main() {
 	}
 	renderer := parsers.NewMarkdownRenderer(glossaryLinker)
 	loader := datastore.NewLoader(jsondata.Files, renderer)
-	data, err := loader.LoadAll()
+	data, sources, err := loader.LoadAll()
 	if err != nil {
 		log.Fatalf("Failed to load JSON data: %v", err)
 	}
 	store := datastore.NewStore(data)
-	log.Println("SRD data loaded into in-memory store")
+	log.Printf("SRD data loaded from %d source(s)", len(sources))
+	for _, src := range sources {
+		log.Printf("  source: %s (%s)", src.Name, src.ID)
+	}
 
 	for _, name := range store.Collections() {
 		log.Printf("  %s: %d documents", name, store.Count(name))
@@ -69,19 +72,33 @@ func main() {
 
 	filterRegistry := filters.NewInMemoryFilterRegistry()
 	filters.RegisterDefaultFilters(filterRegistry)
+	filters.RegisterEditionFilter(filterRegistry, sources)
 
 	filterService := services.NewFilterService(filterRegistry)
 	cache := infrastructure.NewSimpleCache()
 	contentService := services.NewContentService(repo, filterService, cache)
 	searchService := search.NewFuzzySearchService(searchRepo)
 
-	srdHandlers := web.NewHandlers(contentService, searchService, templateEngine)
+	// Find the default source short name for legacy URL redirects
+	defaultSourceShort := ""
+	for _, src := range sources {
+		if src.Default {
+			defaultSourceShort = src.ShortName
+			break
+		}
+	}
+	if defaultSourceShort == "" && len(sources) > 0 {
+		defaultSourceShort = sources[0].ShortName
+	}
+
+	multiSource := len(sources) > 1
+	srdHandlers := web.NewHandlers(contentService, searchService, templateEngine, defaultSourceShort, multiSource)
 
 	// ── Combattimenti setup ────────────────────────────────────
 
 	log.Println("Loading Combattimenti data...")
 	encounterRepo := combatMemory.NewEncounterRepository()
-	monsterRepo := combatMemory.NewMonsterRepository(jsondata.Files, "monsters.json")
+	monsterRepo := combatMemory.NewMonsterRepository(jsondata.Files, "srd-5.5e/monsters.json", defaultSourceShort)
 
 	encounterService := combatEncounter.NewService(logger, encounterRepo)
 	queryHandler := combatEncounter.NewQueryHandler(logger, encounterRepo)
@@ -148,11 +165,23 @@ func main() {
 	srdHandlers.RegisterRoutes(srdMux)
 	mux.Handle("/srd/", http.StripPrefix("/srd", srdMux))
 
+	// Build edition options for the encounter calculator
+	editions := make([]combatTemplates.EditionOption, 0, len(sources))
+	for _, src := range sources {
+		editions = append(editions, combatTemplates.EditionOption{
+			SourceID:  src.ID,
+			Name:      src.Name,
+			ShortName: src.ShortName,
+			Ruleset:   src.Ruleset,
+			IsDefault: src.Default,
+		})
+	}
+
 	// Combattimenti routes under /combattimenti
 	combatMux := http.NewServeMux()
 	combatMux.HandleFunc("GET /{$}", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
-		if err := combatTemplates.Home().Render(r.Context(), w); err != nil {
+		if err := combatTemplates.Home(editions).Render(r.Context(), w); err != nil {
 			logger.Error("Failed to render combattimenti home", "error", err)
 			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		}

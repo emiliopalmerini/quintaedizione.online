@@ -118,9 +118,12 @@ func (h *CollectionHandler) handleCollectionRows(w http.ResponseWriter, r *http.
 // handleItemDetail renders the detail page for a single item.
 func (h *CollectionHandler) handleItemDetail(w http.ResponseWriter, r *http.Request) {
 	collection := r.PathValue("collection")
+	source := r.PathValue("source")
 	slug := r.PathValue("slug")
 
-	item, err := h.contentService.GetItem(r.Context(), collection, slug)
+	// Composite key: source/slug
+	itemID := source + "/" + slug
+	item, err := h.contentService.GetItem(r.Context(), collection, itemID)
 	if err != nil {
 		h.ErrorResponse(w, r, err, "Elemento non trovato")
 		return
@@ -129,7 +132,7 @@ func (h *CollectionHandler) handleItemDetail(w http.ResponseWriter, r *http.Requ
 	bodyHTML := mappers.GetString(item, "content", "")
 	bodyRaw := mappers.GetString(item, "raw_content", "")
 
-	prevSlug, nextSlug, position, total, err := h.contentService.GetAdjacentItems(r.Context(), collection, slug)
+	prevSlug, nextSlug, position, total, err := h.contentService.GetAdjacentItems(r.Context(), collection, itemID)
 	if err != nil {
 		fmt.Printf("Warning: Could not get adjacent items for %s/%s: %v\n", collection, slug, err)
 	}
@@ -144,6 +147,8 @@ func (h *CollectionHandler) handleItemDetail(w http.ResponseWriter, r *http.Requ
 	if nextSlug != nil {
 		nextID = *nextSlug
 	}
+
+	sourceShort := mappers.GetString(item, "_source_short", "")
 
 	data := models.ItemPageData{
 		PageData: models.PageData{
@@ -161,6 +166,7 @@ func (h *CollectionHandler) handleItemDetail(w http.ResponseWriter, r *http.Requ
 		Position:        position,
 		Total:           total,
 		CollectionLabel: h.getCollectionTitle(collection),
+		SourceShort:     sourceShort,
 	}
 
 	content, err := h.templateEngine.RenderItem(data)

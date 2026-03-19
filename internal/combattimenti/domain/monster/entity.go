@@ -28,14 +28,15 @@ type NamedDescription struct {
 
 // Monster represents a D&D creature with combat-relevant stats.
 type Monster struct {
-	ID   string
-	Name string
-	Type string
-	Size string
-	CR   string
-	XP   int
-	AC   string
-	HP   string
+	ID     string
+	Source string // source ID for SRD link (e.g. "srd-5.5e")
+	Name   string
+	Type   string
+	Size   string
+	CR     string
+	XP     int
+	AC     string
+	HP     string
 
 	// Detail fields
 	Group               string

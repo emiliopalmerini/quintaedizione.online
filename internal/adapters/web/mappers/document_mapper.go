@@ -58,7 +58,12 @@ func (m *documentMapper) ToModel(collection string, item map[string]any) models.
 	model := models.Document{}
 
 	if id, ok := item["_id"].(string); ok {
-		model.ID = id
+		// Build composite ID (short_name/slug) for URL routing
+		if short, ok := item["_source_short"].(string); ok && short != "" {
+			model.ID = short + "/" + id
+		} else {
+			model.ID = id
+		}
 	}
 
 	if title, ok := item["title"].(string); ok {
@@ -73,6 +78,7 @@ func (m *documentMapper) ToModel(collection string, item map[string]any) models.
 	for _, elem := range displayElements {
 		model.DisplayElements = append(model.DisplayElements, models.DocumentDisplayField{
 			Value: elem.Value,
+			Type:  elem.Type,
 		})
 	}
 

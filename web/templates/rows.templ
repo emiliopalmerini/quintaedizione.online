@@ -52,7 +52,11 @@ templ documentRow(doc models.Document, collection string) {
 		if len(doc.DisplayElements) > 0 {
 			<div class="result-item-meta">
 				for _, element := range doc.DisplayElements {
-					<span class="result-badge">{ element.Value }</span>
+					if element.Type == "edition" {
+						<span class="result-badge result-badge-edition">{ element.Value }</span>
+					} else {
+						<span class="result-badge">{ element.Value }</span>
+					}
 				}
 			</div>
 		}

@@ -3,12 +3,14 @@ package display
 import "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/dto"
 
 type DisplayElementFactory struct {
-	strategies map[string]DisplayElementStrategy
+	strategies  map[string]DisplayElementStrategy
+	multiSource bool // true when multiple sources are loaded
 }
 
-func NewDisplayElementFactory() *DisplayElementFactory {
+func NewDisplayElementFactory(multiSource bool) *DisplayElementFactory {
 	factory := &DisplayElementFactory{
-		strategies: make(map[string]DisplayElementStrategy),
+		strategies:  make(map[string]DisplayElementStrategy),
+		multiSource: multiSource,
 	}
 
 	strategies := []DisplayElementStrategy{
@@ -39,5 +41,17 @@ func (f *DisplayElementFactory) GetStrategy(collection string) DisplayElementStr
 
 func (f *DisplayElementFactory) GetDisplayElements(collection string, doc map[string]any) []dto.DisplayElementDTO {
 	strategy := f.GetStrategy(collection)
-	return strategy.GetElements(doc)
+	elements := strategy.GetElements(doc)
+
+	// Append edition badge if source metadata is present and multiple sources loaded
+	if f.multiSource {
+		if source, ok := doc["_source_short"].(string); ok && source != "" {
+			elements = append(elements, dto.DisplayElementDTO{
+				Value: source,
+				Type:  "edition",
+			})
+		}
+	}
+
+	return elements
 }
