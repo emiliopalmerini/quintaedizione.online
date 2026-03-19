@@ -206,6 +206,7 @@ func main() {
 	mappeMux := http.NewServeMux()
 	mappeMux.HandleFunc("GET /{$}", galleryHandler.HandleGallery)
 	mappeMux.HandleFunc("GET /gallery", galleryHandler.HandleGallery)
+	mappeMux.HandleFunc("GET /{slug}", galleryHandler.HandleDetail)
 	mux.Handle("/mappe/", http.StripPrefix("/mappe", mappeMux))
 
 	// ── Middleware chain ────────────────────────────────────────

@@ -119,6 +119,56 @@
   padding: 0.15em 0.5em;
 }
 
+/* ── Detail page ──────────────────────────────────── */
+
+.mappe-detail-meta {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  text-transform: capitalize;
+}
+
+.mappe-detail-sep {
+  margin: 0 var(--space-2);
+}
+
+.mappe-detail-img {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.mappe-detail-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mappe-detail-attribution dl {
+  margin: 0;
+}
+
+.mappe-detail-row {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+}
+
+.mappe-detail-row:last-child {
+  border-bottom: none;
+}
+
+.mappe-detail-row dt {
+  font-weight: 600;
+  min-width: 6em;
+  color: var(--color-text-secondary);
+}
+
+.mappe-detail-row dd {
+  margin: 0;
+}
+
 /* ── Empty state ───────────────────────────────────── */
 
 .mappe-empty {

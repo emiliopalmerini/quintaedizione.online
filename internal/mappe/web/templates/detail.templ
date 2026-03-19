@@ -1,0 +1,60 @@
+package templates
+
+import (
+	"strings"
+
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/maps"
+	siteTemplates "github.com/emiliopalmerini/quintaedizione.online/web/templates"
+)
+
+templ DetailPage(m maps.Mappa) {
+	@siteTemplates.SiteLayout(m.Nome+" — Mappe", m.Nome+" — mappa per D&D 5e di "+m.Autore, "mappe", nil) {
+		<nav class="breadcrumb mb-4" aria-label="Breadcrumb">
+			<a href="/mappe">Mappe</a>
+			<span class="breadcrumb-separator">/</span>
+			<span class="breadcrumb-current" title={ m.Nome }>{ m.Nome }</span>
+		</nav>
+
+		<article class="mappe-detail">
+			<h1>{ m.Nome }</h1>
+
+			<div class="mappe-detail-meta mb-4">
+				<span class="mappe-detail-categoria">{ m.Categoria }</span>
+				if len(m.Tag) > 0 {
+					<span class="mappe-detail-sep" aria-hidden="true">&middot;</span>
+					<span>{ strings.Join(m.Tag, " · ") }</span>
+				}
+			</div>
+
+			<div class="mappe-detail-img mb-6">
+				<img
+					src={ "/static/img/mappe/" + m.Immagine }
+					alt={ m.Nome }
+				/>
+			</div>
+
+			<div class="mappe-detail-attribution">
+				<dl>
+					<div class="mappe-detail-row">
+						<dt>Autore</dt>
+						<dd>{ m.Autore }</dd>
+					</div>
+					<div class="mappe-detail-row">
+						<dt>Licenza</dt>
+						<dd>{ m.Licenza }</dd>
+					</div>
+					if m.URLOriginale != "" {
+						<div class="mappe-detail-row">
+							<dt>Originale</dt>
+							<dd>
+								<a href={ templ.URL(m.URLOriginale) } target="_blank" rel="noopener noreferrer">
+									Vedi su { m.Autore } &nearr;
+								</a>
+							</dd>
+						</div>
+					}
+				</dl>
+			</div>
+		</article>
+	}
+}

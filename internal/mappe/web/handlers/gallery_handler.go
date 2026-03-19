@@ -22,6 +22,23 @@ func NewGalleryHandler(repo maps.Repository, logger *slog.Logger) *GalleryHandle
 	}
 }
 
+// HandleDetail renders a single map detail page.
+// GET /{slug}
+func (h *GalleryHandler) HandleDetail(w http.ResponseWriter, r *http.Request) {
+	slug := r.PathValue("slug")
+	m, ok := h.repo.FindBySlug(slug)
+	if !ok {
+		http.NotFound(w, r)
+		return
+	}
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	if err := templates.DetailPage(m).Render(r.Context(), w); err != nil {
+		h.logger.Error("Failed to render map detail", "slug", slug, "error", err)
+		http.Error(w, "Internal server error", http.StatusInternalServerError)
+	}
+}
+
 // HandleGallery renders the full gallery page.
 // GET /
 func (h *GalleryHandler) HandleGallery(w http.ResponseWriter, r *http.Request) {
