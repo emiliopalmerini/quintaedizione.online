@@ -78,6 +78,7 @@ func (m *documentMapper) ToModel(collection string, item map[string]any) models.
 	for _, elem := range displayElements {
 		model.DisplayElements = append(model.DisplayElements, models.DocumentDisplayField{
 			Value: elem.Value,
+			Type:  elem.Type,
 		})
 	}
 

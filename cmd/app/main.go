@@ -91,7 +91,8 @@ func main() {
 		defaultSourceShort = sources[0].ShortName
 	}
 
-	srdHandlers := web.NewHandlers(contentService, searchService, templateEngine, defaultSourceShort)
+	multiSource := len(sources) > 1
+	srdHandlers := web.NewHandlers(contentService, searchService, templateEngine, defaultSourceShort, multiSource)
 
 	// ── Combattimenti setup ────────────────────────────────────
 
