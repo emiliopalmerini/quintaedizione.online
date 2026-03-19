@@ -1,0 +1,1 @@
+web/static/img/mappe/*.webp filter=lfs diff=lfs merge=lfs -text
