@@ -772,6 +772,61 @@ function initFilterMultiselect() {
 	});
 }
 
+// Quick filter chips: toggle chip → sync with dropdown filter → trigger HTMX
+function initQuickFilterChips() {
+	document.querySelectorAll('.quick-filter-bar').forEach(function(bar) {
+		var filterName = bar.getAttribute('data-filter-name');
+		bar.querySelectorAll('.quick-filter-chip').forEach(function(chip) {
+			chip.addEventListener('click', function() {
+				var wasActive = chip.classList.contains('active');
+				var chipValues = chip.getAttribute('data-values').split(',');
+
+				// Find the corresponding hidden input in the search form
+				var container = document.querySelector('.filter-multiselect[data-filter-name="' + filterName + '"]');
+				if (!container) return;
+				var hiddenInput = container.querySelector('input[type="hidden"]');
+				if (!hiddenInput) return;
+
+				var currentValues = hiddenInput.value ? hiddenInput.value.split(',').filter(function(v) { return v !== ''; }) : [];
+
+				if (wasActive) {
+					// Deactivate: remove chip values from filter
+					currentValues = currentValues.filter(function(v) {
+						return chipValues.indexOf(v) === -1;
+					});
+				} else {
+					// Activate: add chip values to filter (avoid duplicates)
+					chipValues.forEach(function(v) {
+						if (currentValues.indexOf(v) === -1) {
+							currentValues.push(v);
+						}
+					});
+				}
+
+				hiddenInput.value = currentValues.join(',');
+
+				// Sync desktop dropdown checkboxes
+				var dropdown = container.querySelector('.filter-multiselect-dropdown');
+				if (dropdown) {
+					dropdown.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+						cb.checked = currentValues.indexOf(cb.value) !== -1;
+					});
+				}
+
+				// Sync overlay checkboxes
+				var overlay = document.getElementById('filter-overlay');
+				if (overlay) {
+					overlay.querySelectorAll('input[type="checkbox"][data-filter-name="' + filterName + '"]').forEach(function(cb) {
+						cb.checked = currentValues.indexOf(cb.value) !== -1;
+					});
+				}
+
+				hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
+			});
+		});
+	});
+}
+
 // Filter chips: remove individual filter value or clear all
 function initFilterChips() {
 	document.querySelectorAll('.filter-chip').forEach(function(chip) {
@@ -921,6 +976,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	initFilterOverlay();
 	initFilterMultiselect();
 	initFilterChips();
+	initQuickFilterChips();
 	initItemKeyboardNav();
 	initHeadingAnchors();
 });
@@ -932,6 +988,7 @@ document.body.addEventListener('htmx:afterSwap', () => {
 	initFilterOverlay();
 	initFilterMultiselect();
 	initFilterChips();
+	initQuickFilterChips();
 	initItemKeyboardNav();
 	initHeadingAnchors();
 });
