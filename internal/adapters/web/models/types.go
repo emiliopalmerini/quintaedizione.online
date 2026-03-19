@@ -17,10 +17,17 @@ type Collection struct {
 	Count       int64  `json:"count"`
 }
 
+type CollectionGroup struct {
+	Label       string
+	Collections []Collection
+}
+
 type HomePageData struct {
 	PageData
 	Collections []Collection
+	Groups      []CollectionGroup
 	Total       int64
+	Editions    int
 }
 
 type Document struct {

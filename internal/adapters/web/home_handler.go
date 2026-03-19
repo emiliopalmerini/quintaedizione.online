@@ -21,28 +21,43 @@ func (h *HomeHandler) handleHome(w http.ResponseWriter, r *http.Request) {
 		collectionStats = h.getDefaultCollections()
 	}
 
-	typedCollections := make([]models.Collection, 0, len(collectionStats))
+	// Build a lookup of collection models by name
+	collectionMap := make(map[string]models.Collection, len(collectionStats))
 	total := int64(0)
+	allCollections := make([]models.Collection, 0, len(collectionStats))
 
 	for _, col := range collectionStats {
 		name := mappers.GetString(col, "collection", "")
 		count := mappers.GetInt64(col, "count", 0)
 
-		collection := models.Collection{
+		mc := models.Collection{
 			Name:  name,
 			Count: count,
+		}
+		mc.Label = h.getCollectionTitle(name)
+		if info, ok := collections.GetInfo(name); ok {
+			mc.Description = info.Description
 		}
 
 		if count > 0 {
 			total += count
 		}
 
-		collection.Label = h.getCollectionTitle(name)
-		if info, ok := collections.GetInfo(name); ok {
-			collection.Description = info.Description
-		}
+		collectionMap[name] = mc
+		allCollections = append(allCollections, mc)
+	}
 
-		typedCollections = append(typedCollections, collection)
+	// Build grouped collections in display order
+	domainGroups := collections.GetGroups()
+	groups := make([]models.CollectionGroup, 0, len(domainGroups))
+	for _, dg := range domainGroups {
+		mg := models.CollectionGroup{Label: dg.Label}
+		for _, cn := range dg.Collections {
+			if mc, ok := collectionMap[cn.String()]; ok {
+				mg.Collections = append(mg.Collections, mc)
+			}
+		}
+		groups = append(groups, mg)
 	}
 
 	data := models.HomePageData{
@@ -51,8 +66,10 @@ func (h *HomeHandler) handleHome(w http.ResponseWriter, r *http.Request) {
 			Description: "Il Fantastico Visualizzatore di SRD (5e 2024)",
 			TotalItems:  total,
 		},
-		Collections: typedCollections,
+		Collections: allCollections,
+		Groups:      groups,
 		Total:       total,
+		Editions:    2,
 	}
 
 	content, err := h.templateEngine.RenderHome(data)
