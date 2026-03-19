@@ -4,6 +4,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     initEncounterForm();
     initSteppers();
+    initAutoCalculate();
 
     // Configure HTMX for encounters
     if (typeof htmx !== 'undefined') {
@@ -84,6 +85,30 @@ function initSteppers() {
         decBtn.disabled = initVal <= min;
         incBtn.disabled = initVal >= max;
     });
+}
+
+// Debounced auto-calculate: fires custom 'calculate' event that HTMX listens to
+function initAutoCalculate() {
+    var form = document.getElementById('encounter-form');
+    if (!form || typeof htmx === 'undefined') return;
+
+    var timer = null;
+    function scheduleCalculate() {
+        clearTimeout(timer);
+        timer = setTimeout(function() {
+            htmx.trigger(form, 'calculate');
+        }, 200);
+    }
+
+    form.addEventListener('change', scheduleCalculate);
+    form.addEventListener('input', function(evt) {
+        if (evt.target.matches('.stepper-input, input[type="number"]')) {
+            scheduleCalculate();
+        }
+    });
+
+    // Calculate on page load with default values
+    setTimeout(scheduleCalculate, 100);
 }
 
 // Encounter form logic
