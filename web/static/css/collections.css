@@ -211,3 +211,4 @@
   border-radius: var(--radius-sm); background: transparent;
 }
 .result-badge-translated { color: var(--color-flash-success-text); border-color: var(--color-flash-success-border); background: var(--color-flash-success-bg); }
+.result-badge-edition { color: var(--color-primary); border-color: var(--color-primary); font-weight: var(--weight-semibold); }

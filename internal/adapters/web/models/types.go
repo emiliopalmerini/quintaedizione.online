@@ -32,6 +32,7 @@ type Document struct {
 
 type DocumentDisplayField struct {
 	Value string `json:"value"`
+	Type  string `json:"type,omitempty"`
 }
 
 type FilterValueOption struct {
