@@ -21,7 +21,7 @@ templ CollectionPage(data models.CollectionPageData) {
 			<h2 class="m-0" style="font-size: var(--text-xl);">{ data.PageData.Title }</h2>
 		</div>
 
-		<section class="search-sticky bg-white border p-2 mb-3">
+		<section class="search-sticky bg-white border p-2">
 			<form id="search-form"
 				hx-get={ "/srd/" + data.PageData.Collection + "/rows" }
 				hx-target="#rows"

@@ -56,19 +56,31 @@ type FilterOption struct {
 	CurrentValues []string
 }
 
+type QuickFilterChip struct {
+	Label  string
+	Values []string
+	Active bool
+}
+
+type QuickFilterData struct {
+	FilterName string
+	Chips      []QuickFilterChip
+}
+
 type CollectionPageData struct {
 	PageData
-	Documents  []Document
-	Filters    []FilterOption
-	Query      string
-	Page       int
-	PageSize   int
-	Total      int64
-	TotalPages int
-	HasNext    bool
-	HasPrev    bool
-	StartItem  int
-	EndItem    int
+	Documents   []Document
+	Filters     []FilterOption
+	QuickFilter *QuickFilterData
+	Query       string
+	Page        int
+	PageSize    int
+	Total       int64
+	TotalPages  int
+	HasNext     bool
+	HasPrev     bool
+	StartItem   int
+	EndItem     int
 }
 
 type ItemPageData struct {
