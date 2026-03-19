@@ -68,3 +68,13 @@ collections:
     title: "Cavalcature e Veicoli"
     display_fields: ["nome", "costo"]
     search_fields: ["nome"]
+
+  specie:
+    title: "Specie"
+    display_fields: ["nome"]
+    search_fields: ["nome"]
+
+  glossario:
+    title: "Glossario"
+    display_fields: ["nome"]
+    search_fields: ["nome"]
