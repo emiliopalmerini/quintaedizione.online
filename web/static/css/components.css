@@ -53,10 +53,6 @@
 }
 .site-nav-link:hover { background: var(--color-hover); color: var(--color-text); }
 .site-nav-link.active { background: var(--color-bg-secondary); color: var(--color-text); }
-@media (max-width: 640px) {
-  .site-nav-links { margin-left: auto; gap: 0; }
-  .site-nav-link { padding: var(--space-2); font-size: var(--text-xs); }
-}
 
 .breadcrumb {
   font-size: var(--text-sm);
@@ -112,6 +108,75 @@
 .theme-toggle .icon-moon { display: block; }
 html.dark .theme-toggle .icon-sun { display: block; }
 html.dark .theme-toggle .icon-moon { display: none; }
+.theme-toggle--mobile { display: none; }
+
+/* ========================================================================
+   HAMBURGER MENU
+   ======================================================================== */
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+.nav-hamburger:hover { background: var(--color-hover); border-color: var(--color-border-strong); }
+.nav-hamburger-line {
+  display: block;
+  width: 16px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 1px;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+.nav-hamburger[aria-expanded="true"] .nav-hamburger-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.nav-hamburger[aria-expanded="true"] .nav-hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+.nav-hamburger[aria-expanded="true"] .nav-hamburger-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+@media (max-width: 640px) {
+  .nav-hamburger { display: flex; }
+  .theme-toggle--desktop { display: none; }
+  .theme-toggle--mobile { display: inline-flex; margin-left: 0; }
+
+  .site-nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-3) var(--space-4);
+    gap: 0;
+    margin-left: 0;
+    box-shadow: var(--shadow-md);
+  }
+  .site-nav-links.open { display: flex; }
+
+  .site-nav-link {
+    padding: var(--space-3) var(--space-3);
+    font-size: var(--text-sm);
+    border-radius: var(--radius-md);
+    width: 100%;
+  }
+}
 
 /* ========================================================================
    BUTTONS

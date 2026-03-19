@@ -928,14 +928,45 @@ function initFilterChips() {
 	}
 }
 
-// Theme toggle
+// Theme toggle (both desktop and mobile buttons)
 function initThemeToggle() {
-	var btn = document.getElementById('theme-toggle');
-	if (!btn) return;
+	var btns = [document.getElementById('theme-toggle'), document.getElementById('theme-toggle-mobile')];
+	btns.forEach(function(btn) {
+		if (!btn) return;
+		btn.addEventListener('click', function() {
+			var d = document.documentElement;
+			var isDark = d.classList.toggle('dark');
+			localStorage.setItem('theme', isDark ? 'dark' : 'light');
+		});
+	});
+}
+
+// Hamburger menu toggle
+function initHamburgerMenu() {
+	var btn = document.getElementById('nav-hamburger');
+	var menu = document.getElementById('nav-menu');
+	if (!btn || !menu) return;
+
 	btn.addEventListener('click', function() {
-		var d = document.documentElement;
-		var isDark = d.classList.toggle('dark');
-		localStorage.setItem('theme', isDark ? 'dark' : 'light');
+		var expanded = btn.getAttribute('aria-expanded') === 'true';
+		btn.setAttribute('aria-expanded', String(!expanded));
+		menu.classList.toggle('open');
+	});
+
+	// Close menu when a nav link is clicked
+	menu.querySelectorAll('.site-nav-link').forEach(function(link) {
+		link.addEventListener('click', function() {
+			btn.setAttribute('aria-expanded', 'false');
+			menu.classList.remove('open');
+		});
+	});
+
+	// Close menu when clicking outside
+	document.addEventListener('click', function(e) {
+		if (!btn.contains(e.target) && !menu.contains(e.target)) {
+			btn.setAttribute('aria-expanded', 'false');
+			menu.classList.remove('open');
+		}
 	});
 }
 
@@ -1009,6 +1040,7 @@ function initHeadingAnchors() {
 
 document.addEventListener('DOMContentLoaded', () => {
 	initThemeToggle();
+	initHamburgerMenu();
 	initPatreonBanner();
 	initBackButton();
 	initCopyMarkdownButton();
