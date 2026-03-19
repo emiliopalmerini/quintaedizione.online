@@ -80,26 +80,45 @@ templ documentRow(doc models.Document, collection string) {
 }
 
 templ pagination(data models.CollectionPageData) {
-	<div class="item-nav border-t bg-neutral-50 px-2 sm:px-4 py-3">
-		if data.HasPrev {
-			@prevButton(data)
-		} else {
-			<span class="btn btn-icon btn-disabled" aria-disabled="true">
-				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-					<polyline points="15 18 9 12 15 6"></polyline>
-				</svg>
-			</span>
-		}
-		<span class="item-nav-position">{ strconv.Itoa(data.Page) } di { strconv.Itoa(data.TotalPages) }</span>
-		if data.HasNext {
-			@nextButton(data)
-		} else {
-			<span class="btn btn-icon btn-disabled" aria-disabled="true">
-				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-					<polyline points="9 6 15 12 9 18"></polyline>
-				</svg>
-			</span>
-		}
+	<div class="pagination border-t">
+		<span class="pagination-range">
+			{ strconv.Itoa(data.StartItem) }-{ strconv.Itoa(data.EndItem) } di { strconv.FormatInt(data.Total, 10) }
+		</span>
+		<div class="pagination-controls">
+			if data.HasPrev {
+				@prevButton(data)
+			} else {
+				<span class="btn btn-icon btn-disabled" aria-disabled="true">
+					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<polyline points="15 18 9 12 15 6"></polyline>
+					</svg>
+				</span>
+			}
+			<div class="pagination-pages">
+				for _, p := range paginationPages(data.Page, data.TotalPages) {
+					if p == -1 {
+						<span class="pagination-ellipsis">&hellip;</span>
+					} else if p == data.Page {
+						<span class="pagination-page active">{ strconv.Itoa(p) }</span>
+					} else {
+						<button hx-get={ paginationURL(data, p) }
+							hx-target="#rows"
+							class="pagination-page">
+							{ strconv.Itoa(p) }
+						</button>
+					}
+				}
+			</div>
+			if data.HasNext {
+				@nextButton(data)
+			} else {
+				<span class="btn btn-icon btn-disabled" aria-disabled="true">
+					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<polyline points="9 6 15 12 9 18"></polyline>
+					</svg>
+				</span>
+			}
+		</div>
 	</div>
 }
 
@@ -157,6 +176,57 @@ func hasNonEditionElements(elements []models.DocumentDisplayField) bool {
 		}
 	}
 	return false
+}
+
+// paginationPages returns the page numbers to display in the pagination bar.
+// Uses -1 as a sentinel for ellipsis. Shows first, last, and 2 pages around current.
+func paginationPages(current, total int) []int {
+	if total <= 7 {
+		pages := make([]int, total)
+		for i := range pages {
+			pages[i] = i + 1
+		}
+		return pages
+	}
+
+	pages := []int{}
+	// Always show first page
+	pages = append(pages, 1)
+
+	// Left boundary: 2 before current
+	left := current - 2
+	right := current + 2
+
+	if left <= 2 {
+		// Near start: show pages 2..right, then ellipsis, then last
+		for i := 2; i <= right && i < total; i++ {
+			pages = append(pages, i)
+		}
+		if right < total-1 {
+			pages = append(pages, -1)
+		}
+		if right < total {
+			pages = append(pages, total)
+		}
+	} else if right >= total-1 {
+		// Near end: show first, ellipsis, then left..total
+		pages = append(pages, -1)
+		for i := left; i <= total; i++ {
+			if i > 1 {
+				pages = append(pages, i)
+			}
+		}
+	} else {
+		// Middle: first, ellipsis, left..right, ellipsis, last
+		pages = append(pages, -1)
+		for i := left; i <= right; i++ {
+			pages = append(pages, i)
+		}
+		pages = append(pages, -1)
+		pages = append(pages, total)
+	}
+
+	return pages
 }
 
 func paginationURL(data models.CollectionPageData, page int) string {
