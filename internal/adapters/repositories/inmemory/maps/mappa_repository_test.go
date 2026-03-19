@@ -92,9 +92,12 @@ func TestFindBySlug_NotFound(t *testing.T) {
 
 func TestSearch_ByQuery(t *testing.T) {
 	repo := newTestRepo()
-	results := repo.Search(domain.SearchFilters{Query: "tempio"})
+	results, total := repo.Search(domain.SearchFilters{Query: "tempio"})
 	if len(results) != 1 {
 		t.Fatalf("expected 1 result, got %d", len(results))
+	}
+	if total != 1 {
+		t.Errorf("expected total 1, got %d", total)
 	}
 	if results[0].Slug != "il-tempio-sommerso" {
 		t.Errorf("expected il-tempio-sommerso, got %s", results[0].Slug)
@@ -103,7 +106,7 @@ func TestSearch_ByQuery(t *testing.T) {
 
 func TestSearch_ByQueryCaseInsensitive(t *testing.T) {
 	repo := newTestRepo()
-	results := repo.Search(domain.SearchFilters{Query: "CAVERNA"})
+	results, _ := repo.Search(domain.SearchFilters{Query: "CAVERNA"})
 	if len(results) != 1 {
 		t.Fatalf("expected 1 result, got %d", len(results))
 	}
@@ -111,7 +114,7 @@ func TestSearch_ByQueryCaseInsensitive(t *testing.T) {
 
 func TestSearch_ByCategoria(t *testing.T) {
 	repo := newTestRepo()
-	results := repo.Search(domain.SearchFilters{Categoria: "dungeon"})
+	results, _ := repo.Search(domain.SearchFilters{Categoria: "dungeon"})
 	if len(results) != 1 {
 		t.Fatalf("expected 1 dungeon, got %d", len(results))
 	}
@@ -122,7 +125,7 @@ func TestSearch_ByCategoria(t *testing.T) {
 
 func TestSearch_ByTag(t *testing.T) {
 	repo := newTestRepo()
-	results := repo.Search(domain.SearchFilters{Tag: "acqua"})
+	results, _ := repo.Search(domain.SearchFilters{Tag: "acqua"})
 	if len(results) != 1 {
 		t.Fatalf("expected 1 result with tag acqua, got %d", len(results))
 	}
@@ -133,7 +136,7 @@ func TestSearch_ByTag(t *testing.T) {
 
 func TestSearch_Combined(t *testing.T) {
 	repo := newTestRepo()
-	results := repo.Search(domain.SearchFilters{
+	results, _ := repo.Search(domain.SearchFilters{
 		Query:     "piazza",
 		Categoria: "citta",
 		Tag:       "urbano",
@@ -148,17 +151,97 @@ func TestSearch_Combined(t *testing.T) {
 
 func TestSearch_NoResults(t *testing.T) {
 	repo := newTestRepo()
-	results := repo.Search(domain.SearchFilters{Query: "non-esiste"})
+	results, total := repo.Search(domain.SearchFilters{Query: "non-esiste"})
 	if len(results) != 0 {
 		t.Errorf("expected 0 results, got %d", len(results))
+	}
+	if total != 0 {
+		t.Errorf("expected total 0, got %d", total)
 	}
 }
 
 func TestSearch_EmptyFilters_ReturnsAll(t *testing.T) {
 	repo := newTestRepo()
-	results := repo.Search(domain.SearchFilters{})
+	results, total := repo.Search(domain.SearchFilters{})
 	if len(results) != 3 {
 		t.Errorf("expected 3 results with empty filters, got %d", len(results))
+	}
+	if total != 3 {
+		t.Errorf("expected total 3, got %d", total)
+	}
+}
+
+func TestSearch_ZeroLimitReturnsAll(t *testing.T) {
+	repo := newTestRepo()
+	results, total := repo.Search(domain.SearchFilters{Limit: 0})
+	if len(results) != 3 {
+		t.Errorf("expected 3 results with zero limit, got %d", len(results))
+	}
+	if total != 3 {
+		t.Errorf("expected total 3, got %d", total)
+	}
+}
+
+func TestSearch_WithLimit(t *testing.T) {
+	repo := newTestRepo()
+	results, total := repo.Search(domain.SearchFilters{Limit: 2})
+	if len(results) != 2 {
+		t.Fatalf("expected 2 results, got %d", len(results))
+	}
+	if total != 3 {
+		t.Errorf("expected total 3, got %d", total)
+	}
+}
+
+func TestSearch_WithOffset(t *testing.T) {
+	repo := newTestRepo()
+	results, total := repo.Search(domain.SearchFilters{Offset: 1})
+	if len(results) != 2 {
+		t.Fatalf("expected 2 results, got %d", len(results))
+	}
+	if total != 3 {
+		t.Errorf("expected total 3, got %d", total)
+	}
+}
+
+func TestSearch_WithOffsetAndLimit(t *testing.T) {
+	repo := newTestRepo()
+	results, total := repo.Search(domain.SearchFilters{Offset: 1, Limit: 1})
+	if len(results) != 1 {
+		t.Fatalf("expected 1 result, got %d", len(results))
+	}
+	if total != 3 {
+		t.Errorf("expected total 3, got %d", total)
+	}
+	// Sorted by name: Il Tempio, La Caverna, La Piazza — offset 1 should be La Caverna
+	if results[0].Slug != "la-caverna-dei-funghi" {
+		t.Errorf("expected la-caverna-dei-funghi at offset 1, got %s", results[0].Slug)
+	}
+}
+
+func TestSearch_OffsetBeyondTotal(t *testing.T) {
+	repo := newTestRepo()
+	results, total := repo.Search(domain.SearchFilters{Offset: 10})
+	if len(results) != 0 {
+		t.Errorf("expected 0 results for offset beyond total, got %d", len(results))
+	}
+	if total != 3 {
+		t.Errorf("expected total 3, got %d", total)
+	}
+}
+
+func TestSearch_FiltersAndPagination(t *testing.T) {
+	repo := newTestRepo()
+	// Two maps have tag "sotterraneo" or "acqua"... only dungeon category has 1 map
+	results, total := repo.Search(domain.SearchFilters{
+		Categoria: "dungeon",
+		Limit:     10,
+	})
+	if len(results) != 1 {
+		t.Fatalf("expected 1 dungeon, got %d", len(results))
+	}
+	if total != 1 {
+		t.Errorf("expected total 1, got %d", total)
 	}
 }
 

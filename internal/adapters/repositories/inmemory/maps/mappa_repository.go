@@ -110,9 +110,9 @@ func (r *MappaRepository) FindBySlug(slug string) (domain.Mappa, bool) {
 	return r.mappe[idx], true
 }
 
-func (r *MappaRepository) Search(filters domain.SearchFilters) []domain.Mappa {
+func (r *MappaRepository) Search(filters domain.SearchFilters) ([]domain.Mappa, int) {
 	query := strings.ToLower(filters.Query)
-	var result []domain.Mappa
+	var filtered []domain.Mappa
 
 	for _, m := range r.mappe {
 		if query != "" && !strings.Contains(strings.ToLower(m.Nome), query) {
@@ -124,9 +124,22 @@ func (r *MappaRepository) Search(filters domain.SearchFilters) []domain.Mappa {
 		if filters.Tag != "" && !slices.Contains(m.Tag, filters.Tag) {
 			continue
 		}
-		result = append(result, m)
+		filtered = append(filtered, m)
 	}
-	return result
+
+	total := len(filtered)
+
+	if filters.Offset >= total {
+		return nil, total
+	}
+
+	start := filters.Offset
+	end := total
+	if filters.Limit > 0 && start+filters.Limit < end {
+		end = start + filters.Limit
+	}
+
+	return filtered[start:end], total
 }
 
 func (r *MappaRepository) Categorie() []string { return r.categorie }

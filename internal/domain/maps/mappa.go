@@ -19,13 +19,15 @@ type SearchFilters struct {
 	Query     string
 	Categoria string
 	Tag       string
+	Offset    int
+	Limit     int // 0 means no limit
 }
 
 // Repository defines the interface for accessing map data.
 type Repository interface {
 	FindAll() []Mappa
 	FindBySlug(slug string) (Mappa, bool)
-	Search(filters SearchFilters) []Mappa
+	Search(filters SearchFilters) ([]Mappa, int)
 	Categorie() []string
 	Tags() []string
 }
@@ -39,4 +41,7 @@ type GalleryData struct {
 	Categoria string
 	Tag       string
 	Total     int
+	Offset    int
+	Limit     int
+	HasMore   bool
 }

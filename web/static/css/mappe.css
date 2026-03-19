@@ -64,6 +64,16 @@
   margin-top: var(--space-2);
 }
 
+/* Full-width elements inside the grid (stats banner, load more) */
+.mappe-grid-full {
+  grid-column: 1 / -1;
+}
+
+.load-more-btn {
+  display: block;
+  margin: var(--space-4) auto;
+}
+
 /* ========================================================================
    DETAIL PAGE
    ======================================================================== */
