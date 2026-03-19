@@ -109,7 +109,7 @@ func GalleryPage(data maps.GalleryData) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "\" onclick=\"document.getElementById('mappe-categoria').value='';htmx.trigger('#mappe-filter-form','change')\">Tutte</button> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "\" onclick=\"document.getElementById('mappe-categoria').value='';document.querySelectorAll('.quick-filter-bar.mb-2 .quick-filter-chip').forEach(c => c.classList.remove('active'));this.classList.add('active');htmx.trigger('#mappe-filter-form','filter-changed')\">Tutte</button> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -404,24 +404,29 @@ func GalleryGrid(data maps.GalleryData) templ.Component {
 
 func setFilter(inputID, value string) templ.ComponentScript {
 	return templ.ComponentScript{
-		Name: `__templ_setFilter_9105`,
-		Function: `function __templ_setFilter_9105(inputID, value){document.getElementById(inputID).value = value;
+		Name: `__templ_setFilter_4979`,
+		Function: `function __templ_setFilter_4979(inputID, value){document.getElementById(inputID).value = value;
+	var bar = document.getElementById(inputID).closest('form').querySelector('.quick-filter-bar.mb-2');
+	bar.querySelectorAll('.quick-filter-chip').forEach(function(c) { c.classList.remove('active'); });
+	event.currentTarget.classList.add('active');
 	htmx.trigger(document.getElementById('mappe-filter-form'), 'filter-changed');
 }`,
-		Call:       templ.SafeScript(`__templ_setFilter_9105`, inputID, value),
-		CallInline: templ.SafeScriptInline(`__templ_setFilter_9105`, inputID, value),
+		Call:       templ.SafeScript(`__templ_setFilter_4979`, inputID, value),
+		CallInline: templ.SafeScriptInline(`__templ_setFilter_4979`, inputID, value),
 	}
 }
 
 func toggleFilter(inputID, value string) templ.ComponentScript {
 	return templ.ComponentScript{
-		Name: `__templ_toggleFilter_9c19`,
-		Function: `function __templ_toggleFilter_9c19(inputID, value){var el = document.getElementById(inputID);
-	el.value = el.value === value ? '' : value;
+		Name: `__templ_toggleFilter_7620`,
+		Function: `function __templ_toggleFilter_7620(inputID, value){var el = document.getElementById(inputID);
+	var isActive = el.value === value;
+	el.value = isActive ? '' : value;
+	event.currentTarget.classList.toggle('active', !isActive);
 	htmx.trigger(document.getElementById('mappe-filter-form'), 'filter-changed');
 }`,
-		Call:       templ.SafeScript(`__templ_toggleFilter_9c19`, inputID, value),
-		CallInline: templ.SafeScriptInline(`__templ_toggleFilter_9c19`, inputID, value),
+		Call:       templ.SafeScript(`__templ_toggleFilter_7620`, inputID, value),
+		CallInline: templ.SafeScriptInline(`__templ_toggleFilter_7620`, inputID, value),
 	}
 }
 

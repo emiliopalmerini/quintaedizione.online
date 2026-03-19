@@ -43,7 +43,7 @@ templ GalleryPage(data maps.GalleryData) {
 				<button
 					type="button"
 					class={ "quick-filter-chip", templ.KV("active", data.Categoria == "") }
-					onclick="document.getElementById('mappe-categoria').value='';htmx.trigger('#mappe-filter-form','change')"
+					onclick="document.getElementById('mappe-categoria').value='';document.querySelectorAll('.quick-filter-bar.mb-2 .quick-filter-chip').forEach(c => c.classList.remove('active'));this.classList.add('active');htmx.trigger('#mappe-filter-form','filter-changed')"
 				>
 					Tutte
 				</button>
@@ -119,11 +119,16 @@ templ GalleryGrid(data maps.GalleryData) {
 
 script setFilter(inputID, value string) {
 	document.getElementById(inputID).value = value;
+	var bar = document.getElementById(inputID).closest('form').querySelector('.quick-filter-bar.mb-2');
+	bar.querySelectorAll('.quick-filter-chip').forEach(function(c) { c.classList.remove('active'); });
+	event.currentTarget.classList.add('active');
 	htmx.trigger(document.getElementById('mappe-filter-form'), 'filter-changed');
 }
 
 script toggleFilter(inputID, value string) {
 	var el = document.getElementById(inputID);
-	el.value = el.value === value ? '' : value;
+	var isActive = el.value === value;
+	el.value = isActive ? '' : value;
+	event.currentTarget.classList.toggle('active', !isActive);
 	htmx.trigger(document.getElementById('mappe-filter-form'), 'filter-changed');
 }
