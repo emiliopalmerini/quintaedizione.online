@@ -154,10 +154,14 @@ func (h *EncounterHandler) CalculateHandler(w http.ResponseWriter, r *http.Reque
 	tiers := h.buildDifficultyTiers(req, requestID)
 
 	// Return HTML response for HTMX
+	// Include monster browser only on the first render (when header is absent)
+	includeMonsterBrowser := r.Header.Get("X-Monster-Browser-Loaded") == ""
+
 	w.Header().Set("Content-Type", "text/html")
 	data := templates.ResultData{
-		Result: result,
-		Tiers:  tiers,
+		Result:                result,
+		Tiers:                 tiers,
+		IncludeMonsterBrowser: includeMonsterBrowser,
 		Facets: templates.MonsterFacets{
 			Types: h.monsterService.AvailableTypes(),
 			Sizes: h.monsterService.AvailableSizes(),
