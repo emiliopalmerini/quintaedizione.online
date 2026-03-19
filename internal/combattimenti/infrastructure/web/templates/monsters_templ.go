@@ -913,7 +913,7 @@ func MonsterList(monsters []monster.Monster, maxXP int) templ.Component {
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 84, "\" target=\"_blank\" onclick=\"event.stopPropagation()\" class=\"btn btn-ghost\" style=\"margin-top: var(--space-3); display: inline-flex;\">Vedi pagina completa →</a>")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 84, "\" target=\"_blank\" onclick=\"event.stopPropagation()\" class=\"btn btn-ghost monster-detail-link\">Vedi pagina completa →</a>")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}

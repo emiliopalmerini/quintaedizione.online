@@ -215,7 +215,7 @@ templ MonsterList(monsters []monster.Monster, maxXP int) {
 											</div>
 										}
 										if m.Source != "" {
-											<a href={ templ.URL("/srd/mostri/" + m.Source + "/" + m.ID) } target="_blank" onclick="event.stopPropagation()" class="btn btn-ghost" style="margin-top: var(--space-3); display: inline-flex;">Vedi pagina completa →</a>
+											<a href={ templ.URL("/srd/mostri/" + m.Source + "/" + m.ID) } target="_blank" onclick="event.stopPropagation()" class="btn btn-ghost monster-detail-link">Vedi pagina completa →</a>
 										}
 									</div>
 								</td>
