@@ -23,7 +23,7 @@ templ Home(editions []EditionOption) {
 		<div class="encounter-layout">
 			<div class="encounter-config">
 				<div class="form-container">
-					<form id="encounter-form" hx-post="/combattimenti/calculate" hx-target="#result-container" hx-swap="innerHTML" hx-trigger="change from:find input, change from:find select delay:200ms" hx-indicator="#result-loading">
+					<form id="encounter-form" hx-post="/combattimenti/calculate" hx-target="#result-container" hx-swap="innerHTML transition:false" hx-trigger="calculate, submit" hx-indicator="false">
 						<!-- Edition Selection -->
 						<div class="form-section">
 							<h2 class="form-section-title">Edizione</h2>
@@ -181,12 +181,7 @@ templ Home(editions []EditionOption) {
 
 			<!-- Results -->
 			<div class="encounter-results">
-				<div id="result-container"
-					hx-post="/combattimenti/calculate"
-					hx-trigger="load"
-					hx-include="#encounter-form"
-					hx-swap="innerHTML"
-				>
+				<div id="result-container">
 					<div class="result-placeholder">
 						<div id="result-loading" class="htmx-indicator">
 							<span class="spinner"></span>
