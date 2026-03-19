@@ -67,7 +67,12 @@ templ ItemPage(data models.ItemPageData) {
 
 		<!-- Item title -->
 		if data.PageData.DocTitle != "" {
-			<h1 class="item-title">{ data.PageData.DocTitle }</h1>
+			<div class="item-title-row">
+				<h1 class="item-title">{ data.PageData.DocTitle }</h1>
+				if data.SourceShort != "" {
+					<span class="result-badge result-badge-edition">{ data.SourceShort }</span>
+				}
+			</div>
 		}
 
 		<!-- Item content -->

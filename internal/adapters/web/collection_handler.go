@@ -148,6 +148,8 @@ func (h *CollectionHandler) handleItemDetail(w http.ResponseWriter, r *http.Requ
 		nextID = *nextSlug
 	}
 
+	sourceShort := mappers.GetString(item, "_source_short", "")
+
 	data := models.ItemPageData{
 		PageData: models.PageData{
 			Title:       docTitle,
@@ -164,6 +166,7 @@ func (h *CollectionHandler) handleItemDetail(w http.ResponseWriter, r *http.Requ
 		Position:        position,
 		Total:           total,
 		CollectionLabel: h.getCollectionTitle(collection),
+		SourceShort:     sourceShort,
 	}
 
 	content, err := h.templateEngine.RenderItem(data)
