@@ -12,20 +12,20 @@
     "hp": "135 (18d10 + 36)",
     "speed": "3 m, nuotare 12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 21,
+      "dexterity": 9,
+      "constitution": 15,
+      "intelligence": 18,
+      "wisdom": 15,
+      "charisma": 18
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 5,
+      "dexterity": -1,
+      "constitution": 2,
+      "intelligence": 4,
+      "wisdom": 2,
+      "charisma": 4
     },
     "saving_throws": {
       "constitution": "+6",
@@ -96,20 +96,20 @@
     "hp": "136 (16d8 + 64)",
     "speed": "9 m, volare 27 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 18,
+      "dexterity": 18,
+      "constitution": 18,
+      "intelligence": 17,
+      "wisdom": 20,
+      "charisma": 20
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 4,
+      "dexterity": 4,
+      "constitution": 4,
+      "intelligence": 3,
+      "wisdom": 5,
+      "charisma": 5
     },
     "saving_throws": {
       "charisma": "+9",
@@ -166,20 +166,20 @@
     "hp": "200 (16d10 + 112)",
     "speed": "12 m, volare 36 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 24,
+      "dexterity": 20,
+      "constitution": 24,
+      "intelligence": 19,
+      "wisdom": 22,
+      "charisma": 25
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 7,
+      "dexterity": 5,
+      "constitution": 7,
+      "intelligence": 4,
+      "wisdom": 6,
+      "charisma": 7
     },
     "saving_throws": {
       "charisma": "+12",
@@ -237,20 +237,20 @@
     "hp": "243 (18d10 + 144)",
     "speed": "15 m, volare 45 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 26,
+      "dexterity": 22,
+      "constitution": 26,
+      "intelligence": 25,
+      "wisdom": 25,
+      "charisma": 30
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 8,
+      "dexterity": 6,
+      "constitution": 8,
+      "intelligence": 7,
+      "wisdom": 7,
+      "charisma": 10
     },
     "saving_throws": {
       "charisma": "+14",
@@ -329,20 +329,20 @@
     "hp": "39 (6d10 + 6)",
     "speed": "9 m, scavare 3 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 17,
+      "dexterity": 11,
+      "constitution": 13,
+      "intelligence": 1,
+      "wisdom": 13,
+      "charisma": 6
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 3,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 1,
+      "intelligence": -5,
+      "wisdom": 1,
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "",
@@ -383,20 +383,20 @@
     "hp": "38 (7d8 + 7)",
     "speed": "6 m, volare 12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 12,
+      "dexterity": 13,
+      "constitution": 12,
+      "intelligence": 7,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 13
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 1,
+      "dexterity": 1,
+      "constitution": 1,
+      "intelligence": -2,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 1
     },
     "saving_throws": {},
     "skills": "",
@@ -445,19 +445,19 @@
     "hp": "39 (6d8 + 12)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
+      "strength": 17,
+      "dexterity": 12,
+      "constitution": 15,
+      "intelligence": 12,
+      "wisdom": 13,
       "charisma": 10
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
+      "strength": 3,
+      "dexterity": 1,
+      "constitution": 2,
+      "intelligence": 1,
+      "wisdom": 1,
       "charisma": 0
     },
     "saving_throws": {
@@ -506,20 +506,20 @@
     "hp": "52 (8d8 + 16)",
     "speed": "6 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 16,
+      "dexterity": 8,
+      "constitution": 15,
+      "intelligence": 2,
+      "wisdom": 8,
+      "charisma": 7
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 3,
+      "dexterity": -1,
+      "constitution": 2,
+      "intelligence": -4,
+      "wisdom": -1,
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "",
@@ -556,20 +556,20 @@
     "hp": "168 (16d12 + 64)",
     "speed": "15 m, scalare 12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 23,
+      "dexterity": 16,
+      "constitution": 18,
+      "intelligence": 7,
+      "wisdom": 14,
+      "charisma": 12
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 6,
+      "dexterity": 3,
+      "constitution": 4,
+      "intelligence": -2,
+      "wisdom": 2,
+      "charisma": 1
     },
     "saving_throws": {},
     "skills": "Furtività +7, Percezione +6",
@@ -622,20 +622,20 @@
     "hp": "27 (5d8 + 5)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 15,
+      "dexterity": 14,
+      "constitution": 13,
+      "intelligence": 8,
+      "wisdom": 11,
+      "charisma": 9
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 2,
+      "dexterity": 2,
+      "constitution": 1,
+      "intelligence": -1,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "Furtività +6, Sopravvivenza +2",
@@ -681,20 +681,20 @@
     "hp": "94 (9d10 + 45)",
     "speed": "12 m, scavare 12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 19,
+      "dexterity": 11,
+      "constitution": 21,
+      "intelligence": 2,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 5
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 4,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "constitution": 5,
+      "intelligence": -4,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -3
     },
     "saving_throws": {},
     "skills": "Percezione +6",
@@ -735,19 +735,19 @@
     "hp": "104 (16d8 + 32)",
     "speed": "15 m, volare 15 m (fluttuare)",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
+      "strength": 16,
+      "dexterity": 19,
+      "constitution": 14,
       "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "wisdom": 15,
+      "charisma": 11
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
+      "strength": 3,
+      "dexterity": 4,
+      "constitution": 2,
       "intelligence": 0,
-      "wisdom": 0,
+      "wisdom": 2,
       "charisma": 0
     },
     "saving_throws": {},
@@ -789,20 +789,20 @@
     "hp": "68 (8d10 + 24)",
     "speed": "18 m, volare 27 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
+      "strength": 18,
+      "dexterity": 15,
+      "constitution": 16,
       "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "wisdom": 13,
+      "charisma": 15
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
+      "strength": 4,
+      "dexterity": 2,
+      "constitution": 3,
       "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "wisdom": 1,
+      "charisma": 2
     },
     "saving_throws": {},
     "skills": "",
@@ -848,19 +848,19 @@
     "hp": "45 (6d10 + 12)",
     "speed": "15 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 18,
+      "dexterity": 14,
+      "constitution": 14,
+      "intelligence": 9,
+      "wisdom": 13,
+      "charisma": 11
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
+      "strength": 4,
+      "dexterity": 2,
+      "constitution": 2,
+      "intelligence": -1,
+      "wisdom": 1,
       "charisma": 0
     },
     "saving_throws": {},
@@ -910,19 +910,19 @@
     "hp": "114 (12d10 + 48)",
     "speed": "9 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
+      "strength": 19,
+      "dexterity": 11,
+      "constitution": 19,
+      "intelligence": 3,
+      "wisdom": 14,
       "charisma": 10
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 4,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
+      "constitution": 4,
+      "intelligence": -4,
+      "wisdom": 2,
       "charisma": 0
     },
     "saving_throws": {},
@@ -976,20 +976,20 @@
     "hp": "93 (11d10 + 33)",
     "speed": "9 m, nuotare 9 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 19,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 16,
+      "intelligence": 5,
+      "wisdom": 11,
+      "charisma": 5
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 4,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "constitution": 3,
+      "intelligence": -3,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -3
     },
     "saving_throws": {},
     "skills": "Percezione +4",
@@ -1034,20 +1034,20 @@
     "hp": "5 (2d6 - 2)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 7,
+      "dexterity": 15,
+      "constitution": 9,
+      "intelligence": 8,
+      "wisdom": 7,
+      "charisma": 8
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": -2,
+      "dexterity": 2,
+      "constitution": -1,
+      "intelligence": -1,
+      "wisdom": -2,
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "",
@@ -1093,20 +1093,20 @@
     "hp": "27 (6d6 + 6)",
     "speed": "6 m, volare 12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 6,
+      "dexterity": 12,
+      "constitution": 12,
+      "intelligence": 2,
+      "wisdom": 13,
+      "charisma": 5
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": -2,
+      "dexterity": 1,
+      "constitution": 1,
+      "intelligence": -4,
+      "wisdom": 1,
+      "charisma": -3
     },
     "saving_throws": {},
     "skills": "",
@@ -1143,20 +1143,20 @@
     "hp": "97 (13d8 + 39)",
     "speed": "9 m, volare 27 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 16,
+      "dexterity": 20,
+      "constitution": 17,
+      "intelligence": 18,
+      "wisdom": 20,
+      "charisma": 18
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 3,
+      "dexterity": 5,
+      "constitution": 3,
+      "intelligence": 4,
+      "wisdom": 5,
+      "charisma": 4
     },
     "saving_throws": {
       "charisma": "+6",
@@ -1214,20 +1214,20 @@
     "hp": "136 (16d10 + 48)",
     "speed": "6 m, nuotare 6 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 18,
+      "dexterity": 8,
+      "constitution": 16,
+      "intelligence": 5,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 5
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 4,
+      "dexterity": -1,
+      "constitution": 3,
+      "intelligence": -3,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -3
     },
     "saving_throws": {},
     "skills": "Furtività +2",
@@ -1272,20 +1272,20 @@
     "hp": "262 (21d12 + 126)",
     "speed": "12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 26,
+      "dexterity": 15,
+      "constitution": 22,
+      "intelligence": 20,
+      "wisdom": 16,
+      "charisma": 22
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 8,
+      "dexterity": 2,
+      "constitution": 6,
+      "intelligence": 5,
+      "wisdom": 3,
+      "charisma": 6
     },
     "saving_throws": {
       "charisma": "+12",
@@ -1352,20 +1352,20 @@
     "hp": "18 (4d6 + 4)",
     "speed": "6 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 11,
+      "dexterity": 11,
+      "constitution": 12,
+      "intelligence": 5,
+      "wisdom": 8,
+      "charisma": 3
     },
     "ability_mods": {
       "strength": 0,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 1,
+      "intelligence": -3,
+      "wisdom": -1,
+      "charisma": -4
     },
     "saving_throws": {},
     "skills": "",
@@ -1414,20 +1414,20 @@
     "hp": "157 (15d10 + 75)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 20,
+      "dexterity": 15,
+      "constitution": 21,
+      "intelligence": 19,
+      "wisdom": 17,
+      "charisma": 16
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 5,
+      "dexterity": 2,
+      "constitution": 5,
+      "intelligence": 4,
+      "wisdom": 3,
+      "charisma": 3
     },
     "saving_throws": {
       "charisma": "+7",
@@ -1477,20 +1477,20 @@
     "hp": "136 (13d10 + 65)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 19,
+      "dexterity": 17,
+      "constitution": 20,
+      "intelligence": 5,
+      "wisdom": 12,
+      "charisma": 13
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 4,
+      "dexterity": 3,
+      "constitution": 5,
+      "intelligence": -3,
+      "wisdom": 1,
+      "charisma": 1
     },
     "saving_throws": {
       "constitution": "+8",
@@ -1544,20 +1544,20 @@
     "hp": "189 (18d10 + 90)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 18,
+      "dexterity": 20,
+      "constitution": 20,
+      "intelligence": 18,
+      "wisdom": 16,
+      "charisma": 20
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 4,
+      "dexterity": 5,
+      "constitution": 5,
+      "intelligence": 4,
+      "wisdom": 3,
+      "charisma": 5
     },
     "saving_throws": {
       "charisma": "+10",
@@ -1625,20 +1625,20 @@
     "hp": "184 (16d10 + 96)",
     "speed": "6 m, volare 9 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 21,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 22,
+      "intelligence": 19,
+      "wisdom": 12,
+      "charisma": 15
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 5,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 6,
+      "intelligence": 4,
+      "wisdom": 1,
+      "charisma": 2
     },
     "saving_throws": {
       "charisma": "+7",
@@ -1696,18 +1696,18 @@
     "hp": "7 (3d4)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
+      "strength": 5,
+      "dexterity": 17,
       "constitution": 10,
-      "intelligence": 10,
+      "intelligence": 7,
       "wisdom": 10,
       "charisma": 10
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
+      "strength": -3,
+      "dexterity": 3,
       "constitution": 0,
-      "intelligence": 0,
+      "intelligence": -2,
       "wisdom": 0,
       "charisma": 0
     },
@@ -1759,20 +1759,20 @@
     "hp": "104 (11d10 + 44)",
     "speed": "12 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 17,
+      "dexterity": 15,
+      "constitution": 18,
+      "intelligence": 8,
+      "wisdom": 13,
+      "charisma": 8
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 3,
+      "dexterity": 2,
+      "constitution": 4,
+      "intelligence": -1,
+      "wisdom": 1,
+      "charisma": -1
     },
     "saving_throws": {
       "charisma": "+2",
@@ -1829,18 +1829,18 @@
     "hp": "52 (8d8 + 16)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 16,
+      "dexterity": 15,
+      "constitution": 15,
+      "intelligence": 9,
+      "wisdom": 11,
+      "charisma": 11
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 3,
+      "dexterity": 2,
+      "constitution": 2,
+      "intelligence": -1,
       "wisdom": 0,
       "charisma": 0
     },
@@ -1900,20 +1900,20 @@
     "hp": "178 (17d10 + 85)",
     "speed": "6 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 22,
+      "dexterity": 17,
+      "constitution": 21,
+      "intelligence": 12,
+      "wisdom": 16,
+      "charisma": 17
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 6,
+      "dexterity": 3,
+      "constitution": 5,
+      "intelligence": 1,
+      "wisdom": 3,
+      "charisma": 3
     },
     "saving_throws": {
       "charisma": "+7",
@@ -1972,20 +1972,20 @@
     "hp": "180 (19d10 + 76)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 21,
+      "dexterity": 14,
+      "constitution": 18,
+      "intelligence": 18,
+      "wisdom": 15,
+      "charisma": 18
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 5,
+      "dexterity": 2,
+      "constitution": 4,
+      "intelligence": 4,
+      "wisdom": 2,
+      "charisma": 4
     },
     "saving_throws": {
       "charisma": "+9",
@@ -2048,20 +2048,20 @@
     "hp": "300 (24d10 + 168)",
     "speed": "9 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 26,
+      "dexterity": 14,
+      "constitution": 24,
+      "intelligence": 22,
+      "wisdom": 18,
+      "charisma": 24
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 8,
+      "dexterity": 2,
+      "constitution": 7,
+      "intelligence": 6,
+      "wisdom": 4,
+      "charisma": 7
     },
     "saving_throws": {
       "constitution": "+13",
@@ -2131,20 +2131,20 @@
     "hp": "85 (10d8 + 40)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 18,
+      "dexterity": 15,
+      "constitution": 18,
+      "intelligence": 11,
+      "wisdom": 12,
+      "charisma": 14
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
+      "strength": 4,
+      "dexterity": 2,
+      "constitution": 4,
       "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "wisdom": 1,
+      "charisma": 2
     },
     "saving_throws": {
       "charisma": "+5",
@@ -2203,20 +2203,20 @@
     "hp": "142 (15d10 + 60)",
     "speed": "12 m, volare 12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 18,
+      "dexterity": 16,
+      "constitution": 18,
+      "intelligence": 13,
+      "wisdom": 14,
+      "charisma": 16
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 4,
+      "dexterity": 3,
+      "constitution": 4,
+      "intelligence": 1,
+      "wisdom": 2,
+      "charisma": 3
     },
     "saving_throws": {
       "charisma": "+7",
@@ -2270,20 +2270,20 @@
     "hp": "110 (13d8 + 52)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 16,
+      "dexterity": 17,
+      "constitution": 18,
+      "intelligence": 12,
+      "wisdom": 14,
+      "charisma": 14
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 3,
+      "dexterity": 3,
+      "constitution": 4,
+      "intelligence": 1,
+      "wisdom": 2,
+      "charisma": 2
     },
     "saving_throws": {
       "charisma": "+5",
@@ -2346,20 +2346,20 @@
     "hp": "153 (18d8 + 72)",
     "speed": "9 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 18,
+      "dexterity": 16,
+      "constitution": 18,
+      "intelligence": 14,
+      "wisdom": 14,
+      "charisma": 18
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 4,
+      "dexterity": 3,
+      "constitution": 4,
+      "intelligence": 2,
+      "wisdom": 2,
+      "charisma": 4
     },
     "saving_throws": {
       "charisma": "+8",
@@ -2415,20 +2415,20 @@
     "hp": "10 (3d4 + 3)",
     "speed": "6 m, volare 12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 6,
+      "dexterity": 17,
+      "constitution": 13,
+      "intelligence": 11,
+      "wisdom": 12,
+      "charisma": 14
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
+      "strength": -2,
+      "dexterity": 3,
+      "constitution": 1,
       "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "wisdom": 1,
+      "charisma": 2
     },
     "saving_throws": {},
     "skills": "Furtività +5, Inganno +4, Intuizione +3,",
@@ -2483,19 +2483,19 @@
     "speed": "4,5 m",
     "ability_scores": {
       "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "dexterity": 5,
+      "constitution": 11,
+      "intelligence": 1,
+      "wisdom": 11,
+      "charisma": 3
     },
     "ability_mods": {
       "strength": 0,
-      "dexterity": 0,
+      "dexterity": -3,
       "constitution": 0,
-      "intelligence": 0,
+      "intelligence": -5,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -4
     },
     "saving_throws": {},
     "skills": "",
@@ -2537,20 +2537,20 @@
     "hp": "68 (8d10 + 24)",
     "speed": "6 m, nuotare 12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 18,
+      "dexterity": 15,
+      "constitution": 16,
+      "intelligence": 2,
+      "wisdom": 12,
+      "charisma": 5
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 4,
+      "dexterity": 2,
+      "constitution": 3,
+      "intelligence": -4,
+      "wisdom": 1,
+      "charisma": -3
     },
     "saving_throws": {},
     "skills": "Furtività +4, Percezione +3",
@@ -2587,20 +2587,20 @@
     "hp": "136 (13d12 + 52)",
     "speed": "15 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 25,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 19,
+      "intelligence": 2,
+      "wisdom": 12,
+      "charisma": 9
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 7,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 4,
+      "intelligence": -4,
+      "wisdom": 1,
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "Percezione +4",
@@ -2645,20 +2645,20 @@
     "hp": "95 (10d12 + 30)",
     "speed": "15 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 22,
+      "dexterity": 9,
+      "constitution": 17,
+      "intelligence": 2,
+      "wisdom": 11,
+      "charisma": 5
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 6,
+      "dexterity": -1,
+      "constitution": 3,
+      "intelligence": -4,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -3
     },
     "saving_throws": {},
     "skills": "",
@@ -2699,20 +2699,20 @@
     "hp": "52 (8d8 + 16)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 11,
+      "dexterity": 18,
+      "constitution": 14,
+      "intelligence": 11,
+      "wisdom": 12,
+      "charisma": 14
     },
     "ability_mods": {
       "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
+      "dexterity": 4,
+      "constitution": 2,
       "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "wisdom": 1,
+      "charisma": 2
     },
     "saving_throws": {},
     "skills": "Inganno +6, Intuizione +3",
@@ -2766,20 +2766,20 @@
     "hp": "487 (25d20 + 225)",
     "speed": "12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 30,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 29,
+      "intelligence": 18,
+      "wisdom": 15,
+      "charisma": 23
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 10,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 9,
+      "intelligence": 4,
+      "wisdom": 2,
+      "charisma": 6
     },
     "saving_throws": {
       "charisma": "+13",
@@ -2862,20 +2862,20 @@
     "hp": "243 (18d12 + 126)",
     "speed": "12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 27,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 25,
+      "intelligence": 16,
+      "wisdom": 13,
+      "charisma": 21
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 8,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 7,
+      "intelligence": 3,
+      "wisdom": 1,
+      "charisma": 5
     },
     "saving_throws": {
       "charisma": "+10",
@@ -2958,20 +2958,20 @@
     "hp": "168 (16d10 + 80)",
     "speed": "12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 23,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 21,
+      "intelligence": 14,
+      "wisdom": 11,
+      "charisma": 19
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 6,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "constitution": 5,
+      "intelligence": 2,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 4
     },
     "saving_throws": {
       "charisma": "+8",
@@ -3029,20 +3029,20 @@
     "hp": "45 (6d8 + 18)",
     "speed": "9 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 19,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 17,
+      "intelligence": 12,
+      "wisdom": 11,
+      "charisma": 15
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 4,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "constitution": 3,
+      "intelligence": 1,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 2
     },
     "saving_throws": {
       "charisma": "+4",
@@ -3092,20 +3092,20 @@
     "hp": "444 (24d20 + 192)",
     "speed": "12 m, nuotare 12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 29,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 27,
+      "intelligence": 18,
+      "wisdom": 17,
+      "charisma": 21
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 9,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 8,
+      "intelligence": 4,
+      "wisdom": 3,
+      "charisma": 5
     },
     "saving_throws": {
       "charisma": "+12",
@@ -3188,20 +3188,20 @@
     "hp": "212 (17d12 + 102)",
     "speed": "12 m, nuotare 12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 25,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 23,
+      "intelligence": 16,
+      "wisdom": 15,
+      "charisma": 19
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 7,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 6,
+      "intelligence": 3,
+      "wisdom": 2,
+      "charisma": 4
     },
     "saving_throws": {
       "charisma": "+9",
@@ -3284,20 +3284,20 @@
     "hp": "142 (15d10 + 60)",
     "speed": "12 m, nuotare 12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 21,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 19,
+      "intelligence": 14,
+      "wisdom": 13,
+      "charisma": 17
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 5,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 4,
+      "intelligence": 2,
+      "wisdom": 1,
+      "charisma": 3
     },
     "saving_throws": {
       "charisma": "+6",
@@ -3359,20 +3359,20 @@
     "hp": "32 (5d8 + 10)",
     "speed": "9 m, nuotare 9 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 17,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 15,
+      "intelligence": 12,
+      "wisdom": 11,
+      "charisma": 15
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 3,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "constitution": 2,
+      "intelligence": 1,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 2
     },
     "saving_throws": {
       "charisma": "+4",
@@ -3422,20 +3422,20 @@
     "hp": "350 (20d20 + 140)",
     "speed": "12 m, scalare 12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 27,
+      "dexterity": 12,
+      "constitution": 25,
+      "intelligence": 20,
+      "wisdom": 17,
+      "charisma": 19
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 8,
+      "dexterity": 1,
+      "constitution": 7,
+      "intelligence": 5,
+      "wisdom": 3,
+      "charisma": 4
     },
     "saving_throws": {
       "charisma": "+11",
@@ -3518,20 +3518,20 @@
     "hp": "184 (16d12 + 80)",
     "speed": "12 m, scalare 12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 23,
+      "dexterity": 12,
+      "constitution": 21,
+      "intelligence": 18,
+      "wisdom": 15,
+      "charisma": 17
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 6,
+      "dexterity": 1,
+      "constitution": 5,
+      "intelligence": 4,
+      "wisdom": 2,
+      "charisma": 3
     },
     "saving_throws": {
       "charisma": "+8",
@@ -3614,20 +3614,20 @@
     "hp": "119 (14d10 + 42)",
     "speed": "12 m, scalare 12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 19,
+      "dexterity": 12,
+      "constitution": 17,
+      "intelligence": 16,
+      "wisdom": 13,
+      "charisma": 15
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 4,
+      "dexterity": 1,
+      "constitution": 3,
+      "intelligence": 3,
+      "wisdom": 1,
+      "charisma": 2
     },
     "saving_throws": {
       "charisma": "+5",
@@ -3685,20 +3685,20 @@
     "hp": "22 (4d8 + 4)",
     "speed": "9 m, scalare 9 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 15,
+      "dexterity": 12,
+      "constitution": 13,
+      "intelligence": 14,
+      "wisdom": 11,
+      "charisma": 13
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 2,
+      "dexterity": 1,
+      "constitution": 1,
+      "intelligence": 2,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 1
     },
     "saving_throws": {
       "charisma": "+3",
@@ -3748,20 +3748,20 @@
     "hp": "546 (28d20 + 252)",
     "speed": "12 m, nuotare 12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 30,
+      "dexterity": 14,
+      "constitution": 29,
+      "intelligence": 18,
+      "wisdom": 17,
+      "charisma": 28
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 10,
+      "dexterity": 2,
+      "constitution": 9,
+      "intelligence": 4,
+      "wisdom": 3,
+      "charisma": 9
     },
     "saving_throws": {
       "charisma": "+16",
@@ -3844,20 +3844,20 @@
     "hp": "256 (19d12 + 133)",
     "speed": "12 m, nuotare 12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 27,
+      "dexterity": 14,
+      "constitution": 25,
+      "intelligence": 16,
+      "wisdom": 15,
+      "charisma": 24
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 8,
+      "dexterity": 2,
+      "constitution": 7,
+      "intelligence": 3,
+      "wisdom": 2,
+      "charisma": 7
     },
     "saving_throws": {
       "charisma": "+13",
@@ -3940,20 +3940,20 @@
     "hp": "178 (17d10 + 85)",
     "speed": "12 m, nuotare 12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 23,
+      "dexterity": 14,
+      "constitution": 21,
+      "intelligence": 16,
+      "wisdom": 13,
+      "charisma": 20
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 6,
+      "dexterity": 2,
+      "constitution": 5,
+      "intelligence": 3,
+      "wisdom": 1,
+      "charisma": 5
     },
     "saving_throws": {
       "charisma": "+9",
@@ -4011,20 +4011,20 @@
     "hp": "60 (8d8 + 24)",
     "speed": "9 m, nuotare 9 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 19,
+      "dexterity": 14,
+      "constitution": 17,
+      "intelligence": 14,
+      "wisdom": 11,
+      "charisma": 16
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 4,
+      "dexterity": 2,
+      "constitution": 3,
+      "intelligence": 2,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 3
     },
     "saving_throws": {
       "charisma": "+5",
@@ -4074,20 +4074,20 @@
     "hp": "297 (17d20 + 119)",
     "speed": "12 m, scavare 12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 27,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 25,
+      "intelligence": 16,
+      "wisdom": 15,
+      "charisma": 19
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 8,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 7,
+      "intelligence": 3,
+      "wisdom": 2,
+      "charisma": 4
     },
     "saving_throws": {
       "charisma": "+10",
@@ -4170,20 +4170,20 @@
     "hp": "172 (15d12 + 75)",
     "speed": "12 m, scavare 9 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 23,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 21,
+      "intelligence": 14,
+      "wisdom": 13,
+      "charisma": 17
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 6,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 5,
+      "intelligence": 2,
+      "wisdom": 1,
+      "charisma": 3
     },
     "saving_throws": {
       "charisma": "+8",
@@ -4262,20 +4262,20 @@
     "hp": "110 (13d10 + 39)",
     "speed": "12 m, scavare 6 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 19,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 17,
+      "intelligence": 12,
+      "wisdom": 11,
+      "charisma": 15
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 4,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "constitution": 3,
+      "intelligence": 1,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 2
     },
     "saving_throws": {
       "charisma": "+5",
@@ -4333,20 +4333,20 @@
     "hp": "16 (3d8 + 3)",
     "speed": "9 m, scavare 4,5 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 15,
       "dexterity": 10,
-      "constitution": 10,
+      "constitution": 13,
       "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "wisdom": 11,
+      "charisma": 13
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 2,
       "dexterity": 0,
-      "constitution": 0,
+      "constitution": 1,
       "intelligence": 0,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 1
     },
     "saving_throws": {
       "charisma": "+3",
@@ -4396,20 +4396,20 @@
     "hp": "333 (18d20 + 144)",
     "speed": "12 m, nuotare 12 m, scavare 12 m,",
     "ability_scores": {
-      "strength": 10,
+      "strength": 26,
       "dexterity": 10,
-      "constitution": 10,
+      "constitution": 26,
       "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "wisdom": 13,
+      "charisma": 14
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 8,
       "dexterity": 0,
-      "constitution": 0,
+      "constitution": 8,
       "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "wisdom": 1,
+      "charisma": 2
     },
     "saving_throws": {
       "charisma": "+8",
@@ -4489,20 +4489,20 @@
     "hp": "200 (16d12 + 96)",
     "speed": "12 m, nuotare 12 m, scavare 9 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 22,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 22,
+      "intelligence": 8,
+      "wisdom": 12,
+      "charisma": 12
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 6,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 6,
+      "intelligence": -1,
+      "wisdom": 1,
+      "charisma": 1
     },
     "saving_throws": {
       "charisma": "+6",
@@ -4582,20 +4582,20 @@
     "hp": "133 (14d10 + 56)",
     "speed": "12 m, nuotare 12 m, scavare 6 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 18,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 18,
+      "intelligence": 6,
+      "wisdom": 11,
+      "charisma": 12
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 4,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "constitution": 4,
+      "intelligence": -2,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 1
     },
     "saving_throws": {
       "charisma": "+4",
@@ -4649,18 +4649,18 @@
     "hp": "32 (5d8 + 10)",
     "speed": "9 m, nuotare 9 m, scavare 4,5 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 14,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "constitution": 14,
+      "intelligence": 5,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 11
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 2,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "constitution": 2,
+      "intelligence": -3,
       "wisdom": 0,
       "charisma": 0
     },
@@ -4708,20 +4708,20 @@
     "hp": "481 (26d20 + 208)",
     "speed": "12 m, scavare 12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 29,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 27,
+      "intelligence": 18,
+      "wisdom": 17,
+      "charisma": 21
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 9,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 8,
+      "intelligence": 4,
+      "wisdom": 3,
+      "charisma": 5
     },
     "saving_throws": {
       "charisma": "+12",
@@ -4796,20 +4796,20 @@
     "hp": "225 (18d12 + 108)",
     "speed": "12 m, scavare 9 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 25,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 23,
+      "intelligence": 16,
+      "wisdom": 15,
+      "charisma": 19
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 7,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 6,
+      "intelligence": 3,
+      "wisdom": 2,
+      "charisma": 4
     },
     "saving_throws": {
       "charisma": "+9",
@@ -4884,20 +4884,20 @@
     "hp": "152 (16d10 + 64)",
     "speed": "12 m, scavare 6 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 21,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 19,
+      "intelligence": 14,
+      "wisdom": 13,
+      "charisma": 17
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 5,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 4,
+      "intelligence": 2,
+      "wisdom": 1,
+      "charisma": 3
     },
     "saving_throws": {
       "charisma": "+7",
@@ -4951,20 +4951,20 @@
     "hp": "52 (8d8 + 16)",
     "speed": "9 m, scavare 4,5 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 17,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 15,
+      "intelligence": 12,
+      "wisdom": 11,
+      "charisma": 15
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 3,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "constitution": 2,
+      "intelligence": 1,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 2
     },
     "saving_throws": {
       "charisma": "+4",
@@ -5010,20 +5010,20 @@
     "hp": "367 (21d20 + 147)",
     "speed": "12 m, nuotare 12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 27,
+      "dexterity": 14,
+      "constitution": 25,
+      "intelligence": 16,
+      "wisdom": 15,
+      "charisma": 19
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 8,
+      "dexterity": 2,
+      "constitution": 7,
+      "intelligence": 3,
+      "wisdom": 2,
+      "charisma": 4
     },
     "saving_throws": {
       "charisma": "+11",
@@ -5098,20 +5098,20 @@
     "hp": "195 (17d12 + 85)",
     "speed": "12 m, nuotare 12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 23,
+      "dexterity": 14,
+      "constitution": 21,
+      "intelligence": 14,
+      "wisdom": 13,
+      "charisma": 17
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 6,
+      "dexterity": 2,
+      "constitution": 5,
+      "intelligence": 2,
+      "wisdom": 1,
+      "charisma": 3
     },
     "saving_throws": {
       "charisma": "+8",
@@ -5186,20 +5186,20 @@
     "hp": "127 (15d10 + 45)",
     "speed": "12 m, nuotare 12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 19,
+      "dexterity": 14,
+      "constitution": 17,
+      "intelligence": 12,
+      "wisdom": 11,
+      "charisma": 15
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 4,
+      "dexterity": 2,
+      "constitution": 3,
+      "intelligence": 1,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 2
     },
     "saving_throws": {
       "charisma": "+5",
@@ -5253,20 +5253,20 @@
     "hp": "33 (6d8 + 6)",
     "speed": "9 m, nuotare 9 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
+      "strength": 15,
+      "dexterity": 14,
+      "constitution": 13,
       "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "wisdom": 11,
+      "charisma": 13
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
+      "strength": 2,
+      "dexterity": 2,
+      "constitution": 1,
       "intelligence": 0,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 1
     },
     "saving_throws": {
       "charisma": "+3",
@@ -5312,20 +5312,20 @@
     "hp": "546 (28d20 + 252)",
     "speed": "12 m, scalare 12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 30,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 29,
+      "intelligence": 18,
+      "wisdom": 15,
+      "charisma": 23
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 10,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 9,
+      "intelligence": 4,
+      "wisdom": 2,
+      "charisma": 6
     },
     "saving_throws": {
       "charisma": "+13",
@@ -5400,20 +5400,20 @@
     "hp": "256 (19d12 + 133)",
     "speed": "12 m, scalare 12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 27,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 25,
+      "intelligence": 16,
+      "wisdom": 13,
+      "charisma": 21
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 8,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 7,
+      "intelligence": 3,
+      "wisdom": 1,
+      "charisma": 5
     },
     "saving_throws": {
       "charisma": "+11",
@@ -5488,20 +5488,20 @@
     "hp": "178 (17d10 + 85)",
     "speed": "12 m, scalare 12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 23,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 21,
+      "intelligence": 14,
+      "wisdom": 11,
+      "charisma": 19
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 6,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "constitution": 5,
+      "intelligence": 2,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 4
     },
     "saving_throws": {
       "charisma": "+8",
@@ -5555,20 +5555,20 @@
     "hp": "75 (10d8 + 30)",
     "speed": "9 m, scalare 9 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 19,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 17,
+      "intelligence": 12,
+      "wisdom": 11,
+      "charisma": 15
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 4,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "constitution": 3,
+      "intelligence": 1,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 2
     },
     "saving_throws": {
       "charisma": "+4",
@@ -5614,20 +5614,20 @@
     "hp": "385 (22d20 + 154)",
     "speed": "12 m, nuotare 12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 27,
+      "dexterity": 12,
+      "constitution": 25,
+      "intelligence": 20,
+      "wisdom": 17,
+      "charisma": 19
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 8,
+      "dexterity": 1,
+      "constitution": 7,
+      "intelligence": 5,
+      "wisdom": 3,
+      "charisma": 4
     },
     "saving_throws": {
       "charisma": "+11",
@@ -5702,20 +5702,20 @@
     "hp": "207 (18d12 + 90)",
     "speed": "12 m, nuotare 12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 23,
+      "dexterity": 12,
+      "constitution": 21,
+      "intelligence": 18,
+      "wisdom": 15,
+      "charisma": 17
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 6,
+      "dexterity": 1,
+      "constitution": 5,
+      "intelligence": 4,
+      "wisdom": 2,
+      "charisma": 3
     },
     "saving_throws": {
       "charisma": "+8",
@@ -5790,20 +5790,20 @@
     "hp": "136 (16d10 + 48)",
     "speed": "12 m, nuotare 12 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 19,
+      "dexterity": 12,
+      "constitution": 17,
+      "intelligence": 16,
+      "wisdom": 13,
+      "charisma": 15
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 4,
+      "dexterity": 1,
+      "constitution": 3,
+      "intelligence": 3,
+      "wisdom": 1,
+      "charisma": 2
     },
     "saving_throws": {
       "charisma": "+5",
@@ -5857,20 +5857,20 @@
     "hp": "38 (7d8 + 7)",
     "speed": "9 m, nuotare 9 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 15,
+      "dexterity": 12,
+      "constitution": 13,
+      "intelligence": 14,
+      "wisdom": 11,
+      "charisma": 13
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 2,
+      "dexterity": 1,
+      "constitution": 1,
+      "intelligence": 2,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 1
     },
     "saving_throws": {
       "charisma": "+3",
@@ -5917,19 +5917,19 @@
     "speed": "9 m",
     "ability_scores": {
       "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "dexterity": 12,
+      "constitution": 11,
+      "intelligence": 14,
+      "wisdom": 15,
+      "charisma": 18
     },
     "ability_mods": {
       "strength": 0,
-      "dexterity": 0,
+      "dexterity": 1,
       "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "intelligence": 2,
+      "wisdom": 2,
+      "charisma": 4
     },
     "saving_throws": {},
     "skills": "Furtività +5, Percezione +4",
@@ -5983,20 +5983,20 @@
     "hp": "123 (13d10 + 52)",
     "speed": "9 m, scalare 9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 16,
+      "dexterity": 16,
+      "constitution": 18,
+      "intelligence": 13,
+      "wisdom": 14,
+      "charisma": 12
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 3,
+      "dexterity": 3,
+      "constitution": 4,
+      "intelligence": 1,
+      "wisdom": 2,
+      "charisma": 1
     },
     "saving_throws": {},
     "skills": "Furtività +9, Percezione +5",
@@ -6062,20 +6062,20 @@
     "hp": "26 (4d8 + 8)",
     "speed": "7,5 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 14,
+      "dexterity": 11,
+      "constitution": 14,
+      "intelligence": 11,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 9
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 2,
       "dexterity": 0,
-      "constitution": 0,
+      "constitution": 2,
       "intelligence": 0,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "",
@@ -6130,19 +6130,19 @@
     "speed": "15 m",
     "ability_scores": {
       "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "dexterity": 17,
+      "constitution": 16,
+      "intelligence": 6,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 7
     },
     "ability_mods": {
       "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "dexterity": 3,
+      "constitution": 3,
+      "intelligence": -2,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "",
@@ -6192,20 +6192,20 @@
     "hp": "126 (12d10 + 60)",
     "speed": "9 m, scavare 9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 20,
+      "dexterity": 8,
+      "constitution": 20,
+      "intelligence": 5,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 5
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 5,
+      "dexterity": -1,
+      "constitution": 5,
+      "intelligence": -3,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -3
     },
     "saving_throws": {},
     "skills": "",
@@ -6251,20 +6251,20 @@
     "hp": "114 (12d10 + 48)",
     "speed": "9 m, nuotare 27 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 18,
+      "dexterity": 14,
+      "constitution": 18,
+      "intelligence": 5,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 8
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 4,
+      "dexterity": 2,
+      "constitution": 4,
+      "intelligence": -3,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "",
@@ -6314,20 +6314,20 @@
     "hp": "90 (12d10 + 24)",
     "speed": "0 m, volare 27 m (fluttuare)",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 14,
+      "dexterity": 20,
+      "constitution": 14,
+      "intelligence": 6,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 6
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 2,
+      "dexterity": 5,
+      "constitution": 2,
+      "intelligence": -2,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "",
@@ -6373,19 +6373,19 @@
     "speed": "9 m",
     "ability_scores": {
       "strength": 10,
-      "dexterity": 10,
+      "dexterity": 14,
       "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "intelligence": 11,
+      "wisdom": 11,
+      "charisma": 12
     },
     "ability_mods": {
       "strength": 0,
-      "dexterity": 0,
+      "dexterity": 2,
       "constitution": 0,
       "intelligence": 0,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 1
     },
     "saving_throws": {},
     "skills": "Furtività +4, Percezione +2",
@@ -6435,20 +6435,20 @@
     "hp": "44 (8d8 + 8)",
     "speed": "9 m, scalare 9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 14,
+      "dexterity": 15,
+      "constitution": 13,
+      "intelligence": 7,
+      "wisdom": 12,
+      "charisma": 8
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 2,
+      "dexterity": 2,
+      "constitution": 1,
+      "intelligence": -2,
+      "wisdom": 1,
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "Furtività +4, Percezione +3, Sopravvivenza +3",
@@ -6506,20 +6506,20 @@
     "hp": "85 (10d10 + 30)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 21,
+      "dexterity": 8,
+      "constitution": 17,
+      "intelligence": 6,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 8
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 5,
+      "dexterity": -1,
+      "constitution": 3,
+      "intelligence": -2,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "Percezione +4",
@@ -6569,20 +6569,20 @@
     "hp": "45 (10d8)",
     "speed": "0 m, volare 12 m (fluttuare)",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
+      "strength": 7,
+      "dexterity": 13,
       "constitution": 10,
       "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "wisdom": 12,
+      "charisma": 17
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
+      "strength": -2,
+      "dexterity": 1,
       "constitution": 0,
       "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "wisdom": 1,
+      "charisma": 3
     },
     "saving_throws": {},
     "skills": "",
@@ -6637,19 +6637,19 @@
     "speed": "3 m, nuotare 3 m",
     "ability_scores": {
       "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "dexterity": 8,
+      "constitution": 16,
+      "intelligence": 3,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 6
     },
     "ability_mods": {
       "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "dexterity": -1,
+      "constitution": 3,
+      "intelligence": -4,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "",
@@ -6703,20 +6703,20 @@
     "hp": "13 (3d8)",
     "speed": "0 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
+      "strength": 1,
+      "dexterity": 1,
       "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "intelligence": 1,
+      "wisdom": 3,
+      "charisma": 1
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
+      "strength": -5,
+      "dexterity": -5,
       "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "intelligence": -5,
+      "wisdom": -4,
+      "charisma": -5
     },
     "saving_throws": {},
     "skills": "",
@@ -6753,20 +6753,20 @@
     "hp": "18 (4d8)",
     "speed": "1,5 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
+      "strength": 3,
+      "dexterity": 1,
       "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "intelligence": 1,
+      "wisdom": 3,
+      "charisma": 1
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
+      "strength": -4,
+      "dexterity": -5,
       "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "intelligence": -5,
+      "wisdom": -4,
+      "charisma": -5
     },
     "saving_throws": {},
     "skills": "",
@@ -6812,19 +6812,19 @@
     "hp": "22 (9d4)",
     "speed": "0 m, volare 15 m (fluttuare)",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
+      "strength": 1,
+      "dexterity": 28,
       "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "intelligence": 13,
+      "wisdom": 14,
+      "charisma": 11
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
+      "strength": -5,
+      "dexterity": 9,
       "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
+      "intelligence": 1,
+      "wisdom": 2,
       "charisma": 0
     },
     "saving_throws": {},
@@ -6879,20 +6879,20 @@
     "hp": "93 (11d10 + 33)",
     "speed": "3 m, scalare 3 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 18,
+      "dexterity": 8,
+      "constitution": 17,
+      "intelligence": 7,
+      "wisdom": 16,
+      "charisma": 6
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 4,
+      "dexterity": -1,
+      "constitution": 3,
+      "intelligence": -2,
+      "wisdom": 3,
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "Furtività +5, Percezione +6",
@@ -6950,20 +6950,20 @@
     "hp": "52 (7d8 + 21)",
     "speed": "9 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 15,
+      "dexterity": 11,
+      "constitution": 16,
+      "intelligence": 6,
+      "wisdom": 11,
+      "charisma": 7
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 2,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "constitution": 3,
+      "intelligence": -2,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "",
@@ -7008,20 +7008,20 @@
     "hp": "161 (14d10 + 84)",
     "speed": "9 m, volare 27 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 21,
+      "dexterity": 15,
+      "constitution": 22,
+      "intelligence": 15,
+      "wisdom": 16,
+      "charisma": 20
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 5,
+      "dexterity": 2,
+      "constitution": 6,
+      "intelligence": 2,
+      "wisdom": 3,
+      "charisma": 5
     },
     "saving_throws": {
       "charisma": "+9",
@@ -7075,20 +7075,20 @@
     "hp": "200 (16d10 + 112)",
     "speed": "12 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 22,
+      "dexterity": 12,
+      "constitution": 24,
+      "intelligence": 16,
+      "wisdom": 15,
+      "charisma": 16
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 6,
+      "dexterity": 1,
+      "constitution": 7,
+      "intelligence": 3,
+      "wisdom": 2,
+      "charisma": 3
     },
     "saving_throws": {
       "charisma": "+7",
@@ -7142,20 +7142,20 @@
     "hp": "36 (8d8)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
+      "strength": 16,
+      "dexterity": 17,
       "constitution": 10,
-      "intelligence": 10,
+      "intelligence": 11,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 8
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
+      "strength": 3,
+      "dexterity": 3,
       "constitution": 0,
       "intelligence": 0,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "",
@@ -7201,20 +7201,20 @@
     "hp": "22 (5d8)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
+      "strength": 13,
+      "dexterity": 15,
       "constitution": 10,
-      "intelligence": 10,
+      "intelligence": 7,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 6
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
+      "strength": 1,
+      "dexterity": 2,
       "constitution": 0,
-      "intelligence": 0,
+      "intelligence": -2,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "",
@@ -7255,20 +7255,20 @@
     "hp": "162 (13d12 + 78)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
+      "strength": 25,
+      "dexterity": 9,
+      "constitution": 23,
       "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "wisdom": 14,
+      "charisma": 13
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
+      "strength": 7,
+      "dexterity": -1,
+      "constitution": 6,
       "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "wisdom": 2,
+      "charisma": 1
     },
     "saving_throws": {
       "charisma": "+5",
@@ -7317,20 +7317,20 @@
     "hp": "138 (12d12 + 60)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 23,
+      "dexterity": 9,
+      "constitution": 21,
+      "intelligence": 9,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 12
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 6,
+      "dexterity": -1,
+      "constitution": 5,
+      "intelligence": -1,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 1
     },
     "saving_throws": {
       "charisma": "+4",
@@ -7379,20 +7379,20 @@
     "hp": "105 (10d12 + 40)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 21,
+      "dexterity": 8,
+      "constitution": 19,
+      "intelligence": 5,
+      "wisdom": 9,
+      "charisma": 6
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 5,
+      "dexterity": -1,
+      "constitution": 4,
+      "intelligence": -3,
+      "wisdom": -1,
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "Percezione +2",
@@ -7437,20 +7437,20 @@
     "hp": "200 (16d12 + 96)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 27,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 22,
+      "intelligence": 12,
+      "wisdom": 16,
+      "charisma": 16
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 8,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 6,
+      "intelligence": 1,
+      "wisdom": 3,
+      "charisma": 3
     },
     "saving_throws": {
       "charisma": "+7",
@@ -7499,20 +7499,20 @@
     "hp": "126 (11d12 + 55)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
+      "strength": 23,
+      "dexterity": 15,
+      "constitution": 20,
       "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "wisdom": 12,
+      "charisma": 9
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
+      "strength": 6,
+      "dexterity": 2,
+      "constitution": 5,
       "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "wisdom": 1,
+      "charisma": -1
     },
     "saving_throws": {
       "constitution": "+8",
@@ -7566,20 +7566,20 @@
     "hp": "230 (20d12 + 100)",
     "speed": "15 m, nuotare 15 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 29,
+      "dexterity": 14,
+      "constitution": 20,
+      "intelligence": 16,
+      "wisdom": 18,
+      "charisma": 18
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 9,
+      "dexterity": 2,
+      "constitution": 5,
+      "intelligence": 3,
+      "wisdom": 4,
+      "charisma": 4
     },
     "saving_throws": {
       "charisma": "+9",
@@ -7633,20 +7633,20 @@
     "hp": "22 (5d8)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 14,
+      "dexterity": 12,
+      "constitution": 11,
+      "intelligence": 6,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 7
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
+      "strength": 2,
+      "dexterity": 1,
       "constitution": 0,
-      "intelligence": 0,
+      "intelligence": -2,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "",
@@ -7691,20 +7691,20 @@
     "hp": "16 (3d6 + 6)",
     "speed": "6 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 15,
+      "dexterity": 14,
+      "constitution": 14,
+      "intelligence": 12,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 9
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 2,
+      "dexterity": 2,
+      "constitution": 2,
+      "intelligence": 1,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "Furtività +4, Indagare +3, Percezione +2",
@@ -7750,20 +7750,20 @@
     "hp": "7 (2d6)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
+      "strength": 8,
+      "dexterity": 14,
       "constitution": 10,
       "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "wisdom": 8,
+      "charisma": 8
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
+      "strength": -1,
+      "dexterity": 2,
       "constitution": 0,
       "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "wisdom": -1,
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "Furtività +6",
@@ -7804,20 +7804,20 @@
     "hp": "133 (14d10 + 56)",
     "speed": "6 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 20,
+      "dexterity": 9,
+      "constitution": 18,
+      "intelligence": 3,
+      "wisdom": 8,
+      "charisma": 1
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 5,
+      "dexterity": -1,
+      "constitution": 4,
+      "intelligence": -4,
+      "wisdom": -1,
+      "charisma": -5
     },
     "saving_throws": {},
     "skills": "",
@@ -7883,20 +7883,20 @@
     "hp": "93 (11d8 + 44)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 19,
+      "dexterity": 9,
+      "constitution": 18,
+      "intelligence": 6,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 5
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 4,
+      "dexterity": -1,
+      "constitution": 4,
+      "intelligence": -2,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -3
     },
     "saving_throws": {},
     "skills": "",
@@ -7958,20 +7958,20 @@
     "hp": "210 (20d10 + 100)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 24,
+      "dexterity": 9,
+      "constitution": 20,
+      "intelligence": 3,
+      "wisdom": 11,
+      "charisma": 1
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 7,
+      "dexterity": -1,
+      "constitution": 5,
+      "intelligence": -4,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -5
     },
     "saving_throws": {},
     "skills": "",
@@ -8029,20 +8029,20 @@
     "hp": "178 (17d10 + 85)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 22,
+      "dexterity": 9,
+      "constitution": 20,
+      "intelligence": 3,
+      "wisdom": 11,
+      "charisma": 1
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 6,
+      "dexterity": -1,
+      "constitution": 5,
+      "intelligence": -4,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -5
     },
     "saving_throws": {},
     "skills": "",
@@ -8096,20 +8096,20 @@
     "hp": "114 (12d10 + 48)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 20,
+      "dexterity": 11,
+      "constitution": 18,
+      "intelligence": 2,
+      "wisdom": 12,
+      "charisma": 7
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 5,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 4,
+      "intelligence": -4,
+      "wisdom": 1,
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "Percezione +4",
@@ -8154,20 +8154,20 @@
     "hp": "27 (6d8)",
     "speed": "9 m, scalare 9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 14,
+      "dexterity": 14,
+      "constitution": 11,
+      "intelligence": 3,
+      "wisdom": 14,
+      "charisma": 5
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
+      "strength": 2,
+      "dexterity": 2,
       "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "intelligence": -4,
+      "wisdom": 2,
+      "charisma": -3
     },
     "saving_throws": {},
     "skills": "",
@@ -8212,20 +8212,20 @@
     "hp": "59 (7d10 + 21)",
     "speed": "9 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 18,
+      "dexterity": 15,
+      "constitution": 16,
+      "intelligence": 2,
+      "wisdom": 13,
+      "charisma": 8
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 4,
+      "dexterity": 2,
+      "constitution": 3,
+      "intelligence": -4,
+      "wisdom": 1,
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "Percezione +5",
@@ -8275,20 +8275,20 @@
     "hp": "11 (2d8 + 2)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 16,
+      "dexterity": 12,
+      "constitution": 12,
+      "intelligence": 9,
+      "wisdom": 8,
+      "charisma": 6
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 3,
+      "dexterity": 1,
+      "constitution": 1,
+      "intelligence": -1,
+      "wisdom": -1,
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "Atletica +5, Furtività +3, Percezione +3",
@@ -8334,20 +8334,20 @@
     "hp": "142 (15d10 + 60)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 18,
+      "dexterity": 8,
+      "constitution": 18,
+      "intelligence": 7,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 3
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 4,
+      "dexterity": -1,
+      "constitution": 4,
+      "intelligence": -2,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -4
     },
     "saving_throws": {},
     "skills": "",
@@ -8402,20 +8402,20 @@
     "hp": "11 (2d8 + 2)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
+      "strength": 13,
+      "dexterity": 12,
+      "constitution": 12,
       "intelligence": 10,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 9
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
+      "strength": 1,
+      "dexterity": 1,
+      "constitution": 1,
       "intelligence": 0,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "",
@@ -8456,20 +8456,20 @@
     "hp": "172 (15d12 + 75)",
     "speed": "9 m, nuotare 9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 20,
+      "dexterity": 12,
+      "constitution": 20,
+      "intelligence": 2,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 7
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 5,
+      "dexterity": 1,
+      "constitution": 5,
+      "intelligence": -4,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "Percezione +6",
@@ -8519,20 +8519,20 @@
     "hp": "19 (3d10 + 3)",
     "speed": "12 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 17,
+      "dexterity": 13,
+      "constitution": 13,
+      "intelligence": 2,
+      "wisdom": 12,
+      "charisma": 8
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 3,
+      "dexterity": 1,
+      "constitution": 1,
+      "intelligence": -4,
+      "wisdom": 1,
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "Percezione +5",
@@ -8577,20 +8577,20 @@
     "hp": "472 (27d20 + 189)",
     "speed": "6 m, nuotare 18 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 30,
+      "dexterity": 11,
+      "constitution": 25,
+      "intelligence": 22,
+      "wisdom": 18,
+      "charisma": 20
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 10,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 7,
+      "intelligence": 6,
+      "wisdom": 4,
+      "charisma": 5
     },
     "saving_throws": {
       "strength": "+17",
@@ -8667,20 +8667,20 @@
     "hp": "97 (13d10 + 26)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 16,
+      "dexterity": 13,
+      "constitution": 15,
+      "intelligence": 14,
+      "wisdom": 15,
+      "charisma": 16
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 3,
+      "dexterity": 1,
+      "constitution": 2,
+      "intelligence": 2,
+      "wisdom": 2,
+      "charisma": 3
     },
     "saving_throws": {},
     "skills": "Furtività +3, Inganno +7, Intuizione +4",
@@ -8729,20 +8729,20 @@
     "hp": "78 (12d8 + 24)",
     "speed": "9 m (12 m in forma di cinghiale)",
     "ability_scores": {
-      "strength": 10,
+      "strength": 17,
       "dexterity": 10,
-      "constitution": 10,
+      "constitution": 15,
       "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "wisdom": 11,
+      "charisma": 8
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 3,
       "dexterity": 0,
-      "constitution": 0,
+      "constitution": 2,
       "intelligence": 0,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "Percezione +2",
@@ -8796,17 +8796,17 @@
     "hp": "58 (9d8 + 18)",
     "speed": "9 m (12 m in forma di lupo)",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
+      "strength": 15,
+      "dexterity": 13,
+      "constitution": 14,
       "intelligence": 10,
-      "wisdom": 10,
+      "wisdom": 11,
       "charisma": 10
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
+      "strength": 2,
+      "dexterity": 1,
+      "constitution": 2,
       "intelligence": 0,
       "wisdom": 0,
       "charisma": 0
@@ -8863,20 +8863,20 @@
     "hp": "135 (18d8 + 54)",
     "speed": "9 m (12 m, scalare 9 m in forma di orso",
     "ability_scores": {
-      "strength": 10,
+      "strength": 19,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 17,
+      "intelligence": 11,
+      "wisdom": 12,
+      "charisma": 12
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 4,
       "dexterity": 0,
-      "constitution": 0,
+      "constitution": 3,
       "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "wisdom": 1,
+      "charisma": 1
     },
     "saving_throws": {},
     "skills": "Percezione +7",
@@ -8930,19 +8930,19 @@
     "hp": "120 (16d8 + 48)",
     "speed": "9 m (12 m in forma di tigre)",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
+      "strength": 17,
+      "dexterity": 15,
+      "constitution": 16,
       "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "wisdom": 13,
+      "charisma": 11
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
+      "strength": 3,
+      "dexterity": 2,
+      "constitution": 3,
       "intelligence": 0,
-      "wisdom": 0,
+      "wisdom": 1,
       "charisma": 0
     },
     "saving_throws": {},
@@ -9006,19 +9006,19 @@
     "speed": "9 m",
     "ability_scores": {
       "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "dexterity": 15,
+      "constitution": 12,
+      "intelligence": 11,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 8
     },
     "ability_mods": {
       "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
+      "dexterity": 2,
+      "constitution": 1,
       "intelligence": 0,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "Furtività +4, Percezione +2",
@@ -9072,20 +9072,20 @@
     "hp": "135 (18d8 + 54)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 11,
+      "dexterity": 16,
+      "constitution": 16,
+      "intelligence": 20,
+      "wisdom": 14,
+      "charisma": 16
     },
     "ability_mods": {
       "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "dexterity": 3,
+      "constitution": 3,
+      "intelligence": 5,
+      "wisdom": 2,
+      "charisma": 3
     },
     "saving_throws": {
       "constitution": "+10",
@@ -9152,20 +9152,20 @@
     "hp": "22 (4d8 + 4)",
     "speed": "9 m, nuotare 9 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 15,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 13,
+      "intelligence": 7,
+      "wisdom": 12,
+      "charisma": 7
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 2,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 1,
+      "intelligence": -2,
+      "wisdom": 1,
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "Furtività +4, Percezione +3, Sopravvivenza +5",
@@ -9218,18 +9218,18 @@
     "hp": "9 (2d6 + 2)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
+      "strength": 7,
+      "dexterity": 15,
+      "constitution": 12,
+      "intelligence": 8,
+      "wisdom": 11,
       "charisma": 10
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": -2,
+      "dexterity": 2,
+      "constitution": 1,
+      "intelligence": -1,
       "wisdom": 0,
       "charisma": 0
     },
@@ -9273,20 +9273,20 @@
     "hp": "68 (8d10 + 24)",
     "speed": "9 m, volare 15 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 17,
+      "dexterity": 16,
+      "constitution": 17,
+      "intelligence": 7,
+      "wisdom": 12,
+      "charisma": 8
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 3,
+      "dexterity": 3,
+      "constitution": 3,
+      "intelligence": -2,
+      "wisdom": 1,
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "",
@@ -9335,20 +9335,20 @@
     "hp": "78 (12d10 + 12)",
     "speed": "3 m, volare 12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 17,
+      "dexterity": 15,
+      "constitution": 12,
+      "intelligence": 13,
+      "wisdom": 12,
+      "charisma": 14
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 3,
+      "dexterity": 2,
+      "constitution": 1,
+      "intelligence": 1,
+      "wisdom": 1,
+      "charisma": 2
     },
     "saving_throws": {},
     "skills": "Furtività +5",
@@ -9410,20 +9410,20 @@
     "hp": "22 (5d6 + 5)",
     "speed": "3 m, volare 9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 16,
+      "dexterity": 12,
+      "constitution": 13,
+      "intelligence": 2,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 5
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 3,
+      "dexterity": 1,
+      "constitution": 1,
+      "intelligence": -4,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -3
     },
     "saving_throws": {},
     "skills": "Furtività +3",
@@ -9470,19 +9470,19 @@
     "speed": "3 m, nuotare 12 m",
     "ability_scores": {
       "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "dexterity": 13,
+      "constitution": 12,
+      "intelligence": 11,
+      "wisdom": 11,
+      "charisma": 12
     },
     "ability_mods": {
       "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
+      "dexterity": 1,
+      "constitution": 1,
       "intelligence": 0,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 1
     },
     "saving_throws": {},
     "skills": "Percezione +2",
@@ -9520,19 +9520,19 @@
     "speed": "9 m",
     "ability_scores": {
       "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "dexterity": 15,
+      "constitution": 16,
+      "intelligence": 12,
+      "wisdom": 13,
+      "charisma": 15
     },
     "ability_mods": {
       "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "dexterity": 2,
+      "constitution": 3,
+      "intelligence": 1,
+      "wisdom": 1,
+      "charisma": 2
     },
     "saving_throws": {},
     "skills": "Furtività +5, Inganno +5, Intuizione +4,",
@@ -9581,20 +9581,20 @@
     "hp": "52 (7d8 + 21)",
     "speed": "9 m, nuotare 12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 16,
+      "dexterity": 13,
+      "constitution": 16,
+      "intelligence": 12,
+      "wisdom": 12,
+      "charisma": 13
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 3,
+      "dexterity": 1,
+      "constitution": 3,
+      "intelligence": 1,
+      "wisdom": 1,
+      "charisma": 1
     },
     "saving_throws": {},
     "skills": "",
@@ -9644,20 +9644,20 @@
     "hp": "112 (15d8 + 45)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 18,
+      "dexterity": 15,
+      "constitution": 16,
+      "intelligence": 16,
+      "wisdom": 14,
+      "charisma": 16
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 4,
+      "dexterity": 2,
+      "constitution": 3,
+      "intelligence": 3,
+      "wisdom": 2,
+      "charisma": 3
     },
     "saving_throws": {},
     "skills": "Furtività +6, Inganno +7, Intuizione +6,",
@@ -9706,20 +9706,20 @@
     "hp": "82 (11d8 + 33)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 18,
+      "dexterity": 12,
+      "constitution": 16,
+      "intelligence": 13,
+      "wisdom": 14,
+      "charisma": 14
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 4,
+      "dexterity": 1,
+      "constitution": 3,
+      "intelligence": 1,
+      "wisdom": 2,
+      "charisma": 2
     },
     "saving_throws": {},
     "skills": "Arcano +3, Furtività +3, Inganno +4, Percezione",
@@ -9769,20 +9769,20 @@
     "hp": "45 (6d10 + 12)",
     "speed": "3 m, scalare 3 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 15,
+      "dexterity": 6,
+      "constitution": 14,
+      "intelligence": 2,
+      "wisdom": 6,
+      "charisma": 1
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 2,
+      "dexterity": -2,
+      "constitution": 2,
+      "intelligence": -4,
+      "wisdom": -2,
+      "charisma": -5
     },
     "saving_throws": {},
     "skills": "",
@@ -9829,20 +9829,20 @@
     "hp": "84 (8d10 + 40)",
     "speed": "4,5 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 14,
+      "dexterity": 3,
+      "constitution": 20,
+      "intelligence": 1,
+      "wisdom": 6,
+      "charisma": 1
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 2,
+      "dexterity": -4,
+      "constitution": 5,
+      "intelligence": -5,
+      "wisdom": -2,
+      "charisma": -5
     },
     "saving_throws": {},
     "skills": "",
@@ -9888,20 +9888,20 @@
     "hp": "22 (3d8 + 9)",
     "speed": "3 m, scalare 3 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 12,
+      "dexterity": 6,
+      "constitution": 16,
+      "intelligence": 1,
+      "wisdom": 6,
+      "charisma": 2
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 1,
+      "dexterity": -2,
+      "constitution": 3,
+      "intelligence": -5,
+      "wisdom": -2,
+      "charisma": -4
     },
     "saving_throws": {},
     "skills": "Furtività +2",
@@ -9947,20 +9947,20 @@
     "hp": "85 (10d10 + 30)",
     "speed": "6 m, scalare 6 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 16,
+      "dexterity": 5,
+      "constitution": 16,
+      "intelligence": 1,
+      "wisdom": 6,
+      "charisma": 1
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 3,
+      "dexterity": -3,
+      "constitution": 3,
+      "intelligence": -5,
+      "wisdom": -2,
+      "charisma": -5
     },
     "saving_throws": {},
     "skills": "",
@@ -10011,20 +10011,20 @@
     "hp": "21 (6d6)",
     "speed": "9 m, volare 9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
+      "strength": 7,
+      "dexterity": 13,
       "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "intelligence": 9,
+      "wisdom": 11,
+      "charisma": 12
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
+      "strength": -2,
+      "dexterity": 1,
       "constitution": 0,
-      "intelligence": 0,
+      "intelligence": -1,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 1
     },
     "saving_throws": {},
     "skills": "Furtività +3, Percezione +2",
@@ -10074,18 +10074,18 @@
     "hp": "22 (5d6 + 5)",
     "speed": "9 m, volare 9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 8,
+      "dexterity": 12,
+      "constitution": 12,
+      "intelligence": 7,
       "wisdom": 10,
       "charisma": 10
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": -1,
+      "dexterity": 1,
+      "constitution": 1,
+      "intelligence": -2,
       "wisdom": 0,
       "charisma": 0
     },
@@ -10137,20 +10137,20 @@
     "hp": "21 (6d6)",
     "speed": "9 m, volare 9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
+      "strength": 5,
+      "dexterity": 11,
       "constitution": 10,
-      "intelligence": 10,
+      "intelligence": 11,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 12
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": -3,
       "dexterity": 0,
       "constitution": 0,
       "intelligence": 0,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 1
     },
     "saving_throws": {},
     "skills": "",
@@ -10196,18 +10196,18 @@
     "hp": "17 (5d6)",
     "speed": "9 m, volare 9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
+      "strength": 5,
+      "dexterity": 14,
       "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
+      "intelligence": 9,
+      "wisdom": 11,
       "charisma": 10
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
+      "strength": -3,
+      "dexterity": 2,
       "constitution": 0,
-      "intelligence": 0,
+      "intelligence": -1,
       "wisdom": 0,
       "charisma": 0
     },
@@ -10255,20 +10255,20 @@
     "hp": "45 (6d10 + 12)",
     "speed": "3 m, nuotare 12 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 18,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "constitution": 15,
+      "intelligence": 8,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 9
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 4,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "constitution": 2,
+      "intelligence": -1,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "",
@@ -10317,20 +10317,20 @@
     "hp": "58 (9d8 + 18)",
     "speed": "4,5 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 17,
+      "dexterity": 12,
+      "constitution": 15,
+      "intelligence": 5,
+      "wisdom": 13,
+      "charisma": 8
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 3,
+      "dexterity": 1,
+      "constitution": 2,
+      "intelligence": -3,
+      "wisdom": 1,
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "Furtività +5",
@@ -10384,20 +10384,20 @@
     "hp": "76 (9d10 + 27)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 18,
+      "dexterity": 11,
+      "constitution": 16,
+      "intelligence": 6,
+      "wisdom": 16,
+      "charisma": 9
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 4,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 3,
+      "intelligence": -2,
+      "wisdom": 3,
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "Percezione +7",
@@ -10447,20 +10447,20 @@
     "hp": "58 (9d8 + 18)",
     "speed": "6 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 16,
+      "dexterity": 8,
+      "constitution": 15,
+      "intelligence": 6,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 12
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 3,
+      "dexterity": -1,
+      "constitution": 2,
+      "intelligence": -2,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 1
     },
     "saving_throws": {
       "wisdom": "+2"
@@ -10507,20 +10507,20 @@
     "hp": "97 (13d8 + 39)",
     "speed": "6 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 18,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 17,
+      "intelligence": 11,
+      "wisdom": 18,
+      "charisma": 16
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 4,
       "dexterity": 0,
-      "constitution": 0,
+      "constitution": 3,
       "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "wisdom": 4,
+      "charisma": 3
     },
     "saving_throws": {
       "charisma": "+8",
@@ -10600,20 +10600,20 @@
     "hp": "127 (15d10 + 45)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 19,
+      "dexterity": 18,
+      "constitution": 16,
+      "intelligence": 16,
+      "wisdom": 19,
+      "charisma": 18
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 4,
+      "dexterity": 4,
+      "constitution": 3,
+      "intelligence": 3,
+      "wisdom": 4,
+      "charisma": 4
     },
     "saving_throws": {
       "dexterity": "+8",
@@ -10665,20 +10665,20 @@
     "hp": "75 (10d10 + 20)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 18,
+      "dexterity": 17,
+      "constitution": 14,
+      "intelligence": 16,
+      "wisdom": 15,
+      "charisma": 16
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 4,
+      "dexterity": 3,
+      "constitution": 2,
+      "intelligence": 3,
+      "wisdom": 2,
+      "charisma": 3
     },
     "saving_throws": {
       "charisma": "+6",
@@ -10725,20 +10725,20 @@
     "hp": "33 (6d8 + 6)",
     "speed": "7,5 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 14,
+      "dexterity": 11,
+      "constitution": 13,
+      "intelligence": 1,
+      "wisdom": 3,
+      "charisma": 1
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 2,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 1,
+      "intelligence": -5,
+      "wisdom": -4,
+      "charisma": -5
     },
     "saving_throws": {},
     "skills": "",
@@ -10784,20 +10784,20 @@
     "hp": "17 (5d6)",
     "speed": "0 m, volare 15 m (fluttuare)",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 12,
+      "dexterity": 15,
+      "constitution": 11,
+      "intelligence": 1,
+      "wisdom": 5,
+      "charisma": 1
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
+      "strength": 1,
+      "dexterity": 2,
       "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "intelligence": -5,
+      "wisdom": -3,
+      "charisma": -5
     },
     "saving_throws": {
       "dexterity": "+4"
@@ -10841,20 +10841,20 @@
     "hp": "33 (6d10)",
     "speed": "3 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
+      "strength": 17,
+      "dexterity": 14,
       "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "intelligence": 1,
+      "wisdom": 3,
+      "charisma": 1
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
+      "strength": 3,
+      "dexterity": 2,
       "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "intelligence": -5,
+      "wisdom": -4,
+      "charisma": -5
     },
     "saving_throws": {},
     "skills": "",
@@ -10900,20 +10900,20 @@
     "hp": "59 (7d10 + 21)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 19,
+      "dexterity": 8,
+      "constitution": 16,
+      "intelligence": 5,
+      "wisdom": 7,
+      "charisma": 7
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 4,
+      "dexterity": -1,
+      "constitution": 3,
+      "intelligence": -3,
+      "wisdom": -2,
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "",
@@ -10954,20 +10954,20 @@
     "hp": "16 (3d8 + 3)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 6,
+      "dexterity": 14,
+      "constitution": 13,
+      "intelligence": 6,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 8
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": -2,
+      "dexterity": 2,
+      "constitution": 1,
+      "intelligence": -2,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "Furtività +4 (+6 in condizioni di luce fioca",
@@ -11013,20 +11013,20 @@
     "hp": "5 (2d4)",
     "speed": "6 m, volare 12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
+      "strength": 4,
+      "dexterity": 15,
+      "constitution": 11,
       "intelligence": 10,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 7
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
+      "strength": -3,
+      "dexterity": 2,
       "constitution": 0,
       "intelligence": 0,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "",
@@ -11063,20 +11063,20 @@
     "hp": "110 (13d10 + 39)",
     "speed": "9 m, volare 9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 19,
+      "dexterity": 11,
+      "constitution": 16,
+      "intelligence": 14,
+      "wisdom": 12,
+      "charisma": 15
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 4,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 3,
+      "intelligence": 2,
+      "wisdom": 1,
+      "charisma": 2
     },
     "saving_throws": {
       "charisma": "+5",
@@ -11135,18 +11135,18 @@
     "hp": "15 (2d8 + 6)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
+      "strength": 16,
+      "dexterity": 12,
+      "constitution": 16,
+      "intelligence": 7,
+      "wisdom": 11,
       "charisma": 10
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 3,
+      "dexterity": 1,
+      "constitution": 3,
+      "intelligence": -2,
       "wisdom": 0,
       "charisma": 0
     },
@@ -11189,20 +11189,20 @@
     "hp": "59 (7d10 + 21)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 20,
+      "dexterity": 12,
+      "constitution": 17,
+      "intelligence": 3,
+      "wisdom": 12,
+      "charisma": 7
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 5,
+      "dexterity": 1,
+      "constitution": 3,
+      "intelligence": -4,
+      "wisdom": 1,
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "Percezione +3",
@@ -11247,20 +11247,20 @@
     "hp": "114 (12d10 + 48)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 16,
+      "dexterity": 11,
+      "constitution": 19,
+      "intelligence": 6,
+      "wisdom": 13,
+      "charisma": 6
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 3,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 4,
+      "intelligence": -2,
+      "wisdom": 1,
+      "charisma": -2
     },
     "saving_throws": {
       "constitution": "+7"
@@ -11311,20 +11311,20 @@
     "hp": "59 (7d10 + 21)",
     "speed": "18 m, volare 27 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
+      "strength": 18,
+      "dexterity": 15,
+      "constitution": 16,
       "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "wisdom": 15,
+      "charisma": 13
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
+      "strength": 4,
+      "dexterity": 2,
+      "constitution": 3,
       "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "wisdom": 2,
+      "charisma": 1
     },
     "saving_throws": {
       "charisma": "+3",
@@ -11365,19 +11365,19 @@
     "hp": "7 (2d4 + 2)",
     "speed": "4,5 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
+      "strength": 6,
+      "dexterity": 15,
+      "constitution": 13,
       "intelligence": 10,
-      "wisdom": 10,
+      "wisdom": 12,
       "charisma": 10
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
+      "strength": -2,
+      "dexterity": 2,
+      "constitution": 1,
       "intelligence": 0,
-      "wisdom": 0,
+      "wisdom": 1,
       "charisma": 0
     },
     "saving_throws": {},
@@ -11428,20 +11428,20 @@
     "hp": "110 (13d8 + 52)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 14,
+      "dexterity": 17,
+      "constitution": 18,
+      "intelligence": 13,
+      "wisdom": 16,
+      "charisma": 20
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 2,
+      "dexterity": 3,
+      "constitution": 4,
+      "intelligence": 1,
+      "wisdom": 3,
+      "charisma": 5
     },
     "saving_throws": {},
     "skills": "Inganno +10, Intuizione +8",
@@ -11487,20 +11487,20 @@
     "hp": "195 (17d12 + 85)",
     "speed": "9 m, scavare 6 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 24,
+      "dexterity": 13,
+      "constitution": 21,
+      "intelligence": 4,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 5
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "strength": 7,
+      "dexterity": 1,
+      "constitution": 5,
+      "intelligence": -3,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -3
     },
     "saving_throws": {},
     "skills": "",
@@ -11541,20 +11541,20 @@
     "hp": "248 (16d20 + 80)",
     "speed": "6 m, volare 36 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 28,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "constitution": 20,
+      "intelligence": 3,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 9
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 9,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "constitution": 5,
+      "intelligence": -4,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": -1
     },
     "saving_throws": {
       "charisma": "+3",
@@ -11604,20 +11604,20 @@
     "hp": "27 (5d8 + 5)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 13,
+      "dexterity": 12,
+      "constitution": 13,
+      "intelligence": 2,
+      "wisdom": 13,
+      "charisma": 6
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 1,
+      "dexterity": 1,
+      "constitution": 1,
+      "intelligence": -4,
+      "wisdom": 1,
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "",
@@ -11663,20 +11663,20 @@
     "hp": "22 (4d8 + 4)",
     "speed": "9 m, nuotare 12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 13,
+      "dexterity": 11,
+      "constitution": 12,
+      "intelligence": 12,
+      "wisdom": 13,
+      "charisma": 9
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 1,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 1,
+      "intelligence": 1,
+      "wisdom": 1,
+      "charisma": -1
     },
     "saving_throws": {},
     "skills": "Percezione +5",
@@ -11734,20 +11734,20 @@
     "hp": "90 (12d10 + 24)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 18,
+      "dexterity": 14,
+      "constitution": 15,
+      "intelligence": 11,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 12
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
+      "strength": 4,
+      "dexterity": 2,
+      "constitution": 2,
       "intelligence": 0,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 1
     },
     "saving_throws": {},
     "skills": "",
@@ -11797,20 +11797,20 @@
     "hp": "31 (7d8)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 12,
+      "dexterity": 16,
+      "constitution": 11,
+      "intelligence": 12,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 14
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
+      "strength": 1,
+      "dexterity": 3,
       "constitution": 0,
-      "intelligence": 0,
+      "intelligence": 1,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 2
     },
     "saving_throws": {},
     "skills": "Furtività +5, Intrattenere +6, Percezione +2",
@@ -11856,19 +11856,19 @@
     "speed": "9 m",
     "ability_scores": {
       "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "dexterity": 14,
+      "constitution": 15,
+      "intelligence": 6,
+      "wisdom": 8,
+      "charisma": 5
     },
     "ability_mods": {
       "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "dexterity": 2,
+      "constitution": 2,
+      "intelligence": -2,
+      "wisdom": -1,
+      "charisma": -3
     },
     "saving_throws": {},
     "skills": "",
@@ -11909,20 +11909,20 @@
     "hp": "22 (3d10 + 6)",
     "speed": "18 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 18,
+      "dexterity": 12,
+      "constitution": 15,
+      "intelligence": 2,
+      "wisdom": 8,
+      "charisma": 5
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 4,
+      "dexterity": 1,
+      "constitution": 2,
+      "intelligence": -4,
+      "wisdom": -1,
+      "charisma": -3
     },
     "saving_throws": {},
     "skills": "",
@@ -11959,20 +11959,20 @@
     "hp": "67 (9d10 + 18)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 18,
+      "dexterity": 11,
+      "constitution": 15,
+      "intelligence": 6,
+      "wisdom": 8,
+      "charisma": 5
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 4,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 2,
+      "intelligence": -2,
+      "wisdom": -1,
+      "charisma": -3
     },
     "saving_throws": {},
     "skills": "",
@@ -12013,20 +12013,20 @@
     "hp": "45 (7d8 + 14)",
     "speed": "15 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 17,
+      "dexterity": 12,
+      "constitution": 14,
+      "intelligence": 6,
+      "wisdom": 13,
+      "charisma": 6
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 3,
+      "dexterity": 1,
+      "constitution": 2,
+      "intelligence": -2,
+      "wisdom": 1,
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "Percezione +5",
@@ -12072,20 +12072,20 @@
     "hp": "199 (19d10 + 95)",
     "speed": "12 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 22,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 20,
+      "intelligence": 16,
+      "wisdom": 18,
+      "charisma": 23
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 6,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 5,
+      "intelligence": 3,
+      "wisdom": 4,
+      "charisma": 6
     },
     "saving_throws": {
       "constitution": "+11",
@@ -12173,20 +12173,20 @@
     "hp": "136 (16d10 + 48)",
     "speed": "12 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 18,
+      "dexterity": 15,
+      "constitution": 16,
+      "intelligence": 18,
+      "wisdom": 18,
+      "charisma": 18
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 4,
+      "dexterity": 2,
+      "constitution": 3,
+      "intelligence": 4,
+      "wisdom": 4,
+      "charisma": 4
     },
     "saving_throws": {},
     "skills": "Arcano +12, Percezione +8, Religione +8, Storia",
@@ -12249,16 +12249,16 @@
     "hp": "22 (5d8)",
     "speed": "0 m, volare 15 m (fluttuare)",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
+      "strength": 1,
+      "dexterity": 14,
+      "constitution": 11,
       "intelligence": 10,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 11
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
+      "strength": -5,
+      "dexterity": 2,
       "constitution": 0,
       "intelligence": 0,
       "wisdom": 0,
@@ -12304,19 +12304,19 @@
     "hp": "2 (1d4)",
     "speed": "3 m, volare 12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
+      "strength": 3,
+      "dexterity": 18,
       "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "intelligence": 14,
+      "wisdom": 13,
+      "charisma": 11
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
+      "strength": -4,
+      "dexterity": 4,
       "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
+      "intelligence": 2,
+      "wisdom": 1,
       "charisma": 0
     },
     "saving_throws": {},
@@ -12366,20 +12366,20 @@
     "hp": "66 (12d8 + 12)",
     "speed": "9 m, volare 18 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 8,
+      "dexterity": 17,
+      "constitution": 13,
+      "intelligence": 15,
+      "wisdom": 12,
+      "charisma": 20
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": -1,
+      "dexterity": 3,
+      "constitution": 1,
+      "intelligence": 2,
+      "wisdom": 1,
+      "charisma": 5
     },
     "saving_throws": {},
     "skills": "Furtività +7, Inganno +9, Intuizione +5,",
@@ -12433,18 +12433,18 @@
     "hp": "676 (33d20 + 330)",
     "speed": "12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 30,
+      "dexterity": 11,
+      "constitution": 30,
+      "intelligence": 3,
+      "wisdom": 11,
+      "charisma": 11
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 10,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
+      "constitution": 10,
+      "intelligence": -4,
       "wisdom": 0,
       "charisma": 0
     },
@@ -12537,20 +12537,20 @@
     "hp": "341 (22d20 + 110)",
     "speed": "6 m, nuotare 12 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 25,
       "dexterity": 10,
-      "constitution": 10,
+      "constitution": 20,
       "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "wisdom": 12,
+      "charisma": 12
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 7,
       "dexterity": 0,
-      "constitution": 0,
+      "constitution": 5,
       "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "wisdom": 1,
+      "charisma": 1
     },
     "saving_throws": {
       "constitution": "+11",
@@ -12607,20 +12607,20 @@
     "hp": "138 (12d12 + 60)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 23,
+      "dexterity": 8,
+      "constitution": 21,
+      "intelligence": 12,
+      "wisdom": 16,
+      "charisma": 12
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 6,
+      "dexterity": -1,
+      "constitution": 5,
+      "intelligence": 1,
+      "wisdom": 3,
+      "charisma": 1
     },
     "saving_throws": {},
     "skills": "",
@@ -12674,20 +12674,20 @@
     "hp": "84 (8d10 + 40)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 18,
+      "dexterity": 13,
+      "constitution": 20,
+      "intelligence": 7,
+      "wisdom": 9,
+      "charisma": 7
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 4,
+      "dexterity": 1,
+      "constitution": 5,
+      "intelligence": -2,
+      "wisdom": -1,
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "Percezione +2",
@@ -12737,20 +12737,20 @@
     "hp": "2 (1d4)",
     "speed": "3 m, volare 12 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 4,
+      "dexterity": 16,
+      "constitution": 11,
+      "intelligence": 2,
+      "wisdom": 8,
+      "charisma": 6
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
+      "strength": -3,
+      "dexterity": 3,
       "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "intelligence": -4,
+      "wisdom": -1,
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "",
@@ -12787,20 +12787,20 @@
     "hp": "67 (9d10 + 18)",
     "speed": "15 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 18,
+      "dexterity": 14,
+      "constitution": 15,
+      "intelligence": 11,
+      "wisdom": 17,
+      "charisma": 16
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
+      "strength": 4,
+      "dexterity": 2,
+      "constitution": 2,
       "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "wisdom": 3,
+      "charisma": 3
     },
     "saving_throws": {},
     "skills": "",
@@ -12875,20 +12875,20 @@
     "hp": "82 (11d8 + 33)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "strength": 16,
+      "dexterity": 16,
+      "constitution": 16,
+      "intelligence": 11,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 12
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
+      "strength": 3,
+      "dexterity": 3,
+      "constitution": 3,
       "intelligence": 0,
       "wisdom": 0,
-      "charisma": 0
+      "charisma": 1
     },
     "saving_throws": {
       "dexterity": "+6",
@@ -12945,20 +12945,20 @@
     "hp": "144 (17d8 + 68)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 18,
+      "dexterity": 18,
+      "constitution": 18,
+      "intelligence": 17,
+      "wisdom": 15,
+      "charisma": 18
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 4,
+      "dexterity": 4,
+      "constitution": 4,
+      "intelligence": 3,
+      "wisdom": 2,
+      "charisma": 4
     },
     "saving_throws": {
       "charisma": "+9",
@@ -13045,20 +13045,20 @@
     "hp": "247 (15d20 + 90)",
     "speed": "15 m, scavare 9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 28,
+      "dexterity": 7,
+      "constitution": 22,
+      "intelligence": 1,
+      "wisdom": 8,
+      "charisma": 4
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 9,
+      "dexterity": -2,
+      "constitution": 6,
+      "intelligence": -5,
+      "wisdom": -1,
+      "charisma": -3
     },
     "saving_throws": {
       "constitution": "+11",
@@ -13111,20 +13111,20 @@
     "hp": "110 (13d10 + 39)",
     "speed": "6 m, volare 24 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 19,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "constitution": 16,
+      "intelligence": 5,
+      "wisdom": 12,
+      "charisma": 6
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 4,
       "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "constitution": 3,
+      "intelligence": -3,
+      "wisdom": 1,
+      "charisma": -2
     },
     "saving_throws": {},
     "skills": "Percezione +4",
@@ -13173,20 +13173,20 @@
     "hp": "45 (6d8 + 18)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
+      "strength": 15,
+      "dexterity": 14,
+      "constitution": 16,
       "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "wisdom": 13,
+      "charisma": 15
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
+      "strength": 2,
+      "dexterity": 2,
+      "constitution": 3,
       "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "wisdom": 1,
+      "charisma": 2
     },
     "saving_throws": {},
     "skills": "Furtività +4, Percezione +3",
@@ -13235,20 +13235,20 @@
     "hp": "67 (9d8 + 27)",
     "speed": "0 m, volare 18 m (fluttuare)",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 6,
+      "dexterity": 16,
+      "constitution": 16,
+      "intelligence": 12,
+      "wisdom": 14,
+      "charisma": 15
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": -2,
+      "dexterity": 3,
+      "constitution": 3,
+      "intelligence": 1,
+      "wisdom": 2,
+      "charisma": 2
     },
     "saving_throws": {},
     "skills": "",
@@ -13294,17 +13294,17 @@
     "hp": "73 (7d8 + 42)",
     "speed": "6 m, scavare 6 m",
     "ability_scores": {
-      "strength": 10,
+      "strength": 17,
       "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
+      "constitution": 22,
+      "intelligence": 11,
       "wisdom": 10,
-      "charisma": 10
+      "charisma": 11
     },
     "ability_mods": {
-      "strength": 0,
+      "strength": 3,
       "dexterity": 0,
-      "constitution": 0,
+      "constitution": 6,
       "intelligence": 0,
       "wisdom": 0,
       "charisma": 0
@@ -13365,20 +13365,20 @@
     "hp": "22 (3d8 + 9)",
     "speed": "6 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 13,
+      "dexterity": 6,
+      "constitution": 16,
+      "intelligence": 3,
+      "wisdom": 6,
+      "charisma": 5
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 1,
+      "dexterity": -2,
+      "constitution": 3,
+      "intelligence": -4,
+      "wisdom": -2,
+      "charisma": -3
     },
     "saving_throws": {
       "wisdom": "+0"
@@ -13417,20 +13417,20 @@
     "hp": "85 (9d10 + 36)",
     "speed": "9 m",
     "ability_scores": {
-      "strength": 10,
-      "dexterity": 10,
-      "constitution": 10,
-      "intelligence": 10,
-      "wisdom": 10,
-      "charisma": 10
+      "strength": 19,
+      "dexterity": 6,
+      "constitution": 18,
+      "intelligence": 3,
+      "wisdom": 6,
+      "charisma": 5
     },
     "ability_mods": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "intelligence": 0,
-      "wisdom": 0,
-      "charisma": 0
+      "strength": 4,
+      "dexterity": -2,
+      "constitution": 4,
+      "intelligence": -4,
+      "wisdom": -2,
+      "charisma": -3
     },
     "saving_throws": {
       "wisdom": "+0"
