@@ -62,24 +62,40 @@ def _parse_ability_scores(content: list[Paragraph]) -> tuple[AbilityScores, Abil
         intelligence=0, wisdom=0, charisma=0,
     )
 
+    # Strategy 1: look for individual BODY_BOLD paragraphs (rare — usually merged)
+    # Strategy 2: find ability labels in spans across all paragraphs
     ability_order: list[str] = []
     score_values: list[str] = []
-    collecting_scores = False
 
+    # Scan all spans for ability abbreviations
     for para in content:
-        text = para.text.strip()
-        if para.role == SpanRole.BODY_BOLD and text.upper() in ("FOR", "DES", "COS", "INT", "SAG", "CAR"):
-            ability = _ABILITY_NAMES.get(text.lower())
-            if ability:
-                ability_order.append(ability)
-            collecting_scores = len(ability_order) >= 6
-            continue
+        for span in para.spans:
+            text = span.text.strip()
+            if span.role == SpanRole.BODY_BOLD and text.upper() in ("FOR", "DES", "COS", "INT", "SAG", "CAR"):
+                ability = _ABILITY_NAMES.get(text.lower())
+                if ability and ability not in ability_order:
+                    ability_order.append(ability)
 
-        if collecting_scores and para.role == SpanRole.SIDEBAR:
-            for m in re.finditer(r"(\d+)\s*\(([\+\-\−]?\d+)\)", text):
+    if len(ability_order) < 6:
+        # Fallback: search in merged paragraph text
+        ability_order = []
+        full_text = " ".join(p.text for p in content)
+        if "FOR" in full_text and "CAR" in full_text:
+            ability_order = ["strength", "dexterity", "constitution",
+                             "intelligence", "wisdom", "charisma"]
+
+    if not ability_order:
+        return scores, mods
+
+    # Find score values: "21 (+5)" patterns in SIDEBAR paragraphs or merged text
+    for para in content:
+        if para.role == SpanRole.SIDEBAR or para.role == SpanRole.BODY_ITALIC:
+            for m in re.finditer(r"(\d+)\s*\(([\+\-\−]?\d+)\)", para.text):
                 score_values.append(m.group(0))
-            if len(score_values) >= 6:
-                break
+                if len(score_values) >= 6:
+                    break
+        if len(score_values) >= 6:
+            break
 
     for i, ability in enumerate(ability_order[:6]):
         if i < len(score_values):
