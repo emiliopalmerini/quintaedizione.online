@@ -48,7 +48,7 @@ func GalleryPage(data maps.GalleryData) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"page-header\"><h1>Mappe</h1><p class=\"page-header-subtitle\">Mappe a uso commerciale di <a href=\"https://dysonlogos.blog\" target=\"_blank\" rel=\"noopener noreferrer\">Dyson Logos</a>.</p></div><form id=\"mappe-filter-form\" hx-get=\"/mappe/gallery\" hx-target=\"#mappe-grid\" hx-trigger=\"keyup delay:200ms from:#mappe-search, change from:#mappe-categoria, change from:#mappe-tag\" hx-push-url=\"true\" hx-swap=\"outerHTML\" hx-include=\"#mappe-search, #mappe-categoria, #mappe-tag\"><div class=\"mb-4\"><input type=\"text\" name=\"q\" id=\"mappe-search\" placeholder=\"Cerca mappa...\" class=\"field\" autocomplete=\"off\" value=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"page-header\"><h1>Mappe</h1><p class=\"page-header-subtitle\">Mappe a uso commerciale di <a href=\"https://dysonlogos.blog\" target=\"_blank\" rel=\"noopener noreferrer\">Dyson Logos</a>.</p></div><form id=\"mappe-filter-form\" hx-get=\"/mappe/gallery\" hx-target=\"#mappe-grid\" hx-trigger=\"keyup delay:200ms from:#mappe-search, filter-changed\" hx-push-url=\"true\" hx-swap=\"outerHTML\" hx-include=\"#mappe-search, #mappe-categoria, #mappe-tag\"><div class=\"mb-4\"><input type=\"text\" name=\"q\" id=\"mappe-search\" placeholder=\"Cerca mappa...\" class=\"field\" autocomplete=\"off\" value=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -404,24 +404,24 @@ func GalleryGrid(data maps.GalleryData) templ.Component {
 
 func setFilter(inputID, value string) templ.ComponentScript {
 	return templ.ComponentScript{
-		Name: `__templ_setFilter_f248`,
-		Function: `function __templ_setFilter_f248(inputID, value){document.getElementById(inputID).value = value;
-	htmx.trigger(document.getElementById('mappe-filter-form'), 'change');
+		Name: `__templ_setFilter_9105`,
+		Function: `function __templ_setFilter_9105(inputID, value){document.getElementById(inputID).value = value;
+	htmx.trigger(document.getElementById('mappe-filter-form'), 'filter-changed');
 }`,
-		Call:       templ.SafeScript(`__templ_setFilter_f248`, inputID, value),
-		CallInline: templ.SafeScriptInline(`__templ_setFilter_f248`, inputID, value),
+		Call:       templ.SafeScript(`__templ_setFilter_9105`, inputID, value),
+		CallInline: templ.SafeScriptInline(`__templ_setFilter_9105`, inputID, value),
 	}
 }
 
 func toggleFilter(inputID, value string) templ.ComponentScript {
 	return templ.ComponentScript{
-		Name: `__templ_toggleFilter_0022`,
-		Function: `function __templ_toggleFilter_0022(inputID, value){var el = document.getElementById(inputID);
+		Name: `__templ_toggleFilter_9c19`,
+		Function: `function __templ_toggleFilter_9c19(inputID, value){var el = document.getElementById(inputID);
 	el.value = el.value === value ? '' : value;
-	htmx.trigger(document.getElementById('mappe-filter-form'), 'change');
+	htmx.trigger(document.getElementById('mappe-filter-form'), 'filter-changed');
 }`,
-		Call:       templ.SafeScript(`__templ_toggleFilter_0022`, inputID, value),
-		CallInline: templ.SafeScriptInline(`__templ_toggleFilter_0022`, inputID, value),
+		Call:       templ.SafeScript(`__templ_toggleFilter_9c19`, inputID, value),
+		CallInline: templ.SafeScriptInline(`__templ_toggleFilter_9c19`, inputID, value),
 	}
 }
 

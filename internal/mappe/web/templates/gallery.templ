@@ -19,7 +19,7 @@ templ GalleryPage(data maps.GalleryData) {
 		<form id="mappe-filter-form"
 			hx-get="/mappe/gallery"
 			hx-target="#mappe-grid"
-			hx-trigger="keyup delay:200ms from:#mappe-search, change from:#mappe-categoria, change from:#mappe-tag"
+			hx-trigger="keyup delay:200ms from:#mappe-search, filter-changed"
 			hx-push-url="true"
 			hx-swap="outerHTML"
 			hx-include="#mappe-search, #mappe-categoria, #mappe-tag"
@@ -119,11 +119,11 @@ templ GalleryGrid(data maps.GalleryData) {
 
 script setFilter(inputID, value string) {
 	document.getElementById(inputID).value = value;
-	htmx.trigger(document.getElementById('mappe-filter-form'), 'change');
+	htmx.trigger(document.getElementById('mappe-filter-form'), 'filter-changed');
 }
 
 script toggleFilter(inputID, value string) {
 	var el = document.getElementById(inputID);
 	el.value = el.value === value ? '' : value;
-	htmx.trigger(document.getElementById('mappe-filter-form'), 'change');
+	htmx.trigger(document.getElementById('mappe-filter-form'), 'filter-changed');
 }
