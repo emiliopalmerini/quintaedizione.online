@@ -308,11 +308,12 @@ func (l *Loader) loadBackgrounds(result map[string][]map[string]any) error {
 
 	docs := make([]map[string]any, 0, len(backgrounds))
 	for _, bg := range backgrounds {
+		raw := l.buildBackgroundMarkdown(bg)
 		doc := map[string]any{
 			"_id":         bg.ID,
 			"title":       bg.Name,
-			"content":     l.renderer.Render(bg.Description),
-			"raw_content": bg.Description,
+			"content":     l.renderer.Render(raw),
+			"raw_content": raw,
 		}
 		l.tagDoc(doc)
 		docs = append(docs, doc)
@@ -320,6 +321,31 @@ func (l *Loader) loadBackgrounds(result map[string][]map[string]any) error {
 
 	result["backgrounds"] = append(result["backgrounds"], docs...)
 	return nil
+}
+
+func (l *Loader) buildBackgroundMarkdown(bg jsonBackground) string {
+	var b strings.Builder
+
+	if bg.AbilityScores != "" {
+		fmt.Fprintf(&b, "**Punteggi di Caratteristica:** %s\n\n", bg.AbilityScores)
+	}
+	if bg.Feat != "" {
+		fmt.Fprintf(&b, "**Talento:** %s\n\n", bg.Feat)
+	}
+	if bg.SkillProficiencies != "" {
+		fmt.Fprintf(&b, "**Competenze nelle Abilità:** %s\n\n", bg.SkillProficiencies)
+	}
+	if bg.ToolProficiency != "" {
+		fmt.Fprintf(&b, "**Competenza negli Strumenti:** %s\n\n", bg.ToolProficiency)
+	}
+	if bg.Equipment != "" {
+		fmt.Fprintf(&b, "**Equipaggiamento:** %s\n\n", bg.Equipment)
+	}
+	if bg.Description != "" {
+		b.WriteString(bg.Description)
+	}
+
+	return strings.TrimSpace(b.String())
 }
 
 // --- Equipment ---
