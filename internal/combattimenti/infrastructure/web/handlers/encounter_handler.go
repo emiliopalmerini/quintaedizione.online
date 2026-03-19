@@ -150,14 +150,21 @@ func (h *EncounterHandler) CalculateHandler(w http.ResponseWriter, r *http.Reque
 		return
 	}
 
+	// Calculate all difficulty tiers for visual comparison
+	tiers := h.buildDifficultyTiers(req, requestID)
+
 	// Return HTML response for HTMX
 	w.Header().Set("Content-Type", "text/html")
-	facets := templates.MonsterFacets{
-		Types: h.monsterService.AvailableTypes(),
-		Sizes: h.monsterService.AvailableSizes(),
-		CRs:   h.monsterService.AvailableCRs(),
+	data := templates.ResultData{
+		Result: result,
+		Tiers:  tiers,
+		Facets: templates.MonsterFacets{
+			Types: h.monsterService.AvailableTypes(),
+			Sizes: h.monsterService.AvailableSizes(),
+			CRs:   h.monsterService.AvailableCRs(),
+		},
 	}
-	if err := templates.Result(result, facets).Render(r.Context(), w); err != nil {
+	if err := templates.Result(data).Render(r.Context(), w); err != nil {
 		h.logger.Error("Failed to render result template", "request_id", requestID, "error", err)
 		http.Error(w, "Internal server error", http.StatusInternalServerError)
 		return
@@ -198,6 +205,52 @@ func (h *EncounterHandler) PartyInputHandler(w http.ResponseWriter, r *http.Requ
 		http.Error(w, "Internal server error", http.StatusInternalServerError)
 		return
 	}
+}
+
+// difficultyLabel maps difficulty values to Italian display labels.
+var difficultyLabel = map[string]string{
+	"Low":       "Bassa",
+	"Moderate":  "Moderata",
+	"High":      "Alta",
+	"Facile":    "Facile",
+	"Media":     "Media",
+	"Difficile": "Difficile",
+	"Letale":    "Letale",
+}
+
+// buildDifficultyTiers calculates XP for all difficulty levels of the current ruleset.
+func (h *EncounterHandler) buildDifficultyTiers(req encounter.CalculateXPRequest, requestID string) []templates.DifficultyTier {
+	var difficulties []string
+	switch req.Ruleset {
+	case "2024":
+		difficulties = []string{"Low", "Moderate", "High"}
+	case "2014":
+		difficulties = []string{"Facile", "Media", "Difficile", "Letale"}
+	default:
+		return nil
+	}
+
+	tiers := make([]templates.DifficultyTier, 0, len(difficulties))
+	for _, diff := range difficulties {
+		tierReq := req
+		tierReq.Difficulty = diff
+		tierResult, err := h.service.CalculateXP(tierReq)
+		if err != nil {
+			h.logger.Warn("Failed to calculate tier XP", "request_id", requestID, "difficulty", diff, "error", err)
+			continue
+		}
+		label := difficultyLabel[diff]
+		if label == "" {
+			label = diff
+		}
+		tiers = append(tiers, templates.DifficultyTier{
+			Label:    label,
+			Value:    diff,
+			XP:       tierResult.TotalXP,
+			Selected: diff == req.Difficulty,
+		})
+	}
+	return tiers
 }
 
 // Helper function to parse character levels from comma-separated string
