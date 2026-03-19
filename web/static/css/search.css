@@ -9,7 +9,13 @@
   background: none;
   border: none;
   padding: 0;
+  width: 100%;
   max-width: 600px;
+}
+
+/* Wider search on SRD home hero */
+.hero-map .search-container-wrapper {
+  max-width: 100%;
 }
 
 .search-icon {
@@ -239,7 +245,7 @@
   -webkit-overflow-scrolling: touch;
 }
 @media (min-width: 641px) {
-  .desktop-filter-chips { display: flex; }
+  .desktop-filter-chips { display: flex; flex-wrap: wrap; justify-content: center; }
 }
 .desktop-chip {
   padding: var(--space-1) var(--space-3);
