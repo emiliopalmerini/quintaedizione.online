@@ -101,6 +101,10 @@
   position: sticky;
   top: calc(var(--nav-height) + var(--space-4));
 }
+.encounter-results .result-card { animation: slideInUp 0.3s ease-out; }
+.encounter-results .htmx-indicator { display: none; }
+.encounter-results .htmx-request .htmx-indicator { display: flex; justify-content: center; margin-bottom: var(--space-3); }
+.encounter-results .htmx-request .result-placeholder p { opacity: 0.6; }
 
 /* Form grid helpers */
 .form-grid-2col {
