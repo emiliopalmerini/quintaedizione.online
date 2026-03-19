@@ -1,0 +1,77 @@
+[
+  {
+    "id": "oltre-il-1-livello",
+    "title": "Oltre il 1° livello",
+    "content": "Man mano che il personaggio intraprende  avventure e supera le sfide, accumula esperienza,  rappresentata dai punti esperienza. Quando un  personaggio raggiunge un numero specifico di punti  esperienza, le sue capacità sono soggette a un  avanzamento. Questo avanzamento è chiamato  **acquisire un livello**.   Quando un personaggio acquisisce un livello,  la sua classe spesso gli conferisce dei privilegi  aggiuntivi, come descritto in dettaglio nella sua  descrizione. Alcuni di questi privilegi consentono  al personaggio di aumentare i suoi punteggi di  caratteristica, aumentando due punteggi di 1 punto  a testa o aumentando un punteggio di 2 punti.  Non è consentito aumentare un punteggio di  caratteristica a più di 20. Inoltre, ogni bonus di  competenza del personaggio aumenta a certi livelli.   Ogni volta che il personaggio acquisisce un nuovo  livello, ottiene 1 Dado Vita aggiuntivo. Il personaggio  tira quel Dado Vita, somma il modificatore di  Costituzione al risultato del tiro e aggiunge il totale  al suo massimo dei punti ferita. In alternativa,  il personaggio può usare il valore fisso indicato nella  sezione della sua classe, corrispondente al risultato  medio del tiro del dado (arrotondato per eccesso).   Quando il modificatore di Costituzione del  personaggio aumenta di 1, il massimo dei punti  ferita aumenta di 1 per ogni livello acquisito.  Ad esempio, se il guerriero di 7° livello del giocatore  ha un punteggio di Costituzione pari a 17, quando  raggiunge l'8° livello, il suo punteggio di Costituzione  passa da 17 a 18, aumentando così il suo  modificatore di Costituzione da +3 a +4. La soglia  massima dei suoi punti ferita aumenta quindi di 8.   La tabella \"Avanzamento dei personaggi\" riassume  i PE di cui un personaggio necessita per avanzare dal  1° al 20° livello e il bonus di competenza per un  personaggio di quel livello. La descrizione di ogni  classe indica quali altri miglioramenti un  personaggio ottiene a ogni livello.\n\nSystems Reference Document 5.1  60\n\nAvanzamento dei personaggi\n\nPunti Esperienza\n\nLivello\n\nBonus di Competenza\n\n0\n\n1\n\n+2\n\n300\n\n2\n\n+2\n\n900\n\n3\n\n+2\n\n2.700\n\n4\n\n+2\n\n6.500\n\n5\n\n+3\n\n14.000\n\n6\n\n+3\n\n23.000\n\n7\n\n+3\n\n34.000\n\n8\n\n+3\n\n48.000\n\n9\n\n+4\n\n64.000\n\n10\n\n+4\n\n85.000\n\n11\n\n+4\n\n100.000\n\n12\n\n+4\n\n120.000\n\n13\n\n+5\n\n140.000\n\n14\n\n+5\n\n165.000\n\n15\n\n+5\n\n195.000\n\n16\n\n+5\n\n225.000\n\n17\n\n+6\n\n265.000\n\n18\n\n+6\n\n305.000\n\n19\n\n+6\n\n355.000\n\n20\n\n+6",
+    "children": [
+      {
+        "id": "multiclasse",
+        "title": "Multiclasse",
+        "content": "L'avanzamento multiclasse consente a un  personaggio di guadagnare livelli in più classi.  In questo modo, è possibile combinare le abilità di  quelle classi per realizzare un tipo di personaggio  che potrebbe non essere rappresentato a dovere  dalle opzioni di classe standard.   Grazie a questa regola, un personaggio può  acquisire un livello in una nuova classe ogni volta  che avanza di livello, anziché guadagnare un livello  nella sua classe attuale. I livelli in tutte le sue classi,  sommati, determinano il suo livello del personaggio.  Ad esempio, con tre livelli da mago e due da  guerriero, si ottiene un personaggio di 5° livello.   Man mano che un personaggio avanza di livello,  può continuare a concentrarsi principalmente sulla  propria classe originale e acquisire soltanto pochi  livelli in un'altra classe, oppure può cambiare rotta  definitivamente, senza mai voltarsi a guardare la  classe che si è lasciato alle spalle. Potrebbe perfino  iniziare ad avanzare di livello in una terza o una  quarta classe. Rispetto a un personaggio monoclasse,  rinuncerà a certe specializzazioni, ma guadagnerà in  versatilità.",
+        "children": [
+          {
+            "id": "prerequisiti",
+            "title": "Prerequisiti",
+            "content": "Per qualificarsi per una nuova classe, un  personaggio deve soddisfare i prerequisiti dei  punteggi di caratteristica sia per la propria classe  attuale che per quella nuova, come indicato nella  tabella \"Prerequisiti di multiclasse\". Per esempio,  un barbaro che decide di diventare multiclasse  acquisendo la classe del druido deve possedere sia  un punteggio di Forza che un punteggio di Saggezza  pari o superiori a 13. Non potendo beneficiare  dell'addestramento completo che riceverebbe un  personaggio esordiente, il personaggio multiclasse  deve colmare le lacune nella sua nuova classe  dimostrando di esservi portato per natura  attraverso dei punteggi di caratteristica superiori  alla media.\n\nPrerequisiti di multiclasse\n\nClasse\n\nPunteggio di caratteristica minimo\n\nBarbaro\n\nForza 13\n\nBardo\n\nCarisma 13\n\nChierico\n\nSaggezza 13\n\nDruido\n\nSaggezza 13\n\nGuerriero\n\nForza 13 o Destrezza 13\n\nLadro\n\nDestrezza 13\n\nMago\n\nIntelligenza 13\n\nMonaco\n\nDestrezza 13 e Saggezza 13\n\nPaladino\n\nForza 13 e Carisma 13\n\nRanger\n\nDestrezza 13 e Saggezza 13\n\nStregone\n\nCarisma 13\n\nWarlock\n\nCarisma 13",
+            "children": []
+          },
+          {
+            "id": "punti-esperienza",
+            "title": "Punti Esperienza",
+            "content": "Il costo in punti esperienza per acquisire un livello  è sempre basato sul livello totale del personaggio,  come indicato nella tabella \"Avanzamento dei  personaggi\", e non sul suo livello in una particolare  classe. Quindi un personaggio multiclasse chierico  6/guerriero 1 deve accumulare abbastanza PE per  arrivare all'8° livello prima di poter acquisire il suo  secondo livello come guerriero o il suo settimo  livello come chierico.",
+            "children": []
+          },
+          {
+            "id": "punti-ferita-e-dadi-vita",
+            "title": "Punti Ferita e Dadi Vita",
+            "content": "Il personaggio ottiene i punti ferita della sua nuova  classe come descritto per i livelli successivi al 1°.  Ottiene i punti ferita di 1° livello relativi a una classe  solo quando è un personaggio di 1° livello.\n\nSystems Reference Document 5.1  61\n\nIl personaggio somma i Dadi Vita conferitigli da  tutte le sue classi per formare la sua riserva di Dadi  Vita. Se i Dadi Vita appartengono allo stesso tipo di  dado, può semplicemente raggrupparli in un unico  insieme. Per esempio, sia il guerriero che il paladino  hanno un d10, quindi un personaggio multiclasse  paladino 5/guerriero 5 avrà dieci Dadi Vita d10.  Se le sue classi gli forniscono Dadi Vita di tipi diversi,  dovrà annotarli separatamente. Per esempio, un  personaggio multiclasse paladino 5/chierico 5 avrà  cinque Dadi Vita d10 e cinque Dadi Vita d8.",
+            "children": []
+          },
+          {
+            "id": "bonus-di-competenza",
+            "title": "Bonus di competenza",
+            "content": "Il bonus di competenza è sempre basato sul livello  totale del personaggio, come indicato nella tabella  \"Avanzamento dei personaggi\", e non sul suo livello  in una particolare classe. Per esempio, se un  personaggio è un guerriero 3/ladro 2, avrà il bonus  di competenza di un personaggio di 5° livello, che  è pari a +3.",
+            "children": []
+          },
+          {
+            "id": "competenze",
+            "title": "Competenze",
+            "content": "Quando un personaggio ottiene il suo primo livello  in una classe diversa dalla sua classe iniziale, riceve  soltanto alcune delle nuove competenze di partenza  della nuova classe, come indicato nella tabella  \"Competenze dei multiclasse\".\n\nCompetenze dei multiclasse\n\nClasse\n\nCompetenze ottenute\n\nBarbaro\n\nScudi, armi semplici, armi da guerra\n\nBardo\n\nArmature leggere, un'abilità a scelta,\n\nuno strumento musicale a scelta\n\nChierico\n\nArmature leggere, armature medie, scudi\n\nDruido\n\nArmature leggere, armature medie, scudi\n\n(i druidi non usano armature e scudi fatti di\n\nmetallo)\n\nGuerriero\n\nArmature leggere, armature medie, scudi,\n\narmi semplici, armi da guerra\n\nLadro\n\nArmatura leggera, un'abilità dalla lista delle\n\nabilità della classe, arnesi da scasso\n\nMago\n\n—\n\nMonaco\n\nArmi semplici, spade corte\n\nPaladino\n\nArmature leggere, armature medie, scudi,\n\narmi semplici, armi da guerra\n\nRanger\n\nArmature leggere, armature medie, scudi,\n\narmi semplici, armi da guerra, un'abilità dalla\n\nlista delle abilità di classe\n\nStregone\n\n—\n\nWarlock\n\nArmature leggere, armi semplici",
+            "children": []
+          },
+          {
+            "id": "privilegi-di-classe",
+            "title": "Privilegi di classe",
+            "content": "Quando un personaggio ottiene un nuovo livello in  una classe, ottiene i privilegi di quella classe relativi  a quel livello. Non ottiene però l'equipaggiamento  di partenza di quella classe. Esistono inoltre alcuni  privilegi che prevedono delle regole aggiuntive in  caso di multiclasse: Incanalare Divinità, Attacco  Extra, Difesa Senza Armatura e Incantesimi.",
+            "children": [
+              {
+                "id": "attacco-extra",
+                "title": "Attacco Extra",
+                "content": "Se il personaggio ottiene il privilegio Attacco Extra  da più di una classe, i privilegi non sono cumulativi.  Il personaggio non può effettuare più di due  attacchi con questo privilegio a meno che non sia  esplicitamente specificato che questo è possibile  (la versione di Attacco Extra del guerriero lo rende  possibile). Analogamente, la supplica occulta  del warlock Lama Assetata non conferisce al  personaggio alcun attacco aggiuntivo se il  personaggio possiede Attacco Extra.",
+                "children": []
+              },
+              {
+                "id": "difesa-senza-armatura",
+                "title": "Difesa senza armatura",
+                "content": "Se il personaggio possiede già il privilegio Difesa  senza armatura, non può ottenerlo di nuovo da  un'altra classe.",
+                "children": []
+              },
+              {
+                "id": "incanalare-divinita",
+                "title": "Incanalare Divinità",
+                "content": "Se il personaggio possiede già il privilegio Incanalare  Divinità e acquisisce un livello in una classe che  a sua volta garantisce quel privilegio, ottiene gli  effetti di Incanalare Divinità conferiti da quella  classe, ma non ne ottiene un utilizzo aggiuntivo.  Il personaggio ottiene gli utilizzi aggiuntivi  soltanto quando arriva a un livello di classe che  glielo conferisce esplicitamente. Per esempio,  un personaggio multiclasse chierico 6/paladino  4 può usare Incanalare Divinità due volte tra un  riposo e l'altro, in quanto è di un livello di classe del  chierico sufficientemente alto da avere due utilizzi.  Ogni volta che usa il privilegio, può scegliere uno  qualsiasi degli effetti di Incanalare Divinità che  entrambe le sue due classi gli rendono disponibili.",
+                "children": []
+              },
+              {
+                "id": "incantesimi",
+                "title": "Incantesimi",
+                "content": "Le capacità da incantatore del personaggio  dipendono in parte dai suoi livelli combinati in tutte  le sue classi da incantatore e in parte dai suoi  livelli individuali in quelle classi. Una volta ottenuto  il privilegio Incantesimi da più di una classe,  il personaggio usa le regole sottostanti. Se un  personaggio multiclasse possiede il privilegio\n\nSystems Reference Document 5.1  62\n\nIncantesimi soltanto da una classe, segue le regole  descritte in quella classe.  _**Incantesimi conosciuti e preparati.**_ Il personaggio determina gli incantesimi che conosce  e che può preparare per ogni classe separatamente,  come se fosse un membro monoclasse appartenente  a quella classe. Per esempio, un ranger 4/mago  3 conosce tre incantesimi da ranger di 1° livello  in base ai suoi livelli nella classe del ranger. Come  mago di 3° livello conosce tre trucchetti da mago  e il suo libro degli incantesimi contiene dieci  incantesimi da mago, due dei quali (quelli ottenuti  quando il personaggio è giunto al 3° livello come  mago) possono essere incantesimi di 2° livello.  Se la sua Intelligenza è pari a 16, può preparare sei  incantesimi da mago dal suo libro degli incantesimi.    Ogni incantesimo che il personaggio conosce  e prepara è associato a una delle sue classi;  il personaggio userà la caratteristica da incantatore  di quella classe quando lancia l'incantesimo.  Analogamente, un focus da incantatore come un  simbolo sacro può essere usato soltanto per gli  incantesimi della classe associata a quel focus.  _**Slot incantesimo.**_Il personaggio determina i suoi  slot incantesimo disponibili sommando tutti i suoi  livelli nelle classi bardo, chierico, druido, mago  e stregone, oltre a metà dei suoi livelli (arrotondati  per difetto) nelle classi paladino e ranger. Userà  questo totale per determinare i suoi slot incantesimo  consultando la tabella \"Incantatore multiclasse\".   Se il personaggio possiede più classi da  incantatore, quella tabella potrebbe fornirgli degli  slot incantesimo di un livello superiore a quello  degli incantesimi che conosce o che è in grado di  preparare. Può usare quegli slot, ma soltanto per  lanciare i suoi incantesimi di livello inferiore.  Se un incantesimo di livello inferiore da lui lanciato,  come *mani brucianti*, prevede un effetto potenziato  se lanciato con uno slot di livello superiore,  il personaggio può usare l'effetto potenziato, anche  se non possiede alcun incantesimo di quel livello  superiore.    Per esempio, il multiclasse sopraccitato, ranger  4/mago 3, è considerato un personaggio di 5° livello  ai fini dei suoi slot incantesimo: possiede i suoi  quattro slot incantesimo di 1° livello, tre slot di  2° livello e due slot di 3° livello. Tuttavia, non  conosce incantesimi di 3° livello, né incantesimi da  ranger di 2° livello. Può usare gli slot incantesimo di  quei livelli per lanciare gli incantesimi che conosce e,  se lo desidera, potenziare i loro effetti.",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

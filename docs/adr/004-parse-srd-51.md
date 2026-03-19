@@ -2,11 +2,11 @@
 
 ## Status
 
-Proposed
+Accepted
 
 ## Context
 
-We have the SRD CC v5.1 Italian PDF (`SRD_CC_v5.1_IT.pdf`, 453 pages) and need to parse it into JSON to populate the `srd-5e` source defined in ADR-003. The existing parser (`scripts/parse_srd/`) targets the SRD v5.2.1 (2024) PDF, which uses a completely different font family and color scheme.
+We have the SRD CC v5.1 Italian PDF (`SRD_CC_v5.1_IT.pdf`, 453 pages) and need to parse it into JSON to populate the `srd-5e` source defined in ADR-003. The existing parser (`scripts/parse_srd/`) targets the SRD v5.2.1 (2024) PDF, which uses a completely different font family, color scheme, and document structure.
 
 ### Font/Color Differences
 
@@ -22,122 +22,128 @@ We have the SRD CC v5.1 Italian PDF (`SRD_CC_v5.1_IT.pdf`, 453 pages) and need t
 
 ### Structure Differences
 
-The 5.1 SRD differs from 5.2.1 in content organization:
+The two PDFs differ fundamentally in how content is organized — not just at the font level but at the heading hierarchy and content layout level:
 
-- **Races** (not "Specie") — includes subraces (Elfo Alto, Piedelesto, etc.)
-- **No Glossary section** — rules are inline
-- Additional sections: Trappole, Malattie, Follia, Veleni, Piani
-- Stat blocks use `Calibri-Bold`/`Calibri` at 10pt body color — no separate Optima/stat-red color scheme. Stat blocks are distinguished only by bold labels, not by font family or color.
-
-### Key Insight: Stat Blocks Are Structurally Simpler
-
-In SRD 5.2.1, stat blocks use distinct fonts (Optima) and colors (`#540000`) making them easy to identify. In SRD 5.1, stat blocks use the **same fonts and colors as body text** (`Calibri` at `#000000`). Stat blocks must be identified by **position in the heading tree** (children of monster/creature H3 headings) rather than by font classification alone.
+| Aspect | SRD 5.2.1 | SRD 5.1 |
+|---|---|---|
+| Species/Races | H5 under "Specie dei personaggi" | H2 under H1("Razze") with subraces |
+| Classes | H2(ClassName) > H4(features) | H1(ClassName) > H2("Privilegi") > H3(features) |
+| Subclasses | "Sottoclasse del X:" pattern | Known names list or separate H2 sibling |
+| Backgrounds | H5 under "Descrizioni dei background" | H3 under H2("Background") |
+| Spells subtitle | `{Scuola} di {N}º livello ({classi})` | `{Scuola} di {N}° livello` (no classes) |
+| Spell metadata | TABLE_HEADER_SMALL paragraphs | Merged into BODY_ITALIC paragraph |
+| Equipment tables | Markdown pipe tables from `tables.py` | Sequential TABLE_HEADER_SMALL/TABLE_BODY paragraphs |
+| Monster stat blocks | STAT_LABEL/STAT_VALUE (Optima, #540000) | BODY_BOLD/SIDEBAR (Calibri, #000000) |
+| Monster names | H3 | H5 |
+| Glossary | Dedicated section (pp. 202-219) | Does not exist |
+| Feats | H5 with category subtitles | H3, single feat, no categories |
+| Extra sections | — | Trappole, Malattie, Follia, Multiclasse, Personalità |
 
 ## Decision
 
-### Make the Classifier Profile-Based
+### Separate Parser Packages
 
-Extract font/color constants into a **profile** dataclass. The classification logic (`classify_span`) stays the same — it maps fonts to semantic roles (H1, H2, BODY, STAT_LABEL, etc.) — but the font-matching rules are parameterized.
+The structural differences between editions are too deep for shared parsers with branching logic. Instead, each edition gets its own parser package as a first-class citizen:
 
-```python
-@dataclass(frozen=True)
-class FontProfile:
-    """Font/color calibration for a specific PDF."""
-    name: str
-
-    # Heading font and color
-    heading_font: str          # "GillSans" or "Calibri"
-    heading_color: int         # 0x8c2220 or 0x943634
-
-    # Body color
-    body_color: int            # 0x231f20 or 0x000000
-
-    # Stat block — distinct font/color (5.2.1) or None (5.1)
-    stat_font: str | None      # "Optima" or None
-    stat_color: int | None     # 0x540000 or None
-
-    # Link color
-    link_color: int            # 0x1e5e9e or 0x0000ff
-
-    # Footer
-    footer_font: str           # "GillSans" or "Calibri"
-    footer_color: int | None   # 0x808285 or None (5.1 uses body color)
-
-PROFILE_521 = FontProfile(
-    name="SRD 5.2.1",
-    heading_font="GillSans", heading_color=0x8c2220,
-    body_color=0x231f20,
-    stat_font="Optima", stat_color=0x540000,
-    link_color=0x1e5e9e,
-    footer_font="GillSans", footer_color=0x808285,
-)
-
-PROFILE_51 = FontProfile(
-    name="SRD 5.1",
-    heading_font="Calibri", heading_color=0x943634,
-    body_color=0x000000,
-    stat_font=None, stat_color=None,
-    link_color=0x0000ff,
-    footer_font="Calibri", footer_color=None,
-)
+```
+scripts/parse_srd/
+  _cli.py              # Profile resolution → (FontProfile, sections, parser_package)
+  profiles.py          # FontProfile dataclass + PROFILE_521, PROFILE_51
+  classify.py          # Profile-parameterized classifier (shared)
+  extract.py           # Raw span extraction (shared)
+  merge.py             # Paragraph grouping (shared, profile-parameterized)
+  heading_tree.py      # Heading tree builder (shared)
+  markdown_gen.py      # Markdown generation (shared)
+  tables.py            # Table detection (shared, profile-parameterized)
+  schemas.py           # Output TypedDicts (shared)
+  slugify.py           # ID generation (shared)
+  quality.py           # Validation (shared)
+  section_split.py     # SECTIONS + SECTIONS_51 (shared)
+  __main__.py          # CLI entry point (delegates to parser package)
+  parsers/             # 5.2.1 parsers
+    __init__.py         # Registry for 5.2.1
+    spells.py
+    monsters.py
+    classes.py
+    backgrounds.py
+    equipment.py
+    magic_items.py
+    feats.py
+    species.py
+    rules.py
+  parsers_51/           # 5.1 parsers
+    __init__.py          # Registry for 5.1
+    spells.py
+    monsters.py
+    classes.py
+    backgrounds.py
+    equipment.py
+    magic_items.py
+    feats.py
+    races.py             # → outputs species.json
+    rules.py
 ```
 
-### Separate Section Definitions
+Both packages use the same `register` decorator pattern. `__main__.py` imports from the correct package based on `--profile`:
 
-New `SECTIONS_51` page ranges. These map to the same `parser_name` values where possible:
+```python
+profile, sections = resolve_profile(args.profile)
+
+if profile is PROFILE_51:
+    from .parsers_51 import get_parser
+else:
+    from .parsers import get_parser
+```
+
+### Shared Infrastructure
+
+The pipeline stages that operate on semantic roles (not edition-specific structure) remain shared:
+
+- **`profiles.py`** — `FontProfile` dataclass with `PROFILE_521` and `PROFILE_51`
+- **`classify.py`** — `classify_span(span, profile)` with `_classify_521` / `_classify_51` branches (font→role mapping is inherently profile-specific, but the SpanRole enum is shared)
+- **`extract.py`** — Raw pymupdf span extraction (PDF-agnostic)
+- **`merge.py`** — `blocks_to_paragraphs(blocks, profile)` paragraph grouping
+- **`tables.py`** — `process_tables(blocks, profile)` table detection
+- **`heading_tree.py`** — Stack-based heading tree builder
+- **`markdown_gen.py`** — Role→markdown rendering
+- **`schemas.py`** — Output TypedDicts (same JSON schema for both editions)
+- **`quality.py`** — Validation rules
+- **`section_split.py`** — `SECTIONS` + `SECTIONS_51` page ranges
+
+### Section Definitions
 
 ```python
 SECTIONS_51: list[SectionDef] = [
-    SectionDef("Razze",           (2, 7),     "races.json",          "races"),
-    SectionDef("Barbaro",         (8, 10),    "classes.json",        "classes"),
-    SectionDef("Bardo",           (11, 14),   "classes.json",        "classes"),
-    SectionDef("Chierico",        (15, 18),   "classes.json",        "classes"),
-    SectionDef("Druido",          (19, 23),   "classes.json",        "classes"),
-    SectionDef("Guerriero",       (24, 26),   "classes.json",        "classes"),
-    SectionDef("Ladro",           (27, 29),   "classes.json",        "classes"),
-    SectionDef("Mago",            (30, 33),   "classes.json",        "classes"),
-    SectionDef("Monaco",          (34, 37),   "classes.json",        "classes"),
-    SectionDef("Paladino",        (38, 42),   "classes.json",        "classes"),
-    SectionDef("Ranger",          (43, 47),   "classes.json",        "classes"),
-    SectionDef("Stregone",        (48, 52),   "classes.json",        "classes"),
-    SectionDef("Warlock",         (53, 59),   "classes.json",        "classes"),
+    SectionDef("Razze",           (2, 7),     "species.json",          "races"),
+    SectionDef("Classi",          (8, 59),    "classes.json",          "classes"),
     SectionDef("Multiclasse",     (60, 62),   "rules_multiclass.json", "rules"),
-    SectionDef("Backgrounds",     (65, 67),   "backgrounds.json",    "backgrounds"),
-    SectionDef("Equipaggiamento", (68, 84),   "equipment.json",      "equipment"),
-    SectionDef("Regole",          (85, 113),  "rules_gameplay.json", "rules"),
-    SectionDef("Incantesimi",     (114, 222), "spells.json",         "spells"),
-    SectionDef("Trappole",        (223, 227), "rules_traps.json",    "rules"),
-    SectionDef("Malattie",        (228, 229), "rules_diseases.json", "rules"),
-    SectionDef("Follia",          (230, 231), "rules_madness.json",  "rules"),
-    SectionDef("Oggetti Magici",  (232, 297), "magic_items.json",    "magic_items"),
-    SectionDef("Mostri",          (298, 410), "monsters.json",       "monsters"),
+    SectionDef("Personalità",     (63, 64),   "rules_personality.json","rules"),
+    SectionDef("Backgrounds",     (65, 67),   "backgrounds.json",      "backgrounds"),
+    SectionDef("Equipaggiamento", (68, 83),   "equipment.json",        "equipment"),
+    SectionDef("Talenti",         (84, 84),   "feats.json",            "feats"),
+    SectionDef("Regole",          (85, 113),  "rules_gameplay.json",   "rules"),
+    SectionDef("Incantesimi",     (114, 222), "spells.json",           "spells"),
+    SectionDef("Trappole",        (223, 227), "rules_traps.json",      "rules"),
+    SectionDef("Malattie",        (228, 229), "rules_diseases.json",   "rules"),
+    SectionDef("Follia",          (230, 231), "rules_madness.json",    "rules"),
+    SectionDef("Oggetti Magici",  (232, 297), "magic_items.json",      "magic_items"),
+    SectionDef("Mostri",          (298, 410), "monsters.json",         "monsters"),
 ]
 ```
 
-Note: page ranges above are approximate and need calibration during implementation.
-
-### Reuse Content Parsers
-
-The content parsers (spells, monsters, equipment, etc.) operate on **semantic roles** (H1, H2, BODY, STAT_LABEL, etc.), not raw fonts. As long as classification maps correctly to the same roles, the existing parsers should work with minimal changes.
-
-The main exception is the **monster parser**: in 5.1, stat block fields (CA, PF, Velocità, ability scores) are `Calibri-Bold` at `#000000` — the same as table headers. The classifier must rely on the heading tree context (under a monster heading) to assign STAT_LABEL/STAT_VALUE roles, or the monster parser must handle `BODY_BOLD`/`BODY` pairs as stat fields when inside a monster context.
-
-**Recommended**: let the 5.1 classifier map `Calibri-Bold 10pt #000000` under monster headings to BODY_BOLD (not STAT_LABEL), and adapt the monster parser to accept BODY_BOLD as stat labels when no STAT_LABEL spans exist. This avoids needing page-context in the classifier.
-
-### New Parser: Races
-
-SRD 5.1 has "Razze" (races with subraces) instead of "Specie". This needs a new `races.py` parser. The output format should match `species.json` as closely as possible, with an additional `subraces` field.
-
-### CLI Changes
-
-The `__main__.py` entry point gains a `--profile` flag:
+### CLI
 
 ```
-uv run scripts/parse_srd <pdf> --profile 5.1 --output-dir ./output
-uv run scripts/parse_srd <pdf> --profile 5.2.1 --output-dir ./output  # default
+uv run scripts/parse_srd <pdf> --profile 5.1 --output-dir ./data/ita/json/srd-5e
+uv run scripts/parse_srd <pdf> --profile 5.2.1 --output-dir ./data/ita/json/srd-5.5e  # default
 ```
 
-The profile selects both the font profile and the section definitions.
+### Go Loader Changes
+
+The Go loader (`internal/infrastructure/datastore/loader.go`) needs two changes:
+
+1. **Skip missing collections**: not all sources have all JSON files (e.g., 5.1 has no `glossary.json`). `loadSourceData` skips loaders that fail with `fs.ErrNotExist`.
+2. **Discover rules files dynamically**: `loadRules` scans for `rules_*.json` instead of hardcoding three filenames.
 
 ## Inputs
 
@@ -148,37 +154,43 @@ The profile selects both the font profile and the section definitions.
 ## Outputs
 
 - `data/ita/json/srd-5e/source.json` — source manifest
-- `data/ita/json/srd-5e/classes.json`
-- `data/ita/json/srd-5e/races.json` (maps to "specie" collection or new "razze" collection)
-- `data/ita/json/srd-5e/backgrounds.json`
-- `data/ita/json/srd-5e/equipment.json`
-- `data/ita/json/srd-5e/spells.json`
-- `data/ita/json/srd-5e/magic_items.json`
-- `data/ita/json/srd-5e/monsters.json`
-- `data/ita/json/srd-5e/rules_*.json`
+- `data/ita/json/srd-5e/species.json` (9 races → Species schema)
+- `data/ita/json/srd-5e/classes.json` (12 classes)
+- `data/ita/json/srd-5e/backgrounds.json` (1 — Accolito)
+- `data/ita/json/srd-5e/equipment.json` (52 — weapons + armor)
+- `data/ita/json/srd-5e/feats.json` (1 — Lottatore)
+- `data/ita/json/srd-5e/spells.json` (319 spells)
+- `data/ita/json/srd-5e/magic_items.json` (241 items)
+- `data/ita/json/srd-5e/monsters.json` (200 monsters)
+- `data/ita/json/srd-5e/rules_*.json` (gameplay, multiclass, personality, traps, diseases, madness)
 
 ## Edge Cases
 
-- **Stat blocks without distinct styling**: monster parser must identify stat fields by label text pattern (`Classe Armatura`, `Punti Ferita`, `Velocità`, `FOR`, `DES`, etc.) rather than font role, since 5.1 uses body fonts for stat blocks
-- **Footer detection**: 5.1 footers use `Calibri-Italic 8pt #000000` — same color as body. Must distinguish by size (8pt vs 10pt body) and italic + page position (bottom of page)
-- **Classes split across separate TOC entries**: each class is its own L1 heading (unlike 5.2.1 which has a single "Classi" section). Section definitions list each class individually to capture correct page ranges
-- **Subraces**: races contain nested subraces that need to be associated with their parent race
-- **"Azioni" headers at 11pt**: action section headers in monster stat blocks are `Calibri-Bold 11pt #000000` — slightly larger than body, must be classified as H6 or equivalent
+- **Spell subtitle format**: 5.1 uses `°` (U+00B0) not `º` (U+00BA), no class lists, `(rituale)` suffix instead of class parenthetical
+- **Spell metadata merged**: all fields in one BODY_ITALIC paragraph; duration extraction needs sentence-boundary heuristic
+- **Column-break artifacts**: "Dominare persone" school merged with "Eroismo"; "Creazione" duration lost across column — handled via `_SPELL_OVERRIDES`
+- **Monster stat blocks in body fonts**: BODY_BOLD labels + SIDEBAR values, ability scores as sequential paragraphs
+- **Monster subtitle merged with stat block**: BODY_ITALIC paragraph contains subtitle + all stat fields; must truncate at "Classe Armatura"
+- **Equipment as sequential paragraphs**: TABLE_HEADER_SMALL/TABLE_BODY sequences instead of pipe tables
+- **Inline subclasses**: 4 classes (Barbaro, Bardo, Chierico, Druido) have subclass as H3 inside "Privilegi di classe" — identified by `_INLINE_SUBCLASS_NAMES` set
+- **Variable rarity magic items**: "rarità variabile" pattern for multi-variant items
+- **Avatar della morte**: stat block inside Deck of Many Things, overridden as type "Creatura"
 
 ## Error Conditions
 
-- Font profile mismatch (using 5.2.1 profile on 5.1 PDF) → most spans classified as UNKNOWN → quality check catches this via high UNKNOWN ratio
-- Page range drift → validate section start by checking first heading matches expected section name
+- Font profile mismatch (using 5.2.1 profile on 5.1 PDF) → most spans classified as UNKNOWN → quality check catches this
+- Missing JSON files for a source → Go loader skips with `fs.ErrNotExist`
+- Duplicate source IDs → fatal at startup
 
 ## Implementation Order
 
-1. Add `FontProfile` dataclass and extract 5.2.1 constants into `PROFILE_521`
-2. Parameterize `classify_span` to accept a profile
-3. Calibrate `PROFILE_51` by running `--debug-page` on key pages (2, 8, 129, 300)
-4. Add `SECTIONS_51` page ranges
-5. Add `--profile` CLI flag
-6. Run existing parsers on 5.1 sections, fix breakages iteratively (spells and equipment likely work first)
-7. Adapt monster parser for body-font stat blocks
-8. Write `races.py` parser
-9. Generate all JSON, run quality checks
-10. Place output in `data/ita/json/srd-5e/` with `source.json`
+1. ~~Make classifier profile-based~~ ✓
+2. ~~Calibrate PROFILE_51~~ ✓
+3. ~~Add SECTIONS_51~~ ✓
+4. ~~Add --profile CLI flag~~ ✓
+5. ~~Write 5.1 parsers (spells, magic_items, classes, backgrounds, equipment, monsters, races, feats)~~ ✓
+6. Split `parsers/` into `parsers/` (5.2.1) + `parsers_51/` (5.1) — revert dual-edition branching from `parsers/`
+7. ~~Generate JSON, run quality checks~~ ✓
+8. ~~Place output in `data/ita/json/srd-5e/`~~ ✓
+9. ~~Update Go loader for missing files and dynamic rules discovery~~ ✓
+10. ~~Update ADR status~~ ✓

@@ -1,0 +1,671 @@
+[
+  {
+    "id": "imbottita",
+    "name": "Imbottita",
+    "category": "armor",
+    "subcategory": "Armature leggere",
+    "properties": {
+      "cost": "5 mo",
+      "classe_armatura": "11 + modificatore di Des",
+      "furtività": "Svantaggio",
+      "peso": "4 kg"
+    },
+    "description": "**Costo:** 5 mo\n\n**Classe Armatura (CA):** 11 + modificatore di Des\n\n**Peso:** 4 kg\n\n**Furtività:** Svantaggio"
+  },
+  {
+    "id": "cuoio",
+    "name": "Cuoio",
+    "category": "armor",
+    "subcategory": "Armature leggere",
+    "properties": {
+      "cost": "10 mo",
+      "classe_armatura": "11 + modificatore di Des",
+      "peso": "5 kg"
+    },
+    "description": "**Costo:** 10 mo\n\n**Classe Armatura (CA):** 11 + modificatore di Des\n\n**Peso:** 5 kg"
+  },
+  {
+    "id": "cuoio-borchiato",
+    "name": "Cuoio borchiato",
+    "category": "armor",
+    "subcategory": "Armature leggere",
+    "properties": {
+      "cost": "45 mo",
+      "classe_armatura": "12 + modificatore di Des",
+      "peso": "6,5 kg"
+    },
+    "description": "**Costo:** 45 mo\n\n**Classe Armatura (CA):** 12 + modificatore di Des\n\n**Peso:** 6,5 kg"
+  },
+  {
+    "id": "pelle",
+    "name": "Pelle",
+    "category": "armor",
+    "subcategory": "Armature medie",
+    "properties": {
+      "cost": "10 mo",
+      "classe_armatura": "12 + modificatore di Des (max 2)",
+      "peso": "6 kg"
+    },
+    "description": "**Costo:** 10 mo\n\n**Classe Armatura (CA):** 12 + modificatore di Des (max 2)\n\n**Peso:** 6 kg"
+  },
+  {
+    "id": "giaco-di-maglia",
+    "name": "Giaco di maglia",
+    "category": "armor",
+    "subcategory": "Armature medie",
+    "properties": {
+      "cost": "50 mo",
+      "classe_armatura": "13 + modificatore di Des (max 2)",
+      "peso": "10 kg"
+    },
+    "description": "**Costo:** 50 mo\n\n**Classe Armatura (CA):** 13 + modificatore di Des (max 2)\n\n**Peso:** 10 kg"
+  },
+  {
+    "id": "corazza-a-scaglie",
+    "name": "Corazza a scaglie",
+    "category": "armor",
+    "subcategory": "Armature medie",
+    "properties": {
+      "cost": "50 mo",
+      "classe_armatura": "14 + modificatore di Des (max 2)",
+      "furtività": "Svantaggio",
+      "peso": "22,5 kg"
+    },
+    "description": "**Costo:** 50 mo\n\n**Classe Armatura (CA):** 14 + modificatore di Des (max 2)\n\n**Peso:** 22,5 kg\n\n**Furtività:** Svantaggio"
+  },
+  {
+    "id": "corazza-di-piastre",
+    "name": "Corazza di piastre",
+    "category": "armor",
+    "subcategory": "Armature medie",
+    "properties": {
+      "cost": "400 mo",
+      "classe_armatura": "14 + modificatore di Des (max 2)",
+      "peso": "10 kg"
+    },
+    "description": "**Costo:** 400 mo\n\n**Classe Armatura (CA):** 14 + modificatore di Des (max 2)\n\n**Peso:** 10 kg"
+  },
+  {
+    "id": "mezza-armatura",
+    "name": "Mezza armatura",
+    "category": "armor",
+    "subcategory": "Armature medie",
+    "properties": {
+      "cost": "750 mo",
+      "classe_armatura": "15 + modificatore di Des (max 2)",
+      "furtività": "Svantaggio",
+      "peso": "20 kg"
+    },
+    "description": "**Costo:** 750 mo\n\n**Classe Armatura (CA):** 15 + modificatore di Des (max 2)\n\n**Peso:** 20 kg\n\n**Furtività:** Svantaggio"
+  },
+  {
+    "id": "corazza-ad-anelli",
+    "name": "Corazza ad anelli",
+    "category": "armor",
+    "subcategory": "Armature pesanti",
+    "properties": {
+      "cost": "30 mo",
+      "classe_armatura": "14",
+      "furtività": "Svantaggio",
+      "peso": "20 kg"
+    },
+    "description": "**Costo:** 30 mo\n\n**Classe Armatura (CA):** 14\n\n**Peso:** 20 kg\n\n**Furtività:** Svantaggio"
+  },
+  {
+    "id": "cotta-di-maglia",
+    "name": "Cotta di maglia",
+    "category": "armor",
+    "subcategory": "Armature pesanti",
+    "properties": {
+      "cost": "75 mo",
+      "classe_armatura": "16",
+      "forza": "For 13",
+      "furtività": "Svantaggio",
+      "peso": "27,5 kg"
+    },
+    "description": "**Costo:** 75 mo\n\n**Classe Armatura (CA):** 16\n\n**Peso:** 27,5 kg\n\n**Forza:** For 13\n\n**Furtività:** Svantaggio"
+  },
+  {
+    "id": "corazza-a-strisce",
+    "name": "Corazza a strisce",
+    "category": "armor",
+    "subcategory": "Armature pesanti",
+    "properties": {
+      "cost": "200 mo",
+      "classe_armatura": "17",
+      "forza": "For 15",
+      "furtività": "Svantaggio",
+      "peso": "30 kg"
+    },
+    "description": "**Costo:** 200 mo\n\n**Classe Armatura (CA):** 17\n\n**Peso:** 30 kg\n\n**Forza:** For 15\n\n**Furtività:** Svantaggio"
+  },
+  {
+    "id": "armatura-a-piastre",
+    "name": "Armatura a piastre",
+    "category": "armor",
+    "subcategory": "Armature pesanti",
+    "properties": {
+      "cost": "1.500 mo",
+      "classe_armatura": "18",
+      "forza": "For 15",
+      "furtività": "Svantaggio",
+      "peso": "32,5 kg"
+    },
+    "description": "**Costo:** 1.500 mo\n\n**Classe Armatura (CA):** 18\n\n**Peso:** 32,5 kg\n\n**Forza:** For 15\n\n**Furtività:** Svantaggio"
+  },
+  {
+    "id": "scudo",
+    "name": "Scudo",
+    "category": "armor",
+    "subcategory": "Scudi",
+    "properties": {
+      "cost": "10 mo",
+      "classe_armatura": "+2",
+      "peso": "3 kg"
+    },
+    "description": "**Costo:** 10 mo\n\n**Classe Armatura (CA):** +2\n\n**Peso:** 3 kg"
+  },
+  {
+    "id": "armature-leggere",
+    "name": "Armature leggere",
+    "category": "armor",
+    "subcategory": "Indossare e togliere armature",
+    "properties": {
+      "cost": "1 minuto",
+      "classe_armatura": "1 minuto",
+      "forza": "Armature medie",
+      "furtività": "5 minuti",
+      "peso": "1 minuto"
+    },
+    "description": "**Costo:** 1 minuto\n\n**Classe Armatura (CA):** 1 minuto\n\n**Peso:** 1 minuto\n\n**Forza:** Armature medie\n\n**Furtività:** 5 minuti"
+  },
+  {
+    "id": "armature-pesanti",
+    "name": "Armature pesanti",
+    "category": "armor",
+    "subcategory": "Indossare e togliere armature",
+    "properties": {
+      "cost": "10 minuti",
+      "classe_armatura": "5 minuti",
+      "forza": "Scudo",
+      "furtività": "1 azione",
+      "peso": "1 azione"
+    },
+    "description": "**Costo:** 10 minuti\n\n**Classe Armatura (CA):** 5 minuti\n\n**Peso:** 1 azione\n\n**Forza:** Scudo\n\n**Furtività:** 1 azione"
+  },
+  {
+    "id": "ascia",
+    "name": "Ascia",
+    "category": "weapons",
+    "subcategory": "Armi da mischia semplici",
+    "properties": {
+      "cost": "5 mo",
+      "danni": "1d6 taglienti",
+      "peso": "1 kg",
+      "proprietà": "Lancio (gittata 6/18), Leggera"
+    },
+    "description": "**Costo:** 5 mo\n\n**Danni:** 1d6 taglienti\n\n**Peso:** 1 kg\n\n**Proprietà:** Lancio (gittata 6/18), Leggera"
+  },
+  {
+    "id": "bastone-ferrato",
+    "name": "Bastone ferrato",
+    "category": "weapons",
+    "subcategory": "Armi da mischia semplici",
+    "properties": {
+      "cost": "2 ma",
+      "danni": "1d6 contundenti",
+      "peso": "2 kg",
+      "proprietà": "Versatile (1d8)"
+    },
+    "description": "**Costo:** 2 ma\n\n**Danni:** 1d6 contundenti\n\n**Peso:** 2 kg\n\n**Proprietà:** Versatile (1d8)"
+  },
+  {
+    "id": "falcetto",
+    "name": "Falcetto",
+    "category": "weapons",
+    "subcategory": "Armi da mischia semplici",
+    "properties": {
+      "cost": "1 mo",
+      "danni": "1d4 taglienti",
+      "peso": "1 kg",
+      "proprietà": "Leggera"
+    },
+    "description": "**Costo:** 1 mo\n\n**Danni:** 1d4 taglienti\n\n**Peso:** 1 kg\n\n**Proprietà:** Leggera"
+  },
+  {
+    "id": "giavellotto",
+    "name": "Giavellotto",
+    "category": "weapons",
+    "subcategory": "Armi da mischia semplici",
+    "properties": {
+      "cost": "5 ma",
+      "danni": "1d6 perforanti",
+      "peso": "1 kg",
+      "proprietà": "Lancio (gittata 9/36)"
+    },
+    "description": "**Costo:** 5 ma\n\n**Danni:** 1d6 perforanti\n\n**Peso:** 1 kg\n\n**Proprietà:** Lancio (gittata 9/36)"
+  },
+  {
+    "id": "lancia",
+    "name": "Lancia",
+    "category": "weapons",
+    "subcategory": "Armi da mischia semplici",
+    "properties": {
+      "cost": "1 mo",
+      "danni": "1d6 perforanti",
+      "peso": "1,5 kg",
+      "proprietà": "Lancio (gittata 6/18), Versatile (1d8)"
+    },
+    "description": "**Costo:** 1 mo\n\n**Danni:** 1d6 perforanti\n\n**Peso:** 1,5 kg\n\n**Proprietà:** Lancio (gittata 6/18), Versatile (1d8)"
+  },
+  {
+    "id": "martello-leggero",
+    "name": "Martello leggero",
+    "category": "weapons",
+    "subcategory": "Armi da mischia semplici",
+    "properties": {
+      "cost": "2 mo",
+      "danni": "1d4 contundenti",
+      "peso": "1 kg",
+      "proprietà": "Lancio (gittata 6/18), Leggera"
+    },
+    "description": "**Costo:** 2 mo\n\n**Danni:** 1d4 contundenti\n\n**Peso:** 1 kg\n\n**Proprietà:** Lancio (gittata 6/18), Leggera"
+  },
+  {
+    "id": "mazza",
+    "name": "Mazza",
+    "category": "weapons",
+    "subcategory": "Armi da mischia semplici",
+    "properties": {
+      "cost": "5 mo",
+      "danni": "1d6 contundenti",
+      "peso": "2 kg"
+    },
+    "description": "**Costo:** 5 mo\n\n**Danni:** 1d6 contundenti\n\n**Peso:** 2 kg"
+  },
+  {
+    "id": "pugnale",
+    "name": "Pugnale",
+    "category": "weapons",
+    "subcategory": "Armi da mischia semplici",
+    "properties": {
+      "cost": "2 mo",
+      "danni": "1d4 perforanti",
+      "peso": "0,5 kg",
+      "proprietà": "Accurata, Lancio (gittata 6/18), Leggera"
+    },
+    "description": "**Costo:** 2 mo\n\n**Danni:** 1d4 perforanti\n\n**Peso:** 0,5 kg\n\n**Proprietà:** Accurata, Lancio (gittata 6/18), Leggera"
+  },
+  {
+    "id": "randello",
+    "name": "Randello",
+    "category": "weapons",
+    "subcategory": "Armi da mischia semplici",
+    "properties": {
+      "cost": "1 ma",
+      "danni": "1d4 contundenti",
+      "peso": "1 kg",
+      "proprietà": "Leggera"
+    },
+    "description": "**Costo:** 1 ma\n\n**Danni:** 1d4 contundenti\n\n**Peso:** 1 kg\n\n**Proprietà:** Leggera"
+  },
+  {
+    "id": "randello-pesante",
+    "name": "Randello pesante",
+    "category": "weapons",
+    "subcategory": "Armi da mischia semplici",
+    "properties": {
+      "cost": "2 ma",
+      "danni": "1d8 contundenti",
+      "peso": "5 kg",
+      "proprietà": "Due mani"
+    },
+    "description": "**Costo:** 2 ma\n\n**Danni:** 1d8 contundenti\n\n**Peso:** 5 kg\n\n**Proprietà:** Due mani"
+  },
+  {
+    "id": "arco-corto",
+    "name": "Arco corto",
+    "category": "weapons",
+    "subcategory": "Armi a distanza semplici",
+    "properties": {
+      "cost": "25 mo",
+      "danni": "1d6 perforanti",
+      "peso": "1 kg",
+      "proprietà": "Due mani, Munizioni (gittata 24/96)"
+    },
+    "description": "**Costo:** 25 mo\n\n**Danni:** 1d6 perforanti\n\n**Peso:** 1 kg\n\n**Proprietà:** Due mani, Munizioni (gittata 24/96)"
+  },
+  {
+    "id": "balestra-leggera",
+    "name": "Balestra leggera",
+    "category": "weapons",
+    "subcategory": "Armi a distanza semplici",
+    "properties": {
+      "cost": "25 mo",
+      "danni": "1d8 perforanti",
+      "peso": "2,5 kg",
+      "proprietà": "Due mani, Munizioni (gittata 24/96), Ricarica"
+    },
+    "description": "**Costo:** 25 mo\n\n**Danni:** 1d8 perforanti\n\n**Peso:** 2,5 kg\n\n**Proprietà:** Due mani, Munizioni (gittata 24/96), Ricarica"
+  },
+  {
+    "id": "dardo",
+    "name": "Dardo",
+    "category": "weapons",
+    "subcategory": "Armi a distanza semplici",
+    "properties": {
+      "cost": "5 mr",
+      "danni": "1d4 perforanti",
+      "peso": "0,125 kg",
+      "proprietà": "Accurata, Lancio (gittata 6/18)"
+    },
+    "description": "**Costo:** 5 mr\n\n**Danni:** 1d4 perforanti\n\n**Peso:** 0,125 kg\n\n**Proprietà:** Accurata, Lancio (gittata 6/18)"
+  },
+  {
+    "id": "fionda",
+    "name": "Fionda",
+    "category": "weapons",
+    "subcategory": "Armi a distanza semplici",
+    "properties": {
+      "cost": "1 ma",
+      "danni": "1d4 contundenti",
+      "proprietà": "Munizioni (gittata 9/36)"
+    },
+    "description": "**Costo:** 1 ma\n\n**Danni:** 1d4 contundenti\n\n**Proprietà:** Munizioni (gittata 9/36)"
+  },
+  {
+    "id": "alabarda",
+    "name": "Alabarda",
+    "category": "weapons",
+    "subcategory": "Armi da mischia da guerra",
+    "properties": {
+      "cost": "20 mo",
+      "danni": "1d10 taglienti",
+      "peso": "3 kg",
+      "proprietà": "Due mani, Pesante, Portata"
+    },
+    "description": "**Costo:** 20 mo\n\n**Danni:** 1d10 taglienti\n\n**Peso:** 3 kg\n\n**Proprietà:** Due mani, Pesante, Portata"
+  },
+  {
+    "id": "ascia-bipenne",
+    "name": "Ascia bipenne",
+    "category": "weapons",
+    "subcategory": "Armi da mischia da guerra",
+    "properties": {
+      "cost": "30 mo",
+      "danni": "1d12 taglienti",
+      "peso": "3,5 kg",
+      "proprietà": "Due mani, Pesante"
+    },
+    "description": "**Costo:** 30 mo\n\n**Danni:** 1d12 taglienti\n\n**Peso:** 3,5 kg\n\n**Proprietà:** Due mani, Pesante"
+  },
+  {
+    "id": "ascia-da-battaglia",
+    "name": "Ascia da battaglia",
+    "category": "weapons",
+    "subcategory": "Armi da mischia da guerra",
+    "properties": {
+      "cost": "10 mo",
+      "danni": "1d8 taglienti",
+      "peso": "2 kg",
+      "proprietà": "Versatile (1d10)"
+    },
+    "description": "**Costo:** 10 mo\n\n**Danni:** 1d8 taglienti\n\n**Peso:** 2 kg\n\n**Proprietà:** Versatile (1d10)"
+  },
+  {
+    "id": "falcione",
+    "name": "Falcione",
+    "category": "weapons",
+    "subcategory": "Armi da mischia da guerra",
+    "properties": {
+      "cost": "20 mo",
+      "danni": "1d10 taglienti",
+      "peso": "3 kg",
+      "proprietà": "Due mani, Pesante, Portata"
+    },
+    "description": "**Costo:** 20 mo\n\n**Danni:** 1d10 taglienti\n\n**Peso:** 3 kg\n\n**Proprietà:** Due mani, Pesante, Portata"
+  },
+  {
+    "id": "frusta",
+    "name": "Frusta",
+    "category": "weapons",
+    "subcategory": "Armi da mischia da guerra",
+    "properties": {
+      "cost": "2 mo",
+      "danni": "1d4 taglienti",
+      "peso": "1,5 kg",
+      "proprietà": "Accurata, Portata"
+    },
+    "description": "**Costo:** 2 mo\n\n**Danni:** 1d4 taglienti\n\n**Peso:** 1,5 kg\n\n**Proprietà:** Accurata, Portata"
+  },
+  {
+    "id": "lancia-da-cavaliere",
+    "name": "Lancia da cavaliere",
+    "category": "weapons",
+    "subcategory": "Armi da mischia da guerra",
+    "properties": {
+      "cost": "10 mo",
+      "danni": "1d12 perforanti",
+      "peso": "3 kg",
+      "proprietà": "Portata, Speciale"
+    },
+    "description": "**Costo:** 10 mo\n\n**Danni:** 1d12 perforanti\n\n**Peso:** 3 kg\n\n**Proprietà:** Portata, Speciale"
+  },
+  {
+    "id": "maglio",
+    "name": "Maglio",
+    "category": "weapons",
+    "subcategory": "Armi da mischia da guerra",
+    "properties": {
+      "cost": "10 mo",
+      "danni": "2d6 contundenti",
+      "peso": "5 kg",
+      "proprietà": "Due mani, Pesante"
+    },
+    "description": "**Costo:** 10 mo\n\n**Danni:** 2d6 contundenti\n\n**Peso:** 5 kg\n\n**Proprietà:** Due mani, Pesante"
+  },
+  {
+    "id": "martello-da-guerra",
+    "name": "Martello da guerra",
+    "category": "weapons",
+    "subcategory": "Armi da mischia da guerra",
+    "properties": {
+      "cost": "15 mo",
+      "danni": "1d8 contundenti",
+      "peso": "1 kg",
+      "proprietà": "Versatile (1d10)"
+    },
+    "description": "**Costo:** 15 mo\n\n**Danni:** 1d8 contundenti\n\n**Peso:** 1 kg\n\n**Proprietà:** Versatile (1d10)"
+  },
+  {
+    "id": "mazza-chiodata",
+    "name": "Mazza chiodata",
+    "category": "weapons",
+    "subcategory": "Armi da mischia da guerra",
+    "properties": {
+      "cost": "15 mo",
+      "danni": "1d8 perforanti",
+      "peso": "2 kg"
+    },
+    "description": "**Costo:** 15 mo\n\n**Danni:** 1d8 perforanti\n\n**Peso:** 2 kg"
+  },
+  {
+    "id": "mazzafrusto",
+    "name": "Mazzafrusto",
+    "category": "weapons",
+    "subcategory": "Armi da mischia da guerra",
+    "properties": {
+      "cost": "10 mo",
+      "danni": "1d8 contundenti",
+      "peso": "1 kg"
+    },
+    "description": "**Costo:** 10 mo\n\n**Danni:** 1d8 contundenti\n\n**Peso:** 1 kg"
+  },
+  {
+    "id": "picca",
+    "name": "Picca",
+    "category": "weapons",
+    "subcategory": "Armi da mischia da guerra",
+    "properties": {
+      "cost": "5 mo",
+      "danni": "1d10 perforanti",
+      "peso": "9 kg",
+      "proprietà": "Due mani, Pesante, Portata"
+    },
+    "description": "**Costo:** 5 mo\n\n**Danni:** 1d10 perforanti\n\n**Peso:** 9 kg\n\n**Proprietà:** Due mani, Pesante, Portata"
+  },
+  {
+    "id": "piccone-da-guerra",
+    "name": "Piccone da guerra",
+    "category": "weapons",
+    "subcategory": "Armi da mischia da guerra",
+    "properties": {
+      "cost": "5 mo",
+      "danni": "1d8 perforanti",
+      "peso": "1 kg"
+    },
+    "description": "**Costo:** 5 mo\n\n**Danni:** 1d8 perforanti\n\n**Peso:** 1 kg"
+  },
+  {
+    "id": "scimitarra",
+    "name": "Scimitarra",
+    "category": "weapons",
+    "subcategory": "Armi da mischia da guerra",
+    "properties": {
+      "cost": "25 mo",
+      "danni": "1d6 taglienti",
+      "peso": "1,5 kg",
+      "proprietà": "Accurata, Leggera"
+    },
+    "description": "**Costo:** 25 mo\n\n**Danni:** 1d6 taglienti\n\n**Peso:** 1,5 kg\n\n**Proprietà:** Accurata, Leggera"
+  },
+  {
+    "id": "spada-corta",
+    "name": "Spada corta",
+    "category": "weapons",
+    "subcategory": "Armi da mischia da guerra",
+    "properties": {
+      "cost": "10 mo",
+      "danni": "1d6 perforanti",
+      "peso": "1 kg",
+      "proprietà": "Accurata, Leggera"
+    },
+    "description": "**Costo:** 10 mo\n\n**Danni:** 1d6 perforanti\n\n**Peso:** 1 kg\n\n**Proprietà:** Accurata, Leggera"
+  },
+  {
+    "id": "spada-lunga",
+    "name": "Spada lunga",
+    "category": "weapons",
+    "subcategory": "Armi da mischia da guerra",
+    "properties": {
+      "cost": "15 mo",
+      "danni": "1d8 taglienti",
+      "peso": "1,5 kg",
+      "proprietà": "Versatile (1d10)"
+    },
+    "description": "**Costo:** 15 mo\n\n**Danni:** 1d8 taglienti\n\n**Peso:** 1,5 kg\n\n**Proprietà:** Versatile (1d10)"
+  },
+  {
+    "id": "spadone",
+    "name": "Spadone",
+    "category": "weapons",
+    "subcategory": "Armi da mischia da guerra",
+    "properties": {
+      "cost": "50 mo",
+      "danni": "2d6 taglienti",
+      "peso": "3 kg",
+      "proprietà": "Due mani, Pesante"
+    },
+    "description": "**Costo:** 50 mo\n\n**Danni:** 2d6 taglienti\n\n**Peso:** 3 kg\n\n**Proprietà:** Due mani, Pesante"
+  },
+  {
+    "id": "stocco",
+    "name": "Stocco",
+    "category": "weapons",
+    "subcategory": "Armi da mischia da guerra",
+    "properties": {
+      "cost": "25 mo",
+      "danni": "1d8 perforanti",
+      "peso": "1 kg",
+      "proprietà": "Accurata"
+    },
+    "description": "**Costo:** 25 mo\n\n**Danni:** 1d8 perforanti\n\n**Peso:** 1 kg\n\n**Proprietà:** Accurata"
+  },
+  {
+    "id": "tridente",
+    "name": "Tridente",
+    "category": "weapons",
+    "subcategory": "Armi da mischia da guerra",
+    "properties": {
+      "cost": "5 mo",
+      "danni": "1d6 perforanti",
+      "peso": "2 kg",
+      "proprietà": "Lancio (gittata 6/18), Versatile (1d8)"
+    },
+    "description": "**Costo:** 5 mo\n\n**Danni:** 1d6 perforanti\n\n**Peso:** 2 kg\n\n**Proprietà:** Lancio (gittata 6/18), Versatile (1d8)"
+  },
+  {
+    "id": "arco-lungo",
+    "name": "Arco lungo",
+    "category": "weapons",
+    "subcategory": "Armi a distanza da guerra",
+    "properties": {
+      "cost": "50 mo",
+      "danni": "1d8 perforanti",
+      "peso": "1 kg",
+      "proprietà": "Due mani, Munizioni (gittata 45/180), Pesante"
+    },
+    "description": "**Costo:** 50 mo\n\n**Danni:** 1d8 perforanti\n\n**Peso:** 1 kg\n\n**Proprietà:** Due mani, Munizioni (gittata 45/180), Pesante"
+  },
+  {
+    "id": "balestra-a-mano",
+    "name": "Balestra a mano",
+    "category": "weapons",
+    "subcategory": "Armi a distanza da guerra",
+    "properties": {
+      "cost": "75 mo",
+      "danni": "1d6 perforanti",
+      "peso": "1,5 kg",
+      "proprietà": "Leggera, Munizioni (gittata 9/36), Ricarica"
+    },
+    "description": "**Costo:** 75 mo\n\n**Danni:** 1d6 perforanti\n\n**Peso:** 1,5 kg\n\n**Proprietà:** Leggera, Munizioni (gittata 9/36), Ricarica"
+  },
+  {
+    "id": "balestra-pesante",
+    "name": "Balestra pesante",
+    "category": "weapons",
+    "subcategory": "Armi a distanza da guerra",
+    "properties": {
+      "cost": "50 mo",
+      "danni": "1d10 perforanti",
+      "peso": "9 kg",
+      "proprietà": "Due mani, Munizioni (gittata 30/120), Pesante, Ricarica"
+    },
+    "description": "**Costo:** 50 mo\n\n**Danni:** 1d10 perforanti\n\n**Peso:** 9 kg\n\n**Proprietà:** Due mani, Munizioni (gittata 30/120), Pesante, Ricarica"
+  },
+  {
+    "id": "cerbottana",
+    "name": "Cerbottana",
+    "category": "weapons",
+    "subcategory": "Armi a distanza da guerra",
+    "properties": {
+      "cost": "10 mo",
+      "danni": "1 perforante",
+      "peso": "0,5 kg",
+      "proprietà": "Munizioni (gittata 7,5/30), Ricarica"
+    },
+    "description": "**Costo:** 10 mo\n\n**Danni:** 1 perforante\n\n**Peso:** 0,5 kg\n\n**Proprietà:** Munizioni (gittata 7,5/30), Ricarica"
+  },
+  {
+    "id": "rete",
+    "name": "Rete",
+    "category": "weapons",
+    "subcategory": "Armi a distanza da guerra",
+    "properties": {
+      "cost": "1 mo",
+      "peso": "1,5 kg",
+      "proprietà": "Lancio (gittata 1,5/4,5), Speciale"
+    },
+    "description": "**Costo:** 1 mo\n\n**Peso:** 1,5 kg\n\n**Proprietà:** Lancio (gittata 1,5/4,5), Speciale"
+  }
+]
