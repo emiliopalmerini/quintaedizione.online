@@ -92,8 +92,24 @@ def _parse_ability_scores(content: list[Paragraph]) -> tuple[AbilityScores, Abil
     return scores, mods
 
 
+def _is_feature_name_span(span) -> bool:
+    """Check if a span starts a feature name.
+
+    Feature names are BODY_BOLD_ITALIC (traits/actions) or BODY_BOLD ending
+    with a period (legendary actions use Calibri-Bold instead of BoldItalic).
+    """
+    text = span.text.strip()
+    if not text:
+        return False
+    if span.role == SpanRole.BODY_BOLD_ITALIC:
+        return True
+    if span.role == SpanRole.BODY_BOLD and text.endswith("."):
+        return True
+    return False
+
+
 def _parse_features(content: list[Paragraph]) -> list[Feature]:
-    """Parse features from BODY_BOLD_ITALIC name + description pattern."""
+    """Parse features from BODY_BOLD_ITALIC or BODY_BOLD name + description pattern."""
     features: list[Feature] = []
     current_name = ""
     current_parts: list[str] = []
@@ -101,7 +117,7 @@ def _parse_features(content: list[Paragraph]) -> list[Feature]:
     for para in content:
         found_feature = False
         for i, span in enumerate(para.spans):
-            if span.role == SpanRole.BODY_BOLD_ITALIC and span.text.strip():
+            if _is_feature_name_span(span):
                 if current_name:
                     features.append(Feature(
                         name=current_name,
