@@ -7,11 +7,25 @@ import "fmt"
 templ SearchPage(data models.SearchPageData) {
 	@BaseLayout(data.PageData) {
 		<section class="search-page-header">
-			<a href="/" class="search-page-back">&larr; Torna alla home</a>
-			<h1 class="search-page-title">Risultati della ricerca</h1>
-			<p class="search-page-query">
-				Hai cercato: <strong>{ data.Query }</strong>
-			</p>
+			<a href="/srd" class="search-page-back">&larr; Torna alla home</a>
+			<form class="search-page-form" action="/srd/search" method="get">
+				<div class="search-input-group">
+					<svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+						<path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M19 19L14.65 14.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+					<input
+						type="text"
+						name="q"
+						value={ data.Query }
+						placeholder="Cerca in tutte le collezioni..."
+						class="field flex-1"
+						autocomplete="off"
+						aria-label="Cerca contenuti"
+						autofocus
+					/>
+				</div>
+			</form>
 			if data.Total > 0 {
 				<p class="search-page-count">
 					Trovati <strong>{ strconv.FormatInt(data.Total, 10) }</strong> risultati totali
@@ -21,8 +35,29 @@ templ SearchPage(data models.SearchPageData) {
 
 		if len(data.Results) == 0 {
 			<section class="search-page-empty">
-				<p class="search-page-empty-title">Nessun risultato trovato</p>
-				<p class="search-page-empty-hint">Prova con altri termini di ricerca</p>
+				<svg class="search-empty-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+					<path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+				</svg>
+				<p class="search-page-empty-title">Nessun risultato per "<strong>{ data.Query }</strong>"</p>
+				<div class="search-empty-suggestions">
+					<p class="search-empty-suggestions-label">Suggerimenti:</p>
+					<ul class="search-empty-tips">
+						<li>Controlla l'ortografia</li>
+						<li>Prova con meno parole chiave</li>
+						<li>Cerca in italiano (es. "Palla di Fuoco" non "Fireball")</li>
+					</ul>
+				</div>
+				if len(data.Collections) > 0 {
+					<div class="search-empty-collections">
+						<p class="search-empty-collections-label">Collezioni popolari:</p>
+						<div class="search-empty-collection-chips">
+							for _, col := range data.Collections {
+								<a href={ templ.URL("/srd/" + col.Name) } class="search-empty-chip">{ col.Label }</a>
+							}
+						</div>
+					</div>
+				}
 			</section>
 		} else {
 			for _, result := range data.Results {
@@ -62,6 +97,11 @@ templ SearchPage(data models.SearchPageData) {
 												}
 											}
 										</div>
+									}
+									if doc.Snippet != "" {
+										<p class="search-page-result-snippet">
+											@templ.Raw(HighlightQuery(doc.Snippet, data.Query))
+										</p>
 									}
 								</div>
 								<span class="search-page-result-arrow">&rarr;</span>

@@ -19,7 +19,7 @@ templ SearchDropdown(results []models.CollectionSearchResult, query string) {
 			<ul class="search-empty-tips">
 				<li>Controllare l'ortografia</li>
 				<li>Usare termini più generici</li>
-				<li>Cercare per tipo (es. "livello 2", "mostro")</li>
+				<li>Cercare in italiano (es. "Palla di Fuoco" non "Fireball")</li>
 			</ul>
 		</div>
 	} else if len(results) > 0 {
@@ -56,6 +56,11 @@ templ SearchDropdown(results []models.CollectionSearchResult, query string) {
 									}
 								</div>
 							}
+							if doc.Snippet != "" {
+								<p class="search-dropdown-snippet">
+									@templ.Raw(HighlightQuery(doc.Snippet, query))
+								</p>
+							}
 						</a>
 					}
 					if result.HasMore {
@@ -69,5 +74,11 @@ templ SearchDropdown(results []models.CollectionSearchResult, query string) {
 				</div>
 			</div>
 		}
+		<a
+			href={ templ.URL(fmt.Sprintf("/srd/search?q=%s", query)) }
+			class="search-dropdown-view-all"
+		>
+			Vedi tutti i risultati →
+		</a>
 	}
 }
