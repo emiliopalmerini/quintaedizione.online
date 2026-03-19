@@ -23,7 +23,7 @@ templ Home(editions []EditionOption) {
 		<div class="encounter-layout">
 			<div class="encounter-config">
 				<div class="form-container">
-					<form id="encounter-form" hx-post="/combattimenti/calculate" hx-target="#result-container" hx-swap="innerHTML">
+					<form id="encounter-form" hx-post="/combattimenti/calculate" hx-target="#result-container" hx-swap="innerHTML" hx-trigger="change from:find input, change from:find select delay:200ms" hx-indicator="#result-loading">
 						<!-- Edition Selection -->
 						<div class="form-section">
 							<h2 class="form-section-title">Edizione</h2>
@@ -167,22 +167,32 @@ templ Home(editions []EditionOption) {
 							</div>
 						</div>
 
-						<!-- Submit -->
-						<div class="form-submit">
-							<button type="submit" class="btn btn-primary btn-large">
-								Calcola Budget XP
-							</button>
-						</div>
+						<!-- Submit (no-JS fallback, hidden when JS active) -->
+						<noscript>
+							<div class="form-submit">
+								<button type="submit" class="btn btn-primary btn-large">
+									Calcola Budget XP
+								</button>
+							</div>
+						</noscript>
 					</form>
 				</div>
 			</div>
 
 			<!-- Results -->
 			<div class="encounter-results">
-				<div id="result-container">
+				<div id="result-container"
+					hx-post="/combattimenti/calculate"
+					hx-trigger="load"
+					hx-include="#encounter-form"
+					hx-swap="innerHTML"
+				>
 					<div class="result-placeholder">
+						<div id="result-loading" class="htmx-indicator">
+							<span class="spinner"></span>
+						</div>
 						<h3>⚔️ Budget XP</h3>
-						<p>Configura il party e calcola il budget per il tuo incontro.</p>
+						<p>Calcolo in corso...</p>
 					</div>
 				</div>
 			</div>
