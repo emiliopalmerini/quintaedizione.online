@@ -47,8 +47,10 @@ func (h *GeneratorHandler) handleGenerator(w http.ResponseWriter, r *http.Reques
 		return
 	}
 
+	prev, next := h.service.Neighbors(slug)
+
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	if err := templates.Generator(table).Render(r.Context(), w); err != nil {
+	if err := templates.Generator(table, prev, next).Render(r.Context(), w); err != nil {
 		h.logger.Error("Failed to render generator", "slug", slug, "error", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}

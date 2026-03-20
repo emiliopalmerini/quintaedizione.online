@@ -7,7 +7,7 @@ import (
 	shared "github.com/emiliopalmerini/quintaedizione.online/web/templates"
 )
 
-templ Generator(table domain.Table) {
+templ Generator(table domain.Table, prev *domain.Table, next *domain.Table) {
 	@shared.SiteLayout(table.Name, table.Description, "generatori", nil) {
 		<div class="generator-page">
 			<nav class="breadcrumb" aria-label="Breadcrumb">
@@ -48,6 +48,23 @@ templ Generator(table domain.Table) {
 					</ol>
 				}
 			</details>
+
+			<nav class="generator-nav" aria-label="Navigazione generatori">
+				if prev != nil {
+					<a href={ templ.SafeURL("/generatori/" + prev.ID) } class="generator-nav-link generator-nav-prev">
+						<span class="generator-nav-direction">&larr; Precedente</span>
+						<span class="generator-nav-title">{ prev.Name }</span>
+					</a>
+				} else {
+					<span></span>
+				}
+				if next != nil {
+					<a href={ templ.SafeURL("/generatori/" + next.ID) } class="generator-nav-link generator-nav-next">
+						<span class="generator-nav-direction">Successivo &rarr;</span>
+						<span class="generator-nav-title">{ next.Name }</span>
+					</a>
+				}
+			</nav>
 		</div>
 	}
 }

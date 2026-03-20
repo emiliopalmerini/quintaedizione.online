@@ -88,6 +88,24 @@ func (s *Service) Get(id string) (domain.Table, bool) {
 	return t, ok
 }
 
+// Neighbors returns the previous and next table relative to the given ID.
+func (s *Service) Neighbors(id string) (prev, next *domain.Table) {
+	for i, oid := range s.order {
+		if oid == id {
+			if i > 0 {
+				t := s.tables[s.order[i-1]]
+				prev = &t
+			}
+			if i < len(s.order)-1 {
+				t := s.tables[s.order[i+1]]
+				next = &t
+			}
+			return
+		}
+	}
+	return
+}
+
 // Roll returns a random result from the given table.
 func (s *Service) Roll(id string) (domain.RollResult, error) {
 	t, ok := s.tables[id]
