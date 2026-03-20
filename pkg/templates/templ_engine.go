@@ -6,7 +6,7 @@ import (
 	"fmt"
 
 	"github.com/a-h/templ"
-	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/models"
 	templComponents "github.com/emiliopalmerini/quintaedizione.online/web/templates"
 )
 

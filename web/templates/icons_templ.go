@@ -8,7 +8,7 @@ package templates
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import "github.com/emiliopalmerini/quintaedizione.online/internal/domain/collections"
+import "github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain/collections"
 
 // CollectionIcon renders an inline SVG icon for the given collection.
 // Icons are from Tabler Icons (MIT), stroke-width 2, using currentColor for dark mode.
