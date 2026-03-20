@@ -1,0 +1,19 @@
+{
+  "id": "decorazioni-pareti",
+  "name": "Decorazioni Parietali",
+  "description": "Tipi di decorazioni murali che potrebbero rivelare segreti e indizi.",
+  "die": "1d10",
+  "order": 13,
+  "items": [
+    "Bassorilievo",
+    "Fregio",
+    "Murale",
+    "Affresco",
+    "Mosaico",
+    "Incisioni runiche",
+    "Pittura encaustica",
+    "Incisioni dorate",
+    "Marouflage",
+    "Sgraffito"
+  ]
+}
