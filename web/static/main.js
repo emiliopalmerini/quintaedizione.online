@@ -996,15 +996,24 @@ function initFilterChips() {
 	}
 }
 
-// Theme toggle (both desktop and mobile buttons)
+// Theme switcher (segmented control)
 function initThemeToggle() {
-	var btns = [document.getElementById('theme-toggle'), document.getElementById('theme-toggle-mobile')];
-	btns.forEach(function(btn) {
-		if (!btn) return;
-		btn.addEventListener('click', function() {
+	var switcher = document.getElementById('theme-switcher');
+	if (!switcher) return;
+	var radios = switcher.querySelectorAll('input[name="theme"]');
+	// Sync radio state with current theme on load
+	var isDark = document.documentElement.classList.contains('dark');
+	radios.forEach(function(r) { r.checked = (r.value === (isDark ? 'dark' : 'light')); });
+	// Listen for changes
+	radios.forEach(function(radio) {
+		radio.addEventListener('change', function() {
 			var d = document.documentElement;
-			var isDark = d.classList.toggle('dark');
-			localStorage.setItem('theme', isDark ? 'dark' : 'light');
+			if (this.value === 'dark') {
+				d.classList.add('dark');
+			} else {
+				d.classList.remove('dark');
+			}
+			localStorage.setItem('theme', this.value);
 		});
 	});
 }
