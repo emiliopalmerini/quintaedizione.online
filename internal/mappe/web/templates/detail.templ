@@ -28,13 +28,19 @@ templ DetailPage(m maps.Mappa) {
 			}
 
 			<div class="mappe-detail-img mb-6">
-				<a href={ templ.URL("/static/img/mappe/" + m.Immagine) } target="_blank" title="Apri immagine originale">
-					<img
-						src={ "/static/img/mappe/preview/" + m.Immagine }
-						alt={ m.Nome }
-					/>
-				</a>
+				<img
+					src={ "/static/img/mappe/preview/" + m.Immagine }
+					alt={ m.Nome }
+				/>
 			</div>
+
+			if m.URLImmagineOriginale != "" {
+				<div class="mb-6">
+					<a href={ templ.URL(m.URLImmagineOriginale) } target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+						Scarica immagine originale &nearr;
+					</a>
+				</div>
+			}
 
 			<div class="mappe-detail-attribution">
 				<dl>

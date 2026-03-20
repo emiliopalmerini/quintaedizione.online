@@ -2,16 +2,17 @@ package maps
 
 // Mappa represents a map with Italian-translated metadata.
 type Mappa struct {
-	Slug          string
-	Nome          string
-	NomeOriginale string
-	Immagine      string
-	Categoria     string
-	Tag           []string
-	Descrizione   string
-	Autore        string
-	Licenza       string
-	URLOriginale  string
+	Slug                 string
+	Nome                 string
+	NomeOriginale        string
+	Immagine             string
+	Categoria            string
+	Tag                  []string
+	Descrizione          string
+	Autore               string
+	Licenza              string
+	URLOriginale         string
+	URLImmagineOriginale string
 }
 
 // SearchFilters holds all possible filter criteria for map search.
