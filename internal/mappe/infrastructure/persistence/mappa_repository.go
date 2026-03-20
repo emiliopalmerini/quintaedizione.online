@@ -1,7 +1,6 @@
 package persistence
 
 import (
-	"encoding/json"
 	"io/fs"
 	"log"
 	"slices"
@@ -9,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/mappe/domain"
+	"github.com/emiliopalmerini/quintaedizione.online/pkg/datastore"
 )
 
 type jsonMappa struct {
@@ -33,14 +33,9 @@ type MappaRepository struct {
 
 // NewMappaRepository loads maps from the provided filesystem.
 func NewMappaRepository(dataFS fs.FS, filename string) *MappaRepository {
-	data, err := fs.ReadFile(dataFS, filename)
+	raw, err := datastore.LoadJSON[jsonMappa](dataFS, filename)
 	if err != nil {
-		log.Fatalf("failed to read %s: %v", filename, err)
-	}
-
-	var raw []jsonMappa
-	if err := json.Unmarshal(data, &raw); err != nil {
-		log.Fatalf("failed to parse %s: %v", filename, err)
+		log.Fatalf("failed to load %s: %v", filename, err)
 	}
 
 	mappe := make([]domain.Mappa, 0, len(raw))

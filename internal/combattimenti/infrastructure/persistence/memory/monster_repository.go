@@ -1,7 +1,6 @@
 package memory
 
 import (
-	"encoding/json"
 	"io/fs"
 	"log"
 	"regexp"
@@ -10,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/domain/monster"
+	"github.com/emiliopalmerini/quintaedizione.online/pkg/datastore"
 )
 
 var xpRegex = regexp.MustCompile(`PE\s+([\d.]+)`)
@@ -80,14 +80,9 @@ type MonsterRepository struct {
 // filename is the path within the FS (e.g. "srd-5.5e/monsters.json").
 // sourceShort is the short name used in URLs (e.g. "5.5e").
 func NewMonsterRepository(dataFS fs.FS, filename, sourceShort string) *MonsterRepository {
-	data, err := fs.ReadFile(dataFS, filename)
+	raw, err := datastore.LoadJSON[jsonMonster](dataFS, filename)
 	if err != nil {
-		log.Fatalf("failed to read %s: %v", filename, err)
-	}
-
-	var raw []jsonMonster
-	if err := json.Unmarshal(data, &raw); err != nil {
-		log.Fatalf("failed to parse %s: %v", filename, err)
+		log.Fatalf("failed to load %s: %v", filename, err)
 	}
 
 	monsters := make([]monster.Monster, len(raw))
