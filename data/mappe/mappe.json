@@ -2112,8 +2112,7 @@
     "immagine": "guida-alla-sopravvivenza-proiezione-1.webp",
     "tag": [
       "caverna",
-      "isometrico",
-      "prospettiva"
+      "isometrico"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -3273,7 +3272,6 @@
     "nome_originale": "Redford Citadel",
     "immagine": "la-cittadella-di-redford.webp",
     "tag": [
-      "cittadella",
       "edificio",
       "fortezza",
       "torre"
@@ -5132,9 +5130,9 @@
     "nome_originale": "Vigilance Trail",
     "immagine": "il-sentiero-della-vigilanza.webp",
     "tag": [
-      "handout",
       "mappa giocatore",
-      "mappa regionale"
+      "mappa regionale",
+      "scheda"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -6990,7 +6988,7 @@
     "immagine": "la-collina-del-priore.webp",
     "tag": [
       "druido",
-      "halloween",
+      "horror",
       "menhir",
       "residenza",
       "sotterraneo"
@@ -7090,7 +7088,6 @@
     "tag": [
       "caverna",
       "drow",
-      "elfo oscuro",
       "fortezza",
       "sotterraneo",
       "urbano"
