@@ -28,11 +28,6 @@ func TestSecurityMiddleware_CSP(t *testing.T) {
 		reason   string
 	}{
 		{
-			name:     "HTMX unsafe-eval",
-			contains: "'unsafe-eval'",
-			reason:   "HTMX event filters require unsafe-eval",
-		},
-		{
 			name:     "inline theme script hash",
 			contains: "'sha256-",
 			reason:   "inline theme-detection script needs a hash allowance",

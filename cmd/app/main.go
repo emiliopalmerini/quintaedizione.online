@@ -136,17 +136,13 @@ func main() {
 	// Health check
 	mux.HandleFunc("GET /health", func(w http.ResponseWriter, r *http.Request) {
 		cacheStats := cache.GetStats()
-		metrics := web.GetGlobalMetrics()
 
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(map[string]any{
-			"status":         "healthy",
-			"version":        "5.0.0",
-			"architecture":   "unified-inmemory",
-			"cache_items":    cacheStats["item_count"],
-			"uptime_seconds": time.Since(metrics.StartTime).Seconds(),
-			"request_count":  metrics.RequestCount,
-			"error_rate":     float64(metrics.ErrorCount) / max(float64(metrics.RequestCount), 1) * 100,
+			"status":       "healthy",
+			"version":      "5.0.0",
+			"architecture": "unified-inmemory",
+			"cache_items":  cacheStats["item_count"],
 		})
 	})
 
@@ -218,8 +214,6 @@ func main() {
 	handler = web.RateLimitMiddleware(rateLimiter)(handler)
 	handler = web.SecurityMiddleware(handler)
 	handler = web.ErrorRecoveryMiddleware(srdHandlers.BaseHandler())(handler)
-	handler = web.MetricsMiddleware(handler)
-	handler = web.RequestLoggingMiddleware(handler)
 
 	// ── Server ─────────────────────────────────────────────────
 
