@@ -53,9 +53,7 @@ func (h *SearchHandler) handleGlobalSearch(w http.ResponseWriter, r *http.Reques
 		return
 	}
 
-	h.setCacheHeaders(w, "search")
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	w.Write([]byte(content))
+	h.renderHTML(w, content, "search")
 }
 
 // handleSearchDropdown renders the search dropdown for autocomplete.
@@ -64,53 +62,45 @@ func (h *SearchHandler) handleSearchDropdown(w http.ResponseWriter, r *http.Requ
 	collection := r.URL.Query().Get("collection")
 
 	if query == "" {
-		h.setCacheHeaders(w, "search")
-		w.Header().Set("Content-Type", "text/html; charset=utf-8")
-		w.Write([]byte(""))
+		h.renderHTML(w, "", "search")
 		return
 	}
 
-	var fuzzyResults []search.SearchResultSet
-
-	if collection != "" {
-		collResults, err := h.searchService.SearchCollection(r.Context(), collection, query, 3)
-		if err != nil {
-			h.setCacheHeaders(w, "search")
-			w.Header().Set("Content-Type", "text/html; charset=utf-8")
-			w.Write([]byte(""))
-			return
-		}
-		if len(collResults) > 0 {
-			fuzzyResults = []search.SearchResultSet{{
-				Collection: collection,
-				Results:    collResults,
-				Total:      int64(len(collResults)),
-			}}
-		}
-	} else {
-		var err error
-		fuzzyResults, err = h.searchService.Search(r.Context(), query, 3)
-		if err != nil {
-			h.setCacheHeaders(w, "search")
-			w.Header().Set("Content-Type", "text/html; charset=utf-8")
-			w.Write([]byte(""))
-			return
-		}
+	fuzzyResults, err := h.searchFuzzy(r.Context(), collection, query)
+	if err != nil {
+		h.renderHTML(w, "", "search")
+		return
 	}
 
 	results, _ := h.transformSearchResults(r.Context(), fuzzyResults, query)
 
 	content, err := h.templateEngine.RenderSearchDropdown(results, query)
 	if err != nil {
-		h.setCacheHeaders(w, "search")
-		w.Header().Set("Content-Type", "text/html; charset=utf-8")
-		w.Write([]byte(""))
+		h.renderHTML(w, "", "search")
 		return
 	}
 
-	h.setCacheHeaders(w, "search")
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	w.Write([]byte(content))
+	h.renderHTML(w, content, "search")
+}
+
+// searchFuzzy performs a fuzzy search, scoped to a collection if specified.
+func (h *SearchHandler) searchFuzzy(ctx context.Context, collection, query string) ([]search.SearchResultSet, error) {
+	if collection == "" {
+		return h.searchService.Search(ctx, query, 3)
+	}
+
+	collResults, err := h.searchService.SearchCollection(ctx, collection, query, 3)
+	if err != nil {
+		return nil, err
+	}
+	if len(collResults) == 0 {
+		return nil, nil
+	}
+	return []search.SearchResultSet{{
+		Collection: collection,
+		Results:    collResults,
+		Total:      int64(len(collResults)),
+	}}, nil
 }
 
 // transformSearchResults converts fuzzy search results to CollectionSearchResult models.

@@ -78,9 +78,7 @@ func (h *HomeHandler) handleHome(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	h.setCacheHeaders(w, "home")
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	w.Write([]byte(content))
+	h.renderHTML(w, content, "home")
 }
 
 // getDefaultCollections returns default collection data when stats are unavailable.

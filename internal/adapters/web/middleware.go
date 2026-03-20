@@ -37,21 +37,6 @@ func ErrorRecoveryMiddleware(base *baseHandler) func(http.Handler) http.Handler 
 	}
 }
 
-func RequestLoggingMiddleware(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		path := r.URL.Path
-		raw := r.URL.RawQuery
-
-		next.ServeHTTP(w, r)
-
-		if raw != "" {
-			path = path + "?" + raw
-		}
-
-		_ = path
-	})
-}
-
 func SecurityMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("X-Content-Type-Options", "nosniff")
@@ -61,13 +46,6 @@ func SecurityMiddleware(next http.Handler) http.Handler {
 		w.Header().Set("Content-Security-Policy", "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'sha256-iF3Ah6Tg3ke9rlMZ13UTaPKhQsXKcaTrBio4PaJBVCA='; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'")
 		w.Header().Set("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
 
-		next.ServeHTTP(w, r)
-	})
-}
-
-func ValidationMiddleware(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		// Validation is now handled per-route in chi via route-specific middleware
 		next.ServeHTTP(w, r)
 	})
 }
