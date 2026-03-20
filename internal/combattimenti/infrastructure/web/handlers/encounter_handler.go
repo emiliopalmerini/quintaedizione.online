@@ -3,16 +3,16 @@ package handlers
 import (
 	"encoding/json"
 	"fmt"
+	"log/slog"
 	"net/http"
 	"strconv"
 	"strings"
 	"unicode"
 
-	"log/slog"
-
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/application/encounter"
 	monsterApp "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/application/monster"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/infrastructure/web/templates"
+	pkgweb "github.com/emiliopalmerini/quintaedizione.online/pkg/web"
 )
 
 // EncounterHandler handles HTTP requests for encounter-related operations
@@ -157,7 +157,6 @@ func (h *EncounterHandler) CalculateHandler(w http.ResponseWriter, r *http.Reque
 	// Include monster browser only on the first render (when header is absent)
 	includeMonsterBrowser := r.Header.Get("X-Monster-Browser-Loaded") == ""
 
-	w.Header().Set("Content-Type", "text/html")
 	data := templates.ResultData{
 		Result:                result,
 		Tiers:                 tiers,
@@ -168,11 +167,7 @@ func (h *EncounterHandler) CalculateHandler(w http.ResponseWriter, r *http.Reque
 			CRs:   h.monsterService.AvailableCRs(),
 		},
 	}
-	if err := templates.Result(data).Render(r.Context(), w); err != nil {
-		h.logger.Error("Failed to render result template", "request_id", requestID, "error", err)
-		http.Error(w, "Internal server error", http.StatusInternalServerError)
-		return
-	}
+	pkgweb.RenderTempl(w, r, h.logger, templates.Result(data))
 }
 
 // PartyInputHandler handles party input form requests

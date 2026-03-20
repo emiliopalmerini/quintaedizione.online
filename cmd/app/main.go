@@ -13,21 +13,22 @@ import (
 
 	jsondata "github.com/emiliopalmerini/quintaedizione.online/data/ita/json"
 	mappeData "github.com/emiliopalmerini/quintaedizione.online/data/mappe"
-	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/repositories/inmemory"
-	inmemoryMaps "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/repositories/inmemory/maps"
-	web "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web"
-	"github.com/emiliopalmerini/quintaedizione.online/internal/application/filters"
-	"github.com/emiliopalmerini/quintaedizione.online/internal/application/parsers"
-	"github.com/emiliopalmerini/quintaedizione.online/internal/application/search"
-	"github.com/emiliopalmerini/quintaedizione.online/internal/application/services"
 	combatEncounter "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/application/encounter"
 	combatMonster "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/application/monster"
 	combatMemory "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/infrastructure/persistence/memory"
 	combatHandlers "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/infrastructure/web/handlers"
 	combatTemplates "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/infrastructure/web/templates"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/infrastructure"
-	"github.com/emiliopalmerini/quintaedizione.online/internal/infrastructure/datastore"
+	mappePersistence "github.com/emiliopalmerini/quintaedizione.online/internal/mappe/infrastructure/persistence"
 	mappeHandlers "github.com/emiliopalmerini/quintaedizione.online/internal/mappe/web/handlers"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/application/filters"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/application/parsers"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/application/search"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/application/services"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/infrastructure/datastore"
+	srdPersistence "github.com/emiliopalmerini/quintaedizione.online/internal/srd/infrastructure/persistence"
+	web "github.com/emiliopalmerini/quintaedizione.online/internal/srd/web"
+	pkgweb "github.com/emiliopalmerini/quintaedizione.online/pkg/web"
 	"github.com/emiliopalmerini/quintaedizione.online/pkg/templates"
 	landingTemplates "github.com/emiliopalmerini/quintaedizione.online/web/templates"
 )
@@ -63,8 +64,8 @@ func main() {
 		log.Printf("  %s: %d documents", name, store.Count(name))
 	}
 
-	repo := inmemory.NewDocumentRepository(store)
-	searchRepo := inmemory.NewSearchRepository(store)
+	repo := srdPersistence.NewDocumentRepository(store)
+	searchRepo := srdPersistence.NewSearchRepository(store)
 
 	var templateEngine *templates.TemplEngine
 	if config.IsProduction() {
@@ -114,7 +115,7 @@ func main() {
 	// ── Mappe setup ───────────────────────────────────────────
 
 	log.Println("Loading Mappe data...")
-	mappaRepo := inmemoryMaps.NewMappaRepository(mappeData.Files, "mappe.json")
+	mappaRepo := mappePersistence.NewMappaRepository(mappeData.Files, "mappe.json")
 	galleryHandler := mappeHandlers.NewGalleryHandler(mappaRepo, logger)
 	log.Printf("Mappe ready: %d maps loaded", len(mappaRepo.FindAll()))
 
@@ -207,13 +208,13 @@ func main() {
 
 	// ── Middleware chain ────────────────────────────────────────
 
-	rateLimiter := web.NewRateLimiter()
+	rateLimiter := pkgweb.NewRateLimiter()
 
 	var handler http.Handler = mux
-	handler = web.CORSMiddleware(handler)
-	handler = web.RateLimitMiddleware(rateLimiter)(handler)
-	handler = web.SecurityMiddleware(handler)
-	handler = web.ErrorRecoveryMiddleware(srdHandlers.BaseHandler())(handler)
+	handler = pkgweb.CORSMiddleware(handler)
+	handler = pkgweb.RateLimitMiddleware(rateLimiter)(handler)
+	handler = pkgweb.SecurityMiddleware(handler)
+	handler = pkgweb.ErrorRecoveryMiddleware(logger)(handler)
 
 	// ── Server ─────────────────────────────────────────────────
 
