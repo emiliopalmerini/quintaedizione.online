@@ -17,7 +17,6 @@ templ DetailPage(m maps.Mappa) {
 			<h1>{ m.Nome }</h1>
 
 			<div class="mappe-detail-meta mb-4">
-				<span class="result-badge">{ m.Categoria }</span>
 				for _, t := range m.Tag {
 					<span class="result-badge">{ t }</span>
 				}

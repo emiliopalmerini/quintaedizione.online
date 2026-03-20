@@ -4,7 +4,6 @@
     "nome": "Il Dreadwarren",
     "nome_originale": "The Dreadwarren",
     "immagine": "il-dreadwarren.webp",
-    "categoria": "tomba",
     "tag": [
       "cripta",
       "sotterraneo",
@@ -21,7 +20,6 @@
     "nome": "Hexatomb",
     "nome_originale": "Hexatomb",
     "immagine": "hexatomb.webp",
-    "categoria": "tomba",
     "tag": [
       "cripta",
       "sotterraneo",
@@ -38,7 +36,6 @@
     "nome": "Santuario sul Mosswater",
     "nome_originale": "Shrine on the Mosswater",
     "immagine": "santuario-sul-mosswater.webp",
-    "categoria": "tempio",
     "tag": [
       "fiume",
       "santuario",
@@ -55,7 +52,6 @@
     "nome": "Dungeon su Scheda II - Mappa 12",
     "nome_originale": "Index Card Dungeon II - Map 12",
     "immagine": "dungeon-su-scheda-ii-mappa-12.webp",
-    "categoria": "rovine",
     "tag": [
       "rovine",
       "scheda",
@@ -72,7 +68,6 @@
     "nome": "Dungeon su Scheda II - Mappa 11",
     "nome_originale": "Index Card Dungeon II - Map 11",
     "immagine": "dungeon-su-scheda-ii-mappa-11.webp",
-    "categoria": "rovine",
     "tag": [
       "rovine",
       "scheda",
@@ -89,7 +84,6 @@
     "nome": "Dungeon su Scheda II - Mappa 10",
     "nome_originale": "Index Card Dungeon II - Map 10",
     "immagine": "dungeon-su-scheda-ii-mappa-10.webp",
-    "categoria": "rovine",
     "tag": [
       "rovine",
       "scheda",
@@ -106,7 +100,6 @@
     "nome": "Dungeon su Scheda II - Mappa 9 - Fogne Antiche",
     "nome_originale": "Index Card Dungeon II - Map 9 - Ancient Sewers",
     "immagine": "dungeon-su-scheda-ii-mappa-9-fogne-antiche.webp",
-    "categoria": "fogna",
     "tag": [
       "fogna",
       "rovine",
@@ -124,7 +117,6 @@
     "nome": "Dungeon su Scheda II - Mappa 8 - Caverne Comunicanti",
     "nome_originale": "Index Card Dungeon II - Map 8 - Linking Caverns",
     "immagine": "dungeon-su-scheda-ii-mappa-8-caverne-comunicanti.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "rovine",
@@ -142,7 +134,6 @@
     "nome": "Dungeon su Scheda II - Mappa 7 - Sotterranei Nord",
     "nome_originale": "Index Card Dungeon II – Map 7 – North Sub-Dungeons",
     "immagine": "dungeon-su-scheda-ii-mappa-7-sotterranei-nord.webp",
-    "categoria": "rovine",
     "tag": [
       "rovine",
       "scheda",
@@ -159,7 +150,6 @@
     "nome": "Dungeon su Scheda II - Mappa 6 - Rovine del Dungeon",
     "nome_originale": "Index Card Dungeon II - Map 6 - Dungeon Ruins",
     "immagine": "dungeon-su-scheda-ii-mappa-6-rovine-del-dungeon.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "cripta",
@@ -177,7 +167,6 @@
     "nome": "Dungeon su Scheda II - Mappa 5 - Sotterranei della Torre",
     "nome_originale": "Index Card Dungeon II - Map 5 - Tower Dungeons",
     "immagine": "dungeon-su-scheda-ii-mappa-5-sotterranei-della-torre.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "cripta",
@@ -195,7 +184,6 @@
     "nome": "Dungeon su Scheda II - Mappa 4 - Rovine della Torre",
     "nome_originale": "Index Card Dungeon II - Map 4 - Tower Ruins",
     "immagine": "dungeon-su-scheda-ii-mappa-4-rovine-della-torre.webp",
-    "categoria": "torre",
     "tag": [
       "fortificazione",
       "rovine",
@@ -213,7 +201,6 @@
     "nome": "Dungeon su Scheda II - Mappa 3 - La Torre Fantasma",
     "nome_originale": "Index Card Dungeon II - Map 3 - The Ghost Tower",
     "immagine": "dungeon-su-scheda-ii-mappa-3-la-torre-fantasma.webp",
-    "categoria": "torre",
     "tag": [
       "fortificazione",
       "scheda",
@@ -230,7 +217,6 @@
     "nome": "Dungeon su Scheda II - Mappa 2 - Rovine Settentrionali",
     "nome_originale": "Index Card Dungeon II – Map 2 – Northern Ruins",
     "immagine": "dungeon-su-scheda-ii-mappa-2-rovine-settentrionali.webp",
-    "categoria": "rovine",
     "tag": [
       "rovine",
       "scheda"
@@ -246,7 +232,6 @@
     "nome": "Dungeon su Scheda II - Mappa 1 - Base della Torre",
     "nome_originale": "Index Card Dungeon II - Map 1 - Tower Base",
     "immagine": "dungeon-su-scheda-ii-mappa-1-base-della-torre.webp",
-    "categoria": "torre",
     "tag": [
       "fortificazione",
       "rovine",
@@ -264,8 +249,8 @@
     "nome": "Il Villaggio di Millbrook",
     "nome_originale": "The Village of Millbrook",
     "immagine": "il-villaggio-di-millbrook.webp",
-    "categoria": "citta",
     "tag": [
+      "citta",
       "bizzarro",
       "urbano",
       "villaggio"
@@ -281,7 +266,6 @@
     "nome": "Edificio 13 - Il Retaio",
     "nome_originale": "Building 13 - Netmaker",
     "immagine": "edificio-13-il-retaio.webp",
-    "categoria": "negozio",
     "tag": [
       "edificio",
       "negozio",
@@ -298,7 +282,6 @@
     "nome": "Edificio 12 - Emporio",
     "nome_originale": "Building 12 - General Goods Store",
     "immagine": "edificio-12-emporio.webp",
-    "categoria": "negozio",
     "tag": [
       "edificio",
       "negozio",
@@ -315,8 +298,8 @@
     "nome": "Il Dito",
     "nome_originale": "The Finger",
     "immagine": "il-dito.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "bizzarro",
       "edificio",
       "fantasy bizzarro",
@@ -333,8 +316,8 @@
     "nome": "Sotto il Dito",
     "nome_originale": "Beneath the Finger",
     "immagine": "sotto-il-dito.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "bizzarro",
       "fantasy bizzarro",
       "sotterraneo"
@@ -350,8 +333,8 @@
     "nome": "Ancora Più in Profondità sotto il Dito",
     "nome_originale": "Deeper Beneath the Finger",
     "immagine": "ancora-piu-in-profondita-sotto-il-dito.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "bizzarro",
       "fantasy bizzarro",
       "sotterraneo"
@@ -367,8 +350,8 @@
     "nome": "Le Profondità sotto \"Il Dito\"",
     "nome_originale": "The deeps far below \"The Finger\"",
     "immagine": "le-profondita-sotto-il-dito.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "bizzarro",
       "fantasy bizzarro",
       "sotterraneo"
@@ -384,7 +367,6 @@
     "nome": "Un Sotterraneo in Due Parti",
     "nome_originale": "A Dungeon In Two Parts",
     "immagine": "un-sotterraneo-in-due-parti.webp",
-    "categoria": "tomba",
     "tag": [
       "cripta",
       "sotterraneo",
@@ -401,8 +383,8 @@
     "nome": "Maniero di Eastmeadow",
     "nome_originale": "Eastmeadow Manor",
     "immagine": "maniero-di-eastmeadow.webp",
-    "categoria": "fortezza",
     "tag": [
+      "fortezza",
       "edificio",
       "fortificazione",
       "maniero",
@@ -420,8 +402,8 @@
     "nome": "Sotto il Maniero di Eastmeadow",
     "nome_originale": "Under Eastmeadow Manor",
     "immagine": "sotto-il-maniero-di-eastmeadow.webp",
-    "categoria": "residenza",
     "tag": [
+      "residenza",
       "edificio",
       "maniero",
       "sotterraneo",
@@ -438,7 +420,6 @@
     "nome": "La Fortezza di Allerton",
     "nome_originale": "Allerton Hold",
     "immagine": "la-fortezza-di-allerton.webp",
-    "categoria": "rovine",
     "tag": [
       "edificio",
       "rovine",
@@ -455,8 +436,8 @@
     "nome": "La Porta Fatiscente",
     "nome_originale": "Crumbling Gate",
     "immagine": "la-porta-fatiscente.webp",
-    "categoria": "fortezza",
     "tag": [
+      "fortezza",
       "edificio",
       "fortificazione",
       "rovine",
@@ -473,7 +454,6 @@
     "nome": "Il Tempio Caduto",
     "nome_originale": "The Fallen Temple",
     "immagine": "il-tempio-caduto.webp",
-    "categoria": "tempio",
     "tag": [
       "chiesa",
       "edificio",
@@ -492,7 +472,6 @@
     "nome": "Sotto il Tumulo Nero",
     "nome_originale": "Beneath the Black Cairn",
     "immagine": "sotto-il-tumulo-nero.webp",
-    "categoria": "rovine",
     "tag": [
       "rovine",
       "sotterraneo"
@@ -508,8 +487,8 @@
     "nome": "Le Tubature",
     "nome_originale": "The Pipeworks",
     "immagine": "le-tubature.webp",
-    "categoria": "natura",
     "tag": [
+      "natura",
       "condutture",
       "sotterraneo",
       "vulcano"
@@ -525,8 +504,8 @@
     "nome": "La Cripta della Voragine",
     "nome_originale": "The Sinkhole Crypt",
     "immagine": "la-cripta-della-voragine.webp",
-    "categoria": "tomba",
     "tag": [
+      "tomba",
       "cripta",
       "fantasy scientifico",
       "sotterraneo"
@@ -542,7 +521,6 @@
     "nome": "Edificio 11 - Il Carpentiere",
     "nome_originale": "Building 11 - Carpenter",
     "immagine": "edificio-11-il-carpentiere.webp",
-    "categoria": "negozio",
     "tag": [
       "edificio",
       "negozio",
@@ -559,7 +537,6 @@
     "nome": "Il Tempio di Greywater",
     "nome_originale": "The Greywater Temple",
     "immagine": "il-tempio-di-greywater.webp",
-    "categoria": "tempio",
     "tag": [
       "caverna",
       "santuario",
@@ -577,8 +554,8 @@
     "nome": "Sotterranei della Torre del Grifone",
     "nome_originale": "Griffon Tower Dungeons",
     "immagine": "sotterranei-della-torre-del-grifone.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -592,7 +569,6 @@
     "nome": "La Torre del Grifone",
     "nome_originale": "Griffon Tower",
     "immagine": "la-torre-del-grifone.webp",
-    "categoria": "torre",
     "tag": [
       "edificio",
       "fortificazione",
@@ -609,8 +585,8 @@
     "nome": "Rovine dell'Impianto di Trattamento",
     "nome_originale": "Ruins of the Waste Treatment Facility",
     "immagine": "rovine-dellimpianto-di-trattamento.webp",
-    "categoria": "citta",
     "tag": [
+      "citta",
       "edificio",
       "post-apocalittico",
       "rovine",
@@ -627,7 +603,6 @@
     "nome": "Edificio 10 - Speziale Wit & Wisdom",
     "nome_originale": "Building 10 - Wit & Wisdom Apothecary",
     "immagine": "edificio-10-speziale-wit-wisdom.webp",
-    "categoria": "negozio",
     "tag": [
       "edificio",
       "negozio",
@@ -644,7 +619,6 @@
     "nome": "Cripte e Vermi",
     "nome_originale": "Crypts and Worms",
     "immagine": "cripte-e-vermi.webp",
-    "categoria": "tomba",
     "tag": [
       "cripta",
       "rovine",
@@ -661,7 +635,6 @@
     "nome": "La Basilica Cinerea",
     "nome_originale": "The Cinereous Basilica",
     "immagine": "la-basilica-cinerea.webp",
-    "categoria": "tempio",
     "tag": [
       "chiesa",
       "cripta",
@@ -680,7 +653,6 @@
     "nome": "Edificio 9 - L'Enigma dell'Acciaio",
     "nome_originale": "Building 9 - The Riddle of Steel",
     "immagine": "edificio-9-lenigma-dellacciaio.webp",
-    "categoria": "negozio",
     "tag": [
       "edificio",
       "negozio",
@@ -697,7 +669,6 @@
     "nome": "Le Terre d'Autunno - Mappa I",
     "nome_originale": "The Autumn Lands - Map I",
     "immagine": "le-terre-dautunno-mappa-i.webp",
-    "categoria": "regionale",
     "tag": [
       "esagonale",
       "esplorazione esagonale",
@@ -716,7 +687,6 @@
     "nome": "Le Terre d'Autunno - Mappa H",
     "nome_originale": "The Autumn Lands - Map H",
     "immagine": "le-terre-dautunno-mappa-h.webp",
-    "categoria": "regionale",
     "tag": [
       "esagonale",
       "esplorazione esagonale",
@@ -735,7 +705,6 @@
     "nome": "Le Terre d'Autunno - Mappa G",
     "nome_originale": "The Autumn Lands - Map G",
     "immagine": "le-terre-dautunno-mappa-g.webp",
-    "categoria": "regionale",
     "tag": [
       "esagonale",
       "esplorazione esagonale",
@@ -754,7 +723,6 @@
     "nome": "Le Terre d'Autunno - Mappa Esagonale F",
     "nome_originale": "The Autumn Lands - Hex Map F",
     "immagine": "le-terre-dautunno-mappa-esagonale-f.webp",
-    "categoria": "regionale",
     "tag": [
       "esagonale",
       "esplorazione esagonale",
@@ -773,7 +741,6 @@
     "nome": "Le Terre d'Autunno - Mappa Esagonale E",
     "nome_originale": "The Autumn Lands - Hex Map E",
     "immagine": "le-terre-dautunno-mappa-esagonale-e.webp",
-    "categoria": "regionale",
     "tag": [
       "esagonale",
       "esplorazione esagonale",
@@ -792,7 +759,6 @@
     "nome": "Le Terre d'Autunno - Mappa 4",
     "nome_originale": "The Autumn Lands Map 4",
     "immagine": "le-terre-dautunno-mappa-4.webp",
-    "categoria": "regionale",
     "tag": [
       "esagonale",
       "esplorazione esagonale",
@@ -811,7 +777,6 @@
     "nome": "Le Terre d'Autunno - Mappa C",
     "nome_originale": "The Autumn Lands - Map C",
     "immagine": "le-terre-dautunno-mappa-c.webp",
-    "categoria": "regionale",
     "tag": [
       "esagonale",
       "esplorazione esagonale",
@@ -830,8 +795,8 @@
     "nome": "Le Terre d'Autunno - Mappa B",
     "nome_originale": "The Autumn Lands - Map B",
     "immagine": "le-terre-dautunno-mappa-b.webp",
-    "categoria": "acquatico",
     "tag": [
+      "acquatico",
       "esagonale",
       "esplorazione esagonale",
       "isola",
@@ -850,7 +815,6 @@
     "nome": "Le Terre d'Autunno - Mappa A",
     "nome_originale": "The Autumn Lands - Map A",
     "immagine": "le-terre-dautunno-mappa-a.webp",
-    "categoria": "regionale",
     "tag": [
       "esagonale",
       "esplorazione esagonale",
@@ -869,7 +833,6 @@
     "nome": "Tempio del Verme - Livelli Superiori",
     "nome_originale": "Temple Of The Worm - Upper Levels",
     "immagine": "tempio-del-verme-livelli-superiori.webp",
-    "categoria": "tempio",
     "tag": [
       "santuario",
       "tempio"
@@ -885,7 +848,6 @@
     "nome": "Tempio del Verme",
     "nome_originale": "Temple of the Worm",
     "immagine": "tempio-del-verme.webp",
-    "categoria": "tempio",
     "tag": [
       "santuario",
       "tempio"
@@ -901,7 +863,6 @@
     "nome": "Edificio 8 - Il Conciatore",
     "nome_originale": "Building 8 - Leather Worker",
     "immagine": "edificio-8-il-conciatore.webp",
-    "categoria": "negozio",
     "tag": [
       "edificio",
       "negozio",
@@ -918,7 +879,6 @@
     "nome": "La Caduta di Iseldec - Livelli 20-23",
     "nome_originale": "Iseldec's Drop - Levels 20-23",
     "immagine": "la-caduta-di-iseldec-livelli-20-23.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -934,7 +894,6 @@
     "nome": "Le Sale di Brezchyn",
     "nome_originale": "Brezchyn's Halls",
     "immagine": "le-sale-di-brezchyn.webp",
-    "categoria": "rovine",
     "tag": [
       "rovine",
       "sotterraneo"
@@ -950,8 +909,8 @@
     "nome": "Edificio 7 - Taverna del Mercato",
     "nome_originale": "Building 7 - Random Market Tavern",
     "immagine": "edificio-7-taverna-del-mercato.webp",
-    "categoria": "locanda",
     "tag": [
+      "locanda",
       "edificio",
       "taverna",
       "urbano"
@@ -967,8 +926,8 @@
     "nome": "Edificio 6 - Il Giardino dei Vini",
     "nome_originale": "Building 6 - Wine Garden",
     "immagine": "edificio-6-il-giardino-dei-vini.webp",
-    "categoria": "locanda",
     "tag": [
+      "locanda",
       "edificio",
       "negozio",
       "taverna",
@@ -985,7 +944,6 @@
     "nome": "La Caduta di Iseldec - Livelli 17-19",
     "nome_originale": "Iseldec's Drop - Levels 17-19",
     "immagine": "la-caduta-di-iseldec-livelli-17-19.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -1001,7 +959,6 @@
     "nome": "La Caduta di Iseldec - Livelli 13-16",
     "nome_originale": "Iseldec's Drop - Levels 13-16",
     "immagine": "la-caduta-di-iseldec-livelli-13-16.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -1017,7 +974,6 @@
     "nome": "Edificio 5 - Prestiti / Banca",
     "nome_originale": "Building 5 - Loans / Bank",
     "immagine": "edificio-5-prestiti-banca.webp",
-    "categoria": "negozio",
     "tag": [
       "edificio",
       "negozio",
@@ -1034,7 +990,6 @@
     "nome": "Bottega 4 - Il Fruttivendolo",
     "nome_originale": "Shop 4 - The Fruit Shop",
     "immagine": "bottega-4-il-fruttivendolo.webp",
-    "categoria": "negozio",
     "tag": [
       "edificio",
       "negozio",
@@ -1051,7 +1006,6 @@
     "nome": "Bottega 3 - Tappeti",
     "nome_originale": "Shop #3 - Carpets",
     "immagine": "bottega-3-tappeti.webp",
-    "categoria": "negozio",
     "tag": [
       "edificio",
       "negozio",
@@ -1068,7 +1022,6 @@
     "nome": "La Caduta di Iseldec (Livelli 9-12)",
     "nome_originale": "Iseldec’s Drop (Levels 9-12)",
     "immagine": "la-caduta-di-iseldec-livelli-9-12.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -1084,8 +1037,8 @@
     "nome": "Tenuta di Stonewill",
     "nome_originale": "Stonewill Estate",
     "immagine": "tenuta-di-stonewill.webp",
-    "categoria": "residenza",
     "tag": [
+      "residenza",
       "casa",
       "edificio",
       "maniero",
@@ -1102,7 +1055,6 @@
     "nome": "Il Mercato del Pesce Dorato",
     "nome_originale": "The Golden Fishmarket",
     "immagine": "il-mercato-del-pesce-dorato.webp",
-    "categoria": "negozio",
     "tag": [
       "edificio",
       "negozio",
@@ -1119,7 +1071,6 @@
     "nome": "Il Laboratorio di Ceramiche di Rok",
     "nome_originale": "Rok's Pottery Workshop",
     "immagine": "il-laboratorio-di-ceramiche-di-rok.webp",
-    "categoria": "negozio",
     "tag": [
       "edificio",
       "negozio",
@@ -1136,8 +1087,8 @@
     "nome": "Resa dei Conti al Mercato Sotterraneo",
     "nome_originale": "Grudge Match at the Underground Market",
     "immagine": "resa-dei-conti-al-mercato-sotterraneo.webp",
-    "categoria": "tempio",
     "tag": [
+      "tempio",
       "bottega",
       "edificio",
       "fogna",
@@ -1158,7 +1109,6 @@
     "nome": "La Biblioteca di Menrina e la Taverna Salata",
     "nome_originale": "Menrina's Library & The Salty Tavern",
     "immagine": "la-biblioteca-di-menrina-e-la-taverna-salata.webp",
-    "categoria": "locanda",
     "tag": [
       "biblioteca",
       "edificio",
@@ -1179,7 +1129,6 @@
     "nome": "Il Sotterraneo dell'Uovo Marcio",
     "nome_originale": "Dungeon of the Bad Egg",
     "immagine": "il-sotterraneo-delluovo-marcio.webp",
-    "categoria": "tomba",
     "tag": [
       "cripta",
       "sepolcro",
@@ -1197,7 +1146,6 @@
     "nome": "La Caduta di Iseldec (Livelli 5-8)",
     "nome_originale": "Iseldec's Drop (Levels 5-8)",
     "immagine": "la-caduta-di-iseldec-livelli-5-8.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -1213,8 +1161,8 @@
     "nome": "L'Isola di Ierades",
     "nome_originale": "Ierades's Isle",
     "immagine": "lisola-di-ierades.webp",
-    "categoria": "acquatico",
     "tag": [
+      "acquatico",
       "esterno",
       "isola",
       "menhir"
@@ -1230,7 +1178,6 @@
     "nome": "La Grotta di Goretooth",
     "nome_originale": "Goretooth's Grotto",
     "immagine": "la-grotta-di-goretooth.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "fiume",
@@ -1247,8 +1194,8 @@
     "nome": "Il Guado delle Sorelle",
     "nome_originale": "Sister's Ford",
     "immagine": "il-guado-delle-sorelle.webp",
-    "categoria": "acquatico",
     "tag": [
+      "acquatico",
       "fiume",
       "rovine"
     ],
@@ -1263,8 +1210,8 @@
     "nome": "La Caduta di Iseldec (Livelli 1-4)",
     "nome_originale": "Iseldec's Drop (Levels 1-4)",
     "immagine": "la-caduta-di-iseldec-livelli-1-4.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -1278,7 +1225,6 @@
     "nome": "La Torre del Lutto",
     "nome_originale": "The Tower of Mourning",
     "immagine": "la-torre-del-lutto.webp",
-    "categoria": "torre",
     "tag": [
       "cripta",
       "edificio",
@@ -1297,7 +1243,6 @@
     "nome": "Il Tempio dell'Amore (2024 Remix)",
     "nome_originale": "The Temple of Love (2024 Remix)",
     "immagine": "il-tempio-dellamore-2024-remix.webp",
-    "categoria": "tempio",
     "tag": [
       "chiesa",
       "edificio",
@@ -1315,7 +1260,6 @@
     "nome": "Locanda della Capra Dormiente",
     "nome_originale": "The Sleeping Goat Inn",
     "immagine": "locanda-della-capra-dormiente.webp",
-    "categoria": "locanda",
     "tag": [
       "edificio",
       "locanda",
@@ -1333,7 +1277,6 @@
     "nome": "Tempio del Perduto Ormus",
     "nome_originale": "Temple of Lost Ormus",
     "immagine": "tempio-del-perduto-ormus.webp",
-    "categoria": "tempio",
     "tag": [
       "sotterraneo",
       "tempio"
@@ -1349,8 +1292,8 @@
     "nome": "La Taverna del Barghest Zoppo",
     "nome_originale": "The Lame Barghest Tavern",
     "immagine": "la-taverna-del-barghest-zoppo.webp",
-    "categoria": "locanda",
     "tag": [
+      "locanda",
       "edificio",
       "taverna",
       "urbano"
@@ -1366,7 +1309,6 @@
     "nome": "La Vedetta Perduta",
     "nome_originale": "The Lost Watch",
     "immagine": "la-vedetta-perduta.webp",
-    "categoria": "torre",
     "tag": [
       "edificio",
       "torre"
@@ -1382,7 +1324,6 @@
     "nome": "Il Faro di Gath-Am",
     "nome_originale": "Gath-Am's Beacon",
     "immagine": "il-faro-di-gath-am.webp",
-    "categoria": "torre",
     "tag": [
       "bizzarro",
       "edificio",
@@ -1400,8 +1341,8 @@
     "nome": "Il Diavoletto Strangolato",
     "nome_originale": "The Strangled Imp",
     "immagine": "il-diavoletto-strangolato.webp",
-    "categoria": "locanda",
     "tag": [
+      "locanda",
       "edificio",
       "taverna",
       "urbano"
@@ -1417,7 +1358,6 @@
     "nome": "Il Rinoceronte Sordido",
     "nome_originale": "The Sordid Rhinoceros",
     "immagine": "il-rinoceronte-sordido.webp",
-    "categoria": "locanda",
     "tag": [
       "edificio",
       "locanda",
@@ -1435,8 +1375,8 @@
     "nome": "Il Dominio di Gnarsh",
     "nome_originale": "Gnarsh's Domain",
     "immagine": "il-dominio-di-gnarsh.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -1450,7 +1390,6 @@
     "nome": "La Casa di Kalaxar (Esperimento Lineare 2)",
     "nome_originale": "The House of Kalaxar (Linear Dungeon Experiment 2)",
     "immagine": "la-casa-di-kalaxar-esperimento-lineare-2.webp",
-    "categoria": "rovine",
     "tag": [
       "rovine",
       "sotterraneo"
@@ -1466,8 +1405,8 @@
     "nome": "La Fossa degli Spettri di Sabbia (Esperimento Lineare 1)",
     "nome_originale": "Pit of the Sand Wraiths (Linear Dungeon Experiment 1)",
     "immagine": "la-fossa-degli-spettri-di-sabbia-esperimento-lineare-1.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -1481,8 +1420,8 @@
     "nome": "Sotterraneo a Striscia",
     "nome_originale": "Edge Strip Dungeon",
     "immagine": "sotterraneo-a-striscia.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -1496,7 +1435,6 @@
     "nome": "Fortino di Miserth - Livello Principale",
     "nome_originale": "Miserth Keep - Main Level",
     "immagine": "fortino-di-miserth-livello-principale.webp",
-    "categoria": "fortezza",
     "tag": [
       "castello",
       "edificio",
@@ -1515,7 +1453,6 @@
     "nome": "Fortino di Miserth - Livelli Superiori",
     "nome_originale": "Miserth Keep – Upper Levels",
     "immagine": "fortino-di-miserth-livelli-superiori.webp",
-    "categoria": "fortezza",
     "tag": [
       "castello",
       "edificio",
@@ -1534,8 +1471,8 @@
     "nome": "Fortino di Miserth - Sotterranei",
     "nome_originale": "Miserth Keep – Dungeons",
     "immagine": "fortino-di-miserth-sotterranei.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -1549,8 +1486,8 @@
     "nome": "La Tomba dei Teschi Neri",
     "nome_originale": "The Black Skulls Tomb",
     "immagine": "la-tomba-dei-teschi-neri.webp",
-    "categoria": "fortezza",
     "tag": [
+      "fortezza",
       "fortificazione",
       "rovine",
       "sotterraneo",
@@ -1567,7 +1504,6 @@
     "nome": "La Torre dell'Arconte",
     "nome_originale": "Archon's Tower",
     "immagine": "la-torre-dellarconte.webp",
-    "categoria": "torre",
     "tag": [
       "edificio",
       "fortificazione",
@@ -1585,8 +1521,8 @@
     "nome": "Sotto la Torre dell'Arconte",
     "nome_originale": "Beneath the Archon's Tower",
     "immagine": "sotto-la-torre-dellarconte.webp",
-    "categoria": "fortezza",
     "tag": [
+      "fortezza",
       "fortificazione",
       "rovine",
       "sotterraneo"
@@ -1602,8 +1538,8 @@
     "nome": "Fortezza del Clan del Deserto",
     "nome_originale": "Desert ClanHold",
     "immagine": "fortezza-del-clan-del-deserto.webp",
-    "categoria": "fortezza",
     "tag": [
+      "fortezza",
       "casa",
       "edificio",
       "fortificazione",
@@ -1620,7 +1556,6 @@
     "nome": "Il Sepolcro Profondo",
     "nome_originale": "The Deep Sepulchre",
     "immagine": "il-sepolcro-profondo.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "cripta",
@@ -1638,7 +1573,6 @@
     "nome": "Tempio della Divinità in Rame",
     "nome_originale": "Temple of the Divinity in Copper",
     "immagine": "tempio-della-divinita-in-rame.webp",
-    "categoria": "tempio",
     "tag": [
       "rovine",
       "santuario",
@@ -1656,7 +1590,6 @@
     "nome": "La Dimora di Pitmann",
     "nome_originale": "Pitmann Manse",
     "immagine": "la-dimora-di-pitmann.webp",
-    "categoria": "torre",
     "tag": [
       "casa",
       "edificio",
@@ -1677,7 +1610,6 @@
     "nome": "Le Sale degli Eroi Perduti",
     "nome_originale": "The Halls of Lost Heroes",
     "immagine": "le-sale-degli-eroi-perduti.webp",
-    "categoria": "tomba",
     "tag": [
       "cripta",
       "sotterraneo",
@@ -1694,7 +1626,6 @@
     "nome": "La Grotta di Bolukbasti",
     "nome_originale": "Bolukbasti Grotto",
     "immagine": "la-grotta-di-bolukbasti.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -1710,7 +1641,6 @@
     "nome": "Le Tombe di Drurdelm",
     "nome_originale": "Drurdelm Tombs",
     "immagine": "le-tombe-di-drurdelm.webp",
-    "categoria": "tomba",
     "tag": [
       "isometrico",
       "sotterraneo",
@@ -1727,7 +1657,6 @@
     "nome": "La Torre di Greyrock",
     "nome_originale": "Greyrock Tower",
     "immagine": "la-torre-di-greyrock.webp",
-    "categoria": "torre",
     "tag": [
       "rovine",
       "sotterraneo",
@@ -1744,7 +1673,6 @@
     "nome": "Le Statue degli Dei Schiavi",
     "nome_originale": "Statues of the Thrall Gods",
     "immagine": "le-statue-degli-dei-schiavi.webp",
-    "categoria": "tempio",
     "tag": [
       "cripta",
       "santuario",
@@ -1763,8 +1691,8 @@
     "nome": "Catacombe Allagate",
     "nome_originale": "Flooded Catacombs (1200 dpi)",
     "immagine": "catacombe-allagate.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -1778,8 +1706,8 @@
     "nome": "Santuario dei Magi",
     "nome_originale": "Sanctuary of the Magi (1200 dpi)",
     "immagine": "santuario-dei-magi.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -1793,8 +1721,8 @@
     "nome": "La Sala di Windsong",
     "nome_originale": "Windsong Hall",
     "immagine": "la-sala-di-windsong.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -1808,8 +1736,8 @@
     "nome": "La Sala di Willowstone",
     "nome_originale": "Willowstone Hall",
     "immagine": "la-sala-di-willowstone.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "dungeon cinque stanze",
       "sotterraneo"
     ],
@@ -1824,7 +1752,6 @@
     "nome": "La Torre del Giardino",
     "nome_originale": "The Garden Tower",
     "immagine": "la-torre-del-giardino.webp",
-    "categoria": "torre",
     "tag": [
       "bizzarro",
       "edificio",
@@ -1841,8 +1768,8 @@
     "nome": "Tenuta di Gladhold",
     "nome_originale": "Gladhold Estate",
     "immagine": "tenuta-di-gladhold.webp",
-    "categoria": "residenza",
     "tag": [
+      "residenza",
       "casa",
       "edificio",
       "urbano"
@@ -1858,7 +1785,6 @@
     "nome": "Le Rovine Rumbledown",
     "nome_originale": "The Rumbledown Ruins",
     "immagine": "le-rovine-rumbledown.webp",
-    "categoria": "torre",
     "tag": [
       "edificio",
       "rovine",
@@ -1875,7 +1801,6 @@
     "nome": "Le Terre Luminose di Ency - Mappa 2",
     "nome_originale": "Ency Glowlands - Map 2",
     "immagine": "le-terre-luminose-di-ency-mappa-2.webp",
-    "categoria": "regionale",
     "tag": [
       "edificio",
       "mappa esagonale",
@@ -1895,8 +1820,8 @@
     "nome": "La Fossa di Gascon",
     "nome_originale": "Gascon's Pit",
     "immagine": "la-fossa-di-gascon.webp",
-    "categoria": "vista",
     "tag": [
+      "vista",
       "rovine",
       "sotterraneo",
       "vista laterale"
@@ -1912,7 +1837,6 @@
     "nome": "La Riva Rocciosa - Mappa 1",
     "nome_originale": "The Stony Shore - Map 1",
     "immagine": "la-riva-rocciosa-mappa-1.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -1928,7 +1852,6 @@
     "nome": "La Riva Rocciosa - Mappa 2",
     "nome_originale": "The Stony Shore - Map 2",
     "immagine": "la-riva-rocciosa-mappa-2.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -1944,7 +1867,6 @@
     "nome": "La Riva Rocciosa - Mappa 3",
     "nome_originale": "The Stony Shore – Map 3",
     "immagine": "la-riva-rocciosa-mappa-3.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -1960,7 +1882,6 @@
     "nome": "Le Fogne di Via Delren",
     "nome_originale": "The Delren Street Sewers",
     "immagine": "le-fogne-di-via-delren.webp",
-    "categoria": "fogna",
     "tag": [
       "fogna",
       "sotterraneo",
@@ -1977,7 +1898,6 @@
     "nome": "L'Avamposto Sussurrante",
     "nome_originale": "The Whispering Outpost (B&W)",
     "immagine": "lavamposto-sussurrante.webp",
-    "categoria": "fortezza",
     "tag": [
       "edificio",
       "fortezza",
@@ -1995,8 +1915,8 @@
     "nome": "Impianto di Trivellazione P44",
     "nome_originale": "Bore Facility P44",
     "immagine": "impianto-di-trivellazione-p44.webp",
-    "categoria": "altro",
     "tag": [
+      "altro",
       "post-apocalittico"
     ],
     "autore": "Dyson Logos",
@@ -2010,7 +1930,6 @@
     "nome": "Le Pietre di Zinik",
     "nome_originale": "Zinik's Stones",
     "immagine": "le-pietre-di-zinik.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "dungeon cinque stanze"
@@ -2026,7 +1945,6 @@
     "nome": "Sotto l'Artiglio dei Tramonti - Mappa 3",
     "nome_originale": "Beneath the Claw of Sunsets - Map 3",
     "immagine": "sotto-lartiglio-dei-tramonti-mappa-3.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -2042,7 +1960,6 @@
     "nome": "Rovine dell'Artiglio dei Tramonti - Mappa 3",
     "nome_originale": "Ruins of the Claw of Sunsets - Map 3",
     "immagine": "rovine-dellartiglio-dei-tramonti-mappa-3.webp",
-    "categoria": "torre",
     "tag": [
       "rovine",
       "torre"
@@ -2058,8 +1975,8 @@
     "nome": "Campo di Prova del Signore Ogre Folle",
     "nome_originale": "Proving Grounds of the Mad Ogre Lord",
     "immagine": "campo-di-prova-del-signore-ogre-folle.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -2073,7 +1990,6 @@
     "nome": "Il Tempio Giallo in Rovine",
     "nome_originale": "The Yellow Fane in Ruins (1200dpi)",
     "immagine": "il-tempio-giallo-in-rovine.webp",
-    "categoria": "tempio",
     "tag": [
       "rovine",
       "santuario",
@@ -2091,7 +2007,6 @@
     "nome": "Sotto il Faro",
     "nome_originale": "Under the Lighthouse",
     "immagine": "sotto-il-faro.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna"
     ],
@@ -2106,7 +2021,6 @@
     "nome": "Il Faro Secco",
     "nome_originale": "The Dry Lighthouse",
     "immagine": "il-faro-secco.webp",
-    "categoria": "torre",
     "tag": [
       "faro",
       "rovine",
@@ -2123,7 +2037,6 @@
     "nome": "Sotto l'Artiglio dei Tramonti - Mappa 2",
     "nome_originale": "Beneath the Claw of Sunsets – Map 2",
     "immagine": "sotto-lartiglio-dei-tramonti-mappa-2.webp",
-    "categoria": "tempio",
     "tag": [
       "santuario",
       "sotterraneo",
@@ -2140,7 +2053,6 @@
     "nome": "Rovine dell'Artiglio dei Tramonti - Mappa 2",
     "nome_originale": "Ruins of the Claw of Sunsets – Map 2",
     "immagine": "rovine-dellartiglio-dei-tramonti-mappa-2.webp",
-    "categoria": "rovine",
     "tag": [
       "rovine"
     ],
@@ -2155,8 +2067,8 @@
     "nome": "L'Isolotto Sacro",
     "nome_originale": "Sanctum Cay (B&W)",
     "immagine": "lisolotto-sacro.webp",
-    "categoria": "acquatico",
     "tag": [
+      "acquatico",
       "isola",
       "mappa esagonale",
       "regionale",
@@ -2173,8 +2085,8 @@
     "nome": "Le Lunghe Sale di Taqash Thesk",
     "nome_originale": "The Long Halls of Taqash Thesk",
     "immagine": "le-lunghe-sale-di-taqash-thesk.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -2188,7 +2100,6 @@
     "nome": "La Torre della Scienza",
     "nome_originale": "Science Tower",
     "immagine": "la-torre-della-scienza.webp",
-    "categoria": "torre",
     "tag": [
       "sotterraneo",
       "torre"
@@ -2204,7 +2115,6 @@
     "nome": "I Gradini di Opal - Piramide a Gradoni",
     "nome_originale": "Opal's Steps - Stepped Pyramid",
     "immagine": "i-gradini-di-opal-piramide-a-gradoni.webp",
-    "categoria": "tomba",
     "tag": [
       "piramide",
       "sotterraneo",
@@ -2221,7 +2131,6 @@
     "nome": "Sotto l'Artiglio dei Tramonti - Mappa 1",
     "nome_originale": "Beneath the Claw of Sunsets – Map 1",
     "immagine": "sotto-lartiglio-dei-tramonti-mappa-1.webp",
-    "categoria": "rovine",
     "tag": [
       "rovine",
       "sotterraneo"
@@ -2237,7 +2146,6 @@
     "nome": "Rovine dell'Artiglio dei Tramonti - Mappa 1",
     "nome_originale": "Ruins of the Claw of Sunsets - Map 1",
     "immagine": "rovine-dellartiglio-dei-tramonti-mappa-1.webp",
-    "categoria": "rovine",
     "tag": [
       "rovine"
     ],
@@ -2252,7 +2160,6 @@
     "nome": "Tempio della Comunione di Zeviax",
     "nome_originale": "Temple of the Communion of Zeviax",
     "immagine": "tempio-della-comunione-di-zeviax.webp",
-    "categoria": "tempio",
     "tag": [
       "chiesa",
       "edificio",
@@ -2270,7 +2177,6 @@
     "nome": "Guida alla Sopravvivenza - Proiezione 1",
     "nome_originale": "Dungeoneer Survival Guide Projection 1",
     "immagine": "guida-alla-sopravvivenza-proiezione-1.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "isometrico",
@@ -2287,7 +2193,6 @@
     "nome": "Sotterranei dei Demoni Gemelli",
     "nome_originale": "Dungeons of the Twin Demons",
     "immagine": "sotterranei-dei-demoni-gemelli.webp",
-    "categoria": "tempio",
     "tag": [
       "sotterraneo",
       "tempio"
@@ -2303,7 +2208,6 @@
     "nome": "Il Portale dei Demoni Gemelli",
     "nome_originale": "Gateway of the Twin Demons",
     "immagine": "il-portale-dei-demoni-gemelli.webp",
-    "categoria": "tempio",
     "tag": [
       "sotterraneo",
       "tempio"
@@ -2319,7 +2223,6 @@
     "nome": "La Grotta delle Sirene",
     "nome_originale": "The Sirens' Grotto",
     "immagine": "la-grotta-delle-sirene.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -2335,8 +2238,8 @@
     "nome": "Le Fauci",
     "nome_originale": "The Maw",
     "immagine": "le-fauci.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "dungeon cinque stanze",
       "menhir",
       "sotterraneo"
@@ -2352,8 +2255,8 @@
     "nome": "Le Fosse della Luna Nera",
     "nome_originale": "Pits of the Black Moon (B&W)",
     "immagine": "le-fosse-della-luna-nera.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -2367,7 +2270,6 @@
     "nome": "Complesso Tombale Perduto",
     "nome_originale": "Lost Tomb Complex",
     "immagine": "complesso-tombale-perduto.webp",
-    "categoria": "tomba",
     "tag": [
       "sotterraneo",
       "tomba"
@@ -2383,7 +2285,6 @@
     "nome": "La Torre di Ioun",
     "nome_originale": "The Ioun Tower",
     "immagine": "la-torre-di-ioun.webp",
-    "categoria": "torre",
     "tag": [
       "fantasy scientifico",
       "torre"
@@ -2399,7 +2300,6 @@
     "nome": "La Torre dei Pilastri di Hnálla",
     "nome_originale": "Hnálla's Tower of Pillars",
     "immagine": "la-torre-dei-pilastri-di-hnalla.webp",
-    "categoria": "tempio",
     "tag": [
       "fortificazione",
       "santuario",
@@ -2416,7 +2316,6 @@
     "nome": "La Grotta sotto la Collina Lazuni",
     "nome_originale": "The Grotto Beneath Lazuni Hill",
     "immagine": "la-grotta-sotto-la-collina-lazuni.webp",
-    "categoria": "tempio",
     "tag": [
       "caverna",
       "santuario",
@@ -2434,7 +2333,6 @@
     "nome": "Il Santuario sulla Collina Lazuni",
     "nome_originale": "The Shrine atop Lazuni Hill",
     "immagine": "il-santuario-sulla-collina-lazuni.webp",
-    "categoria": "tempio",
     "tag": [
       "collina",
       "edificio",
@@ -2451,7 +2349,6 @@
     "nome": "L'Alithinero di Ephara",
     "nome_originale": "Ephara's Alithinero (1200 dpi)",
     "immagine": "lalithinero-di-ephara.webp",
-    "categoria": "tempio",
     "tag": [
       "santuario",
       "sotterraneo",
@@ -2468,8 +2365,8 @@
     "nome": "Le Camere Viola sopra Kákri Midállu",
     "nome_originale": "Violet Chambers atop Kákri Midállu (1200 dpi)",
     "immagine": "le-camere-viola-sopra-kakri-midallu.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -2483,8 +2380,8 @@
     "nome": "I Passaggi di Eleint - Tempio in Rovina",
     "nome_originale": "The Eleint Passages – Ruined Fane",
     "immagine": "i-passaggi-di-eleint-tempio-in-rovina.webp",
-    "categoria": "tempio",
     "tag": [
+      "tempio",
       "caverna",
       "rovine",
       "sotterraneo"
@@ -2500,7 +2397,6 @@
     "nome": "I Passaggi di Eleint - La Torre",
     "nome_originale": "The Eleint Passages - The Tower",
     "immagine": "i-passaggi-di-eleint-la-torre.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo",
@@ -2517,7 +2413,6 @@
     "nome": "I Passaggi di Eleint - Sud",
     "nome_originale": "The Eleint Passages - South",
     "immagine": "i-passaggi-di-eleint-sud.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "rovine",
@@ -2534,7 +2429,6 @@
     "nome": "I Passaggi di Eleint - Nord",
     "nome_originale": "The Eleint Passages - North",
     "immagine": "i-passaggi-di-eleint-nord.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "drago",
@@ -2551,7 +2445,6 @@
     "nome": "Le Caverne del Basilisco",
     "nome_originale": "The Basilisk's Caves",
     "immagine": "le-caverne-del-basilisco.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -2567,7 +2460,6 @@
     "nome": "Il Seminterrato del Culto",
     "nome_originale": "Cult Basement",
     "immagine": "il-seminterrato-del-culto.webp",
-    "categoria": "tempio",
     "tag": [
       "culto",
       "edificio",
@@ -2588,8 +2480,8 @@
     "nome": "Le Camere dei Teschi di Rame",
     "nome_originale": "Chambers of the Copper Skulls",
     "immagine": "le-camere-dei-teschi-di-rame.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -2603,8 +2495,8 @@
     "nome": "Rovine del Forte sulla Collina",
     "nome_originale": "Ruins of the Hill Fort",
     "immagine": "rovine-del-forte-sulla-collina.webp",
-    "categoria": "fortezza",
     "tag": [
+      "fortezza",
       "forte",
       "fortificazione",
       "rovine"
@@ -2620,7 +2512,6 @@
     "nome": "La Grotta-Tempio dei Ministri Rovinosi",
     "nome_originale": "Temple Cave of the Ruinous Ministers",
     "immagine": "la-grotta-tempio-dei-ministri-rovinosi.webp",
-    "categoria": "tempio",
     "tag": [
       "caverna",
       "dungeon cinque stanze",
@@ -2639,7 +2530,6 @@
     "nome": "La Dimora di Vund",
     "nome_originale": "Vund Home",
     "immagine": "la-dimora-di-vund.webp",
-    "categoria": "torre",
     "tag": [
       "edificio",
       "torre",
@@ -2656,7 +2546,6 @@
     "nome": "Le Terre Luminose di Ency - Mappa 1",
     "nome_originale": "The Ency Glowlands Map 1",
     "immagine": "le-terre-luminose-di-ency-mappa-1.webp",
-    "categoria": "regionale",
     "tag": [
       "edificio",
       "post-apocalittico",
@@ -2674,7 +2563,6 @@
     "nome": "Il Sotterraneo della Custodia",
     "nome_originale": "Dungeon of Holding",
     "immagine": "il-sotterraneo-della-custodia.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -2690,7 +2578,6 @@
     "nome": "Ponti Celesti di Sharn III",
     "nome_originale": "Sharn Skybridges III",
     "immagine": "ponti-celesti-di-sharn-iii.webp",
-    "categoria": "torre",
     "tag": [
       "ponte",
       "torre",
@@ -2707,7 +2594,6 @@
     "nome": "La Tana del Goblin Morto",
     "nome_originale": "Dead Goblin Hole",
     "immagine": "la-tana-del-goblin-morto.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "prigione",
@@ -2725,8 +2611,8 @@
     "nome": "La Sala di Bradrig",
     "nome_originale": "Bradrig's Hall",
     "immagine": "la-sala-di-bradrig.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "dungeon cinque stanze",
       "sotterraneo"
     ],
@@ -2741,7 +2627,6 @@
     "nome": "Le Città in Rovina di Yoth",
     "nome_originale": "Ruined Cities of Yoth",
     "immagine": "le-citta-in-rovina-di-yoth.webp",
-    "categoria": "caverna",
     "tag": [
       "bizzarro",
       "caverna",
@@ -2762,8 +2647,8 @@
     "nome": "Porto Piccolo",
     "nome_originale": "Smallharbour",
     "immagine": "porto-piccolo.webp",
-    "categoria": "fortezza",
     "tag": [
+      "fortezza",
       "citta",
       "fortificazione",
       "urbano",
@@ -2780,8 +2665,8 @@
     "nome": "La Discesa del Cacciatore",
     "nome_originale": "Hunter's Descent",
     "immagine": "la-discesa-del-cacciatore.webp",
-    "categoria": "vista",
     "tag": [
+      "vista",
       "dungeon cinque stanze",
       "rovine",
       "sotterraneo",
@@ -2798,7 +2683,6 @@
     "nome": "La Fossa dell'Idolo",
     "nome_originale": "The Idol Pit",
     "immagine": "la-fossa-dellidolo.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna"
     ],
@@ -2813,8 +2697,8 @@
     "nome": "Santuario di Xeeus",
     "nome_originale": "Sanctuary of Xeeus",
     "immagine": "santuario-di-xeeus.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -2828,7 +2712,6 @@
     "nome": "Sotto la Pietra della Temperanza",
     "nome_originale": "Beneath the Temperance Stone",
     "immagine": "sotto-la-pietra-della-temperanza.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "dungeon cinque stanze",
@@ -2846,7 +2729,6 @@
     "nome": "Le Tombe dell'Esercito d'Argento",
     "nome_originale": "Tombs of the Silver Army",
     "immagine": "le-tombe-dellesercito-dargento.webp",
-    "categoria": "tomba",
     "tag": [
       "cripta",
       "sotterraneo",
@@ -2863,7 +2745,6 @@
     "nome": "La Sorgente di Garnet",
     "nome_originale": "Garnet's Spring",
     "immagine": "la-sorgente-di-garnet.webp",
-    "categoria": "rovine",
     "tag": [
       "dungeon cinque stanze",
       "rovine",
@@ -2880,8 +2761,8 @@
     "nome": "Un Sotterraneo dalle Scale Impossibili",
     "nome_originale": "A Dungeon of Impossible Stairs (1200 dpi)",
     "immagine": "un-sotterraneo-dalle-scale-impossibili.webp",
-    "categoria": "vista",
     "tag": [
+      "vista",
       "bizzarro",
       "fantasy bizzarro",
       "isometrico"
@@ -2897,8 +2778,8 @@
     "nome": "Le Pietre di Gavreth",
     "nome_originale": "Gavreth's Stones",
     "immagine": "le-pietre-di-gavreth.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "dungeon cinque stanze",
       "sotterraneo"
     ],
@@ -2913,7 +2794,6 @@
     "nome": "Il Precipizio di Veghul",
     "nome_originale": "Veghul's Drop",
     "immagine": "il-precipizio-di-veghul.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "fiume",
@@ -2930,7 +2810,6 @@
     "nome": "La Torre di Hardbrand",
     "nome_originale": "Hardbrand Tower",
     "immagine": "la-torre-di-hardbrand.webp",
-    "categoria": "torre",
     "tag": [
       "rovine",
       "sotterraneo",
@@ -2947,7 +2826,6 @@
     "nome": "Le Ultime Pietre del Castello di Sagemane",
     "nome_originale": "The Last Stones of Sagemane Castle",
     "immagine": "le-ultime-pietre-del-castello-di-sagemane.webp",
-    "categoria": "fortezza",
     "tag": [
       "cripta",
       "dungeon cinque stanze",
@@ -2967,8 +2845,8 @@
     "nome": "Le Catacombe di Giada",
     "nome_originale": "The Jade Catacombs",
     "immagine": "le-catacombe-di-giada.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -2982,8 +2860,8 @@
     "nome": "Le Pietre Insanguinate - Circolo Druidico",
     "nome_originale": "The Bloodied Stones - a druidic circle",
     "immagine": "le-pietre-insanguinate-circolo-druidico.webp",
-    "categoria": "altro",
     "tag": [
+      "altro",
       "druido",
       "menhir"
     ],
@@ -2998,7 +2876,6 @@
     "nome": "Le Tombe della Tribu Throl",
     "nome_originale": "Tombs of the Throl Tribe",
     "immagine": "le-tombe-della-tribu-throl.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "cripta",
@@ -3018,7 +2895,6 @@
     "nome": "La Piramide di Andesite",
     "nome_originale": "The Andesite Pyramid",
     "immagine": "la-piramide-di-andesite.webp",
-    "categoria": "tomba",
     "tag": [
       "piramide",
       "sotterraneo",
@@ -3036,7 +2912,6 @@
     "nome": "Il Tempio Rosso sotto Béy Sǘ",
     "nome_originale": "The Red Temple under Béy Sǘ",
     "immagine": "il-tempio-rosso-sotto-bey-su.webp",
-    "categoria": "tempio",
     "tag": [
       "fogna",
       "sotterraneo",
@@ -3053,8 +2928,8 @@
     "nome": "Il Tumulo dello Scorticatore",
     "nome_originale": "Barrow of the Flayer",
     "immagine": "il-tumulo-dello-scorticatore.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "dungeon cinque stanze",
       "menhir",
       "sotterraneo"
@@ -3070,7 +2945,6 @@
     "nome": "La Volta dei Warkings",
     "nome_originale": "Release The Kraken On The Warkings Vault",
     "immagine": "la-volta-dei-warkings.webp",
-    "categoria": "tomba",
     "tag": [
       "cripta",
       "sotterraneo",
@@ -3087,8 +2961,8 @@
     "nome": "Tenuta di Mastervale",
     "nome_originale": "Release The Kraken On The Mastervale Estate",
     "immagine": "tenuta-di-mastervale.webp",
-    "categoria": "residenza",
     "tag": [
+      "residenza",
       "casa",
       "edificio",
       "urbano"
@@ -3104,8 +2978,8 @@
     "nome": "Il Villaggio di Winten Ford",
     "nome_originale": "The Village of Winten Ford",
     "immagine": "il-villaggio-di-winten-ford.webp",
-    "categoria": "citta",
     "tag": [
+      "citta",
       "urbano",
       "villaggio"
     ],
@@ -3120,8 +2994,8 @@
     "nome": "Il Labirinto di Yivh'Kthaloth",
     "nome_originale": "The Maze of Yivh'Kthaloth",
     "immagine": "il-labirinto-di-yivhkthaloth.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "labirinto",
       "sotterraneo"
     ],
@@ -3136,7 +3010,6 @@
     "nome": "Le Tombe di Dohrlegond",
     "nome_originale": "Dohrlegond's Tombs",
     "immagine": "le-tombe-di-dohrlegond.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo",
@@ -3153,7 +3026,6 @@
     "nome": "I Passaggi Sottostanti",
     "nome_originale": "Passages Beneath",
     "immagine": "i-passaggi-sottostanti.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -3169,7 +3041,6 @@
     "nome": "La Sala Urlante dell'Ur-Goblin",
     "nome_originale": "Screaming Hall of the Ur-Goblin",
     "immagine": "la-sala-urlante-dellur-goblin.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -3185,7 +3056,6 @@
     "nome": "Il Fortino di Gaerborin",
     "nome_originale": "Gaerborin Keep",
     "immagine": "il-fortino-di-gaerborin.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "fortificazione",
@@ -3203,7 +3073,6 @@
     "nome": "La Caverna della Pioggia",
     "nome_originale": "Raining Cave",
     "immagine": "la-caverna-della-pioggia.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "funghi"
@@ -3219,7 +3088,6 @@
     "nome": "Il Bastione di Pietranera",
     "nome_originale": "Blackstone Bastion",
     "immagine": "il-bastione-di-pietranera.webp",
-    "categoria": "torre",
     "tag": [
       "castello",
       "edificio",
@@ -3239,7 +3107,6 @@
     "nome": "La Vedetta di Oreney",
     "nome_originale": "Oreney's Watch",
     "immagine": "la-vedetta-di-oreney.webp",
-    "categoria": "torre",
     "tag": [
       "fiume",
       "rovine",
@@ -3256,7 +3123,6 @@
     "nome": "La Cripta della Regina delle Ossa",
     "nome_originale": "Crypt of the Queen of Bones",
     "immagine": "la-cripta-della-regina-delle-ossa.webp",
-    "categoria": "tomba",
     "tag": [
       "cripta",
       "sotterraneo",
@@ -3273,8 +3139,8 @@
     "nome": "Dimora Sumera a Tre Piani",
     "nome_originale": "Sumerian Three Story Home",
     "immagine": "dimora-sumera-a-tre-piani.webp",
-    "categoria": "residenza",
     "tag": [
+      "residenza",
       "casa",
       "edificio",
       "urbano"
@@ -3290,7 +3156,6 @@
     "nome": "Locanda e Taverna Frogsmead",
     "nome_originale": "Frogsmead Inn & Tavern",
     "immagine": "locanda-e-taverna-frogsmead.webp",
-    "categoria": "locanda",
     "tag": [
       "edificio",
       "locanda",
@@ -3308,7 +3173,6 @@
     "nome": "Pagina di Piccole Rovine",
     "nome_originale": "Page o' Little Ruins",
     "immagine": "pagina-di-piccole-rovine.webp",
-    "categoria": "rovine",
     "tag": [
       "rovine"
     ],
@@ -3323,7 +3187,6 @@
     "nome": "Sotto l'Osservatorio",
     "nome_originale": "Under the Observatory",
     "immagine": "sotto-losservatorio.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo",
@@ -3340,7 +3203,6 @@
     "nome": "La Vedetta di Unrol Kaz'ad",
     "nome_originale": "Unrol Kaz'ad Watch",
     "immagine": "la-vedetta-di-unrol-kazad.webp",
-    "categoria": "fortezza",
     "tag": [
       "fortezza",
       "nano",
@@ -3358,7 +3220,6 @@
     "nome": "Rovine del Tempio / Nido del Froghemoth",
     "nome_originale": "Temple Ruins / Froghemoth Nest",
     "immagine": "rovine-del-tempio-nido-del-froghemoth.webp",
-    "categoria": "tempio",
     "tag": [
       "fiume",
       "rovine",
@@ -3376,7 +3237,6 @@
     "nome": "La Torre Sommersa",
     "nome_originale": "The Sunken Tower",
     "immagine": "la-torre-sommersa.webp",
-    "categoria": "torre",
     "tag": [
       "rovine",
       "torre"
@@ -3392,7 +3252,6 @@
     "nome": "Le Tane dei Goblin al Forte Redshield",
     "nome_originale": "The Goblin Warrens at Fort Redshield",
     "immagine": "le-tane-dei-goblin-al-forte-redshield.webp",
-    "categoria": "torre",
     "tag": [
       "fortezza",
       "fortino",
@@ -3412,8 +3271,8 @@
     "nome": "Rovine di Brollmoreth",
     "nome_originale": "Ruins of Brollmoreth",
     "immagine": "rovine-di-brollmoreth.webp",
-    "categoria": "tempio",
     "tag": [
+      "tempio",
       "caverna",
       "demone",
       "rovine",
@@ -3432,8 +3291,8 @@
     "nome": "Rovine della Porta Orientale di Steldin Dorg",
     "nome_originale": "Ruins of the East Gate of Steldin Dorg",
     "immagine": "rovine-della-porta-orientale-di-steldin-dorg.webp",
-    "categoria": "acquatico",
     "tag": [
+      "acquatico",
       "fiume",
       "piramide",
       "rovine",
@@ -3450,8 +3309,8 @@
     "nome": "Le Rovine del Fortino di Shagunat",
     "nome_originale": "The Ruins of Shagunat Keep",
     "immagine": "le-rovine-del-fortino-di-shagunat.webp",
-    "categoria": "fortezza",
     "tag": [
+      "fortezza",
       "fortino",
       "rovine",
       "sotterraneo"
@@ -3467,8 +3326,8 @@
     "nome": "Sale Geomorfiche Livello 1",
     "nome_originale": "Geomorphic Halls Level 1",
     "immagine": "sale-geomorfiche-livello-1.webp",
-    "categoria": "geomorph",
     "tag": [
+      "geomorph",
       "geomorfo",
       "megadungeon",
       "sotterraneo"
@@ -3484,7 +3343,6 @@
     "nome": "Avventure intorno a Jalovhec",
     "nome_originale": "Adventures around Jalovhec BW",
     "immagine": "avventure-intorno-a-jalovhec.webp",
-    "categoria": "regionale",
     "tag": [
       "esagonale",
       "esplorazione esagonale",
@@ -3504,7 +3362,6 @@
     "nome": "La Cittàdella di Redford",
     "nome_originale": "Redford Citadel",
     "immagine": "la-cittadella-di-redford.webp",
-    "categoria": "torre",
     "tag": [
       "cittadella",
       "edificio",
@@ -3525,7 +3382,6 @@
     "nome": "La Conca di Nuzur",
     "nome_originale": "Nuzur Hollow",
     "immagine": "la-conca-di-nuzur.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "scheda"
@@ -3541,7 +3397,6 @@
     "nome": "Darklingtown - I Tunnel Superiori",
     "nome_originale": "Darklingtown - The Upper Tunnels",
     "immagine": "darklingtown-i-tunnel-superiori.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "megadungeon",
@@ -3560,7 +3415,6 @@
     "nome": "Darklingtown - Distretto delle Caverne e degli Sfioratori",
     "nome_originale": "Darklingtown - Cavern & Spillways District",
     "immagine": "darklingtown-distretto-delle-caverne-e-degli-sfioratori.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "fiume",
@@ -3580,7 +3434,6 @@
     "nome": "Il Santuario Nanico al Monte Thorrien",
     "nome_originale": "The Dwarven Shrine at Mount Thorrien",
     "immagine": "il-santuario-nanico-al-monte-thorrien.webp",
-    "categoria": "tempio",
     "tag": [
       "santuario",
       "sotterraneo",
@@ -3597,7 +3450,6 @@
     "nome": "Il Castello di Ruldroc",
     "nome_originale": "Ruldroc Castle",
     "immagine": "il-castello-di-ruldroc.webp",
-    "categoria": "fortezza",
     "tag": [
       "castello",
       "fortezza",
@@ -3614,7 +3466,6 @@
     "nome": "La Vedetta sull'Oceano",
     "nome_originale": "Oceanwatch",
     "immagine": "la-vedetta-sulloceano.webp",
-    "categoria": "citta",
     "tag": [
       "citta",
       "urbano",
@@ -3631,7 +3482,6 @@
     "nome": "Darklingtown - Distretto dei Tunnel",
     "nome_originale": "Darklingtown - The Tunnels District",
     "immagine": "darklingtown-distretto-dei-tunnel.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "megadungeon",
@@ -3650,7 +3500,6 @@
     "nome": "Darklingtown - La Torre della Rana",
     "nome_originale": "Darklingtown - Frog Tower",
     "immagine": "darklingtown-la-torre-della-rana.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "megadungeon",
@@ -3670,7 +3519,6 @@
     "nome": "Darklingtown - Le Caverne dei Funghi",
     "nome_originale": "Darklingtown - The Mushroom Caves",
     "immagine": "darklingtown-le-caverne-dei-funghi.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "fiume",
@@ -3690,7 +3538,6 @@
     "nome": "Sharn Heights - Nodo dei Ponti Celesti",
     "nome_originale": "Sharn Heights - Skybridge Nexus",
     "immagine": "sharn-heights-nodo-dei-ponti-celesti.webp",
-    "categoria": "torre",
     "tag": [
       "edificio",
       "ponte",
@@ -3708,7 +3555,6 @@
     "nome": "Il Maniero di Krelava",
     "nome_originale": "Krelava Manor",
     "immagine": "il-maniero-di-krelava.webp",
-    "categoria": "fortezza",
     "tag": [
       "edificio",
       "fortezza",
@@ -3728,7 +3574,6 @@
     "nome": "La Caverna di Daglan",
     "nome_originale": "Daglan's Cave",
     "immagine": "la-caverna-di-daglan.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "scheda"
@@ -3744,7 +3589,6 @@
     "nome": "Complesso Fognario",
     "nome_originale": "Sewer Complex",
     "immagine": "complesso-fognario.webp",
-    "categoria": "fogna",
     "tag": [
       "fogna",
       "geomorfo",
@@ -3761,7 +3605,6 @@
     "nome": "Darklingtown - Frogsport Est",
     "nome_originale": "Darklingtown - East Frogsport",
     "immagine": "darklingtown-frogsport-est.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "fiume",
@@ -3781,7 +3624,6 @@
     "nome": "Darklingtown - Frogsport",
     "nome_originale": "Darklingtown - Frogsport",
     "immagine": "darklingtown-frogsport.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "fiume",
@@ -3801,7 +3643,6 @@
     "nome": "Il Bastione del Principe di Bastoni",
     "nome_originale": "Bastion of the Prince of Clubs",
     "immagine": "il-bastione-del-principe-di-bastoni.webp",
-    "categoria": "torre",
     "tag": [
       "fortezza",
       "fortino",
@@ -3821,8 +3662,8 @@
     "nome": "Il Tumulo di Kamrorth",
     "nome_originale": "Kamrorth's Cairn",
     "immagine": "il-tumulo-di-kamrorth.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -3836,7 +3677,6 @@
     "nome": "L'Isola del Tesoro dei Pirati",
     "nome_originale": "Pirate Booty Island",
     "immagine": "lisola-del-tesoro-dei-pirati.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "isola",
@@ -3854,7 +3694,6 @@
     "nome": "Darklingtown Sud",
     "nome_originale": "Darklingtown South",
     "immagine": "darklingtown-sud.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "fiume",
@@ -3874,7 +3713,6 @@
     "nome": "Darklingtown (Distretto Nord)",
     "nome_originale": "Darklingtown (North District)",
     "immagine": "darklingtown-distretto-nord.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "fiume",
@@ -3894,7 +3732,6 @@
     "nome": "La Torre del Diavoletto",
     "nome_originale": "Imp Tower",
     "immagine": "la-torre-del-diavoletto.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "rovine",
@@ -3911,8 +3748,8 @@
     "nome": "Le Sabbie Striscianti",
     "nome_originale": "Creeping Sands",
     "immagine": "le-sabbie-striscianti.webp",
-    "categoria": "natura",
     "tag": [
+      "natura",
       "deserto",
       "rovine",
       "sotterraneo"
@@ -3928,7 +3765,6 @@
     "nome": "Geomorfi su Biglietto - Set 1",
     "nome_originale": "Business Cards 2021 - Set 1",
     "immagine": "geomorfi-su-biglietto-set-1.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "geomorfo",
@@ -3945,7 +3781,6 @@
     "nome": "Geomorfi su Biglietto - Set 2",
     "nome_originale": "2021 Business Card Geomorphs - Set 2 Promotional",
     "immagine": "geomorfi-su-biglietto-set-2.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "geomorfo",
@@ -3962,8 +3797,8 @@
     "nome": "La Volta dei Goblin",
     "nome_originale": "The Goblin Vault",
     "immagine": "la-volta-dei-goblin.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -3977,7 +3812,6 @@
     "nome": "Cuore di Darkling - Le Scale",
     "nome_originale": "Heart of Darkling - The Stairs",
     "immagine": "cuore-di-darkling-le-scale.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "drago",
@@ -3997,8 +3831,8 @@
     "nome": "Il Rifugio del Campione",
     "nome_originale": "The Champion's Retreat",
     "immagine": "il-rifugio-del-campione.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -4012,8 +3846,8 @@
     "nome": "Il Forte di Mayer",
     "nome_originale": "Mayer's Fort",
     "immagine": "il-forte-di-mayer.webp",
-    "categoria": "fortezza",
     "tag": [
+      "fortezza",
       "fiume",
       "fortino",
       "montagna",
@@ -4031,7 +3865,6 @@
     "nome": "La Sala del Nephilim",
     "nome_originale": "Nephilim's Hall",
     "immagine": "la-sala-del-nephilim.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo",
@@ -4048,8 +3881,8 @@
     "nome": "La Cupola di Skaldon",
     "nome_originale": "Skaldon's Dome",
     "immagine": "la-cupola-di-skaldon.webp",
-    "categoria": "altro",
     "tag": [
+      "altro",
       "edificio"
     ],
     "autore": "Dyson Logos",
@@ -4063,7 +3896,6 @@
     "nome": "Monumenti Pentagonali nelle Dune Fantasma",
     "nome_originale": "Pentagonal Monuments in the Ghost Dunes",
     "immagine": "monumenti-pentagonali-nelle-dune-fantasma.webp",
-    "categoria": "rovine",
     "tag": [
       "rovine"
     ],
@@ -4078,7 +3910,6 @@
     "nome": "Cuore di Darkling - I Pilastri",
     "nome_originale": "Heart of Darkling - The Pillars",
     "immagine": "cuore-di-darkling-i-pilastri.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "fiume",
@@ -4097,7 +3928,6 @@
     "nome": "La Caverna di Greyfalls",
     "nome_originale": "Greyfalls Cave",
     "immagine": "la-caverna-di-greyfalls.webp",
-    "categoria": "caverna",
     "tag": [
       "acqua",
       "cascata",
@@ -4114,8 +3944,8 @@
     "nome": "Catacombe del Minotauro Scorticato",
     "nome_originale": "Catacombs of the Flayed Minotaur",
     "immagine": "catacombe-del-minotauro-scorticato.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "catacomba",
       "sotterraneo"
     ],
@@ -4130,7 +3960,6 @@
     "nome": "Il Santuario del Drago",
     "nome_originale": "The Dragon Shrine (1200 dpi)",
     "immagine": "il-santuario-del-drago.webp",
-    "categoria": "tempio",
     "tag": [
       "rovine",
       "santuario",
@@ -4147,7 +3976,6 @@
     "nome": "Le Rovine del Tiranno",
     "nome_originale": "The Tyrant's Ruins",
     "immagine": "le-rovine-del-tiranno.webp",
-    "categoria": "rovine",
     "tag": [
       "rovine"
     ],
@@ -4162,7 +3990,6 @@
     "nome": "La Pozza del Rituale",
     "nome_originale": "The Ritual Pool",
     "immagine": "la-pozza-del-rituale.webp",
-    "categoria": "tempio",
     "tag": [
       "pozza",
       "rovine",
@@ -4180,7 +4007,6 @@
     "nome": "Cuore di Darkling - Il Ponte dell'Inganno",
     "nome_originale": "Heart of Darkling - Deception's Bridge",
     "immagine": "cuore-di-darkling-il-ponte-dellinganno.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "fiume",
@@ -4199,7 +4025,6 @@
     "nome": "La Tomba Crollata di Mosogret",
     "nome_originale": "Collapsed Tomb of Mosogret (1200 dpi)",
     "immagine": "la-tomba-crollata-di-mosogret.webp",
-    "categoria": "fortezza",
     "tag": [
       "cripta",
       "fortezza",
@@ -4218,7 +4043,6 @@
     "nome": "I Signori delle Vette di Aldeiron",
     "nome_originale": "Lords of the Aldeiron Peaks (1200 dpi)",
     "immagine": "i-signori-delle-vette-di-aldeiron.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "fortezza",
@@ -4236,8 +4060,8 @@
     "nome": "Le Cripte Sotterranee",
     "nome_originale": "Undercrofts (1200 dpi)",
     "immagine": "le-cripte-sotterranee.webp",
-    "categoria": "tempio",
     "tag": [
+      "tempio",
       "chiesa",
       "cripta",
       "rovine",
@@ -4254,7 +4078,6 @@
     "nome": "La Casa Caduta di Githaleon",
     "nome_originale": "The Fallen House of Githaleon (1200 dpi)",
     "immagine": "la-casa-caduta-di-githaleon.webp",
-    "categoria": "tempio",
     "tag": [
       "chiesa",
       "rovine",
@@ -4272,7 +4095,6 @@
     "nome": "Cuore di Darkling - Le Caverne Fredde",
     "nome_originale": "Heart of Darkling - The Cold Caves",
     "immagine": "cuore-di-darkling-le-caverne-fredde.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "megadungeon",
@@ -4290,7 +4112,6 @@
     "nome": "Cuore di Darkling - Il Precipizio",
     "nome_originale": "Heart of Darkling - The Drop",
     "immagine": "cuore-di-darkling-il-precipizio.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "fiume",
@@ -4309,8 +4130,8 @@
     "nome": "La Tana dell'Artiglio Rosso",
     "nome_originale": "Red Talon's Lair",
     "immagine": "la-tana-dellartiglio-rosso.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -4324,8 +4145,8 @@
     "nome": "La Riva di Granito",
     "nome_originale": "The Granite Shore (1200 dpi)",
     "immagine": "la-riva-di-granito.webp",
-    "categoria": "acquatico",
     "tag": [
+      "acquatico",
       "fiume",
       "sotterraneo"
     ],
@@ -4340,7 +4161,6 @@
     "nome": "Il Tempio del Drago",
     "nome_originale": "The Dragon Temple (1200 dpi)",
     "immagine": "il-tempio-del-drago.webp",
-    "categoria": "tempio",
     "tag": [
       "caverna",
       "rovine",
@@ -4358,7 +4178,6 @@
     "nome": "L'Ubriaco dai Quattro Denti",
     "nome_originale": "The Four-Toothed Drunk (1200 dpi)",
     "immagine": "lubriaco-dai-quattro-denti.webp",
-    "categoria": "locanda",
     "tag": [
       "edificio",
       "locanda",
@@ -4376,7 +4195,6 @@
     "nome": "Cuore di Darkling - Il Lago dei Gibberling",
     "nome_originale": "Heart of Darkling - Gibberling Lake (1200 dpi)",
     "immagine": "cuore-di-darkling-il-lago-dei-gibberling.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "fiume",
@@ -4396,7 +4214,6 @@
     "nome": "Cuore di Darkling - Le Gallerie Darkling",
     "nome_originale": "Heart of Darkling - The Darkling Galleries",
     "immagine": "cuore-di-darkling-le-gallerie-darkling.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "fiume",
@@ -4415,7 +4232,6 @@
     "nome": "La Città Perduta delle Regine Naga",
     "nome_originale": "Lost City of the Naga Queens",
     "immagine": "la-citta-perduta-delle-regine-naga.webp",
-    "categoria": "regionale",
     "tag": [
       "mappa esagonale",
       "regionale"
@@ -4431,7 +4247,6 @@
     "nome": "La Tomba sull'Isola",
     "nome_originale": "Island Tomb",
     "immagine": "la-tomba-sullisola.webp",
-    "categoria": "tomba",
     "tag": [
       "isola",
       "rovine",
@@ -4449,7 +4264,6 @@
     "nome": "Le Tombe Senza Fondo - Parte 4",
     "nome_originale": "The Bottomless Tombs - Part 4 (1200 dpi)",
     "immagine": "le-tombe-senza-fondo-parte-4.webp",
-    "categoria": "tomba",
     "tag": [
       "cripta",
       "isometrico",
@@ -4467,7 +4281,6 @@
     "nome": "Il Reliquiario Perduto",
     "nome_originale": "Lost Reliquary (1200 dpi)",
     "immagine": "il-reliquiario-perduto.webp",
-    "categoria": "tempio",
     "tag": [
       "rovine",
       "sotterraneo",
@@ -4484,8 +4297,8 @@
     "nome": "Struttura di Atterraggio",
     "nome_originale": "Landing Facility (with grids)",
     "immagine": "struttura-di-atterraggio.webp",
-    "categoria": "altro",
     "tag": [
+      "altro",
       "fantascienza"
     ],
     "autore": "Dyson Logos",
@@ -4499,7 +4312,6 @@
     "nome": "Tempio dei 4 Dei (Piano Terra)",
     "nome_originale": "Temple of the 4 Gods (ground level)",
     "immagine": "tempio-dei-4-dei-piano-terra.webp",
-    "categoria": "tempio",
     "tag": [
       "tempio"
     ],
@@ -4514,8 +4326,8 @@
     "nome": "Maniero di Tarsakh - Piani Superiori",
     "nome_originale": "Tarsakh Manor - Upper Floors (1200 dpi)",
     "immagine": "maniero-di-tarsakh-piani-superiori.webp",
-    "categoria": "residenza",
     "tag": [
+      "residenza",
       "edificio",
       "maniero",
       "urbano",
@@ -4532,8 +4344,8 @@
     "nome": "I Terreni del Maniero di Tarsakh",
     "nome_originale": "Tarsakh Manor Grounds (1200 dpi)",
     "immagine": "i-terreni-del-maniero-di-tarsakh.webp",
-    "categoria": "residenza",
     "tag": [
+      "residenza",
       "edificio",
       "maniero",
       "urbano",
@@ -4550,8 +4362,8 @@
     "nome": "Il Villaggio di Tarsakh",
     "nome_originale": "Tarsakh Village (1200 dpi)",
     "immagine": "il-villaggio-di-tarsakh.webp",
-    "categoria": "residenza",
     "tag": [
+      "residenza",
       "maniero",
       "mappa esagonale",
       "mappa regionale",
@@ -4569,8 +4381,8 @@
     "nome": "Le Sale Desolate dei Mongrelfolk",
     "nome_originale": "Forlorn Halls of the Mongrelfolk (1200 dpi)",
     "immagine": "le-sale-desolate-dei-mongrelfolk.webp",
-    "categoria": "vista",
     "tag": [
+      "vista",
       "isometrico",
       "sotterraneo"
     ],
@@ -4585,7 +4397,6 @@
     "nome": "La Discesa del Crepuscolo",
     "nome_originale": "Twilight Descent (1200 dpi)",
     "immagine": "la-discesa-del-crepuscolo.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "cripta",
@@ -4603,7 +4414,6 @@
     "nome": "Ritorno alla Tomba di Durahn",
     "nome_originale": "Return to Durahn's Tomb",
     "immagine": "ritorno-alla-tomba-di-durahn.webp",
-    "categoria": "tomba",
     "tag": [
       "isometrico",
       "sotterraneo",
@@ -4620,7 +4430,6 @@
     "nome": "Laboratorio e Negozio",
     "nome_originale": "Workshop and Store",
     "immagine": "laboratorio-e-negozio.webp",
-    "categoria": "negozio",
     "tag": [
       "bottega",
       "edificio",
@@ -4639,7 +4448,6 @@
     "nome": "I Tunnel dell'Imperatore Velato",
     "nome_originale": "Tunnels of the Shrouded Emperor (1200 dpi)",
     "immagine": "i-tunnel-dellimperatore-velato.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -4655,7 +4463,6 @@
     "nome": "Il Pozzo di Gurath",
     "nome_originale": "Well Gurath (1200 dpi)",
     "immagine": "il-pozzo-di-gurath.webp",
-    "categoria": "torre",
     "tag": [
       "edificio",
       "forte",
@@ -4674,7 +4481,6 @@
     "nome": "Il Vecchio Trono",
     "nome_originale": "The Old Throne (1200 dpi)",
     "immagine": "il-vecchio-trono.webp",
-    "categoria": "rovine",
     "tag": [
       "rovine",
       "sotterraneo"
@@ -4690,7 +4496,6 @@
     "nome": "Il Labirinto del Teschio",
     "nome_originale": "Skull Maze (1200 dpi)",
     "immagine": "il-labirinto-del-teschio.webp",
-    "categoria": "tempio",
     "tag": [
       "labirinto",
       "sotterraneo",
@@ -4707,8 +4512,8 @@
     "nome": "Le Sale Proibite",
     "nome_originale": "Forbidden Halls",
     "immagine": "le-sale-proibite.webp",
-    "categoria": "acquatico",
     "tag": [
+      "acquatico",
       "fiume",
       "rovine",
       "sotterraneo"
@@ -4724,7 +4529,6 @@
     "nome": "Maniero di Alturiak",
     "nome_originale": "Alturiak Manor (1200 dpi)",
     "immagine": "maniero-di-alturiak.webp",
-    "categoria": "caverna",
     "tag": [
       "casa",
       "caverna",
@@ -4744,7 +4548,6 @@
     "nome": "Sotterranei della Stella di Ferro - Livello 2",
     "nome_originale": "Dungeons of the Iron Star - Level 2 (1200 dpi)",
     "immagine": "sotterranei-della-stella-di-ferro-livello-2.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -4760,7 +4563,6 @@
     "nome": "Caverne delle Terre di Confine - Livello 2 Est",
     "nome_originale": "Borderlands Caves - Level 2 East - (1200 dpi)",
     "immagine": "caverne-delle-terre-di-confine-livello-2-est.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "megadungeon",
@@ -4777,8 +4579,8 @@
     "nome": "Quellport e l'Isola delle Sette Api",
     "nome_originale": "Quellport & the Isle of Seven Bees (1200 dpi)",
     "immagine": "quellport-e-lisola-delle-sette-api.webp",
-    "categoria": "acquatico",
     "tag": [
+      "acquatico",
       "isola",
       "regionale"
     ],
@@ -4793,8 +4595,8 @@
     "nome": "Il Sietch del Mattino",
     "nome_originale": "Sietch of Morning (1200 dpi)",
     "immagine": "il-sietch-del-mattino.webp",
-    "categoria": "natura",
     "tag": [
+      "natura",
       "deserto",
       "edificio",
       "fantascienza"
@@ -4810,8 +4612,8 @@
     "nome": "Abbazia della Stella di Ferro",
     "nome_originale": "Abbey of the Iron Star (1200 dpi)",
     "immagine": "abbazia-della-stella-di-ferro.webp",
-    "categoria": "tempio",
     "tag": [
+      "tempio",
       "abbazia",
       "edificio",
       "fortezza",
@@ -4828,7 +4630,6 @@
     "nome": "Sotterranei della Stella di Ferro",
     "nome_originale": "Dungeons of the Iron Star (1200 dpi)",
     "immagine": "sotterranei-della-stella-di-ferro.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -4844,7 +4645,6 @@
     "nome": "Sotterranei del Grande Illusionista",
     "nome_originale": "Dungeons of the Grand Illusionist (1200 dpi)",
     "immagine": "sotterranei-del-grande-illusionista.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -4860,7 +4660,6 @@
     "nome": "Il Fortino in Rovina di Madrual",
     "nome_originale": "The Ruined Keep Of Madrual",
     "immagine": "il-fortino-in-rovina-di-madrual.webp",
-    "categoria": "torre",
     "tag": [
       "fortezza",
       "rovine",
@@ -4878,7 +4677,6 @@
     "nome": "Il Tempio Murato",
     "nome_originale": "Walled Temple",
     "immagine": "il-tempio-murato.webp",
-    "categoria": "tempio",
     "tag": [
       "edificio",
       "tempio"
@@ -4894,7 +4692,6 @@
     "nome": "La Cittàdella sul Lago Sabre",
     "nome_originale": "The Citadel at Sabre Lake",
     "immagine": "la-cittadella-sul-lago-sabre.webp",
-    "categoria": "regionale",
     "tag": [
       "regionale"
     ],
@@ -4909,7 +4706,6 @@
     "nome": "Il Sentiero di Pharyka",
     "nome_originale": "Pharyka's Walk",
     "immagine": "il-sentiero-di-pharyka.webp",
-    "categoria": "tempio",
     "tag": [
       "edificio",
       "santuario",
@@ -4926,7 +4722,6 @@
     "nome": "Le Rovine della Torre sull'Isola del Cinghiale",
     "nome_originale": "The ruins of Boar Isle Tower (1200 dpi)",
     "immagine": "le-rovine-della-torre-sullisola-del-cinghiale.webp",
-    "categoria": "torre",
     "tag": [
       "fortezza",
       "rovine",
@@ -4943,7 +4738,6 @@
     "nome": "C'è un Buco nel Sotterraneo",
     "nome_originale": "There's a Hole in the Dungeon (1200 dpi)",
     "immagine": "ce-un-buco-nel-sotterraneo.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "portale",
@@ -4960,8 +4754,8 @@
     "nome": "Ritorno allo Stagno del Melo",
     "nome_originale": "Return to Appletree Pond",
     "immagine": "ritorno-allo-stagno-del-melo.webp",
-    "categoria": "citta",
     "tag": [
+      "citta",
       "urbano",
       "villaggio"
     ],
@@ -4976,7 +4770,6 @@
     "nome": "I Pilastri Demoniaci di Iv",
     "nome_originale": "the Demon Pillars of Iv",
     "immagine": "i-pilastri-demoniaci-di-iv.webp",
-    "categoria": "tempio",
     "tag": [
       "assassino",
       "caverna",
@@ -4996,7 +4789,6 @@
     "nome": "La Buca di Cooper",
     "nome_originale": "Cooper's Hole (1200 dpi)",
     "immagine": "la-buca-di-cooper.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "rovine",
@@ -5013,8 +4805,8 @@
     "nome": "Lautuntown",
     "nome_originale": "Lautuntown",
     "immagine": "lautuntown.webp",
-    "categoria": "fortezza",
     "tag": [
+      "fortezza",
       "citta",
       "forte",
       "urbano",
@@ -5031,7 +4823,6 @@
     "nome": "Santuario del Demone Eskarna",
     "nome_originale": "Shrine of the Demon Eskarna (1200 dpi)",
     "immagine": "santuario-del-demone-eskarna.webp",
-    "categoria": "tempio",
     "tag": [
       "caverna",
       "santuario",
@@ -5049,7 +4840,6 @@
     "nome": "Caverne delle Terre di Confine",
     "nome_originale": "Borderlands Caves (1200 dpi)",
     "immagine": "caverne-delle-terre-di-confine.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "megadungeon",
@@ -5066,8 +4856,8 @@
     "nome": "Gli Isolotti di Somerrich",
     "nome_originale": "Somerrich Cays",
     "immagine": "gli-isolotti-di-somerrich.webp",
-    "categoria": "acquatico",
     "tag": [
+      "acquatico",
       "isola",
       "regionale"
     ],
@@ -5082,7 +4872,6 @@
     "nome": "Le False Tombe",
     "nome_originale": "The False Tombs (1200 dpi)",
     "immagine": "le-false-tombe.webp",
-    "categoria": "tomba",
     "tag": [
       "cripta",
       "sotterraneo",
@@ -5099,7 +4888,6 @@
     "nome": "Il Ponte dell'Ascia su Blackbay",
     "nome_originale": "Release The Kraken On Axebridge Over Blackbay",
     "immagine": "il-ponte-dellascia-su-blackbay.webp",
-    "categoria": "citta",
     "tag": [
       "citta",
       "urbano"
@@ -5115,7 +4903,6 @@
     "nome": "Il Sanctum del Proteo Cieco",
     "nome_originale": "Sanctum of the Blind Protean",
     "immagine": "il-sanctum-del-proteo-cieco.webp",
-    "categoria": "tempio",
     "tag": [
       "caverna",
       "cripta",
@@ -5137,8 +4924,8 @@
     "nome": "La Caverna del Mercato di Sangue",
     "nome_originale": "Bloodmarket Cave (1200 dpi)",
     "immagine": "la-caverna-del-mercato-di-sangue.webp",
-    "categoria": "caverna",
     "tag": [
+      "caverna",
       "fiume",
       "megadungeon",
       "sotterraneo",
@@ -5155,7 +4942,6 @@
     "nome": "L'Ultima Dimora dei Tre Eretici di Xaeen",
     "nome_originale": "Last Home of the Three Heretics of Xaeen",
     "immagine": "lultima-dimora-dei-tre-eretici-di-xaeen.webp",
-    "categoria": "tempio",
     "tag": [
       "cripta",
       "santuario",
@@ -5174,7 +4960,6 @@
     "nome": "Le Tombe di Bitterchains",
     "nome_originale": "Bitterchains Tombs",
     "immagine": "le-tombe-di-bitterchains.webp",
-    "categoria": "tomba",
     "tag": [
       "cripta",
       "sotterraneo",
@@ -5191,7 +4976,6 @@
     "nome": "I Tumuli del Lich e dei Famosi",
     "nome_originale": "Barrow Mounds of the Lich and Famous",
     "immagine": "i-tumuli-del-lich-e-dei-famosi.webp",
-    "categoria": "tomba",
     "tag": [
       "cripta",
       "mini-mappa",
@@ -5210,8 +4994,8 @@
     "nome": "La Tana del Lupo Dorato",
     "nome_originale": "Lair of the Golden Wolf",
     "immagine": "la-tana-del-lupo-dorato.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -5225,7 +5009,6 @@
     "nome": "La Grotta di Codadivolpe",
     "nome_originale": "Foxtail Grotto",
     "immagine": "la-grotta-di-codadivolpe.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "fiume",
@@ -5242,8 +5025,8 @@
     "nome": "Il Santuario Terribile dei Magi in Zaffiro",
     "nome_originale": "Dread Shrine of the Magi in Sapphire",
     "immagine": "il-santuario-terribile-dei-magi-in-zaffiro.webp",
-    "categoria": "tempio",
     "tag": [
+      "tempio",
       "santuario",
       "sotterraneo"
     ],
@@ -5258,8 +5041,8 @@
     "nome": "La Baia del Pentagono",
     "nome_originale": "Pentagon Cove",
     "immagine": "la-baia-del-pentagono.webp",
-    "categoria": "acquatico",
     "tag": [
+      "acquatico",
       "costiero",
       "lago",
       "sotterraneo"
@@ -5275,7 +5058,6 @@
     "nome": "Il Santuario della Capra",
     "nome_originale": "The Goat Shrine",
     "immagine": "il-santuario-della-capra.webp",
-    "categoria": "tempio",
     "tag": [
       "edificio",
       "esagonale",
@@ -5294,7 +5076,6 @@
     "nome": "Le Tombe dei Forgiatori d'Acciaio",
     "nome_originale": "Tombs of the Steel Makers",
     "immagine": "le-tombe-dei-forgiatori-dacciaio.webp",
-    "categoria": "tomba",
     "tag": [
       "sotterraneo",
       "tomba"
@@ -5310,8 +5091,8 @@
     "nome": "Il Labirinto di Crowspine",
     "nome_originale": "Crowspine Labyrinth",
     "immagine": "il-labirinto-di-crowspine.webp",
-    "categoria": "vista",
     "tag": [
+      "vista",
       "isometrico",
       "labirinto",
       "sotterraneo"
@@ -5327,8 +5108,8 @@
     "nome": "Lo Scavo di Sanvild",
     "nome_originale": "Sanvild's Delve",
     "immagine": "lo-scavo-di-sanvild.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -5342,7 +5123,6 @@
     "nome": "Il Rum e i Posatoi del Corvo",
     "nome_originale": "The Raven's Rum & Roosts",
     "immagine": "il-rum-e-i-posatoi-del-corvo.webp",
-    "categoria": "locanda",
     "tag": [
       "edificio",
       "locanda",
@@ -5360,8 +5140,8 @@
     "nome": "Tomba Isometrica di Illhan il Legatore",
     "nome_originale": "Isometric Tomb of Illhan the Binder",
     "immagine": "tomba-isometrica-di-illhan-il-legatore.webp",
-    "categoria": "vista",
     "tag": [
+      "vista",
       "isometrico",
       "rovine",
       "sotterraneo"
@@ -5377,8 +5157,8 @@
     "nome": "La Collina Incoronata",
     "nome_originale": "Crowned Hill",
     "immagine": "la-collina-incoronata.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "menhir",
       "sotterraneo"
     ],
@@ -5393,8 +5173,8 @@
     "nome": "Le Quattro Pagode di Kwantoom",
     "nome_originale": "Four Pagodas of Kwantoom",
     "immagine": "le-quattro-pagode-di-kwantoom.webp",
-    "categoria": "altro",
     "tag": [
+      "altro",
       "pagoda"
     ],
     "autore": "Dyson Logos",
@@ -5408,7 +5188,6 @@
     "nome": "Vallesorgente",
     "nome_originale": "Springhollow",
     "immagine": "vallesorgente.webp",
-    "categoria": "citta",
     "tag": [
       "citta",
       "urbano",
@@ -5425,7 +5204,6 @@
     "nome": "Le Tombe Senza Fondo - Livello 3",
     "nome_originale": "The Bottomless Tombs - Level 3",
     "immagine": "le-tombe-senza-fondo-livello-3.webp",
-    "categoria": "tomba",
     "tag": [
       "cripta",
       "isometrico",
@@ -5444,7 +5222,6 @@
     "nome": "I Negozi di Via Moonset",
     "nome_originale": "Moonset Street Shops",
     "immagine": "i-negozi-di-via-moonset.webp",
-    "categoria": "negozio",
     "tag": [
       "bottega",
       "edificio",
@@ -5463,7 +5240,6 @@
     "nome": "Le Armi del Warlock",
     "nome_originale": "The Warlock's Arms",
     "immagine": "le-armi-del-warlock.webp",
-    "categoria": "locanda",
     "tag": [
       "edificio",
       "locanda",
@@ -5481,7 +5257,6 @@
     "nome": "Il Tempio del Gladiatore",
     "nome_originale": "Gladiator's Temple D&D Map",
     "immagine": "il-tempio-del-gladiatore.webp",
-    "categoria": "tempio",
     "tag": [
       "tempio"
     ],
@@ -5496,7 +5271,6 @@
     "nome": "Il Sentiero della Vigilanza",
     "nome_originale": "Vigilance Trail",
     "immagine": "il-sentiero-della-vigilanza.webp",
-    "categoria": "regionale",
     "tag": [
       "handout",
       "mappa giocatore",
@@ -5513,8 +5287,8 @@
     "nome": "La Sala Infestata",
     "nome_originale": "The Infested Hall",
     "immagine": "la-sala-infestata.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "funghi",
       "sotterraneo"
     ],
@@ -5529,7 +5303,6 @@
     "nome": "Le Rovine presso la Fortezza di Elverston",
     "nome_originale": "The Ruins near Elverston Hold",
     "immagine": "le-rovine-presso-la-fortezza-di-elverston.webp",
-    "categoria": "torre",
     "tag": [
       "edificio",
       "palude",
@@ -5547,7 +5320,6 @@
     "nome": "Principati della Baia della Sfinge Nera",
     "nome_originale": "Principalities of Black Sphinx Bay",
     "immagine": "principati-della-baia-della-sfinge-nera.webp",
-    "categoria": "regionale",
     "tag": [
       "mappa esagonale",
       "mappa regionale",
@@ -5564,7 +5336,6 @@
     "nome": "La Casa del Te Malvagia di Guddur",
     "nome_originale": "Guddur's Wicked Teahouse",
     "immagine": "la-casa-del-te-malvagia-di-guddur.webp",
-    "categoria": "locanda",
     "tag": [
       "edificio",
       "locanda",
@@ -5582,7 +5353,6 @@
     "nome": "La Sorgente del Divoraincantesimi",
     "nome_originale": "Spell-Eater's Spring",
     "immagine": "la-sorgente-del-divoraincantesimi.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "scheda",
@@ -5599,8 +5369,8 @@
     "nome": "Il Punto dell'Annegamento",
     "nome_originale": "Drowning Point",
     "immagine": "il-punto-dellannegamento.webp",
-    "categoria": "citta",
     "tag": [
+      "citta",
       "fiume",
       "lago",
       "urbano",
@@ -5617,7 +5387,6 @@
     "nome": "Lo Spremitore",
     "nome_originale": "The Juicer",
     "immagine": "lo-spremitore.webp",
-    "categoria": "caverna",
     "tag": [
       "bizzarro",
       "caverna",
@@ -5636,7 +5405,6 @@
     "nome": "Il Vecchio Forte",
     "nome_originale": "The Old Fort",
     "immagine": "il-vecchio-forte.webp",
-    "categoria": "fortezza",
     "tag": [
       "edificio",
       "forte",
@@ -5655,7 +5423,6 @@
     "nome": "Rovine e Sotterranei del Vecchio Forte",
     "nome_originale": "The Old Fort Ruins & Dungeon",
     "immagine": "rovine-e-sotterranei-del-vecchio-forte.webp",
-    "categoria": "rovine",
     "tag": [
       "rovine",
       "sotterraneo"
@@ -5671,7 +5438,6 @@
     "nome": "I Norker Gemelli",
     "nome_originale": "The Twin Norkers (tagged)",
     "immagine": "i-norker-gemelli.webp",
-    "categoria": "locanda",
     "tag": [
       "edificio",
       "locanda",
@@ -5689,8 +5455,8 @@
     "nome": "Il Passaggio Costiero",
     "nome_originale": "Seaside Passage",
     "immagine": "il-passaggio-costiero.webp",
-    "categoria": "tempio",
     "tag": [
+      "tempio",
       "caverna",
       "santuario",
       "sotterraneo"
@@ -5706,7 +5472,6 @@
     "nome": "Il Mulino di Seever",
     "nome_originale": "Seever's Mill",
     "immagine": "il-mulino-di-seever.webp",
-    "categoria": "citta",
     "tag": [
       "citta",
       "urbano",
@@ -5723,7 +5488,6 @@
     "nome": "La Città Santa di Guerras-El-Estat",
     "nome_originale": "The Holy City of Guerras-El-Estat",
     "immagine": "la-citta-santa-di-guerras-el-estat.webp",
-    "categoria": "tempio",
     "tag": [
       "citta",
       "tempio",
@@ -5740,8 +5504,8 @@
     "nome": "Le Tane Insanguinate",
     "nome_originale": "Bloodied Warrens",
     "immagine": "le-tane-insanguinate.webp",
-    "categoria": "acquatico",
     "tag": [
+      "acquatico",
       "fiume",
       "scheda",
       "sotterraneo"
@@ -5757,7 +5521,6 @@
     "nome": "Sotto il Boccale in Marcia",
     "nome_originale": "Beneath the Marching Tankard",
     "immagine": "sotto-il-boccale-in-marcia.webp",
-    "categoria": "locanda",
     "tag": [
       "locanda",
       "seminterrato",
@@ -5775,7 +5538,6 @@
     "nome": "Il Boccale in Marcia - Piano Superiore",
     "nome_originale": "The Marching Tankard - Upstairs - Tagged",
     "immagine": "il-boccale-in-marcia-piano-superiore.webp",
-    "categoria": "locanda",
     "tag": [
       "locanda",
       "taverna"
@@ -5791,8 +5553,8 @@
     "nome": "La Volta di Dahlver-Nar",
     "nome_originale": "The Vault of Dahlver-Nar",
     "immagine": "la-volta-di-dahlver-nar.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "scheda",
       "sotterraneo"
     ],
@@ -5807,7 +5569,6 @@
     "nome": "I Tumuli del Lich e dei Famosi III",
     "nome_originale": "Barrow Mounds of the Lich & Famous III",
     "immagine": "i-tumuli-del-lich-e-dei-famosi-iii.webp",
-    "categoria": "tomba",
     "tag": [
       "cripta",
       "mini-mappa",
@@ -5826,8 +5587,8 @@
     "nome": "Il Trono di Cenere",
     "nome_originale": "The Cinder Throne",
     "immagine": "il-trono-di-cenere.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -5841,7 +5602,6 @@
     "nome": "La Birreria dell'Idra",
     "nome_originale": "The Hydra's Alehouse",
     "immagine": "la-birreria-dellidra.webp",
-    "categoria": "locanda",
     "tag": [
       "edificio",
       "locanda",
@@ -5859,7 +5619,6 @@
     "nome": "La Chiesa degli Oracoli in Onice",
     "nome_originale": "Church of the Oracles in Onyx",
     "immagine": "la-chiesa-degli-oracoli-in-onice.webp",
-    "categoria": "tempio",
     "tag": [
       "chiesa",
       "sotterraneo",
@@ -5876,8 +5635,8 @@
     "nome": "Il Tempio Perduto di Aphosh l'Infestato",
     "nome_originale": "The Lost Temple of Aphosh the Haunted",
     "immagine": "il-tempio-perduto-di-aphosh-linfestato.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -5891,8 +5650,8 @@
     "nome": "Il Santuario dell'Ascia Insanguinata",
     "nome_originale": "Bloodied Axe Shrine",
     "immagine": "il-santuario-dellascia-insanguinata.webp",
-    "categoria": "tempio",
     "tag": [
+      "tempio",
       "santuario",
       "sotterraneo"
     ],
@@ -5907,7 +5666,6 @@
     "nome": "Lo Sperone di Jacob",
     "nome_originale": "Jacob's Spur - colour 300dpi",
     "immagine": "lo-sperone-di-jacob.webp",
-    "categoria": "citta",
     "tag": [
       "citta",
       "urbano",
@@ -5924,7 +5682,6 @@
     "nome": "Il Sotterraneo in 12 Parti",
     "nome_originale": "The Dungeon in 12 Parts",
     "immagine": "il-sotterraneo-in-12-parti.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "cripta",
@@ -5941,8 +5698,8 @@
     "nome": "La Locanda di Bast",
     "nome_originale": "The Bast Inn",
     "immagine": "la-locanda-di-bast.webp",
-    "categoria": "locanda",
     "tag": [
+      "locanda",
       "edificio",
       "taverna",
       "urbano"
@@ -5958,7 +5715,6 @@
     "nome": "Le Catacombe Reali di Adrih",
     "nome_originale": "Royal Catacombs of Adrih",
     "immagine": "le-catacombe-reali-di-adrih.webp",
-    "categoria": "tomba",
     "tag": [
       "catacomba",
       "cripta",
@@ -5976,7 +5732,6 @@
     "nome": "Il Pilastro del Maestro del Sapere Igesej",
     "nome_originale": "Pillar of the Igesej Loremaster",
     "immagine": "il-pilastro-del-maestro-del-sapere-igesej.webp",
-    "categoria": "torre",
     "tag": [
       "isometrico",
       "torre"
@@ -5992,8 +5747,8 @@
     "nome": "La Torre di Kabrel",
     "nome_originale": "Kabrel's Tower",
     "immagine": "la-torre-di-kabrel.webp",
-    "categoria": "tempio",
     "tag": [
+      "tempio",
       "caverna",
       "santuario",
       "sotterraneo",
@@ -6010,7 +5765,6 @@
     "nome": "Uogralas, Città delle Rane",
     "nome_originale": "Uogralas, City of the Frogs",
     "immagine": "uogralas-citta-delle-rane.webp",
-    "categoria": "citta",
     "tag": [
       "citta",
       "urbano"
@@ -6026,7 +5780,6 @@
     "nome": "Hurren, Città degli Anziani",
     "nome_originale": "Hurren, City of the Elders",
     "immagine": "hurren-citta-degli-anziani.webp",
-    "categoria": "citta",
     "tag": [
       "citta",
       "urbano"
@@ -6042,7 +5795,6 @@
     "nome": "La Caverna della Lamia Cieca",
     "nome_originale": "The Blind Lamia's Cave",
     "immagine": "la-caverna-della-lamia-cieca.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -6058,7 +5810,6 @@
     "nome": "Mappa Regionale di Iyesgarten",
     "nome_originale": "Iyesgarten Regional Map",
     "immagine": "mappa-regionale-di-iyesgarten.webp",
-    "categoria": "regionale",
     "tag": [
       "mappa esagonale",
       "mappa regionale",
@@ -6075,7 +5826,6 @@
     "nome": "La Locanda di Iyesgarten",
     "nome_originale": "The Iyesgarten Inn",
     "immagine": "la-locanda-di-iyesgarten.webp",
-    "categoria": "locanda",
     "tag": [
       "edificio",
       "locanda",
@@ -6093,8 +5843,8 @@
     "nome": "Il Villaggio di Iyesgarten",
     "nome_originale": "The Village of Iyesgarten",
     "immagine": "il-villaggio-di-iyesgarten.webp",
-    "categoria": "citta",
     "tag": [
+      "citta",
       "urbano",
       "villaggio"
     ],
@@ -6109,7 +5859,6 @@
     "nome": "Il Lago di Latte di Ssa-Tun",
     "nome_originale": "Ssa-Tun's Lake of Milk",
     "immagine": "il-lago-di-latte-di-ssa-tun.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "lago",
@@ -6126,7 +5875,6 @@
     "nome": "La Torre dello Spettro",
     "nome_originale": "Spectre's Tower",
     "immagine": "la-torre-dello-spettro.webp",
-    "categoria": "torre",
     "tag": [
       "sotterraneo",
       "torre",
@@ -6143,7 +5891,6 @@
     "nome": "La Passeggiata del Tempio",
     "nome_originale": "The Temple Walk",
     "immagine": "la-passeggiata-del-tempio.webp",
-    "categoria": "tempio",
     "tag": [
       "chiesa",
       "cortile",
@@ -6163,8 +5910,8 @@
     "nome": "Le Camere della Città Assente",
     "nome_originale": "Chambers of the Absent City",
     "immagine": "le-camere-della-citta-assente.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "megadungeon",
       "sotterraneo"
     ],
@@ -6179,8 +5926,8 @@
     "nome": "Santuario dell'Imperatore delle Ossa",
     "nome_originale": "Shrine of the Emperor of Bones",
     "immagine": "santuario-dellimperatore-delle-ossa.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -6194,7 +5941,6 @@
     "nome": "La Locanda di Behkon",
     "nome_originale": "The Behkon Inn",
     "immagine": "la-locanda-di-behkon.webp",
-    "categoria": "locanda",
     "tag": [
       "edificio",
       "locanda",
@@ -6212,7 +5958,6 @@
     "nome": "Raccordi Fognari",
     "nome_originale": "Sewer Connectors",
     "immagine": "raccordi-fognari.webp",
-    "categoria": "fogna",
     "tag": [
       "fogna",
       "geomorfo",
@@ -6229,7 +5974,6 @@
     "nome": "Le Rovine di Lady White",
     "nome_originale": "Lady White's Ruins",
     "immagine": "le-rovine-di-lady-white.webp",
-    "categoria": "rovine",
     "tag": [
       "rovine",
       "sotterraneo"
@@ -6245,8 +5989,8 @@
     "nome": "L'Isola di Kheyus",
     "nome_originale": "Isle of Kheyus (Colour)",
     "immagine": "lisola-di-kheyus.webp",
-    "categoria": "acquatico",
     "tag": [
+      "acquatico",
       "isola",
       "regionale"
     ],
@@ -6261,8 +6005,8 @@
     "nome": "Summerthorpe",
     "nome_originale": "Summerthorpe",
     "immagine": "summerthorpe.webp",
-    "categoria": "tempio",
     "tag": [
+      "tempio",
       "chiesa",
       "cimitero",
       "fiume",
@@ -6280,7 +6024,6 @@
     "nome": "La Taverna di Labhruinn",
     "nome_originale": "Labhruinn's Tavern",
     "immagine": "la-taverna-di-labhruinn.webp",
-    "categoria": "locanda",
     "tag": [
       "edificio",
       "locanda",
@@ -6299,7 +6042,6 @@
     "nome": "La Piramide di An-Nayyir",
     "nome_originale": "An-Nayyir's Pyramid",
     "immagine": "la-piramide-di-an-nayyir.webp",
-    "categoria": "tomba",
     "tag": [
       "cripta",
       "piramide",
@@ -6318,7 +6060,6 @@
     "nome": "Le Acque Profanate",
     "nome_originale": "Defiled Waters",
     "immagine": "le-acque-profanate.webp",
-    "categoria": "tempio",
     "tag": [
       "fogna",
       "sotterraneo",
@@ -6335,7 +6076,6 @@
     "nome": "Le Fogne di Via Cage",
     "nome_originale": "Cage Street Sewers",
     "immagine": "le-fogne-di-via-cage.webp",
-    "categoria": "fogna",
     "tag": [
       "fogna",
       "seminterrato",
@@ -6352,7 +6092,6 @@
     "nome": "Le Caverne Oscure di Turr",
     "nome_originale": "The Dark Caverns of Turr",
     "immagine": "le-caverne-oscure-di-turr.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -6368,7 +6107,6 @@
     "nome": "Elementi Fognari",
     "nome_originale": "Sewer Elements",
     "immagine": "elementi-fognari.webp",
-    "categoria": "fogna",
     "tag": [
       "fogna",
       "sotterraneo"
@@ -6384,7 +6122,6 @@
     "nome": "Le Cripte del Tempio dei Sacerdoti Spettrali",
     "nome_originale": "Temple Crypts of the Wraith Priests",
     "immagine": "le-cripte-del-tempio-dei-sacerdoti-spettrali.webp",
-    "categoria": "tempio",
     "tag": [
       "cripta",
       "sotterraneo",
@@ -6401,7 +6138,6 @@
     "nome": "La Lanterna del Troll di Pietra",
     "nome_originale": "the Stone Troll's Lantern",
     "immagine": "la-lanterna-del-troll-di-pietra.webp",
-    "categoria": "fogna",
     "tag": [
       "edificio",
       "fogna",
@@ -6420,7 +6156,6 @@
     "nome": "Complesso Fognario Ovest",
     "nome_originale": "West Sewers Complex",
     "immagine": "complesso-fognario-ovest.webp",
-    "categoria": "tempio",
     "tag": [
       "fogna",
       "santuario",
@@ -6438,7 +6173,6 @@
     "nome": "La Cantina Psichedelica dei Giganti di Pietra",
     "nome_originale": "Psychedelic Cellar of the Stone Giants",
     "immagine": "la-cantina-psichedelica-dei-giganti-di-pietra.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "funghi",
@@ -6456,7 +6190,6 @@
     "nome": "Il Nascondiglio delle Fogne Sud",
     "nome_originale": "South Sewers Hideout",
     "immagine": "il-nascondiglio-delle-fogne-sud.webp",
-    "categoria": "fogna",
     "tag": [
       "fogna",
       "sotterraneo"
@@ -6472,8 +6205,8 @@
     "nome": "Il Rifugio dei Contrabbandieri",
     "nome_originale": "Smugglers-Lodge",
     "immagine": "il-rifugio-dei-contrabbandieri.webp",
-    "categoria": "residenza",
     "tag": [
+      "residenza",
       "casa",
       "edificio",
       "isola"
@@ -6489,7 +6222,6 @@
     "nome": "Il Guanto di Sfida dei Ghoul dalla Corona di Selce",
     "nome_originale": "Gauntlet of the Flintcrowned Ghouls",
     "immagine": "il-guanto-di-sfida-dei-ghoul-dalla-corona-di-selce.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -6505,7 +6237,6 @@
     "nome": "La Locanda della Torre di Shieldrick",
     "nome_originale": "Shieldrick's Tower Inn",
     "immagine": "la-locanda-della-torre-di-shieldrick.webp",
-    "categoria": "torre",
     "tag": [
       "edificio",
       "locanda",
@@ -6523,7 +6254,6 @@
     "nome": "Le Fogne di Via Rosewood",
     "nome_originale": "Rosewood Street Sewers",
     "immagine": "le-fogne-di-via-rosewood.webp",
-    "categoria": "fogna",
     "tag": [
       "fogna",
       "sotterraneo"
@@ -6539,7 +6269,6 @@
     "nome": "La Discesa Rossa",
     "nome_originale": "The Red Descent",
     "immagine": "la-discesa-rossa.webp",
-    "categoria": "tempio",
     "tag": [
       "caverna",
       "santuario",
@@ -6559,7 +6288,6 @@
     "nome": "La Locanda della Vecchia Rapa",
     "nome_originale": "The Old Turnip Inn",
     "immagine": "la-locanda-della-vecchia-rapa.webp",
-    "categoria": "locanda",
     "tag": [
       "edificio",
       "locanda",
@@ -6577,8 +6305,8 @@
     "nome": "Il Diadema della Fenice",
     "nome_originale": "The Phoenix Diadem",
     "immagine": "il-diadema-della-fenice.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -6592,7 +6320,6 @@
     "nome": "Il Tempio della Gilda",
     "nome_originale": "Guild Temple",
     "immagine": "il-tempio-della-gilda.webp",
-    "categoria": "tempio",
     "tag": [
       "cripta",
       "edificio",
@@ -6611,7 +6338,6 @@
     "nome": "La Cripta del Fabbro",
     "nome_originale": "Crypt of the Smith",
     "immagine": "la-cripta-del-fabbro.webp",
-    "categoria": "tempio",
     "tag": [
       "chiesa",
       "cripta",
@@ -6631,7 +6357,6 @@
     "nome": "Le Rovine della Fortezza del Clan Greymail",
     "nome_originale": "The Ruins of Greymail Clanhold",
     "immagine": "le-rovine-della-fortezza-del-clan-greymail.webp",
-    "categoria": "rovine",
     "tag": [
       "nano",
       "rovine",
@@ -6648,7 +6373,6 @@
     "nome": "Il Reliquiario di Vanshiro",
     "nome_originale": "The Vanshiro Reliquary",
     "immagine": "il-reliquiario-di-vanshiro.webp",
-    "categoria": "tempio",
     "tag": [
       "edificio",
       "tempio",
@@ -6665,8 +6389,8 @@
     "nome": "Rovine della Collina di Onice",
     "nome_originale": "Onyx Hill Ruins",
     "immagine": "rovine-della-collina-di-onice.webp",
-    "categoria": "fortezza",
     "tag": [
+      "fortezza",
       "forte",
       "rovine"
     ],
@@ -6681,8 +6405,8 @@
     "nome": "La Taverna del Mezzo Barile",
     "nome_originale": "The Half-Cask Tavern",
     "immagine": "la-taverna-del-mezzo-barile.webp",
-    "categoria": "locanda",
     "tag": [
+      "locanda",
       "edificio",
       "taverna",
       "urbano"
@@ -6698,7 +6422,6 @@
     "nome": "La Corte dei Vini Estivi",
     "nome_originale": "The Court of Summer Wines",
     "immagine": "la-corte-dei-vini-estivi.webp",
-    "categoria": "locanda",
     "tag": [
       "edificio",
       "locanda",
@@ -6716,7 +6439,6 @@
     "nome": "Letath",
     "nome_originale": "Letath",
     "immagine": "letath.webp",
-    "categoria": "citta",
     "tag": [
       "citta",
       "costiero",
@@ -6733,7 +6455,6 @@
     "nome": "L'Oubliette del Mago Dimenticato",
     "nome_originale": "Oubliette of the Forgotten Magus",
     "immagine": "loubliette-del-mago-dimenticato.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna",
       "sotterraneo"
@@ -6749,7 +6470,6 @@
     "nome": "La Guglia di Ashryn",
     "nome_originale": "Ashryn Spire",
     "immagine": "la-guglia-di-ashryn.webp",
-    "categoria": "torre",
     "tag": [
       "edificio",
       "mago",
@@ -6766,8 +6486,8 @@
     "nome": "La Birreria dello Scarabeo di Fuoco",
     "nome_originale": "The Fire Beetle Ale House",
     "immagine": "la-birreria-dello-scarabeo-di-fuoco.webp",
-    "categoria": "locanda",
     "tag": [
+      "locanda",
       "citta",
       "edificio",
       "negozio",
@@ -6786,7 +6506,6 @@
     "nome": "La Caverna della Spiaggia di Robrus",
     "nome_originale": "Robrus Beach Cave",
     "immagine": "la-caverna-della-spiaggia-di-robrus.webp",
-    "categoria": "caverna",
     "tag": [
       "caverna"
     ],
@@ -6801,7 +6520,6 @@
     "nome": "Controllo",
     "nome_originale": "Control",
     "immagine": "controllo.webp",
-    "categoria": "tomba",
     "tag": [
       "funghi",
       "sotterraneo",
@@ -6818,7 +6536,6 @@
     "nome": "Il Monastero Benedetto",
     "nome_originale": "The Blessed Monastery",
     "immagine": "il-monastero-benedetto.webp",
-    "categoria": "tempio",
     "tag": [
       "chiesa",
       "edificio",
@@ -6836,7 +6553,6 @@
     "nome": "La Città delle Bolle di Oublos",
     "nome_originale": "The Bubble City of Oublos",
     "immagine": "la-citta-delle-bolle-di-oublos.webp",
-    "categoria": "tempio",
     "tag": [
       "citta",
       "tempio",
@@ -6854,7 +6570,6 @@
     "nome": "Le Tombe Senza Fondo - Livello 2",
     "nome_originale": "The Bottomless Tombs - Level 2",
     "immagine": "le-tombe-senza-fondo-livello-2.webp",
-    "categoria": "tomba",
     "tag": [
       "cripta",
       "isometrico",
@@ -6872,8 +6587,8 @@
     "nome": "La Taverna dei Dodici Capri",
     "nome_originale": "Twelve Goats Tavern",
     "immagine": "la-taverna-dei-dodici-capri.webp",
-    "categoria": "locanda",
     "tag": [
+      "locanda",
       "edificio",
       "taverna",
       "urbano"
@@ -6889,8 +6604,8 @@
     "nome": "L'Armeria Nera del Re Folle",
     "nome_originale": "Black Armoury of the Mad King",
     "immagine": "larmeria-nera-del-re-folle.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -6904,7 +6619,6 @@
     "nome": "Fuoco Fatuo",
     "nome_originale": "Will-o-the-Wisp",
     "immagine": "fuoco-fatuo.webp",
-    "categoria": "citta",
     "tag": [
       "citta",
       "urbano",
@@ -6921,7 +6635,6 @@
     "nome": "Il Fortino di Sanhelter",
     "nome_originale": "Sanhelter Keep",
     "immagine": "il-fortino-di-sanhelter.webp",
-    "categoria": "fortezza",
     "tag": [
       "edificio",
       "fortezza",
@@ -6939,7 +6652,6 @@
     "nome": "La Locanda dell'Anatra di Legno",
     "nome_originale": "The Wooden Duck Inn",
     "immagine": "la-locanda-dellanatra-di-legno.webp",
-    "categoria": "locanda",
     "tag": [
       "edificio",
       "locanda",
@@ -6957,8 +6669,8 @@
     "nome": "La Volta della Tranquillità",
     "nome_originale": "The Vault of Tranquility",
     "immagine": "la-volta-della-tranquillita.webp",
-    "categoria": "vista",
     "tag": [
+      "vista",
       "isometrico",
       "sotterraneo"
     ],
@@ -6973,8 +6685,8 @@
     "nome": "Le Rovine di Charnesse",
     "nome_originale": "the Ruins of Charnesse",
     "immagine": "le-rovine-di-charnesse.webp",
-    "categoria": "citta",
     "tag": [
+      "citta",
       "rovine",
       "urbano",
       "villaggio"
@@ -6990,8 +6702,8 @@
     "nome": "Le Paludi di Yruvex",
     "nome_originale": "Yruvex Swamps",
     "immagine": "le-paludi-di-yruvex.webp",
-    "categoria": "natura",
     "tag": [
+      "natura",
       "esagonale",
       "mappa esagonale",
       "mappa regionale",
@@ -7009,7 +6721,6 @@
     "nome": "La Torre della Banshee",
     "nome_originale": "The Banshee's Tower",
     "immagine": "la-torre-della-banshee.webp",
-    "categoria": "torre",
     "tag": [
       "banshee",
       "rovine",
@@ -7026,7 +6737,6 @@
     "nome": "Il Demone dalla Faccia di Torre",
     "nome_originale": "The Tower-Faced Demon",
     "immagine": "il-demone-dalla-faccia-di-torre.webp",
-    "categoria": "torre",
     "tag": [
       "bizzarro",
       "fortezza",
@@ -7045,7 +6755,6 @@
     "nome": "Il Tempio Minore degli Eretici",
     "nome_originale": "Lesser Temple of the Heretics",
     "immagine": "il-tempio-minore-degli-eretici.webp",
-    "categoria": "tempio",
     "tag": [
       "cripta",
       "santuario",
@@ -7063,7 +6772,6 @@
     "nome": "Il Tempio dei Sette Eretici",
     "nome_originale": "Temple of the Seven Heretics",
     "immagine": "il-tempio-dei-sette-eretici.webp",
-    "categoria": "tempio",
     "tag": [
       "cripta",
       "sotterraneo",
@@ -7080,8 +6788,8 @@
     "nome": "Il Castello di Brenovale",
     "nome_originale": "Brenovale Castle",
     "immagine": "il-castello-di-brenovale.webp",
-    "categoria": "fortezza",
     "tag": [
+      "fortezza",
       "castello",
       "edificio",
       "forte",
@@ -7098,7 +6806,6 @@
     "nome": "Il Maniero di Lorean",
     "nome_originale": "Lorean's Manor",
     "immagine": "il-maniero-di-lorean.webp",
-    "categoria": "torre",
     "tag": [
       "edificio",
       "maniero",
@@ -7115,7 +6822,6 @@
     "nome": "Controllo del Paradiso",
     "nome_originale": "Paradise Control",
     "immagine": "controllo-del-paradiso.webp",
-    "categoria": "fogna",
     "tag": [
       "citta",
       "fogna",
@@ -7132,7 +6838,6 @@
     "nome": "Il Nodo dei Portali",
     "nome_originale": "The Portal Nexus (with grid)",
     "immagine": "il-nodo-dei-portali.webp",
-    "categoria": "torre",
     "tag": [
       "portale",
       "torre",
@@ -7149,8 +6854,8 @@
     "nome": "Il Maniero di Rose Point",
     "nome_originale": "Rose Point Manor",
     "immagine": "il-maniero-di-rose-point.webp",
-    "categoria": "residenza",
     "tag": [
+      "residenza",
       "casa",
       "edificio",
       "maniero",
@@ -7167,8 +6872,8 @@
     "nome": "Sotto il Maniero di Rose Point",
     "nome_originale": "Beneath Rose Point Manor",
     "immagine": "sotto-il-maniero-di-rose-point.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "catacomba",
       "seminterrato",
       "sotterraneo"
@@ -7184,8 +6889,8 @@
     "nome": "La Volta del Golem Blu",
     "nome_originale": "Vault of the Blue Golem",
     "immagine": "la-volta-del-golem-blu.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "post-apocalittico",
       "sotterraneo"
     ],
@@ -7200,8 +6905,8 @@
     "nome": "Rovine Misteriose",
     "nome_originale": "Strange Ruins",
     "immagine": "rovine-misteriose.webp",
-    "categoria": "fortezza",
     "tag": [
+      "fortezza",
       "edificio",
       "forte",
       "palazzo",
@@ -7218,8 +6923,8 @@
     "nome": "Le Molte Camere della Follia di Izzet",
     "nome_originale": "The Many Chambers of Izzet's Folly",
     "immagine": "le-molte-camere-della-follia-di-izzet.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -7233,7 +6938,6 @@
     "nome": "Cliffstable su Kerstal",
     "nome_originale": "Cliffstable on Kerstal",
     "immagine": "cliffstable-su-kerstal.webp",
-    "categoria": "citta",
     "tag": [
       "citta",
       "fiume",
@@ -7251,7 +6955,6 @@
     "nome": "L'Accampamento dei Banditi di Hollowstone",
     "nome_originale": "HollowStone Bandit Camp",
     "immagine": "laccampamento-dei-banditi-di-hollowstone.webp",
-    "categoria": "fortezza",
     "tag": [
       "bandito",
       "fortezza",
@@ -7268,8 +6971,8 @@
     "nome": "Le Acque Arcane",
     "nome_originale": "The Arcane Waters",
     "immagine": "le-acque-arcane.webp",
-    "categoria": "acquatico",
     "tag": [
+      "acquatico",
       "fiume",
       "sotterraneo"
     ],
@@ -7284,7 +6987,6 @@
     "nome": "La Torre di Brentil",
     "nome_originale": "Brentil Tower",
     "immagine": "la-torre-di-brentil.webp",
-    "categoria": "torre",
     "tag": [
       "torre"
     ],
@@ -7299,8 +7001,8 @@
     "nome": "Il Palazzo delle Sabbie",
     "nome_originale": "Palace of the Sands",
     "immagine": "il-palazzo-delle-sabbie.webp",
-    "categoria": "natura",
     "tag": [
+      "natura",
       "deserto",
       "edificio",
       "palazzo",
@@ -7317,8 +7019,8 @@
     "nome": "Il Sotterraneo del Terzo Occhio",
     "nome_originale": "Dungeon of the Third Eye",
     "immagine": "il-sotterraneo-del-terzo-occhio.webp",
-    "categoria": "dungeon",
     "tag": [
+      "dungeon",
       "bizzarro",
       "fantasy bizzarro",
       "funghi",
@@ -7335,8 +7037,8 @@
     "nome": "Il Porto del Principe - Mappa 3",
     "nome_originale": "Prince's Harbour - Map 3",
     "immagine": "il-porto-del-principe-mappa-3.webp",
-    "categoria": "citta",
     "tag": [
+      "citta",
       "esterno",
       "fiume",
       "regionale",
@@ -7354,8 +7056,8 @@
     "nome": "La Collina Rocciosa",
     "nome_originale": "Stony Hill",
     "immagine": "la-collina-rocciosa.webp",
-    "categoria": "natura",
     "tag": [
+      "natura",
       "collina",
       "esterno"
     ],
@@ -7370,7 +7072,6 @@
     "nome": "La Vecchia Conca di Cruik",
     "nome_originale": "Old Cruik Hollow",
     "immagine": "la-vecchia-conca-di-cruik.webp",
-    "categoria": "caverna",
     "tag": [
       "bandito",
       "caverna",
@@ -7387,7 +7088,6 @@
     "nome": "La Fortezza della Rupe Bianca",
     "nome_originale": "White Crag Fortress",
     "immagine": "la-fortezza-della-rupe-bianca.webp",
-    "categoria": "torre",
     "tag": [
       "castello",
       "forte",
@@ -7407,8 +7107,8 @@
     "nome": "Il Porto del Principe - Mappa 2",
     "nome_originale": "Prince's Harbour - Map 2",
     "immagine": "il-porto-del-principe-mappa-2.webp",
-    "categoria": "citta",
     "tag": [
+      "citta",
       "fattoria",
       "fiume",
       "regionale",
@@ -7426,7 +7126,6 @@
     "nome": "Il Fortino sull'Isola di Greth",
     "nome_originale": "Greth's Island Keep",
     "immagine": "il-fortino-sullisola-di-greth.webp",
-    "categoria": "fortezza",
     "tag": [
       "forte",
       "fortezza",
@@ -7444,7 +7143,6 @@
     "nome": "La Tomba del Principe Nato dal Kirin",
     "nome_originale": "Tomb of the Kirin-Born Prince",
     "immagine": "la-tomba-del-principe-nato-dal-kirin.webp",
-    "categoria": "tomba",
     "tag": [
       "cripta",
       "sotterraneo",
@@ -7461,8 +7159,8 @@
     "nome": "La Roccia di Wyvernseeker",
     "nome_originale": "Wyvernseeker Rock",
     "immagine": "la-roccia-di-wyvernseeker.webp",
-    "categoria": "acquatico",
     "tag": [
+      "acquatico",
       "cascata",
       "esterno",
       "fiume",
@@ -7479,8 +7177,8 @@
     "nome": "La Collina del Priore",
     "nome_originale": "Prior's Hill",
     "immagine": "la-collina-del-priore.webp",
-    "categoria": "residenza",
     "tag": [
+      "residenza",
       "casa",
       "druido",
       "halloween",
@@ -7498,8 +7196,8 @@
     "nome": "Il Porto del Principe - Mappa 1",
     "nome_originale": "Prince's Harbour - Map 1",
     "immagine": "il-porto-del-principe-mappa-1.webp",
-    "categoria": "citta",
     "tag": [
+      "citta",
       "fiume",
       "regionale",
       "urbano"
@@ -7515,8 +7213,8 @@
     "nome": "Gli Isolotti di Redrock",
     "nome_originale": "Redrock Cays",
     "immagine": "gli-isolotti-di-redrock.webp",
-    "categoria": "acquatico",
     "tag": [
+      "acquatico",
       "isola",
       "rovine"
     ],
@@ -7531,7 +7229,6 @@
     "nome": "Le Cripte Circolari dell'Imperatore Serpente",
     "nome_originale": "Circle Crypts of the Ophidian Emperor",
     "immagine": "le-cripte-circolari-dellimperatore-serpente.webp",
-    "categoria": "tomba",
     "tag": [
       "cripta",
       "sotterraneo",
@@ -7548,8 +7245,8 @@
     "nome": "Il Maniero di Hevlod",
     "nome_originale": "Hevlod Manor",
     "immagine": "il-maniero-di-hevlod.webp",
-    "categoria": "residenza",
     "tag": [
+      "residenza",
       "edificio",
       "maniero",
       "urbano"
@@ -7565,7 +7262,6 @@
     "nome": "Il Fortino di Briar (Edizione 2018)",
     "nome_originale": "Briar Keep 2018 Edition",
     "immagine": "il-fortino-di-briar-edizione-2018.webp",
-    "categoria": "fortezza",
     "tag": [
       "fortezza",
       "fortino",
@@ -7583,8 +7279,8 @@
     "nome": "La Fortezza della Guglia Drow",
     "nome_originale": "Drow Spire Fortress",
     "immagine": "la-fortezza-della-guglia-drow.webp",
-    "categoria": "caverna",
     "tag": [
+      "caverna",
       "drow",
       "elfo oscuro",
       "fortezza",

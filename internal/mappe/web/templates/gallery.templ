@@ -1,12 +1,22 @@
 package templates
 
 import (
-	"net/url"
+	"strings"
 	"strconv"
+	"net/url"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/maps"
 	siteTemplates "github.com/emiliopalmerini/quintaedizione.online/web/templates"
 )
+
+func isActiveTag(active []string, tag string) bool {
+	for _, t := range active {
+		if t == tag {
+			return true
+		}
+	}
+	return false
+}
 
 func loadMoreURL(data maps.GalleryData) string {
 	v := url.Values{}
@@ -14,11 +24,8 @@ func loadMoreURL(data maps.GalleryData) string {
 	if data.Query != "" {
 		v.Set("q", data.Query)
 	}
-	if data.Categoria != "" {
-		v.Set("categoria", data.Categoria)
-	}
-	if data.Tag != "" {
-		v.Set("tag", data.Tag)
+	if len(data.ActiveTags) > 0 {
+		v.Set("tag", strings.Join(data.ActiveTags, ","))
 	}
 	return "/mappe/gallery?" + v.Encode()
 }
@@ -38,7 +45,7 @@ templ GalleryPage(data maps.GalleryData) {
 			hx-trigger="keyup delay:200ms from:#mappe-search, filter-changed"
 			hx-push-url="true"
 			hx-swap="outerHTML"
-			hx-include="#mappe-search, #mappe-categoria, #mappe-tag"
+			hx-include="#mappe-search, #mappe-tag"
 		>
 			<div class="mb-4">
 				<input
@@ -52,41 +59,40 @@ templ GalleryPage(data maps.GalleryData) {
 				/>
 			</div>
 
-			<input type="hidden" name="categoria" id="mappe-categoria" value={ data.Categoria }/>
-			<input type="hidden" name="tag" id="mappe-tag" value={ data.Tag }/>
+			<input type="hidden" name="tag" id="mappe-tag" value={ strings.Join(data.ActiveTags, ",") }/>
 
-			<div class="quick-filter-bar mb-2" data-mappe-filter="mappe-categoria" data-mode="select">
-				<button
-					type="button"
-					class={ "quick-filter-chip", templ.KV("active", data.Categoria == "") }
-					data-value=""
-				>
-					Tutte
-				</button>
-				for _, cat := range data.Categorie {
-					<button
-						type="button"
-						class={ "quick-filter-chip", templ.KV("active", data.Categoria == cat) }
-						data-value={ cat }
-					>
-						{ cat }
-					</button>
+			<div id="mappe-tag-picker" class="tag-picker mb-4">
+				if len(data.ActiveTags) > 0 {
+					<div class="tag-picker-selected">
+						for _, tag := range data.ActiveTags {
+							<button type="button" class="tag-picker-active" data-value={ tag }>
+								{ tag }
+								<span class="tag-picker-remove" aria-hidden="true">&times;</span>
+							</button>
+						}
+					</div>
 				}
-			</div>
-
-			if len(data.Tags) > 0 {
-				<div class="quick-filter-bar mb-4" data-mappe-filter="mappe-tag" data-mode="toggle">
+				<input
+					type="text"
+					id="mappe-tag-search"
+					placeholder="Filtra tag..."
+					class="field tag-picker-input"
+					autocomplete="off"
+				/>
+				<div class="tag-picker-options">
 					for _, tag := range data.Tags {
-						<button
-							type="button"
-							class={ "quick-filter-chip", templ.KV("active", data.Tag == tag) }
-							data-value={ tag }
-						>
-							{ tag }
-						</button>
+						if !isActiveTag(data.ActiveTags, tag) {
+							<button
+								type="button"
+								class="quick-filter-chip"
+								data-value={ tag }
+							>
+								{ tag }
+							</button>
+						}
 					}
 				</div>
-			}
+			</div>
 		</form>
 
 		@GalleryGrid(data)
@@ -136,7 +142,6 @@ templ mappeCard(m maps.Mappa) {
 		</div>
 		<div class="mappe-card-body">
 			<div class="mappe-card-title">{ m.Nome }</div>
-			<div class="mappe-card-meta">{ m.Categoria }</div>
 			if len(m.Tag) > 0 {
 				<div class="mappe-card-tags">
 					for _, t := range m.Tag {
