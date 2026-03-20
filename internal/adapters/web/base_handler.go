@@ -36,6 +36,13 @@ var cacheTypeMap = map[string]config.CacheType{
 	"search":     config.CacheTypeSearch,
 }
 
+// renderHTML sets cache headers, content type, and writes the HTML response.
+func (h *baseHandler) renderHTML(w http.ResponseWriter, content string, cacheType string) {
+	h.setCacheHeaders(w, cacheType)
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	w.Write([]byte(content))
+}
+
 // setCacheHeaders sets appropriate cache control headers based on the cache type.
 func (h *baseHandler) setCacheHeaders(w http.ResponseWriter, cacheTypeStr string) {
 	cacheType, exists := cacheTypeMap[cacheTypeStr]

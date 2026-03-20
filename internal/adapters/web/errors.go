@@ -7,6 +7,8 @@ import (
 	"log"
 	"net/http"
 	"strings"
+
+	"github.com/emiliopalmerini/quintaedizione.online/internal/domain"
 )
 
 type HTTPError struct {
@@ -73,6 +75,15 @@ var errorMappings = []errorMapping{
 }
 
 func (h *baseHandler) getErrorStatusCode(err error) int {
+	// Check typed domain errors first
+	if domain.IsDocumentNotFound(err) {
+		return http.StatusNotFound
+	}
+	if domain.IsInvalidDocumentID(err) {
+		return http.StatusBadRequest
+	}
+
+	// Fall back to string matching for errors without typed wrappers
 	errStr := err.Error()
 	for _, mapping := range errorMappings {
 		if contains(errStr, mapping.patterns...) {
@@ -83,6 +94,15 @@ func (h *baseHandler) getErrorStatusCode(err error) int {
 }
 
 func (h *baseHandler) getErrorMessage(err error, fallback string) string {
+	// Check typed domain errors first
+	if domain.IsDocumentNotFound(err) {
+		return "La pagina o l'elemento richiesto non è stato trovato."
+	}
+	if domain.IsInvalidDocumentID(err) {
+		return "Collezione non valida o non supportata."
+	}
+
+	// Fall back to string matching for errors without typed wrappers
 	errStr := err.Error()
 	for _, mapping := range errorMappings {
 		if contains(errStr, mapping.patterns...) {
