@@ -1,5 +1,6 @@
 {
   "id": "connettori",
+  "order": 10,
   "name": "Connettori Casuali",
   "description": "Connettori tra le stanze di un dungeon.",
   "die": "1d20",

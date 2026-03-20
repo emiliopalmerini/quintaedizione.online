@@ -1,5 +1,6 @@
 {
   "id": "missioni",
+  "order": 2,
   "name": "Missioni",
   "description": "Spunti di partenza per qualsiasi missione i personaggi debbano compiere.",
   "die": "1d20",

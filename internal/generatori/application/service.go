@@ -51,7 +51,9 @@ func NewService(dataFS fs.FS) (*Service, error) {
 	for id := range tables {
 		order = append(order, id)
 	}
-	sort.Strings(order)
+	sort.Slice(order, func(i, j int) bool {
+		return tables[order[i]].Order < tables[order[j]].Order
+	})
 
 	return &Service{tables: tables, order: order}, nil
 }

@@ -1,5 +1,6 @@
 {
   "id": "luoghi-monumenti-oggetti",
+  "order": 3,
   "name": "Luoghi, Monumenti e Oggetti",
   "description": "Il luogo della missione potrebbe contenere monumenti o oggetti legati agli obiettivi dell'avventura.",
   "die": "1d20",

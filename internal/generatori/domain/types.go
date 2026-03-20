@@ -13,6 +13,7 @@ type Table struct {
 	Name        string   `json:"name"`
 	Description string   `json:"description"`
 	Die         string   `json:"die"`
+	Order       int      `json:"order"`
 	Items       []string `json:"items,omitempty"`
 	Columns     []Column `json:"columns,omitempty"`
 }

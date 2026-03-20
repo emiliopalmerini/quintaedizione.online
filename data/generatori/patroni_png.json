@@ -1,5 +1,6 @@
 {
   "id": "patroni-png",
+  "order": 1,
   "name": "Patroni e PNG",
   "description": "Genera un patrono o un PNG per la tua avventura, con comportamento e stirpe.",
   "die": "1d20",

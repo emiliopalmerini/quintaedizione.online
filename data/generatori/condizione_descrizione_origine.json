@@ -1,5 +1,6 @@
 {
   "id": "condizione-descrizione-origine",
+  "order": 4,
   "name": "Condizione, Descrizione e Origine",
   "description": "Dai carattere a luoghi, monumenti o oggetti determinandone condizione, descrizione e origine.",
   "die": "1d20",
