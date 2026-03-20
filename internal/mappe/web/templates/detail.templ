@@ -28,10 +28,12 @@ templ DetailPage(m maps.Mappa) {
 			}
 
 			<div class="mappe-detail-img mb-6">
-				<img
-					src={ "/static/img/mappe/" + m.Immagine }
-					alt={ m.Nome }
-				/>
+				<a href={ templ.URL("/static/img/mappe/" + m.Immagine) } target="_blank" title="Apri immagine originale">
+					<img
+						src={ "/static/img/mappe/preview/" + m.Immagine }
+						alt={ m.Nome }
+					/>
+				</a>
 			</div>
 
 			<div class="mappe-detail-attribution">
