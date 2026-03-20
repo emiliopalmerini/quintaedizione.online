@@ -1132,6 +1132,14 @@ document.addEventListener('DOMContentLoaded', () => {
 	initHeadingAnchors();
 });
 
+// Re-apply theme from localStorage after htmx history restore
+document.body.addEventListener('htmx:historyRestore', function() {
+	var t = localStorage.getItem('theme');
+	var d = document.documentElement;
+	if (t === 'dark') { d.classList.add('dark'); } else { d.classList.remove('dark'); }
+	initThemeToggle();
+});
+
 document.body.addEventListener('htmx:afterSwap', function(evt) {
 	initBackButton();
 	initCopyMarkdownButton();
