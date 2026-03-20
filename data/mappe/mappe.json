@@ -5,7 +5,6 @@
     "nome_originale": "The Dreadwarren",
     "immagine": "il-dreadwarren.webp",
     "tag": [
-      "cripta",
       "sotterraneo",
       "tomba"
     ],
@@ -21,7 +20,6 @@
     "nome_originale": "Hexatomb",
     "immagine": "hexatomb.webp",
     "tag": [
-      "cripta",
       "sotterraneo",
       "tomba"
     ],
@@ -152,9 +150,9 @@
     "immagine": "dungeon-su-scheda-ii-mappa-6-rovine-del-dungeon.webp",
     "tag": [
       "caverna",
-      "cripta",
       "scheda",
-      "sotterraneo"
+      "sotterraneo",
+      "tomba"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -169,9 +167,9 @@
     "immagine": "dungeon-su-scheda-ii-mappa-5-sotterranei-della-torre.webp",
     "tag": [
       "caverna",
-      "cripta",
       "scheda",
-      "sotterraneo"
+      "sotterraneo",
+      "tomba"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -185,7 +183,7 @@
     "nome_originale": "Index Card Dungeon II - Map 4 - Tower Ruins",
     "immagine": "dungeon-su-scheda-ii-mappa-4-rovine-della-torre.webp",
     "tag": [
-      "fortificazione",
+      "fortezza",
       "rovine",
       "scheda",
       "torre"
@@ -202,7 +200,7 @@
     "nome_originale": "Index Card Dungeon II - Map 3 - The Ghost Tower",
     "immagine": "dungeon-su-scheda-ii-mappa-3-la-torre-fantasma.webp",
     "tag": [
-      "fortificazione",
+      "fortezza",
       "scheda",
       "torre"
     ],
@@ -233,7 +231,7 @@
     "nome_originale": "Index Card Dungeon II - Map 1 - Tower Base",
     "immagine": "dungeon-su-scheda-ii-mappa-1-base-della-torre.webp",
     "tag": [
-      "fortificazione",
+      "fortezza",
       "rovine",
       "scheda",
       "torre"
@@ -250,8 +248,8 @@
     "nome_originale": "The Village of Millbrook",
     "immagine": "il-villaggio-di-millbrook.webp",
     "tag": [
-      "citta",
       "bizzarro",
+      "citta",
       "urbano",
       "villaggio"
     ],
@@ -299,10 +297,9 @@
     "nome_originale": "The Finger",
     "immagine": "il-dito.webp",
     "tag": [
-      "dungeon",
       "bizzarro",
+      "dungeon",
       "edificio",
-      "fantasy bizzarro",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -317,9 +314,8 @@
     "nome_originale": "Beneath the Finger",
     "immagine": "sotto-il-dito.webp",
     "tag": [
-      "dungeon",
       "bizzarro",
-      "fantasy bizzarro",
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -334,9 +330,8 @@
     "nome_originale": "Deeper Beneath the Finger",
     "immagine": "ancora-piu-in-profondita-sotto-il-dito.webp",
     "tag": [
-      "dungeon",
       "bizzarro",
-      "fantasy bizzarro",
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -351,9 +346,8 @@
     "nome_originale": "The deeps far below \"The Finger\"",
     "immagine": "le-profondita-sotto-il-dito.webp",
     "tag": [
-      "dungeon",
       "bizzarro",
-      "fantasy bizzarro",
+      "dungeon",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -368,7 +362,6 @@
     "nome_originale": "A Dungeon In Two Parts",
     "immagine": "un-sotterraneo-in-due-parti.webp",
     "tag": [
-      "cripta",
       "sotterraneo",
       "tomba"
     ],
@@ -384,9 +377,8 @@
     "nome_originale": "Eastmeadow Manor",
     "immagine": "maniero-di-eastmeadow.webp",
     "tag": [
-      "fortezza",
       "edificio",
-      "fortificazione",
+      "fortezza",
       "maniero",
       "sotterraneo",
       "urbano"
@@ -403,9 +395,9 @@
     "nome_originale": "Under Eastmeadow Manor",
     "immagine": "sotto-il-maniero-di-eastmeadow.webp",
     "tag": [
-      "residenza",
       "edificio",
       "maniero",
+      "residenza",
       "sotterraneo",
       "urbano"
     ],
@@ -437,9 +429,8 @@
     "nome_originale": "Crumbling Gate",
     "immagine": "la-porta-fatiscente.webp",
     "tag": [
-      "fortezza",
       "edificio",
-      "fortificazione",
+      "fortezza",
       "rovine",
       "sotterraneo"
     ],
@@ -455,7 +446,6 @@
     "nome_originale": "The Fallen Temple",
     "immagine": "il-tempio-caduto.webp",
     "tag": [
-      "chiesa",
       "edificio",
       "rovine",
       "sotterraneo",
@@ -488,8 +478,8 @@
     "nome_originale": "The Pipeworks",
     "immagine": "le-tubature.webp",
     "tag": [
-      "natura",
       "condutture",
+      "natura",
       "sotterraneo",
       "vulcano"
     ],
@@ -505,10 +495,9 @@
     "nome_originale": "The Sinkhole Crypt",
     "immagine": "la-cripta-della-voragine.webp",
     "tag": [
-      "tomba",
-      "cripta",
-      "fantasy scientifico",
-      "sotterraneo"
+      "fantascienza",
+      "sotterraneo",
+      "tomba"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -571,7 +560,7 @@
     "immagine": "la-torre-del-grifone.webp",
     "tag": [
       "edificio",
-      "fortificazione",
+      "fortezza",
       "torre"
     ],
     "autore": "Dyson Logos",
@@ -620,7 +609,6 @@
     "nome_originale": "Crypts and Worms",
     "immagine": "cripte-e-vermi.webp",
     "tag": [
-      "cripta",
       "rovine",
       "tomba"
     ],
@@ -636,10 +624,9 @@
     "nome_originale": "The Cinereous Basilica",
     "immagine": "la-basilica-cinerea.webp",
     "tag": [
-      "chiesa",
-      "cripta",
       "edificio",
       "tempio",
+      "tomba",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -670,11 +657,8 @@
     "nome_originale": "The Autumn Lands - Map I",
     "immagine": "le-terre-dautunno-mappa-i.webp",
     "tag": [
-      "esagonale",
-      "esplorazione esagonale",
       "mappa esagonale",
-      "mappa regionale",
-      "regionale"
+      "mappa regionale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -688,11 +672,8 @@
     "nome_originale": "The Autumn Lands - Map H",
     "immagine": "le-terre-dautunno-mappa-h.webp",
     "tag": [
-      "esagonale",
-      "esplorazione esagonale",
       "mappa esagonale",
-      "mappa regionale",
-      "regionale"
+      "mappa regionale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -706,11 +687,8 @@
     "nome_originale": "The Autumn Lands - Map G",
     "immagine": "le-terre-dautunno-mappa-g.webp",
     "tag": [
-      "esagonale",
-      "esplorazione esagonale",
       "mappa esagonale",
-      "mappa regionale",
-      "regionale"
+      "mappa regionale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -724,11 +702,8 @@
     "nome_originale": "The Autumn Lands - Hex Map F",
     "immagine": "le-terre-dautunno-mappa-esagonale-f.webp",
     "tag": [
-      "esagonale",
-      "esplorazione esagonale",
       "mappa esagonale",
-      "mappa regionale",
-      "regionale"
+      "mappa regionale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -742,11 +717,8 @@
     "nome_originale": "The Autumn Lands - Hex Map E",
     "immagine": "le-terre-dautunno-mappa-esagonale-e.webp",
     "tag": [
-      "esagonale",
-      "esplorazione esagonale",
       "mappa esagonale",
-      "mappa regionale",
-      "regionale"
+      "mappa regionale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -760,11 +732,8 @@
     "nome_originale": "The Autumn Lands Map 4",
     "immagine": "le-terre-dautunno-mappa-4.webp",
     "tag": [
-      "esagonale",
-      "esplorazione esagonale",
       "mappa esagonale",
-      "mappa regionale",
-      "regionale"
+      "mappa regionale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -778,11 +747,8 @@
     "nome_originale": "The Autumn Lands - Map C",
     "immagine": "le-terre-dautunno-mappa-c.webp",
     "tag": [
-      "esagonale",
-      "esplorazione esagonale",
       "mappa esagonale",
-      "mappa regionale",
-      "regionale"
+      "mappa regionale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -797,12 +763,9 @@
     "immagine": "le-terre-dautunno-mappa-b.webp",
     "tag": [
       "acquatico",
-      "esagonale",
-      "esplorazione esagonale",
       "isola",
       "mappa esagonale",
-      "mappa regionale",
-      "regionale"
+      "mappa regionale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -816,11 +779,8 @@
     "nome_originale": "The Autumn Lands - Map A",
     "immagine": "le-terre-dautunno-mappa-a.webp",
     "tag": [
-      "esagonale",
-      "esplorazione esagonale",
       "mappa esagonale",
-      "mappa regionale",
-      "regionale"
+      "mappa regionale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -910,7 +870,6 @@
     "nome_originale": "Building 7 - Random Market Tavern",
     "immagine": "edificio-7-taverna-del-mercato.webp",
     "tag": [
-      "locanda",
       "edificio",
       "taverna",
       "urbano"
@@ -927,7 +886,6 @@
     "nome_originale": "Building 6 - Wine Garden",
     "immagine": "edificio-6-il-giardino-dei-vini.webp",
     "tag": [
-      "locanda",
       "edificio",
       "negozio",
       "taverna",
@@ -1038,10 +996,9 @@
     "nome_originale": "Stonewill Estate",
     "immagine": "tenuta-di-stonewill.webp",
     "tag": [
-      "residenza",
-      "casa",
       "edificio",
       "maniero",
+      "residenza",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -1088,14 +1045,14 @@
     "nome_originale": "Grudge Match at the Underground Market",
     "immagine": "resa-dei-conti-al-mercato-sotterraneo.webp",
     "tag": [
-      "tempio",
-      "bottega",
       "edificio",
       "fogna",
       "mercato",
+      "negozio",
       "santuario",
       "sotterraneo",
       "taverna",
+      "tempio",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -1112,7 +1069,6 @@
     "tag": [
       "biblioteca",
       "edificio",
-      "locanda",
       "rovine",
       "sotterraneo",
       "taverna",
@@ -1130,8 +1086,6 @@
     "nome_originale": "Dungeon of the Bad Egg",
     "immagine": "il-sotterraneo-delluovo-marcio.webp",
     "tag": [
-      "cripta",
-      "sepolcro",
       "sotterraneo",
       "tomba"
     ],
@@ -1226,10 +1180,10 @@
     "nome_originale": "The Tower of Mourning",
     "immagine": "la-torre-del-lutto.webp",
     "tag": [
-      "cripta",
       "edificio",
-      "fortificazione",
+      "fortezza",
       "sotterraneo",
+      "tomba",
       "torre"
     ],
     "autore": "Dyson Logos",
@@ -1244,7 +1198,6 @@
     "nome_originale": "The Temple of Love (2024 Remix)",
     "immagine": "il-tempio-dellamore-2024-remix.webp",
     "tag": [
-      "chiesa",
       "edificio",
       "tempio",
       "urbano"
@@ -1262,7 +1215,6 @@
     "immagine": "locanda-della-capra-dormiente.webp",
     "tag": [
       "edificio",
-      "locanda",
       "taverna",
       "urbano"
     ],
@@ -1293,7 +1245,6 @@
     "nome_originale": "The Lame Barghest Tavern",
     "immagine": "la-taverna-del-barghest-zoppo.webp",
     "tag": [
-      "locanda",
       "edificio",
       "taverna",
       "urbano"
@@ -1327,7 +1278,6 @@
     "tag": [
       "bizzarro",
       "edificio",
-      "fantasy bizzarro",
       "torre"
     ],
     "autore": "Dyson Logos",
@@ -1342,7 +1292,6 @@
     "nome_originale": "The Strangled Imp",
     "immagine": "il-diavoletto-strangolato.webp",
     "tag": [
-      "locanda",
       "edificio",
       "taverna",
       "urbano"
@@ -1360,7 +1309,6 @@
     "immagine": "il-rinoceronte-sordido.webp",
     "tag": [
       "edificio",
-      "locanda",
       "taverna",
       "urbano"
     ],
@@ -1438,9 +1386,7 @@
     "tag": [
       "castello",
       "edificio",
-      "fortezza",
-      "fortificazione",
-      "fortino"
+      "fortezza"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -1456,9 +1402,7 @@
     "tag": [
       "castello",
       "edificio",
-      "fortezza",
-      "fortificazione",
-      "fortino"
+      "fortezza"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -1488,7 +1432,6 @@
     "immagine": "la-tomba-dei-teschi-neri.webp",
     "tag": [
       "fortezza",
-      "fortificazione",
       "rovine",
       "sotterraneo",
       "tomba"
@@ -1506,7 +1449,7 @@
     "immagine": "la-torre-dellarconte.webp",
     "tag": [
       "edificio",
-      "fortificazione",
+      "fortezza",
       "sotterraneo",
       "torre"
     ],
@@ -1523,7 +1466,6 @@
     "immagine": "sotto-la-torre-dellarconte.webp",
     "tag": [
       "fortezza",
-      "fortificazione",
       "rovine",
       "sotterraneo"
     ],
@@ -1539,10 +1481,9 @@
     "nome_originale": "Desert ClanHold",
     "immagine": "fortezza-del-clan-del-deserto.webp",
     "tag": [
-      "fortezza",
-      "casa",
       "edificio",
-      "fortificazione",
+      "fortezza",
+      "residenza",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -1558,7 +1499,6 @@
     "immagine": "il-sepolcro-profondo.webp",
     "tag": [
       "caverna",
-      "cripta",
       "sotterraneo",
       "tomba"
     ],
@@ -1591,11 +1531,11 @@
     "nome_originale": "Pitmann Manse",
     "immagine": "la-dimora-di-pitmann.webp",
     "tag": [
-      "casa",
       "edificio",
-      "fortificazione",
+      "fortezza",
       "maniero",
       "palazzo",
+      "residenza",
       "torre",
       "urbano"
     ],
@@ -1611,7 +1551,6 @@
     "nome_originale": "The Halls of Lost Heroes",
     "immagine": "le-sale-degli-eroi-perduti.webp",
     "tag": [
-      "cripta",
       "sotterraneo",
       "tomba"
     ],
@@ -1674,7 +1613,6 @@
     "nome_originale": "Statues of the Thrall Gods",
     "immagine": "le-statue-degli-dei-schiavi.webp",
     "tag": [
-      "cripta",
       "santuario",
       "sotterraneo",
       "tempio",
@@ -1769,9 +1707,8 @@
     "nome_originale": "Gladhold Estate",
     "immagine": "tenuta-di-gladhold.webp",
     "tag": [
-      "residenza",
-      "casa",
       "edificio",
+      "residenza",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -1806,7 +1743,6 @@
       "mappa esagonale",
       "mappa regionale",
       "post-apocalittico",
-      "regionale",
       "rovine"
     ],
     "autore": "Dyson Logos",
@@ -1821,7 +1757,6 @@
     "nome_originale": "Gascon's Pit",
     "immagine": "la-fossa-di-gascon.webp",
     "tag": [
-      "vista",
       "rovine",
       "sotterraneo",
       "vista laterale"
@@ -1901,7 +1836,6 @@
     "tag": [
       "edificio",
       "fortezza",
-      "fortificazione",
       "rovine"
     ],
     "autore": "Dyson Logos",
@@ -2071,7 +2005,7 @@
       "acquatico",
       "isola",
       "mappa esagonale",
-      "regionale",
+      "mappa regionale",
       "rovine"
     ],
     "autore": "Dyson Logos",
@@ -2161,7 +2095,6 @@
     "nome_originale": "Temple of the Communion of Zeviax",
     "immagine": "tempio-della-comunione-di-zeviax.webp",
     "tag": [
-      "chiesa",
       "edificio",
       "tempio",
       "urbano"
@@ -2286,7 +2219,7 @@
     "nome_originale": "The Ioun Tower",
     "immagine": "la-torre-di-ioun.webp",
     "tag": [
-      "fantasy scientifico",
+      "fantascienza",
       "torre"
     ],
     "autore": "Dyson Logos",
@@ -2301,7 +2234,7 @@
     "nome_originale": "Hnálla's Tower of Pillars",
     "immagine": "la-torre-dei-pilastri-di-hnalla.webp",
     "tag": [
-      "fortificazione",
+      "fortezza",
       "santuario",
       "tempio"
     ],
@@ -2381,10 +2314,10 @@
     "nome_originale": "The Eleint Passages – Ruined Fane",
     "immagine": "i-passaggi-di-eleint-tempio-in-rovina.webp",
     "tag": [
-      "tempio",
       "caverna",
       "rovine",
-      "sotterraneo"
+      "sotterraneo",
+      "tempio"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -2497,8 +2430,6 @@
     "immagine": "rovine-del-forte-sulla-collina.webp",
     "tag": [
       "fortezza",
-      "forte",
-      "fortificazione",
       "rovine"
     ],
     "autore": "Dyson Logos",
@@ -2548,8 +2479,8 @@
     "immagine": "le-terre-luminose-di-ency-mappa-1.webp",
     "tag": [
       "edificio",
+      "mappa regionale",
       "post-apocalittico",
-      "regionale",
       "rovine"
     ],
     "autore": "Dyson Logos",
@@ -2630,7 +2561,6 @@
     "tag": [
       "bizzarro",
       "caverna",
-      "esagonale",
       "horror",
       "mappa esagonale",
       "rovine",
@@ -2648,9 +2578,8 @@
     "nome_originale": "Smallharbour",
     "immagine": "porto-piccolo.webp",
     "tag": [
-      "fortezza",
       "citta",
-      "fortificazione",
+      "fortezza",
       "urbano",
       "villaggio"
     ],
@@ -2666,7 +2595,6 @@
     "nome_originale": "Hunter's Descent",
     "immagine": "la-discesa-del-cacciatore.webp",
     "tag": [
-      "vista",
       "dungeon cinque stanze",
       "rovine",
       "sotterraneo",
@@ -2730,7 +2658,6 @@
     "nome_originale": "Tombs of the Silver Army",
     "immagine": "le-tombe-dellesercito-dargento.webp",
     "tag": [
-      "cripta",
       "sotterraneo",
       "tomba"
     ],
@@ -2762,10 +2689,9 @@
     "nome_originale": "A Dungeon of Impossible Stairs (1200 dpi)",
     "immagine": "un-sotterraneo-dalle-scale-impossibili.webp",
     "tag": [
-      "vista",
       "bizzarro",
-      "fantasy bizzarro",
-      "isometrico"
+      "isometrico",
+      "vista laterale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -2827,12 +2753,11 @@
     "nome_originale": "The Last Stones of Sagemane Castle",
     "immagine": "le-ultime-pietre-del-castello-di-sagemane.webp",
     "tag": [
-      "cripta",
       "dungeon cinque stanze",
       "fortezza",
-      "fortificazione",
       "rovine",
-      "sotterraneo"
+      "sotterraneo",
+      "tomba"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -2878,7 +2803,6 @@
     "immagine": "le-tombe-della-tribu-throl.webp",
     "tag": [
       "caverna",
-      "cripta",
       "dungeon cinque stanze",
       "fiume",
       "sotterraneo",
@@ -2946,7 +2870,6 @@
     "nome_originale": "Release The Kraken On The Warkings Vault",
     "immagine": "la-volta-dei-warkings.webp",
     "tag": [
-      "cripta",
       "sotterraneo",
       "tomba"
     ],
@@ -2962,9 +2885,8 @@
     "nome_originale": "Release The Kraken On The Mastervale Estate",
     "immagine": "tenuta-di-mastervale.webp",
     "tag": [
-      "residenza",
-      "casa",
       "edificio",
+      "residenza",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -3058,8 +2980,7 @@
     "immagine": "il-fortino-di-gaerborin.webp",
     "tag": [
       "caverna",
-      "fortificazione",
-      "fortino",
+      "fortezza",
       "rovine"
     ],
     "autore": "Dyson Logos",
@@ -3092,8 +3013,6 @@
       "castello",
       "edificio",
       "fortezza",
-      "fortificazione",
-      "fortino",
       "torre"
     ],
     "autore": "Dyson Logos",
@@ -3124,7 +3043,6 @@
     "nome_originale": "Crypt of the Queen of Bones",
     "immagine": "la-cripta-della-regina-delle-ossa.webp",
     "tag": [
-      "cripta",
       "sotterraneo",
       "tomba"
     ],
@@ -3140,9 +3058,8 @@
     "nome_originale": "Sumerian Three Story Home",
     "immagine": "dimora-sumera-a-tre-piani.webp",
     "tag": [
-      "residenza",
-      "casa",
       "edificio",
+      "residenza",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -3158,7 +3075,6 @@
     "immagine": "locanda-e-taverna-frogsmead.webp",
     "tag": [
       "edificio",
-      "locanda",
       "taverna",
       "urbano"
     ],
@@ -3254,7 +3170,6 @@
     "immagine": "le-tane-dei-goblin-al-forte-redshield.webp",
     "tag": [
       "fortezza",
-      "fortino",
       "goblin",
       "rovine",
       "sotterraneo",
@@ -3272,12 +3187,12 @@
     "nome_originale": "Ruins of Brollmoreth",
     "immagine": "rovine-di-brollmoreth.webp",
     "tag": [
-      "tempio",
       "caverna",
       "demone",
       "rovine",
       "santuario",
       "sotterraneo",
+      "tempio",
       "torre"
     ],
     "autore": "Dyson Logos",
@@ -3311,7 +3226,6 @@
     "immagine": "le-rovine-del-fortino-di-shagunat.webp",
     "tag": [
       "fortezza",
-      "fortino",
       "rovine",
       "sotterraneo"
     ],
@@ -3327,7 +3241,6 @@
     "nome_originale": "Geomorphic Halls Level 1",
     "immagine": "sale-geomorfiche-livello-1.webp",
     "tag": [
-      "geomorph",
       "geomorfo",
       "megadungeon",
       "sotterraneo"
@@ -3344,12 +3257,9 @@
     "nome_originale": "Adventures around Jalovhec BW",
     "immagine": "avventure-intorno-a-jalovhec.webp",
     "tag": [
-      "esagonale",
-      "esplorazione esagonale",
       "esterno",
       "mappa esagonale",
-      "mappa regionale",
-      "regionale"
+      "mappa regionale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -3365,10 +3275,7 @@
     "tag": [
       "cittadella",
       "edificio",
-      "forte",
       "fortezza",
-      "fortificazione",
-      "fortino",
       "torre"
     ],
     "autore": "Dyson Logos",
@@ -3401,7 +3308,6 @@
       "caverna",
       "megadungeon",
       "sotterraneo",
-      "sottosuolo",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -3420,7 +3326,6 @@
       "fiume",
       "megadungeon",
       "sotterraneo",
-      "sottosuolo",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -3486,7 +3391,6 @@
       "caverna",
       "megadungeon",
       "sotterraneo",
-      "sottosuolo",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -3505,7 +3409,6 @@
       "megadungeon",
       "miniera",
       "sotterraneo",
-      "sottosuolo",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -3524,7 +3427,6 @@
       "fiume",
       "megadungeon",
       "sotterraneo",
-      "sottosuolo",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -3558,9 +3460,7 @@
     "tag": [
       "edificio",
       "fortezza",
-      "fortino",
       "maniero",
-      "roccaforte",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -3610,7 +3510,6 @@
       "fiume",
       "megadungeon",
       "sotterraneo",
-      "sottosuolo",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -3629,7 +3528,6 @@
       "fiume",
       "megadungeon",
       "sotterraneo",
-      "sottosuolo",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -3645,9 +3543,7 @@
     "immagine": "il-bastione-del-principe-di-bastoni.webp",
     "tag": [
       "fortezza",
-      "fortino",
       "isola",
-      "roccaforte",
       "sotterraneo",
       "torre"
     ],
@@ -3699,7 +3595,6 @@
       "fiume",
       "megadungeon",
       "sotterraneo",
-      "sottosuolo",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -3718,7 +3613,6 @@
       "fiume",
       "megadungeon",
       "sotterraneo",
-      "sottosuolo",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -3749,8 +3643,8 @@
     "nome_originale": "Creeping Sands",
     "immagine": "le-sabbie-striscianti.webp",
     "tag": [
-      "natura",
       "deserto",
+      "natura",
       "rovine",
       "sotterraneo"
     ],
@@ -3817,8 +3711,7 @@
       "drago",
       "fiume",
       "megadungeon",
-      "sotterraneo",
-      "sottosuolo"
+      "sotterraneo"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -3847,9 +3740,8 @@
     "nome_originale": "Mayer's Fort",
     "immagine": "il-forte-di-mayer.webp",
     "tag": [
-      "fortezza",
       "fiume",
-      "fortino",
+      "fortezza",
       "montagna",
       "urbano",
       "villaggio"
@@ -3867,8 +3759,7 @@
     "immagine": "la-sala-del-nephilim.webp",
     "tag": [
       "caverna",
-      "sotterraneo",
-      "sottosuolo"
+      "sotterraneo"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -3914,8 +3805,7 @@
       "caverna",
       "fiume",
       "megadungeon",
-      "sotterraneo",
-      "sottosuolo"
+      "sotterraneo"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -3929,7 +3819,7 @@
     "nome_originale": "Greyfalls Cave",
     "immagine": "la-caverna-di-greyfalls.webp",
     "tag": [
-      "acqua",
+      "acquatico",
       "cascata",
       "caverna"
     ],
@@ -3946,8 +3836,8 @@
     "immagine": "catacombe-del-minotauro-scorticato.webp",
     "tag": [
       "dungeon",
-      "catacomba",
-      "sotterraneo"
+      "sotterraneo",
+      "tomba"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -4011,8 +3901,7 @@
       "caverna",
       "fiume",
       "megadungeon",
-      "sotterraneo",
-      "sottosuolo"
+      "sotterraneo"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -4026,7 +3915,6 @@
     "nome_originale": "Collapsed Tomb of Mosogret (1200 dpi)",
     "immagine": "la-tomba-crollata-di-mosogret.webp",
     "tag": [
-      "cripta",
       "fortezza",
       "rovine",
       "sotterraneo",
@@ -4061,11 +3949,10 @@
     "nome_originale": "Undercrofts (1200 dpi)",
     "immagine": "le-cripte-sotterranee.webp",
     "tag": [
-      "tempio",
-      "chiesa",
-      "cripta",
       "rovine",
-      "sotterraneo"
+      "sotterraneo",
+      "tempio",
+      "tomba"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -4079,7 +3966,6 @@
     "nome_originale": "The Fallen House of Githaleon (1200 dpi)",
     "immagine": "la-casa-caduta-di-githaleon.webp",
     "tag": [
-      "chiesa",
       "rovine",
       "tempio",
       "torre"
@@ -4098,8 +3984,7 @@
     "tag": [
       "caverna",
       "megadungeon",
-      "sotterraneo",
-      "sottosuolo"
+      "sotterraneo"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -4116,8 +4001,7 @@
       "caverna",
       "fiume",
       "megadungeon",
-      "sotterraneo",
-      "sottosuolo"
+      "sotterraneo"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -4180,7 +4064,6 @@
     "immagine": "lubriaco-dai-quattro-denti.webp",
     "tag": [
       "edificio",
-      "locanda",
       "taverna",
       "urbano"
     ],
@@ -4200,8 +4083,7 @@
       "fiume",
       "lago",
       "megadungeon",
-      "sotterraneo",
-      "sottosuolo"
+      "sotterraneo"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -4218,8 +4100,7 @@
       "caverna",
       "fiume",
       "megadungeon",
-      "sotterraneo",
-      "sottosuolo"
+      "sotterraneo"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -4234,7 +4115,7 @@
     "immagine": "la-citta-perduta-delle-regine-naga.webp",
     "tag": [
       "mappa esagonale",
-      "regionale"
+      "mappa regionale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -4250,8 +4131,7 @@
     "tag": [
       "isola",
       "rovine",
-      "tomba",
-      "tumulo"
+      "tomba"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -4265,7 +4145,6 @@
     "nome_originale": "The Bottomless Tombs - Part 4 (1200 dpi)",
     "immagine": "le-tombe-senza-fondo-parte-4.webp",
     "tag": [
-      "cripta",
       "isometrico",
       "sotterraneo",
       "tomba"
@@ -4327,9 +4206,9 @@
     "nome_originale": "Tarsakh Manor - Upper Floors (1200 dpi)",
     "immagine": "maniero-di-tarsakh-piani-superiori.webp",
     "tag": [
-      "residenza",
       "edificio",
       "maniero",
+      "residenza",
       "urbano",
       "villaggio"
     ],
@@ -4345,9 +4224,9 @@
     "nome_originale": "Tarsakh Manor Grounds (1200 dpi)",
     "immagine": "i-terreni-del-maniero-di-tarsakh.webp",
     "tag": [
-      "residenza",
       "edificio",
       "maniero",
+      "residenza",
       "urbano",
       "villaggio"
     ],
@@ -4363,10 +4242,10 @@
     "nome_originale": "Tarsakh Village (1200 dpi)",
     "immagine": "il-villaggio-di-tarsakh.webp",
     "tag": [
-      "residenza",
       "maniero",
       "mappa esagonale",
       "mappa regionale",
+      "residenza",
       "urbano",
       "villaggio"
     ],
@@ -4382,9 +4261,9 @@
     "nome_originale": "Forlorn Halls of the Mongrelfolk (1200 dpi)",
     "immagine": "le-sale-desolate-dei-mongrelfolk.webp",
     "tag": [
-      "vista",
       "isometrico",
-      "sotterraneo"
+      "sotterraneo",
+      "vista laterale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -4399,7 +4278,6 @@
     "immagine": "la-discesa-del-crepuscolo.webp",
     "tag": [
       "caverna",
-      "cripta",
       "sotterraneo",
       "tomba"
     ],
@@ -4431,7 +4309,6 @@
     "nome_originale": "Workshop and Store",
     "immagine": "laboratorio-e-negozio.webp",
     "tag": [
-      "bottega",
       "edificio",
       "negozio",
       "urbano",
@@ -4465,9 +4342,7 @@
     "immagine": "il-pozzo-di-gurath.webp",
     "tag": [
       "edificio",
-      "forte",
       "fortezza",
-      "fortificazione",
       "torre"
     ],
     "autore": "Dyson Logos",
@@ -4530,11 +4405,11 @@
     "nome_originale": "Alturiak Manor (1200 dpi)",
     "immagine": "maniero-di-alturiak.webp",
     "tag": [
-      "casa",
       "caverna",
       "edificio",
       "maniero",
       "palazzo",
+      "residenza",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -4582,7 +4457,7 @@
     "tag": [
       "acquatico",
       "isola",
-      "regionale"
+      "mappa regionale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -4596,10 +4471,10 @@
     "nome_originale": "Sietch of Morning (1200 dpi)",
     "immagine": "il-sietch-del-mattino.webp",
     "tag": [
-      "natura",
       "deserto",
       "edificio",
-      "fantascienza"
+      "fantascienza",
+      "natura"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -4613,11 +4488,10 @@
     "nome_originale": "Abbey of the Iron Star (1200 dpi)",
     "immagine": "abbazia-della-stella-di-ferro.webp",
     "tag": [
-      "tempio",
       "abbazia",
       "edificio",
       "fortezza",
-      "fortino"
+      "tempio"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -4693,7 +4567,7 @@
     "nome_originale": "The Citadel at Sabre Lake",
     "immagine": "la-cittadella-sul-lago-sabre.webp",
     "tag": [
-      "regionale"
+      "mappa regionale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -4806,9 +4680,8 @@
     "nome_originale": "Lautuntown",
     "immagine": "lautuntown.webp",
     "tag": [
-      "fortezza",
       "citta",
-      "forte",
+      "fortezza",
       "urbano",
       "villaggio"
     ],
@@ -4859,7 +4732,7 @@
     "tag": [
       "acquatico",
       "isola",
-      "regionale"
+      "mappa regionale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -4873,7 +4746,6 @@
     "nome_originale": "The False Tombs (1200 dpi)",
     "immagine": "le-false-tombe.webp",
     "tag": [
-      "cripta",
       "sotterraneo",
       "tomba"
     ],
@@ -4905,7 +4777,6 @@
     "immagine": "il-sanctum-del-proteo-cieco.webp",
     "tag": [
       "caverna",
-      "cripta",
       "fiume",
       "miniera",
       "santuario",
@@ -4928,8 +4799,7 @@
       "caverna",
       "fiume",
       "megadungeon",
-      "sotterraneo",
-      "sottosuolo"
+      "sotterraneo"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -4943,7 +4813,6 @@
     "nome_originale": "Last Home of the Three Heretics of Xaeen",
     "immagine": "lultima-dimora-dei-tre-eretici-di-xaeen.webp",
     "tag": [
-      "cripta",
       "santuario",
       "sotterraneo",
       "tempio",
@@ -4961,7 +4830,6 @@
     "nome_originale": "Bitterchains Tombs",
     "immagine": "le-tombe-di-bitterchains.webp",
     "tag": [
-      "cripta",
       "sotterraneo",
       "tomba"
     ],
@@ -4977,11 +4845,9 @@
     "nome_originale": "Barrow Mounds of the Lich and Famous",
     "immagine": "i-tumuli-del-lich-e-dei-famosi.webp",
     "tag": [
-      "cripta",
       "mini-mappa",
       "sotterraneo",
-      "tomba",
-      "tumulo"
+      "tomba"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -5026,9 +4892,9 @@
     "nome_originale": "Dread Shrine of the Magi in Sapphire",
     "immagine": "il-santuario-terribile-dei-magi-in-zaffiro.webp",
     "tag": [
-      "tempio",
       "santuario",
-      "sotterraneo"
+      "sotterraneo",
+      "tempio"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -5060,7 +4926,6 @@
     "immagine": "il-santuario-della-capra.webp",
     "tag": [
       "edificio",
-      "esagonale",
       "mappa esagonale",
       "santuario",
       "tempio"
@@ -5092,10 +4957,10 @@
     "nome_originale": "Crowspine Labyrinth",
     "immagine": "il-labirinto-di-crowspine.webp",
     "tag": [
-      "vista",
       "isometrico",
       "labirinto",
-      "sotterraneo"
+      "sotterraneo",
+      "vista laterale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -5125,7 +4990,6 @@
     "immagine": "il-rum-e-i-posatoi-del-corvo.webp",
     "tag": [
       "edificio",
-      "locanda",
       "taverna",
       "urbano"
     ],
@@ -5141,10 +5005,10 @@
     "nome_originale": "Isometric Tomb of Illhan the Binder",
     "immagine": "tomba-isometrica-di-illhan-il-legatore.webp",
     "tag": [
-      "vista",
       "isometrico",
       "rovine",
-      "sotterraneo"
+      "sotterraneo",
+      "vista laterale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -5205,9 +5069,7 @@
     "nome_originale": "The Bottomless Tombs - Level 3",
     "immagine": "le-tombe-senza-fondo-livello-3.webp",
     "tag": [
-      "cripta",
       "isometrico",
-      "ossario",
       "sotterraneo",
       "tomba"
     ],
@@ -5223,7 +5085,6 @@
     "nome_originale": "Moonset Street Shops",
     "immagine": "i-negozi-di-via-moonset.webp",
     "tag": [
-      "bottega",
       "edificio",
       "negozio",
       "urbano",
@@ -5242,7 +5103,6 @@
     "immagine": "le-armi-del-warlock.webp",
     "tag": [
       "edificio",
-      "locanda",
       "taverna",
       "urbano"
     ],
@@ -5274,7 +5134,7 @@
     "tag": [
       "handout",
       "mappa giocatore",
-      "regionale"
+      "mappa regionale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -5322,8 +5182,7 @@
     "immagine": "principati-della-baia-della-sfinge-nera.webp",
     "tag": [
       "mappa esagonale",
-      "mappa regionale",
-      "regionale"
+      "mappa regionale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -5338,7 +5197,6 @@
     "immagine": "la-casa-del-te-malvagia-di-guddur.webp",
     "tag": [
       "edificio",
-      "locanda",
       "taverna",
       "urbano"
     ],
@@ -5391,8 +5249,7 @@
       "bizzarro",
       "caverna",
       "isometrico",
-      "sotterraneo",
-      "sottosuolo"
+      "sotterraneo"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -5407,9 +5264,7 @@
     "immagine": "il-vecchio-forte.webp",
     "tag": [
       "edificio",
-      "forte",
       "fortezza",
-      "fortificazione",
       "rovine"
     ],
     "autore": "Dyson Logos",
@@ -5440,7 +5295,6 @@
     "immagine": "i-norker-gemelli.webp",
     "tag": [
       "edificio",
-      "locanda",
       "taverna",
       "urbano"
     ],
@@ -5456,10 +5310,10 @@
     "nome_originale": "Seaside Passage",
     "immagine": "il-passaggio-costiero.webp",
     "tag": [
-      "tempio",
       "caverna",
       "santuario",
-      "sotterraneo"
+      "sotterraneo",
+      "tempio"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -5522,7 +5376,6 @@
     "nome_originale": "Beneath the Marching Tankard",
     "immagine": "sotto-il-boccale-in-marcia.webp",
     "tag": [
-      "locanda",
       "seminterrato",
       "sotterraneo",
       "taverna"
@@ -5539,7 +5392,6 @@
     "nome_originale": "The Marching Tankard - Upstairs - Tagged",
     "immagine": "il-boccale-in-marcia-piano-superiore.webp",
     "tag": [
-      "locanda",
       "taverna"
     ],
     "autore": "Dyson Logos",
@@ -5570,11 +5422,9 @@
     "nome_originale": "Barrow Mounds of the Lich & Famous III",
     "immagine": "i-tumuli-del-lich-e-dei-famosi-iii.webp",
     "tag": [
-      "cripta",
       "mini-mappa",
       "sotterraneo",
-      "tomba",
-      "tumulo"
+      "tomba"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -5604,7 +5454,6 @@
     "immagine": "la-birreria-dellidra.webp",
     "tag": [
       "edificio",
-      "locanda",
       "taverna",
       "urbano"
     ],
@@ -5620,7 +5469,6 @@
     "nome_originale": "Church of the Oracles in Onyx",
     "immagine": "la-chiesa-degli-oracoli-in-onice.webp",
     "tag": [
-      "chiesa",
       "sotterraneo",
       "tempio"
     ],
@@ -5651,9 +5499,9 @@
     "nome_originale": "Bloodied Axe Shrine",
     "immagine": "il-santuario-dellascia-insanguinata.webp",
     "tag": [
-      "tempio",
       "santuario",
-      "sotterraneo"
+      "sotterraneo",
+      "tempio"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -5684,8 +5532,8 @@
     "immagine": "il-sotterraneo-in-12-parti.webp",
     "tag": [
       "caverna",
-      "cripta",
-      "sotterraneo"
+      "sotterraneo",
+      "tomba"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -5699,7 +5547,6 @@
     "nome_originale": "The Bast Inn",
     "immagine": "la-locanda-di-bast.webp",
     "tag": [
-      "locanda",
       "edificio",
       "taverna",
       "urbano"
@@ -5716,8 +5563,6 @@
     "nome_originale": "Royal Catacombs of Adrih",
     "immagine": "le-catacombe-reali-di-adrih.webp",
     "tag": [
-      "catacomba",
-      "cripta",
       "sotterraneo",
       "tomba"
     ],
@@ -5748,10 +5593,10 @@
     "nome_originale": "Kabrel's Tower",
     "immagine": "la-torre-di-kabrel.webp",
     "tag": [
-      "tempio",
       "caverna",
       "santuario",
       "sotterraneo",
+      "tempio",
       "torre"
     ],
     "autore": "Dyson Logos",
@@ -5812,8 +5657,7 @@
     "immagine": "mappa-regionale-di-iyesgarten.webp",
     "tag": [
       "mappa esagonale",
-      "mappa regionale",
-      "regionale"
+      "mappa regionale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -5828,7 +5672,6 @@
     "immagine": "la-locanda-di-iyesgarten.webp",
     "tag": [
       "edificio",
-      "locanda",
       "taverna",
       "urbano"
     ],
@@ -5892,7 +5735,6 @@
     "nome_originale": "The Temple Walk",
     "immagine": "la-passeggiata-del-tempio.webp",
     "tag": [
-      "chiesa",
       "cortile",
       "edificio",
       "santuario",
@@ -5943,7 +5785,6 @@
     "immagine": "la-locanda-di-behkon.webp",
     "tag": [
       "edificio",
-      "locanda",
       "taverna",
       "urbano"
     ],
@@ -5992,7 +5833,7 @@
     "tag": [
       "acquatico",
       "isola",
-      "regionale"
+      "mappa regionale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -6006,10 +5847,9 @@
     "nome_originale": "Summerthorpe",
     "immagine": "summerthorpe.webp",
     "tag": [
-      "tempio",
-      "chiesa",
-      "cimitero",
       "fiume",
+      "tempio",
+      "tomba",
       "urbano",
       "villaggio"
     ],
@@ -6026,7 +5866,6 @@
     "immagine": "la-taverna-di-labhruinn.webp",
     "tag": [
       "edificio",
-      "locanda",
       "seminterrato",
       "taverna",
       "urbano"
@@ -6043,7 +5882,6 @@
     "nome_originale": "An-Nayyir's Pyramid",
     "immagine": "la-piramide-di-an-nayyir.webp",
     "tag": [
-      "cripta",
       "piramide",
       "sotterraneo",
       "tomba",
@@ -6123,9 +5961,9 @@
     "nome_originale": "Temple Crypts of the Wraith Priests",
     "immagine": "le-cripte-del-tempio-dei-sacerdoti-spettrali.webp",
     "tag": [
-      "cripta",
       "sotterraneo",
-      "tempio"
+      "tempio",
+      "tomba"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -6141,7 +5979,6 @@
     "tag": [
       "edificio",
       "fogna",
-      "locanda",
       "sotterraneo",
       "taverna"
     ],
@@ -6206,10 +6043,9 @@
     "nome_originale": "Smugglers-Lodge",
     "immagine": "il-rifugio-dei-contrabbandieri.webp",
     "tag": [
-      "residenza",
-      "casa",
       "edificio",
-      "isola"
+      "isola",
+      "residenza"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -6239,7 +6075,6 @@
     "immagine": "la-locanda-della-torre-di-shieldrick.webp",
     "tag": [
       "edificio",
-      "locanda",
       "taverna",
       "torre"
     ],
@@ -6290,7 +6125,6 @@
     "immagine": "la-locanda-della-vecchia-rapa.webp",
     "tag": [
       "edificio",
-      "locanda",
       "taverna",
       "urbano"
     ],
@@ -6321,10 +6155,10 @@
     "nome_originale": "Guild Temple",
     "immagine": "il-tempio-della-gilda.webp",
     "tag": [
-      "cripta",
       "edificio",
-      "fortino",
+      "fortezza",
       "tempio",
+      "tomba",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -6339,8 +6173,6 @@
     "nome_originale": "Crypt of the Smith",
     "immagine": "la-cripta-del-fabbro.webp",
     "tag": [
-      "chiesa",
-      "cripta",
       "edificio",
       "sotterraneo",
       "tempio",
@@ -6391,7 +6223,6 @@
     "immagine": "rovine-della-collina-di-onice.webp",
     "tag": [
       "fortezza",
-      "forte",
       "rovine"
     ],
     "autore": "Dyson Logos",
@@ -6406,7 +6237,6 @@
     "nome_originale": "The Half-Cask Tavern",
     "immagine": "la-taverna-del-mezzo-barile.webp",
     "tag": [
-      "locanda",
       "edificio",
       "taverna",
       "urbano"
@@ -6424,7 +6254,6 @@
     "immagine": "la-corte-dei-vini-estivi.webp",
     "tag": [
       "edificio",
-      "locanda",
       "taverna",
       "urbano"
     ],
@@ -6487,7 +6316,6 @@
     "nome_originale": "The Fire Beetle Ale House",
     "immagine": "la-birreria-dello-scarabeo-di-fuoco.webp",
     "tag": [
-      "locanda",
       "citta",
       "edificio",
       "negozio",
@@ -6537,7 +6365,6 @@
     "nome_originale": "The Blessed Monastery",
     "immagine": "il-monastero-benedetto.webp",
     "tag": [
-      "chiesa",
       "edificio",
       "monastero",
       "tempio"
@@ -6571,7 +6398,6 @@
     "nome_originale": "The Bottomless Tombs - Level 2",
     "immagine": "le-tombe-senza-fondo-livello-2.webp",
     "tag": [
-      "cripta",
       "isometrico",
       "sotterraneo",
       "tomba"
@@ -6588,7 +6414,6 @@
     "nome_originale": "Twelve Goats Tavern",
     "immagine": "la-taverna-dei-dodici-capri.webp",
     "tag": [
-      "locanda",
       "edificio",
       "taverna",
       "urbano"
@@ -6638,7 +6463,6 @@
     "tag": [
       "edificio",
       "fortezza",
-      "fortino",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -6654,7 +6478,6 @@
     "immagine": "la-locanda-dellanatra-di-legno.webp",
     "tag": [
       "edificio",
-      "locanda",
       "taverna",
       "urbano"
     ],
@@ -6670,9 +6493,9 @@
     "nome_originale": "The Vault of Tranquility",
     "immagine": "la-volta-della-tranquillita.webp",
     "tag": [
-      "vista",
       "isometrico",
-      "sotterraneo"
+      "sotterraneo",
+      "vista laterale"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -6703,11 +6526,10 @@
     "nome_originale": "Yruvex Swamps",
     "immagine": "le-paludi-di-yruvex.webp",
     "tag": [
-      "natura",
-      "esagonale",
       "mappa esagonale",
       "mappa regionale",
       "montagna",
+      "natura",
       "palude"
     ],
     "autore": "Dyson Logos",
@@ -6756,10 +6578,10 @@
     "nome_originale": "Lesser Temple of the Heretics",
     "immagine": "il-tempio-minore-degli-eretici.webp",
     "tag": [
-      "cripta",
       "santuario",
       "sotterraneo",
-      "tempio"
+      "tempio",
+      "tomba"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -6773,9 +6595,9 @@
     "nome_originale": "Temple of the Seven Heretics",
     "immagine": "il-tempio-dei-sette-eretici.webp",
     "tag": [
-      "cripta",
       "sotterraneo",
-      "tempio"
+      "tempio",
+      "tomba"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -6789,11 +6611,9 @@
     "nome_originale": "Brenovale Castle",
     "immagine": "il-castello-di-brenovale.webp",
     "tag": [
-      "fortezza",
       "castello",
       "edificio",
-      "forte",
-      "fortificazione"
+      "fortezza"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -6855,10 +6675,9 @@
     "nome_originale": "Rose Point Manor",
     "immagine": "il-maniero-di-rose-point.webp",
     "tag": [
-      "residenza",
-      "casa",
       "edificio",
       "maniero",
+      "residenza",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -6874,9 +6693,9 @@
     "immagine": "sotto-il-maniero-di-rose-point.webp",
     "tag": [
       "dungeon",
-      "catacomba",
       "seminterrato",
-      "sotterraneo"
+      "sotterraneo",
+      "tomba"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -6906,9 +6725,8 @@
     "nome_originale": "Strange Ruins",
     "immagine": "rovine-misteriose.webp",
     "tag": [
-      "fortezza",
       "edificio",
-      "forte",
+      "fortezza",
       "palazzo",
       "rovine"
     ],
@@ -6957,8 +6775,7 @@
     "immagine": "laccampamento-dei-banditi-di-hollowstone.webp",
     "tag": [
       "bandito",
-      "fortezza",
-      "fortino"
+      "fortezza"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -7002,9 +6819,9 @@
     "nome_originale": "Palace of the Sands",
     "immagine": "il-palazzo-delle-sabbie.webp",
     "tag": [
-      "natura",
       "deserto",
       "edificio",
+      "natura",
       "palazzo",
       "rovine"
     ],
@@ -7020,9 +6837,8 @@
     "nome_originale": "Dungeon of the Third Eye",
     "immagine": "il-sotterraneo-del-terzo-occhio.webp",
     "tag": [
-      "dungeon",
       "bizzarro",
-      "fantasy bizzarro",
+      "dungeon",
       "funghi",
       "sotterraneo"
     ],
@@ -7041,7 +6857,7 @@
       "citta",
       "esterno",
       "fiume",
-      "regionale",
+      "mappa regionale",
       "urbano",
       "villaggio"
     ],
@@ -7057,9 +6873,9 @@
     "nome_originale": "Stony Hill",
     "immagine": "la-collina-rocciosa.webp",
     "tag": [
-      "natura",
       "collina",
-      "esterno"
+      "esterno",
+      "natura"
     ],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
@@ -7090,9 +6906,7 @@
     "immagine": "la-fortezza-della-rupe-bianca.webp",
     "tag": [
       "castello",
-      "forte",
       "fortezza",
-      "fortino",
       "sotterraneo",
       "torre"
     ],
@@ -7111,7 +6925,7 @@
       "citta",
       "fattoria",
       "fiume",
-      "regionale",
+      "mappa regionale",
       "rovine",
       "urbano"
     ],
@@ -7127,9 +6941,7 @@
     "nome_originale": "Greth's Island Keep",
     "immagine": "il-fortino-sullisola-di-greth.webp",
     "tag": [
-      "forte",
       "fortezza",
-      "fortino",
       "isola"
     ],
     "autore": "Dyson Logos",
@@ -7144,7 +6956,6 @@
     "nome_originale": "Tomb of the Kirin-Born Prince",
     "immagine": "la-tomba-del-principe-nato-dal-kirin.webp",
     "tag": [
-      "cripta",
       "sotterraneo",
       "tomba"
     ],
@@ -7178,11 +6989,10 @@
     "nome_originale": "Prior's Hill",
     "immagine": "la-collina-del-priore.webp",
     "tag": [
-      "residenza",
-      "casa",
       "druido",
       "halloween",
       "menhir",
+      "residenza",
       "sotterraneo"
     ],
     "autore": "Dyson Logos",
@@ -7199,7 +7009,7 @@
     "tag": [
       "citta",
       "fiume",
-      "regionale",
+      "mappa regionale",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -7230,7 +7040,6 @@
     "nome_originale": "Circle Crypts of the Ophidian Emperor",
     "immagine": "le-cripte-circolari-dellimperatore-serpente.webp",
     "tag": [
-      "cripta",
       "sotterraneo",
       "tomba"
     ],
@@ -7246,9 +7055,9 @@
     "nome_originale": "Hevlod Manor",
     "immagine": "il-maniero-di-hevlod.webp",
     "tag": [
-      "residenza",
       "edificio",
       "maniero",
+      "residenza",
       "urbano"
     ],
     "autore": "Dyson Logos",
@@ -7264,7 +7073,6 @@
     "immagine": "il-fortino-di-briar-edizione-2018.webp",
     "tag": [
       "fortezza",
-      "fortino",
       "urbano",
       "villaggio"
     ],
