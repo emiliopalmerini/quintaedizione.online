@@ -98,17 +98,20 @@ func (s *Service) Roll(id string) (domain.RollResult, error) {
 	if t.IsMultiColumn() {
 		entries := make([]domain.RollEntry, len(t.Columns))
 		for i, col := range t.Columns {
+			item := col.Items[rand.IntN(len(col.Items))]
 			entries[i] = domain.RollEntry{
 				Column: col.Name,
-				Value:  col.Items[rand.IntN(len(col.Items))],
+				Value:  item.Text,
+				Link:   item.Link,
 			}
 		}
 		return domain.RollResult{Entries: entries}, nil
 	}
 
+	item := t.Items[rand.IntN(len(t.Items))]
 	return domain.RollResult{
 		Entries: []domain.RollEntry{
-			{Value: t.Items[rand.IntN(len(t.Items))]},
+			{Value: item.Text, Link: item.Link},
 		},
 	}, nil
 }

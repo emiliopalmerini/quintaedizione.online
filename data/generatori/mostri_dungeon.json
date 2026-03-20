@@ -1,0 +1,29 @@
+{
+  "id": "mostri-dungeon",
+  "name": "Mostri del Dungeon",
+  "description": "Aggiungi mostri e nemici alla tua avventura. Tira 1d8 per mostri facili, 1d12 per difficili, o 1d20 per includere anche quelli pericolosi. Per un boss, raddoppia i punti ferita e concedi un'azione extra per turno.",
+  "die": "1d20",
+  "order": 14,
+  "items": [
+    {"text": "Topi giganti", "link": "/srd/mostri/topo-gigante"},
+    {"text": "Banditi", "link": "/srd/mostri/bandito"},
+    {"text": "Cultisti", "link": "/srd/mostri/cultista"},
+    {"text": "Accoliti", "link": "/srd/mostri/sacerdote-accolito"},
+    {"text": "Uccelli stigei", "link": "/srd/mostri/uccello-stigeo"},
+    {"text": "Guardie", "link": "/srd/mostri/guardia"},
+    {"text": "Scheletri", "link": "/srd/mostri/scheletro"},
+    {"text": "Melme", "link": "/srd/mostri/protoplasma-nero"},
+    {"text": "Ombre", "link": "/srd/mostri/ombra"},
+    {"text": "Spie", "link": "/srd/mostri/spia"},
+    {"text": "Ghoul", "link": "/srd/mostri/ghoul"},
+    {"text": "Spettri", "link": "/srd/mostri/spettro"},
+    {"text": "Cultisti fanatici", "link": "/srd/mostri/cultista-fanatico"},
+    {"text": "Cubi gelatinosi", "link": "/srd/mostri/cubo-gelatinoso"},
+    {"text": "Ogre", "link": "/srd/mostri/ogre"},
+    {"text": "Topi mannari", "link": "/srd/mostri/topo-mannaro"},
+    {"text": "Basilischi", "link": "/srd/mostri/basilisco"},
+    {"text": "Megere verdi", "link": "/srd/mostri/megera-verde"},
+    {"text": "Segugi infernali", "link": "/srd/mostri/segugio-infernale"},
+    {"text": "Mummie", "link": "/srd/mostri/mummia"}
+  ]
+}

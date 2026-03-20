@@ -8,12 +8,20 @@ templ Result(result domain.RollResult) {
 			<div class="roll-entries">
 				for _, entry := range result.Entries {
 					<span class="roll-entry-label">{ entry.Column }</span>
-					<span class="roll-entry-value">{ entry.Value }</span>
+					if entry.Link != "" {
+						<a href={ templ.SafeURL(entry.Link) } class="roll-entry-value roll-entry-link">{ entry.Value }</a>
+					} else {
+						<span class="roll-entry-value">{ entry.Value }</span>
+					}
 				}
 			</div>
 		} else {
 			for _, entry := range result.Entries {
-				<p>{ entry.Value }</p>
+				if entry.Link != "" {
+					<p><a href={ templ.SafeURL(entry.Link) } class="roll-entry-link">{ entry.Value }</a></p>
+				} else {
+					<p>{ entry.Value }</p>
+				}
 			}
 		}
 	</div>

@@ -41,12 +41,22 @@ templ Generator(table domain.Table) {
 				} else {
 					<ol class="generator-table-list">
 						for _, item := range table.Items {
-							<li>{ item }</li>
+							<li>
+								@itemContent(item)
+							</li>
 						}
 					</ol>
 				}
 			</details>
 		</div>
+	}
+}
+
+templ itemContent(item domain.Item) {
+	if item.Link != "" {
+		<a href={ templ.SafeURL(item.Link) }>{ item.Text }</a>
+	} else {
+		{ item.Text }
 	}
 }
 
@@ -66,7 +76,9 @@ templ multiColumnTable(table domain.Table) {
 					<td>{ fmt.Sprintf("%d", i+1) }</td>
 					for _, col := range table.Columns {
 						if i < len(col.Items) {
-							<td>{ col.Items[i] }</td>
+							<td>
+								@itemContent(col.Items[i])
+							</td>
 						} else {
 							<td>—</td>
 						}
