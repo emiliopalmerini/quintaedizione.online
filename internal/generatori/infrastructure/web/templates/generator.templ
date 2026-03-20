@@ -1,0 +1,78 @@
+package templates
+
+import (
+	"fmt"
+
+	"github.com/emiliopalmerini/quintaedizione.online/internal/generatori/domain"
+	shared "github.com/emiliopalmerini/quintaedizione.online/web/templates"
+)
+
+templ Generator(table domain.Table) {
+	@shared.SiteLayout(table.Name, table.Description, "generatori", nil) {
+		<div class="generator-page">
+			<nav class="breadcrumb" aria-label="Breadcrumb">
+				<a href="/generatori">Generatori</a>
+				<span aria-hidden="true">/</span>
+				<span>{ table.Name }</span>
+			</nav>
+
+			<h1>{ table.Name }</h1>
+			<p class="generator-description">{ table.Description }</p>
+
+			<div class="generator-roller">
+				<button
+					class="btn btn-primary btn-large"
+					hx-post={ "/generatori/" + table.ID + "/roll" }
+					hx-target="#roll-result"
+					hx-swap="innerHTML"
+				>
+					Tira { table.Die }
+				</button>
+
+				<div id="roll-result" class="roll-result">
+					<p class="roll-result-placeholder">Premi il pulsante per tirare</p>
+				</div>
+			</div>
+
+			<details class="generator-table-details">
+				<summary>Mostra tutta la tabella ({ table.Die })</summary>
+				if table.IsMultiColumn() {
+					@multiColumnTable(table)
+				} else {
+					<ol class="generator-table-list">
+						for _, item := range table.Items {
+							<li>{ item }</li>
+						}
+					</ol>
+				}
+			</details>
+		</div>
+	}
+}
+
+templ multiColumnTable(table domain.Table) {
+	<table class="generator-full-table">
+		<thead>
+			<tr>
+				<th>#</th>
+				for _, col := range table.Columns {
+					<th>{ col.Name }</th>
+				}
+			</tr>
+		</thead>
+		<tbody>
+			for i := range table.Columns[0].Items {
+				<tr>
+					<td>{ fmt.Sprintf("%d", i+1) }</td>
+					for _, col := range table.Columns {
+						if i < len(col.Items) {
+							<td>{ col.Items[i] }</td>
+						} else {
+							<td>—</td>
+						}
+					}
+				</tr>
+			}
+		</tbody>
+	</table>
+}

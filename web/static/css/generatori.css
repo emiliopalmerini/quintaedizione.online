@@ -1,0 +1,201 @@
+/* quintaedizione.online — Generatori Styles */
+
+/* ========================================================================
+   GENERATOR CARD GRID
+   ======================================================================== */
+
+.generator-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.generator-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.generator-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+}
+
+.generator-card-title {
+  font-size: var(--text-lg);
+  margin: 0 0 var(--space-2);
+}
+
+.generator-card-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-3);
+  flex: 1;
+}
+
+.generator-card-die {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ========================================================================
+   GENERATOR PAGE
+   ======================================================================== */
+
+.generator-page { margin-top: var(--space-4); }
+
+.generator-description {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.generator-roller {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-8) 0;
+}
+
+/* ========================================================================
+   ROLL RESULT
+   ======================================================================== */
+
+.roll-result {
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.roll-result-placeholder {
+  color: var(--color-text-tertiary);
+  font-size: var(--text-sm);
+}
+
+.roll-result-value {
+  text-align: center;
+  animation: roll-appear 0.3s ease-out;
+}
+.roll-result-value p {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  margin: 0;
+  padding: var(--space-4) var(--space-6);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+/* Multi-column roll entries */
+.roll-entries {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-1) var(--space-4);
+  align-items: baseline;
+  padding: var(--space-2) 0;
+}
+.roll-entry-label {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: var(--weight-bold);
+  text-align: right;
+  white-space: nowrap;
+}
+.roll-entry-value {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+}
+
+.roll-result-value:has(.roll-entries) {
+  width: 100%;
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  padding: var(--space-4) var(--space-5);
+}
+
+@keyframes roll-appear {
+  from { opacity: 0; transform: translateY(-8px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ========================================================================
+   TABLE DETAILS
+   ======================================================================== */
+
+.generator-table-details {
+  margin-top: var(--space-8);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+.generator-table-details summary {
+  cursor: pointer;
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+}
+
+.generator-table-list {
+  margin-top: var(--space-3);
+  padding-left: var(--space-6);
+}
+.generator-table-list li {
+  padding: var(--space-1) 0;
+  border-bottom: 1px solid var(--color-border-light, var(--color-border));
+}
+.generator-table-list li:last-child { border-bottom: none; }
+
+.generator-full-table {
+  width: 100%;
+  margin-top: var(--space-3);
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+.generator-full-table th {
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 2px solid var(--color-border);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-secondary);
+}
+.generator-full-table td {
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--color-border-light, var(--color-border));
+}
+.generator-full-table tr:last-child td { border-bottom: none; }
+
+/* ========================================================================
+   BREADCRUMB
+   ======================================================================== */
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-4);
+}
+.breadcrumb a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}

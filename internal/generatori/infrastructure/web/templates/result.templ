@@ -1,0 +1,20 @@
+package templates
+
+import "github.com/emiliopalmerini/quintaedizione.online/internal/generatori/domain"
+
+templ Result(result domain.RollResult) {
+	<div class="roll-result-value">
+		if len(result.Entries) > 0 && result.Entries[0].Column != "" {
+			<div class="roll-entries">
+				for _, entry := range result.Entries {
+					<span class="roll-entry-label">{ entry.Column }</span>
+					<span class="roll-entry-value">{ entry.Value }</span>
+				}
+			</div>
+		} else {
+			for _, entry := range result.Entries {
+				<p>{ entry.Value }</p>
+			}
+		}
+	</div>
+}

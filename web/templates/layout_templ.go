@@ -111,7 +111,7 @@ func SiteLayout(title, description, activeNav string, extraHeadHTML templ.Compon
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<meta property=\"og:image\" content=\"https://quintaedizione.online/static/img/dyson-map-2.webp\"><meta property=\"og:type\" content=\"website\"><meta property=\"og:site_name\" content=\"quintaedizione.online\"><script>\n\t\t\t(function(){var d=document.documentElement,t=localStorage.getItem('theme');if(t==='dark')d.classList.add('dark')})()\n\t\t</script><script src=\"/static/htmx.min.js\" defer></script><link rel=\"stylesheet\" href=\"/static/css/tokens.css\"><link rel=\"stylesheet\" href=\"/static/css/base.css\"><link rel=\"stylesheet\" href=\"/static/css/components.css\"><link rel=\"stylesheet\" href=\"/static/css/search.css\"><link rel=\"stylesheet\" href=\"/static/css/collections.css\"><link rel=\"stylesheet\" href=\"/static/css/pages.css\"><link rel=\"stylesheet\" href=\"/static/css/monsters.css\"><link rel=\"stylesheet\" href=\"/static/css/mappe.css\"><link rel=\"stylesheet\" href=\"/static/css/a11y.css\"><link rel=\"stylesheet\" href=\"/static/css/utilities.css\"><link rel=\"icon\" href=\"/static/favicon.svg\" type=\"image/svg+xml\"><script src=\"/static/main.js\" defer></script>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<meta property=\"og:image\" content=\"https://quintaedizione.online/static/img/dyson-map-2.webp\"><meta property=\"og:type\" content=\"website\"><meta property=\"og:site_name\" content=\"quintaedizione.online\"><script>\n\t\t\t(function(){var d=document.documentElement,t=localStorage.getItem('theme');if(t==='dark')d.classList.add('dark')})()\n\t\t</script><script src=\"/static/htmx.min.js\" defer></script><link rel=\"stylesheet\" href=\"/static/css/tokens.css\"><link rel=\"stylesheet\" href=\"/static/css/base.css\"><link rel=\"stylesheet\" href=\"/static/css/components.css\"><link rel=\"stylesheet\" href=\"/static/css/search.css\"><link rel=\"stylesheet\" href=\"/static/css/collections.css\"><link rel=\"stylesheet\" href=\"/static/css/pages.css\"><link rel=\"stylesheet\" href=\"/static/css/monsters.css\"><link rel=\"stylesheet\" href=\"/static/css/mappe.css\"><link rel=\"stylesheet\" href=\"/static/css/generatori.css\"><link rel=\"stylesheet\" href=\"/static/css/a11y.css\"><link rel=\"stylesheet\" href=\"/static/css/utilities.css\"><link rel=\"icon\" href=\"/static/favicon.svg\" type=\"image/svg+xml\"><script src=\"/static/main.js\" defer></script>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -187,7 +187,29 @@ func SiteLayout(title, description, activeNav string, extraHeadHTML templ.Compon
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "\">Mappe</a></nav><div class=\"theme-switcher\" id=\"theme-switcher\" role=\"radiogroup\" aria-label=\"Tema\"><label class=\"theme-switcher-option\"><input type=\"radio\" name=\"theme\" value=\"light\" checked> <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"5\"></circle><line x1=\"12\" y1=\"1\" x2=\"12\" y2=\"3\"></line><line x1=\"12\" y1=\"21\" x2=\"12\" y2=\"23\"></line><line x1=\"4.22\" y1=\"4.22\" x2=\"5.64\" y2=\"5.64\"></line><line x1=\"18.36\" y1=\"18.36\" x2=\"19.78\" y2=\"19.78\"></line><line x1=\"1\" y1=\"12\" x2=\"3\" y2=\"12\"></line><line x1=\"21\" y1=\"12\" x2=\"23\" y2=\"12\"></line><line x1=\"4.22\" y1=\"19.78\" x2=\"5.64\" y2=\"18.36\"></line><line x1=\"18.36\" y1=\"5.64\" x2=\"19.78\" y2=\"4.22\"></line></svg></label> <label class=\"theme-switcher-option\"><input type=\"radio\" name=\"theme\" value=\"dark\"> <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z\"></path></svg></label></div><button class=\"nav-hamburger\" id=\"nav-hamburger\" aria-label=\"Apri menu\" aria-expanded=\"false\" aria-controls=\"nav-menu\"><span class=\"nav-hamburger-line\"></span> <span class=\"nav-hamburger-line\"></span> <span class=\"nav-hamburger-line\"></span></button></div></header>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "\">Mappe</a> ")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var12 = []any{"site-nav-link", templ.KV("active", activeNav == "generatori")}
+		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var12...)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "<a href=\"/generatori\" class=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var13 string
+		templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(templ.CSSClasses(templ_7745c5c3_Var12).String())
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/layout.templ`, Line: 1, Col: 0}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "\">Generatori</a></nav><div class=\"theme-switcher\" id=\"theme-switcher\" role=\"radiogroup\" aria-label=\"Tema\"><label class=\"theme-switcher-option\"><input type=\"radio\" name=\"theme\" value=\"light\" checked> <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"5\"></circle><line x1=\"12\" y1=\"1\" x2=\"12\" y2=\"3\"></line><line x1=\"12\" y1=\"21\" x2=\"12\" y2=\"23\"></line><line x1=\"4.22\" y1=\"4.22\" x2=\"5.64\" y2=\"5.64\"></line><line x1=\"18.36\" y1=\"18.36\" x2=\"19.78\" y2=\"19.78\"></line><line x1=\"1\" y1=\"12\" x2=\"3\" y2=\"12\"></line><line x1=\"21\" y1=\"12\" x2=\"23\" y2=\"12\"></line><line x1=\"4.22\" y1=\"19.78\" x2=\"5.64\" y2=\"18.36\"></line><line x1=\"18.36\" y1=\"5.64\" x2=\"19.78\" y2=\"4.22\"></line></svg></label> <label class=\"theme-switcher-option\"><input type=\"radio\" name=\"theme\" value=\"dark\"> <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z\"></path></svg></label></div><button class=\"nav-hamburger\" id=\"nav-hamburger\" aria-label=\"Apri menu\" aria-expanded=\"false\" aria-controls=\"nav-menu\"><span class=\"nav-hamburger-line\"></span> <span class=\"nav-hamburger-line\"></span> <span class=\"nav-hamburger-line\"></span></button></div></header>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -195,7 +217,7 @@ func SiteLayout(title, description, activeNav string, extraHeadHTML templ.Compon
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "<main class=\"flex-1\"><div id=\"page-root\" hx-history-elt class=\"container mx-auto max-w-4xl py-8\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "<main class=\"flex-1\"><div id=\"page-root\" hx-history-elt class=\"container mx-auto max-w-4xl py-8\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -203,7 +225,7 @@ func SiteLayout(title, description, activeNav string, extraHeadHTML templ.Compon
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "<div id=\"page-loading\" class=\"page-overlay\" aria-hidden=\"true\"><div class=\"page-overlay-inner\"><span class=\"spinner\"></span></div></div></div></main>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "<div id=\"page-loading\" class=\"page-overlay\" aria-hidden=\"true\"><div class=\"page-overlay-inner\"><span class=\"spinner\"></span></div></div></div></main>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -211,7 +233,7 @@ func SiteLayout(title, description, activeNav string, extraHeadHTML templ.Compon
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -235,12 +257,12 @@ func sitePatreonBanner() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var12 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var12 == nil {
-			templ_7745c5c3_Var12 = templ.NopComponent
+		templ_7745c5c3_Var14 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var14 == nil {
+			templ_7745c5c3_Var14 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "<div id=\"patreon-banner\" class=\"patreon-banner\">Questo progetto è gratuito grazie ai nostri supporter. <a href=\"https://patreon.com/DueDraghiPlus\" target=\"_blank\" rel=\"noopener noreferrer\">Unisciti a loro su Patreon!</a> <button class=\"patreon-banner-dismiss\" aria-label=\"Chiudi\">&times;</button></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "<div id=\"patreon-banner\" class=\"patreon-banner\">Questo progetto è gratuito grazie ai nostri supporter. <a href=\"https://patreon.com/DueDraghiPlus\" target=\"_blank\" rel=\"noopener noreferrer\">Unisciti a loro su Patreon!</a> <button class=\"patreon-banner-dismiss\" aria-label=\"Chiudi\">&times;</button></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -264,12 +286,12 @@ func siteFooter() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var13 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var13 == nil {
-			templ_7745c5c3_Var13 = templ.NopComponent
+		templ_7745c5c3_Var15 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var15 == nil {
+			templ_7745c5c3_Var15 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "<footer class=\"mt-auto border-t py-6\"><div class=\"container mx-auto max-w-4xl text-center\"><p class=\"text-xs text-secondary m-0\" style=\"line-height: 1.6;\"><span class=\"patreon-footer\"><a href=\"https://patreon.com/DueDraghiPlus\" target=\"_blank\" rel=\"noopener noreferrer\">Supporta il progetto su Patreon</a></span> | Creato da <a href=\"https://duedraghialmicrofono.com\" target=\"_blank\" rel=\"noopener noreferrer\">Due Draghi al Microfono</a> | Questo progetto include materiale dall'<a href=\"https://www.dndbeyond.com/srd\" target=\"_blank\" rel=\"noopener noreferrer\">SRD 5.2.1</a> rilasciato sotto licenza <a href=\"https://creativecommons.org/licenses/by/4.0/legalcode\" target=\"_blank\" rel=\"noopener noreferrer\">CC BY 4.0</a>. Questo progetto include materiale dal <a href=\"https://dnd.wizards.com/resources/systems-reference-document\" target=\"_blank\" rel=\"noopener noreferrer\">System Reference Document 5.1</a> di Wizards of the Coast LLC, rilasciato sotto licenza <a href=\"https://creativecommons.org/licenses/by/4.0/legalcode\" target=\"_blank\" rel=\"noopener noreferrer\">CC BY 4.0</a>. Cartografia di <a href=\"https://dysonlogos.blog\" target=\"_blank\" rel=\"noopener noreferrer\">Dyson Logos</a>.</p></div></footer>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "<footer class=\"mt-auto border-t py-6\"><div class=\"container mx-auto max-w-4xl text-center\"><p class=\"text-xs text-secondary m-0\" style=\"line-height: 1.6;\"><span class=\"patreon-footer\"><a href=\"https://patreon.com/DueDraghiPlus\" target=\"_blank\" rel=\"noopener noreferrer\">Supporta il progetto su Patreon</a></span> | Creato da <a href=\"https://duedraghialmicrofono.com\" target=\"_blank\" rel=\"noopener noreferrer\">Due Draghi al Microfono</a> | Questo progetto include materiale dall'<a href=\"https://www.dndbeyond.com/srd\" target=\"_blank\" rel=\"noopener noreferrer\">SRD 5.2.1</a> rilasciato sotto licenza <a href=\"https://creativecommons.org/licenses/by/4.0/legalcode\" target=\"_blank\" rel=\"noopener noreferrer\">CC BY 4.0</a>. Questo progetto include materiale dal <a href=\"https://dnd.wizards.com/resources/systems-reference-document\" target=\"_blank\" rel=\"noopener noreferrer\">System Reference Document 5.1</a> di Wizards of the Coast LLC, rilasciato sotto licenza <a href=\"https://creativecommons.org/licenses/by/4.0/legalcode\" target=\"_blank\" rel=\"noopener noreferrer\">CC BY 4.0</a>. Cartografia di <a href=\"https://dysonlogos.blog\" target=\"_blank\" rel=\"noopener noreferrer\">Dyson Logos</a>.</p></div></footer>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -294,12 +316,12 @@ func EncountersScript() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var14 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var14 == nil {
-			templ_7745c5c3_Var14 = templ.NopComponent
+		templ_7745c5c3_Var16 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var16 == nil {
+			templ_7745c5c3_Var16 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "<script src=\"/static/js/encounters.js\" defer></script>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "<script src=\"/static/js/encounters.js\" defer></script>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

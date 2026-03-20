@@ -11,6 +11,7 @@ import (
 	"syscall"
 	"time"
 
+	generatoriData "github.com/emiliopalmerini/quintaedizione.online/data/generatori"
 	jsondata "github.com/emiliopalmerini/quintaedizione.online/data/ita/json"
 	mappeData "github.com/emiliopalmerini/quintaedizione.online/data/mappe"
 	combatEncounter "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/application/encounter"
@@ -18,6 +19,8 @@ import (
 	combatMemory "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/infrastructure/persistence/memory"
 	combatHandlers "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/infrastructure/web/handlers"
 	combatTemplates "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/infrastructure/web/templates"
+	generatoriApp "github.com/emiliopalmerini/quintaedizione.online/internal/generatori/application"
+	generatoriHandlers "github.com/emiliopalmerini/quintaedizione.online/internal/generatori/infrastructure/web/handlers"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/infrastructure"
 	mappePersistence "github.com/emiliopalmerini/quintaedizione.online/internal/mappe/infrastructure/persistence"
 	mappeHandlers "github.com/emiliopalmerini/quintaedizione.online/internal/mappe/web/handlers"
@@ -119,6 +122,16 @@ func main() {
 	galleryHandler := mappeHandlers.NewGalleryHandler(mappaRepo, logger)
 	log.Printf("Mappe ready: %d maps loaded", len(mappaRepo.FindAll()))
 
+	// ── Generatori setup ─────────────────────────────────────
+
+	log.Println("Loading Generatori data...")
+	generatoriService, err := generatoriApp.NewService(generatoriData.Files)
+	if err != nil {
+		log.Fatalf("Failed to load generatori data: %v", err)
+	}
+	generatorHandler := generatoriHandlers.NewGeneratorHandler(generatoriService, logger)
+	log.Printf("Generatori ready: %d tables loaded", len(generatoriService.List()))
+
 	// ── Router setup ───────────────────────────────────────────
 
 	mux := http.NewServeMux()
@@ -205,6 +218,11 @@ func main() {
 	mappeMux.HandleFunc("GET /gallery", galleryHandler.HandleGallery)
 	mappeMux.HandleFunc("GET /{slug}", galleryHandler.HandleDetail)
 	mux.Handle("/mappe/", http.StripPrefix("/mappe", mappeMux))
+
+	// Generatori routes under /generatori
+	generatoriMux := http.NewServeMux()
+	generatorHandler.RegisterRoutes(generatoriMux)
+	mux.Handle("/generatori/", http.StripPrefix("/generatori", generatoriMux))
 
 	// ── Middleware chain ────────────────────────────────────────
 
