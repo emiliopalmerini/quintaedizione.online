@@ -190,16 +190,9 @@ func (l *Loader) buildClassHTML(c jsonClass) string {
 		fmt.Fprintf(&b, `<div class="stat-block-description">%s</div>`, l.renderer.Render(c.Description))
 	}
 
-	// Hit die and proficiencies
-	if c.HitDie != "" || c.Proficiencies != "" {
-		b.WriteString(`<div class="stat-block-properties">`)
-		if c.HitDie != "" {
-			fmt.Fprintf(&b, `<div class="stat-block-property"><strong>Dado Vita:</strong> %s</div>`, escapeHTML(c.HitDie))
-		}
-		if c.Proficiencies != "" {
-			fmt.Fprintf(&b, `<div class="stat-block-property"><strong>Competenze:</strong> %s</div>`, escapeHTML(c.Proficiencies))
-		}
-		b.WriteString(`</div>`)
+	// Proficiencies (contains hit points, competencies, equipment, and class table — all markdown)
+	if c.Proficiencies != "" {
+		fmt.Fprintf(&b, `<div class="stat-block-description">%s</div>`, l.renderer.Render(c.Proficiencies))
 	}
 
 	// Features grouped by level
@@ -408,12 +401,10 @@ func (l *Loader) buildClassMarkdown(c jsonClass) string {
 		b.WriteString("\n\n")
 	}
 
-	// Hit die and proficiencies
-	if c.HitDie != "" {
-		fmt.Fprintf(&b, "**Dado Vita:** %s\n\n", c.HitDie)
-	}
+	// Proficiencies (contains hit points, competencies, equipment, and class table)
 	if c.Proficiencies != "" {
-		fmt.Fprintf(&b, "**Competenze:** %s\n\n", c.Proficiencies)
+		b.WriteString(c.Proficiencies)
+		b.WriteString("\n\n")
 	}
 
 	// Features grouped by level
