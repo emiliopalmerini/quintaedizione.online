@@ -4,6 +4,7 @@ import (
 	"log/slog"
 	"net/http"
 	"strconv"
+	"strings"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/maps"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/mappe/web/templates"
@@ -42,6 +43,20 @@ func (h *GalleryHandler) HandleDetail(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func parseTags(raw string) []string {
+	if raw == "" {
+		return nil
+	}
+	var tags []string
+	for _, t := range strings.Split(raw, ",") {
+		t = strings.TrimSpace(t)
+		if t != "" {
+			tags = append(tags, t)
+		}
+	}
+	return tags
+}
+
 // HandleGallery renders the full gallery page.
 // GET /
 func (h *GalleryHandler) HandleGallery(w http.ResponseWriter, r *http.Request) {
@@ -50,27 +65,26 @@ func (h *GalleryHandler) HandleGallery(w http.ResponseWriter, r *http.Request) {
 		offset = 0
 	}
 
+	activeTags := parseTags(r.URL.Query().Get("tag"))
+
 	filters := maps.SearchFilters{
-		Query:     r.URL.Query().Get("q"),
-		Categoria: r.URL.Query().Get("categoria"),
-		Tag:       r.URL.Query().Get("tag"),
-		Offset:    offset,
-		Limit:     defaultPageSize,
+		Query:  r.URL.Query().Get("q"),
+		Tags:   activeTags,
+		Offset: offset,
+		Limit:  defaultPageSize,
 	}
 
 	results, total := h.repo.Search(filters)
 
 	data := maps.GalleryData{
-		Mappe:     results,
-		Categorie: h.repo.Categorie(),
-		Tags:      h.repo.Tags(),
-		Query:     filters.Query,
-		Categoria: filters.Categoria,
-		Tag:       filters.Tag,
-		Total:     total,
-		Offset:    offset,
-		Limit:     defaultPageSize,
-		HasMore:   offset+len(results) < total,
+		Mappe:      results,
+		Tags:       h.repo.Tags(),
+		Query:      filters.Query,
+		ActiveTags: activeTags,
+		Total:      total,
+		Offset:     offset,
+		Limit:      defaultPageSize,
+		HasMore:    offset+len(results) < total,
 	}
 
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")

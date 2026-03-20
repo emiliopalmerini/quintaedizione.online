@@ -16,7 +16,6 @@ type jsonMappa struct {
 	Nome                 string   `json:"nome"`
 	NomeOriginale        string   `json:"nome_originale"`
 	Immagine             string   `json:"immagine"`
-	Categoria            string   `json:"categoria"`
 	Tag                  []string `json:"tag"`
 	Descrizione          string   `json:"descrizione"`
 	Autore               string   `json:"autore"`
@@ -27,10 +26,9 @@ type jsonMappa struct {
 
 // MappaRepository provides in-memory access to map data.
 type MappaRepository struct {
-	mappe     []domain.Mappa
-	bySlug    map[string]int
-	categorie []string
-	tags      []string
+	mappe  []domain.Mappa
+	bySlug map[string]int
+	tags   []string
 }
 
 // NewMappaRepository loads maps from the provided filesystem.
@@ -54,10 +52,6 @@ func NewMappaRepository(dataFS fs.FS, filename string) *MappaRepository {
 			continue
 		}
 
-		if m.Categoria == "" {
-			m.Categoria = "senza_categoria"
-		}
-
 		if _, exists := bySlug[m.Slug]; exists {
 			log.Printf("WARN: duplicate slug %q, skipping", m.Slug)
 			continue
@@ -68,7 +62,6 @@ func NewMappaRepository(dataFS fs.FS, filename string) *MappaRepository {
 			Nome:                 m.Nome,
 			NomeOriginale:        m.NomeOriginale,
 			Immagine:             m.Immagine,
-			Categoria:            m.Categoria,
 			Tag:                  m.Tag,
 			Descrizione:          m.Descrizione,
 			Autore:               m.Autore,
@@ -120,10 +113,7 @@ func (r *MappaRepository) Search(filters domain.SearchFilters) ([]domain.Mappa, 
 		if query != "" && !strings.Contains(strings.ToLower(m.Nome), query) {
 			continue
 		}
-		if filters.Categoria != "" && m.Categoria != filters.Categoria {
-			continue
-		}
-		if filters.Tag != "" && !slices.Contains(m.Tag, filters.Tag) {
+		if !hasAllTags(m.Tag, filters.Tags) {
 			continue
 		}
 		filtered = append(filtered, m)
@@ -144,22 +134,25 @@ func (r *MappaRepository) Search(filters domain.SearchFilters) ([]domain.Mappa, 
 	return filtered[start:end], total
 }
 
-func (r *MappaRepository) Categorie() []string { return r.categorie }
-func (r *MappaRepository) Tags() []string      { return r.tags }
+func (r *MappaRepository) Tags() []string { return r.tags }
 
 func (r *MappaRepository) buildFacets() {
-	categoriaSet := make(map[string]bool)
 	tagSet := make(map[string]bool)
-
 	for _, m := range r.mappe {
-		categoriaSet[m.Categoria] = true
 		for _, t := range m.Tag {
 			tagSet[t] = true
 		}
 	}
-
-	r.categorie = sortedKeys(categoriaSet)
 	r.tags = sortedKeys(tagSet)
+}
+
+func hasAllTags(mappaTags []string, filterTags []string) bool {
+	for _, ft := range filterTags {
+		if !slices.Contains(mappaTags, ft) {
+			return false
+		}
+	}
+	return true
 }
 
 func sortedKeys(m map[string]bool) []string {

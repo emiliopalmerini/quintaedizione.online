@@ -13,8 +13,7 @@ const testJSON = `[
     "nome": "Il Tempio Sommerso",
     "nome_originale": "The Sunken Temple",
     "immagine": "il-tempio-sommerso.png",
-    "categoria": "dungeon",
-    "tag": ["acqua", "trappola"],
+    "tag": ["dungeon", "acqua", "trappola"],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
     "url_originale": "https://example.com/sunken-temple"
@@ -24,8 +23,7 @@ const testJSON = `[
     "nome": "La Caverna dei Funghi",
     "nome_originale": "The Mushroom Cavern",
     "immagine": "la-caverna-dei-funghi.png",
-    "categoria": "caverna",
-    "tag": ["funghi", "sotterraneo"],
+    "tag": ["caverna", "funghi", "sotterraneo"],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
     "url_originale": "https://example.com/mushroom-cavern"
@@ -35,8 +33,7 @@ const testJSON = `[
     "nome": "La Piazza del Mercato",
     "nome_originale": "The Market Square",
     "immagine": "la-piazza-del-mercato.png",
-    "categoria": "citta",
-    "tag": ["mercato", "urbano"],
+    "tag": ["citta", "mercato", "urbano"],
     "autore": "Dyson Logos",
     "licenza": "Commercial Use Allowed",
     "url_originale": "https://example.com/market-square"
@@ -112,20 +109,9 @@ func TestSearch_ByQueryCaseInsensitive(t *testing.T) {
 	}
 }
 
-func TestSearch_ByCategoria(t *testing.T) {
+func TestSearch_BySingleTag(t *testing.T) {
 	repo := newTestRepo()
-	results, _ := repo.Search(domain.SearchFilters{Categoria: "dungeon"})
-	if len(results) != 1 {
-		t.Fatalf("expected 1 dungeon, got %d", len(results))
-	}
-	if results[0].Categoria != "dungeon" {
-		t.Errorf("expected categoria dungeon, got %s", results[0].Categoria)
-	}
-}
-
-func TestSearch_ByTag(t *testing.T) {
-	repo := newTestRepo()
-	results, _ := repo.Search(domain.SearchFilters{Tag: "acqua"})
+	results, _ := repo.Search(domain.SearchFilters{Tags: []string{"acqua"}})
 	if len(results) != 1 {
 		t.Fatalf("expected 1 result with tag acqua, got %d", len(results))
 	}
@@ -134,12 +120,38 @@ func TestSearch_ByTag(t *testing.T) {
 	}
 }
 
+func TestSearch_ByMultipleTags(t *testing.T) {
+	repo := newTestRepo()
+	// dungeon + acqua = only il-tempio-sommerso
+	results, total := repo.Search(domain.SearchFilters{Tags: []string{"dungeon", "acqua"}})
+	if len(results) != 1 {
+		t.Fatalf("expected 1 result with tags dungeon+acqua, got %d", len(results))
+	}
+	if total != 1 {
+		t.Errorf("expected total 1, got %d", total)
+	}
+	if results[0].Slug != "il-tempio-sommerso" {
+		t.Errorf("expected il-tempio-sommerso, got %s", results[0].Slug)
+	}
+}
+
+func TestSearch_ByMultipleTags_NoMatch(t *testing.T) {
+	repo := newTestRepo()
+	// dungeon + funghi = no map has both
+	results, total := repo.Search(domain.SearchFilters{Tags: []string{"dungeon", "funghi"}})
+	if len(results) != 0 {
+		t.Fatalf("expected 0 results, got %d", len(results))
+	}
+	if total != 0 {
+		t.Errorf("expected total 0, got %d", total)
+	}
+}
+
 func TestSearch_Combined(t *testing.T) {
 	repo := newTestRepo()
 	results, _ := repo.Search(domain.SearchFilters{
-		Query:     "piazza",
-		Categoria: "citta",
-		Tag:       "urbano",
+		Query: "piazza",
+		Tags:  []string{"citta", "urbano"},
 	})
 	if len(results) != 1 {
 		t.Fatalf("expected 1 result, got %d", len(results))
@@ -230,12 +242,11 @@ func TestSearch_OffsetBeyondTotal(t *testing.T) {
 	}
 }
 
-func TestSearch_FiltersAndPagination(t *testing.T) {
+func TestSearch_TagFilterAndPagination(t *testing.T) {
 	repo := newTestRepo()
-	// Two maps have tag "sotterraneo" or "acqua"... only dungeon category has 1 map
 	results, total := repo.Search(domain.SearchFilters{
-		Categoria: "dungeon",
-		Limit:     10,
+		Tags:  []string{"dungeon"},
+		Limit: 10,
 	})
 	if len(results) != 1 {
 		t.Fatalf("expected 1 dungeon, got %d", len(results))
@@ -245,26 +256,12 @@ func TestSearch_FiltersAndPagination(t *testing.T) {
 	}
 }
 
-func TestCategorie(t *testing.T) {
-	repo := newTestRepo()
-	cats := repo.Categorie()
-	if len(cats) != 3 {
-		t.Fatalf("expected 3 categories, got %d", len(cats))
-	}
-	// Should be sorted
-	expected := []string{"caverna", "citta", "dungeon"}
-	for i, c := range cats {
-		if c != expected[i] {
-			t.Errorf("expected category %q at index %d, got %q", expected[i], i, c)
-		}
-	}
-}
-
 func TestTags(t *testing.T) {
 	repo := newTestRepo()
 	tags := repo.Tags()
-	if len(tags) != 6 {
-		t.Fatalf("expected 6 tags, got %d: %v", len(tags), tags)
+	// 9 unique tags: acqua, caverna, citta, dungeon, funghi, mercato, sotterraneo, trappola, urbano
+	if len(tags) != 9 {
+		t.Fatalf("expected 9 tags, got %d: %v", len(tags), tags)
 	}
 	// Should be sorted
 	for i := 1; i < len(tags); i++ {
@@ -276,8 +273,8 @@ func TestTags(t *testing.T) {
 
 func TestNewMappaRepository_SkipsMissingImmagine(t *testing.T) {
 	json := `[
-		{"slug": "no-image", "nome": "No Image", "categoria": "dungeon", "tag": []},
-		{"slug": "has-image", "nome": "Has Image", "immagine": "img.png", "categoria": "dungeon", "tag": []}
+		{"slug": "no-image", "nome": "No Image", "tag": []},
+		{"slug": "has-image", "nome": "Has Image", "immagine": "img.png", "tag": []}
 	]`
 	fs := fstest.MapFS{
 		"mappe.json": &fstest.MapFile{Data: []byte(json)},
@@ -294,8 +291,8 @@ func TestNewMappaRepository_SkipsMissingImmagine(t *testing.T) {
 
 func TestNewMappaRepository_SkipsDuplicateSlug(t *testing.T) {
 	json := `[
-		{"slug": "dup", "nome": "First", "immagine": "a.png", "categoria": "dungeon", "tag": []},
-		{"slug": "dup", "nome": "Second", "immagine": "b.png", "categoria": "dungeon", "tag": []}
+		{"slug": "dup", "nome": "First", "immagine": "a.png", "tag": []},
+		{"slug": "dup", "nome": "Second", "immagine": "b.png", "tag": []}
 	]`
 	fs := fstest.MapFS{
 		"mappe.json": &fstest.MapFile{Data: []byte(json)},
@@ -307,20 +304,5 @@ func TestNewMappaRepository_SkipsDuplicateSlug(t *testing.T) {
 	}
 	if all[0].Nome != "First" {
 		t.Errorf("expected First (keep first), got %s", all[0].Nome)
-	}
-}
-
-func TestNewMappaRepository_DefaultsCategoria(t *testing.T) {
-	json := `[{"slug": "test", "nome": "Test", "immagine": "t.png", "tag": []}]`
-	fs := fstest.MapFS{
-		"mappe.json": &fstest.MapFile{Data: []byte(json)},
-	}
-	repo := NewMappaRepository(fs, "mappe.json")
-	m, ok := repo.FindBySlug("test")
-	if !ok {
-		t.Fatal("expected to find map")
-	}
-	if m.Categoria != "senza_categoria" {
-		t.Errorf("expected default categoria 'senza_categoria', got %q", m.Categoria)
 	}
 }
