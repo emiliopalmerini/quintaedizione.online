@@ -4,3 +4,5 @@ docs/
 *.md
 .env
 .env.*
+# Exclude full-size map originals (670 MB) — detail page links to Dyson Logos' hosted image
+web/static/img/mappe/*.webp

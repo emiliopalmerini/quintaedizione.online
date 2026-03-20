@@ -12,16 +12,17 @@ import (
 )
 
 type jsonMappa struct {
-	Slug          string   `json:"slug"`
-	Nome          string   `json:"nome"`
-	NomeOriginale string   `json:"nome_originale"`
-	Immagine      string   `json:"immagine"`
-	Categoria     string   `json:"categoria"`
-	Tag           []string `json:"tag"`
-	Descrizione   string   `json:"descrizione"`
-	Autore        string   `json:"autore"`
-	Licenza       string   `json:"licenza"`
-	URLOriginale  string   `json:"url_originale"`
+	Slug                 string   `json:"slug"`
+	Nome                 string   `json:"nome"`
+	NomeOriginale        string   `json:"nome_originale"`
+	Immagine             string   `json:"immagine"`
+	Categoria            string   `json:"categoria"`
+	Tag                  []string `json:"tag"`
+	Descrizione          string   `json:"descrizione"`
+	Autore               string   `json:"autore"`
+	Licenza              string   `json:"licenza"`
+	URLOriginale         string   `json:"url_originale"`
+	URLImmagineOriginale string   `json:"url_immagine_originale"`
 }
 
 // MappaRepository provides in-memory access to map data.
@@ -63,16 +64,17 @@ func NewMappaRepository(dataFS fs.FS, filename string) *MappaRepository {
 		}
 
 		mappa := domain.Mappa{
-			Slug:          m.Slug,
-			Nome:          m.Nome,
-			NomeOriginale: m.NomeOriginale,
-			Immagine:      m.Immagine,
-			Categoria:     m.Categoria,
-			Tag:           m.Tag,
-			Descrizione:   m.Descrizione,
-			Autore:        m.Autore,
-			Licenza:       m.Licenza,
-			URLOriginale:  m.URLOriginale,
+			Slug:                 m.Slug,
+			Nome:                 m.Nome,
+			NomeOriginale:        m.NomeOriginale,
+			Immagine:             m.Immagine,
+			Categoria:            m.Categoria,
+			Tag:                  m.Tag,
+			Descrizione:          m.Descrizione,
+			Autore:               m.Autore,
+			Licenza:              m.Licenza,
+			URLOriginale:         m.URLOriginale,
+			URLImmagineOriginale: m.URLImmagineOriginale,
 		}
 
 		bySlug[m.Slug] = len(mappe)
