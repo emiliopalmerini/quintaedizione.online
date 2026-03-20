@@ -1,0 +1,29 @@
+{
+  "id": "stanze",
+  "name": "Stanze",
+  "description": "Determina lo scopo di una stanza in un dungeon, fortino o luogo simile. Adatta la stanza al tema dell'avventura.",
+  "die": "1d20",
+  "order": 11,
+  "items": [
+    "Armeria",
+    "Prigione",
+    "Sala del trono",
+    "Cripta",
+    "Tesoro",
+    "Caserma",
+    "Tana di un mostro",
+    "Magazzino",
+    "Fossa comune",
+    "Museo",
+    "Camera di tortura",
+    "Camera da letto",
+    "Galleria",
+    "Sala da pranzo",
+    "Biblioteca",
+    "Dispensa",
+    "Laboratorio",
+    "Fogna",
+    "Ossario",
+    "Camera di divinazione"
+  ]
+}
