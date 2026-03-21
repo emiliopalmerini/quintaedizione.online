@@ -25,14 +25,20 @@
   padding: var(--space-5);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  background: var(--color-surface);
+  background: var(--color-bg);
   text-decoration: none;
   color: var(--color-text);
-  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base), transform var(--transition-base), border-color var(--transition-base);
 }
 .generator-card:hover {
-  border-color: var(--color-accent);
   box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--color-border-strong);
+}
+.generator-card:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
 }
 
 .generator-card-title {
@@ -48,11 +54,17 @@
 }
 
 .generator-card-die {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
   font-size: var(--text-xs);
-  color: var(--color-text-tertiary);
-  font-weight: var(--weight-bold);
+  color: var(--color-text-secondary);
+  font-weight: var(--weight-semibold);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  background: var(--color-bg-secondary);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
 }
 
 /* ========================================================================
@@ -76,15 +88,23 @@
   text-decoration: underline;
 }
 .generator-source a:hover {
-  color: var(--color-accent);
+  color: var(--color-text);
 }
+
+/* ========================================================================
+   ROLLER PANEL
+   ======================================================================== */
 
 .generator-roller {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-5);
-  padding: var(--space-8) 0;
+  padding: var(--space-6);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 /* ========================================================================
@@ -107,16 +127,17 @@
 
 .roll-result-value {
   text-align: center;
-  animation: roll-appear 0.3s ease-out;
+  width: 100%;
+  animation: slideInUp 0.3s ease-out;
 }
 .roll-result-value p {
   font-size: var(--text-xl);
   font-weight: var(--weight-bold);
   margin: 0;
   padding: var(--space-4) var(--space-6);
-  border: 2px solid var(--color-accent);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  background: var(--color-surface);
 }
 
 /* Multi-column roll entries */
@@ -129,10 +150,10 @@
 }
 .roll-entry-label {
   font-size: var(--text-xs);
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-semibold);
   text-align: right;
   white-space: nowrap;
 }
@@ -143,26 +164,29 @@
 
 .roll-result-value:has(.roll-entries) {
   width: 100%;
-  border: 2px solid var(--color-accent);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  background: var(--color-surface);
   padding: var(--space-4) var(--space-5);
 }
 
 .roll-entry-link {
-  color: var(--color-accent);
+  color: var(--color-link, var(--primary));
   text-decoration: none;
 }
 .roll-entry-link:hover {
   text-decoration: underline;
 }
 
+/* SRD Content Preview */
 .roll-result-preview-wrapper {
   margin-top: var(--space-4);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  background: var(--color-surface);
+  background: var(--color-bg);
+  box-shadow: var(--shadow-sm);
   text-align: left;
+  animation: slideInUp 0.3s ease-out;
 }
 .roll-result-preview-wrapper:has(.roll-result-preview:empty) {
   display: none;
@@ -180,9 +204,9 @@
   margin: 0 var(--space-4) var(--space-4);
 }
 
-@keyframes roll-appear {
-  from { opacity: 0; transform: translateY(-8px) scale(0.95); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ========================================================================
@@ -190,46 +214,64 @@
    ======================================================================== */
 
 .generator-table-details {
-  margin-top: var(--space-8);
+  margin-top: var(--space-6);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-4);
+  background: var(--color-bg);
+  box-shadow: var(--shadow-sm);
 }
 .generator-table-details summary {
   cursor: pointer;
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-medium);
   color: var(--color-text-secondary);
   font-size: var(--text-sm);
+  padding: var(--space-4);
+  transition: color var(--transition-fast);
+}
+.generator-table-details summary:hover {
+  color: var(--color-text);
+}
+.generator-table-details[open] summary {
+  border-bottom: 1px solid var(--color-border);
 }
 
 .generator-table-list {
-  margin-top: var(--space-3);
-  padding-left: var(--space-6);
+  margin: 0;
+  padding: var(--space-3) var(--space-4) var(--space-3) var(--space-8);
 }
 .generator-table-list li {
-  padding: var(--space-1) 0;
-  border-bottom: 1px solid var(--color-border-light, var(--color-border));
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--text-sm);
 }
 .generator-table-list li:last-child { border-bottom: none; }
 
 .generator-full-table {
   width: 100%;
-  margin-top: var(--space-3);
   border-collapse: collapse;
   font-size: var(--text-sm);
 }
 .generator-full-table th {
   text-align: left;
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-2) var(--space-4);
   border-bottom: 2px solid var(--color-border);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-secondary);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 .generator-full-table td {
-  padding: var(--space-2) var(--space-3);
-  border-bottom: 1px solid var(--color-border-light, var(--color-border));
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
 }
 .generator-full-table tr:last-child td { border-bottom: none; }
+.generator-full-table tbody tr {
+  transition: background var(--transition-fast);
+}
+.generator-full-table tbody tr:hover {
+  background: var(--color-hover);
+}
 
 /* ========================================================================
    PREV / NEXT NAVIGATION
@@ -253,11 +295,18 @@
   padding: var(--space-3) var(--space-4);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  background: var(--color-bg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base), transform var(--transition-base), border-color var(--transition-base);
   max-width: 50%;
 }
 .generator-nav-link:hover {
-  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+  border-color: var(--color-border-strong);
+}
+.generator-nav-link:active {
+  transform: translateY(0);
   box-shadow: var(--shadow-sm);
 }
 
@@ -265,34 +314,13 @@
 
 .generator-nav-direction {
   font-size: var(--text-xs);
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-semibold);
 }
 
 .generator-nav-title {
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-medium);
   font-size: var(--text-sm);
-}
-
-/* ========================================================================
-   BREADCRUMB
-   ======================================================================== */
-
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-size: var(--text-sm);
-  color: var(--color-text-tertiary);
-  margin-bottom: var(--space-4);
-}
-.breadcrumb a {
-  color: var(--color-text-secondary);
-  text-decoration: none;
-}
-.breadcrumb a:hover {
-  color: var(--color-accent);
-  text-decoration: underline;
 }

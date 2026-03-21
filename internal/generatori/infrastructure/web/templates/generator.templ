@@ -12,8 +12,8 @@ templ Generator(table domain.Table, prev *domain.Table, next *domain.Table) {
 		<div class="generator-page">
 			<nav class="breadcrumb" aria-label="Breadcrumb">
 				<a href="/generatori">Generatori</a>
-				<span aria-hidden="true">/</span>
-				<span>{ table.Name }</span>
+				<span class="breadcrumb-separator" aria-hidden="true">/</span>
+				<span class="breadcrumb-current">{ table.Name }</span>
 			</nav>
 
 			<h1>{ table.Name }</h1>

@@ -48,14 +48,14 @@ func Generator(table domain.Table, prev *domain.Table, next *domain.Table) templ
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"generator-page\"><nav class=\"breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"/generatori\">Generatori</a> <span aria-hidden=\"true\">/</span> <span>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"generator-page\"><nav class=\"breadcrumb\" aria-label=\"Breadcrumb\"><a href=\"/generatori\">Generatori</a> <span class=\"breadcrumb-separator\" aria-hidden=\"true\">/</span> <span class=\"breadcrumb-current\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(table.Name)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/generatori/infrastructure/web/templates/generator.templ`, Line: 16, Col: 22}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/generatori/infrastructure/web/templates/generator.templ`, Line: 16, Col: 49}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
