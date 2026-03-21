@@ -1,5 +1,7 @@
 github.com/a-h/templ v0.3.1001 h1:yHDTgexACdJttyiyamcTHXr2QkIeVF1MukLy44EAhMY=
 github.com/a-h/templ v0.3.1001/go.mod h1:oCZcnKRf5jjsGpf2yELzQfodLphd2mwecwG4Crk5HBo=
+github.com/emiliopalmerini/quintaedizione-data-ita v0.0.0-20260321151436-4d75da248382 h1:8yIDGcjBwzmwVlMgi7bhC+MDQ+HCEMll07trn9+mYmk=
+github.com/emiliopalmerini/quintaedizione-data-ita v0.0.0-20260321151436-4d75da248382/go.mod h1:yAf2syrnn86z5DZ1sRKEBSw9hoL7vMv26cuoMej7E74=
 github.com/gomarkdown/markdown v0.0.0-20250810172220-2e2c11897d1a h1:l7A0loSszR5zHd/qK53ZIHMO8b3bBSmENnQ6eKnUT0A=
 github.com/gomarkdown/markdown v0.0.0-20250810172220-2e2c11897d1a/go.mod h1:JDGcbDT52eL4fju3sZ4TeHGsQwhG9nbDV21aMyhwPoA=
 github.com/google/go-cmp v0.7.0 h1:wk8382ETsv4JYUZwIsn6YpYiWiBsYLSJiTsyBybVuN8=

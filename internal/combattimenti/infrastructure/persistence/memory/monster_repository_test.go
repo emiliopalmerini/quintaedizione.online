@@ -3,7 +3,7 @@ package memory
 import (
 	"testing"
 
-	jsondata "github.com/emiliopalmerini/quintaedizione.online/data/ita/json"
+	jsondata "github.com/emiliopalmerini/quintaedizione-data-ita/data/srd"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/domain/monster"
 )
 
