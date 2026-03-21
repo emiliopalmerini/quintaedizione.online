@@ -18,10 +18,22 @@
     {
       "name": "Pozione",
       "items": [
-        { "text": "Guarigione", "link": "/srd/oggetti_magici/pozione-di-guarigione" },
-        { "text": "Guarigione superiore", "link": "/srd/oggetti_magici/pozione-di-guarigione" },
-        { "text": "Guarigione eccellente", "link": "/srd/oggetti_magici/pozione-di-guarigione" },
-        { "text": "Guarigione suprema", "link": "/srd/oggetti_magici/pozione-di-guarigione" }
+        {
+          "text": "Guarigione",
+          "link": "/srd/oggetti_magici/5e/pozione-di-guarigione"
+        },
+        {
+          "text": "Guarigione superiore",
+          "link": "/srd/oggetti_magici/5e/pozione-di-guarigione"
+        },
+        {
+          "text": "Guarigione eccellente",
+          "link": "/srd/oggetti_magici/5e/pozione-di-guarigione"
+        },
+        {
+          "text": "Guarigione suprema",
+          "link": "/srd/oggetti_magici/5e/pozione-di-guarigione"
+        }
       ]
     },
     {

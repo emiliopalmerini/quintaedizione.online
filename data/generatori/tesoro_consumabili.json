@@ -7,51 +7,51 @@
   "items": [
     {
       "text": "Pozione di guarigione",
-      "link": "/srd/oggetti_magici/pozione-di-guarigione"
+      "link": "/srd/oggetti_magici/5e/pozione-di-guarigione"
     },
     {
       "text": "Pozione di guarigione superiore",
-      "link": "/srd/oggetti_magici/pozione-di-guarigione"
+      "link": "/srd/oggetti_magici/5e/pozione-di-guarigione"
     },
     {
       "text": "Olio della scivolosità",
-      "link": "/srd/oggetti_magici/olio-della-scivolosita"
+      "link": "/srd/oggetti_magici/5e/olio-della-scivolosita"
     },
     {
       "text": "Pozione di amicizia con gli animali",
-      "link": "/srd/oggetti_magici/pozione-di-amicizia-con-gli-animali"
+      "link": "/srd/oggetti_magici/5e/pozione-di-amicizia-con-gli-animali"
     },
     {
       "text": "Pozione di scalare",
-      "link": "/srd/oggetti_magici/pozione-di-scalare"
+      "link": "/srd/oggetti_magici/5e/pozione-di-scalare"
     },
     {
       "text": "Pozione di crescita",
-      "link": "/srd/oggetti_magici/pozione-di-crescita"
+      "link": "/srd/oggetti_magici/5e/pozione-di-crescita"
     },
     {
       "text": "Pozione di lettura della mente",
-      "link": "/srd/oggetti_magici/pozione-di-lettura-della-mente"
+      "link": "/srd/oggetti_magici/5e/pozione-di-lettura-della-mente"
     },
     {
       "text": "Pozione velenosa",
-      "link": "/srd/oggetti_magici/pozione-velenosa"
+      "link": "/srd/oggetti_magici/5e/pozione-velenosa"
     },
     {
       "text": "Pozione di resistenza",
-      "link": "/srd/oggetti_magici/pozione-di-resistenza"
+      "link": "/srd/oggetti_magici/5e/pozione-di-resistenza"
     },
     {
       "text": "Pozione del respirare sott'acqua",
-      "link": "/srd/oggetti_magici/pozione-del-respirare-sottacqua"
+      "link": "/srd/oggetti_magici/5e/pozione-del-respirare-sottacqua"
     },
     {
       "text": "Polvere dell'invisibilità",
-      "link": "/srd/oggetti_magici/polvere-dellinvisibilita"
+      "link": "/srd/oggetti_magici/5e/polvere-dellinvisibilita"
     },
     {
       "text": "Polvere prosciugante",
-      "link": "/srd/oggetti_magici/polvere-prosciugante"
+      "link": "/srd/oggetti_magici/5e/polvere-prosciugante"
     }
   ],
   "group": "treasure-generator",
