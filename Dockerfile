@@ -26,7 +26,7 @@ RUN templ generate
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app ./cmd/app
 
 # Ensure required directories exist
-RUN mkdir -p configs data
+RUN mkdir -p configs
 
 # Final stage
 FROM alpine:latest
@@ -42,9 +42,8 @@ COPY --from=builder /app/app .
 # Copy web assets
 COPY --from=builder /app/web ./web
 
-# Copy configs and data directories (created as empty if they don't exist)
+# Copy configs directory
 COPY --from=builder /app/configs ./configs
-COPY --from=builder /app/data ./data
 
 # Expose port
 EXPOSE 8000

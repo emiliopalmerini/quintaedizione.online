@@ -11,9 +11,9 @@ import (
 	"syscall"
 	"time"
 
-	generatoriData "github.com/emiliopalmerini/quintaedizione.online/data/generatori"
-	jsondata "github.com/emiliopalmerini/quintaedizione.online/data/ita/json"
-	mappeData "github.com/emiliopalmerini/quintaedizione.online/data/mappe"
+	generatoriData "github.com/emiliopalmerini/quintaedizione-data-ita/data/generatori"
+	mappeData "github.com/emiliopalmerini/quintaedizione-data-ita/data/mappe"
+	jsondata "github.com/emiliopalmerini/quintaedizione-data-ita/data/srd"
 	combatEncounter "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/application/encounter"
 	combatMonster "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/application/monster"
 	combatMemory "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/infrastructure/persistence/memory"
