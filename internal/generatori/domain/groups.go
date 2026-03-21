@@ -87,6 +87,20 @@ var GroupRegistry = []GroupInfo{
 			"gli abitanti, com'è il tempo e quale evento mondano o fantastico potrebbe aver luogo.",
 		Order: 7,
 	},
+	{
+		ID:    "dungeon-monsters",
+		Label: "Mostri Casuali del Dungeon",
+		Description: "Le seguenti tabelle ti permettono di selezionare casualmente mostri in base al \"livello " +
+			"del dungeon\". Sebbene queste tabelle siano pensate per l'esplorazione classica dei dungeon, puoi " +
+			"usarle per generare mostri incontrati casualmente in qualsiasi ambientazione — una rovina, una " +
+			"vecchia chiesa, caverne, catacombe, la torre di un vecchio mago o qualche altra tana dimenticata.\n\n" +
+			"Per usare queste tabelle, decidi prima su quale livello del dungeon si trovano i personaggi. " +
+			"Poi tira un d20 e consulta la tabella del livello per determinare quale lista di mostri usare. " +
+			"Vai quindi alla lista indicata e tira un altro d20 per determinare quale mostro potrebbe comparire. " +
+			"Invece di usare i livelli del dungeon, puoi semplicemente scegliere la lista di mostri più " +
+			"adatta alle circostanze.",
+		Order: 8,
+	},
 }
 
 // GetGroupInfo returns the metadata for a given group ID.

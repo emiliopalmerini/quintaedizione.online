@@ -1,0 +1,24 @@
+{
+  "id": "mostri-lista-10",
+  "name": "Lista Mostri 10 (GS 16—24)",
+  "description": "Mostri di grado sfida 16 — 24.",
+  "die": "1d10",
+  "order": 100,
+  "items": [
+    { "text": "Golem di ferro", "link": "/srd/mostri/golem-di-ferro" },
+    { "text": "Marilith", "link": "/srd/mostri/marilith" },
+    { "text": "Drago rosso adulto", "link": "/srd/mostri/drago-rosso-adulto" },
+    { "text": "Balor", "link": "/srd/mostri/balor" },
+    { "text": "Drago bianco antico", "link": "/srd/mostri/drago-bianco-antico" },
+    { "text": "Diavolo della fossa", "link": "/srd/mostri/diavolo-della-fossa" },
+    { "text": "Drago nero antico", "link": "/srd/mostri/drago-nero-antico" },
+    { "text": "Lich", "link": "/srd/mostri/lich" },
+    { "text": "Drago blu antico", "link": "/srd/mostri/drago-blu-antico" },
+    { "text": "Drago rosso antico", "link": "/srd/mostri/drago-rosso-antico" }
+  ],
+  "group": "dungeon-monsters",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/lazy_gm_resource_document.html#randomdungeonmonsters"
+  }
+}
