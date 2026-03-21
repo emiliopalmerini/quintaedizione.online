@@ -1,0 +1,34 @@
+{
+  "id": "citta-sentimento",
+  "name": "Sentimento della Città",
+  "description": "Come si sentono gli abitanti della città quando i personaggi arrivano.",
+  "die": "1d20",
+  "order": 80,
+  "items": [
+    "Felici",
+    "Euforici",
+    "Indifferenti",
+    "Gioiosi",
+    "Ottimisti",
+    "Pessimisti",
+    "Abbattuti",
+    "Spaventati",
+    "Terrorizzati",
+    "Preoccupati",
+    "Spensierati",
+    "Agitati",
+    "Privati del sonno",
+    "Storditi",
+    "Iperattivi",
+    "Determinati",
+    "Pigri",
+    "Malinconici",
+    "Indaffarati",
+    "Sospettosi"
+  ],
+  "group": "town-events",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/random_generators.html"
+  }
+}

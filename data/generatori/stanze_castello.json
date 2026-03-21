@@ -1,0 +1,34 @@
+{
+  "id": "stanze-castello",
+  "name": "Castello",
+  "description": "Stanze per un castello.",
+  "die": "1d20",
+  "order": 51,
+  "items": [
+    "Sala da pranzo",
+    "Sala del trono",
+    "Cucine",
+    "Armeria",
+    "Camere reali",
+    "Caserma delle guardie",
+    "Caserma dei cavalieri",
+    "Tesoro",
+    "Fucina",
+    "Cortile di addestramento",
+    "Sala di strategia",
+    "Sala dei trofei",
+    "Santuario religioso",
+    "Celle di prigione",
+    "Sala degli arazzi",
+    "Galleria degli artefatti",
+    "Serraglio",
+    "Camera dell'erborista",
+    "Camera di tortura",
+    "Oubliette"
+  ],
+  "group": "random-chambers",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/random_generators.html"
+  }
+}

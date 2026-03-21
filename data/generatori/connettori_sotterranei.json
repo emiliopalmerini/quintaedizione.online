@@ -1,0 +1,34 @@
+{
+  "id": "connettori-sotterranei",
+  "name": "Connettori Sotterranei",
+  "description": "Questa lista contiene collegamenti tra luoghi in un grande reame sotterraneo. Tira una o due volte per costruire connessioni tra i luoghi del sottosuolo.",
+  "die": "1d20",
+  "order": 65,
+  "items": [
+    "Fogne abbandonate da tempo",
+    "Antiche camere funerarie",
+    "Fiume sotterraneo",
+    "Tunnel scavati da antichi lavoratori",
+    "Enormi passaggi scavati da vermi",
+    "Sentiero stretto lungo una fessura profonda",
+    "Tunnel illuminati da funghi fosforescenti",
+    "Pozzo a spirale",
+    "Tunnel minerari abbandonati",
+    "Tunnel primordiali adornati con migliaia di impronte di mani",
+    "Tunnel lisci scavati con la magia",
+    "Tunnel naturale cosparso di ragnatele",
+    "Passaggio subacqueo",
+    "Tunnel naturale coperto di muschio",
+    "Voragine in crollo che porta a una rete di tunnel",
+    "Tunnel di ghiaccio",
+    "Colata di lava raffreddata",
+    "Enorme ponte su un abisso profondo",
+    "Passaggio ultraterreno",
+    "Enormi piattaforme su un pozzo senza fondo"
+  ],
+  "group": "random-chambers",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/random_generators.html"
+  }
+}

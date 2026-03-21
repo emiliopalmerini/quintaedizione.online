@@ -3,11 +3,11 @@ package handlers
 import (
 	"log/slog"
 	"net/http"
-	"strconv"
 
 	monsterApp "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/application/monster"
 	monsterDomain "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/domain/monster"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/infrastructure/web/templates"
+	pkgweb "github.com/emiliopalmerini/quintaedizione.online/pkg/web"
 )
 
 // MonsterHandler handles HTTP requests for monster browsing.
@@ -27,18 +27,7 @@ func NewMonsterHandler(service *monsterApp.Service, logger *slog.Logger) *Monste
 // SearchHandler handles monster search requests via HTMX.
 // GET /api/monsters?max_xp=N&q=search&type=T&size=S&cr_min=X&cr_max=Y
 func (h *MonsterHandler) SearchHandler(w http.ResponseWriter, r *http.Request) {
-	requestID := r.Header.Get("X-Request-Id")
-
-	maxXP := 1_000_000
-	if v := r.URL.Query().Get("max_xp"); v != "" {
-		parsed, err := strconv.Atoi(v)
-		if err != nil {
-			h.logger.Error("Invalid max_xp", "request_id", requestID, "error", err)
-			http.Error(w, "Invalid max_xp parameter", http.StatusBadRequest)
-			return
-		}
-		maxXP = parsed
-	}
+	maxXP := pkgweb.ParseIntParam(r, "max_xp", 1_000_000)
 
 	filters := monsterDomain.SearchFilters{
 		Query: r.URL.Query().Get("q"),
@@ -51,9 +40,5 @@ func (h *MonsterHandler) SearchHandler(w http.ResponseWriter, r *http.Request) {
 
 	monsters := h.service.SearchMonstersWithFilters(filters)
 
-	w.Header().Set("Content-Type", "text/html")
-	if err := templates.MonsterList(monsters, maxXP).Render(r.Context(), w); err != nil {
-		h.logger.Error("Failed to render monster list", "request_id", requestID, "error", err)
-		http.Error(w, "Internal server error", http.StatusInternalServerError)
-	}
+	pkgweb.RenderTempl(w, r, h.logger, templates.MonsterList(monsters, maxXP))
 }

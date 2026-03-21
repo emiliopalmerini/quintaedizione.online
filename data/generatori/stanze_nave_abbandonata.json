@@ -1,0 +1,34 @@
+{
+  "id": "stanze-nave-abbandonata",
+  "name": "Nave Abbandonata",
+  "description": "Stanze per una nave abbandonata.",
+  "die": "1d20",
+  "order": 53,
+  "items": [
+    "Alloggi dell'equipaggio",
+    "Cabina del capitano",
+    "Alloggi degli ufficiali",
+    "Timone",
+    "Stiva di carico",
+    "Mensa ufficiali",
+    "Mensa dell'equipaggio",
+    "Armeria",
+    "Dispensa",
+    "Cabina per gli ospiti",
+    "Stanza del navigatore",
+    "Cambusa",
+    "Santuario",
+    "Infermeria",
+    "Celle di detenzione",
+    "Sala di osservazione",
+    "Sentina",
+    "Latrina",
+    "Stiva del capitano",
+    "Stiva del tesoro"
+  ],
+  "group": "random-chambers",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/random_generators.html"
+  }
+}

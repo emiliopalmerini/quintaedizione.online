@@ -1,0 +1,34 @@
+{
+  "id": "stanze-maniero",
+  "name": "Maniero",
+  "description": "Stanze per un maniero nobiliare.",
+  "die": "1d20",
+  "order": 56,
+  "items": [
+    "Atrio principale",
+    "Camera da letto padronale",
+    "Camere degli ospiti",
+    "Cucina",
+    "Sala da pranzo",
+    "Studio",
+    "Biblioteca",
+    "Alloggi della servitù",
+    "Tesoro",
+    "Dispensa",
+    "Sala da bagno",
+    "Alloggi delle guardie",
+    "Sala da pranzo della servitù",
+    "Serra",
+    "Guardaroba padronale",
+    "Galleria d'arte",
+    "Serraglio",
+    "Biblioteca nascosta",
+    "Altare di famiglia",
+    "Stanza sicura nascosta"
+  ],
+  "group": "random-chambers",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/random_generators.html"
+  }
+}

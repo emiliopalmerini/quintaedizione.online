@@ -1,0 +1,39 @@
+{
+  "id": "trappola-cd-tpc",
+  "name": "CD dei Tiri Salvezza e Bonus di Attacco",
+  "description": "Usa questa tabella come riferimento per determinare le CD dei tiri salvezza e i bonus di attacco delle trappole.",
+  "die": "",
+  "order": 44,
+  "static": true,
+  "columns": [
+    {
+      "name": "Pericolo",
+      "items": [
+        "Contrattempo",
+        "Pericolosa",
+        "Letale"
+      ]
+    },
+    {
+      "name": "CD Tiro Salvezza",
+      "items": [
+        "10 - 11",
+        "12 - 15",
+        "16 - 20"
+      ]
+    },
+    {
+      "name": "Bonus di Attacco",
+      "items": [
+        "+3 / +5",
+        "+6 / +8",
+        "+9 / +12"
+      ]
+    }
+  ],
+  "group": "random-traps",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/random_generators.html"
+  }
+}

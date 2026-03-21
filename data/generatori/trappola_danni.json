@@ -1,0 +1,51 @@
+{
+  "id": "trappola-danni",
+  "name": "Gravità dei Danni per Livello",
+  "description": "Usa questa tabella come riferimento per determinare i danni delle trappole in base al livello dei personaggi e alla gravità della trappola.",
+  "die": "",
+  "order": 43,
+  "static": true,
+  "columns": [
+    {
+      "name": "Livello",
+      "items": [
+        "1° - 4°",
+        "5° - 10°",
+        "11° - 16°",
+        "17° - 20°"
+      ]
+    },
+    {
+      "name": "Contrattempo",
+      "items": [
+        "5 (1d10)",
+        "11 (2d10)",
+        "22 (4d10)",
+        "55 (10d10)"
+      ]
+    },
+    {
+      "name": "Pericolosa",
+      "items": [
+        "11 (2d10)",
+        "22 (4d10)",
+        "55 (10d10)",
+        "99 (18d10)"
+      ]
+    },
+    {
+      "name": "Letale",
+      "items": [
+        "22 (4d10)",
+        "55 (10d10)",
+        "99 (18d10)",
+        "132 (24d10)"
+      ]
+    }
+  ],
+  "group": "random-traps",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/random_generators.html"
+  }
+}

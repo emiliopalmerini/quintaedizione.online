@@ -13,7 +13,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/maps"
+	maps "github.com/emiliopalmerini/quintaedizione.online/internal/mappe/domain"
 	siteTemplates "github.com/emiliopalmerini/quintaedizione.online/web/templates"
 )
 

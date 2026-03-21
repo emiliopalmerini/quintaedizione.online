@@ -1,0 +1,214 @@
+{
+  "id": "oggetto-effetto-magico",
+  "name": "Effetto Magico",
+  "description": "Genera un effetto magico casuale per la tua reliquia o oggetto magico.",
+  "die": "1d50",
+  "order": 75,
+  "items": [
+    {
+      "text": "Freccia acida",
+      "link": "/srd/incantesimi/freccia-acida"
+    },
+    {
+      "text": "Fiotto acido",
+      "link": "/srd/incantesimi/fiotto-acido"
+    },
+    {
+      "text": "Anatema",
+      "link": "/srd/incantesimi/anatema"
+    },
+    {
+      "text": "Esilio",
+      "link": "/srd/incantesimi/esilio"
+    },
+    {
+      "text": "Scagliare maledizione",
+      "link": "/srd/incantesimi/scagliare-maledizione"
+    },
+    {
+      "text": "Tentacoli neri",
+      "link": "/srd/incantesimi/tentacoli-neri"
+    },
+    {
+      "text": "Benedizione",
+      "link": "/srd/incantesimi/benedizione"
+    },
+    {
+      "text": "Inaridire",
+      "link": "/srd/incantesimi/inaridire"
+    },
+    {
+      "text": "Cecità/Sordità",
+      "link": "/srd/incantesimi/cecitasordita"
+    },
+    {
+      "text": "Mani brucianti",
+      "link": "/srd/incantesimi/mani-brucianti"
+    },
+    {
+      "text": "Charme su persone",
+      "link": "/srd/incantesimi/charme-su-persone"
+    },
+    {
+      "text": "Nube mortale",
+      "link": "/srd/incantesimi/nube-mortale"
+    },
+    {
+      "text": "Spruzzo colorato",
+      "link": "/srd/incantesimi/spruzzo-colorato"
+    },
+    {
+      "text": "Comprensione dei linguaggi",
+      "link": "/srd/incantesimi/comprensione-dei-linguaggi"
+    },
+    {
+      "text": "Cono di freddo",
+      "link": "/srd/incantesimi/cono-di-freddo"
+    },
+    {
+      "text": "Cura ferite",
+      "link": "/srd/incantesimi/cura-ferite"
+    },
+    {
+      "text": "Individuazione del bene e del male",
+      "link": "/srd/incantesimi/individuazione-del-bene-e-del-male"
+    },
+    {
+      "text": "Individuazione del magico",
+      "link": "/srd/incantesimi/individuazione-del-magico"
+    },
+    {
+      "text": "Disintegrazione",
+      "link": "/srd/incantesimi/disintegrazione"
+    },
+    {
+      "text": "Dissolvi magie",
+      "link": "/srd/incantesimi/dissolvi-magie"
+    },
+    {
+      "text": "Paura",
+      "link": "/srd/incantesimi/paura"
+    },
+    {
+      "text": "Scudo di fuoco",
+      "link": "/srd/incantesimi/scudo-di-fuoco"
+    },
+    {
+      "text": "Dardo di fuoco",
+      "link": "/srd/incantesimi/dardo-di-fuoco"
+    },
+    {
+      "text": "Colpo infuocato",
+      "link": "/srd/incantesimi/colpo-infuocato"
+    },
+    {
+      "text": "Volare",
+      "link": "/srd/incantesimi/volare"
+    },
+    {
+      "text": "Nube di nebbia",
+      "link": "/srd/incantesimi/nube-di-nebbia"
+    },
+    {
+      "text": "Forma gassosa",
+      "link": "/srd/incantesimi/forma-gassosa"
+    },
+    {
+      "text": "Dardo tracciante",
+      "link": "/srd/incantesimi/dardo-tracciante"
+    },
+    {
+      "text": "Velocità",
+      "link": "/srd/incantesimi/velocita"
+    },
+    {
+      "text": "Tempesta di ghiaccio",
+      "link": "/srd/incantesimi/tempesta-di-ghiaccio"
+    },
+    {
+      "text": "Infliggi ferite",
+      "link": "/srd/incantesimi/infliggi-ferite"
+    },
+    {
+      "text": "Piaga degli insetti",
+      "link": "/srd/incantesimi/piaga-degli-insetti"
+    },
+    {
+      "text": "Invisibilità",
+      "link": "/srd/incantesimi/invisibilita"
+    },
+    {
+      "text": "Saltare",
+      "link": "/srd/incantesimi/saltare"
+    },
+    {
+      "text": "Luce",
+      "link": "/srd/incantesimi/luce"
+    },
+    {
+      "text": "Fulmine",
+      "link": "/srd/incantesimi/fulmine"
+    },
+    {
+      "text": "Passo veloce",
+      "link": "/srd/incantesimi/passo-veloce"
+    },
+    {
+      "text": "Raggio di affaticamento",
+      "link": "/srd/incantesimi/raggio-di-affaticamento"
+    },
+    {
+      "text": "Raggio rovente",
+      "link": "/srd/incantesimi/raggio-rovente"
+    },
+    {
+      "text": "Frantumare",
+      "link": "/srd/incantesimi/frantumare"
+    },
+    {
+      "text": "Scudo della fede",
+      "link": "/srd/incantesimi/scudo-della-fede"
+    },
+    {
+      "text": "Stretta folgorante",
+      "link": "/srd/incantesimi/stretta-folgorante"
+    },
+    {
+      "text": "Silenzio",
+      "link": "/srd/incantesimi/silenzio"
+    },
+    {
+      "text": "Sonno",
+      "link": "/srd/incantesimi/sonno"
+    },
+    {
+      "text": "Lentezza",
+      "link": "/srd/incantesimi/lentezza"
+    },
+    {
+      "text": "Nube maleodorante",
+      "link": "/srd/incantesimi/nube-maleodorante"
+    },
+    {
+      "text": "Pelle di pietra",
+      "link": "/srd/incantesimi/pelle-di-pietra"
+    },
+    {
+      "text": "Onda tonante",
+      "link": "/srd/incantesimi/onda-tonante"
+    },
+    {
+      "text": "Colpo accurato",
+      "link": "/srd/incantesimi/colpo-accurato"
+    },
+    {
+      "text": "Ragnatela",
+      "link": "/srd/incantesimi/ragnatela"
+    }
+  ],
+  "group": "random-items",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/random_generators.html"
+  }
+}

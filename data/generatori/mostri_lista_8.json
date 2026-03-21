@@ -1,0 +1,91 @@
+{
+  "id": "mostri-lista-8",
+  "name": "Lista Mostri 8 (GS 8—12)",
+  "description": "Mostri di grado sfida 8 — 12.",
+  "die": "1d20",
+  "order": 98,
+  "items": [
+    {
+      "text": "Gigante del gelo",
+      "link": "/srd/mostri/gigante-del-gelo"
+    },
+    {
+      "text": "Hezrou",
+      "link": "/srd/mostri/hezrou"
+    },
+    {
+      "text": "Idra",
+      "link": "/srd/mostri/idra"
+    },
+    {
+      "text": "Naga spirituale",
+      "link": "/srd/mostri/naga-spirituale"
+    },
+    {
+      "text": "Drago verde giovane",
+      "link": "/srd/mostri/drago-verde-giovane"
+    },
+    {
+      "text": "Diavolo d'ossa",
+      "link": "/srd/mostri/diavolo-dossa"
+    },
+    {
+      "text": "Golem di argilla",
+      "link": "/srd/mostri/golem-di-argilla"
+    },
+    {
+      "text": "Gigante delle nuvole",
+      "link": "/srd/mostri/gigante-delle-nuvole"
+    },
+    {
+      "text": "Gigante del fuoco",
+      "link": "/srd/mostri/gigante-del-fuoco"
+    },
+    {
+      "text": "Glabrezu",
+      "link": "/srd/mostri/glabrezu"
+    },
+    {
+      "text": "Drago blu giovane",
+      "link": "/srd/mostri/drago-blu-giovane"
+    },
+    {
+      "text": "Aboleth",
+      "link": "/srd/mostri/aboleth"
+    },
+    {
+      "text": "Naga guardiana",
+      "link": "/srd/mostri/naga-guardiana"
+    },
+    {
+      "text": "Golem di pietra",
+      "link": "/srd/mostri/golem-di-pietra"
+    },
+    {
+      "text": "Drago rosso giovane",
+      "link": "/srd/mostri/drago-rosso-giovane"
+    },
+    {
+      "text": "Behir",
+      "link": "/srd/mostri/behir"
+    },
+    "Efreeti",
+    {
+      "text": "Diavolo cornuto",
+      "link": "/srd/mostri/diavolo-cornuto"
+    },
+    {
+      "text": "Remorhaz",
+      "link": "/srd/mostri/remorhaz"
+    },
+    {
+      "text": "Arcimago",
+      "link": "/srd/mostri/arcimago"
+    }
+  ],
+  "group": "dungeon-monsters",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/random_generators.html"
+  }
+}

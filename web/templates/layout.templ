@@ -38,6 +38,7 @@ templ SiteLayout(title, description, activeNav string, extraHeadHTML templ.Compo
 		<link rel="stylesheet" href="/static/css/pages.css"/>
 		<link rel="stylesheet" href="/static/css/monsters.css"/>
 		<link rel="stylesheet" href="/static/css/mappe.css"/>
+		<link rel="stylesheet" href="/static/css/generatori.css"/>
 		<link rel="stylesheet" href="/static/css/a11y.css"/>
 		<link rel="stylesheet" href="/static/css/utilities.css"/>
 		<link rel="icon" href="/static/favicon.svg" type="image/svg+xml"/>
@@ -56,6 +57,7 @@ templ SiteLayout(title, description, activeNav string, extraHeadHTML templ.Compo
 					<a href="/srd" class={ "site-nav-link", templ.KV("active", activeNav == "srd") }>SRD</a>
 					<a href="/combattimenti" class={ "site-nav-link", templ.KV("active", activeNav == "combattimenti") }>Combattimenti</a>
 					<a href="/mappe" class={ "site-nav-link", templ.KV("active", activeNav == "mappe") }>Mappe</a>
+					<a href="/generatori" class={ "site-nav-link", templ.KV("active", activeNav == "generatori") }>Generatori</a>
 				</nav>
 				<div class="theme-switcher" id="theme-switcher" role="radiogroup" aria-label="Tema">
 					<label class="theme-switcher-option">
@@ -114,6 +116,7 @@ templ siteFooter() {
 				Questo progetto include materiale dall'<a href="https://www.dndbeyond.com/srd" target="_blank" rel="noopener noreferrer">SRD 5.2.1</a> rilasciato sotto licenza <a href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
 				Questo progetto include materiale dal <a href="https://dnd.wizards.com/resources/systems-reference-document" target="_blank" rel="noopener noreferrer">System Reference Document 5.1</a> di Wizards of the Coast LLC, rilasciato sotto licenza <a href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
 				Cartografia di <a href="https://dysonlogos.blog" target="_blank" rel="noopener noreferrer">Dyson Logos</a>.
+				Questo progetto include materiale tratto dal <a href="https://slyflourish.com/lazy_gm_resource_document.html" target="_blank" rel="noopener noreferrer">Lazy GM's Resource Document</a> di Michael E. Shea di <a href="https://slyflourish.com" target="_blank" rel="noopener noreferrer">SlyFlourish.com</a>, disponibile sotto licenza <a href="https://creativecommons.org/licenses/by/4.0/legalcode" target="_blank" rel="noopener noreferrer">Creative Commons Attribution 4.0 International</a>.
 			</p>
 		</div>
 	</footer>

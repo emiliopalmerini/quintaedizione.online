@@ -1,0 +1,49 @@
+package templates
+
+import "github.com/emiliopalmerini/quintaedizione.online/internal/generatori/domain"
+
+templ Result(result domain.RollResult) {
+	<div class="roll-result-value">
+		if len(result.Entries) > 0 && result.Entries[0].Column != "" {
+			<div class="roll-entries">
+				for _, entry := range result.Entries {
+					<span class="roll-entry-label">{ entry.Column }</span>
+					if entry.Link != "" {
+						<a href={ templ.SafeURL(entry.Link) } class="roll-entry-value roll-entry-link">{ entry.Value }</a>
+					} else {
+						<span class="roll-entry-value">{ entry.Value }</span>
+					}
+				}
+			</div>
+			@resultPreview(result.Entries)
+		} else {
+			for _, entry := range result.Entries {
+				if entry.Link != "" {
+					<p><a href={ templ.SafeURL(entry.Link) } class="roll-entry-link">{ entry.Value }</a></p>
+				} else {
+					<p>{ entry.Value }</p>
+				}
+			}
+			@resultPreview(result.Entries)
+		}
+	</div>
+}
+
+templ resultPreview(entries []domain.RollEntry) {
+	for _, entry := range entries {
+		if entry.Link != "" {
+			<div class="roll-result-preview-wrapper" data-md-section>
+				<div
+					class="roll-result-preview"
+					hx-get={ entry.Link }
+					hx-trigger="load"
+					hx-select=".item-content"
+					hx-swap="innerHTML"
+				></div>
+				<button class="btn btn-primary roll-result-copy-btn" onclick="copyMarkdown(this)">
+					Copia
+				</button>
+			</div>
+		}
+	}
+}

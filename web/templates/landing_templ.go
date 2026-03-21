@@ -53,7 +53,7 @@ func LandingPage() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = D20Icon().Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = SwordsIcon().Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -65,7 +65,15 @@ func LandingPage() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div><div class=\"landing-card-body\"><div class=\"landing-card-title\">Mappe</div><div class=\"landing-card-description\">Esplora la galleria di mappe per le tue avventure. Mappe di dungeon, città e terre selvagge pronte da usare al tavolo.</div></div><span class=\"landing-card-action\">Esplora &rarr;</span></a></div></section>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div><div class=\"landing-card-body\"><div class=\"landing-card-title\">Mappe</div><div class=\"landing-card-description\">Esplora la galleria di mappe per le tue avventure. Mappe di dungeon, città e terre selvagge pronte da usare al tavolo.</div></div><span class=\"landing-card-action\">Esplora &rarr;</span></a> <a href=\"/generatori\" class=\"landing-card\"><div class=\"landing-card-icon\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = D20Icon().Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</div><div class=\"landing-card-body\"><div class=\"landing-card-title\">Generatori Casuali</div><div class=\"landing-card-description\">Tabelle casuali per il Lazy DM. Tira i dadi e lasciati ispirare con generatori di PNG, luoghi, eventi e altro.</div></div><span class=\"landing-card-action\">Genera &rarr;</span></a></div></section>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

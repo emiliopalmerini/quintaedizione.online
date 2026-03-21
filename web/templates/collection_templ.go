@@ -13,7 +13,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/models"
 )
 
 func CollectionPage(data models.CollectionPageData) templ.Component {

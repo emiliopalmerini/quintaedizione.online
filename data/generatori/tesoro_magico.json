@@ -1,0 +1,174 @@
+{
+  "id": "tesoro-magico",
+  "name": "Tesori Magici",
+  "description": "Gli oggetti magici permanenti possono essere inclusi nei tesori a piacimento. Gli oggetti non comuni nella seguente tabella sono adatti a personaggi di qualsiasi livello. Scegli armi e armature specifiche in base alle competenze e ai desideri dei personaggi.",
+  "die": "1d40",
+  "order": 32,
+  "items": [
+    {
+      "text": "Arma +1",
+      "link": "/srd/oggetti_magici/arma-1-2-o-3"
+    },
+    {
+      "text": "Armatura +1",
+      "link": "/srd/oggetti_magici/armatura-1-2-o-3"
+    },
+    {
+      "text": "Munizione +1",
+      "link": "/srd/oggetti_magici/5e/munizione-1-2-o-3"
+    },
+    {
+      "text": "Amuleto anti-individuazione e localizzazione",
+      "link": "/srd/oggetti_magici/5e/amuleto-anti-individuazione-e-localizzazione"
+    },
+    {
+      "text": "Borsa conservante",
+      "link": "/srd/oggetti_magici/borsa-conservante"
+    },
+    {
+      "text": "Borsa dei trucchi",
+      "link": "/srd/oggetti_magici/borsa-dei-trucchi"
+    },
+    {
+      "text": "Stivali elfici",
+      "link": "/srd/oggetti_magici/5e/stivali-elfici"
+    },
+    {
+      "text": "Stivali molleggiati",
+      "link": "/srd/oggetti_magici/5e/stivali-molleggiati"
+    },
+    {
+      "text": "Stivali dell'inverno",
+      "link": "/srd/oggetti_magici/5e/stivali-dellinverno"
+    },
+    {
+      "text": "Bracciali dell'arciere",
+      "link": "/srd/oggetti_magici/bracciali-dellarciere"
+    },
+    {
+      "text": "Fermaglio dello scudo",
+      "link": "/srd/oggetti_magici/fermaglio-dello-scudo"
+    },
+    {
+      "text": "Scopa volante",
+      "link": "/srd/oggetti_magici/5e/scopa-volante"
+    },
+    {
+      "text": "Diadema incandescente",
+      "link": "/srd/oggetti_magici/diadema-incandescente"
+    },
+    {
+      "text": "Mantello elfico",
+      "link": "/srd/oggetti_magici/mantello-elfico"
+    },
+    {
+      "text": "Mantello della protezione",
+      "link": "/srd/oggetti_magici/mantello-della-protezione"
+    },
+    {
+      "text": "Mantello della manta",
+      "link": "/srd/oggetti_magici/mantello-della-manta"
+    },
+    {
+      "text": "Bottiglia del fumo perenne",
+      "link": "/srd/oggetti_magici/bottiglia-del-fumo-perenne"
+    },
+    {
+      "text": "Lenti dello charme",
+      "link": "/srd/oggetti_magici/lenti-dello-charme"
+    },
+    {
+      "text": "Lenti dell'aquila",
+      "link": "/srd/oggetti_magici/lenti-dellaquila"
+    },
+    {
+      "text": "Statuina del potere meraviglioso (corvo d'argento)",
+      "link": "/srd/oggetti_magici/5e/statuina-del-potere-meraviglioso"
+    },
+    {
+      "text": "Guanti del potere orchesco",
+      "link": "/srd/oggetti_magici/guanti-del-potere-orchesco"
+    },
+    {
+      "text": "Guanti catturaproiettili",
+      "link": "/srd/oggetti_magici/guanti-catturaproiettili"
+    },
+    {
+      "text": "Guanti del nuotare e scalare",
+      "link": "/srd/oggetti_magici/guanti-del-nuotare-e-scalare"
+    },
+    {
+      "text": "Occhiali della notte",
+      "link": "/srd/oggetti_magici/5e/occhiali-della-notte"
+    },
+    {
+      "text": "Cappello del camuffamento",
+      "link": "/srd/oggetti_magici/cappello-del-camuffamento"
+    },
+    {
+      "text": "Fascia dell'intelletto",
+      "link": "/srd/oggetti_magici/fascia-dellintelletto"
+    },
+    {
+      "text": "Elmo della comprensione dei linguaggi",
+      "link": "/srd/oggetti_magici/elmo-della-comprensione-dei-linguaggi"
+    },
+    {
+      "text": "Elmo della telepatia",
+      "link": "/srd/oggetti_magici/elmo-della-telepatia"
+    },
+    {
+      "text": "Verga inamovibile",
+      "link": "/srd/oggetti_magici/5e/verga-inamovibile"
+    },
+    {
+      "text": "Giavellotto del fulmine",
+      "link": "/srd/oggetti_magici/giavellotto-del-fulmine"
+    },
+    {
+      "text": "Lanterna della rivelazione",
+      "link": "/srd/oggetti_magici/lanterna-della-rivelazione"
+    },
+    {
+      "text": "Medaglione dei pensieri",
+      "link": "/srd/oggetti_magici/5e/medaglione-dei-pensieri"
+    },
+    {
+      "text": "Collana dell'adattamento",
+      "link": "/srd/oggetti_magici/collana-delladattamento"
+    },
+    {
+      "text": "Perla del potere",
+      "link": "/srd/oggetti_magici/5e/perla-del-potere"
+    },
+    {
+      "text": "Anello di scudo mentale",
+      "link": "/srd/oggetti_magici/anello-di-scudo-mentale"
+    },
+    {
+      "text": "Corda per scalare",
+      "link": "/srd/oggetti_magici/corda-per-scalare"
+    },
+    {
+      "text": "Pantofole del ragno",
+      "link": "/srd/oggetti_magici/5e/pantofole-del-ragno"
+    },
+    {
+      "text": "Pietra della buona fortuna",
+      "link": "/srd/oggetti_magici/5e/pietra-della-buona-fortuna-pietrafortuna"
+    },
+    {
+      "text": "Bacchetta di missili magici",
+      "link": "/srd/oggetti_magici/5e/bacchetta-di-missili-magici"
+    },
+    {
+      "text": "Bacchetta della ragnatela",
+      "link": "/srd/oggetti_magici/bacchetta-della-ragnatela"
+    }
+  ],
+  "group": "treasure-generator",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/random_generators.html"
+  }
+}

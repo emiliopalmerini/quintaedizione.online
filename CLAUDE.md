@@ -33,38 +33,55 @@ Copy `.env.example` to `.env` and configure:
 
 ## Architecture
 
-Hexagonal architecture with embedded JSON data and in-memory store (no external database):
+Vertical-slice hexagonal architecture with embedded JSON data and in-memory store (no external database). Each bounded context is a self-contained slice with its own domain, application, infrastructure, and web layers:
 
 ```
-cmd/viewer/          Entry point
-data/ita/json/       Embedded JSON data files (source of truth)
+cmd/app/               Entry point (wires all slices)
+data/ita/json/         Embedded JSON data files (source of truth)
 internal/
-  adapters/          External interfaces
-    repositories/
-      inmemory/      In-memory repository implementations
-    web/             HTTP handlers, middleware
-  application/       Business logic
-    filters/         Predicate-based content filtering
-    parsers/         Markdown rendering, keyword linking
-    services/        Application services
-  domain/            Core domain models
-    collections/     Collection definitions
-    filters/         Domain filter types
-    repositories/    Repository interfaces (read-only)
-  infrastructure/    Technical concerns
-    config/          Configuration
-    datastore/       JSON loader + in-memory store
-pkg/                 Shared packages
-  mappers/           Data mappers
-  templates/         Template engine
+  srd/                 SRD content viewer slice
+    domain/            Core domain models, ports, value objects
+      collections/     Collection definitions & registry
+      filters/         Filter types & predicates
+      repositories/    Repository interfaces (read-only)
+      search/          Search types & interfaces
+    application/       Business logic
+      filters/         Predicate builder, filter registry
+      parsers/         Markdown rendering, glossary linking
+      search/          Fuzzy search service & index
+      services/        Content & filter orchestration
+    infrastructure/    Technical concerns
+      config/          Collection metadata loader
+      datastore/       JSON loader + in-memory store
+      persistence/     Repository implementations
+    web/               HTTP handlers, middleware, mappers
+      config/          Cache config
+      display/         Collection display strategies
+      dto/             Data transfer objects
+      mappers/         Document mapper
+      models/          View models
+  combattimenti/       Encounter calculator slice
+    domain/            Encounter & monster entities
+    application/       XP calculation, queries
+    infrastructure/    Persistence & HTTP handlers
+  mappe/               Map gallery slice
+    domain/            Map entity & repository interface
+    infrastructure/    Map repository
+    web/               Gallery handlers & templates
+  infrastructure/      Shared cross-cutting concerns
+    config.go          Server configuration
+    cache.go           In-memory cache implementation
+pkg/                   Shared packages
+  mappers/             Data mappers
+  templates/           Template engine
 web/
-  static/            Static assets
-  templates/         Templ template files (.templ)
+  static/              Static assets
+  templates/           Templ template files (.templ)
 ```
 
 ## Tech Stack
 
-- **Framework**: gin-gonic/gin
+- **Framework**: net/http (stdlib)
 - **Templates**: a-h/templ
 - **Data**: Embedded JSON via `embed.FS` + in-memory store
 - **Markdown**: gomarkdown/markdown
@@ -90,7 +107,7 @@ make test
 go test -race ./...
 
 # Run specific package tests
-go test -v ./internal/domain/...
+go test -v ./internal/srd/domain/...
 ```
 
 ## CI Workflows

@@ -1,0 +1,34 @@
+{
+  "id": "citta-meteo",
+  "name": "Condizioni Meteo",
+  "description": "Le condizioni meteorologiche degne di nota in città.",
+  "die": "1d20",
+  "order": 82,
+  "items": [
+    "Nebbia",
+    "Foschia densa",
+    "Luna nuova",
+    "Luna piena",
+    "Giornata calda",
+    "Giornata fresca",
+    "Pioggia leggera",
+    "Pioggia moderata",
+    "Pioggia intensa",
+    "Tempesta di vento",
+    "Grandine",
+    "Tempesta di ghiaccio",
+    "Giornata nuvolosa",
+    "Giornata soleggiata",
+    "Giornata umida",
+    "Giornata secca",
+    "Giornata ventosa",
+    "Nevicata leggera",
+    "Nevicata moderata",
+    "Bufera di neve"
+  ],
+  "group": "town-events",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/random_generators.html"
+  }
+}

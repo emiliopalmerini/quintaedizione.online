@@ -3,11 +3,10 @@ package handlers
 import (
 	"log/slog"
 	"net/http"
-	"strconv"
-	"strings"
 
-	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/maps"
+	maps "github.com/emiliopalmerini/quintaedizione.online/internal/mappe/domain"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/mappe/web/templates"
+	pkgweb "github.com/emiliopalmerini/quintaedizione.online/pkg/web"
 )
 
 const defaultPageSize = 40
@@ -36,36 +35,18 @@ func (h *GalleryHandler) HandleDetail(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	if err := templates.DetailPage(m).Render(r.Context(), w); err != nil {
-		h.logger.Error("Failed to render map detail", "slug", slug, "error", err)
-		http.Error(w, "Internal server error", http.StatusInternalServerError)
-	}
-}
-
-func parseTags(raw string) []string {
-	if raw == "" {
-		return nil
-	}
-	var tags []string
-	for _, t := range strings.Split(raw, ",") {
-		t = strings.TrimSpace(t)
-		if t != "" {
-			tags = append(tags, t)
-		}
-	}
-	return tags
+	pkgweb.RenderTempl(w, r, h.logger, templates.DetailPage(m))
 }
 
 // HandleGallery renders the full gallery page.
 // GET /
 func (h *GalleryHandler) HandleGallery(w http.ResponseWriter, r *http.Request) {
-	offset, _ := strconv.Atoi(r.URL.Query().Get("offset"))
+	offset := pkgweb.ParseIntParam(r, "offset", 0)
 	if offset < 0 {
 		offset = 0
 	}
 
-	activeTags := parseTags(r.URL.Query().Get("tag"))
+	activeTags := pkgweb.ParseTags(r.URL.Query().Get("tag"))
 
 	filters := maps.SearchFilters{
 		Query:  r.URL.Query().Get("q"),
@@ -90,21 +71,18 @@ func (h *GalleryHandler) HandleGallery(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 
 	if r.Header.Get("HX-Request") == "true" {
-		var tmpl func() error
+		var component func() error
 		if offset > 0 {
-			tmpl = func() error { return templates.GalleryCards(data).Render(r.Context(), w) }
+			component = func() error { return templates.GalleryCards(data).Render(r.Context(), w) }
 		} else {
-			tmpl = func() error { return templates.GalleryGrid(data).Render(r.Context(), w) }
+			component = func() error { return templates.GalleryGrid(data).Render(r.Context(), w) }
 		}
-		if err := tmpl(); err != nil {
+		if err := component(); err != nil {
 			h.logger.Error("Failed to render gallery", "error", err)
 			http.Error(w, "Internal server error", http.StatusInternalServerError)
 		}
 		return
 	}
 
-	if err := templates.GalleryPage(data).Render(r.Context(), w); err != nil {
-		h.logger.Error("Failed to render gallery page", "error", err)
-		http.Error(w, "Internal server error", http.StatusInternalServerError)
-	}
+	pkgweb.RenderTempl(w, r, h.logger, templates.GalleryPage(data))
 }

@@ -9,7 +9,7 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 import (
-	"github.com/emiliopalmerini/quintaedizione.online/internal/domain/maps"
+	maps "github.com/emiliopalmerini/quintaedizione.online/internal/mappe/domain"
 	siteTemplates "github.com/emiliopalmerini/quintaedizione.online/web/templates"
 )
 

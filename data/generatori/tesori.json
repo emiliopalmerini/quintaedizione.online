@@ -1,0 +1,64 @@
+{
+  "id": "tesori",
+  "name": "Tesori",
+  "description": "Aggiungi tesori all'avventura dove appropriato. Tira 1d10 per tesori monetari, o 1d20 per includere anche tesori magici.",
+  "die": "1d20",
+  "order": 16,
+  "items": [
+    "Monete",
+    "Sacchetto di gemme",
+    "Gioielli in platino",
+    "Gemma con rune incise",
+    "Calice d'oro",
+    "Tomo antico",
+    "Mappa del tesoro",
+    "Reliquia antica",
+    "Opera d'arte pregiata",
+    "Idolo ingioiellato",
+    {
+      "text": "Pozione di guarigione",
+      "link": "/srd/oggetti_magici/5e/pozione-di-guarigione"
+    },
+    {
+      "text": "Altra pozione",
+      "link": "/srd/oggetti_magici?tipo_oggetto=Pozione"
+    },
+    {
+      "text": "Pergamena o pergamena degli incantesimi",
+      "link": "/srd/oggetti_magici?tipo_oggetto=Pergamena"
+    },
+    {
+      "text": "Borsa conservante",
+      "link": "/srd/oggetti_magici/borsa-conservante"
+    },
+    {
+      "text": "Oggetto meraviglioso",
+      "link": "/srd/oggetti_magici?tipo_oggetto=Oggetto+Meraviglioso"
+    },
+    {
+      "text": "Bacchetta o verga",
+      "link": "/srd/oggetti_magici?tipo_oggetto=Bacchetta"
+    },
+    {
+      "text": "Arma leggera magica",
+      "link": "/srd/oggetti_magici?tipo_oggetto=Arma"
+    },
+    {
+      "text": "Arma pesante magica",
+      "link": "/srd/oggetti_magici?tipo_oggetto=Arma"
+    },
+    {
+      "text": "Arma a distanza magica",
+      "link": "/srd/oggetti_magici?tipo_oggetto=Arma"
+    },
+    {
+      "text": "Armatura magica",
+      "link": "/srd/oggetti_magici?tipo_oggetto=Armatura"
+    }
+  ],
+  "group": "core-adventure",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/random_generators.html"
+  }
+}

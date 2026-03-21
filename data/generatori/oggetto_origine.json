@@ -1,0 +1,34 @@
+{
+  "id": "oggetto-origine",
+  "name": "Origine dell'Oggetto",
+  "description": "Genera un'origine casuale per il tuo oggetto.",
+  "die": "1d20",
+  "order": 71,
+  "items": [
+    "Draconica",
+    "Nanica",
+    "Elfica",
+    "Primordiale",
+    "Divina",
+    "Empia",
+    "Abissale",
+    "Ultraterrena",
+    "Orchesca",
+    "Non morta",
+    "Goblinoide",
+    "Ghoulesca",
+    "Vampirica",
+    "Elfica oscura",
+    "Astrale",
+    "Eterea",
+    "Infernale",
+    "Demoniaca",
+    "Elementale",
+    "Gnomica"
+  ],
+  "group": "random-items",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/random_generators.html"
+  }
+}

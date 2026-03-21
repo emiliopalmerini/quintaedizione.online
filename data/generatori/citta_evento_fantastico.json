@@ -1,0 +1,34 @@
+{
+  "id": "citta-evento-fantastico",
+  "name": "Evento Fantastico",
+  "description": "Un evento fantastico o soprannaturale che sta avendo luogo in città.",
+  "die": "1d20",
+  "order": 83,
+  "items": [
+    "Le stelle sono scomparse dal cielo",
+    "Un'eclissi solare inaspettata",
+    "La luna di sangue sorge",
+    "Sciami di insetti pungenti calano sulla città",
+    "Una nebbia acida avanza",
+    "Un secondo sole appare nel cielo",
+    "Una tempesta di energia arcana",
+    "L'arrivo di un servitore di un dio",
+    "Pioggia di meteore",
+    "Un behemoth ciclopico si risveglia",
+    "Sciami di diavoli dispettosi",
+    "Tentacoli appaiono nel cielo",
+    "I morti danzanti prendono vita",
+    "Eruzione vulcanica",
+    "Una voragine rivela antiche rovine sottostanti",
+    "Il sole non sorge",
+    "Una grande torre fluttuante appare",
+    "Il castello del signore scompare",
+    "Il confine con il reame fatato si assottiglia",
+    "Il mondo delle ombre si riversa nel piano materiale"
+  ],
+  "group": "town-events",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/random_generators.html"
+  }
+}

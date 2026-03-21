@@ -1,0 +1,34 @@
+{
+  "id": "trappola-variante",
+  "name": "Variante",
+  "description": "Aggiungi una variante per dare un tocco unico ai danni o imporre una condizione debilitante.",
+  "die": "1d20",
+  "order": 40,
+  "items": [
+    "Infuocata",
+    "Gelida",
+    "Necrotica",
+    "Velenosa",
+    "Acida",
+    "Tonante",
+    "Fulminante",
+    "Di forza",
+    "Pestilente",
+    "Stordente",
+    "Accecante",
+    "Assordante",
+    "Indebolente",
+    "Risucchiante",
+    "Soporifera",
+    "Vincolante",
+    "Dominante",
+    "Psichica",
+    "Alienante",
+    "Confondente"
+  ],
+  "group": "random-traps",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/random_generators.html"
+  }
+}

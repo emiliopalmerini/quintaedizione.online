@@ -1,0 +1,34 @@
+{
+  "id": "scoperte-dungeon",
+  "name": "Scoperte nel Dungeon",
+  "description": "Aggiungi scoperte utili alla tua avventura per creare momenti positivi nella storia dei personaggi.",
+  "die": "1d20",
+  "order": 12,
+  "items": [
+    "PNG amichevole",
+    "Fontana sacra",
+    "Statua ispiratrice",
+    "Mosaico rivelatore",
+    "Santuario radiante",
+    "Spirito amichevole",
+    "Accampamento nascosto",
+    "Funghi commestibili",
+    "Zaino da esploratore",
+    "Spioncino",
+    "Diario di un avventuriero",
+    "Tunnel di fuga",
+    "Teletrasporto utile",
+    "Murale illuminante",
+    "Sorgente curativa",
+    "Nemico ferito",
+    "Armeria ben fornita",
+    "Creatura amichevole",
+    "Macchinario utile",
+    "Biblioteca storica"
+  ],
+  "group": "core-adventure",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/random_generators.html"
+  }
+}

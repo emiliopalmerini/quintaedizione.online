@@ -1,0 +1,94 @@
+{
+  "id": "mostri-lista-5",
+  "name": "Lista Mostri 5 (GS 3—4)",
+  "description": "Mostri di grado sfida 3 — 4.",
+  "die": "1d20",
+  "order": 95,
+  "items": [
+    {
+      "text": "Doppelganger",
+      "link": "/srd/mostri/doppelganger"
+    },
+    {
+      "text": "Scorpione gigante",
+      "link": "/srd/animali/scorpione-gigante"
+    },
+    {
+      "text": "Megera verde",
+      "link": "/srd/mostri/megera-verde"
+    },
+    {
+      "text": "Segugio infernale",
+      "link": "/srd/mostri/segugio-infernale"
+    },
+    {
+      "text": "Cavaliere",
+      "link": "/srd/mostri/cavaliere"
+    },
+    {
+      "text": "Manticora",
+      "link": "/srd/mostri/manticora"
+    },
+    {
+      "text": "Minotauro",
+      "link": "/srd/mostri/minotauro"
+    },
+    {
+      "text": "Mummia",
+      "link": "/srd/mostri/mummia"
+    },
+    {
+      "text": "Cavallo degli incubi",
+      "link": "/srd/mostri/cavallo-degli-incubi"
+    },
+    {
+      "text": "Orsogufo",
+      "link": "/srd/mostri/orsogufo"
+    },
+    {
+      "text": "Ragno-fase",
+      "link": "/srd/mostri/ragno-fase"
+    },
+    {
+      "text": "Guerriero veterano",
+      "link": "/srd/mostri/guerriero-veterano"
+    },
+    {
+      "text": "Lupo mannaro",
+      "link": "/srd/mostri/lupo-mannaro"
+    },
+    {
+      "text": "Wight",
+      "link": "/srd/mostri/wight"
+    },
+    {
+      "text": "Lupo invernale",
+      "link": "/srd/mostri/lupo-invernale"
+    },
+    {
+      "text": "Protoplasma nero",
+      "link": "/srd/mostri/protoplasma-nero"
+    },
+    {
+      "text": "Chuul",
+      "link": "/srd/mostri/chuul"
+    },
+    {
+      "text": "Couatl",
+      "link": "/srd/mostri/couatl"
+    },
+    {
+      "text": "Ettin",
+      "link": "/srd/mostri/ettin"
+    },
+    {
+      "text": "Fantasma",
+      "link": "/srd/mostri/fantasma"
+    }
+  ],
+  "group": "dungeon-monsters",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/random_generators.html"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "id": "oggetto-condizione",
+  "name": "Condizione dell'Oggetto",
+  "description": "Genera una condizione casuale per il tuo oggetto.",
+  "die": "1d20",
+  "order": 72,
+  "items": [
+    "Sudicio",
+    "Scheggiato",
+    "Grezzo",
+    "Liscio",
+    "Antico",
+    "Fatiscente",
+    "Immacolato",
+    "Freddo",
+    "Ornato",
+    "Semplice",
+    "Inciso con rune",
+    "Intagliato",
+    "Decorato",
+    "Delicato",
+    "Bruciato",
+    "Oleoso",
+    "Pulsante",
+    "Luminescente",
+    "Scintillante",
+    "Fumante"
+  ],
+  "group": "random-items",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/random_generators.html"
+  }
+}

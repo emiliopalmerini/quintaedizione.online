@@ -8,7 +8,7 @@ package templates
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import "github.com/emiliopalmerini/quintaedizione.online/internal/adapters/web/models"
+import "github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/models"
 import "strconv"
 
 func ItemPage(data models.ItemPageData) templ.Component {
