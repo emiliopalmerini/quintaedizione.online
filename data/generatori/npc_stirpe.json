@@ -1,0 +1,24 @@
+{
+  "id": "npc-stirpe",
+  "name": "Stirpe",
+  "description": "Usa la seguente tabella per scegliere una stirpe casuale per il tuo PNG.",
+  "die": "1d10",
+  "order": 22,
+  "items": [
+    "Umano",
+    "Elfo",
+    "Nano",
+    "Halfling",
+    "Goblin",
+    "Coboldo",
+    "Gnomo",
+    "Orco",
+    "Dragonide",
+    "Tiefling"
+  ],
+  "group": "npc-generator",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/lazy_gm_resource_document.html#npcgenerator"
+  }
+}

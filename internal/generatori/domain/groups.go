@@ -23,6 +23,16 @@ var GroupRegistry = []GroupInfo{
 			"personaggi dal 1° al 4° livello, ma può essere facilmente modificato per avventure di livello superiore.",
 		Order: 1,
 	},
+	{
+		ID:    "npc-generator",
+		Label: "Generatore di PNG",
+		Description: "I PNG danno vita ai mondi di gioco. Puoi usare i generatori di questa sezione per " +
+			"creare rapidamente PNG da inserire nella tua partita, tirando sulle tabelle seguenti per " +
+			"generare le caratteristiche di base. Per dare davvero vita al PNG, puoi poi modellare la " +
+			"sua personalità e interpretazione ispirandoti a personaggi dei tuoi libri, serie TV o film " +
+			"preferiti, cambiando genere e altri tratti per renderli originali.",
+		Order: 2,
+	},
 }
 
 // GetGroupInfo returns the metadata for a given group ID.
