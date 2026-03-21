@@ -1,0 +1,34 @@
+{
+  "id": "stanze-tana-mago",
+  "name": "Tana del Mago",
+  "description": "Stanze per la tana di un mago.",
+  "die": "1d20",
+  "order": 64,
+  "items": [
+    "Sala delle udienze",
+    "Biblioteca principale",
+    "Biblioteca segreta",
+    "Camera da letto del mago",
+    "Camera di scrutamento",
+    "Sala dei guardiani",
+    "Camera di meditazione",
+    "Camera del tesoro",
+    "Museo degli artefatti",
+    "Camera di evocazione",
+    "Prigione di specchi",
+    "Portale planare",
+    "Camera di cristallo",
+    "Cella del consigliere",
+    "Laboratorio alchemico",
+    "Orrery del multiverso",
+    "Serraglio",
+    "Laboratorio di carne",
+    "Cripte delle melme",
+    "Camera dei fulmini"
+  ],
+  "group": "random-chambers",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/lazy_gm_resource_document.html#randomchambers"
+  }
+}

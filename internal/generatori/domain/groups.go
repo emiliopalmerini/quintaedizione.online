@@ -54,6 +54,17 @@ var GroupRegistry = []GroupInfo{
 			"\"bolas soporifere e pilastri schiaccianti tonanti, innescati da un teschio demoniaco di onice\".",
 		Order: 4,
 	},
+	{
+		ID:    "random-chambers",
+		Label: "Stanze Casuali",
+		Description: "Queste pagine contengono liste di stanze per quindici \"dungeon\" comuni. Usa queste stanze " +
+			"per riempire le sale di luoghi più grandi o per ispirare le tue idee. Arricchisci le stanze con " +
+			"ulteriori dettagli da altre tabelle casuali secondo necessità.\n\n" +
+			"Queste liste sono ordinate con le stanze tipiche in fondo e le stanze fantastiche o pericolose " +
+			"in cima. Tira un dado più piccolo per stanze più tipiche e un dado più grande per stanze più " +
+			"fantastiche o pericolose.",
+		Order: 5,
+	},
 }
 
 // GetGroupInfo returns the metadata for a given group ID.
