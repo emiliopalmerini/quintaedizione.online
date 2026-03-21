@@ -82,4 +82,3 @@ func (h *Handlers) RegisterRoutes(mux *http.ServeMux) {
 		})))
 	}
 }
-

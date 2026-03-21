@@ -31,8 +31,8 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/infrastructure/datastore"
 	srdPersistence "github.com/emiliopalmerini/quintaedizione.online/internal/srd/infrastructure/persistence"
 	web "github.com/emiliopalmerini/quintaedizione.online/internal/srd/web"
-	pkgweb "github.com/emiliopalmerini/quintaedizione.online/pkg/web"
 	"github.com/emiliopalmerini/quintaedizione.online/pkg/templates"
+	pkgweb "github.com/emiliopalmerini/quintaedizione.online/pkg/web"
 	landingTemplates "github.com/emiliopalmerini/quintaedizione.online/web/templates"
 )
 
