@@ -1,0 +1,26 @@
+{
+  "id": "oggetto-armatura",
+  "name": "Tipo di Armatura",
+  "description": "Genera un tipo di armatura casuale per il tuo oggetto magico.",
+  "die": "1d12",
+  "order": 73,
+  "items": [
+    { "text": "Cuoio", "link": "/srd/armature/cuoio" },
+    { "text": "Cuoio borchiato", "link": "/srd/armature/cuoio-borchiato" },
+    { "text": "Pelle", "link": "/srd/armature/pelle" },
+    { "text": "Giaco di maglia", "link": "/srd/armature/giaco-di-maglia" },
+    { "text": "Corazza a scaglie", "link": "/srd/armature/corazza-a-scaglie" },
+    { "text": "Corazza di piastre", "link": "/srd/armature/corazza-di-piastre" },
+    { "text": "Mezza armatura", "link": "/srd/armature/mezza-armatura" },
+    { "text": "Corazza ad anelli", "link": "/srd/armature/corazza-ad-anelli" },
+    { "text": "Cotta di maglia", "link": "/srd/armature/cotta-di-maglia" },
+    { "text": "Corazza a strisce", "link": "/srd/armature/corazza-a-strisce" },
+    { "text": "Armatura a piastre", "link": "/srd/armature/armatura-a-piastre" },
+    { "text": "Scudo", "link": "/srd/armature/scudo" }
+  ],
+  "group": "random-items",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/lazy_gm_resource_document.html#randomitems"
+  }
+}

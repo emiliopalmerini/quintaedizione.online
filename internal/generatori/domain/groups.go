@@ -65,6 +65,19 @@ var GroupRegistry = []GroupInfo{
 			"fantastiche o pericolose.",
 		Order: 5,
 	},
+	{
+		ID:    "random-items",
+		Label: "Oggetti Casuali",
+		Description: "Le seguenti liste ti permettono di generare reliquie e oggetti utili, da scoperte " +
+			"mondane a potenti artefatti magici. Se vuoi creare un'arma magica interessante, ad esempio, " +
+			"puoi tirare sulle tabelle Condizione, Origine, Arma ed Effetto Magico. Se vuoi solo un oggetto " +
+			"mondano bizzarro, tira sulle tabelle Condizione, Origine e Oggetto Mondano senza aggiungere " +
+			"alcun effetto.\n\n" +
+			"Alcune strane reliquie potrebbero consentire un singolo uso di un potente incantesimo. Tira " +
+			"sulle tabelle Condizione, Origine, Oggetto Mondano ed Effetto Magico per generare una reliquia " +
+			"magica unica a uso singolo.",
+		Order: 6,
+	},
 }
 
 // GetGroupInfo returns the metadata for a given group ID.
