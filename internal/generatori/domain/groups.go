@@ -78,6 +78,15 @@ var GroupRegistry = []GroupInfo{
 			"magica unica a uso singolo.",
 		Order: 6,
 	},
+	{
+		ID:    "town-events",
+		Label: "Eventi in Città",
+		Description: "Ogni volta che i personaggi entrano in una nuova città o iniziano una nuova sessione lì, " +
+			"aggiungere dettagli e contesto all'ambientazione può aiutare a dare vita alle cose. Queste liste " +
+			"di \"Eventi in Città\" aiutano a determinare cosa potrebbe succedere in città, come si sentono " +
+			"gli abitanti, com'è il tempo e quale evento mondano o fantastico potrebbe aver luogo.",
+		Order: 7,
+	},
 }
 
 // GetGroupInfo returns the metadata for a given group ID.
