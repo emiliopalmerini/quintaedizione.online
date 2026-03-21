@@ -17,20 +17,44 @@
     "Idolo ingioiellato",
     {
       "text": "Pozione di guarigione",
-      "link": "/srd/oggetti-magici/pozione-di-guarigione"
+      "link": "/srd/oggetti_magici/pozione-di-guarigione"
     },
-    "Altra pozione",
-    "Pergamena o pergamena degli incantesimi",
+    {
+      "text": "Altra pozione",
+      "link": "/srd/oggetti_magici?tipo_oggetto=Pozione"
+    },
+    {
+      "text": "Pergamena o pergamena degli incantesimi",
+      "link": "/srd/oggetti_magici?tipo_oggetto=Pergamena"
+    },
     {
       "text": "Borsa conservante",
-      "link": "/srd/oggetti-magici/borsa-conservante"
+      "link": "/srd/oggetti_magici/borsa-conservante"
     },
-    "Oggetto meraviglioso",
-    "Bacchetta o verga",
-    "Arma leggera magica",
-    "Arma pesante magica",
-    "Arma a distanza magica",
-    "Armatura magica"
+    {
+      "text": "Oggetto meraviglioso",
+      "link": "/srd/oggetti_magici?tipo_oggetto=Oggetto+Meraviglioso"
+    },
+    {
+      "text": "Bacchetta o verga",
+      "link": "/srd/oggetti_magici?tipo_oggetto=Bacchetta"
+    },
+    {
+      "text": "Arma leggera magica",
+      "link": "/srd/oggetti_magici?tipo_oggetto=Arma"
+    },
+    {
+      "text": "Arma pesante magica",
+      "link": "/srd/oggetti_magici?tipo_oggetto=Arma"
+    },
+    {
+      "text": "Arma a distanza magica",
+      "link": "/srd/oggetti_magici?tipo_oggetto=Arma"
+    },
+    {
+      "text": "Armatura magica",
+      "link": "/srd/oggetti_magici?tipo_oggetto=Armatura"
+    }
   ],
   "group": "core-adventure",
   "source": {
