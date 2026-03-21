@@ -18,6 +18,11 @@ templ Generator(table domain.Table, prev *domain.Table, next *domain.Table) {
 
 			<h1>{ table.Name }</h1>
 			<p class="generator-description">{ table.Description }</p>
+			if table.Source.Author != "" {
+				<p class="generator-source">
+					Fonte: <a href={ templ.SafeURL(table.Source.URL) } target="_blank" rel="noopener noreferrer">{ table.Source.Author }</a>
+				</p>
+			}
 
 			<div class="generator-roller">
 				<button

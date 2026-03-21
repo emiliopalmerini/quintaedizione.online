@@ -63,7 +63,20 @@
 
 .generator-description {
   color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.generator-source {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
   margin-bottom: var(--space-6);
+}
+.generator-source a {
+  color: var(--color-text-tertiary);
+  text-decoration: underline;
+}
+.generator-source a:hover {
+  color: var(--color-accent);
 }
 
 .generator-roller {

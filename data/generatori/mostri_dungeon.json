@@ -86,5 +86,9 @@
       "link": "/srd/mostri/mummia"
     }
   ],
-  "group": "core-adventure"
+  "group": "core-adventure",
+  "source": {
+    "author": "Sly Flourish",
+    "url": "https://slyflourish.com/lazy_gm_resource_document.html#coreadventuregenerators"
+  }
 }

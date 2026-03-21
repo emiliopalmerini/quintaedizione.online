@@ -40,6 +40,12 @@ type Column struct {
 	Items []Item `json:"items"`
 }
 
+// Source represents the original author and URL of a generator table.
+type Source struct {
+	Author string `json:"author"`
+	URL    string `json:"url"`
+}
+
 // Table represents a random generator table.
 // A table has either a flat Items list (single column) or multiple Columns.
 type Table struct {
@@ -49,6 +55,7 @@ type Table struct {
 	Die         string   `json:"die"`
 	Order       int      `json:"order"`
 	Group       string   `json:"group"`
+	Source      Source   `json:"source"`
 	Items       []Item   `json:"items,omitempty"`
 	Columns     []Column `json:"columns,omitempty"`
 }
