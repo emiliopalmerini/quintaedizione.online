@@ -6,6 +6,7 @@ import (
 	"io/fs"
 	"math/rand/v2"
 	"sort"
+	"strings"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/generatori/domain"
 )
@@ -108,6 +109,50 @@ func (s *Service) ListGroups() []domain.Group {
 	}
 
 	// Append any tables with unknown group (shouldn't happen, but safe fallback).
+	for groupID, tables := range byGroup {
+		groups = append(groups, domain.Group{
+			ID:     groupID,
+			Label:  groupID,
+			Tables: tables,
+		})
+	}
+
+	return groups
+}
+
+// SearchGroups returns tables matching the query, organized into groups.
+// Empty query returns all groups (same as ListGroups).
+// Matches case-insensitively against table Name and Description.
+func (s *Service) SearchGroups(query string) []domain.Group {
+	if query == "" {
+		return s.ListGroups()
+	}
+
+	q := strings.ToLower(strings.TrimSpace(query))
+
+	byGroup := make(map[string][]domain.Table)
+	for _, id := range s.order {
+		t := s.tables[id]
+		if strings.Contains(strings.ToLower(t.Name), q) || strings.Contains(strings.ToLower(t.Description), q) {
+			byGroup[t.Group] = append(byGroup[t.Group], t)
+		}
+	}
+
+	var groups []domain.Group
+	for _, gi := range domain.GroupRegistry {
+		tables, ok := byGroup[gi.ID]
+		if !ok {
+			continue
+		}
+		groups = append(groups, domain.Group{
+			ID:          gi.ID,
+			Label:       gi.Label,
+			Description: gi.Description,
+			Tables:      tables,
+		})
+		delete(byGroup, gi.ID)
+	}
+
 	for groupID, tables := range byGroup {
 		groups = append(groups, domain.Group{
 			ID:     groupID,

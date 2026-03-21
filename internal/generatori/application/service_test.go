@@ -175,3 +175,133 @@ func TestRoll_NotFound(t *testing.T) {
 		t.Fatal("expected error for nonexistent table, got nil")
 	}
 }
+
+func searchFS() fstest.MapFS {
+	return fstest.MapFS{
+		"missioni.json": &fstest.MapFile{
+			Data: []byte(`{
+				"id": "missioni",
+				"name": "Missioni",
+				"description": "Spunti di partenza per qualsiasi missione.",
+				"die": "1d4",
+				"group": "core-adventure",
+				"order": 1,
+				"items": ["Alpha", "Beta", "Gamma", "Delta"]
+			}`),
+		},
+		"luoghi.json": &fstest.MapFile{
+			Data: []byte(`{
+				"id": "luoghi",
+				"name": "Luoghi",
+				"description": "Luoghi interessanti per le avventure.",
+				"die": "1d4",
+				"group": "core-adventure",
+				"order": 2,
+				"items": ["Taverna", "Foresta", "Caverna", "Torre"]
+			}`),
+		},
+		"trappole.json": &fstest.MapFile{
+			Data: []byte(`{
+				"id": "trappole",
+				"name": "Trappole",
+				"description": "Trappole casuali per dungeon.",
+				"die": "1d4",
+				"group": "random-traps",
+				"order": 10,
+				"items": ["Fossa", "Dardo", "Lama", "Gas"]
+			}`),
+		},
+	}
+}
+
+func TestSearchGroups_EmptyQuery_ReturnsAll(t *testing.T) {
+	svc, err := application.NewService(searchFS())
+	if err != nil {
+		t.Fatalf("NewService() error: %v", err)
+	}
+
+	groups := svc.SearchGroups("")
+	allGroups := svc.ListGroups()
+
+	if len(groups) != len(allGroups) {
+		t.Errorf("empty query: expected %d groups, got %d", len(allGroups), len(groups))
+	}
+}
+
+func TestSearchGroups_MatchByName(t *testing.T) {
+	svc, _ := application.NewService(searchFS())
+
+	groups := svc.SearchGroups("Missioni")
+	if len(groups) != 1 {
+		t.Fatalf("expected 1 group, got %d", len(groups))
+	}
+	if len(groups[0].Tables) != 1 {
+		t.Fatalf("expected 1 table, got %d", len(groups[0].Tables))
+	}
+	if groups[0].Tables[0].ID != "missioni" {
+		t.Errorf("expected table 'missioni', got %q", groups[0].Tables[0].ID)
+	}
+}
+
+func TestSearchGroups_MatchByDescription(t *testing.T) {
+	svc, _ := application.NewService(searchFS())
+
+	groups := svc.SearchGroups("dungeon")
+	if len(groups) != 1 {
+		t.Fatalf("expected 1 group, got %d", len(groups))
+	}
+	if groups[0].Tables[0].ID != "trappole" {
+		t.Errorf("expected table 'trappole', got %q", groups[0].Tables[0].ID)
+	}
+}
+
+func TestSearchGroups_CaseInsensitive(t *testing.T) {
+	svc, _ := application.NewService(searchFS())
+
+	groups := svc.SearchGroups("missioni")
+	if len(groups) != 1 {
+		t.Fatalf("expected 1 group, got %d", len(groups))
+	}
+	if groups[0].Tables[0].ID != "missioni" {
+		t.Errorf("expected table 'missioni', got %q", groups[0].Tables[0].ID)
+	}
+}
+
+func TestSearchGroups_NoMatch(t *testing.T) {
+	svc, _ := application.NewService(searchFS())
+
+	groups := svc.SearchGroups("zzzznotfound")
+	if len(groups) != 0 {
+		t.Errorf("expected 0 groups, got %d", len(groups))
+	}
+}
+
+func TestSearchGroups_OmitsEmptyGroups(t *testing.T) {
+	svc, _ := application.NewService(searchFS())
+
+	// "Trappole" matches only in random-traps group, not core-adventure
+	groups := svc.SearchGroups("Trappole")
+	for _, g := range groups {
+		if len(g.Tables) == 0 {
+			t.Errorf("group %q should not appear with 0 tables", g.ID)
+		}
+	}
+}
+
+func TestSearchGroups_PartialMatch(t *testing.T) {
+	svc, _ := application.NewService(searchFS())
+
+	// "avventur" matches "avventure" in luoghi's description
+	groups := svc.SearchGroups("avventur")
+	found := false
+	for _, g := range groups {
+		for _, tbl := range g.Tables {
+			if tbl.ID == "luoghi" {
+				found = true
+			}
+		}
+	}
+	if !found {
+		t.Error("expected to find 'luoghi' via partial description match 'avventur'")
+	}
+}

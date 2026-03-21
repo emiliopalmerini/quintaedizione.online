@@ -28,8 +28,19 @@ func (h *GeneratorHandler) RegisterRoutes(mux *http.ServeMux) {
 }
 
 func (h *GeneratorHandler) handleHome(w http.ResponseWriter, r *http.Request) {
-	groups := h.service.ListGroups()
-	pkgweb.RenderTempl(w, r, h.logger, templates.Home(groups))
+	query := r.URL.Query().Get("q")
+	groups := h.service.SearchGroups(query)
+
+	if r.Header.Get("HX-Request") == "true" {
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		if err := templates.GeneratoriGrid(groups, query).Render(r.Context(), w); err != nil {
+			h.logger.Error("Failed to render generatori grid", "error", err)
+			http.Error(w, "Internal server error", http.StatusInternalServerError)
+		}
+		return
+	}
+
+	pkgweb.RenderTempl(w, r, h.logger, templates.Home(groups, query))
 }
 
 func (h *GeneratorHandler) handleGenerator(w http.ResponseWriter, r *http.Request) {
