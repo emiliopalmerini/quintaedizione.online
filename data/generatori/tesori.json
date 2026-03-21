@@ -1,0 +1,29 @@
+{
+  "id": "tesori",
+  "name": "Tesori",
+  "description": "Aggiungi tesori all'avventura dove appropriato. Tira 1d10 per tesori monetari, o 1d20 per includere anche tesori magici.",
+  "die": "1d20",
+  "order": 16,
+  "items": [
+    "Monete",
+    "Sacchetto di gemme",
+    "Gioielli in platino",
+    "Gemma con rune incise",
+    "Calice d'oro",
+    "Tomo antico",
+    "Mappa del tesoro",
+    "Reliquia antica",
+    "Opera d'arte pregiata",
+    "Idolo ingioiellato",
+    {"text": "Pozione di guarigione", "link": "/srd/oggetti-magici/pozione-di-guarigione"},
+    "Altra pozione",
+    "Pergamena o pergamena degli incantesimi",
+    {"text": "Borsa conservante", "link": "/srd/oggetti-magici/borsa-conservante"},
+    "Oggetto meraviglioso",
+    "Bacchetta o verga",
+    "Arma leggera magica",
+    "Arma pesante magica",
+    "Arma a distanza magica",
+    "Armatura magica"
+  ]
+}

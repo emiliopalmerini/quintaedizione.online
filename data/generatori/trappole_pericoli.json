@@ -1,0 +1,29 @@
+{
+  "id": "trappole-pericoli",
+  "name": "Trappole e Pericoli",
+  "description": "Aggiungi trappole dove ha senso per l'avventura. Dal 1° al 4° livello, le trappole hanno spesso una CD di 13 e infliggono 7 (2d6) danni per trappole facili o 11 (2d10) danni per trappole difficili.",
+  "die": "1d20",
+  "order": 15,
+  "items": [
+    "Fossa con spuntoni",
+    "Scariche di fulmini",
+    "Dardi avvelenati",
+    "Sciami di insetti",
+    "Rune esplosive",
+    "Pilastri radianti",
+    "Idoli lanciafiamme",
+    "Raggi di forza",
+    "Triboli paralizzanti",
+    "Pozze acide",
+    "Tagliole",
+    "Infestazione spettrale",
+    "Gas velenoso",
+    "Instabilità magica",
+    "Lance uncinate",
+    "Nebbia fitta",
+    "Feedback psichico",
+    "Pavimento scivoloso",
+    "Ragnatele fitte",
+    "Getti gelidi"
+  ]
+}
