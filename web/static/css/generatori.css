@@ -4,15 +4,13 @@
    GENERATOR CARD GRID
    ======================================================================== */
 
-.collection-group-info {
-  display: inline-flex;
-  align-items: center;
+.collection-group-desc {
+  font-size: var(--text-xs);
   color: var(--color-text-tertiary);
-  cursor: help;
-  flex-shrink: 0;
-}
-.collection-group-info:hover {
-  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 
 .generator-grid {
