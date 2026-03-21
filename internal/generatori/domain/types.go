@@ -56,6 +56,7 @@ type Table struct {
 	Order       int      `json:"order"`
 	Group       string   `json:"group"`
 	Source      Source   `json:"source"`
+	Static      bool     `json:"static,omitempty"`
 	Items       []Item   `json:"items,omitempty"`
 	Columns     []Column `json:"columns,omitempty"`
 }

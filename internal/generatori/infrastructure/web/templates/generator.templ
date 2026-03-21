@@ -24,23 +24,7 @@ templ Generator(table domain.Table, prev *domain.Table, next *domain.Table) {
 				</p>
 			}
 
-			<div class="generator-roller">
-				<button
-					class="btn btn-primary btn-large"
-					hx-post={ "/generatori/" + table.ID + "/roll" }
-					hx-target="#roll-result"
-					hx-swap="innerHTML"
-				>
-					Tira { table.Die }
-				</button>
-
-				<div id="roll-result" class="roll-result">
-					<p class="roll-result-placeholder">Premi il pulsante per tirare</p>
-				</div>
-			</div>
-
-			<details class="generator-table-details">
-				<summary>Mostra tutta la tabella ({ table.Die })</summary>
+			if table.Static {
 				if table.IsMultiColumn() {
 					@multiColumnTable(table)
 				} else {
@@ -52,7 +36,37 @@ templ Generator(table domain.Table, prev *domain.Table, next *domain.Table) {
 						}
 					</ol>
 				}
-			</details>
+			} else {
+				<div class="generator-roller">
+					<button
+						class="btn btn-primary btn-large"
+						hx-post={ "/generatori/" + table.ID + "/roll" }
+						hx-target="#roll-result"
+						hx-swap="innerHTML"
+					>
+						Tira { table.Die }
+					</button>
+
+					<div id="roll-result" class="roll-result">
+						<p class="roll-result-placeholder">Premi il pulsante per tirare</p>
+					</div>
+				</div>
+
+				<details class="generator-table-details">
+					<summary>Mostra tutta la tabella ({ table.Die })</summary>
+					if table.IsMultiColumn() {
+						@multiColumnTable(table)
+					} else {
+						<ol class="generator-table-list">
+							for _, item := range table.Items {
+								<li>
+									@itemContent(item)
+								</li>
+							}
+						</ol>
+					}
+				</details>
+			}
 
 			<nav class="generator-nav" aria-label="Navigazione generatori">
 				if prev != nil {

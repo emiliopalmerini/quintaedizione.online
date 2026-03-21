@@ -42,6 +42,18 @@ var GroupRegistry = []GroupInfo{
 			"fantasy, e che funzionano bene insieme alle regole più dettagliate sui tesori del gioco.",
 		Order: 3,
 	},
+	{
+		ID:    "random-traps",
+		Label: "Generatore di Trappole",
+		Description: "Usa queste liste per generare trappole semplici o complesse, incorporando molteplici " +
+			"caratteristiche, più danni energetici o condizioni.\n\n" +
+			"Per generare una trappola semplice, tira solo sulla lista Tipo e sulla tabella Innesco. Per una " +
+			"trappola più pericolosa, aggiungi un effetto dalla tabella Variante per dare un tocco unico ai " +
+			"danni o imporre una condizione debilitante. Per una trappola davvero diabolica, puoi tirare sulla " +
+			"tabella Variante e Tipo due volte, combinando le caratteristiche in combinazioni letali come " +
+			"\"bolas soporifere e pilastri schiaccianti tonanti, innescati da un teschio demoniaco di onice\".",
+		Order: 4,
+	},
 }
 
 // GetGroupInfo returns the metadata for a given group ID.

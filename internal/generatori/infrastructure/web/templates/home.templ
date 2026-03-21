@@ -25,7 +25,9 @@ templ Home(groups []domain.Group) {
 						<a href={ templ.SafeURL("/generatori/" + t.ID) } class="generator-card">
 							<h2 class="generator-card-title">{ t.Name }</h2>
 							<p class="generator-card-desc">{ t.Description }</p>
-							<span class="generator-card-die">{ t.Die }</span>
+							if !t.Static {
+								<span class="generator-card-die">{ t.Die }</span>
+							}
 						</a>
 					}
 				</div>

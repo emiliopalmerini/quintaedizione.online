@@ -150,6 +150,10 @@ func (s *Service) Roll(id string) (domain.RollResult, error) {
 		return domain.RollResult{}, fmt.Errorf("table %q not found", id)
 	}
 
+	if t.Static {
+		return domain.RollResult{}, fmt.Errorf("table %q is static and cannot be rolled", id)
+	}
+
 	if t.IsMultiColumn() {
 		entries := make([]domain.RollEntry, len(t.Columns))
 		for i, col := range t.Columns {
