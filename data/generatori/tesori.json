@@ -15,15 +15,22 @@
     "Reliquia antica",
     "Opera d'arte pregiata",
     "Idolo ingioiellato",
-    {"text": "Pozione di guarigione", "link": "/srd/oggetti-magici/pozione-di-guarigione"},
+    {
+      "text": "Pozione di guarigione",
+      "link": "/srd/oggetti-magici/pozione-di-guarigione"
+    },
     "Altra pozione",
     "Pergamena o pergamena degli incantesimi",
-    {"text": "Borsa conservante", "link": "/srd/oggetti-magici/borsa-conservante"},
+    {
+      "text": "Borsa conservante",
+      "link": "/srd/oggetti-magici/borsa-conservante"
+    },
     "Oggetto meraviglioso",
     "Bacchetta o verga",
     "Arma leggera magica",
     "Arma pesante magica",
     "Arma a distanza magica",
     "Armatura magica"
-  ]
+  ],
+  "group": "core-adventure"
 }

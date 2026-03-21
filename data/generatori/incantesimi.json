@@ -5,25 +5,86 @@
   "die": "1d20",
   "order": 17,
   "items": [
-    {"text": "Dardo incantato", "link": "/srd/incantesimi/dardo-incantato"},
-    {"text": "Mani brucianti", "link": "/srd/incantesimi/mani-brucianti"},
-    {"text": "Scudo", "link": "/srd/incantesimi/scudo"},
-    {"text": "Cura ferite", "link": "/srd/incantesimi/cura-ferite"},
-    {"text": "Dardo tracciante", "link": "/srd/incantesimi/dardo-tracciante"},
-    {"text": "Invisibilità", "link": "/srd/incantesimi/invisibilita"},
-    {"text": "Raggio rovente", "link": "/srd/incantesimi/raggio-rovente"},
-    {"text": "Frantumare", "link": "/srd/incantesimi/frantumare"},
-    {"text": "Aiuto", "link": "/srd/incantesimi/aiuto"},
-    {"text": "Passo velato", "link": "/srd/incantesimi/passo-velato"},
-    {"text": "Arma spirituale", "link": "/srd/incantesimi/arma-spirituale"},
-    {"text": "Ristorare inferiore", "link": "/srd/incantesimi/ristorare-inferiore"},
-    {"text": "Luce diurna", "link": "/srd/incantesimi/luce-diurna"},
-    {"text": "Parola guaritrice di massa", "link": "/srd/incantesimi/parola-guaritrice-di-massa"},
-    {"text": "Rinascita", "link": "/srd/incantesimi/rinascita"},
-    {"text": "Fulmine", "link": "/srd/incantesimi/fulmine"},
-    {"text": "Palla di fuoco", "link": "/srd/incantesimi/palla-di-fuoco"},
-    {"text": "Dissolvi magie", "link": "/srd/incantesimi/dissolvi-magie"},
-    {"text": "Velocità", "link": "/srd/incantesimi/velocita"},
-    {"text": "Volare", "link": "/srd/incantesimi/volare"}
-  ]
+    {
+      "text": "Dardo incantato",
+      "link": "/srd/incantesimi/dardo-incantato"
+    },
+    {
+      "text": "Mani brucianti",
+      "link": "/srd/incantesimi/mani-brucianti"
+    },
+    {
+      "text": "Scudo",
+      "link": "/srd/incantesimi/scudo"
+    },
+    {
+      "text": "Cura ferite",
+      "link": "/srd/incantesimi/cura-ferite"
+    },
+    {
+      "text": "Dardo tracciante",
+      "link": "/srd/incantesimi/dardo-tracciante"
+    },
+    {
+      "text": "Invisibilità",
+      "link": "/srd/incantesimi/invisibilita"
+    },
+    {
+      "text": "Raggio rovente",
+      "link": "/srd/incantesimi/raggio-rovente"
+    },
+    {
+      "text": "Frantumare",
+      "link": "/srd/incantesimi/frantumare"
+    },
+    {
+      "text": "Aiuto",
+      "link": "/srd/incantesimi/aiuto"
+    },
+    {
+      "text": "Passo velato",
+      "link": "/srd/incantesimi/passo-velato"
+    },
+    {
+      "text": "Arma spirituale",
+      "link": "/srd/incantesimi/arma-spirituale"
+    },
+    {
+      "text": "Ristorare inferiore",
+      "link": "/srd/incantesimi/ristorare-inferiore"
+    },
+    {
+      "text": "Luce diurna",
+      "link": "/srd/incantesimi/luce-diurna"
+    },
+    {
+      "text": "Parola guaritrice di massa",
+      "link": "/srd/incantesimi/parola-guaritrice-di-massa"
+    },
+    {
+      "text": "Rinascita",
+      "link": "/srd/incantesimi/rinascita"
+    },
+    {
+      "text": "Fulmine",
+      "link": "/srd/incantesimi/fulmine"
+    },
+    {
+      "text": "Palla di fuoco",
+      "link": "/srd/incantesimi/palla-di-fuoco"
+    },
+    {
+      "text": "Dissolvi magie",
+      "link": "/srd/incantesimi/dissolvi-magie"
+    },
+    {
+      "text": "Velocità",
+      "link": "/srd/incantesimi/velocita"
+    },
+    {
+      "text": "Volare",
+      "link": "/srd/incantesimi/volare"
+    }
+  ],
+  "group": "core-adventure"
 }

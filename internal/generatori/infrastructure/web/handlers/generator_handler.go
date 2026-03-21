@@ -30,10 +30,10 @@ func (h *GeneratorHandler) RegisterRoutes(mux *http.ServeMux) {
 }
 
 func (h *GeneratorHandler) handleHome(w http.ResponseWriter, r *http.Request) {
-	tables := h.service.List()
+	groups := h.service.ListGroups()
 
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	if err := templates.Home(tables).Render(r.Context(), w); err != nil {
+	if err := templates.Home(groups).Render(r.Context(), w); err != nil {
 		h.logger.Error("Failed to render generatori home", "error", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}

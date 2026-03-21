@@ -48,8 +48,17 @@ type Table struct {
 	Description string   `json:"description"`
 	Die         string   `json:"die"`
 	Order       int      `json:"order"`
+	Group       string   `json:"group"`
 	Items       []Item   `json:"items,omitempty"`
 	Columns     []Column `json:"columns,omitempty"`
+}
+
+// Group represents a collection of related generator tables.
+type Group struct {
+	ID          string
+	Label       string
+	Description string
+	Tables      []Table
 }
 
 // IsMultiColumn returns true if the table has multiple independent columns.

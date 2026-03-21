@@ -82,6 +82,43 @@ func (s *Service) List() []domain.Table {
 	return result
 }
 
+// ListGroups returns tables organized into groups, sorted by group order then table order.
+func (s *Service) ListGroups() []domain.Group {
+	// Collect tables by group ID.
+	byGroup := make(map[string][]domain.Table)
+	for _, id := range s.order {
+		t := s.tables[id]
+		byGroup[t.Group] = append(byGroup[t.Group], t)
+	}
+
+	// Build groups using the registry order.
+	var groups []domain.Group
+	for _, gi := range domain.GroupRegistry {
+		tables, ok := byGroup[gi.ID]
+		if !ok {
+			continue
+		}
+		groups = append(groups, domain.Group{
+			ID:          gi.ID,
+			Label:       gi.Label,
+			Description: gi.Description,
+			Tables:      tables,
+		})
+		delete(byGroup, gi.ID)
+	}
+
+	// Append any tables with unknown group (shouldn't happen, but safe fallback).
+	for groupID, tables := range byGroup {
+		groups = append(groups, domain.Group{
+			ID:     groupID,
+			Label:  groupID,
+			Tables: tables,
+		})
+	}
+
+	return groups
+}
+
 // Get returns a single table by ID.
 func (s *Service) Get(id string) (domain.Table, bool) {
 	t, ok := s.tables[id]

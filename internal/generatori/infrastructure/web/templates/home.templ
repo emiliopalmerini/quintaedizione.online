@@ -5,21 +5,31 @@ import (
 	shared "github.com/emiliopalmerini/quintaedizione.online/web/templates"
 )
 
-templ Home(tables []domain.Table) {
+templ Home(groups []domain.Group) {
 	@shared.SiteLayout("Generatori Casuali", "Generatori casuali per Dungeon Master — tabelle ispirate al Lazy GM di Sly Flourish.", "generatori", nil) {
 		<div class="page-header page-header-map" style="--map-bg: url('/static/img/dyson-map-2.webp')">
 			<h1>Generatori Casuali</h1>
 			<p class="page-header-subtitle">Tabelle casuali per il Lazy DM. Tira i dadi e lasciati ispirare.</p>
 		</div>
 
-		<div class="generator-grid">
-			for _, t := range tables {
-				<a href={ templ.SafeURL("/generatori/" + t.ID) } class="generator-card">
-					<h2 class="generator-card-title">{ t.Name }</h2>
-					<p class="generator-card-desc">{ t.Description }</p>
-					<span class="generator-card-die">{ t.Die }</span>
-				</a>
-			}
-		</div>
+		for _, group := range groups {
+			<section class="collection-group">
+				<div class="collection-group-header">
+					<span class="collection-group-label">{ group.Label }</span>
+				</div>
+				if group.Description != "" {
+					<p class="generator-group-desc">{ group.Description }</p>
+				}
+				<div class="generator-grid">
+					for _, t := range group.Tables {
+						<a href={ templ.SafeURL("/generatori/" + t.ID) } class="generator-card">
+							<h2 class="generator-card-title">{ t.Name }</h2>
+							<p class="generator-card-desc">{ t.Description }</p>
+							<span class="generator-card-die">{ t.Die }</span>
+						</a>
+					}
+				</div>
+			</section>
+		}
 	}
 }

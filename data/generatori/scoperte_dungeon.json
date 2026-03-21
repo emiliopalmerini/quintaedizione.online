@@ -25,5 +25,6 @@
     "Creatura amichevole",
     "Macchinario utile",
     "Biblioteca storica"
-  ]
+  ],
+  "group": "core-adventure"
 }

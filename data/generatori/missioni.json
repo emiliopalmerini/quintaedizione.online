@@ -25,5 +25,6 @@
     "Seppellire un segreto",
     "Scoprire un monumento",
     "Dissotterrare un artefatto"
-  ]
+  ],
+  "group": "core-adventure"
 }

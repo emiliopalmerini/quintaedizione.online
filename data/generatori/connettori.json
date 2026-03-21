@@ -25,5 +25,6 @@
     "Passaggio tra le radici di un albero",
     "Corridoio ventoso",
     "Porta dimensionale"
-  ]
+  ],
+  "group": "core-adventure"
 }

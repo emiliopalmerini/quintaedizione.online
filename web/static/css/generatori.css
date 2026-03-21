@@ -4,11 +4,19 @@
    GENERATOR CARD GRID
    ======================================================================== */
 
+.generator-group-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin: var(--space-3) 0 0;
+  max-width: 72ch;
+  white-space: pre-line;
+}
+
 .generator-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: var(--space-4);
-  margin-top: var(--space-6);
+  margin-top: var(--space-4);
 }
 
 .generator-card {
