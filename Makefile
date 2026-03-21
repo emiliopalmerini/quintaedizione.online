@@ -8,7 +8,7 @@ YELLOW := \033[0;33m
 BLUE := \033[0;34m
 NC := \033[0m # No Color
 
-.PHONY: help setup build run templ-generate test clean pdf-convert parse-srd
+.PHONY: help setup build run templ-generate test clean
 
 .DEFAULT_GOAL := help
 
@@ -43,25 +43,6 @@ clean:
 	go clean
 	@echo -e "$(GREEN)Cleanup completed!$(NC)"
 
-parse-srd:
-	@echo -e "$(BLUE)Building parser image...$(NC)"
-	docker build -f Dockerfile.Parser -t srd-parser .
-	@echo -e "$(BLUE)Running SRD parser...$(NC)"
-	docker run --rm \
-		-v $(CURDIR)/data/ita/json:/app/output \
-		srd-parser --output-dir /app/output
-	@echo -e "$(GREEN)SRD parsing completed!$(NC)"
-
-pdf-convert:
-	@if [ -z "$(PDF)" ]; then \
-		echo -e "$(RED)Error: PDF argument required. Usage: make pdf-convert PDF=path/to/file.pdf$(NC)"; \
-		exit 1; \
-	fi
-	@command -v uv >/dev/null 2>&1 || (echo -e "$(RED)Error: uv is not installed. Visit https://docs.astral.sh/uv/$(NC)" && exit 1)
-	@echo -e "$(BLUE)Running PDF conversion...$(NC)"
-	uv run scripts/pdf-to-markdown.py $(PDF) --output-dir data/ita/lists/
-	@echo -e "$(GREEN)PDF conversion completed!$(NC)"
-
 help:
 	@echo -e "$(BLUE) quintaedizione.online - Available Commands:$(NC)"
 	@echo ""
@@ -75,7 +56,3 @@ help:
 	@echo -e "$(YELLOW)Go Development:$(NC)"
 	@echo "  make format                # Format Go code"
 	@echo "  make test                  # Run Go unit tests"
-	@echo ""
-	@echo -e "$(YELLOW)PDF Pipeline:$(NC)"
-	@echo "  make parse-srd              # Parse SRD PDF into JSON (via Docker)"
-	@echo "  make pdf-convert PDF=<path> # Convert PDF to per-collection markdown files"
