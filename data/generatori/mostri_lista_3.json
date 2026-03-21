@@ -5,30 +5,90 @@
   "die": "1d20",
   "order": 93,
   "items": [
-    { "text": "Lupo feroce", "link": "/srd/animali/lupo-feroce" },
-    { "text": "Duergar", "link": "/srd/mostri/duergar" },
-    { "text": "Ghoul", "link": "/srd/mostri/ghoul" },
-    { "text": "Ragno gigante", "link": "/srd/animali/ragno-gigante" },
-    { "text": "Rospo gigante", "link": "/srd/animali/rospo-gigante" },
-    { "text": "Arpia", "link": "/srd/mostri/arpia" },
-    { "text": "Imp", "link": "/srd/mostri/imp" },
-    { "text": "Spettro", "link": "/srd/mostri/spettro" },
-    { "text": "Spia", "link": "/srd/mostri/spia" },
-    { "text": "Ankheg", "link": "/srd/mostri/ankheg" },
-    { "text": "Capo dei banditi", "link": "/srd/mostri/capo-dei-banditi" },
-    { "text": "Berserker", "link": "/srd/mostri/berserker" },
-    { "text": "Drago nero cucciolo", "link": "/srd/mostri/drago-nero-cucciolo" },
-    { "text": "Cultista fanatico", "link": "/srd/mostri/cultista-fanatico" },
-    { "text": "Ettercap", "link": "/srd/mostri/ettercap" },
-    { "text": "Gargoyle", "link": "/srd/mostri/gargoyle" },
-    { "text": "Cubo gelatinoso", "link": "/srd/mostri/cubo-gelatinoso" },
-    { "text": "Ghast", "link": "/srd/mostri/ghast" },
-    { "text": "Serpente stritolatore gigante", "link": "/srd/animali/serpente-stritolatore-gigante" },
-    { "text": "Fauce gorgogliante", "link": "/srd/mostri/fauce-gorgogliante" }
+    {
+      "text": "Lupo feroce",
+      "link": "/srd/animali/lupo-feroce"
+    },
+    {
+      "text": "Duergar",
+      "link": "/srd/mostri/duergar"
+    },
+    {
+      "text": "Ghoul",
+      "link": "/srd/mostri/ghoul"
+    },
+    {
+      "text": "Ragno gigante",
+      "link": "/srd/animali/ragno-gigante"
+    },
+    {
+      "text": "Rospo gigante",
+      "link": "/srd/animali/rospo-gigante"
+    },
+    {
+      "text": "Arpia",
+      "link": "/srd/mostri/arpia"
+    },
+    {
+      "text": "Imp",
+      "link": "/srd/mostri/imp"
+    },
+    {
+      "text": "Spettro",
+      "link": "/srd/mostri/spettro"
+    },
+    {
+      "text": "Spia",
+      "link": "/srd/mostri/spia"
+    },
+    {
+      "text": "Ankheg",
+      "link": "/srd/mostri/ankheg"
+    },
+    {
+      "text": "Capo dei banditi",
+      "link": "/srd/mostri/capo-dei-banditi"
+    },
+    {
+      "text": "Berserker",
+      "link": "/srd/mostri/berserker"
+    },
+    {
+      "text": "Drago nero cucciolo",
+      "link": "/srd/mostri/drago-nero-cucciolo"
+    },
+    {
+      "text": "Cultista fanatico",
+      "link": "/srd/mostri/cultista-fanatico"
+    },
+    {
+      "text": "Ettercap",
+      "link": "/srd/mostri/ettercap"
+    },
+    {
+      "text": "Gargoyle",
+      "link": "/srd/mostri/gargoyle"
+    },
+    {
+      "text": "Cubo gelatinoso",
+      "link": "/srd/mostri/cubo-gelatinoso"
+    },
+    {
+      "text": "Ghast",
+      "link": "/srd/mostri/ghast"
+    },
+    {
+      "text": "Serpente stritolatore gigante",
+      "link": "/srd/animali/serpente-stritolatore-gigante"
+    },
+    {
+      "text": "Fauce gorgogliante",
+      "link": "/srd/mostri/fauce-gorgogliante"
+    }
   ],
   "group": "dungeon-monsters",
   "source": {
     "author": "Sly Flourish",
-    "url": "https://slyflourish.com/lazy_gm_resource_document.html#randomdungeonmonsters"
+    "url": "https://slyflourish.com/random_generators.html"
   }
 }

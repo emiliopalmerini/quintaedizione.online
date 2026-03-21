@@ -5,30 +5,90 @@
   "die": "1d20",
   "order": 92,
   "items": [
-    { "text": "Lupo", "link": "/srd/animali/lupo" },
-    { "text": "Zombi", "link": "/srd/mostri/zombi" },
-    { "text": "Coccatrice", "link": "/srd/mostri/coccatrice" },
-    { "text": "Mantoscuro", "link": "/srd/mostri/mantoscuro" },
-    { "text": "Gnoll", "link": "/srd/mostri/gnoll" },
-    { "text": "Melmagrigia", "link": "/srd/mostri/melmagrigia" },
-    { "text": "Hobgoblin", "link": "/srd/mostri/hobgoblin" },
-    { "text": "Lucertoloide", "link": "/srd/mostri/lucertoloide" },
-    { "text": "Magmin", "link": "/srd/mostri/magmin" },
-    { "text": "Orco", "link": "/srd/mostri/orco" },
-    { "text": "Rugginofago", "link": "/srd/mostri/rugginofago" },
-    { "text": "Sahuagin", "link": "/srd/mostri/sahuagin" },
-    { "text": "Esploratore", "link": "/srd/mostri/esploratore" },
-    { "text": "Ombra", "link": "/srd/mostri/ombra" },
-    { "text": "Sciame di insetti", "link": "/srd/animali/sciame-di-insetti" },
-    { "text": "Bruto", "link": "/srd/mostri/bruto" },
-    { "text": "Worg", "link": "/srd/mostri/worg" },
-    { "text": "Armatura animata", "link": "/srd/mostri/armatura-animata" },
-    { "text": "Bugbear guerriero", "link": "/srd/mostri/bugbear-guerriero" },
-    { "text": "Cane della morte", "link": "/srd/mostri/cane-della-morte" }
+    {
+      "text": "Lupo",
+      "link": "/srd/animali/lupo"
+    },
+    {
+      "text": "Zombi",
+      "link": "/srd/mostri/zombi"
+    },
+    {
+      "text": "Coccatrice",
+      "link": "/srd/mostri/coccatrice"
+    },
+    {
+      "text": "Mantoscuro",
+      "link": "/srd/mostri/mantoscuro"
+    },
+    {
+      "text": "Gnoll",
+      "link": "/srd/mostri/gnoll"
+    },
+    {
+      "text": "Melmagrigia",
+      "link": "/srd/mostri/melmagrigia"
+    },
+    {
+      "text": "Hobgoblin",
+      "link": "/srd/mostri/hobgoblin"
+    },
+    {
+      "text": "Lucertoloide",
+      "link": "/srd/mostri/lucertoloide"
+    },
+    {
+      "text": "Magmin",
+      "link": "/srd/mostri/magmin"
+    },
+    {
+      "text": "Orco",
+      "link": "/srd/mostri/orco"
+    },
+    {
+      "text": "Rugginofago",
+      "link": "/srd/mostri/rugginofago"
+    },
+    {
+      "text": "Sahuagin",
+      "link": "/srd/mostri/sahuagin"
+    },
+    {
+      "text": "Esploratore",
+      "link": "/srd/mostri/esploratore"
+    },
+    {
+      "text": "Ombra",
+      "link": "/srd/mostri/ombra"
+    },
+    {
+      "text": "Sciame di insetti",
+      "link": "/srd/animali/sciame-di-insetti"
+    },
+    {
+      "text": "Bruto",
+      "link": "/srd/mostri/bruto"
+    },
+    {
+      "text": "Worg",
+      "link": "/srd/mostri/worg"
+    },
+    {
+      "text": "Armatura animata",
+      "link": "/srd/mostri/armatura-animata"
+    },
+    {
+      "text": "Bugbear guerriero",
+      "link": "/srd/mostri/bugbear-guerriero"
+    },
+    {
+      "text": "Cane della morte",
+      "link": "/srd/mostri/cane-della-morte"
+    }
   ],
   "group": "dungeon-monsters",
   "source": {
     "author": "Sly Flourish",
-    "url": "https://slyflourish.com/lazy_gm_resource_document.html#randomdungeonmonsters"
+    "url": "https://slyflourish.com/random_generators.html"
   }
 }

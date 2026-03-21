@@ -5,22 +5,58 @@
   "die": "1d12",
   "order": 99,
   "items": [
-    { "text": "Erinni", "link": "/srd/mostri/erinni" },
-    { "text": "Drago bianco adulto", "link": "/srd/mostri/drago-bianco-adulto" },
-    { "text": "Nalfeshnee", "link": "/srd/mostri/nalfeshnee" },
-    { "text": "Rakshasa", "link": "/srd/mostri/rakshasa" },
-    { "text": "Gigante delle tempeste", "link": "/srd/mostri/gigante-delle-tempeste" },
-    { "text": "Vampiro", "link": "/srd/mostri/vampiro" },
-    { "text": "Drago nero adulto", "link": "/srd/mostri/drago-nero-adulto" },
-    { "text": "Diavolo del ghiaccio", "link": "/srd/mostri/diavolo-del-ghiaccio" },
-    { "text": "Drago verde adulto", "link": "/srd/mostri/drago-verde-adulto" },
-    { "text": "Signore delle mummie", "link": "/srd/mostri/signore-delle-mummie" },
-    { "text": "Verme purpureo", "link": "/srd/mostri/verme-purpureo" },
-    { "text": "Drago blu adulto", "link": "/srd/mostri/drago-blu-adulto" }
+    {
+      "text": "Erinni",
+      "link": "/srd/mostri/erinni"
+    },
+    {
+      "text": "Drago bianco adulto",
+      "link": "/srd/mostri/drago-bianco-adulto"
+    },
+    {
+      "text": "Nalfeshnee",
+      "link": "/srd/mostri/nalfeshnee"
+    },
+    {
+      "text": "Rakshasa",
+      "link": "/srd/mostri/rakshasa"
+    },
+    {
+      "text": "Gigante delle tempeste",
+      "link": "/srd/mostri/gigante-delle-tempeste"
+    },
+    {
+      "text": "Vampiro",
+      "link": "/srd/mostri/vampiro"
+    },
+    {
+      "text": "Drago nero adulto",
+      "link": "/srd/mostri/drago-nero-adulto"
+    },
+    {
+      "text": "Diavolo del ghiaccio",
+      "link": "/srd/mostri/diavolo-del-ghiaccio"
+    },
+    {
+      "text": "Drago verde adulto",
+      "link": "/srd/mostri/drago-verde-adulto"
+    },
+    {
+      "text": "Signore delle mummie",
+      "link": "/srd/mostri/signore-delle-mummie"
+    },
+    {
+      "text": "Verme purpureo",
+      "link": "/srd/mostri/verme-purpureo"
+    },
+    {
+      "text": "Drago blu adulto",
+      "link": "/srd/mostri/drago-blu-adulto"
+    }
   ],
   "group": "dungeon-monsters",
   "source": {
     "author": "Sly Flourish",
-    "url": "https://slyflourish.com/lazy_gm_resource_document.html#randomdungeonmonsters"
+    "url": "https://slyflourish.com/random_generators.html"
   }
 }

@@ -5,30 +5,90 @@
   "die": "1d20",
   "order": 70,
   "items": [
-    { "text": "Pugnale", "link": "/srd/armi/pugnale" },
-    { "text": "Mazza", "link": "/srd/armi/mazza" },
-    { "text": "Bastone ferrato", "link": "/srd/armi/bastone-ferrato" },
-    { "text": "Lancia", "link": "/srd/armi/lancia" },
-    { "text": "Balestra leggera", "link": "/srd/armi/balestra-leggera" },
-    { "text": "Arco corto", "link": "/srd/armi/arco-corto" },
-    { "text": "Ascia da battaglia", "link": "/srd/armi/ascia-da-battaglia" },
-    { "text": "Mazzafrusto", "link": "/srd/armi/mazzafrusto" },
-    { "text": "Alabarda", "link": "/srd/armi/alabarda" },
-    { "text": "Ascia bipenne", "link": "/srd/armi/ascia-bipenne" },
-    { "text": "Spadone", "link": "/srd/armi/spadone" },
-    { "text": "Spada lunga", "link": "/srd/armi/spada-lunga" },
-    { "text": "Maglio", "link": "/srd/armi/maglio" },
-    { "text": "Mazza chiodata", "link": "/srd/armi/mazza-chiodata" },
-    { "text": "Stocco", "link": "/srd/armi/stocco" },
-    { "text": "Scimitarra", "link": "/srd/armi/scimitarra" },
-    { "text": "Spada corta", "link": "/srd/armi/spada-corta" },
-    { "text": "Martello da guerra", "link": "/srd/armi/martello-da-guerra" },
-    { "text": "Balestra pesante", "link": "/srd/armi/balestra-pesante" },
-    { "text": "Arco lungo", "link": "/srd/armi/arco-lungo" }
+    {
+      "text": "Pugnale",
+      "link": "/srd/armi/pugnale"
+    },
+    {
+      "text": "Mazza",
+      "link": "/srd/armi/mazza"
+    },
+    {
+      "text": "Bastone ferrato",
+      "link": "/srd/armi/bastone-ferrato"
+    },
+    {
+      "text": "Lancia",
+      "link": "/srd/armi/lancia"
+    },
+    {
+      "text": "Balestra leggera",
+      "link": "/srd/armi/balestra-leggera"
+    },
+    {
+      "text": "Arco corto",
+      "link": "/srd/armi/arco-corto"
+    },
+    {
+      "text": "Ascia da battaglia",
+      "link": "/srd/armi/ascia-da-battaglia"
+    },
+    {
+      "text": "Mazzafrusto",
+      "link": "/srd/armi/mazzafrusto"
+    },
+    {
+      "text": "Alabarda",
+      "link": "/srd/armi/alabarda"
+    },
+    {
+      "text": "Ascia bipenne",
+      "link": "/srd/armi/ascia-bipenne"
+    },
+    {
+      "text": "Spadone",
+      "link": "/srd/armi/spadone"
+    },
+    {
+      "text": "Spada lunga",
+      "link": "/srd/armi/spada-lunga"
+    },
+    {
+      "text": "Maglio",
+      "link": "/srd/armi/maglio"
+    },
+    {
+      "text": "Mazza chiodata",
+      "link": "/srd/armi/mazza-chiodata"
+    },
+    {
+      "text": "Stocco",
+      "link": "/srd/armi/stocco"
+    },
+    {
+      "text": "Scimitarra",
+      "link": "/srd/armi/scimitarra"
+    },
+    {
+      "text": "Spada corta",
+      "link": "/srd/armi/spada-corta"
+    },
+    {
+      "text": "Martello da guerra",
+      "link": "/srd/armi/martello-da-guerra"
+    },
+    {
+      "text": "Balestra pesante",
+      "link": "/srd/armi/balestra-pesante"
+    },
+    {
+      "text": "Arco lungo",
+      "link": "/srd/armi/arco-lungo"
+    }
   ],
   "group": "random-items",
   "source": {
     "author": "Sly Flourish",
-    "url": "https://slyflourish.com/lazy_gm_resource_document.html#randomitems"
+    "url": "https://slyflourish.com/random_generators.html"
   }
 }

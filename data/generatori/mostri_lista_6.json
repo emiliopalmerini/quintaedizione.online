@@ -5,30 +5,87 @@
   "die": "1d20",
   "order": 96,
   "items": [
-    { "text": "Lamia", "link": "/srd/mostri/lamia" },
-    { "text": "Drago rosso cucciolo", "link": "/srd/mostri/drago-rosso-cucciolo" },
-    { "text": "Succube/Incubo", "link": "/srd/mostri/succube" },
-    { "text": "Cinghiale mannaro", "link": "/srd/mostri/cinghiale-mannaro" },
-    { "text": "Elementale dell'aria", "link": "/srd/mostri/elementale-dellaria" },
-    { "text": "Diavolo uncinato", "link": "/srd/mostri/diavolo-uncinato" },
-    { "text": "Bulette", "link": "/srd/mostri/bulette" },
-    { "text": "Elementale della terra", "link": "/srd/mostri/elementale-della-terra" },
-    { "text": "Elementale del fuoco", "link": "/srd/mostri/elementale-del-fuoco" },
-    { "text": "Golem di carne", "link": "/srd/mostri/golem-di-carne" },
-    { "text": "Coccodrillo gigante", "link": "/srd/animali/coccodrillo-gigante" },
-    { "text": "Gladiatore", "link": "/srd/mostri/gladiatore" },
-    { "text": "Gorgone", "link": "/srd/mostri/gorgone" },
-    { "text": "Mezzodrago", "link": "/srd/mostri/mezzodrago" },
-    { "text": "Gigante delle colline", "link": "/srd/mostri/gigante-delle-colline" },
-    { "text": "Megera notturna", "link": "/srd/mostri/megera-notturna" },
-    { "text": "Otyugh", "link": "/srd/mostri/otyugh" },
+    {
+      "text": "Lamia",
+      "link": "/srd/mostri/lamia"
+    },
+    {
+      "text": "Drago rosso cucciolo",
+      "link": "/srd/mostri/drago-rosso-cucciolo"
+    },
+    {
+      "text": "Succube/Incubo",
+      "link": "/srd/mostri/succube"
+    },
+    {
+      "text": "Cinghiale mannaro",
+      "link": "/srd/mostri/cinghiale-mannaro"
+    },
+    {
+      "text": "Elementale dell'aria",
+      "link": "/srd/mostri/elementale-dellaria"
+    },
+    {
+      "text": "Diavolo uncinato",
+      "link": "/srd/mostri/diavolo-uncinato"
+    },
+    {
+      "text": "Bulette",
+      "link": "/srd/mostri/bulette"
+    },
+    {
+      "text": "Elementale della terra",
+      "link": "/srd/mostri/elementale-della-terra"
+    },
+    {
+      "text": "Elementale del fuoco",
+      "link": "/srd/mostri/elementale-del-fuoco"
+    },
+    {
+      "text": "Golem di carne",
+      "link": "/srd/mostri/golem-di-carne"
+    },
+    {
+      "text": "Coccodrillo gigante",
+      "link": "/srd/animali/coccodrillo-gigante"
+    },
+    {
+      "text": "Gladiatore",
+      "link": "/srd/mostri/gladiatore"
+    },
+    {
+      "text": "Gorgone",
+      "link": "/srd/mostri/gorgone"
+    },
+    {
+      "text": "Mezzodrago",
+      "link": "/srd/mostri/mezzodrago"
+    },
+    {
+      "text": "Gigante delle colline",
+      "link": "/srd/mostri/gigante-delle-colline"
+    },
+    {
+      "text": "Megera notturna",
+      "link": "/srd/mostri/megera-notturna"
+    },
+    {
+      "text": "Otyugh",
+      "link": "/srd/mostri/otyugh"
+    },
     "Roper",
-    { "text": "Cumulo strisciante", "link": "/srd/mostri/cumulo-strisciante" },
-    { "text": "Troll", "link": "/srd/mostri/troll" }
+    {
+      "text": "Cumulo strisciante",
+      "link": "/srd/mostri/cumulo-strisciante"
+    },
+    {
+      "text": "Troll",
+      "link": "/srd/mostri/troll"
+    }
   ],
   "group": "dungeon-monsters",
   "source": {
     "author": "Sly Flourish",
-    "url": "https://slyflourish.com/lazy_gm_resource_document.html#randomdungeonmonsters"
+    "url": "https://slyflourish.com/random_generators.html"
   }
 }

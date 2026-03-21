@@ -5,30 +5,87 @@
   "die": "1d20",
   "order": 94,
   "items": [
-    { "text": "Azer sentinella", "link": "/srd/mostri/azer-sentinella" },
-    { "text": "Drago verde cucciolo", "link": "/srd/mostri/drago-verde-cucciolo" },
-    { "text": "Grick", "link": "/srd/mostri/grick" },
-    { "text": "Grifone", "link": "/srd/mostri/grifone" },
-    { "text": "Merrow", "link": "/srd/mostri/merrow" },
-    { "text": "Mimic", "link": "/srd/mostri/mimic" },
-    { "text": "Scheletro di minotauro", "link": "/srd/mostri/scheletro-di-minotauro" },
+    {
+      "text": "Azer sentinella",
+      "link": "/srd/mostri/azer-sentinella"
+    },
+    {
+      "text": "Drago verde cucciolo",
+      "link": "/srd/mostri/drago-verde-cucciolo"
+    },
+    {
+      "text": "Grick",
+      "link": "/srd/mostri/grick"
+    },
+    {
+      "text": "Grifone",
+      "link": "/srd/mostri/grifone"
+    },
+    {
+      "text": "Merrow",
+      "link": "/srd/mostri/merrow"
+    },
+    {
+      "text": "Mimic",
+      "link": "/srd/mostri/mimic"
+    },
+    {
+      "text": "Scheletro di minotauro",
+      "link": "/srd/mostri/scheletro-di-minotauro"
+    },
     "Gelatina ocra",
-    { "text": "Ogre", "link": "/srd/mostri/ogre" },
-    { "text": "Zombi ogre", "link": "/srd/mostri/zombi-ogre" },
-    { "text": "Sacerdote", "link": "/srd/mostri/sacerdote" },
-    { "text": "Tappeto soffocante animato", "link": "/srd/mostri/tappeto-soffocante-animato" },
-    { "text": "Megera marina", "link": "/srd/mostri/megera-marina" },
-    { "text": "Colonia di serpenti velenosi", "link": "/srd/animali/colonia-di-serpenti-velenosi" },
-    { "text": "Topo mannaro", "link": "/srd/mostri/topo-mannaro" },
-    { "text": "Drago bianco cucciolo", "link": "/srd/mostri/drago-bianco-cucciolo" },
-    { "text": "Fuoco fatuo", "link": "/srd/mostri/fuoco-fatuo" },
-    { "text": "Basilisco", "link": "/srd/mostri/basilisco" },
-    { "text": "Diavolo barbuto", "link": "/srd/mostri/diavolo-barbuto" },
-    { "text": "Drago blu cucciolo", "link": "/srd/mostri/drago-blu-cucciolo" }
+    {
+      "text": "Ogre",
+      "link": "/srd/mostri/ogre"
+    },
+    {
+      "text": "Zombi ogre",
+      "link": "/srd/mostri/zombi-ogre"
+    },
+    {
+      "text": "Sacerdote",
+      "link": "/srd/mostri/sacerdote"
+    },
+    {
+      "text": "Tappeto soffocante animato",
+      "link": "/srd/mostri/tappeto-soffocante-animato"
+    },
+    {
+      "text": "Megera marina",
+      "link": "/srd/mostri/megera-marina"
+    },
+    {
+      "text": "Colonia di serpenti velenosi",
+      "link": "/srd/animali/colonia-di-serpenti-velenosi"
+    },
+    {
+      "text": "Topo mannaro",
+      "link": "/srd/mostri/topo-mannaro"
+    },
+    {
+      "text": "Drago bianco cucciolo",
+      "link": "/srd/mostri/drago-bianco-cucciolo"
+    },
+    {
+      "text": "Fuoco fatuo",
+      "link": "/srd/mostri/fuoco-fatuo"
+    },
+    {
+      "text": "Basilisco",
+      "link": "/srd/mostri/basilisco"
+    },
+    {
+      "text": "Diavolo barbuto",
+      "link": "/srd/mostri/diavolo-barbuto"
+    },
+    {
+      "text": "Drago blu cucciolo",
+      "link": "/srd/mostri/drago-blu-cucciolo"
+    }
   ],
   "group": "dungeon-monsters",
   "source": {
     "author": "Sly Flourish",
-    "url": "https://slyflourish.com/lazy_gm_resource_document.html#randomdungeonmonsters"
+    "url": "https://slyflourish.com/random_generators.html"
   }
 }

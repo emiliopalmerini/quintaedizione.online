@@ -5,30 +5,90 @@
   "die": "1d20",
   "order": 97,
   "items": [
-    { "text": "Salamandra", "link": "/srd/mostri/salamandra" },
-    { "text": "Progenie vampirica", "link": "/srd/mostri/progenie-vampirica" },
-    { "text": "Elementale dell'acqua", "link": "/srd/mostri/elementale-dellacqua" },
-    { "text": "Wraith", "link": "/srd/mostri/wraith" },
-    { "text": "Xorn", "link": "/srd/mostri/xorn" },
-    { "text": "Chimera", "link": "/srd/mostri/chimera" },
-    { "text": "Drider", "link": "/srd/mostri/drider" },
-    { "text": "Cacciatore invisibile", "link": "/srd/mostri/cacciatore-invisibile" },
-    { "text": "Mago", "link": "/srd/mostri/mago" },
-    { "text": "Medusa", "link": "/srd/mostri/medusa" },
-    { "text": "Vrock", "link": "/srd/mostri/vrock" },
-    { "text": "Viverna", "link": "/srd/mostri/viverna" },
-    { "text": "Drago bianco giovane", "link": "/srd/mostri/drago-bianco-giovane" },
-    { "text": "Oni", "link": "/srd/mostri/oni" },
-    { "text": "Guardiano protettore", "link": "/srd/mostri/guardiano-protettore" },
-    { "text": "Gigante delle pietre", "link": "/srd/mostri/gigante-delle-pietre" },
-    { "text": "Drago nero giovane", "link": "/srd/mostri/drago-nero-giovane" },
-    { "text": "Assassino", "link": "/srd/mostri/assassino" },
-    { "text": "Diavolo delle catene", "link": "/srd/mostri/diavolo-delle-catene" },
-    { "text": "Manto assassino", "link": "/srd/mostri/manto-assassino" }
+    {
+      "text": "Salamandra",
+      "link": "/srd/mostri/salamandra"
+    },
+    {
+      "text": "Progenie vampirica",
+      "link": "/srd/mostri/progenie-vampirica"
+    },
+    {
+      "text": "Elementale dell'acqua",
+      "link": "/srd/mostri/elementale-dellacqua"
+    },
+    {
+      "text": "Wraith",
+      "link": "/srd/mostri/wraith"
+    },
+    {
+      "text": "Xorn",
+      "link": "/srd/mostri/xorn"
+    },
+    {
+      "text": "Chimera",
+      "link": "/srd/mostri/chimera"
+    },
+    {
+      "text": "Drider",
+      "link": "/srd/mostri/drider"
+    },
+    {
+      "text": "Cacciatore invisibile",
+      "link": "/srd/mostri/cacciatore-invisibile"
+    },
+    {
+      "text": "Mago",
+      "link": "/srd/mostri/mago"
+    },
+    {
+      "text": "Medusa",
+      "link": "/srd/mostri/medusa"
+    },
+    {
+      "text": "Vrock",
+      "link": "/srd/mostri/vrock"
+    },
+    {
+      "text": "Viverna",
+      "link": "/srd/mostri/viverna"
+    },
+    {
+      "text": "Drago bianco giovane",
+      "link": "/srd/mostri/drago-bianco-giovane"
+    },
+    {
+      "text": "Oni",
+      "link": "/srd/mostri/oni"
+    },
+    {
+      "text": "Guardiano protettore",
+      "link": "/srd/mostri/guardiano-protettore"
+    },
+    {
+      "text": "Gigante delle pietre",
+      "link": "/srd/mostri/gigante-delle-pietre"
+    },
+    {
+      "text": "Drago nero giovane",
+      "link": "/srd/mostri/drago-nero-giovane"
+    },
+    {
+      "text": "Assassino",
+      "link": "/srd/mostri/assassino"
+    },
+    {
+      "text": "Diavolo delle catene",
+      "link": "/srd/mostri/diavolo-delle-catene"
+    },
+    {
+      "text": "Manto assassino",
+      "link": "/srd/mostri/manto-assassino"
+    }
   ],
   "group": "dungeon-monsters",
   "source": {
     "author": "Sly Flourish",
-    "url": "https://slyflourish.com/lazy_gm_resource_document.html#randomdungeonmonsters"
+    "url": "https://slyflourish.com/random_generators.html"
   }
 }
