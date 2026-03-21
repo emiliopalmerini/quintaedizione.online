@@ -33,6 +33,15 @@ var GroupRegistry = []GroupInfo{
 			"preferiti, cambiando genere e altri tratti per renderli originali.",
 		Order: 2,
 	},
+	{
+		ID:    "treasure-generator",
+		Label: "Generatore di Tesori",
+		Description: "Cumuli di monete, gemme scintillanti e potenti reliquie nascoste nelle profondità del " +
+			"mondo attendono avventurieri abbastanza coraggiosi da cercarli. Questa sezione offre un semplice " +
+			"set di tabelle e linee guida che ti permettono di assegnare rapidamente tesori per il tuo GDR " +
+			"fantasy, e che funzionano bene insieme alle regole più dettagliate sui tesori del gioco.",
+		Order: 3,
+	},
 }
 
 // GetGroupInfo returns the metadata for a given group ID.
