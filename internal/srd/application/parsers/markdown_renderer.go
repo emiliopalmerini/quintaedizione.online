@@ -9,12 +9,12 @@ import (
 )
 
 type MarkdownRenderer struct {
-	extensions     parser.Extensions
-	opts           html.RendererOptions
-	glossaryLinker *GlossaryLinker
+	extensions  parser.Extensions
+	opts        html.RendererOptions
+	crossLinker *CrossLinker
 }
 
-func NewMarkdownRenderer(glossaryLinker *GlossaryLinker) *MarkdownRenderer {
+func NewMarkdownRenderer(crossLinker *CrossLinker) *MarkdownRenderer {
 	extensions := parser.CommonExtensions | parser.AutoHeadingIDs | parser.NoEmptyLineBeforeBlock
 
 	opts := html.RendererOptions{
@@ -22,9 +22,9 @@ func NewMarkdownRenderer(glossaryLinker *GlossaryLinker) *MarkdownRenderer {
 	}
 
 	return &MarkdownRenderer{
-		extensions:     extensions,
-		opts:           opts,
-		glossaryLinker: glossaryLinker,
+		extensions:  extensions,
+		opts:        opts,
+		crossLinker: crossLinker,
 	}
 }
 
@@ -42,11 +42,20 @@ func (r *MarkdownRenderer) Render(markdownContent string) string {
 
 	htmlContent := string(htmlBytes)
 
-	if r.glossaryLinker != nil {
-		htmlContent = r.glossaryLinker.LinkGlossaryTerms(htmlContent)
+	if r.crossLinker != nil {
+		htmlContent = r.crossLinker.LinkTerms(htmlContent)
 	}
 
 	return strings.TrimSpace(htmlContent)
+}
+
+// RenderInline converts markdown to HTML and strips the wrapping <p> tags,
+// so the result can be used inline inside other HTML elements.
+func (r *MarkdownRenderer) RenderInline(markdown string) string {
+	h := r.Render(markdown)
+	h = strings.TrimPrefix(h, "<p>")
+	h = strings.TrimSuffix(h, "</p>")
+	return strings.TrimSpace(h)
 }
 
 func (r *MarkdownRenderer) RenderLines(lines []string) string {

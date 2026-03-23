@@ -477,6 +477,7 @@ function initGlossaryTooltips() {
 		const def = term.getAttribute('data-term-def');
 		const id = term.getAttribute('data-term-id');
 		const cat = term.getAttribute('data-term-cat');
+		const link = term.getAttribute('data-term-link');
 
 		const tooltip = document.createElement('div');
 		tooltip.className = 'glossary-tooltip';
@@ -485,8 +486,12 @@ function initGlossaryTooltips() {
 		if (cat) {
 			html += '<div class="glossary-tooltip-cat">' + cat + '</div>';
 		}
-		html += '<div class="glossary-tooltip-def">' + def + '</div>';
-		html += '<a href="/glossario/' + id + '" class="glossary-tooltip-link">Vedi nel glossario →</a>';
+		if (def) {
+			html += '<div class="glossary-tooltip-def">' + def + '</div>';
+		}
+		if (link) {
+			html += '<a href="' + link + '" class="glossary-tooltip-link">Vai alla pagina →</a>';
+		}
 		tooltip.innerHTML = html;
 
 		document.body.appendChild(tooltip);

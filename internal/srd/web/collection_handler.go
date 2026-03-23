@@ -7,8 +7,8 @@ import (
 	"strings"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain/collections"
+	webmappers "github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/mappers"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/models"
-	"github.com/emiliopalmerini/quintaedizione.online/pkg/mappers"
 	pkgweb "github.com/emiliopalmerini/quintaedizione.online/pkg/web"
 )
 
@@ -19,12 +19,12 @@ type CollectionHandler struct {
 
 // loadCollectionData fetches and assembles the shared data for collection list/rows views.
 func (h *CollectionHandler) loadCollectionData(ctx context.Context, collection, queryString string, params pkgweb.PaginationParams, filters map[string]string) (*models.CollectionPageData, error) {
-	rawItems, totalCount, err := h.contentService.GetCollectionItems(ctx, collection, params.Query, filters, params.PageNum, params.PageSize)
+	docs, totalCount, err := h.contentService.GetCollectionItems(ctx, collection, params.Query, filters, params.PageNum, params.PageSize)
 	if err != nil {
 		return nil, err
 	}
 
-	documents := h.documentMapper.ToModels(collection, rawItems)
+	documents := h.documentMapper.ToModels(collection, docs)
 	pagination := pkgweb.CalculatePaginationData(params.PageNum, params.PageSize, totalCount)
 
 	facetCounts, _ := h.contentService.GetFacetCounts(ctx, collection, params.Query, filters)
@@ -104,21 +104,16 @@ func (h *CollectionHandler) handleItemDetail(w http.ResponseWriter, r *http.Requ
 
 	// Composite key: source/slug
 	itemID := source + "/" + slug
-	item, err := h.contentService.GetItem(r.Context(), collection, itemID)
+	doc, err := h.contentService.GetItem(r.Context(), collection, itemID)
 	if err != nil {
 		h.ErrorResponse(w, r, err, "Elemento non trovato")
 		return
 	}
 
-	bodyHTML := mappers.GetString(item, "content", "")
-	bodyRaw := mappers.GetString(item, "raw_content", "")
-
 	prevSlug, nextSlug, position, total, err := h.contentService.GetAdjacentItems(r.Context(), collection, itemID)
 	if err != nil {
 		fmt.Printf("Warning: Could not get adjacent items for %s/%s: %v\n", collection, slug, err)
 	}
-
-	docTitle := mappers.GetString(item, "title", "")
 
 	prevID := ""
 	if prevSlug != nil {
@@ -129,26 +124,26 @@ func (h *CollectionHandler) handleItemDetail(w http.ResponseWriter, r *http.Requ
 		nextID = *nextSlug
 	}
 
-	sourceShort := mappers.GetString(item, "_source_short", "")
-
 	data := models.ItemPageData{
 		PageData: models.PageData{
-			Title:       docTitle,
-			Description: truncateDescription(bodyRaw, 160),
-			DocTitle:    docTitle,
+			Title:       doc.Title,
+			Description: truncateDescription(doc.RawContent.String(), 160),
+			DocTitle:    doc.Title,
 			DocID:       slug,
 			Collection:  collection,
 			QueryString: r.URL.RawQuery,
 		},
-		BodyRaw:         bodyRaw,
-		BodyHTML:        bodyHTML,
+		BodyRaw:         doc.RawContent.String(),
 		PrevID:          prevID,
 		NextID:          nextID,
 		Position:        position,
 		Total:           total,
 		CollectionLabel: h.getCollectionTitle(collection),
-		SourceShort:     sourceShort,
+		SourceShort:     doc.Source,
 	}
+
+	// Build stat-block view model or fall back to BodyHTML
+	webmappers.BuildStatBlockData(doc, &data)
 
 	content, err := h.templateEngine.RenderItem(data)
 	if err != nil {

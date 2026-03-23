@@ -1,7 +1,13 @@
 github.com/a-h/templ v0.3.1001 h1:yHDTgexACdJttyiyamcTHXr2QkIeVF1MukLy44EAhMY=
 github.com/a-h/templ v0.3.1001/go.mod h1:oCZcnKRf5jjsGpf2yELzQfodLphd2mwecwG4Crk5HBo=
-github.com/emiliopalmerini/quintaedizione-data-ita v0.0.0-20260321151436-4d75da248382 h1:8yIDGcjBwzmwVlMgi7bhC+MDQ+HCEMll07trn9+mYmk=
-github.com/emiliopalmerini/quintaedizione-data-ita v0.0.0-20260321151436-4d75da248382/go.mod h1:yAf2syrnn86z5DZ1sRKEBSw9hoL7vMv26cuoMej7E74=
+github.com/emiliopalmerini/quintaedizione-data-ita v0.0.0-20260323113654-d175d9c502be h1:U2JoHHFr8bF4A48jFqC+qUkPQtDBR0/8xTzFuQ0TUD8=
+github.com/emiliopalmerini/quintaedizione-data-ita v0.0.0-20260323113654-d175d9c502be/go.mod h1:yAf2syrnn86z5DZ1sRKEBSw9hoL7vMv26cuoMej7E74=
+github.com/emiliopalmerini/quintaedizione-data-ita v0.0.0-20260323134609-880c30161a35 h1:PJIvAyjB4+JiNXYLa5mZPB0F3eLonLk7YrhcyYeRM+I=
+github.com/emiliopalmerini/quintaedizione-data-ita v0.0.0-20260323134609-880c30161a35/go.mod h1:yAf2syrnn86z5DZ1sRKEBSw9hoL7vMv26cuoMej7E74=
+github.com/emiliopalmerini/quintaedizione-data-ita v0.0.0-20260323135538-dba207133243 h1:6klyMriX+SOYSs8/Lb0fflv2y4naWfKs1fh6PTMU1c8=
+github.com/emiliopalmerini/quintaedizione-data-ita v0.0.0-20260323135538-dba207133243/go.mod h1:yAf2syrnn86z5DZ1sRKEBSw9hoL7vMv26cuoMej7E74=
+github.com/emiliopalmerini/quintaedizione-data-ita v0.0.0-20260323140356-4fb92b7f5dbf h1:1yXKkXmFj/ysnXXe9xlaFrOpmUW91Yi0XMwYJl/wWxg=
+github.com/emiliopalmerini/quintaedizione-data-ita v0.0.0-20260323140356-4fb92b7f5dbf/go.mod h1:yAf2syrnn86z5DZ1sRKEBSw9hoL7vMv26cuoMej7E74=
 github.com/gomarkdown/markdown v0.0.0-20250810172220-2e2c11897d1a h1:l7A0loSszR5zHd/qK53ZIHMO8b3bBSmENnQ6eKnUT0A=
 github.com/gomarkdown/markdown v0.0.0-20250810172220-2e2c11897d1a/go.mod h1:JDGcbDT52eL4fju3sZ4TeHGsQwhG9nbDV21aMyhwPoA=
 github.com/google/go-cmp v0.7.0 h1:wk8382ETsv4JYUZwIsn6YpYiWiBsYLSJiTsyBybVuN8=

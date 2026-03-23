@@ -8,8 +8,6 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain/collections"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain/search"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/models"
-	"github.com/emiliopalmerini/quintaedizione.online/pkg/mappers"
-	"github.com/emiliopalmerini/quintaedizione.online/web/templates"
 )
 
 // SearchHandler handles search-related requests.
@@ -33,7 +31,7 @@ func (h *SearchHandler) handleGlobalSearch(w http.ResponseWriter, r *http.Reques
 		return
 	}
 
-	results, totalResults := h.transformSearchResults(r.Context(), fuzzyResults, query)
+	results, totalResults := h.transformSearchResults(r.Context(), fuzzyResults)
 
 	data := models.SearchPageData{
 		PageData: models.PageData{
@@ -72,7 +70,7 @@ func (h *SearchHandler) handleSearchDropdown(w http.ResponseWriter, r *http.Requ
 		return
 	}
 
-	results, _ := h.transformSearchResults(r.Context(), fuzzyResults, query)
+	results, _ := h.transformSearchResults(r.Context(), fuzzyResults)
 
 	content, err := h.templateEngine.RenderSearchDropdown(results, query)
 	if err != nil {
@@ -104,7 +102,7 @@ func (h *SearchHandler) searchFuzzy(ctx context.Context, collection, query strin
 }
 
 // transformSearchResults converts fuzzy search results to CollectionSearchResult models.
-func (h *SearchHandler) transformSearchResults(ctx context.Context, fuzzyResults []search.SearchResultSet, query string) ([]models.CollectionSearchResult, int64) {
+func (h *SearchHandler) transformSearchResults(ctx context.Context, fuzzyResults []search.SearchResultSet) ([]models.CollectionSearchResult, int64) {
 	results := make([]models.CollectionSearchResult, 0, len(fuzzyResults))
 	totalResults := int64(0)
 
@@ -113,11 +111,7 @@ func (h *SearchHandler) transformSearchResults(ctx context.Context, fuzzyResults
 		for _, r := range sr.Results {
 			item, err := h.contentService.GetItem(ctx, sr.Collection, r.ID)
 			if err == nil {
-				doc := h.documentMapper.ToModel(sr.Collection, item)
-				if rawContent := mappers.GetString(item, "raw_content", ""); rawContent != "" {
-					doc.Snippet = templates.ExtractSnippet(rawContent, query, 120)
-				}
-				documents = append(documents, doc)
+				documents = append(documents, h.documentMapper.ToModel(sr.Collection, item))
 			} else {
 				documents = append(documents, models.Document{
 					ID:    r.ID,

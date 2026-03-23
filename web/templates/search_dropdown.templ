@@ -56,11 +56,6 @@ templ SearchDropdown(results []models.CollectionSearchResult, query string) {
 									}
 								</div>
 							}
-							if doc.Snippet != "" {
-								<p class="search-dropdown-snippet">
-									@templ.Raw(HighlightQuery(doc.Snippet, query))
-								</p>
-							}
 						</a>
 					}
 					if result.HasMore {

@@ -77,13 +77,21 @@ templ ItemPage(data models.ItemPageData) {
 
 		<!-- Item content -->
 		<article class="item-content" data-markdown>
-			if data.BodyHTML != "" {
-				<div data-raw={ getMarkdownWithTitle(data.PageData.DocTitle, data.BodyRaw) }>
+			<div data-raw={ getMarkdownWithTitle(data.PageData.DocTitle, data.BodyRaw) }>
+				if data.Spell != nil {
+					@SpellStatBlock(*data.Spell)
+				} else if data.Monster != nil {
+					@MonsterStatBlock(*data.Monster)
+				} else if data.Class != nil {
+					@ClassStatBlock(*data.Class)
+				} else if data.Species != nil {
+					@SpeciesStatBlock(*data.Species)
+				} else if data.BodyHTML != "" {
 					@templ.Raw(data.BodyHTML)
-				</div>
-			} else {
-				<div class="empty-state">Nessuna descrizione disponibile.</div>
-			}
+				} else {
+					<div class="empty-state">Nessuna descrizione disponibile.</div>
+				}
+			</div>
 		</article>
 
 		<!-- Action buttons -->

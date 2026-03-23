@@ -2,242 +2,34 @@ package datastore
 
 import (
 	"fmt"
-	"html"
 	"strings"
-
-	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/application/parsers"
 )
 
-// escapeHTML wraps html.EscapeString for convenience.
-func escapeHTML(s string) string {
-	return html.EscapeString(s)
+// ContentRenderer converts markdown to HTML. The Loader uses this interface
+// to decouple data loading from the rendering implementation.
+type ContentRenderer interface {
+	// Render converts markdown to HTML (with glossary linking, etc.).
+	Render(markdown string) string
+	// RenderInline converts markdown to HTML and strips the wrapping <p> tags.
+	RenderInline(markdown string) string
 }
 
-// renderInline renders markdown through the renderer and strips the wrapping
-// <p>…</p> tags so the result can be used inline inside other HTML elements.
-func renderInline(renderer *parsers.MarkdownRenderer, md string) string {
-	h := renderer.Render(md)
-	h = strings.TrimPrefix(h, "<p>")
-	h = strings.TrimSuffix(h, "</p>")
-	return strings.TrimSpace(h)
+// renderContent renders markdown to HTML (with cross-linking via the renderer).
+func (l *Loader) renderContent(md string) string {
+	return l.renderer.Render(md)
 }
 
-// ---------------------------------------------------------------------------
-// HTML builders — produce ready-to-use HTML for the "content" field
-// ---------------------------------------------------------------------------
-
-func (l *Loader) buildSpellHTML(s jsonSpell) string {
-	var b strings.Builder
-
-	b.WriteString(`<div class="stat-block">`)
-
-	// Subtitle
-	if s.Level == 0 {
-		fmt.Fprintf(&b, `<p class="stat-block-subtitle">Trucchetto %s</p>`, escapeHTML(s.School))
-	} else {
-		fmt.Fprintf(&b, `<p class="stat-block-subtitle">Livello %d %s</p>`, s.Level, escapeHTML(s.School))
-	}
-
-	// Properties
-	b.WriteString(`<div class="stat-block-properties">`)
-	fmt.Fprintf(&b, `<div class="stat-block-property"><strong>Tempo di Lancio:</strong> %s</div>`, escapeHTML(s.CastingTime))
-	fmt.Fprintf(&b, `<div class="stat-block-property"><strong>Gittata:</strong> %s</div>`, escapeHTML(s.Range))
-	fmt.Fprintf(&b, `<div class="stat-block-property"><strong>Componenti:</strong> %s</div>`, escapeHTML(s.Components))
-	fmt.Fprintf(&b, `<div class="stat-block-property"><strong>Durata:</strong> %s</div>`, escapeHTML(s.Duration))
-	b.WriteString(`</div>`)
-
-	if s.Ritual {
-		b.WriteString(`<p class="stat-block-ritual">Rituale</p>`)
-	}
-
-	// Description (markdown → HTML with glossary linking)
-	if s.Description != "" {
-		fmt.Fprintf(&b, `<div class="stat-block-description">%s</div>`, l.renderer.Render(s.Description))
-	}
-
-	// At higher levels
-	if s.AtHigherLevels != "" {
-		fmt.Fprintf(&b, `<div class="stat-block-higher-levels"><strong>Ai Livelli Superiori.</strong> %s</div>`,
-			renderInline(l.renderer, s.AtHigherLevels))
-	}
-
-	// Classes
-	if len(s.Classes) > 0 {
-		fmt.Fprintf(&b, `<p class="stat-block-classes">Classi: %s</p>`, escapeHTML(strings.Join(s.Classes, ", ")))
-	}
-
-	b.WriteString(`</div>`)
-	return b.String()
+// renderContentInline is like renderContent but strips the <p> wrapper.
+func (l *Loader) renderContentInline(md string) string {
+	return l.renderer.RenderInline(md)
 }
 
-func (l *Loader) buildMonsterHTML(m jsonMonster) string {
-	var b strings.Builder
-
-	b.WriteString(`<div class="stat-block">`)
-
-	// Subtitle (type + size + alignment)
-	fmt.Fprintf(&b, `<p class="stat-block-subtitle">%s %s, %s</p>`,
-		escapeHTML(m.Type), escapeHTML(m.Size), escapeHTML(m.Alignment))
-
-	// Core stats
-	b.WriteString(`<hr class="stat-block-divider">`)
-	b.WriteString(`<div class="stat-block-properties">`)
-	acLine := escapeHTML(m.AC)
-	if m.Initiative != "" {
-		acLine += " &middot; <strong>Iniziativa</strong> " + escapeHTML(m.Initiative)
+// sourceShort returns the current source's short name for URL building.
+func (l *Loader) sourceShort() string {
+	if l.source != nil {
+		return l.source.ShortName
 	}
-	fmt.Fprintf(&b, `<div class="stat-block-property"><strong>CA</strong> %s</div>`, acLine)
-	fmt.Fprintf(&b, `<div class="stat-block-property"><strong>PF</strong> %s</div>`, escapeHTML(m.HP))
-	fmt.Fprintf(&b, `<div class="stat-block-property"><strong>Velocità</strong> %s</div>`, escapeHTML(m.Speed))
-	b.WriteString(`</div>`)
-
-	// Ability scores grid
-	if len(m.AbilityScores) > 0 {
-		b.WriteString(`<hr class="stat-block-divider">`)
-		b.WriteString(`<div class="stat-block-abilities">`)
-
-		abilityOrder := []struct{ key, label string }{
-			{"strength", "FOR"},
-			{"dexterity", "DES"},
-			{"constitution", "COS"},
-			{"intelligence", "INT"},
-			{"wisdom", "SAG"},
-			{"charisma", "CAR"},
-		}
-
-		for _, a := range abilityOrder {
-			score := m.AbilityScores[a.key]
-			mod := m.AbilityMods[a.key]
-			save := m.SavingThrows[a.key]
-
-			b.WriteString(`<div class="stat-block-ability">`)
-			fmt.Fprintf(&b, `<div class="stat-block-ability-label">%s</div>`, a.label)
-			fmt.Fprintf(&b, `<div class="stat-block-ability-score">%d</div>`, score)
-			fmt.Fprintf(&b, `<div class="stat-block-ability-mod">%+d</div>`, mod)
-			fmt.Fprintf(&b, `<div class="stat-block-ability-save">TS %s</div>`, escapeHTML(save))
-			b.WriteString(`</div>`)
-		}
-
-		b.WriteString(`</div>`)
-	}
-
-	// Secondary stats
-	b.WriteString(`<hr class="stat-block-divider">`)
-	b.WriteString(`<div class="stat-block-properties">`)
-
-	writeProperty := func(label, value string) {
-		if value != "" {
-			fmt.Fprintf(&b, `<div class="stat-block-property"><strong>%s</strong> %s</div>`,
-				escapeHTML(label), escapeHTML(value))
-		}
-	}
-
-	writeProperty("Abilità", m.Skills)
-	writeProperty("Resistenze", m.Resistances)
-	writeProperty("Immunità ai Danni", m.DamageImmunities)
-	writeProperty("Immunità alle Condizioni", m.ConditionImmunities)
-	writeProperty("Sensi", m.Senses)
-	writeProperty("Lingue", m.Languages)
-
-	if m.CRDetail != "" {
-		writeProperty("GS", m.CRDetail)
-	} else {
-		writeProperty("GS", m.CR)
-	}
-	writeProperty("Equipaggiamento", m.Equipment)
-
-	b.WriteString(`</div>`)
-
-	// Traits
-	if len(m.Traits) > 0 {
-		b.WriteString(`<hr class="stat-block-divider">`)
-		writeFeatures(&b, l.renderer, m.Traits)
-	}
-
-	// Actions
-	writeFeatureSection(&b, l.renderer, "Azioni", m.Actions)
-	writeFeatureSection(&b, l.renderer, "Azioni Bonus", m.BonusActions)
-	writeFeatureSection(&b, l.renderer, "Reazioni", m.Reactions)
-	writeFeatureSection(&b, l.renderer, "Azioni Leggendarie", m.LegendaryActions)
-
-	b.WriteString(`</div>`)
-	return b.String()
-}
-
-func writeFeatures(b *strings.Builder, renderer *parsers.MarkdownRenderer, features []jsonFeature) {
-	for _, f := range features {
-		fmt.Fprintf(b, `<div class="stat-block-feature"><span class="stat-block-feature-name">%s.</span> %s</div>`,
-			escapeHTML(f.Name), renderInline(renderer, f.Description))
-	}
-}
-
-func writeFeatureSection(b *strings.Builder, renderer *parsers.MarkdownRenderer, heading string, features []jsonFeature) {
-	if len(features) == 0 {
-		return
-	}
-	fmt.Fprintf(b, `<div class="stat-block-section"><h3 class="stat-block-section-heading">%s</h3>`, escapeHTML(heading))
-	writeFeatures(b, renderer, features)
-	b.WriteString(`</div>`)
-}
-
-func (l *Loader) buildClassHTML(c jsonClass) string {
-	var b strings.Builder
-
-	b.WriteString(`<div class="stat-block">`)
-
-	// Description (may contain level progression table — already markdown)
-	if c.Description != "" {
-		fmt.Fprintf(&b, `<div class="stat-block-description">%s</div>`, l.renderer.Render(c.Description))
-	}
-
-	// Proficiencies (contains hit points, competencies, equipment, and class table — all markdown)
-	if c.Proficiencies != "" {
-		fmt.Fprintf(&b, `<div class="stat-block-description">%s</div>`, l.renderer.Render(c.Proficiencies))
-	}
-
-	// Features grouped by level
-	if len(c.Features) > 0 {
-		b.WriteString(`<hr class="stat-block-divider">`)
-		b.WriteString(`<h2>Privilegi di classe</h2>`)
-		for _, f := range c.Features {
-			fmt.Fprintf(&b, `<h3>%s (Livello %d)</h3>`, escapeHTML(f.Name), f.Level)
-			fmt.Fprintf(&b, `<div class="stat-block-description">%s</div>`, l.renderer.Render(f.Description))
-		}
-	}
-
-	// Subclasses
-	for _, sc := range c.Subclasses {
-		b.WriteString(`<hr class="stat-block-divider">`)
-		fmt.Fprintf(&b, `<h2>%s</h2>`, escapeHTML(sc.Name))
-		if sc.Description != "" {
-			fmt.Fprintf(&b, `<div class="stat-block-description">%s</div>`, l.renderer.Render(sc.Description))
-		}
-		for _, f := range sc.Features {
-			fmt.Fprintf(&b, `<h3>%s (Livello %d)</h3>`, escapeHTML(f.Name), f.Level)
-			fmt.Fprintf(&b, `<div class="stat-block-description">%s</div>`, l.renderer.Render(f.Description))
-		}
-	}
-
-	b.WriteString(`</div>`)
-	return b.String()
-}
-
-func (l *Loader) buildSpeciesHTML(s jsonSpecies) string {
-	var b strings.Builder
-
-	b.WriteString(`<div class="stat-block">`)
-
-	// Subtitle
-	fmt.Fprintf(&b, `<p class="stat-block-subtitle">%s %s, %s</p>`,
-		escapeHTML(s.CreatureType), escapeHTML(s.Size), escapeHTML(s.Speed))
-
-	// Description
-	if s.Description != "" {
-		fmt.Fprintf(&b, `<div class="stat-block-description">%s</div>`, l.renderer.Render(s.Description))
-	}
-
-	b.WriteString(`</div>`)
-	return b.String()
+	return ""
 }
 
 // ---------------------------------------------------------------------------
@@ -263,11 +55,11 @@ func (l *Loader) buildSpellMarkdown(s jsonSpell) string {
 		b.WriteString("*Rituale*\n\n")
 	}
 
-	b.WriteString(s.Description)
+	b.WriteString(s.Description.plainText())
 
-	if s.AtHigherLevels != "" {
+	if len(s.AtHigherLevels) > 0 {
 		b.WriteString("\n\n**Ai Livelli Superiori.** ")
-		b.WriteString(s.AtHigherLevels)
+		b.WriteString(s.AtHigherLevels.plainText())
 	}
 
 	fmt.Fprintf(&b, "\n\n*Classi: %s*", strings.Join(s.Classes, ", "))
@@ -325,14 +117,14 @@ func (l *Loader) buildMonsterMarkdown(m jsonMonster) string {
 	if m.Skills != "" {
 		fmt.Fprintf(&b, "**Abilità** %s\n\n", m.Skills)
 	}
-	if m.Resistances != "" {
-		fmt.Fprintf(&b, "**Resistenze** %s\n\n", m.Resistances)
+	if len(m.Resistances) > 0 {
+		fmt.Fprintf(&b, "**Resistenze** %s\n\n", m.Resistances.plainText())
 	}
-	if m.DamageImmunities != "" {
-		fmt.Fprintf(&b, "**Immunità ai Danni** %s\n\n", m.DamageImmunities)
+	if len(m.DamageImmunities) > 0 {
+		fmt.Fprintf(&b, "**Immunità ai Danni** %s\n\n", m.DamageImmunities.plainText())
 	}
-	if m.ConditionImmunities != "" {
-		fmt.Fprintf(&b, "**Immunità alle Condizioni** %s\n\n", m.ConditionImmunities)
+	if len(m.ConditionImmunities) > 0 {
+		fmt.Fprintf(&b, "**Immunità alle Condizioni** %s\n\n", m.ConditionImmunities.plainText())
 	}
 	if m.Senses != "" {
 		fmt.Fprintf(&b, "**Sensi** %s\n\n", m.Senses)
@@ -353,7 +145,7 @@ func (l *Loader) buildMonsterMarkdown(m jsonMonster) string {
 	if len(m.Traits) > 0 {
 		b.WriteString("---\n\n")
 		for _, t := range m.Traits {
-			fmt.Fprintf(&b, "***%s.*** %s\n\n", t.Name, t.Description)
+			fmt.Fprintf(&b, "***%s.*** %s\n\n", t.Name, t.Description.plainText())
 		}
 	}
 
@@ -361,7 +153,7 @@ func (l *Loader) buildMonsterMarkdown(m jsonMonster) string {
 	if len(m.Actions) > 0 {
 		b.WriteString("### Azioni\n\n")
 		for _, a := range m.Actions {
-			fmt.Fprintf(&b, "***%s.*** %s\n\n", a.Name, a.Description)
+			fmt.Fprintf(&b, "***%s.*** %s\n\n", a.Name, a.Description.plainText())
 		}
 	}
 
@@ -369,7 +161,7 @@ func (l *Loader) buildMonsterMarkdown(m jsonMonster) string {
 	if len(m.BonusActions) > 0 {
 		b.WriteString("### Azioni Bonus\n\n")
 		for _, a := range m.BonusActions {
-			fmt.Fprintf(&b, "***%s.*** %s\n\n", a.Name, a.Description)
+			fmt.Fprintf(&b, "***%s.*** %s\n\n", a.Name, a.Description.plainText())
 		}
 	}
 
@@ -377,7 +169,7 @@ func (l *Loader) buildMonsterMarkdown(m jsonMonster) string {
 	if len(m.Reactions) > 0 {
 		b.WriteString("### Reazioni\n\n")
 		for _, r := range m.Reactions {
-			fmt.Fprintf(&b, "***%s.*** %s\n\n", r.Name, r.Description)
+			fmt.Fprintf(&b, "***%s.*** %s\n\n", r.Name, r.Description.plainText())
 		}
 	}
 
@@ -385,7 +177,7 @@ func (l *Loader) buildMonsterMarkdown(m jsonMonster) string {
 	if len(m.LegendaryActions) > 0 {
 		b.WriteString("### Azioni Leggendarie\n\n")
 		for _, la := range m.LegendaryActions {
-			fmt.Fprintf(&b, "***%s.*** %s\n\n", la.Name, la.Description)
+			fmt.Fprintf(&b, "***%s.*** %s\n\n", la.Name, la.Description.plainText())
 		}
 	}
 
@@ -396,8 +188,8 @@ func (l *Loader) buildClassMarkdown(c jsonClass) string {
 	var b strings.Builder
 
 	// Description (contains traits box + level progression table)
-	if c.Description != "" {
-		b.WriteString(c.Description)
+	if len(c.Description) > 0 {
+		b.WriteString(c.Description.plainText())
 		b.WriteString("\n\n")
 	}
 
@@ -413,7 +205,7 @@ func (l *Loader) buildClassMarkdown(c jsonClass) string {
 		b.WriteString("## Privilegi di classe\n\n")
 		for _, f := range c.Features {
 			fmt.Fprintf(&b, "### %s (Livello %d)\n\n", f.Name, f.Level)
-			b.WriteString(f.Description)
+			b.WriteString(f.Description.plainText())
 			b.WriteString("\n\n")
 		}
 	}
@@ -422,13 +214,13 @@ func (l *Loader) buildClassMarkdown(c jsonClass) string {
 	for _, sc := range c.Subclasses {
 		b.WriteString("---\n\n")
 		fmt.Fprintf(&b, "## %s\n\n", sc.Name)
-		if sc.Description != "" {
-			b.WriteString(sc.Description)
+		if len(sc.Description) > 0 {
+			b.WriteString(sc.Description.plainText())
 			b.WriteString("\n\n")
 		}
 		for _, f := range sc.Features {
 			fmt.Fprintf(&b, "### %s (Livello %d)\n\n", f.Name, f.Level)
-			b.WriteString(f.Description)
+			b.WriteString(f.Description.plainText())
 			b.WriteString("\n\n")
 		}
 	}
@@ -441,7 +233,47 @@ func (l *Loader) buildSpeciesMarkdown(s jsonSpecies) string {
 
 	fmt.Fprintf(&b, "*%s %s, %s*\n\n", s.CreatureType, s.Size, s.Speed)
 
-	b.WriteString(s.Description)
+	b.WriteString(s.Description.plainText())
 
 	return b.String()
+}
+
+// buildBackgroundHTML renders background content as HTML.
+func (l *Loader) buildBackgroundHTML(bg jsonBackground) string {
+	return l.renderContent(l.buildBackgroundContentMarkdown(bg, l.sourceShort()))
+}
+
+func (l *Loader) buildBackgroundMarkdown(bg jsonBackground) string {
+	return l.buildBackgroundContentMarkdown(bg, "")
+}
+
+// buildBackgroundContentMarkdown builds background content as markdown.
+// If sourceShort is non-empty, entity references become markdown links.
+func (l *Loader) buildBackgroundContentMarkdown(bg jsonBackground, sourceShort string) string {
+	var b strings.Builder
+
+	if bg.AbilityScores != "" {
+		fmt.Fprintf(&b, "**Punteggi di Caratteristica:** %s\n\n", bg.AbilityScores)
+	}
+	if bg.Feat != "" {
+		fmt.Fprintf(&b, "**Talento:** %s\n\n", bg.Feat)
+	}
+	if bg.SkillProficiencies != "" {
+		fmt.Fprintf(&b, "**Competenze nelle Abilità:** %s\n\n", bg.SkillProficiencies)
+	}
+	if bg.ToolProficiency != "" {
+		fmt.Fprintf(&b, "**Competenza negli Strumenti:** %s\n\n", bg.ToolProficiency)
+	}
+	if bg.Equipment != "" {
+		fmt.Fprintf(&b, "**Equipaggiamento:** %s\n\n", bg.Equipment)
+	}
+	if len(bg.Description) > 0 {
+		if sourceShort != "" {
+			b.WriteString(bg.Description.toMarkdown(sourceShort))
+		} else {
+			b.WriteString(bg.Description.plainText())
+		}
+	}
+
+	return strings.TrimSpace(b.String())
 }

@@ -6,16 +6,14 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain"
 )
 
-// DocumentPredicate is a function that tests whether a document matches a filter.
+// DocumentPredicate is a function that tests whether a raw document map matches a filter.
+// Predicates operate on map[string]any because they run at the Store level.
 type DocumentPredicate = func(map[string]any) bool
 
 // DocumentReader provides read operations for documents.
 type DocumentReader interface {
-	FindByID(ctx context.Context, id domain.DocumentID, collection string) (*domain.Document, error)
-	FindAll(ctx context.Context, collection string, limit int) ([]*domain.Document, error)
-	FindByFilters(ctx context.Context, collection string, filters map[string]any, limit int) ([]*domain.Document, error)
-	FindMapByID(ctx context.Context, collection string, id string) (map[string]any, error)
-	FindMaps(ctx context.Context, collection string, match DocumentPredicate, skip int64, limit int64) ([]map[string]any, int64, error)
+	FindByID(ctx context.Context, collection string, id string) (*domain.Document, error)
+	FindByPredicate(ctx context.Context, collection string, match DocumentPredicate, skip int64, limit int64) ([]*domain.Document, int64, error)
 }
 
 // DocumentStatistics provides statistics and counting operations.
@@ -27,7 +25,7 @@ type DocumentStatistics interface {
 
 // DocumentNavigation provides navigation between adjacent documents.
 type DocumentNavigation interface {
-	GetAdjacentMaps(ctx context.Context, collection string, currentID string) (prevID *string, nextID *string, position int, total int, err error)
+	GetAdjacent(ctx context.Context, collection string, currentID string) (prevID *string, nextID *string, position int, total int, err error)
 }
 
 // DocumentRepository composes all document-related read operations.

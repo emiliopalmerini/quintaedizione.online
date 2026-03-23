@@ -1,16 +1,17 @@
 package mappers
 
 import (
+	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/display"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/dto"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/models"
 )
 
 type DocumentMapper interface {
-	ToDTO(collection string, item map[string]any) dto.DocumentDTO
-	ToDTOs(collection string, items []map[string]any) []dto.DocumentDTO
-	ToModel(collection string, item map[string]any) models.Document
-	ToModels(collection string, items []map[string]any) []models.Document
+	ToDTO(collection string, doc *domain.Document) dto.DocumentDTO
+	ToDTOs(collection string, docs []*domain.Document) []dto.DocumentDTO
+	ToModel(collection string, doc *domain.Document) models.Document
+	ToModels(collection string, docs []*domain.Document) []models.Document
 }
 
 type documentMapper struct {
@@ -23,58 +24,45 @@ func NewDocumentMapper(displayFactory *display.DisplayElementFactory) DocumentMa
 	}
 }
 
-func (m *documentMapper) ToDTO(collection string, item map[string]any) dto.DocumentDTO {
-	dto := dto.DocumentDTO{}
-
-	if id, ok := item["_id"].(string); ok {
-		dto.ID = id
+func (m *documentMapper) ToDTO(collection string, doc *domain.Document) dto.DocumentDTO {
+	d := dto.DocumentDTO{
+		ID:    string(doc.ID),
+		Title: doc.Title,
 	}
 
-	if title, ok := item["title"].(string); ok {
-		dto.Title = title
+	if translated, ok := doc.Fields["translated"].(bool); ok {
+		d.Translated = translated
 	}
 
-	if translated, ok := item["translated"].(bool); ok {
-		dto.Translated = translated
-	}
-
-	dto.DisplayElements = m.displayFactory.GetDisplayElements(collection, item)
-
-	return dto
+	d.DisplayElements = m.displayFactory.GetDisplayElements(collection, doc)
+	return d
 }
 
-func (m *documentMapper) ToDTOs(collection string, items []map[string]any) []dto.DocumentDTO {
-	documents := make([]dto.DocumentDTO, 0, len(items))
-
-	for _, item := range items {
-		doc := m.ToDTO(collection, item)
-		documents = append(documents, doc)
+func (m *documentMapper) ToDTOs(collection string, docs []*domain.Document) []dto.DocumentDTO {
+	result := make([]dto.DocumentDTO, 0, len(docs))
+	for _, doc := range docs {
+		result = append(result, m.ToDTO(collection, doc))
 	}
-
-	return documents
+	return result
 }
 
-func (m *documentMapper) ToModel(collection string, item map[string]any) models.Document {
-	model := models.Document{}
-
-	if id, ok := item["_id"].(string); ok {
-		// Build composite ID (short_name/slug) for URL routing
-		if short, ok := item["_source_short"].(string); ok && short != "" {
-			model.ID = short + "/" + id
-		} else {
-			model.ID = id
-		}
+func (m *documentMapper) ToModel(collection string, doc *domain.Document) models.Document {
+	model := models.Document{
+		Title: doc.Title,
 	}
 
-	if title, ok := item["title"].(string); ok {
-		model.Title = title
+	// Build composite ID (source/slug) for URL routing
+	if doc.Source != "" {
+		model.ID = doc.Source + "/" + string(doc.ID)
+	} else {
+		model.ID = string(doc.ID)
 	}
 
-	if translated, ok := item["translated"].(bool); ok {
+	if translated, ok := doc.Fields["translated"].(bool); ok {
 		model.Translated = translated
 	}
 
-	displayElements := m.displayFactory.GetDisplayElements(collection, item)
+	displayElements := m.displayFactory.GetDisplayElements(collection, doc)
 	for _, elem := range displayElements {
 		model.DisplayElements = append(model.DisplayElements, models.DocumentDisplayField{
 			Value: elem.Value,
@@ -85,13 +73,10 @@ func (m *documentMapper) ToModel(collection string, item map[string]any) models.
 	return model
 }
 
-func (m *documentMapper) ToModels(collection string, items []map[string]any) []models.Document {
-	documents := make([]models.Document, 0, len(items))
-
-	for _, item := range items {
-		doc := m.ToModel(collection, item)
-		documents = append(documents, doc)
+func (m *documentMapper) ToModels(collection string, docs []*domain.Document) []models.Document {
+	result := make([]models.Document, 0, len(docs))
+	for _, doc := range docs {
+		result = append(result, m.ToModel(collection, doc))
 	}
-
-	return documents
+	return result
 }

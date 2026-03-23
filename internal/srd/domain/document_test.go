@@ -2,110 +2,89 @@ package domain
 
 import (
 	"testing"
-
-	"github.com/google/go-cmp/cmp"
 )
 
-func TestDocument_NewDocument(t *testing.T) {
-	id := DocumentID("test-id")
-	title := "Test Document"
-	filters := NewDocumentFilters()
-	content := NewHTMLContent("<p>test content</p>")
-	rawContent := NewMarkdownContent("test content")
+func TestDocumentFromMap(t *testing.T) {
+	m := map[string]any{
+		"_id":           "palla-di-fuoco",
+		"title":         "Palla di Fuoco",
+		"content":       "<p>Una palla di fuoco.</p>",
+		"raw_content":   "Una palla di fuoco.",
+		"_source_short": "5.5e",
+		"_source":       "srd-5.5e",
+		"livello":       3,
+		"scuola":        "Evocazione",
+	}
 
-	doc := NewDocument(id, title, filters, content, rawContent)
+	doc := DocumentFromMap(m)
 
-	if doc.ID != id {
-		t.Errorf("Expected ID %s, got %s", id, doc.ID)
+	if doc.ID != "palla-di-fuoco" {
+		t.Errorf("expected ID 'palla-di-fuoco', got %q", doc.ID)
 	}
-	if doc.Title != title {
-		t.Errorf("Expected title %s, got %s", title, doc.Title)
+	if doc.Title != "Palla di Fuoco" {
+		t.Errorf("expected title 'Palla di Fuoco', got %q", doc.Title)
 	}
-	if !cmp.Equal(doc.Filters, filters) {
-		t.Errorf("Expected filters to match")
+	if doc.Source != "5.5e" {
+		t.Errorf("expected source '5.5e', got %q", doc.Source)
 	}
-	if string(doc.Content) != string(content) {
-		t.Errorf("Expected content to match")
+	if doc.Content.String() != "<p>Una palla di fuoco.</p>" {
+		t.Errorf("expected content, got %q", doc.Content)
 	}
-	if string(doc.RawContent) != string(rawContent) {
-		t.Errorf("Expected raw content to match")
+	if doc.RawContent.String() != "Una palla di fuoco." {
+		t.Errorf("expected raw_content, got %q", doc.RawContent)
+	}
+
+	// Core fields should NOT be in Fields
+	if _, ok := doc.Fields["_id"]; ok {
+		t.Error("_id should not be in Fields")
+	}
+	if _, ok := doc.Fields["title"]; ok {
+		t.Error("title should not be in Fields")
+	}
+	if _, ok := doc.Fields["_source_short"]; ok {
+		t.Error("_source_short should not be in Fields")
+	}
+
+	// Collection-specific fields should be in Fields
+	if doc.Fields["livello"] != 3 {
+		t.Errorf("expected Fields[livello]=3, got %v", doc.Fields["livello"])
+	}
+	if doc.Fields["scuola"] != "Evocazione" {
+		t.Errorf("expected Fields[scuola]=Evocazione, got %v", doc.Fields["scuola"])
 	}
 }
 
-func TestDocument_NewDocumentFromName(t *testing.T) {
-	title := "Test Document Title"
-	filters := NewDocumentFilters()
-	content := NewHTMLContent("<p>test content</p>")
-	rawContent := NewMarkdownContent("test content")
-
-	doc, err := NewDocumentFromName(title, filters, content, rawContent)
-	if err != nil {
-		t.Fatalf("Expected no error, got %v", err)
+func TestDocument_GetField(t *testing.T) {
+	doc := &Document{
+		Fields: map[string]any{
+			"livello": 3,
+			"scuola":  "Evocazione",
+		},
 	}
 
-	expectedID := DocumentID("test-document-title")
-	if doc.ID != expectedID {
-		t.Errorf("Expected ID %s, got %s", expectedID, doc.ID)
+	if doc.GetField("livello") != 3 {
+		t.Error("expected livello=3")
 	}
-	if doc.Title != title {
-		t.Errorf("Expected title %s, got %s", title, doc.Title)
+	if doc.GetField("missing") != nil {
+		t.Error("expected nil for missing field")
 	}
 }
 
-func TestDocument_EntityType(t *testing.T) {
-	tests := []struct {
-		name     string
-		filters  DocumentFilters
-		expected string
-	}{
-		{
-			name:     "collection filter present",
-			filters:  DocumentFilters{"collection": "spells"},
-			expected: "spells",
-		},
-		{
-			name:     "no collection filter",
-			filters:  DocumentFilters{},
-			expected: "document",
+func TestDocument_GetFieldString(t *testing.T) {
+	doc := &Document{
+		Fields: map[string]any{
+			"scuola":  "Evocazione",
+			"livello": 3,
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			doc := &Document{Filters: tt.filters}
-			result := doc.EntityType()
-			if result != tt.expected {
-				t.Errorf("Expected %s, got %s", tt.expected, result)
-			}
-		})
+	if doc.GetFieldString("scuola") != "Evocazione" {
+		t.Error("expected scuola='Evocazione'")
 	}
-}
-
-func TestDocument_GetCollection(t *testing.T) {
-	tests := []struct {
-		name     string
-		filters  DocumentFilters
-		expected string
-	}{
-		{
-			name:     "string collection",
-			filters:  DocumentFilters{"collection": "weapons"},
-			expected: "weapons",
-		},
-		{
-			name:     "no collection",
-			filters:  DocumentFilters{},
-			expected: "",
-		},
+	if doc.GetFieldString("livello") != "" {
+		t.Error("expected empty string for non-string field")
 	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			doc := &Document{Filters: tt.filters}
-			result := doc.GetCollection()
-			if result != tt.expected {
-				t.Errorf("Expected %s, got %s", tt.expected, result)
-			}
-		})
+	if doc.GetFieldString("missing") != "" {
+		t.Error("expected empty string for missing field")
 	}
 }

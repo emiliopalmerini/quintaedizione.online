@@ -35,7 +35,6 @@ type Document struct {
 	Title           string                 `json:"title"`
 	DisplayElements []DocumentDisplayField `json:"display_elements"`
 	Translated      bool                   `json:"translated"`
-	Snippet         string                 `json:"snippet,omitempty"`
 }
 
 type DocumentDisplayField struct {
@@ -86,13 +85,20 @@ type CollectionPageData struct {
 type ItemPageData struct {
 	PageData
 	BodyRaw         string
-	BodyHTML        string
+	BodyHTML        string // used for collections without stat-block templates
 	PrevID          string
 	NextID          string
 	Position        int
 	Total           int
 	CollectionLabel string
 	SourceShort     string // edition badge (e.g. "5e", "5.5e"); empty if single source
+
+	// Stat-block view models — at most one is set based on collection type.
+	// The template checks these before falling back to BodyHTML.
+	Spell   *SpellStatBlock
+	Monster *MonsterStatBlock
+	Class   *ClassStatBlock
+	Species *SpeciesStatBlock
 }
 
 type ErrorPageData struct {

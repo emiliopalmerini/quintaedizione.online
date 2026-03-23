@@ -1,0 +1,190 @@
+package templates
+
+import "github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/models"
+import "strconv"
+
+templ SpellStatBlock(s models.SpellStatBlock) {
+	<div class="stat-block">
+		<p class="stat-block-subtitle">
+			if s.Level == 0 {
+				Trucchetto { s.School }
+			} else {
+				Livello { strconv.Itoa(s.Level) } { s.School }
+			}
+		</p>
+		<div class="stat-block-properties">
+			@statBlockProperty("Tempo di Lancio:", s.CastingTime)
+			@statBlockProperty("Gittata:", s.Range)
+			@statBlockProperty("Componenti:", s.Components)
+			@statBlockProperty("Durata:", s.Duration)
+		</div>
+		if s.Ritual {
+			<p class="stat-block-ritual">Rituale</p>
+		}
+		if s.DescriptionHTML != "" {
+			<div class="stat-block-description">
+				@templ.Raw(s.DescriptionHTML)
+			</div>
+		}
+		if s.AtHigherLevelsHTML != "" {
+			<div class="stat-block-higher-levels">
+				<strong>Ai Livelli Superiori.</strong>{ " " }@templ.Raw(s.AtHigherLevelsHTML)
+			</div>
+		}
+		if s.Classes != "" {
+			<p class="stat-block-classes">Classi: { s.Classes }</p>
+		}
+	</div>
+}
+
+templ MonsterStatBlock(m models.MonsterStatBlock) {
+	<div class="stat-block">
+		<p class="stat-block-subtitle">{ m.Subtitle }</p>
+		<hr class="stat-block-divider"/>
+		<div class="stat-block-properties">
+			if m.Initiative != "" {
+				<div class="stat-block-property">
+					<strong>CA</strong> { m.AC } &middot; <strong>Iniziativa</strong> { m.Initiative }
+				</div>
+			} else {
+				@statBlockProperty("CA", m.AC)
+			}
+			@statBlockProperty("PF", m.HP)
+			@statBlockProperty("Velocità", m.Speed)
+		</div>
+		if len(m.AbilityScores) > 0 {
+			<hr class="stat-block-divider"/>
+			<div class="stat-block-abilities">
+				for _, a := range m.AbilityScores {
+					<div class="stat-block-ability">
+						<div class="stat-block-ability-label">{ a.Label }</div>
+						<div class="stat-block-ability-score">{ strconv.Itoa(a.Score) }</div>
+						<div class="stat-block-ability-mod">{ formatMod(a.Mod) }</div>
+						<div class="stat-block-ability-save">TS { a.Save }</div>
+					</div>
+				}
+			</div>
+		}
+		<hr class="stat-block-divider"/>
+		<div class="stat-block-properties">
+			if m.Skills != "" {
+				@statBlockProperty("Abilità", m.Skills)
+			}
+			if m.ResistancesHTML != "" {
+				<div class="stat-block-property">
+					<strong>Resistenze</strong>{ " " }@templ.Raw(m.ResistancesHTML)
+				</div>
+			}
+			if m.DamageImmunitiesHTML != "" {
+				<div class="stat-block-property">
+					<strong>Immunità ai Danni</strong>{ " " }@templ.Raw(m.DamageImmunitiesHTML)
+				</div>
+			}
+			if m.ConditionImmunitiesHTML != "" {
+				<div class="stat-block-property">
+					<strong>Immunità alle Condizioni</strong>{ " " }@templ.Raw(m.ConditionImmunitiesHTML)
+				</div>
+			}
+			if m.Senses != "" {
+				@statBlockProperty("Sensi", m.Senses)
+			}
+			if m.Languages != "" {
+				@statBlockProperty("Lingue", m.Languages)
+			}
+			if m.CR != "" {
+				@statBlockProperty("GS", m.CR)
+			}
+			if m.Equipment != "" {
+				@statBlockProperty("Equipaggiamento", m.Equipment)
+			}
+		</div>
+		if len(m.Traits) > 0 {
+			<hr class="stat-block-divider"/>
+			for _, t := range m.Traits {
+				@featureBlock(t)
+			}
+		}
+		for _, section := range m.Sections {
+			@featureSectionBlock(section)
+		}
+	</div>
+}
+
+templ ClassStatBlock(c models.ClassStatBlock) {
+	<div class="stat-block">
+		if c.DescriptionHTML != "" {
+			<div class="stat-block-description">
+				@templ.Raw(c.DescriptionHTML)
+			</div>
+		}
+		if c.ProficienciesHTML != "" {
+			<div class="stat-block-description">
+				@templ.Raw(c.ProficienciesHTML)
+			</div>
+		}
+		if len(c.Features) > 0 {
+			<hr class="stat-block-divider"/>
+			<h2>Privilegi di classe</h2>
+			for _, f := range c.Features {
+				<h3>{ f.Name } (Livello { strconv.Itoa(f.Level) })</h3>
+				<div class="stat-block-description">
+					@templ.Raw(f.DescriptionHTML)
+				</div>
+			}
+		}
+		for _, sc := range c.Subclasses {
+			<hr class="stat-block-divider"/>
+			<h2>{ sc.Name }</h2>
+			if sc.DescriptionHTML != "" {
+				<div class="stat-block-description">
+					@templ.Raw(sc.DescriptionHTML)
+				</div>
+			}
+			for _, f := range sc.Features {
+				<h3>{ f.Name } (Livello { strconv.Itoa(f.Level) })</h3>
+				<div class="stat-block-description">
+					@templ.Raw(f.DescriptionHTML)
+				</div>
+			}
+		}
+	</div>
+}
+
+templ SpeciesStatBlock(s models.SpeciesStatBlock) {
+	<div class="stat-block">
+		<p class="stat-block-subtitle">{ s.Subtitle }</p>
+		if s.DescriptionHTML != "" {
+			<div class="stat-block-description">
+				@templ.Raw(s.DescriptionHTML)
+			</div>
+		}
+	</div>
+}
+
+// Shared components
+
+templ statBlockProperty(label, value string) {
+	<div class="stat-block-property"><strong>{ label }</strong> { value }</div>
+}
+
+templ featureBlock(f models.Feature) {
+	<div class="stat-block-feature">
+		<span class="stat-block-feature-name">{ f.Name }.</span>{ " " }@templ.Raw(f.DescriptionHTML)
+	</div>
+}
+
+templ featureSectionBlock(s models.FeatureSection) {
+	<div class="stat-block-section">
+		<h3 class="stat-block-section-heading">{ s.Heading }</h3>
+		for _, f := range s.Features {
+			@featureBlock(f)
+		}
+	</div>
+}
+
+func formatMod(mod int) string {
+	if mod >= 0 {
+		return "+" + strconv.Itoa(mod)
+	}
+	return strconv.Itoa(mod)
+}

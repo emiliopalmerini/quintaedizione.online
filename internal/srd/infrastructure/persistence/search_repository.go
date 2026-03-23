@@ -2,7 +2,6 @@ package persistence
 
 import (
 	"context"
-	"fmt"
 
 	domainsearch "github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain/search"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/infrastructure/datastore"
@@ -32,50 +31,12 @@ func (r *searchRepository) GetSearchableItems(_ context.Context, collection stri
 			compositeID = short + "/" + id
 		}
 
-		keywords := extractKeywords(doc)
 		items = append(items, domainsearch.SearchableItem{
 			ID:         compositeID,
 			Collection: collection,
 			Title:      title,
-			Keywords:   keywords,
 		})
 	}
 
 	return items, nil
-}
-
-func extractKeywords(doc map[string]any) []string {
-	keywordFields := []string{
-		"scuola", "classe", "tipo", "categoria",
-		"rarita", "livello", "taglia", "allineamento",
-		"tipo_danno", "proprieta", "ambiente",
-	}
-
-	var keywords []string
-	for _, field := range keywordFields {
-		val, ok := doc[field]
-		if !ok || val == nil {
-			continue
-		}
-
-		switch v := val.(type) {
-		case string:
-			if v != "" {
-				keywords = append(keywords, v)
-			}
-		case []any:
-			for _, item := range v {
-				if s, ok := item.(string); ok && s != "" {
-					keywords = append(keywords, s)
-				}
-			}
-		default:
-			s := fmt.Sprintf("%v", v)
-			if s != "" && s != "0" {
-				keywords = append(keywords, s)
-			}
-		}
-	}
-
-	return keywords
 }

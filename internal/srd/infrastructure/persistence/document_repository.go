@@ -2,7 +2,6 @@ package persistence
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain/repositories"
@@ -18,77 +17,21 @@ func NewDocumentRepository(store *datastore.Store) repositories.DocumentReposito
 	return &documentRepository{store: store}
 }
 
-func (r *documentRepository) FindByID(_ context.Context, id domain.DocumentID, collection string) (*domain.Document, error) {
-	doc, err := r.store.Get(collection, string(id))
+func (r *documentRepository) FindByID(_ context.Context, collection string, id string) (*domain.Document, error) {
+	m, err := r.store.Get(collection, id)
 	if err != nil {
 		return nil, err
 	}
-
-	title, _ := doc["title"].(string)
-	content, _ := doc["content"].(string)
-	rawContent, _ := doc["raw_content"].(string)
-
-	return &domain.Document{
-		ID:         id,
-		Title:      title,
-		Content:    domain.HTMLContent(content),
-		RawContent: domain.MarkdownContent(rawContent),
-	}, nil
+	return domain.DocumentFromMap(m), nil
 }
 
-func (r *documentRepository) FindAll(_ context.Context, collection string, limit int) ([]*domain.Document, error) {
-	docs, _ := r.store.Query(collection, nil, 0, int64(limit))
+func (r *documentRepository) FindByPredicate(_ context.Context, collection string, match repositories.DocumentPredicate, skip int64, limit int64) ([]*domain.Document, int64, error) {
+	maps, total := r.store.Query(collection, match, skip, limit)
 
-	result := make([]*domain.Document, 0, len(docs))
-	for _, doc := range docs {
-		id, _ := doc["_id"].(string)
-		title, _ := doc["title"].(string)
-		content, _ := doc["content"].(string)
-		rawContent, _ := doc["raw_content"].(string)
-		result = append(result, &domain.Document{
-			ID:         domain.DocumentID(id),
-			Title:      title,
-			Content:    domain.HTMLContent(content),
-			RawContent: domain.MarkdownContent(rawContent),
-		})
+	docs := make([]*domain.Document, 0, len(maps))
+	for _, m := range maps {
+		docs = append(docs, domain.DocumentFromMap(m))
 	}
-	return result, nil
-}
-
-func (r *documentRepository) FindByFilters(_ context.Context, collection string, filters map[string]any, limit int) ([]*domain.Document, error) {
-	match := func(doc map[string]any) bool {
-		for key, value := range filters {
-			if fmt.Sprintf("%v", doc[key]) != fmt.Sprintf("%v", value) {
-				return false
-			}
-		}
-		return true
-	}
-
-	docs, _ := r.store.Query(collection, match, 0, int64(limit))
-
-	result := make([]*domain.Document, 0, len(docs))
-	for _, doc := range docs {
-		id, _ := doc["_id"].(string)
-		title, _ := doc["title"].(string)
-		content, _ := doc["content"].(string)
-		rawContent, _ := doc["raw_content"].(string)
-		result = append(result, &domain.Document{
-			ID:         domain.DocumentID(id),
-			Title:      title,
-			Content:    domain.HTMLContent(content),
-			RawContent: domain.MarkdownContent(rawContent),
-		})
-	}
-	return result, nil
-}
-
-func (r *documentRepository) FindMapByID(_ context.Context, collection string, id string) (map[string]any, error) {
-	return r.store.Get(collection, id)
-}
-
-func (r *documentRepository) FindMaps(_ context.Context, collection string, match repositories.DocumentPredicate, skip int64, limit int64) ([]map[string]any, int64, error) {
-	docs, total := r.store.Query(collection, match, skip, limit)
 	return docs, total, nil
 }
 
@@ -111,7 +54,7 @@ func (r *documentRepository) AggregateField(_ context.Context, collection, field
 	return r.store.Aggregate(collection, fieldPath, match), nil
 }
 
-func (r *documentRepository) GetAdjacentMaps(_ context.Context, collection string, currentID string) (prevID *string, nextID *string, position int, total int, err error) {
+func (r *documentRepository) GetAdjacent(_ context.Context, collection string, currentID string) (prevID *string, nextID *string, position int, total int, err error) {
 	prev, next, pos, tot := r.store.Adjacent(collection, currentID)
 	return prev, next, pos, tot, nil
 }

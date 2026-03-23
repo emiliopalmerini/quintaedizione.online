@@ -18,7 +18,7 @@ func SecurityMiddleware(next http.Handler) http.Handler {
 		w.Header().Set("X-Frame-Options", "DENY")
 		w.Header().Set("X-XSS-Protection", "1; mode=block")
 		w.Header().Set("Referrer-Policy", "strict-origin-when-cross-origin")
-		w.Header().Set("Content-Security-Policy", "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'sha256-iF3Ah6Tg3ke9rlMZ13UTaPKcaTrBio4PaJBVCA='; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'")
+		w.Header().Set("Content-Security-Policy", "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'sha256-P6OINGM4v3ghQgQ9J1R/JeWMPQ/v7CCl5anCHqMNq3U='; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'")
 		w.Header().Set("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
 
 		next.ServeHTTP(w, r)

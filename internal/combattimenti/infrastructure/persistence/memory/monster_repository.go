@@ -32,9 +32,33 @@ type jsonSavingThrows struct {
 	Charisma     string `json:"charisma"`
 }
 
+// jsonSegment mirrors the srd.Segment type from quintaedizione-data-ita.
+type jsonSegment struct {
+	Type string `json:"type"`
+	Text string `json:"text"`
+	ID   string `json:"id,omitempty"`
+}
+
+// jsonContent is a local alias for []jsonSegment, matching srd.Content.
+type jsonContent []jsonSegment
+
+func (c jsonContent) plainText() string {
+	if len(c) == 0 {
+		return ""
+	}
+	if len(c) == 1 {
+		return c[0].Text
+	}
+	var b strings.Builder
+	for _, s := range c {
+		b.WriteString(s.Text)
+	}
+	return b.String()
+}
+
 type jsonNamedDescription struct {
-	Name        string `json:"name"`
-	Description string `json:"description"`
+	Name        string      `json:"name"`
+	Description jsonContent `json:"description"`
 }
 
 type jsonMonster struct {
@@ -53,9 +77,9 @@ type jsonMonster struct {
 	AbilityMods         jsonAbilityScores      `json:"ability_mods"`
 	SavingThrows        jsonSavingThrows       `json:"saving_throws"`
 	Skills              string                 `json:"skills"`
-	Resistances         string                 `json:"resistances"`
-	DamageImmunities    string                 `json:"damage_immunities"`
-	ConditionImmunities string                 `json:"condition_immunities"`
+	Resistances         jsonContent            `json:"resistances"`
+	DamageImmunities    jsonContent            `json:"damage_immunities"`
+	ConditionImmunities jsonContent            `json:"condition_immunities"`
 	Senses              string                 `json:"senses"`
 	Languages           string                 `json:"languages"`
 	CR                  string                 `json:"cr"`
@@ -109,9 +133,9 @@ func NewMonsterRepository(dataFS fs.FS, filename, sourceShort string) *MonsterRe
 			Skills:              m.Skills,
 			Senses:              m.Senses,
 			Languages:           m.Languages,
-			Resistances:         m.Resistances,
-			DamageImmunities:    m.DamageImmunities,
-			ConditionImmunities: m.ConditionImmunities,
+			Resistances:         m.Resistances.plainText(),
+			DamageImmunities:    m.DamageImmunities.plainText(),
+			ConditionImmunities: m.ConditionImmunities.plainText(),
 			Equipment:           m.Equipment,
 			CRDetail:            m.CRDetail,
 			Traits:              convertNamedDescriptions(m.Traits),
@@ -137,7 +161,7 @@ func convertNamedDescriptions(src []jsonNamedDescription) []monster.NamedDescrip
 	}
 	result := make([]monster.NamedDescription, len(src))
 	for i, nd := range src {
-		result[i] = monster.NamedDescription{Name: nd.Name, Description: nd.Description}
+		result[i] = monster.NamedDescription{Name: nd.Name, Description: nd.Description.plainText()}
 	}
 	return result
 }

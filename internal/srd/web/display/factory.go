@@ -1,6 +1,9 @@
 package display
 
-import "github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/dto"
+import (
+	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/dto"
+)
 
 type DisplayElementFactory struct {
 	strategies  map[string]DisplayElementStrategy
@@ -39,18 +42,16 @@ func (f *DisplayElementFactory) GetStrategy(collection string) DisplayElementStr
 	return &DefaultDisplayStrategy{}
 }
 
-func (f *DisplayElementFactory) GetDisplayElements(collection string, doc map[string]any) []dto.DisplayElementDTO {
+func (f *DisplayElementFactory) GetDisplayElements(collection string, doc *domain.Document) []dto.DisplayElementDTO {
 	strategy := f.GetStrategy(collection)
 	elements := strategy.GetElements(doc)
 
 	// Append edition badge if source metadata is present and multiple sources loaded
-	if f.multiSource {
-		if source, ok := doc["_source_short"].(string); ok && source != "" {
-			elements = append(elements, dto.DisplayElementDTO{
-				Value: source,
-				Type:  "edition",
-			})
-		}
+	if f.multiSource && doc.Source != "" {
+		elements = append(elements, dto.DisplayElementDTO{
+			Value: doc.Source,
+			Type:  "edition",
+		})
 	}
 
 	return elements

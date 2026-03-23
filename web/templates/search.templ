@@ -98,11 +98,6 @@ templ SearchPage(data models.SearchPageData) {
 											}
 										</div>
 									}
-									if doc.Snippet != "" {
-										<p class="search-page-result-snippet">
-											@templ.Raw(HighlightQuery(doc.Snippet, data.Query))
-										</p>
-									}
 								</div>
 								<span class="search-page-result-arrow">&rarr;</span>
 							</a>

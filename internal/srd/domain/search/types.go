@@ -6,7 +6,6 @@ type SearchableItem struct {
 	ID         string
 	Collection string
 	Title      string
-	Keywords   []string
 }
 
 type SearchResult struct {

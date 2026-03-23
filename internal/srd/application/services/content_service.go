@@ -29,7 +29,7 @@ func NewContentService(repo repositories.DocumentRepository, filterService filte
 	}
 }
 
-func (s *ContentService) GetCollectionItems(ctx context.Context, collection, search string, filterParams map[string]string, page, limit int) ([]map[string]any, int64, error) {
+func (s *ContentService) GetCollectionItems(ctx context.Context, collection, search string, filterParams map[string]string, page, limit int) ([]*domain.Document, int64, error) {
 	skip := int64((page - 1) * limit)
 
 	collectionType, _ := collections.FromString(collection)
@@ -37,11 +37,7 @@ func (s *ContentService) GetCollectionItems(ctx context.Context, collection, sea
 	searchPred := s.filterService.BuildSearchPredicate(collectionType, search)
 
 	if len(filterParams) == 0 {
-		items, totalCount, err := s.documentReader.FindMaps(ctx, collection, searchPred, skip, int64(limit))
-		if err != nil {
-			return nil, 0, fmt.Errorf("failed to get collection items: %w", err)
-		}
-		return items, totalCount, nil
+		return s.documentReader.FindByPredicate(ctx, collection, searchPred, skip, int64(limit))
 	}
 
 	filterSet, err := s.filterService.ParseFilters(collectionType, filterParams)
@@ -56,23 +52,18 @@ func (s *ContentService) GetCollectionItems(ctx context.Context, collection, sea
 
 	combined := s.filterService.CombinePredicates(fieldPred, searchPred)
 
-	items, totalCount, err := s.documentReader.FindMaps(ctx, collection, combined, skip, int64(limit))
-	if err != nil {
-		return nil, 0, fmt.Errorf("failed to get collection items with filters: %w", err)
-	}
-
-	return items, totalCount, nil
+	return s.documentReader.FindByPredicate(ctx, collection, combined, skip, int64(limit))
 }
 
-func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (map[string]any, error) {
+func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (*domain.Document, error) {
 	cacheKey := fmt.Sprintf("item:%s:%s", collection, slug)
 	if cached, found := s.cache.Get(cacheKey); found {
-		if item, ok := cached.(map[string]any); ok {
+		if item, ok := cached.(*domain.Document); ok {
 			return item, nil
 		}
 	}
 
-	item, err := s.documentReader.FindMapByID(ctx, collection, slug)
+	item, err := s.documentReader.FindByID(ctx, collection, slug)
 	if err != nil {
 		return nil, fmt.Errorf("failed to find item: %w", err)
 	}
@@ -110,7 +101,7 @@ func (s *ContentService) GetCollectionStats(ctx context.Context) ([]map[string]a
 }
 
 func (s *ContentService) GetAdjacentItems(ctx context.Context, collection, currentSlug string) (prevSlug, nextSlug *string, position, total int, err error) {
-	return s.documentNav.GetAdjacentMaps(ctx, collection, currentSlug)
+	return s.documentNav.GetAdjacent(ctx, collection, currentSlug)
 }
 
 // GetFacetCounts returns, for each filter definition, a map of value → count.
@@ -177,9 +168,9 @@ func (s *ContentService) GetAvailableFilters(collection string) ([]filters.Filte
 }
 
 type SearchResult struct {
-	Collection string           `json:"collection"`
-	Items      []map[string]any `json:"items"`
-	Total      int64            `json:"total"`
+	Collection string             `json:"collection"`
+	Items      []*domain.Document `json:"items"`
+	Total      int64              `json:"total"`
 }
 
 func (s *ContentService) GlobalSearch(ctx context.Context, query string, limitPerCollection int) ([]SearchResult, error) {
@@ -203,7 +194,7 @@ func (s *ContentService) GlobalSearch(ctx context.Context, query string, limitPe
 		collectionType, _ := collections.FromString(collectionName)
 		searchPred := s.filterService.BuildSearchPredicate(collectionType, query)
 
-		items, total, err := s.documentReader.FindMaps(ctx, collectionName, searchPred, 0, int64(limitPerCollection))
+		items, total, err := s.documentReader.FindByPredicate(ctx, collectionName, searchPred, 0, int64(limitPerCollection))
 		if err != nil {
 			fmt.Printf("Warning: Failed to search in collection %s: %v\n", collectionName, err)
 			continue

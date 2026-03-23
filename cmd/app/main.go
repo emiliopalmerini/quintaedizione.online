@@ -47,16 +47,17 @@ func main() {
 	// ── SRD setup ──────────────────────────────────────────────
 
 	log.Println("Loading SRD JSON data...")
-	glossaryLinker, err := parsers.NewGlossaryLinker(jsondata.Files)
+	crossLinker, err := parsers.NewCrossLinker(jsondata.Files)
 	if err != nil {
-		log.Printf("Warning: Failed to initialize glossary linker: %v", err)
+		log.Printf("Warning: Failed to initialize cross-linker: %v", err)
 	}
-	renderer := parsers.NewMarkdownRenderer(glossaryLinker)
+	renderer := parsers.NewMarkdownRenderer(crossLinker)
 	loader := datastore.NewLoader(jsondata.Files, renderer)
 	data, sources, err := loader.LoadAll()
 	if err != nil {
 		log.Fatalf("Failed to load JSON data: %v", err)
 	}
+	datastore.EnrichDescriptions(data)
 	store := datastore.NewStore(data)
 	log.Printf("SRD data loaded from %d source(s)", len(sources))
 	for _, src := range sources {

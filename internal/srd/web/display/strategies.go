@@ -5,11 +5,12 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/dto"
 )
 
 type DisplayElementStrategy interface {
-	GetElements(doc map[string]any) []dto.DisplayElementDTO
+	GetElements(doc *domain.Document) []dto.DisplayElementDTO
 	GetCollectionType() string
 }
 
@@ -19,7 +20,7 @@ func (s *IncantesimiDisplayStrategy) GetCollectionType() string {
 	return "incantesimi"
 }
 
-func (s *IncantesimiDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
+func (s *IncantesimiDisplayStrategy) GetElements(doc *domain.Document) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
 	rawContent := getRawContent(doc)
@@ -60,7 +61,7 @@ func (s *OggettiMagiciDisplayStrategy) GetCollectionType() string {
 	return "oggetti_magici"
 }
 
-func (s *OggettiMagiciDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
+func (s *OggettiMagiciDisplayStrategy) GetElements(doc *domain.Document) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
 	if rarity := getFieldValue(doc, "rarita"); rarity != "" {
@@ -98,7 +99,7 @@ func (s *MostriDisplayStrategy) GetCollectionType() string {
 	return "mostri"
 }
 
-func (s *MostriDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
+func (s *MostriDisplayStrategy) GetElements(doc *domain.Document) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
 	rawContent := getRawContent(doc)
@@ -131,7 +132,7 @@ func (s *EquipaggiamentiDisplayStrategy) GetCollectionType() string {
 	return "equipaggiamenti"
 }
 
-func (s *EquipaggiamentiDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
+func (s *EquipaggiamentiDisplayStrategy) GetElements(doc *domain.Document) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
 	if category := getFieldValue(doc, "categoria"); category != "" {
@@ -179,7 +180,7 @@ func (s *BackgroundsDisplayStrategy) GetCollectionType() string {
 	return "backgrounds"
 }
 
-func (s *BackgroundsDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
+func (s *BackgroundsDisplayStrategy) GetElements(doc *domain.Document) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
 	rawContent := getRawContent(doc)
@@ -206,7 +207,7 @@ func (s *TalentiDisplayStrategy) GetCollectionType() string {
 	return "talenti"
 }
 
-func (s *TalentiDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
+func (s *TalentiDisplayStrategy) GetElements(doc *domain.Document) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
 	rawContent := getRawContent(doc)
@@ -227,7 +228,7 @@ func (s *ClassiDisplayStrategy) GetCollectionType() string {
 	return "classi"
 }
 
-func (s *ClassiDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
+func (s *ClassiDisplayStrategy) GetElements(doc *domain.Document) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
 	rawContent := getRawContent(doc)
@@ -248,7 +249,7 @@ func (s *GlossarioDisplayStrategy) GetCollectionType() string {
 	return "glossario"
 }
 
-func (s *GlossarioDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
+func (s *GlossarioDisplayStrategy) GetElements(doc *domain.Document) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
 	if category := getFieldValue(doc, "categoria"); category != "" {
@@ -267,7 +268,7 @@ func (s *SpecieDisplayStrategy) GetCollectionType() string {
 	return "specie"
 }
 
-func (s *SpecieDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
+func (s *SpecieDisplayStrategy) GetElements(doc *domain.Document) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
 	if creatureType := getFieldValue(doc, "tipo_creatura"); creatureType != "" {
@@ -298,7 +299,7 @@ func (s *DefaultDisplayStrategy) GetCollectionType() string {
 	return "default"
 }
 
-func (s *DefaultDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayElementDTO {
+func (s *DefaultDisplayStrategy) GetElements(doc *domain.Document) []dto.DisplayElementDTO {
 	var elements []dto.DisplayElementDTO
 
 	if cost := getStructuredFieldValue(doc, "costo"); cost != "" {
@@ -317,9 +318,9 @@ func (s *DefaultDisplayStrategy) GetElements(doc map[string]any) []dto.DisplayEl
 	return elements
 }
 
-func getFieldValue(doc map[string]any, fieldNames ...string) string {
+func getFieldValue(doc *domain.Document, fieldNames ...string) string {
 	for _, fieldName := range fieldNames {
-		if value, exists := doc[fieldName]; exists && value != nil {
+		if value := doc.GetField(fieldName); value != nil {
 			if strValue := fmt.Sprintf("%v", value); strValue != "" && strValue != "0" {
 				return strValue
 			}
@@ -328,9 +329,9 @@ func getFieldValue(doc map[string]any, fieldNames ...string) string {
 	return ""
 }
 
-func getStructuredFieldValue(doc map[string]any, fieldName string) string {
-	value, exists := doc[fieldName]
-	if !exists || value == nil {
+func getStructuredFieldValue(doc *domain.Document, fieldName string) string {
+	value := doc.GetField(fieldName)
+	if value == nil {
 		return ""
 	}
 
@@ -402,11 +403,8 @@ func formatGittata(value interface{}) string {
 	return ""
 }
 
-func getRawContent(doc map[string]any) string {
-	if content, ok := doc["raw_content"].(string); ok {
-		return content
-	}
-	return ""
+func getRawContent(doc *domain.Document) string {
+	return doc.RawContent.String()
 }
 
 func extractMonsterCA(rawContent string) string {

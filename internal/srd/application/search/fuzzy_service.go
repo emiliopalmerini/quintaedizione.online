@@ -97,36 +97,16 @@ func (svc *FuzzySearchService) searchInCollection(items []domainsearch.Searchabl
 
 	for _, item := range items {
 		title := strings.ToLower(item.Title)
-		keywords := strings.ToLower(strings.Join(item.Keywords, " "))
 
-		// Prioritize exact substring matches
 		if strings.Contains(title, query) {
-			// High score for title substring match
 			ranked = append(ranked, rankedItem{item: item, score: 1000 + len(query)*10})
 			continue
 		}
 
-		if keywords != "" && strings.Contains(keywords, query) {
-			// Good score for keyword substring match
-			ranked = append(ranked, rankedItem{item: item, score: 500 + len(query)*5})
-			continue
-		}
-
-		// Fall back to fuzzy matching only for short queries (typo tolerance)
 		if len(query) >= 3 {
-			// Use RankFind for better scoring
 			matches := fuzzy.RankFind(query, []string{title})
 			if len(matches) > 0 && matches[0].Distance <= len(query)/2 {
 				ranked = append(ranked, rankedItem{item: item, score: 100 - matches[0].Distance})
-				continue
-			}
-
-			// Check keywords with fuzzy
-			if keywords != "" {
-				keywordMatches := fuzzy.RankFind(query, []string{keywords})
-				if len(keywordMatches) > 0 && keywordMatches[0].Distance <= len(query)/2 {
-					ranked = append(ranked, rankedItem{item: item, score: 50 - keywordMatches[0].Distance})
-				}
 			}
 		}
 	}

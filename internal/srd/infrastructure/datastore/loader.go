@@ -7,7 +7,6 @@ import (
 	"io/fs"
 	"strings"
 
-	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/application/parsers"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain"
 )
 
@@ -18,14 +17,14 @@ type Source = domain.Source
 // expected by the in-memory store (map[string]any with _id, title, content, raw_content, filters).
 type Loader struct {
 	fsys     fs.FS
-	renderer *parsers.MarkdownRenderer
+	renderer ContentRenderer
 	prefix   string // source directory prefix (e.g. "srd-5.5e")
 	source   *Source
 }
 
 // NewLoader creates a Loader that reads from the given filesystem and renders
 // markdown descriptions to HTML using the provided renderer.
-func NewLoader(fsys fs.FS, renderer *parsers.MarkdownRenderer) *Loader {
+func NewLoader(fsys fs.FS, renderer ContentRenderer) *Loader {
 	return &Loader{fsys: fsys, renderer: renderer}
 }
 
@@ -136,18 +135,18 @@ func (l *Loader) tagDoc(doc map[string]any) {
 // --- Spells ---
 
 type jsonSpell struct {
-	ID             string   `json:"id"`
-	Name           string   `json:"name"`
-	Level          int      `json:"level"`
-	School         string   `json:"school"`
-	Classes        []string `json:"classes"`
-	CastingTime    string   `json:"casting_time"`
-	Range          string   `json:"range"`
-	Components     string   `json:"components"`
-	Duration       string   `json:"duration"`
-	Description    string   `json:"description"`
-	AtHigherLevels string   `json:"at_higher_levels"`
-	Ritual         bool     `json:"ritual"`
+	ID             string      `json:"id"`
+	Name           string      `json:"name"`
+	Level          int         `json:"level"`
+	School         string      `json:"school"`
+	Classes        []string    `json:"classes"`
+	CastingTime    string      `json:"casting_time"`
+	Range          string      `json:"range"`
+	Components     string      `json:"components"`
+	Duration       string      `json:"duration"`
+	Description    jsonContent `json:"description"`
+	AtHigherLevels jsonContent `json:"at_higher_levels"`
+	Ritual         bool        `json:"ritual"`
 }
 
 func (l *Loader) loadSpells(result map[string][]map[string]any) error {
@@ -156,16 +155,32 @@ func (l *Loader) loadSpells(result map[string][]map[string]any) error {
 		return err
 	}
 
+	src := l.sourceShort()
 	docs := make([]map[string]any, 0, len(spells))
 	for _, s := range spells {
+		var atHigherLevelsHTML string
+		if len(s.AtHigherLevels) > 0 {
+			atHigherLevelsHTML = l.renderContentInline(s.AtHigherLevels.toMarkdown(src))
+		}
+
 		doc := map[string]any{
-			"_id":         s.ID,
-			"title":       s.Name,
-			"content":     l.buildSpellHTML(s),
-			"raw_content": l.buildSpellMarkdown(s),
-			"scuola":      s.School,
-			"livello":     s.Level,
-			"classe":      strings.Join(s.Classes, ", "),
+			"_id":                   s.ID,
+			"title":                 s.Name,
+			"raw_content":           l.buildSpellMarkdown(s),
+			"scuola":                s.School,
+			"livello":               s.Level,
+			"classe":                strings.Join(s.Classes, ", "),
+			"level":                 s.Level,
+			"school":                s.School,
+			"casting_time":          s.CastingTime,
+			"range":                 s.Range,
+			"components":            s.Components,
+			"duration":              s.Duration,
+			"ritual":                s.Ritual,
+			"description_html":      l.renderContent(s.Description.toMarkdown(src)),
+			"at_higher_levels_html": atHigherLevelsHTML,
+			"classes":               strings.Join(s.Classes, ", "),
+			"_stat_block":           "spell",
 		}
 		l.tagDoc(doc)
 		docs = append(docs, doc)
@@ -178,8 +193,8 @@ func (l *Loader) loadSpells(result map[string][]map[string]any) error {
 // --- Monsters ---
 
 type jsonFeature struct {
-	Name        string `json:"name"`
-	Description string `json:"description"`
+	Name        string      `json:"name"`
+	Description jsonContent `json:"description"`
 }
 
 type jsonMonster struct {
@@ -196,9 +211,9 @@ type jsonMonster struct {
 	HP                  string            `json:"hp"`
 	Speed               string            `json:"speed"`
 	Skills              string            `json:"skills"`
-	Resistances         string            `json:"resistances"`
-	DamageImmunities    string            `json:"damage_immunities"`
-	ConditionImmunities string            `json:"condition_immunities"`
+	Resistances         jsonContent       `json:"resistances"`
+	DamageImmunities    jsonContent       `json:"damage_immunities"`
+	ConditionImmunities jsonContent       `json:"condition_immunities"`
 	Senses              string            `json:"senses"`
 	Languages           string            `json:"languages"`
 	Equipment           string            `json:"equipment"`
@@ -219,17 +234,51 @@ func (l *Loader) loadMonsters(result map[string][]map[string]any) error {
 		return err
 	}
 
+	src := l.sourceShort()
 	docs := make([]map[string]any, 0, len(monsters))
 	for _, m := range monsters {
+		// Pre-render content fields with crosslinks
+		traits := l.renderFeatures(m.Traits, src)
+		actions := l.renderFeatures(m.Actions, src)
+		bonusActions := l.renderFeatures(m.BonusActions, src)
+		reactions := l.renderFeatures(m.Reactions, src)
+		legendaryActions := l.renderFeatures(m.LegendaryActions, src)
+
+		cr := m.CR
+		if m.CRDetail != "" {
+			cr = m.CRDetail
+		}
+
 		doc := map[string]any{
-			"_id":          m.ID,
-			"title":        m.Name,
-			"content":      l.buildMonsterHTML(m),
-			"raw_content":  l.buildMonsterMarkdown(m),
-			"tipo":         m.Type,
-			"taglia":       m.Size,
-			"allineamento": m.Alignment,
-			"grado_sfida":  m.CR,
+			"_id":                       m.ID,
+			"title":                     m.Name,
+			"raw_content":               l.buildMonsterMarkdown(m),
+			"tipo":                      m.Type,
+			"taglia":                    m.Size,
+			"allineamento":              m.Alignment,
+			"grado_sfida":               m.CR,
+			"subtitle":                  fmt.Sprintf("%s %s, %s", m.Type, m.Size, m.Alignment),
+			"ac":                        m.AC,
+			"initiative":                m.Initiative,
+			"hp":                        m.HP,
+			"speed":                     m.Speed,
+			"ability_scores":            m.AbilityScores,
+			"ability_mods":              m.AbilityMods,
+			"saving_throws":             m.SavingThrows,
+			"skills":                    m.Skills,
+			"resistances_html":          l.renderInlineContent(m.Resistances, src),
+			"damage_immunities_html":    l.renderInlineContent(m.DamageImmunities, src),
+			"condition_immunities_html": l.renderInlineContent(m.ConditionImmunities, src),
+			"senses":                    m.Senses,
+			"languages":                 m.Languages,
+			"cr":                        cr,
+			"equipment":                 m.Equipment,
+			"traits":                    traits,
+			"actions":                   actions,
+			"bonus_actions":             bonusActions,
+			"reactions":                 reactions,
+			"legendary_actions":         legendaryActions,
+			"_stat_block":               "monster",
 		}
 		l.tagDoc(doc)
 		docs = append(docs, doc)
@@ -239,17 +288,40 @@ func (l *Loader) loadMonsters(result map[string][]map[string]any) error {
 	return nil
 }
 
+// renderFeatures converts a slice of jsonFeature to a slice of maps with pre-rendered HTML.
+func (l *Loader) renderFeatures(features []jsonFeature, src string) []map[string]any {
+	if len(features) == 0 {
+		return nil
+	}
+	result := make([]map[string]any, 0, len(features))
+	for _, f := range features {
+		result = append(result, map[string]any{
+			"name":             f.Name,
+			"description_html": l.renderContentInline(f.Description.toMarkdown(src)),
+		})
+	}
+	return result
+}
+
+// renderInlineContent renders jsonContent to inline HTML if non-empty.
+func (l *Loader) renderInlineContent(content jsonContent, src string) string {
+	if len(content) == 0 {
+		return ""
+	}
+	return l.renderContentInline(content.toMarkdown(src))
+}
+
 // --- Classes ---
 
 type jsonClassFeature struct {
-	Name        string `json:"name"`
-	Level       int    `json:"level"`
-	Description string `json:"description"`
+	Name        string      `json:"name"`
+	Level       int         `json:"level"`
+	Description jsonContent `json:"description"`
 }
 
 type jsonSubclass struct {
 	Name        string             `json:"name"`
-	Description string             `json:"description"`
+	Description jsonContent        `json:"description"`
 	Features    []jsonClassFeature `json:"features"`
 }
 
@@ -258,7 +330,7 @@ type jsonClass struct {
 	Name          string             `json:"name"`
 	HitDie        string             `json:"hit_die"`
 	Proficiencies string             `json:"proficiencies"`
-	Description   string             `json:"description"`
+	Description   jsonContent        `json:"description"`
 	Features      []jsonClassFeature `json:"features"`
 	Subclasses    []jsonSubclass     `json:"subclasses"`
 	SpellList     []string           `json:"spell_list"`
@@ -270,13 +342,59 @@ func (l *Loader) loadClasses(result map[string][]map[string]any) error {
 		return err
 	}
 
+	src := l.sourceShort()
 	docs := make([]map[string]any, 0, len(classes))
 	for _, c := range classes {
+		// Pre-render class features
+		features := make([]map[string]any, 0, len(c.Features))
+		for _, f := range c.Features {
+			features = append(features, map[string]any{
+				"name":             f.Name,
+				"level":            f.Level,
+				"description_html": l.renderContent(f.Description.toMarkdown(src)),
+			})
+		}
+
+		// Pre-render subclasses
+		subclasses := make([]map[string]any, 0, len(c.Subclasses))
+		for _, sc := range c.Subclasses {
+			scFeatures := make([]map[string]any, 0, len(sc.Features))
+			for _, f := range sc.Features {
+				scFeatures = append(scFeatures, map[string]any{
+					"name":             f.Name,
+					"level":            f.Level,
+					"description_html": l.renderContent(f.Description.toMarkdown(src)),
+				})
+			}
+			var scDescHTML string
+			if len(sc.Description) > 0 {
+				scDescHTML = l.renderContent(sc.Description.toMarkdown(src))
+			}
+			subclasses = append(subclasses, map[string]any{
+				"name":             sc.Name,
+				"description_html": scDescHTML,
+				"features":         scFeatures,
+			})
+		}
+
+		var descHTML string
+		if len(c.Description) > 0 {
+			descHTML = l.renderContent(c.Description.toMarkdown(src))
+		}
+		var profHTML string
+		if c.Proficiencies != "" {
+			profHTML = l.renderer.Render(c.Proficiencies)
+		}
+
 		doc := map[string]any{
-			"_id":         c.ID,
-			"title":       c.Name,
-			"content":     l.buildClassHTML(c),
-			"raw_content": l.buildClassMarkdown(c),
+			"_id":                c.ID,
+			"title":              c.Name,
+			"raw_content":        l.buildClassMarkdown(c),
+			"description_html":   descHTML,
+			"proficiencies_html": profHTML,
+			"features":           features,
+			"subclasses":         subclasses,
+			"_stat_block":        "class",
 		}
 		l.tagDoc(doc)
 		docs = append(docs, doc)
@@ -289,14 +407,14 @@ func (l *Loader) loadClasses(result map[string][]map[string]any) error {
 // --- Backgrounds ---
 
 type jsonBackground struct {
-	ID                 string `json:"id"`
-	Name               string `json:"name"`
-	AbilityScores      string `json:"ability_scores"`
-	Feat               string `json:"feat"`
-	SkillProficiencies string `json:"skill_proficiencies"`
-	ToolProficiency    string `json:"tool_proficiency"`
-	Equipment          string `json:"equipment"`
-	Description        string `json:"description"`
+	ID                 string      `json:"id"`
+	Name               string      `json:"name"`
+	AbilityScores      string      `json:"ability_scores"`
+	Feat               string      `json:"feat"`
+	SkillProficiencies string      `json:"skill_proficiencies"`
+	ToolProficiency    string      `json:"tool_proficiency"`
+	Equipment          string      `json:"equipment"`
+	Description        jsonContent `json:"description"`
 }
 
 func (l *Loader) loadBackgrounds(result map[string][]map[string]any) error {
@@ -307,12 +425,11 @@ func (l *Loader) loadBackgrounds(result map[string][]map[string]any) error {
 
 	docs := make([]map[string]any, 0, len(backgrounds))
 	for _, bg := range backgrounds {
-		raw := l.buildBackgroundMarkdown(bg)
 		doc := map[string]any{
 			"_id":         bg.ID,
 			"title":       bg.Name,
-			"content":     l.renderer.Render(raw),
-			"raw_content": raw,
+			"content":     l.buildBackgroundHTML(bg),
+			"raw_content": l.buildBackgroundMarkdown(bg),
 		}
 		l.tagDoc(doc)
 		docs = append(docs, doc)
@@ -320,31 +437,6 @@ func (l *Loader) loadBackgrounds(result map[string][]map[string]any) error {
 
 	result["backgrounds"] = append(result["backgrounds"], docs...)
 	return nil
-}
-
-func (l *Loader) buildBackgroundMarkdown(bg jsonBackground) string {
-	var b strings.Builder
-
-	if bg.AbilityScores != "" {
-		fmt.Fprintf(&b, "**Punteggi di Caratteristica:** %s\n\n", bg.AbilityScores)
-	}
-	if bg.Feat != "" {
-		fmt.Fprintf(&b, "**Talento:** %s\n\n", bg.Feat)
-	}
-	if bg.SkillProficiencies != "" {
-		fmt.Fprintf(&b, "**Competenze nelle Abilità:** %s\n\n", bg.SkillProficiencies)
-	}
-	if bg.ToolProficiency != "" {
-		fmt.Fprintf(&b, "**Competenza negli Strumenti:** %s\n\n", bg.ToolProficiency)
-	}
-	if bg.Equipment != "" {
-		fmt.Fprintf(&b, "**Equipaggiamento:** %s\n\n", bg.Equipment)
-	}
-	if bg.Description != "" {
-		b.WriteString(bg.Description)
-	}
-
-	return strings.TrimSpace(b.String())
 }
 
 // --- Equipment ---
@@ -355,7 +447,7 @@ type jsonEquipment struct {
 	Category    string            `json:"category"`
 	Subcategory string            `json:"subcategory"`
 	Properties  map[string]string `json:"properties"`
-	Description string            `json:"description"`
+	Description jsonContent       `json:"description"`
 }
 
 // equipmentCollectionName maps a JSON equipment item to its Go collection.
@@ -375,11 +467,12 @@ func (l *Loader) loadEquipment(result map[string][]map[string]any) error {
 	for _, item := range items {
 		collection := equipmentCollectionName(item.Category)
 
+		raw := item.Description.plainText()
 		doc := map[string]any{
 			"_id":         item.ID,
 			"title":       item.Name,
-			"content":     l.renderer.Render(item.Description),
-			"raw_content": item.Description,
+			"content":     l.renderContent(item.Description.toMarkdown(l.sourceShort())),
+			"raw_content": raw,
 			"categoria":   item.Subcategory,
 		}
 
@@ -398,13 +491,13 @@ func (l *Loader) loadEquipment(result map[string][]map[string]any) error {
 // --- Magic Items ---
 
 type jsonMagicItem struct {
-	ID                string `json:"id"`
-	Name              string `json:"name"`
-	Type              string `json:"type"`
-	Rarity            string `json:"rarity"`
-	Attunement        bool   `json:"attunement"`
-	AttunementDetails string `json:"attunement_details"`
-	Description       string `json:"description"`
+	ID                string      `json:"id"`
+	Name              string      `json:"name"`
+	Type              string      `json:"type"`
+	Rarity            string      `json:"rarity"`
+	Attunement        bool        `json:"attunement"`
+	AttunementDetails string      `json:"attunement_details"`
+	Description       jsonContent `json:"description"`
 }
 
 func (l *Loader) loadMagicItems(result map[string][]map[string]any) error {
@@ -415,11 +508,12 @@ func (l *Loader) loadMagicItems(result map[string][]map[string]any) error {
 
 	docs := make([]map[string]any, 0, len(items))
 	for _, item := range items {
+		raw := item.Description.plainText()
 		doc := map[string]any{
 			"_id":         item.ID,
 			"title":       item.Name,
-			"content":     l.renderer.Render(item.Description),
-			"raw_content": item.Description,
+			"content":     l.renderContent(item.Description.toMarkdown(l.sourceShort())),
+			"raw_content": raw,
 			"rarita":      item.Rarity,
 			"tipo":        item.Type,
 		}
@@ -434,12 +528,12 @@ func (l *Loader) loadMagicItems(result map[string][]map[string]any) error {
 // --- Feats ---
 
 type jsonFeat struct {
-	ID           string `json:"id"`
-	Name         string `json:"name"`
-	Category     string `json:"category"`
-	Prerequisite string `json:"prerequisite"`
-	Repeatable   bool   `json:"repeatable"`
-	Benefit      string `json:"benefit"`
+	ID           string      `json:"id"`
+	Name         string      `json:"name"`
+	Category     string      `json:"category"`
+	Prerequisite jsonContent `json:"prerequisite"`
+	Repeatable   bool        `json:"repeatable"`
+	Benefit      jsonContent `json:"benefit"`
 }
 
 func (l *Loader) loadFeats(result map[string][]map[string]any) error {
@@ -450,11 +544,12 @@ func (l *Loader) loadFeats(result map[string][]map[string]any) error {
 
 	docs := make([]map[string]any, 0, len(feats))
 	for _, f := range feats {
+		raw := f.Benefit.plainText()
 		doc := map[string]any{
 			"_id":         f.ID,
 			"title":       f.Name,
-			"content":     l.renderer.Render(f.Benefit),
-			"raw_content": f.Benefit,
+			"content":     l.renderContent(f.Benefit.toMarkdown(l.sourceShort())),
+			"raw_content": raw,
 			"categoria":   f.Category,
 		}
 		l.tagDoc(doc)
@@ -468,10 +563,10 @@ func (l *Loader) loadFeats(result map[string][]map[string]any) error {
 // --- Rules ---
 
 type jsonRule struct {
-	ID       string     `json:"id"`
-	Title    string     `json:"title"`
-	Content  string     `json:"content"`
-	Children []jsonRule `json:"children"`
+	ID       string      `json:"id"`
+	Title    string      `json:"title"`
+	Content  jsonContent `json:"content"`
+	Children []jsonRule  `json:"children"`
 }
 
 func (l *Loader) loadRules(result map[string][]map[string]any) error {
@@ -527,28 +622,35 @@ func (l *Loader) loadRules(result map[string][]map[string]any) error {
 }
 
 func (l *Loader) ruleToDoc(r jsonRule) map[string]any {
-	// Build full content including children
-	raw := r.Content
+	src := l.sourceShort()
+
+	var rawB, linkedB strings.Builder
+	rawB.WriteString(r.Content.plainText())
+	linkedB.WriteString(r.Content.toMarkdown(src))
 	for _, child := range r.Children {
-		raw += "\n\n### " + child.Title + "\n\n" + child.Content
+		heading := "\n\n### " + child.Title + "\n\n"
+		rawB.WriteString(heading)
+		rawB.WriteString(child.Content.plainText())
+		linkedB.WriteString(heading)
+		linkedB.WriteString(child.Content.toMarkdown(src))
 	}
 
 	return map[string]any{
 		"_id":         r.ID,
 		"title":       r.Title,
-		"content":     l.renderer.Render(raw),
-		"raw_content": raw,
+		"content":     l.renderContent(linkedB.String()),
+		"raw_content": rawB.String(),
 	}
 }
 
 // --- Glossary ---
 
 type jsonGlossaryEntry struct {
-	ID         string   `json:"id"`
-	Term       string   `json:"term"`
-	Category   string   `json:"category"`
-	Definition string   `json:"definition"`
-	SeeAlso    []string `json:"see_also"`
+	ID         string      `json:"id"`
+	Term       string      `json:"term"`
+	Category   string      `json:"category"`
+	Definition jsonContent `json:"definition"`
+	SeeAlso    []string    `json:"see_also"`
 }
 
 func (l *Loader) loadGlossary(result map[string][]map[string]any) error {
@@ -558,16 +660,19 @@ func (l *Loader) loadGlossary(result map[string][]map[string]any) error {
 	}
 
 	docs := make([]map[string]any, 0, len(entries))
+	src := l.sourceShort()
 	for _, e := range entries {
-		raw := e.Definition
+		raw := e.Definition.plainText()
+		linked := e.Definition.toMarkdown(src)
+		seeAlso := ""
 		if len(e.SeeAlso) > 0 {
-			raw += "\n\n*Vedi anche: " + strings.Join(e.SeeAlso, ", ") + "*"
+			seeAlso = "\n\n*Vedi anche: " + strings.Join(e.SeeAlso, ", ") + "*"
 		}
 		doc := map[string]any{
 			"_id":         e.ID,
 			"title":       e.Term,
-			"content":     l.renderer.Render(raw),
-			"raw_content": raw,
+			"content":     l.renderContent(linked + seeAlso),
+			"raw_content": raw + seeAlso,
 			"categoria":   e.Category,
 		}
 		l.tagDoc(doc)
@@ -581,8 +686,8 @@ func (l *Loader) loadGlossary(result map[string][]map[string]any) error {
 // --- Species ---
 
 type jsonSpeciesTrait struct {
-	Name        string `json:"name"`
-	Description string `json:"description"`
+	Name        string      `json:"name"`
+	Description jsonContent `json:"description"`
 }
 
 type jsonSpecies struct {
@@ -592,7 +697,7 @@ type jsonSpecies struct {
 	Size         string             `json:"size"`
 	Speed        string             `json:"speed"`
 	Traits       []jsonSpeciesTrait `json:"traits"`
-	Description  string             `json:"description"`
+	Description  jsonContent        `json:"description"`
 }
 
 func (l *Loader) loadSpecies(result map[string][]map[string]any) error {
@@ -601,16 +706,24 @@ func (l *Loader) loadSpecies(result map[string][]map[string]any) error {
 		return err
 	}
 
+	src := l.sourceShort()
 	docs := make([]map[string]any, 0, len(species))
 	for _, s := range species {
+		var descHTML string
+		if len(s.Description) > 0 {
+			descHTML = l.renderContent(s.Description.toMarkdown(src))
+		}
+
 		doc := map[string]any{
-			"_id":           s.ID,
-			"title":         s.Name,
-			"content":       l.buildSpeciesHTML(s),
-			"raw_content":   l.buildSpeciesMarkdown(s),
-			"tipo_creatura": s.CreatureType,
-			"taglia":        s.Size,
-			"velocita":      s.Speed,
+			"_id":              s.ID,
+			"title":            s.Name,
+			"raw_content":      l.buildSpeciesMarkdown(s),
+			"tipo_creatura":    s.CreatureType,
+			"taglia":           s.Size,
+			"velocita":         s.Speed,
+			"subtitle":         fmt.Sprintf("%s %s, %s", s.CreatureType, s.Size, s.Speed),
+			"description_html": descHTML,
+			"_stat_block":      "species",
 		}
 		l.tagDoc(doc)
 		docs = append(docs, doc)
