@@ -222,9 +222,7 @@ func (b *PredicateBuilder) BuildSearchPredicate(searchTerm string) filters.Docum
 	lower := strings.ToLower(strings.TrimSpace(searchTerm))
 	return func(doc map[string]any) bool {
 		title, _ := doc["title"].(string)
-		rawContent, _ := doc["raw_content"].(string)
-		return strings.Contains(strings.ToLower(title), lower) ||
-			strings.Contains(strings.ToLower(rawContent), lower)
+		return strings.Contains(strings.ToLower(title), lower)
 	}
 }
 

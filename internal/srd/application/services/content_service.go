@@ -3,6 +3,8 @@ package services
 import (
 	"context"
 	"fmt"
+	"sort"
+	"strings"
 	"time"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain"
@@ -30,28 +32,43 @@ func NewContentService(repo repositories.DocumentRepository, filterService filte
 }
 
 func (s *ContentService) GetCollectionItems(ctx context.Context, collection, search string, filterParams map[string]string, page, limit int) ([]*domain.Document, int64, error) {
-	skip := int64((page - 1) * limit)
-
 	collectionType, _ := collections.FromString(collection)
-
 	searchPred := s.filterService.BuildSearchPredicate(collectionType, search)
 
-	if len(filterParams) == 0 {
-		return s.documentReader.FindByPredicate(ctx, collection, searchPred, skip, int64(limit))
+	var combined filters.DocumentPredicate
+	if len(filterParams) > 0 {
+		filterSet, err := s.filterService.ParseFilters(collectionType, filterParams)
+		if err != nil {
+			return nil, 0, fmt.Errorf("failed to parse filters: %w", err)
+		}
+		fieldPred, err := s.filterService.BuildFilter(filterSet)
+		if err != nil {
+			return nil, 0, fmt.Errorf("failed to build field filter: %w", err)
+		}
+		combined = s.filterService.CombinePredicates(fieldPred, searchPred)
+	} else {
+		combined = searchPred
 	}
 
-	filterSet, err := s.filterService.ParseFilters(collectionType, filterParams)
-	if err != nil {
-		return nil, 0, fmt.Errorf("failed to parse filters: %w", err)
+	// When searching, fetch all matches to sort by title relevance before paginating
+	if search != "" {
+		docs, total, err := s.documentReader.FindByPredicate(ctx, collection, combined, 0, 0)
+		if err != nil {
+			return nil, 0, err
+		}
+		sortByTitleRelevance(docs, search)
+		skip := (page - 1) * limit
+		if skip >= len(docs) {
+			return nil, total, nil
+		}
+		end := skip + limit
+		if end > len(docs) {
+			end = len(docs)
+		}
+		return docs[skip:end], total, nil
 	}
 
-	fieldPred, err := s.filterService.BuildFilter(filterSet)
-	if err != nil {
-		return nil, 0, fmt.Errorf("failed to build field filter: %w", err)
-	}
-
-	combined := s.filterService.CombinePredicates(fieldPred, searchPred)
-
+	skip := int64((page - 1) * limit)
 	return s.documentReader.FindByPredicate(ctx, collection, combined, skip, int64(limit))
 }
 
@@ -210,4 +227,27 @@ func (s *ContentService) GlobalSearch(ctx context.Context, query string, limitPe
 	}
 
 	return results, nil
+}
+
+// sortByTitleRelevance sorts documents by how well their title matches the query.
+// Order: exact match > prefix match > substring match.
+func sortByTitleRelevance(docs []*domain.Document, query string) {
+	q := strings.ToLower(strings.TrimSpace(query))
+	sort.SliceStable(docs, func(i, j int) bool {
+		return titleScore(docs[i].Title, q) > titleScore(docs[j].Title, q)
+	})
+}
+
+func titleScore(title, query string) int {
+	lower := strings.ToLower(title)
+	if lower == query {
+		return 3
+	}
+	if strings.HasPrefix(lower, query) {
+		return 2
+	}
+	if strings.Contains(lower, query) {
+		return 1
+	}
+	return 0
 }
