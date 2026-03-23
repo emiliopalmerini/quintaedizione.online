@@ -1158,11 +1158,15 @@ document.body.addEventListener('htmx:afterSwap', function(evt) {
 	initHeadingAnchors();
 
 	// Scroll to top of results when rows are updated (filter/pagination change)
-	// Skip on history restore (browser back button)
+	// Skip on history restore (browser back button) and on search input keyup
 	if (evt.detail && evt.detail.target && evt.detail.target.id === 'rows' && !evt.detail.isHistoryRestoreRequest) {
-		var rows = document.getElementById('rows');
-		if (rows) {
-			rows.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		var trigger = evt.detail.requestConfig && evt.detail.requestConfig.triggeringEvent;
+		var isSearchKeyup = trigger && trigger.type === 'keyup' && trigger.target && trigger.target.id === 'q';
+		if (!isSearchKeyup) {
+			var rows = document.getElementById('rows');
+			if (rows) {
+				rows.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			}
 		}
 	}
 });
