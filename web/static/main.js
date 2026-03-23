@@ -1001,6 +1001,26 @@ function initFilterChips() {
 	}
 }
 
+// Read saved theme from cookie (primary) or localStorage (fallback)
+function getSavedTheme() {
+	var m = document.cookie.match(/(?:^|;\s*)theme=(dark|light)/);
+	if (m) return m[1];
+	try { return localStorage.getItem('theme'); } catch(e) { return null; }
+}
+
+// Persist theme to cookie + localStorage
+function saveTheme(value) {
+	document.cookie = 'theme=' + value + ';path=/;max-age=31536000;SameSite=Lax';
+	try { localStorage.setItem('theme', value); } catch(e) {}
+}
+
+// Apply theme class on <html> from saved preference
+function applyTheme() {
+	var t = getSavedTheme();
+	var d = document.documentElement;
+	if (t === 'dark') { d.classList.add('dark'); } else { d.classList.remove('dark'); }
+}
+
 // Theme switcher (segmented control)
 function initThemeToggle() {
 	var switcher = document.getElementById('theme-switcher');
@@ -1009,16 +1029,18 @@ function initThemeToggle() {
 	// Sync radio state with current theme on load
 	var isDark = document.documentElement.classList.contains('dark');
 	radios.forEach(function(r) { r.checked = (r.value === (isDark ? 'dark' : 'light')); });
-	// Listen for changes
+	// Listen for changes (remove old listeners by cloning)
 	radios.forEach(function(radio) {
-		radio.addEventListener('change', function() {
+		var clone = radio.cloneNode(true);
+		radio.parentNode.replaceChild(clone, radio);
+		clone.addEventListener('change', function() {
 			var d = document.documentElement;
 			if (this.value === 'dark') {
 				d.classList.add('dark');
 			} else {
 				d.classList.remove('dark');
 			}
-			localStorage.setItem('theme', this.value);
+			saveTheme(this.value);
 		});
 	});
 }
@@ -1137,12 +1159,18 @@ document.addEventListener('DOMContentLoaded', () => {
 	initHeadingAnchors();
 });
 
-// Re-apply theme from localStorage after htmx history restore
+// Re-apply theme after htmx history restore
 document.body.addEventListener('htmx:historyRestore', function() {
-	var t = localStorage.getItem('theme');
-	var d = document.documentElement;
-	if (t === 'dark') { d.classList.add('dark'); } else { d.classList.remove('dark'); }
+	applyTheme();
 	initThemeToggle();
+});
+
+// Re-apply theme when page is restored from bfcache (browser back/forward)
+window.addEventListener('pageshow', function(e) {
+	if (e.persisted) {
+		applyTheme();
+		initThemeToggle();
+	}
 });
 
 document.body.addEventListener('htmx:afterSwap', function(evt) {
