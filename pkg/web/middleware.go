@@ -1,6 +1,7 @@
 package web
 
 import (
+	"context"
 	"encoding/json"
 	"log/slog"
 	"net/http"
@@ -10,6 +11,32 @@ import (
 
 	"golang.org/x/time/rate"
 )
+
+type contextKey string
+
+const themeContextKey contextKey = "theme"
+
+// ThemeMiddleware reads the "theme" cookie and stores its value in the
+// request context so that templates can render the correct class on <html>
+// without waiting for client-side JavaScript.
+func ThemeMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if c, err := r.Cookie("theme"); err == nil && (c.Value == "dark" || c.Value == "light") {
+			ctx := context.WithValue(r.Context(), themeContextKey, c.Value)
+			r = r.WithContext(ctx)
+		}
+		next.ServeHTTP(w, r)
+	})
+}
+
+// ThemeFromContext returns the theme stored in ctx ("dark" or "light"),
+// or an empty string if none is set.
+func ThemeFromContext(ctx context.Context) string {
+	if v, ok := ctx.Value(themeContextKey).(string); ok {
+		return v
+	}
+	return ""
+}
 
 // SecurityMiddleware sets standard security headers on every response.
 func SecurityMiddleware(next http.Handler) http.Handler {

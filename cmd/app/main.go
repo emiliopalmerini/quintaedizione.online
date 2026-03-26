@@ -230,6 +230,7 @@ func main() {
 	rateLimiter := pkgweb.NewRateLimiter()
 
 	var handler http.Handler = mux
+	handler = pkgweb.ThemeMiddleware(handler)
 	handler = pkgweb.CORSMiddleware(handler)
 	handler = pkgweb.RateLimitMiddleware(rateLimiter)(handler)
 	handler = pkgweb.SecurityMiddleware(handler)
