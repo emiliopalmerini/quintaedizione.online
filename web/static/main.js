@@ -137,14 +137,20 @@ function initBreadcrumbSearch() {
 	});
 	
 	// Hide results when clicking outside
-	document.addEventListener('click', function(e) {
-		const searchContainer = searchInput.closest('.search-container');
-		if (searchContainer && !searchContainer.contains(e.target)) {
-			searchResults.classList.add('hidden');
-			searchResults.setAttribute('aria-expanded', 'false');
-		}
-	});
-	
+	if (!initBreadcrumbSearch._docClick) {
+		initBreadcrumbSearch._docClick = true;
+		document.addEventListener('click', function(e) {
+			var si = document.getElementById('bc-search');
+			var sr = document.getElementById('bc-results');
+			if (!si || !sr) return;
+			var searchContainer = si.closest('.search-container');
+			if (searchContainer && !searchContainer.contains(e.target)) {
+				sr.classList.add('hidden');
+				sr.setAttribute('aria-expanded', 'false');
+			}
+		});
+	}
+
 	// Handle keyboard navigation in search input
 	searchInput.addEventListener('keydown', function(e) {
 		const results = searchResults.querySelectorAll('.search-result');
@@ -174,48 +180,54 @@ function initBreadcrumbSearch() {
 	});
 
 	// Handle navigation within search results using event delegation
-	document.addEventListener('keydown', function(e) {
-		// Only handle if we're focused on a search result
-		if (!document.activeElement.classList.contains('search-result')) return;
+	if (!initBreadcrumbSearch._docKeydown) {
+		initBreadcrumbSearch._docKeydown = true;
+		document.addEventListener('keydown', function(e) {
+			// Only handle if we're focused on a search result
+			if (!document.activeElement.classList.contains('search-result')) return;
 
-		const results = Array.from(searchResults.querySelectorAll('.search-result[href]'));
-		let currentIndex = -1;
+			var sr = document.getElementById('bc-results');
+			var si = document.getElementById('bc-search');
+			if (!sr) return;
+			const results = Array.from(sr.querySelectorAll('.search-result[href]'));
+			let currentIndex = -1;
 
-		// Find current focused element index
-		for (let i = 0; i < results.length; i++) {
-			if (results[i] === document.activeElement) {
-				currentIndex = i;
-				break;
+			// Find current focused element index
+			for (let i = 0; i < results.length; i++) {
+				if (results[i] === document.activeElement) {
+					currentIndex = i;
+					break;
+				}
 			}
-		}
 
-		if (e.key === 'ArrowDown') {
-			e.preventDefault();
-			const nextIndex = currentIndex < results.length - 1 ? currentIndex + 1 : 0;
-			results[nextIndex].focus();
-		} else if (e.key === 'ArrowUp') {
-			e.preventDefault();
-			if (currentIndex > 0) {
-				results[currentIndex - 1].focus();
-			} else {
-				searchInput.focus();
+			if (e.key === 'ArrowDown') {
+				e.preventDefault();
+				const nextIndex = currentIndex < results.length - 1 ? currentIndex + 1 : 0;
+				results[nextIndex].focus();
+			} else if (e.key === 'ArrowUp') {
+				e.preventDefault();
+				if (currentIndex > 0) {
+					results[currentIndex - 1].focus();
+				} else if (si) {
+					si.focus();
+				}
+			} else if (e.key === 'Enter') {
+				e.preventDefault();
+				const focusedResult = document.activeElement;
+				if (focusedResult.href) {
+					window.location.href = focusedResult.href;
+				} else {
+					focusedResult.click();
+				}
+				sr.classList.add('hidden');
+				sr.setAttribute('aria-expanded', 'false');
+			} else if (e.key === 'Escape') {
+				sr.classList.add('hidden');
+				sr.setAttribute('aria-expanded', 'false');
+				if (si) si.focus();
 			}
-		} else if (e.key === 'Enter') {
-			e.preventDefault();
-			const focusedResult = document.activeElement;
-			if (focusedResult.href) {
-				window.location.href = focusedResult.href;
-			} else {
-				focusedResult.click();
-			}
-			searchResults.classList.add('hidden');
-			searchResults.setAttribute('aria-expanded', 'false');
-		} else if (e.key === 'Escape') {
-			searchResults.classList.add('hidden');
-			searchResults.setAttribute('aria-expanded', 'false');
-			searchInput.focus();
-		}
-	});
+		});
+	}
 }
 
 // Initialize breadcrumb search on page load and after HTMX swaps
@@ -224,6 +236,12 @@ document.body.addEventListener('htmx:afterSwap', initBreadcrumbSearch);
 
 // Sticky search bar scroll shadow effect
 function initStickySearchShadow() {
+	// Remove previous scroll handler if any (prevents leak on re-init)
+	if (initStickySearchShadow._handler) {
+		window.removeEventListener('scroll', initStickySearchShadow._handler);
+		initStickySearchShadow._handler = null;
+	}
+
 	const searchBar = document.querySelector('.search-sticky');
 	if (!searchBar) return;
 
@@ -239,6 +257,7 @@ function initStickySearchShadow() {
 		}
 	};
 
+	initStickySearchShadow._handler = handleScroll;
 	window.addEventListener('scroll', handleScroll, { passive: true });
 }
 
@@ -287,12 +306,20 @@ function initGlobalSearch() {
 		}
 	});
 
-	// Click outside closes dropdown
-	document.addEventListener('click', function(e) {
-		if (searchInput && searchResults && !searchInput.closest('.search-container-wrapper').contains(e.target)) {
-			searchResults.innerHTML = '';
-		}
-	});
+	// Click outside closes dropdown (register once)
+	if (!initGlobalSearch._docClick) {
+		initGlobalSearch._docClick = true;
+		document.addEventListener('click', function(e) {
+			var si = document.getElementById('global-search');
+			var sr = document.getElementById('search-results');
+			if (si && sr) {
+				var wrapper = si.closest('.search-container-wrapper');
+				if (wrapper && !wrapper.contains(e.target)) {
+					sr.innerHTML = '';
+				}
+			}
+		});
+	}
 
 	// Close button clears and closes
 	if (searchCloseBtn) {
@@ -389,12 +416,23 @@ function initSearchOverlay() {
 		closeBtn.addEventListener('click', closeOverlay);
 	}
 
-	// ESC closes overlay
-	document.addEventListener('keydown', function(e) {
-		if (e.key === 'Escape' && overlay.classList.contains('open')) {
-			closeOverlay();
-		}
-	});
+	// ESC closes overlay (register once)
+	if (!initSearchOverlay._docKeydown) {
+		initSearchOverlay._docKeydown = true;
+		document.addEventListener('keydown', function(e) {
+			var ol = document.getElementById('search-overlay');
+			if (e.key === 'Escape' && ol && ol.classList.contains('open')) {
+				ol.classList.remove('open');
+				document.body.style.overflow = '';
+				var olResults = document.getElementById('overlay-results');
+				var olInput = document.getElementById('overlay-search-input');
+				var olCollection = document.getElementById('overlay-collection');
+				if (olResults) olResults.innerHTML = '';
+				if (olInput) olInput.value = '';
+				if (olCollection) olCollection.value = '';
+			}
+		});
+	}
 
 	// Prevent HTMX request with less than 2 characters
 	if (overlayForm) {
@@ -729,12 +767,18 @@ function initFilterOverlay() {
 		});
 	});
 
-	// Escape key closes overlay
-	document.addEventListener('keydown', function(e) {
-		if (e.key === 'Escape' && overlay.classList.contains('open')) {
-			closeOverlay();
-		}
-	});
+	// Escape key closes overlay (register once)
+	if (!initFilterOverlay._docKeydown) {
+		initFilterOverlay._docKeydown = true;
+		document.addEventListener('keydown', function(e) {
+			var ol = document.getElementById('filter-overlay');
+			if (e.key === 'Escape' && ol && ol.classList.contains('open')) {
+				ol.classList.remove('open', 'detail');
+				ol.querySelectorAll('.filter-overlay-detail').forEach(function(d) { d.classList.remove('active'); });
+				document.body.style.overflow = '';
+			}
+		});
+	}
 }
 
 // Multi-select filter dropdowns
@@ -767,14 +811,17 @@ function initFilterMultiselect() {
 		});
 	});
 
-	// Close dropdowns when clicking outside
-	document.addEventListener('click', function(e) {
-		if (!e.target.closest('.filter-multiselect')) {
-			document.querySelectorAll('.filter-multiselect.open').forEach(function(el) {
-				el.classList.remove('open');
-			});
-		}
-	});
+	// Close dropdowns when clicking outside (register once)
+	if (!initFilterMultiselect._docClick) {
+		initFilterMultiselect._docClick = true;
+		document.addEventListener('click', function(e) {
+			if (!e.target.closest('.filter-multiselect')) {
+				document.querySelectorAll('.filter-multiselect.open').forEach(function(el) {
+					el.classList.remove('open');
+				});
+			}
+		});
+	}
 }
 
 // Quick filter chips: toggle chip → sync with dropdown filter → trigger HTMX
@@ -1001,11 +1048,13 @@ function initFilterChips() {
 	}
 }
 
-// Read saved theme from cookie (primary) or localStorage (fallback)
+// Read saved theme from cookie (primary), localStorage, or system preference
 function getSavedTheme() {
 	var m = document.cookie.match(/(?:^|;\s*)theme=(dark|light)/);
 	if (m) return m[1];
-	try { return localStorage.getItem('theme'); } catch(e) { return null; }
+	try { var v = localStorage.getItem('theme'); if (v) return v; } catch(e) {}
+	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
+	return null;
 }
 
 // Persist theme to cookie + localStorage
@@ -1093,11 +1142,17 @@ function initPatreonBanner() {
 
 // Keyboard navigation: arrow keys for prev/next item
 function initItemKeyboardNav() {
+	// Remove previous handler if any (prevents leak on re-init)
+	if (initItemKeyboardNav._handler) {
+		document.removeEventListener('keydown', initItemKeyboardNav._handler);
+		initItemKeyboardNav._handler = null;
+	}
+
 	var prevBtn = document.querySelector('.item-nav a[aria-label="Precedente"]');
 	var nextBtn = document.querySelector('.item-nav a[aria-label="Successivo"]');
 	if (!prevBtn && !nextBtn) return;
 
-	document.addEventListener('keydown', function handleItemNav(e) {
+	function handleItemNav(e) {
 		// Skip when user is typing
 		var tag = document.activeElement.tagName;
 		if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || document.activeElement.isContentEditable) return;
@@ -1111,7 +1166,10 @@ function initItemKeyboardNav() {
 			e.preventDefault();
 			nextBtn.click();
 		}
-	});
+	}
+
+	initItemKeyboardNav._handler = handleItemNav;
+	document.addEventListener('keydown', handleItemNav);
 }
 
 // Auto-generate anchor links on headings inside .item-content

@@ -145,8 +145,11 @@ func main() {
 		}
 	})
 
-	// Static files (shared)
-	mux.Handle("GET /static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./web/static"))))
+	// Static files (shared) — cache for 1 day (assets are unversioned)
+	mux.Handle("GET /static/", http.StripPrefix("/static/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Cache-Control", "public, max-age=86400")
+		http.FileServer(http.Dir("./web/static")).ServeHTTP(w, r)
+	})))
 
 	// Health check
 	mux.HandleFunc("GET /health", func(w http.ResponseWriter, r *http.Request) {
