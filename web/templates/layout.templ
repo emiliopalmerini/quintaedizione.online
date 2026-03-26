@@ -29,9 +29,12 @@ templ SiteLayout(title, description, activeNav string, extraHeadHTML templ.Compo
 		<meta property="og:type" content="website"/>
 		<meta property="og:site_name" content="quintaedizione.online"/>
 		<script>
-			(function(){var d=document.documentElement,c=document.cookie.match(/(?:^|;\s*)theme=(dark|light)/),t=c?c[1]:null;if(!t)try{t=localStorage.getItem('theme')}catch(e){}if(t==='dark')d.classList.add('dark');else d.classList.remove('dark')})()
+			(function(){var d=document.documentElement,c=document.cookie.match(/(?:^|;\s*)theme=(dark|light)/),t=c?c[1]:null;if(!t)try{t=localStorage.getItem('theme')}catch(e){}if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)t='dark';if(t==='dark')d.classList.add('dark');else d.classList.remove('dark')})()
 		</script>
 		<script src="/static/htmx.min.js" defer></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/>
 		<link rel="stylesheet" href="/static/css/tokens.css"/>
 		<link rel="stylesheet" href="/static/css/base.css"/>
 		<link rel="stylesheet" href="/static/css/components.css"/>
