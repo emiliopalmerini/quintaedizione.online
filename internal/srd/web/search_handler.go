@@ -45,7 +45,7 @@ func (h *SearchHandler) handleGlobalSearch(w http.ResponseWriter, r *http.Reques
 		Collections: h.getPopularCollections(),
 	}
 
-	content, err := h.templateEngine.RenderSearch(data)
+	content, err := h.templateEngine.RenderSearch(r.Context(), data)
 	if err != nil {
 		h.ErrorResponse(w, r, err, "Errore nel rendering della pagina di ricerca")
 		return
@@ -72,7 +72,7 @@ func (h *SearchHandler) handleSearchDropdown(w http.ResponseWriter, r *http.Requ
 
 	results, _ := h.transformSearchResults(r.Context(), fuzzyResults)
 
-	content, err := h.templateEngine.RenderSearchDropdown(results, query)
+	content, err := h.templateEngine.RenderSearchDropdown(r.Context(), results, query)
 	if err != nil {
 		h.renderHTML(w, "", "search")
 		return

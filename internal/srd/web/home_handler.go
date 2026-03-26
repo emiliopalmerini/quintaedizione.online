@@ -72,7 +72,7 @@ func (h *HomeHandler) handleHome(w http.ResponseWriter, r *http.Request) {
 		Editions:    2,
 	}
 
-	content, err := h.templateEngine.RenderHome(data)
+	content, err := h.templateEngine.RenderHome(r.Context(), data)
 	if err != nil {
 		h.ErrorResponse(w, r, err, "Errore nel rendering della pagina home")
 		return

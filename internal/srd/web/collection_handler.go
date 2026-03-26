@@ -66,7 +66,7 @@ func (h *CollectionHandler) handleCollectionList(w http.ResponseWriter, r *http.
 	data.PageData.Title = collectionTitle
 	data.PageData.Description = fmt.Sprintf("Elenco completo di %s — SRD 5e in italiano.", collectionTitle)
 
-	content, err := h.templateEngine.RenderCollection(*data)
+	content, err := h.templateEngine.RenderCollection(r.Context(), *data)
 	if err != nil {
 		h.ErrorResponse(w, r, err, "Errore nel rendering della pagina collezione")
 		return
@@ -87,7 +87,7 @@ func (h *CollectionHandler) handleCollectionRows(w http.ResponseWriter, r *http.
 		return
 	}
 
-	content, err := h.templateEngine.RenderRows(*data)
+	content, err := h.templateEngine.RenderRows(r.Context(), *data)
 	if err != nil {
 		h.ErrorResponse(w, r, err, "Errore nel rendering delle righe")
 		return
@@ -145,7 +145,7 @@ func (h *CollectionHandler) handleItemDetail(w http.ResponseWriter, r *http.Requ
 	// Build stat-block view model or fall back to BodyHTML
 	webmappers.BuildStatBlockData(doc, &data)
 
-	content, err := h.templateEngine.RenderItem(data)
+	content, err := h.templateEngine.RenderItem(r.Context(), data)
 	if err != nil {
 		h.ErrorResponse(w, r, err, "Errore nel rendering della pagina elemento")
 		return
