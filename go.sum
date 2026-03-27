@@ -8,6 +8,8 @@ github.com/emiliopalmerini/quintaedizione-data-ita v0.0.0-20260323135538-dba2071
 github.com/emiliopalmerini/quintaedizione-data-ita v0.0.0-20260323135538-dba207133243/go.mod h1:yAf2syrnn86z5DZ1sRKEBSw9hoL7vMv26cuoMej7E74=
 github.com/emiliopalmerini/quintaedizione-data-ita v0.0.0-20260323140356-4fb92b7f5dbf h1:1yXKkXmFj/ysnXXe9xlaFrOpmUW91Yi0XMwYJl/wWxg=
 github.com/emiliopalmerini/quintaedizione-data-ita v0.0.0-20260323140356-4fb92b7f5dbf/go.mod h1:yAf2syrnn86z5DZ1sRKEBSw9hoL7vMv26cuoMej7E74=
+github.com/emiliopalmerini/quintaedizione-data-ita v0.0.0-20260327145028-c1f8979da3d8 h1:mjG72syyn+NqRevBzUQP+jl3gvHf2xFYCb5YDi+7SVo=
+github.com/emiliopalmerini/quintaedizione-data-ita v0.0.0-20260327145028-c1f8979da3d8/go.mod h1:yAf2syrnn86z5DZ1sRKEBSw9hoL7vMv26cuoMej7E74=
 github.com/gomarkdown/markdown v0.0.0-20250810172220-2e2c11897d1a h1:l7A0loSszR5zHd/qK53ZIHMO8b3bBSmENnQ6eKnUT0A=
 github.com/gomarkdown/markdown v0.0.0-20250810172220-2e2c11897d1a/go.mod h1:JDGcbDT52eL4fju3sZ4TeHGsQwhG9nbDV21aMyhwPoA=
 github.com/google/go-cmp v0.7.0 h1:wk8382ETsv4JYUZwIsn6YpYiWiBsYLSJiTsyBybVuN8=

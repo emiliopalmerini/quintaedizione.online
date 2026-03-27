@@ -4,7 +4,7 @@ go 1.25.7
 
 require (
 	github.com/a-h/templ v0.3.1001
-	github.com/emiliopalmerini/quintaedizione-data-ita v0.0.0-20260323140356-4fb92b7f5dbf
+	github.com/emiliopalmerini/quintaedizione-data-ita v0.0.0-20260327145028-c1f8979da3d8
 	github.com/gomarkdown/markdown v0.0.0-20250810172220-2e2c11897d1a
 	github.com/joho/godotenv v1.5.1
 	github.com/lithammer/fuzzysearch v1.1.8
