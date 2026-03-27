@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"sort"
 	"strings"
-	"time"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain/collections"
@@ -18,16 +17,14 @@ type ContentService struct {
 	documentStats  repositories.DocumentStatistics
 	documentNav    repositories.DocumentNavigation
 	filterService  filters.FilterService
-	cache          domain.Cache
 }
 
-func NewContentService(repo repositories.DocumentRepository, filterService filters.FilterService, cache domain.Cache) *ContentService {
+func NewContentService(repo repositories.DocumentRepository, filterService filters.FilterService) *ContentService {
 	return &ContentService{
 		documentReader: repo,
 		documentStats:  repo,
 		documentNav:    repo,
 		filterService:  filterService,
-		cache:          cache,
 	}
 }
 
@@ -73,20 +70,10 @@ func (s *ContentService) GetCollectionItems(ctx context.Context, collection, sea
 }
 
 func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (*domain.Document, error) {
-	cacheKey := fmt.Sprintf("item:%s:%s", collection, slug)
-	if cached, found := s.cache.Get(cacheKey); found {
-		if item, ok := cached.(*domain.Document); ok {
-			return item, nil
-		}
-	}
-
 	item, err := s.documentReader.FindByID(ctx, collection, slug)
 	if err != nil {
 		return nil, fmt.Errorf("failed to find item: %w", err)
 	}
-
-	s.cache.Set(cacheKey, item, 10*time.Minute)
-
 	return item, nil
 }
 

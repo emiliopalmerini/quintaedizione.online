@@ -1,7 +1,6 @@
 package web
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/application/services"
@@ -10,6 +9,7 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/config"
 	webmappers "github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/mappers"
 	"github.com/emiliopalmerini/quintaedizione.online/pkg/templates"
+	pkgweb "github.com/emiliopalmerini/quintaedizione.online/pkg/web"
 )
 
 // baseHandler contains shared dependencies for all handlers.
@@ -50,13 +50,5 @@ func (h *baseHandler) setCacheHeaders(w http.ResponseWriter, cacheTypeStr string
 		cacheType = config.CacheTypeCollection
 	}
 
-	maxAge := config.GetCacheDuration(cacheType)
-
-	if maxAge > 0 {
-		w.Header().Set("Cache-Control", fmt.Sprintf("max-age=%d, public", maxAge))
-	} else {
-		w.Header().Set("Cache-Control", "no-cache, no-store, must-revalidate")
-		w.Header().Set("Pragma", "no-cache")
-		w.Header().Set("Expires", "0")
-	}
+	pkgweb.SetCacheHeaders(w, config.GetCacheDuration(cacheType))
 }

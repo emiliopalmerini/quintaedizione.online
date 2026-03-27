@@ -40,5 +40,6 @@ func (h *MonsterHandler) SearchHandler(w http.ResponseWriter, r *http.Request) {
 
 	monsters := h.service.SearchMonstersWithFilters(filters)
 
+	pkgweb.SetCacheHeaders(w, 1800) // 30 minutes
 	pkgweb.RenderTempl(w, r, h.logger, templates.MonsterList(monsters, maxXP))
 }

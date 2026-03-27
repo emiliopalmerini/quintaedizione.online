@@ -35,6 +35,7 @@ func (h *GalleryHandler) HandleDetail(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	pkgweb.SetCacheHeaders(w, 14400) // 4 hours
 	pkgweb.RenderTempl(w, r, h.logger, templates.DetailPage(m))
 }
 
@@ -68,6 +69,7 @@ func (h *GalleryHandler) HandleGallery(w http.ResponseWriter, r *http.Request) {
 		HasMore:    offset+len(results) < total,
 	}
 
+	pkgweb.SetCacheHeaders(w, 1800) // 30 minutes
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 
 	if r.Header.Get("HX-Request") == "true" {

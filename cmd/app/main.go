@@ -83,8 +83,7 @@ func main() {
 	filters.RegisterEditionFilter(filterRegistry, sources)
 
 	filterService := services.NewFilterService(filterRegistry)
-	cache := infrastructure.NewSimpleCache()
-	contentService := services.NewContentService(repo, filterService, cache)
+	contentService := services.NewContentService(repo, filterService)
 	searchService := search.NewFuzzySearchService(searchRepo)
 
 	// Find the default source short name for legacy URL redirects
@@ -153,14 +152,11 @@ func main() {
 
 	// Health check
 	mux.HandleFunc("GET /health", func(w http.ResponseWriter, r *http.Request) {
-		cacheStats := cache.GetStats()
-
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(map[string]any{
 			"status":       "healthy",
 			"version":      "5.0.0",
 			"architecture": "unified-inmemory",
-			"cache_items":  cacheStats["item_count"],
 		})
 	})
 
@@ -204,6 +200,7 @@ func main() {
 	// Combattimenti routes under /combattimenti
 	combatMux := http.NewServeMux()
 	combatMux.HandleFunc("GET /{$}", func(w http.ResponseWriter, r *http.Request) {
+		pkgweb.SetCacheHeaders(w, 3600) // 1 hour
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		if err := combatTemplates.Home(editions).Render(r.Context(), w); err != nil {
 			logger.Error("Failed to render combattimenti home", "error", err)
