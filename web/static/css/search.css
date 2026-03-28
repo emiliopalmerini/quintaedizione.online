@@ -346,6 +346,15 @@
   font-size: var(--text-sm);
 }
 
+.search-browse-item-badge {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  background: var(--color-bg-secondary);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
 .search-browse-item-title mark {
   background: var(--primary-light);
   color: inherit;

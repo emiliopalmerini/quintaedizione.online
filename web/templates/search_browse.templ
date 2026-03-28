@@ -29,12 +29,16 @@ templ SearchBrowseDropdown(data models.SearchBrowseData) {
 		<div class="search-browse-content" role="tabpanel">
 			if len(data.Documents) == 0 && data.Query != "" {
 				<div class="search-browse-empty">
-					<p>Nessun risultato in <strong>{ data.CollectionLabel }</strong></p>
+					if data.ActiveCollection != "" {
+						<p>Nessun risultato in <strong>{ data.CollectionLabel }</strong></p>
+					} else {
+						<p>Nessun risultato</p>
+					}
 				</div>
 			}
 			for _, doc := range data.Documents {
 				<a
-					href={ templ.URL(fmt.Sprintf("/srd/%s/%s", data.CollectionName, doc.ID)) }
+					href={ templ.URL(fmt.Sprintf("/srd/%s/%s", docCollection(doc, data.CollectionName), doc.ID)) }
 					class="search-browse-item"
 				>
 					<span class="search-browse-item-title">
@@ -44,22 +48,41 @@ templ SearchBrowseDropdown(data models.SearchBrowseData) {
 							{ doc.Title }
 						}
 					</span>
-				</a>
-			}
-			if len(data.Documents) > 0 {
-				<a
-					href={ templ.URL(browseViewAllURL(data.CollectionName, data.Query)) }
-					class="search-browse-view-all"
-				>
-					if data.Query != "" {
-						Vedi tutti i { strconv.FormatInt(getCollectionCount(data.Collections, data.ActiveCollection), 10) } risultati in { data.CollectionLabel } &rarr;
-					} else {
-						Vedi tutti in { data.CollectionLabel } ({ strconv.FormatInt(getCollectionCount(data.Collections, data.ActiveCollection), 10) }) &rarr;
+					if data.ActiveCollection == "" && doc.CollectionLabel != "" {
+						<span class="search-browse-item-badge">{ doc.CollectionLabel }</span>
 					}
 				</a>
 			}
+			if len(data.Documents) > 0 {
+				if data.ActiveCollection != "" {
+					<a
+						href={ templ.URL(browseViewAllURL(data.CollectionName, data.Query)) }
+						class="search-browse-view-all"
+					>
+						if data.Query != "" {
+							Vedi tutti i { strconv.FormatInt(getCollectionCount(data.Collections, data.ActiveCollection), 10) } risultati in { data.CollectionLabel } &rarr;
+						} else {
+							Vedi tutti in { data.CollectionLabel } ({ strconv.FormatInt(getCollectionCount(data.Collections, data.ActiveCollection), 10) }) &rarr;
+						}
+					</a>
+				} else if data.Query != "" {
+					<a
+						href={ templ.URL(fmt.Sprintf("/srd/search?q=%s", url.QueryEscape(data.Query))) }
+						class="search-browse-view-all"
+					>
+						Vedi tutti i risultati &rarr;
+					</a>
+				}
+			}
 		</div>
 	</div>
+}
+
+func docCollection(doc models.Document, fallback string) string {
+	if doc.Collection != "" {
+		return doc.Collection
+	}
+	return fallback
 }
 
 func browseURL(collection, query string) string {

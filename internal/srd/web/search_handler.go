@@ -79,20 +79,28 @@ func (h *SearchHandler) handleSearchDropdown(w http.ResponseWriter, r *http.Requ
 	// Build sidebar collections from search results (only those with matches)
 	allCollections := h.getAllCollectionsWithCounts(r.Context())
 
-	// Determine active collection: use explicit filter, or first with results
+	// Active collection: only set if user explicitly chose one
 	activeCollection := collection
-	if activeCollection == "" && len(searchResults) > 0 {
-		activeCollection = searchResults[0].CollectionName
-	}
 
-	// Get documents for the active collection from search results
+	// Get documents: aggregated from all collections, or filtered to one
 	var documents []models.Document
 	var collectionLabel string
-	for _, sr := range searchResults {
-		if sr.CollectionName == activeCollection {
-			documents = sr.Documents
-			collectionLabel = sr.CollectionLabel
-			break
+	if activeCollection != "" {
+		for _, sr := range searchResults {
+			if sr.CollectionName == activeCollection {
+				documents = sr.Documents
+				collectionLabel = sr.CollectionLabel
+				break
+			}
+		}
+	} else {
+		// Aggregate results from all collections, tagging each doc with its collection
+		for _, sr := range searchResults {
+			for _, doc := range sr.Documents {
+				doc.Collection = sr.CollectionName
+				doc.CollectionLabel = sr.CollectionLabel
+				documents = append(documents, doc)
+			}
 		}
 	}
 
