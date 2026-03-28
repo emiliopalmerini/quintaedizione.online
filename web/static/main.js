@@ -328,12 +328,26 @@ function initGlobalSearch() {
 		});
 	}
 
+	// Sync sidebar tab clicks with hidden collection input (event delegation)
+	if (searchResults) {
+		searchResults.addEventListener('click', function(e) {
+			var tab = e.target.closest('.search-browse-tab');
+			if (tab) {
+				var col = tab.getAttribute('data-collection') || '';
+				var hidden = document.getElementById('desktop-collection');
+				if (hidden) hidden.value = col;
+			}
+		});
+	}
+
 	// Close button clears and closes
 	if (searchCloseBtn) {
 		searchCloseBtn.addEventListener('click', function() {
 			if (searchResults) {
 				searchResults.innerHTML = '';
 			}
+			var hidden = document.getElementById('desktop-collection');
+			if (hidden) hidden.value = '';
 			searchInput.focus();
 		});
 	}
