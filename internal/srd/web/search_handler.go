@@ -189,10 +189,10 @@ func (h *SearchHandler) handleSearchBrowse(w http.ResponseWriter, r *http.Reques
 
 	allCollections := h.getAllCollectionsWithCounts(r.Context())
 
-	// Default to first collection if none selected
+	// Default to incantesimi if none selected
 	activeCollection := collection
-	if activeCollection == "" && len(allCollections) > 0 {
-		activeCollection = allCollections[0].Name
+	if activeCollection == "" {
+		activeCollection = "incantesimi"
 	}
 
 	// Fetch items from the active collection (limited for the browse panel)
