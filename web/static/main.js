@@ -264,22 +264,29 @@ function initStickySearchShadow() {
 document.addEventListener('DOMContentLoaded', initStickySearchShadow);
 document.body.addEventListener('htmx:afterSwap', initStickySearchShadow);
 
-// Global search (desktop inline dropdown)
+// Global search (desktop inline dropdown with browse-on-focus)
 function initGlobalSearch() {
 	var searchInput = document.getElementById('global-search');
 	var searchResults = document.getElementById('search-results');
 	var searchForm = document.getElementById('search-form');
 	var searchCloseBtn = document.getElementById('search-close-btn');
-	var desktopCollection = document.getElementById('desktop-collection');
 
 	if (!searchInput) return;
 
-	// Prevent HTMX request with less than 2 characters
+	// Show browse panel on focus (when input is empty)
+	searchInput.addEventListener('focus', function() {
+		if (window.matchMedia('(max-width: 640px)').matches) return;
+		if (searchInput.value.trim().length < 2 && searchResults && !searchResults.innerHTML.trim()) {
+			htmx.ajax('GET', '/srd/search/dropdown', { target: '#search-results', swap: 'innerHTML' });
+		}
+	});
+
+	// Prevent HTMX search request with less than 2 characters, show browse instead
 	searchForm.addEventListener('htmx:beforeRequest', function(evt) {
 		if (searchInput.value.trim().length < 2) {
 			evt.detail.cancel = true;
-			if (searchResults) {
-				searchResults.innerHTML = '';
+			if (searchInput.value.trim().length === 0 && searchResults) {
+				htmx.ajax('GET', '/srd/search/dropdown', { target: '#search-results', swap: 'innerHTML' });
 			}
 		}
 	});
@@ -327,37 +334,9 @@ function initGlobalSearch() {
 			if (searchResults) {
 				searchResults.innerHTML = '';
 			}
-			if (desktopCollection) {
-				desktopCollection.value = '';
-			}
-			// Reset desktop chips
-			var chips = document.querySelectorAll('.desktop-chip');
-			chips.forEach(function(c) {
-				c.classList.toggle('active', c.getAttribute('data-collection') === '');
-			});
 			searchInput.focus();
 		});
 	}
-
-	// Desktop filter chip selection
-	initDesktopChips(searchInput, desktopCollection);
-}
-
-function initDesktopChips(searchInput, desktopCollection) {
-	var chips = document.querySelectorAll('.desktop-chip');
-	if (!chips.length || !desktopCollection) return;
-
-	chips.forEach(function(chip) {
-		chip.addEventListener('click', function() {
-			chips.forEach(function(c) { c.classList.remove('active'); });
-			chip.classList.add('active');
-			desktopCollection.value = chip.getAttribute('data-collection');
-			// Re-trigger search with new collection filter
-			if (searchInput && searchInput.value.trim().length >= 2) {
-				htmx.trigger(searchInput, 'search');
-			}
-		});
-	});
 }
 
 // Mobile search overlay (full-screen)

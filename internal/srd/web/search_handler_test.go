@@ -95,7 +95,4 @@ func TestSearchDropdown_EmptyQuery(t *testing.T) {
 	if mock.searchCalled || mock.searchCollectionCalled {
 		t.Error("no search method should be called for empty query")
 	}
-	if w.Body.String() != "" {
-		t.Errorf("expected empty body for empty query, got %q", w.Body.String())
-	}
 }

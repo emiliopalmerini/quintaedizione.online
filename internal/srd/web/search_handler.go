@@ -4,10 +4,12 @@ import (
 	"context"
 	"fmt"
 	"net/http"
+	"sort"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain/collections"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain/search"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/models"
+	"github.com/emiliopalmerini/quintaedizione.online/pkg/mappers"
 )
 
 // SearchHandler handles search-related requests.
@@ -54,25 +56,72 @@ func (h *SearchHandler) handleGlobalSearch(w http.ResponseWriter, r *http.Reques
 	h.renderHTML(w, content, "search")
 }
 
-// handleSearchDropdown renders the search dropdown for autocomplete.
+// handleSearchDropdown renders the two-panel search dropdown.
+// Without a query it shows browse mode; with a query it shows search results.
 func (h *SearchHandler) handleSearchDropdown(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query().Get("q")
 	collection := r.URL.Query().Get("collection")
 
 	if query == "" {
-		h.renderHTML(w, "", "search")
+		h.handleSearchBrowse(w, r)
 		return
 	}
 
+	// Search mode: get results across all collections (or filtered)
 	fuzzyResults, err := h.searchFuzzy(r.Context(), collection, query)
 	if err != nil {
 		h.renderHTML(w, "", "search")
 		return
 	}
 
-	results, _ := h.transformSearchResults(r.Context(), fuzzyResults)
+	searchResults, _ := h.transformSearchResults(r.Context(), fuzzyResults)
 
-	content, err := h.templateEngine.RenderSearchDropdown(r.Context(), results, query)
+	// Build sidebar collections from search results (only those with matches)
+	allCollections := h.getAllCollectionsWithCounts(r.Context())
+
+	// Determine active collection: use explicit filter, or first with results
+	activeCollection := collection
+	if activeCollection == "" && len(searchResults) > 0 {
+		activeCollection = searchResults[0].CollectionName
+	}
+
+	// Get documents for the active collection from search results
+	var documents []models.Document
+	var collectionLabel string
+	for _, sr := range searchResults {
+		if sr.CollectionName == activeCollection {
+			documents = sr.Documents
+			collectionLabel = sr.CollectionLabel
+			break
+		}
+	}
+
+	// Mark collections that have search results with their result counts
+	sidebarCollections := make([]models.Collection, 0, len(allCollections))
+	resultCountMap := make(map[string]int64)
+	for _, sr := range searchResults {
+		resultCountMap[sr.CollectionName] = sr.Total
+	}
+	for _, col := range allCollections {
+		if count, ok := resultCountMap[col.Name]; ok {
+			sidebarCollections = append(sidebarCollections, models.Collection{
+				Name:  col.Name,
+				Label: col.Label,
+				Count: count,
+			})
+		}
+	}
+
+	data := models.SearchBrowseData{
+		Collections:      sidebarCollections,
+		ActiveCollection: activeCollection,
+		Documents:        documents,
+		CollectionName:   activeCollection,
+		CollectionLabel:  collectionLabel,
+		Query:            query,
+	}
+
+	content, err := h.templateEngine.RenderSearchBrowse(r.Context(), data)
 	if err != nil {
 		h.renderHTML(w, "", "search")
 		return
@@ -132,6 +181,80 @@ func (h *SearchHandler) transformSearchResults(ctx context.Context, fuzzyResults
 	}
 
 	return results, totalResults
+}
+
+// handleSearchBrowse renders the two-panel browse dropdown (on focus, before typing).
+func (h *SearchHandler) handleSearchBrowse(w http.ResponseWriter, r *http.Request) {
+	collection := r.URL.Query().Get("collection")
+
+	allCollections := h.getAllCollectionsWithCounts(r.Context())
+
+	// Default to first collection if none selected
+	activeCollection := collection
+	if activeCollection == "" && len(allCollections) > 0 {
+		activeCollection = allCollections[0].Name
+	}
+
+	// Fetch items from the active collection (limited for the browse panel)
+	var documents []models.Document
+	var collectionLabel string
+	if activeCollection != "" && h.contentService != nil {
+		items, _, err := h.contentService.GetCollectionItems(r.Context(), activeCollection, "", nil, 1, 8)
+		if err == nil {
+			documents = make([]models.Document, 0, len(items))
+			for _, item := range items {
+				documents = append(documents, h.documentMapper.ToModel(activeCollection, item))
+			}
+		}
+		collectionLabel = h.getCollectionTitle(activeCollection)
+	}
+
+	data := models.SearchBrowseData{
+		Collections:      allCollections,
+		ActiveCollection: activeCollection,
+		Documents:        documents,
+		CollectionName:   activeCollection,
+		CollectionLabel:  collectionLabel,
+	}
+
+	content, err := h.templateEngine.RenderSearchBrowse(r.Context(), data)
+	if err != nil {
+		h.renderHTML(w, "", "search")
+		return
+	}
+
+	h.renderHTML(w, content, "search")
+}
+
+// getAllCollectionsWithCounts returns all collections with their item counts.
+func (h *SearchHandler) getAllCollectionsWithCounts(ctx context.Context) []models.Collection {
+	if h.contentService == nil {
+		return nil
+	}
+	stats, err := h.contentService.GetCollectionStats(ctx)
+	if err != nil {
+		return nil
+	}
+
+	result := make([]models.Collection, 0, len(stats))
+	for _, col := range stats {
+		name := mappers.GetString(col, "collection", "")
+		count := mappers.GetInt64(col, "count", 0)
+		if count > 0 {
+			result = append(result, models.Collection{
+				Name:  name,
+				Label: h.getCollectionTitle(name),
+				Count: count,
+			})
+		}
+	}
+
+	// Sort by count descending (most popular first)
+	sort.Slice(result, func(i, j int) bool {
+		return result[i].Count > result[j].Count
+	})
+
+	return result
 }
 
 // getPopularCollections returns a list of popular collections for the empty state.

@@ -123,3 +123,13 @@ type SearchPageData struct {
 	Total       int64
 	Collections []Collection
 }
+
+// SearchBrowseData holds the data for the two-panel search browse dropdown.
+type SearchBrowseData struct {
+	Collections      []Collection
+	ActiveCollection string
+	Documents        []Document
+	CollectionName   string
+	CollectionLabel  string
+	Query            string
+}

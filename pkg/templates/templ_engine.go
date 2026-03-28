@@ -54,6 +54,10 @@ func (e *TemplEngine) RenderSearchDropdown(ctx context.Context, results []models
 	return e.renderComponent(ctx, templComponents.SearchDropdown(results, query))
 }
 
+func (e *TemplEngine) RenderSearchBrowse(ctx context.Context, data models.SearchBrowseData) (string, error) {
+	return e.renderComponent(ctx, templComponents.SearchBrowseDropdown(data))
+}
+
 func (e *TemplEngine) renderComponent(ctx context.Context, component templ.Component) (string, error) {
 	var buf bytes.Buffer
 

@@ -1,0 +1,86 @@
+package templates
+
+import "github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/models"
+import "strconv"
+import "fmt"
+import "net/url"
+
+templ SearchBrowseDropdown(data models.SearchBrowseData) {
+	<div class="search-browse">
+		<div class="search-browse-sidebar" role="tablist" aria-label="Collezioni">
+			for _, col := range data.Collections {
+				<button
+					type="button"
+					role="tab"
+					class={ "search-browse-tab", templ.KV("active", col.Name == data.ActiveCollection) }
+					data-collection={ col.Name }
+					hx-get={ browseURL(col.Name, data.Query) }
+					hx-target="#search-results"
+					hx-swap="innerHTML"
+					aria-selected={ strconv.FormatBool(col.Name == data.ActiveCollection) }
+				>
+					<span class="search-browse-tab-icon">
+						@CollectionIcon(col.Name)
+					</span>
+					<span class="search-browse-tab-label">{ col.Label }</span>
+				</button>
+			}
+		</div>
+		<div class="search-browse-content" role="tabpanel">
+			if len(data.Documents) == 0 && data.Query != "" {
+				<div class="search-browse-empty">
+					<p>Nessun risultato in <strong>{ data.CollectionLabel }</strong></p>
+				</div>
+			}
+			for _, doc := range data.Documents {
+				<a
+					href={ templ.URL(fmt.Sprintf("/srd/%s/%s", data.CollectionName, doc.ID)) }
+					class="search-browse-item"
+				>
+					<span class="search-browse-item-title">
+						if data.Query != "" {
+							@templ.Raw(HighlightQuery(doc.Title, data.Query))
+						} else {
+							{ doc.Title }
+						}
+					</span>
+				</a>
+			}
+			if len(data.Documents) > 0 {
+				<a
+					href={ templ.URL(browseViewAllURL(data.CollectionName, data.Query)) }
+					class="search-browse-view-all"
+				>
+					if data.Query != "" {
+						Vedi tutti i { strconv.FormatInt(getCollectionCount(data.Collections, data.ActiveCollection), 10) } risultati in { data.CollectionLabel } &rarr;
+					} else {
+						Vedi tutti in { data.CollectionLabel } ({ strconv.FormatInt(getCollectionCount(data.Collections, data.ActiveCollection), 10) }) &rarr;
+					}
+				</a>
+			}
+		</div>
+	</div>
+}
+
+func browseURL(collection, query string) string {
+	if query != "" {
+		return fmt.Sprintf("/srd/search/dropdown?collection=%s&q=%s", collection, url.QueryEscape(query))
+	}
+	return fmt.Sprintf("/srd/search/dropdown?collection=%s", collection)
+}
+
+func browseViewAllURL(collection, query string) string {
+	if query != "" {
+		return fmt.Sprintf("/srd/%s?q=%s", collection, url.QueryEscape(query))
+	}
+	return fmt.Sprintf("/srd/%s", collection)
+}
+
+func getCollectionCount(collections []models.Collection, name string) int64 {
+	for _, c := range collections {
+		if c.Name == name {
+			return c.Count
+		}
+	}
+	return 0
+}
