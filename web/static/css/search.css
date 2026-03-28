@@ -298,6 +298,14 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.search-browse-tab-count {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+.search-browse-tab.dimmed {
+  opacity: 0.4;
+}
 
 .search-browse-content {
   display: flex;

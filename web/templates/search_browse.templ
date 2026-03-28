@@ -12,7 +12,7 @@ templ SearchBrowseDropdown(data models.SearchBrowseData) {
 				<button
 					type="button"
 					role="tab"
-					class={ "search-browse-tab", templ.KV("active", col.Name == data.ActiveCollection) }
+					class={ "search-browse-tab", templ.KV("active", col.Name == data.ActiveCollection), templ.KV("dimmed", data.Query != "" && col.Count == 0) }
 					data-collection={ col.Name }
 					hx-get={ browseURL(col.Name, data.Query) }
 					hx-target="#search-results"
@@ -23,6 +23,9 @@ templ SearchBrowseDropdown(data models.SearchBrowseData) {
 						@CollectionIcon(col.Name)
 					</span>
 					<span class="search-browse-tab-label">{ col.Label }</span>
+					if data.Query != "" && col.Count > 0 {
+						<span class="search-browse-tab-count">{ strconv.FormatInt(col.Count, 10) }</span>
+					}
 				</button>
 			}
 		</div>

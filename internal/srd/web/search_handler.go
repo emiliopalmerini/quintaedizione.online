@@ -104,20 +104,18 @@ func (h *SearchHandler) handleSearchDropdown(w http.ResponseWriter, r *http.Requ
 		}
 	}
 
-	// Mark collections that have search results with their result counts
-	sidebarCollections := make([]models.Collection, 0, len(allCollections))
+	// Show all collections in sidebar, with result counts for those that matched
 	resultCountMap := make(map[string]int64)
 	for _, sr := range searchResults {
 		resultCountMap[sr.CollectionName] = sr.Total
 	}
+	sidebarCollections := make([]models.Collection, 0, len(allCollections))
 	for _, col := range allCollections {
-		if count, ok := resultCountMap[col.Name]; ok {
-			sidebarCollections = append(sidebarCollections, models.Collection{
-				Name:  col.Name,
-				Label: col.Label,
-				Count: count,
-			})
-		}
+		sidebarCollections = append(sidebarCollections, models.Collection{
+			Name:  col.Name,
+			Label: col.Label,
+			Count: resultCountMap[col.Name],
+		})
 	}
 
 	data := models.SearchBrowseData{
