@@ -12,10 +12,16 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/pkg/mappers"
 )
 
+// SearchRecorder records search metrics.
+type SearchRecorder interface {
+	RecordSearch(searchType string)
+}
+
 // SearchHandler handles search-related requests.
 type SearchHandler struct {
 	*baseHandler
-	searchService search.SearchService
+	searchService  search.SearchService
+	searchRecorder SearchRecorder
 }
 
 // handleGlobalSearch renders the global search results page.
@@ -26,6 +32,8 @@ func (h *SearchHandler) handleGlobalSearch(w http.ResponseWriter, r *http.Reques
 		http.Redirect(w, r, "/srd", http.StatusFound)
 		return
 	}
+
+	h.recordSearch("global")
 
 	fuzzyResults, err := h.searchService.Search(r.Context(), query, 5)
 	if err != nil {
@@ -65,6 +73,12 @@ func (h *SearchHandler) handleSearchDropdown(w http.ResponseWriter, r *http.Requ
 	if query == "" {
 		h.handleSearchBrowse(w, r)
 		return
+	}
+
+	if collection != "" {
+		h.recordSearch("collection")
+	} else {
+		h.recordSearch("dropdown")
 	}
 
 	// Search mode: get results across all collections (or filtered)
@@ -134,6 +148,12 @@ func (h *SearchHandler) handleSearchDropdown(w http.ResponseWriter, r *http.Requ
 	}
 
 	h.renderHTML(w, content, "search")
+}
+
+func (h *SearchHandler) recordSearch(searchType string) {
+	if h.searchRecorder != nil {
+		h.searchRecorder.RecordSearch(searchType)
+	}
 }
 
 // searchFuzzy performs a fuzzy search, scoped to a collection if specified.

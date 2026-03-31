@@ -1,0 +1,12 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: "quintaedizione"
+    # Use the Docker network hostname of your app container.
+    # In Dokploy, this is typically the container name.
+    # Adjust "quintaedizione-app" to match your actual container name.
+    static_configs:
+      - targets: ["quintaedizione-app:9090"]
+    metrics_path: /metrics
