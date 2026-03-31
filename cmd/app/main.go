@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"log"
 	"log/slog"
 	"net/http"
@@ -10,6 +9,10 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
+
+	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/collectors"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 
 	generatoriData "github.com/emiliopalmerini/quintaedizione-data-ita/data/generatori"
 	mappeData "github.com/emiliopalmerini/quintaedizione-data-ita/data/mappe"
@@ -98,8 +101,14 @@ func main() {
 		defaultSourceShort = sources[0].ShortName
 	}
 
+	// ── Metrics setup ─────────────────────────────────────────
+	metricsRegistry := prometheus.NewRegistry()
+	metricsRegistry.MustRegister(collectors.NewProcessCollector(collectors.ProcessCollectorOpts{}))
+	metricsRegistry.MustRegister(collectors.NewGoCollector())
+	appMetrics := pkgweb.NewMetrics(metricsRegistry)
+
 	multiSource := len(sources) > 1
-	srdHandlers := web.NewHandlers(contentService, searchService, templateEngine, defaultSourceShort, multiSource)
+	srdHandlers := web.NewHandlers(contentService, searchService, templateEngine, defaultSourceShort, multiSource, web.WithSearchRecorder(appMetrics))
 
 	// ── Combattimenti setup ────────────────────────────────────
 
@@ -151,14 +160,17 @@ func main() {
 	})))
 
 	// Health check
-	mux.HandleFunc("GET /health", func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(map[string]any{
-			"status":       "healthy",
-			"version":      "5.0.0",
-			"architecture": "unified-inmemory",
-		})
-	})
+	healthChecker := &pkgweb.HealthChecker{
+		Checks: []pkgweb.HealthCheck{
+			{
+				Name: "store",
+				Check: func() bool {
+					return len(store.Collections()) > 0
+				},
+			},
+		},
+	}
+	mux.HandleFunc("GET /health", healthChecker.Handler())
 
 	// SEO
 	mux.HandleFunc("GET /robots.txt", func(w http.ResponseWriter, r *http.Request) {
@@ -233,6 +245,7 @@ func main() {
 	handler = pkgweb.ThemeMiddleware(handler)
 	handler = pkgweb.CORSMiddleware(handler)
 	handler = pkgweb.RateLimitMiddleware(rateLimiter)(handler)
+	handler = appMetrics.Middleware(handler)
 	handler = pkgweb.SecurityMiddleware(handler)
 	handler = pkgweb.ErrorRecoveryMiddleware(logger)(handler)
 
@@ -243,6 +256,27 @@ func main() {
 		Handler:           handler,
 		ReadHeaderTimeout: 15 * time.Second,
 	}
+
+	// ── Internal metrics server ──────────────────────────────
+	metricsPort := os.Getenv("METRICS_PORT")
+	if metricsPort == "" {
+		metricsPort = "9090"
+	}
+	metricsMux := http.NewServeMux()
+	metricsMux.Handle("GET /metrics", promhttp.HandlerFor(metricsRegistry, promhttp.HandlerOpts{}))
+
+	metricsSrv := &http.Server{
+		Addr:              ":" + metricsPort,
+		Handler:           metricsMux,
+		ReadHeaderTimeout: 5 * time.Second,
+	}
+
+	go func() {
+		log.Printf("Starting metrics server on :%s", metricsPort)
+		if err := metricsSrv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+			log.Fatalf("Failed to start metrics server: %v", err)
+		}
+	}()
 
 	go func() {
 		log.Printf("Starting quintaedizione.online on %s", config.GetAddress())
@@ -259,6 +293,9 @@ func main() {
 	shutdownCtx, shutdownCancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer shutdownCancel()
 
+	if err := metricsSrv.Shutdown(shutdownCtx); err != nil {
+		log.Printf("Metrics server forced to shutdown: %v", err)
+	}
 	if err := srv.Shutdown(shutdownCtx); err != nil {
 		log.Fatalf("Server forced to shutdown: %v", err)
 	}

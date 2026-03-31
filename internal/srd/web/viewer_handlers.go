@@ -23,7 +23,7 @@ type Handlers struct {
 
 // NewHandlers creates all specialized handlers with shared dependencies.
 // defaultSource is the source ID used for legacy URL redirects (e.g. "srd-5.5e").
-func NewHandlers(contentService *services.ContentService, searchService search.SearchService, templateEngine *templates.TemplEngine, defaultSource string, multiSource bool) *Handlers {
+func NewHandlers(contentService *services.ContentService, searchService search.SearchService, templateEngine *templates.TemplEngine, defaultSource string, multiSource bool, opts ...HandlersOption) *Handlers {
 	displayFactory := display.NewDisplayElementFactory(multiSource)
 	documentMapper := webmappers.NewDocumentMapper(displayFactory)
 
@@ -39,7 +39,7 @@ func NewHandlers(contentService *services.ContentService, searchService search.S
 		collectionMetadata: collectionMetadata,
 	}
 
-	return &Handlers{
+	h := &Handlers{
 		home: &HomeHandler{
 			baseHandler: base,
 		},
@@ -54,6 +54,22 @@ func NewHandlers(contentService *services.ContentService, searchService search.S
 			baseHandler: base,
 		},
 		defaultSource: defaultSource,
+	}
+
+	for _, opt := range opts {
+		opt(h)
+	}
+
+	return h
+}
+
+// HandlersOption configures optional dependencies for Handlers.
+type HandlersOption func(*Handlers)
+
+// WithSearchRecorder sets a SearchRecorder for tracking search metrics.
+func WithSearchRecorder(r SearchRecorder) HandlersOption {
+	return func(h *Handlers) {
+		h.search.searchRecorder = r
 	}
 }
 
