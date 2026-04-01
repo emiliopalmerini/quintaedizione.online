@@ -394,6 +394,15 @@
 .search-overlay-chip.active { background: var(--color-text); color: var(--color-text-inverse); border-color: var(--color-text); }
 .search-overlay-results { flex: 1; overflow-y: auto; }
 
+/* Hide browse sidebar inside the mobile overlay — chips already handle filtering */
+.search-overlay-results .search-browse {
+  grid-template-columns: 1fr;
+  max-height: none;
+}
+.search-overlay-results .search-browse-sidebar {
+  display: none;
+}
+
 /* ========================================================================
    SEARCH PAGE
    ======================================================================== */
