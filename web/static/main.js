@@ -364,7 +364,6 @@ function initSearchOverlay() {
 	var overlayCollection = document.getElementById('overlay-collection');
 	var overlayForm = document.getElementById('overlay-search-form');
 	var closeBtn = overlay.querySelector('.search-overlay-close');
-	var chips = overlay.querySelectorAll('.search-overlay-chip');
 	var isMobile = window.matchMedia('(max-width: 640px)');
 
 	function openOverlay() {
@@ -380,6 +379,9 @@ function initSearchOverlay() {
 			// Trigger search if text was synced
 			if (overlayInput.value.trim().length >= 2) {
 				htmx.trigger(overlayInput, 'keyup');
+			} else if (!overlayResults.innerHTML.trim()) {
+				// Show browse panel when opening with no query
+				htmx.ajax('GET', '/srd/search/dropdown', { target: '#overlay-results', swap: 'innerHTML' });
 			}
 		}, 50);
 	}
@@ -390,10 +392,6 @@ function initSearchOverlay() {
 		overlayResults.innerHTML = '';
 		overlayInput.value = '';
 		overlayCollection.value = '';
-		// Reset chips
-		chips.forEach(function(c) {
-			c.classList.toggle('active', c.getAttribute('data-collection') === '');
-		});
 	}
 
 	// Open overlay when hero input is focused on mobile
@@ -427,28 +425,27 @@ function initSearchOverlay() {
 		});
 	}
 
-	// Prevent HTMX request with less than 2 characters
+	// Prevent HTMX request with less than 2 characters, show browse instead
 	if (overlayForm) {
 		overlayForm.addEventListener('htmx:beforeRequest', function(evt) {
 			if (overlayInput.value.trim().length < 2) {
 				evt.detail.cancel = true;
-				overlayResults.innerHTML = '';
+				if (overlayInput.value.trim().length === 0 && overlayResults) {
+					htmx.ajax('GET', '/srd/search/dropdown', { target: '#overlay-results', swap: 'innerHTML' });
+				}
 			}
 		});
 	}
 
-	// Collection chip selection
-	chips.forEach(function(chip) {
-		chip.addEventListener('click', function() {
-			chips.forEach(function(c) { c.classList.remove('active'); });
-			chip.classList.add('active');
-			overlayCollection.value = chip.getAttribute('data-collection');
-			// Re-trigger search with new collection filter via custom event
-			if (overlayInput.value.trim().length >= 2) {
-				htmx.trigger(overlayInput, 'search');
+	// Sync sidebar tab clicks with hidden collection input (event delegation)
+	if (overlayResults) {
+		overlayResults.addEventListener('click', function(e) {
+			var tab = e.target.closest('.search-browse-tab');
+			if (tab) {
+				overlayCollection.value = tab.getAttribute('data-collection') || '';
 			}
 		});
-	});
+	}
 }
 
 document.addEventListener('DOMContentLoaded', function() {

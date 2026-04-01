@@ -63,12 +63,6 @@ templ HomePage(data models.HomePageData) {
 						/>
 					</form>
 				</div>
-				<div class="search-overlay-chips" role="radiogroup" aria-label="Filtra per collezione">
-					<button type="button" class="search-overlay-chip active" data-collection="">Tutte</button>
-					for _, collection := range data.Collections {
-						<button type="button" class="search-overlay-chip" data-collection={ collection.Name }>{ collection.Label }</button>
-					}
-				</div>
 				<div id="overlay-results" class="search-overlay-results" role="listbox" aria-live="polite"></div>
 			</div>
 		</section>

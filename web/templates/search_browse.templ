@@ -15,8 +15,8 @@ templ SearchBrowseDropdown(data models.SearchBrowseData) {
 					class={ "search-browse-tab", templ.KV("active", col.Name == data.ActiveCollection), templ.KV("dimmed", data.Query != "" && col.Count == 0) }
 					data-collection={ col.Name }
 					hx-get={ browseURL(col.Name, data.Query) }
-					hx-target="#search-results"
-					hx-swap="innerHTML"
+					hx-target="closest .search-browse"
+					hx-swap="outerHTML"
 					aria-selected={ strconv.FormatBool(col.Name == data.ActiveCollection) }
 				>
 					<span class="search-browse-tab-icon">
