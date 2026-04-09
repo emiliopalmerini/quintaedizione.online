@@ -72,7 +72,6 @@ func main() {
 	}
 
 	repo := srdPersistence.NewDocumentRepository(store)
-	searchRepo := srdPersistence.NewSearchRepository(store)
 
 	var templateEngine *templates.TemplEngine
 	if config.IsProduction() {
@@ -86,7 +85,6 @@ func main() {
 	filters.RegisterEditionFilter(filterRegistry, sources)
 
 	filterService := services.NewFilterService(filterRegistry)
-	searchService := search.NewFuzzySearchService(searchRepo)
 
 	// Find the default source short name for legacy URL redirects and deduplication
 	defaultSourceShort := ""
@@ -100,6 +98,8 @@ func main() {
 		defaultSourceShort = sources[0].ShortName
 	}
 
+	searchRepo := srdPersistence.NewSearchRepository(store, defaultSourceShort)
+	searchService := search.NewFuzzySearchService(searchRepo)
 	contentService := services.NewContentService(repo, filterService, services.WithDefaultSource(defaultSourceShort))
 
 	// ── Metrics setup ─────────────────────────────────────────
@@ -109,7 +109,7 @@ func main() {
 	appMetrics := pkgweb.NewMetrics(metricsRegistry)
 
 	multiSource := len(sources) > 1
-	srdHandlers := web.NewHandlers(contentService, searchService, templateEngine, defaultSourceShort, multiSource, web.WithSearchRecorder(appMetrics))
+	srdHandlers := web.NewHandlers(contentService, searchService, templateEngine, defaultSourceShort, multiSource, store.AvailableSources, web.WithSearchRecorder(appMetrics))
 
 	// ── Combattimenti setup ────────────────────────────────────
 

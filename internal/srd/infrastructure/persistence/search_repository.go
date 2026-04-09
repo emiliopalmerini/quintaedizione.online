@@ -8,16 +8,20 @@ import (
 )
 
 type searchRepository struct {
-	store *datastore.Store
+	store           *datastore.Store
+	preferredSource string
 }
 
 // NewSearchRepository creates a SearchRepository backed by the in-memory store.
-func NewSearchRepository(store *datastore.Store) domainsearch.SearchRepository {
-	return &searchRepository{store: store}
+// When preferredSource is non-empty, documents that exist in multiple sources
+// are deduplicated so only the preferred source's version is indexed.
+func NewSearchRepository(store *datastore.Store, preferredSource string) domainsearch.SearchRepository {
+	return &searchRepository{store: store, preferredSource: preferredSource}
 }
 
 func (r *searchRepository) GetSearchableItems(_ context.Context, collection string) ([]domainsearch.SearchableItem, error) {
-	docs, _ := r.store.Query(collection, nil, 0, 0)
+	predicate := r.store.DeduplicatePredicate(collection, r.preferredSource)
+	docs, _ := r.store.Query(collection, predicate, 0, 0)
 
 	items := make([]domainsearch.SearchableItem, 0, len(docs))
 	for _, doc := range docs {
