@@ -90,6 +90,27 @@ func (s *Store) Get(collection, id string) (map[string]any, error) {
 	return doc, nil
 }
 
+// DeduplicatePredicate returns a predicate that filters out non-preferred duplicate
+// documents. A document is a non-preferred duplicate if its slug exists in multiple
+// sources and its source is not preferredSource. Returns nil if preferredSource is empty.
+func (s *Store) DeduplicatePredicate(collection, preferredSource string) func(map[string]any) bool {
+	if preferredSource == "" {
+		return nil
+	}
+	slugIdx := s.slugIndex[collection]
+	if slugIdx == nil {
+		return nil
+	}
+	return func(doc map[string]any) bool {
+		source, _ := doc["_source_short"].(string)
+		if source == preferredSource {
+			return true
+		}
+		id, _ := doc["_id"].(string)
+		return len(slugIdx[id]) <= 1
+	}
+}
+
 // GetBySlug returns all documents in a collection that share the given bare slug
 // across sources. Returns nil if the slug is not found.
 func (s *Store) GetBySlug(collection, slug string) []map[string]any {

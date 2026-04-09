@@ -86,10 +86,9 @@ func main() {
 	filters.RegisterEditionFilter(filterRegistry, sources)
 
 	filterService := services.NewFilterService(filterRegistry)
-	contentService := services.NewContentService(repo, filterService)
 	searchService := search.NewFuzzySearchService(searchRepo)
 
-	// Find the default source short name for legacy URL redirects
+	// Find the default source short name for legacy URL redirects and deduplication
 	defaultSourceShort := ""
 	for _, src := range sources {
 		if src.Default {
@@ -100,6 +99,8 @@ func main() {
 	if defaultSourceShort == "" && len(sources) > 0 {
 		defaultSourceShort = sources[0].ShortName
 	}
+
+	contentService := services.NewContentService(repo, filterService, services.WithDefaultSource(defaultSourceShort))
 
 	// ── Metrics setup ─────────────────────────────────────────
 	metricsRegistry := prometheus.NewRegistry()

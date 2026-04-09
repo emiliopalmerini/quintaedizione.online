@@ -18,21 +18,44 @@ type ContentService struct {
 	documentNav      repositories.DocumentNavigation
 	documentVersions repositories.DocumentVersions
 	filterService    filters.FilterService
+	defaultSource    string
 }
 
-func NewContentService(repo repositories.DocumentRepository, filterService filters.FilterService) *ContentService {
-	return &ContentService{
+// ContentServiceOption configures optional parameters for ContentService.
+type ContentServiceOption func(*ContentService)
+
+// WithDefaultSource sets the preferred source for deduplication.
+func WithDefaultSource(source string) ContentServiceOption {
+	return func(s *ContentService) { s.defaultSource = source }
+}
+
+func NewContentService(repo repositories.DocumentRepository, filterService filters.FilterService, opts ...ContentServiceOption) *ContentService {
+	svc := &ContentService{
 		documentReader:   repo,
 		documentStats:    repo,
 		documentNav:      repo,
 		documentVersions: repo,
 		filterService:    filterService,
 	}
+	for _, opt := range opts {
+		opt(svc)
+	}
+	return svc
+}
+
+// deduplicatePredicate returns a predicate that filters out non-preferred
+// duplicate documents for the given collection. Returns nil if no dedup needed.
+func (s *ContentService) deduplicatePredicate(collection string) filters.DocumentPredicate {
+	if s.defaultSource == "" {
+		return nil
+	}
+	return s.documentVersions.DeduplicatePredicate(collection, s.defaultSource)
 }
 
 func (s *ContentService) GetCollectionItems(ctx context.Context, collection, search string, filterParams map[string]string, page, limit int) ([]*domain.Document, int64, error) {
 	collectionType, _ := collections.FromString(collection)
 	searchPred := s.filterService.BuildSearchPredicate(collectionType, search)
+	dedupPred := s.deduplicatePredicate(collection)
 
 	var combined filters.DocumentPredicate
 	if len(filterParams) > 0 {
@@ -44,9 +67,9 @@ func (s *ContentService) GetCollectionItems(ctx context.Context, collection, sea
 		if err != nil {
 			return nil, 0, fmt.Errorf("failed to build field filter: %w", err)
 		}
-		combined = s.filterService.CombinePredicates(fieldPred, searchPred)
+		combined = s.filterService.CombinePredicates(fieldPred, searchPred, dedupPred)
 	} else {
-		combined = searchPred
+		combined = s.filterService.CombinePredicates(searchPred, dedupPred)
 	}
 
 	// When searching, fetch all matches to sort by title relevance before paginating
@@ -129,6 +152,7 @@ func (s *ContentService) GetFacetCounts(ctx context.Context, collection, search 
 	}
 
 	searchPred := s.filterService.BuildSearchPredicate(collectionType, search)
+	dedupPred := s.deduplicatePredicate(collection)
 	result := make(map[string]map[string]int64, len(defs))
 
 	for _, def := range defs {
@@ -154,9 +178,9 @@ func (s *ContentService) GetFacetCounts(ctx context.Context, collection, search 
 			if err != nil {
 				continue
 			}
-			combinedPred = s.filterService.CombinePredicates(fieldPred, searchPred)
+			combinedPred = s.filterService.CombinePredicates(fieldPred, searchPred, dedupPred)
 		} else {
-			combinedPred = searchPred
+			combinedPred = s.filterService.CombinePredicates(searchPred, dedupPred)
 		}
 
 		counts, err := s.documentStats.AggregateField(ctx, collection, def.FieldPath, combinedPred)
@@ -203,8 +227,10 @@ func (s *ContentService) GlobalSearch(ctx context.Context, query string, limitPe
 
 		collectionType, _ := collections.FromString(collectionName)
 		searchPred := s.filterService.BuildSearchPredicate(collectionType, query)
+		dedupPred := s.deduplicatePredicate(collectionName)
+		combined := s.filterService.CombinePredicates(searchPred, dedupPred)
 
-		items, total, err := s.documentReader.FindByPredicate(ctx, collectionName, searchPred, 0, int64(limitPerCollection))
+		items, total, err := s.documentReader.FindByPredicate(ctx, collectionName, combined, 0, int64(limitPerCollection))
 		if err != nil {
 			fmt.Printf("Warning: Failed to search in collection %s: %v\n", collectionName, err)
 			continue

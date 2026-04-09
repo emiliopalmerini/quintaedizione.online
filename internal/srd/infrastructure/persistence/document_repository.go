@@ -59,6 +59,10 @@ func (r *documentRepository) GetAdjacent(_ context.Context, collection string, c
 	return prev, next, pos, tot, nil
 }
 
+func (r *documentRepository) DeduplicatePredicate(collection, preferredSource string) repositories.DocumentPredicate {
+	return r.store.DeduplicatePredicate(collection, preferredSource)
+}
+
 func (r *documentRepository) FindVersions(_ context.Context, collection, slug string) ([]domain.VersionInfo, error) {
 	docs := r.store.GetBySlug(collection, slug)
 	versions := make([]domain.VersionInfo, 0, len(docs))

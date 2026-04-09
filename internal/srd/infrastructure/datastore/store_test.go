@@ -86,3 +86,61 @@ func TestGetBySlug_UnknownCollection(t *testing.T) {
 		t.Errorf("expected 0 for unknown collection, got %d", len(docs))
 	}
 }
+
+func TestDeduplicatePredicate_FiltersNonPreferredDuplicates(t *testing.T) {
+	store := newTestStore(map[string][]map[string]any{
+		"classi": {
+			{"_id": "barbaro", "_source_short": "5.5e", "title": "Barbaro"},
+			{"_id": "barbaro", "_source_short": "5e", "title": "Barbaro"},
+			{"_id": "ladro", "_source_short": "5.5e", "title": "Ladro"},
+		},
+	})
+
+	pred := store.DeduplicatePredicate("classi", "5.5e")
+	if pred == nil {
+		t.Fatal("expected non-nil predicate")
+	}
+
+	// 5.5e barbaro: preferred source, should pass
+	if !pred(map[string]any{"_id": "barbaro", "_source_short": "5.5e"}) {
+		t.Error("preferred source doc should pass")
+	}
+	// 5e barbaro: non-preferred, has duplicate -> should be filtered out
+	if pred(map[string]any{"_id": "barbaro", "_source_short": "5e"}) {
+		t.Error("non-preferred duplicate should be filtered out")
+	}
+	// 5.5e ladro: only version, should pass
+	if !pred(map[string]any{"_id": "ladro", "_source_short": "5.5e"}) {
+		t.Error("single-version doc should pass")
+	}
+}
+
+func TestDeduplicatePredicate_KeepsUniqueNonPreferred(t *testing.T) {
+	store := newTestStore(map[string][]map[string]any{
+		"classi": {
+			{"_id": "monaco", "_source_short": "5e", "title": "Monaco"},
+		},
+	})
+
+	pred := store.DeduplicatePredicate("classi", "5.5e")
+
+	// 5e monaco: not preferred source, but only version -> should pass
+	if !pred(map[string]any{"_id": "monaco", "_source_short": "5e"}) {
+		t.Error("unique non-preferred doc should pass")
+	}
+}
+
+func TestDeduplicatePredicate_EmptyPreferred(t *testing.T) {
+	store := newTestStore(map[string][]map[string]any{
+		"classi": {
+			{"_id": "barbaro", "_source_short": "5.5e", "title": "Barbaro"},
+			{"_id": "barbaro", "_source_short": "5e", "title": "Barbaro"},
+		},
+	})
+
+	// Empty preferred source -> no dedup, all pass
+	pred := store.DeduplicatePredicate("classi", "")
+	if pred != nil {
+		t.Error("expected nil predicate for empty preferred source")
+	}
+}

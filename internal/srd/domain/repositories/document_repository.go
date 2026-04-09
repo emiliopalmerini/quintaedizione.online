@@ -31,6 +31,7 @@ type DocumentNavigation interface {
 // DocumentVersions provides access to all editions of a document by slug.
 type DocumentVersions interface {
 	FindVersions(ctx context.Context, collection, slug string) ([]domain.VersionInfo, error)
+	DeduplicatePredicate(collection, preferredSource string) DocumentPredicate
 }
 
 // DocumentRepository composes all document-related read operations.
