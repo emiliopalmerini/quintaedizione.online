@@ -111,6 +111,28 @@ func (s *Store) DeduplicatePredicate(collection, preferredSource string) func(ma
 	}
 }
 
+// AvailableSources returns the source short names for all versions of a slug.
+func (s *Store) AvailableSources(collection, slug string) []string {
+	slugIdx, ok := s.slugIndex[collection]
+	if !ok {
+		return nil
+	}
+	compositeIDs, ok := slugIdx[slug]
+	if !ok {
+		return nil
+	}
+	coll := s.collections[collection]
+	sources := make([]string, 0, len(compositeIDs))
+	for _, id := range compositeIDs {
+		if doc, ok := coll[id]; ok {
+			if src, ok := doc["_source_short"].(string); ok {
+				sources = append(sources, src)
+			}
+		}
+	}
+	return sources
+}
+
 // GetBySlug returns all documents in a collection that share the given bare slug
 // across sources. Returns nil if the slug is not found.
 func (s *Store) GetBySlug(collection, slug string) []map[string]any {

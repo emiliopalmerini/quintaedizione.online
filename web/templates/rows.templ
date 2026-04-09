@@ -62,8 +62,8 @@ templ documentRow(doc models.Document, collection string) {
 				if doc.Translated {
 					<span class="result-badge result-badge-translated">Tradotto</span>
 				}
-				if editionBadge(doc) != "" {
-					<span class="result-badge result-badge-edition">{ editionBadge(doc) }</span>
+				for _, badge := range editionBadges(doc) {
+					<span class="result-badge result-badge-edition">{ badge }</span>
 				}
 			</div>
 		</div>
@@ -160,13 +160,14 @@ func getDocSlug(doc models.Document) string {
 	return doc.ID
 }
 
-func editionBadge(doc models.Document) string {
+func editionBadges(doc models.Document) []string {
+	var badges []string
 	for _, e := range doc.DisplayElements {
 		if e.Type == "edition" {
-			return e.Value
+			badges = append(badges, e.Value)
 		}
 	}
-	return ""
+	return badges
 }
 
 func hasNonEditionElements(elements []models.DocumentDisplayField) bool {

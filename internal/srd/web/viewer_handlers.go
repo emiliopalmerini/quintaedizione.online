@@ -23,8 +23,12 @@ type Handlers struct {
 
 // NewHandlers creates all specialized handlers with shared dependencies.
 // defaultSource is the source ID used for legacy URL redirects (e.g. "srd-5.5e").
-func NewHandlers(contentService *services.ContentService, searchService search.SearchService, templateEngine *templates.TemplEngine, defaultSource string, multiSource bool, opts ...HandlersOption) *Handlers {
-	displayFactory := display.NewDisplayElementFactory(multiSource)
+func NewHandlers(contentService *services.ContentService, searchService search.SearchService, templateEngine *templates.TemplEngine, defaultSource string, multiSource bool, versionResolver display.VersionResolver, opts ...HandlersOption) *Handlers {
+	var displayOpts []func(*display.DisplayElementFactory)
+	if versionResolver != nil {
+		displayOpts = append(displayOpts, display.WithVersionResolver(versionResolver))
+	}
+	displayFactory := display.NewDisplayElementFactory(multiSource, displayOpts...)
 	documentMapper := webmappers.NewDocumentMapper(displayFactory)
 
 	collectionMetadata, err := infraconfig.NewCollectionMetadata()
