@@ -95,12 +95,23 @@ type ItemPageData struct {
 	CollectionLabel string
 	SourceShort     string // edition badge (e.g. "5e", "5.5e"); empty if single source
 
+	// Version switcher — populated when the same slug exists in multiple sources.
+	Versions []VersionTab
+
 	// Stat-block view models — at most one is set based on collection type.
 	// The template checks these before falling back to BodyHTML.
 	Spell   *SpellStatBlock
 	Monster *MonsterStatBlock
 	Class   *ClassStatBlock
 	Species *SpeciesStatBlock
+}
+
+// VersionTab represents one edition tab in the version switcher.
+type VersionTab struct {
+	SourceShort string // e.g. "5.5e"
+	URL         string // e.g. "/srd/incantesimi/5.5e/palla-di-fuoco"
+	IsCurrent   bool
+	Label       string // display label, e.g. "5.5e"
 }
 
 type ErrorPageData struct {

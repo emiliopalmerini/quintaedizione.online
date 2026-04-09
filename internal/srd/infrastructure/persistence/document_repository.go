@@ -58,3 +58,21 @@ func (r *documentRepository) GetAdjacent(_ context.Context, collection string, c
 	prev, next, pos, tot := r.store.Adjacent(collection, currentID)
 	return prev, next, pos, tot, nil
 }
+
+func (r *documentRepository) FindVersions(_ context.Context, collection, slug string) ([]domain.VersionInfo, error) {
+	docs := r.store.GetBySlug(collection, slug)
+	versions := make([]domain.VersionInfo, 0, len(docs))
+	for _, doc := range docs {
+		sourceShort, _ := doc["_source_short"].(string)
+		id, _ := doc["_id"].(string)
+		compositeID := id
+		if sourceShort != "" {
+			compositeID = sourceShort + "/" + id
+		}
+		versions = append(versions, domain.VersionInfo{
+			SourceShort: sourceShort,
+			CompositeID: compositeID,
+		})
+	}
+	return versions, nil
+}

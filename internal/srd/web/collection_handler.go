@@ -124,6 +124,22 @@ func (h *CollectionHandler) handleItemDetail(w http.ResponseWriter, r *http.Requ
 		nextID = *nextSlug
 	}
 
+	// Look up all editions of this document for the version switcher
+	var versionTabs []models.VersionTab
+	if versions, err := h.contentService.GetItemVersions(r.Context(), collection, slug); err != nil {
+		fmt.Printf("Warning: Could not get item versions for %s/%s: %v\n", collection, slug, err)
+	} else if len(versions) > 1 {
+		versionTabs = make([]models.VersionTab, len(versions))
+		for i, v := range versions {
+			versionTabs[i] = models.VersionTab{
+				SourceShort: v.SourceShort,
+				URL:         "/srd/" + collection + "/" + v.SourceShort + "/" + slug,
+				IsCurrent:   v.SourceShort == doc.Source,
+				Label:       v.SourceShort,
+			}
+		}
+	}
+
 	data := models.ItemPageData{
 		PageData: models.PageData{
 			Title:       doc.Title,
@@ -140,6 +156,7 @@ func (h *CollectionHandler) handleItemDetail(w http.ResponseWriter, r *http.Requ
 		Total:           total,
 		CollectionLabel: h.getCollectionTitle(collection),
 		SourceShort:     doc.Source,
+		Versions:        versionTabs,
 	}
 
 	// Build stat-block view model or fall back to BodyHTML

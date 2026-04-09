@@ -11,6 +11,7 @@ import (
 type Store struct {
 	collections map[string]map[string]map[string]any // collection → id → doc
 	sorted      map[string][]string                  // collection → title-sorted IDs
+	slugIndex   map[string]map[string][]string       // collection → bare slug → []compositeIDs
 }
 
 // NewStore builds a store from a map of collection name → documents.
@@ -18,6 +19,7 @@ func NewStore(data map[string][]map[string]any) *Store {
 	s := &Store{
 		collections: make(map[string]map[string]map[string]any, len(data)),
 		sorted:      make(map[string][]string, len(data)),
+		slugIndex:   make(map[string]map[string][]string, len(data)),
 	}
 
 	for collection, docs := range data {
@@ -36,6 +38,21 @@ func NewStore(data map[string][]map[string]any) *Store {
 			}
 		}
 		s.collections[collection] = idMap
+
+		// Build slug index: bare slug → []compositeIDs
+		slugIdx := make(map[string][]string)
+		for compositeID := range idMap {
+			slug := compositeID
+			if _, after, found := strings.Cut(compositeID, "/"); found {
+				slug = after
+			}
+			slugIdx[slug] = append(slugIdx[slug], compositeID)
+		}
+		// Sort composite IDs within each slug for deterministic order
+		for slug := range slugIdx {
+			sort.Strings(slugIdx[slug])
+		}
+		s.slugIndex[collection] = slugIdx
 
 		// Build title-sorted ID list
 		type entry struct {
@@ -71,6 +88,27 @@ func (s *Store) Get(collection, id string) (map[string]any, error) {
 		return nil, fmt.Errorf("document %q not found in collection %q", id, collection)
 	}
 	return doc, nil
+}
+
+// GetBySlug returns all documents in a collection that share the given bare slug
+// across sources. Returns nil if the slug is not found.
+func (s *Store) GetBySlug(collection, slug string) []map[string]any {
+	slugIdx, ok := s.slugIndex[collection]
+	if !ok {
+		return nil
+	}
+	compositeIDs, ok := slugIdx[slug]
+	if !ok {
+		return nil
+	}
+	coll := s.collections[collection]
+	docs := make([]map[string]any, 0, len(compositeIDs))
+	for _, id := range compositeIDs {
+		if doc, ok := coll[id]; ok {
+			docs = append(docs, doc)
+		}
+	}
+	return docs
 }
 
 // Query iterates over a collection, applies the match predicate, and returns

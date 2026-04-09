@@ -75,6 +75,11 @@ templ ItemPage(data models.ItemPageData) {
 			</div>
 		}
 
+		<!-- Version switcher -->
+		if len(data.Versions) > 1 {
+			@VersionSwitcher(data.Versions)
+		}
+
 		<!-- Item content -->
 		<article class="item-content" data-markdown>
 			<div data-raw={ getMarkdownWithTitle(data.PageData.DocTitle, data.BodyRaw) }>
@@ -101,6 +106,26 @@ templ ItemPage(data models.ItemPageData) {
 			</button>
 		</div>
 	}
+}
+
+templ VersionSwitcher(versions []models.VersionTab) {
+	<nav class="version-switcher" role="tablist" aria-label="Versioni">
+		for _, v := range versions {
+			if v.IsCurrent {
+				<span role="tab" class="version-tab active" aria-selected="true">{ v.Label }</span>
+			} else {
+				<a role="tab" class="version-tab"
+					href={ templ.URL(v.URL) }
+					hx-get={ v.URL }
+					hx-target="#page-root"
+					hx-select="#page-root"
+					hx-swap="outerHTML"
+					hx-push-url="true"
+					hx-indicator="#page-loading"
+					aria-selected="false">{ v.Label }</a>
+			}
+		}
+	</nav>
 }
 
 // Helper function to prepend title to markdown content for copy functionality

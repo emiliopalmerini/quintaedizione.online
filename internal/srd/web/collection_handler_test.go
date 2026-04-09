@@ -1,8 +1,143 @@
 package web
 
 import (
+	"net/http"
+	"net/http/httptest"
+	"strings"
 	"testing"
+
+	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/application/services"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain/collections"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain/filters"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/infrastructure/datastore"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/infrastructure/persistence"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/display"
+	webmappers "github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/mappers"
+	"github.com/emiliopalmerini/quintaedizione.online/pkg/templates"
 )
+
+// noopFilterService is a minimal FilterService for handler tests.
+type noopFilterService struct{}
+
+func (n *noopFilterService) ParseFilters(_ collections.CollectionName, _ map[string]string) (*filters.FilterSet, error) {
+	return &filters.FilterSet{}, nil
+}
+func (n *noopFilterService) ValidateFilterSet(_ *filters.FilterSet) error { return nil }
+func (n *noopFilterService) BuildFilter(_ *filters.FilterSet) (filters.DocumentPredicate, error) {
+	return nil, nil
+}
+func (n *noopFilterService) GetAvailableFilters(_ collections.CollectionName) ([]filters.FilterDefinition, error) {
+	return nil, nil
+}
+func (n *noopFilterService) BuildSearchPredicate(_ collections.CollectionName, _ string) filters.DocumentPredicate {
+	return nil
+}
+func (n *noopFilterService) CombinePredicates(preds ...filters.DocumentPredicate) filters.DocumentPredicate {
+	return nil
+}
+
+// newTestCollectionHandler creates a CollectionHandler backed by a real Store for acceptance tests.
+func newTestCollectionHandler(data map[string][]map[string]any) *CollectionHandler {
+	store := datastore.NewStore(data)
+	repo := persistence.NewDocumentRepository(store)
+	contentService := services.NewContentService(repo, &noopFilterService{})
+	return &CollectionHandler{
+		baseHandler: &baseHandler{
+			contentService: contentService,
+			templateEngine: templates.NewTemplEngine(),
+			documentMapper: webmappers.NewDocumentMapper(display.NewDisplayElementFactory(true)),
+		},
+	}
+}
+
+func TestHandleItemDetail_MultiVersion_ShowsVersionTabs(t *testing.T) {
+	handler := newTestCollectionHandler(map[string][]map[string]any{
+		"incantesimi": {
+			{"_id": "palla-di-fuoco", "_source_short": "5.5e", "_source": "srd-5.5e", "title": "Palla di Fuoco", "content": "<p>5.5e</p>", "raw_content": "5.5e"},
+			{"_id": "palla-di-fuoco", "_source_short": "5e", "_source": "srd-5e", "title": "Palla di Fuoco", "content": "<p>5e</p>", "raw_content": "5e"},
+		},
+	})
+
+	w := httptest.NewRecorder()
+	req := httptest.NewRequest(http.MethodGet, "/srd/incantesimi/5.5e/palla-di-fuoco", nil)
+	req.SetPathValue("collection", "incantesimi")
+	req.SetPathValue("source", "5.5e")
+	req.SetPathValue("slug", "palla-di-fuoco")
+	handler.handleItemDetail(w, req)
+
+	if w.Code != http.StatusOK {
+		t.Fatalf("expected 200, got %d; body: %s", w.Code, w.Body.String())
+	}
+	body := w.Body.String()
+	if !strings.Contains(body, "version-switcher") {
+		t.Error("expected version-switcher element in response for multi-version document")
+	}
+	if !strings.Contains(body, "5e") || !strings.Contains(body, "5.5e") {
+		t.Error("expected both edition labels in version switcher")
+	}
+}
+
+func TestHandleItemDetail_SingleVersion_NoVersionTabs(t *testing.T) {
+	// Store has two documents but with different slugs; "luce" exists in only one source.
+	handler := newTestCollectionHandler(map[string][]map[string]any{
+		"incantesimi": {
+			{"_id": "luce", "_source_short": "5.5e", "_source": "srd-5.5e", "title": "Luce", "content": "<p>Luce</p>", "raw_content": "Luce"},
+			{"_id": "palla-di-fuoco", "_source_short": "5.5e", "_source": "srd-5.5e", "title": "Palla di Fuoco", "content": "<p>Fire</p>", "raw_content": "Fire"},
+			{"_id": "palla-di-fuoco", "_source_short": "5e", "_source": "srd-5e", "title": "Palla di Fuoco", "content": "<p>Fire old</p>", "raw_content": "Fire old"},
+		},
+	})
+
+	w := httptest.NewRecorder()
+	req := httptest.NewRequest(http.MethodGet, "/srd/incantesimi/5.5e/luce", nil)
+	req.SetPathValue("collection", "incantesimi")
+	req.SetPathValue("source", "5.5e")
+	req.SetPathValue("slug", "luce")
+	handler.handleItemDetail(w, req)
+
+	if w.Code != http.StatusOK {
+		t.Fatalf("expected 200, got %d; body: %s", w.Code, w.Body.String())
+	}
+	body := w.Body.String()
+	if strings.Contains(body, "version-switcher") {
+		t.Error("expected no version-switcher for single-version document")
+	}
+}
+
+func TestHandleItemDetail_VersionTabLinks(t *testing.T) {
+	handler := newTestCollectionHandler(map[string][]map[string]any{
+		"incantesimi": {
+			{"_id": "palla-di-fuoco", "_source_short": "5.5e", "_source": "srd-5.5e", "title": "Palla di Fuoco", "content": "<p>5.5e</p>", "raw_content": "5.5e"},
+			{"_id": "palla-di-fuoco", "_source_short": "5e", "_source": "srd-5e", "title": "Palla di Fuoco", "content": "<p>5e</p>", "raw_content": "5e"},
+		},
+	})
+
+	w := httptest.NewRecorder()
+	req := httptest.NewRequest(http.MethodGet, "/srd/incantesimi/5.5e/palla-di-fuoco", nil)
+	req.SetPathValue("collection", "incantesimi")
+	req.SetPathValue("source", "5.5e")
+	req.SetPathValue("slug", "palla-di-fuoco")
+	handler.handleItemDetail(w, req)
+
+	if w.Code != http.StatusOK {
+		t.Fatalf("expected 200, got %d", w.Code)
+	}
+	body := w.Body.String()
+
+	// Version switcher must exist for multi-version documents
+	if !strings.Contains(body, "version-switcher") {
+		t.Fatal("expected version-switcher element; cannot verify tab links without it")
+	}
+
+	// The active tab should show the current edition
+	if !strings.Contains(body, `aria-selected="true"`) {
+		t.Error("expected active tab with aria-selected=true for current edition")
+	}
+
+	// The inactive tab should link to the other edition via hx-get
+	if !strings.Contains(body, `hx-get="/srd/incantesimi/5e/palla-di-fuoco"`) {
+		t.Error("expected hx-get link to 5e version in version switcher")
+	}
+}
 
 func TestBuildQuickFilterData_Incantesimi(t *testing.T) {
 	data := buildQuickFilterData("incantesimi", map[string]string{})

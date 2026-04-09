@@ -28,9 +28,15 @@ type DocumentNavigation interface {
 	GetAdjacent(ctx context.Context, collection string, currentID string) (prevID *string, nextID *string, position int, total int, err error)
 }
 
+// DocumentVersions provides access to all editions of a document by slug.
+type DocumentVersions interface {
+	FindVersions(ctx context.Context, collection, slug string) ([]domain.VersionInfo, error)
+}
+
 // DocumentRepository composes all document-related read operations.
 type DocumentRepository interface {
 	DocumentReader
 	DocumentStatistics
 	DocumentNavigation
+	DocumentVersions
 }

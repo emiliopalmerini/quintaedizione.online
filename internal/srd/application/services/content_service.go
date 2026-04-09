@@ -13,18 +13,20 @@ import (
 )
 
 type ContentService struct {
-	documentReader repositories.DocumentReader
-	documentStats  repositories.DocumentStatistics
-	documentNav    repositories.DocumentNavigation
-	filterService  filters.FilterService
+	documentReader   repositories.DocumentReader
+	documentStats    repositories.DocumentStatistics
+	documentNav      repositories.DocumentNavigation
+	documentVersions repositories.DocumentVersions
+	filterService    filters.FilterService
 }
 
 func NewContentService(repo repositories.DocumentRepository, filterService filters.FilterService) *ContentService {
 	return &ContentService{
-		documentReader: repo,
-		documentStats:  repo,
-		documentNav:    repo,
-		filterService:  filterService,
+		documentReader:   repo,
+		documentStats:    repo,
+		documentNav:      repo,
+		documentVersions: repo,
+		filterService:    filterService,
 	}
 }
 
@@ -75,6 +77,10 @@ func (s *ContentService) GetItem(ctx context.Context, collection, slug string) (
 		return nil, fmt.Errorf("failed to find item: %w", err)
 	}
 	return item, nil
+}
+
+func (s *ContentService) GetItemVersions(ctx context.Context, collection, slug string) ([]domain.VersionInfo, error) {
+	return s.documentVersions.FindVersions(ctx, collection, slug)
 }
 
 func (s *ContentService) GetStats(ctx context.Context) (map[string]any, error) {
