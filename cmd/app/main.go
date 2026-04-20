@@ -18,7 +18,6 @@ import (
 	mappeData "github.com/emiliopalmerini/quintaedizione-data-ita/data/mappe"
 	jsondata "github.com/emiliopalmerini/quintaedizione-data-ita/data/srd"
 	combatEncounter "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/application/encounter"
-	combatMonster "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/application/monster"
 	combatMemory "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/infrastructure/persistence/memory"
 	combatHandlers "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/infrastructure/web/handlers"
 	combatTemplates "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/infrastructure/web/templates"
@@ -115,14 +114,11 @@ func main() {
 
 	log.Println("Loading Combattimenti data...")
 	encounterRepo := combatMemory.NewEncounterRepository()
-	monsterRepo := combatMemory.NewMonsterRepository(jsondata.Files, "srd-5.5e/monsters.json", defaultSourceShort)
 
 	encounterService := combatEncounter.NewService(logger, encounterRepo)
 	queryHandler := combatEncounter.NewQueryHandler(logger, encounterRepo)
-	monsterService := combatMonster.NewService(monsterRepo)
 
-	encounterHandler := combatHandlers.NewEncounterHandler(encounterService, queryHandler, monsterService, logger)
-	monsterHandler := combatHandlers.NewMonsterHandler(monsterService, logger)
+	encounterHandler := combatHandlers.NewEncounterHandler(encounterService, queryHandler, logger)
 	log.Println("Combattimenti ready")
 
 	// ── Mappe setup ───────────────────────────────────────────
@@ -223,7 +219,6 @@ func main() {
 	combatMux.HandleFunc("POST /calculate", encounterHandler.CalculateHandler)
 	combatMux.HandleFunc("GET /party-input", encounterHandler.PartyInputHandler)
 	combatMux.HandleFunc("GET /api/difficulties", encounterHandler.GetDifficultiesHandler)
-	combatMux.HandleFunc("GET /api/monsters", monsterHandler.SearchHandler)
 	mux.Handle("/combattimenti/", http.StripPrefix("/combattimenti", combatMux))
 
 	// Mappe routes under /mappe

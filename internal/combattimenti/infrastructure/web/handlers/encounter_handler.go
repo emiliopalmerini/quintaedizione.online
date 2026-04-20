@@ -7,29 +7,25 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
-	"unicode"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/application/encounter"
-	monsterApp "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/application/monster"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/infrastructure/web/templates"
 	pkgweb "github.com/emiliopalmerini/quintaedizione.online/pkg/web"
 )
 
 // EncounterHandler handles HTTP requests for encounter-related operations
 type EncounterHandler struct {
-	service        *encounter.Service
-	queryHandler   *encounter.QueryHandler
-	monsterService *monsterApp.Service
-	logger         *slog.Logger
+	service      *encounter.Service
+	queryHandler *encounter.QueryHandler
+	logger       *slog.Logger
 }
 
 // NewEncounterHandler creates a new encounter HTTP handler
-func NewEncounterHandler(service *encounter.Service, queryHandler *encounter.QueryHandler, monsterService *monsterApp.Service, logger *slog.Logger) *EncounterHandler {
+func NewEncounterHandler(service *encounter.Service, queryHandler *encounter.QueryHandler, logger *slog.Logger) *EncounterHandler {
 	return &EncounterHandler{
-		service:        service,
-		queryHandler:   queryHandler,
-		monsterService: monsterService,
-		logger:         logger,
+		service:      service,
+		queryHandler: queryHandler,
+		logger:       logger,
 	}
 }
 
@@ -153,19 +149,9 @@ func (h *EncounterHandler) CalculateHandler(w http.ResponseWriter, r *http.Reque
 	// Calculate all difficulty tiers for visual comparison
 	tiers := h.buildDifficultyTiers(req, requestID)
 
-	// Return HTML response for HTMX
-	// Include monster browser only on the first render (when header is absent)
-	includeMonsterBrowser := r.Header.Get("X-Monster-Browser-Loaded") == ""
-
 	data := templates.ResultData{
-		Result:                result,
-		Tiers:                 tiers,
-		IncludeMonsterBrowser: includeMonsterBrowser,
-		Facets: templates.MonsterFacets{
-			Types: h.monsterService.AvailableTypes(),
-			Sizes: h.monsterService.AvailableSizes(),
-			CRs:   h.monsterService.AvailableCRs(),
-		},
+		Result: result,
+		Tiers:  tiers,
 	}
 	pkgweb.RenderTempl(w, r, h.logger, templates.Result(data))
 }
@@ -290,25 +276,4 @@ func (h *EncounterHandler) GetDifficultiesHandler(w http.ResponseWriter, r *http
 		http.Error(w, "Internal server error", http.StatusInternalServerError)
 		return
 	}
-}
-
-// sanitizeMonsterName sanitizes the monster name for URL safety
-func sanitizeMonsterName(name string) string {
-	// Trim whitespace
-	name = strings.TrimSpace(name)
-
-	// Limit to 100 characters
-	if len(name) > 100 {
-		name = name[:100]
-	}
-
-	// Remove control characters
-	name = strings.Map(func(r rune) rune {
-		if unicode.IsControl(r) {
-			return -1 // Remove control characters
-		}
-		return r
-	}, name)
-
-	return strings.TrimSpace(name)
 }

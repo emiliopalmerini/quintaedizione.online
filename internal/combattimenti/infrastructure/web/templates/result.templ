@@ -5,13 +5,6 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/application/encounter"
 )
 
-// MonsterFacets holds the available filter options for the monster browser.
-type MonsterFacets struct {
-	Types []string
-	Sizes []string
-	CRs   []string
-}
-
 // DifficultyTier represents one difficulty level with its XP budget.
 type DifficultyTier struct {
 	Label    string // Display label (e.g. "Bassa", "Moderata")
@@ -22,10 +15,8 @@ type DifficultyTier struct {
 
 // ResultData holds all data needed to render the result panel.
 type ResultData struct {
-	Result            *encounter.CalculateXPResponse
-	Tiers             []DifficultyTier
-	Facets            MonsterFacets
-	IncludeMonsterBrowser bool
+	Result *encounter.CalculateXPResponse
+	Tiers  []DifficultyTier
 }
 
 func xpPerCharacter(totalXP, partySize int) string {
@@ -94,17 +85,10 @@ templ Result(data ResultData) {
 				}
 			</div>
 		}
-	</div>
 
-	if data.IncludeMonsterBrowser {
-		<!-- Monster Browser (full-width, out-of-band swap) — only on first render -->
-		<div id="monster-browser-container" hx-swap-oob="innerHTML">
-			if data.Result.Ruleset == "2024" {
-				@MonsterBrowser(data.Result.TotalXP, data.Facets.Types, data.Facets.Sizes, data.Facets.CRs)
-			}
+		<!-- Monster picker link -->
+		<div class="result-monsters-cta">
+			<a href="/srd/mostri" class="btn btn-primary">Scegli i mostri nel bestiario</a>
 		</div>
-	} else {
-		<!-- Update budget values out-of-band without re-rendering browser -->
-		<input type="hidden" id="monster-max-xp-update" hx-swap-oob="true" name="max_xp_update" value={ strconv.Itoa(data.Result.TotalXP) }/>
-	}
+	</div>
 }

@@ -56,10 +56,6 @@
   .container { padding: 0 var(--space-3); }
   .search-dropdown { max-height: 60vh; }
   .radio-group { flex-direction: column; }
-  .monster-content { grid-template-columns: 1fr; }
-  .monster-filters { flex-direction: row; flex-wrap: wrap; gap: var(--space-2); }
-  .monster-filter-group { flex: 1 1 45%; min-width: 120px; }
-  .monster-ability-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 480px) {
