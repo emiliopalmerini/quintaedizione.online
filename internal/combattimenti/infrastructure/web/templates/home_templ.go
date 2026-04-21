@@ -90,84 +90,110 @@ func Home(editions []EditionOption) templ.Component {
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "\" checked> ")
-					if templ_7745c5c3_Err != nil {
-						return templ_7745c5c3_Err
-					}
-				} else {
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<input type=\"radio\" name=\"ruleset\" value=\"")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "\" data-source-short=\"")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
 					var templ_7745c5c3_Var5 string
-					templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(ed.Ruleset)
+					templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(ed.ShortName)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 36, Col: 64}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 34, Col: 127}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "\" data-source=\"")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "\" checked> ")
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+				} else {
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<input type=\"radio\" name=\"ruleset\" value=\"")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
 					var templ_7745c5c3_Var6 string
-					templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(ed.SourceID)
+					templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(ed.Ruleset)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 36, Col: 92}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 36, Col: 64}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "\"> ")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "\" data-source=\"")
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					var templ_7745c5c3_Var7 string
+					templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(ed.SourceID)
+					if templ_7745c5c3_Err != nil {
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 36, Col: 92}
+					}
+					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "\" data-source-short=\"")
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					var templ_7745c5c3_Var8 string
+					templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(ed.ShortName)
+					if templ_7745c5c3_Err != nil {
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 36, Col: 127}
+					}
+					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "\"> ")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
 				}
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "<span>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "<span>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				var templ_7745c5c3_Var7 string
-				templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(ed.ShortName)
+				var templ_7745c5c3_Var9 string
+				templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(ed.ShortName)
 				if templ_7745c5c3_Err != nil {
 					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 38, Col: 30}
 				}
-				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</span></label>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</span></label>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</div><p class=\"form-hint\">Scegli quale edizione delle regole utilizzare</p></div><!-- Party Mode Selection --><div class=\"form-section\"><h2 class=\"form-section-title\">Composizione Party</h2><div class=\"segmented-control\" role=\"radiogroup\" aria-label=\"Modalità composizione party\"><label class=\"segmented-control-option\"><input type=\"radio\" name=\"party_mode\" value=\"same\" checked> <span>Stessi livelli</span></label> <label class=\"segmented-control-option\"><input type=\"radio\" name=\"party_mode\" value=\"different\"> <span>Livelli diversi</span></label></div><p class=\"form-hint\">Tutti al medesimo livello o livelli misti</p></div><!-- Same Level Configuration --><div id=\"party-same-panel\" class=\"form-section\"><h2 class=\"form-section-title\">Party con Stessi Livelli</h2><div class=\"form-grid-2col\"><div class=\"form-field-group\"><label for=\"party-level\" class=\"form-label\">Livello</label><div class=\"stepper\" data-min=\"1\" data-max=\"20\"><button type=\"button\" class=\"stepper-btn stepper-decrement\" aria-label=\"Diminuisci livello\">−</button> <input type=\"number\" id=\"party-level\" name=\"level\" value=\"3\" min=\"1\" max=\"20\" class=\"stepper-input\" required> <button type=\"button\" class=\"stepper-btn stepper-increment\" aria-label=\"Aumenta livello\">+</button></div><p class=\"form-hint\">Da 1 a 20</p></div><div class=\"form-field-group\"><label for=\"party-count\" class=\"form-label\">Personaggi</label><div class=\"stepper\" data-min=\"1\" data-max=\"8\"><button type=\"button\" class=\"stepper-btn stepper-decrement\" aria-label=\"Diminuisci personaggi\">−</button> <input type=\"number\" id=\"party-count\" name=\"count\" value=\"4\" min=\"1\" max=\"8\" class=\"stepper-input\" required> <button type=\"button\" class=\"stepper-btn stepper-increment\" aria-label=\"Aumenta personaggi\">+</button></div><p class=\"form-hint\">Da 1 a 8</p></div></div></div><!-- Different Levels Configuration --><div id=\"party-different-panel\" class=\"form-section hidden\"><h2 class=\"form-section-title\">Party con Livelli Diversi</h2><div id=\"character-levels-container\" class=\"character-levels-list\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</div><p class=\"form-hint\">Scegli quale edizione delle regole utilizzare</p><input type=\"hidden\" name=\"source_short\" id=\"source-short\"></div><!-- Party Mode Selection --><div class=\"form-section\"><h2 class=\"form-section-title\">Composizione Party</h2><div class=\"segmented-control\" role=\"radiogroup\" aria-label=\"Modalità composizione party\"><label class=\"segmented-control-option\"><input type=\"radio\" name=\"party_mode\" value=\"same\" checked> <span>Stessi livelli</span></label> <label class=\"segmented-control-option\"><input type=\"radio\" name=\"party_mode\" value=\"different\"> <span>Livelli diversi</span></label></div><p class=\"form-hint\">Tutti al medesimo livello o livelli misti</p></div><!-- Same Level Configuration --><div id=\"party-same-panel\" class=\"form-section\"><h2 class=\"form-section-title\">Party con Stessi Livelli</h2><div class=\"form-grid-2col\"><div class=\"form-field-group\"><label for=\"party-level\" class=\"form-label\">Livello</label><div class=\"stepper\" data-min=\"1\" data-max=\"20\"><button type=\"button\" class=\"stepper-btn stepper-decrement\" aria-label=\"Diminuisci livello\">−</button> <input type=\"number\" id=\"party-level\" name=\"level\" value=\"3\" min=\"1\" max=\"20\" class=\"stepper-input\" required> <button type=\"button\" class=\"stepper-btn stepper-increment\" aria-label=\"Aumenta livello\">+</button></div><p class=\"form-hint\">Da 1 a 20</p></div><div class=\"form-field-group\"><label for=\"party-count\" class=\"form-label\">Personaggi</label><div class=\"stepper\" data-min=\"1\" data-max=\"8\"><button type=\"button\" class=\"stepper-btn stepper-decrement\" aria-label=\"Diminuisci personaggi\">−</button> <input type=\"number\" id=\"party-count\" name=\"count\" value=\"4\" min=\"1\" max=\"8\" class=\"stepper-input\" required> <button type=\"button\" class=\"stepper-btn stepper-increment\" aria-label=\"Aumenta personaggi\">+</button></div><p class=\"form-hint\">Da 1 a 8</p></div></div></div><!-- Different Levels Configuration --><div id=\"party-different-panel\" class=\"form-section hidden\"><h2 class=\"form-section-title\">Party con Livelli Diversi</h2><div id=\"character-levels-container\" class=\"character-levels-list\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			for i := 1; i <= 4; i++ {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "<div class=\"character-input-group\"><label>Personaggio ")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "<div class=\"character-input-group\"><label>Personaggio ")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				var templ_7745c5c3_Var8 string
-				templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(string(rune('0' + byte(i))))
+				var templ_7745c5c3_Var10 string
+				templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(string(rune('0' + byte(i))))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 110, Col: 58}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 111, Col: 58}
 				}
-				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</label> <input type=\"number\" name=\"character_levels\" value=\"3\" min=\"1\" max=\"20\" required></div>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</label> <input type=\"number\" name=\"character_levels\" value=\"3\" min=\"1\" max=\"20\" required></div>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</div><div class=\"form-actions-inline\"><button type=\"button\" id=\"add-character\" class=\"btn btn-secondary\">+ Aggiungi</button> <button type=\"button\" id=\"remove-character\" class=\"btn btn-secondary\">- Rimuovi</button></div><p class=\"form-hint\">Inserisci il livello di ogni personaggio (1-20)</p></div><!-- Difficulty 2024 --><div id=\"difficulty-2024-panel\" class=\"form-section\"><h2 class=\"form-section-title\">Difficoltà (D&D 2024)</h2><div class=\"form-field-group\"><label for=\"difficulty-2024\" class=\"form-label\">Livello di Difficoltà</label> <select id=\"difficulty-2024\" name=\"difficulty_2024\" class=\"field\"><option value=\"Low\">Bassa</option> <option value=\"Moderate\" selected>Moderata</option> <option value=\"High\">Alta</option></select><p class=\"form-hint\">Scegli la difficoltà desiderata per l'incontro</p></div></div><!-- Difficulty 2014 --><div id=\"difficulty-2014-panel\" class=\"form-section hidden\"><h2 class=\"form-section-title\">Difficoltà (D&D 2014)</h2><div class=\"form-grid-2col\"><div class=\"form-field-group\"><label for=\"difficulty-2014\" class=\"form-label\">Livello di Difficoltà</label> <select id=\"difficulty-2014\" name=\"difficulty_2014\" class=\"field\"><option value=\"Facile\">Facile</option> <option value=\"Media\" selected>Media</option> <option value=\"Difficile\">Difficile</option> <option value=\"Letale\">Letale</option></select></div><div class=\"form-field-group\"><label for=\"num-monsters\" class=\"form-label\">Numero di Mostri</label><div class=\"stepper\" data-min=\"1\" data-max=\"20\"><button type=\"button\" class=\"stepper-btn stepper-decrement\" aria-label=\"Diminuisci mostri\">−</button> <input type=\"number\" id=\"num-monsters\" name=\"num_monsters_2014\" value=\"1\" min=\"1\" max=\"20\" class=\"stepper-input\" required> <button type=\"button\" class=\"stepper-btn stepper-increment\" aria-label=\"Aumenta mostri\">+</button></div><p class=\"form-hint\">Per moltiplicatore XP</p></div></div></div><!-- Submit (no-JS fallback, hidden when JS active) --><noscript><div class=\"form-submit\"><button type=\"submit\" class=\"btn btn-primary btn-large\">Calcola Budget XP</button></div></noscript></form></div></div><!-- Results --><div class=\"encounter-results\"><div id=\"result-container\"><div class=\"result-placeholder\"><div id=\"result-loading\" class=\"htmx-indicator\"><span class=\"spinner\"></span></div><h3>⚔️ Budget XP</h3><p>Calcolo in corso...</p></div></div></div></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</div><div class=\"form-actions-inline\"><button type=\"button\" id=\"add-character\" class=\"btn btn-secondary\">+ Aggiungi</button> <button type=\"button\" id=\"remove-character\" class=\"btn btn-secondary\">- Rimuovi</button></div><p class=\"form-hint\">Inserisci il livello di ogni personaggio (1-20)</p></div><!-- Difficulty 2024 --><div id=\"difficulty-2024-panel\" class=\"form-section\"><h2 class=\"form-section-title\">Difficoltà (D&D 2024)</h2><div class=\"form-field-group\"><label for=\"difficulty-2024\" class=\"form-label\">Livello di Difficoltà</label> <select id=\"difficulty-2024\" name=\"difficulty_2024\" class=\"field\"><option value=\"Low\">Bassa</option> <option value=\"Moderate\" selected>Moderata</option> <option value=\"High\">Alta</option></select><p class=\"form-hint\">Scegli la difficoltà desiderata per l'incontro</p></div></div><!-- Difficulty 2014 --><div id=\"difficulty-2014-panel\" class=\"form-section hidden\"><h2 class=\"form-section-title\">Difficoltà (D&D 2014)</h2><div class=\"form-grid-2col\"><div class=\"form-field-group\"><label for=\"difficulty-2014\" class=\"form-label\">Livello di Difficoltà</label> <select id=\"difficulty-2014\" name=\"difficulty_2014\" class=\"field\"><option value=\"Facile\">Facile</option> <option value=\"Media\" selected>Media</option> <option value=\"Difficile\">Difficile</option> <option value=\"Letale\">Letale</option></select></div><div class=\"form-field-group\"><label for=\"num-monsters\" class=\"form-label\">Numero di Mostri</label><div class=\"stepper\" data-min=\"1\" data-max=\"20\"><button type=\"button\" class=\"stepper-btn stepper-decrement\" aria-label=\"Diminuisci mostri\">−</button> <input type=\"number\" id=\"num-monsters\" name=\"num_monsters_2014\" value=\"1\" min=\"1\" max=\"20\" class=\"stepper-input\" required> <button type=\"button\" class=\"stepper-btn stepper-increment\" aria-label=\"Aumenta mostri\">+</button></div><p class=\"form-hint\">Per moltiplicatore XP</p></div></div></div><!-- Cart inputs (hidden) — monsters added from the picker land here as repeated <input name=\"monsters[]\"> --><div id=\"cart-inputs\" class=\"sr-only\" aria-hidden=\"true\"></div><!-- Submit (no-JS fallback, hidden when JS active) --><noscript><div class=\"form-submit\"><button type=\"submit\" class=\"btn btn-primary btn-large\">Calcola Budget XP</button></div></noscript></form></div></div><!-- Results --><div class=\"encounter-results\"><div id=\"result-container\"><div class=\"result-placeholder\"><div id=\"result-loading\" class=\"htmx-indicator\"><span class=\"spinner\"></span></div><h3>⚔️ Budget XP</h3><p>Calcolo in corso...</p></div></div><div id=\"monster-picker-slot\"></div></div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

@@ -2,7 +2,9 @@ package templates
 
 import (
 	"strconv"
+
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/application/encounter"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/domain/monster"
 )
 
 // DifficultyTier represents one difficulty level with its XP budget.
@@ -17,6 +19,17 @@ type DifficultyTier struct {
 type ResultData struct {
 	Result *encounter.CalculateXPResponse
 	Tiers  []DifficultyTier
+	Cart   CartView
+	Picker PickerData
+}
+
+// CartView is the priced cart snapshot rendered in the result panel.
+type CartView struct {
+	Entries       []monster.CartEntry
+	Subtotal      int
+	EffectiveCost int
+	Remaining     int
+	Multiplier    bool // true for 2014 (show effective row)
 }
 
 func xpPerCharacter(totalXP, partySize int) string {
@@ -86,9 +99,51 @@ templ Result(data ResultData) {
 			</div>
 		}
 
-		<!-- Monster picker link -->
-		<div class="result-monsters-cta">
-			<a href="/srd/mostri" class="btn btn-primary">Scegli i mostri nel bestiario</a>
-		</div>
+		@Cart(data.Cart)
+	</div>
+
+	<!-- Monster Picker (out-of-band swap: rendered into #monster-picker-slot) -->
+	<div id="monster-picker-slot" hx-swap-oob="innerHTML">
+		@MonsterPicker(data.Picker)
+	</div>
+}
+
+templ Cart(view CartView) {
+	<div class="result-cart">
+		<h3 class="result-cart-title">Il tuo combattimento</h3>
+		if len(view.Entries) == 0 {
+			<p class="result-cart-empty">Aggiungi mostri dal pannello qui sotto per spenderli col budget.</p>
+		} else {
+			<ul class="result-cart-list">
+				for i, entry := range view.Entries {
+					<li class="result-cart-chip">
+						<span class="result-cart-chip-name">{ entry.Name }</span>
+						<span class="result-cart-chip-xp">{ strconv.Itoa(entry.UnitXP) } PE</span>
+						<button
+							type="button"
+							class="result-cart-chip-remove"
+							data-cart-index={ strconv.Itoa(i) }
+							aria-label={ "Rimuovi " + entry.Name }
+						>×</button>
+					</li>
+				}
+			</ul>
+			<dl class="result-cart-totals">
+				<div>
+					<dt>Costo base</dt>
+					<dd>{ strconv.Itoa(view.Subtotal) } PE</dd>
+				</div>
+				if view.Multiplier {
+					<div>
+						<dt>Costo effettivo (×{ strconv.Itoa(len(view.Entries)) } mostri)</dt>
+						<dd>{ strconv.Itoa(view.EffectiveCost) } PE</dd>
+					</div>
+				}
+				<div class={ "result-cart-remaining", templ.KV("is-overspent", view.Remaining < 0) }>
+					<dt>Residuo</dt>
+					<dd>{ strconv.Itoa(view.Remaining) } PE</dd>
+				</div>
+			</dl>
+		}
 	</div>
 }

@@ -19,6 +19,7 @@ import (
 	jsondata "github.com/emiliopalmerini/quintaedizione-data-ita/data/srd"
 	combatEncounter "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/application/encounter"
 	combatMemory "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/infrastructure/persistence/memory"
+	combatSrdPersistence "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/infrastructure/persistence/srd"
 	combatHandlers "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/infrastructure/web/handlers"
 	combatTemplates "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/infrastructure/web/templates"
 	generatoriApp "github.com/emiliopalmerini/quintaedizione.online/internal/generatori/application"
@@ -117,8 +118,11 @@ func main() {
 
 	encounterService := combatEncounter.NewService(logger, encounterRepo)
 	queryHandler := combatEncounter.NewQueryHandler(logger, encounterRepo)
+	monsterReader := combatSrdPersistence.NewMonsterReader(repo)
+	cartPricer := combatEncounter.NewCartPricer(logger, monsterReader, encounterRepo)
 
-	encounterHandler := combatHandlers.NewEncounterHandler(encounterService, queryHandler, logger)
+	encounterHandler := combatHandlers.NewEncounterHandler(encounterService, queryHandler, cartPricer, monsterReader, logger)
+	pickerHandler := combatHandlers.NewMonsterPickerHandler(monsterReader, logger)
 	log.Println("Combattimenti ready")
 
 	// ── Mappe setup ───────────────────────────────────────────
@@ -219,6 +223,7 @@ func main() {
 	combatMux.HandleFunc("POST /calculate", encounterHandler.CalculateHandler)
 	combatMux.HandleFunc("GET /party-input", encounterHandler.PartyInputHandler)
 	combatMux.HandleFunc("GET /api/difficulties", encounterHandler.GetDifficultiesHandler)
+	combatMux.HandleFunc("GET /monsters", pickerHandler.Handler)
 	mux.Handle("/combattimenti/", http.StripPrefix("/combattimenti", combatMux))
 
 	// Mappe routes under /mappe

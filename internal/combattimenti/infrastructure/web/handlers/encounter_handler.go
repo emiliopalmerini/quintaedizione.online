@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/application/encounter"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/domain/monster"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/infrastructure/web/templates"
 	pkgweb "github.com/emiliopalmerini/quintaedizione.online/pkg/web"
 )
@@ -17,14 +18,24 @@ import (
 type EncounterHandler struct {
 	service      *encounter.Service
 	queryHandler *encounter.QueryHandler
+	pricer       *encounter.CartPricer
+	reader       monster.Reader
 	logger       *slog.Logger
 }
 
 // NewEncounterHandler creates a new encounter HTTP handler
-func NewEncounterHandler(service *encounter.Service, queryHandler *encounter.QueryHandler, logger *slog.Logger) *EncounterHandler {
+func NewEncounterHandler(
+	service *encounter.Service,
+	queryHandler *encounter.QueryHandler,
+	pricer *encounter.CartPricer,
+	reader monster.Reader,
+	logger *slog.Logger,
+) *EncounterHandler {
 	return &EncounterHandler{
 		service:      service,
 		queryHandler: queryHandler,
+		pricer:       pricer,
+		reader:       reader,
 		logger:       logger,
 	}
 }
@@ -138,6 +149,13 @@ func (h *EncounterHandler) CalculateHandler(w http.ResponseWriter, r *http.Reque
 		return
 	}
 
+	// Parse cart refs (may be empty). Cart drives num_monsters_2014 when
+	// non-empty so the budget stays consistent with what the user picked.
+	cartRefs := encounter.ParseCartRefs(r.Form["monsters[]"])
+	if ruleset == "2014" && len(cartRefs) > 0 {
+		req.NumMonsters = len(cartRefs)
+	}
+
 	// Calculate XP
 	result, err := h.service.CalculateXP(req)
 	if err != nil {
@@ -149,11 +167,81 @@ func (h *EncounterHandler) CalculateHandler(w http.ResponseWriter, r *http.Reque
 	// Calculate all difficulty tiers for visual comparison
 	tiers := h.buildDifficultyTiers(req, requestID)
 
+	// Price the cart. Ruleset mismatch clears cart entries server-side.
+	sourceShort := r.FormValue("source_short")
+	filteredRefs := filterRefsBySource(cartRefs, sourceShort)
+	pricedCart, err := h.pricer.Price(r.Context(), encounter.PriceCartRequest{
+		Ruleset: ruleset,
+		Refs:    filteredRefs,
+		Budget:  result.TotalXP,
+	})
+	if err != nil {
+		h.logger.Warn("cart pricing failed", "request_id", requestID, "error", err)
+		pricedCart = &encounter.PriceCartResponse{Remaining: result.TotalXP}
+	}
+
+	cartView := templates.CartView{
+		Entries:       pricedCart.Entries,
+		Subtotal:      pricedCart.Subtotal,
+		EffectiveCost: pricedCart.EffectiveCost,
+		Remaining:     pricedCart.Remaining,
+		Multiplier:    ruleset == "2014",
+	}
+
+	picker := h.buildPicker(r, sourceShort, result.TotalXP)
+
 	data := templates.ResultData{
 		Result: result,
 		Tiers:  tiers,
+		Cart:   cartView,
+		Picker: picker,
 	}
 	pkgweb.RenderTempl(w, r, h.logger, templates.Result(data))
+}
+
+// buildPicker renders the monster-picker panel with the current budget as the
+// default affordability ceiling.
+func (h *EncounterHandler) buildPicker(r *http.Request, source string, budget int) templates.PickerData {
+	onlyAfford := true
+	query := ""
+	maxXP := budget
+
+	monsters, err := h.reader.Search(r.Context(), monster.SearchQuery{
+		Source:     source,
+		Query:      query,
+		MaxXP:      maxXP,
+		OnlyAfford: onlyAfford,
+		Limit:      100,
+	})
+	if err != nil {
+		h.logger.Warn("picker search failed", "error", err)
+	}
+
+	return templates.PickerData{
+		Source:       source,
+		Query:        query,
+		Budget:       budget,
+		MaxXP:        maxXP,
+		OnlyAfford:   onlyAfford,
+		Monsters:     monsters,
+		TotalMatched: len(monsters),
+	}
+}
+
+// filterRefsBySource drops cart entries whose source does not match the
+// currently active edition. Per ADR-024, switching ruleset/source clears the
+// cart because monsters from different editions cannot share a budget.
+func filterRefsBySource(refs []encounter.CartItemRef, source string) []encounter.CartItemRef {
+	if source == "" {
+		return refs
+	}
+	out := make([]encounter.CartItemRef, 0, len(refs))
+	for _, ref := range refs {
+		if ref.Source == source {
+			out = append(out, ref)
+		}
+	}
+	return out
 }
 
 // PartyInputHandler handles party input form requests

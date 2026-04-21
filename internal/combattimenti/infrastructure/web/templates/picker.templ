@@ -1,0 +1,81 @@
+package templates
+
+import (
+	"strconv"
+
+	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/domain/monster"
+)
+
+// PickerData holds the rendering state for the monster-picker partial.
+type PickerData struct {
+	Source       string // edition short name
+	Query        string // current search needle
+	Budget       int    // current encounter budget (wallet size)
+	MaxXP        int    // affordability ceiling (== Budget when OnlyAfford)
+	OnlyAfford   bool   // when true, hide unaffordable monsters
+	Monsters     []monster.Monster
+	TotalMatched int
+}
+
+templ MonsterPicker(data PickerData) {
+	<div id="monster-picker" class="monster-picker">
+		<form
+			class="monster-picker-controls"
+			hx-get="/combattimenti/monsters"
+			hx-target="#monster-picker"
+			hx-swap="outerHTML"
+			hx-trigger="input changed delay:200ms from:find input[type='search'], change from:find input[type='checkbox']"
+		>
+			<input type="hidden" name="source" value={ data.Source }/>
+			<input type="hidden" name="budget" value={ strconv.Itoa(data.Budget) }/>
+			<div class="monster-picker-search">
+				<input
+					type="search"
+					name="q"
+					value={ data.Query }
+					placeholder="Cerca un mostro…"
+					autocomplete="off"
+					aria-label="Cerca un mostro per nome"
+				/>
+			</div>
+			<label class="monster-picker-toggle">
+				if data.OnlyAfford {
+					<input type="checkbox" name="only_afford" value="1" checked/>
+				} else {
+					<input type="checkbox" name="only_afford" value="1"/>
+				}
+				<span>Solo mostri che posso permettermi ({ strconv.Itoa(data.Budget) } XP)</span>
+			</label>
+		</form>
+
+		if len(data.Monsters) == 0 {
+			<p class="monster-picker-empty">Nessun mostro trovato per questa ricerca.</p>
+		} else {
+			<ul class="monster-picker-list">
+				for _, m := range data.Monsters {
+					<li class="monster-picker-row">
+						<div class="monster-picker-row-main">
+							<span class="monster-picker-row-name">{ m.Name }</span>
+							<span class="monster-picker-row-meta">
+								GS { m.CR }
+								<span class="monster-picker-row-xp">{ strconv.Itoa(m.XP) } PE</span>
+							</span>
+						</div>
+						<button
+							type="button"
+							class="btn btn-secondary monster-picker-row-add"
+							data-monster-id={ m.ID }
+							data-monster-source={ m.Source }
+							data-monster-name={ m.Name }
+							data-monster-xp={ strconv.Itoa(m.XP) }
+							data-monster-cr={ m.CR }
+							aria-label={ "Aggiungi " + m.Name + " al combattimento" }
+						>
+							+ Aggiungi
+						</button>
+					</li>
+				}
+			</ul>
+		}
+	</div>
+}

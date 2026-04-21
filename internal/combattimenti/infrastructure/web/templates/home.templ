@@ -31,15 +31,16 @@ templ Home(editions []EditionOption) {
 								for _, ed := range editions {
 									<label class="segmented-control-option">
 										if ed.IsDefault {
-											<input type="radio" name="ruleset" value={ ed.Ruleset } data-source={ ed.SourceID } checked/>
+											<input type="radio" name="ruleset" value={ ed.Ruleset } data-source={ ed.SourceID } data-source-short={ ed.ShortName } checked/>
 										} else {
-											<input type="radio" name="ruleset" value={ ed.Ruleset } data-source={ ed.SourceID }/>
+											<input type="radio" name="ruleset" value={ ed.Ruleset } data-source={ ed.SourceID } data-source-short={ ed.ShortName }/>
 										}
 										<span>{ ed.ShortName }</span>
 									</label>
 								}
 							</div>
 							<p class="form-hint">Scegli quale edizione delle regole utilizzare</p>
+							<input type="hidden" name="source_short" id="source-short"/>
 						</div>
 
 						<!-- Party Mode Selection -->
@@ -167,6 +168,9 @@ templ Home(editions []EditionOption) {
 							</div>
 						</div>
 
+						<!-- Cart inputs (hidden) — monsters added from the picker land here as repeated <input name="monsters[]"> -->
+						<div id="cart-inputs" class="sr-only" aria-hidden="true"></div>
+
 						<!-- Submit (no-JS fallback, hidden when JS active) -->
 						<noscript>
 							<div class="form-submit">
@@ -190,6 +194,7 @@ templ Home(editions []EditionOption) {
 						<p>Calcolo in corso...</p>
 					</div>
 				</div>
+				<div id="monster-picker-slot"></div>
 			</div>
 		</div>
 	}

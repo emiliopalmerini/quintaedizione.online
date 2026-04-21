@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initEncounterForm();
     initSteppers();
     initAutoCalculate();
+    initMonsterCart();
+    syncSourceShort();
 
     // Configure HTMX for encounters
     if (typeof htmx !== 'undefined') {
@@ -109,6 +111,90 @@ function initAutoCalculate() {
 
     // Calculate on page load with default values
     setTimeout(scheduleCalculate, 100);
+}
+
+// Sync the hidden `source_short` input from the checked ruleset radio's
+// data-source-short attribute, and propagate changes. Also drives the picker
+// source.
+function syncSourceShort() {
+    var hidden = document.getElementById('source-short');
+    var radios = document.querySelectorAll('input[name="ruleset"]');
+    if (!hidden || !radios.length) return;
+
+    function update() {
+        var checked = document.querySelector('input[name="ruleset"]:checked');
+        if (!checked) return;
+        var prev = hidden.value;
+        var next = checked.dataset.sourceShort || '';
+        hidden.value = next;
+        if (prev && prev !== next) {
+            clearCart();
+        }
+    }
+
+    radios.forEach(function(r) { r.addEventListener('change', update); });
+    update();
+}
+
+// Monster cart management: turns "+ Aggiungi" clicks into hidden
+// <input name="monsters[]"> entries inside the main encounter form, then
+// fires a recalculate. Cart removals work the same way in reverse.
+function initMonsterCart() {
+    var form = document.getElementById('encounter-form');
+    var cartInputs = document.getElementById('cart-inputs');
+    if (!form || !cartInputs) return;
+
+    // Delegate clicks: add from picker, remove from cart chips in results.
+    document.body.addEventListener('click', function(evt) {
+        var addBtn = evt.target.closest('.monster-picker-row-add');
+        if (addBtn) {
+            evt.preventDefault();
+            var id = addBtn.dataset.monsterId;
+            var source = addBtn.dataset.monsterSource;
+            if (!id || !source) return;
+            addCartEntry(id, source);
+            triggerCalculate();
+            return;
+        }
+
+        var removeBtn = evt.target.closest('.result-cart-chip-remove');
+        if (removeBtn) {
+            evt.preventDefault();
+            var idx = parseInt(removeBtn.dataset.cartIndex, 10);
+            if (isNaN(idx)) return;
+            removeCartEntry(idx);
+            triggerCalculate();
+        }
+    });
+}
+
+function addCartEntry(id, source) {
+    var cartInputs = document.getElementById('cart-inputs');
+    if (!cartInputs) return;
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'monsters[]';
+    input.value = id + '@' + source;
+    cartInputs.appendChild(input);
+}
+
+function removeCartEntry(index) {
+    var cartInputs = document.getElementById('cart-inputs');
+    if (!cartInputs) return;
+    var inputs = cartInputs.querySelectorAll('input[name="monsters[]"]');
+    if (index < 0 || index >= inputs.length) return;
+    inputs[index].remove();
+}
+
+function clearCart() {
+    var cartInputs = document.getElementById('cart-inputs');
+    if (cartInputs) cartInputs.innerHTML = '';
+}
+
+function triggerCalculate() {
+    var form = document.getElementById('encounter-form');
+    if (!form || typeof htmx === 'undefined') return;
+    htmx.trigger(form, 'calculate');
 }
 
 // Encounter form logic
