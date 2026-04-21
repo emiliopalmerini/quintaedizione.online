@@ -1,0 +1,49 @@
+package templates
+
+import "github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/models"
+import "strconv"
+
+templ AreaPage(data models.AreaPageData) {
+	@BaseLayout(data.PageData) {
+		<section class="area-hero">
+			<nav class="area-hero-crumb" aria-label="Breadcrumb">
+				<a href="/srd">SRD</a>
+				<span aria-hidden="true">/</span>
+				<span>{ data.Group.Label }</span>
+			</nav>
+			<h1 class="area-hero-title">{ data.Group.Label }</h1>
+			if data.Group.Description != "" {
+				<p class="area-hero-lede">{ data.Group.Description }</p>
+			}
+			if data.Group.Total > 0 {
+				<p class="area-hero-meta">
+					<strong>{ formatCount(data.Group.Total) }</strong> voci in { strconv.Itoa(len(data.Group.Collections)) } categorie
+				</p>
+			}
+		</section>
+
+		<ul class="category-cta-list" role="list">
+			for _, collection := range data.Group.Collections {
+				<li>
+					<a href={ templ.URL("/srd/" + collection.Name) } class="category-cta">
+						<span class="category-cta-icon">
+							@CollectionIcon(collection.Name)
+						</span>
+						<span class="category-cta-body">
+							<span class="category-cta-title">{ collection.Label }</span>
+							if collection.Description != "" {
+								<span class="category-cta-description">{ collection.Description }</span>
+							}
+						</span>
+						if collection.Count > 0 {
+							<span class="category-cta-count" aria-label="Numero di elementi">{ strconv.FormatInt(collection.Count, 10) }</span>
+						}
+						<svg class="category-cta-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+							<path d="M7 5L13 10L7 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+					</a>
+				</li>
+			}
+		</ul>
+	}
+}

@@ -15,6 +15,7 @@ import (
 // Handlers coordinates all specialized handlers.
 type Handlers struct {
 	home          *HomeHandler
+	area          *AreaHandler
 	collection    *CollectionHandler
 	search        *SearchHandler
 	seo           *SEOHandler
@@ -45,6 +46,9 @@ func NewHandlers(contentService *services.ContentService, searchService search.S
 
 	h := &Handlers{
 		home: &HomeHandler{
+			baseHandler: base,
+		},
+		area: &AreaHandler{
 			baseHandler: base,
 		},
 		collection: &CollectionHandler{
@@ -85,12 +89,15 @@ func (h *Handlers) RegisterRoutes(mux *http.ServeMux) {
 	// Specific routes must be registered before wildcard routes
 	mux.HandleFunc("GET /search", h.search.handleGlobalSearch)
 	mux.HandleFunc("GET /search/dropdown", h.search.handleSearchDropdown)
+	mux.HandleFunc("GET /area/{slug}", h.area.handleArea)
 	mux.HandleFunc("GET /robots.txt", h.seo.handleRobotsTxt)
 	mux.HandleFunc("GET /sitemap.xml", h.seo.handleSitemap)
 
-	// Collection routes with validation middleware
+	// Collection routes with validation middleware.
+	// Note: rows endpoint lives at /rows/{collection} (instead of /{collection}/rows) to avoid
+	// ambiguity with /area/{slug}; Go's ServeMux refuses to register overlapping patterns.
+	mux.Handle("GET /rows/{collection}", CollectionValidationMiddleware(http.HandlerFunc(h.collection.handleCollectionRows)))
 	mux.Handle("GET /{collection}", CollectionValidationMiddleware(http.HandlerFunc(h.collection.handleCollectionList)))
-	mux.Handle("GET /{collection}/rows", CollectionValidationMiddleware(http.HandlerFunc(h.collection.handleCollectionRows)))
 	mux.Handle("GET /{collection}/{source}/{slug}", CollectionValidationMiddleware(http.HandlerFunc(h.collection.handleItemDetail)))
 
 	// Legacy redirect: /{collection}/{slug} → /{collection}/{defaultSource}/{slug}

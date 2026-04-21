@@ -130,13 +130,17 @@ func NormalizePath(path string) string {
 		if parts[1] == "search" {
 			return "/" + strings.Join(parts, "/")
 		}
+		// /srd/area/{slug}
+		if len(parts) == 3 && parts[1] == "area" {
+			return "/srd/area/{slug}"
+		}
+		// /srd/rows/{collection}
+		if len(parts) == 3 && parts[1] == "rows" && knownSRDCollections[parts[2]] {
+			return "/srd/rows/{collection}"
+		}
 		// /srd/{collection}
 		if len(parts) == 2 && knownSRDCollections[parts[1]] {
 			return "/srd/{collection}"
-		}
-		// /srd/{collection}/rows
-		if len(parts) == 3 && knownSRDCollections[parts[1]] && parts[2] == "rows" {
-			return "/srd/{collection}/rows"
 		}
 		// /srd/{collection}/{source}/{slug}
 		if len(parts) == 4 && knownSRDCollections[parts[1]] {

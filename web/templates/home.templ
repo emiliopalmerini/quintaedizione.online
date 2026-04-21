@@ -85,34 +85,27 @@ templ HomePage(data models.HomePageData) {
 			</div>
 		}
 
-		for _, group := range data.Groups {
-			<section class="collection-group">
-				<div class="collection-group-header">
-					<span class="collection-group-label">{ group.Label }</span>
-				</div>
-				<div class="collection-grid">
-					for _, collection := range group.Collections {
-						<a href={ templ.URL("/srd/" + collection.Name) } class="collection-card">
-							<div class="collection-card-content">
-								<div class="collection-card-header">
-									<div class="collection-card-icon">
-										@CollectionIcon(collection.Name)
-									</div>
-									if collection.Count > 0 {
-										<div class="collection-badge" title="Numero di elementi">{ strconv.FormatInt(collection.Count, 10) }</div>
-									}
-								</div>
-								<div class="collection-card-title">{ collection.Label }</div>
-								if collection.Description != "" {
-									<div class="collection-card-description">{ collection.Description }</div>
-								}
-								<div class="collection-card-footer">Esplora &rarr;</div>
-							</div>
-						</a>
+		<section class="area-hero-grid" aria-label="Macro-aree">
+			for _, group := range data.Groups {
+				<a href={ templ.URL("/srd/area/" + group.Slug) } class="area-hero-card">
+					<div class="area-hero-card-head">
+						<span class="area-hero-card-label">{ group.Label }</span>
+						if group.Total > 0 {
+							<span class="area-hero-card-count" title="Numero di voci">{ formatCount(group.Total) }</span>
+						}
+					</div>
+					if group.Description != "" {
+						<p class="area-hero-card-description">{ group.Description }</p>
 					}
-				</div>
-			</section>
-		}
+					<ul class="area-hero-card-tags" role="list">
+						for _, collection := range group.Collections {
+							<li>{ collection.Label }</li>
+						}
+					</ul>
+					<span class="area-hero-card-cta">Esplora {group.Label} &rarr;</span>
+				</a>
+			}
+		</section>
 	}
 }
 

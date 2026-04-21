@@ -30,6 +30,10 @@ func (e *TemplEngine) RenderHome(ctx context.Context, data models.HomePageData) 
 	return e.renderComponent(ctx, templComponents.HomePage(data))
 }
 
+func (e *TemplEngine) RenderArea(ctx context.Context, data models.AreaPageData) (string, error) {
+	return e.renderComponent(ctx, templComponents.AreaPage(data))
+}
+
 func (e *TemplEngine) RenderCollection(ctx context.Context, data models.CollectionPageData) (string, error) {
 	return e.renderComponent(ctx, templComponents.CollectionPage(data))
 }

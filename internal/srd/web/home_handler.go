@@ -51,10 +51,15 @@ func (h *HomeHandler) handleHome(w http.ResponseWriter, r *http.Request) {
 	domainGroups := collections.GetGroups()
 	groups := make([]models.CollectionGroup, 0, len(domainGroups))
 	for _, dg := range domainGroups {
-		mg := models.CollectionGroup{Label: dg.Label}
+		mg := models.CollectionGroup{
+			Slug:        dg.Slug,
+			Label:       dg.Label,
+			Description: dg.Description,
+		}
 		for _, cn := range dg.Collections {
 			if mc, ok := collectionMap[cn.String()]; ok {
 				mg.Collections = append(mg.Collections, mc)
+				mg.Total += mc.Count
 			}
 		}
 		groups = append(groups, mg)

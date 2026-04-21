@@ -18,8 +18,11 @@ type Collection struct {
 }
 
 type CollectionGroup struct {
+	Slug        string
 	Label       string
+	Description string
 	Collections []Collection
+	Total       int64
 }
 
 type HomePageData struct {
@@ -28,6 +31,11 @@ type HomePageData struct {
 	Groups      []CollectionGroup
 	Total       int64
 	Editions    int
+}
+
+type AreaPageData struct {
+	PageData
+	Group CollectionGroup
 }
 
 type Document struct {

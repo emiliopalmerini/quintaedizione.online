@@ -23,7 +23,7 @@ templ CollectionPage(data models.CollectionPageData) {
 
 		<section class="search-sticky bg-white border p-2">
 			<form id="search-form"
-				hx-get={ "/srd/" + data.PageData.Collection + "/rows" }
+				hx-get={ "/srd/rows/" + data.PageData.Collection }
 				hx-target="#rows"
 				hx-trigger="keyup delay:100ms from:#q, change from:select, change from:input[type=hidden], change from:input[type=checkbox], change from:input[type=number]"
 				hx-push-url="true"

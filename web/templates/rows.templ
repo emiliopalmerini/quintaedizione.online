@@ -231,7 +231,7 @@ func paginationPages(current, total int) []int {
 }
 
 func paginationURL(data models.CollectionPageData, page int) string {
-	base := "/srd/" + data.PageData.Collection + "/rows?page=" + strconv.Itoa(page)
+	base := "/srd/rows/" + data.PageData.Collection + "?page=" + strconv.Itoa(page)
 	if data.PageData.QueryString != "" {
 		return base + "&" + data.PageData.QueryString
 	}

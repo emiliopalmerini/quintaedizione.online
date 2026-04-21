@@ -76,6 +76,24 @@ func TestGetGroups_AllCollectionsAreValid(t *testing.T) {
 	}
 }
 
+func TestGetGroups_AllHaveSlugAndDescription(t *testing.T) {
+	groups := GetGroups()
+
+	seen := make(map[string]bool)
+	for _, g := range groups {
+		if g.Slug == "" {
+			t.Errorf("Group %q is missing a slug", g.Label)
+		}
+		if g.Description == "" {
+			t.Errorf("Group %q is missing a description", g.Label)
+		}
+		if seen[g.Slug] {
+			t.Errorf("Slug %q appears in more than one group", g.Slug)
+		}
+		seen[g.Slug] = true
+	}
+}
+
 func TestGetGroups_PersonaggiContents(t *testing.T) {
 	groups := GetGroups()
 	personaggi := groups[0]
@@ -118,5 +136,21 @@ func TestGetGroups_RiferimentoContents(t *testing.T) {
 		if riferimento.Collections[i] != col {
 			t.Errorf("Riferimento[%d]: expected %s, got %s", i, col, riferimento.Collections[i])
 		}
+	}
+}
+
+func TestGetGroup_KnownSlug(t *testing.T) {
+	g, ok := GetGroup("personaggi")
+	if !ok {
+		t.Fatal("GetGroup(\"personaggi\") returned ok=false")
+	}
+	if g.Label != "Personaggi" {
+		t.Errorf("Expected label Personaggi, got %q", g.Label)
+	}
+}
+
+func TestGetGroup_UnknownSlug(t *testing.T) {
+	if _, ok := GetGroup("bogus"); ok {
+		t.Error("GetGroup(\"bogus\") expected ok=false, got true")
 	}
 }
