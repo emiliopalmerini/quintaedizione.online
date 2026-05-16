@@ -809,6 +809,11 @@ html.dark .page-header-map::before { opacity: 0.04; mix-blend-mode: screen; filt
   margin-bottom: var(--space-2);
 }
 .monster-picker-search { flex: 1 1 220px; }
+.monster-picker-reset {
+  flex: 0 0 auto;
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-sm);
+}
 .monster-picker-search input[type="search"] {
   width: 100%;
   padding: var(--space-2) var(--space-3);

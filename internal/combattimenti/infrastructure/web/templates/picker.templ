@@ -33,6 +33,12 @@ func (d PickerData) activeFilterCount() int {
 	return n
 }
 
+// hasAnyFilter is true when the picker has any active filter or a search
+// query — used to decide whether to show the reset button.
+func (d PickerData) hasAnyFilter() bool {
+	return d.Query != "" || d.activeFilterCount() > 0
+}
+
 // formatCR renders a float CR for input value reuse; 0 stays empty so the
 // placeholder shows through.
 func formatCR(v float64) string {
@@ -84,6 +90,16 @@ templ MonsterPicker(data PickerData) {
 					hx-preserve="true"
 				/>
 			</div>
+			if data.hasAnyFilter() {
+				<button
+					type="button"
+					class="btn btn-secondary monster-picker-reset"
+					title="Cancella ricerca e filtri"
+					aria-label="Cancella ricerca e filtri"
+				>
+					× Reset
+				</button>
+			}
 		</form>
 		if len(data.Monsters) == 0 {
 			<p class="monster-picker-empty">Nessun mostro trovato per questa ricerca.</p>

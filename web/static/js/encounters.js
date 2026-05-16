@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initMonsterCart();
     syncSourceShort();
     initCopyLink();
+    initPickerReset();
 
     // Configure HTMX for encounters
     if (typeof htmx !== 'undefined') {
@@ -340,6 +341,35 @@ function syncShareURL() {
     } catch (e) {
         // replaceState can throw on file:// or sandboxed contexts; ignore.
     }
+}
+
+// --- Picker reset -----------------------------------------------------------
+
+// Clears the picker's search box and filter controls then refetches the
+// picker. Delegated because the button is part of the HTMX-swapped picker.
+// We must also clear the hx-preserved search input by name (HTMX would
+// otherwise keep its DOM node + value across the swap).
+function initPickerReset() {
+    document.body.addEventListener('click', function(evt) {
+        var btn = evt.target.closest('.monster-picker-reset');
+        if (!btn) return;
+        evt.preventDefault();
+        var form = btn.closest('form.monster-picker-controls');
+        if (!form) return;
+        var search = form.querySelector('input[type="search"]');
+        if (search) {
+            search.value = '';
+            search.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+        form.querySelectorAll('input[type="number"]').forEach(function(input) {
+            input.value = '';
+            input.dispatchEvent(new Event('change', { bubbles: true }));
+        });
+        form.querySelectorAll('select').forEach(function(sel) {
+            sel.value = '';
+            sel.dispatchEvent(new Event('change', { bubbles: true }));
+        });
+    });
 }
 
 // --- Copy link --------------------------------------------------------------
