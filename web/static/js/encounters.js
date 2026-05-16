@@ -136,15 +136,26 @@ function syncSourceShort() {
     update();
 }
 
-// Monster cart management: turns "+ Aggiungi" clicks into hidden
-// <input name="monsters[]"> entries inside the main encounter form, then
-// fires a recalculate. Cart removals work the same way in reverse.
+// Monster cart management: tracks per-(id@source) quantities in a Map and
+// re-renders hidden <input name="monsters[]"> entries (one per unit) so the
+// server-side ParseCartRefs (which folds duplicates) sees the right count.
+//
+// Wire format stays "{id}@{source}" repeated; the server folds duplicates by
+// counting occurrences, so this client only needs to emit qty copies per chip.
+var cartQuantities = new Map(); // key "id@source" → integer quantity
+
+function cartKey(id, source) { return id + '@' + source; }
+
 function initMonsterCart() {
     var form = document.getElementById('encounter-form');
     var cartInputs = document.getElementById('cart-inputs');
     if (!form || !cartInputs) return;
 
-    // Delegate clicks: add from picker, remove from cart chips in results.
+    // Hydrate quantities from any pre-existing hidden inputs (e.g. server-side
+    // initial render with a non-empty cart).
+    rebuildCartFromInputs();
+
+    // Delegate clicks: add from picker, step or remove from cart chips.
     document.body.addEventListener('click', function(evt) {
         var addBtn = evt.target.closest('.monster-picker-row-add');
         if (addBtn) {
@@ -152,41 +163,88 @@ function initMonsterCart() {
             var id = addBtn.dataset.monsterId;
             var source = addBtn.dataset.monsterSource;
             if (!id || !source) return;
-            addCartEntry(id, source);
-            triggerCalculate();
+            adjustCartEntry(id, source, 1);
+            return;
+        }
+
+        var stepBtn = evt.target.closest('.result-cart-chip-step');
+        if (stepBtn) {
+            evt.preventDefault();
+            var sid = stepBtn.dataset.cartId;
+            var ssrc = stepBtn.dataset.cartSource;
+            var delta = parseInt(stepBtn.dataset.cartDelta, 10);
+            if (!sid || !ssrc || isNaN(delta)) return;
+            adjustCartEntry(sid, ssrc, delta);
             return;
         }
 
         var removeBtn = evt.target.closest('.result-cart-chip-remove');
         if (removeBtn) {
             evt.preventDefault();
-            var idx = parseInt(removeBtn.dataset.cartIndex, 10);
-            if (isNaN(idx)) return;
-            removeCartEntry(idx);
-            triggerCalculate();
+            var rid = removeBtn.dataset.cartId;
+            var rsrc = removeBtn.dataset.cartSource;
+            if (!rid || !rsrc) return;
+            removeCartEntry(rid, rsrc);
         }
     });
 }
 
-function addCartEntry(id, source) {
-    var cartInputs = document.getElementById('cart-inputs');
-    if (!cartInputs) return;
-    var input = document.createElement('input');
-    input.type = 'hidden';
-    input.name = 'monsters[]';
-    input.value = id + '@' + source;
-    cartInputs.appendChild(input);
+// adjustCartEntry increments or decrements a chip's quantity. Reaching zero
+// removes the chip entirely; clamping at zero keeps the model coherent if a
+// stale −1 click arrives.
+function adjustCartEntry(id, source, delta) {
+    var key = cartKey(id, source);
+    var current = cartQuantities.get(key) || 0;
+    var next = current + delta;
+    if (next <= 0) {
+        cartQuantities.delete(key);
+    } else {
+        cartQuantities.set(key, next);
+    }
+    renderCartInputs();
+    triggerCalculate();
 }
 
-function removeCartEntry(index) {
+function removeCartEntry(id, source) {
+    cartQuantities.delete(cartKey(id, source));
+    renderCartInputs();
+    triggerCalculate();
+}
+
+// renderCartInputs writes one hidden <input> per unit so the server's
+// ParseCartRefs (occurrence-count folding) stays compatible with the legacy
+// wire format.
+function renderCartInputs() {
     var cartInputs = document.getElementById('cart-inputs');
     if (!cartInputs) return;
+    cartInputs.innerHTML = '';
+    cartQuantities.forEach(function(qty, key) {
+        for (var i = 0; i < qty; i++) {
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'monsters[]';
+            input.value = key;
+            cartInputs.appendChild(input);
+        }
+    });
+}
+
+// rebuildCartFromInputs hydrates the in-memory quantity map from whatever
+// hidden inputs the server happened to render. Keeps SSR fallback consistent.
+function rebuildCartFromInputs() {
+    var cartInputs = document.getElementById('cart-inputs');
+    cartQuantities = new Map();
+    if (!cartInputs) return;
     var inputs = cartInputs.querySelectorAll('input[name="monsters[]"]');
-    if (index < 0 || index >= inputs.length) return;
-    inputs[index].remove();
+    inputs.forEach(function(input) {
+        var key = input.value;
+        if (!key || key.indexOf('@') === -1) return;
+        cartQuantities.set(key, (cartQuantities.get(key) || 0) + 1);
+    });
 }
 
 function clearCart() {
+    cartQuantities = new Map();
     var cartInputs = document.getElementById('cart-inputs');
     if (cartInputs) cartInputs.innerHTML = '';
 }

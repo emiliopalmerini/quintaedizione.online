@@ -10,23 +10,36 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/domain/monster"
 )
 
-// CartItemRef is a raw cart entry as posted by the browser: "{id}@{source}".
+// CartItemRef is a folded cart entry: one (Source, ID) pair with a Quantity.
+// The browser still posts repeated "{id}@{source}" values (one per click) for
+// backwards compatibility; ParseCartRefs counts occurrences into Quantity.
 type CartItemRef struct {
-	ID     string
-	Source string
+	ID       string
+	Source   string
+	Quantity int
 }
 
 // ParseCartRefs decodes the repeated "monsters[]" form values into structured
-// refs. Malformed values (missing "@source" separator or empty fields) are
-// silently dropped; callers can log them via the logger hook in the pricer.
+// refs, folding duplicates by (Source, ID) into a single ref with Quantity
+// equal to occurrence count. Insertion order is preserved by first occurrence
+// so the cart renders chips in the order the user added them. Malformed values
+// (missing "@source" separator or empty fields) are silently dropped.
 func ParseCartRefs(raw []string) []CartItemRef {
+	type key struct{ id, source string }
+	index := make(map[key]int, len(raw))
 	refs := make([]CartItemRef, 0, len(raw))
 	for _, v := range raw {
 		id, src, found := strings.Cut(strings.TrimSpace(v), "@")
 		if !found || id == "" || src == "" {
 			continue
 		}
-		refs = append(refs, CartItemRef{ID: id, Source: src})
+		k := key{id: id, source: src}
+		if i, ok := index[k]; ok {
+			refs[i].Quantity++
+			continue
+		}
+		index[k] = len(refs)
+		refs = append(refs, CartItemRef{ID: id, Source: src, Quantity: 1})
 	}
 	return refs
 }
@@ -77,17 +90,24 @@ func (p *CartPricer) Price(ctx context.Context, req PriceCartRequest) (*PriceCar
 
 	cart := monster.Cart{Entries: make([]monster.CartEntry, 0, len(req.Refs))}
 	for _, ref := range req.Refs {
+		qty := ref.Quantity
+		if qty < 1 {
+			// Defensive: a zero-quantity ref means "no monsters" so skip it
+			// rather than emit a phantom chip the user can't remove.
+			continue
+		}
 		m, err := p.reader.FindByID(ctx, ref.Source, ref.ID)
 		if err != nil {
 			p.logger.Debug("cart entry dropped", "id", ref.ID, "source", ref.Source, "error", err)
 			continue
 		}
 		cart.Entries = append(cart.Entries, monster.CartEntry{
-			ID:     m.ID,
-			Source: m.Source,
-			Name:   m.Name,
-			CR:     m.CR,
-			UnitXP: m.XP,
+			ID:       m.ID,
+			Source:   m.Source,
+			Name:     m.Name,
+			CR:       m.CR,
+			UnitXP:   m.XP,
+			Quantity: qty,
 		})
 	}
 

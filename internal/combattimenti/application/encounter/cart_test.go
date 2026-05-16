@@ -35,11 +35,41 @@ func TestParseCartRefs_DropsMalformed(t *testing.T) {
 	if len(got) != 2 {
 		t.Fatalf("len = %d, want 2; got %+v", len(got), got)
 	}
-	if got[0].ID != "goblin" || got[0].Source != "5.5e" {
+	if got[0].ID != "goblin" || got[0].Source != "5.5e" || got[0].Quantity != 1 {
 		t.Errorf("got[0] = %+v", got[0])
 	}
-	if got[1].ID != "ancient-dragon" || got[1].Source != "5e" {
+	if got[1].ID != "ancient-dragon" || got[1].Source != "5e" || got[1].Quantity != 1 {
 		t.Errorf("got[1] = %+v", got[1])
+	}
+}
+
+func TestParseCartRefs_FoldsDuplicatesByIDAndSource(t *testing.T) {
+	got := ParseCartRefs([]string{
+		"goblin@5e",
+		"goblin@5e",
+		"goblin@5e",
+		"orc@5e",
+	})
+	if len(got) != 2 {
+		t.Fatalf("len = %d, want 2; got %+v", len(got), got)
+	}
+	if got[0].ID != "goblin" || got[0].Source != "5e" || got[0].Quantity != 3 {
+		t.Errorf("got[0] = %+v, want goblin/5e/3", got[0])
+	}
+	if got[1].ID != "orc" || got[1].Source != "5e" || got[1].Quantity != 1 {
+		t.Errorf("got[1] = %+v, want orc/5e/1", got[1])
+	}
+}
+
+func TestParseCartRefs_DoesNotFoldAcrossSources(t *testing.T) {
+	got := ParseCartRefs([]string{"goblin@5e", "goblin@5.5e"})
+	if len(got) != 2 {
+		t.Fatalf("len = %d, want 2; got %+v", len(got), got)
+	}
+	for _, ref := range got {
+		if ref.Quantity != 1 {
+			t.Errorf("ref %+v quantity = %d, want 1", ref, ref.Quantity)
+		}
 	}
 }
 
@@ -53,7 +83,7 @@ func TestCartPricer_2024NoMultiplier(t *testing.T) {
 	got, err := pricer.Price(context.Background(), PriceCartRequest{
 		Ruleset: "2024",
 		Budget:  500,
-		Refs:    []CartItemRef{{ID: "goblin", Source: "5.5e"}, {ID: "bugbear", Source: "5.5e"}},
+		Refs:    []CartItemRef{{ID: "goblin", Source: "5.5e", Quantity: 1}, {ID: "bugbear", Source: "5.5e", Quantity: 1}},
 	})
 	if err != nil {
 		t.Fatalf("err: %v", err)
@@ -80,8 +110,8 @@ func TestCartPricer_2014AppliesMultiplier(t *testing.T) {
 		Ruleset: "2014",
 		Budget:  500,
 		Refs: []CartItemRef{
-			{ID: "goblin", Source: "5e"},
-			{ID: "bugbear", Source: "5e"},
+			{ID: "goblin", Source: "5e", Quantity: 1},
+			{ID: "bugbear", Source: "5e", Quantity: 1},
 		},
 	})
 	if err != nil {
@@ -109,8 +139,8 @@ func TestCartPricer_DropsUnknownEntries(t *testing.T) {
 		Ruleset: "2024",
 		Budget:  500,
 		Refs: []CartItemRef{
-			{ID: "goblin", Source: "5.5e"},
-			{ID: "ghost-monster", Source: "5.5e"},
+			{ID: "goblin", Source: "5.5e", Quantity: 1},
+			{ID: "ghost-monster", Source: "5.5e", Quantity: 1},
 		},
 	})
 	if len(got.Entries) != 1 {
@@ -140,5 +170,62 @@ func TestCartPricer_InvalidRuleset(t *testing.T) {
 	_, err := pricer.Price(context.Background(), PriceCartRequest{Ruleset: "bogus"})
 	if err == nil {
 		t.Fatal("expected error")
+	}
+}
+
+func TestCartPricer_2024QuantitiesMultiplyUnitXP(t *testing.T) {
+	reader := &stubReader{m: map[string]monster.Monster{
+		"5.5e/goblin": {ID: "goblin", Source: "5.5e", Name: "Goblin", XP: 50},
+	}}
+	pricer := NewCartPricer(silentLogger(), reader, memory.NewEncounterRepository())
+
+	got, err := pricer.Price(context.Background(), PriceCartRequest{
+		Ruleset: "2024",
+		Budget:  500,
+		Refs:    []CartItemRef{{ID: "goblin", Source: "5.5e", Quantity: 3}},
+	})
+	if err != nil {
+		t.Fatalf("err: %v", err)
+	}
+	if len(got.Entries) != 1 {
+		t.Fatalf("entries = %d, want 1 (folded)", len(got.Entries))
+	}
+	if got.Entries[0].Quantity != 3 {
+		t.Errorf("entry quantity = %d, want 3", got.Entries[0].Quantity)
+	}
+	if got.Subtotal != 150 {
+		t.Errorf("subtotal = %d, want 150", got.Subtotal)
+	}
+	if got.EffectiveCost != 150 {
+		t.Errorf("effective = %d, want 150", got.EffectiveCost)
+	}
+}
+
+func TestCartPricer_2014MultiplierUsesSummedQuantity(t *testing.T) {
+	reader := &stubReader{m: map[string]monster.Monster{
+		"5e/goblin":  {ID: "goblin", Source: "5e", Name: "Goblin", XP: 50},
+		"5e/bugbear": {ID: "bugbear", Source: "5e", Name: "Bugbear", XP: 200},
+	}}
+	pricer := NewCartPricer(silentLogger(), reader, memory.NewEncounterRepository())
+
+	got, err := pricer.Price(context.Background(), PriceCartRequest{
+		Ruleset: "2014",
+		Budget:  1000,
+		Refs: []CartItemRef{
+			{ID: "goblin", Source: "5e", Quantity: 2},
+			{ID: "bugbear", Source: "5e", Quantity: 1},
+		},
+	})
+	if err != nil {
+		t.Fatalf("err: %v", err)
+	}
+	if got.Subtotal != 300 {
+		t.Errorf("subtotal = %d, want 300", got.Subtotal)
+	}
+	if got.EffectiveCost != 600 {
+		t.Errorf("effective = %d, want 600 (multiplier must see 3, not 2)", got.EffectiveCost)
+	}
+	if got.Remaining != 400 {
+		t.Errorf("remaining = %d, want 400", got.Remaining)
 	}
 }

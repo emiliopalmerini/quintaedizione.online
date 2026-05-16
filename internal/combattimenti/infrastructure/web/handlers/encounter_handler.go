@@ -151,9 +151,16 @@ func (h *EncounterHandler) CalculateHandler(w http.ResponseWriter, r *http.Reque
 
 	// Parse cart refs (may be empty). Cart drives num_monsters_2014 when
 	// non-empty so the budget stays consistent with what the user picked.
+	// num_monsters_2014 must be the total monster count (sum of quantities),
+	// not the unique chip count, so the 2014 multiplier lookup matches the
+	// pricer's effective-cost calculation.
 	cartRefs := encounter.ParseCartRefs(r.Form["monsters[]"])
 	if ruleset == "2014" && len(cartRefs) > 0 {
-		req.NumMonsters = len(cartRefs)
+		total := 0
+		for _, ref := range cartRefs {
+			total += ref.Quantity
+		}
+		req.NumMonsters = total
 	}
 
 	// Calculate XP

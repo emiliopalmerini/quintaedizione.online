@@ -1,13 +1,14 @@
 package monster
 
-// CartEntry is one monster in the encounter cart. Multiple entries can share
-// the same (Source, ID) pair to represent "three goblins".
+// CartEntry is one (Source, ID) monster group in the encounter cart. Quantity
+// encodes "three goblins" as a single entry rather than three duplicate rows.
 type CartEntry struct {
-	ID     string
-	Source string
-	Name   string
-	CR     string
-	UnitXP int
+	ID       string
+	Source   string
+	Name     string
+	CR       string
+	UnitXP   int
+	Quantity int
 }
 
 // Cart holds the monsters chosen for an encounter and prices them against the
@@ -19,16 +20,21 @@ type Cart struct {
 	Entries []CartEntry
 }
 
-// Size returns the number of monsters in the cart.
+// Size returns the total monster count (sum of per-entry quantities). This is
+// what the 2014 multiplier table is keyed on — not the number of unique chips.
 func (c Cart) Size() int {
-	return len(c.Entries)
+	total := 0
+	for _, e := range c.Entries {
+		total += e.Quantity
+	}
+	return total
 }
 
-// Subtotal is the raw sum of unit XP across cart entries.
+// Subtotal is the raw sum of (unit XP × quantity) across cart entries.
 func (c Cart) Subtotal() int {
 	total := 0
 	for _, e := range c.Entries {
-		total += e.UnitXP
+		total += e.UnitXP * e.Quantity
 	}
 	return total
 }
