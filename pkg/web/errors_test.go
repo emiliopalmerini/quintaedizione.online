@@ -97,3 +97,13 @@ func TestRenderHTMXError_EscapesHTML(t *testing.T) {
 		t.Error("expected escaped HTML in response")
 	}
 }
+
+func TestRenderHTMXError_DoesNotEmitInlineHandlers(t *testing.T) {
+	w := httptest.NewRecorder()
+	RenderHTMXError(w, "bad request", http.StatusBadRequest)
+
+	body := w.Body.String()
+	if strings.Contains(body, "onclick=") {
+		t.Fatalf("HTMX error fragment contains an inline handler: %s", body)
+	}
+}

@@ -223,7 +223,7 @@ func resultPreview(entries []domain.RollEntry) templ.Component {
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "\" hx-trigger=\"load\" hx-select=\".item-content\" hx-swap=\"innerHTML\"></div><button class=\"btn btn-primary roll-result-copy-btn\" onclick=\"copyMarkdown(this)\">Copia</button></div>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "\" hx-trigger=\"load\" hx-select=\".item-content\" hx-swap=\"innerHTML\"></div><button type=\"button\" class=\"btn btn-primary roll-result-copy-btn\">Copia</button></div>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}

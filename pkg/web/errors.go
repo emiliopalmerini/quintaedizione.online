@@ -118,9 +118,9 @@ func RenderHTMXError(w http.ResponseWriter, message string, statusCode int) {
 	escapedMessage := html.EscapeString(message)
 
 	errorHTML := fmt.Sprintf(`
-		<div class="error-message" style="padding: 1rem; background: var(--error); color: white; border-radius: 4px; margin: 1rem 0;">
+		<div class="error-message">
 			<strong>Errore:</strong> %s
-			<button onclick="this.parentElement.remove()" style="float: right; background: none; border: none; color: white; cursor: pointer;">×</button>
+			<button type="button" class="error-message-dismiss" aria-label="Chiudi">×</button>
 		</div>
 	`, escapedMessage)
 

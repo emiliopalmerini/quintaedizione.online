@@ -12,6 +12,14 @@
 	}, { once: true });
 })();
 
+function bindOnce(el, key) {
+	if (!el) return false;
+	var attr = 'data-js-' + key;
+	if (el.hasAttribute(attr)) return false;
+	el.setAttribute(attr, 'true');
+	return true;
+}
+
 // Copy markdown functionality with fallback support
 function copyMarkdown(btn){
 	const section = btn.closest('[data-md-section]') || btn.closest('article') || document;
@@ -89,27 +97,38 @@ function showCopyMessage(btn, message, type = 'success') {
 function showSelectableText(text, btn) {
 	const modal = document.createElement('div');
 	modal.className = 'copy-text-modal';
-	modal.innerHTML = `
-		<div class="copy-text-modal-content">
-			<div class="copy-text-header">
-				<h3>Seleziona e copia il testo</h3>
-				<button class="copy-text-close">×</button>
-			</div>
-			<textarea readonly class="copy-text-area">${text}</textarea>
-			<div class="copy-text-footer">
-				<small>Seleziona tutto il testo (Ctrl+A) e copialo (Ctrl+C)</small>
-			</div>
-		</div>
-	`;
+	const content = document.createElement('div');
+	content.className = 'copy-text-modal-content';
+	const header = document.createElement('div');
+	header.className = 'copy-text-header';
+	const title = document.createElement('h3');
+	title.textContent = 'Seleziona e copia il testo';
+	const closeBtn = document.createElement('button');
+	closeBtn.type = 'button';
+	closeBtn.className = 'copy-text-close';
+	closeBtn.textContent = '×';
+	header.appendChild(title);
+	header.appendChild(closeBtn);
+	const textarea = document.createElement('textarea');
+	textarea.readOnly = true;
+	textarea.className = 'copy-text-area';
+	textarea.value = text;
+	const footer = document.createElement('div');
+	footer.className = 'copy-text-footer';
+	const hint = document.createElement('small');
+	hint.textContent = 'Seleziona tutto il testo (Ctrl+A) e copialo (Ctrl+C)';
+	footer.appendChild(hint);
+	content.appendChild(header);
+	content.appendChild(textarea);
+	content.appendChild(footer);
+	modal.appendChild(content);
 	
 	document.body.appendChild(modal);
 	
 	// Close button handler
-	const closeBtn = modal.querySelector('.copy-text-close');
 	closeBtn.addEventListener('click', () => modal.remove());
 	
 	// Auto-select text and focus textarea
-	const textarea = modal.querySelector('.copy-text-area');
 	setTimeout(() => {
 		textarea.focus();
 		textarea.select();
@@ -138,6 +157,7 @@ function initBreadcrumbSearch() {
 	const searchResults = document.getElementById('bc-results');
 	
 	if (!searchInput || !searchResults) return;
+	if (!bindOnce(searchInput, 'breadcrumb-search')) return;
 	
 	// Show results when typing
 	searchInput.addEventListener('input', function() {
@@ -290,36 +310,40 @@ function initGlobalSearch() {
 	// Dropdown stays hidden until the user has typed at least 2 chars; an
 	// empty input clears any previous results so refocusing doesn't reopen
 	// the panel.
-	searchForm.addEventListener('htmx:beforeRequest', function(evt) {
-		if (searchInput.value.trim().length < 2) {
-			evt.detail.cancel = true;
-			if (searchResults) {
-				searchResults.innerHTML = '';
+	if (searchForm && bindOnce(searchForm, 'global-search-form')) {
+		searchForm.addEventListener('htmx:beforeRequest', function(evt) {
+			if (searchInput.value.trim().length < 2) {
+				evt.detail.cancel = true;
+				if (searchResults) {
+					searchResults.innerHTML = '';
+				}
 			}
-		}
-	});
+		});
+	}
 
 	// Enter key navigates to full search page
-	searchInput.addEventListener('keydown', function(e) {
-		if (e.key === 'Enter') {
-			e.preventDefault();
-			var q = searchInput.value.trim();
-			if (q.length >= 2) {
-				window.location.href = '/srd/search?q=' + encodeURIComponent(q);
+	if (bindOnce(searchInput, 'global-search-input')) {
+		searchInput.addEventListener('keydown', function(e) {
+			if (e.key === 'Enter') {
+				e.preventDefault();
+				var q = searchInput.value.trim();
+				if (q.length >= 2) {
+					window.location.href = '/srd/search?q=' + encodeURIComponent(q);
+				}
 			}
-		}
-		// ESC key closes dropdown and clears search
-		if (e.key === 'Escape') {
-			e.preventDefault();
-			if (searchResults) {
-				searchResults.innerHTML = '';
+			// ESC key closes dropdown and clears search
+			if (e.key === 'Escape') {
+				e.preventDefault();
+				if (searchResults) {
+					searchResults.innerHTML = '';
+				}
+				if (searchForm) {
+					searchForm.reset();
+				}
+				this.blur();
 			}
-			if (searchForm) {
-				searchForm.reset();
-			}
-			this.blur();
-		}
-	});
+		});
+	}
 
 	// Click outside closes dropdown (register once)
 	if (!initGlobalSearch._docClick) {
@@ -337,7 +361,7 @@ function initGlobalSearch() {
 	}
 
 	// Sync sidebar tab clicks with hidden collection input (event delegation)
-	if (searchResults) {
+	if (searchResults && bindOnce(searchResults, 'global-search-results')) {
 		searchResults.addEventListener('click', function(e) {
 			var tab = e.target.closest('.search-browse-tab');
 			if (tab) {
@@ -349,7 +373,7 @@ function initGlobalSearch() {
 	}
 
 	// Close button clears and closes
-	if (searchCloseBtn) {
+	if (searchCloseBtn && bindOnce(searchCloseBtn, 'global-search-close')) {
 		searchCloseBtn.addEventListener('click', function() {
 			if (searchResults) {
 				searchResults.innerHTML = '';
@@ -403,15 +427,17 @@ function initSearchOverlay() {
 	}
 
 	// Open overlay when hero input is focused on mobile
-	heroInput.addEventListener('focus', function() {
-		if (isMobile.matches) {
-			heroInput.blur();
-			openOverlay();
-		}
-	});
+	if (bindOnce(heroInput, 'search-overlay-open')) {
+		heroInput.addEventListener('focus', function() {
+			if (isMobile.matches) {
+				heroInput.blur();
+				openOverlay();
+			}
+		});
+	}
 
 	// Close button
-	if (closeBtn) {
+	if (closeBtn && bindOnce(closeBtn, 'search-overlay-close')) {
 		closeBtn.addEventListener('click', closeOverlay);
 	}
 
@@ -435,7 +461,7 @@ function initSearchOverlay() {
 
 	// Block HTMX request and clear results until the user has typed at
 	// least 2 chars; matches the desktop dropdown behaviour.
-	if (overlayForm) {
+	if (overlayForm && bindOnce(overlayForm, 'search-overlay-form')) {
 		overlayForm.addEventListener('htmx:beforeRequest', function(evt) {
 			if (overlayInput.value.trim().length < 2) {
 				evt.detail.cancel = true;
@@ -447,7 +473,7 @@ function initSearchOverlay() {
 	}
 
 	// Sync sidebar tab clicks with hidden collection input (event delegation)
-	if (overlayResults) {
+	if (overlayResults && bindOnce(overlayResults, 'search-overlay-results')) {
 		overlayResults.addEventListener('click', function(e) {
 			var tab = e.target.closest('.search-browse-tab');
 			if (tab) {
@@ -469,25 +495,35 @@ document.body.addEventListener('htmx:afterSwap', function() {
 // Back button handler
 function initBackButton() {
 	const backBtn = document.getElementById('back-btn');
-	if (backBtn) {
+	if (backBtn && bindOnce(backBtn, 'back-button')) {
 		backBtn.addEventListener('click', () => history.back());
 	}
 }
 
 // Copy markdown button handler
 function initCopyMarkdownButton() {
-	const copyBtn = document.getElementById('copy-markdown-btn');
-	if (copyBtn) {
-		copyBtn.addEventListener('click', function() {
-			copyMarkdown(this);
-		});
-	}
+	if (initCopyMarkdownButton._bound) return;
+	initCopyMarkdownButton._bound = true;
+	document.body.addEventListener('click', function(e) {
+		var copyBtn = e.target.closest('#copy-markdown-btn, .roll-result-copy-btn');
+		if (copyBtn) {
+			e.preventDefault();
+			copyMarkdown(copyBtn);
+			return;
+		}
+		var dismissBtn = e.target.closest('.error-message-dismiss');
+		if (dismissBtn) {
+			e.preventDefault();
+			var message = dismissBtn.closest('.error-message');
+			if (message) message.remove();
+		}
+	});
 }
 
 // Prevent form submission for search form
 function initSearchFormHandler() {
 	const searchForm = document.getElementById('search-form');
-	if (searchForm) {
+	if (searchForm && bindOnce(searchForm, 'search-submit')) {
 		searchForm.addEventListener('submit', (e) => {
 			e.preventDefault();
 			return false;
@@ -497,6 +533,9 @@ function initSearchFormHandler() {
 
 // Glossary tooltip functionality
 function initGlossaryTooltips() {
+	if (initGlossaryTooltips._bound) return;
+	initGlossaryTooltips._bound = true;
+
 	let activeTooltip = null;
 	let hideTimeout = null;
 
@@ -606,6 +645,7 @@ function initFilterOverlay() {
 	var overlay = document.getElementById('filter-overlay');
 	var toggleBtn = document.getElementById('filter-toggle-btn');
 	if (!overlay || !toggleBtn) return;
+	if (!bindOnce(overlay, 'filter-overlay')) return;
 
 	var filtersChanged = false;
 
@@ -783,6 +823,8 @@ function initFilterOverlay() {
 // Multi-select filter dropdowns
 function initFilterMultiselect() {
 	document.querySelectorAll('.filter-multiselect').forEach(function(container) {
+		if (!bindOnce(container, 'filter-multiselect')) return;
+
 		var btn = container.querySelector('.filter-multiselect-btn');
 		var dropdown = container.querySelector('.filter-multiselect-dropdown');
 		var hiddenInput = container.querySelector('input[type="hidden"]');
@@ -828,6 +870,8 @@ function initQuickFilterChips() {
 	document.querySelectorAll('.quick-filter-bar[data-filter-name]').forEach(function(bar) {
 		var filterName = bar.getAttribute('data-filter-name');
 		bar.querySelectorAll('.quick-filter-chip[data-values]').forEach(function(chip) {
+			if (!bindOnce(chip, 'quick-filter-chip')) return;
+
 			chip.addEventListener('click', function() {
 				var wasActive = chip.classList.contains('active');
 				var chipValues = chip.getAttribute('data-values').split(',');
@@ -882,6 +926,7 @@ function initQuickFilterChips() {
 function initMappeFilterChips() {
 	var picker = document.getElementById('mappe-tag-picker');
 	if (!picker) return;
+	if (!bindOnce(picker, 'mappe-filter-chips')) return;
 
 	var hiddenInput = document.getElementById('mappe-tag');
 	var searchInput = document.getElementById('mappe-tag-search');
@@ -990,6 +1035,8 @@ function initMappeFilterChips() {
 // Filter chips: remove individual filter value or clear all
 function initFilterChips() {
 	document.querySelectorAll('.filter-chip').forEach(function(chip) {
+		if (!bindOnce(chip, 'filter-chip')) return;
+
 		chip.addEventListener('click', function() {
 			var filterName = this.getAttribute('data-filter-name');
 			var filterValue = this.getAttribute('data-filter-value');
@@ -1018,7 +1065,7 @@ function initFilterChips() {
 	});
 
 	var clearAllBtn = document.getElementById('clear-all-filters');
-	if (clearAllBtn) {
+	if (clearAllBtn && bindOnce(clearAllBtn, 'clear-all-filters')) {
 		clearAllBtn.addEventListener('click', function() {
 			var form = document.getElementById('search-form');
 			if (!form) return;
@@ -1098,6 +1145,7 @@ function initHamburgerMenu() {
 	var btn = document.getElementById('nav-hamburger');
 	var menu = document.getElementById('nav-menu');
 	if (!btn || !menu) return;
+	if (!bindOnce(btn, 'hamburger-menu')) return;
 
 	btn.addEventListener('click', function() {
 		var expanded = btn.getAttribute('aria-expanded') === 'true';
@@ -1126,6 +1174,7 @@ function initHamburgerMenu() {
 function initPatreonBanner() {
 	var banner = document.getElementById('patreon-banner');
 	if (!banner) return;
+	if (!bindOnce(banner, 'patreon-banner')) return;
 	if (localStorage.getItem('patreon-banner-dismissed')) {
 		banner.classList.add('patreon-banner--hidden');
 		return;

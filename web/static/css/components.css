@@ -577,6 +577,21 @@ html.dark select.field, html.dark .form-select {
 .flash-message.flash-error { background: var(--color-flash-error-bg); color: var(--color-flash-error-text); border-color: var(--color-flash-error-border); }
 .flash-message.flash-success { background: var(--color-flash-success-bg); color: var(--color-flash-success-text); border-color: var(--color-flash-success-border); }
 
+.error-message {
+  padding: var(--space-4);
+  margin: var(--space-4) 0;
+  background: var(--error);
+  color: white;
+  border-radius: var(--radius-sm);
+}
+.error-message-dismiss {
+  float: right;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
 /* HTMX transitions */
 .htmx-swapping { opacity: 0; transition: opacity 0.15s ease-out; }
 .htmx-settling { opacity: 1; transition: opacity 0.2s ease-in; }
