@@ -172,6 +172,8 @@ func (h *CollectionHandler) handleItemDetail(w http.ResponseWriter, r *http.Requ
 }
 
 // buildFilterOptionsWithCounts returns filter options with optional facet counts.
+// Facet count keys come from the raw data (any case), so we match enum display
+// values case-insensitively against the count buckets.
 func (h *CollectionHandler) buildFilterOptionsWithCounts(collection string, activeFilters map[string]string, facetCounts map[string]map[string]int64) []models.FilterOption {
 	defs, err := h.contentService.GetAvailableFilters(collection)
 	if err != nil || len(defs) == 0 {
@@ -183,16 +185,12 @@ func (h *CollectionHandler) buildFilterOptionsWithCounts(collection string, acti
 		if len(def.EnumValues) == 0 {
 			continue
 		}
-		counts := facetCounts[def.Name]
+		counts := foldCountKeys(facetCounts[def.Name])
 		values := make([]models.FilterValueOption, 0, len(def.EnumValues))
 		for _, v := range def.EnumValues {
-			var count int64
-			if counts != nil {
-				count = counts[v]
-			}
 			values = append(values, models.FilterValueOption{
 				Value: v,
-				Count: count,
+				Count: counts[strings.ToLower(v)],
 			})
 		}
 		currentValue := activeFilters[def.Name]
@@ -256,6 +254,19 @@ func chipMatchesFilter(chipValues []string, activeValues map[string]bool) bool {
 		}
 	}
 	return true
+}
+
+// foldCountKeys merges count buckets that differ only by case, lower-cased,
+// so enum lookup (also lower-cased) finds them regardless of data noise.
+func foldCountKeys(in map[string]int64) map[string]int64 {
+	if in == nil {
+		return nil
+	}
+	out := make(map[string]int64, len(in))
+	for k, v := range in {
+		out[strings.ToLower(k)] += v
+	}
+	return out
 }
 
 // extractFilters extracts filter parameters from the query string.

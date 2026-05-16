@@ -83,6 +83,7 @@ func main() {
 	filterRegistry := filters.NewInMemoryFilterRegistry()
 	filters.RegisterDefaultFilters(filterRegistry)
 	filters.RegisterEditionFilter(filterRegistry, sources)
+	filters.DeriveEnumValues(filterRegistry, store)
 
 	filterService := services.NewFilterService(filterRegistry)
 

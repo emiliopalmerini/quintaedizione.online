@@ -2,47 +2,41 @@ package filters
 
 import (
 	"fmt"
-	"regexp"
-	"strconv"
 	"strings"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain/filters"
 )
 
 // PredicateBuilder builds in-memory document predicates from filter definitions.
+//
+// All filters share the same semantics: the user-supplied value is split on
+// commas into one or more needles; a document matches when any field value
+// equals any needle (case-insensitive). The document field may be a scalar or
+// a slice; for slices any element counts as a candidate.
 type PredicateBuilder struct{}
 
-// NewPredicateBuilder creates a new PredicateBuilder.
-func NewPredicateBuilder() *PredicateBuilder {
-	return &PredicateBuilder{}
-}
+func NewPredicateBuilder() *PredicateBuilder { return &PredicateBuilder{} }
 
-// BuildPredicate converts a FilterSet into a DocumentPredicate that tests documents in-memory.
+// BuildPredicate converts a FilterSet into a DocumentPredicate. All filters
+// must match (AND); within a single filter, comma-separated values are ORed.
 func (b *PredicateBuilder) BuildPredicate(filterSet *filters.FilterSet) (filters.DocumentPredicate, error) {
 	if !filterSet.HasFilters() {
 		return nil, nil
 	}
 
 	var predicates []filters.DocumentPredicate
-
 	for _, fv := range filterSet.Filters {
-		p, err := b.buildSinglePredicate(fv)
-		if err != nil {
-			return nil, fmt.Errorf("failed to build predicate for %s: %w", fv.Definition.Name, err)
-		}
-		if p != nil {
+		if p := buildFieldPredicate(fv.Definition.FieldPath, fv.Value); p != nil {
 			predicates = append(predicates, p)
 		}
 	}
 
-	if len(predicates) == 0 {
+	switch len(predicates) {
+	case 0:
 		return nil, nil
-	}
-	if len(predicates) == 1 {
+	case 1:
 		return predicates[0], nil
 	}
-
-	// All predicates must match (AND)
 	return func(doc map[string]any) bool {
 		for _, p := range predicates {
 			if !p(doc) {
@@ -53,211 +47,84 @@ func (b *PredicateBuilder) BuildPredicate(filterSet *filters.FilterSet) (filters
 	}, nil
 }
 
-func (b *PredicateBuilder) buildSinglePredicate(fv filters.FilterValue) (filters.DocumentPredicate, error) {
-	def := fv.Definition
-	value := fv.Value
-	if value == "" {
-		return nil, nil
-	}
-
-	switch def.Operator {
-	case filters.ExactMatch:
-		return b.buildExactMatch(def.FieldPath, value, def.DataType)
-	case filters.RegexMatch:
-		return b.buildRegexMatch(def.FieldPath, value)
-	case filters.RangeMatch:
-		return b.buildRangeMatch(def.FieldPath, value, def.DataType)
-	case filters.InMatch:
-		return b.buildInMatch(def.FieldPath, value)
-	default:
-		return nil, fmt.Errorf("unsupported operator: %d", def.Operator)
-	}
-}
-
-func (b *PredicateBuilder) buildExactMatch(fieldPath, value string, dataType filters.FilterDataType) (filters.DocumentPredicate, error) {
-	converted, err := filters.ConvertValue(value, dataType)
-	if err != nil {
-		return nil, err
-	}
-	return func(doc map[string]any) bool {
-		return fmt.Sprintf("%v", getField(doc, fieldPath)) == fmt.Sprintf("%v", converted)
-	}, nil
-}
-
-func (b *PredicateBuilder) buildRegexMatch(fieldPath, value string) (filters.DocumentPredicate, error) {
-	// Multi-value: comma-separated values become OR patterns
-	parts := strings.Split(value, ",")
-	var patterns []*regexp.Regexp
-	for _, p := range parts {
-		p = strings.TrimSpace(p)
-		if p == "" {
-			continue
-		}
-		compiled, err := regexp.Compile("(?i)" + regexp.QuoteMeta(p))
-		if err != nil {
-			return nil, fmt.Errorf("invalid regex pattern: %w", err)
-		}
-		patterns = append(patterns, compiled)
-	}
-	if len(patterns) == 0 {
-		return nil, nil
-	}
-	return func(doc map[string]any) bool {
-		field := getField(doc, fieldPath)
-		if field == nil {
-			return false
-		}
-		fieldStr := fmt.Sprintf("%v", field)
-		for _, pattern := range patterns {
-			if pattern.MatchString(fieldStr) {
-				return true
-			}
-		}
-		return false
-	}, nil
-}
-
-func (b *PredicateBuilder) buildRangeMatch(fieldPath, value string, dataType filters.FilterDataType) (filters.DocumentPredicate, error) {
-	if dataType != filters.NumberFilter {
-		return nil, fmt.Errorf("range match only supported for number filters")
-	}
-
-	value = strings.TrimSpace(value)
-
-	type numPred func(float64) bool
-
-	var pred numPred
-
-	if strings.HasPrefix(value, ">=") {
-		n, err := strconv.ParseFloat(strings.TrimSpace(value[2:]), 64)
-		if err != nil {
-			return nil, fmt.Errorf("invalid range value: %s", value)
-		}
-		pred = func(v float64) bool { return v >= n }
-	} else if strings.HasPrefix(value, "<=") {
-		n, err := strconv.ParseFloat(strings.TrimSpace(value[2:]), 64)
-		if err != nil {
-			return nil, fmt.Errorf("invalid range value: %s", value)
-		}
-		pred = func(v float64) bool { return v <= n }
-	} else if strings.HasPrefix(value, ">") {
-		n, err := strconv.ParseFloat(strings.TrimSpace(value[1:]), 64)
-		if err != nil {
-			return nil, fmt.Errorf("invalid range value: %s", value)
-		}
-		pred = func(v float64) bool { return v > n }
-	} else if strings.HasPrefix(value, "<") {
-		n, err := strconv.ParseFloat(strings.TrimSpace(value[1:]), 64)
-		if err != nil {
-			return nil, fmt.Errorf("invalid range value: %s", value)
-		}
-		pred = func(v float64) bool { return v < n }
-	} else if strings.Contains(value, "-") {
-		parts := strings.Split(value, "-")
-		if len(parts) != 2 {
-			return nil, fmt.Errorf("invalid range format: %s", value)
-		}
-		min, err := strconv.ParseFloat(strings.TrimSpace(parts[0]), 64)
-		if err != nil {
-			return nil, fmt.Errorf("invalid range min value: %s", parts[0])
-		}
-		max, err := strconv.ParseFloat(strings.TrimSpace(parts[1]), 64)
-		if err != nil {
-			return nil, fmt.Errorf("invalid range max value: %s", parts[1])
-		}
-		pred = func(v float64) bool { return v >= min && v <= max }
-	} else {
-		n, err := strconv.ParseFloat(value, 64)
-		if err != nil {
-			return nil, fmt.Errorf("invalid number value: %s", value)
-		}
-		pred = func(v float64) bool { return v == n }
-	}
-
-	return func(doc map[string]any) bool {
-		field := getField(doc, fieldPath)
-		if field == nil {
-			return false
-		}
-		f, ok := toFloat64(field)
-		if !ok {
-			return false
-		}
-		return pred(f)
-	}, nil
-}
-
-func (b *PredicateBuilder) buildInMatch(fieldPath, value string) (filters.DocumentPredicate, error) {
-	values := strings.Split(value, ",")
-	trimmed := make([]string, 0, len(values))
-	for _, v := range values {
-		if t := strings.TrimSpace(v); t != "" {
-			trimmed = append(trimmed, t)
-		}
-	}
-	if len(trimmed) == 0 {
-		return nil, nil
-	}
-
-	return func(doc map[string]any) bool {
-		field := getField(doc, fieldPath)
-		if field == nil {
-			return false
-		}
-		fieldStr := fmt.Sprintf("%v", field)
-		for _, v := range trimmed {
-			if fieldStr == v {
-				return true
-			}
-		}
-		return false
-	}, nil
-}
-
-// BuildSearchPredicate returns a predicate that does case-insensitive substring match on title.
+// BuildSearchPredicate returns a predicate that does case-insensitive substring
+// match on title.
 func (b *PredicateBuilder) BuildSearchPredicate(searchTerm string) filters.DocumentPredicate {
 	if searchTerm == "" {
 		return nil
 	}
-	lower := strings.ToLower(strings.TrimSpace(searchTerm))
+	needle := strings.ToLower(strings.TrimSpace(searchTerm))
 	return func(doc map[string]any) bool {
 		title, _ := doc["title"].(string)
-		return strings.Contains(strings.ToLower(title), lower)
+		return strings.Contains(strings.ToLower(title), needle)
 	}
 }
 
-// getField retrieves a potentially nested field from a document.
-// Supports dot-separated paths like "filters.scuola".
-func getField(doc map[string]any, path string) any {
-	parts := strings.Split(path, ".")
-	var current any = doc
-	for _, part := range parts {
-		m, ok := current.(map[string]any)
+func buildFieldPredicate(fieldPath, rawValue string) filters.DocumentPredicate {
+	needles := splitAndLower(rawValue)
+	if len(needles) == 0 {
+		return nil
+	}
+	return func(doc map[string]any) bool {
+		for _, v := range fieldValues(doc, fieldPath) {
+			lv := strings.ToLower(v)
+			for _, n := range needles {
+				if lv == n {
+					return true
+				}
+			}
+		}
+		return false
+	}
+}
+
+// splitAndLower splits a comma-separated value into lowercased non-empty
+// needles.
+func splitAndLower(s string) []string {
+	parts := strings.Split(s, ",")
+	out := make([]string, 0, len(parts))
+	for _, p := range parts {
+		if t := strings.ToLower(strings.TrimSpace(p)); t != "" {
+			out = append(out, t)
+		}
+	}
+	return out
+}
+
+// fieldValues resolves a dot-separated path to one or more string values. A
+// missing field yields nothing; a slice yields each element formatted as a
+// string.
+func fieldValues(doc map[string]any, path string) []string {
+	cur := any(doc)
+	for _, part := range strings.Split(path, ".") {
+		m, ok := cur.(map[string]any)
 		if !ok {
 			return nil
 		}
-		current = m[part]
+		cur = m[part]
 	}
-	return current
+	return toStrings(cur)
 }
 
-// toFloat64 converts various numeric types to float64.
-func toFloat64(v any) (float64, bool) {
-	switch n := v.(type) {
-	case float64:
-		return n, true
-	case float32:
-		return float64(n), true
-	case int:
-		return float64(n), true
-	case int64:
-		return float64(n), true
-	case int32:
-		return float64(n), true
-	case string:
-		f, err := strconv.ParseFloat(n, 64)
-		return f, err == nil
+func toStrings(v any) []string {
+	switch x := v.(type) {
+	case nil:
+		return nil
+	case []any:
+		out := make([]string, 0, len(x))
+		for _, e := range x {
+			if s := fmt.Sprintf("%v", e); s != "" {
+				out = append(out, s)
+			}
+		}
+		return out
+	case []string:
+		return x
 	default:
-		return 0, false
+		s := fmt.Sprintf("%v", v)
+		if s == "" {
+			return nil
+		}
+		return []string{s}
 	}
 }

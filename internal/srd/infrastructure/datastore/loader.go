@@ -163,13 +163,17 @@ func (l *Loader) loadSpells(result map[string][]map[string]any) error {
 			atHigherLevelsHTML = l.renderContentInline(s.AtHigherLevels.toMarkdown(src))
 		}
 
+		classeAny := make([]any, len(s.Classes))
+		for i, c := range s.Classes {
+			classeAny[i] = c
+		}
 		doc := map[string]any{
 			"_id":                   s.ID,
 			"title":                 s.Name,
 			"raw_content":           l.buildSpellMarkdown(s),
 			"scuola":                s.School,
 			"livello":               s.Level,
-			"classe":                strings.Join(s.Classes, ", "),
+			"classe":                classeAny,
 			"level":                 s.Level,
 			"school":                s.School,
 			"casting_time":          s.CastingTime,
@@ -254,7 +258,7 @@ func (l *Loader) loadMonsters(result map[string][]map[string]any) error {
 			"title":                     m.Name,
 			"raw_content":               l.buildMonsterMarkdown(m),
 			"tipo":                      m.Type,
-			"taglia":                    m.Size,
+			"taglia":                    canonSize(m.Size),
 			"allineamento":              m.Alignment,
 			"grado_sfida":               m.CR,
 			"subtitle":                  fmt.Sprintf("%s %s, %s", m.Type, m.Size, m.Alignment),
@@ -473,7 +477,7 @@ func (l *Loader) loadEquipment(result map[string][]map[string]any) error {
 			"title":       item.Name,
 			"content":     l.renderContent(item.Description.toMarkdown(l.sourceShort())),
 			"raw_content": raw,
-			"categoria":   item.Subcategory,
+			"categoria":   canonEquipmentCategory(item.Subcategory),
 		}
 
 		// Copy properties as flat fields for display strategies
@@ -486,6 +490,77 @@ func (l *Loader) loadEquipment(result map[string][]map[string]any) error {
 	}
 
 	return nil
+}
+
+// baseType strips a parenthetical qualifier from a magic-item type. Data has
+// values like "Arma (alabarda, ...)"; the filter facet uses just "Arma".
+func baseType(t string) string {
+	if i := strings.Index(t, "("); i > 0 {
+		return strings.TrimSpace(t[:i])
+	}
+	return strings.TrimSpace(t)
+}
+
+// canonRarity collapses Italian masculine/feminine variants and case noise to
+// a single canonical form. Unknown values pass through unchanged.
+func canonRarity(r string) string {
+	switch strings.ToLower(strings.TrimSpace(r)) {
+	case "comune":
+		return "Comune"
+	case "non comune":
+		return "Non Comune"
+	case "raro", "rara":
+		return "Raro"
+	case "molto raro", "molto rara":
+		return "Molto Raro"
+	case "leggendario", "leggendaria":
+		return "Leggendario"
+	case "varia", "rarità variabile":
+		return "Rarità Variabile"
+	}
+	return r
+}
+
+// canonEquipmentCategory collapses sing/plural variants of equipment subcategory
+// labels so that the 5e and 5.5e datasets aggregate together.
+func canonEquipmentCategory(c string) string {
+	switch strings.ToLower(strings.TrimSpace(c)) {
+	case "armatura leggera", "armature leggere":
+		return "Armatura leggera"
+	case "armatura media", "armature medie":
+		return "Armatura media"
+	case "armatura pesante", "armature pesanti":
+		return "Armatura pesante"
+	case "scudo", "scudi":
+		return "Scudo"
+	}
+	return c
+}
+
+// canonSize collapses Italian masculine/feminine and compound monster sizes to
+// a canonical feminine form so that "Medio", "Media", "Medio di bestie Minuscole"
+// all aggregate as "Media". Unknown values pass through unchanged.
+func canonSize(s string) string {
+	t := strings.ToLower(strings.TrimSpace(s))
+	// Pick the size token from compound phrases (e.g., "Medio di bestie Minuscole").
+	if i := strings.Index(t, " "); i > 0 {
+		t = t[:i]
+	}
+	switch t {
+	case "minuscolo", "minuscola":
+		return "Minuscola"
+	case "piccolo", "piccola":
+		return "Piccola"
+	case "medio", "media":
+		return "Media"
+	case "grande":
+		return "Grande"
+	case "enorme":
+		return "Enorme"
+	case "mastodontico", "mastodontica":
+		return "Mastodontica"
+	}
+	return s
 }
 
 // --- Magic Items ---
@@ -514,8 +589,9 @@ func (l *Loader) loadMagicItems(result map[string][]map[string]any) error {
 			"title":       item.Name,
 			"content":     l.renderContent(item.Description.toMarkdown(l.sourceShort())),
 			"raw_content": raw,
-			"rarita":      item.Rarity,
+			"rarita":      canonRarity(item.Rarity),
 			"tipo":        item.Type,
+			"tipo_base":   baseType(item.Type),
 		}
 		l.tagDoc(doc)
 		docs = append(docs, doc)

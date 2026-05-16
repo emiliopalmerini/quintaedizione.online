@@ -6,125 +6,38 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain/filters"
 )
 
-// RegisterDefaultFilters populates the filter registry with predefined filter
-// definitions for each collection that supports faceted filtering.
+// RegisterDefaultFilters declares which fields are exposed as facets per
+// collection. EnumValues are populated from the loaded data at startup by
+// DeriveEnumValues, so adding a new value to the JSON automatically surfaces
+// it in the UI.
 func RegisterDefaultFilters(registry *InMemoryFilterRegistry) {
-	// Incantesimi
-	registry.AddFilter(filters.FilterDefinition{
-		Name:        "scuola",
-		FieldPath:   "scuola",
-		DataType:    filters.EnumFilter,
-		Operator:    filters.ExactMatch,
-		Collections: []collections.CollectionName{collections.Incantesimi},
-		EnumValues:  []string{"Abiurazione", "Ammaliamento", "Divinazione", "Evocazione", "Illusione", "Invocazione", "Necromanzia", "Trasmutazione"},
-		Description: "Scuola di magia",
-	})
-	registry.AddFilter(filters.FilterDefinition{
-		Name:        "livello",
-		FieldPath:   "livello",
-		DataType:    filters.NumberFilter,
-		Operator:    filters.ExactMatch,
-		Collections: []collections.CollectionName{collections.Incantesimi},
-		EnumValues:  []string{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"},
-		Description: "Livello dell'incantesimo",
-	})
-	registry.AddFilter(filters.FilterDefinition{
-		Name:        "classe",
-		FieldPath:   "classe",
-		DataType:    filters.StringFilter,
-		Operator:    filters.RegexMatch,
-		Collections: []collections.CollectionName{collections.Incantesimi},
-		EnumValues:  []string{"Bardo", "Chierico", "Druido", "Guerriero (Cavaliere Mistico)", "Mago", "Monaco", "Paladino", "Ranger", "Stregone", "Warlock"},
-		Description: "Classe che può lanciare l'incantesimo",
-	})
+	defs := []filters.FilterDefinition{
+		// Incantesimi
+		{Name: "scuola", FieldPath: "scuola", Collections: []collections.CollectionName{collections.Incantesimi}, Description: "Scuola di magia"},
+		{Name: "livello", FieldPath: "livello", Collections: []collections.CollectionName{collections.Incantesimi}, Description: "Livello dell'incantesimo"},
+		{Name: "classe", FieldPath: "classe", Collections: []collections.CollectionName{collections.Incantesimi}, Description: "Classe che può lanciare l'incantesimo"},
 
-	// Mostri
-	registry.AddFilter(filters.FilterDefinition{
-		Name:        "tipo",
-		FieldPath:   "tipo",
-		DataType:    filters.EnumFilter,
-		Operator:    filters.ExactMatch,
-		Collections: []collections.CollectionName{collections.Mostri},
-		EnumValues:  []string{"Aberrazione", "Bestia", "Celestiale", "Costrutto", "Drago", "Elementale", "Folletto", "Gigante", "Immondo", "Melma", "Mostruosità", "Non morto", "Sciame", "Umanoide", "Vegetale"},
-		Description: "Tipo di creatura",
-	})
-	registry.AddFilter(filters.FilterDefinition{
-		Name:        "taglia",
-		FieldPath:   "taglia",
-		DataType:    filters.EnumFilter,
-		Operator:    filters.ExactMatch,
-		Collections: []collections.CollectionName{collections.Mostri},
-		EnumValues:  []string{"Minuscola", "Piccola", "Media", "Grande", "Enorme", "Mastodontica"},
-		Description: "Taglia della creatura",
-	})
-	registry.AddFilter(filters.FilterDefinition{
-		Name:        "grado_sfida",
-		FieldPath:   "grado_sfida",
-		DataType:    filters.StringFilter,
-		Operator:    filters.ExactMatch,
-		Collections: []collections.CollectionName{collections.Mostri},
-		EnumValues:  []string{"0", "1/8", "1/4", "1/2", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "19", "20", "21", "22", "23", "24", "30"},
-		Description: "Grado di sfida",
-	})
+		// Mostri
+		{Name: "tipo", FieldPath: "tipo", Collections: []collections.CollectionName{collections.Mostri}, Description: "Tipo di creatura"},
+		{Name: "taglia", FieldPath: "taglia", Collections: []collections.CollectionName{collections.Mostri}, Description: "Taglia della creatura"},
+		{Name: "grado_sfida", FieldPath: "grado_sfida", Collections: []collections.CollectionName{collections.Mostri}, Description: "Grado di sfida"},
 
-	// Oggetti Magici
-	registry.AddFilter(filters.FilterDefinition{
-		Name:        "rarita",
-		FieldPath:   "rarita",
-		DataType:    filters.EnumFilter,
-		Operator:    filters.ExactMatch,
-		Collections: []collections.CollectionName{collections.OggettiMagici},
-		EnumValues:  []string{"Comune", "Non Comune", "Raro", "Molto Raro", "Leggendario"},
-		Description: "Rarità dell'oggetto magico",
-	})
-	registry.AddFilter(filters.FilterDefinition{
-		Name:        "tipo_oggetto",
-		FieldPath:   "tipo",
-		DataType:    filters.EnumFilter,
-		Operator:    filters.ExactMatch,
-		Collections: []collections.CollectionName{collections.OggettiMagici},
-		EnumValues:  []string{"Armatura", "Arma", "Bacchetta", "Bastone", "Oggetto Meraviglioso", "Pozione", "Pergamena", "Anello", "Verga"},
-		Description: "Tipo di oggetto magico",
-	})
+		// Oggetti Magici
+		{Name: "rarita", FieldPath: "rarita", Collections: []collections.CollectionName{collections.OggettiMagici}, Description: "Rarità dell'oggetto magico"},
+		{Name: "tipo_oggetto", FieldPath: "tipo_base", Collections: []collections.CollectionName{collections.OggettiMagici}, Description: "Tipo di oggetto magico"},
 
-	// Equipaggiamenti
-	registry.AddFilter(filters.FilterDefinition{
-		Name:        "categoria",
-		FieldPath:   "categoria",
-		DataType:    filters.EnumFilter,
-		Operator:    filters.ExactMatch,
-		Collections: []collections.CollectionName{collections.Equipaggiamenti},
-		EnumValues: []string{
-			"Armi da mischia semplici", "Armi a distanza semplici", "Armi da mischia da guerra", "Armi a distanza da guerra",
-			"Armatura leggera", "Armatura media", "Armatura pesante", "Scudo",
-			"Equipaggiamento d'avventura",
-			"Strumenti da artigiano", "Altri strumenti",
-			"Cavalcature e altri animali", "Finimenti e veicoli da tiro", "Veicoli aerei e imbarcazioni",
-		},
-		Description: "Categoria dell'equipaggiamento",
-	})
+		// Equipaggiamenti
+		{Name: "categoria", FieldPath: "categoria", Collections: []collections.CollectionName{collections.Equipaggiamenti}, Description: "Categoria dell'equipaggiamento"},
 
-	// Glossario
-	registry.AddFilter(filters.FilterDefinition{
-		Name:        "categoria",
-		FieldPath:   "categoria",
-		DataType:    filters.EnumFilter,
-		Operator:    filters.ExactMatch,
-		Collections: []collections.CollectionName{collections.Glossario},
-		EnumValues:  []string{"condizione", "azione", "atteggiamento"},
-		Description: "Categoria del termine",
-	})
+		// Glossario
+		{Name: "categoria", FieldPath: "categoria", Collections: []collections.CollectionName{collections.Glossario}, Description: "Categoria del termine"},
 
-	// Specie
-	registry.AddFilter(filters.FilterDefinition{
-		Name:        "tipo_creatura",
-		FieldPath:   "tipo_creatura",
-		DataType:    filters.EnumFilter,
-		Operator:    filters.ExactMatch,
-		Collections: []collections.CollectionName{collections.Specie},
-		EnumValues:  []string{"umanoide", "fatato", "costrutto"},
-		Description: "Tipo di creatura",
-	})
+		// Specie
+		{Name: "tipo_creatura", FieldPath: "tipo_creatura", Collections: []collections.CollectionName{collections.Specie}, Description: "Tipo di creatura"},
+	}
+	for _, d := range defs {
+		registry.AddFilter(d)
+	}
 }
 
 // RegisterEditionFilter adds the edition filter to the registry when multiple
@@ -142,8 +55,6 @@ func RegisterEditionFilter(registry *InMemoryFilterRegistry, sources []domain.So
 	registry.AddFilter(filters.FilterDefinition{
 		Name:        "_source_short",
 		FieldPath:   "_source_short",
-		DataType:    filters.EnumFilter,
-		Operator:    filters.ExactMatch,
 		Collections: nil, // applies to all collections
 		EnumValues:  enumValues,
 		Description: "Edizione",

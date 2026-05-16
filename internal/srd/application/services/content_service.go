@@ -44,9 +44,14 @@ func NewContentService(repo repositories.DocumentRepository, filterService filte
 }
 
 // deduplicatePredicate returns a predicate that filters out non-preferred
-// duplicate documents for the given collection. Returns nil if no dedup needed.
-func (s *ContentService) deduplicatePredicate(collection string) filters.DocumentPredicate {
+// duplicate documents for the given collection. Returns nil if no dedup needed
+// or if the caller is explicitly filtering by edition (in which case dedup
+// would erase the user's selection).
+func (s *ContentService) deduplicatePredicate(collection string, filterParams map[string]string) filters.DocumentPredicate {
 	if s.defaultSource == "" {
+		return nil
+	}
+	if filterParams["_source_short"] != "" {
 		return nil
 	}
 	return s.documentVersions.DeduplicatePredicate(collection, s.defaultSource)
@@ -55,7 +60,7 @@ func (s *ContentService) deduplicatePredicate(collection string) filters.Documen
 func (s *ContentService) GetCollectionItems(ctx context.Context, collection, search string, filterParams map[string]string, page, limit int) ([]*domain.Document, int64, error) {
 	collectionType, _ := collections.FromString(collection)
 	searchPred := s.filterService.BuildSearchPredicate(collectionType, search)
-	dedupPred := s.deduplicatePredicate(collection)
+	dedupPred := s.deduplicatePredicate(collection, filterParams)
 
 	var combined filters.DocumentPredicate
 	if len(filterParams) > 0 {
@@ -152,7 +157,6 @@ func (s *ContentService) GetFacetCounts(ctx context.Context, collection, search 
 	}
 
 	searchPred := s.filterService.BuildSearchPredicate(collectionType, search)
-	dedupPred := s.deduplicatePredicate(collection)
 	result := make(map[string]map[string]int64, len(defs))
 
 	for _, def := range defs {
@@ -167,6 +171,7 @@ func (s *ContentService) GetFacetCounts(ctx context.Context, collection, search 
 				otherParams[k] = v
 			}
 		}
+		dedupPred := s.deduplicatePredicate(collection, otherParams)
 
 		var combinedPred filters.DocumentPredicate
 		if len(otherParams) > 0 {
@@ -227,7 +232,7 @@ func (s *ContentService) GlobalSearch(ctx context.Context, query string, limitPe
 
 		collectionType, _ := collections.FromString(collectionName)
 		searchPred := s.filterService.BuildSearchPredicate(collectionType, query)
-		dedupPred := s.deduplicatePredicate(collectionName)
+		dedupPred := s.deduplicatePredicate(collectionName, nil)
 		combined := s.filterService.CombinePredicates(searchPred, dedupPred)
 
 		items, total, err := s.documentReader.FindByPredicate(ctx, collectionName, combined, 0, int64(limitPerCollection))

@@ -4,39 +4,21 @@ import (
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain/collections"
 )
 
-type FilterDataType int
-
-const (
-	StringFilter FilterDataType = iota
-	NumberFilter
-	BooleanFilter
-	EnumFilter
-)
-
-type FilterOperator int
-
-const (
-	ExactMatch FilterOperator = iota
-	RegexMatch
-	RangeMatch
-	InMatch
-)
-
+// FilterDefinition describes a faceted filter exposed for a set of collections.
+// All filters share the same semantics: case-insensitive membership match against
+// a (possibly nested or slice-valued) document field, with comma-separated values
+// in the query string treated as OR.
 type FilterDefinition struct {
 	Name        string
 	FieldPath   string
-	DataType    FilterDataType
-	Operator    FilterOperator
 	Collections []collections.CollectionName
 	EnumValues  []string
-	Required    bool
 	Description string
 }
 
 type FilterValue struct {
 	Definition FilterDefinition
 	Value      string
-	RawValue   any
 }
 
 type FilterSet struct {
@@ -55,7 +37,6 @@ type DocumentPredicate = func(map[string]any) bool
 
 type FilterService interface {
 	ParseFilters(collection collections.CollectionName, queryParams map[string]string) (*FilterSet, error)
-	ValidateFilterSet(filterSet *FilterSet) error
 	BuildFilter(filterSet *FilterSet) (DocumentPredicate, error)
 	GetAvailableFilters(collection collections.CollectionName) ([]FilterDefinition, error)
 
@@ -91,35 +72,10 @@ func (fd FilterDefinition) IsApplicableToCollection(collection collections.Colle
 	if len(fd.Collections) == 0 {
 		return true
 	}
-
 	for _, c := range fd.Collections {
 		if c == collection {
 			return true
 		}
 	}
 	return false
-}
-
-func (fd FilterDefinition) ValidateValue(value string) error {
-	if fd.Required && value == "" {
-		return NewValidationError(fd.Name, "value is required")
-	}
-
-	if value == "" {
-		return nil
-	}
-
-	switch fd.DataType {
-	case EnumFilter:
-		if len(fd.EnumValues) > 0 {
-			for _, enumValue := range fd.EnumValues {
-				if enumValue == value {
-					return nil
-				}
-			}
-			return NewValidationError(fd.Name, "invalid enum value")
-		}
-	}
-
-	return nil
 }

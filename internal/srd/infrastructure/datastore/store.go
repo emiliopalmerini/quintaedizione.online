@@ -230,6 +230,7 @@ func (s *Store) Adjacent(collection, currentID string) (prevID, nextID *string, 
 
 // Aggregate iterates over a collection, applies an optional predicate, reads the
 // field at fieldPath from each matching document, and returns a map of value → count.
+// Slice-valued fields are exploded: each element contributes one count.
 func (s *Store) Aggregate(collection, fieldPath string, match func(map[string]any) bool) map[string]int64 {
 	ids, ok := s.sorted[collection]
 	if !ok {
@@ -243,13 +244,44 @@ func (s *Store) Aggregate(collection, fieldPath string, match func(map[string]an
 		if match != nil && !match(doc) {
 			continue
 		}
-		val := getNestedField(doc, fieldPath)
-		if val == nil {
-			continue
+		for _, key := range fieldKeys(doc, fieldPath) {
+			counts[key]++
 		}
-		counts[fmt.Sprintf("%v", val)]++
 	}
 	return counts
+}
+
+// fieldKeys extracts the bucket keys for an aggregate count. Returns multiple
+// keys for slice fields, one per element. Empty values are skipped.
+func fieldKeys(doc map[string]any, path string) []string {
+	val := getNestedField(doc, path)
+	if val == nil {
+		return nil
+	}
+	switch v := val.(type) {
+	case []any:
+		out := make([]string, 0, len(v))
+		for _, e := range v {
+			if s := fmt.Sprintf("%v", e); s != "" {
+				out = append(out, s)
+			}
+		}
+		return out
+	case []string:
+		out := make([]string, 0, len(v))
+		for _, e := range v {
+			if e != "" {
+				out = append(out, e)
+			}
+		}
+		return out
+	default:
+		s := fmt.Sprintf("%v", val)
+		if s == "" {
+			return nil
+		}
+		return []string{s}
+	}
 }
 
 // getNestedField retrieves a potentially nested field from a document.
