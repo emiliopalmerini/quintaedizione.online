@@ -50,6 +50,12 @@ func xpPerCharacter(totalXP, partySize int) string {
 	return strconv.Itoa(totalXP / partySize)
 }
 
+// tierMatchesInferred highlights the tier row that matches the inferred
+// difficulty from the cart's effective cost.
+func tierMatchesInferred(tierValue, inferredValue string) bool {
+	return tierValue != "" && tierValue == inferredValue
+}
+
 func tierPercentage(tierXP, maxXP int) string {
 	if maxXP == 0 {
 		return "0"
@@ -63,23 +69,6 @@ func tierPercentage(tierXP, maxXP int) string {
 
 templ Result(data ResultData) {
 	<div class="result-card success">
-		<!-- XP Budget -->
-		<div class="result-budget">
-			<span class="result-budget-label">Budget XP</span>
-			<span class="result-budget-value">{ strconv.Itoa(data.Result.TotalXP) }</span>
-			<span class="result-budget-per">{ xpPerCharacter(data.Result.TotalXP, data.Result.PartySize) } XP per personaggio</span>
-			<button
-				type="button"
-				id="copy-link-btn"
-				class="btn btn-secondary result-copy-link"
-				data-copy-default="Copia link"
-				data-copy-success="Copiato!"
-				aria-label="Copia il link condivisibile di questo incontro"
-			>
-				Copia link
-			</button>
-		</div>
-
 		<!-- Party Summary -->
 		<div class="result-party-summary">
 			<span class="result-party-tag">D&D { data.Result.Ruleset.String() }</span>
@@ -100,6 +89,16 @@ templ Result(data ResultData) {
 					{ strconv.Itoa(level) }
 				}
 			</span>
+			<button
+				type="button"
+				id="copy-link-btn"
+				class="btn btn-secondary result-copy-link"
+				data-copy-default="Copia link"
+				data-copy-success="Copiato!"
+				aria-label="Copia il link condivisibile di questo incontro"
+			>
+				Copia link
+			</button>
 		</div>
 
 		<!-- Difficulty Tiers -->
@@ -107,7 +106,7 @@ templ Result(data ResultData) {
 			<div class="result-tiers">
 				<h3 class="result-tiers-title">Soglie di Difficoltà</h3>
 				for _, tier := range data.Tiers {
-					<div class={ "result-tier", templ.KV("result-tier-active", tier.Selected) }>
+					<div class={ "result-tier", templ.KV("result-tier-active", tierMatchesInferred(tier.Value, data.InferredTier.Value)) }>
 						<div class="result-tier-header">
 							<span class="result-tier-label">{ tier.Label }</span>
 							<span class="result-tier-xp">{ strconv.Itoa(tier.XP) } XP</span>

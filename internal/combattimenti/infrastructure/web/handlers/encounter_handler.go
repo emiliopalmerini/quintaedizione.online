@@ -60,6 +60,7 @@ func (h *EncounterHandler) HomeHandler(editions []templates.EditionOption) http.
 		sourceShort := sourceShortForRuleset(editions, state.Ruleset)
 		state = state.WithSource(sourceShort) // drop foreign-source cart entries
 
+		numMonsters := countCartItems(state.Cart)
 		homeData := templates.HomeData{
 			Editions:    editions,
 			Ruleset:     state.Ruleset,
@@ -67,21 +68,17 @@ func (h *EncounterHandler) HomeHandler(editions []templates.EditionOption) http.
 			SourceShort: sourceShort,
 			Cart:        toCartSeeds(state.Cart),
 		}
-		switch state.Ruleset {
-		case "2014":
-			homeData.Difficulty2014 = state.Difficulty
-			homeData.NumMonsters = countCartItems(state.Cart)
-		default:
-			homeData.Difficulty2024 = state.Difficulty
-		}
 
-		// Server-side prerender of the result panel when the URL carries
-		// non-default state. Computing this here saves a round-trip and gives
-		// share-link recipients a fully populated page on first paint.
-		if isNonDefaultURL(r.URL.Query()) {
-			if rd, ok := h.prerenderResult(r, state, sourceShort, homeData.NumMonsters); ok {
+		// Always prerender so the central picker column ships populated on
+		// first paint. Result rail only shows the tier/cart card when the
+		// cart actually has items; empty carts get the placeholder.
+		if rd, ok := h.prerenderResult(r, state, sourceShort, numMonsters); ok {
+			if rd.HasCartItems {
 				homeData.Result = rd
 			}
+			homeData.Picker = rd.Picker
+		} else {
+			homeData.Picker = h.buildPicker(r, sourceShort, 0)
 		}
 
 		if err := templates.Home(homeData).Render(r.Context(), w); err != nil {
@@ -97,24 +94,16 @@ func (h *EncounterHandler) HomeHandler(editions []templates.EditionOption) http.
 func (h *EncounterHandler) prerenderResult(r *http.Request, state domainenc.URLState, sourceShort string, numMonsters int) (*templates.ResultData, bool) {
 	req := encounter.CalculateXPRequest{
 		Ruleset:         state.Ruleset,
-		PartyMode:       "different", // any value is fine; we already have the levels
-		Difficulty:      state.Difficulty,
+		PartyMode:       "different",
 		CharacterLevels: state.Party,
-	}
-	if state.Ruleset == "2014" {
-		req.NumMonsters = numMonsters
-		if req.NumMonsters < 1 {
-			req.NumMonsters = 1
-		}
-	}
-
-	result, err := h.service.CalculateXP(req)
-	if err != nil {
-		h.logger.Warn("home prerender: CalculateXP failed", "error", err)
-		return nil, false
+		NumMonsters:     numMonsters,
 	}
 
 	tiers := h.buildDifficultyTiers(req, "home-prerender")
+	if len(tiers) == 0 {
+		return nil, false
+	}
+	maxBudget := tiers[len(tiers)-1].XP
 
 	refs := make([]encounter.CartItemRef, 0, len(state.Cart))
 	for _, ref := range state.Cart {
@@ -128,11 +117,11 @@ func (h *EncounterHandler) prerenderResult(r *http.Request, state domainenc.URLS
 	priced, err := h.pricer.Price(r.Context(), encounter.PriceCartRequest{
 		Ruleset: state.Ruleset,
 		Refs:    refs,
-		Budget:  result.TotalXP,
+		Budget:  maxBudget,
 	})
 	if err != nil {
 		h.logger.Warn("home prerender: cart pricing failed", "error", err)
-		priced = &encounter.PriceCartResponse{Remaining: result.TotalXP}
+		priced = &encounter.PriceCartResponse{Remaining: maxBudget}
 	}
 
 	cartView := templates.CartView{
@@ -143,7 +132,16 @@ func (h *EncounterHandler) prerenderResult(r *http.Request, state domainenc.URLS
 		Multiplier:    state.Ruleset == "2014",
 	}
 	inferred := encounter.InferDifficulty(toTierThresholds(tiers), priced.EffectiveCost)
-	picker := h.buildPicker(r, sourceShort, result.TotalXP)
+	picker := h.buildPicker(r, sourceShort, maxBudget)
+
+	result := &encounter.CalculateXPResponse{
+		XPCalculationResult: domainenc.XPCalculationResult{
+			Ruleset:         domainenc.Ruleset(state.Ruleset),
+			TotalXP:         maxBudget,
+			PartySize:       len(state.Party),
+			CharacterLevels: state.Party,
+		},
+	}
 
 	return &templates.ResultData{
 		Result:       result,
@@ -152,7 +150,7 @@ func (h *EncounterHandler) prerenderResult(r *http.Request, state domainenc.URLS
 		Picker:       picker,
 		InferredTier: inferred,
 		HasCartItems: len(priced.Entries) > 0,
-		IsOverspent:  priced.Remaining < 0,
+		IsOverspent:  priced.EffectiveCost > maxBudget,
 	}, true
 }
 
@@ -301,56 +299,30 @@ func (h *EncounterHandler) CalculateHandler(w http.ResponseWriter, r *http.Reque
 		}
 	}
 
-	// Create service request
+	// Parse cart refs. Total quantity drives the 2014 multiplier so the
+	// pricer and tier thresholds stay consistent with what the user picked.
+	cartRefs := encounter.ParseCartRefs(r.Form["monsters[]"])
+	numMonsters := 0
+	for _, ref := range cartRefs {
+		numMonsters += ref.Quantity
+	}
+
 	req := encounter.CalculateXPRequest{
 		Ruleset:         ruleset,
 		PartyMode:       partyMode,
 		CharacterLevels: characterLevels,
+		NumMonsters:     numMonsters,
 	}
 
-	// Add ruleset-specific fields
-	switch ruleset {
-	case "2024":
-		req.Difficulty = r.FormValue("difficulty_2024")
-	case "2014":
-		req.Difficulty = r.FormValue("difficulty_2014")
-		if numMonstersStr := r.FormValue("num_monsters_2014"); numMonstersStr != "" {
-			req.NumMonsters, err = strconv.Atoi(numMonstersStr)
-			if err != nil {
-				h.logger.Error("Invalid number of monsters", "request_id", requestID, "error", err)
-				http.Error(w, "Invalid number of monsters", http.StatusBadRequest)
-				return
-			}
-		}
-	default:
+	tiers := h.buildDifficultyTiers(req, requestID)
+	if len(tiers) == 0 {
 		http.Error(w, "Invalid ruleset", http.StatusBadRequest)
 		return
 	}
 
-	// Parse cart refs (may be empty). Cart drives num_monsters_2014 when
-	// non-empty so the budget stays consistent with what the user picked.
-	// num_monsters_2014 must be the total monster count (sum of quantities),
-	// not the unique chip count, so the 2014 multiplier lookup matches the
-	// pricer's effective-cost calculation.
-	cartRefs := encounter.ParseCartRefs(r.Form["monsters[]"])
-	if ruleset == "2014" && len(cartRefs) > 0 {
-		total := 0
-		for _, ref := range cartRefs {
-			total += ref.Quantity
-		}
-		req.NumMonsters = total
-	}
-
-	// Calculate XP
-	result, err := h.service.CalculateXP(req)
-	if err != nil {
-		h.logger.Error("XP calculation failed", "request_id", requestID, "error", err)
-		http.Error(w, fmt.Sprintf("Calculation error: %v", err), http.StatusBadRequest)
-		return
-	}
-
-	// Calculate all difficulty tiers for visual comparison
-	tiers := h.buildDifficultyTiers(req, requestID)
+	// Use the highest tier as the picker's affordability ceiling and the
+	// cart pricer's budget — there is no single target difficulty anymore.
+	maxBudget := tiers[len(tiers)-1].XP
 
 	// Price the cart. Ruleset mismatch clears cart entries server-side.
 	sourceShort := r.FormValue("source_short")
@@ -358,11 +330,11 @@ func (h *EncounterHandler) CalculateHandler(w http.ResponseWriter, r *http.Reque
 	pricedCart, err := h.pricer.Price(r.Context(), encounter.PriceCartRequest{
 		Ruleset: ruleset,
 		Refs:    filteredRefs,
-		Budget:  result.TotalXP,
+		Budget:  maxBudget,
 	})
 	if err != nil {
 		h.logger.Warn("cart pricing failed", "request_id", requestID, "error", err)
-		pricedCart = &encounter.PriceCartResponse{Remaining: result.TotalXP}
+		pricedCart = &encounter.PriceCartResponse{Remaining: maxBudget}
 	}
 
 	cartView := templates.CartView{
@@ -374,7 +346,16 @@ func (h *EncounterHandler) CalculateHandler(w http.ResponseWriter, r *http.Reque
 	}
 	inferredTier := encounter.InferDifficulty(toTierThresholds(tiers), pricedCart.EffectiveCost)
 
-	picker := h.buildPicker(r, sourceShort, result.TotalXP)
+	picker := h.buildPicker(r, sourceShort, maxBudget)
+
+	result := &encounter.CalculateXPResponse{
+		XPCalculationResult: domainenc.XPCalculationResult{
+			Ruleset:         domainenc.Ruleset(ruleset),
+			TotalXP:         maxBudget,
+			PartySize:       len(characterLevels),
+			CharacterLevels: characterLevels,
+		},
+	}
 
 	data := templates.ResultData{
 		Result:       result,
@@ -383,17 +364,18 @@ func (h *EncounterHandler) CalculateHandler(w http.ResponseWriter, r *http.Reque
 		Picker:       picker,
 		InferredTier: inferredTier,
 		HasCartItems: len(pricedCart.Entries) > 0,
-		IsOverspent:  pricedCart.Remaining < 0,
+		IsOverspent:  pricedCart.EffectiveCost > maxBudget,
 	}
 
 	// Round-trip the active state into the browser URL so refresh/share
 	// preserves everything. HTMX's HX-Push-Url uses an absolute path; build
 	// it from the form values we just consumed (post-filtering for ruleset
 	// mismatch, which would otherwise leave stale cart entries in the URL).
-	pushURL := buildShareURL(ruleset, characterLevels, req.Difficulty, filteredRefs)
+	pushURL := buildShareURL(ruleset, characterLevels, filteredRefs)
 	w.Header().Set("HX-Push-Url", pushURL)
 
 	pkgweb.RenderTempl(w, r, h.logger, templates.Result(data))
+	_ = err
 }
 
 // toTierThresholds adapts the view-layer tier list to the inference helper's
@@ -410,7 +392,7 @@ func toTierThresholds(tiers []templates.DifficultyTier) []encounter.TierThreshol
 // URL path the browser should display afterwards. Cart refs already exclude
 // foreign-source entries (see filterRefsBySource), so the URL is consistent
 // with what the user actually got priced.
-func buildShareURL(ruleset string, levels []int, difficulty string, refs []encounter.CartItemRef) string {
+func buildShareURL(ruleset string, levels []int, refs []encounter.CartItemRef) string {
 	cart := make([]domainenc.CartRef, 0, len(refs))
 	for _, ref := range refs {
 		qty := ref.Quantity
@@ -420,10 +402,9 @@ func buildShareURL(ruleset string, levels []int, difficulty string, refs []encou
 		cart = append(cart, domainenc.CartRef{ID: ref.ID, Source: ref.Source, Qty: qty})
 	}
 	state := domainenc.URLState{
-		Ruleset:    ruleset,
-		Party:      levels,
-		Difficulty: difficulty,
-		Cart:       cart,
+		Ruleset: ruleset,
+		Party:   levels,
+		Cart:    cart,
 	}
 	q := state.EncodeQuery()
 	// The only mount point for this handler is /combattimenti; HX-Push-Url

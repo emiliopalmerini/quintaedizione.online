@@ -81,12 +81,13 @@ func TestHomeHandler_EmptyQueryRendersPlaceholder(t *testing.T) {
 	if !strings.Contains(body, `name="level"`) {
 		t.Errorf("missing level input")
 	}
-	// Empty querystring → no server-side prerender → placeholder visible.
+	// Empty cart on first paint → result panel renders the placeholder, not
+	// the populated result card.
 	if !strings.Contains(body, "result-placeholder") {
 		t.Errorf("expected placeholder; body did not contain it")
 	}
 	if strings.Contains(body, "result-card success") {
-		t.Errorf("did not expect prerendered result card on empty URL")
+		t.Errorf("did not expect populated result card on empty cart")
 	}
 }
 
@@ -110,16 +111,10 @@ func TestHomeHandler_HydratesFromURL2024High(t *testing.T) {
 	if !strings.Contains(body, `id="party-level" name="level" value="4"`) {
 		t.Errorf("party level not seeded to 4")
 	}
-	// Difficulty High selected.
-	if !strings.Contains(body, `<option value="High" selected>Alta</option>`) {
-		t.Errorf("High difficulty not selected")
-	}
-	// Server-side prerender ran.
-	if !strings.Contains(body, "result-card success") {
-		t.Errorf("expected prerendered result card; body:\n%s", body[:min(2000, len(body))])
-	}
-	if strings.Contains(body, "result-placeholder") {
-		t.Errorf("unexpected placeholder when URL has params")
+	// Empty cart on this URL → placeholder shown; tier card lives in the
+	// picker column with empty cart guidance.
+	if !strings.Contains(body, "result-placeholder") {
+		t.Errorf("expected placeholder for empty cart hydration")
 	}
 }
 
@@ -170,9 +165,6 @@ func TestHomeHandler_HydratesFromURL2014(t *testing.T) {
 	if !strings.Contains(body, `value="2014" data-source="srd-5e" data-source-short="5e" checked`) {
 		t.Errorf("2014 radio not checked")
 	}
-	if !strings.Contains(body, `<option value="Difficile" selected>Difficile</option>`) {
-		t.Errorf("Difficile not selected")
-	}
 }
 
 func TestHomeHandler_DifferentLevelsMode(t *testing.T) {
@@ -199,7 +191,7 @@ func TestHomeHandler_DifferentLevelsMode(t *testing.T) {
 
 func TestCalculateHandler_SetsHXPushURL(t *testing.T) {
 	h, _ := newTestHandler(t)
-	form := strings.NewReader("ruleset=2024&party_mode=same&level=4&count=4&difficulty_2024=High&source_short=5.5e")
+	form := strings.NewReader("ruleset=2024&party_mode=same&level=4&count=4&source_short=5.5e")
 	req := httptest.NewRequest(http.MethodPost, "/combattimenti/calculate", form)
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	rec := httptest.NewRecorder()
@@ -216,11 +208,8 @@ func TestCalculateHandler_SetsHXPushURL(t *testing.T) {
 	if !strings.HasPrefix(got, "/combattimenti?") {
 		t.Errorf("unexpected HX-Push-Url prefix: %q", got)
 	}
-	// party=4,4,4,4 is non-default; ruleset and diff are non-default too.
-	for _, fragment := range []string{"party=4%2C4%2C4%2C4", "diff=High"} {
-		if !strings.Contains(got, fragment) {
-			t.Errorf("HX-Push-Url %q missing fragment %q", got, fragment)
-		}
+	if !strings.Contains(got, "party=4%2C4%2C4%2C4") {
+		t.Errorf("HX-Push-Url %q missing party fragment", got)
 	}
 }
 
@@ -228,7 +217,7 @@ func TestCalculateHandler_HXPushURLDropsForeignCart(t *testing.T) {
 	h, _ := newTestHandler(t)
 	// cart entry's source ("5e") doesn't match active ruleset's source ("5.5e")
 	// → filterRefsBySource drops it → URL should not contain it either.
-	body := "ruleset=2024&party_mode=same&level=3&count=4&difficulty_2024=Moderate&source_short=5.5e&monsters%5B%5D=goblin@5e"
+	body := "ruleset=2024&party_mode=same&level=3&count=4&source_short=5.5e&monsters%5B%5D=goblin@5e"
 	req := httptest.NewRequest(http.MethodPost, "/combattimenti/calculate", strings.NewReader(body))
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	rec := httptest.NewRecorder()

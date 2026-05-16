@@ -280,6 +280,48 @@ html.dark .page-header-map::before { opacity: 0.04; mix-blend-mode: screen; filt
 .encounter-results .htmx-request .htmx-indicator { display: flex; justify-content: center; margin-bottom: var(--space-3); }
 .encounter-results .htmx-request .result-placeholder p { opacity: 0.6; }
 
+/* Builder layout: compact party sidebar | monster picker (dominant) | cart
+   right rail. Stacks vertically below the lg breakpoint with the picker on
+   top so monsters remain the focus on narrow screens. */
+.encounter-builder {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .encounter-builder {
+    grid-template-columns: 240px minmax(0, 1fr) 320px;
+  }
+}
+.encounter-builder-party,
+.encounter-builder-result {
+  min-width: 0;
+}
+.encounter-builder-picker { min-width: 0; }
+@media (min-width: 900px) {
+  .encounter-builder-party,
+  .encounter-builder-result {
+    position: sticky;
+    top: calc(var(--nav-height) + var(--space-4));
+    max-height: calc(100vh - var(--nav-height) - var(--space-8));
+    overflow-y: auto;
+  }
+}
+.encounter-builder-party .form-section { margin-bottom: var(--space-3); }
+.encounter-builder-party .form-section-title {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-2) 0;
+}
+.encounter-builder-result #result-container { transition: none; }
+.encounter-builder-result .htmx-indicator { display: none; }
+.encounter-builder-result .htmx-request .htmx-indicator {
+  display: flex; justify-content: center; margin-bottom: var(--space-3);
+}
+
 /* Form grid helpers */
 .form-grid-2col {
   display: grid;

@@ -303,21 +303,6 @@ function buildShareURL() {
         params.set('party', partyStr);
     }
 
-    // difficulty — only emit when not the ruleset's default
-    var rulesetVal = (ruleset && ruleset.value) || '2024';
-    var defaultDiff = rulesetVal === '2014' ? 'Media' : 'Moderate';
-    var diff = '';
-    if (rulesetVal === '2014') {
-        var d2014 = form.querySelector('select[name="difficulty_2014"]');
-        if (d2014) diff = d2014.value;
-    } else {
-        var d2024 = form.querySelector('select[name="difficulty_2024"]');
-        if (d2024) diff = d2024.value;
-    }
-    if (diff && diff !== defaultDiff) {
-        params.set('diff', diff);
-    }
-
     // cart — id@source[:qty], coalescing duplicates
     var cartInputs = form.querySelectorAll('input[name="monsters[]"]');
     if (cartInputs.length) {
@@ -420,23 +405,6 @@ function copyWithSelection(text) {
 function initEncounterForm() {
     var form = document.getElementById('encounter-form');
     if (!form) return;
-
-    // Ruleset toggle
-    var rulesetRadios = document.querySelectorAll('input[name="ruleset"]');
-    var difficulty2024Panel = document.getElementById('difficulty-2024-panel');
-    var difficulty2014Panel = document.getElementById('difficulty-2014-panel');
-
-    function updateRulesetUI() {
-        var checked = document.querySelector('input[name="ruleset"]:checked');
-        if (!checked) return;
-        var is2024 = checked.value === '2024';
-        if (difficulty2024Panel) difficulty2024Panel.classList.toggle('hidden', !is2024);
-        if (difficulty2014Panel) difficulty2014Panel.classList.toggle('hidden', is2024);
-    }
-
-    rulesetRadios.forEach(function(radio) {
-        radio.addEventListener('change', updateRulesetUI);
-    });
 
     // Party mode toggle
     var partyModeRadios = document.querySelectorAll('input[name="party_mode"]');
