@@ -44,7 +44,11 @@ func newTestRepo() *MappaRepository {
 	fs := fstest.MapFS{
 		"mappe.json": &fstest.MapFile{Data: []byte(testJSON)},
 	}
-	return NewMappaRepository(fs, "mappe.json")
+	repo, err := NewMappaRepository(fs, "mappe.json")
+	if err != nil {
+		panic(err)
+	}
+	return repo
 }
 
 func TestNewMappaRepository_LoadsMaps(t *testing.T) {
@@ -279,7 +283,10 @@ func TestNewMappaRepository_SkipsMissingImmagine(t *testing.T) {
 	fs := fstest.MapFS{
 		"mappe.json": &fstest.MapFile{Data: []byte(json)},
 	}
-	repo := NewMappaRepository(fs, "mappe.json")
+	repo, err := NewMappaRepository(fs, "mappe.json")
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
 	all := repo.FindAll()
 	if len(all) != 1 {
 		t.Fatalf("expected 1 map (skipping missing immagine), got %d", len(all))
@@ -297,12 +304,22 @@ func TestNewMappaRepository_SkipsDuplicateSlug(t *testing.T) {
 	fs := fstest.MapFS{
 		"mappe.json": &fstest.MapFile{Data: []byte(json)},
 	}
-	repo := NewMappaRepository(fs, "mappe.json")
+	repo, err := NewMappaRepository(fs, "mappe.json")
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
 	all := repo.FindAll()
 	if len(all) != 1 {
 		t.Fatalf("expected 1 map (skipping duplicate), got %d", len(all))
 	}
 	if all[0].Nome != "First" {
 		t.Errorf("expected First (keep first), got %s", all[0].Nome)
+	}
+}
+
+func TestNewMappaRepository_ReturnsLoadError(t *testing.T) {
+	_, err := NewMappaRepository(fstest.MapFS{}, "missing.json")
+	if err == nil {
+		t.Fatal("expected load error, got nil")
 	}
 }

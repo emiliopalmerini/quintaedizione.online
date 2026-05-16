@@ -119,7 +119,10 @@ func main() {
 	// ── Mappe setup ───────────────────────────────────────────
 
 	log.Println("Loading Mappe data...")
-	mappaRepo := mappePersistence.NewMappaRepository(mappeData.Files, "mappe.json")
+	mappaRepo, err := mappePersistence.NewMappaRepository(mappeData.Files, "mappe.json")
+	if err != nil {
+		log.Fatalf("Failed to load mappe data: %v", err)
+	}
 	galleryHandler := mappeHandlers.NewGalleryHandler(mappaRepo, logger)
 	log.Printf("Mappe ready: %d maps loaded", len(mappaRepo.FindAll()))
 

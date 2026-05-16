@@ -1,6 +1,7 @@
 package persistence
 
 import (
+	"fmt"
 	"io/fs"
 	"log"
 	"slices"
@@ -32,10 +33,10 @@ type MappaRepository struct {
 }
 
 // NewMappaRepository loads maps from the provided filesystem.
-func NewMappaRepository(dataFS fs.FS, filename string) *MappaRepository {
+func NewMappaRepository(dataFS fs.FS, filename string) (*MappaRepository, error) {
 	raw, err := datastore.LoadJSON[jsonMappa](dataFS, filename)
 	if err != nil {
-		log.Fatalf("failed to load %s: %v", filename, err)
+		return nil, fmt.Errorf("load %s: %w", filename, err)
 	}
 
 	mappe := make([]domain.Mappa, 0, len(raw))
@@ -83,7 +84,7 @@ func NewMappaRepository(dataFS fs.FS, filename string) *MappaRepository {
 		bySlug: bySlug,
 	}
 	repo.buildFacets()
-	return repo
+	return repo, nil
 }
 
 func (r *MappaRepository) FindAll() []domain.Mappa {
