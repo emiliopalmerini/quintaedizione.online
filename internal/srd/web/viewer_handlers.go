@@ -24,7 +24,7 @@ type Handlers struct {
 
 // NewHandlers creates all specialized handlers with shared dependencies.
 // defaultSource is the source ID used for legacy URL redirects (e.g. "srd-5.5e").
-func NewHandlers(contentService *services.ContentService, searchService search.SearchService, templateEngine *templates.TemplEngine, defaultSource string, multiSource bool, versionResolver display.VersionResolver, opts ...HandlersOption) *Handlers {
+func NewHandlers(contentService *services.ContentService, searchService search.SearchService, templateEngine *templates.TemplEngine, defaultSource string, multiSource bool, versionResolver display.VersionResolver) *Handlers {
 	var displayOpts []func(*display.DisplayElementFactory)
 	if versionResolver != nil {
 		displayOpts = append(displayOpts, display.WithVersionResolver(versionResolver))
@@ -64,21 +64,7 @@ func NewHandlers(contentService *services.ContentService, searchService search.S
 		defaultSource: defaultSource,
 	}
 
-	for _, opt := range opts {
-		opt(h)
-	}
-
 	return h
-}
-
-// HandlersOption configures optional dependencies for Handlers.
-type HandlersOption func(*Handlers)
-
-// WithSearchRecorder sets a SearchRecorder for tracking search metrics.
-func WithSearchRecorder(r SearchRecorder) HandlersOption {
-	return func(h *Handlers) {
-		h.search.searchRecorder = r
-	}
 }
 
 // RegisterRoutes registers all SRD HTTP routes on a chi-compatible http.ServeMux or router.
