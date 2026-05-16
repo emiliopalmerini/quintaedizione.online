@@ -104,19 +104,31 @@ func (s *MostriDisplayStrategy) GetElements(doc *domain.Document) []dto.DisplayE
 
 	rawContent := getRawContent(doc)
 
-	if ca := extractMonsterCA(rawContent); ca != "" {
+	ca := getFieldValue(doc, "ac", "ca")
+	if ca == "" {
+		ca = extractMonsterCA(rawContent)
+	}
+	if ca != "" {
 		elements = append(elements, dto.DisplayElementDTO{
 			Value: fmt.Sprintf("CA %s", ca),
 			Type:  "ac",
 		})
 	}
-	if pf := extractMonsterPF(rawContent); pf != "" {
+	pf := getFieldValue(doc, "hp", "pf")
+	if pf == "" {
+		pf = extractMonsterPF(rawContent)
+	}
+	if pf != "" {
 		elements = append(elements, dto.DisplayElementDTO{
 			Value: fmt.Sprintf("PF %s", pf),
 			Type:  "hp",
 		})
 	}
-	if gs := extractMonsterGS(rawContent); gs != "" {
+	gs := getFieldValue(doc, "grado_sfida", "cr")
+	if gs == "" {
+		gs = extractMonsterGS(rawContent)
+	}
+	if gs != "" {
 		elements = append(elements, dto.DisplayElementDTO{
 			Value: fmt.Sprintf("GS %s", gs),
 			Type:  "challenge_rating",
@@ -185,13 +197,21 @@ func (s *BackgroundsDisplayStrategy) GetElements(doc *domain.Document) []dto.Dis
 
 	rawContent := getRawContent(doc)
 
-	if abilita := extractBackgroundField(rawContent, "Competenze in Abilità"); abilita != "" {
+	abilita := getFieldValue(doc, "skill_proficiencies", "competenze_abilita", "competenze_nelle_abilita")
+	if abilita == "" {
+		abilita = extractBackgroundFieldAny(rawContent, "Competenze nelle Abilita", "Competenze nelle Abilità", "Competenze in Abilita", "Competenze in Abilità")
+	}
+	if abilita != "" {
 		elements = append(elements, dto.DisplayElementDTO{
 			Value: abilita,
 			Type:  "skills",
 		})
 	}
-	if talento := extractBackgroundField(rawContent, "Talento"); talento != "" {
+	talento := getFieldValue(doc, "feat", "talento")
+	if talento == "" {
+		talento = extractBackgroundField(rawContent, "Talento")
+	}
+	if talento != "" {
 		elements = append(elements, dto.DisplayElementDTO{
 			Value: talento,
 			Type:  "feat",
@@ -212,7 +232,11 @@ func (s *TalentiDisplayStrategy) GetElements(doc *domain.Document) []dto.Display
 
 	rawContent := getRawContent(doc)
 
-	if category := extractFeatCategory(rawContent); category != "" {
+	category := getFieldValue(doc, "categoria")
+	if category == "" {
+		category = extractFeatCategory(rawContent)
+	}
+	if category != "" {
 		elements = append(elements, dto.DisplayElementDTO{
 			Value: category,
 			Type:  "category",
@@ -233,7 +257,11 @@ func (s *ClassiDisplayStrategy) GetElements(doc *domain.Document) []dto.DisplayE
 
 	rawContent := getRawContent(doc)
 
-	if hitDie := extractClassHitDie(rawContent); hitDie != "" {
+	hitDie := getFieldValue(doc, "hit_die")
+	if hitDie == "" {
+		hitDie = extractClassHitDie(rawContent)
+	}
+	if hitDie != "" {
 		elements = append(elements, dto.DisplayElementDTO{
 			Value: hitDie,
 			Type:  "hit_die",
@@ -467,6 +495,15 @@ func extractBackgroundField(rawContent string, fieldName string) string {
 		value := strings.TrimSpace(matches[1])
 		value = strings.TrimSuffix(value, "  ")
 		return value
+	}
+	return ""
+}
+
+func extractBackgroundFieldAny(rawContent string, fieldNames ...string) string {
+	for _, fieldName := range fieldNames {
+		if value := extractBackgroundField(rawContent, fieldName); value != "" {
+			return value
+		}
 	}
 	return ""
 }

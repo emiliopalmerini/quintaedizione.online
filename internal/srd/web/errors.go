@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/domain"
+	"github.com/emiliopalmerini/quintaedizione.online/internal/srd/web/models"
 	pkgweb "github.com/emiliopalmerini/quintaedizione.online/pkg/web"
 )
 
@@ -24,7 +25,12 @@ var errorMappings = []pkgweb.ErrorMapping{
 		Message:    "Collezione non valida o non supportata.",
 	},
 	{
-		Patterns:   []string{"unauthorized", "forbidden"},
+		Patterns:   []string{"forbidden"},
+		StatusCode: http.StatusForbidden,
+		Message:    "Accesso non autorizzato.",
+	},
+	{
+		Patterns:   []string{"unauthorized"},
 		StatusCode: http.StatusUnauthorized,
 		Message:    "Accesso non autorizzato.",
 	},
@@ -100,11 +106,13 @@ func (h *baseHandler) renderErrorPage(w http.ResponseWriter, r *http.Request, me
 		return
 	}
 
-	content, err := h.templateEngine.Render("error.html", map[string]any{
-		"title":       "Errore",
-		"error":       message,
-		"status_code": statusCode,
-		"show_home":   true,
+	content, err := h.templateEngine.RenderError(r.Context(), models.ErrorPageData{
+		PageData: models.PageData{
+			Title: "Errore",
+		},
+		ErrorTitle:   errorPageTitle(statusCode),
+		ErrorMessage: message,
+		ErrorCode:    statusCode,
 	})
 	if err != nil {
 		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
@@ -116,6 +124,25 @@ func (h *baseHandler) renderErrorPage(w http.ResponseWriter, r *http.Request, me
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	w.WriteHeader(statusCode)
 	w.Write([]byte(content))
+}
+
+func errorPageTitle(statusCode int) string {
+	switch statusCode {
+	case http.StatusBadRequest:
+		return "Richiesta non valida"
+	case http.StatusUnauthorized:
+		return "Accesso non autorizzato"
+	case http.StatusForbidden:
+		return "Accesso negato"
+	case http.StatusNotFound:
+		return "Pagina non trovata"
+	case http.StatusGatewayTimeout:
+		return "Timeout della richiesta"
+	case http.StatusServiceUnavailable:
+		return "Servizio non disponibile"
+	default:
+		return "Errore"
+	}
 }
 
 func containsAny(str string, substrings ...string) bool {

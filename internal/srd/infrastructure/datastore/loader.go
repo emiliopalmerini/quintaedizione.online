@@ -394,6 +394,7 @@ func (l *Loader) loadClasses(result map[string][]map[string]any) error {
 			"_id":                c.ID,
 			"title":              c.Name,
 			"raw_content":        l.buildClassMarkdown(c),
+			"hit_die":            c.HitDie,
 			"description_html":   descHTML,
 			"proficiencies_html": profHTML,
 			"features":           features,
@@ -430,10 +431,15 @@ func (l *Loader) loadBackgrounds(result map[string][]map[string]any) error {
 	docs := make([]map[string]any, 0, len(backgrounds))
 	for _, bg := range backgrounds {
 		doc := map[string]any{
-			"_id":         bg.ID,
-			"title":       bg.Name,
-			"content":     l.buildBackgroundHTML(bg),
-			"raw_content": l.buildBackgroundMarkdown(bg),
+			"_id":                 bg.ID,
+			"title":               bg.Name,
+			"content":             l.buildBackgroundHTML(bg),
+			"raw_content":         l.buildBackgroundMarkdown(bg),
+			"ability_scores":      bg.AbilityScores,
+			"feat":                bg.Feat,
+			"skill_proficiencies": bg.SkillProficiencies,
+			"tool_proficiency":    bg.ToolProficiency,
+			"equipment":           bg.Equipment,
 		}
 		l.tagDoc(doc)
 		docs = append(docs, doc)
