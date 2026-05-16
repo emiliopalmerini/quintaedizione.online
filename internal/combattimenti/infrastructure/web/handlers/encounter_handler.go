@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log/slog"
 	"net/http"
-	"net/url"
 	"strconv"
 	"strings"
 
@@ -202,43 +201,6 @@ func countCartItems(refs []domainenc.CartRef) int {
 		n += ref.Qty
 	}
 	return n
-}
-
-// isNonDefaultURL reports whether the request URL has any of the known
-// share-link parameters. Used to skip the prerender (and the cost of building
-// the picker on a cold cache miss) for first-time visits.
-func isNonDefaultURL(v url.Values) bool {
-	for _, key := range []string{"ruleset", "party", "diff", "cart"} {
-		if v.Has(key) {
-			return true
-		}
-	}
-	return false
-}
-
-// Form data structures for HTTP requests
-type PartyInputSameForm struct {
-	Level int `json:"level" validate:"required,min=1,max=20"`
-	Count int `json:"count" validate:"required,min=1,max=100"`
-}
-
-type PartyInputDifferentForm struct {
-	CharacterLevels []int `json:"character_levels" validate:"required,min=1,dive,min=1,max=20"`
-}
-
-type Calculate2024Form struct {
-	Ruleset         string `json:"ruleset" validate:"required,eq=2024"`
-	PartyMode       string `json:"party_mode" validate:"required,oneof=same different"`
-	Difficulty2024  string `json:"difficulty_2024" validate:"required"`
-	CharacterLevels []int  `json:"character_levels" validate:"required,min=1"`
-}
-
-type Calculate2014Form struct {
-	Ruleset         string `json:"ruleset" validate:"required,eq=2014"`
-	PartyMode       string `json:"party_mode" validate:"required,oneof=same different"`
-	Difficulty2014  string `json:"difficulty_2014" validate:"required"`
-	NumMonsters     int    `json:"num_monsters_2014" validate:"min=0"`
-	CharacterLevels []int  `json:"character_levels" validate:"required,min=1"`
 }
 
 // CalculateHandler handles XP calculation requests
@@ -486,8 +448,8 @@ func (h *EncounterHandler) PartyInputHandler(w http.ResponseWriter, r *http.Requ
 		partyMode = "same" // default
 	}
 
-	// Validate party mode
-	if err := h.service.ValidatePartyComposition(partyMode, nil, 1, 1); err != nil {
+	mode, err := domainenc.NewPartyMode(partyMode)
+	if err != nil {
 		h.logger.Error("Invalid party mode", "request_id", requestID, "party_mode", partyMode, "error", err)
 		http.Error(w, "Invalid party mode", http.StatusBadRequest)
 		return
@@ -501,7 +463,7 @@ func (h *EncounterHandler) PartyInputHandler(w http.ResponseWriter, r *http.Requ
 		PartyMode    string                  `json:"party_mode"`
 		LevelOptions []encounter.LevelOption `json:"level_options"`
 	}{
-		PartyMode:    partyMode,
+		PartyMode:    mode.String(),
 		LevelOptions: levelOptions,
 	}
 
@@ -559,26 +521,6 @@ func (h *EncounterHandler) buildDifficultyTiers(req encounter.CalculateXPRequest
 	return tiers
 }
 
-// Helper function to parse character levels from comma-separated string
-func (h *EncounterHandler) parseCharacterLevels(levelsStr string) ([]int, error) {
-	if levelsStr == "" {
-		return nil, fmt.Errorf("character levels cannot be empty")
-	}
-
-	levelStrs := strings.Split(levelsStr, ",")
-	levels := make([]int, len(levelStrs))
-
-	for i, levelStr := range levelStrs {
-		level, err := strconv.Atoi(strings.TrimSpace(levelStr))
-		if err != nil {
-			return nil, fmt.Errorf("invalid level '%s': %w", levelStr, err)
-		}
-		levels[i] = level
-	}
-
-	return levels, nil
-}
-
 // GetDifficultiesHandler returns available difficulties for a ruleset
 func (h *EncounterHandler) GetDifficultiesHandler(w http.ResponseWriter, r *http.Request) {
 	requestID := r.Header.Get("X-Request-Id")
@@ -590,6 +532,10 @@ func (h *EncounterHandler) GetDifficultiesHandler(w http.ResponseWriter, r *http
 	}
 
 	difficulties := h.queryHandler.GetDifficultyOptions(ruleset)
+	if len(difficulties) == 0 {
+		http.Error(w, "Invalid ruleset", http.StatusBadRequest)
+		return
+	}
 
 	w.Header().Set("Content-Type", "application/json")
 	if err := json.NewEncoder(w).Encode(difficulties); err != nil {
