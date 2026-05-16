@@ -149,7 +149,7 @@ func Home(data HomeData) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"encounter-fullbleed\"><div class=\"page-header page-header-map\" style=\"--map-bg: url('/static/img/dyson-map-1.webp')\"><h1>Costruttore Incontri</h1><p class=\"page-header-subtitle\">Riempi il carrello di mostri; la difficoltà si calcola da sola.</p></div><div class=\"encounter-builder\"><aside class=\"encounter-builder-party\"><form id=\"encounter-form\" hx-post=\"/combattimenti/calculate\" hx-target=\"#result-container\" hx-swap=\"innerHTML transition:false\" hx-trigger=\"calculate, submit\" hx-indicator=\"false\"><div class=\"form-section\"><h2 class=\"form-section-title\">Edizione</h2><div class=\"segmented-control\" role=\"radiogroup\" aria-label=\"Edizione delle regole\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"encounter-fullbleed\"><div class=\"page-header page-header-map\" style=\"--map-bg: url('/static/img/dyson-map-1.webp')\"><h1>Combattimenti</h1><p class=\"page-header-subtitle\">Costruisci un incontro: scegli edizione e party, aggiungi mostri al carrello e leggi in tempo reale la difficoltà inferita dai PE. Supporta regole 2014 e 2024.</p></div><div class=\"encounter-builder\"><aside class=\"encounter-builder-party\"><form id=\"encounter-form\" hx-post=\"/combattimenti/calculate\" hx-target=\"#result-container\" hx-swap=\"innerHTML transition:false\" hx-trigger=\"calculate, submit\" hx-indicator=\"false\"><div class=\"form-section\"><h2 class=\"form-section-title\">Edizione</h2><div class=\"segmented-control\" role=\"radiogroup\" aria-label=\"Edizione delle regole\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -466,7 +466,7 @@ func Home(data HomeData) templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = shared.SiteLayout("Costruttore Incontri", "Costruttore di incontri D&D 5e per Dungeon Master — supporta regole 2014 e 2024.", "combattimenti", shared.EncountersScript()).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = shared.SiteLayout("Combattimenti", "Costruttore di incontri D&D 5e per Dungeon Master: scegli edizione e party, aggiungi mostri al carrello e leggi in tempo reale la difficoltà inferita dai PE. Supporta regole 2014 e 2024.", "combattimenti", shared.EncountersScript()).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

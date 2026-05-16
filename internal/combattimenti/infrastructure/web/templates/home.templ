@@ -109,11 +109,11 @@ func (d HomeData) isSameMode() bool {
 }
 
 templ Home(data HomeData) {
-	@shared.SiteLayout("Costruttore Incontri", "Costruttore di incontri D&D 5e per Dungeon Master — supporta regole 2014 e 2024.", "combattimenti", shared.EncountersScript()) {
+	@shared.SiteLayout("Combattimenti", "Costruttore di incontri D&D 5e per Dungeon Master: scegli edizione e party, aggiungi mostri al carrello e leggi in tempo reale la difficoltà inferita dai PE. Supporta regole 2014 e 2024.", "combattimenti", shared.EncountersScript()) {
 		<div class="encounter-fullbleed">
 			<div class="page-header page-header-map" style="--map-bg: url('/static/img/dyson-map-1.webp')">
-				<h1>Costruttore Incontri</h1>
-				<p class="page-header-subtitle">Riempi il carrello di mostri; la difficoltà si calcola da sola.</p>
+				<h1>Combattimenti</h1>
+				<p class="page-header-subtitle">Costruisci un incontro: scegli edizione e party, aggiungi mostri al carrello e leggi in tempo reale la difficoltà inferita dai PE. Supporta regole 2014 e 2024.</p>
 			</div>
 			<div class="encounter-builder">
 			<aside class="encounter-builder-party">

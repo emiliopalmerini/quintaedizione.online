@@ -305,7 +305,7 @@ html.dark .page-header-map::before { opacity: 0.04; mix-blend-mode: screen; filt
 }
 @media (min-width: 900px) {
   .encounter-builder {
-    grid-template-columns: 240px minmax(0, 1fr) 320px;
+    grid-template-columns: 280px minmax(0, 1fr) 340px;
   }
 }
 .encounter-builder-party,
@@ -322,13 +322,31 @@ html.dark .page-header-map::before { opacity: 0.04; mix-blend-mode: screen; filt
     overflow-y: auto;
   }
 }
-.encounter-builder-party .form-section { margin-bottom: var(--space-3); }
+.encounter-builder-party .form-section { margin-bottom: var(--space-4); }
+.encounter-builder-party .form-section:last-child { margin-bottom: 0; }
 .encounter-builder-party .form-section-title {
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+  font-weight: var(--weight-semibold);
   color: var(--color-text-secondary);
   margin: 0 0 var(--space-2) 0;
+}
+/* Party sidebar: keep segmented-control labels on one line and trim padding
+   so labels like "Livelli diversi" don't wrap inside the 280px column. */
+.encounter-builder-party .segmented-control-option {
+  flex: 1 1 auto;
+  text-align: center;
+}
+.encounter-builder-party .segmented-control-option > span {
+  white-space: nowrap;
+  font-size: var(--text-sm);
+}
+.encounter-builder-party .form-grid-2col { gap: var(--space-3); }
+.encounter-builder-party .form-label {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-1);
 }
 .encounter-builder-result #result-container { transition: none; }
 .encounter-builder-result .htmx-indicator { display: none; }
@@ -566,28 +584,31 @@ html.dark .page-header-map::before { opacity: 0.04; mix-blend-mode: screen; filt
   padding: 0;
   margin: 0 0 var(--space-4) 0;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: var(--space-2);
 }
 .result-cart-chip {
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto auto;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-1) var(--space-2) var(--space-1) var(--space-3);
+  padding: var(--space-2) var(--space-3);
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-md);
   font-size: var(--text-sm);
 }
 .result-cart-chip-qty {
   font-weight: var(--weight-semibold);
   color: var(--color-text-secondary);
   font-size: var(--text-sm);
+  flex-shrink: 0;
 }
-.result-cart-chip-name { font-weight: var(--weight-medium); }
-.result-cart-chip-xp {
-  font-size: var(--text-xs);
-  color: var(--color-text-secondary);
+.result-cart-chip-name {
+  font-weight: var(--weight-medium);
+  min-width: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.2;
 }
 .result-cart-chip-step,
 .result-cart-chip-remove {
@@ -596,9 +617,15 @@ html.dark .page-header-map::before { opacity: 0.04; mix-blend-mode: screen; filt
   color: var(--color-text-secondary);
   font-size: var(--text-lg);
   line-height: 1;
-  padding: 0 var(--space-1);
+  padding: var(--space-1);
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
 }
 .result-cart-chip-step:hover,
 .result-cart-chip-remove:hover { color: var(--color-text); background: var(--color-bg-tertiary); }
