@@ -109,7 +109,7 @@ templ Result(data ResultData) {
 					<div class={ "result-tier", templ.KV("result-tier-active", tierMatchesInferred(tier.Value, data.InferredTier.Value)) }>
 						<div class="result-tier-header">
 							<span class="result-tier-label">{ tier.Label }</span>
-							<span class="result-tier-xp">{ strconv.Itoa(tier.XP) } XP</span>
+							<span class="result-tier-xp">{ strconv.Itoa(tier.XP) } PE</span>
 						</div>
 						<div class="result-tier-bar">
 							<div class="result-tier-fill" style={ "width:" + tierPercentage(tier.XP, data.Tiers[len(data.Tiers)-1].XP) + "%" }></div>
