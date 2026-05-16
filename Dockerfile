@@ -13,8 +13,8 @@ COPY go.mod go.sum ./
 # Download dependencies
 RUN go mod download
 
-# Install Templ CLI
-RUN go install github.com/a-h/templ/cmd/templ@latest
+# Install Templ CLI (pin to go.mod version to avoid generator/runtime drift)
+RUN go install github.com/a-h/templ/cmd/templ@v0.3.1001
 
 # Copy source code
 COPY . .
