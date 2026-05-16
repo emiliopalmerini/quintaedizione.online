@@ -380,8 +380,10 @@ html.dark .page-header-map::before { opacity: 0.04; mix-blend-mode: screen; filt
 }
 .encounter-builder-party .character-levels-list {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   gap: var(--space-2);
+  margin-bottom: 0;
 }
 .encounter-builder-party .character-input-group {
   display: flex;
