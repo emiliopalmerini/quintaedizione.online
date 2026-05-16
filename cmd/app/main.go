@@ -154,6 +154,25 @@ func main() {
 		}
 	})
 
+	// CSS bundle: concatenate non-critical CSS into a single hashed file.
+	// Critical CSS (tokens + base) is inlined in <head> by the layout template.
+	const cssDir = "./web/static/css"
+	criticalCSS := []string{"tokens.css", "base.css"}
+	bundleCSS := []string{
+		"components.css",
+		"search.css",
+		"collections.css",
+		"pages.css",
+		"mappe.css",
+		"generatori.css",
+		"a11y.css",
+		"utilities.css",
+	}
+	if err := pkgweb.LoadCSSAssets(cssDir, criticalCSS, bundleCSS); err != nil {
+		log.Fatalf("Failed to load CSS assets: %v", err)
+	}
+	mux.Handle("GET "+pkgweb.CSSBundlePath(), pkgweb.CSSBundleHandler())
+
 	// Static files (shared) — cache for 1 day (assets are unversioned)
 	mux.Handle("GET /static/", http.StripPrefix("/static/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Cache-Control", "public, max-age=86400")

@@ -1,3 +1,17 @@
+// Activate the deferred Google Fonts stylesheet (loaded with media="print"
+// so it doesn't block first paint). Swap to media="all" once the file is in.
+(function activateFonts() {
+	var link = document.getElementById('font-css');
+	if (!link) return;
+	if (link.sheet) {
+		link.media = 'all';
+		return;
+	}
+	link.addEventListener('load', function() {
+		link.media = 'all';
+	}, { once: true });
+})();
+
 // Copy markdown functionality with fallback support
 function copyMarkdown(btn){
 	const section = btn.closest('[data-md-section]') || btn.closest('article') || document;

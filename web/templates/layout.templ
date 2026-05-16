@@ -32,26 +32,27 @@ templ SiteLayout(title, description, activeNav string, extraHeadHTML templ.Compo
 			(function(){var d=document.documentElement,c=document.cookie.match(/(?:^|;\s*)theme=(dark|light)/),t=c?c[1]:null;if(!t)try{t=localStorage.getItem('theme')}catch(e){}if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)t='dark';if(t==='dark')d.classList.add('dark');else d.classList.remove('dark')})()
 		</script>
 		<script src="/static/htmx.min.js" defer></script>
+		@templ.Raw("<style type=\"text/css\">" + pkgweb.CriticalCSS() + "</style>")
+		<link rel="preload" as="style" href={ pkgweb.CSSBundlePath() }/>
+		<link rel="stylesheet" href={ pkgweb.CSSBundlePath() }/>
 		<link rel="preconnect" href="https://fonts.googleapis.com"/>
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/>
-		<link rel="stylesheet" href="/static/css/tokens.css"/>
-		<link rel="stylesheet" href="/static/css/base.css"/>
-		<link rel="stylesheet" href="/static/css/components.css"/>
-		<link rel="stylesheet" href="/static/css/search.css"/>
-		<link rel="stylesheet" href="/static/css/collections.css"/>
-		<link rel="stylesheet" href="/static/css/pages.css"/>
-		<link rel="stylesheet" href="/static/css/mappe.css"/>
-		<link rel="stylesheet" href="/static/css/generatori.css"/>
-		<link rel="stylesheet" href="/static/css/a11y.css"/>
-		<link rel="stylesheet" href="/static/css/utilities.css"/>
+		<link
+			id="font-css"
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			media="print"
+		/>
+		<noscript>
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/>
+		</noscript>
 		<link rel="icon" href="/static/favicon.svg" type="image/svg+xml"/>
 		<script src="/static/main.js" defer></script>
 		if extraHeadHTML != nil {
 			@extraHeadHTML
 		}
 	</head>
-	<body class="flex flex-col min-h-screen">
+	<body class="flex flex-col min-h-screen" hx-boost="true">
 		<a href="#page-root" class="skip-to-content">Vai al contenuto principale</a>
 
 		<header class="site-nav">
