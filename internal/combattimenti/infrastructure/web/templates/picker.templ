@@ -96,8 +96,7 @@ templ MonsterPicker(data PickerData) {
 								<span class="monster-picker-row-toggle" aria-hidden="true">▸</span>
 								<span class="monster-picker-row-name">{ m.Name }</span>
 								<span class="monster-picker-row-inline">
-									<span>GS { m.CR }</span>
-									<span class="monster-picker-row-xp">{ strconv.Itoa(m.XP) } PE</span>
+									<span>GS { m.CR } <span class="monster-picker-row-xp">({ strconv.Itoa(m.XP) } PE)</span></span>
 									if m.Type != "" {
 										<span class="monster-picker-row-type">{ m.Type }</span>
 									}
