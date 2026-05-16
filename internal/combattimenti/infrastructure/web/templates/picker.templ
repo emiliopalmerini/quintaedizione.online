@@ -10,9 +10,6 @@ import (
 type PickerData struct {
 	Source       string // edition short name
 	Query        string // current search needle
-	Budget       int    // current encounter budget (wallet size)
-	MaxXP        int    // affordability ceiling (== Budget when OnlyAfford)
-	OnlyAfford   bool   // when true, hide unaffordable monsters
 	MinCR        float64
 	MaxCR        float64
 	Type         string   // selected creature type filter (empty = any)
@@ -58,10 +55,9 @@ templ MonsterPicker(data PickerData) {
 			hx-get="/combattimenti/monsters"
 			hx-target="#monster-picker"
 			hx-swap="outerHTML"
-			hx-trigger="input changed delay:200ms from:find input[type='search'], change from:find input[type='checkbox'], change from:find input[type='number'], change from:find select"
+			hx-trigger="input changed delay:200ms from:find input[type='search'], change from:find input[type='number'], change from:find select"
 		>
 			<input type="hidden" name="source" value={ data.Source }/>
-			<input type="hidden" name="budget" value={ strconv.Itoa(data.Budget) }/>
 			if data.activeFilterCount() > 0 {
 				<details class="monster-picker-filters" open>
 					<summary>
@@ -88,14 +84,6 @@ templ MonsterPicker(data PickerData) {
 					hx-preserve="true"
 				/>
 			</div>
-			<label class="monster-picker-toggle">
-				if data.OnlyAfford {
-					<input type="checkbox" name="only_afford" value="1" checked/>
-				} else {
-					<input type="checkbox" name="only_afford" value="1"/>
-				}
-				<span>Solo mostri che posso permettermi ({ strconv.Itoa(data.Budget) } XP)</span>
-			</label>
 		</form>
 		if len(data.Monsters) == 0 {
 			<p class="monster-picker-empty">Nessun mostro trovato per questa ricerca.</p>

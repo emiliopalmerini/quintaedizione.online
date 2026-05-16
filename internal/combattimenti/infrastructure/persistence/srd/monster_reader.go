@@ -78,9 +78,6 @@ func (r *MonsterReader) Search(ctx context.Context, q monster.SearchQuery) ([]mo
 	result := make([]monster.Monster, 0, len(rawDocs))
 	for _, doc := range rawDocs {
 		m := fromDocument(doc)
-		if q.OnlyAfford && q.MaxXP >= 0 && m.XP > q.MaxXP {
-			continue
-		}
 		if q.MinCR > 0 || q.MaxCR > 0 {
 			// Parse the bare CR (grado_sfida) when present; fall back to
 			// the detail string. Skip the doc on parse failure so junk data

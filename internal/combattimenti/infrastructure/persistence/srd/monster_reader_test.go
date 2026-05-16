@@ -105,29 +105,6 @@ func TestMonsterReader_FiltersBySource(t *testing.T) {
 	}
 }
 
-func TestMonsterReader_RespectsAffordabilityGate(t *testing.T) {
-	docs := &fakeDocs{all: []map[string]any{
-		monsterDoc("5.5e", "goblin", "Goblin", "1/4 (PE 50; BC +2)"),
-		monsterDoc("5.5e", "bugbear", "Bugbear", "1 (PE 200; BC +3)"),
-		monsterDoc("5.5e", "lich", "Lich", "21 (PE 33.000; BC +7)"),
-	}}
-	r := NewMonsterReader(docs)
-
-	got, _ := r.Search(context.Background(), monster.SearchQuery{
-		Source:     "5.5e",
-		MaxXP:      500,
-		OnlyAfford: true,
-	})
-	if len(got) != 2 {
-		t.Fatalf("len = %d, want 2 (goblin + bugbear)", len(got))
-	}
-	for _, m := range got {
-		if m.XP > 500 {
-			t.Errorf("unexpected expensive monster: %+v", m)
-		}
-	}
-}
-
 func TestMonsterReader_SubstringSearchIsCaseInsensitive(t *testing.T) {
 	docs := &fakeDocs{all: []map[string]any{
 		monsterDoc("5.5e", "goblin", "Goblin", "1/4 (PE 50; BC +2)"),
@@ -311,13 +288,11 @@ func TestMonsterReader_CombinesAllFiltersWithAND(t *testing.T) {
 	r := NewMonsterReader(docs)
 
 	got, _ := r.Search(context.Background(), monster.SearchQuery{
-		Source:     "5.5e",
-		Query:      "gob",
-		Type:       "Umanoide",
-		MinCR:      1,
-		MaxCR:      2,
-		MaxXP:      500,
-		OnlyAfford: true,
+		Source: "5.5e",
+		Query:  "gob",
+		Type:   "Umanoide",
+		MinCR:  1,
+		MaxCR:  2,
 	})
 	if len(got) != 1 {
 		t.Fatalf("len = %d, want 1", len(got))

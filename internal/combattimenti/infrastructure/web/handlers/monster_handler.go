@@ -10,8 +10,8 @@ import (
 	pkgweb "github.com/emiliopalmerini/quintaedizione.online/pkg/web"
 )
 
-// MonsterPickerHandler renders the affordability-aware monster picker
-// embedded in the encounter result panel.
+// MonsterPickerHandler renders the monster picker used in the encounter
+// builder. Filtering is by name search, CR range, and creature type.
 type MonsterPickerHandler struct {
 	reader monster.Reader
 	logger *slog.Logger
@@ -24,9 +24,7 @@ func NewMonsterPickerHandler(reader monster.Reader, logger *slog.Logger) *Monste
 // Handler serves GET /combattimenti/monsters.
 // Query params:
 //   - source (required): edition short name, e.g. "5.5e"
-//   - budget (optional, int): wallet size; default 0
 //   - q (optional): name search
-//   - only_afford (optional, "1"): when present, hide monsters with XP > budget
 //   - min_cr, max_cr (optional, float): CR range; 0 means no bound
 //   - type (optional): exact creature type ("Drago", "Umanoide", ...)
 func (h *MonsterPickerHandler) Handler(w http.ResponseWriter, r *http.Request) {
@@ -34,33 +32,22 @@ func (h *MonsterPickerHandler) Handler(w http.ResponseWriter, r *http.Request) {
 
 	source := r.URL.Query().Get("source")
 	query := r.URL.Query().Get("q")
-	budget := pkgweb.ParseIntParam(r, "budget", 0)
-	onlyAfford := r.URL.Query().Get("only_afford") == "1"
 	minCR := parseFloatParam(r, "min_cr")
 	maxCR := parseFloatParam(r, "max_cr")
 	creatureType := r.URL.Query().Get("type")
 
-	maxXP := budget
-	if !onlyAfford {
-		maxXP = 0
-	}
-
 	monsters, err := h.reader.Search(r.Context(), monster.SearchQuery{
-		Source:     source,
-		Query:      query,
-		MinCR:      minCR,
-		MaxCR:      maxCR,
-		Type:       creatureType,
-		MaxXP:      maxXP,
-		OnlyAfford: onlyAfford,
-		Limit:      100,
+		Source: source,
+		Query:  query,
+		MinCR:  minCR,
+		MaxCR:  maxCR,
+		Type:   creatureType,
+		Limit:  100,
 	})
 	if err != nil {
 		h.logger.Warn("monster search failed", "request_id", requestID, "error", err)
 	}
 
-	// Facets always reflect the full source corpus, not the filtered subset,
-	// so users can broaden their search instead of staring at an empty dropdown.
 	facets, err := h.reader.Facets(r.Context(), source)
 	if err != nil {
 		h.logger.Warn("monster facets failed", "request_id", requestID, "error", err)
@@ -69,9 +56,6 @@ func (h *MonsterPickerHandler) Handler(w http.ResponseWriter, r *http.Request) {
 	data := templates.PickerData{
 		Source:       source,
 		Query:        query,
-		Budget:       budget,
-		MaxXP:        maxXP,
-		OnlyAfford:   onlyAfford,
 		MinCR:        minCR,
 		MaxCR:        maxCR,
 		Type:         creatureType,

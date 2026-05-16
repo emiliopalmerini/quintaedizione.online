@@ -16,7 +16,7 @@ type Monster struct {
 	Speed  string // raw "3 m, nuoto 12 m"
 }
 
-// SearchQuery describes a monster search filtered by edition and budget.
+// SearchQuery describes a monster search filtered by edition and taxonomy.
 //
 // MinCR and MaxCR are inclusive numeric bounds; 0 means "no bound" on either
 // side (so MinCR=0,MaxCR=0 yields all monsters). Type filters by exact (case-
@@ -25,14 +25,12 @@ type Monster struct {
 // Note: an Environment filter was considered but the SRD JSON carries no
 // habitat metadata, so it is omitted intentionally.
 type SearchQuery struct {
-	Source     string
-	Query      string
-	MinCR      float64
-	MaxCR      float64
-	Type       string
-	MaxXP      int
-	OnlyAfford bool
-	Limit      int
+	Source string
+	Query  string
+	MinCR  float64
+	MaxCR  float64
+	Type   string
+	Limit  int
 }
 
 // FacetSet enumerates the distinct filterable values present in a source's

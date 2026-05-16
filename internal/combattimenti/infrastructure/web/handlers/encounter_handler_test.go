@@ -28,9 +28,6 @@ func (s *stubMonsterReader) Search(_ context.Context, q monster.SearchQuery) ([]
 		if m.Source != q.Source {
 			continue
 		}
-		if q.OnlyAfford && q.MaxXP > 0 && m.XP > q.MaxXP {
-			continue
-		}
 		out = append(out, m)
 	}
 	return out, nil

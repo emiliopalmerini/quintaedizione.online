@@ -78,7 +78,7 @@ func (h *EncounterHandler) HomeHandler(editions []templates.EditionOption) http.
 			}
 			homeData.Picker = rd.Picker
 		} else {
-			homeData.Picker = h.buildPicker(r, sourceShort, 0)
+			homeData.Picker = h.buildPicker(r, sourceShort)
 		}
 
 		if err := templates.Home(homeData).Render(r.Context(), w); err != nil {
@@ -132,7 +132,7 @@ func (h *EncounterHandler) prerenderResult(r *http.Request, state domainenc.URLS
 		Multiplier:    state.Ruleset == "2014",
 	}
 	inferred := encounter.InferDifficulty(toTierThresholds(tiers), priced.EffectiveCost)
-	picker := h.buildPicker(r, sourceShort, maxBudget)
+	picker := h.buildPicker(r, sourceShort)
 
 	result := &encounter.CalculateXPResponse{
 		XPCalculationResult: domainenc.XPCalculationResult{
@@ -346,7 +346,7 @@ func (h *EncounterHandler) CalculateHandler(w http.ResponseWriter, r *http.Reque
 	}
 	inferredTier := encounter.InferDifficulty(toTierThresholds(tiers), pricedCart.EffectiveCost)
 
-	picker := h.buildPicker(r, sourceShort, maxBudget)
+	picker := h.buildPicker(r, sourceShort)
 
 	result := &encounter.CalculateXPResponse{
 		XPCalculationResult: domainenc.XPCalculationResult{
@@ -416,19 +416,11 @@ func buildShareURL(ruleset string, levels []int, refs []encounter.CartItemRef) s
 	return base + "?" + q
 }
 
-// buildPicker renders the monster-picker panel with the current budget as the
-// default affordability ceiling.
-func (h *EncounterHandler) buildPicker(r *http.Request, source string, budget int) templates.PickerData {
-	onlyAfford := true
-	query := ""
-	maxXP := budget
-
+// buildPicker renders the monster-picker panel for the given source.
+func (h *EncounterHandler) buildPicker(r *http.Request, source string) templates.PickerData {
 	monsters, err := h.reader.Search(r.Context(), monster.SearchQuery{
-		Source:     source,
-		Query:      query,
-		MaxXP:      maxXP,
-		OnlyAfford: onlyAfford,
-		Limit:      100,
+		Source: source,
+		Limit:  100,
 	})
 	if err != nil {
 		h.logger.Warn("picker search failed", "error", err)
@@ -443,10 +435,6 @@ func (h *EncounterHandler) buildPicker(r *http.Request, source string, budget in
 
 	return templates.PickerData{
 		Source:       source,
-		Query:        query,
-		Budget:       budget,
-		MaxXP:        maxXP,
-		OnlyAfford:   onlyAfford,
 		Types:        facets.Types,
 		Monsters:     monsters,
 		TotalMatched: len(monsters),
