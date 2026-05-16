@@ -35,7 +35,7 @@ func (h *SearchHandler) handleGlobalSearch(w http.ResponseWriter, r *http.Reques
 
 	h.recordSearch("global")
 
-	fuzzyResults, err := h.searchService.Search(r.Context(), query, 5)
+	fuzzyResults, err := h.searchService.Search(r.Context(), query, 10)
 	if err != nil {
 		h.ErrorResponse(w, r, err, "Errore durante la ricerca")
 		return
@@ -157,12 +157,15 @@ func (h *SearchHandler) recordSearch(searchType string) {
 }
 
 // searchFuzzy performs a fuzzy search, scoped to a collection if specified.
+// The aggregated view keeps the per-collection cap small so the dropdown
+// stays compact; the single-collection view is generous because the user
+// has explicitly drilled in and expects to see most matches.
 func (h *SearchHandler) searchFuzzy(ctx context.Context, collection, query string) ([]search.SearchResultSet, error) {
 	if collection == "" {
-		return h.searchService.Search(ctx, query, 3)
+		return h.searchService.Search(ctx, query, 6)
 	}
 
-	collResults, err := h.searchService.SearchCollection(ctx, collection, query, 3)
+	collResults, err := h.searchService.SearchCollection(ctx, collection, query, 12)
 	if err != nil {
 		return nil, err
 	}

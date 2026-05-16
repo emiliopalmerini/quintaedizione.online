@@ -114,8 +114,14 @@ func (svc *FuzzySearchService) searchInCollection(items []domainsearch.Searchabl
 
 	totalMatches := len(ranked)
 
-	sort.Slice(ranked, func(i, j int) bool {
-		return ranked[i].score > ranked[j].score
+	// Stable sort with title-length tiebreak: when many items tie on score
+	// (e.g. "drago b" matching every dragon variant), prefer shorter titles
+	// so distinct base names surface instead of all age tiers of one color.
+	sort.SliceStable(ranked, func(i, j int) bool {
+		if ranked[i].score != ranked[j].score {
+			return ranked[i].score > ranked[j].score
+		}
+		return len(ranked[i].item.Title) < len(ranked[j].item.Title)
 	})
 
 	if limit > 0 && len(ranked) > limit {

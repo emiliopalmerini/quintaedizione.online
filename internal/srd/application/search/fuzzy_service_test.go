@@ -221,6 +221,38 @@ func TestSearch_CollectionRankingByAggregate(t *testing.T) {
 	}
 }
 
+func TestSearch_TieBreakSurfacesShorterTitles(t *testing.T) {
+	// "drago b" gives equal prefix-score to every dragon-color variant.
+	// Without a tiebreak, scan order wins and only one color appears.
+	svc := newService(map[string][]domainsearch.SearchableItem{
+		"mostri": {
+			{ID: "1", Collection: "mostri", Title: "Drago bianco adulto"},
+			{ID: "2", Collection: "mostri", Title: "Drago bianco antico"},
+			{ID: "3", Collection: "mostri", Title: "Drago bianco cucciolo"},
+			{ID: "4", Collection: "mostri", Title: "Drago bianco giovane"},
+			{ID: "5", Collection: "mostri", Title: "Drago blu adulto"},
+			{ID: "6", Collection: "mostri", Title: "Drago bronzo adulto"},
+		},
+	})
+
+	results, err := svc.SearchCollection(context.Background(), "mostri", "drago b", 3)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if len(results) != 3 {
+		t.Fatalf("expected 3 results, got %d", len(results))
+	}
+	// Shortest titles ("Drago blu adulto"=16, "Drago bronzo adulto"=19,
+	// "Drago bianco adulto"=19) should rank above longer "antico/cucciolo".
+	titles := make([]string, 0, len(results))
+	for _, r := range results {
+		titles = append(titles, r.Title)
+	}
+	if !containsTitle(titles, "Drago blu adulto") {
+		t.Errorf("expected 'Drago blu adulto' in top 3, got %v", titles)
+	}
+}
+
 func TestSearchCollection_LimitRespected(t *testing.T) {
 	svc := newService(map[string][]domainsearch.SearchableItem{
 		"incantesimi": {
