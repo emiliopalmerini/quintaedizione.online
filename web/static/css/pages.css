@@ -372,6 +372,12 @@ html.dark .page-header-map::before { opacity: 0.04; mix-blend-mode: screen; filt
   margin-bottom: var(--space-1);
   display: block;
 }
+.encounter-builder-party #party-different-panel {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
 .encounter-builder-party .character-levels-list {
   display: flex;
   flex-wrap: wrap;
