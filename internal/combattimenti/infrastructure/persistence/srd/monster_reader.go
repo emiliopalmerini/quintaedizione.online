@@ -180,8 +180,12 @@ func fromDocument(doc *domain.Document) monster.Monster {
 		Source: doc.Source,
 		Name:   doc.Title,
 		Type:   doc.GetFieldString("tipo"),
+		Size:   doc.GetFieldString("size"),
 		CR:     display,
 		XP:     xp,
+		HP:     doc.GetFieldString("hp"),
+		AC:     doc.GetFieldString("ac"),
+		Speed:  doc.GetFieldString("speed"),
 	}
 }
 

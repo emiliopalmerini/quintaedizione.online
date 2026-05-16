@@ -833,29 +833,65 @@ html.dark .page-header-map::before { opacity: 0.04; mix-blend-mode: screen; filt
 .monster-picker-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: var(--space-2) var(--space-1);
+  align-items: flex-start;
+  padding: var(--space-3) var(--space-2);
   border-bottom: 1px solid var(--color-border);
   gap: var(--space-3);
 }
 .monster-picker-row:last-child { border-bottom: none; }
-.monster-picker-row-main { display: flex; flex-direction: column; gap: 2px; }
-.monster-picker-row-name { font-weight: var(--weight-medium); }
+.monster-picker-row-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+  flex: 1 1 auto;
+}
+.monster-picker-row-name {
+  font-weight: var(--weight-medium);
+  color: var(--color-text);
+  text-decoration: none;
+}
+.monster-picker-row-name:hover { text-decoration: underline; }
 .monster-picker-row-meta {
   font-size: var(--text-xs);
   color: var(--color-text-secondary);
   display: inline-flex;
+  flex-wrap: wrap;
   gap: var(--space-2);
+  align-items: center;
+}
+.monster-picker-row-meta > * {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.monster-picker-row-meta > * + *::before {
+  content: "·";
+  color: var(--color-text-tertiary, var(--color-border));
+  margin-right: var(--space-2);
 }
 .monster-picker-row-xp {
   font-weight: var(--weight-semibold);
   font-variant-numeric: tabular-nums;
 }
-.monster-picker-row-add { white-space: nowrap; }
 .monster-picker-row-type {
   color: var(--color-text-secondary);
   font-style: italic;
 }
+.monster-picker-row-stats {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-3);
+  align-items: center;
+}
+.monster-picker-row-stats strong {
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  margin-right: 2px;
+}
+.monster-picker-row-add { white-space: nowrap; flex-shrink: 0; }
 
 /* Filter drawer above the search box. Takes its own row in the flex layout
    so the search/checkbox controls below stay readable when filters open. */

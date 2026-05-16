@@ -8,8 +8,12 @@ type Monster struct {
 	Source string
 	Name   string
 	Type   string // creature type (Drago, Non morto, Umanoide, ...)
+	Size   string // Piccola, Media, Grande, ...
 	CR     string
 	XP     int
+	HP     string // raw "150 (20d10 + 40)" — kept as string so dice notation survives
+	AC     string // raw "17" or "17 (armatura naturale)"
+	Speed  string // raw "3 m, nuoto 12 m"
 }
 
 // SearchQuery describes a monster search filtered by edition and budget.

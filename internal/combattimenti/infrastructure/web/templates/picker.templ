@@ -45,6 +45,12 @@ func formatCR(v float64) string {
 	return strconv.FormatFloat(v, 'f', -1, 64)
 }
 
+// srdLink builds the SRD viewer URL for a monster so the picker name links
+// out to the full stat block in a new tab.
+func srdLink(m monster.Monster) string {
+	return "/srd/mostri/" + m.Source + "/" + m.ID
+}
+
 templ MonsterPicker(data PickerData) {
 	<div id="monster-picker" class="monster-picker">
 		<form
@@ -98,13 +104,29 @@ templ MonsterPicker(data PickerData) {
 				for _, m := range data.Monsters {
 					<li class="monster-picker-row">
 						<div class="monster-picker-row-main">
-							<span class="monster-picker-row-name">{ m.Name }</span>
+							<a class="monster-picker-row-name" href={ templ.URL(srdLink(m)) } target="_blank" rel="noopener" title="Apri scheda completa">
+								{ m.Name }
+							</a>
 							<span class="monster-picker-row-meta">
-								GS { m.CR }
-								if m.Type != "" {
-									<span class="monster-picker-row-type">· { m.Type }</span>
-								}
+								<span>GS { m.CR }</span>
 								<span class="monster-picker-row-xp">{ strconv.Itoa(m.XP) } PE</span>
+								if m.Type != "" {
+									<span class="monster-picker-row-type">{ m.Type }</span>
+								}
+								if m.Size != "" {
+									<span>{ m.Size }</span>
+								}
+							</span>
+							<span class="monster-picker-row-stats">
+								if m.HP != "" {
+									<span><strong>PF</strong> { m.HP }</span>
+								}
+								if m.AC != "" {
+									<span><strong>CA</strong> { m.AC }</span>
+								}
+								if m.Speed != "" {
+									<span><strong>Vel</strong> { m.Speed }</span>
+								}
 							</span>
 						</div>
 						<button
