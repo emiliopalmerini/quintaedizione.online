@@ -50,7 +50,7 @@ func TestService_CalculateXP2024(t *testing.T) {
 				Difficulty:      "Low",
 				CharacterLevels: []int{1, 5, 10, 20},
 			},
-			expectedXP:  5200, // 50 + 500 + 1250 + 3400
+			expectedXP:  8550, // 50 + 500 + 1600 + 6400
 			expectError: false,
 		},
 		{
