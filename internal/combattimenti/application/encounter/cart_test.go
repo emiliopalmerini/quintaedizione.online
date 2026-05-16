@@ -26,6 +26,10 @@ func (s *stubReader) FindByID(_ context.Context, source, id string) (monster.Mon
 	return monster.Monster{}, errors.New("not found")
 }
 
+func (s *stubReader) Facets(context.Context, string) (monster.FacetSet, error) {
+	return monster.FacetSet{}, nil
+}
+
 func silentLogger() *slog.Logger {
 	return slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelError}))
 }

@@ -35,12 +35,14 @@ func NewMonsterReader(docs repositories.DocumentReader) *MonsterReader {
 	return &MonsterReader{docs: docs}
 }
 
-// Search returns monsters matching the query, filtered by source edition and max XP.
+// Search returns monsters matching the query, filtered by source edition,
+// max XP, CR range, and type.
 func (r *MonsterReader) Search(ctx context.Context, q monster.SearchQuery) ([]monster.Monster, error) {
 	if q.Source == "" {
 		return nil, nil
 	}
 	needle := strings.ToLower(strings.TrimSpace(q.Query))
+	typeFilter := strings.ToLower(strings.TrimSpace(q.Type))
 	limit := q.Limit
 	if limit <= 0 {
 		limit = 100
@@ -53,6 +55,12 @@ func (r *MonsterReader) Search(ctx context.Context, q monster.SearchQuery) ([]mo
 		if needle != "" {
 			title, _ := d["title"].(string)
 			if !strings.Contains(strings.ToLower(title), needle) {
+				return false
+			}
+		}
+		if typeFilter != "" {
+			t, _ := d["tipo"].(string)
+			if !strings.EqualFold(strings.TrimSpace(t), typeFilter) {
 				return false
 			}
 		}
@@ -72,6 +80,21 @@ func (r *MonsterReader) Search(ctx context.Context, q monster.SearchQuery) ([]mo
 		m := fromDocument(doc)
 		if q.OnlyAfford && q.MaxXP >= 0 && m.XP > q.MaxXP {
 			continue
+		}
+		if q.MinCR > 0 || q.MaxCR > 0 {
+			// Parse the bare CR (grado_sfida) when present; fall back to
+			// the detail string. Skip the doc on parse failure so junk data
+			// does not bypass the filter.
+			cr, parseErr := monster.ParseCR(m.CR)
+			if parseErr != nil {
+				continue
+			}
+			if q.MinCR > 0 && cr < q.MinCR {
+				continue
+			}
+			if q.MaxCR > 0 && cr > q.MaxCR {
+				continue
+			}
 		}
 		result = append(result, m)
 	}
@@ -107,6 +130,38 @@ func (r *MonsterReader) FindByID(ctx context.Context, source, id string) (monste
 	return fromDocument(doc), nil
 }
 
+// Facets enumerates the distinct creature types found in the given source's
+// monster collection. Used to populate the picker's type dropdown.
+//
+// Result is sorted alphabetically. Empty/whitespace types are skipped.
+func (r *MonsterReader) Facets(ctx context.Context, source string) (monster.FacetSet, error) {
+	if source == "" {
+		return monster.FacetSet{}, nil
+	}
+	predicate := func(d map[string]any) bool {
+		src, _ := d["_source_short"].(string)
+		return src == source
+	}
+	rawDocs, _, err := r.docs.FindByPredicate(ctx, monsterCollection, predicate, 0, -1)
+	if err != nil {
+		return monster.FacetSet{}, err
+	}
+	seen := make(map[string]struct{}, 16)
+	for _, doc := range rawDocs {
+		t := strings.TrimSpace(doc.GetFieldString("tipo"))
+		if t == "" {
+			continue
+		}
+		seen[t] = struct{}{}
+	}
+	types := make([]string, 0, len(seen))
+	for t := range seen {
+		types = append(types, t)
+	}
+	sort.Strings(types)
+	return monster.FacetSet{Types: types}, nil
+}
+
 func fromDocument(doc *domain.Document) monster.Monster {
 	// cr holds the detail string used for XP parsing (format varies by edition);
 	// grado_sfida holds the bare challenge rating ("10", "1/4") for display.
@@ -124,6 +179,7 @@ func fromDocument(doc *domain.Document) monster.Monster {
 		ID:     string(doc.ID),
 		Source: doc.Source,
 		Name:   doc.Title,
+		Type:   doc.GetFieldString("tipo"),
 		CR:     display,
 		XP:     xp,
 	}

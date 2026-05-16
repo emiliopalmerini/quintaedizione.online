@@ -13,8 +13,36 @@ type PickerData struct {
 	Budget       int    // current encounter budget (wallet size)
 	MaxXP        int    // affordability ceiling (== Budget when OnlyAfford)
 	OnlyAfford   bool   // when true, hide unaffordable monsters
+	MinCR        float64
+	MaxCR        float64
+	Type         string   // selected creature type filter (empty = any)
+	Types        []string // dropdown options sourced from Reader.Facets
 	Monsters     []monster.Monster
 	TotalMatched int
+}
+
+// activeFilterCount counts non-default picker filters for the disclosure hint.
+func (d PickerData) activeFilterCount() int {
+	n := 0
+	if d.MinCR > 0 {
+		n++
+	}
+	if d.MaxCR > 0 {
+		n++
+	}
+	if d.Type != "" {
+		n++
+	}
+	return n
+}
+
+// formatCR renders a float CR for input value reuse; 0 stays empty so the
+// placeholder shows through.
+func formatCR(v float64) string {
+	if v <= 0 {
+		return ""
+	}
+	return strconv.FormatFloat(v, 'f', -1, 64)
 }
 
 templ MonsterPicker(data PickerData) {
@@ -24,10 +52,24 @@ templ MonsterPicker(data PickerData) {
 			hx-get="/combattimenti/monsters"
 			hx-target="#monster-picker"
 			hx-swap="outerHTML"
-			hx-trigger="input changed delay:200ms from:find input[type='search'], change from:find input[type='checkbox']"
+			hx-trigger="input changed delay:200ms from:find input[type='search'], change from:find input[type='checkbox'], change from:find input[type='number'], change from:find select"
 		>
 			<input type="hidden" name="source" value={ data.Source }/>
 			<input type="hidden" name="budget" value={ strconv.Itoa(data.Budget) }/>
+			if data.activeFilterCount() > 0 {
+				<details class="monster-picker-filters" open>
+					<summary>
+						Filtri avanzati
+						<span class="monster-picker-filters-badge">{ strconv.Itoa(data.activeFilterCount()) } filtri attivi</span>
+					</summary>
+					@pickerFiltersBody(data)
+				</details>
+			} else {
+				<details class="monster-picker-filters">
+					<summary>Filtri avanzati</summary>
+					@pickerFiltersBody(data)
+				</details>
+			}
 			<div class="monster-picker-search">
 				<input
 					type="search"
@@ -47,7 +89,6 @@ templ MonsterPicker(data PickerData) {
 				<span>Solo mostri che posso permettermi ({ strconv.Itoa(data.Budget) } XP)</span>
 			</label>
 		</form>
-
 		if len(data.Monsters) == 0 {
 			<p class="monster-picker-empty">Nessun mostro trovato per questa ricerca.</p>
 		} else {
@@ -58,6 +99,9 @@ templ MonsterPicker(data PickerData) {
 							<span class="monster-picker-row-name">{ m.Name }</span>
 							<span class="monster-picker-row-meta">
 								GS { m.CR }
+								if m.Type != "" {
+									<span class="monster-picker-row-type">· { m.Type }</span>
+								}
 								<span class="monster-picker-row-xp">{ strconv.Itoa(m.XP) } PE</span>
 							</span>
 						</div>
@@ -77,5 +121,49 @@ templ MonsterPicker(data PickerData) {
 				}
 			</ul>
 		}
+	</div>
+}
+
+templ pickerFiltersBody(data PickerData) {
+	<div class="monster-picker-filters-row">
+		<label class="monster-picker-filter">
+			<span>GS minimo</span>
+			<input
+				type="number"
+				name="min_cr"
+				step="0.125"
+				min="0"
+				max="30"
+				placeholder="0"
+				value={ formatCR(data.MinCR) }
+				inputmode="decimal"
+			/>
+		</label>
+		<label class="monster-picker-filter">
+			<span>GS massimo</span>
+			<input
+				type="number"
+				name="max_cr"
+				step="0.125"
+				min="0"
+				max="30"
+				placeholder="0"
+				value={ formatCR(data.MaxCR) }
+				inputmode="decimal"
+			/>
+		</label>
+		<label class="monster-picker-filter">
+			<span>Tipo</span>
+			<select name="type">
+				<option value="">Qualsiasi</option>
+				for _, t := range data.Types {
+					if t == data.Type {
+						<option value={ t } selected>{ t }</option>
+					} else {
+						<option value={ t }>{ t }</option>
+					}
+				}
+			</select>
+		</label>
 	</div>
 }

@@ -57,6 +57,19 @@ func monsterDoc(source, id, title, cr string) map[string]any {
 	}
 }
 
+// monsterDocFull builds a doc with bare CR (grado_sfida) plus type, matching
+// the loader's real output. Tests for CR-range / type filtering use this.
+func monsterDocFull(source, id, title, gradoSfida, cr, tipo string) map[string]any {
+	return map[string]any{
+		"_id":           id,
+		"_source_short": source,
+		"title":         title,
+		"grado_sfida":   gradoSfida,
+		"cr":            cr,
+		"tipo":          tipo,
+	}
+}
+
 func TestMonsterReader_ParsesItalianThousandsSeparator(t *testing.T) {
 	docs := &fakeDocs{all: []map[string]any{
 		monsterDoc("5.5e", "goblin", "Goblin", "1/4 (PE 50; BC +2)"),
@@ -209,6 +222,161 @@ func TestMonsterReader_Parses5eFormat(t *testing.T) {
 	}
 	if got[1].XP != 25000 {
 		t.Errorf("dragon XP = %d, want 25000", got[1].XP)
+	}
+}
+
+func TestMonsterReader_FiltersByCRRange(t *testing.T) {
+	docs := &fakeDocs{all: []map[string]any{
+		monsterDocFull("5.5e", "topo", "Topo", "1/8", "1/8 (PE 25)", "Bestia"),
+		monsterDocFull("5.5e", "goblin", "Goblin", "1", "1 (PE 200)", "Umanoide"),
+		monsterDocFull("5.5e", "orso", "Orso", "2", "2 (PE 450)", "Bestia"),
+		monsterDocFull("5.5e", "wyvern", "Wyvern", "5", "5 (PE 1.800)", "Drago"),
+		monsterDocFull("5.5e", "yougoloth", "Ultroloth", "8", "8 (PE 3.900)", "Immondo"),
+	}}
+	r := NewMonsterReader(docs)
+
+	got, _ := r.Search(context.Background(), monster.SearchQuery{
+		Source: "5.5e",
+		MinCR:  1,
+		MaxCR:  5,
+	})
+	if len(got) != 3 {
+		t.Fatalf("len = %d, want 3 (goblin/orso/wyvern)", len(got))
+	}
+	names := []string{got[0].Name, got[1].Name, got[2].Name}
+	want := []string{"Goblin", "Orso", "Wyvern"}
+	for i, n := range names {
+		if n != want[i] {
+			t.Errorf("names[%d] = %q, want %q", i, n, want[i])
+		}
+	}
+}
+
+func TestMonsterReader_CRRangeOnlyUpperBound(t *testing.T) {
+	docs := &fakeDocs{all: []map[string]any{
+		monsterDocFull("5.5e", "topo", "Topo", "1/8", "1/8 (PE 25)", "Bestia"),
+		monsterDocFull("5.5e", "wyvern", "Wyvern", "5", "5 (PE 1.800)", "Drago"),
+		monsterDocFull("5.5e", "yougoloth", "Ultroloth", "8", "8 (PE 3.900)", "Immondo"),
+	}}
+	r := NewMonsterReader(docs)
+
+	got, _ := r.Search(context.Background(), monster.SearchQuery{
+		Source: "5.5e",
+		MaxCR:  5,
+	})
+	if len(got) != 2 {
+		t.Fatalf("len = %d, want 2", len(got))
+	}
+}
+
+func TestMonsterReader_FiltersByType(t *testing.T) {
+	docs := &fakeDocs{all: []map[string]any{
+		monsterDocFull("5.5e", "goblin", "Goblin", "1", "1 (PE 200)", "Umanoide"),
+		monsterDocFull("5.5e", "wyvern", "Wyvern", "5", "5 (PE 1.800)", "Drago"),
+		monsterDocFull("5.5e", "drago-rosso", "Drago rosso", "17", "17 (PE 18.000)", "Drago"),
+	}}
+	r := NewMonsterReader(docs)
+
+	got, _ := r.Search(context.Background(), monster.SearchQuery{
+		Source: "5.5e",
+		Type:   "Drago",
+	})
+	if len(got) != 2 {
+		t.Fatalf("len = %d, want 2", len(got))
+	}
+	for _, m := range got {
+		if m.Type != "Drago" {
+			t.Errorf("entry type = %q, want Drago", m.Type)
+		}
+	}
+}
+
+func TestMonsterReader_TypeFilterIsCaseInsensitive(t *testing.T) {
+	docs := &fakeDocs{all: []map[string]any{
+		monsterDocFull("5.5e", "wyvern", "Wyvern", "5", "5 (PE 1.800)", "Drago"),
+	}}
+	r := NewMonsterReader(docs)
+	got, _ := r.Search(context.Background(), monster.SearchQuery{Source: "5.5e", Type: "DRAGO"})
+	if len(got) != 1 {
+		t.Fatalf("len = %d, want 1", len(got))
+	}
+}
+
+func TestMonsterReader_CombinesAllFiltersWithAND(t *testing.T) {
+	docs := &fakeDocs{all: []map[string]any{
+		monsterDocFull("5.5e", "goblin", "Goblin", "1/4", "1/4 (PE 50)", "Umanoide"),
+		monsterDocFull("5.5e", "goblin-boss", "Goblin Capo", "1", "1 (PE 200)", "Umanoide"),
+		monsterDocFull("5.5e", "wyvern", "Wyvern", "5", "5 (PE 1.800)", "Drago"),
+	}}
+	r := NewMonsterReader(docs)
+
+	got, _ := r.Search(context.Background(), monster.SearchQuery{
+		Source:     "5.5e",
+		Query:      "gob",
+		Type:       "Umanoide",
+		MinCR:      1,
+		MaxCR:      2,
+		MaxXP:      500,
+		OnlyAfford: true,
+	})
+	if len(got) != 1 {
+		t.Fatalf("len = %d, want 1", len(got))
+	}
+	if got[0].Name != "Goblin Capo" {
+		t.Errorf("got %q, want Goblin Capo", got[0].Name)
+	}
+}
+
+func TestMonsterReader_Facets(t *testing.T) {
+	docs := &fakeDocs{all: []map[string]any{
+		monsterDocFull("5.5e", "goblin", "Goblin", "1/4", "1/4 (PE 50)", "Umanoide"),
+		monsterDocFull("5.5e", "wyvern", "Wyvern", "5", "5 (PE 1.800)", "Drago"),
+		monsterDocFull("5.5e", "drago-rosso", "Drago rosso", "17", "17 (PE 18.000)", "Drago"),
+		monsterDocFull("5.5e", "topo", "Topo", "1/8", "1/8 (PE 25)", "Bestia"),
+		monsterDocFull("5e", "lich", "Lich", "21", "21 (PE 33.000)", "Non morto"),
+	}}
+	r := NewMonsterReader(docs)
+
+	facets, err := r.Facets(context.Background(), "5.5e")
+	if err != nil {
+		t.Fatalf("err = %v", err)
+	}
+	want := []string{"Bestia", "Drago", "Umanoide"}
+	if len(facets.Types) != len(want) {
+		t.Fatalf("types = %v, want %v", facets.Types, want)
+	}
+	for i, ty := range facets.Types {
+		if ty != want[i] {
+			t.Errorf("types[%d] = %q, want %q", i, ty, want[i])
+		}
+	}
+}
+
+func TestMonsterReader_FacetsEmptySource(t *testing.T) {
+	docs := &fakeDocs{all: []map[string]any{
+		monsterDocFull("5.5e", "goblin", "Goblin", "1/4", "1/4 (PE 50)", "Umanoide"),
+	}}
+	r := NewMonsterReader(docs)
+	facets, err := r.Facets(context.Background(), "")
+	if err != nil {
+		t.Fatalf("err = %v", err)
+	}
+	if len(facets.Types) != 0 {
+		t.Errorf("types = %v, want empty", facets.Types)
+	}
+}
+
+func TestMonsterReader_ExposesTypeOnMonster(t *testing.T) {
+	docs := &fakeDocs{all: []map[string]any{
+		monsterDocFull("5.5e", "wyvern", "Wyvern", "5", "5 (PE 1.800)", "Drago"),
+	}}
+	r := NewMonsterReader(docs)
+	got, _ := r.Search(context.Background(), monster.SearchQuery{Source: "5.5e"})
+	if len(got) != 1 {
+		t.Fatalf("len = %d, want 1", len(got))
+	}
+	if got[0].Type != "Drago" {
+		t.Errorf("type = %q, want Drago", got[0].Type)
 	}
 }
 

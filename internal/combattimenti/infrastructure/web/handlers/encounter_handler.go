@@ -238,12 +238,20 @@ func (h *EncounterHandler) buildPicker(r *http.Request, source string, budget in
 		h.logger.Warn("picker search failed", "error", err)
 	}
 
+	// Facets reflect the source's full corpus so dropdowns stay populated
+	// even when the current filter combo yields an empty list.
+	facets, err := h.reader.Facets(r.Context(), source)
+	if err != nil {
+		h.logger.Warn("picker facets failed", "error", err)
+	}
+
 	return templates.PickerData{
 		Source:       source,
 		Query:        query,
 		Budget:       budget,
 		MaxXP:        maxXP,
 		OnlyAfford:   onlyAfford,
+		Types:        facets.Types,
 		Monsters:     monsters,
 		TotalMatched: len(monsters),
 	}
