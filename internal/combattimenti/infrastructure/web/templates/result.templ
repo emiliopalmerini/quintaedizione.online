@@ -156,14 +156,13 @@ templ Cart(view CartView, inferred encounter.InferredTier, hasItems bool, oversp
 			}
 		</div>
 		if len(view.Entries) == 0 {
-			<p class="result-cart-empty">Aggiungi mostri dal pannello qui sotto per spenderli col budget.</p>
+			<p class="result-cart-empty">Aggiungi mostri dal pannello centrale.</p>
 		} else {
 			<ul class="result-cart-list">
 				for _, entry := range view.Entries {
 					<li class="result-cart-chip">
 						<span class="result-cart-chip-qty">{ strconv.Itoa(entry.Quantity) }×</span>
 						<span class="result-cart-chip-name">{ entry.Name }</span>
-						<span class="result-cart-chip-xp">{ strconv.Itoa(lineXP(entry)) } PE</span>
 						<button
 							type="button"
 							class="result-cart-chip-step"
@@ -190,22 +189,6 @@ templ Cart(view CartView, inferred encounter.InferredTier, hasItems bool, oversp
 					</li>
 				}
 			</ul>
-			<dl class="result-cart-totals">
-				<div>
-					<dt>Costo base</dt>
-					<dd>{ strconv.Itoa(view.Subtotal) } PE</dd>
-				</div>
-				if view.Multiplier {
-					<div>
-						<dt>Costo effettivo (×{ strconv.Itoa(totalMonsters(view.Entries)) } mostri)</dt>
-						<dd>{ strconv.Itoa(view.EffectiveCost) } PE</dd>
-					</div>
-				}
-				<div class={ "result-cart-remaining", templ.KV("is-overspent", view.Remaining < 0) }>
-					<dt>Residuo</dt>
-					<dd>{ strconv.Itoa(view.Remaining) } PE</dd>
-				</div>
-			</dl>
 		}
 	</div>
 }
