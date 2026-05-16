@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"log/slog"
+	"net"
 	"net/http"
 	"os"
 	"sync"
@@ -144,9 +145,7 @@ func (rl *RateLimiter) GetLimiter(ip string) *rate.Limiter {
 func RateLimitMiddleware(rl *RateLimiter) func(http.Handler) http.Handler {
 	return func(next http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			clientIP := r.RemoteAddr
-
-			limiter := rl.GetLimiter(clientIP)
+			limiter := rl.GetLimiter(clientIP(r))
 
 			if !limiter.Allow() {
 				w.Header().Set("Retry-After", "1")
@@ -161,6 +160,14 @@ func RateLimitMiddleware(rl *RateLimiter) func(http.Handler) http.Handler {
 			next.ServeHTTP(w, r)
 		})
 	}
+}
+
+func clientIP(r *http.Request) string {
+	host, _, err := net.SplitHostPort(r.RemoteAddr)
+	if err == nil && host != "" {
+		return host
+	}
+	return r.RemoteAddr
 }
 
 // ErrorRecoveryMiddleware recovers from panics and returns a 500 response.

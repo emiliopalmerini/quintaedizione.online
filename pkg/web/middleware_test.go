@@ -80,3 +80,21 @@ func TestRateLimitMiddleware_AllowsNormal(t *testing.T) {
 		t.Errorf("expected 200, got %d", w.Code)
 	}
 }
+
+func TestClientIPStripsRemoteAddrPort(t *testing.T) {
+	r := httptest.NewRequest("GET", "/test", nil)
+	r.RemoteAddr = "203.0.113.10:49152"
+
+	if got := clientIP(r); got != "203.0.113.10" {
+		t.Fatalf("clientIP = %q, want %q", got, "203.0.113.10")
+	}
+}
+
+func TestClientIPFallsBackToRemoteAddrWhenUnparseable(t *testing.T) {
+	r := httptest.NewRequest("GET", "/test", nil)
+	r.RemoteAddr = "not-a-host-port"
+
+	if got := clientIP(r); got != "not-a-host-port" {
+		t.Fatalf("clientIP = %q, want raw RemoteAddr", got)
+	}
+}
