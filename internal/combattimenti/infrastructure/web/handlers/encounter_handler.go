@@ -194,16 +194,30 @@ func (h *EncounterHandler) CalculateHandler(w http.ResponseWriter, r *http.Reque
 		Remaining:     pricedCart.Remaining,
 		Multiplier:    ruleset == "2014",
 	}
+	inferredTier := encounter.InferDifficulty(toTierThresholds(tiers), pricedCart.EffectiveCost)
 
 	picker := h.buildPicker(r, sourceShort, result.TotalXP)
 
 	data := templates.ResultData{
-		Result: result,
-		Tiers:  tiers,
-		Cart:   cartView,
-		Picker: picker,
+		Result:       result,
+		Tiers:        tiers,
+		Cart:         cartView,
+		Picker:       picker,
+		InferredTier: inferredTier,
+		HasCartItems: len(pricedCart.Entries) > 0,
+		IsOverspent:  pricedCart.Remaining < 0,
 	}
 	pkgweb.RenderTempl(w, r, h.logger, templates.Result(data))
+}
+
+// toTierThresholds adapts the view-layer tier list to the inference helper's
+// minimal shape so the application package stays free of view-model types.
+func toTierThresholds(tiers []templates.DifficultyTier) []encounter.TierThreshold {
+	out := make([]encounter.TierThreshold, 0, len(tiers))
+	for _, t := range tiers {
+		out = append(out, encounter.TierThreshold{Label: t.Label, Value: t.Value, XP: t.XP})
+	}
+	return out
 }
 
 // buildPicker renders the monster-picker panel with the current budget as the

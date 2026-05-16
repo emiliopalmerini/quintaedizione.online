@@ -574,6 +574,78 @@ html.dark .page-header-map::before { opacity: 0.04; mix-blend-mode: screen; filt
 .result-cart-remaining dd { color: var(--success, #10b981); }
 .result-cart-remaining.is-overspent dd { color: var(--danger, #ef4444); }
 
+/* Live inferred-difficulty badge: translates the cart's effective cost back
+   into a tier label so the DM sees the current encounter's actual difficulty
+   independent of the target they configured. */
+.result-cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-3);
+}
+.result-cart-header .result-cart-title { margin: 0; }
+.result-cart-inferred {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+/* Per-tier color treatment. Keys are lowercased canonical values. */
+.result-cart-inferred-trivial {
+  background: var(--color-bg-tertiary, #e5e7eb);
+  color: var(--color-text-secondary);
+  border-color: var(--color-border);
+}
+.result-cart-inferred-low,
+.result-cart-inferred-facile {
+  background: rgba(16, 185, 129, 0.12);
+  color: #047857;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+.result-cart-inferred-moderate,
+.result-cart-inferred-media {
+  background: rgba(245, 158, 11, 0.14);
+  color: #b45309;
+  border-color: rgba(245, 158, 11, 0.4);
+}
+.result-cart-inferred-high,
+.result-cart-inferred-difficile {
+  background: rgba(239, 68, 68, 0.14);
+  color: #b91c1c;
+  border-color: rgba(239, 68, 68, 0.4);
+}
+.result-cart-inferred-letale,
+.result-cart-inferred-lethalplus,
+.result-cart-inferred-deadly {
+  background: rgba(127, 29, 29, 0.18);
+  color: #7f1d1d;
+  border-color: rgba(127, 29, 29, 0.5);
+}
+/* Overspend cue: pulsing red border regardless of tier, so the DM sees
+   they've gone over the configured budget even if the cart still classifies
+   as a familiar tier. */
+.result-cart-inferred.is-overspent {
+  animation: result-cart-inferred-pulse 1.6s ease-in-out infinite;
+  border-color: var(--danger, #ef4444);
+}
+@keyframes result-cart-inferred-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
+  50%      { box-shadow: 0 0 0 4px rgba(239, 68, 68, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .result-cart-inferred.is-overspent { animation: none; }
+}
+
 /* ========================================================================
    MONSTER PICKER
    ======================================================================== */

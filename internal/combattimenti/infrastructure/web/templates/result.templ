@@ -2,6 +2,7 @@ package templates
 
 import (
 	"strconv"
+	"strings"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/application/encounter"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/domain/monster"
@@ -17,10 +18,20 @@ type DifficultyTier struct {
 
 // ResultData holds all data needed to render the result panel.
 type ResultData struct {
-	Result *encounter.CalculateXPResponse
-	Tiers  []DifficultyTier
-	Cart   CartView
-	Picker PickerData
+	Result       *encounter.CalculateXPResponse
+	Tiers        []DifficultyTier
+	Cart         CartView
+	Picker       PickerData
+	InferredTier encounter.InferredTier
+	HasCartItems bool
+	IsOverspent  bool
+}
+
+// inferredTierClass derives a CSS modifier from the inferred tier value so we
+// can color the badge per tier without touching the template each time a new
+// bucket is added.
+func inferredTierClass(value string) string {
+	return "result-cart-inferred result-cart-inferred-" + strings.ToLower(value)
 }
 
 // CartView is the priced cart snapshot rendered in the result panel.
@@ -99,7 +110,7 @@ templ Result(data ResultData) {
 			</div>
 		}
 
-		@Cart(data.Cart)
+		@Cart(data.Cart, data.InferredTier, data.HasCartItems, data.IsOverspent)
 	</div>
 
 	<!-- Monster Picker (out-of-band swap: rendered into #monster-picker-slot) -->
@@ -122,9 +133,19 @@ func lineXP(e monster.CartEntry) int {
 	return e.UnitXP * e.Quantity
 }
 
-templ Cart(view CartView) {
+templ Cart(view CartView, inferred encounter.InferredTier, hasItems bool, overspent bool) {
 	<div class="result-cart">
-		<h3 class="result-cart-title">Il tuo combattimento</h3>
+		<div class="result-cart-header">
+			<h3 class="result-cart-title">Il tuo combattimento</h3>
+			if hasItems {
+				<span
+					class={ inferredTierClass(inferred.Value), templ.KV("is-overspent", overspent) }
+					title="Difficoltà inferita dal costo effettivo del carrello"
+				>
+					Incontro attuale: { inferred.Label }
+				</span>
+			}
+		</div>
 		if len(view.Entries) == 0 {
 			<p class="result-cart-empty">Aggiungi mostri dal pannello qui sotto per spenderli col budget.</p>
 		} else {
