@@ -94,30 +94,20 @@ templ MonsterPicker(data PickerData) {
 						<details class="monster-picker-row-detail">
 							<summary class="monster-picker-row-summary">
 								<span class="monster-picker-row-toggle" aria-hidden="true">▸</span>
-								<div class="monster-picker-row-main">
-									<span class="monster-picker-row-name">{ m.Name }</span>
-									<span class="monster-picker-row-meta">
-										<span>GS { m.CR }</span>
-										<span class="monster-picker-row-xp">{ strconv.Itoa(m.XP) } PE</span>
-										if m.Type != "" {
-											<span class="monster-picker-row-type">{ m.Type }</span>
-										}
-										if m.Size != "" {
-											<span>{ m.Size }</span>
-										}
-									</span>
-									<span class="monster-picker-row-stats">
-										if m.HP != "" {
-											<span><strong>PF</strong> { m.HP }</span>
-										}
-										if m.AC != "" {
-											<span><strong>CA</strong> { m.AC }</span>
-										}
-										if m.Speed != "" {
-											<span><strong>Vel</strong> { m.Speed }</span>
-										}
-									</span>
-								</div>
+								<span class="monster-picker-row-name">{ m.Name }</span>
+								<span class="monster-picker-row-inline">
+									<span>GS { m.CR }</span>
+									<span class="monster-picker-row-xp">{ strconv.Itoa(m.XP) } PE</span>
+									if m.Type != "" {
+										<span class="monster-picker-row-type">{ m.Type }</span>
+									}
+									if m.HP != "" {
+										<span><strong>PF</strong> { m.HP }</span>
+									}
+									if m.AC != "" {
+										<span><strong>CA</strong> { m.AC }</span>
+									}
+								</span>
 							</summary>
 							<div
 								class="monster-picker-row-statblock"
