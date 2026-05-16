@@ -715,6 +715,78 @@ html.dark .page-header-map::before { opacity: 0.04; mix-blend-mode: screen; filt
   font-variant-numeric: tabular-nums;
 }
 .monster-picker-row-add { white-space: nowrap; }
+.monster-picker-row-type {
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+/* Filter drawer above the search box. Takes its own row in the flex layout
+   so the search/checkbox controls below stay readable when filters open. */
+.monster-picker-filters {
+  flex: 1 1 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-secondary);
+  padding: var(--space-2) var(--space-3);
+}
+.monster-picker-filters > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  list-style: none;
+  user-select: none;
+}
+.monster-picker-filters > summary::-webkit-details-marker { display: none; }
+.monster-picker-filters > summary::before {
+  content: "▸";
+  font-size: var(--text-xs);
+  transition: transform 0.15s ease;
+}
+.monster-picker-filters[open] > summary::before { transform: rotate(90deg); }
+.monster-picker-filters-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-full);
+  background: rgba(245, 158, 11, 0.18);
+  color: #b45309;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+}
+.monster-picker-filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+.monster-picker-filter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1 1 140px;
+  min-width: 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+.monster-picker-filter > span {
+  font-weight: var(--weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.monster-picker-filter input,
+.monster-picker-filter select {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  font: inherit;
+  color: var(--color-text);
+}
 
 .sr-only {
   position: absolute;
