@@ -294,27 +294,32 @@ html.dark .page-header-map::before { opacity: 0.04; mix-blend-mode: screen; filt
   }
 }
 
-/* Builder layout: compact party sidebar | monster picker (dominant) | cart
-   right rail. Stacks vertically below the lg breakpoint with the picker on
-   top so monsters remain the focus on narrow screens. */
+/* Builder layout: party as a horizontal strip across the top, monster
+   picker (dominant) on the left, cart right rail. The horizontal strip
+   frees vertical real estate for the picker. Stacks vertically below the
+   lg breakpoint with the party strip on top, picker next, cart last. */
 .encounter-builder {
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-areas:
+    "party"
+    "picker"
+    "cart";
   gap: var(--space-4);
   align-items: start;
 }
 @media (min-width: 900px) {
   .encounter-builder {
-    grid-template-columns: 280px minmax(0, 1fr) 340px;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    grid-template-areas:
+      "party party"
+      "picker cart";
   }
 }
-.encounter-builder-party,
-.encounter-builder-result {
-  min-width: 0;
-}
-.encounter-builder-picker { min-width: 0; }
+.encounter-builder-party { grid-area: party; min-width: 0; }
+.encounter-builder-picker { grid-area: picker; min-width: 0; }
+.encounter-builder-result { grid-area: cart; min-width: 0; }
 @media (min-width: 900px) {
-  .encounter-builder-party,
   .encounter-builder-result {
     position: sticky;
     top: calc(var(--nav-height) + var(--space-4));
@@ -322,18 +327,32 @@ html.dark .page-header-map::before { opacity: 0.04; mix-blend-mode: screen; filt
     overflow-y: auto;
   }
 }
-.encounter-builder-party .form-section { margin-bottom: var(--space-4); }
-.encounter-builder-party .form-section:last-child { margin-bottom: 0; }
+
+/* Horizontal party strip: each section becomes a flex item sitting in a
+   row, replacing the previous vertical-stack sidebar. */
+.encounter-builder-party form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-4) var(--space-5);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+.encounter-builder-party .form-section {
+  margin: 0;
+  flex: 0 0 auto;
+}
 .encounter-builder-party .form-section-title {
   font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: var(--weight-semibold);
   color: var(--color-text-secondary);
-  margin: 0 0 var(--space-2) 0;
+  margin: 0 0 var(--space-1) 0;
+  line-height: 1;
 }
-/* Party sidebar: keep segmented-control labels on one line and trim padding
-   so labels like "Livelli diversi" don't wrap inside the 280px column. */
 .encounter-builder-party .segmented-control-option {
   flex: 1 1 auto;
   text-align: center;
@@ -342,11 +361,40 @@ html.dark .page-header-map::before { opacity: 0.04; mix-blend-mode: screen; filt
   white-space: nowrap;
   font-size: var(--text-sm);
 }
-.encounter-builder-party .form-grid-2col { gap: var(--space-3); }
+.encounter-builder-party .form-grid-2col {
+  display: flex;
+  gap: var(--space-3);
+}
+.encounter-builder-party .form-field-group { min-width: 0; }
 .encounter-builder-party .form-label {
   font-size: var(--text-xs);
   color: var(--color-text-secondary);
   margin-bottom: var(--space-1);
+  display: block;
+}
+.encounter-builder-party .character-levels-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.encounter-builder-party .character-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.encounter-builder-party .character-input-group label {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+.encounter-builder-party .character-input-group input {
+  width: 56px;
+  padding: var(--space-1) var(--space-2);
+  text-align: center;
+}
+.encounter-builder-party .form-actions-inline {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-end;
 }
 .encounter-builder-result #result-container { transition: none; }
 .encounter-builder-result .htmx-indicator { display: none; }
