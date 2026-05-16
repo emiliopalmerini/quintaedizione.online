@@ -1,6 +1,8 @@
 package templates
 
 import (
+	"strconv"
+
 	shared "github.com/emiliopalmerini/quintaedizione.online/web/templates"
 )
 
@@ -13,13 +15,127 @@ type EditionOption struct {
 	IsDefault bool
 }
 
-templ Home(editions []EditionOption) {
+// CartSeed is one entry pre-populated from the URL share-link. The picker
+// resolves these on first calculate; the home template just stamps the
+// hidden inputs the existing JS / handler already understand.
+type CartSeed struct {
+	ID     string
+	Source string
+}
+
+// HomeData is the view model for the encounter home page.
+//
+// All fields except Editions are optional; sensible defaults are applied by
+// the handler before passing this in. Result/PickerSlot are only set when the
+// page was opened with a populated querystring (server-side prerender).
+type HomeData struct {
+	Editions []EditionOption
+
+	// Hydrated form state.
+	Ruleset        string // "2024" | "2014"
+	Party          []int  // character levels (replaces same/different inputs)
+	Difficulty2024 string // "Low" | "Moderate" | "High"
+	Difficulty2014 string // "Facile" | "Media" | "Difficile" | "Letale"
+	NumMonsters    int    // 2014 only; ignored on 2024
+
+	// Cart pre-populated from the URL share link. These render as the same
+	// hidden <input name="monsters[]"> elements the JS layer manages so the
+	// next calculate POST naturally picks them up.
+	Cart []CartSeed
+
+	// SourceShort matches the active ruleset's edition (e.g. "5.5e"). Used to
+	// pre-fill the source_short hidden input so the first server calculate
+	// can price the seeded cart without waiting for JS hydration.
+	SourceShort string
+
+	// Prerendered result. When non-nil, the result-container ships with the
+	// computed budget + cart instead of the placeholder. Saves a round-trip
+	// when the user lands on a shared link.
+	Result *ResultData
+}
+
+// is2024 picks the ruleset for default-rendering decisions.
+func (d HomeData) is2024() bool {
+	return d.Ruleset != "2014"
+}
+
+// editionChecked says whether a given edition radio should be pre-checked.
+// Mirrors NewHomeData's defaulting: when no Ruleset is set, IsDefault wins.
+func (d HomeData) editionChecked(ed EditionOption) bool {
+	if d.Ruleset == "" {
+		return ed.IsDefault
+	}
+	return ed.Ruleset == d.Ruleset
+}
+
+// editionDifficulty returns the difficulty value to render selected, with
+// per-ruleset fallbacks matching the form's hard-coded defaults.
+func (d HomeData) difficulty2024() string {
+	if d.Difficulty2024 == "" {
+		return "Moderate"
+	}
+	return d.Difficulty2024
+}
+
+func (d HomeData) difficulty2014() string {
+	if d.Difficulty2014 == "" {
+		return "Media"
+	}
+	return d.Difficulty2014
+}
+
+func (d HomeData) numMonsters() int {
+	if d.NumMonsters <= 0 {
+		return 1
+	}
+	return d.NumMonsters
+}
+
+// partyLevels returns the levels to seed the same-mode input. The first
+// element seeds the level field; the count is len(Party). When Party is
+// empty we fall back to the original 4× level-3 baseline.
+func (d HomeData) partyLevels() []int {
+	if len(d.Party) == 0 {
+		return []int{3, 3, 3, 3}
+	}
+	return d.Party
+}
+
+// partyLevel picks the dominant level to seed the same-mode level input
+// (first element when the party has any entries).
+func (d HomeData) partyLevel() int {
+	levels := d.partyLevels()
+	return levels[0]
+}
+
+// partyCount drives the same-mode count input.
+func (d HomeData) partyCount() int {
+	return len(d.partyLevels())
+}
+
+// isSameMode is true when every party level matches partyLevel(). The form
+// shows the "same" panel when so; otherwise we open in "different" mode and
+// seed the per-character inputs.
+func (d HomeData) isSameMode() bool {
+	levels := d.partyLevels()
+	if len(levels) <= 1 {
+		return true
+	}
+	first := levels[0]
+	for _, l := range levels[1:] {
+		if l != first {
+			return false
+		}
+	}
+	return true
+}
+
+templ Home(data HomeData) {
 	@shared.SiteLayout("Calcolatore Incontri", "Calcolatore di incontri D&D 5e per Dungeon Master — supporta regole 2014 e 2024.", "combattimenti", shared.EncountersScript()) {
 		<div class="page-header page-header-map" style="--map-bg: url('/static/img/dyson-map-1.webp')">
 			<h1>Calcolatore Incontri</h1>
 			<p class="page-header-subtitle">Calcola il budget XP per i tuoi incontri. Supporta le regole 2014 e 2024.</p>
 		</div>
-
 		<div class="encounter-layout">
 			<div class="encounter-config">
 				<div class="form-container">
@@ -28,9 +144,9 @@ templ Home(editions []EditionOption) {
 						<div class="form-section">
 							<h2 class="form-section-title">Edizione</h2>
 							<div class="segmented-control" role="radiogroup" aria-label="Edizione delle regole">
-								for _, ed := range editions {
+								for _, ed := range data.Editions {
 									<label class="segmented-control-option">
-										if ed.IsDefault {
+										if data.editionChecked(ed) {
 											<input type="radio" name="ruleset" value={ ed.Ruleset } data-source={ ed.SourceID } data-source-short={ ed.ShortName } checked/>
 										} else {
 											<input type="radio" name="ruleset" value={ ed.Ruleset } data-source={ ed.SourceID } data-source-short={ ed.ShortName }/>
@@ -40,27 +156,36 @@ templ Home(editions []EditionOption) {
 								}
 							</div>
 							<p class="form-hint">Scegli quale edizione delle regole utilizzare</p>
-							<input type="hidden" name="source_short" id="source-short"/>
+							<input type="hidden" name="source_short" id="source-short" value={ data.SourceShort }/>
 						</div>
-
 						<!-- Party Mode Selection -->
 						<div class="form-section">
 							<h2 class="form-section-title">Composizione Party</h2>
 							<div class="segmented-control" role="radiogroup" aria-label="Modalità composizione party">
 								<label class="segmented-control-option">
-									<input type="radio" name="party_mode" value="same" checked/>
+									if data.isSameMode() {
+										<input type="radio" name="party_mode" value="same" checked/>
+									} else {
+										<input type="radio" name="party_mode" value="same"/>
+									}
 									<span>Stessi livelli</span>
 								</label>
 								<label class="segmented-control-option">
-									<input type="radio" name="party_mode" value="different"/>
+									if !data.isSameMode() {
+										<input type="radio" name="party_mode" value="different" checked/>
+									} else {
+										<input type="radio" name="party_mode" value="different"/>
+									}
 									<span>Livelli diversi</span>
 								</label>
 							</div>
 							<p class="form-hint">Tutti al medesimo livello o livelli misti</p>
 						</div>
-
 						<!-- Same Level Configuration -->
-						<div id="party-same-panel" class="form-section">
+						<div
+							id="party-same-panel"
+							class={ "form-section", templ.KV("hidden", !data.isSameMode()) }
+						>
 							<h2 class="form-section-title">Party con Stessi Livelli</h2>
 							<div class="form-grid-2col">
 								<div class="form-field-group">
@@ -71,7 +196,7 @@ templ Home(editions []EditionOption) {
 											type="number"
 											id="party-level"
 											name="level"
-											value="3"
+											value={ strconv.Itoa(data.partyLevel()) }
 											min="1"
 											max="20"
 											class="stepper-input"
@@ -89,7 +214,7 @@ templ Home(editions []EditionOption) {
 											type="number"
 											id="party-count"
 											name="count"
-											value="4"
+											value={ strconv.Itoa(data.partyCount()) }
 											min="1"
 											max="8"
 											class="stepper-input"
@@ -101,15 +226,17 @@ templ Home(editions []EditionOption) {
 								</div>
 							</div>
 						</div>
-
 						<!-- Different Levels Configuration -->
-						<div id="party-different-panel" class="form-section hidden">
+						<div
+							id="party-different-panel"
+							class={ "form-section", templ.KV("hidden", data.isSameMode()) }
+						>
 							<h2 class="form-section-title">Party con Livelli Diversi</h2>
 							<div id="character-levels-container" class="character-levels-list">
-								for i := 1; i <= 4; i++ {
+								for i, level := range data.partyLevels() {
 									<div class="character-input-group">
-										<label>Personaggio { string(rune('0' + byte(i))) }</label>
-										<input type="number" name="character_levels" value="3" min="1" max="20" required/>
+										<label>Personaggio { strconv.Itoa(i + 1) }</label>
+										<input type="number" name="character_levels" value={ strconv.Itoa(level) } min="1" max="20" required/>
 									</div>
 								}
 							</div>
@@ -119,32 +246,36 @@ templ Home(editions []EditionOption) {
 							</div>
 							<p class="form-hint">Inserisci il livello di ogni personaggio (1-20)</p>
 						</div>
-
 						<!-- Difficulty 2024 -->
-						<div id="difficulty-2024-panel" class="form-section">
+						<div
+							id="difficulty-2024-panel"
+							class={ "form-section", templ.KV("hidden", !data.is2024()) }
+						>
 							<h2 class="form-section-title">Difficoltà (D&D 2024)</h2>
 							<div class="form-field-group">
 								<label for="difficulty-2024" class="form-label">Livello di Difficoltà</label>
 								<select id="difficulty-2024" name="difficulty_2024" class="field">
-									<option value="Low">Bassa</option>
-									<option value="Moderate" selected>Moderata</option>
-									<option value="High">Alta</option>
+									@difficultyOption("Low", "Bassa", data.difficulty2024())
+									@difficultyOption("Moderate", "Moderata", data.difficulty2024())
+									@difficultyOption("High", "Alta", data.difficulty2024())
 								</select>
 								<p class="form-hint">Scegli la difficoltà desiderata per l'incontro</p>
 							</div>
 						</div>
-
 						<!-- Difficulty 2014 -->
-						<div id="difficulty-2014-panel" class="form-section hidden">
+						<div
+							id="difficulty-2014-panel"
+							class={ "form-section", templ.KV("hidden", data.is2024()) }
+						>
 							<h2 class="form-section-title">Difficoltà (D&D 2014)</h2>
 							<div class="form-grid-2col">
 								<div class="form-field-group">
 									<label for="difficulty-2014" class="form-label">Livello di Difficoltà</label>
 									<select id="difficulty-2014" name="difficulty_2014" class="field">
-										<option value="Facile">Facile</option>
-										<option value="Media" selected>Media</option>
-										<option value="Difficile">Difficile</option>
-										<option value="Letale">Letale</option>
+										@difficultyOption("Facile", "Facile", data.difficulty2014())
+										@difficultyOption("Media", "Media", data.difficulty2014())
+										@difficultyOption("Difficile", "Difficile", data.difficulty2014())
+										@difficultyOption("Letale", "Letale", data.difficulty2014())
 									</select>
 								</div>
 								<div class="form-field-group">
@@ -155,7 +286,7 @@ templ Home(editions []EditionOption) {
 											type="number"
 											id="num-monsters"
 											name="num_monsters_2014"
-											value="1"
+											value={ strconv.Itoa(data.numMonsters()) }
 											min="1"
 											max="20"
 											class="stepper-input"
@@ -167,10 +298,17 @@ templ Home(editions []EditionOption) {
 								</div>
 							</div>
 						</div>
-
-						<!-- Cart inputs (hidden) — monsters added from the picker land here as repeated <input name="monsters[]"> -->
-						<div id="cart-inputs" class="sr-only" aria-hidden="true"></div>
-
+						<!--
+							Cart inputs (hidden). Items added from the picker land here as
+							repeated <input name="monsters[]"> entries. Pre-populated from
+							the URL share-link's cart= param so a shared link rehydrates the
+							cart on first paint, before JS runs.
+						-->
+						<div id="cart-inputs" class="sr-only" aria-hidden="true">
+							for _, entry := range data.Cart {
+								<input type="hidden" name="monsters[]" value={ entry.ID + "@" + entry.Source }/>
+							}
+						</div>
 						<!-- Submit (no-JS fallback, hidden when JS active) -->
 						<noscript>
 							<div class="form-submit">
@@ -182,20 +320,36 @@ templ Home(editions []EditionOption) {
 					</form>
 				</div>
 			</div>
-
 			<!-- Results -->
 			<div class="encounter-results">
 				<div id="result-container">
-					<div class="result-placeholder">
-						<div id="result-loading" class="htmx-indicator">
-							<span class="spinner"></span>
+					if data.Result != nil {
+						@Result(*data.Result)
+					} else {
+						<div class="result-placeholder">
+							<div id="result-loading" class="htmx-indicator">
+								<span class="spinner"></span>
+							</div>
+							<h3>⚔️ Budget XP</h3>
+							<p>Calcolo in corso...</p>
 						</div>
-						<h3>⚔️ Budget XP</h3>
-						<p>Calcolo in corso...</p>
-					</div>
+					}
 				</div>
-				<div id="monster-picker-slot"></div>
+				if data.Result == nil {
+					<div id="monster-picker-slot"></div>
+				}
 			</div>
 		</div>
+	}
+}
+
+// difficultyOption renders one <option> for a difficulty <select>, marking
+// the matching value as selected. Keeps the home template free of
+// per-option if/else duplication.
+templ difficultyOption(value, label, selected string) {
+	if value == selected {
+		<option value={ value } selected>{ label }</option>
+	} else {
+		<option value={ value }>{ label }</option>
 	}
 }

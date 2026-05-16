@@ -222,14 +222,7 @@ func main() {
 
 	// Combattimenti routes under /combattimenti
 	combatMux := http.NewServeMux()
-	combatMux.HandleFunc("GET /{$}", func(w http.ResponseWriter, r *http.Request) {
-		pkgweb.SetCacheHeaders(w, 3600) // 1 hour
-		w.Header().Set("Content-Type", "text/html; charset=utf-8")
-		if err := combatTemplates.Home(editions).Render(r.Context(), w); err != nil {
-			logger.Error("Failed to render combattimenti home", "error", err)
-			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
-		}
-	})
+	combatMux.Handle("GET /{$}", encounterHandler.HomeHandler(editions))
 	combatMux.HandleFunc("POST /calculate", encounterHandler.CalculateHandler)
 	combatMux.HandleFunc("GET /party-input", encounterHandler.PartyInputHandler)
 	combatMux.HandleFunc("GET /api/difficulties", encounterHandler.GetDifficultiesHandler)

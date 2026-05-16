@@ -68,6 +68,16 @@ templ Result(data ResultData) {
 			<span class="result-budget-label">Budget XP</span>
 			<span class="result-budget-value">{ strconv.Itoa(data.Result.TotalXP) }</span>
 			<span class="result-budget-per">{ xpPerCharacter(data.Result.TotalXP, data.Result.PartySize) } XP per personaggio</span>
+			<button
+				type="button"
+				id="copy-link-btn"
+				class="btn btn-secondary result-copy-link"
+				data-copy-default="Copia link"
+				data-copy-success="Copiato!"
+				aria-label="Copia il link condivisibile di questo incontro"
+			>
+				Copia link
+			</button>
 		</div>
 
 		<!-- Party Summary -->

@@ -5,10 +5,12 @@ import (
 	"fmt"
 	"log/slog"
 	"net/http"
+	"net/url"
 	"strconv"
 	"strings"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/application/encounter"
+	domainenc "github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/domain/encounter"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/domain/monster"
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/infrastructure/web/templates"
 	pkgweb "github.com/emiliopalmerini/quintaedizione.online/pkg/web"
@@ -38,6 +40,182 @@ func NewEncounterHandler(
 		reader:       reader,
 		logger:       logger,
 	}
+}
+
+// HomeHandler renders the encounter builder home page.
+//
+// It decodes the URL share-link state from the querystring (see
+// domain/encounter.DecodeURLState), drops cart entries whose source does not
+// match the active ruleset's edition (ADR-024), and, when the URL is not the
+// all-defaults state, server-side-prerenders the result panel so a shared
+// link lands on a fully populated page without a JS round-trip.
+func (h *EncounterHandler) HomeHandler(editions []templates.EditionOption) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		// Cache header set here mirrors what the previous inline handler used.
+		pkgweb.SetCacheHeaders(w, 3600) // 1 hour
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+
+		state := domainenc.DecodeURLState(r.URL.Query())
+
+		sourceShort := sourceShortForRuleset(editions, state.Ruleset)
+		state = state.WithSource(sourceShort) // drop foreign-source cart entries
+
+		homeData := templates.HomeData{
+			Editions:    editions,
+			Ruleset:     state.Ruleset,
+			Party:       state.Party,
+			SourceShort: sourceShort,
+			Cart:        toCartSeeds(state.Cart),
+		}
+		switch state.Ruleset {
+		case "2014":
+			homeData.Difficulty2014 = state.Difficulty
+			homeData.NumMonsters = countCartItems(state.Cart)
+		default:
+			homeData.Difficulty2024 = state.Difficulty
+		}
+
+		// Server-side prerender of the result panel when the URL carries
+		// non-default state. Computing this here saves a round-trip and gives
+		// share-link recipients a fully populated page on first paint.
+		if isNonDefaultURL(r.URL.Query()) {
+			if rd, ok := h.prerenderResult(r, state, sourceShort, homeData.NumMonsters); ok {
+				homeData.Result = rd
+			}
+		}
+
+		if err := templates.Home(homeData).Render(r.Context(), w); err != nil {
+			h.logger.Error("Failed to render combattimenti home", "error", err)
+			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		}
+	}
+}
+
+// prerenderResult mirrors the body of CalculateHandler enough to produce a
+// ResultData snapshot for the URL-hydrated state. Failures fall back to the
+// placeholder result (handled by the caller).
+func (h *EncounterHandler) prerenderResult(r *http.Request, state domainenc.URLState, sourceShort string, numMonsters int) (*templates.ResultData, bool) {
+	req := encounter.CalculateXPRequest{
+		Ruleset:         state.Ruleset,
+		PartyMode:       "different", // any value is fine; we already have the levels
+		Difficulty:      state.Difficulty,
+		CharacterLevels: state.Party,
+	}
+	if state.Ruleset == "2014" {
+		req.NumMonsters = numMonsters
+		if req.NumMonsters < 1 {
+			req.NumMonsters = 1
+		}
+	}
+
+	result, err := h.service.CalculateXP(req)
+	if err != nil {
+		h.logger.Warn("home prerender: CalculateXP failed", "error", err)
+		return nil, false
+	}
+
+	tiers := h.buildDifficultyTiers(req, "home-prerender")
+
+	refs := make([]encounter.CartItemRef, 0, len(state.Cart))
+	for _, ref := range state.Cart {
+		qty := ref.Qty
+		if qty < 1 {
+			qty = 1
+		}
+		refs = append(refs, encounter.CartItemRef{ID: ref.ID, Source: ref.Source, Quantity: qty})
+	}
+
+	priced, err := h.pricer.Price(r.Context(), encounter.PriceCartRequest{
+		Ruleset: state.Ruleset,
+		Refs:    refs,
+		Budget:  result.TotalXP,
+	})
+	if err != nil {
+		h.logger.Warn("home prerender: cart pricing failed", "error", err)
+		priced = &encounter.PriceCartResponse{Remaining: result.TotalXP}
+	}
+
+	cartView := templates.CartView{
+		Entries:       priced.Entries,
+		Subtotal:      priced.Subtotal,
+		EffectiveCost: priced.EffectiveCost,
+		Remaining:     priced.Remaining,
+		Multiplier:    state.Ruleset == "2014",
+	}
+	inferred := encounter.InferDifficulty(toTierThresholds(tiers), priced.EffectiveCost)
+	picker := h.buildPicker(r, sourceShort, result.TotalXP)
+
+	return &templates.ResultData{
+		Result:       result,
+		Tiers:        tiers,
+		Cart:         cartView,
+		Picker:       picker,
+		InferredTier: inferred,
+		HasCartItems: len(priced.Entries) > 0,
+		IsOverspent:  priced.Remaining < 0,
+	}, true
+}
+
+// sourceShortForRuleset finds the short-name of the edition whose ruleset
+// matches. Falls back to the default edition's short-name, then to the empty
+// string when the editions list is empty.
+func sourceShortForRuleset(editions []templates.EditionOption, ruleset string) string {
+	for _, ed := range editions {
+		if ed.Ruleset == ruleset {
+			return ed.ShortName
+		}
+	}
+	for _, ed := range editions {
+		if ed.IsDefault {
+			return ed.ShortName
+		}
+	}
+	if len(editions) > 0 {
+		return editions[0].ShortName
+	}
+	return ""
+}
+
+// toCartSeeds expands URL-state cart refs into the repeated
+// (id, source) entries the home template stamps as <input name="monsters[]">.
+// The repetition matches what the JS cart manager appends per click, which
+// keeps the 2014 multiplier honest.
+func toCartSeeds(refs []domainenc.CartRef) []templates.CartSeed {
+	out := make([]templates.CartSeed, 0, len(refs))
+	for _, ref := range refs {
+		qty := ref.Qty
+		if qty < 1 {
+			qty = 1
+		}
+		for i := 0; i < qty; i++ {
+			out = append(out, templates.CartSeed{ID: ref.ID, Source: ref.Source})
+		}
+	}
+	return out
+}
+
+func countCartItems(refs []domainenc.CartRef) int {
+	n := 0
+	for _, ref := range refs {
+		if ref.Qty < 1 {
+			n++
+			continue
+		}
+		n += ref.Qty
+	}
+	return n
+}
+
+// isNonDefaultURL reports whether the request URL has any of the known
+// share-link parameters. Used to skip the prerender (and the cost of building
+// the picker on a cold cache miss) for first-time visits.
+func isNonDefaultURL(v url.Values) bool {
+	for _, key := range []string{"ruleset", "party", "diff", "cart"} {
+		if v.Has(key) {
+			return true
+		}
+	}
+	return false
 }
 
 // Form data structures for HTTP requests
@@ -207,6 +385,14 @@ func (h *EncounterHandler) CalculateHandler(w http.ResponseWriter, r *http.Reque
 		HasCartItems: len(pricedCart.Entries) > 0,
 		IsOverspent:  pricedCart.Remaining < 0,
 	}
+
+	// Round-trip the active state into the browser URL so refresh/share
+	// preserves everything. HTMX's HX-Push-Url uses an absolute path; build
+	// it from the form values we just consumed (post-filtering for ruleset
+	// mismatch, which would otherwise leave stale cart entries in the URL).
+	pushURL := buildShareURL(ruleset, characterLevels, req.Difficulty, filteredRefs)
+	w.Header().Set("HX-Push-Url", pushURL)
+
 	pkgweb.RenderTempl(w, r, h.logger, templates.Result(data))
 }
 
@@ -218,6 +404,35 @@ func toTierThresholds(tiers []templates.DifficultyTier) []encounter.TierThreshol
 		out = append(out, encounter.TierThreshold{Label: t.Label, Value: t.Value, XP: t.XP})
 	}
 	return out
+}
+
+// buildShareURL turns the calculate POST's effective state into the absolute
+// URL path the browser should display afterwards. Cart refs already exclude
+// foreign-source entries (see filterRefsBySource), so the URL is consistent
+// with what the user actually got priced.
+func buildShareURL(ruleset string, levels []int, difficulty string, refs []encounter.CartItemRef) string {
+	cart := make([]domainenc.CartRef, 0, len(refs))
+	for _, ref := range refs {
+		qty := ref.Quantity
+		if qty < 1 {
+			qty = 1
+		}
+		cart = append(cart, domainenc.CartRef{ID: ref.ID, Source: ref.Source, Qty: qty})
+	}
+	state := domainenc.URLState{
+		Ruleset:    ruleset,
+		Party:      levels,
+		Difficulty: difficulty,
+		Cart:       cart,
+	}
+	q := state.EncodeQuery()
+	// The only mount point for this handler is /combattimenti; HX-Push-Url
+	// must be the absolute browser URL, not a fragment.
+	base := "/combattimenti"
+	if q == "" {
+		return base
+	}
+	return base + "?" + q
 }
 
 // buildPicker renders the monster-picker panel with the current budget as the

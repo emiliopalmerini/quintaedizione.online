@@ -9,6 +9,8 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 import (
+	"strconv"
+
 	shared "github.com/emiliopalmerini/quintaedizione.online/web/templates"
 )
 
@@ -21,7 +23,122 @@ type EditionOption struct {
 	IsDefault bool
 }
 
-func Home(editions []EditionOption) templ.Component {
+// CartSeed is one entry pre-populated from the URL share-link. The picker
+// resolves these on first calculate; the home template just stamps the
+// hidden inputs the existing JS / handler already understand.
+type CartSeed struct {
+	ID     string
+	Source string
+}
+
+// HomeData is the view model for the encounter home page.
+//
+// All fields except Editions are optional; sensible defaults are applied by
+// the handler before passing this in. Result/PickerSlot are only set when the
+// page was opened with a populated querystring (server-side prerender).
+type HomeData struct {
+	Editions []EditionOption
+
+	// Hydrated form state.
+	Ruleset        string // "2024" | "2014"
+	Party          []int  // character levels (replaces same/different inputs)
+	Difficulty2024 string // "Low" | "Moderate" | "High"
+	Difficulty2014 string // "Facile" | "Media" | "Difficile" | "Letale"
+	NumMonsters    int    // 2014 only; ignored on 2024
+
+	// Cart pre-populated from the URL share link. These render as the same
+	// hidden <input name="monsters[]"> elements the JS layer manages so the
+	// next calculate POST naturally picks them up.
+	Cart []CartSeed
+
+	// SourceShort matches the active ruleset's edition (e.g. "5.5e"). Used to
+	// pre-fill the source_short hidden input so the first server calculate
+	// can price the seeded cart without waiting for JS hydration.
+	SourceShort string
+
+	// Prerendered result. When non-nil, the result-container ships with the
+	// computed budget + cart instead of the placeholder. Saves a round-trip
+	// when the user lands on a shared link.
+	Result *ResultData
+}
+
+// is2024 picks the ruleset for default-rendering decisions.
+func (d HomeData) is2024() bool {
+	return d.Ruleset != "2014"
+}
+
+// editionChecked says whether a given edition radio should be pre-checked.
+// Mirrors NewHomeData's defaulting: when no Ruleset is set, IsDefault wins.
+func (d HomeData) editionChecked(ed EditionOption) bool {
+	if d.Ruleset == "" {
+		return ed.IsDefault
+	}
+	return ed.Ruleset == d.Ruleset
+}
+
+// editionDifficulty returns the difficulty value to render selected, with
+// per-ruleset fallbacks matching the form's hard-coded defaults.
+func (d HomeData) difficulty2024() string {
+	if d.Difficulty2024 == "" {
+		return "Moderate"
+	}
+	return d.Difficulty2024
+}
+
+func (d HomeData) difficulty2014() string {
+	if d.Difficulty2014 == "" {
+		return "Media"
+	}
+	return d.Difficulty2014
+}
+
+func (d HomeData) numMonsters() int {
+	if d.NumMonsters <= 0 {
+		return 1
+	}
+	return d.NumMonsters
+}
+
+// partyLevels returns the levels to seed the same-mode input. The first
+// element seeds the level field; the count is len(Party). When Party is
+// empty we fall back to the original 4× level-3 baseline.
+func (d HomeData) partyLevels() []int {
+	if len(d.Party) == 0 {
+		return []int{3, 3, 3, 3}
+	}
+	return d.Party
+}
+
+// partyLevel picks the dominant level to seed the same-mode level input
+// (first element when the party has any entries).
+func (d HomeData) partyLevel() int {
+	levels := d.partyLevels()
+	return levels[0]
+}
+
+// partyCount drives the same-mode count input.
+func (d HomeData) partyCount() int {
+	return len(d.partyLevels())
+}
+
+// isSameMode is true when every party level matches partyLevel(). The form
+// shows the "same" panel when so; otherwise we open in "different" mode and
+// seed the per-character inputs.
+func (d HomeData) isSameMode() bool {
+	levels := d.partyLevels()
+	if len(levels) <= 1 {
+		return true
+	}
+	first := levels[0]
+	for _, l := range levels[1:] {
+		if l != first {
+			return false
+		}
+	}
+	return true
+}
+
+func Home(data HomeData) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -58,12 +175,12 @@ func Home(editions []EditionOption) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			for _, ed := range editions {
+			for _, ed := range data.Editions {
 				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<label class=\"segmented-control-option\">")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				if ed.IsDefault {
+				if data.editionChecked(ed) {
 					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<input type=\"radio\" name=\"ruleset\" value=\"")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
@@ -71,7 +188,7 @@ func Home(editions []EditionOption) templ.Component {
 					var templ_7745c5c3_Var3 string
 					templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(ed.Ruleset)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 34, Col: 64}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 150, Col: 64}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 					if templ_7745c5c3_Err != nil {
@@ -84,7 +201,7 @@ func Home(editions []EditionOption) templ.Component {
 					var templ_7745c5c3_Var4 string
 					templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(ed.SourceID)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 34, Col: 92}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 150, Col: 92}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 					if templ_7745c5c3_Err != nil {
@@ -97,7 +214,7 @@ func Home(editions []EditionOption) templ.Component {
 					var templ_7745c5c3_Var5 string
 					templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(ed.ShortName)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 34, Col: 127}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 150, Col: 127}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 					if templ_7745c5c3_Err != nil {
@@ -115,7 +232,7 @@ func Home(editions []EditionOption) templ.Component {
 					var templ_7745c5c3_Var6 string
 					templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(ed.Ruleset)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 36, Col: 64}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 152, Col: 64}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 					if templ_7745c5c3_Err != nil {
@@ -128,7 +245,7 @@ func Home(editions []EditionOption) templ.Component {
 					var templ_7745c5c3_Var7 string
 					templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(ed.SourceID)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 36, Col: 92}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 152, Col: 92}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 					if templ_7745c5c3_Err != nil {
@@ -141,7 +258,7 @@ func Home(editions []EditionOption) templ.Component {
 					var templ_7745c5c3_Var8 string
 					templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(ed.ShortName)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 36, Col: 127}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 152, Col: 127}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 					if templ_7745c5c3_Err != nil {
@@ -159,7 +276,7 @@ func Home(editions []EditionOption) templ.Component {
 				var templ_7745c5c3_Var9 string
 				templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(ed.ShortName)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 38, Col: 30}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 154, Col: 30}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 				if templ_7745c5c3_Err != nil {
@@ -170,30 +287,297 @@ func Home(editions []EditionOption) templ.Component {
 					return templ_7745c5c3_Err
 				}
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</div><p class=\"form-hint\">Scegli quale edizione delle regole utilizzare</p><input type=\"hidden\" name=\"source_short\" id=\"source-short\"></div><!-- Party Mode Selection --><div class=\"form-section\"><h2 class=\"form-section-title\">Composizione Party</h2><div class=\"segmented-control\" role=\"radiogroup\" aria-label=\"Modalità composizione party\"><label class=\"segmented-control-option\"><input type=\"radio\" name=\"party_mode\" value=\"same\" checked> <span>Stessi livelli</span></label> <label class=\"segmented-control-option\"><input type=\"radio\" name=\"party_mode\" value=\"different\"> <span>Livelli diversi</span></label></div><p class=\"form-hint\">Tutti al medesimo livello o livelli misti</p></div><!-- Same Level Configuration --><div id=\"party-same-panel\" class=\"form-section\"><h2 class=\"form-section-title\">Party con Stessi Livelli</h2><div class=\"form-grid-2col\"><div class=\"form-field-group\"><label for=\"party-level\" class=\"form-label\">Livello</label><div class=\"stepper\" data-min=\"1\" data-max=\"20\"><button type=\"button\" class=\"stepper-btn stepper-decrement\" aria-label=\"Diminuisci livello\">−</button> <input type=\"number\" id=\"party-level\" name=\"level\" value=\"3\" min=\"1\" max=\"20\" class=\"stepper-input\" required> <button type=\"button\" class=\"stepper-btn stepper-increment\" aria-label=\"Aumenta livello\">+</button></div><p class=\"form-hint\">Da 1 a 20</p></div><div class=\"form-field-group\"><label for=\"party-count\" class=\"form-label\">Personaggi</label><div class=\"stepper\" data-min=\"1\" data-max=\"8\"><button type=\"button\" class=\"stepper-btn stepper-decrement\" aria-label=\"Diminuisci personaggi\">−</button> <input type=\"number\" id=\"party-count\" name=\"count\" value=\"4\" min=\"1\" max=\"8\" class=\"stepper-input\" required> <button type=\"button\" class=\"stepper-btn stepper-increment\" aria-label=\"Aumenta personaggi\">+</button></div><p class=\"form-hint\">Da 1 a 8</p></div></div></div><!-- Different Levels Configuration --><div id=\"party-different-panel\" class=\"form-section hidden\"><h2 class=\"form-section-title\">Party con Livelli Diversi</h2><div id=\"character-levels-container\" class=\"character-levels-list\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</div><p class=\"form-hint\">Scegli quale edizione delle regole utilizzare</p><input type=\"hidden\" name=\"source_short\" id=\"source-short\" value=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			for i := 1; i <= 4; i++ {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "<div class=\"character-input-group\"><label>Personaggio ")
+			var templ_7745c5c3_Var10 string
+			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(data.SourceShort)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 159, Col: 90}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "\"></div><!-- Party Mode Selection --><div class=\"form-section\"><h2 class=\"form-section-title\">Composizione Party</h2><div class=\"segmented-control\" role=\"radiogroup\" aria-label=\"Modalità composizione party\"><label class=\"segmented-control-option\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			if data.isSameMode() {
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "<input type=\"radio\" name=\"party_mode\" value=\"same\" checked> ")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				var templ_7745c5c3_Var10 string
-				templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(string(rune('0' + byte(i))))
-				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 111, Col: 58}
-				}
-				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
-				if templ_7745c5c3_Err != nil {
-					return templ_7745c5c3_Err
-				}
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</label> <input type=\"number\" name=\"character_levels\" value=\"3\" min=\"1\" max=\"20\" required></div>")
+			} else {
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "<input type=\"radio\" name=\"party_mode\" value=\"same\"> ")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</div><div class=\"form-actions-inline\"><button type=\"button\" id=\"add-character\" class=\"btn btn-secondary\">+ Aggiungi</button> <button type=\"button\" id=\"remove-character\" class=\"btn btn-secondary\">- Rimuovi</button></div><p class=\"form-hint\">Inserisci il livello di ogni personaggio (1-20)</p></div><!-- Difficulty 2024 --><div id=\"difficulty-2024-panel\" class=\"form-section\"><h2 class=\"form-section-title\">Difficoltà (D&D 2024)</h2><div class=\"form-field-group\"><label for=\"difficulty-2024\" class=\"form-label\">Livello di Difficoltà</label> <select id=\"difficulty-2024\" name=\"difficulty_2024\" class=\"field\"><option value=\"Low\">Bassa</option> <option value=\"Moderate\" selected>Moderata</option> <option value=\"High\">Alta</option></select><p class=\"form-hint\">Scegli la difficoltà desiderata per l'incontro</p></div></div><!-- Difficulty 2014 --><div id=\"difficulty-2014-panel\" class=\"form-section hidden\"><h2 class=\"form-section-title\">Difficoltà (D&D 2014)</h2><div class=\"form-grid-2col\"><div class=\"form-field-group\"><label for=\"difficulty-2014\" class=\"form-label\">Livello di Difficoltà</label> <select id=\"difficulty-2014\" name=\"difficulty_2014\" class=\"field\"><option value=\"Facile\">Facile</option> <option value=\"Media\" selected>Media</option> <option value=\"Difficile\">Difficile</option> <option value=\"Letale\">Letale</option></select></div><div class=\"form-field-group\"><label for=\"num-monsters\" class=\"form-label\">Numero di Mostri</label><div class=\"stepper\" data-min=\"1\" data-max=\"20\"><button type=\"button\" class=\"stepper-btn stepper-decrement\" aria-label=\"Diminuisci mostri\">−</button> <input type=\"number\" id=\"num-monsters\" name=\"num_monsters_2014\" value=\"1\" min=\"1\" max=\"20\" class=\"stepper-input\" required> <button type=\"button\" class=\"stepper-btn stepper-increment\" aria-label=\"Aumenta mostri\">+</button></div><p class=\"form-hint\">Per moltiplicatore XP</p></div></div></div><!-- Cart inputs (hidden) — monsters added from the picker land here as repeated <input name=\"monsters[]\"> --><div id=\"cart-inputs\" class=\"sr-only\" aria-hidden=\"true\"></div><!-- Submit (no-JS fallback, hidden when JS active) --><noscript><div class=\"form-submit\"><button type=\"submit\" class=\"btn btn-primary btn-large\">Calcola Budget XP</button></div></noscript></form></div></div><!-- Results --><div class=\"encounter-results\"><div id=\"result-container\"><div class=\"result-placeholder\"><div id=\"result-loading\" class=\"htmx-indicator\"><span class=\"spinner\"></span></div><h3>⚔️ Budget XP</h3><p>Calcolo in corso...</p></div></div><div id=\"monster-picker-slot\"></div></div></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "<span>Stessi livelli</span></label> <label class=\"segmented-control-option\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			if !data.isSameMode() {
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "<input type=\"radio\" name=\"party_mode\" value=\"different\" checked> ")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			} else {
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "<input type=\"radio\" name=\"party_mode\" value=\"different\"> ")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "<span>Livelli diversi</span></label></div><p class=\"form-hint\">Tutti al medesimo livello o livelli misti</p></div><!-- Same Level Configuration -->")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var11 = []any{"form-section", templ.KV("hidden", !data.isSameMode())}
+			templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var11...)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "<div id=\"party-same-panel\" class=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var12 string
+			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(templ.CSSClasses(templ_7745c5c3_Var11).String())
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 1, Col: 0}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "\"><h2 class=\"form-section-title\">Party con Stessi Livelli</h2><div class=\"form-grid-2col\"><div class=\"form-field-group\"><label for=\"party-level\" class=\"form-label\">Livello</label><div class=\"stepper\" data-min=\"1\" data-max=\"20\"><button type=\"button\" class=\"stepper-btn stepper-decrement\" aria-label=\"Diminuisci livello\">−</button> <input type=\"number\" id=\"party-level\" name=\"level\" value=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var13 string
+			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(data.partyLevel()))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 199, Col: 50}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "\" min=\"1\" max=\"20\" class=\"stepper-input\" required> <button type=\"button\" class=\"stepper-btn stepper-increment\" aria-label=\"Aumenta livello\">+</button></div><p class=\"form-hint\">Da 1 a 20</p></div><div class=\"form-field-group\"><label for=\"party-count\" class=\"form-label\">Personaggi</label><div class=\"stepper\" data-min=\"1\" data-max=\"8\"><button type=\"button\" class=\"stepper-btn stepper-decrement\" aria-label=\"Diminuisci personaggi\">−</button> <input type=\"number\" id=\"party-count\" name=\"count\" value=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var14 string
+			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(data.partyCount()))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 217, Col: 50}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "\" min=\"1\" max=\"8\" class=\"stepper-input\" required> <button type=\"button\" class=\"stepper-btn stepper-increment\" aria-label=\"Aumenta personaggi\">+</button></div><p class=\"form-hint\">Da 1 a 8</p></div></div></div><!-- Different Levels Configuration -->")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var15 = []any{"form-section", templ.KV("hidden", data.isSameMode())}
+			templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var15...)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "<div id=\"party-different-panel\" class=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var16 string
+			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(templ.CSSClasses(templ_7745c5c3_Var15).String())
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 1, Col: 0}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "\"><h2 class=\"form-section-title\">Party con Livelli Diversi</h2><div id=\"character-levels-container\" class=\"character-levels-list\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			for i, level := range data.partyLevels() {
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "<div class=\"character-input-group\"><label>Personaggio ")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				var templ_7745c5c3_Var17 string
+				templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(i + 1))
+				if templ_7745c5c3_Err != nil {
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 238, Col: 50}
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 28, "</label> <input type=\"number\" name=\"character_levels\" value=\"")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				var templ_7745c5c3_Var18 string
+				templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(level))
+				if templ_7745c5c3_Err != nil {
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 239, Col: 82}
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, "\" min=\"1\" max=\"20\" required></div>")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, "</div><div class=\"form-actions-inline\"><button type=\"button\" id=\"add-character\" class=\"btn btn-secondary\">+ Aggiungi</button> <button type=\"button\" id=\"remove-character\" class=\"btn btn-secondary\">- Rimuovi</button></div><p class=\"form-hint\">Inserisci il livello di ogni personaggio (1-20)</p></div><!-- Difficulty 2024 -->")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var19 = []any{"form-section", templ.KV("hidden", !data.is2024())}
+			templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var19...)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 31, "<div id=\"difficulty-2024-panel\" class=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var20 string
+			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(templ.CSSClasses(templ_7745c5c3_Var19).String())
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 1, Col: 0}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 32, "\"><h2 class=\"form-section-title\">Difficoltà (D&D 2024)</h2><div class=\"form-field-group\"><label for=\"difficulty-2024\" class=\"form-label\">Livello di Difficoltà</label> <select id=\"difficulty-2024\" name=\"difficulty_2024\" class=\"field\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = difficultyOption("Low", "Bassa", data.difficulty2024()).Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = difficultyOption("Moderate", "Moderata", data.difficulty2024()).Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = difficultyOption("High", "Alta", data.difficulty2024()).Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 33, "</select><p class=\"form-hint\">Scegli la difficoltà desiderata per l'incontro</p></div></div><!-- Difficulty 2014 -->")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var21 = []any{"form-section", templ.KV("hidden", data.is2024())}
+			templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var21...)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "<div id=\"difficulty-2014-panel\" class=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var22 string
+			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(templ.CSSClasses(templ_7745c5c3_Var21).String())
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 1, Col: 0}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 35, "\"><h2 class=\"form-section-title\">Difficoltà (D&D 2014)</h2><div class=\"form-grid-2col\"><div class=\"form-field-group\"><label for=\"difficulty-2014\" class=\"form-label\">Livello di Difficoltà</label> <select id=\"difficulty-2014\" name=\"difficulty_2014\" class=\"field\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = difficultyOption("Facile", "Facile", data.difficulty2014()).Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = difficultyOption("Media", "Media", data.difficulty2014()).Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = difficultyOption("Difficile", "Difficile", data.difficulty2014()).Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = difficultyOption("Letale", "Letale", data.difficulty2014()).Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 36, "</select></div><div class=\"form-field-group\"><label for=\"num-monsters\" class=\"form-label\">Numero di Mostri</label><div class=\"stepper\" data-min=\"1\" data-max=\"20\"><button type=\"button\" class=\"stepper-btn stepper-decrement\" aria-label=\"Diminuisci mostri\">−</button> <input type=\"number\" id=\"num-monsters\" name=\"num_monsters_2014\" value=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var23 string
+			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(data.numMonsters()))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 289, Col: 51}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 37, "\" min=\"1\" max=\"20\" class=\"stepper-input\" required> <button type=\"button\" class=\"stepper-btn stepper-increment\" aria-label=\"Aumenta mostri\">+</button></div><p class=\"form-hint\">Per moltiplicatore XP</p></div></div></div><!--\n\t\t\t\t\t\t\tCart inputs (hidden). Items added from the picker land here as\n\t\t\t\t\t\t\trepeated <input name=\"monsters[]\"> entries. Pre-populated from\n\t\t\t\t\t\t\tthe URL share-link's cart= param so a shared link rehydrates the\n\t\t\t\t\t\t\tcart on first paint, before JS runs.\n\t\t\t\t\t\t--><div id=\"cart-inputs\" class=\"sr-only\" aria-hidden=\"true\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			for _, entry := range data.Cart {
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 38, "<input type=\"hidden\" name=\"monsters[]\" value=\"")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				var templ_7745c5c3_Var24 string
+				templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(entry.ID + "@" + entry.Source)
+				if templ_7745c5c3_Err != nil {
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 309, Col: 84}
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 39, "\">")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 40, "</div><!-- Submit (no-JS fallback, hidden when JS active) --><noscript><div class=\"form-submit\"><button type=\"submit\" class=\"btn btn-primary btn-large\">Calcola Budget XP</button></div></noscript></form></div></div><!-- Results --><div class=\"encounter-results\"><div id=\"result-container\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			if data.Result != nil {
+				templ_7745c5c3_Err = Result(*data.Result).Render(ctx, templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			} else {
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 41, "<div class=\"result-placeholder\"><div id=\"result-loading\" class=\"htmx-indicator\"><span class=\"spinner\"></span></div><h3>⚔️ Budget XP</h3><p>Calcolo in corso...</p></div>")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 42, "</div>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			if data.Result == nil {
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 43, "<div id=\"monster-picker-slot\"></div>")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 44, "</div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -202,6 +586,97 @@ func Home(editions []EditionOption) templ.Component {
 		templ_7745c5c3_Err = shared.SiteLayout("Calcolatore Incontri", "Calcolatore di incontri D&D 5e per Dungeon Master — supporta regole 2014 e 2024.", "combattimenti", shared.EncountersScript()).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
+		}
+		return nil
+	})
+}
+
+// difficultyOption renders one <option> for a difficulty <select>, marking
+// the matching value as selected. Keeps the home template free of
+// per-option if/else duplication.
+func difficultyOption(value, label, selected string) templ.Component {
+	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
+			return templ_7745c5c3_CtxErr
+		}
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+		if !templ_7745c5c3_IsBuffer {
+			defer func() {
+				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err == nil {
+					templ_7745c5c3_Err = templ_7745c5c3_BufErr
+				}
+			}()
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var25 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var25 == nil {
+			templ_7745c5c3_Var25 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		if value == selected {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 45, "<option value=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var26 string
+			templ_7745c5c3_Var26, templ_7745c5c3_Err = templ.JoinStringErrs(value)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 351, Col: 23}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var26))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 46, "\" selected>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var27 string
+			templ_7745c5c3_Var27, templ_7745c5c3_Err = templ.JoinStringErrs(label)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 351, Col: 42}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var27))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 47, "</option>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		} else {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 48, "<option value=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var28 string
+			templ_7745c5c3_Var28, templ_7745c5c3_Err = templ.JoinStringErrs(value)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 353, Col: 23}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var28))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 49, "\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var29 string
+			templ_7745c5c3_Var29, templ_7745c5c3_Err = templ.JoinStringErrs(label)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/combattimenti/infrastructure/web/templates/home.templ`, Line: 353, Col: 33}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var29))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 50, "</option>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
 		}
 		return nil
 	})
