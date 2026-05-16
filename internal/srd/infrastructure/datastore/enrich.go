@@ -34,22 +34,28 @@ func buildDescriptionIndex(data map[string][]map[string]any) map[string]string {
 				continue
 			}
 
-			// Prefer description_html (stat-block entities) over raw_content,
-			// because raw_content for spells starts with properties (casting time,
-			// range, etc.) which are useless in a tooltip.
-			var desc string
-			if descHTML, ok := doc["description_html"].(string); ok && descHTML != "" {
-				desc = truncatePreview(stripHTMLTags(descHTML), 200)
-			} else if raw, ok := doc["raw_content"].(string); ok && raw != "" {
-				desc = truncatePreview(raw, 200)
-			}
-
+			desc := BuildPreview(doc)
 			if desc != "" {
 				index[sourceShort+"/"+id] = desc
 			}
 		}
 	}
 	return index
+}
+
+// BuildPreview returns a short plain-text preview of a document, suitable
+// for tooltips or search snippets. Prefers description_html (stat-block
+// entities) over raw_content because raw_content for spells starts with
+// properties (casting time, range, etc.) that are useless out of context.
+// Returns "" when no description fields are populated.
+func BuildPreview(doc map[string]any) string {
+	if descHTML, ok := doc["description_html"].(string); ok && descHTML != "" {
+		return truncatePreview(stripHTMLTags(descHTML), 200)
+	}
+	if raw, ok := doc["raw_content"].(string); ok && raw != "" {
+		return truncatePreview(raw, 200)
+	}
+	return ""
 }
 
 // stripHTMLTags removes HTML tags from a string, returning plain text.

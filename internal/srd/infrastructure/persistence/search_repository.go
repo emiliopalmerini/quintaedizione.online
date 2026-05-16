@@ -36,9 +36,10 @@ func (r *searchRepository) GetSearchableItems(_ context.Context, collection stri
 		}
 
 		items = append(items, domainsearch.SearchableItem{
-			ID:         compositeID,
-			Collection: collection,
-			Title:      title,
+			ID:          compositeID,
+			Collection:  collection,
+			Title:       title,
+			Description: datastore.BuildPreview(doc),
 		})
 	}
 

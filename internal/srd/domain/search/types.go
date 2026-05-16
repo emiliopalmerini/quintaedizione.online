@@ -6,6 +6,9 @@ type SearchableItem struct {
 	ID         string
 	Collection string
 	Title      string
+	// Description is a short plain-text preview used for secondary matching.
+	// May be empty if no description was available for the source document.
+	Description string
 }
 
 type SearchResult struct {

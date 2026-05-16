@@ -25,7 +25,8 @@ func NewFuzzySearchService(repo domainsearch.SearchRepository) *FuzzySearchServi
 }
 
 func (svc *FuzzySearchService) Search(ctx context.Context, query string, limitPerCollection int) ([]domainsearch.SearchResultSet, error) {
-	if query == "" {
+	tokens := tokenize(normalize(query))
+	if len(tokens) == 0 {
 		return nil, nil
 	}
 
@@ -35,7 +36,6 @@ func (svc *FuzzySearchService) Search(ctx context.Context, query string, limitPe
 		}
 	}
 
-	query = strings.ToLower(strings.TrimSpace(query))
 	allItems := svc.index.GetAll()
 
 	var results []domainsearch.SearchResultSet
@@ -45,7 +45,7 @@ func (svc *FuzzySearchService) Search(ctx context.Context, query string, limitPe
 			continue
 		}
 
-		collectionResults, totalMatches := svc.searchInCollection(items, query, limitPerCollection)
+		collectionResults, totalMatches := svc.searchInCollection(items, tokens, limitPerCollection)
 		if totalMatches == 0 {
 			continue
 		}
@@ -57,18 +57,24 @@ func (svc *FuzzySearchService) Search(ctx context.Context, query string, limitPe
 		})
 	}
 
+	// Rank collections by aggregate score of their top results, with a small
+	// boost for collections that returned more matches. Avoids letting one
+	// outlier hit jump a low-quality collection above a richer one.
 	sort.Slice(results, func(i, j int) bool {
-		if len(results[i].Results) == 0 || len(results[j].Results) == 0 {
-			return len(results[i].Results) > len(results[j].Results)
+		si := aggregateScore(results[i].Results)
+		sj := aggregateScore(results[j].Results)
+		if si != sj {
+			return si > sj
 		}
-		return results[i].Results[0].Score > results[j].Results[0].Score
+		return results[i].Total > results[j].Total
 	})
 
 	return results, nil
 }
 
 func (svc *FuzzySearchService) SearchCollection(ctx context.Context, collection, query string, limit int) ([]domainsearch.SearchResult, error) {
-	if query == "" {
+	tokens := tokenize(normalize(query))
+	if len(tokens) == 0 {
 		return nil, nil
 	}
 
@@ -82,33 +88,28 @@ func (svc *FuzzySearchService) SearchCollection(ctx context.Context, collection,
 		svc.index.Set(collection, items)
 	}
 
-	query = strings.ToLower(strings.TrimSpace(query))
-	results, _ := svc.searchInCollection(items, query, limit)
+	results, _ := svc.searchInCollection(items, tokens, limit)
 	return results, nil
 }
 
-func (svc *FuzzySearchService) searchInCollection(items []domainsearch.SearchableItem, query string, limit int) ([]domainsearch.SearchResult, int) {
+func (svc *FuzzySearchService) searchInCollection(items []domainsearch.SearchableItem, tokens []string, limit int) ([]domainsearch.SearchResult, int) {
 	type rankedItem struct {
 		item  domainsearch.SearchableItem
 		score int
 	}
 
-	var ranked []rankedItem
+	ranked := make([]rankedItem, 0, len(items))
 
 	for _, item := range items {
-		title := strings.ToLower(item.Title)
+		title := normalize(item.Title)
+		desc := normalize(item.Description)
+		titleWords := tokenize(title)
 
-		if strings.Contains(title, query) {
-			ranked = append(ranked, rankedItem{item: item, score: 1000 + len(query)*10})
+		score, ok := scoreItem(tokens, title, titleWords, desc)
+		if !ok {
 			continue
 		}
-
-		if len(query) >= 3 {
-			matches := fuzzy.RankFind(query, []string{title})
-			if len(matches) > 0 && matches[0].Distance <= len(query)/2 {
-				ranked = append(ranked, rankedItem{item: item, score: 100 - matches[0].Distance})
-			}
-		}
+		ranked = append(ranked, rankedItem{item: item, score: score})
 	}
 
 	totalMatches := len(ranked)
@@ -117,7 +118,7 @@ func (svc *FuzzySearchService) searchInCollection(items []domainsearch.Searchabl
 		return ranked[i].score > ranked[j].score
 	})
 
-	if len(ranked) > limit {
+	if limit > 0 && len(ranked) > limit {
 		ranked = ranked[:limit]
 	}
 
@@ -132,6 +133,84 @@ func (svc *FuzzySearchService) searchInCollection(items []domainsearch.Searchabl
 	}
 
 	return results, totalMatches
+}
+
+// scoreItem returns the item's total score and whether every query token
+// found a match. All tokens must match (AND semantics) for the item to
+// qualify; this prevents "palla fuoco" from returning every spell with
+// either "palla" or "fuoco".
+func scoreItem(tokens []string, title string, titleWords []string, desc string) (int, bool) {
+	total := 0
+	for _, t := range tokens {
+		s := scoreToken(t, title, titleWords, desc)
+		if s == 0 {
+			return 0, false
+		}
+		total += s
+	}
+	// Whole-query exact title match: small bonus to lift the canonical hit.
+	joined := strings.Join(tokens, " ")
+	if strings.Contains(title, joined) {
+		total += 200
+	}
+	return total, true
+}
+
+// scoreToken returns the best score for a single token against an item.
+// 0 means no match.
+func scoreToken(token, title string, titleWords []string, desc string) int {
+	// Title-word prefix match (strongest signal: "fire" → "fireball").
+	for _, w := range titleWords {
+		if strings.HasPrefix(w, token) {
+			return 1000 + len(token)*10
+		}
+	}
+	// Title substring (e.g. token is in the middle of a compound word).
+	if strings.Contains(title, token) {
+		return 800 + len(token)*10
+	}
+	// Fuzzy on title words. Distance budget grows with token length; min 1.
+	budget := fuzzyBudget(len(token))
+	if budget > 0 {
+		best := -1
+		for _, w := range titleWords {
+			d := fuzzy.LevenshteinDistance(token, w)
+			if d <= budget && (best == -1 || d < best) {
+				best = d
+			}
+		}
+		if best >= 0 {
+			return 500 - best*50
+		}
+	}
+	// Description substring (weaker than any title hit).
+	if desc != "" && strings.Contains(desc, token) {
+		return 100 + len(token)*2
+	}
+	return 0
+}
+
+// fuzzyBudget returns the max Levenshtein distance accepted for a token of
+// the given length. Two-char tokens get one typo; longer tokens roughly
+// 30%. Returns 0 for tokens too short to fuzzy-match safely.
+func fuzzyBudget(tokenLen int) int {
+	if tokenLen < 2 {
+		return 0
+	}
+	if tokenLen <= 4 {
+		return 1
+	}
+	return tokenLen / 3
+}
+
+// aggregateScore sums the top-N result scores for a collection. Used to
+// rank collections relative to each other.
+func aggregateScore(results []domainsearch.SearchResult) int {
+	total := 0
+	for _, r := range results {
+		total += r.Score
+	}
+	return total
 }
 
 func (svc *FuzzySearchService) RefreshIndex(ctx context.Context) error {
