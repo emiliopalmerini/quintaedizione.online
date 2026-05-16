@@ -1,7 +1,7 @@
 // Encounters Calculator JavaScript
-// Depends on main.js for: initThemeToggle, initPatreonBanner
+// Depends on main.js for shared UI initialization.
 
-document.addEventListener('DOMContentLoaded', function() {
+function initEncountersPage() {
     initEncounterForm();
     initSteppers();
     initAutoCalculate();
@@ -10,33 +10,38 @@ document.addEventListener('DOMContentLoaded', function() {
     initCopyLink();
     initPickerReset();
 
-    // Configure HTMX for encounters
-    if (typeof htmx !== 'undefined') {
+    // Configure HTMX for encounters.
+    if (typeof htmx !== 'undefined' && !window.__encounterHtmxHandlersBound) {
+        window.__encounterHtmxHandlersBound = true;
         htmx.config.requestClass = 'loading';
         htmx.config.historyEnabled = true;
+
+        // HTMX loading indicators
+        document.addEventListener('htmx:beforeRequest', function(evt) {
+            var target = evt.target;
+            if (target.classList.contains('btn')) {
+                target.style.opacity = '0.7';
+                target.style.pointerEvents = 'none';
+            }
+        });
+
+        document.addEventListener('htmx:afterRequest', function(evt) {
+            var target = evt.target;
+            if (target.classList.contains('btn')) {
+                target.style.opacity = '1';
+                target.style.pointerEvents = 'auto';
+            }
+        });
+
+        document.addEventListener('htmx:responseError', function() {
+            showToast('Errore nel caricamento. Riprova.', 'error');
+        });
     }
+}
 
-    // HTMX loading indicators
-    document.addEventListener('htmx:beforeRequest', function(evt) {
-        var target = evt.target;
-        if (target.classList.contains('btn')) {
-            target.style.opacity = '0.7';
-            target.style.pointerEvents = 'none';
-        }
-    });
-
-    document.addEventListener('htmx:afterRequest', function(evt) {
-        var target = evt.target;
-        if (target.classList.contains('btn')) {
-            target.style.opacity = '1';
-            target.style.pointerEvents = 'auto';
-        }
-    });
-
-    document.addEventListener('htmx:responseError', function() {
-        showToast('Errore nel caricamento. Riprova.', 'error');
-    });
-});
+window.initEncountersPage = initEncountersPage;
+document.addEventListener('DOMContentLoaded', initEncountersPage);
+document.addEventListener('htmx:afterSwap', initEncountersPage);
 
 // Toast notification
 function showToast(message, type) {
@@ -54,10 +59,12 @@ function showToast(message, type) {
 // Generic stepper component
 function initSteppers() {
     document.querySelectorAll('.stepper').forEach(function(stepper) {
+        if (stepper.dataset.encounterStepperBound === '1') return;
         var input = stepper.querySelector('.stepper-input');
         var decBtn = stepper.querySelector('.stepper-decrement');
         var incBtn = stepper.querySelector('.stepper-increment');
         if (!input || !decBtn || !incBtn) return;
+        stepper.dataset.encounterStepperBound = '1';
 
         var min = parseInt(stepper.dataset.min || input.min || '0', 10);
         var max = parseInt(stepper.dataset.max || input.max || '999', 10);
@@ -97,6 +104,8 @@ function initSteppers() {
 function initAutoCalculate() {
     var form = document.getElementById('encounter-form');
     if (!form || typeof htmx === 'undefined') return;
+    if (form.dataset.encounterAutoCalculateBound === '1') return;
+    form.dataset.encounterAutoCalculateBound = '1';
 
     var timer = null;
     function scheduleCalculate() {
@@ -137,7 +146,10 @@ function syncSourceShort() {
         }
     }
 
-    radios.forEach(function(r) { r.addEventListener('change', update); });
+    if (hidden.dataset.encounterSourceShortBound !== '1') {
+        hidden.dataset.encounterSourceShortBound = '1';
+        radios.forEach(function(r) { r.addEventListener('change', update); });
+    }
     update();
 }
 
@@ -160,8 +172,11 @@ function initMonsterCart() {
     // initial render with a non-empty cart).
     rebuildCartFromInputs();
 
+    if (window.__encounterCartClicksBound) return;
+    window.__encounterCartClicksBound = true;
+
     // Delegate clicks: add from picker, step or remove from cart chips.
-    document.body.addEventListener('click', function(evt) {
+    document.addEventListener('click', function(evt) {
         var addBtn = evt.target.closest('.monster-picker-row-add');
         if (addBtn) {
             evt.preventDefault();
@@ -350,7 +365,10 @@ function syncShareURL() {
 // We must also clear the hx-preserved search input by name (HTMX would
 // otherwise keep its DOM node + value across the swap).
 function initPickerReset() {
-    document.body.addEventListener('click', function(evt) {
+    if (window.__encounterPickerResetBound) return;
+    window.__encounterPickerResetBound = true;
+
+    document.addEventListener('click', function(evt) {
         var btn = evt.target.closest('.monster-picker-reset');
         if (!btn) return;
         evt.preventDefault();
@@ -378,7 +396,10 @@ function initPickerReset() {
 // button lives inside it. Falls back to a no-op when the clipboard API is
 // unavailable (insecure context, ancient browser).
 function initCopyLink() {
-    document.body.addEventListener('click', function(evt) {
+    if (window.__encounterCopyLinkBound) return;
+    window.__encounterCopyLinkBound = true;
+
+    document.addEventListener('click', function(evt) {
         var btn = evt.target.closest('#copy-link-btn');
         if (!btn) return;
         evt.preventDefault();
@@ -435,6 +456,8 @@ function copyWithSelection(text) {
 function initEncounterForm() {
     var form = document.getElementById('encounter-form');
     if (!form) return;
+    if (form.dataset.encounterFormBound === '1') return;
+    form.dataset.encounterFormBound = '1';
 
     // Party mode toggle
     var partyModeRadios = document.querySelectorAll('input[name="party_mode"]');

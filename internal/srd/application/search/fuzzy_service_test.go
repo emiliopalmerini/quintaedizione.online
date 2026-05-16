@@ -139,6 +139,31 @@ func TestSearch_DescriptionFallback(t *testing.T) {
 	}
 }
 
+func TestSearchResult_PreservesDescriptionForSnippets(t *testing.T) {
+	description := "Illumina un oggetto entro 18 metri per un'ora."
+	svc := newService(map[string][]domainsearch.SearchableItem{
+		"incantesimi": {
+			{
+				ID:          "1",
+				Collection:  "incantesimi",
+				Title:       "Luce",
+				Description: description,
+			},
+		},
+	})
+
+	results, err := svc.Search(context.Background(), "illumina", 5)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if len(results) != 1 || len(results[0].Results) != 1 {
+		t.Fatalf("expected one result, got %#v", results)
+	}
+	if results[0].Results[0].Description != description {
+		t.Fatalf("expected result description %q, got %q", description, results[0].Results[0].Description)
+	}
+}
+
 func TestSearch_ShortQueryMinTwoChars(t *testing.T) {
 	svc := newService(map[string][]domainsearch.SearchableItem{
 		"incantesimi": {

@@ -26,8 +26,8 @@ type CartSeed struct {
 // HomeData is the view model for the encounter home page.
 //
 // All fields except Editions are optional; sensible defaults are applied by
-// the handler before passing this in. Result is only set when the page was
-// opened with a populated querystring (server-side prerender).
+// the handler before passing this in. Result is usually set by server-side
+// prerendering so first paint matches the calculator's default state.
 type HomeData struct {
 	Editions []EditionOption
 

@@ -68,13 +68,10 @@ func (h *EncounterHandler) HomeHandler(editions []templates.EditionOption) http.
 			Cart:        toCartSeeds(state.Cart),
 		}
 
-		// Always prerender so the central picker column ships populated on
-		// first paint. Result rail only shows the tier/cart card when the
-		// cart actually has items; empty carts get the placeholder.
+		// Always prerender so the central picker column and result rail ship
+		// populated on first paint, including the default empty-cart state.
 		if rd, ok := h.prerenderResult(r, state, sourceShort, numMonsters); ok {
-			if rd.HasCartItems {
-				homeData.Result = rd
-			}
+			homeData.Result = rd
 			homeData.Picker = rd.Picker
 		} else {
 			homeData.Picker = h.buildPicker(r, sourceShort)

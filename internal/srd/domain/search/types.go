@@ -12,10 +12,11 @@ type SearchableItem struct {
 }
 
 type SearchResult struct {
-	ID         string
-	Collection string
-	Title      string
-	Score      int
+	ID          string
+	Collection  string
+	Title       string
+	Description string
+	Score       int
 }
 
 type SearchResultSet struct {

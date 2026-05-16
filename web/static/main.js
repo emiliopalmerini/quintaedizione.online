@@ -1171,21 +1171,55 @@ function initHamburgerMenu() {
 }
 
 // Patreon banner dismiss
+function isPatreonBannerDismissed() {
+	try {
+		if (localStorage.getItem('patreon-banner-dismissed')) return true;
+	} catch (e) {}
+	return /(?:^|;\s*)patreon_banner_dismissed=1(?:;|$)/.test(document.cookie);
+}
+
+function persistPatreonBannerDismissal() {
+	try {
+		localStorage.setItem('patreon-banner-dismissed', '1');
+	} catch (e) {}
+	document.cookie = 'patreon_banner_dismissed=1;path=/;max-age=31536000;SameSite=Lax';
+}
+
 function initPatreonBanner() {
 	var banner = document.getElementById('patreon-banner');
 	if (!banner) return;
-	if (!bindOnce(banner, 'patreon-banner')) return;
-	if (localStorage.getItem('patreon-banner-dismissed')) {
+	if (isPatreonBannerDismissed()) {
 		banner.classList.add('patreon-banner--hidden');
 		return;
 	}
+	if (!bindOnce(banner, 'patreon-banner')) return;
 	var dismissBtn = banner.querySelector('.patreon-banner-dismiss');
 	if (dismissBtn) {
 		dismissBtn.addEventListener('click', function() {
 			banner.classList.add('patreon-banner--hidden');
-			localStorage.setItem('patreon-banner-dismissed', '1');
+			persistPatreonBannerDismissal();
 		});
 	}
+}
+
+function initPageSpecificScripts() {
+	if (!document.getElementById('encounter-form')) return;
+	if (typeof window.initEncountersPage === 'function') {
+		window.initEncountersPage();
+		return;
+	}
+	if (document.querySelector('script[data-page-script="encounters"]')) return;
+
+	var script = document.createElement('script');
+	script.src = '/static/js/encounters.js';
+	script.defer = true;
+	script.dataset.pageScript = 'encounters';
+	script.addEventListener('load', function() {
+		if (typeof window.initEncountersPage === 'function') {
+			window.initEncountersPage();
+		}
+	});
+	document.head.appendChild(script);
 }
 
 // Keyboard navigation: arrow keys for prev/next item
@@ -1263,12 +1297,14 @@ document.addEventListener('DOMContentLoaded', () => {
 	initMappeFilterChips();
 	initItemKeyboardNav();
 	initHeadingAnchors();
+	initPageSpecificScripts();
 });
 
 // Re-apply theme after htmx history restore
-document.body.addEventListener('htmx:historyRestore', function() {
+document.addEventListener('htmx:historyRestore', function() {
 	applyTheme();
 	initThemeToggle();
+	initPatreonBanner();
 });
 
 // Re-apply theme when page is restored from bfcache (browser back/forward)
@@ -1279,7 +1315,8 @@ window.addEventListener('pageshow', function(e) {
 	}
 });
 
-document.body.addEventListener('htmx:afterSwap', function(evt) {
+document.addEventListener('htmx:afterSwap', function(evt) {
+	initPatreonBanner();
 	initBackButton();
 	initCopyMarkdownButton();
 	initSearchFormHandler();
@@ -1290,6 +1327,7 @@ document.body.addEventListener('htmx:afterSwap', function(evt) {
 	initMappeFilterChips();
 	initItemKeyboardNav();
 	initHeadingAnchors();
+	initPageSpecificScripts();
 
 	// Scroll to top of results when rows are updated (filter/pagination change)
 	// Skip on history restore (browser back button) and on search input keyup

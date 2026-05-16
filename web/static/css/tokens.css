@@ -4,6 +4,7 @@
 :root {
   /* ===== Color Palette ===== */
   --primary: #EF4444;
+  --color-primary: var(--primary);
   --primary-dark: #DC2626;
   --primary-light: #FEE2E2;
   --secondary: #06B6D4;
@@ -11,6 +12,7 @@
   --success: #10B981;
   --warning: #F59E0B;
   --error: #EF4444;
+  --danger: var(--error);
   --info: #3B82F6;
 
   /* Grayscale */
@@ -31,6 +33,7 @@
   --color-bg-tertiary: #F0F0F0;
   --color-text: #37352F;
   --color-text-secondary: #787774;
+  --color-text-tertiary: #A3A3A3;
   --color-text-inverse: #FFFFFF;
   --color-border: #E9E9E7;
   --color-border-strong: #D4D4D4;
@@ -120,6 +123,7 @@ html.dark {
   --color-bg-tertiary: #2A2A2A;
   --color-text: #E0E0E0;
   --color-text-secondary: #9B9B9B;
+  --color-text-tertiary: #6B6B6B;
   --color-text-inverse: #191919;
   --color-border: #373737;
   --color-border-strong: #4A4A4A;

@@ -72,7 +72,7 @@ func (h *GalleryHandler) HandleGallery(w http.ResponseWriter, r *http.Request) {
 	pkgweb.SetCacheHeaders(w, 1800) // 30 minutes
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 
-	if r.Header.Get("HX-Request") == "true" {
+	if isGalleryFragmentRequest(r) {
 		var component func() error
 		if offset > 0 {
 			component = func() error { return templates.GalleryCards(data).Render(r.Context(), w) }
@@ -87,4 +87,17 @@ func (h *GalleryHandler) HandleGallery(w http.ResponseWriter, r *http.Request) {
 	}
 
 	pkgweb.RenderTempl(w, r, h.logger, templates.GalleryPage(data))
+}
+
+func isGalleryFragmentRequest(r *http.Request) bool {
+	if r.Header.Get("HX-Request") != "true" {
+		return false
+	}
+
+	switch r.Header.Get("HX-Target") {
+	case "mappe-grid", "mappe-load-more":
+		return true
+	default:
+		return false
+	}
 }

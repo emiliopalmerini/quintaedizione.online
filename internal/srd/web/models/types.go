@@ -43,6 +43,7 @@ type Document struct {
 	Title           string                 `json:"title"`
 	Collection      string                 `json:"collection,omitempty"`
 	CollectionLabel string                 `json:"collection_label,omitempty"`
+	Snippet         string                 `json:"snippet,omitempty"`
 	DisplayElements []DocumentDisplayField `json:"display_elements"`
 	Translated      bool                   `json:"translated"`
 }

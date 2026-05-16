@@ -66,6 +66,41 @@ func TestCORSMiddleware_Preflight(t *testing.T) {
 	}
 }
 
+func TestPatreonBannerMiddlewareStoresDismissedCookie(t *testing.T) {
+	handler := PatreonBannerMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if !PatreonBannerDismissedFromContext(r.Context()) {
+			t.Fatal("expected patreon banner dismissal in request context")
+		}
+		w.WriteHeader(http.StatusOK)
+	}))
+
+	w := httptest.NewRecorder()
+	r := httptest.NewRequest("GET", "/test", nil)
+	r.AddCookie(&http.Cookie{Name: "patreon_banner_dismissed", Value: "1"})
+	handler.ServeHTTP(w, r)
+
+	if w.Code != http.StatusOK {
+		t.Errorf("expected 200, got %d", w.Code)
+	}
+}
+
+func TestPatreonBannerMiddlewareDefaultsToVisible(t *testing.T) {
+	handler := PatreonBannerMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if PatreonBannerDismissedFromContext(r.Context()) {
+			t.Fatal("expected patreon banner dismissal to be absent")
+		}
+		w.WriteHeader(http.StatusOK)
+	}))
+
+	w := httptest.NewRecorder()
+	r := httptest.NewRequest("GET", "/test", nil)
+	handler.ServeHTTP(w, r)
+
+	if w.Code != http.StatusOK {
+		t.Errorf("expected 200, got %d", w.Code)
+	}
+}
+
 func TestRateLimitMiddleware_AllowsNormal(t *testing.T) {
 	rl := NewRateLimiter()
 	handler := RateLimitMiddleware(rl)(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

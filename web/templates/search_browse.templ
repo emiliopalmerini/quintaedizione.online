@@ -44,11 +44,18 @@ templ SearchBrowseDropdown(data models.SearchBrowseData) {
 					href={ templ.URL(fmt.Sprintf("/srd/%s/%s", docCollection(doc, data.CollectionName), doc.ID)) }
 					class="search-browse-item"
 				>
-					<span class="search-browse-item-title">
-						if data.Query != "" {
-							@templ.Raw(HighlightQuery(doc.Title, data.Query))
-						} else {
-							{ doc.Title }
+					<span class="search-browse-item-main">
+						<span class="search-browse-item-title">
+							if data.Query != "" {
+								@templ.Raw(HighlightQuery(doc.Title, data.Query))
+							} else {
+								{ doc.Title }
+							}
+						</span>
+						if doc.Snippet != "" {
+							<span class="search-browse-item-snippet">
+								@templ.Raw(HighlightQuery(doc.Snippet, data.Query))
+							</span>
 						}
 					</span>
 					if data.ActiveCollection == "" && doc.CollectionLabel != "" {

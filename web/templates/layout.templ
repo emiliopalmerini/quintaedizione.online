@@ -109,10 +109,10 @@ templ SiteLayout(title, description, activeNav string, extraHeadHTML templ.Compo
 }
 
 templ sitePatreonBanner() {
-	<div id="patreon-banner" class="patreon-banner">
+	<div id="patreon-banner" class={ "patreon-banner", templ.KV("patreon-banner--hidden", pkgweb.PatreonBannerDismissedFromContext(ctx)) }>
 		Questo progetto è gratuito grazie ai nostri supporter.
 		<a href="https://patreon.com/DueDraghiPlus" target="_blank" rel="noopener noreferrer">Unisciti a loro su Patreon!</a>
-		<button class="patreon-banner-dismiss" aria-label="Chiudi">&times;</button>
+		<button type="button" class="patreon-banner-dismiss" aria-label="Chiudi">&times;</button>
 	</div>
 }
 

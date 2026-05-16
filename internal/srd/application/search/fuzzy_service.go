@@ -131,10 +131,11 @@ func (svc *FuzzySearchService) searchInCollection(items []domainsearch.Searchabl
 	results := make([]domainsearch.SearchResult, 0, len(ranked))
 	for _, r := range ranked {
 		results = append(results, domainsearch.SearchResult{
-			ID:         r.item.ID,
-			Collection: r.item.Collection,
-			Title:      r.item.Title,
-			Score:      r.score,
+			ID:          r.item.ID,
+			Collection:  r.item.Collection,
+			Title:       r.item.Title,
+			Description: r.item.Description,
+			Score:       r.score,
 		})
 	}
 

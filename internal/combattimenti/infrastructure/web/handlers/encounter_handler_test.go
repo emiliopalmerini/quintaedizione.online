@@ -63,7 +63,7 @@ func newTestHandler(t *testing.T) (*EncounterHandler, []templates.EditionOption)
 	return NewEncounterHandler(svc, qh, pricer, reader, logger), editions
 }
 
-func TestHomeHandler_EmptyQueryRendersPlaceholder(t *testing.T) {
+func TestHomeHandler_EmptyQueryRendersDefaultCalculation(t *testing.T) {
 	h, editions := newTestHandler(t)
 	req := httptest.NewRequest(http.MethodGet, "/combattimenti", nil)
 	rec := httptest.NewRecorder()
@@ -78,13 +78,14 @@ func TestHomeHandler_EmptyQueryRendersPlaceholder(t *testing.T) {
 	if !strings.Contains(body, `name="level"`) {
 		t.Errorf("missing level input")
 	}
-	// Empty cart on first paint → result panel renders the placeholder, not
-	// the populated result card.
-	if !strings.Contains(body, "result-placeholder") {
-		t.Errorf("expected placeholder; body did not contain it")
+	if strings.Contains(body, "result-placeholder") {
+		t.Errorf("did not expect placeholder on default first paint")
 	}
-	if strings.Contains(body, "result-card success") {
-		t.Errorf("did not expect populated result card on empty cart")
+	if !strings.Contains(body, "result-card success") {
+		t.Errorf("expected default calculation result card")
+	}
+	if !strings.Contains(body, "Soglie di Difficolt") {
+		t.Errorf("expected default difficulty thresholds")
 	}
 }
 
@@ -108,10 +109,11 @@ func TestHomeHandler_HydratesFromURL2024High(t *testing.T) {
 	if !strings.Contains(body, `id="party-level" name="level" value="4"`) {
 		t.Errorf("party level not seeded to 4")
 	}
-	// Empty cart on this URL → placeholder shown; tier card lives in the
-	// picker column with empty cart guidance.
-	if !strings.Contains(body, "result-placeholder") {
-		t.Errorf("expected placeholder for empty cart hydration")
+	if strings.Contains(body, "result-placeholder") {
+		t.Errorf("did not expect placeholder for empty cart hydration")
+	}
+	if !strings.Contains(body, "result-card success") {
+		t.Errorf("expected calculated result card for empty cart hydration")
 	}
 }
 

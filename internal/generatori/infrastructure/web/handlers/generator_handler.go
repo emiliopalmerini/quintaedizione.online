@@ -31,7 +31,7 @@ func (h *GeneratorHandler) handleHome(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query().Get("q")
 	groups := h.service.SearchGroups(query)
 
-	if r.Header.Get("HX-Request") == "true" {
+	if r.Header.Get("HX-Request") == "true" && r.Header.Get("HX-Target") == "generatori-grid" {
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		if err := templates.GeneratoriGrid(groups, query).Render(r.Context(), w); err != nil {
 			h.logger.Error("Failed to render generatori grid", "error", err)

@@ -15,7 +15,11 @@ import (
 
 type contextKey string
 
-const themeContextKey contextKey = "theme"
+const (
+	themeContextKey                 contextKey = "theme"
+	patreonBannerContextKey         contextKey = "patreon_banner_dismissed"
+	patreonBannerDismissedCookieKey            = "patreon_banner_dismissed"
+)
 
 // ThemeMiddleware reads the "theme" cookie and stores its value in the
 // request context so that templates can render the correct class on <html>
@@ -37,6 +41,24 @@ func ThemeFromContext(ctx context.Context) string {
 		return v
 	}
 	return ""
+}
+
+// PatreonBannerMiddleware reads the dismissal cookie and stores it in the
+// request context so that server-rendered layouts respect the banner state.
+func PatreonBannerMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if c, err := r.Cookie(patreonBannerDismissedCookieKey); err == nil && c.Value == "1" {
+			ctx := context.WithValue(r.Context(), patreonBannerContextKey, true)
+			r = r.WithContext(ctx)
+		}
+		next.ServeHTTP(w, r)
+	})
+}
+
+// PatreonBannerDismissedFromContext reports whether the banner was dismissed.
+func PatreonBannerDismissedFromContext(ctx context.Context) bool {
+	v, ok := ctx.Value(patreonBannerContextKey).(bool)
+	return ok && v
 }
 
 // SecurityMiddleware sets standard security headers on every response.

@@ -173,11 +173,14 @@ func (h *SearchHandler) transformSearchResults(ctx context.Context, fuzzyResults
 		for _, r := range sr.Results {
 			item, err := h.contentService.GetItem(ctx, sr.Collection, r.ID)
 			if err == nil {
-				documents = append(documents, h.documentMapper.ToModel(sr.Collection, item))
+				doc := h.documentMapper.ToModel(sr.Collection, item)
+				doc.Snippet = r.Description
+				documents = append(documents, doc)
 			} else {
 				documents = append(documents, models.Document{
-					ID:    r.ID,
-					Title: r.Title,
+					ID:      r.ID,
+					Title:   r.Title,
+					Snippet: r.Description,
 				})
 			}
 		}
