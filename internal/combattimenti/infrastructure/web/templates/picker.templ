@@ -103,32 +103,44 @@ templ MonsterPicker(data PickerData) {
 			<ul class="monster-picker-list">
 				for _, m := range data.Monsters {
 					<li class="monster-picker-row">
-						<div class="monster-picker-row-main">
-							<a class="monster-picker-row-name" href={ templ.URL(srdLink(m)) } target="_blank" rel="noopener" title="Apri scheda completa">
-								{ m.Name }
-							</a>
-							<span class="monster-picker-row-meta">
-								<span>GS { m.CR }</span>
-								<span class="monster-picker-row-xp">{ strconv.Itoa(m.XP) } PE</span>
-								if m.Type != "" {
-									<span class="monster-picker-row-type">{ m.Type }</span>
-								}
-								if m.Size != "" {
-									<span>{ m.Size }</span>
-								}
-							</span>
-							<span class="monster-picker-row-stats">
-								if m.HP != "" {
-									<span><strong>PF</strong> { m.HP }</span>
-								}
-								if m.AC != "" {
-									<span><strong>CA</strong> { m.AC }</span>
-								}
-								if m.Speed != "" {
-									<span><strong>Vel</strong> { m.Speed }</span>
-								}
-							</span>
-						</div>
+						<details class="monster-picker-row-detail">
+							<summary class="monster-picker-row-summary">
+								<span class="monster-picker-row-toggle" aria-hidden="true">▸</span>
+								<div class="monster-picker-row-main">
+									<span class="monster-picker-row-name">{ m.Name }</span>
+									<span class="monster-picker-row-meta">
+										<span>GS { m.CR }</span>
+										<span class="monster-picker-row-xp">{ strconv.Itoa(m.XP) } PE</span>
+										if m.Type != "" {
+											<span class="monster-picker-row-type">{ m.Type }</span>
+										}
+										if m.Size != "" {
+											<span>{ m.Size }</span>
+										}
+									</span>
+									<span class="monster-picker-row-stats">
+										if m.HP != "" {
+											<span><strong>PF</strong> { m.HP }</span>
+										}
+										if m.AC != "" {
+											<span><strong>CA</strong> { m.AC }</span>
+										}
+										if m.Speed != "" {
+											<span><strong>Vel</strong> { m.Speed }</span>
+										}
+									</span>
+								</div>
+							</summary>
+							<div
+								class="monster-picker-row-statblock"
+								hx-get={ srdLink(m) }
+								hx-select=".stat-block"
+								hx-trigger="toggle from:closest details once"
+								hx-swap="innerHTML"
+							>
+								<span class="monster-picker-row-statblock-loading">Caricamento scheda…</span>
+							</div>
+						</details>
 						<button
 							type="button"
 							class="btn btn-secondary monster-picker-row-add"
