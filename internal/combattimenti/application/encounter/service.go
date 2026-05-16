@@ -27,7 +27,7 @@ type CalculateXPRequest struct {
 	PartyMode       string
 	Difficulty      string
 	CharacterLevels []int
-	NumMonsters     int // Only used for 2014 ruleset
+	NumMonsters     int // Kept for legacy callers; cart pricing applies 2014 multipliers.
 }
 
 // CalculateXPResponse represents the response from XP calculation
@@ -64,9 +64,6 @@ func (s *Service) CalculateXP(req CalculateXPRequest) (*CalculateXPResponse, err
 
 	// Create encounter
 	enc := encounter.NewEncounter("temp-id", party, ruleset, difficulty)
-	if ruleset == encounter.Ruleset2014 {
-		enc.NumMonsters = req.NumMonsters
-	}
 
 	// Calculate XP
 	if err := enc.CalculateXP(s.repository); err != nil {

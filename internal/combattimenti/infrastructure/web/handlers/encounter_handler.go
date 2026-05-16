@@ -274,16 +274,27 @@ func (h *EncounterHandler) CalculateHandler(w http.ResponseWriter, r *http.Reque
 			return
 		}
 
+		if err := h.service.ValidatePartyComposition(partyMode, nil, level, count); err != nil {
+			h.logger.Error("Invalid party composition", "request_id", requestID, "error", err)
+			http.Error(w, "Invalid party composition", http.StatusBadRequest)
+			return
+		}
+
 		characterLevels = make([]int, count)
 		for i := range characterLevels {
 			characterLevels[i] = level
 		}
-	} else {
+	} else if partyMode == "different" {
 		// For different levels mode, get all character_levels values
 		levelStrs := r.Form["character_levels"] // Get all values as slice
 		if len(levelStrs) == 0 {
 			h.logger.Error("No character levels provided", "request_id", requestID)
 			http.Error(w, "Character levels are required for different mode", http.StatusBadRequest)
+			return
+		}
+		if len(levelStrs) > domainenc.MaxPartySize {
+			h.logger.Error("Too many character levels provided", "request_id", requestID, "count", len(levelStrs))
+			http.Error(w, "Party size cannot exceed 100 characters", http.StatusBadRequest)
 			return
 		}
 
@@ -297,6 +308,15 @@ func (h *EncounterHandler) CalculateHandler(w http.ResponseWriter, r *http.Reque
 			}
 			characterLevels[i] = level
 		}
+		if err := h.service.ValidatePartyComposition(partyMode, characterLevels, 0, 0); err != nil {
+			h.logger.Error("Invalid party composition", "request_id", requestID, "error", err)
+			http.Error(w, "Invalid party composition", http.StatusBadRequest)
+			return
+		}
+	} else {
+		h.logger.Error("Invalid party mode", "request_id", requestID, "party_mode", partyMode)
+		http.Error(w, "Invalid party mode", http.StatusBadRequest)
+		return
 	}
 
 	// Parse cart refs. Total quantity drives the 2014 multiplier so the

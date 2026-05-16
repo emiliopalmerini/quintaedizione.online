@@ -7,12 +7,11 @@ import (
 
 // Encounter represents a D&D encounter with XP calculation
 type Encounter struct {
-	ID          string
-	Party       Party
-	Ruleset     Ruleset
-	Difficulty  Difficulty
-	TotalXP     int
-	NumMonsters int
+	ID         string
+	Party      Party
+	Ruleset    Ruleset
+	Difficulty Difficulty
+	TotalXP    int
 }
 
 // Party represents a group of characters
@@ -123,7 +122,9 @@ func (e *Encounter) calculateXP2024(repo Repository) error {
 }
 
 func (e *Encounter) calculateXP2014(repo Repository) error {
-	// For 2014 rules, we need to get thresholds and apply multipliers
+	// 2014 difficulty thresholds are party budgets. Monster-count multipliers
+	// apply to the encounter's monster XP cost before comparing it to these
+	// thresholds.
 	totalThreshold := 0
 	for _, char := range e.Party.Characters {
 		threshold, err := repo.GetThresholdFor2014(char.Level, e.Difficulty)
@@ -133,13 +134,7 @@ func (e *Encounter) calculateXP2014(repo Repository) error {
 		totalThreshold += threshold
 	}
 
-	// Apply multiplier based on number of monsters
-	multiplier, err := repo.GetMultiplierFor2014(e.NumMonsters)
-	if err != nil {
-		return fmt.Errorf("failed to get multiplier for %d monsters: %w", e.NumMonsters, err)
-	}
-
-	e.TotalXP = int(float64(totalThreshold) * multiplier)
+	e.TotalXP = totalThreshold
 	return nil
 }
 

@@ -136,7 +136,7 @@ func TestService_CalculateXP2014(t *testing.T) {
 				CharacterLevels: []int{5},
 				NumMonsters:     1,
 			},
-			expectedXP:  500, // 500 * 1.0 multiplier
+			expectedXP:  500,
 			expectError: false,
 		},
 		{
@@ -148,7 +148,7 @@ func TestService_CalculateXP2014(t *testing.T) {
 				CharacterLevels: []int{5, 5, 5, 5},
 				NumMonsters:     2,
 			},
-			expectedXP:  3000, // (4 * 500) * 1.5 multiplier
+			expectedXP:  2000, // 4 * 500, cart cost carries the monster-count multiplier
 			expectError: false,
 		},
 		{
@@ -160,7 +160,7 @@ func TestService_CalculateXP2014(t *testing.T) {
 				CharacterLevels: []int{3, 5, 7},
 				NumMonsters:     5,
 			},
-			expectedXP:  5187, // (225 + 750 + 1100) * 2.5 multiplier = 2075 * 2.5 = 5187.5 -> 5187
+			expectedXP:  2075, // 225 + 750 + 1100
 			expectError: false,
 		},
 		{
@@ -205,6 +205,28 @@ func TestService_CalculateXP2014(t *testing.T) {
 				t.Errorf("expected calculated difficulty for 2014 ruleset, got empty string")
 			}
 		})
+	}
+}
+
+func TestService_CalculateXP2014BudgetDoesNotApplyMonsterMultiplier(t *testing.T) {
+	logger := slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelError}))
+	repo := memory.NewEncounterRepository()
+	service := NewService(logger, repo)
+
+	result, err := service.CalculateXP(CalculateXPRequest{
+		Ruleset:         "2014",
+		PartyMode:       "same",
+		Difficulty:      "Media",
+		CharacterLevels: []int{5, 5, 5, 5},
+		NumMonsters:     2,
+	})
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+
+	const want = 2000 // 4 level-5 medium thresholds; cart cost carries the multiplier.
+	if result.TotalXP != want {
+		t.Fatalf("TotalXP = %d, want %d", result.TotalXP, want)
 	}
 }
 

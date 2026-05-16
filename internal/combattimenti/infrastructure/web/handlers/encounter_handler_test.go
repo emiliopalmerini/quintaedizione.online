@@ -230,6 +230,37 @@ func TestCalculateHandler_HXPushURLDropsForeignCart(t *testing.T) {
 	}
 }
 
+func TestCalculateHandler_2014EmptyCartRenders(t *testing.T) {
+	h, _ := newTestHandler(t)
+	body := "ruleset=2014&party_mode=same&level=5&count=4&source_short=5e"
+	req := httptest.NewRequest(http.MethodPost, "/combattimenti/calculate", strings.NewReader(body))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	rec := httptest.NewRecorder()
+
+	h.CalculateHandler(rec, req)
+
+	if rec.Code != http.StatusOK {
+		t.Fatalf("status = %d, body = %s", rec.Code, rec.Body.String())
+	}
+	if !strings.Contains(rec.Body.String(), "D&amp;D 2014") && !strings.Contains(rec.Body.String(), "D&D 2014") {
+		t.Errorf("response does not show 2014 result: %s", rec.Body.String())
+	}
+}
+
+func TestCalculateHandler_RejectsTooLargeSamePartyCount(t *testing.T) {
+	h, _ := newTestHandler(t)
+	body := "ruleset=2024&party_mode=same&level=3&count=101&source_short=5.5e"
+	req := httptest.NewRequest(http.MethodPost, "/combattimenti/calculate", strings.NewReader(body))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	rec := httptest.NewRecorder()
+
+	h.CalculateHandler(rec, req)
+
+	if rec.Code != http.StatusBadRequest {
+		t.Fatalf("status = %d, want %d; body = %s", rec.Code, http.StatusBadRequest, rec.Body.String())
+	}
+}
+
 func min(a, b int) int {
 	if a < b {
 		return a
