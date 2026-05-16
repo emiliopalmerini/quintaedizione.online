@@ -1,6 +1,6 @@
 # quintaedizione.online
 
-Sito web con i contenuti del Systems Reference Document (SRD) di D&D 5a Edizione, tradotti in italiano. Tutto il contenuto è estratto dal PDF ufficiale, convertito in JSON strutturato e servito come applicazione web.
+Sito web italiano per contenuti SRD di D&D 5a Edizione, strumenti per combattimenti, mappe e generatori casuali. I dati sono forniti dal modulo `quintaedizione-data-ita`, caricati da JSON strutturato e serviti da un'applicazione Go con store in memoria.
 
 ## Prerequisiti
 
@@ -27,34 +27,34 @@ make run              # genera template, formatta, avvia il server
 ## Come funziona
 
 ```
-PDF SRD → Parser Python → JSON → Binario Go (embed.FS) → Store in-memory → Web
+quintaedizione-data-ita → JSON embed.FS → Loader Go → Store in memoria → net/http → templ
 ```
 
-I file JSON in `data/ita/json/` vengono embeddati nel binario a compile time. Nessun database esterno: tutto vive in memoria.
+I file JSON vengono embeddati nel modulo dati a compile time. Nessun database esterno: le sezioni dell'app usano repository in memoria costruiti all'avvio.
 
-**Contenuti**: incantesimi, mostri, animali, classi, background, equipaggiamenti, oggetti magici, armi, armature, strumenti, cavalcature e veicoli, servizi, talenti, regole.
+**Contenuti**: incantesimi, mostri, classi, background, equipaggiamenti, oggetti magici, talenti, regole, glossario, specie, mappe, calcolatore combattimenti e generatori casuali.
 
 ## Stack
 
-- [gin-gonic/gin](https://github.com/gin-gonic/gin) — HTTP framework
-- [a-h/templ](https://github.com/a-h/templ) — Template engine
-- [gomarkdown/markdown](https://github.com/gomarkdown/markdown) — Rendering markdown
-- [due-draghi-design-system](https://github.com/duedraghi/design-system) — CSS
+- `net/http` della standard library come router e server HTTP
+- [a-h/templ](https://github.com/a-h/templ) per i template server-side
+- [gomarkdown/markdown](https://github.com/gomarkdown/markdown) per il rendering markdown
+- HTMX e JavaScript vanilla per interazioni progressive
+- CSS locale in `web/static/css`
 
 ## Struttura del progetto
 
 ```
-cmd/viewer/          Entrypoint
-data/ita/json/       Dati JSON (source of truth)
+cmd/app/             Entrypoint HTTP
 internal/
-  adapters/          Interfacce esterne (web handler, repository in-memory)
-  application/       Logica applicativa (servizi, filtri, parser)
-  domain/            Modelli di dominio, interfacce repository
-  infrastructure/    Config, datastore, loader JSON
+  combattimenti/     Calcolatore incontri
+  generatori/        Tabelle casuali
+  mappe/             Galleria mappe
+  srd/               Lettura, ricerca e rendering contenuti SRD
+pkg/                 Helper condivisi per template, web e datastore
 web/
   static/            Asset statici
   templates/         Template templ (.templ)
-scripts/parse_srd/   Parser Python per estrarre dati dal PDF SRD
 ```
 
 ## Licenza
