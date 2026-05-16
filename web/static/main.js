@@ -273,20 +273,14 @@ function initGlobalSearch() {
 
 	if (!searchInput) return;
 
-	// Show browse panel on focus (when input is empty)
-	searchInput.addEventListener('focus', function() {
-		if (window.matchMedia('(max-width: 640px)').matches) return;
-		if (searchInput.value.trim().length < 2 && searchResults && !searchResults.innerHTML.trim()) {
-			htmx.ajax('GET', '/srd/search/dropdown', { target: '#search-results', swap: 'innerHTML' });
-		}
-	});
-
-	// Prevent HTMX search request with less than 2 characters, show browse instead
+	// Dropdown stays hidden until the user has typed at least 2 chars; an
+	// empty input clears any previous results so refocusing doesn't reopen
+	// the panel.
 	searchForm.addEventListener('htmx:beforeRequest', function(evt) {
 		if (searchInput.value.trim().length < 2) {
 			evt.detail.cancel = true;
-			if (searchInput.value.trim().length === 0 && searchResults) {
-				htmx.ajax('GET', '/srd/search/dropdown', { target: '#search-results', swap: 'innerHTML' });
+			if (searchResults) {
+				searchResults.innerHTML = '';
 			}
 		}
 	});
@@ -376,12 +370,12 @@ function initSearchOverlay() {
 		}
 		setTimeout(function() {
 			overlayInput.focus();
-			// Trigger search if text was synced
+			// Trigger search only if text was synced; otherwise leave the
+			// panel empty until the user types.
 			if (overlayInput.value.trim().length >= 2) {
 				htmx.trigger(overlayInput, 'keyup');
-			} else if (!overlayResults.innerHTML.trim()) {
-				// Show browse panel when opening with no query
-				htmx.ajax('GET', '/srd/search/dropdown', { target: '#overlay-results', swap: 'innerHTML' });
+			} else {
+				overlayResults.innerHTML = '';
 			}
 		}, 50);
 	}
@@ -425,13 +419,14 @@ function initSearchOverlay() {
 		});
 	}
 
-	// Prevent HTMX request with less than 2 characters, show browse instead
+	// Block HTMX request and clear results until the user has typed at
+	// least 2 chars; matches the desktop dropdown behaviour.
 	if (overlayForm) {
 		overlayForm.addEventListener('htmx:beforeRequest', function(evt) {
 			if (overlayInput.value.trim().length < 2) {
 				evt.detail.cancel = true;
-				if (overlayInput.value.trim().length === 0 && overlayResults) {
-					htmx.ajax('GET', '/srd/search/dropdown', { target: '#overlay-results', swap: 'innerHTML' });
+				if (overlayResults) {
+					overlayResults.innerHTML = '';
 				}
 			}
 		});
