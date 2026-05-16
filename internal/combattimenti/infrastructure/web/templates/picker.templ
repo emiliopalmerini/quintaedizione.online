@@ -91,16 +91,14 @@ templ MonsterPicker(data PickerData) {
 					hx-preserve="true"
 				/>
 			</div>
-			if data.hasAnyFilter() {
-				<button
-					type="button"
-					class="btn btn-secondary monster-picker-reset"
-					title="Cancella ricerca e filtri"
-					aria-label="Cancella ricerca e filtri"
-				>
-					× Reset
-				</button>
-			}
+			<button
+				type="button"
+				class="btn btn-secondary monster-picker-reset"
+				title="Cancella ricerca e filtri"
+				aria-label="Cancella ricerca e filtri"
+			>
+				× Reset
+			</button>
 		</form>
 		<div id="monster-picker-results">
 			if len(data.Monsters) == 0 {
