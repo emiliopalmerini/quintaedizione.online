@@ -67,35 +67,38 @@ func (h *SearchHandler) handleSearchDropdown(w http.ResponseWriter, r *http.Requ
 		return
 	}
 
-	// Search mode: get results across all collections (or filtered)
-	fuzzyResults, err := h.searchFuzzy(r.Context(), collection, query)
+	// Always run a global search so the sidebar shows per-collection counts
+	// for every category, not just the one the user has drilled into.
+	globalFuzzy, err := h.searchService.Search(r.Context(), query, 6)
 	if err != nil {
 		h.renderHTML(w, "", "search")
 		return
 	}
+	globalResults, _ := h.transformSearchResults(r.Context(), globalFuzzy)
 
-	searchResults, _ := h.transformSearchResults(r.Context(), fuzzyResults)
-
-	// Build sidebar collections from search results (only those with matches)
-	allCollections := h.getAllCollectionsWithCounts(r.Context())
-
-	// Active collection: only set if user explicitly chose one
 	activeCollection := collection
 
-	// Get documents: aggregated from all collections, or filtered to one
+	// Documents: scoped search when a category is selected (deeper cap),
+	// otherwise the aggregated global results.
 	var documents []models.Document
 	var collectionLabel string
 	if activeCollection != "" {
-		for _, sr := range searchResults {
-			if sr.CollectionName == activeCollection {
-				documents = sr.Documents
-				collectionLabel = sr.CollectionLabel
-				break
+		scopedFuzzy, err := h.searchFuzzy(r.Context(), activeCollection, query)
+		if err == nil {
+			scopedResults, _ := h.transformSearchResults(r.Context(), scopedFuzzy)
+			for _, sr := range scopedResults {
+				if sr.CollectionName == activeCollection {
+					documents = sr.Documents
+					collectionLabel = sr.CollectionLabel
+					break
+				}
 			}
 		}
+		if collectionLabel == "" {
+			collectionLabel = h.getCollectionTitle(activeCollection)
+		}
 	} else {
-		// Aggregate results from all collections, tagging each doc with its collection
-		for _, sr := range searchResults {
+		for _, sr := range globalResults {
 			for _, doc := range sr.Documents {
 				doc.Collection = sr.CollectionName
 				doc.CollectionLabel = sr.CollectionLabel
@@ -104,9 +107,10 @@ func (h *SearchHandler) handleSearchDropdown(w http.ResponseWriter, r *http.Requ
 		}
 	}
 
-	// Show all collections in sidebar, with result counts for those that matched
+	// Sidebar counts come from the global search so unselected tabs show totals too.
+	allCollections := h.getAllCollectionsWithCounts(r.Context())
 	resultCountMap := make(map[string]int64)
-	for _, sr := range searchResults {
+	for _, sr := range globalResults {
 		resultCountMap[sr.CollectionName] = sr.Total
 	}
 	sidebarCollections := make([]models.Collection, 0, len(allCollections))

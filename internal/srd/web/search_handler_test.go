@@ -70,8 +70,10 @@ func TestSearchDropdown_SingleCollection(t *testing.T) {
 	if w.Code != http.StatusOK {
 		t.Fatalf("expected 200, got %d", w.Code)
 	}
-	if mock.searchCalled {
-		t.Error("Search() should not be called when collection param is set")
+	// Global Search() must run so the sidebar can show per-collection counts
+	// for every tab, not only the one the user has drilled into.
+	if !mock.searchCalled {
+		t.Error("expected Search() to be called for sidebar counts when collection param is set")
 	}
 	if !mock.searchCollectionCalled {
 		t.Error("expected SearchCollection() to be called with collection param")
