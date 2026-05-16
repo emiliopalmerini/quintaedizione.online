@@ -59,7 +59,8 @@ templ MonsterPicker(data PickerData) {
 		<form
 			class="monster-picker-controls"
 			hx-get="/combattimenti/monsters"
-			hx-target="#monster-picker"
+			hx-target="#monster-picker-results"
+			hx-select="#monster-picker-results"
 			hx-swap="outerHTML"
 			hx-trigger="input changed delay:200ms from:find input[type='search'], change from:find input[type='number'], change from:find select"
 		>
@@ -101,9 +102,10 @@ templ MonsterPicker(data PickerData) {
 				</button>
 			}
 		</form>
-		if len(data.Monsters) == 0 {
-			<p class="monster-picker-empty">Nessun mostro trovato per questa ricerca.</p>
-		} else {
+		<div id="monster-picker-results">
+			if len(data.Monsters) == 0 {
+				<p class="monster-picker-empty">Nessun mostro trovato per questa ricerca.</p>
+			} else {
 			<ul class="monster-picker-list">
 				for _, m := range data.Monsters {
 					<li class="monster-picker-row">
@@ -150,6 +152,7 @@ templ MonsterPicker(data PickerData) {
 				}
 			</ul>
 		}
+		</div>
 	</div>
 }
 
