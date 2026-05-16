@@ -72,12 +72,14 @@ templ MonsterPicker(data PickerData) {
 			}
 			<div class="monster-picker-search">
 				<input
+					id="monster-picker-search-input"
 					type="search"
 					name="q"
 					value={ data.Query }
 					placeholder="Cerca un mostro…"
 					autocomplete="off"
 					aria-label="Cerca un mostro per nome"
+					hx-preserve="true"
 				/>
 			</div>
 			<label class="monster-picker-toggle">
