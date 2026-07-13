@@ -7,12 +7,13 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"io"
 	"io/fs"
 	"path"
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/emiliopalmerini/quintaedizione.online/internal/content/jsonstrict"
 )
 
 const (
@@ -52,17 +53,8 @@ func Load(files fs.FS) (Release, error) {
 	if err != nil {
 		return Release{}, fmt.Errorf("read release manifest: %w", err)
 	}
-	if err := rejectDuplicateJSONKeys(data); err != nil {
-		return Release{}, fmt.Errorf("decode release manifest: %w", err)
-	}
-
 	var manifest Manifest
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	if err := decoder.Decode(&manifest); err != nil {
-		return Release{}, fmt.Errorf("decode release manifest: %w", err)
-	}
-	if err := rejectTrailingJSON(decoder); err != nil {
+	if err := jsonstrict.Decode(data, &manifest); err != nil {
 		return Release{}, fmt.Errorf("decode release manifest: %w", err)
 	}
 	if err := manifest.validate(); err != nil {
@@ -206,7 +198,7 @@ func verifyPayload(data []byte, resource Resource) error {
 		if len(record) == 0 || record[0] != '{' {
 			return fmt.Errorf("release resource %q record %d: record must be a JSON object", resource.Path, index)
 		}
-		if err := rejectDuplicateJSONKeys(record); err != nil {
+		if err := jsonstrict.Validate(record); err != nil {
 			return fmt.Errorf("release resource %q record %d: %w", resource.Path, index, err)
 		}
 		if resource.RecordKind == "tombstone" {
@@ -221,81 +213,6 @@ func verifyPayload(data []byte, resource Resource) error {
 		if envelope.Kind != resource.RecordKind {
 			return fmt.Errorf("release resource %q record %d has kind %q, want %q", resource.Path, index, envelope.Kind, resource.RecordKind)
 		}
-	}
-	return nil
-}
-
-func rejectTrailingJSON(decoder *json.Decoder) error {
-	var trailing any
-	if err := decoder.Decode(&trailing); !errors.Is(err, io.EOF) {
-		if err == nil {
-			return errors.New("multiple JSON values")
-		}
-		return err
-	}
-	return nil
-}
-
-func rejectDuplicateJSONKeys(data []byte) error {
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	if err := scanJSONValue(decoder); err != nil {
-		return err
-	}
-	return rejectTrailingJSON(decoder)
-}
-
-func scanJSONValue(decoder *json.Decoder) error {
-	token, err := decoder.Token()
-	if err != nil {
-		return err
-	}
-	delimiter, ok := token.(json.Delim)
-	if !ok {
-		return nil
-	}
-
-	switch delimiter {
-	case '{':
-		keys := make(map[string]struct{})
-		for decoder.More() {
-			keyToken, err := decoder.Token()
-			if err != nil {
-				return err
-			}
-			key, ok := keyToken.(string)
-			if !ok {
-				return errors.New("object key is not a string")
-			}
-			if _, exists := keys[key]; exists {
-				return fmt.Errorf("duplicate object key %q", key)
-			}
-			keys[key] = struct{}{}
-			if err := scanJSONValue(decoder); err != nil {
-				return err
-			}
-		}
-		closing, err := decoder.Token()
-		if err != nil {
-			return err
-		}
-		if closing != json.Delim('}') {
-			return errors.New("unterminated JSON object")
-		}
-	case '[':
-		for decoder.More() {
-			if err := scanJSONValue(decoder); err != nil {
-				return err
-			}
-		}
-		closing, err := decoder.Token()
-		if err != nil {
-			return err
-		}
-		if closing != json.Delim(']') {
-			return errors.New("unterminated JSON array")
-		}
-	default:
-		return fmt.Errorf("unexpected JSON delimiter %q", delimiter)
 	}
 	return nil
 }
