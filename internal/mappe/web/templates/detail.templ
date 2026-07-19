@@ -29,7 +29,9 @@ templ DetailPage(m maps.Mappa) {
 			<div class="mappe-detail-img mb-6">
 				<img
 					src={ "/static/img/mappe/preview/" + m.Immagine }
-					alt={ m.Nome }
+					alt={ "Mappa: " + m.Nome }
+					decoding="async"
+					fetchpriority="high"
 				/>
 			</div>
 

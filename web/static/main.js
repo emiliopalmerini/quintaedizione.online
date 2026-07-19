@@ -955,116 +955,6 @@ function initQuickFilterChips() {
 	});
 }
 
-// Mappe tag picker: search + multi-select chips, works after HTMX swaps
-function initMappeFilterChips() {
-	var picker = document.getElementById('mappe-tag-picker');
-	if (!picker) return;
-	if (!bindOnce(picker, 'mappe-filter-chips')) return;
-
-	var hiddenInput = document.getElementById('mappe-tag');
-	var searchInput = document.getElementById('mappe-tag-search');
-	var optionsContainer = picker.querySelector('.tag-picker-options');
-	if (!hiddenInput || !searchInput || !optionsContainer) return;
-
-	function getActiveTags() {
-		return hiddenInput.value ? hiddenInput.value.split(',').filter(Boolean) : [];
-	}
-
-	function setActiveTags(tags) {
-		hiddenInput.value = tags.join(',');
-	}
-
-	function rebuildSelected() {
-		var existing = picker.querySelector('.tag-picker-selected');
-		if (existing) existing.remove();
-
-		var tags = getActiveTags();
-		if (tags.length === 0) return;
-
-		var container = document.createElement('div');
-		container.className = 'tag-picker-selected';
-
-		tags.forEach(function(tag) {
-			var btn = document.createElement('button');
-			btn.type = 'button';
-			btn.className = 'tag-picker-active';
-			btn.setAttribute('data-value', tag);
-			btn.innerHTML = tag + ' <span class="tag-picker-remove" aria-hidden="true">&times;</span>';
-			btn.addEventListener('click', function() {
-				removeTag(tag);
-			});
-			container.appendChild(btn);
-		});
-
-		picker.insertBefore(container, searchInput);
-	}
-
-	function addTag(tag) {
-		var tags = getActiveTags();
-		if (tags.indexOf(tag) === -1) {
-			tags.push(tag);
-			setActiveTags(tags);
-		}
-		// Hide the chip from available options
-		optionsContainer.querySelectorAll('.quick-filter-chip[data-value]').forEach(function(chip) {
-			if (chip.getAttribute('data-value') === tag) {
-				chip.style.display = 'none';
-			}
-		});
-		searchInput.value = '';
-		filterOptions('');
-		rebuildSelected();
-		htmx.trigger(document.getElementById('mappe-filter-form'), 'filter-changed');
-	}
-
-	function removeTag(tag) {
-		var tags = getActiveTags().filter(function(t) { return t !== tag; });
-		setActiveTags(tags);
-		// Show the chip in available options again
-		optionsContainer.querySelectorAll('.quick-filter-chip[data-value]').forEach(function(chip) {
-			if (chip.getAttribute('data-value') === tag) {
-				chip.style.display = '';
-			}
-		});
-		rebuildSelected();
-		htmx.trigger(document.getElementById('mappe-filter-form'), 'filter-changed');
-	}
-
-	function filterOptions(query) {
-		var q = query.toLowerCase();
-		optionsContainer.querySelectorAll('.quick-filter-chip[data-value]').forEach(function(chip) {
-			var value = chip.getAttribute('data-value');
-			var activeTags = getActiveTags();
-			if (activeTags.indexOf(value) !== -1) {
-				chip.style.display = 'none';
-			} else if (q && value.toLowerCase().indexOf(q) === -1) {
-				chip.style.display = 'none';
-			} else {
-				chip.style.display = '';
-			}
-		});
-	}
-
-	// Bind search input
-	searchInput.addEventListener('input', function() {
-		filterOptions(this.value);
-	});
-
-	// Bind available tag chips
-	optionsContainer.querySelectorAll('.quick-filter-chip[data-value]').forEach(function(chip) {
-		chip.addEventListener('click', function() {
-			addTag(chip.getAttribute('data-value'));
-		});
-	});
-
-	// Bind existing active tag buttons (server-rendered)
-	picker.querySelectorAll('.tag-picker-active[data-value]').forEach(function(btn) {
-		btn.addEventListener('click', function() {
-			removeTag(btn.getAttribute('data-value'));
-		});
-	});
-}
-
 // Filter chips: remove individual filter value or clear all
 function initFilterChips() {
 	document.querySelectorAll('.filter-chip').forEach(function(chip) {
@@ -1327,7 +1217,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	initFilterMultiselect();
 	initFilterChips();
 	initQuickFilterChips();
-	initMappeFilterChips();
 	initItemKeyboardNav();
 	initHeadingAnchors();
 	initPageSpecificScripts();
@@ -1357,7 +1246,6 @@ document.addEventListener('htmx:afterSwap', function(evt) {
 	initFilterMultiselect();
 	initFilterChips();
 	initQuickFilterChips();
-	initMappeFilterChips();
 	initItemKeyboardNav();
 	initHeadingAnchors();
 	initPageSpecificScripts();

@@ -234,9 +234,14 @@ func main() {
 	mux.Handle("/combattimenti/", http.StripPrefix("/combattimenti", combatMux))
 
 	// Mappe routes under /mappe
+	mux.HandleFunc("GET /mappe", galleryHandler.HandleGallery)
 	mappeMux := http.NewServeMux()
-	mappeMux.HandleFunc("GET /{$}", galleryHandler.HandleGallery)
-	mappeMux.HandleFunc("GET /gallery", galleryHandler.HandleGallery)
+	mappeMux.HandleFunc("GET /{$}", func(w http.ResponseWriter, r *http.Request) {
+		http.Redirect(w, r, "/mappe"+querySuffix(r), http.StatusMovedPermanently)
+	})
+	mappeMux.HandleFunc("GET /gallery", func(w http.ResponseWriter, r *http.Request) {
+		http.Redirect(w, r, "/mappe"+querySuffix(r), http.StatusMovedPermanently)
+	})
 	mappeMux.HandleFunc("GET /{slug}", galleryHandler.HandleDetail)
 	mux.Handle("/mappe/", http.StripPrefix("/mappe", mappeMux))
 
@@ -285,4 +290,11 @@ func main() {
 	}
 
 	log.Println("Server shutdown completed")
+}
+
+func querySuffix(r *http.Request) string {
+	if r.URL.RawQuery == "" {
+		return ""
+	}
+	return "?" + r.URL.RawQuery
 }

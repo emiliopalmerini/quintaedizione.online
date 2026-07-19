@@ -9,6 +9,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-4);
 }
+@media (max-width: 479px) { .mappe-grid { grid-template-columns: 1fr; } }
 @media (min-width: 640px) { .mappe-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 1024px) { .mappe-grid { grid-template-columns: repeat(4, 1fr); } }
 
@@ -37,6 +38,7 @@
   background: var(--color-bg-secondary);
 }
 .mappe-card-img img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -120,53 +122,74 @@
    TAG PICKER
    ======================================================================== */
 
+.mappe-search-controls {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+.mappe-search-controls .field { flex: 1; min-width: 0; }
+
 .tag-picker {
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-3);
+  margin-bottom: var(--space-4);
 }
 
-.tag-picker-selected {
+.tag-picker > summary {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   gap: var(--space-2);
-  margin-bottom: var(--space-3);
+  cursor: pointer;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
 }
 
-.tag-picker-active {
+.tag-picker-count {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-1);
-  padding: var(--space-1) var(--space-3);
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding: 0 var(--space-2);
   background: var(--color-text);
   color: var(--color-text-inverse);
-  border: 1px solid var(--color-text);
   border-radius: var(--radius-full);
-  font-size: var(--text-sm);
-  font-weight: var(--weight-medium);
-  cursor: pointer;
-  transition: opacity var(--transition-fast);
-}
-.tag-picker-active:hover { opacity: 0.8; }
-
-.tag-picker-remove {
-  font-size: var(--text-base);
-  line-height: 1;
-  margin-left: var(--space-1);
-}
-
-.tag-picker-input {
-  width: 100%;
-  margin-bottom: var(--space-3);
+  font-size: var(--text-xs);
 }
 
 .tag-picker-options {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  max-height: 10rem;
+  max-height: 12rem;
+  margin: var(--space-3) 0 0;
+  padding: 0;
   overflow-y: auto;
+  border: 0;
+}
+
+.tag-picker-option {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  font-size: var(--text-sm);
+}
+
+.tag-picker-option:has(input:checked) {
+  color: var(--color-text-inverse);
+  background: var(--color-text);
+  border-color: var(--color-text);
+}
+
+@media (max-width: 420px) {
+  .mappe-search-controls { align-items: stretch; flex-direction: column; }
 }
 
 /* ========================================================================

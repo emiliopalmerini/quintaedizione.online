@@ -1,7 +1,6 @@
 package templates
 
 import (
-	"strings"
 	"strconv"
 	"net/url"
 
@@ -25,9 +24,11 @@ func loadMoreURL(data maps.GalleryData) string {
 		v.Set("q", data.Query)
 	}
 	if len(data.ActiveTags) > 0 {
-		v.Set("tag", strings.Join(data.ActiveTags, ","))
+		for _, tag := range data.ActiveTags {
+			v.Add("tag", tag)
+		}
 	}
-	return "/mappe/gallery?" + v.Encode()
+	return "/mappe?" + v.Encode()
 }
 
 templ GalleryPage(data maps.GalleryData) {
@@ -40,16 +41,19 @@ templ GalleryPage(data maps.GalleryData) {
 		</div>
 
 		<form id="mappe-filter-form"
-			hx-get="/mappe/gallery"
+			action="/mappe"
+			method="get"
+			role="search"
+			hx-get="/mappe"
 			hx-target="#mappe-grid"
-			hx-trigger="keyup delay:200ms from:#mappe-search, filter-changed"
+			hx-trigger="submit, change from:input[name='tag']"
 			hx-push-url="true"
 			hx-swap="outerHTML"
-			hx-include="#mappe-search, #mappe-tag"
 		>
-			<div class="mb-4">
+			<div class="mappe-search-controls">
+				<label class="sr-only" for="mappe-search">Cerca mappe</label>
 				<input
-					type="text"
+					type="search"
 					name="q"
 					id="mappe-search"
 					placeholder="Cerca mappa..."
@@ -57,42 +61,30 @@ templ GalleryPage(data maps.GalleryData) {
 					autocomplete="off"
 					value={ data.Query }
 				/>
+				<button type="submit" class="btn btn-primary">Cerca</button>
 			</div>
 
-			<input type="hidden" name="tag" id="mappe-tag" value={ strings.Join(data.ActiveTags, ",") }/>
-
-			<div id="mappe-tag-picker" class="tag-picker mb-4">
-				if len(data.ActiveTags) > 0 {
-					<div class="tag-picker-selected">
-						for _, tag := range data.ActiveTags {
-							<button type="button" class="tag-picker-active" data-value={ tag }>
-								{ tag }
-								<span class="tag-picker-remove" aria-hidden="true">&times;</span>
-							</button>
-						}
-					</div>
-				}
-				<input
-					type="text"
-					id="mappe-tag-search"
-					placeholder="Filtra tag..."
-					class="field tag-picker-input"
-					autocomplete="off"
-				/>
-				<div class="tag-picker-options">
-					for _, tag := range data.Tags {
-						if !isActiveTag(data.ActiveTags, tag) {
-							<button
-								type="button"
-								class="quick-filter-chip"
-								data-value={ tag }
-							>
-								{ tag }
-							</button>
-						}
+			<details class="tag-picker">
+				<summary>
+					Filtra per tag
+					if len(data.ActiveTags) > 0 {
+						<span class="tag-picker-count">{ strconv.Itoa(len(data.ActiveTags)) }</span>
 					}
-				</div>
-			</div>
+				</summary>
+				<fieldset class="tag-picker-options">
+					<legend class="sr-only">Tag delle mappe</legend>
+					for _, tag := range data.Tags {
+						<label class="tag-picker-option">
+							if isActiveTag(data.ActiveTags, tag) {
+								<input type="checkbox" name="tag" value={ tag } checked/>
+							} else {
+								<input type="checkbox" name="tag" value={ tag }/>
+						}
+							<span>{ tag }</span>
+						</label>
+					}
+				</fieldset>
+			</details>
 		</form>
 
 		@GalleryGrid(data)
@@ -112,8 +104,8 @@ templ GalleryGrid(data maps.GalleryData) {
 				<a href="/mappe" class="btn btn-secondary">Cancella filtri</a>
 			</div>
 		} else {
-			for _, m := range data.Mappe {
-				@mappeCard(m)
+			for i, m := range data.Mappe {
+				@mappeCard(m, i == 0 && data.Offset == 0)
 			}
 			if data.HasMore {
 				@loadMoreButton(data)
@@ -124,21 +116,21 @@ templ GalleryGrid(data maps.GalleryData) {
 
 templ GalleryCards(data maps.GalleryData) {
 	for _, m := range data.Mappe {
-		@mappeCard(m)
+		@mappeCard(m, false)
 	}
 	if data.HasMore {
 		@loadMoreButton(data)
 	}
 }
 
-templ mappeCard(m maps.Mappa) {
+templ mappeCard(m maps.Mappa, eager bool) {
 	<a href={ templ.URL("/mappe/" + m.Slug) } class="mappe-card">
 		<div class="mappe-card-img">
-			<img
-				src={ "/static/img/mappe/thumbs/" + m.Immagine }
-				alt={ m.Nome }
-				loading="lazy"
-			/>
+			if eager {
+				<img src={ "/static/img/mappe/thumbs/" + m.Immagine } alt="" decoding="async" fetchpriority="high"/>
+			} else {
+				<img src={ "/static/img/mappe/thumbs/" + m.Immagine } alt="" loading="lazy" decoding="async"/>
+			}
 		</div>
 		<div class="mappe-card-body">
 			<div class="mappe-card-title">{ m.Nome }</div>
@@ -155,13 +147,13 @@ templ mappeCard(m maps.Mappa) {
 
 templ loadMoreButton(data maps.GalleryData) {
 	<div id="mappe-load-more" class="mappe-grid-full">
-		<button
+		<a href={ templ.URL(loadMoreURL(data)) }
 			class="btn btn-secondary load-more-btn"
 			hx-get={ loadMoreURL(data) }
 			hx-target="#mappe-load-more"
 			hx-swap="outerHTML"
 		>
 			Mostra altre mappe
-		</button>
+		</a>
 	</div>
 }

@@ -42,12 +42,15 @@ func (h *GalleryHandler) HandleDetail(w http.ResponseWriter, r *http.Request) {
 // HandleGallery renders the full gallery page.
 // GET /
 func (h *GalleryHandler) HandleGallery(w http.ResponseWriter, r *http.Request) {
+	w.Header().Add("Vary", "HX-Request")
+	w.Header().Add("Vary", "HX-Target")
+
 	offset := pkgweb.ParseIntParam(r, "offset", 0)
 	if offset < 0 {
 		offset = 0
 	}
 
-	activeTags := pkgweb.ParseTags(r.URL.Query().Get("tag"))
+	activeTags := parseActiveTags(r)
 
 	filters := maps.SearchFilters{
 		Query:  r.URL.Query().Get("q"),
@@ -72,12 +75,10 @@ func (h *GalleryHandler) HandleGallery(w http.ResponseWriter, r *http.Request) {
 	pkgweb.SetCacheHeaders(w, 1800) // 30 minutes
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 
-	if isGalleryFragmentRequest(r) {
-		var component func() error
-		if offset > 0 {
+	if target := galleryFragmentTarget(r); target != "" {
+		component := func() error { return templates.GalleryGrid(data).Render(r.Context(), w) }
+		if target == "mappe-load-more" {
 			component = func() error { return templates.GalleryCards(data).Render(r.Context(), w) }
-		} else {
-			component = func() error { return templates.GalleryGrid(data).Render(r.Context(), w) }
 		}
 		if err := component(); err != nil {
 			h.logger.Error("Failed to render gallery", "error", err)
@@ -89,15 +90,29 @@ func (h *GalleryHandler) HandleGallery(w http.ResponseWriter, r *http.Request) {
 	pkgweb.RenderTempl(w, r, h.logger, templates.GalleryPage(data))
 }
 
-func isGalleryFragmentRequest(r *http.Request) bool {
+func galleryFragmentTarget(r *http.Request) string {
 	if r.Header.Get("HX-Request") != "true" {
-		return false
+		return ""
 	}
 
 	switch r.Header.Get("HX-Target") {
 	case "mappe-grid", "mappe-load-more":
-		return true
+		return r.Header.Get("HX-Target")
 	default:
-		return false
+		return ""
 	}
+}
+
+func parseActiveTags(r *http.Request) []string {
+	var tags []string
+	seen := make(map[string]bool)
+	for _, value := range r.URL.Query()["tag"] {
+		for _, tag := range pkgweb.ParseTags(value) {
+			if !seen[tag] {
+				tags = append(tags, tag)
+				seen[tag] = true
+			}
+		}
+	}
+	return tags
 }

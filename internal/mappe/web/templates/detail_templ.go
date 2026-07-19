@@ -149,15 +149,15 @@ func DetailPage(m maps.Mappa) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var9 string
-			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(m.Nome)
+			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs("Mappa: " + m.Nome)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/detail.templ`, Line: 32, Col: 17}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/detail.templ`, Line: 32, Col: 29}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "\"></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "\" decoding=\"async\" fetchpriority=\"high\"></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -169,7 +169,7 @@ func DetailPage(m maps.Mappa) templ.Component {
 				var templ_7745c5c3_Var10 templ.SafeURL
 				templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(m.URLImmagineOriginale))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/detail.templ`, Line: 38, Col: 48}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/detail.templ`, Line: 40, Col: 48}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 				if templ_7745c5c3_Err != nil {
@@ -187,7 +187,7 @@ func DetailPage(m maps.Mappa) templ.Component {
 			var templ_7745c5c3_Var11 string
 			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(m.Autore)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/detail.templ`, Line: 48, Col: 20}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/detail.templ`, Line: 50, Col: 20}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
@@ -200,7 +200,7 @@ func DetailPage(m maps.Mappa) templ.Component {
 			var templ_7745c5c3_Var12 string
 			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(m.Licenza)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/detail.templ`, Line: 52, Col: 21}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/detail.templ`, Line: 54, Col: 21}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -218,7 +218,7 @@ func DetailPage(m maps.Mappa) templ.Component {
 				var templ_7745c5c3_Var13 templ.SafeURL
 				templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL(m.URLOriginale))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/detail.templ`, Line: 58, Col: 43}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/detail.templ`, Line: 60, Col: 43}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 				if templ_7745c5c3_Err != nil {
@@ -231,7 +231,7 @@ func DetailPage(m maps.Mappa) templ.Component {
 				var templ_7745c5c3_Var14 string
 				templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(m.Autore)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/detail.templ`, Line: 59, Col: 27}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/mappe/web/templates/detail.templ`, Line: 61, Col: 27}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 				if templ_7745c5c3_Err != nil {
