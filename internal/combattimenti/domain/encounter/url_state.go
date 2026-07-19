@@ -27,7 +27,7 @@ import (
 )
 
 // MaxPartySize caps the party at the same upper bound the UI enforces.
-const MaxPartySize = 100
+const MaxPartySize = 8
 
 // Default values applied when the querystring is empty.
 var (

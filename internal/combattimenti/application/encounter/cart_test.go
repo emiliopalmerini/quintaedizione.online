@@ -5,6 +5,7 @@ import (
 	"errors"
 	"log/slog"
 	"os"
+	"strconv"
 	"testing"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/domain/monster"
@@ -251,5 +252,78 @@ func TestCartPricer_2014MultiplierUsesSummedQuantity(t *testing.T) {
 	}
 	if got.Remaining != 400 {
 		t.Errorf("remaining = %d, want 400", got.Remaining)
+	}
+}
+
+func TestCartPricer_2014MultiplierBoundaries(t *testing.T) {
+	reader := &stubReader{m: map[string]monster.Monster{
+		"5e/goblin": {ID: "goblin", Source: "5e", Name: "Goblin", XP: 100},
+	}}
+	pricer := NewCartPricer(silentLogger(), reader, memory.NewEncounterRepository())
+
+	tests := []struct {
+		count         int
+		wantEffective int
+	}{
+		{count: 1, wantEffective: 100},
+		{count: 2, wantEffective: 300},
+		{count: 3, wantEffective: 600},
+		{count: 6, wantEffective: 1200},
+		{count: 7, wantEffective: 1750},
+		{count: 10, wantEffective: 2500},
+		{count: 11, wantEffective: 3300},
+		{count: 14, wantEffective: 4200},
+		{count: 15, wantEffective: 6000},
+		{count: 16, wantEffective: 6400},
+	}
+	for _, tt := range tests {
+		t.Run(strconv.Itoa(tt.count), func(t *testing.T) {
+			got, err := pricer.Price(context.Background(), PriceCartRequest{
+				Ruleset:   "2014",
+				PartySize: 4,
+				Refs:      []CartItemRef{{ID: "goblin", Source: "5e", Quantity: tt.count}},
+			})
+			if err != nil {
+				t.Fatalf("err: %v", err)
+			}
+			if got.EffectiveCost != tt.wantEffective {
+				t.Errorf("effective = %d, want %d", got.EffectiveCost, tt.wantEffective)
+			}
+		})
+	}
+}
+
+func TestCartPricer_2014AdjustsMultiplierForPartySize(t *testing.T) {
+	reader := &stubReader{m: map[string]monster.Monster{
+		"5e/goblin": {ID: "goblin", Source: "5e", Name: "Goblin", XP: 100},
+	}}
+	pricer := NewCartPricer(silentLogger(), reader, memory.NewEncounterRepository())
+
+	tests := []struct {
+		name          string
+		partySize     int
+		monsterCount  int
+		wantEffective int
+	}{
+		{name: "two characters shift up", partySize: 2, monsterCount: 2, wantEffective: 400},
+		{name: "four characters unchanged", partySize: 4, monsterCount: 2, wantEffective: 300},
+		{name: "six characters shift down", partySize: 6, monsterCount: 2, wantEffective: 200},
+		{name: "large party cannot shift below one", partySize: 6, monsterCount: 1, wantEffective: 100},
+		{name: "small party caps at four", partySize: 2, monsterCount: 15, wantEffective: 6000},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, err := pricer.Price(context.Background(), PriceCartRequest{
+				Ruleset:   "2014",
+				PartySize: tt.partySize,
+				Refs:      []CartItemRef{{ID: "goblin", Source: "5e", Quantity: tt.monsterCount}},
+			})
+			if err != nil {
+				t.Fatalf("err: %v", err)
+			}
+			if got.EffectiveCost != tt.wantEffective {
+				t.Errorf("effective = %d, want %d", got.EffectiveCost, tt.wantEffective)
+			}
+		})
 	}
 }

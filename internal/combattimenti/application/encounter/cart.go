@@ -57,8 +57,9 @@ func ParseCartRefs(raw []string) []CartItemRef {
 
 // PriceCartRequest is the cart-pricing input.
 type PriceCartRequest struct {
-	Ruleset string
-	Refs    []CartItemRef
+	Ruleset   string
+	Refs      []CartItemRef
+	PartySize int
 	// Budget is the encounter's total XP budget. Used to compute remaining.
 	Budget int
 }
@@ -122,7 +123,7 @@ func (p *CartPricer) Price(ctx context.Context, req PriceCartRequest) (*PriceCar
 		})
 	}
 
-	multiplier := p.multiplierFor(ruleset)
+	multiplier := p.multiplierFor(ruleset, req.PartySize)
 	effective := cart.EffectiveCost(multiplier)
 	return &PriceCartResponse{
 		Entries:       cart.Entries,
@@ -132,7 +133,7 @@ func (p *CartPricer) Price(ctx context.Context, req PriceCartRequest) (*PriceCar
 	}, nil
 }
 
-func (p *CartPricer) multiplierFor(ruleset encounter.Ruleset) func(int) float64 {
+func (p *CartPricer) multiplierFor(ruleset encounter.Ruleset, partySize int) func(int) float64 {
 	if ruleset == encounter.Ruleset2024 {
 		return func(int) float64 { return 1.0 }
 	}
@@ -146,6 +147,27 @@ func (p *CartPricer) multiplierFor(ruleset encounter.Ruleset) func(int) float64 
 			p.logger.Warn("multiplier lookup failed", "count", count, "error", err)
 			return 1.0
 		}
-		return m
+		return adjustMultiplierForPartySize(m, partySize)
 	}
+}
+
+func adjustMultiplierForPartySize(multiplier float64, partySize int) float64 {
+	if partySize == 0 || partySize >= 3 && partySize < 6 {
+		return multiplier
+	}
+	steps := []float64{1, 1.5, 2, 2.5, 3, 4}
+	index := 0
+	for i, step := range steps {
+		if step == multiplier {
+			index = i
+			break
+		}
+	}
+	if partySize < 3 && index < len(steps)-1 {
+		index++
+	}
+	if partySize >= 6 && index > 0 {
+		index--
+	}
+	return steps[index]
 }

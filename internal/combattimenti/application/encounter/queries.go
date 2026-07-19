@@ -131,11 +131,10 @@ func (q *QueryHandler) GetMultiplierRanges() []encounter.MultiplierRange {
 	return []encounter.MultiplierRange{
 		{MaxMonsters: 1, Multiplier: 1.0},
 		{MaxMonsters: 2, Multiplier: 1.5},
-		{MaxMonsters: 3, Multiplier: 2.0},
-		{MaxMonsters: 7, Multiplier: 2.5},
-		{MaxMonsters: 11, Multiplier: 3.0},
-		{MaxMonsters: 15, Multiplier: 4.0},
-		{MaxMonsters: 99, Multiplier: 5.0},
+		{MaxMonsters: 6, Multiplier: 2.0},
+		{MaxMonsters: 10, Multiplier: 2.5},
+		{MaxMonsters: 14, Multiplier: 3.0},
+		{MaxMonsters: int(^uint(0) >> 1), Multiplier: 4.0},
 	}
 }
 

@@ -4,19 +4,57 @@
 function initEncountersPage() {
     initEncounterForm();
     initSteppers();
+    initMonsterCart();
+    initPickerReset();
+    initPickerURLSync();
     syncSourceShort();
+    initAutoCalculate();
     initCopyLink();
+    initResultShell();
+}
+
+function initResultShell() {
+    var media = window.matchMedia('(min-width: 900px)');
+    document.querySelectorAll('.encounter-result-shell').forEach(function(shell) {
+        if (media.matches) shell.open = true;
+    });
+    if (window.__encounterResultShellBound) return;
+    window.__encounterResultShellBound = true;
+    media.addEventListener('change', function(evt) {
+        document.querySelectorAll('.encounter-result-shell').forEach(function(shell) {
+            shell.open = evt.matches;
+        });
+    });
 }
 
 window.initEncountersPage = initEncountersPage;
 document.addEventListener('DOMContentLoaded', initEncountersPage);
 document.addEventListener('htmx:afterSwap', initEncountersPage);
+document.addEventListener('htmx:responseError', function() {
+    showToast('Impossibile aggiornare il combattimento. Controlla i dati e riprova.', 'error');
+});
+document.addEventListener('htmx:sendError', function() {
+    showToast('Connessione non disponibile. Riprova tra poco.', 'error');
+});
+document.addEventListener('htmx:configRequest', function(evt) {
+    var form = evt.detail.elt && evt.detail.elt.closest ? evt.detail.elt.closest('.monster-picker-controls') : null;
+    if (!form) return;
+    var minInput = form.querySelector('[name="min_cr"]');
+    var maxInput = form.querySelector('[name="max_cr"]');
+    if (!minInput || !maxInput || minInput.value === '' || maxInput.value === '') return;
+    if (parseFloat(minInput.value) > parseFloat(maxInput.value)) {
+        evt.preventDefault();
+        showToast('Il GS minimo non può superare il GS massimo.', 'error');
+    }
+});
 
 // Toast notification
 function showToast(message, type) {
     type = type || 'info';
     var toast = document.createElement('div');
     toast.className = 'flash-message flash-' + type;
+    toast.setAttribute('role', type === 'error' ? 'alert' : 'status');
+    toast.setAttribute('aria-live', type === 'error' ? 'assertive' : 'polite');
     toast.style.cssText = 'position:fixed;top:20px;right:20px;z-index:1000;min-width:200px;';
     toast.textContent = message;
     document.body.appendChild(toast);
@@ -92,8 +130,6 @@ function initAutoCalculate() {
         }
     });
 
-    // Calculate on page load with default values
-    setTimeout(scheduleCalculate, 100);
 }
 
 // Sync the hidden `source_short` input from the checked ruleset radio's
@@ -109,10 +145,18 @@ function syncSourceShort() {
         if (!checked) return;
         var prev = hidden.value;
         var next = checked.dataset.sourceShort || '';
-        hidden.value = next;
-        if (prev && prev !== next) {
+        if (prev && prev !== next && cartQuantities.size > 0) {
+            if (!window.confirm('Cambiare edizione rimuoverà tutti i mostri dal combattimento. Continuare?')) {
+                radios.forEach(function(radio) {
+                    radio.checked = radio.dataset.sourceShort === prev;
+                });
+                return;
+            }
             clearCart();
         }
+        hidden.value = next;
+        syncDifficultyOptions(checked.value);
+        if (prev && prev !== next) refreshMonsterPicker(next);
     }
 
     if (hidden.dataset.encounterSourceShortBound !== '1') {
@@ -122,12 +166,38 @@ function syncSourceShort() {
     update();
 }
 
+function syncDifficultyOptions(ruleset) {
+    var select = document.getElementById('encounter-difficulty');
+    if (!select || select.dataset.ruleset === ruleset) return;
+    var options = ruleset === '2014'
+        ? [['Facile', 'Facile'], ['Media', 'Media'], ['Difficile', 'Difficile'], ['Letale', 'Letale']]
+        : [['Low', 'Bassa'], ['Moderate', 'Moderata'], ['High', 'Alta']];
+    select.innerHTML = '';
+    options.forEach(function(option) {
+        var element = document.createElement('option');
+        element.value = option[0];
+        element.textContent = option[1];
+        select.appendChild(element);
+    });
+    select.value = ruleset === '2014' ? 'Media' : 'Moderate';
+    select.dataset.ruleset = ruleset;
+}
+
+function refreshMonsterPicker(source) {
+    var pickerForm = document.querySelector('.monster-picker-controls');
+    if (!pickerForm || typeof htmx === 'undefined') return;
+    var sourceInput = pickerForm.querySelector('input[name="source"]');
+    if (sourceInput) sourceInput.value = source;
+    var params = new URLSearchParams(new FormData(pickerForm));
+    htmx.ajax('GET', '/combattimenti/monsters?' + params.toString(), {
+        target: '#monster-picker-slot',
+        swap: 'innerHTML'
+    });
+}
+
 // Monster cart management: tracks per-(id@source) quantities in a Map and
-// re-renders hidden <input name="monsters[]"> entries (one per unit) so the
-// server-side ParseCartRefs (which folds duplicates) sees the right count.
-//
-// Wire format stays "{id}@{source}" repeated; the server folds duplicates by
-// counting occurrences, so this client only needs to emit qty copies per chip.
+// re-renders compact hidden <input name="monsters[]"> entries. The server
+// accepts "{id}@{source}:qty", which keeps large encounters cheap to update.
 var cartQuantities = new Map(); // key "id@source" → integer quantity
 
 function cartKey(id, source) { return id + '@' + source; }
@@ -153,6 +223,9 @@ function initMonsterCart() {
             var source = addBtn.dataset.monsterSource;
             if (!id || !source) return;
             adjustCartEntry(id, source, 1);
+            var quantity = cartQuantities.get(cartKey(id, source)) || 1;
+            addBtn.textContent = 'Aggiunto · ' + quantity;
+            addBtn.classList.add('is-added');
             return;
         }
 
@@ -202,21 +275,16 @@ function removeCartEntry(id, source) {
     triggerCalculate();
 }
 
-// renderCartInputs writes one hidden <input> per unit so the server's
-// ParseCartRefs (occurrence-count folding) stays compatible with the legacy
-// wire format.
 function renderCartInputs() {
     var cartInputs = document.getElementById('cart-inputs');
     if (!cartInputs) return;
     cartInputs.innerHTML = '';
     cartQuantities.forEach(function(qty, key) {
-        for (var i = 0; i < qty; i++) {
-            var input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = 'monsters[]';
-            input.value = key;
-            cartInputs.appendChild(input);
-        }
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'monsters[]';
+        input.value = qty > 1 ? key + ':' + qty : key;
+        cartInputs.appendChild(input);
     });
 }
 
@@ -228,9 +296,13 @@ function rebuildCartFromInputs() {
     if (!cartInputs) return;
     var inputs = cartInputs.querySelectorAll('input[name="monsters[]"]');
     inputs.forEach(function(input) {
-        var key = input.value;
+        var raw = input.value;
+        var separator = raw.indexOf(':');
+        var key = separator === -1 ? raw : raw.slice(0, separator);
+        var qty = separator === -1 ? 1 : parseInt(raw.slice(separator + 1), 10);
         if (!key || key.indexOf('@') === -1) return;
-        cartQuantities.set(key, (cartQuantities.get(key) || 0) + 1);
+        if (isNaN(qty) || qty < 1) return;
+        cartQuantities.set(key, (cartQuantities.get(key) || 0) + qty);
     });
 }
 
@@ -266,6 +338,14 @@ function buildShareURL() {
         params.set('ruleset', ruleset.value);
     }
 
+    var difficulty = form.querySelector('[name="difficulty"]');
+    if (difficulty) {
+        var defaultDifficulty = ruleset && ruleset.value === '2014' ? 'Media' : 'Moderate';
+        if (difficulty.value && difficulty.value !== defaultDifficulty) {
+            params.set('diff', difficulty.value);
+        }
+    }
+
     // party — comma-separated levels derived from the active panel
     var partyMode = form.querySelector('input[name="party_mode"]:checked');
     var levels = [];
@@ -296,11 +376,15 @@ function buildShareURL() {
         cartInputs.forEach(function(input) {
             var v = (input.value || '').trim();
             if (!v.includes('@')) return;
-            if (counts[v] === undefined) {
-                counts[v] = 0;
-                order.push(v);
+            var separator = v.indexOf(':');
+            var key = separator === -1 ? v : v.slice(0, separator);
+            var qty = separator === -1 ? 1 : parseInt(v.slice(separator + 1), 10);
+            if (isNaN(qty) || qty < 1) return;
+            if (counts[key] === undefined) {
+                counts[key] = 0;
+                order.push(key);
             }
-            counts[v] += 1;
+            counts[key] += qty;
         });
         if (order.length) {
             var parts = order.map(function(key) {
@@ -308,6 +392,15 @@ function buildShareURL() {
             });
             params.set('cart', parts.join(','));
         }
+    }
+
+    var pickerForm = document.querySelector('.monster-picker-controls');
+    if (pickerForm) {
+        [['q', 'q'], ['min_cr', 'min_cr'], ['max_cr', 'max_cr'], ['type', 'type'], ['limit', 'limit']].forEach(function(names) {
+            var input = pickerForm.querySelector('[name="' + names[0] + '"]');
+            var value = input ? String(input.value || '').trim() : '';
+            if (value && !(names[1] === 'limit' && value === '20')) params.set(names[1], value);
+        });
     }
 
     var qs = params.toString();
@@ -346,16 +439,27 @@ function initPickerReset() {
         var search = form.querySelector('input[type="search"]');
         if (search) {
             search.value = '';
-            search.dispatchEvent(new Event('input', { bubbles: true }));
         }
         form.querySelectorAll('input[type="number"]').forEach(function(input) {
             input.value = '';
-            input.dispatchEvent(new Event('change', { bubbles: true }));
         });
         form.querySelectorAll('select').forEach(function(sel) {
             sel.value = '';
-            sel.dispatchEvent(new Event('change', { bubbles: true }));
         });
+        var limit = form.querySelector('input[name="limit"]');
+        if (limit) limit.value = '20';
+        var source = form.querySelector('input[name="source"]');
+        refreshMonsterPicker(source ? source.value : '');
+    });
+}
+
+function initPickerURLSync() {
+    if (window.__encounterPickerURLBound) return;
+    window.__encounterPickerURLBound = true;
+    document.addEventListener('htmx:afterRequest', function(evt) {
+        if (evt.detail.elt && evt.detail.elt.closest && evt.detail.elt.closest('.monster-picker')) {
+            setTimeout(syncShareURL, 0);
+        }
     });
 }
 
@@ -377,6 +481,7 @@ function initCopyLink() {
 }
 
 function copyCurrentURL(btn) {
+    syncShareURL();
     var url = window.location.href;
     var done = function() {
         var success = btn.dataset.copySuccess || 'Copiato!';
@@ -456,9 +561,11 @@ function initEncounterForm() {
             if (count < 8) {
                 var div = document.createElement('div');
                 div.className = 'character-input-group';
-                div.innerHTML = '<label>Personaggio ' + (count + 1) + '</label>' +
-                    '<input type="number" name="character_levels" value="3" min="1" max="20" required/>';
+                var inputID = 'character-level-' + (count + 1);
+                div.innerHTML = '<label for="' + inputID + '">PG ' + (count + 1) + '</label>' +
+                    '<input id="' + inputID + '" type="number" name="character_levels" value="3" min="1" max="20" required/>';
                 charContainer.appendChild(div);
+                div.querySelector('input').dispatchEvent(new Event('change', { bubbles: true }));
                 updateCharacterControls();
             }
         });
@@ -467,6 +574,7 @@ function initEncounterForm() {
             removeCharBtn.addEventListener('click', function() {
                 if (charContainer.children.length > 1) {
                     charContainer.removeChild(charContainer.lastElementChild);
+                    form.dispatchEvent(new Event('change', { bubbles: true }));
                     updateCharacterControls();
                 }
             });

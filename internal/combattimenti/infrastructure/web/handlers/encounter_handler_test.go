@@ -84,7 +84,7 @@ func TestHomeHandler_EmptyQueryRendersDefaultCalculation(t *testing.T) {
 	if strings.Contains(body, "result-placeholder") {
 		t.Errorf("did not expect placeholder on default first paint")
 	}
-	if !strings.Contains(body, "result-card success") {
+	if !strings.Contains(body, `class="result-card"`) {
 		t.Errorf("expected default calculation result card")
 	}
 	if !strings.Contains(body, "Soglie di Difficolt") {
@@ -118,7 +118,7 @@ func TestHomeHandler_HydratesFromURL2024High(t *testing.T) {
 	if strings.Contains(body, "result-placeholder") {
 		t.Errorf("did not expect placeholder for empty cart hydration")
 	}
-	if !strings.Contains(body, "result-card success") {
+	if !strings.Contains(body, `class="result-card"`) {
 		t.Errorf("expected calculated result card for empty cart hydration")
 	}
 }
@@ -195,7 +195,7 @@ func TestHomeHandler_DifferentLevelsMode(t *testing.T) {
 
 func TestCalculateHandler_SetsHXPushURL(t *testing.T) {
 	h, _ := newTestHandler(t)
-	form := strings.NewReader("ruleset=2024&party_mode=same&level=4&count=4&source_short=5.5e")
+	form := strings.NewReader("ruleset=2024&difficulty=High&party_mode=same&level=4&count=4&source_short=5.5e")
 	req := httptest.NewRequest(http.MethodPost, "/combattimenti/calculate", form)
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	rec := httptest.NewRecorder()
@@ -214,6 +214,30 @@ func TestCalculateHandler_SetsHXPushURL(t *testing.T) {
 	}
 	if !strings.Contains(got, "party=4%2C4%2C4%2C4") {
 		t.Errorf("HX-Push-Url %q missing party fragment", got)
+	}
+	if !strings.Contains(got, "diff=High") {
+		t.Errorf("HX-Push-Url %q missing target difficulty", got)
+	}
+}
+
+func TestCalculateHandler_PricesCartAgainstSelectedTarget(t *testing.T) {
+	h, _ := newTestHandler(t)
+	body := "ruleset=2024&difficulty=Low&party_mode=same&level=3&count=4&source_short=5.5e&monsters%5B%5D=goblin@5.5e"
+	req := httptest.NewRequest(http.MethodPost, "/combattimenti/calculate", strings.NewReader(body))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	rec := httptest.NewRecorder()
+
+	h.CalculateHandler(rec, req)
+
+	if rec.Code != http.StatusOK {
+		t.Fatalf("status = %d, body = %s", rec.Code, rec.Body.String())
+	}
+	bodyText := rec.Body.String()
+	if !strings.Contains(bodyText, "Target: Bassa") {
+		t.Errorf("selected target not rendered: %s", bodyText)
+	}
+	if !strings.Contains(bodyText, "Budget target") {
+		t.Errorf("target budget not identified in totals: %s", bodyText)
 	}
 }
 

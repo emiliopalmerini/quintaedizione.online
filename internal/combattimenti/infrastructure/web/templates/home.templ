@@ -34,6 +34,7 @@ type HomeData struct {
 
 	// Hydrated form state.
 	Ruleset string // "2024" | "2014"
+	Difficulty string
 	Party   []int  // character levels (replaces same/different inputs)
 
 	// Cart pre-populated from the URL share link. These render as the same
@@ -54,6 +55,28 @@ type HomeData struct {
 	// Initial picker rendered server-side so the central column is populated
 	// on first paint. Always set by the handler.
 	Picker PickerData
+}
+
+type targetOption struct {
+	Value string
+	Label string
+}
+
+func (d HomeData) targetOptions() []targetOption {
+	if d.Ruleset == "2014" {
+		return []targetOption{{"Facile", "Facile"}, {"Media", "Media"}, {"Difficile", "Difficile"}, {"Letale", "Letale"}}
+	}
+	return []targetOption{{"Low", "Bassa"}, {"Moderate", "Moderata"}, {"High", "Alta"}}
+}
+
+func (d HomeData) targetDifficulty() string {
+	if d.Difficulty != "" {
+		return d.Difficulty
+	}
+	if d.Ruleset == "2014" {
+		return "Media"
+	}
+	return "Moderate"
 }
 
 // is2024 picks the ruleset for default-rendering decisions.
@@ -112,10 +135,23 @@ func (d HomeData) isSameMode() bool {
 templ Home(data HomeData) {
 	@shared.SiteLayout("Combattimenti", "Costruttore di incontri D&D 5e per Dungeon Master: scegli edizione e party, aggiungi mostri al carrello e leggi in tempo reale la difficoltà inferita dai PE. Supporta regole 2014 e 2024.", "combattimenti", shared.EncountersScript()) {
 		<div class="encounter-fullbleed">
+			<header class="encounter-page-header">
+				<p class="encounter-page-kicker">Strumenti per il DM</p>
+				<h1>Costruttore di combattimenti</h1>
+				<p>Configura il party, scegli la difficoltà obiettivo e aggiungi mostri per vedere subito il costo dell'incontro.</p>
+			</header>
 			<div class="encounter-builder">
 			<aside class="encounter-builder-party">
-				<h1 class="sr-only">Costruttore di combattimenti</h1>
-				<form id="encounter-form" action="/combattimenti" method="post">
+				<form
+					id="encounter-form"
+					action="/combattimenti"
+					method="post"
+					hx-post="/combattimenti/calculate"
+					hx-target="#result-container"
+					hx-swap="innerHTML"
+					hx-trigger="calculate"
+					hx-indicator="#result-loading"
+				>
 					<div class="form-section">
 						<h2 class="form-section-title">Edizione</h2>
 						<div class="segmented-control" role="radiogroup" aria-label="Edizione delle regole">
@@ -131,6 +167,18 @@ templ Home(data HomeData) {
 							}
 						</div>
 						<input type="hidden" name="source_short" id="source-short" value={ data.SourceShort }/>
+					</div>
+					<div class="form-section encounter-target-field">
+						<label for="encounter-difficulty" class="form-section-title">Difficoltà obiettivo</label>
+						<select id="encounter-difficulty" name="difficulty" data-ruleset={ data.Ruleset }>
+							for _, option := range data.targetOptions() {
+								if option.Value == data.targetDifficulty() {
+									<option value={ option.Value } selected>{ option.Label }</option>
+								} else {
+									<option value={ option.Value }>{ option.Label }</option>
+								}
+							}
+						</select>
 					</div>
 					<div class="form-section">
 						<h2 class="form-section-title">Party</h2>
@@ -227,14 +275,15 @@ templ Home(data HomeData) {
 				</div>
 			</section>
 			<aside class="encounter-builder-result">
+				<div id="result-loading" class="htmx-indicator encounter-result-loading" role="status">
+					<span class="spinner" aria-hidden="true"></span>
+					<span>Aggiornamento in corso...</span>
+				</div>
 				<div id="result-container">
 					if data.Result != nil {
 						@Result(*data.Result)
 					} else {
 						<div class="result-placeholder">
-							<div id="result-loading" class="htmx-indicator">
-								<span class="spinner"></span>
-							</div>
 							<h3>Carrello vuoto</h3>
 							<p>Aggiungi mostri dal pannello centrale.</p>
 						</div>

@@ -420,6 +420,10 @@ html.dark select.field, html.dark .form-select {
   box-shadow: var(--shadow-sm);
   font-weight: var(--weight-semibold);
 }
+.segmented-control-option:has(input:focus-visible) {
+  outline: 3px solid var(--focus-ring, var(--primary));
+  outline-offset: 2px;
+}
 .segmented-control-option input[type="radio"] {
   position: absolute;
   opacity: 0;

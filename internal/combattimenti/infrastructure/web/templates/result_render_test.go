@@ -13,8 +13,8 @@ import (
 func TestResultUsesAccessibleNativeCart(t *testing.T) {
 	data := ResultData{
 		Result:       &app.CalculateXPResponse{XPCalculationResult: domain.XPCalculationResult{Ruleset: domain.Ruleset2024, PartySize: 4, CharacterLevels: []int{3, 3, 3, 3}}},
-		Tiers:        []DifficultyTier{{Label: "Moderata", Value: "Moderate", XP: 600}},
-		Cart:         CartView{Entries: []monster.CartEntry{{ID: "goblin", Source: "5.5e", Name: "Goblin", Quantity: 2, UnitXP: 50}}, Subtotal: 100, EffectiveCost: 100, Remaining: 500},
+		Tiers:        []DifficultyTier{{Label: "Moderata", Value: "Moderate", XP: 600, Selected: true}},
+		Cart:         CartView{Entries: []monster.CartEntry{{ID: "goblin", Source: "5.5e", Name: "Goblin", Quantity: 2, UnitXP: 50}}, Subtotal: 100, EffectiveCost: 100, Budget: 600, Remaining: 500},
 		InferredTier: app.InferredTier{Label: "Moderata", Value: "Moderate"}, HasCartItems: true,
 	}
 	var rendered bytes.Buffer
@@ -29,6 +29,8 @@ func TestResultUsesAccessibleNativeCart(t *testing.T) {
 		`href="/srd/mostri/5.5e/goblin"`,
 		`name="cart_action" value="increment:goblin@5.5e"`,
 		`aria-hidden="true"`,
+		`Target: Moderata`,
+		`100 / 600 PE`,
 	} {
 		if !strings.Contains(body, expected) {
 			t.Errorf("expected result to contain %q", expected)

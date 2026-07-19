@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"context"
 	"log/slog"
 	"net/http"
 	"strconv"
@@ -35,17 +36,19 @@ func (h *MonsterPickerHandler) Handler(w http.ResponseWriter, r *http.Request) {
 	minCR := parseFloatParam(r, "min_cr")
 	maxCR := parseFloatParam(r, "max_cr")
 	creatureType := r.URL.Query().Get("type")
+	limit := parsePickerLimit(r)
 
-	monsters, err := h.reader.Search(r.Context(), monster.SearchQuery{
+	monsters, total, err := searchPickerMonsters(r.Context(), h.reader, monster.SearchQuery{
 		Source: source,
 		Query:  query,
 		MinCR:  minCR,
 		MaxCR:  maxCR,
 		Type:   creatureType,
-		Limit:  20,
-	})
+	}, limit)
+	errorMessage := ""
 	if err != nil {
 		h.logger.Warn("monster search failed", "request_id", requestID, "error", err)
+		errorMessage = "Non è stato possibile caricare i mostri. Riprova."
 	}
 
 	facets, err := h.reader.Facets(r.Context(), source)
@@ -61,11 +64,34 @@ func (h *MonsterPickerHandler) Handler(w http.ResponseWriter, r *http.Request) {
 		Type:         creatureType,
 		Types:        facets.Types,
 		Monsters:     monsters,
-		TotalMatched: len(monsters),
+		TotalMatched: total,
+		Limit:        limit,
+		Error:        errorMessage,
 	}
 
 	pkgweb.SetCacheHeaders(w, 300) // 5 minutes
 	pkgweb.RenderTempl(w, r, h.logger, templates.MonsterPicker(data))
+}
+
+func searchPickerMonsters(ctx context.Context, reader monster.Reader, query monster.SearchQuery, limit int) ([]monster.Monster, int, error) {
+	query.Limit = 10000
+	monsters, err := reader.Search(ctx, query)
+	if err != nil {
+		return nil, 0, err
+	}
+	total := len(monsters)
+	if len(monsters) > limit {
+		monsters = monsters[:limit]
+	}
+	return monsters, total, nil
+}
+
+func parsePickerLimit(r *http.Request) int {
+	limit, err := strconv.Atoi(r.URL.Query().Get("limit"))
+	if err != nil || limit < 20 {
+		return 20
+	}
+	return min(limit, 200)
 }
 
 // parseFloatParam parses a float query parameter, returning 0 on missing/invalid.

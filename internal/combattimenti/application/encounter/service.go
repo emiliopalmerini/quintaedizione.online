@@ -163,15 +163,15 @@ func (s *Service) ValidatePartyComposition(partyMode string, levels []int, sameL
 		if sameLevel < 1 || sameLevel > 20 {
 			return fmt.Errorf("character level must be between 1 and 20")
 		}
-		if sameCount < 1 || sameCount > 100 {
-			return fmt.Errorf("party size must be between 1 and 100")
+		if sameCount < 1 || sameCount > encounter.MaxPartySize {
+			return fmt.Errorf("party size must be between 1 and %d", encounter.MaxPartySize)
 		}
 	case encounter.PartyModeDifferent:
 		if len(levels) == 0 {
 			return fmt.Errorf("at least one character level must be specified")
 		}
-		if len(levels) > 100 {
-			return fmt.Errorf("party size cannot exceed 100 characters")
+		if len(levels) > encounter.MaxPartySize {
+			return fmt.Errorf("party size cannot exceed %d characters", encounter.MaxPartySize)
 		}
 		for i, level := range levels {
 			if level < 1 || level > 20 {

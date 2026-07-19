@@ -39,8 +39,25 @@ type CartView struct {
 	Entries       []monster.CartEntry
 	Subtotal      int
 	EffectiveCost int
+	Budget        int
 	Remaining     int
 	Multiplier    bool // true for 2014 (show effective row)
+}
+
+func selectedTier(tiers []DifficultyTier) DifficultyTier {
+	for _, tier := range tiers {
+		if tier.Selected {
+			return tier
+		}
+	}
+	return DifficultyTier{}
+}
+
+func positiveXP(value int) int {
+	if value < 0 {
+		return -value
+	}
+	return value
 }
 
 func xpPerCharacter(totalXP, partySize int) string {
@@ -68,7 +85,19 @@ func tierPercentage(tierXP, maxXP int) string {
 }
 
 templ Result(data ResultData) {
-	<div class="result-card success">
+	<details class="encounter-result-shell">
+		<summary class="encounter-mobile-summary">
+			<span>
+				<strong>{ data.InferredTier.Label }</strong>
+				if data.HasCartItems {
+					<span>{ strconv.Itoa(totalMonsters(data.Cart.Entries)) } mostri</span>
+				} else {
+					<span>Carrello vuoto</span>
+				}
+			</span>
+			<span class="encounter-mobile-summary-xp">{ strconv.Itoa(data.Cart.EffectiveCost) } / { strconv.Itoa(data.Cart.Budget) } PE</span>
+		</summary>
+	<div class={ "result-card", templ.KV("is-overspent", data.IsOverspent) }>
 		<!-- Party Summary -->
 		<div class="result-party-summary">
 			<span class="result-party-tag">D&D { data.Result.Ruleset.String() }</span>
@@ -100,13 +129,20 @@ templ Result(data ResultData) {
 				Copia link
 			</button>
 		</div>
+		if data.HasCartItems {
+			<div class="result-overview" role="status" aria-live="polite" aria-atomic="true">
+				<span class={ inferredTierClass(data.InferredTier.Value) }>Incontro attuale: { data.InferredTier.Label }</span>
+				<span class="result-overview-target">Target: { selectedTier(data.Tiers).Label }</span>
+				<strong>{ strconv.Itoa(data.Cart.EffectiveCost) } / { strconv.Itoa(data.Cart.Budget) } PE</strong>
+			</div>
+		}
 
 		<!-- Difficulty Tiers -->
 		if len(data.Tiers) > 0 {
 			<div class="result-tiers">
 				<h3 class="result-tiers-title">Soglie di Difficoltà</h3>
 				for _, tier := range data.Tiers {
-					<div class={ "result-tier", templ.KV("result-tier-active", tierMatchesInferred(tier.Value, data.InferredTier.Value)) }>
+					<div class={ "result-tier", templ.KV("result-tier-active", tierMatchesInferred(tier.Value, data.InferredTier.Value)), templ.KV("result-tier-target", tier.Selected) }>
 						<div class="result-tier-header">
 							<span class="result-tier-label">{ tier.Label }</span>
 							<span class="result-tier-xp">{ strconv.Itoa(tier.XP) } PE</span>
@@ -121,6 +157,7 @@ templ Result(data ResultData) {
 
 		@Cart(data.Cart, data.InferredTier, data.HasCartItems, data.IsOverspent)
 	</div>
+	</details>
 }
 
 // totalMonsters sums per-entry quantities for the 2014 multiplier label.
@@ -201,7 +238,12 @@ templ Cart(view CartView, inferred encounter.InferredTier, hasItems bool, oversp
 				if view.Multiplier {
 					<div><dt>PE effettivi</dt><dd>{ strconv.Itoa(view.EffectiveCost) }</dd></div>
 				}
-				<div><dt>Budget rimanente</dt><dd>{ strconv.Itoa(view.Remaining) }</dd></div>
+				<div><dt>Budget target</dt><dd>{ strconv.Itoa(view.Budget) } PE</dd></div>
+				if overspent {
+					<div class="result-cart-remaining is-overspent"><dt>Target superato</dt><dd>{ strconv.Itoa(positiveXP(view.Remaining)) } PE</dd></div>
+				} else {
+					<div class="result-cart-remaining"><dt>Budget rimanente</dt><dd>{ strconv.Itoa(view.Remaining) } PE</dd></div>
+				}
 			</dl>
 		}
 	</div>

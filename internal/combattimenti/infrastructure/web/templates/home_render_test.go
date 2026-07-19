@@ -23,7 +23,11 @@ func TestHomeUsesNativeEncounterForm(t *testing.T) {
 		`<h1`,
 		`action="/combattimenti"`,
 		`method="post"`,
+		`hx-post="/combattimenti/calculate"`,
+		`hx-target="#result-container"`,
+		`hx-trigger="calculate"`,
 		`type="submit"`,
+		`name="difficulty"`,
 		`name="monsters[]" value="goblin@5.5e:3"`,
 		`for="character-level-1"`,
 	} {

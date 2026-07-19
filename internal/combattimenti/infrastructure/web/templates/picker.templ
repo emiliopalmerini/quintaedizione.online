@@ -1,6 +1,7 @@
 package templates
 
 import (
+	"net/url"
 	"strconv"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/domain/monster"
@@ -16,6 +17,34 @@ type PickerData struct {
 	Types        []string // dropdown options sourced from Reader.Facets
 	Monsters     []monster.Monster
 	TotalMatched int
+	Limit        int
+	Error        string
+}
+
+func (d PickerData) currentLimit() int {
+	if d.Limit < 20 {
+		return 20
+	}
+	return d.Limit
+}
+
+func (d PickerData) loadMoreURL() string {
+	values := url.Values{}
+	values.Set("source", d.Source)
+	values.Set("limit", strconv.Itoa(d.currentLimit()+20))
+	if d.Query != "" {
+		values.Set("q", d.Query)
+	}
+	if d.MinCR > 0 {
+		values.Set("min_cr", formatCR(d.MinCR))
+	}
+	if d.MaxCR > 0 {
+		values.Set("max_cr", formatCR(d.MaxCR))
+	}
+	if d.Type != "" {
+		values.Set("type", d.Type)
+	}
+	return "/combattimenti/monsters?" + values.Encode()
 }
 
 // activeFilterCount counts non-default picker filters for the disclosure hint.
@@ -61,12 +90,12 @@ templ MonsterPicker(data PickerData) {
 			action="/combattimenti"
 			method="get"
 			hx-get="/combattimenti/monsters"
-			hx-target="#monster-picker-results"
-			hx-select="#monster-picker-results"
+			hx-target="#monster-picker"
 			hx-swap="outerHTML"
 			hx-trigger="input changed delay:200ms from:find input[type='search'], change from:find input[type='number'], change from:find select"
 		>
 			<input type="hidden" name="source" value={ data.Source }/>
+			<input type="hidden" name="limit" value={ strconv.Itoa(data.currentLimit()) }/>
 			if data.activeFilterCount() > 0 {
 				<details class="monster-picker-filters" open>
 					<summary>
@@ -94,19 +123,25 @@ templ MonsterPicker(data PickerData) {
 				/>
 				<button type="submit" class="btn btn-primary">Cerca</button>
 			</div>
-			<a
-				href="/combattimenti"
-				class="btn btn-secondary monster-picker-reset"
-				title="Cancella ricerca e filtri"
-				aria-label="Cancella ricerca e filtri"
-			>
-				× Reset
-			</a>
+			if data.hasAnyFilter() {
+				<a
+					href="/combattimenti"
+					class="btn btn-secondary monster-picker-reset"
+					title="Cancella ricerca e filtri"
+					aria-label="Cancella ricerca e filtri"
+				>
+					× Reset
+				</a>
+			}
+			<div class="htmx-indicator monster-picker-loading" role="status"><span class="spinner" aria-hidden="true"></span> Ricerca in corso...</div>
 		</form>
-		<div id="monster-picker-results">
-			if len(data.Monsters) == 0 {
+		<div id="monster-picker-results" aria-live="polite" aria-atomic="false">
+			if data.Error != "" {
+				<p class="monster-picker-error" role="alert">{ data.Error }</p>
+			} else if len(data.Monsters) == 0 {
 				<p class="monster-picker-empty">Nessun mostro trovato per questa ricerca.</p>
 			} else {
+			<p class="monster-picker-count">{ strconv.Itoa(len(data.Monsters)) } di { strconv.Itoa(data.TotalMatched) } mostri</p>
 			<ul class="monster-picker-list">
 				for _, m := range data.Monsters {
 					<li class="monster-picker-row">
@@ -143,6 +178,15 @@ templ MonsterPicker(data PickerData) {
 					</li>
 				}
 			</ul>
+			if len(data.Monsters) < data.TotalMatched {
+				<a
+					href={ templ.SafeURL(data.loadMoreURL()) }
+					class="btn btn-secondary monster-picker-more"
+					hx-get={ data.loadMoreURL() }
+					hx-target="#monster-picker"
+					hx-swap="outerHTML"
+				>Carica altri</a>
+			}
 		}
 		</div>
 	</div>
