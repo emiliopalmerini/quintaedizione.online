@@ -13,24 +13,26 @@ templ CollectionPage(data models.CollectionPageData) {
 		<!-- Top loading bar -->
 		<div class="loading-bar"></div>
 
-		<div class="flex items-center gap-3 mb-4">
-			<a href="/srd" class="btn btn-ghost" aria-label="Torna all'SRD">
-				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
-				SRD
-			</a>
-			<h2 class="m-0" style="font-size: var(--text-xl);">{ data.PageData.Title }</h2>
-		</div>
+		<header class="collection-page-header">
+			<p class="collection-page-kicker">Compendio</p>
+			<h1>{ data.PageData.Title }</h1>
+			<p>{ strconv.FormatInt(data.Total, 10) } voci disponibili</p>
+		</header>
 
 		<section class="search-sticky bg-white border p-2">
 			<form id="search-form"
-				hx-get={ "/srd/rows/" + data.PageData.Collection }
+				action={ templ.URL("/srd/" + data.PageData.Collection) }
+				method="get"
+				hx-get={ "/srd/" + data.PageData.Collection }
 				hx-target="#rows"
-				hx-trigger="keyup delay:100ms from:#q, change from:select, change from:input[type=hidden], change from:input[type=checkbox], change from:input[type=number]"
+				hx-trigger="keyup changed delay:250ms from:#q, change from:select, change from:input[type=hidden], change from:input[type=number], submit"
 				hx-push-url="true"
 				hx-indicator=".loading-bar"
 				class="flex flex-col gap-2">
 				<div class="flex items-center gap-2">
-					<input id="q" name="q" placeholder="Cerca…" value={ data.Query } class="field flex-1" minlength="2"/>
+					<label class="sr-only" for="q">Cerca in { data.PageData.Title }</label>
+					<input id="q" type="search" name="q" placeholder="Cerca in questa raccolta..." value={ data.Query } class="field flex-1" minlength="2"/>
+					<button type="submit" class="btn btn-primary collection-search-submit">Cerca</button>
 
 					if len(data.Filters) > 0 {
 						<button type="button" id="filter-toggle-btn" class="btn filter-toggle-btn" aria-label="Filtri">
@@ -55,6 +57,15 @@ templ CollectionPage(data models.CollectionPageData) {
 					<div id="filter-panel" class="filter-panel">
 						@collectionFilters(data.Filters)
 					</div>
+					<noscript>
+						<style>
+							#filter-toggle-btn { display: none; }
+							#filter-panel { display: block; grid-template-rows: 1fr; }
+							#filter-panel > * { overflow: visible; }
+							.filter-multiselect-btn { display: none; }
+							.filter-multiselect-dropdown { display: block; position: static; max-height: none; box-shadow: none; }
+						</style>
+					</noscript>
 				}
 
 				<!-- Loading indicator with enhanced animation -->
@@ -156,7 +167,7 @@ templ collectionFilters(filters []models.FilterOption) {
 	<div class="filter-panel-content">
 	for _, f := range filters {
 		<div class="filter-multiselect" data-filter-name={ f.Name }>
-			<input type="hidden" name={ f.Name } value={ strings.Join(f.CurrentValues, ",") }/>
+			<input type="hidden" value={ strings.Join(f.CurrentValues, ",") }/>
 			<button type="button" class={ "field w-auto filter-multiselect-btn", templ.KV("filter-multiselect-active", len(f.CurrentValues) > 0) }>
 				{ filterButtonText(f) }
 				<span class="filter-multiselect-arrow">▾</span>
@@ -165,9 +176,9 @@ templ collectionFilters(filters []models.FilterOption) {
 				for _, v := range f.Values {
 					<label class={ "filter-option-checkbox", templ.KV("filter-option-disabled", v.Count == 0 && !isValueSelected(f, v.Value)) }>
 						if isValueSelected(f, v.Value) {
-							<input type="checkbox" value={ v.Value } checked/>
+							<input type="checkbox" name={ f.Name } value={ v.Value } checked/>
 						} else {
-							<input type="checkbox" value={ v.Value } disabled?={ v.Count == 0 }/>
+							<input type="checkbox" name={ f.Name } value={ v.Value } disabled?={ v.Count == 0 }/>
 						}
 						<span class="filter-option-label">{ v.Value }</span>
 						if v.Count > 0 || isValueSelected(f, v.Value) {

@@ -31,3 +31,19 @@ func TestRegisterRoutesRedirectsLegacyAreas(t *testing.T) {
 		})
 	}
 }
+
+func TestRegisterRoutesRedirectsLegacyRowsURL(t *testing.T) {
+	mux := http.NewServeMux()
+	(&Handlers{}).RegisterRoutes(mux)
+	w := httptest.NewRecorder()
+	req := httptest.NewRequest(http.MethodGet, "/rows/incantesimi?q=fuoco&page=2", nil)
+
+	mux.ServeHTTP(w, req)
+
+	if w.Code != http.StatusMovedPermanently {
+		t.Fatalf("expected status %d, got %d", http.StatusMovedPermanently, w.Code)
+	}
+	if location := w.Header().Get("Location"); location != "/srd/incantesimi?q=fuoco&page=2" {
+		t.Errorf("expected canonical collection URL, got %q", location)
+	}
+}

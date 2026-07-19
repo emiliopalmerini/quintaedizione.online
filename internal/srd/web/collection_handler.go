@@ -52,6 +52,9 @@ func (h *CollectionHandler) loadCollectionData(ctx context.Context, collection, 
 
 // handleCollectionList renders the full collection page with filters and pagination.
 func (h *CollectionHandler) handleCollectionList(w http.ResponseWriter, r *http.Request) {
+	w.Header().Add("Vary", "HX-Request")
+	w.Header().Add("Vary", "HX-Target")
+
 	collection := r.PathValue("collection")
 	params := pkgweb.ExtractPaginationParams(r)
 	filters := h.extractFilters(r)
@@ -66,7 +69,12 @@ func (h *CollectionHandler) handleCollectionList(w http.ResponseWriter, r *http.
 	data.PageData.Title = collectionTitle
 	data.PageData.Description = fmt.Sprintf("Elenco completo di %s — SRD 5e in italiano.", collectionTitle)
 
-	content, err := h.templateEngine.RenderCollection(r.Context(), *data)
+	var content string
+	if isCollectionRowsRequest(r) {
+		content, err = h.templateEngine.RenderRows(r.Context(), *data)
+	} else {
+		content, err = h.templateEngine.RenderCollection(r.Context(), *data)
+	}
 	if err != nil {
 		h.ErrorResponse(w, r, err, "Errore nel rendering della pagina collezione")
 		return
@@ -75,25 +83,8 @@ func (h *CollectionHandler) handleCollectionList(w http.ResponseWriter, r *http.
 	h.renderHTML(w, content, "collection")
 }
 
-// handleCollectionRows renders only the table rows for HTMX partial updates.
-func (h *CollectionHandler) handleCollectionRows(w http.ResponseWriter, r *http.Request) {
-	collection := r.PathValue("collection")
-	params := pkgweb.ExtractPaginationParams(r)
-	filters := h.extractFilters(r)
-
-	data, err := h.loadCollectionData(r.Context(), collection, r.URL.RawQuery, params, filters)
-	if err != nil {
-		h.ErrorResponse(w, r, err, fmt.Sprintf("Errore nel caricamento righe per %s", collection))
-		return
-	}
-
-	content, err := h.templateEngine.RenderRows(r.Context(), *data)
-	if err != nil {
-		h.ErrorResponse(w, r, err, "Errore nel rendering delle righe")
-		return
-	}
-
-	h.renderHTML(w, content, "collection")
+func isCollectionRowsRequest(r *http.Request) bool {
+	return r.Header.Get("HX-Request") == "true" && r.Header.Get("HX-Target") == "rows"
 }
 
 // handleItemDetail renders the detail page for a single item.
@@ -280,8 +271,18 @@ func (h *CollectionHandler) extractFilters(r *http.Request) map[string]string {
 	}
 
 	for param, values := range r.URL.Query() {
-		if !skipParams[param] && len(values) > 0 && values[0] != "" {
-			filters[param] = values[0]
+		if skipParams[param] {
+			continue
+		}
+
+		nonEmpty := make([]string, 0, len(values))
+		for _, value := range values {
+			if value != "" {
+				nonEmpty = append(nonEmpty, value)
+			}
+		}
+		if len(nonEmpty) > 0 {
+			filters[param] = strings.Join(nonEmpty, ",")
 		}
 	}
 

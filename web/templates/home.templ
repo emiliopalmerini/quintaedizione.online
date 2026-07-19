@@ -7,11 +7,11 @@ import "fmt"
 templ HomePage(data models.HomePageData) {
 	@BaseLayout(data.PageData) {
 		<section class="hero hero-map" style="--map-bg: url('/static/img/dyson-map-2.webp')">
-			<h1>SRD 5e</h1>
-			<p>Regole, incantesimi, mostri e altro — cerca e consulta liberamente.</p>
+			<h1>Compendio</h1>
+			<p>Regole, personaggi, magia e bestiario per D&amp;D 5e in italiano.</p>
 
 			<div class="search-container-wrapper">
-				<form id="search-form" hx-get="/srd/search/dropdown" hx-trigger="keyup changed delay:100ms from:#global-search, search from:#global-search" hx-target="#search-results" hx-indicator="#search-spinner" hx-include="#desktop-collection">
+				<form id="search-form" action="/srd/search" method="get" hx-get="/srd/search/dropdown" hx-trigger="keyup changed delay:100ms from:#global-search, search from:#global-search" hx-target="#search-results" hx-indicator="#search-spinner" hx-include="#desktop-collection">
 					<input type="hidden" name="collection" id="desktop-collection" value=""/>
 					<div class="search-input-group">
 						<svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -49,7 +49,7 @@ templ HomePage(data models.HomePageData) {
 			<div id="search-overlay" class="search-overlay" aria-modal="true" role="dialog" aria-label="Cerca">
 				<div class="search-overlay-header">
 					<button type="button" class="search-overlay-close" aria-label="Chiudi ricerca">✕</button>
-					<form id="overlay-search-form" hx-get="/srd/search/dropdown" hx-trigger="keyup changed delay:100ms from:#overlay-search-input, search from:#overlay-search-input" hx-target="#overlay-results" hx-include="#overlay-collection">
+					<form id="overlay-search-form" action="/srd/search" method="get" hx-get="/srd/search/dropdown" hx-trigger="keyup changed delay:100ms from:#overlay-search-input, search from:#overlay-search-input" hx-target="#overlay-results" hx-include="#overlay-collection">
 						<input type="hidden" name="collection" id="overlay-collection" value=""/>
 						<input
 							type="text"

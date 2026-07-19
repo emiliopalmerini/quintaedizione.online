@@ -50,6 +50,71 @@ func newTestCollectionHandler(data map[string][]map[string]any) *CollectionHandl
 	}
 }
 
+func TestHandleCollectionListRendersCanonicalFullAndPartialResponses(t *testing.T) {
+	handler := newTestCollectionHandler(map[string][]map[string]any{
+		"incantesimi": {
+			{"_id": "luce", "_source_short": "5.5e", "title": "Luce"},
+		},
+	})
+
+	tests := []struct {
+		name       string
+		hxRequest  string
+		hxTarget   string
+		wantLayout bool
+	}{
+		{name: "normal request", wantLayout: true},
+		{name: "boosted navigation", hxRequest: "true", hxTarget: "page-root", wantLayout: true},
+		{name: "rows update", hxRequest: "true", hxTarget: "rows", wantLayout: false},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			w := httptest.NewRecorder()
+			req := httptest.NewRequest(http.MethodGet, "/srd/incantesimi?q=luce", nil)
+			req.SetPathValue("collection", "incantesimi")
+			if tt.hxRequest != "" {
+				req.Header.Set("HX-Request", tt.hxRequest)
+				req.Header.Set("HX-Target", tt.hxTarget)
+			}
+
+			handler.handleCollectionList(w, req)
+
+			if w.Code != http.StatusOK {
+				t.Fatalf("expected 200, got %d; body: %s", w.Code, w.Body.String())
+			}
+			hasLayout := strings.Contains(w.Body.String(), "<!doctype html>")
+			if hasLayout != tt.wantLayout {
+				t.Errorf("layout presence = %t, want %t", hasLayout, tt.wantLayout)
+			}
+			vary := w.Header().Values("Vary")
+			if !strings.Contains(strings.Join(vary, ","), "HX-Request") || !strings.Contains(strings.Join(vary, ","), "HX-Target") {
+				t.Errorf("expected HTMX request headers in Vary, got %v", vary)
+			}
+		})
+	}
+}
+
+func TestExtractFiltersJoinsRepeatedValues(t *testing.T) {
+	handler := &CollectionHandler{}
+	req := httptest.NewRequest(http.MethodGet, "/srd/incantesimi?q=fuoco&page=2&livello=0&livello=1&scuola=&scuola=Invocazione", nil)
+
+	got := handler.extractFilters(req)
+
+	if got["livello"] != "0,1" {
+		t.Errorf("expected repeated levels to be joined, got %q", got["livello"])
+	}
+	if got["scuola"] != "Invocazione" {
+		t.Errorf("expected empty filter values to be ignored, got %q", got["scuola"])
+	}
+	if _, exists := got["q"]; exists {
+		t.Error("search query must not be extracted as a filter")
+	}
+	if _, exists := got["page"]; exists {
+		t.Error("page must not be extracted as a filter")
+	}
+}
+
 func TestHandleItemDetail_MultiVersion_ShowsVersionTabs(t *testing.T) {
 	handler := newTestCollectionHandler(map[string][]map[string]any{
 		"incantesimi": {

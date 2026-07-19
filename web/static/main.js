@@ -523,7 +523,7 @@ function initCopyMarkdownButton() {
 // Prevent form submission for search form
 function initSearchFormHandler() {
 	const searchForm = document.getElementById('search-form');
-	if (searchForm && bindOnce(searchForm, 'search-submit')) {
+	if (searchForm && !searchForm.hasAttribute('action') && bindOnce(searchForm, 'search-submit')) {
 		searchForm.addEventListener('submit', (e) => {
 			e.preventDefault();
 			return false;

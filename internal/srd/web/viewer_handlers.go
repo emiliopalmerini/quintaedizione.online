@@ -85,10 +85,15 @@ func (h *Handlers) RegisterRoutes(mux *http.ServeMux) {
 	mux.HandleFunc("GET /robots.txt", h.seo.handleRobotsTxt)
 	mux.HandleFunc("GET /sitemap.xml", h.seo.handleSitemap)
 
-	// Collection routes with validation middleware.
-	// Note: rows endpoint lives at /rows/{collection} (instead of /{collection}/rows) to avoid
-	// ambiguity with /area/{slug}; Go's ServeMux refuses to register overlapping patterns.
-	mux.Handle("GET /rows/{collection}", CollectionValidationMiddleware(http.HandlerFunc(h.collection.handleCollectionRows)))
+	// Old enhanced navigation pushed fragment URLs into browser history. Preserve
+	// those URLs while redirecting them to the canonical full collection page.
+	mux.Handle("GET /rows/{collection}", CollectionValidationMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		destination := "/srd/" + r.PathValue("collection")
+		if r.URL.RawQuery != "" {
+			destination += "?" + r.URL.RawQuery
+		}
+		http.Redirect(w, r, destination, http.StatusMovedPermanently)
+	})))
 	mux.Handle("GET /{collection}", CollectionValidationMiddleware(http.HandlerFunc(h.collection.handleCollectionList)))
 	mux.Handle("GET /{collection}/{source}/{slug}", CollectionValidationMiddleware(http.HandlerFunc(h.collection.handleItemDetail)))
 
