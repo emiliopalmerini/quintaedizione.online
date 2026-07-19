@@ -233,11 +233,11 @@ func TestCalculateHandler_PricesCartAgainstSelectedTarget(t *testing.T) {
 		t.Fatalf("status = %d, body = %s", rec.Code, rec.Body.String())
 	}
 	bodyText := rec.Body.String()
-	if !strings.Contains(bodyText, "Target: Bassa") {
+	if !strings.Contains(bodyText, "sul target Bassa") {
 		t.Errorf("selected target not rendered: %s", bodyText)
 	}
-	if !strings.Contains(bodyText, "Budget target") {
-		t.Errorf("target budget not identified in totals: %s", bodyText)
+	if !strings.Contains(bodyText, "result-tier result-tier-target") {
+		t.Errorf("target threshold not identified: %s", bodyText)
 	}
 }
 
