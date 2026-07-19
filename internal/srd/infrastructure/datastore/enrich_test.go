@@ -18,3 +18,42 @@ func TestAddDescriptionsEnrichesGlossaryLinksAndLegacySpans(t *testing.T) {
 		}
 	}
 }
+
+func TestBuildPreviewUsesFirstMonsterTrait(t *testing.T) {
+	doc := map[string]any{
+		"_stat_block": "monster",
+		"raw_content": "---\n\n**CA** 19\n\n| FOR | DES |\n|:---:|:---:|",
+		"traits": []map[string]any{
+			{
+				"name":             "Resistenza Leggendaria",
+				"description_html": "<p>Se il drago fallisce un <strong>tiro salvezza</strong>, può invece superarlo.</p>",
+			},
+		},
+	}
+
+	got := BuildPreview(doc)
+	want := "Resistenza Leggendaria. Se il drago fallisce un tiro salvezza, può invece superarlo."
+	if got != want {
+		t.Fatalf("expected monster trait preview %q, got %q", want, got)
+	}
+}
+
+func TestBuildPreviewUsesMonsterActionWhenTraitsAreEmpty(t *testing.T) {
+	doc := map[string]any{
+		"_stat_block": "monster",
+		"raw_content": "---\n\n**CA** 19\n\n| FOR | DES |\n|:---:|:---:|",
+		"traits":      []map[string]any{},
+		"actions": []map[string]any{
+			{
+				"name":             "Morso",
+				"description_html": "<p>Attacco con arma da mischia: +7 al tiro per colpire.</p>",
+			},
+		},
+	}
+
+	got := BuildPreview(doc)
+	want := "Morso. Attacco con arma da mischia: +7 al tiro per colpire."
+	if got != want {
+		t.Fatalf("expected monster action preview %q, got %q", want, got)
+	}
+}

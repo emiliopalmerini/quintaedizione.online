@@ -53,6 +53,23 @@ func BuildPreview(doc map[string]any) string {
 	if descHTML, ok := doc["description_html"].(string); ok && descHTML != "" {
 		return truncatePreview(stripHTMLTags(descHTML), 200)
 	}
+	if doc["_stat_block"] == "monster" {
+		for _, field := range []string{"traits", "actions"} {
+			features, _ := doc[field].([]map[string]any)
+			for _, feature := range features {
+				descHTML, _ := feature["description_html"].(string)
+				description := strings.TrimSpace(stripHTMLTags(descHTML))
+				if description == "" {
+					continue
+				}
+				name, _ := feature["name"].(string)
+				if name != "" {
+					description = strings.TrimSuffix(strings.TrimSpace(name), ".") + ". " + description
+				}
+				return truncatePreview(description, 200)
+			}
+		}
+	}
 	if raw, ok := doc["raw_content"].(string); ok && raw != "" {
 		return truncatePreview(raw, 200)
 	}
