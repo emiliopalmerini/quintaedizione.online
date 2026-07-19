@@ -24,6 +24,8 @@ func TestLandingPageProvidesNativeSearchAndTaskNavigation(t *testing.T) {
 		`value="generatori"`,
 		`Giocare`,
 		`Preparare`,
+		`href="/giocare"`,
+		`href="/preparare"`,
 		`Crea un personaggio`,
 		`Prepara un incontro`,
 		`Tutto il compendio`,

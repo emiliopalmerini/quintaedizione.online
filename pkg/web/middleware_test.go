@@ -1,11 +1,56 @@
 package web
 
 import (
+	"compress/gzip"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"strings"
 	"testing"
 )
+
+func TestCompressionMiddlewareNegotiatesGzip(t *testing.T) {
+	handler := CompressionMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Add("Vary", "HX-Request")
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		_, _ = w.Write([]byte("contenuto compresso"))
+	}))
+	rec := httptest.NewRecorder()
+	req := httptest.NewRequest(http.MethodGet, "/giocare", nil)
+	req.Header.Set("Accept-Encoding", "gzip")
+	handler.ServeHTTP(rec, req)
+
+	if rec.Header().Get("Content-Encoding") != "gzip" {
+		t.Fatalf("Content-Encoding = %q", rec.Header().Get("Content-Encoding"))
+	}
+	if vary := strings.Join(rec.Header().Values("Vary"), ","); !strings.Contains(vary, "Accept-Encoding") || !strings.Contains(vary, "HX-Request") {
+		t.Errorf("Vary = %q", vary)
+	}
+	reader, err := gzip.NewReader(rec.Body)
+	if err != nil {
+		t.Fatal(err)
+	}
+	body, err := io.ReadAll(reader)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if string(body) != "contenuto compresso" {
+		t.Errorf("body = %q", body)
+	}
+}
+
+func TestCompressionMiddlewareSkipsImages(t *testing.T) {
+	handler := CompressionMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		_, _ = w.Write([]byte("image"))
+	}))
+	rec := httptest.NewRecorder()
+	req := httptest.NewRequest(http.MethodGet, "/static/map.webp", nil)
+	req.Header.Set("Accept-Encoding", "gzip")
+	handler.ServeHTTP(rec, req)
+	if rec.Header().Get("Content-Encoding") != "" || rec.Body.String() != "image" {
+		t.Error("pre-compressed images must pass through unchanged")
+	}
+}
 
 func TestSecurityMiddleware_Headers(t *testing.T) {
 	handler := SecurityMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

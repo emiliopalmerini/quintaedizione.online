@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log/slog"
+	"strconv"
 	"strings"
 
 	"github.com/emiliopalmerini/quintaedizione.online/internal/combattimenti/domain/encounter"
@@ -29,17 +30,27 @@ func ParseCartRefs(raw []string) []CartItemRef {
 	index := make(map[key]int, len(raw))
 	refs := make([]CartItemRef, 0, len(raw))
 	for _, v := range raw {
-		id, src, found := strings.Cut(strings.TrimSpace(v), "@")
+		idSource, quantityValue, hasQuantity := strings.Cut(strings.TrimSpace(v), ":")
+		quantity := 1
+		if hasQuantity {
+			parsed, err := strconv.Atoi(quantityValue)
+			if err != nil || parsed < 1 {
+				continue
+			}
+			quantity = min(parsed, 999)
+		}
+		id, src, found := strings.Cut(idSource, "@")
 		if !found || id == "" || src == "" {
 			continue
 		}
 		k := key{id: id, source: src}
 		if i, ok := index[k]; ok {
-			refs[i].Quantity++
+			refs[i].Quantity += quantity
+			refs[i].Quantity = min(refs[i].Quantity, 999)
 			continue
 		}
 		index[k] = len(refs)
-		refs = append(refs, CartItemRef{ID: id, Source: src, Quantity: 1})
+		refs = append(refs, CartItemRef{ID: id, Source: src, Quantity: quantity})
 	}
 	return refs
 }

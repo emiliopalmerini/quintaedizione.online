@@ -29,6 +29,9 @@ func (s *stubMonsterReader) Search(_ context.Context, q monster.SearchQuery) ([]
 			continue
 		}
 		out = append(out, m)
+		if q.Limit > 0 && len(out) >= q.Limit {
+			break
+		}
 	}
 	return out, nil
 }
@@ -87,6 +90,9 @@ func TestHomeHandler_EmptyQueryRendersDefaultCalculation(t *testing.T) {
 	if !strings.Contains(body, "Soglie di Difficolt") {
 		t.Errorf("expected default difficulty thresholds")
 	}
+	if got := strings.Count(body, `id="monster-picker"`); got != 1 {
+		t.Errorf("monster picker count = %d, want 1", got)
+	}
 }
 
 func TestHomeHandler_HydratesFromURL2024High(t *testing.T) {
@@ -126,10 +132,9 @@ func TestHomeHandler_HydratesCartFromURL(t *testing.T) {
 	h.HomeHandler(editions).ServeHTTP(rec, req)
 
 	body := rec.Body.String()
-	// Three hidden cart inputs for goblin@5.5e (one per qty).
-	count := strings.Count(body, `value="goblin@5.5e"`)
-	if count != 3 {
-		t.Errorf("want 3 hidden monsters[] inputs, got %d", count)
+	// One compact hidden cart input carries the quantity.
+	if !strings.Contains(body, `value="goblin@5.5e:3"`) {
+		t.Errorf("compact cart input not present")
 	}
 	// Cart entries appear in prerendered result.
 	if !strings.Contains(body, "Goblin") {
@@ -260,6 +265,41 @@ func TestCalculateHandler_RejectsTooLargeSamePartyCount(t *testing.T) {
 
 	if rec.Code != http.StatusBadRequest {
 		t.Fatalf("status = %d, want %d; body = %s", rec.Code, http.StatusBadRequest, rec.Body.String())
+	}
+}
+
+func TestUpdateHandler_RedirectsToCanonicalState(t *testing.T) {
+	h, editions := newTestHandler(t)
+	body := "ruleset=2024&party_mode=same&level=4&count=4&source_short=5e&monsters%5B%5D=goblin@5.5e:2"
+	req := httptest.NewRequest(http.MethodPost, "/combattimenti", strings.NewReader(body))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	rec := httptest.NewRecorder()
+
+	h.UpdateHandler(editions).ServeHTTP(rec, req)
+
+	if rec.Code != http.StatusSeeOther {
+		t.Fatalf("status = %d, want %d; body = %s", rec.Code, http.StatusSeeOther, rec.Body.String())
+	}
+	want := "/combattimenti?cart=goblin%405.5e%3A2&party=4%2C4%2C4%2C4"
+	if got := rec.Header().Get("Location"); got != want {
+		t.Errorf("Location = %q, want %q", got, want)
+	}
+}
+
+func TestUpdateHandler_AppliesNativeCartAction(t *testing.T) {
+	h, editions := newTestHandler(t)
+	body := "ruleset=2024&party_mode=same&level=3&count=4&monsters%5B%5D=goblin@5.5e:2&cart_action=increment:goblin@5.5e"
+	req := httptest.NewRequest(http.MethodPost, "/combattimenti", strings.NewReader(body))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	rec := httptest.NewRecorder()
+
+	h.UpdateHandler(editions).ServeHTTP(rec, req)
+
+	if rec.Code != http.StatusSeeOther {
+		t.Fatalf("status = %d, want %d", rec.Code, http.StatusSeeOther)
+	}
+	if got := rec.Header().Get("Location"); got != "/combattimenti?cart=goblin%405.5e%3A3" {
+		t.Errorf("Location = %q", got)
 	}
 }
 

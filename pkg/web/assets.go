@@ -14,7 +14,13 @@ var (
 	cssBundlePath    string
 	cssBundleContent []byte
 	criticalCSS      string
+	scriptAssets     = map[string]scriptAsset{}
 )
+
+type scriptAsset struct {
+	path    string
+	content []byte
+}
 
 // LoadCSSAssets reads CSS files from dir and prepares two payloads:
 //   - critical: concatenated and exposed via CriticalCSS for inlining in <head>
@@ -64,5 +70,48 @@ func CSSBundleHandler() http.Handler {
 		w.Header().Set("Content-Type", "text/css; charset=utf-8")
 		w.Header().Set("Cache-Control", "public, max-age=31536000, immutable")
 		w.Write(cssBundleContent)
+	})
+}
+
+// LoadScriptAssets reads executable frontend assets and assigns each a
+// content-derived public path.
+func LoadScriptAssets(dir string, files []string) error {
+	loaded := make(map[string]scriptAsset, len(files))
+	for _, name := range files {
+		content, err := os.ReadFile(filepath.Join(dir, name))
+		if err != nil {
+			return fmt.Errorf("script %s: %w", name, err)
+		}
+		ext := filepath.Ext(name)
+		base := strings.TrimSuffix(name, ext)
+		sum := sha256.Sum256(content)
+		loaded[name] = scriptAsset{
+			path:    "/static/" + base + "." + hex.EncodeToString(sum[:8]) + ext,
+			content: content,
+		}
+	}
+	scriptAssets = loaded
+	return nil
+}
+
+// ScriptAssetPath returns the hashed public URL for a loaded script.
+func ScriptAssetPath(name string) string {
+	if asset, ok := scriptAssets[name]; ok {
+		return asset.path
+	}
+	return "/static/" + name
+}
+
+// ScriptAssetHandler serves one loaded script with immutable caching.
+func ScriptAssetHandler(name string) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		asset, ok := scriptAssets[name]
+		if !ok || r.URL.Path != asset.path {
+			http.NotFound(w, r)
+			return
+		}
+		w.Header().Set("Content-Type", "text/javascript; charset=utf-8")
+		w.Header().Set("Cache-Control", "public, max-age=31536000, immutable")
+		_, _ = w.Write(asset.content)
 	})
 }

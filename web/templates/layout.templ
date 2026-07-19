@@ -3,11 +3,11 @@ package templates
 import pkgweb "github.com/emiliopalmerini/quintaedizione.online/pkg/web"
 
 // SiteLayout is the unified shell for all pages.
-// activeNav: "srd", "combattimenti", or "" (landing).
+// activeNav identifies the current top-level task or compendium section.
 // extraHeadHTML: additional <head> content (e.g. extra scripts).
 templ SiteLayout(title, description, activeNav string, extraHeadHTML templ.Component) {
 	<!DOCTYPE html>
-	<html lang="it" class={ templ.KV("dark", pkgweb.ThemeFromContext(ctx) == "dark") }>
+	<html lang="it">
 	<head>
 		<meta charset="utf-8"/>
 		<title>
@@ -31,10 +31,11 @@ templ SiteLayout(title, description, activeNav string, extraHeadHTML templ.Compo
 		<script>
 			(function(){var d=document.documentElement,c=document.cookie.match(/(?:^|;\s*)theme=(dark|light)/),t=c?c[1]:null;if(!t)try{t=localStorage.getItem('theme')}catch(e){}if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)t='dark';if(t==='dark')d.classList.add('dark');else d.classList.remove('dark')})()
 		</script>
-		<script src="/static/htmx.min.js" defer></script>
+		<script src={ pkgweb.ScriptAssetPath("htmx.min.js") } defer></script>
 		@templ.Raw("<style type=\"text/css\">" + pkgweb.CriticalCSS() + "</style>")
 		<link rel="preload" as="style" href={ pkgweb.CSSBundlePath() }/>
 		<link rel="stylesheet" href={ pkgweb.CSSBundlePath() }/>
+		<noscript><style>@media (max-width:640px){.site-nav-links{position:static;max-height:none;opacity:1;pointer-events:auto;box-shadow:none;padding:0}.nav-hamburger{display:none}.site-nav-container{flex-wrap:wrap}}</style></noscript>
 		<link rel="preconnect" href="https://fonts.googleapis.com"/>
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
 		<link
@@ -47,37 +48,41 @@ templ SiteLayout(title, description, activeNav string, extraHeadHTML templ.Compo
 			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/>
 		</noscript>
 		<link rel="icon" href="/static/favicon.svg" type="image/svg+xml"/>
-		<script src="/static/main.js" defer></script>
+		<script src={ pkgweb.ScriptAssetPath("main.js") } defer></script>
 		if extraHeadHTML != nil {
 			@extraHeadHTML
 		}
 	</head>
-	<body class="flex flex-col min-h-screen" hx-boost="true">
+	<body class="flex flex-col min-h-screen">
 		<a href="#page-root" class="skip-to-content">Vai al contenuto principale</a>
 
 		<header class="site-nav">
 			<div class="site-nav-container">
 				<a href="/" class="site-nav-brand">quintaedizione.online</a>
 				<nav class="site-nav-links" id="nav-menu" aria-label="Navigazione principale">
-					<a href="/#giocare" class="site-nav-link">Giocare</a>
-					<a href="/#preparare" class={ "site-nav-link", templ.KV("active", activeNav == "combattimenti" || activeNav == "mappe" || activeNav == "generatori") }>Preparare</a>
-					<a href="/srd" class={ "site-nav-link", templ.KV("active", activeNav == "srd") }>Compendio</a>
+					if activeNav == "giocare" {
+						<a href="/giocare" class="site-nav-link active" aria-current="page">Giocare</a>
+					} else {
+						<a href="/giocare" class="site-nav-link">Giocare</a>
+					}
+					if activeNav == "preparare" {
+						<a href="/preparare" class="site-nav-link active" aria-current="page">Preparare</a>
+					} else {
+						<a href="/preparare" class={ "site-nav-link", templ.KV("active", activeNav == "combattimenti" || activeNav == "mappe" || activeNav == "generatori") }>Preparare</a>
+					}
+					if activeNav == "srd" {
+						<a href="/srd" class="site-nav-link active" aria-current="page">Compendio</a>
+					} else {
+						<a href="/srd" class="site-nav-link">Compendio</a>
+					}
 				</nav>
 				<div class="theme-switcher" id="theme-switcher" role="radiogroup" aria-label="Tema">
 					<label class="theme-switcher-option">
-						if pkgweb.ThemeFromContext(ctx) == "dark" {
-						<input type="radio" name="theme" value="light"/>
-					} else {
-						<input type="radio" name="theme" value="light" checked/>
-					}
+					<input type="radio" name="theme" value="light" checked/>
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
 					</label>
 					<label class="theme-switcher-option">
-						if pkgweb.ThemeFromContext(ctx) == "dark" {
-						<input type="radio" name="theme" value="dark" checked/>
-					} else {
-						<input type="radio" name="theme" value="dark"/>
-					}
+					<input type="radio" name="theme" value="dark"/>
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
 					</label>
 				</div>
@@ -92,7 +97,7 @@ templ SiteLayout(title, description, activeNav string, extraHeadHTML templ.Compo
 		@sitePatreonBanner()
 
 		<main class="flex-1">
-			<div id="page-root" hx-history-elt class="container mx-auto max-w-4xl py-8">
+			<div id="page-root" class="container mx-auto max-w-4xl py-8">
 				{ children... }
 				<div id="page-loading" class="page-overlay" aria-hidden="true">
 					<div class="page-overlay-inner">
@@ -108,7 +113,7 @@ templ SiteLayout(title, description, activeNav string, extraHeadHTML templ.Compo
 }
 
 templ sitePatreonBanner() {
-	<div id="patreon-banner" class={ "patreon-banner", templ.KV("patreon-banner--hidden", pkgweb.PatreonBannerDismissedFromContext(ctx)) }>
+	<div id="patreon-banner" class="patreon-banner">
 		Questo progetto è gratuito grazie ai nostri supporter.
 		<a href="https://patreon.com/DueDraghiPlus" target="_blank" rel="noopener noreferrer">Unisciti a loro su Patreon!</a>
 		<button type="button" class="patreon-banner-dismiss" aria-label="Chiudi">&times;</button>
@@ -136,5 +141,5 @@ templ siteFooter() {
 
 // EncountersScript is a helper component to load encounters.js.
 templ EncountersScript() {
-	<script src="/static/js/encounters.js" defer></script>
+	<script src={ pkgweb.ScriptAssetPath("js/encounters.js") } defer></script>
 }

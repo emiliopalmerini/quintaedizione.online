@@ -148,6 +148,18 @@ func main() {
 		}
 	})
 	mux.HandleFunc("GET /cerca", pkgweb.ScopedSearchHandler)
+	mux.HandleFunc("GET /giocare", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		if err := landingTemplates.GiocarePage().Render(r.Context(), w); err != nil {
+			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		}
+	})
+	mux.HandleFunc("GET /preparare", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		if err := landingTemplates.PrepararePage().Render(r.Context(), w); err != nil {
+			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		}
+	})
 
 	// CSS bundle: concatenate non-critical CSS into a single hashed file.
 	// Critical CSS (tokens + base) is inlined in <head> by the layout template.
@@ -167,6 +179,14 @@ func main() {
 		log.Fatalf("Failed to load CSS assets: %v", err)
 	}
 	mux.Handle("GET "+pkgweb.CSSBundlePath(), pkgweb.CSSBundleHandler())
+	const staticDir = "./web/static"
+	scripts := []string{"main.js", "htmx.min.js", "js/encounters.js"}
+	if err := pkgweb.LoadScriptAssets(staticDir, scripts); err != nil {
+		log.Fatalf("Failed to load script assets: %v", err)
+	}
+	for _, script := range scripts {
+		mux.Handle("GET "+pkgweb.ScriptAssetPath(script), pkgweb.ScriptAssetHandler(script))
+	}
 
 	// Static files (shared) — cache for 1 day (assets are unversioned)
 	mux.Handle("GET /static/", http.StripPrefix("/static/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -196,7 +216,7 @@ func main() {
 		w.Header().Set("Cache-Control", "max-age=86400, public")
 		w.Header().Set("Content-Type", "application/xml; charset=utf-8")
 		// TODO: generate comprehensive sitemap
-		w.Write([]byte(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://quintaedizione.online/</loc><priority>1.0</priority></url><url><loc>https://quintaedizione.online/srd</loc><priority>0.9</priority></url><url><loc>https://quintaedizione.online/combattimenti</loc><priority>0.9</priority></url></urlset>`))
+		w.Write([]byte(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://quintaedizione.online/</loc><priority>1.0</priority></url><url><loc>https://quintaedizione.online/giocare</loc><priority>0.9</priority></url><url><loc>https://quintaedizione.online/preparare</loc><priority>0.9</priority></url><url><loc>https://quintaedizione.online/srd</loc><priority>0.9</priority></url><url><loc>https://quintaedizione.online/combattimenti</loc><priority>0.9</priority></url></urlset>`))
 	})
 
 	// Legacy redirects: old /:collection URLs → /srd/:collection
@@ -224,9 +244,13 @@ func main() {
 		})
 	}
 
-	// Combattimenti routes under /combattimenti
+	// Combattimenti canonical resource and supporting fragment endpoints.
+	mux.Handle("GET /combattimenti", encounterHandler.HomeHandler(editions))
+	mux.Handle("POST /combattimenti", encounterHandler.UpdateHandler(editions))
 	combatMux := http.NewServeMux()
-	combatMux.Handle("GET /{$}", encounterHandler.HomeHandler(editions))
+	combatMux.HandleFunc("GET /{$}", func(w http.ResponseWriter, r *http.Request) {
+		http.Redirect(w, r, "/combattimenti"+querySuffix(r), http.StatusMovedPermanently)
+	})
 	combatMux.HandleFunc("POST /calculate", encounterHandler.CalculateHandler)
 	combatMux.HandleFunc("GET /party-input", encounterHandler.PartyInputHandler)
 	combatMux.HandleFunc("GET /api/difficulties", encounterHandler.GetDifficultiesHandler)
@@ -255,6 +279,7 @@ func main() {
 	rateLimiter := pkgweb.NewRateLimiter()
 
 	var handler http.Handler = mux
+	handler = pkgweb.CompressionMiddleware(handler)
 	handler = pkgweb.ThemeMiddleware(handler)
 	handler = pkgweb.PatreonBannerMiddleware(handler)
 	handler = pkgweb.CORSMiddleware(handler)
