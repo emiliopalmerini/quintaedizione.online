@@ -170,10 +170,7 @@ func sourceShortForRuleset(editions []templates.EditionOption, ruleset string) s
 	return ""
 }
 
-// toCartSeeds expands URL-state cart refs into the repeated
-// (id, source) entries the home template stamps as <input name="monsters[]">.
-// The repetition matches what the JS cart manager appends per click, which
-// keeps the 2014 multiplier honest.
+// toCartSeeds keeps one compact form input per cart line.
 func toCartSeeds(refs []domainenc.CartRef) []templates.CartSeed {
 	out := make([]templates.CartSeed, 0, len(refs))
 	for _, ref := range refs {
@@ -181,9 +178,7 @@ func toCartSeeds(refs []domainenc.CartRef) []templates.CartSeed {
 		if qty < 1 {
 			qty = 1
 		}
-		for i := 0; i < qty; i++ {
-			out = append(out, templates.CartSeed{ID: ref.ID, Source: ref.Source})
-		}
+		out = append(out, templates.CartSeed{ID: ref.ID, Source: ref.Source, Quantity: qty})
 	}
 	return out
 }
@@ -198,6 +193,120 @@ func countCartItems(refs []domainenc.CartRef) int {
 		n += ref.Qty
 	}
 	return n
+}
+
+// UpdateHandler applies a native form submission and redirects to the
+// canonical shareable GET URL. HTMX may enhance this flow, but is not required.
+func (h *EncounterHandler) UpdateHandler(editions []templates.EditionOption) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		if err := r.ParseForm(); err != nil {
+			http.Error(w, "Invalid form data", http.StatusBadRequest)
+			return
+		}
+
+		ruleset := r.FormValue("ruleset")
+		if _, err := domainenc.NewRuleset(ruleset); err != nil {
+			http.Error(w, "Invalid ruleset", http.StatusBadRequest)
+			return
+		}
+
+		levels, err := h.parsePartyForm(r)
+		if err != nil {
+			http.Error(w, "Invalid party composition", http.StatusBadRequest)
+			return
+		}
+
+		source := sourceShortForRuleset(editions, ruleset)
+		refs := filterRefsBySource(encounter.ParseCartRefs(r.Form["monsters[]"]), source)
+		refs = applyCartAction(refs, r.FormValue("cart_action"), source)
+		state := domainenc.URLState{Ruleset: ruleset, Party: levels, Cart: toURLCart(refs)}
+		http.Redirect(w, r, buildStateURL(state), http.StatusSeeOther)
+	}
+}
+
+func (h *EncounterHandler) parsePartyForm(r *http.Request) ([]int, error) {
+	mode := r.FormValue("party_mode")
+	if mode == "same" {
+		level, err := strconv.Atoi(r.FormValue("level"))
+		if err != nil {
+			return nil, err
+		}
+		count, err := strconv.Atoi(r.FormValue("count"))
+		if err != nil {
+			return nil, err
+		}
+		if err := h.service.ValidatePartyComposition(mode, nil, level, count); err != nil {
+			return nil, err
+		}
+		levels := make([]int, count)
+		for i := range levels {
+			levels[i] = level
+		}
+		return levels, nil
+	}
+	if mode != "different" || len(r.Form["character_levels"]) == 0 || len(r.Form["character_levels"]) > domainenc.MaxPartySize {
+		return nil, fmt.Errorf("invalid party mode")
+	}
+	levels := make([]int, len(r.Form["character_levels"]))
+	for i, value := range r.Form["character_levels"] {
+		level, err := strconv.Atoi(strings.TrimSpace(value))
+		if err != nil {
+			return nil, err
+		}
+		levels[i] = level
+	}
+	if err := h.service.ValidatePartyComposition(mode, levels, 0, 0); err != nil {
+		return nil, err
+	}
+	return levels, nil
+}
+
+func applyCartAction(refs []encounter.CartItemRef, action, activeSource string) []encounter.CartItemRef {
+	verb, value, ok := strings.Cut(action, ":")
+	if !ok {
+		return refs
+	}
+	id, source, ok := strings.Cut(value, "@")
+	if !ok || id == "" || source != activeSource {
+		return refs
+	}
+	for i := range refs {
+		if refs[i].ID != id || refs[i].Source != source {
+			continue
+		}
+		switch verb {
+		case "add", "increment":
+			refs[i].Quantity = min(refs[i].Quantity+1, 999)
+		case "decrement":
+			refs[i].Quantity--
+		case "remove":
+			refs[i].Quantity = 0
+		}
+		if refs[i].Quantity == 0 {
+			return append(refs[:i], refs[i+1:]...)
+		}
+		return refs
+	}
+	if verb == "add" || verb == "increment" {
+		return append(refs, encounter.CartItemRef{ID: id, Source: source, Quantity: 1})
+	}
+	return refs
+}
+
+func toURLCart(refs []encounter.CartItemRef) []domainenc.CartRef {
+	cart := make([]domainenc.CartRef, 0, len(refs))
+	for _, ref := range refs {
+		cart = append(cart, domainenc.CartRef{ID: ref.ID, Source: ref.Source, Qty: ref.Quantity})
+	}
+	return cart
+}
+
+func buildStateURL(state domainenc.URLState) string {
+	query := state.EncodeQuery()
+	if query == "" {
+		return "/combattimenti"
+	}
+	return "/combattimenti?" + query
 }
 
 // CalculateHandler handles XP calculation requests
@@ -397,9 +506,17 @@ func buildShareURL(ruleset string, levels []int, refs []encounter.CartItemRef) s
 
 // buildPicker renders the monster-picker panel for the given source.
 func (h *EncounterHandler) buildPicker(r *http.Request, source string) templates.PickerData {
+	query := r.URL.Query().Get("q")
+	minCR := parseFloatParam(r, "min_cr")
+	maxCR := parseFloatParam(r, "max_cr")
+	creatureType := r.URL.Query().Get("type")
 	monsters, err := h.reader.Search(r.Context(), monster.SearchQuery{
 		Source: source,
-		Limit:  100,
+		Query:  query,
+		MinCR:  minCR,
+		MaxCR:  maxCR,
+		Type:   creatureType,
+		Limit:  20,
 	})
 	if err != nil {
 		h.logger.Warn("picker search failed", "error", err)
@@ -414,6 +531,10 @@ func (h *EncounterHandler) buildPicker(r *http.Request, source string) templates
 
 	return templates.PickerData{
 		Source:       source,
+		Query:        query,
+		MinCR:        minCR,
+		MaxCR:        maxCR,
+		Type:         creatureType,
 		Types:        facets.Types,
 		Monsters:     monsters,
 		TotalMatched: len(monsters),

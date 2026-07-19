@@ -4,39 +4,8 @@
 function initEncountersPage() {
     initEncounterForm();
     initSteppers();
-    initAutoCalculate();
-    initMonsterCart();
     syncSourceShort();
     initCopyLink();
-    initPickerReset();
-
-    // Configure HTMX for encounters.
-    if (typeof htmx !== 'undefined' && !window.__encounterHtmxHandlersBound) {
-        window.__encounterHtmxHandlersBound = true;
-        htmx.config.requestClass = 'loading';
-        htmx.config.historyEnabled = true;
-
-        // HTMX loading indicators
-        document.addEventListener('htmx:beforeRequest', function(evt) {
-            var target = evt.target;
-            if (target.classList.contains('btn')) {
-                target.style.opacity = '0.7';
-                target.style.pointerEvents = 'none';
-            }
-        });
-
-        document.addEventListener('htmx:afterRequest', function(evt) {
-            var target = evt.target;
-            if (target.classList.contains('btn')) {
-                target.style.opacity = '1';
-                target.style.pointerEvents = 'auto';
-            }
-        });
-
-        document.addEventListener('htmx:responseError', function() {
-            showToast('Errore nel caricamento. Riprova.', 'error');
-        });
-    }
 }
 
 window.initEncountersPage = initEncountersPage;

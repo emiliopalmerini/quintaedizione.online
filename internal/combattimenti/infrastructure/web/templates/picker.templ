@@ -58,6 +58,8 @@ templ MonsterPicker(data PickerData) {
 	<div id="monster-picker" class="monster-picker">
 		<form
 			class="monster-picker-controls"
+			action="/combattimenti"
+			method="get"
 			hx-get="/combattimenti/monsters"
 			hx-target="#monster-picker-results"
 			hx-select="#monster-picker-results"
@@ -90,15 +92,16 @@ templ MonsterPicker(data PickerData) {
 					aria-label="Cerca un mostro per nome"
 					hx-preserve="true"
 				/>
+				<button type="submit" class="btn btn-primary">Cerca</button>
 			</div>
-			<button
-				type="button"
+			<a
+				href="/combattimenti"
 				class="btn btn-secondary monster-picker-reset"
 				title="Cancella ricerca e filtri"
 				aria-label="Cancella ricerca e filtri"
 			>
 				× Reset
-			</button>
+			</a>
 		</form>
 		<div id="monster-picker-results">
 			if len(data.Monsters) == 0 {
@@ -107,10 +110,8 @@ templ MonsterPicker(data PickerData) {
 			<ul class="monster-picker-list">
 				for _, m := range data.Monsters {
 					<li class="monster-picker-row">
-						<details class="monster-picker-row-detail">
-							<summary class="monster-picker-row-summary">
-								<span class="monster-picker-row-toggle" aria-hidden="true">▸</span>
-								<span class="monster-picker-row-name">{ m.Name }</span>
+						<div class="monster-picker-row-summary">
+								<a class="monster-picker-row-name" href={ srdLink(m) }>{ m.Name }</a>
 								<span class="monster-picker-row-inline">
 									<span>GS { m.CR } <span class="monster-picker-row-xp">({ strconv.Itoa(m.XP) } PE)</span></span>
 									if m.Type != "" {
@@ -123,19 +124,12 @@ templ MonsterPicker(data PickerData) {
 										<span><strong>CA</strong> { m.AC }</span>
 									}
 								</span>
-							</summary>
-							<div
-								class="monster-picker-row-statblock"
-								hx-get={ srdLink(m) }
-								hx-select=".stat-block"
-								hx-trigger="toggle from:closest details once"
-								hx-swap="innerHTML"
-							>
-								<span class="monster-picker-row-statblock-loading">Caricamento scheda…</span>
-							</div>
-						</details>
+						</div>
 						<button
-							type="button"
+							type="submit"
+							form="encounter-form"
+							name="cart_action"
+							value={ "add:" + m.ID + "@" + m.Source }
 							class="btn btn-secondary monster-picker-row-add"
 							data-monster-id={ m.ID }
 							data-monster-source={ m.Source }

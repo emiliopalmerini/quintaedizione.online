@@ -111,7 +111,7 @@ templ Result(data ResultData) {
 							<span class="result-tier-label">{ tier.Label }</span>
 							<span class="result-tier-xp">{ strconv.Itoa(tier.XP) } PE</span>
 						</div>
-						<div class="result-tier-bar">
+						<div class="result-tier-bar" aria-hidden="true">
 							<div class="result-tier-fill" style={ "width:" + tierPercentage(tier.XP, data.Tiers[len(data.Tiers)-1].XP) + "%" }></div>
 						</div>
 					</div>
@@ -120,11 +120,6 @@ templ Result(data ResultData) {
 		}
 
 		@Cart(data.Cart, data.InferredTier, data.HasCartItems, data.IsOverspent)
-	</div>
-
-	<!-- Monster Picker (out-of-band swap: rendered into #monster-picker-slot) -->
-	<div id="monster-picker-slot" hx-swap-oob="innerHTML">
-		@MonsterPicker(data.Picker)
 	</div>
 }
 
@@ -150,6 +145,9 @@ templ Cart(view CartView, inferred encounter.InferredTier, hasItems bool, oversp
 				<span
 					class={ inferredTierClass(inferred.Value), templ.KV("is-overspent", overspent) }
 					title="Difficoltà inferita dal costo effettivo del carrello"
+					role="status"
+					aria-live="polite"
+					aria-atomic="true"
 				>
 					Incontro attuale: { inferred.Label }
 				</span>
@@ -162,9 +160,12 @@ templ Cart(view CartView, inferred encounter.InferredTier, hasItems bool, oversp
 				for _, entry := range view.Entries {
 					<li class="result-cart-chip">
 						<span class="result-cart-chip-qty">{ strconv.Itoa(entry.Quantity) }×</span>
-						<span class="result-cart-chip-name">{ entry.Name }</span>
+						<a class="result-cart-chip-name" href={ srdLink(monster.Monster{ID: entry.ID, Source: entry.Source}) }>{ entry.Name }</a>
 						<button
-							type="button"
+							type="submit"
+							form="encounter-form"
+							name="cart_action"
+							value={ "decrement:" + entry.ID + "@" + entry.Source }
 							class="result-cart-chip-step"
 							data-cart-id={ entry.ID }
 							data-cart-source={ entry.Source }
@@ -172,7 +173,10 @@ templ Cart(view CartView, inferred encounter.InferredTier, hasItems bool, oversp
 							aria-label={ "Diminuisci " + entry.Name }
 						>−</button>
 						<button
-							type="button"
+							type="submit"
+							form="encounter-form"
+							name="cart_action"
+							value={ "increment:" + entry.ID + "@" + entry.Source }
 							class="result-cart-chip-step"
 							data-cart-id={ entry.ID }
 							data-cart-source={ entry.Source }
@@ -180,7 +184,10 @@ templ Cart(view CartView, inferred encounter.InferredTier, hasItems bool, oversp
 							aria-label={ "Aumenta " + entry.Name }
 						>+</button>
 						<button
-							type="button"
+							type="submit"
+							form="encounter-form"
+							name="cart_action"
+							value={ "remove:" + entry.ID + "@" + entry.Source }
 							class="result-cart-chip-remove"
 							data-cart-id={ entry.ID }
 							data-cart-source={ entry.Source }
@@ -189,6 +196,13 @@ templ Cart(view CartView, inferred encounter.InferredTier, hasItems bool, oversp
 					</li>
 				}
 			</ul>
+			<dl class="result-cart-totals">
+				<div><dt>PE base</dt><dd>{ strconv.Itoa(view.Subtotal) }</dd></div>
+				if view.Multiplier {
+					<div><dt>PE effettivi</dt><dd>{ strconv.Itoa(view.EffectiveCost) }</dd></div>
+				}
+				<div><dt>Budget rimanente</dt><dd>{ strconv.Itoa(view.Remaining) }</dd></div>
+			</dl>
 		}
 	</div>
 }

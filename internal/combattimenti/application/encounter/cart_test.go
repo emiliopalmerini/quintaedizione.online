@@ -65,6 +65,26 @@ func TestParseCartRefs_FoldsDuplicatesByIDAndSource(t *testing.T) {
 	}
 }
 
+func TestParseCartRefs_ParsesCompactQuantities(t *testing.T) {
+	got := ParseCartRefs([]string{"goblin@5e:3", "goblin@5e:2", "orc@5e"})
+	if len(got) != 2 {
+		t.Fatalf("len = %d, want 2; got %+v", len(got), got)
+	}
+	if got[0].Quantity != 5 {
+		t.Errorf("goblin quantity = %d, want 5", got[0].Quantity)
+	}
+	if got[1].Quantity != 1 {
+		t.Errorf("orc quantity = %d, want 1", got[1].Quantity)
+	}
+}
+
+func TestParseCartRefs_DropsInvalidCompactQuantities(t *testing.T) {
+	got := ParseCartRefs([]string{"goblin@5e:0", "orc@5e:-1", "ogre@5e:nope"})
+	if len(got) != 0 {
+		t.Fatalf("got %+v, want no refs", got)
+	}
+}
+
 func TestParseCartRefs_DoesNotFoldAcrossSources(t *testing.T) {
 	got := ParseCartRefs([]string{"goblin@5e", "goblin@5.5e"})
 	if len(got) != 2 {

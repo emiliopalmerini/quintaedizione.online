@@ -42,7 +42,7 @@ func (h *MonsterPickerHandler) Handler(w http.ResponseWriter, r *http.Request) {
 		MinCR:  minCR,
 		MaxCR:  maxCR,
 		Type:   creatureType,
-		Limit:  100,
+		Limit:  20,
 	})
 	if err != nil {
 		h.logger.Warn("monster search failed", "request_id", requestID, "error", err)

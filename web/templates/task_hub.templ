@@ -1,0 +1,62 @@
+package templates
+
+type TaskHubLink struct {
+	Title       string
+	Description string
+	Href        string
+}
+
+type TaskHubData struct {
+	Title       string
+	Description string
+	ActiveNav   string
+	Links       []TaskHubLink
+}
+
+templ TaskHubPage(data TaskHubData) {
+	@SiteLayout(data.Title, data.Description, data.ActiveNav, nil) {
+		<header class="page-header">
+			<h1>{ data.Title }</h1>
+			<p class="page-header-subtitle">{ data.Description }</p>
+		</header>
+		<nav class="category-cta-list" aria-label={ "Attività per " + data.Title }>
+			for _, link := range data.Links {
+				<a class="category-cta" href={ link.Href }>
+					<span>
+						<strong>{ link.Title }</strong>
+						<small>{ link.Description }</small>
+					</span>
+					<span aria-hidden="true">→</span>
+				</a>
+			}
+		</nav>
+	}
+}
+
+templ GiocarePage() {
+	@TaskHubPage(TaskHubData{
+		Title: "Giocare",
+		Description: "Trova rapidamente le regole e le opzioni che servono durante la partita.",
+		ActiveNav: "giocare",
+		Links: []TaskHubLink{
+			{Title: "Creare e far crescere un personaggio", Description: "Classi, origini e capacità per costruire il tuo avventuriero.", Href: "/srd/area/personaggi"},
+			{Title: "Scegliere un incantesimo", Description: "Consulta tempi, gittate, componenti ed effetti.", Href: "/srd/incantesimi"},
+			{Title: "Risolvere una regola", Description: "Trova velocemente la procedura adatta al tavolo.", Href: "/srd/regole"},
+			{Title: "Comprare e usare equipaggiamento", Description: "Armi, armature, strumenti e oggetti d'avventura.", Href: "/srd/equipaggiamenti"},
+		},
+	})
+}
+
+templ PrepararePage() {
+	@TaskHubPage(TaskHubData{
+		Title: "Preparare",
+		Description: "Strumenti e riferimenti per trasformare un'idea nella prossima sessione.",
+		ActiveNav: "preparare",
+		Links: []TaskHubLink{
+			{Title: "Bilanciare un combattimento", Description: "Componi il party, aggiungi mostri e confronta le soglie di difficoltà.", Href: "/combattimenti"},
+			{Title: "Scegliere i mostri", Description: "Filtra il bestiario per trovare gli avversari adatti.", Href: "/srd/mostri"},
+			{Title: "Trovare una mappa", Description: "Esplora mappe pronte da portare al tavolo.", Href: "/mappe"},
+			{Title: "Generare uno spunto", Description: "Tabelle casuali per nomi, luoghi, incontri e dettagli.", Href: "/generatori"},
+		},
+	})
+}

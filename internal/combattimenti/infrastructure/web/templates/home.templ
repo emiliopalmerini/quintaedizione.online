@@ -19,8 +19,9 @@ type EditionOption struct {
 // resolves these on first calculate; the home template just stamps the
 // hidden inputs the existing JS / handler already understand.
 type CartSeed struct {
-	ID     string
-	Source string
+	ID       string
+	Source   string
+	Quantity int
 }
 
 // HomeData is the view model for the encounter home page.
@@ -113,7 +114,8 @@ templ Home(data HomeData) {
 		<div class="encounter-fullbleed">
 			<div class="encounter-builder">
 			<aside class="encounter-builder-party">
-				<form id="encounter-form" hx-post="/combattimenti/calculate" hx-target="#result-container" hx-swap="innerHTML transition:false" hx-trigger="calculate, submit" hx-indicator="false">
+				<h1 class="sr-only">Costruttore di combattimenti</h1>
+				<form id="encounter-form" action="/combattimenti" method="post">
 					<div class="form-section">
 						<h2 class="form-section-title">Edizione</h2>
 						<div class="segmented-control" role="radiogroup" aria-label="Edizione delle regole">
@@ -199,8 +201,8 @@ templ Home(data HomeData) {
 						<div id="character-levels-container" class="character-levels-list">
 							for i, level := range data.partyLevels() {
 								<div class="character-input-group">
-									<label>PG { strconv.Itoa(i + 1) }</label>
-									<input type="number" name="character_levels" value={ strconv.Itoa(level) } min="1" max="20" required/>
+									<label for={ "character-level-" + strconv.Itoa(i + 1) }>PG { strconv.Itoa(i + 1) }</label>
+									<input id={ "character-level-" + strconv.Itoa(i + 1) } type="number" name="character_levels" value={ strconv.Itoa(level) } min="1" max="20" required/>
 								</div>
 							}
 						</div>
@@ -211,14 +213,12 @@ templ Home(data HomeData) {
 					</div>
 					<div id="cart-inputs" class="sr-only" aria-hidden="true">
 						for _, entry := range data.Cart {
-							<input type="hidden" name="monsters[]" value={ entry.ID + "@" + entry.Source }/>
+							<input type="hidden" name="monsters[]" value={ entry.ID + "@" + entry.Source + ":" + strconv.Itoa(entry.Quantity) }/>
 						}
 					</div>
-					<noscript>
-						<div class="form-submit">
-							<button type="submit" class="btn btn-primary btn-large">Aggiorna</button>
-						</div>
-					</noscript>
+					<div class="form-submit">
+						<button type="submit" class="btn btn-primary btn-large">Aggiorna</button>
+					</div>
 				</form>
 			</aside>
 			<section class="encounter-builder-picker">
