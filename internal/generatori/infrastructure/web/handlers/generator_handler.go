@@ -28,6 +28,9 @@ func (h *GeneratorHandler) RegisterRoutes(mux *http.ServeMux) {
 }
 
 func (h *GeneratorHandler) handleHome(w http.ResponseWriter, r *http.Request) {
+	w.Header().Add("Vary", "HX-Request")
+	w.Header().Add("Vary", "HX-Target")
+
 	query := r.URL.Query().Get("q")
 	groups := h.service.SearchGroups(query)
 
@@ -52,10 +55,13 @@ func (h *GeneratorHandler) handleGenerator(w http.ResponseWriter, r *http.Reques
 	}
 
 	prev, next := h.service.Neighbors(slug)
-	pkgweb.RenderTempl(w, r, h.logger, templates.Generator(table, prev, next))
+	pkgweb.RenderTempl(w, r, h.logger, templates.Generator(table, prev, next, nil))
 }
 
 func (h *GeneratorHandler) handleRoll(w http.ResponseWriter, r *http.Request) {
+	w.Header().Add("Vary", "HX-Request")
+	w.Header().Add("Vary", "HX-Target")
+
 	slug := r.PathValue("slug")
 	result, err := h.service.Roll(slug)
 	if err != nil {
@@ -63,5 +69,20 @@ func (h *GeneratorHandler) handleRoll(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	pkgweb.RenderTempl(w, r, h.logger, templates.Result(result))
+	if isRollResultRequest(r) {
+		pkgweb.RenderTempl(w, r, h.logger, templates.Result(result))
+		return
+	}
+
+	table, ok := h.service.Get(slug)
+	if !ok {
+		http.NotFound(w, r)
+		return
+	}
+	prev, next := h.service.Neighbors(slug)
+	pkgweb.RenderTempl(w, r, h.logger, templates.Generator(table, prev, next, &result))
+}
+
+func isRollResultRequest(r *http.Request) bool {
+	return r.Header.Get("HX-Request") == "true" && r.Header.Get("HX-Target") == "roll-result"
 }

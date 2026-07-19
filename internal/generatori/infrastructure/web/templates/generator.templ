@@ -7,7 +7,7 @@ import (
 	shared "github.com/emiliopalmerini/quintaedizione.online/web/templates"
 )
 
-templ Generator(table domain.Table, prev *domain.Table, next *domain.Table) {
+templ Generator(table domain.Table, prev *domain.Table, next *domain.Table, result *domain.RollResult) {
 	@shared.SiteLayout(table.Name, table.Description, "generatori", nil) {
 		<div class="generator-page">
 			<nav class="breadcrumb" aria-label="Breadcrumb">
@@ -38,17 +38,22 @@ templ Generator(table domain.Table, prev *domain.Table, next *domain.Table) {
 				}
 			} else {
 				<div class="generator-roller">
-					<button
-						class="btn btn-primary btn-large"
+					<form
+						action={ templ.URL("/generatori/" + table.ID + "/roll") }
+						method="post"
 						hx-post={ "/generatori/" + table.ID + "/roll" }
 						hx-target="#roll-result"
 						hx-swap="innerHTML"
 					>
-						Tira { table.Die }
-					</button>
+						<button type="submit" class="btn btn-primary btn-large">Tira { table.Die }</button>
+					</form>
 
-					<div id="roll-result" class="roll-result">
-						<p class="roll-result-placeholder">Premi il pulsante per tirare</p>
+					<div id="roll-result" class="roll-result" role="status" aria-live="polite" aria-atomic="true">
+						if result != nil {
+							@Result(*result)
+						} else {
+							<p class="roll-result-placeholder">Premi il pulsante per tirare</p>
+						}
 					</div>
 				</div>
 
@@ -97,30 +102,43 @@ templ itemContent(item domain.Item) {
 }
 
 templ multiColumnTable(table domain.Table) {
-	<table class="generator-full-table">
-		<thead>
-			<tr>
-				<th>#</th>
-				for _, col := range table.Columns {
-					<th>{ col.Name }</th>
-				}
-			</tr>
-		</thead>
-		<tbody>
-			for i := range table.Columns[0].Items {
+	<div class="generator-table-scroll" role="region" aria-label={ "Tabella completa: " + table.Name } tabindex="0">
+		<table class="generator-full-table">
+			<caption class="sr-only">{ table.Name }</caption>
+			<thead>
 				<tr>
-					<td>{ fmt.Sprintf("%d", i+1) }</td>
+					<th scope="col">Tiro</th>
 					for _, col := range table.Columns {
-						if i < len(col.Items) {
-							<td>
-								@itemContent(col.Items[i])
-							</td>
-						} else {
-							<td>—</td>
-						}
+						<th scope="col">{ col.Name }</th>
 					}
 				</tr>
-			}
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				for i := range maxColumnLength(table.Columns) {
+					<tr>
+						<th scope="row">{ fmt.Sprintf("%d", i+1) }</th>
+						for _, col := range table.Columns {
+							if i < len(col.Items) {
+								<td>
+									@itemContent(col.Items[i])
+								</td>
+							} else {
+								<td>—</td>
+							}
+						}
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+}
+
+func maxColumnLength(columns []domain.Column) int {
+	maxLength := 0
+	for _, column := range columns {
+		if len(column.Items) > maxLength {
+			maxLength = len(column.Items)
+		}
+	}
+	return maxLength
 }

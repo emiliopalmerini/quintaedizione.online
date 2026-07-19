@@ -15,9 +15,17 @@
 
 .generator-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
   gap: var(--space-4);
   margin-top: var(--space-4);
+}
+
+.generator-search-form { margin-bottom: var(--space-4); }
+.generator-search-controls { display: flex; gap: var(--space-2); }
+.generator-search-controls .field { flex: 1; min-width: 0; }
+
+@media (max-width: 420px) {
+  .generator-search-controls { align-items: stretch; flex-direction: column; }
 }
 
 .generator-card {
@@ -247,8 +255,15 @@
 }
 .generator-table-list li:last-child { border-bottom: none; }
 
-.generator-full-table {
+.generator-table-scroll {
   width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.generator-full-table {
+  width: max-content;
+  min-width: 100%;
   border-collapse: collapse;
   font-size: var(--text-sm);
 }
@@ -265,6 +280,13 @@
 .generator-full-table td {
   padding: var(--space-2) var(--space-4);
   border-bottom: 1px solid var(--color-border);
+}
+.generator-full-table th[scope="row"] {
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-weight: var(--weight-medium);
+  text-align: left;
 }
 .generator-full-table tr:last-child td { border-bottom: none; }
 .generator-full-table tbody tr {

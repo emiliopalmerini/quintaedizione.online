@@ -46,20 +46,20 @@ func Home(groups []domain.Group, query string) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"page-header page-header-map\" style=\"--map-bg: url('/static/img/dyson-map-2.webp')\"><h1>Generatori Casuali</h1><p class=\"page-header-subtitle\">Tabelle casuali per il Lazy DM. Tira i dadi e lasciati ispirare.</p></div><form hx-get=\"/generatori/\" hx-target=\"#generatori-grid\" hx-trigger=\"keyup delay:200ms from:#generatori-search\" hx-push-url=\"true\" hx-swap=\"outerHTML\"><div class=\"mb-4\"><input type=\"text\" name=\"q\" id=\"generatori-search\" placeholder=\"Cerca generatore...\" class=\"field\" autocomplete=\"off\" value=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"page-header page-header-map\" style=\"--map-bg: url('/static/img/dyson-map-2.webp')\"><h1>Generatori Casuali</h1><p class=\"page-header-subtitle\">Tabelle casuali per il Lazy DM. Tira i dadi e lasciati ispirare.</p></div><form class=\"generator-search-form\" action=\"/generatori/\" method=\"get\" role=\"search\" hx-get=\"/generatori/\" hx-target=\"#generatori-grid\" hx-push-url=\"true\" hx-swap=\"outerHTML\"><label class=\"sr-only\" for=\"generatori-search\">Cerca generatori</label><div class=\"generator-search-controls\"><input type=\"search\" name=\"q\" id=\"generatori-search\" placeholder=\"Cerca generatore...\" class=\"field\" autocomplete=\"off\" value=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(query)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/generatori/infrastructure/web/templates/home.templ`, Line: 30, Col: 18}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/generatori/infrastructure/web/templates/home.templ`, Line: 34, Col: 18}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "\"></div></form>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "\"> <button type=\"submit\" class=\"btn btn-primary\">Cerca</button></div></form>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -116,7 +116,7 @@ func GeneratoriGrid(groups []domain.Group, query string) templ.Component {
 				var templ_7745c5c3_Var5 string
 				templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(group.Label)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/generatori/infrastructure/web/templates/home.templ`, Line: 50, Col: 56}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/generatori/infrastructure/web/templates/home.templ`, Line: 55, Col: 56}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 				if templ_7745c5c3_Err != nil {
@@ -134,7 +134,7 @@ func GeneratoriGrid(groups []domain.Group, query string) templ.Component {
 					var templ_7745c5c3_Var6 string
 					templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(group.Description)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/generatori/infrastructure/web/templates/home.templ`, Line: 52, Col: 62}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/generatori/infrastructure/web/templates/home.templ`, Line: 57, Col: 62}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 					if templ_7745c5c3_Err != nil {
@@ -157,7 +157,7 @@ func GeneratoriGrid(groups []domain.Group, query string) templ.Component {
 					var templ_7745c5c3_Var7 templ.SafeURL
 					templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL("/generatori/" + t.ID))
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/generatori/infrastructure/web/templates/home.templ`, Line: 57, Col: 53}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/generatori/infrastructure/web/templates/home.templ`, Line: 62, Col: 53}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 					if templ_7745c5c3_Err != nil {
@@ -170,7 +170,7 @@ func GeneratoriGrid(groups []domain.Group, query string) templ.Component {
 					var templ_7745c5c3_Var8 string
 					templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(t.Name)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/generatori/infrastructure/web/templates/home.templ`, Line: 58, Col: 49}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/generatori/infrastructure/web/templates/home.templ`, Line: 63, Col: 49}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 					if templ_7745c5c3_Err != nil {
@@ -183,7 +183,7 @@ func GeneratoriGrid(groups []domain.Group, query string) templ.Component {
 					var templ_7745c5c3_Var9 string
 					templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(t.Description)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/generatori/infrastructure/web/templates/home.templ`, Line: 59, Col: 54}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/generatori/infrastructure/web/templates/home.templ`, Line: 64, Col: 54}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 					if templ_7745c5c3_Err != nil {
@@ -201,7 +201,7 @@ func GeneratoriGrid(groups []domain.Group, query string) templ.Component {
 						var templ_7745c5c3_Var10 string
 						templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(t.Die)
 						if templ_7745c5c3_Err != nil {
-							return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/generatori/infrastructure/web/templates/home.templ`, Line: 61, Col: 49}
+							return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/generatori/infrastructure/web/templates/home.templ`, Line: 66, Col: 49}
 						}
 						_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 						if templ_7745c5c3_Err != nil {
