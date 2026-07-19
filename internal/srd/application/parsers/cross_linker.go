@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/fs"
 	"regexp"
+	"slices"
 	"sort"
 	"strings"
 
@@ -27,18 +28,17 @@ var collectionCategory = map[string]string{
 	"servizi":         "servizio",
 }
 
-// CrossLinker wraps glossary terms in HTML content with <span> elements
-// carrying data attributes for client-side tooltip display. It unifies
-// glossary term enrichment into a single post-processing pass on rendered HTML.
+// CrossLinker enriches glossary terms with data attributes for optional
+// client-side previews while preserving existing link semantics.
 //
 // It handles two types of cross-references:
 //  1. Data-driven links: <a href="/srd/..."> produced by the markdown pipeline
-//     are converted to <span class="glossary-term"> with data-term-link.
+//     retain their href and gain glossary-term metadata.
 //  2. Glossary terms: first occurrence of each term is wrapped with
 //     <span class="glossary-term"> with data-term-def.
 type CrossLinker struct {
 	compiledRegex []*crossLinkRegex
-	glossaryByID  map[string]*crossLinkTerm // for merging definitions onto converted links
+	glossaryByID  map[string]*crossLinkTerm // for merging definitions onto enriched links
 }
 
 // crossLinkSegment mirrors the srd.Segment type from quintaedizione-data-ita.
@@ -134,7 +134,7 @@ func NewCrossLinker(fsys fs.FS) (*CrossLinker, error) {
 }
 
 // LinkTerms processes HTML content in two passes:
-//  1. Converts internal <a href="/srd/..."> links to <span class="glossary-term"> spans
+//  1. Enriches internal <a href="/srd/..."> links with glossary preview metadata
 //  2. Wraps first occurrence of glossary terms in text nodes with <span class="glossary-term">
 func (cl *CrossLinker) LinkTerms(htmlContent string) string {
 	if htmlContent == "" {
@@ -151,8 +151,8 @@ func (cl *CrossLinker) LinkTerms(htmlContent string) string {
 	// Pre-fill linked map with terms already wrapped in glossary-term spans
 	prefillLinkedFromExistingSpans(doc, linked)
 
-	// Pass 1: convert internal /srd/ links to glossary-term spans
-	cl.convertInternalLinks(doc, linked)
+	// Pass 1: enrich internal /srd/ links without removing native navigation
+	cl.enrichInternalLinks(doc, linked)
 
 	// Pass 2: glossary term regex matching on text nodes
 	if len(cl.compiledRegex) > 0 {
@@ -171,11 +171,11 @@ func (cl *CrossLinker) LinkTerms(htmlContent string) string {
 	return renderBody(doc, htmlContent)
 }
 
-// convertInternalLinks finds <a href="/srd/..."> elements and replaces them
-// with <span class="glossary-term"> carrying data-term-link, data-term-id, data-term-cat.
+// enrichInternalLinks finds <a href="/srd/..."> elements and enriches them
+// with glossary-term metadata while preserving their native link semantics.
 // If the term has a glossary entry, data-term-def is also added.
-func (cl *CrossLinker) convertInternalLinks(n *nethtml.Node, linked map[string]bool) {
-	// Collect links first, then convert (avoid modifying tree during traversal)
+func (cl *CrossLinker) enrichInternalLinks(n *nethtml.Node, linked map[string]bool) {
+	// Collect links first to keep traversal independent from enrichment.
 	var links []*nethtml.Node
 	collectInternalLinks(n, &links)
 
@@ -198,53 +198,26 @@ func (cl *CrossLinker) convertInternalLinks(n *nethtml.Node, linked map[string]b
 		// Mark as linked to prevent glossary regex from creating a duplicate
 		linked[id] = true
 
-		// Build span attributes
-		attrs := []nethtml.Attribute{
-			{Key: "class", Val: "glossary-term"},
-			{Key: "data-term-id", Val: id},
-			{Key: "data-term-cat", Val: cat},
-			{Key: "data-term-link", Val: href},
-			{Key: "tabindex", Val: "0"},
+		classes := strings.Fields(getAttr(a, "class"))
+		if !slices.Contains(classes, "glossary-term") {
+			classes = append(classes, "glossary-term")
 		}
+		setAttr(a, "class", strings.Join(classes, " "))
+		setAttr(a, "data-term-id", id)
+		setAttr(a, "data-term-cat", cat)
+		setAttr(a, "data-term-link", href)
 
 		// Merge glossary definition if available
 		if term, ok := cl.glossaryByID[id]; ok {
 			truncDef := truncateDefinition(term.Definition.plainText(), 250)
 			if truncDef != "" {
-				attrs = append(attrs, nethtml.Attribute{
-					Key: "data-term-def",
-					Val: truncDef,
-				})
+				setAttr(a, "data-term-def", truncDef)
 			}
 			// Use glossary category if more specific
 			if term.Category != "" {
-				for i := range attrs {
-					if attrs[i].Key == "data-term-cat" {
-						attrs[i].Val = term.Category
-						break
-					}
-				}
+				setAttr(a, "data-term-cat", term.Category)
 			}
 		}
-
-		// Create replacement span
-		span := &nethtml.Node{
-			Type: nethtml.ElementNode,
-			Data: "span",
-			Attr: attrs,
-		}
-
-		// Move link's children to the span
-		for c := a.FirstChild; c != nil; {
-			next := c.NextSibling
-			a.RemoveChild(c)
-			span.AppendChild(c)
-			c = next
-		}
-
-		// Replace <a> with <span> in parent
-		a.Parent.InsertBefore(span, a)
-		a.Parent.RemoveChild(a)
 	}
 }
 
@@ -267,6 +240,16 @@ func getAttr(n *nethtml.Node, key string) string {
 		}
 	}
 	return ""
+}
+
+func setAttr(n *nethtml.Node, key, value string) {
+	for i := range n.Attr {
+		if n.Attr[i].Key == key {
+			n.Attr[i].Val = value
+			return
+		}
+	}
+	n.Attr = append(n.Attr, nethtml.Attribute{Key: key, Val: value})
 }
 
 // parseSRDLink extracts the collection and entity ID from a /srd/ URL.

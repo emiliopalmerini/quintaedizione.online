@@ -537,41 +537,61 @@ function initGlossaryTooltips() {
 	initGlossaryTooltips._bound = true;
 
 	let activeTooltip = null;
+	let activeTerm = null;
 	let hideTimeout = null;
+	let tooltipSequence = 0;
 
 	function removeTooltip() {
+		if (activeTerm && activeTooltip && activeTerm.getAttribute('aria-describedby') === activeTooltip.id) {
+			activeTerm.removeAttribute('aria-describedby');
+		}
 		if (activeTooltip) {
 			activeTooltip.remove();
 			activeTooltip = null;
 		}
+		activeTerm = null;
 	}
 
 	function showTooltip(term) {
+		if (activeTerm === term && activeTooltip) {
+			clearTimeout(hideTimeout);
+			return;
+		}
 		removeTooltip();
 		clearTimeout(hideTimeout);
 
 		const def = term.getAttribute('data-term-def');
-		const id = term.getAttribute('data-term-id');
 		const cat = term.getAttribute('data-term-cat');
 		const link = term.getAttribute('data-term-link');
 
 		const tooltip = document.createElement('div');
 		tooltip.className = 'glossary-tooltip';
-
-		let html = '';
+		tooltip.id = 'glossary-tooltip-' + (++tooltipSequence);
+		tooltip.setAttribute('role', 'tooltip');
 		if (cat) {
-			html += '<div class="glossary-tooltip-cat">' + cat + '</div>';
+			const category = document.createElement('div');
+			category.className = 'glossary-tooltip-cat';
+			category.textContent = cat;
+			tooltip.appendChild(category);
 		}
 		if (def) {
-			html += '<div class="glossary-tooltip-def">' + def + '</div>';
+			const definition = document.createElement('div');
+			definition.className = 'glossary-tooltip-def';
+			definition.textContent = def;
+			tooltip.appendChild(definition);
 		}
 		if (link) {
-			html += '<a href="' + link + '" class="glossary-tooltip-link">Vai alla pagina →</a>';
+			const destination = document.createElement('a');
+			destination.href = link;
+			destination.className = 'glossary-tooltip-link';
+			destination.textContent = 'Vai alla pagina →';
+			tooltip.appendChild(destination);
 		}
-		tooltip.innerHTML = html;
 
 		document.body.appendChild(tooltip);
 		activeTooltip = tooltip;
+		activeTerm = term;
+		term.setAttribute('aria-describedby', tooltip.id);
 
 		// Position tooltip
 		const rect = term.getBoundingClientRect();
@@ -607,25 +627,38 @@ function initGlossaryTooltips() {
 
 	// Event delegation on document body
 	document.body.addEventListener('mouseenter', function(e) {
-		if (e.target.classList && e.target.classList.contains('glossary-term')) {
-			showTooltip(e.target);
-		}
+		const term = e.target.closest && e.target.closest('.glossary-term');
+		if (term) showTooltip(term);
 	}, true);
 
 	document.body.addEventListener('mouseleave', function(e) {
-		if (e.target.classList && e.target.classList.contains('glossary-term')) {
+		const term = e.target.closest && e.target.closest('.glossary-term');
+		if (term && (!e.relatedTarget || !term.contains(e.relatedTarget))) {
 			hideTimeout = setTimeout(removeTooltip, 150);
 		}
 	}, true);
 
-	// Touch support: tap to toggle
+	document.body.addEventListener('focusin', function(e) {
+		const term = e.target.closest && e.target.closest('.glossary-term');
+		if (term) showTooltip(term);
+	});
+
+	document.body.addEventListener('focusout', function(e) {
+		const term = e.target.closest && e.target.closest('.glossary-term');
+		if (term && (!e.relatedTarget || !term.contains(e.relatedTarget))) {
+			hideTimeout = setTimeout(removeTooltip, 150);
+		}
+	});
+
+	// Non-link terms use tap to toggle; anchors retain native navigation.
 	document.body.addEventListener('click', function(e) {
-		if (e.target.classList && e.target.classList.contains('glossary-term')) {
+		const term = e.target.closest && e.target.closest('.glossary-term');
+		if (term && term.tagName !== 'A') {
 			e.preventDefault();
-			if (activeTooltip) {
+			if (activeTerm === term && activeTooltip) {
 				removeTooltip();
 			} else {
-				showTooltip(e.target);
+				showTooltip(term);
 			}
 		} else if (activeTooltip && !activeTooltip.contains(e.target)) {
 			removeTooltip();
@@ -1328,6 +1361,14 @@ document.addEventListener('htmx:afterSwap', function(evt) {
 	initItemKeyboardNav();
 	initHeadingAnchors();
 	initPageSpecificScripts();
+
+	if (evt.detail && !evt.detail.isHistoryRestoreRequest) {
+		var swapTarget = evt.detail.target;
+		if (swapTarget && (swapTarget.id === 'page-root' || swapTarget === document.body)) {
+			var itemTitle = document.getElementById('item-title');
+			if (itemTitle) itemTitle.focus({ preventScroll: false });
+		}
+	}
 
 	// Scroll to top of results when rows are updated (filter/pagination change)
 	// Skip on history restore (browser back button) and on search input keyup

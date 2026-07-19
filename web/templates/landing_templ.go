@@ -43,7 +43,7 @@ func LandingPage() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"landing-page\"><header class=\"landing-intro\"><p class=\"landing-eyebrow\">D&amp;D 5e &middot; Italiano &middot; Open source</p><h1>Trova quello che serve al tavolo.</h1><p>Consulta il compendio, prepara una sessione o cerca una risorsa senza attraversare menu e categorie.</p><form id=\"cerca\" class=\"landing-search\" action=\"/cerca\" method=\"get\" role=\"search\"><label class=\"sr-only\" for=\"landing-search-query\">Cerca nel sito</label><div class=\"landing-search-field\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"8\"></circle> <path d=\"m21 21-4.35-4.35\"></path></svg> <input id=\"landing-search-query\" name=\"q\" type=\"search\" placeholder=\"Cerca regole, incantesimi, mostri...\" required></div><label class=\"sr-only\" for=\"landing-search-scope\">Cerca in</label> <select id=\"landing-search-scope\" name=\"scope\" aria-label=\"Cerca in\"><option value=\"srd\">Compendio</option> <option value=\"mappe\">Mappe</option> <option value=\"generatori\">Generatori</option></select> <button type=\"submit\">Cerca</button></form></header><section class=\"landing-pathways\" aria-labelledby=\"landing-pathways-title\"><div class=\"landing-section-heading\"><p class=\"landing-kicker\">Scegli un percorso</p><h2 id=\"landing-pathways-title\">Cosa vuoi fare?</h2></div><div class=\"landing-pathway-grid\"><article id=\"giocare\" class=\"landing-pathway landing-pathway-play\"><header><span class=\"landing-pathway-number\" aria-hidden=\"true\">01</span><div><p class=\"landing-kicker\">Al tavolo</p><h3>Giocare</h3></div></header><nav aria-label=\"Attività per giocare\"><a href=\"/srd/area/personaggi\" class=\"landing-task landing-task-featured\"><span><strong>Crea un personaggio</strong> <small>Classi, specie, background e talenti.</small></span> <span aria-hidden=\"true\">&rarr;</span></a> <a href=\"/srd/incantesimi\" class=\"landing-task\"><span><strong>Usa la magia</strong><small>Trova un incantesimo e le sue regole.</small></span> <span aria-hidden=\"true\">&rarr;</span></a> <a href=\"/srd/regole\" class=\"landing-task\"><span><strong>Consulta le regole</strong><small>Risolvi rapidamente un dubbio di gioco.</small></span> <span aria-hidden=\"true\">&rarr;</span></a> <a href=\"/srd/equipaggiamenti\" class=\"landing-task\"><span><strong>Scegli l'equipaggiamento</strong><small>Oggetti, servizi e ricompense.</small></span> <span aria-hidden=\"true\">&rarr;</span></a></nav></article><article id=\"preparare\" class=\"landing-pathway landing-pathway-prepare\"><header><span class=\"landing-pathway-number\" aria-hidden=\"true\">02</span><div><p class=\"landing-kicker\">Dietro lo schermo</p><h3>Preparare</h3></div></header><nav aria-label=\"Attività per preparare una sessione\"><a href=\"/combattimenti\" class=\"landing-task landing-task-featured\"><span><strong>Prepara un incontro</strong> <small>Componi il gruppo e calcola la difficoltà.</small></span> <span aria-hidden=\"true\">&rarr;</span></a> <a href=\"/srd/mostri\" class=\"landing-task\"><span><strong>Trova un mostro</strong><small>Esplora il bestiario per grado di sfida.</small></span> <span aria-hidden=\"true\">&rarr;</span></a> <a href=\"/mappe\" class=\"landing-task\"><span><strong>Trova una mappa</strong><small>Dungeon, città e luoghi pronti da usare.</small></span> <span aria-hidden=\"true\">&rarr;</span></a> <a href=\"/generatori\" class=\"landing-task\"><span><strong>Genera uno spunto</strong><small>PNG, luoghi, eventi e tabelle casuali.</small></span> <span aria-hidden=\"true\">&rarr;</span></a></nav></article></div></section><section class=\"landing-directory\" aria-labelledby=\"landing-directory-title\"><div class=\"landing-section-heading landing-directory-heading\"><div><p class=\"landing-kicker\">Indice completo</p><h2 id=\"landing-directory-title\">Tutto il compendio</h2></div><p>Per quando sai già dove cercare.</p></div><div class=\"landing-directory-grid\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"landing-page\"><header class=\"landing-intro\"><p class=\"landing-eyebrow\">D&amp;D 5e &middot; Italiano &middot; Open source</p><h1>Trova quello che serve al tavolo.</h1><p>Consulta il compendio, prepara una sessione o cerca una risorsa senza attraversare menu e categorie.</p><form id=\"cerca\" class=\"landing-search\" action=\"/cerca\" method=\"get\" role=\"search\"><label class=\"sr-only\" for=\"landing-search-query\">Cerca nel sito</label><div class=\"landing-search-field\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"8\"></circle> <path d=\"m21 21-4.35-4.35\"></path></svg> <input id=\"landing-search-query\" name=\"q\" type=\"search\" placeholder=\"Cerca regole, incantesimi, mostri...\" required></div><label class=\"sr-only\" for=\"landing-search-scope\">Cerca in</label> <select id=\"landing-search-scope\" name=\"scope\" aria-label=\"Cerca in\"><option value=\"srd\">Compendio</option> <option value=\"mappe\">Mappe</option> <option value=\"generatori\">Generatori</option></select> <button type=\"submit\">Cerca</button></form></header><section class=\"landing-pathways\" aria-labelledby=\"landing-pathways-title\"><div class=\"landing-section-heading\"><p class=\"landing-kicker\">Scegli un percorso</p><h2 id=\"landing-pathways-title\">Cosa vuoi fare?</h2></div><div class=\"landing-pathway-grid\"><article id=\"giocare\" class=\"landing-pathway landing-pathway-play\"><header><div><p class=\"landing-kicker\">Al tavolo</p><h3>Giocare</h3></div></header><nav aria-label=\"Attività per giocare\"><a href=\"/srd/area/personaggi\" class=\"landing-task landing-task-featured\"><span><strong>Crea un personaggio</strong> <small>Classi, specie, background e talenti.</small></span> <span aria-hidden=\"true\">&rarr;</span></a> <a href=\"/srd/incantesimi\" class=\"landing-task\"><span><strong>Usa la magia</strong><small>Trova un incantesimo e le sue regole.</small></span> <span aria-hidden=\"true\">&rarr;</span></a> <a href=\"/srd/regole\" class=\"landing-task\"><span><strong>Consulta le regole</strong><small>Risolvi rapidamente un dubbio di gioco.</small></span> <span aria-hidden=\"true\">&rarr;</span></a> <a href=\"/srd/equipaggiamenti\" class=\"landing-task\"><span><strong>Scegli l'equipaggiamento</strong><small>Oggetti, servizi e ricompense.</small></span> <span aria-hidden=\"true\">&rarr;</span></a></nav></article><article id=\"preparare\" class=\"landing-pathway landing-pathway-prepare\"><header><div><p class=\"landing-kicker\">Dietro lo schermo</p><h3>Preparare</h3></div></header><nav aria-label=\"Attività per preparare una sessione\"><a href=\"/combattimenti\" class=\"landing-task landing-task-featured\"><span><strong>Prepara un incontro</strong> <small>Componi il gruppo e calcola la difficoltà.</small></span> <span aria-hidden=\"true\">&rarr;</span></a> <a href=\"/srd/mostri\" class=\"landing-task\"><span><strong>Trova un mostro</strong><small>Esplora il bestiario per grado di sfida.</small></span> <span aria-hidden=\"true\">&rarr;</span></a> <a href=\"/mappe\" class=\"landing-task\"><span><strong>Trova una mappa</strong><small>Dungeon, città e luoghi pronti da usare.</small></span> <span aria-hidden=\"true\">&rarr;</span></a> <a href=\"/generatori\" class=\"landing-task\"><span><strong>Genera uno spunto</strong><small>PNG, luoghi, eventi e tabelle casuali.</small></span> <span aria-hidden=\"true\">&rarr;</span></a></nav></article></div></section><section class=\"landing-directory\" aria-labelledby=\"landing-directory-title\"><div class=\"landing-section-heading landing-directory-heading\"><div><p class=\"landing-kicker\">Indice completo</p><h2 id=\"landing-directory-title\">Tutto il compendio</h2></div><p>Per quando sai già dove cercare.</p></div><div class=\"landing-directory-grid\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -55,7 +55,7 @@ func LandingPage() templ.Component {
 				var templ_7745c5c3_Var3 string
 				templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs("directory-" + group.Slug)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/landing.templ`, Line: 114, Col: 90}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/landing.templ`, Line: 112, Col: 90}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 				if templ_7745c5c3_Err != nil {
@@ -68,7 +68,7 @@ func LandingPage() templ.Component {
 				var templ_7745c5c3_Var4 string
 				templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs("directory-" + group.Slug)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/landing.templ`, Line: 115, Col: 41}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/landing.templ`, Line: 113, Col: 41}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 				if templ_7745c5c3_Err != nil {
@@ -81,7 +81,7 @@ func LandingPage() templ.Component {
 				var templ_7745c5c3_Var5 string
 				templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(group.Label)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/landing.templ`, Line: 115, Col: 57}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/landing.templ`, Line: 113, Col: 57}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 				if templ_7745c5c3_Err != nil {
@@ -99,7 +99,7 @@ func LandingPage() templ.Component {
 					var templ_7745c5c3_Var6 templ.SafeURL
 					templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/srd/" + collection.String()))
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/landing.templ`, Line: 119, Col: 60}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/landing.templ`, Line: 117, Col: 60}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 					if templ_7745c5c3_Err != nil {
@@ -120,7 +120,7 @@ func LandingPage() templ.Component {
 					var templ_7745c5c3_Var7 string
 					templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(collections.Registry[collection].Title)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/landing.templ`, Line: 122, Col: 60}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/landing.templ`, Line: 120, Col: 60}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 					if templ_7745c5c3_Err != nil {
@@ -133,7 +133,7 @@ func LandingPage() templ.Component {
 					var templ_7745c5c3_Var8 string
 					templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(collections.Registry[collection].Description)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/landing.templ`, Line: 123, Col: 65}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/landing.templ`, Line: 121, Col: 65}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 					if templ_7745c5c3_Err != nil {

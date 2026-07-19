@@ -1,12 +1,13 @@
 package datastore
 
 import (
+	"slices"
 	"strings"
 
 	nethtml "golang.org/x/net/html"
 )
 
-// EnrichDescriptions adds data-term-def attributes to crosslinked spans
+// EnrichDescriptions adds data-term-def attributes to crosslinked elements
 // that have data-term-link but no data-term-def. It uses short descriptions
 // built from each entity's raw_content field.
 // Must be called after LoadAll() so all collections are available.
@@ -115,8 +116,8 @@ var markdownStripReplacer = strings.NewReplacer(
 	"###", "", "##", "", "#", "",
 )
 
-// enrichHTMLFields recursively finds string fields containing glossary-term
-// spans and adds data-term-def where missing.
+// enrichHTMLFields recursively finds string fields containing glossary terms
+// and adds data-term-def where missing.
 func enrichHTMLFields(doc map[string]any, index map[string]string) {
 	for key, val := range doc {
 		switch v := val.(type) {
@@ -133,7 +134,7 @@ func enrichHTMLFields(doc map[string]any, index map[string]string) {
 }
 
 // addDescriptionsToSpans parses HTML and adds data-term-def to glossary-term
-// spans that have data-term-link but no data-term-def.
+// elements that have data-term-link but no data-term-def.
 func addDescriptionsToSpans(htmlContent string, index map[string]string) string {
 	doc, err := nethtml.Parse(strings.NewReader(htmlContent))
 	if err != nil {
@@ -150,11 +151,13 @@ func addDescriptionsToSpans(htmlContent string, index map[string]string) string 
 }
 
 func addDefsToNode(n *nethtml.Node, index map[string]string, modified *bool) {
-	if n.Type == nethtml.ElementNode && n.Data == "span" {
-		var hasLink, hasDef bool
+	if n.Type == nethtml.ElementNode {
+		var isGlossaryTerm, hasLink, hasDef bool
 		var link string
 		for _, attr := range n.Attr {
 			switch attr.Key {
+			case "class":
+				isGlossaryTerm = slices.Contains(strings.Fields(attr.Val), "glossary-term")
 			case "data-term-link":
 				hasLink = true
 				link = attr.Val
@@ -162,7 +165,7 @@ func addDefsToNode(n *nethtml.Node, index map[string]string, modified *bool) {
 				hasDef = true
 			}
 		}
-		if hasLink && !hasDef && link != "" {
+		if isGlossaryTerm && hasLink && !hasDef && link != "" {
 			// Extract source/id from link: /srd/{collection}/{source}/{id}
 			parts := strings.Split(strings.TrimPrefix(link, "/srd/"), "/")
 			if len(parts) >= 3 {

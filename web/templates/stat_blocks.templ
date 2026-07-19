@@ -175,7 +175,7 @@ templ featureBlock(f models.Feature) {
 
 templ featureSectionBlock(s models.FeatureSection) {
 	<div class="stat-block-section">
-		<h3 class="stat-block-section-heading">{ s.Heading }</h3>
+		<h2 class="stat-block-section-heading">{ s.Heading }</h2>
 		for _, f := range s.Features {
 			@featureBlock(f)
 		}

@@ -193,14 +193,40 @@ func TestHandleItemDetail_VersionTabLinks(t *testing.T) {
 		t.Fatal("expected version-switcher element; cannot verify tab links without it")
 	}
 
-	// The active tab should show the current edition
-	if !strings.Contains(body, `aria-selected="true"`) {
-		t.Error("expected active tab with aria-selected=true for current edition")
+	// The current edition is page navigation, not an in-page tab.
+	if !strings.Contains(body, `aria-current="page"`) {
+		t.Error("expected current edition to use aria-current=page")
 	}
 
 	// The inactive tab should link to the other edition via hx-get
 	if !strings.Contains(body, `hx-get="/srd/incantesimi/5e/palla-di-fuoco"`) {
 		t.Error("expected hx-get link to 5e version in version switcher")
+	}
+}
+
+func TestHandleItemDetailHXRequestReturnsCompleteDocumentAndTitle(t *testing.T) {
+	handler := newTestCollectionHandler(map[string][]map[string]any{
+		"incantesimi": {
+			{"_id": "luce", "_source_short": "5.5e", "_source": "srd-5.5e", "title": "Luce", "content": "<p>Luce</p>", "raw_content": "Luce"},
+		},
+	})
+
+	w := httptest.NewRecorder()
+	req := httptest.NewRequest(http.MethodGet, "/srd/incantesimi/5.5e/luce", nil)
+	req.Header.Set("HX-Request", "true")
+	req.Header.Set("HX-Target", "page-root")
+	req.SetPathValue("collection", "incantesimi")
+	req.SetPathValue("source", "5.5e")
+	req.SetPathValue("slug", "luce")
+
+	handler.handleItemDetail(w, req)
+
+	body := w.Body.String()
+	if !strings.Contains(body, "<!doctype html>") {
+		t.Error("item navigation must return a complete document for title extraction")
+	}
+	if !strings.Contains(body, "<title>Luce — quintaedizione.online</title>") {
+		t.Errorf("expected document title in response, got %s", body)
 	}
 }
 

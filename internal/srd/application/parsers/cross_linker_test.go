@@ -144,18 +144,16 @@ func TestCrossLinker_TruncateDefinition(t *testing.T) {
 	}
 }
 
-func TestCrossLinker_ConvertsInternalLinksToSpans(t *testing.T) {
+func TestCrossLinker_PreservesAndEnrichesInternalLinks(t *testing.T) {
 	cl := newTestCrossLinker(t, `[
 		{"id": "accecato", "term": "Accecato", "category": "condizione", "definition": [{"type":"text","text":"Non è in grado di vedere."}]}
 	]`)
 
-	// Data-driven <a> link to /srd/ should be converted to glossary-term span
 	input := `<p>Se è <a href="/srd/glossario/5.5e/accecato">accecato</a>, la magia fallisce.</p>`
 	result := cl.LinkTerms(input)
 
-	// Should be a span, not an <a> link
-	if strings.Contains(result, "<a ") {
-		t.Error("Internal /srd/ link should be converted to span, not kept as <a>")
+	if !strings.Contains(result, `<a href="/srd/glossario/5.5e/accecato" class="glossary-term"`) {
+		t.Errorf("internal link should remain a native enriched anchor, got %s", result)
 	}
 	if !strings.Contains(result, `class="glossary-term"`) {
 		t.Error("Expected glossary-term span")
@@ -173,6 +171,9 @@ func TestCrossLinker_ConvertsInternalLinksToSpans(t *testing.T) {
 	if !strings.Contains(result, `data-term-def=`) {
 		t.Error("Expected data-term-def merged from glossary")
 	}
+	if strings.Contains(result, `tabindex="0"`) {
+		t.Error("native anchors must not receive a redundant tabindex")
+	}
 }
 
 func TestCrossLinker_InternalLinkWithoutGlossaryEntry(t *testing.T) {
@@ -182,9 +183,8 @@ func TestCrossLinker_InternalLinkWithoutGlossaryEntry(t *testing.T) {
 	input := `<p>Lancia <a href="/srd/incantesimi/5.5e/palla-di-fuoco">palla di fuoco</a>.</p>`
 	result := cl.LinkTerms(input)
 
-	// Should still be converted to span (no data-term-def since no glossary entry)
-	if strings.Contains(result, "<a ") {
-		t.Error("Internal /srd/ link should be converted to span")
+	if !strings.Contains(result, `<a href="/srd/incantesimi/5.5e/palla-di-fuoco" class="glossary-term"`) {
+		t.Errorf("spell link should remain a native anchor, got %s", result)
 	}
 	if !strings.Contains(result, `data-term-link="/srd/incantesimi/5.5e/palla-di-fuoco"`) {
 		t.Error("Expected data-term-link")
@@ -222,25 +222,25 @@ func TestCrossLinker_RuleLinkCategory(t *testing.T) {
 	}
 }
 
-func TestCrossLinker_HomogeneousOutput(t *testing.T) {
+func TestCrossLinker_PreservesLinksAndWrapsUnlinkedTerms(t *testing.T) {
 	cl := newTestCrossLinker(t, `[
 		{"id": "accecato", "term": "Accecato", "category": "condizione", "definition": [{"type":"text","text":"Non è in grado di vedere."}]},
 		{"id": "tiro-salvezza", "term": "tiro salvezza", "category": "meccanica", "definition": [{"type":"text","text":"Un tiro per resistere."}]}
 	]`)
 
-	// Mix of data-driven link + glossary term → both should be <span class="glossary-term">
 	input := `<p>Se è <a href="/srd/glossario/5.5e/accecato">accecato</a>, effettua un tiro salvezza.</p>`
 	result := cl.LinkTerms(input)
 
-	// No <a> links should remain (internal ones converted)
-	if strings.Contains(result, "<a ") {
-		t.Error("All internal links should be converted to spans")
+	if !strings.Contains(result, `<a href="/srd/glossario/5.5e/accecato" class="glossary-term"`) {
+		t.Errorf("expected enriched native link, got %s", result)
+	}
+	if !strings.Contains(result, `<span class="glossary-term"`) {
+		t.Errorf("expected unlinked glossary term to remain an enhanced span, got %s", result)
 	}
 
-	// Both should be glossary-term spans
 	count := strings.Count(result, `class="glossary-term"`)
 	if count != 2 {
-		t.Errorf("Expected 2 glossary-term spans (homogeneous), got %d\n%s", count, result)
+		t.Errorf("Expected 2 glossary terms, got %d\n%s", count, result)
 	}
 }
 

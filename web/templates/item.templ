@@ -6,7 +6,7 @@ import "strconv"
 templ ItemPage(data models.ItemPageData) {
 	@BaseLayout(data.PageData) {
 		<!-- Header Navigation -->
-		<div class="item-header sticky top-under-header">
+		<nav class="item-header sticky top-under-header" aria-label="Navigazione elemento">
 			<a href={ templ.URL("/srd/" + data.PageData.Collection) } class="btn item-back-btn">
 				<span class="item-back-icon">
 					@CollectionIcon(data.PageData.Collection)
@@ -63,12 +63,12 @@ templ ItemPage(data models.ItemPageData) {
 					</span>
 				}
 			</div>
-		</div>
+		</nav>
 
 		<!-- Item title -->
 		if data.PageData.DocTitle != "" {
 			<div class="item-title-row">
-				<h1 class="item-title">{ data.PageData.DocTitle }</h1>
+				<h1 id="item-title" class="item-title" tabindex="-1">{ data.PageData.DocTitle }</h1>
 				if data.SourceShort != "" {
 					<span class="result-badge result-badge-edition">{ data.SourceShort }</span>
 				}
@@ -109,20 +109,19 @@ templ ItemPage(data models.ItemPageData) {
 }
 
 templ VersionSwitcher(versions []models.VersionTab) {
-	<nav class="version-switcher" role="tablist" aria-label="Versioni">
+	<nav class="version-switcher" aria-label="Versione delle regole">
 		for _, v := range versions {
 			if v.IsCurrent {
-				<span role="tab" class="version-tab active" aria-selected="true">{ v.Label }</span>
+				<span class="version-tab active" aria-current="page">{ v.Label }</span>
 			} else {
-				<a role="tab" class="version-tab"
+				<a class="version-tab"
 					href={ templ.URL(v.URL) }
 					hx-get={ v.URL }
 					hx-target="#page-root"
 					hx-select="#page-root"
 					hx-swap="outerHTML"
 					hx-push-url="true"
-					hx-indicator="#page-loading"
-					aria-selected="false">{ v.Label }</a>
+					hx-indicator="#page-loading">{ v.Label }</a>
 			}
 		}
 	</nav>
