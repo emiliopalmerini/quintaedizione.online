@@ -24,8 +24,7 @@ run: setup build
 
 templ-generate:
 	@echo -e "$(BLUE)Generating Templ templates...$(NC)"
-	@command -v templ >/dev/null 2>&1 || (echo -e "$(RED)Error: templ is not installed. Run 'go install github.com/a-h/templ/cmd/templ@latest'$(NC)" && exit 1)
-	templ generate
+	go run github.com/a-h/templ/cmd/templ@v0.3.1001 generate
 	@echo -e "$(GREEN)Templ templates generated successfully!$(NC)"
 
 format:

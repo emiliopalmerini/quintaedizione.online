@@ -30,3 +30,24 @@ func TestSiteLayoutHidesDismissedPatreonBanner(t *testing.T) {
 		t.Fatalf("expected dismissed patreon banner to render hidden, got:\n%s", html)
 	}
 }
+
+func TestSiteLayoutUsesTaskOrientedNavigation(t *testing.T) {
+	var rendered strings.Builder
+	if err := SiteLayout("", "", "", templ.NopComponent).Render(t.Context(), &rendered); err != nil {
+		t.Fatalf("render site layout: %v", err)
+	}
+
+	html := rendered.String()
+	for _, expected := range []string{
+		`href="/#giocare"`,
+		`href="/#preparare"`,
+		`href="/srd"`,
+		`>Giocare</a>`,
+		`>Preparare</a>`,
+		`>Compendio</a>`,
+	} {
+		if !strings.Contains(html, expected) {
+			t.Errorf("expected task-oriented navigation to contain %q", expected)
+		}
+	}
+}

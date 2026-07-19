@@ -75,6 +75,12 @@ func (h *Handlers) RegisterRoutes(mux *http.ServeMux) {
 	// Specific routes must be registered before wildcard routes
 	mux.HandleFunc("GET /search", h.search.handleGlobalSearch)
 	mux.HandleFunc("GET /search/dropdown", h.search.handleSearchDropdown)
+	mux.HandleFunc("GET /area/magia-mostri", func(w http.ResponseWriter, r *http.Request) {
+		http.Redirect(w, r, "/srd/area/magia", http.StatusMovedPermanently)
+	})
+	mux.HandleFunc("GET /area/riferimento", func(w http.ResponseWriter, r *http.Request) {
+		http.Redirect(w, r, "/srd/area/regole", http.StatusMovedPermanently)
+	})
 	mux.HandleFunc("GET /area/{slug}", h.area.handleArea)
 	mux.HandleFunc("GET /robots.txt", h.seo.handleRobotsTxt)
 	mux.HandleFunc("GET /sitemap.xml", h.seo.handleSitemap)

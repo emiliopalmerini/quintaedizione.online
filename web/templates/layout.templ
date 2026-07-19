@@ -59,10 +59,9 @@ templ SiteLayout(title, description, activeNav string, extraHeadHTML templ.Compo
 			<div class="site-nav-container">
 				<a href="/" class="site-nav-brand">quintaedizione.online</a>
 				<nav class="site-nav-links" id="nav-menu" aria-label="Navigazione principale">
-					<a href="/srd" class={ "site-nav-link", templ.KV("active", activeNav == "srd") }>SRD</a>
-					<a href="/combattimenti" class={ "site-nav-link", templ.KV("active", activeNav == "combattimenti") }>Combattimenti</a>
-					<a href="/mappe" class={ "site-nav-link", templ.KV("active", activeNav == "mappe") }>Mappe</a>
-					<a href="/generatori" class={ "site-nav-link", templ.KV("active", activeNav == "generatori") }>Generatori</a>
+					<a href="/#giocare" class="site-nav-link">Giocare</a>
+					<a href="/#preparare" class={ "site-nav-link", templ.KV("active", activeNav == "combattimenti" || activeNav == "mappe" || activeNav == "generatori") }>Preparare</a>
+					<a href="/srd" class={ "site-nav-link", templ.KV("active", activeNav == "srd") }>Compendio</a>
 				</nav>
 				<div class="theme-switcher" id="theme-switcher" role="radiogroup" aria-label="Tema">
 					<label class="theme-switcher-option">

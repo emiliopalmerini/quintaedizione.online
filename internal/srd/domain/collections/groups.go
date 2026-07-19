@@ -18,22 +18,28 @@ func GetGroups() []CollectionGroup {
 			Collections: []CollectionName{Classi, Specie, Backgrounds, Talenti},
 		},
 		{
-			Slug:        "magia-mostri",
-			Label:       "Magia & Mostri",
-			Description: "Incantesimi e bestiario per dare vita alle tue sessioni.",
-			Collections: []CollectionName{Incantesimi, Mostri},
+			Slug:        "regole",
+			Label:       "Regole",
+			Description: "Regole di gioco e definizioni per una consultazione rapida.",
+			Collections: []CollectionName{Regole, Glossario},
+		},
+		{
+			Slug:        "magia",
+			Label:       "Magia",
+			Description: "Incantesimi dal trucchetto al 9° livello.",
+			Collections: []CollectionName{Incantesimi},
 		},
 		{
 			Slug:        "equipaggiamento",
 			Label:       "Equipaggiamento",
-			Description: "Armi, armature, oggetti magici e tesori per gli avventurieri.",
-			Collections: []CollectionName{Equipaggiamenti, OggettiMagici},
+			Description: "Equipaggiamento, oggetti magici e servizi per gli avventurieri.",
+			Collections: []CollectionName{Equipaggiamenti, OggettiMagici, Servizi},
 		},
 		{
-			Slug:        "riferimento",
-			Label:       "Riferimento",
-			Description: "Regole, servizi e glossario per consultazioni rapide.",
-			Collections: []CollectionName{Regole, Servizi, Glossario},
+			Slug:        "bestiario",
+			Label:       "Bestiario",
+			Description: "Mostri e creature per popolare incontri e avventure.",
+			Collections: []CollectionName{Mostri},
 		},
 	}
 }

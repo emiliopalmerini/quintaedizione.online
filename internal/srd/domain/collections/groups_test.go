@@ -7,7 +7,7 @@ import (
 func TestGetGroups_ReturnsAllGroups(t *testing.T) {
 	groups := GetGroups()
 
-	expectedLabels := []string{"Personaggi", "Magia & Mostri", "Equipaggiamento", "Riferimento"}
+	expectedLabels := []string{"Personaggi", "Regole", "Magia", "Equipaggiamento", "Bestiario"}
 
 	if len(groups) != len(expectedLabels) {
 		t.Fatalf("Expected %d groups, got %d", len(expectedLabels), len(groups))
@@ -109,32 +109,32 @@ func TestGetGroups_PersonaggiContents(t *testing.T) {
 	}
 }
 
-func TestGetGroups_MagiaMostriContents(t *testing.T) {
+func TestGetGroups_RegoleContents(t *testing.T) {
 	groups := GetGroups()
-	magia := groups[1]
+	regole := groups[1]
 
-	expected := []CollectionName{Incantesimi, Mostri}
-	if len(magia.Collections) != len(expected) {
-		t.Fatalf("Magia & Mostri: expected %d collections, got %d", len(expected), len(magia.Collections))
+	expected := []CollectionName{Regole, Glossario}
+	if len(regole.Collections) != len(expected) {
+		t.Fatalf("Regole: expected %d collections, got %d", len(expected), len(regole.Collections))
 	}
 	for i, col := range expected {
-		if magia.Collections[i] != col {
-			t.Errorf("Magia & Mostri[%d]: expected %s, got %s", i, col, magia.Collections[i])
+		if regole.Collections[i] != col {
+			t.Errorf("Regole[%d]: expected %s, got %s", i, col, regole.Collections[i])
 		}
 	}
 }
 
-func TestGetGroups_RiferimentoContents(t *testing.T) {
+func TestGetGroups_EquipaggiamentoContents(t *testing.T) {
 	groups := GetGroups()
-	riferimento := groups[3]
+	equipaggiamento := groups[3]
 
-	expected := []CollectionName{Regole, Servizi, Glossario}
-	if len(riferimento.Collections) != len(expected) {
-		t.Fatalf("Riferimento: expected %d collections, got %d", len(expected), len(riferimento.Collections))
+	expected := []CollectionName{Equipaggiamenti, OggettiMagici, Servizi}
+	if len(equipaggiamento.Collections) != len(expected) {
+		t.Fatalf("Equipaggiamento: expected %d collections, got %d", len(expected), len(equipaggiamento.Collections))
 	}
 	for i, col := range expected {
-		if riferimento.Collections[i] != col {
-			t.Errorf("Riferimento[%d]: expected %s, got %s", i, col, riferimento.Collections[i])
+		if equipaggiamento.Collections[i] != col {
+			t.Errorf("Equipaggiamento[%d]: expected %s, got %s", i, col, equipaggiamento.Collections[i])
 		}
 	}
 }

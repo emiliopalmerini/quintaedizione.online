@@ -147,6 +147,7 @@ func main() {
 			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		}
 	})
+	mux.HandleFunc("GET /cerca", pkgweb.ScopedSearchHandler)
 
 	// CSS bundle: concatenate non-critical CSS into a single hashed file.
 	// Critical CSS (tokens + base) is inlined in <head> by the layout template.
