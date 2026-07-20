@@ -183,6 +183,10 @@
 
 .collection-search-submit { flex: none; }
 
+@media (max-width: 640px) {
+  .search-sticky { top: 0; }
+}
+
 @media (max-width: 480px) {
   .collection-search-submit { padding-inline: var(--space-3); }
 }
