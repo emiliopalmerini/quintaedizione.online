@@ -75,14 +75,14 @@ func CollectionPage(data models.CollectionPageData) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, " voci disponibili</p></header><section class=\"search-sticky bg-white border p-2\"><form id=\"search-form\" action=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, " voci disponibili</p></header><div class=\"collection-search-sentinel\" aria-hidden=\"true\"></div><section class=\"search-sticky bg-white border p-2\"><form id=\"search-form\" action=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var5 templ.SafeURL
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/srd/" + data.PageData.Collection))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 24, Col: 58}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 25, Col: 58}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -95,7 +95,7 @@ func CollectionPage(data models.CollectionPageData) templ.Component {
 			var templ_7745c5c3_Var6 string
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs("/srd/" + data.PageData.Collection)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 26, Col: 47}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 27, Col: 47}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -108,7 +108,7 @@ func CollectionPage(data models.CollectionPageData) templ.Component {
 			var templ_7745c5c3_Var7 string
 			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(data.PageData.Title)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 33, Col: 66}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 34, Col: 66}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
@@ -121,7 +121,7 @@ func CollectionPage(data models.CollectionPageData) templ.Component {
 			var templ_7745c5c3_Var8 string
 			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(data.Query)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 34, Col: 102}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 35, Col: 102}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
@@ -144,7 +144,7 @@ func CollectionPage(data models.CollectionPageData) templ.Component {
 					var templ_7745c5c3_Var9 string
 					templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(activeFilterCount(data.Filters)))
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 49, Col: 89}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 50, Col: 89}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 					if templ_7745c5c3_Err != nil {
@@ -178,7 +178,7 @@ func CollectionPage(data models.CollectionPageData) templ.Component {
 					return templ_7745c5c3_Err
 				}
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "<!-- Loading indicator with enhanced animation --><div class=\"htmx-indicator flex items-center gap-2 text-sm text-secondary hidden\"><span class=\"spinner\"></span> <span>Caricamento in corso...</span></div></form></section><!-- Mobile filter overlay --> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "<!-- Loading indicator with enhanced animation --><div class=\"htmx-indicator flex items-center gap-2 text-sm text-secondary hidden\"><span class=\"spinner\"></span> <span>Caricamento in corso...</span></div></form></section><div class=\"collection-search-placeholder\" aria-hidden=\"true\"></div><!-- Mobile filter overlay --> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -195,7 +195,7 @@ func CollectionPage(data models.CollectionPageData) templ.Component {
 					var templ_7745c5c3_Var10 string
 					templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(f.Name)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 91, Col: 68}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 93, Col: 68}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 					if templ_7745c5c3_Err != nil {
@@ -208,7 +208,7 @@ func CollectionPage(data models.CollectionPageData) templ.Component {
 					var templ_7745c5c3_Var11 string
 					templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(f.Label)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 92, Col: 60}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 94, Col: 60}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 					if templ_7745c5c3_Err != nil {
@@ -226,7 +226,7 @@ func CollectionPage(data models.CollectionPageData) templ.Component {
 						var templ_7745c5c3_Var12 string
 						templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(len(f.CurrentValues)))
 						if templ_7745c5c3_Err != nil {
-							return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 94, Col: 89}
+							return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 96, Col: 89}
 						}
 						_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 						if templ_7745c5c3_Err != nil {
@@ -254,7 +254,7 @@ func CollectionPage(data models.CollectionPageData) templ.Component {
 					var templ_7745c5c3_Var13 string
 					templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(f.Name)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 103, Col: 67}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 105, Col: 67}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 					if templ_7745c5c3_Err != nil {
@@ -267,7 +267,7 @@ func CollectionPage(data models.CollectionPageData) templ.Component {
 					var templ_7745c5c3_Var14 string
 					templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(f.Label)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 106, Col: 51}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 108, Col: 51}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 					if templ_7745c5c3_Err != nil {
@@ -308,7 +308,7 @@ func CollectionPage(data models.CollectionPageData) templ.Component {
 							var templ_7745c5c3_Var17 string
 							templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(f.Name)
 							if templ_7745c5c3_Err != nil {
-								return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 113, Col: 58}
+								return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 115, Col: 58}
 							}
 							_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 							if templ_7745c5c3_Err != nil {
@@ -321,7 +321,7 @@ func CollectionPage(data models.CollectionPageData) templ.Component {
 							var templ_7745c5c3_Var18 string
 							templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(v.Value)
 							if templ_7745c5c3_Err != nil {
-								return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 113, Col: 76}
+								return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 115, Col: 76}
 							}
 							_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 							if templ_7745c5c3_Err != nil {
@@ -339,7 +339,7 @@ func CollectionPage(data models.CollectionPageData) templ.Component {
 							var templ_7745c5c3_Var19 string
 							templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(f.Name)
 							if templ_7745c5c3_Err != nil {
-								return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 115, Col: 58}
+								return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 117, Col: 58}
 							}
 							_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 							if templ_7745c5c3_Err != nil {
@@ -352,7 +352,7 @@ func CollectionPage(data models.CollectionPageData) templ.Component {
 							var templ_7745c5c3_Var20 string
 							templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(v.Value)
 							if templ_7745c5c3_Err != nil {
-								return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 115, Col: 76}
+								return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 117, Col: 76}
 							}
 							_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
 							if templ_7745c5c3_Err != nil {
@@ -380,7 +380,7 @@ func CollectionPage(data models.CollectionPageData) templ.Component {
 						var templ_7745c5c3_Var21 string
 						templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(v.Value)
 						if templ_7745c5c3_Err != nil {
-							return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 117, Col: 52}
+							return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 119, Col: 52}
 						}
 						_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 						if templ_7745c5c3_Err != nil {
@@ -393,7 +393,7 @@ func CollectionPage(data models.CollectionPageData) templ.Component {
 						var templ_7745c5c3_Var22 string
 						templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.FormatInt(v.Count, 10))
 						if templ_7745c5c3_Err != nil {
-							return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 118, Col: 75}
+							return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 120, Col: 75}
 						}
 						_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
 						if templ_7745c5c3_Err != nil {
@@ -422,7 +422,7 @@ func CollectionPage(data models.CollectionPageData) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 43, "</div></section>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 43, "</div></section><div class=\"collection-search-clearance\" aria-hidden=\"true\"></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -500,7 +500,7 @@ func collectionFilters(filters []models.FilterOption) templ.Component {
 			var templ_7745c5c3_Var24 string
 			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(f.Name)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 169, Col: 59}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 172, Col: 59}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
 			if templ_7745c5c3_Err != nil {
@@ -513,7 +513,7 @@ func collectionFilters(filters []models.FilterOption) templ.Component {
 			var templ_7745c5c3_Var25 string
 			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(strings.Join(f.CurrentValues, ","))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 170, Col: 66}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 173, Col: 66}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
 			if templ_7745c5c3_Err != nil {
@@ -548,7 +548,7 @@ func collectionFilters(filters []models.FilterOption) templ.Component {
 			var templ_7745c5c3_Var28 string
 			templ_7745c5c3_Var28, templ_7745c5c3_Err = templ.JoinStringErrs(filterButtonText(f))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 172, Col: 25}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 175, Col: 25}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var28))
 			if templ_7745c5c3_Err != nil {
@@ -589,7 +589,7 @@ func collectionFilters(filters []models.FilterOption) templ.Component {
 					var templ_7745c5c3_Var31 string
 					templ_7745c5c3_Var31, templ_7745c5c3_Err = templ.JoinStringErrs(f.Name)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 179, Col: 43}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 182, Col: 43}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var31))
 					if templ_7745c5c3_Err != nil {
@@ -602,7 +602,7 @@ func collectionFilters(filters []models.FilterOption) templ.Component {
 					var templ_7745c5c3_Var32 string
 					templ_7745c5c3_Var32, templ_7745c5c3_Err = templ.JoinStringErrs(v.Value)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 179, Col: 61}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 182, Col: 61}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var32))
 					if templ_7745c5c3_Err != nil {
@@ -620,7 +620,7 @@ func collectionFilters(filters []models.FilterOption) templ.Component {
 					var templ_7745c5c3_Var33 string
 					templ_7745c5c3_Var33, templ_7745c5c3_Err = templ.JoinStringErrs(f.Name)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 181, Col: 43}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 184, Col: 43}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var33))
 					if templ_7745c5c3_Err != nil {
@@ -633,7 +633,7 @@ func collectionFilters(filters []models.FilterOption) templ.Component {
 					var templ_7745c5c3_Var34 string
 					templ_7745c5c3_Var34, templ_7745c5c3_Err = templ.JoinStringErrs(v.Value)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 181, Col: 61}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 184, Col: 61}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var34))
 					if templ_7745c5c3_Err != nil {
@@ -661,7 +661,7 @@ func collectionFilters(filters []models.FilterOption) templ.Component {
 				var templ_7745c5c3_Var35 string
 				templ_7745c5c3_Var35, templ_7745c5c3_Err = templ.JoinStringErrs(v.Value)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 183, Col: 49}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 186, Col: 49}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var35))
 				if templ_7745c5c3_Err != nil {
@@ -679,7 +679,7 @@ func collectionFilters(filters []models.FilterOption) templ.Component {
 					var templ_7745c5c3_Var36 string
 					templ_7745c5c3_Var36, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.FormatInt(v.Count, 10))
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 185, Col: 73}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/templates/collection.templ`, Line: 188, Col: 73}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var36))
 					if templ_7745c5c3_Err != nil {

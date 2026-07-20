@@ -19,6 +19,7 @@ templ CollectionPage(data models.CollectionPageData) {
 			<p>{ strconv.FormatInt(data.Total, 10) } voci disponibili</p>
 		</header>
 
+		<div class="collection-search-sentinel" aria-hidden="true"></div>
 		<section class="search-sticky bg-white border p-2">
 			<form id="search-form"
 				action={ templ.URL("/srd/" + data.PageData.Collection) }
@@ -75,6 +76,7 @@ templ CollectionPage(data models.CollectionPageData) {
 				</div>
 			</form>
 		</section>
+		<div class="collection-search-placeholder" aria-hidden="true"></div>
 
 		<!-- Mobile filter overlay -->
 		if len(data.Filters) > 0 {
@@ -129,6 +131,7 @@ templ CollectionPage(data models.CollectionPageData) {
 				@RowsPartial(data)
 			</div>
 		</section>
+		<div class="collection-search-clearance" aria-hidden="true"></div>
 	}
 }
 

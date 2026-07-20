@@ -298,6 +298,42 @@ function initStickySearchShadow() {
 document.addEventListener('DOMContentLoaded', initStickySearchShadow);
 document.body.addEventListener('htmx:afterSwap', initStickySearchShadow);
 
+// Move collection search into thumb reach after its original position scrolls away.
+function initFloatingCollectionSearch() {
+	if (initFloatingCollectionSearch._observer) {
+		initFloatingCollectionSearch._observer.disconnect();
+		initFloatingCollectionSearch._observer = null;
+	}
+	if (initFloatingCollectionSearch._mediaQuery && initFloatingCollectionSearch._mediaHandler) {
+		initFloatingCollectionSearch._mediaQuery.removeEventListener('change', initFloatingCollectionSearch._mediaHandler);
+	}
+
+	const searchBar = document.querySelector('.search-sticky');
+	const sentinel = document.querySelector('.collection-search-sentinel');
+	const pageRoot = document.getElementById('page-root');
+	if (!searchBar || !sentinel || !pageRoot || !('IntersectionObserver' in window)) return;
+
+	const mediaQuery = window.matchMedia('(max-width: 640px)');
+	const updateFloatingState = () => {
+		const shouldFloat = mediaQuery.matches && sentinel.getBoundingClientRect().top < 0;
+		if (shouldFloat) {
+			pageRoot.style.setProperty('--collection-search-height', searchBar.offsetHeight + 'px');
+		}
+		searchBar.classList.toggle('is-floating', shouldFloat);
+	};
+
+	const observer = new IntersectionObserver(updateFloatingState, { threshold: 0 });
+	observer.observe(sentinel);
+	mediaQuery.addEventListener('change', updateFloatingState);
+
+	initFloatingCollectionSearch._observer = observer;
+	initFloatingCollectionSearch._mediaQuery = mediaQuery;
+	initFloatingCollectionSearch._mediaHandler = updateFloatingState;
+}
+
+document.addEventListener('DOMContentLoaded', initFloatingCollectionSearch);
+document.body.addEventListener('htmx:afterSwap', initFloatingCollectionSearch);
+
 // Global search (desktop inline dropdown with browse-on-focus)
 function initGlobalSearch() {
 	var searchInput = document.getElementById('global-search');

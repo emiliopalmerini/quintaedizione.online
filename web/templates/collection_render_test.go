@@ -37,6 +37,9 @@ func TestCollectionPageUsesNativeCanonicalFilterForm(t *testing.T) {
 		`<noscript>`,
 		`<h1`,
 		`aria-current="page">Incantesimi`,
+		`class="collection-search-sentinel"`,
+		`class="collection-search-placeholder"`,
+		`class="collection-search-clearance"`,
 	} {
 		if !strings.Contains(html, expected) {
 			t.Errorf("expected collection page to contain %q, got:\n%s", expected, html)
@@ -47,5 +50,8 @@ func TestCollectionPageUsesNativeCanonicalFilterForm(t *testing.T) {
 	}
 	if strings.Contains(html, `type="hidden" name="livello"`) {
 		t.Error("JavaScript filter state must not duplicate native named controls")
+	}
+	if count := strings.Count(html, `id="search-form"`); count != 1 {
+		t.Errorf("collection page must contain exactly one search form, got %d", count)
 	}
 }
