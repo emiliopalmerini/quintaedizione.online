@@ -422,11 +422,30 @@ function syncShareURL() {
 
 // --- Picker reset -----------------------------------------------------------
 
-// Clears the picker's search box and filter controls then refetches the
-// picker. Delegated because the button is part of the HTMX-swapped picker.
-// We must also clear the hx-preserved search input by name (HTMX would
-// otherwise keep its DOM node + value across the swap).
+// Keeps reset visibility in sync with the stable picker controls, and clears
+// those controls before refetching when reset is activated.
 function initPickerReset() {
+    document.querySelectorAll('form.monster-picker-controls').forEach(function(form) {
+        if (form.dataset.encounterPickerResetBound === '1') return;
+        form.dataset.encounterPickerResetBound = '1';
+        var reset = form.querySelector('.monster-picker-reset');
+        if (!reset) return;
+
+        function updateVisibility() {
+            var search = form.querySelector('input[type="search"]');
+            var hasSearch = search && search.value.trim() !== '';
+            var hasNumber = Array.from(form.querySelectorAll('input[type="number"]')).some(function(input) {
+                return input.value !== '';
+            });
+            var type = form.querySelector('select[name="type"]');
+            reset.hidden = !(hasSearch || hasNumber || (type && type.value !== ''));
+        }
+
+        form.addEventListener('input', updateVisibility);
+        form.addEventListener('change', updateVisibility);
+        updateVisibility();
+    });
+
     if (window.__encounterPickerResetBound) return;
     window.__encounterPickerResetBound = true;
 
@@ -449,6 +468,7 @@ function initPickerReset() {
         var limit = form.querySelector('input[name="limit"]');
         if (limit) limit.value = '20';
         var source = form.querySelector('input[name="source"]');
+        btn.hidden = true;
         refreshMonsterPicker(source ? source.value : '');
     });
 }

@@ -34,3 +34,22 @@ func TestMonsterPickerUsesNativeSearchLinksAndActions(t *testing.T) {
 		t.Error("picker must not contain a JavaScript-only stat block placeholder")
 	}
 }
+
+func TestMonsterPickerSwapsOnlyResultsToKeepSearchFocused(t *testing.T) {
+	data := PickerData{Source: "5.5e", Limit: 20, TotalMatched: 42, Monsters: []monster.Monster{{ID: "goblin", Source: "5.5e", Name: "Goblin"}}}
+	var rendered bytes.Buffer
+	if err := MonsterPicker(data).Render(t.Context(), &rendered); err != nil {
+		t.Fatalf("render picker: %v", err)
+	}
+
+	body := rendered.String()
+	if got := strings.Count(body, `hx-target="#monster-picker-results"`); got != 2 {
+		t.Errorf("expected search and pagination to target results, got %d occurrences", got)
+	}
+	if got := strings.Count(body, `hx-select="#monster-picker-results"`); got != 2 {
+		t.Errorf("expected search and pagination to select results, got %d occurrences", got)
+	}
+	if strings.Contains(body, `hx-target="#monster-picker"`) {
+		t.Error("picker controls must not be replaced during search")
+	}
+}

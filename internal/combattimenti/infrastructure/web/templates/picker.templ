@@ -90,7 +90,8 @@ templ MonsterPicker(data PickerData) {
 			action="/combattimenti"
 			method="get"
 			hx-get="/combattimenti/monsters"
-			hx-target="#monster-picker"
+			hx-target="#monster-picker-results"
+			hx-select="#monster-picker-results"
 			hx-swap="outerHTML"
 			hx-trigger="input changed delay:200ms from:find input[type='search'], change from:find input[type='number'], change from:find select"
 		>
@@ -119,20 +120,17 @@ templ MonsterPicker(data PickerData) {
 					placeholder="Cerca un mostro…"
 					autocomplete="off"
 					aria-label="Cerca un mostro per nome"
-					hx-preserve="true"
 				/>
 				<button type="submit" class="btn btn-primary">Cerca</button>
 			</div>
-			if data.hasAnyFilter() {
-				<a
-					href="/combattimenti"
-					class="btn btn-secondary monster-picker-reset"
-					title="Cancella ricerca e filtri"
-					aria-label="Cancella ricerca e filtri"
-				>
-					× Reset
-				</a>
-			}
+			<a
+				href="/combattimenti"
+				class={ "btn btn-secondary monster-picker-reset", templ.KV("hidden", !data.hasAnyFilter()) }
+				title="Cancella ricerca e filtri"
+				aria-label="Cancella ricerca e filtri"
+			>
+				× Reset
+			</a>
 			<div class="htmx-indicator monster-picker-loading" role="status"><span class="spinner" aria-hidden="true"></span> Ricerca in corso...</div>
 		</form>
 		<div id="monster-picker-results" aria-live="polite" aria-atomic="false">
@@ -183,7 +181,8 @@ templ MonsterPicker(data PickerData) {
 					href={ templ.SafeURL(data.loadMoreURL()) }
 					class="btn btn-secondary monster-picker-more"
 					hx-get={ data.loadMoreURL() }
-					hx-target="#monster-picker"
+					hx-target="#monster-picker-results"
+					hx-select="#monster-picker-results"
 					hx-swap="outerHTML"
 				>Carica altri</a>
 			}
