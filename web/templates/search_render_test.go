@@ -42,6 +42,58 @@ func TestSearchPageRendersSnippet(t *testing.T) {
 	}
 }
 
+func TestSearchPageRendersCollectionIndex(t *testing.T) {
+	data := models.SearchPageData{
+		Query: "drago",
+		Total: 45,
+		Results: []models.CollectionSearchResult{
+			{
+				CollectionName:  "mostri",
+				CollectionLabel: "Mostri",
+				Total:           43,
+			},
+			{
+				CollectionName:  "oggetti_magici",
+				CollectionLabel: "Oggetti magici",
+				Total:           2,
+			},
+		},
+	}
+
+	var buf bytes.Buffer
+	if err := SearchPage(data).Render(t.Context(), &buf); err != nil {
+		t.Fatalf("render search page: %v", err)
+	}
+
+	html := buf.String()
+	for _, expected := range []string{
+		`class="search-page-collection-index"`,
+		`href="#search-collection-mostri"`,
+		`id="search-collection-mostri"`,
+		`href="#search-collection-oggetti_magici"`,
+		`id="search-collection-oggetti_magici"`,
+		`Mostri`,
+		`43`,
+		`Oggetti magici`,
+		`2`,
+	} {
+		if !strings.Contains(html, expected) {
+			t.Errorf("expected rendered collection index to contain %q, got:\n%s", expected, html)
+		}
+	}
+}
+
+func TestSearchPageOmitsCollectionIndexWithoutResults(t *testing.T) {
+	var buf bytes.Buffer
+	if err := SearchPage(models.SearchPageData{Query: "inesistente"}).Render(t.Context(), &buf); err != nil {
+		t.Fatalf("render search page: %v", err)
+	}
+
+	if strings.Contains(buf.String(), "search-page-collection-index") {
+		t.Fatalf("expected no collection index without results, got:\n%s", buf.String())
+	}
+}
+
 func TestSearchBrowseDropdownRendersSnippet(t *testing.T) {
 	data := models.SearchBrowseData{
 		Collections: []models.Collection{{Name: "incantesimi", Label: "Incantesimi", Count: 1}},

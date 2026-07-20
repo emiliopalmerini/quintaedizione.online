@@ -30,6 +30,20 @@ templ SearchPage(data models.SearchPageData) {
 				<p class="search-page-count">
 					Trovati <strong>{ strconv.FormatInt(data.Total, 10) }</strong> risultati totali
 				</p>
+				<nav class="search-page-collection-index" aria-label="Collection nei risultati">
+					<span class="search-page-collection-index-label">Risultati in:</span>
+					<div class="search-page-collection-links">
+						for _, result := range data.Results {
+							<a
+								href={ templ.URL("#search-collection-" + result.CollectionName) }
+								class="search-page-collection-link"
+							>
+								<span>{ result.CollectionLabel }</span>
+								<span class="search-page-collection-link-count">{ strconv.FormatInt(result.Total, 10) }</span>
+							</a>
+						}
+					</div>
+				</nav>
 			}
 		</section>
 
@@ -61,7 +75,7 @@ templ SearchPage(data models.SearchPageData) {
 			</section>
 		} else {
 			for _, result := range data.Results {
-				<section class="search-page-section">
+				<section id={ "search-collection-" + result.CollectionName } class="search-page-section">
 					<div class="search-page-section-header">
 						<h2 class="search-page-section-title">{ result.CollectionLabel }</h2>
 						<div class="search-page-section-meta">
